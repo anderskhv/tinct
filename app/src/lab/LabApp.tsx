@@ -6905,16 +6905,25 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} onReady={text => saveUnitRailAnswer(id, 'catchup', text)}
         follow={shown => <>{unitRailThread(id)}<PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
   }
-  const openBlankMarginNote = ({ clientY }: { clientY: number; sourceY: number }) => {
-    if (desktopOpenId) { toggleMargin(desktopOpenId, desktopLiveCards.find(card => desktopCardId(card) === desktopOpenId)); return }
-    const words = [...(marginHost?.querySelectorAll<HTMLElement>('[data-testid="lab-word"]') ?? [])]
-    const word = words.find(word => word.getBoundingClientRect().bottom >= clientY) ?? words[words.length - 1]
-    if (!word) return
-    const paragraphIndex = Number(word.dataset.paragraphIndex), fromWord = Number(word.dataset.wordIndex)
+  // A note in the blank margin goes on the word beside the click. In book scroll that word can be in a neighbouring
+  // chapter (its words are lab-opening-word spans): that chapter becomes the reader's own first, as for a selection
+  // in it, so the note is saved on the chapter that owns the word (13 Nov 2026: it went on the reader's chapter).
+  const blankMarginNoteAt = useRef<(paragraphIndex: number, fromWord: number) => void>(() => {})
+  blankMarginNoteAt.current = (paragraphIndex, fromWord) => {
     const range: LabHighlightRange = { paragraphIndex, fromWord, endParagraphIndex: paragraphIndex, toWord: fromWord, text: '' }
     const mark = highlightsApi.addOrReuse(range, lastHighlightColor(), readerEditionKey, book.chapterNumber)
     setPhoneNote('')
     openPhoneCard({ kind: 'note', created: true, highlightId: mark.id, passage: { text: '', paragraphIndex, chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel, editionKey: readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: book.chapterNumber, range }] } })
+  }
+  const openBlankMarginNote = ({ clientY }: { clientY: number; sourceY: number }) => {
+    if (desktopOpenId) { toggleMargin(desktopOpenId, desktopLiveCards.find(card => desktopCardId(card) === desktopOpenId)); return }
+    const words = [...(marginHost?.querySelectorAll<HTMLElement>('[data-testid="lab-word"], [data-book-scroll-chapter] [data-testid="lab-opening-word"]') ?? [])]
+    const word = words.find(word => word.getBoundingClientRect().bottom >= clientY) ?? words[words.length - 1]
+    if (!word) return
+    const paragraphIndex = Number(word.dataset.paragraphIndex), fromWord = Number(word.dataset.wordIndex)
+    if (!Number.isFinite(paragraphIndex) || !Number.isFinite(fromWord)) return
+    const owner = Number(word.closest<HTMLElement>('[data-book-scroll-chapter]')?.dataset.bookScrollChapter ?? book.chapterNumber)
+    actOnChapter(Number.isFinite(owner) ? owner : book.chapterNumber, () => blankMarginNoteAt.current(paragraphIndex, fromWord))
   }
   const marginPointerDownRef = useRef({ x: 0, y: 0, cardId: '' })
   useLayoutEffect(() => {
