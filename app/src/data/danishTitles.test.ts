@@ -55,8 +55,8 @@ describe('Danish titles for search', () => {
 
   it('spells authors in Danish for every book, Danish edition or not', () => {
     expect(byId.get('apology')?.localAuthors).toEqual({ da: ['Platon'] })
-    expect(liveInDanish('phaedo')).toBe(false)
-    expect(byId.get('phaedo')?.localAuthors).toEqual({ da: ['Platon'] })
+    expect(liveInDanish('the-republic')).toBe(false)
+    expect(byId.get('the-republic')?.localAuthors).toEqual({ da: ['Platon'] })
   })
 
   it('finds a live Danish book by its Danish title, and a book without Danish text only in English', () => {
