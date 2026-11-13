@@ -52,6 +52,9 @@ export const FUNNEL_EVENT_NAMES = new Set<string>([
   // The PDF reader's margin: a card whose request or drawing failed in the page (reader.js reportCardError;
   // its kind, the step, the error's type and code location, never the passage, question or answer).
   'margin_card_failed',
+  // A static scene page (/read/{bookId}/{scene}) handing over to the reader: the action and the scene, never the
+  // passage or question.
+  'scene_handoff',
 ])
 const SOCIAL_EVENTS = new Set<string>(SOCIAL_EVENT_NAMES)
 
@@ -61,7 +64,7 @@ export const EVENTS_RATE_PER_MINUTE = 60
 const MAX_PROPS = 12
 const MAX_STRING = 120
 const MAX_DURATION_MS = 30 * 60 * 1000
-const SURFACES = new Set(['library', 'reader', 'sign-in', 'server'])
+const SURFACES = new Set(['library', 'reader', 'sign-in', 'server', 'scene'])
 const ID = /^[A-Za-z0-9_-]{8,64}$/
 const PROP_KEY = /^[a-z][a-z0-9_]{0,31}$/
 
