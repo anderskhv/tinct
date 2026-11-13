@@ -8,8 +8,9 @@
 // about 2 s), opens Explain and Ask on Frankenstein at 390×844 in Chromium and WebKit (iPhone agent, touch), samples
 // the card's top edge every 100 ms while the answer streams and checks it never moves up after the first frame,
 // that the text starts at the top of the card and grows downward, that the follow-up field stays at the foot, that
-// a finished answer shorter than the card settles once to fit, and that the reading place is unchanged.
-// Screenshots (mid-stream, done) go to OUT.
+// a finished answer shorter than the card keeps the card's height (blank space, never a shrink: Anders, 13 Nov 2026),
+// and that the reading place is unchanged. Screenshots (mid-stream, done) go to OUT. DEV_ORIGIN=http://127.0.0.1:5241
+// serves the page from a running `npx vite` instead of app/dist (the AI is still answered here).
 import { createServer } from 'node:http'
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -60,6 +61,11 @@ const server = createServer(async (req, res) => {
     return slowStream(res, nextAnswer ?? (intent === 'explain' || !intent ? EXPLAIN : ASK))
   }
   if (url.pathname.startsWith('/api/')) { res.writeHead(404, { 'Content-Type': 'application/json' }); res.end('{"error":"mock"}'); return }
+  if (process.env.DEV_ORIGIN) {
+    const upstream = await fetch(new URL(url.pathname + url.search, process.env.DEV_ORIGIN))
+    res.writeHead(upstream.status, { 'Content-Type': upstream.headers.get('content-type') || 'application/octet-stream' })
+    res.end(Buffer.from(await upstream.arrayBuffer())); return
+  }
   const file = path.resolve(dist, '.' + (url.pathname === '/reader' ? '/app.html' : url.pathname))
   if (!file.startsWith(dist + path.sep)) { res.writeHead(403); res.end(); return }
   try {
@@ -187,7 +193,7 @@ async function run(engineName) {
   ok(`${tag}: Explain: the reading place is unchanged`, JSON.stringify(await placeOf(page)) === JSON.stringify(home), { home, now: await placeOf(page) })
   await tapOutside(page)
 
-  // A short answer: held while it streams, then one settle down to fit.
+  // A short answer: held while it streams and after it ends; the spare room stays blank (no shrink, no settle).
   nextAnswer = SHORT
   await select(page, 40, 46)
   await startSampling(page)
@@ -198,10 +204,10 @@ async function run(engineName) {
   samples = await stopSampling(page)
   const streamed = samples.filter(s => s.busy && s.text > 0)
   const after = samples.filter(s => !s.busy)
-  const settled = await page.evaluate(() => { const c = document.querySelector('[data-testid="lab-phone-card"]'); return { height: Math.round(c.getBoundingClientRect().height), held: c.hasAttribute('data-held'), settling: c.classList.contains('is-settling') } })
-  const downs = after.map(s => s.top).every((top, i, all) => i === 0 || top >= all[i - 1] - 0.5)
-  ok(`${tag}: a short answer is held while it streams, then settles down once to fit (${streamed[0]?.height}px → ${settled.height}px)`, streamed.length > 0 && streamed.every(s => s.held) && !settled.held && !settled.settling && settled.height < streamed[0].height && downs, { streamed: streamed.slice(0, 2), settled, after: after.map(s => s.top) })
-  await shot('short-settled')
+  const settled = await page.evaluate(() => { const c = document.querySelector('[data-testid="lab-phone-card"]'); return { height: Math.round(c.getBoundingClientRect().height), held: c.hasAttribute('data-held') } })
+  const still = after.every(s => Math.abs(s.top - streamed[streamed.length - 1]?.top) <= 1)
+  ok(`${tag}: a short answer is held while it streams and keeps its height after (${streamed[0]?.height}px → ${settled.height}px)`, streamed.length > 0 && streamed.every(s => s.held) && settled.held && settled.height === streamed[0].height && still, { streamed: streamed.slice(0, 2), settled, after: after.map(s => s.top) })
+  await shot('short-held')
   await tapOutside(page)
 
   // Ask: on the phone it opens Chat with the passage (LabApp phoneBarAsk); the question sent, the answer fills
@@ -225,7 +231,11 @@ async function run(engineName) {
   await page.waitForTimeout(600)
   samples = await stopSampling(page)
   verdict = judge(samples)
-  ok(`${tag}: Ask (${askKind} card) streams in ${verdict.frames} frames at its expected height (${verdict.heights.join('/')}px); the card's top never moves up and the answer's top stays put`, verdict.frames >= 8 && verdict.climbs === 0 && verdict.textMoves === 0 && verdict.grew && verdict.heights.length === 1 && Math.abs(verdict.heights[0] - Math.round(844 * 0.6)) <= 2, { verdict, samples: samples.filter((s, i) => i % 3 === 0).map(s => [s.t, s.top, s.height, s.text, s.answerTop, s.busy, s.scroll]) })
+  // Since 13 Nov 2026 a card the answer outgrows grows (with headroom, up to 70%) rather than scrolling in place; it
+  // never comes down.
+  const askHeights = samples.filter(s => s.text > 0).map(s => s.height)
+  const askDrops = samples.filter((s, i) => i > 0 && s.top > samples[i - 1].top + 1).length
+  ok(`${tag}: Ask (${askKind} card) streams in ${verdict.frames} frames from its expected height (${verdict.heights.join(' → ')}px); the card only grows, up to 70%, and its top never moves down`, verdict.frames >= 8 && verdict.grew && Math.abs(askHeights[0] - Math.round(844 * 0.6)) <= 2 && askHeights.every((h, i) => i === 0 || h >= askHeights[i - 1]) && Math.max(...askHeights) <= Math.round(844 * 0.7) + 1 && askDrops === 0, { verdict, samples: samples.filter((s, i) => i % 3 === 0).map(s => [s.t, s.top, s.height, s.text, s.answerTop, s.busy, s.scroll]) })
   done = await page.evaluate(() => {
     const c = document.querySelector('[data-testid="lab-phone-card"]'), r = c.getBoundingClientRect()
     const field = c.querySelector('.lab-pcard-follow, [data-testid="lab-ask-composer"]').getBoundingClientRect()

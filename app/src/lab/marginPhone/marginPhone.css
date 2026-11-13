@@ -132,12 +132,11 @@ html[data-eink="true"] .lab[data-shared-reader="true"].is-desktop .lab-pcard { b
 .lab .lab-pcard.is-tall[data-keyboard] { height: calc(var(--lab-pcard-room, 100dvh) - 12px); }
 /* A field in a card has the focus: the narration bar is put away (it sat on the keyboard, over the card's room). */
 html[data-pcard-typing] .lab .lab-phone-bar { visibility: hidden; }
-/* An AI card opens at its kind's expected height and holds it while the answer streams (LabPhoneCard, inline
-   height, data-held): the text fills it downward from the top and a longer answer scrolls in the body; the
-   follow-up field stays at the foot. An answer that ends shorter settles the card to fit once, in one step. */
-.lab .lab-pcard.is-settling { transition: height .28s cubic-bezier(.2, .8, .2, 1); }
+/* An AI card opens at its kind's expected height (learnt on this device) and never shrinks on its own
+   (LabPhoneCard, inline height, data-held): the text fills it downward from the top, a shorter answer leaves blank
+   space above the follow-up field, which stays at the foot, and a longer one grows the card up to its cap. */
 @keyframes lab-pcard-up { from { transform: translateY(100%); } to { transform: none; } }
-@media (prefers-reduced-motion: reduce) { .lab .lab-pcard { animation: none; } .lab .lab-pcard.is-settling { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .lab .lab-pcard { animation: none; } }
 html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: none; transition: none; }
 .lab .lab-pcard button { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .lab .lab-pcard-drag { flex: none; touch-action: none; cursor: grab; }

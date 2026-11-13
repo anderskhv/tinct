@@ -3,7 +3,8 @@ import { consumeDismissGesture } from '../../utils/consumeDismissGesture'
 import { LAB_KEYBOARD_SHEET_ATTR } from '../labChrome'
 import { LabInlineMarkdown, LabMarkdown } from '../LabMarkdown'
 import { TalkIcon } from '../LabReaderIcons'
-import { phoneCardExpectedHeight, phoneCardHoldStep } from './phoneCardHeight'
+import type { AiLength } from '../../aiSettings'
+import { PHONE_CARD_GROW_HEADROOM, type PhoneCardHeights, phoneCardExpectedHeight, phoneCardHoldStep, phoneCardLength, readPhoneCardHeights, recordPhoneCardHeight } from './phoneCardHeight'
 import { leadSentenceEnd } from './leadSentence'
 import './marginPhone.css'
 
@@ -37,7 +38,7 @@ export interface LabPhoneCardProps {
   tall?: boolean
   /**
    * An answer is on its way or streaming in (the PDF reader says so here; the book reader's bodies mark it with
-   * aria-busy or PHONE_CARD_BUSY_ATTR). The card is then held at its kind's expected height (phoneCardHeight.ts).
+   * aria-busy or PHONE_CARD_BUSY_ATTR). The card is then held at its kind's expected height and never shrinks (phoneCardHeight.ts).
    */
   busy?: boolean
   testId?: string
@@ -46,17 +47,15 @@ export interface LabPhoneCardProps {
 /** Set on an element in a card's body while an answer is on its way (a follow-up, Quiz me's questions). */
 export const PHONE_CARD_BUSY_ATTR = 'data-pcard-busy'
 const PHONE_CARD_BUSY_SELECTOR = `[aria-busy="true"], [${PHONE_CARD_BUSY_ATTR}]`
-/** The settle transition's length in marginPhone.css (.lab-pcard.is-settling), with a little to spare. */
-const PHONE_CARD_SETTLE_MS = 320
 
 /**
  * The phone's bottom card (the margin reader's `.mr-sheet`): a drag handle, the
  * label, the body and the follow-up line. One at a time; it slides up, closes
  * on a drag down or on a tap outside it, and stands on the bottom of the visual
  * viewport, so it rides above the software keyboard. As tall as its content, at
- * most 70% of the visible height; an AI card opens at its kind's expected height while its answer arrives, the
- * text filling it downward, and settles to fit once the answer ends shorter (phoneCardHeight.ts). It is fixed
- * over the page and never moves it.
+ * most 70% of the visible height; an AI card opens at the height its kind's answers reach on this device while its
+ * answer arrives, the text filling it downward, and never shrinks on its own: a shorter answer leaves blank space
+ * at its foot, a longer one grows it (phoneCardHeight.ts). It is fixed over the page and never moves it.
  */
 export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', closeLabel, children, foot, tall = false, busy = false, testId = 'lab-phone-card' }: LabPhoneCardProps) {
   const ref = useRef<HTMLElement | null>(null)
@@ -67,9 +66,9 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
   busyRef.current = busy
   const tallRef = useRef(tall)
   tallRef.current = tall
-  // The height the card is held at while an answer streams (null: as tall as its content), the visible height
-  // the expected height is a share of, and a settle in progress.
-  const holdRef = useRef<{ held: number | null; base: number; settling: number | null }>({ held: null, base: 0, settling: null })
+  // The height the card is held at (null: as tall as its content), the visible height the expected height is a
+  // share of, whether the card opened with its answer on its way, and whether that first answer has been measured.
+  const holdRef = useRef<{ held: number | null; base: number; openedBusy: boolean | null; measured: boolean; plan: { kind: string; length: AiLength | null; store: PhoneCardHeights } | null }>({ held: null, base: 0, openedBusy: null, measured: false, plan: null })
   const holdNow = useRef<() => void>(() => {})
   useLayoutEffect(() => {
     const el = ref.current
@@ -80,49 +79,40 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
       if (height === null) { el.style.height = ''; el.removeAttribute('data-held') }
       else { el.style.height = `${height}px`; el.setAttribute('data-held', '') }
     }
-    const endSettle = () => {
-      if (state.settling !== null) window.clearTimeout(state.settling)
-      state.settling = null
-      el.classList.remove('is-settling')
-      el.removeEventListener('transitionend', onSettled)
-    }
-    const onSettled = (event: TransitionEvent) => { if (event.target === el && event.propertyName === 'height') { endSettle(); apply(null) } }
-    // Once, after the answer has ended shorter than the held height: one smooth step down to fit, then
-    // content-sized again. Without motion (reduced motion, e-ink) it fits at once.
-    const settle = (to: number) => {
-      const still = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || document.documentElement.getAttribute('data-eink') === 'true'
-      if (still) { apply(null); return }
-      state.held = null
-      el.classList.add('is-settling')
-      void el.offsetHeight
-      el.style.height = `${to}px`
-      el.addEventListener('transitionend', onSettled)
-      state.settling = window.setTimeout(() => { endSettle(); apply(null) }, PHONE_CARD_SETTLE_MS)
+    // As tall as its content (at most its max-height), measured in the same frame: no paint between.
+    const naturalHeight = () => {
+      if (state.held === null) return el.offsetHeight
+      el.style.height = ''
+      const natural = el.offsetHeight
+      el.style.height = `${state.held}px`
+      return natural
     }
     const hold = () => {
-      const expected = tallRef.current || el.closest('.is-desktop') ? null : phoneCardExpectedHeight(kindRef.current, state.base)
+      const kind = kindRef.current
+      const sized = !tallRef.current && !el.closest('.is-desktop')
+      // The reader's length and this device's measured heights, read once per card kind (not on every streamed word).
+      if (state.plan?.kind !== kind) state.plan = { kind, length: phoneCardLength(kind), store: readPhoneCardHeights() }
+      const { length, store } = state.plan
+      const expected = sized ? phoneCardExpectedHeight(kind, state.base, length, store) : null
       const answering = busyRef.current || !!el.querySelector(PHONE_CARD_BUSY_SELECTOR)
-      if (state.settling !== null) {
-        if (!answering) return
-        // A new answer during the settle: hold where the card stands now.
-        endSettle()
-        apply(el.offsetHeight)
+      if (state.openedBusy === null && expected !== null) state.openedBusy = answering
+      const natural = expected !== null && (state.held !== null || !answering) ? naturalHeight() : undefined
+      // The card's first answer has ended: remember how tall it was, so the next card of this kind opens closer to it.
+      if (!answering && state.openedBusy && !state.measured && typeof natural === 'number' && natural > 0 && state.base > 0) {
+        state.measured = true
+        recordPhoneCardHeight(kind, length, natural / state.base)
       }
-      let natural: number | undefined
-      if (!answering && state.held !== null) {
-        // As tall as its content, measured in the same frame (no paint between): the held height comes back.
-        el.style.height = ''
-        natural = el.offsetHeight
-        el.style.height = `${state.held}px`
-      }
-      const step = phoneCardHoldStep(state.held, { expected, busy: answering, current: el.offsetHeight, natural })
-      if (step.settle !== undefined) settle(step.settle)
-      else if (step.held !== state.held || (step.held === null && el.hasAttribute('data-held'))) apply(step.held)
+      const cap = parseFloat(window.getComputedStyle(el).maxHeight)
+      const step = phoneCardHoldStep(state.held, {
+        expected, busy: answering, current: el.offsetHeight, natural,
+        cap: Number.isFinite(cap) ? cap : undefined, headroom: state.base * PHONE_CARD_GROW_HEADROOM,
+      })
+      if (step.held !== state.held || (step.held === null && el.hasAttribute('data-held'))) apply(step.held)
     }
     holdNow.current = hold
     const observer = typeof MutationObserver === 'undefined' ? null : new MutationObserver(hold)
     observer?.observe(el, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['aria-busy', PHONE_CARD_BUSY_ATTR] })
-    return () => { observer?.disconnect(); endSettle(); holdNow.current = () => {} }
+    return () => { observer?.disconnect(); holdNow.current = () => {} }
   }, [])
   // A change of kind or of the busy prop is a render, not a mutation in the card.
   useLayoutEffect(() => { holdNow.current() })
