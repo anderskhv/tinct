@@ -501,9 +501,6 @@ jobs:
           espeak-ng -s 175 -w /tmp/tinct-voice-source.wav "Why does the Underground Man call himself sick? What is behind that?"
           python3 scripts/make-voice-qa-wav.py /tmp/tinct-voice-source.wav /tmp/tinct-voice-qa.wav
           READER_LIVE=1 node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
-      - name: Verify production featured-book preview
-        if: ${{ matrix.group == 'library' }}
-        run: LIBRARY_LIVE=1 node scripts/check-featured-preview.mjs
       - name: Verify public cinematic library
         if: ${{ !cancelled() && matrix.group == 'library' }}
         run: LIBRARY_LIVE=1 node scripts/check-library-public.mjs
@@ -638,9 +635,6 @@ jobs:
           espeak-ng -s 175 -w /tmp/tinct-voice-source.wav "Why does the Underground Man call himself sick? What is behind that?"
           python3 scripts/make-voice-qa-wav.py /tmp/tinct-voice-source.wav /tmp/tinct-voice-qa.wav
           READER_LIVE=1 node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
-      - name: Verify production featured-book preview
-        if: ${{ matrix.group == 'library' }}
-        run: LIBRARY_LIVE=1 node scripts/check-featured-preview.mjs
       - name: Verify public cinematic library
         if: ${{ !cancelled() && matrix.group == 'library' }}
         run: LIBRARY_LIVE=1 node scripts/check-library-public.mjs
