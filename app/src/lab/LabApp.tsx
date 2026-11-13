@@ -6830,6 +6830,25 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       }
     }
   }
+  // The whole book's cards (Primer, Summary) belong to "Before you start", at the book's opening heading, wherever the
+  // reader is (Anders, 13 Nov 2026: anchored to the current chapter's start, the Summary followed him into every chapter).
+  // Book scroll: beside the first chapter's heading while that chapter is painted; elsewhere, only in the first chapter.
+  const bookStartSource = () => {
+    const firstNumber = book.chapters[0]?.number
+    if (!marginHost || firstNumber == null) return null
+    let head: HTMLElement | null = null
+    if (bookScroll) {
+      const block = marginHost.querySelector<HTMLElement>(`[data-book-scroll-chapter="${firstNumber}"][data-book-scroll-painted="true"]`)
+      if (!block) return null
+      head = block.querySelector<HTMLElement>('.lab-passage-headline:not([hidden])') ?? block.querySelector<HTMLElement>('[data-testid="lab-opening-word"]')
+    } else {
+      if (book.chapterNumber !== firstNumber) return null
+      head = marginHost.querySelector<HTMLElement>('[data-testid="lab-passage-headline"]')
+      if (!head) return sourceForMargin(undefined)()
+    }
+    const rect = head?.getBoundingClientRect()
+    return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : null
+  }
   if (continuousReader) for (const kind of desktopBookCards) {
     const id = `mc_book_${kind}_${book.bookId || 'bible'}`
     const title = book.bookTitle || 'This book'
@@ -6838,7 +6857,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const follow = (shown: () => string) => <PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft}
       onSend={question => { keep(shown()); dictation.stop(); void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') }) }}
       onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} />
-    desktopMarginEntries.push({ id, label: `${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, source: sourceForMargin(undefined), order: kind === 'primer' ? -9 : -8, free: true,
+    desktopMarginEntries.push({ id, label: `${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, source: bookStartSource, order: kind === 'primer' ? -9 : -8, free: true,
       open: desktopOpenId === id, preview: desktopBookPreviews[kind], onToggle: () => toggleMargin(id), onDelete: close,
       content: kind === 'primer'
         ? <LabBookPrimerSheet embedded bookId={book.bookId || 'bible'} bookTitle={title} onClose={() => setDesktopOpenId(null)} follow={follow} onReady={text => setDesktopBookPreviews(current => current.primer === text ? current : { ...current, primer: text })} />
