@@ -57,7 +57,7 @@ export interface LabV2SheetProps {
     compareAvailable?: boolean
     onChoose: (layout: 'margin' | 'two-page' | 'compare') => void
   } | null
-  /** Admin try-out (Anders, 11 Nov 2026): whole-book scroll in the desktop Margin reader, on this device. */
+  /** Whole-book scroll in the desktop Margin reader (on for every reader since 13 Nov 2026), switched off or on for this device. */
   bookScroll?: { on: boolean; onToggle: () => void } | null
   /**
    * Compare needs something to pair; say so instead of hiding the switch.

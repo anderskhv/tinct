@@ -260,6 +260,11 @@ jobs:
           node scripts/check-reader-margin-refinements.mjs
           node scripts/check-reader-selection-release.mjs
           node scripts/check-reader-mobile-chat-cards.mjs
+      - name: Verify a book-scroll chapter handoff holds the main thread under 200 ms
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_BOOK_SCROLL_SPEED_OUTPUT: artifacts/book-scroll-speed
+        run: node scripts/check-book-scroll-speed.mjs
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs

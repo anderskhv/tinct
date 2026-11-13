@@ -2,7 +2,7 @@ import { supabase } from '../services/supabase'
 
 /**
  * Whether the signed-in reader is a site admin (public.site_admins, the table the Worker's verifySiteAdmin and
- * /admin/metrics use; its RLS lets a user read only their own row). Admin-only try-outs (book scroll) read the
+ * /admin/metrics use; its RLS lets a user read only their own row). Admin-only try-outs read the
  * cached answer synchronously at first paint, so the reader never switches surface mid-read; the check refreshes
  * the cache for the next visit. The cache holds only the user id, never a name or email, and counts only while
  * that user is the one signed in on this device.

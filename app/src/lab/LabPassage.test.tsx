@@ -1201,3 +1201,61 @@ it('recognizes committed colours in Compare and a next chapter opening, retainin
   expect(container.querySelector('.lab-opening-passage.has-applied-selection')).toBeTruthy()
   expect(container.querySelector('.lab-opening-passage .is-selecting.is-hl-rose')).toBeTruthy()
 })
+
+describe('book scroll: a chapter changing role keeps its page (stableWords)', () => {
+  const text = ['First paragraph of the chapter here.', 'A second paragraph follows it.', 'And a third one to close.']
+  const page = (): ChapterHearingPage => ({ paragraphIndex: 0, from: 0, to: 6, segments: text.map((paragraph, paragraphIndex) => ({ paragraphIndex, from: 0, to: tokenizeHearingWords(paragraph).length })) })
+  const readingPage = page()
+  const base = { ...passageProps(text, readingPage), chapterNumber: 4, stableWords: true }
+  const words = (container: HTMLElement) => [...container.querySelectorAll<HTMLElement>('[data-word-index]')]
+
+  it('keeps every word node when the chapter becomes the reader\'s own, and only its words\' test ids change', () => {
+    const { container, rerender } = render(<LabPassage {...base} inertWords chapterEnd={<p>end</p>} />)
+    const before = words(container)
+    expect(before.every(word => word.dataset.testid === 'lab-opening-word')).toBe(true)
+    expect(container.querySelector('[data-testid="lab-book"]')).toBeNull()
+    expect(container.querySelector('#lab-p-0')).toBeNull()
+    rerender(<LabPassage {...base} chapterEnd={<p>end</p>} onSelectRange={() => {}} />)
+    const after = words(container)
+    expect(after).toHaveLength(before.length)
+    expect(after.every((word, index) => word === before[index])).toBe(true)
+    expect(after.every(word => word.dataset.testid === 'lab-word')).toBe(true)
+    expect(container.querySelector('[data-testid="lab-book"]')).not.toBeNull()
+    expect(container.querySelector('#lab-p-1')).not.toBeNull()
+    // And back: a neighbour again, the same nodes, inert.
+    rerender(<LabPassage {...base} inertWords chapterEnd={<p>end</p>} />)
+    expect(words(container).every((word, index) => word === before[index] && word.dataset.testid === 'lab-opening-word')).toBe(true)
+  })
+
+  it('paints a mark, the selection and footnotes on the lines they touch, as without stable words', () => {
+    const mark = { id: 'm1', chapterNumber: 4, paragraphIndex: 1, fromWord: 1, endParagraphIndex: 1, toWord: 3, color: 'rose' as const }
+    const footnotes = [{ id: 'f1', number: 1, paragraphIndex: 2, wordIndex: 1, text: 'A note.' }]
+    const both = (props: Record<string, unknown>) => {
+      const stable = render(<LabPassage {...base} {...props} />)
+      const html = stable.container.innerHTML
+      stable.unmount()
+      const plain = render(<LabPassage {...base} stableWords={false} {...props} />)
+      const expected = plain.container.innerHTML
+      plain.unmount()
+      return [html, expected]
+    }
+    for (const props of [
+      { highlights: [mark] },
+      { selectingRange: { paragraphIndex: 0, fromWord: 1, endParagraphIndex: 1, toWord: 2, text: 'x' } },
+      { footnotes, onFootnote: () => {} },
+      { inertWords: true, footnotes, highlights: [mark] },
+    ]) {
+      const [html, expected] = both(props)
+      expect(html).toBe(expected)
+    }
+    // A mark added to a chapter already painted reaches its words.
+    const { container, rerender } = render(<LabPassage {...base} />)
+    const nodes = words(container)
+    rerender(<LabPassage {...base} highlights={[mark]} />)
+    expect(words(container).filter(word => word.className.includes('is-hl-rose')).map(word => `${word.dataset.paragraphIndex}:${word.dataset.wordIndex}`)).toEqual(['1:1', '1:2'])
+    expect(words(container).every((word, index) => word === nodes[index])).toBe(true)
+    rerender(<LabPassage {...base} highlights={[]} footnotes={footnotes} />)
+    expect(container.querySelectorAll('.is-hl-rose')).toHaveLength(0)
+    expect(container.querySelectorAll('[data-testid="lab-footnote-mark"]')).toHaveLength(1)
+  })
+})

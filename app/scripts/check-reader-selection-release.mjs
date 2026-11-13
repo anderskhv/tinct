@@ -33,6 +33,11 @@ try {
       for (const {grouped,direction,includeBoth,wrapped} of cases) {
         const context = await browser.newContext({ viewport: { width: wrapped ? 1320 : 1440, height: wrapped ? 1100 : 1000 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
         const page = await context.newPage(), errors=[]
+        // Opt-in: CPU_THROTTLE=4 emulates a slower CI host in Chromium.
+        if (engineName === 'chromium' && Number(process.env.CPU_THROTTLE) > 1) {
+          const cdp = await context.newCDPSession(page)
+          await cdp.send('Emulation.setCPUThrottlingRate', { rate: Number(process.env.CPU_THROTTLE) })
+        }
         page.on('pageerror',error=>errors.push(error.message))
         const pending = new Map(), networkEvents = []
         page.on('request', request => pending.set(request, { url:request.url(),type:request.resourceType(),started:Date.now() }))

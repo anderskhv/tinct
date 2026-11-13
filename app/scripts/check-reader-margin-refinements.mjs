@@ -7,6 +7,8 @@
 // in the blank margin makes no note while a still hold there starts one. With WebKit installed it also checks the
 // iPad in WebKit (taps and the text's touch-action; Playwright has no WebKit
 // touch drag). The mouse's blank-margin note is checked in the desktop loop.
+// The desktop loop opens the one-chapter Margin reader with ?bookScroll=0 (whole-book scroll, on for every desktop
+// reader since 13 Nov 2026, has its own check: check-book-scroll.mjs).
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -56,7 +58,7 @@ try {
       localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme, primaryEdition: 'original-en' }))
       Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: async () => { throw Error('Microphone disabled during isolated acceptance') } })
     }, theme)
-    await page.goto(`${origin}/reader?book=frankenstein&chapter=2&paragraph=3&word=4&sharedReader=1&layout=desktop&view=margin`)
+    await page.goto(`${origin}/reader?book=frankenstein&chapter=2&paragraph=3&word=4&sharedReader=1&layout=desktop&view=margin&bookScroll=0`)
     await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true')
     const host = page.getByTestId('continuous-reader')
     await host.waitFor()

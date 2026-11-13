@@ -1,4 +1,4 @@
-// Keyboard scrolling in the desktop Margin reader and the admin whole-book scroll (user test, 12 Nov 2026: ArrowDown
+// Keyboard scrolling in the desktop Margin reader and the whole-book scroll (user test, 12 Nov 2026: ArrowDown
 // did nothing on Windows; the reader had to use the trackpad). On arrival focus is on <body>, and the reader scrolls
 // an inner element, so the browser's own key scrolling had nothing to move. The check presses the keys with focus
 // where the page leaves it, in Chromium and WebKit, and asserts:
@@ -6,7 +6,8 @@
 // - the saved place advances as it does for a wheel, and a reload lands on it;
 // - keys typed into a field (the Aa size slider) leave the reader where it is, and Escape still closes the sheet;
 // - Two-page keeps ArrowRight as a page turn;
-// - the whole-book scroll (admin) moves with the keys, and Home/End stop at its reading chapter's ends.
+// - the one-chapter reader is opened with ?bookScroll=0 (book scroll is on for every reader since 13 Nov 2026);
+// - the whole-book scroll moves with the keys, and Home/End stop at its reading chapter's ends.
 // All /api calls are mocked (no Anthropic spend). Run against a dev server started with VITE_SHARED_READER_DEFAULT=1:
 //   TINCT_ORIGIN=http://127.0.0.1:5231 node scripts/check-reader-scroll-keys.mjs
 import assert from 'node:assert/strict'
@@ -64,7 +65,7 @@ async function margin(engine, name) {
   const s = await open(engine)
   const { page } = s
   try {
-    await page.goto(`${origin}/reader?book=frankenstein&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' })
+    await page.goto(`${origin}/reader?book=frankenstein&view=margin&sharedReader=1&layout=desktop&bookScroll=0`, { waitUntil: 'domcontentloaded' })
     await s.ready()
     await page.getByTestId('continuous-reader').waitFor()
     await page.evaluate(() => document.fonts.ready)
