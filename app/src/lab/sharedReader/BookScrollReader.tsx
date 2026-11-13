@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore, type ComponentProps, type MutableRefObject, type ReactElement, type ReactNode, type SyntheticEvent } from 'react'
+import { notePlainText } from '../notes/noteMarkdown'
 import { SourceMinimap, type SourceMapCard, type SourceUnitMark } from './SourceMinimap'
 import { tokenizeHearingWords } from '../labHearing'
 import { LabPassage } from '../LabPassage'
@@ -795,7 +796,7 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     const marks: SourceUnitMark[] = []
     for (const mark of bookHighlights ?? []) {
       if (mark.chapterNumber === live || !inUnit.has(mark.chapterNumber) || mark.kind === 'chapter') continue
-      marks.push({ id: `h:${mark.id}`, kind: 'highlight', chapterNumber: mark.chapterNumber, color: mark.color, label: `${mark.note ? 'Note' : 'Highlight'}: ${mark.note || mark.text || ''}`.slice(0, 120),
+      marks.push({ id: `h:${mark.id}`, kind: 'highlight', chapterNumber: mark.chapterNumber, color: mark.color, label: `${mark.note ? 'Note' : 'Highlight'}: ${mark.note ? notePlainText(mark.note) : mark.text || ''}`.slice(0, 120),
         from: at(mark.chapterNumber, mark.paragraphIndex, mark.fromWord), to: at(mark.chapterNumber, mark.endParagraphIndex, mark.toWord),
         anchor: { paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord } })
     }

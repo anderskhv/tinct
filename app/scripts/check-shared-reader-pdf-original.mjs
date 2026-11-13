@@ -182,7 +182,7 @@ async function sourceParity(page, calls, output) {
   const savedText = page.getByTestId('pdf-note-saved')
   assert.equal(await savedText.textContent(), 'A free note beside the original printed page.', 'original-PDF free note autosaves and reopens as its words')
   await savedText.click()
-  assert.equal(await noteEditor.inputValue(), 'A free note beside the original printed page.', 'a tap on a saved PDF note edits it')
+  assert.equal(await noteEditor.evaluate(field => field.value), 'A free note beside the original printed page.', 'a tap on a saved PDF note edits it')
   await savedNote.getByRole('button', { name: /^Delete / }).click()
   assert.equal(await savedNote.count(), 0)
   await page.getByRole('button', { name: 'Undo', exact: true }).click()

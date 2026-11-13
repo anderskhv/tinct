@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom'
 import { PhoneIcon } from '../marginPhone/LabPhoneCard'
 import type { CardBox } from './desktopCardPlace'
 import { clampWords } from './cardPreview'
+import { NoteView } from '../notes/NoteView'
 import './sourceMarginRail.css'
 import { onlyFieldEdits } from '../marginPhone/phoneCardPassage'
 
@@ -21,6 +22,8 @@ export interface SourceMarginEntry {
   previewMore?: number
   /** How the folded line opens (cardPreview.ts FoldedPreview.previewStyle). */
   previewStyle?: 'note' | 'whole'
+  /** The preview is the reader's own note (Markdown): shown formatted, up to six lines (Anders, 13 Nov 2026). */
+  previewNote?: boolean
   sourceText?: string
   onToggle: () => void
   onDelete?: () => void
@@ -40,6 +43,15 @@ export interface SourceMarginEntry {
   variant?: 'start' | 'start-later'
   /** An actions card that folds to its label alone, greyed with a +, until opened (Anders, 10 Nov 2026: "Before you start"). */
   collapsible?: boolean
+  /**
+   * A note the reader has moved (Anders, 13 Nov 2026): where its card's top is now, in the window's coordinates,
+   * measured from the paragraph it was dropped beside (notePlace.ts), or null to sit at its passage.
+   */
+  placeTop?: () => number | null
+  /** What `placeTop` depends on, so a move measures the margin again. */
+  placeKey?: string
+  /** Desktop only: the ⋮⋮ handle drags the card to any height; ⌥↑ / ⌥↓ nudge it. Given the card's new top (window y). */
+  onMove?: (top: number) => void
 }
 export interface SourceMarginRailProps {
   host: HTMLElement | null
@@ -47,6 +59,11 @@ export interface SourceMarginRailProps {
   ownsSourcePointer?: (event: PointerEvent) => boolean
   onBlankNote?: (position: { clientY: number; sourceY: number }) => void
 }
+
+/** How far ⌥↑ / ⌥↓ move a note's card. */
+export const SOURCE_MARGIN_NUDGE_PX = 24
+/** A drag shorter than this is a click on the handle, not a move. */
+export const SOURCE_MARGIN_DRAG_SLOP_PX = 3
 
 export function sourceMarginLayout<T extends { id: string; y: number; height: number; order: number }>(items: T[], gap = 18) {
   let floor = 0
@@ -131,7 +148,8 @@ export function SourceMarginRail({ host, entries: given, onBlankNote, ownsSource
     host.addEventListener('scroll', onScroll, { passive: true })
     return () => host.removeEventListener('scroll', onScroll)
   }, [host])
-  const [layout, setLayout] = useState<{ left: number; width: number; height: number; items: Array<{ id: string; top: number; y: number; sourceX: number | null }> }>({ left: 0, width: 380, height: 0, items: [] })
+  const [layout, setLayout] = useState<{ left: number; width: number; height: number; items: Array<{ id: string; top: number; y: number; sourceY: number; sourceX: number | null }> }>({ left: 0, width: 380, height: 0, items: [] })
+  const [drag, setDrag] = useState<{ id: string; pointerId: number; startY: number; dy: number; moved: boolean } | null>(null)
   useLayoutEffect(() => {
     if (!host || !layer.current) return
     let raf = 0
@@ -148,7 +166,10 @@ export function SourceMarginRail({ host, entries: given, onBlankNote, ownsSource
         const containing = columns.find(box => source.top >= box.top && source.top < box.bottom && source.left >= box.left && source.left <= box.right)
         const intersecting = columns.find(box => source.bottom > box.top && source.top < box.bottom)
         const border = containing?.right ?? intersecting?.right ?? (columns.length ? Math.max(...columns.map(box => box.right)) : null)
-        return [{ id: entry.id, y: source.top - frame.top + host.scrollTop, sourceX: border === null ? null : border - frame.left + host.scrollLeft, height: el?.offsetHeight || (entry.open ? 100 : 46), order: entry.order }]
+        // A moved note sits where it was put; its leader still starts at its passage.
+        const placed = entry.placeTop?.()
+        const sourceY = source.top - frame.top + host.scrollTop
+        return [{ id: entry.id, y: placed == null ? sourceY : placed - frame.top + host.scrollTop, sourceY, sourceX: border === null ? null : border - frame.left + host.scrollLeft, height: el?.offsetHeight || (entry.open ? 100 : 46), order: entry.order }]
       })
       const left = columns.length ? Math.max(...columns.map(box => box.right - frame.left + host.scrollLeft)) + 18 : located.length ? Math.max(...located.map(item => item.sourceX ?? 0)) + 18 : Math.max(0, host.clientWidth - 400)
       const width = Math.max(1, Math.min(380, host.clientWidth - left - 18))
@@ -159,7 +180,7 @@ export function SourceMarginRail({ host, entries: given, onBlankNote, ownsSource
       const sourceBottoms = [...columns, ...[...host.querySelectorAll<HTMLElement>('.pdf-original__pages')].map(node => node.getBoundingClientRect())]
         .map(box => box.bottom - frame.top + host.scrollTop).filter(Number.isFinite)
       const paddingBottom = Number.parseFloat(getComputedStyle(host).paddingBottom) || 0
-      const next = { left, width, height: Math.max(host.clientHeight, ...sourceBottoms.map(bottom => bottom + paddingBottom), ...ordered.map(item => item.top + item.height + 32)), items: ordered.map(item => ({ id: item.id, top: item.top, y: item.y, sourceX: item.sourceX })) }
+      const next = { left, width, height: Math.max(host.clientHeight, ...sourceBottoms.map(bottom => bottom + paddingBottom), ...ordered.map(item => item.top + item.height + 32)), items: ordered.map(item => ({ id: item.id, top: item.top, y: item.y, sourceY: item.sourceY, sourceX: item.sourceX })) }
       setLayout(previous => JSON.stringify(previous) === JSON.stringify(next) ? previous : next)
     }
     const schedule = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; measure() }) }
@@ -177,7 +198,7 @@ export function SourceMarginRail({ host, entries: given, onBlankNote, ownsSource
     host.addEventListener('scroll', schedule, { passive: true })
     window.addEventListener('resize', schedule)
     return () => { cancelAnimationFrame(raf); observer?.disconnect(); mutation?.disconnect(); host.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule) }
-  }, [host, entries.map(entry => `${entry.id}:${entry.open}`).join('|')])
+  }, [host, entries.map(entry => `${entry.id}:${entry.open}:${entry.placeKey ?? ''}`).join('|')])
   const focusedEditor = useRef<string | null>(null)
   const editorId = entries.find(entry => entry.open && entry.focusEditor)?.id ?? null
   useLayoutEffect(() => {
@@ -242,20 +263,49 @@ export function SourceMarginRail({ host, entries: given, onBlankNote, ownsSource
     <svg className="source-margin-leaders" data-testid="source-margin-leaders" width="100%" height={layout.height} aria-hidden="true">
       {layout.items.map(at => { const entry = entries.find(item => item.id === at.id); if (!entry || entry.free || at.sourceX === null) return null
         const endY = at.top + 16
-        return <g key={at.id} data-card-id={at.id} className={entry.open ? 'is-open' : 'is-folded'}><path d={sourceMarginLeaderPath(at.sourceX, at.y, layout.left, endY)} /></g>
+        return <g key={at.id} data-card-id={at.id} className={entry.open ? 'is-open' : 'is-folded'}><path d={sourceMarginLeaderPath(at.sourceX, at.sourceY, layout.left, endY)} /></g>
       })}
     </svg>
     {entries.map(entry => { const at = layout.items.find(item => item.id === entry.id)
       // A chapter's actions appear only once its heading is on a drawn page; a card is measured hidden first.
       if (entry.actions && !at) return null
-      return <section key={entry.id} data-testid="source-margin-item" data-card-id={entry.id} data-source-order={entry.order} data-open={entry.actions ? undefined : entry.open} className={`source-margin-item ${entry.open ? 'is-open' : 'is-folded'}${entry.actions ? ' is-actions' : ''}${entry.collapsible ? ' is-collapsible' : ''}${entry.variant ? ` is-${entry.variant}` : ''}`} aria-describedby={entry.sourceText ? `source-about-${entry.id}` : undefined} style={{ left: layout.left, width: layout.width, top: at?.top ?? 0, visibility: at ? undefined : 'hidden' }}>
+      const lifted = drag?.id === entry.id && drag.moved
+      return <section key={entry.id} data-testid="source-margin-item" data-card-id={entry.id} data-source-order={entry.order} data-open={entry.actions ? undefined : entry.open} data-placed={entry.placeKey ? 'true' : undefined} className={`source-margin-item ${entry.open ? 'is-open' : 'is-folded'}${entry.actions ? ' is-actions' : ''}${entry.collapsible ? ' is-collapsible' : ''}${entry.variant ? ` is-${entry.variant}` : ''}${entry.onMove ? ' is-movable' : ''}${lifted ? ' is-lifted' : ''}`} aria-describedby={entry.sourceText ? `source-about-${entry.id}` : undefined} style={{ left: layout.left, width: layout.width, top: at?.top ?? 0, visibility: at ? undefined : 'hidden', ...(lifted ? { transform: `translateY(${drag!.dy}px)` } : {}) }}
+        onKeyDown={entry.onMove ? event => {
+          // ⌥↑ / ⌥↓ on a focused card nudge it (never inside a field, where they move the caret).
+          if (!event.altKey || event.metaKey || event.ctrlKey || (event.key !== 'ArrowUp' && event.key !== 'ArrowDown')) return
+          if ((event.target as Element).closest?.('textarea, input, [contenteditable="true"]')) return
+          event.preventDefault(); event.stopPropagation()
+          entry.onMove!(event.currentTarget.getBoundingClientRect().top + (event.key === 'ArrowUp' ? -SOURCE_MARGIN_NUDGE_PX : SOURCE_MARGIN_NUDGE_PX))
+        } : undefined}>
+        {entry.onMove && <button type="button" className="source-margin-grip" data-testid="source-margin-grip" aria-label={`Move ${entry.label.toLowerCase()}`} title="Drag to move (⌥↑ ⌥↓)" aria-keyshortcuts="Alt+ArrowUp Alt+ArrowDown"
+          onPointerDown={event => {
+            if (event.button !== 0 && event.pointerType === 'mouse') return
+            event.preventDefault(); event.stopPropagation()
+            event.currentTarget.setPointerCapture?.(event.pointerId)
+            setDrag({ id: entry.id, pointerId: event.pointerId, startY: event.clientY, dy: 0, moved: false })
+          }}
+          onPointerMove={event => setDrag(current => current && current.id === entry.id && current.pointerId === event.pointerId
+            ? { ...current, dy: event.clientY - current.startY, moved: current.moved || Math.abs(event.clientY - current.startY) > SOURCE_MARGIN_DRAG_SLOP_PX } : current)}
+          onPointerUp={event => {
+            const current = drag
+            setDrag(null)
+            if (!current || current.id !== entry.id || !current.moved) return
+            const section = event.currentTarget.closest('section')
+            const top = (section?.getBoundingClientRect().top ?? 0) - current.dy + (event.clientY - current.startY)
+            entry.onMove!(top)
+          }}
+          onPointerCancel={() => setDrag(null)}
+          onClick={event => event.stopPropagation()}>
+          <svg viewBox="0 0 10 16" aria-hidden="true"><circle cx="2.5" cy="3" r="1.4"/><circle cx="7.5" cy="3" r="1.4"/><circle cx="2.5" cy="8" r="1.4"/><circle cx="7.5" cy="8" r="1.4"/><circle cx="2.5" cy="13" r="1.4"/><circle cx="7.5" cy="13" r="1.4"/></svg>
+        </button>}
         <header className="source-margin-head">{entry.actions && !entry.collapsible ? <span className="source-margin-label">{entry.label}</span> : <button type="button" data-testid="source-margin-open" className="source-margin-label" onClick={entry.onToggle} aria-expanded={entry.open}>{entry.label}</button>}
           {/* One place opens and minimises (tester, 9 Nov 2026: the open click and the minimise sat apart). */}
           {(!entry.actions || entry.collapsible) && <button type="button" data-testid={entry.open ? 'source-margin-minimise' : 'source-margin-expand'} className="source-margin-toggle" aria-label={entry.open ? 'Minimise' : 'Open'} aria-expanded={entry.open} onClick={entry.onToggle}>{entry.open ? '−' : '+'}</button>}
           {entry.onDelete && <button type="button" aria-label={`Delete ${entry.label}`} onClick={entry.onDelete}><PhoneIcon name="trash" /></button>}
         </header>
         {entry.sourceText && <span className="lab-visually-hidden" id={`source-about-${entry.id}`}>{entry.sourceText}</span>}
-        {!entry.open && !entry.actions && <button type="button" className="source-margin-preview" data-preview={entry.previewStyle} onClick={entry.onToggle}>{/* Folded is one line, enough to recall the card (Anders, 9 Nov 2026): an Ask shows its question, every other card its first words. */}{entry.previewQuestion ? <span className="source-margin-preview-question">{entry.previewQuestion}</span> : <span className="source-margin-preview-lead">{entry.preview ? clampWords(entry.preview, 220) : 'Open this card'}</span>}</button>}
+        {!entry.open && !entry.actions && <button type="button" className="source-margin-preview" data-preview={entry.previewStyle} onClick={entry.onToggle}>{/* Folded is one line, enough to recall the card (Anders, 9 Nov 2026): an Ask shows its question, every other card its first words. A note keeps its formatting, up to six lines (13 Nov 2026). */}{entry.previewNote && entry.preview ? <NoteView lines={6} className="source-margin-preview-note" testId="source-margin-note">{entry.preview}</NoteView> : entry.previewQuestion ? <span className="source-margin-preview-question">{entry.previewQuestion}</span> : <span className="source-margin-preview-lead">{entry.preview ? clampWords(entry.preview, 220) : 'Open this card'}</span>}</button>}
         <div className="source-margin-content" hidden={!entry.open}>{entry.content}</div>
       </section>
     })}

@@ -223,9 +223,10 @@ describe('the note editor', () => {
   it('quotes the passage (cut), offers Remove highlight and Save note; Save waits for words', () => {
     const empty = M.html.noteHtml({ quote: 'an approximation for the factorial function' })
     expect(empty).toContain('“an approximation for the factorial function”')
-    expect(empty).toContain('placeholder="Add a note…"')
+    // The field is the formatted note field (js/note-md.js, 13 Nov 2026): its placeholder is drawn from data-placeholder.
+    expect(empty).toContain('data-placeholder="Add a note…"')
     expect(empty).toMatch(/data-m="remove">Remove highlight<\/button><button type="button" class="mr-bar__item" data-m="save" disabled>Save note/)
-    expect(M.html.noteHtml({ quote: 'x', note: 'Try <b>' })).toContain('>Try &lt;b&gt;</textarea>')
+    expect(M.html.noteHtml({ quote: 'x', note: 'Try <b>' })).toContain('data-note-field data-placeholder="Add a note…" aria-label="Highlight note">Try &lt;b&gt;</div></tinct-note>')
   })
 })
 

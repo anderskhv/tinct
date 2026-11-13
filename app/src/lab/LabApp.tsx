@@ -14,7 +14,7 @@ import { useBackCloses } from './useBackCloses'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
-import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon } from './LabReaderIcons'
+import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon, LibraryBackIcon } from './LabReaderIcons'
 import { useDesktopDockPlacement } from './labAudioDock'
 import { isAudioHeld } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
@@ -30,7 +30,7 @@ import { LabChapterNoteEditor } from './LabChapterNoteEditor'
 import { useFinishedCard } from '../social/useFinishedCard'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest, recapHighlightPassages } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MutableRefObject, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import { sourceAuthorship, withAuthorship } from '../companion/authorship'
 import {
   applyNarrationPilotFlag,
@@ -69,6 +69,7 @@ import { pdfReaderViewUrl } from './userBook/pdfReaderHandoff'
 import { marginChapterBoundary, marginSourceWord, type MarginSourceAnchor } from './sharedReader/marginSource'
 import { withConvertedNote, askCardSource, isSourcePoint } from './sharedReader/sharedReaderCards'
 import { SourceMarginRail, type SourceMarginEntry } from './sharedReader/SourceMarginRail'
+import { noteYFromPlace, notePlaceFromY, orderOfPlace, placeApplies } from './notes/notePlace'
 import { LabFigurePreview } from './LabFigurePreview'
 import { LabInlineMarkdown } from './LabMarkdown'
 import { LabDesktopCard } from './sharedReader/LabDesktopCard'
@@ -212,7 +213,8 @@ import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './use
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage, sceneHandoffForPage, type PageSceneHandoff } from './labReaderHandoff'
+import { SCENE_HANDOFF_EDITION } from './labSceneHandoff'
 import { chosenDesktopReaderLayout, defaultDesktopReaderLayout, desktopLayoutDevice, initialDesktopReaderLayout, marginReaderRoom, readsMarginOnHandheld, storeDesktopReaderLayout, type DesktopLayoutDevice, type DesktopReaderLayout } from './labDesktopLayout'
 import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
@@ -428,14 +430,6 @@ function PauseIcon({ size = 22 }: { size?: number }) {
   )
 }
 
-function LibraryBackIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M19 12H5.6M11 6.2 5.2 12l5.8 5.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
 function SkipIcon({ direction, seconds = 15 }: { direction: 'back' | 'forward'; seconds?: number }) {
   const path = direction === 'back'
     ? 'M8.25 7.15H4.7v-3.5M4.9 7.05A8 8 0 1 1 4.15 15'
@@ -559,6 +553,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const voiceVersion = 'v2'
   const [pageTurnAffordance, setPageTurnAffordance] = useState(() => readPageTurnAffordance(layoutOverride))
   const [readerHandoff] = useState(() => source || userBook ? null : consumeLabReaderHandoffForPage())
+  // A static scene page's hand-over (labSceneHandoff.ts), run once the deep-linked chapter is open (runSceneHandoff below).
+  const sceneHandoffRef = useRef(readerHandoff ? sceneHandoffForPage() : null)
   // Back from Checkout without paying: the buyer's own session is ended at once, so the
   // book is not held from other buyers until it lapses (the Worker checks it is theirs).
   useEffect(() => {
@@ -1108,15 +1104,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const compareEditionLabel = editionLabelFor(prefs.compareEdition, allBookEditions)
   const continuousReader = sharedReader && !showPhoneChrome && !desktopCompareActive && !privateDesktopClassic
   // Book scroll (Anders, 11 Nov 2026): the desktop Margin reader scrolls a whole scroll unit (a biblical book, a
-  // titled division, else the whole book). Tinct library books; phone, two-page, Compare and own books as before.
+  // titled division, else the whole book). Library books and, since 13 Nov 2026, a reader's own EPUBs, pasted texts
+  // (no gap between their sections) and PDFs read as Tinct text; phone, two-page and Compare as before. A PDF's
+  // original pages are read in their own viewer and never reach this reader.
   // An admin try-out for now (Anders, 11 Nov 2026): off for everyone else. Decided once, at first paint, from the
   // cached admin answer, so the surface never changes mid-read; `?bookScroll=0` switches it off for the session.
   const [siteAdminAtOpen] = useState(() => typeof window !== 'undefined' && cachedSiteAdmin(readCachedSupabaseUser()?.id))
   const [bookScrollOn] = useState(() => typeof window !== 'undefined' && bookScrollSwitch(search ?? window.location.search, siteAdminAtOpen,
     (() => { try { return window.sessionStorage } catch { return null } })(), (() => { try { return window.localStorage } catch { return null } })()))
-  const bookScroll = bookScrollOn && continuousReader && !privateBook && !book.chaptersProvisional
-  const bookScrollUnitNow = useMemo(() => bookScroll ? bookScrollUnit(book.bookId || 'bible', book.chapters, book.chapterNumber) : null,
-    [bookScroll, book.bookId, book.chapters, book.chapterNumber])
+  const bookScroll = bookScrollOn && continuousReader && !book.chaptersProvisional
+  const pastedSections = userBook?.pasted === true
+  const bookScrollUnitNow = useMemo(() => bookScroll ? bookScrollUnit(book.bookId || 'bible', book.chapters, book.chapterNumber, { sections: pastedSections }) : null,
+    [bookScroll, book.bookId, book.chapters, book.chapterNumber, pastedSections])
   const bookScrollTexts = useBookScrollChapters(bookScroll, book.bookId || 'bible', prefs.primaryEdition)
   /** The chapters book scroll paints now, the reader's own included: their start actions and margin cards are shown. */
   const [bookScrollPainted, setBookScrollPainted] = useState<readonly number[]>([])
@@ -6283,6 +6282,67 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     closePhoneCard(); setBookAction(null)
     openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary')
   }
+  // A static scene page (/read/{bookId}/{scene}) handed over to do one thing here, in the chapter it linked to: what
+  // its margin, its selection bar, its ask field or its top bar asked for, run through the reader's own actions, as
+  // if the reader had pressed them. A passage is words by index in the scene page's edition (modern-en); anything
+  // that does not fit this chapter's text is dropped, never guessed at. Nothing here writes the reading place: the
+  // deep link already opened the chapter.
+  const runSceneHandoffRef = useRef<(intent: PageSceneHandoff) => void>(() => {})
+  runSceneHandoffRef.current = intent => {
+    const chapter = { chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel }
+    const passageAt = (range: LabHighlightRange): PhonePassage => ({ text: range.text, paragraphIndex: range.paragraphIndex, ...chapter,
+      editionKey: readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: book.chapterNumber, range }] })
+    const selected = () => {
+      const s = intent.selection
+      if (!s || readerEditionKey !== SCENE_HANDOFF_EDITION) return null
+      const words = (index: number) => (book.paragraphs[index] || '').split(/\s+/).filter(Boolean).length
+      if (s.endParagraphIndex >= book.paragraphs.length || s.wordIndex >= words(s.paragraphIndex) || s.endWordIndex >= words(s.endParagraphIndex)) return null
+      return buildHighlightRange(book.paragraphs, { paragraphIndex: s.paragraphIndex, wordIndex: s.wordIndex }, { paragraphIndex: s.endParagraphIndex, wordIndex: s.endWordIndex })
+    }
+    switch (intent.action) {
+      case 'explain': case 'simplify': case 'ask': case 'more': {
+        if (intent.question) {
+          // A question about the scene: an Ask card at the scene's opening, answered in the margin.
+          const openedAt = Date.now()
+          const point: LabHighlightRange = { paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 0, text: '' }
+          openPhoneCard({ kind: 'ask', passage: { ...passageAt(point), text: '' }, openedAt })
+          dictation.stop()
+          void ask.sendTyped(intent.question, undefined, undefined, {
+            conversationId: `mc_react_${openedAt}`, sourceLocation: { ...chapter, paragraphIndex: 0 },
+          })
+          return
+        }
+        const range = selected()
+        if (!range) return
+        if (intent.action === 'more') {
+          // The reader's own selection bar over the passage, with its full menu.
+          const word = marginHost?.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${range.paragraphIndex}"][data-word-index="${range.fromWord}"]`)
+            ?? document.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${range.paragraphIndex}"][data-word-index="${range.fromWord}"]`)
+          const box = word?.getBoundingClientRect()
+          handleSelectRange(range, box ? box.left + box.width / 2 : window.innerWidth / 2, box ? box.top : window.innerHeight / 3)
+          return
+        }
+        openPhoneCard({ kind: intent.action, passage: passageAt(range), openedAt: Date.now() })
+        return
+      }
+      case 'primer': openChapterNotes('primer', book.chapterNumber, 'pill'); return
+      case 'summary': chapterSummaryRef.current(); return
+      case 'recap': openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary', 'end'); return
+      case 'quiz': quizChapterRef.current(undefined, true); return
+      case 'contents': setReaderControlsVisible(true); setTocOpen(true); return
+      case 'notebook': handleSuperMenuSelect('notebook'); return
+      case 'appearance': setSuperMenuOpen(false); setCompareFromLayout(false); setSuperSheet('reading'); return
+      case 'menu': openSuperMenu(); return
+    }
+  }
+  useEffect(() => {
+    const intent = sceneHandoffRef.current
+    if (!intent || !readerReady || initialResolving || book.chaptersProvisional) return
+    // Once, and only in the chapter the scene page linked to.
+    sceneHandoffRef.current = null
+    if ((book.bookId || 'bible') !== intent.bookId || book.chapterNumber !== intent.chapterNumber) return
+    runSceneHandoffRef.current(intent)
+  }, [readerReady, initialResolving, book.chaptersProvisional, book.bookId, book.chapterNumber])
   // Book scroll: an action on a neighbouring chapter (its pills, a selection in it, one of its margin cards) first makes
   // that chapter the reader's own where it stands (nothing on the page moves), then runs as in any chapter. The action
   // reads the reader's state through refs, so it sees the adopted chapter, not the one it was asked from.
@@ -6476,7 +6536,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           setDraft('')
           void ask.sendTyped(question, undefined, undefined, {highlightedText:text, conversationId:`mc_react_${openedAt}`})
         }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(card.kind === 'note' ? card.passage : null)} disabled={ask.typedLoading} /> : undefined}>
-          <PhoneNoteBody value={phoneNote} onChange={text => { setPhoneNote(text); if (continuousReader) { if (card.kind === 'note') highlightsApi.setNote(card.highlightId, text); else highlightsApi.setChapterNote(card.chapterNumber, text) } }} inputRef={phoneFieldRef} chapter={card.kind === 'chapter-note'} />
+          <PhoneNoteBody value={phoneNote} onChange={text => { setPhoneNote(text); if (continuousReader) { if (card.kind === 'note') highlightsApi.setNote(card.highlightId, text); else highlightsApi.setChapterNote(card.chapterNumber, text) } }} inputRef={phoneFieldRef as unknown as MutableRefObject<HTMLElement | null>} chapter={card.kind === 'chapter-note'} phone={showPhoneChrome} />
         </ResponseCard>
       )
     }
@@ -6653,6 +6713,23 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (!rect.height) return null
     return { left: rect.left, right: rect.right, top: rect.top + rect.height * .75, bottom: rect.bottom }
   }
+  /**
+   * A note's card moved in the desktop margin (Anders, 13 Nov 2026): its kept place (labHighlights cardPlace, in this
+   * edition's paragraphs), where that is now, its sort key, and the drop that moves it (notes/notePlace.ts).
+   */
+  const notePlacing = (mark: LabHighlight | undefined): Pick<SourceMarginEntry, 'placeTop' | 'placeKey' | 'onMove'> & { order?: number } => {
+    if (!mark || showPhoneChrome) return {}
+    const place = placeApplies(mark.cardPlace, readerEditionKey) ? mark.cardPlace : undefined
+    const onMove = (top: number) => {
+      const host = marginHost
+      const next = host ? notePlaceFromY(host, top, readerEditionKey) : null
+      if (next) highlightsApi.setCardPlace(mark.id, next)
+    }
+    if (!place) return { onMove }
+    const words = String(book.paragraphs[place.paragraphIndex] ?? '').split(/\s+/).filter(Boolean).length
+    return { onMove, placeKey: `${place.paragraphIndex}:${place.fraction}`, order: orderOfPlace(place, words),
+      placeTop: () => marginHost ? noteYFromPlace(marginHost, place) : null }
+  }
   const toggleMargin = (id: string, live?: PhoneCard) => {
     if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
     if (desktopOpenId === id) { setDraft(''); if (live?.kind === 'note' || live?.kind === 'chapter-note') closePhoneCard(); setPhoneCard(null); setDesktopOpenId(null); setDesktopContinuationId(null); return }
@@ -6694,8 +6771,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const quizAtStart = live.kind === 'quiz' && !passage && desktopQuizAtStartRef.current
     desktopMarginEntries.push({ id, label: PHONE_CARD_NAMES[live.kind], source: sourceForMargin(range, !quizAtStart && (live.kind === 'chapter-note' || live.kind === 'quiz' && !passage)),
       order: quizAtStart ? -3 : live.kind === 'chapter-note' || live.kind === 'quiz' && !passage ? 1e12 : (range?.paragraphIndex ?? 0) * 100000 + (range?.fromWord ?? 0),
-      open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', ...(saved ? foldedPreview(live.kind, saved.messages, raw => marginAnswerPreview(live.kind, raw)) : {}), ...(!saved?.messages.some(message => message.role === 'assistant') && live.kind === 'note' ? { preview: highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note, previewStyle: 'note' as const } : {}),
+      open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', ...(saved ? foldedPreview(live.kind, saved.messages, raw => marginAnswerPreview(live.kind, raw)) : {}), ...(!saved?.messages.some(message => message.role === 'assistant') && live.kind === 'note' ? { preview: highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note, previewStyle: 'note' as const, previewNote: true } : {}),
       sourceText: passage?.text, free: live.kind === 'chapter-note' || (live.kind === 'note' || live.kind === 'ask') && isSourcePoint(range),
+      ...(live.kind === 'note' ? notePlacing(highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)) : live.kind === 'chapter-note' ? notePlacing(highlightsApi.chapterNotes.find(note => note.chapterNumber === live.chapterNumber)) : {}),
       onToggle: () => toggleMargin(id, live), onDelete: () => {
         if (saved) deleteMarginConversation(saved)
         else if (live.kind === 'note') { const marks = highlightsApi.allHighlights.filter(mark => mark.id === live.highlightId); highlightsApi.remove(live.highlightId); setMarginUndo(() => () => { highlightsApi.restore(marks) }); setDesktopLiveCards(current => current.filter(card => desktopCardId(card) !== id)); setDesktopOpenId(null); setPhoneCard(null) }
@@ -6708,7 +6786,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (liveIds.has(id)) continue
     const passage: PhonePassage = { text: mark.text || '', paragraphIndex: mark.paragraphIndex, chapterNumber: mark.chapterNumber, chapterLabel: book.chapterLabel, editionKey: mark.editionKey || readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: mark.chapterNumber, range: mark }] }
     const live: PhoneCard = { kind: 'note', passage, highlightId: mark.id, created: false }
-    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(mark), order: mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, free: isSourcePoint(mark),
+    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(mark), order: mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, previewStyle: 'note', previewNote: true, free: isSourcePoint(mark), ...notePlacing(highlightsApi.allHighlights.find(item => item.id === mark.id) ?? mark),
       onToggle: () => { setPhoneNote(mark.note || ''); openPhoneCard(live) }, onDelete: () => { highlightsApi.remove(mark.id); setMarginUndo(() => () => { highlightsApi.restore([mark]) }) }, content: null })
   }
   // A note's card in the reader's own chapter, opened by its highlight id (book scroll: after its chapter was adopted).
@@ -6849,6 +6927,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const rect = head?.getBoundingClientRect()
     return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : null
   }
+  // In book scroll, from a later chapter, the first chapter is a neighbour above the reader's: the whole book's cards
+  // sit in its band of the margin (the neighbours' orders above), not after the reader's own chapter's start actions,
+  // which pushed them down beside a later chapter (13 Nov 2026, own EPUB with short front matter).
+  const bookCardBand = bookScroll && book.chapters[0] != null && book.chapters[0].number !== book.chapterNumber
+    && (bookScrollUnitNow?.chapters[0]?.number === book.chapters[0].number) ? -1e16 : 0
   if (continuousReader) for (const kind of desktopBookCards) {
     const id = `mc_book_${kind}_${book.bookId || 'bible'}`
     const title = book.bookTitle || 'This book'
@@ -6857,7 +6940,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const follow = (shown: () => string) => <PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft}
       onSend={question => { keep(shown()); dictation.stop(); void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') }) }}
       onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} />
-    desktopMarginEntries.push({ id, label: `${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, source: bookStartSource, order: kind === 'primer' ? -9 : -8, free: true,
+    desktopMarginEntries.push({ id, label: `${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, source: bookStartSource, order: bookCardBand + (kind === 'primer' ? -9 : -8), free: true,
       open: desktopOpenId === id, preview: desktopBookPreviews[kind], onToggle: () => toggleMargin(id), onDelete: close,
       content: kind === 'primer'
         ? <LabBookPrimerSheet embedded bookId={book.bookId || 'bible'} bookTitle={title} onClose={() => setDesktopOpenId(null)} follow={follow} onReady={text => setDesktopBookPreviews(current => current.primer === text ? current : { ...current, primer: text })} />
@@ -6893,7 +6976,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   if (continuousReader) for (const note of highlightsApi.chapterNotes.filter(note => note.chapterNumber === book.chapterNumber)) {
     const id = `chapter-note:${note.chapterNumber}`
     if (liveIds.has(id)) continue
-    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(undefined, true), order: 1e12, open: false, preview: note.note, free: true,
+    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(undefined, true), order: 1e12, open: false, preview: note.note, previewStyle: 'note', previewNote: true, free: true, ...notePlacing(note),
       onToggle: () => { setPhoneNote(note.note || ''); openPhoneCard({ kind: 'chapter-note', chapterNumber: note.chapterNumber, chapterLabel: book.chapterLabel }) },
       onDelete: () => { highlightsApi.setChapterNote(note.chapterNumber, ''); setMarginUndo(() => () => { highlightsApi.setChapterNote(note.chapterNumber, note.note || '') }) }, content: null })
   }
@@ -7226,7 +7309,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 compareAvailable: desktopCompareChoiceAvailable,
                 onChoose: chooseSharedDesktopLayout }
             : null}
-          bookScroll={siteAdminAtOpen && sharedReader && !showPhoneChrome && !handheldMargin && !privateBook
+          bookScroll={siteAdminAtOpen && sharedReader && !showPhoneChrome && !handheldMargin
             ? { on: bookScrollOn, onToggle: () => {
                 try { window.localStorage.setItem(BOOK_SCROLL_DEVICE_KEY, bookScrollOn ? 'off' : 'on'); window.sessionStorage.removeItem('tinct-book-scroll-off') } catch { /* storage blocked */ }
                 notePlace('hide')

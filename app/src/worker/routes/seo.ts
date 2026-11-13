@@ -6,6 +6,7 @@ import { htmlEscape } from '../lib/html'
 import { isPublicBookId } from '../../../public/lab/public-books.js'
 import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage, type GeneratedBookPage } from '../lib/bookLibraryPage'
 import { withStaticCache } from '../lib/staticCache'
+import { isScenePage, scenePageForChapter } from '../lib/scenePages'
 
 export type SeoEnv = {
   INDEXNOW_KEY?: string
@@ -567,13 +568,34 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // chapter-N pages under /read/{bookId}/ were removed (2026-10-05); every
     // such URL, with or without .html, answers with one permanent redirect to
     // the book page. The bible-{book} summary folders point at the Bible.
-    const retiredMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(?:summary|chapters|cast|themes|chapter-\d{1,5})(?:\.html|\/)?$/i)
+    // Since 13 Nov 2026 a play with scene pages sends its old chapter-N to the
+    // scene page of that chapter (the same scene, now its own text) instead.
+    const retiredMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(?:summary|chapters|cast|themes|chapter-(\d{1,5}))(?:\.html|\/)?$/i)
     if ((request.method === 'GET' || request.method === 'HEAD') && retiredMatch) {
       const retiredBook = retiredMatch[1].toLowerCase()
       const bookId = /^bible-[a-z0-9-]+$/.test(retiredBook) ? 'bible' : retiredBook
       if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
-        return new Response(null, { status: 301, headers: { Location: `/read/${bookId}`, 'Cache-Control': 'public, max-age=86400' } })
+        const scene = retiredMatch[2] ? scenePageForChapter(bookId, Number(retiredMatch[2])) : null
+        return new Response(null, { status: 301, headers: { Location: scene ?? `/read/${bookId}`, 'Cache-Control': 'public, max-age=86400' } })
       }
+      return serveNotFound(request.method, url, env)
+    }
+
+    // Scene pages (five plays, 13 Nov 2026): /read/{bookId}/{scene}, the
+    // static page of one scene in modern English (scripts/seo/build-scene-pages.mjs).
+    // The same page for everyone, signed in or not: it is static, reads no
+    // reading position and hands over to the reader only when asked. Its .html
+    // and trailing-slash forms, and capitals, redirect to the one address.
+    const sceneMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/([a-z0-9-]+?)(\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && sceneMatch && isScenePage(sceneMatch[1].toLowerCase(), sceneMatch[2].toLowerCase())) {
+      const bookId = sceneMatch[1].toLowerCase()
+      const slug = sceneMatch[2].toLowerCase()
+      const clean = `/read/${bookId}/${slug}`
+      if (url.pathname !== clean) {
+        return new Response(null, { status: 301, headers: { Location: clean + url.search, 'Cache-Control': 'public, max-age=86400' } })
+      }
+      const sceneResp = await serveStaticHtml(request.method, request, url, clean, env)
+      if (sceneResp) return sceneResp
       return serveNotFound(request.method, url, env)
     }
 

@@ -18,7 +18,8 @@ export interface AttributionSnapshot {
 const FIRST_TOUCH_KEY = 'tinct:first-touch'
 const LAST_TOUCH_KEY = 'tinct:last-touch'
 
-const TRACKED_PARAMS = [
+/** The campaign and click-id parameters an attribution touch records; the static scene pages carry them into the reader. */
+export const TRACKED_PARAMS = [
   'utm_source',
   'utm_medium',
   'utm_campaign',

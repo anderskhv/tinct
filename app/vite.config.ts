@@ -319,6 +319,10 @@ export default defineConfig(({ mode, command }) => {
           if (m) {
             req.url = `/read/${m[1]}/${m[2]}.html${m[3] || ''}`
           }
+          // Scene pages (scripts/seo/build-scene-pages.mjs). In dev they lack the reader's built CSS, which the
+          // build stamps in; check their look on a build.
+          const scene = url.match(/^\/read\/([a-z0-9-]+)\/((?:act-\d{1,2}-scene-\d{1,2}|act-\d{1,2}-prologue|prologue))\/?(\?.*)?$/i)
+          if (scene) req.url = `/read/${scene[1]}/${scene[2]}.html${scene[3] || ''}`
           next()
         })
 
