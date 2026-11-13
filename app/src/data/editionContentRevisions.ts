@@ -22,7 +22,7 @@ export interface ContentRelease {
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   'the-prince': {
   "revision": "text-2026-11-03.the-prince.1",
-  "releasedAt": 1794574500000,
+  "releasedAt": 1794581400000,
   "editions": {
     "modern-en": {
       "before": "d99629fa3c3e1a345c92e1b9749115111985bfdff520fd7a37037d6a3731d582",
@@ -554,7 +554,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     "modern-en": {
       "before": "573e56ea9bf089db0c9340edd70034a37e78ac4a07e9ca868ff11e5ca96a7e7b",
       "after": "63964726748e98d1a7cd465f68cbb4663f395c0e552879a54c8c2d065a8f6514",
-      "releasedAt": 1794574500000,
+      "releasedAt": 1794581400000,
       "previous": [
         {
           "before": "2d30ac0eb7fa802a6e5eef0b25e921ed119ef97a12d99622c118afac3978b3ae",
@@ -565,7 +565,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     "modern-da": {
       "before": "5f7d1fa5c4013fd9482cd4ee4e1ecfa68fafcdbf0911cfda5516b943d91859df",
       "after": "ffd12cb3fb19c1ff904542c68985d657b415da8df201b0d707c3c411bcb4a7e4",
-      "releasedAt": 1794574500000
+      "releasedAt": 1794581400000
     }
   }
 },
@@ -584,7 +584,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     "modern-da": {
       "before": "a83da6b0cf8bf1fde94bef50c362b02b73b48d72ee967eb005199b07919d1003",
       "after": "bc9cf5e29e95848ca24e002f60760d9c2719d87d5409f7cfdef6be054c569209",
-      "releasedAt": 1794574500000
+      "releasedAt": 1794581400000
     }
   }
 },
