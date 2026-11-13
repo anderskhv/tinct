@@ -61,7 +61,7 @@ import { sharedReaderDestination } from './sharedReader/sharedReaderFlag'
 import { ContinuousReader } from './sharedReader/ContinuousReader'
 import { BookScrollReader, type BookScrollControl } from './sharedReader/BookScrollReader'
 import { BOOK_SCROLL_DEVICE_KEY, bookScrollSwitch, bookScrollUnit } from './sharedReader/bookScroll'
-import { cachedSiteAdmin, refreshSiteAdmin } from './labSiteAdmin'
+import { refreshSiteAdmin } from './labSiteAdmin'
 import { useBookScrollChapters } from './sharedReader/useBookScrollChapters'
 import { useCrossEditionMarks } from './sharedReader/crossEditionMarks'
 import { answerLead, foldedPreview } from './sharedReader/cardPreview'
@@ -829,7 +829,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, chosen: prefs.voicePersonaChosen === true, onRemote: applyRemoteVoicePersona })
   // AI settings and the books' reading angles follow the reader's account (labAiAccount.ts).
   useAiSettingsAccountSync(authUser?.id ?? null)
-  // Refresh the cached site-admin answer for the next visit (admin try-outs read it at first paint).
+  // Refresh the cached site-admin answer for the next visit.
   useEffect(() => { if (authUser?.id) void refreshSiteAdmin(authUser.id) }, [authUser?.id])
   // English narration is available across the published catalogue. Female
   // original editions on the verified retention list stay on Bella; all
@@ -1107,10 +1107,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // titled division, else the whole book). Library books and, since 13 Nov 2026, a reader's own EPUBs, pasted texts
   // (no gap between their sections) and PDFs read as Tinct text; phone, two-page and Compare as before. A PDF's
   // original pages are read in their own viewer and never reach this reader.
-  // An admin try-out for now (Anders, 11 Nov 2026): off for everyone else. Decided once, at first paint, from the
-  // cached admin answer, so the surface never changes mid-read; `?bookScroll=0` switches it off for the session.
-  const [siteAdminAtOpen] = useState(() => typeof window !== 'undefined' && cachedSiteAdmin(readCachedSupabaseUser()?.id))
-  const [bookScrollOn] = useState(() => typeof window !== 'undefined' && bookScrollSwitch(search ?? window.location.search, siteAdminAtOpen,
+  // On for every reader (Anders, 13 Nov 2026; an admin try-out from 11 Nov). Decided once, at first paint, so the
+  // surface never changes mid-read; `?bookScroll=0` switches it off for the session, Appearance on this device.
+  const [bookScrollOn] = useState(() => typeof window !== 'undefined' && bookScrollSwitch(search ?? window.location.search,
     (() => { try { return window.sessionStorage } catch { return null } })(), (() => { try { return window.localStorage } catch { return null } })()))
   const bookScroll = bookScrollOn && continuousReader && !book.chaptersProvisional
   const pastedSections = userBook?.pasted === true
@@ -6989,16 +6988,25 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} onReady={text => saveUnitRailAnswer(id, 'catchup', text)}
         follow={shown => <>{unitRailThread(id)}<PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
   }
-  const openBlankMarginNote = ({ clientY }: { clientY: number; sourceY: number }) => {
-    if (desktopOpenId) { toggleMargin(desktopOpenId, desktopLiveCards.find(card => desktopCardId(card) === desktopOpenId)); return }
-    const words = [...(marginHost?.querySelectorAll<HTMLElement>('[data-testid="lab-word"]') ?? [])]
-    const word = words.find(word => word.getBoundingClientRect().bottom >= clientY) ?? words[words.length - 1]
-    if (!word) return
-    const paragraphIndex = Number(word.dataset.paragraphIndex), fromWord = Number(word.dataset.wordIndex)
+  // A note in the blank margin goes on the word beside the click. In book scroll that word can be in a neighbouring
+  // chapter (its words are lab-opening-word spans): that chapter becomes the reader's own first, as for a selection
+  // in it, so the note is saved on the chapter that owns the word (13 Nov 2026: it went on the reader's chapter).
+  const blankMarginNoteAt = useRef<(paragraphIndex: number, fromWord: number) => void>(() => {})
+  blankMarginNoteAt.current = (paragraphIndex, fromWord) => {
     const range: LabHighlightRange = { paragraphIndex, fromWord, endParagraphIndex: paragraphIndex, toWord: fromWord, text: '' }
     const mark = highlightsApi.addOrReuse(range, lastHighlightColor(), readerEditionKey, book.chapterNumber)
     setPhoneNote('')
     openPhoneCard({ kind: 'note', created: true, highlightId: mark.id, passage: { text: '', paragraphIndex, chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel, editionKey: readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: book.chapterNumber, range }] } })
+  }
+  const openBlankMarginNote = ({ clientY }: { clientY: number; sourceY: number }) => {
+    if (desktopOpenId) { toggleMargin(desktopOpenId, desktopLiveCards.find(card => desktopCardId(card) === desktopOpenId)); return }
+    const words = [...(marginHost?.querySelectorAll<HTMLElement>('[data-testid="lab-word"], [data-book-scroll-chapter] [data-testid="lab-opening-word"]') ?? [])]
+    const word = words.find(word => word.getBoundingClientRect().bottom >= clientY) ?? words[words.length - 1]
+    if (!word) return
+    const paragraphIndex = Number(word.dataset.paragraphIndex), fromWord = Number(word.dataset.wordIndex)
+    if (!Number.isFinite(paragraphIndex) || !Number.isFinite(fromWord)) return
+    const owner = Number(word.closest<HTMLElement>('[data-book-scroll-chapter]')?.dataset.bookScrollChapter ?? book.chapterNumber)
+    actOnChapter(Number.isFinite(owner) ? owner : book.chapterNumber, () => blankMarginNoteAt.current(paragraphIndex, fromWord))
   }
   const marginPointerDownRef = useRef({ x: 0, y: 0, cardId: '' })
   useLayoutEffect(() => {
@@ -7309,7 +7317,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 compareAvailable: desktopCompareChoiceAvailable,
                 onChoose: chooseSharedDesktopLayout }
             : null}
-          bookScroll={siteAdminAtOpen && sharedReader && !showPhoneChrome && !handheldMargin
+          bookScroll={sharedReader && !showPhoneChrome && !handheldMargin
             ? { on: bookScrollOn, onToggle: () => {
                 try { window.localStorage.setItem(BOOK_SCROLL_DEVICE_KEY, bookScrollOn ? 'off' : 'on'); window.sessionStorage.removeItem('tinct-book-scroll-off') } catch { /* storage blocked */ }
                 notePlace('hide')

@@ -1,5 +1,7 @@
 // Final pre-Codex behavior acceptance for catalogue Margin and authorized paged/phone differences.
 // All AI/API traffic is mocked; an isolated muted browser reads the exact local build.
+// Desktop pages open the one-chapter Margin reader with ?bookScroll=0: whole-book scroll is on for every desktop
+// reader since 13 Nov 2026 and has its own check (check-book-scroll.mjs).
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import { chromium, webkit, devices } from '@playwright/test'
@@ -71,7 +73,7 @@ try {
       await page.mouse.move(a.x + a.width / 2, a.y + a.height / 2); await page.mouse.down()
       await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 12 }); await page.mouse.up()
     }
-    await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=3&word=4&sharedReader=1&layout=${phone ? 'phone' : 'desktop'}${phone ? '' : `&view=${layout}`}`, { waitUntil: 'domcontentloaded' })
+    await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=3&word=4&sharedReader=1&bookScroll=0&layout=${phone ? 'phone' : 'desktop'}${phone ? '' : `&view=${layout}`}`, { waitUntil: 'domcontentloaded' })
     await ready(); await page.evaluate(() => document.fonts.ready); await settlePaint(page)
     const root = page.locator('.lab'), initialPlace = await root.getAttribute('data-place')
     if (!phone) await assertBareDesktopHeader(page)
@@ -298,7 +300,7 @@ try {
       await page.screenshot({ path: `${output}/margin-cross-card-isolation.png` })
       observations.push({ layout, firstGeometry, finalGeometry, wheelRead })
       // Text start/end actions are always visible, unlike PDF heading-hover actions.
-      await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop&bookScroll=0`, { waitUntil: 'domcontentloaded' }); await ready()
       // The chapter's start actions sit in the margin's start card (approved mockup, Anders 9 Nov 2026), not by the heading.
       await page.getByTestId('margin-start-primer').waitFor()
       await page.getByTestId('margin-start-summary').waitFor()
@@ -311,7 +313,7 @@ try {
       await page.waitForFunction(() => document.querySelector('.lab')?.dataset.chapter === '1')
       await ready()
       assert.equal(await root.getAttribute('data-chapter'), '1', 'whole-book Home reaches the first chapter')
-      await page.goto(`${origin}/reader?book=bible&edition=kjv-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      await page.goto(`${origin}/reader?book=bible&edition=kjv-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop&bookScroll=0`, { waitUntil: 'domcontentloaded' }); await ready()
       const chapterMap = page.getByRole('slider', { name: 'Chapter position', exact: true })
       await chapterMap.waitFor()
       assert.equal(await root.getAttribute('data-book-id'), 'bible')
@@ -363,7 +365,7 @@ try {
       assert.equal(await root.getAttribute('data-chapter'), '2', 'backward keys cannot leave the Bible chapter')
       assert.equal(await biblePlace(), '2/0:0', 'backward keys clamp at the first source word')
       await page.screenshot({ path: `${output}/bible-chapter-minimap.png` })
-      await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop&bookScroll=0`, { waitUntil: 'domcontentloaded' }); await ready()
       await host.hover()
       for (let step = 0; step < 24 && !(await host.getByTestId('lab-unit-quiz').count()); step++) {
         await page.mouse.wheel(0, await host.evaluate(node => Math.floor(node.clientHeight * .8)))
@@ -371,7 +373,7 @@ try {
       }
       for (const name of ['Summary of this chapter', 'Quiz me on this chapter', 'Chapter note']) await host.getByRole('button', { name, exact: true }).waitFor()
       await page.screenshot({ path: `${output}/ebook-end-actions.png` })
-      await page.goto(`${origin}/reader?book=bold-conjectures-volume-2&edition=original-en&chapter=7&paragraph=8&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      await page.goto(`${origin}/reader?book=bold-conjectures-volume-2&edition=original-en&chapter=7&paragraph=8&word=0&view=margin&sharedReader=1&layout=desktop&bookScroll=0`, { waitUntil: 'domcontentloaded' }); await ready()
       const reference = host.locator('[data-testid="lab-word"][data-paragraph-index="8"]').filter({ hasText: /^Fig\.?$/ }).first()
       await reference.waitFor()
       const placeBeforePeek = await root.getAttribute('data-place')

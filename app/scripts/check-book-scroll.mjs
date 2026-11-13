@@ -1,6 +1,6 @@
-// Whole-book scroll (admin try-out, Anders 11 Nov 2026): off for everyone but a site admin.
-// Non-admin: no book-scroll DOM, even with ?bookScroll=1. Admin (a cached Supabase session plus the cached
-// site_admins answer for that user, all network to Supabase refused): book scroll on by default, the Bible scrolls
+// Whole-book scroll (on for every reader since Anders, 13 Nov 2026; an admin try-out from 11 Nov).
+// Signed out: book scroll on by default with the Appearance switch; ?bookScroll=0 gives the one-chapter reader for the
+// session. Signed in (a cached Supabase session, all network to Supabase refused): book scroll on by default, the Bible scrolls
 // one biblical book, chapter ends say Summary, transcripts keep their bold speakers, reload keeps the exact word,
 // and Appearance › Whole-book scroll turns it off and on for this device at the same place. Margin cards across chapter
 // swaps in Luke (12 Nov 2026): one section per card, an open card keeps its chapter while it is on screen, the overview
@@ -188,7 +188,7 @@ async function editionMarks(s) {
   assert.deepEqual(await storedMarks(page), stored, 'showing marks in other editions stores nothing')
 }
 
-// The one-chapter Margin reader (everyone but an admin): a KJV card and highlight in the BSB.
+// The one-chapter Margin reader (?bookScroll=0): a KJV card and highlight in the BSB.
 async function editionMarksOneChapter(s) {
   const { page, name } = s
   const scope = '[data-testid="continuous-reader"]'
@@ -205,27 +205,56 @@ async function editionMarksOneChapter(s) {
   assert.deepEqual(await storedMarks(page), stored, 'showing marks in another edition stores nothing')
 }
 
+// A note in the blank margin beside a neighbouring chapter goes on that chapter (13 Nov 2026: with the reading line
+// still in Letter 2, a click beside Letter 3's first line saved the note on Letter 2's last word).
+async function blankNoteAtBoundary(s) {
+  const { page, name } = s
+  await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await s.ready()
+  await page.locator('[data-book-scroll-chapter="3"] [data-testid="lab-opening-word"]').first().waitFor({ state: 'attached' })
+  // Letter 3's first line 400px below the reader's top: the reading line (140px down) stays in Letter 2.
+  await page.evaluate(() => { const host = document.querySelector('[data-testid="continuous-reader"]'), next = host.querySelector('[data-book-scroll-chapter="3"]'); host.scrollTop += next.getBoundingClientRect().top - host.getBoundingClientRect().top - 400 })
+  await page.waitForTimeout(2500)
+  assert.equal(await page.locator('.lab').evaluate(node => node.dataset.chapter), '2', 'the reading line is still in Letter 2')
+  const at = await page.evaluate(() => {
+    const host = document.querySelector('[data-testid="continuous-reader"]').getBoundingClientRect()
+    const word = document.querySelector('[data-book-scroll-chapter="3"] [data-testid="lab-opening-word"]')
+    const box = word.getBoundingClientRect()
+    return { x: host.right - 25, y: Math.round(box.top + box.height / 2), paragraph: Number(word.dataset.paragraphIndex), word: Number(word.dataset.wordIndex) }
+  })
+  await page.mouse.click(at.x, at.y)
+  const note = page.getByRole('textbox', { name: 'Highlight note', exact: true })
+  await note.waitFor(); await note.fill('A note beside Letter 3')
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').some(mark => mark.note === 'A note beside Letter 3'))
+  const mark = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').find(mark => mark.note === 'A note beside Letter 3'))
+  await page.screenshot({ path: `${output}/${name}-blank-note-boundary.png` })
+  assert.deepEqual({ chapter: mark.chapterNumber, paragraph: mark.paragraphIndex, word: mark.fromWord }, { chapter: 3, paragraph: at.paragraph, word: at.word }, 'the blank-margin note is on the word beside the click, in Letter 3')
+  assert.equal(await page.locator('.lab').evaluate(node => node.dataset.chapter), '3', 'Letter 3 is the reader\'s chapter')
+}
+
 for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
-  // Everyone else: the one-chapter reader, whatever the link says.
+  // Signed out: book scroll by default; ?bookScroll=0 gives the one-chapter reader for the session.
   {
     const s = await open(engine, name, false)
-    const result = { engine: name, run: 'non-admin', passed: false }
+    const result = { engine: name, run: 'signed-out', passed: false }
     try {
-      for (const q of ['', '&bookScroll=1']) {
-        await s.page.goto(`${origin}/reader?book=bible&edition=kjv-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop${q}`, { waitUntil: 'domcontentloaded' }); await s.ready()
-        assert.equal(await s.page.locator('[data-book-scroll-unit]').count(), 0, `no book scroll for a non-admin (${q || 'no switch'})`)
-        await s.page.getByRole('slider', { name: 'Chapter position', exact: true }).waitFor()
-      }
+      const at = q => `${origin}/reader?book=bible&edition=kjv-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop${q}`
+      await s.page.goto(at(''), { waitUntil: 'domcontentloaded' }); await s.ready()
+      await s.page.locator('[data-book-scroll-unit]').waitFor()
+      assert.equal(await s.page.locator('[data-book-scroll-unit]').getAttribute('data-book-scroll-unit'), 'bible/Genesis/1', 'book scroll for a signed-out reader')
       await s.page.getByTestId('lab-header-aa').click()
-      assert.equal(await s.page.getByTestId('lab-v2-book-scroll').count(), 0, 'no Whole-book scroll switch for a non-admin')
+      assert.equal(await s.page.getByTestId('lab-v2-book-scroll').getAttribute('aria-checked'), 'true', 'the Whole-book scroll switch for a signed-out reader')
       await s.page.keyboard.press('Escape')
+      await blankNoteAtBoundary(s)
+      await s.page.goto(at('&bookScroll=0'), { waitUntil: 'domcontentloaded' }); await s.ready()
+      assert.equal(await s.page.locator('[data-book-scroll-unit]').count(), 0, 'no book scroll with ?bookScroll=0')
+      await s.page.getByRole('slider', { name: 'Chapter position', exact: true }).waitFor()
       await editionMarksOneChapter(s)
       assert.deepEqual(s.errors, [])
       result.passed = true
-    } catch (error) { result.error = error.stack; await s.page.screenshot({ path: `${output}/${name}-non-admin-failure.png` }).catch(() => {}) }
+    } catch (error) { result.error = error.stack; await s.page.screenshot({ path: `${output}/${name}-signed-out-failure.png` }).catch(() => {}) }
     finally { await s.browser.close(); results.push(result) }
   }
-  // An admin: book scroll on by default.
+  // Signed in (here an admin, as when this was a try-out): book scroll on by default.
   {
     const s = await open(engine, name, true)
     const result = { engine: name, run: 'admin', passed: false }
