@@ -299,7 +299,9 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     const pinned = host.scrollTop >= host.scrollHeight - host.clientHeight - 1 && lastScrollTop.current > host.scrollTop
     const base = pinned ? lastScrollTop.current : host.scrollTop
     host.scrollTop = base + delta
-    lastScrollTop.current = base + delta
+    // What the scroller took (it rounds to device pixels), so the scroll this makes reads as no movement: the fraction
+    // made it look like the reader scrolling, and the hold was taken anew. A clamp at the end keeps the place asked for.
+    lastScrollTop.current = Math.abs(host.scrollTop - (base + delta)) < 1 ? host.scrollTop : base + delta
     invalidate()
     return delta
   }
@@ -538,7 +540,11 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     const viewport = continuousViewportWords(words, host.scrollTop, host.clientHeight)
     if (viewport.last) setMapEnd(previous => sameAnchor(previous, viewport.last!.anchor) ? previous : viewport.last!.anchor)
     const lineChapter = chapterAtReadingLine(blocks(), host.scrollTop + lineOffset(host)) ?? own
-    captureHold()
+    // The scroll reanchor made to keep the held word in place is not the reader moving: the same word stays held.
+    // Taking a new one here (the word now beside the reading line) let each reflow hand the hold on a line, so a
+    // run of resizes walked the place down the text a line at a time (13 Nov 2026: Sirach 40 went 3 lines on and
+    // the word the reader was about to select slid under the header).
+    if (!(suppressScrollRef.current && movement === 0 && !sync)) captureHold()
     updateMounted()
     if (suppressScrollRef.current) {
       suppressScrollRef.current = false
