@@ -265,6 +265,11 @@ jobs:
         env:
           TINCT_BOOK_SCROLL_SPEED_OUTPUT: artifacts/book-scroll-speed
         run: node scripts/check-book-scroll-speed.mjs
+      - name: Verify book scroll opens at the saved place and saves no other
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_BOOK_SCROLL_OPEN_OUTPUT: artifacts/book-scroll-open-place
+        run: node scripts/check-book-scroll-open-place.mjs
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
