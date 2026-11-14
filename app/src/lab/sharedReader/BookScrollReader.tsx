@@ -261,6 +261,26 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
   const wordNode = useCallback((chapter: number, place: ContinuousReaderAnchor) =>
     blockNode(chapter)?.querySelector<HTMLElement>(`[data-paragraph-index="${place.paragraphIndex}"][data-word-index="${place.wordIndex}"]:is([data-testid="lab-word"],[data-testid="lab-opening-word"])`) ?? null, [blockNode])
 
+  /**
+   * The word a landing puts on the reading line: the anchor's own word, else the last painted word of the reader's
+   * chapter before it. A saved place can name a word this text does not have (a word past its paragraph's end, a
+   * paragraph past the chapter's, from another edition or text revision), and finding no word left the page at the
+   * top of the unit: Luke 13 opened on Luke 1 (Anders, 14 Nov 2026). Null only while the chapter has no words painted.
+   */
+  const landingNode = (place: ContinuousReaderAnchor): HTMLElement | null => {
+    const exact = wordNode(live, place)
+    if (exact) return exact
+    const words = blockNode(live)?.querySelectorAll<HTMLElement>('[data-testid="lab-word"][data-paragraph-index][data-word-index]')
+    if (!words?.length) return null
+    let before: HTMLElement | null = null
+    for (const word of words) {
+      const paragraph = Number(word.dataset.paragraphIndex), index = Number(word.dataset.wordIndex)
+      if (paragraph > place.paragraphIndex || (paragraph === place.paragraphIndex && index > place.wordIndex)) break
+      before = word
+    }
+    return before ?? words[0]
+  }
+
   /** Remember what is on the reading line, so it can be kept there when the text around it changes size. */
   const captureHold = () => {
     const host = hostRef.current
@@ -434,7 +454,7 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     }
     if (landedKey.current !== destinationKey) {
       restoring.current = true
-      const target = wordNode(live, anchor)
+      const target = landingNode(anchor)
       if (!target) return
       const top = target.getBoundingClientRect().top - host.getBoundingClientRect().top
       // Narration that reads on into a chapter already on screen leaves the page alone: the
@@ -697,6 +717,9 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
   const adopt = (chapter: number, where: 'start' | 'end' = 'start') => {
     const host = hostRef.current
     if (!host || chapter === liveRef.current) return chapter === liveRef.current
+    // Not before the reader's place has landed: until then the page shows where it happens to be (the top of the
+    // unit), and the chapter there is not one the reader chose. Taking it wrote its first words as the saved place.
+    if (restoring.current) return false
     const words = wordsOf(chapter)
     if (!words.length) return false
     const seen = words.viewport(host.scrollTop, host.clientHeight).first
