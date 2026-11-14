@@ -190,6 +190,22 @@ it('paints the generated hyphen of a highlighted page-edge fragment or planned b
   document.body.innerHTML = ''
 })
 
+it('paints the dictionary hyphen of a highlighted word split across two lines, not of one the range only enters', () => {
+  // Anders (14 Nov 2026, iPhone, Luke 15:7): the band stopped before the "-" of "re-|pentance".
+  document.body.innerHTML = '<p class="lab-hearing-line"><span id="a" class="lab-hearing-word">no</span> <span id="w" class="lab-hearing-word">repentance.</span> <span id="x" class="lab-hearing-word">ninety-nine</span></p>'
+  const box = (left: number, right: number, top: number) => ({ left, right, top, bottom: top + 30, width: right - left, height: 30, x: left, y: top, toJSON: () => ({}) }) as DOMRect
+  const split = [box(300, 340, 0), box(0, 100, 40)]
+  ;(document.getElementById('w') as HTMLElement).getClientRects = () => split as unknown as DOMRectList
+  ;(document.getElementById('x') as HTMLElement).getClientRects = () => [box(110, 200, 40), box(0, 50, 80)] as unknown as DOMRectList
+  ;(document.getElementById('a') as HTMLElement).getClientRects = () => [box(250, 290, 0)] as unknown as DOMRectList
+  const line = document.querySelector('.lab-hearing-line')!
+  const range = document.createRange()
+  range.setStart(document.getElementById('a')!.firstChild!, 0)
+  range.setEnd(document.getElementById('x')!.firstChild!, 3)
+  expect(generatedHyphenRects(line, range)).toEqual(split)
+  document.body.innerHTML = ''
+})
+
 it('reveals a committed mark color after applying it, while a fresh drag still previews warm', () => {
   const registry = new Map<string, { ranges: Range[] }>()
   vi.stubGlobal('CSS', { highlights: registry })

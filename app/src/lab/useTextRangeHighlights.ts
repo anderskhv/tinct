@@ -262,7 +262,23 @@ export function generatedHyphenRects(line: Element, range: Range): DOMRect[] {
     try { if (!range.intersectsNode(el)) continue } catch { continue }
     rects.push(...el.getClientRects())
   }
+  // The phone's dictionary hyphenation (hyphens: auto) inserts its hyphen too: a word split across two lines
+  // ("re-|pentance", Anders, 14 Nov 2026) left the band short of the "-". The word's own box on each line includes
+  // it. Only a word the range covers whole, so a highlight never reaches past its last word.
+  for (const el of line.querySelectorAll('.lab-hearing-word')) {
+    const boxes = el.getClientRects()
+    if (boxes.length < 2 || !coversWhole(range, el)) continue
+    rects.push(...boxes)
+  }
   return rects
+}
+
+function coversWhole(range: Range, el: Element): boolean {
+  try {
+    const word = el.ownerDocument.createRange()
+    word.selectNodeContents(el)
+    return range.compareBoundaryPoints(Range.START_TO_START, word) <= 0 && range.compareBoundaryPoints(Range.END_TO_END, word) >= 0
+  } catch { return false }
 }
 
 function paintRanges(mounted: Mounted): void {

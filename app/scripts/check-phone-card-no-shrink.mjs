@@ -144,7 +144,7 @@ async function run(engineName) {
   const drops2 = tops2.filter((top, i) => i > 0 && top > tops2[i - 1] + 0.5)
   const final2 = second.samples[second.samples.length - 1]
   // The device's measured share plus PHONE_CARD_CALIBRATION_PAD (phoneCardHeight.ts).
-  const wanted = Math.round(844 * ((calibrated?.['simplify:any']?.share ?? 0) + 0.035))
+  const wanted = Math.round(844 * ((calibrated?.['simplify:any']?.share ?? 0) + 0.08))
   ok(`${tag}: second Simplify opens at the calibrated ${second.opened.height}px (measured ${Math.round(844 * (calibrated?.['simplify:any']?.share ?? 0))}px + a line; first ${first.opened.height}px) and never moves down`, second.opened.height < first.opened.height && Math.abs(second.opened.height - wanted) <= 2 && drops2.length === 0, { opened: second.opened, wanted, tops2 })
   ok(`${tag}: the calibrated card leaves little blank space (${final2?.height}px tall when answered)`, final2 && final2.height <= second.opened.height + 1, final2)
   await tapOutside(page)

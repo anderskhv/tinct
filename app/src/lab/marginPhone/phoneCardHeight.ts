@@ -27,19 +27,21 @@ import { storage } from '../../services/storage'
  * as does any card with nothing on its way (a saved card, Chat before a question): only an answer on its way holds it.
  * These are only the first guess: the device's own answers replace them (PHONE_CARD_HEIGHTS_KEY).
  */
+// Raised 14 Nov 2026 (Anders: "open a bit bigger as default so scrolling isn't always required"), now that the card
+// keeps its opening height and no longer grows.
 const STANDARD_SHARE: Readonly<Record<string, number>> = {
-  define: 0.4,
-  explain: 0.55, simplify: 0.32, figure: 0.55, related: 0.55,
-  ask: 0.6, chat: 0.6, factcheck: 0.6, counterpoint: 0.6,
-  quiz: 0.55, 'unit-quiz': 0.55, 'unit-quiz-preparing': 0.55,
+  define: 0.45,
+  explain: 0.62, simplify: 0.42, figure: 0.62, related: 0.62,
+  ask: 0.66, chat: 0.66, factcheck: 0.66, counterpoint: 0.66,
+  quiz: 0.6, 'unit-quiz': 0.6, 'unit-quiz-preparing': 0.6,
   primer: 0.7, recap: 0.7, summary: 0.7, catchup: 0.7, 'book-summary': 0.7,
   'chapter-notes-primer': 0.7, 'chapter-notes-end': 0.7, 'chapter-notes-sofar': 0.7,
 }
 const CHAPTER_KINDS = ['primer', 'recap', 'summary', 'catchup', 'book-summary', 'chapter-notes-primer', 'chapter-notes-end', 'chapter-notes-sofar']
 export const PHONE_CARD_EXPECTED_SHARE: Readonly<Record<AiLength, Readonly<Record<string, number>>>> = {
-  brief: { ...STANDARD_SHARE, explain: 0.3, ask: 0.36, chat: 0.36, ...Object.fromEntries(CHAPTER_KINDS.map(kind => [kind, 0.5])) },
+  brief: { ...STANDARD_SHARE, explain: 0.38, ask: 0.44, chat: 0.44, ...Object.fromEntries(CHAPTER_KINDS.map(kind => [kind, 0.56])) },
   standard: STANDARD_SHARE,
-  detailed: { ...STANDARD_SHARE, explain: 0.65, ask: 0.7, chat: 0.7 },
+  detailed: { ...STANDARD_SHARE, explain: 0.7, ask: 0.7, chat: 0.7 },
 }
 
 /** The Length row in AI settings that sets how long a card's answer is (aiSettings.ts), or null for a kind without one. */
@@ -75,10 +77,10 @@ export interface PhoneCardHeightEntry { share: number; n: number }
 export type PhoneCardHeights = Record<string, PhoneCardHeightEntry>
 /** Each new answer counts this much once a few have been seen (the first ones are averaged evenly). */
 export const PHONE_CARD_CALIBRATION_WEIGHT = 0.35
-/** Room left above the average, so an answer a line longer than usual still fits without growing the card. */
-export const PHONE_CARD_CALIBRATION_PAD = 0.035
+/** Room left above the average (about three lines), so an answer longer than usual still fits without scrolling. */
+export const PHONE_CARD_CALIBRATION_PAD = 0.08
 /** No card opens lower than this share: the label, two lines and the follow-up field. */
-export const PHONE_CARD_MIN_SHARE = 0.2
+export const PHONE_CARD_MIN_SHARE = 0.25
 export const PHONE_CARD_MAX_SHARE = 0.7
 /** At most this many kind/length entries are kept. */
 const PHONE_CARD_HEIGHTS_MAX = 64

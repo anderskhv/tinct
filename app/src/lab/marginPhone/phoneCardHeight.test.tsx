@@ -16,18 +16,18 @@ afterEach(() => { cleanup(); localStorage.clear() })
 
 describe('the expected height table (Anders, 9 Nov 2026)', () => {
   it('opens Define small, Explain and Ask mid, the chapter cards tall, never past the card\'s 70% cap', () => {
-    expect(phoneCardExpectedShare('define')).toBe(0.4)
-    expect(phoneCardExpectedShare('explain')).toBe(0.55)
-    expect(phoneCardExpectedShare('ask')).toBe(0.6)
-    expect(phoneCardExpectedShare('counterpoint')).toBe(0.6)
-    expect(phoneCardExpectedShare('factcheck')).toBe(0.6)
-    expect(phoneCardExpectedShare('quiz')).toBe(0.55)
+    expect(phoneCardExpectedShare('define')).toBe(0.45)
+    expect(phoneCardExpectedShare('explain')).toBe(0.62)
+    expect(phoneCardExpectedShare('ask')).toBe(0.66)
+    expect(phoneCardExpectedShare('counterpoint')).toBe(0.66)
+    expect(phoneCardExpectedShare('factcheck')).toBe(0.66)
+    expect(phoneCardExpectedShare('quiz')).toBe(0.6)
     for (const kind of ['chapter-notes-primer', 'chapter-notes-end', 'chapter-notes-sofar']) expect(phoneCardExpectedShare(kind)).toBe(0.7)
     for (const share of Object.values(PHONE_CARD_EXPECTED_SHARE.standard)) expect(share).toBeLessThanOrEqual(0.7)
-    expect(phoneCardExpectedHeight('explain', 844)).toBe(464)
+    expect(phoneCardExpectedHeight('explain', 844)).toBe(523)
   })
   it('holds Chat (Ask on the phone) like Ask; leaves Talk, notes and characters sized by their content', () => {
-    expect(phoneCardExpectedShare('chat')).toBe(0.6)
+    expect(phoneCardExpectedShare('chat')).toBe(0.66)
     for (const kind of ['talk', 'note', 'chapter-note', 'character', 'ask-compose']) expect(phoneCardExpectedShare(kind)).toBeNull()
     expect(phoneCardExpectedHeight('explain', 0)).toBeNull()
   })
@@ -81,9 +81,9 @@ describe('the opening height follows the length setting and calibrates from this
     expect(phoneCardLength('simplify')).toBeNull()
   })
   it('opens Brief small (about three lines), Detailed taller, Simplify small at every length', () => {
-    expect(phoneCardExpectedShare('explain', 'brief')).toBe(0.3)
-    expect(phoneCardExpectedShare('explain', 'detailed')).toBe(0.65)
-    expect(phoneCardExpectedShare('simplify', null)).toBe(0.32)
+    expect(phoneCardExpectedShare('explain', 'brief')).toBe(0.38)
+    expect(phoneCardExpectedShare('explain', 'detailed')).toBe(0.7)
+    expect(phoneCardExpectedShare('simplify', null)).toBe(0.42)
     for (const length of ['brief', 'standard', 'detailed'] as const) {
       for (const share of Object.values(PHONE_CARD_EXPECTED_SHARE[length])) expect(share).toBeLessThanOrEqual(0.7)
       expect(phoneCardExpectedShare('explain', length)! >= phoneCardExpectedShare('explain', 'brief')!).toBe(true)
@@ -105,12 +105,12 @@ describe('the opening height follows the length setting and calibrates from this
     expect(phoneCardHeightKey('simplify', null)).toBe('simplify:any')
   })
   it('opens at the learnt share plus a line, within the card\'s bounds; the table until something is learnt', () => {
-    expect(phoneCardOpeningShare('simplify', null, {})).toBe(0.32)
+    expect(phoneCardOpeningShare('simplify', null, {})).toBe(0.42)
     expect(phoneCardOpeningShare('simplify', null, { 'simplify:any': { share: 0.24, n: 1 } })).toBeCloseTo(0.24 + PHONE_CARD_CALIBRATION_PAD)
-    expect(phoneCardOpeningShare('simplify', null, { 'simplify:any': { share: 0.05, n: 1 } })).toBe(0.2)
-    expect(phoneCardOpeningShare('explain', 'brief', { 'explain:standard': { share: 0.6, n: 3 } })).toBe(0.3)
+    expect(phoneCardOpeningShare('simplify', null, { 'simplify:any': { share: 0.05, n: 1 } })).toBe(0.25)
+    expect(phoneCardOpeningShare('explain', 'brief', { 'explain:standard': { share: 0.6, n: 3 } })).toBe(0.38)
     expect(phoneCardOpeningShare('note', null, { 'note:any': { share: 0.3, n: 1 } })).toBeNull()
-    expect(phoneCardExpectedHeight('simplify', 844, null, { 'simplify:any': { share: 0.24, n: 1 } })).toBe(232)
+    expect(phoneCardExpectedHeight('simplify', 844, null, { 'simplify:any': { share: 0.24, n: 1 } })).toBe(270)
     localStorage.setItem(`tinct:${PHONE_CARD_HEIGHTS_KEY}`, '{"a:any":{"share":"x","n":1},"b:any":{"share":0.3,"n":0},"c:any":{"share":0.3,"n":2}}')
     expect(readPhoneCardHeights()).toEqual({ 'c:any': { share: 0.3, n: 2 } })
   })
@@ -123,10 +123,10 @@ describe('the card holds its height in the page', () => {
     const view = (busy: boolean) => <div className="lab"><LabPhoneCard label="Explain" kind="explain" onClose={() => {}}><div aria-busy={busy}><p>Text</p></div></LabPhoneCard></div>
     const { rerender } = render(view(true))
     const card = screen.getByTestId('lab-phone-card')
-    expect(card.style.height).toBe(`${Math.round(window.innerHeight * 0.55)}px`)
+    expect(card.style.height).toBe(`${Math.round(window.innerHeight * 0.62)}px`)
     expect(card.hasAttribute('data-held')).toBe(true)
     act(() => { rerender(view(false)) })
-    expect(card.style.height).toBe(`${Math.round(window.innerHeight * 0.55)}px`)
+    expect(card.style.height).toBe(`${Math.round(window.innerHeight * 0.62)}px`)
     expect(card.hasAttribute('data-held')).toBe(true)
   })
   it('remembers the first answer\'s height, and the next card of that kind opens at it', () => {
@@ -137,7 +137,7 @@ describe('the card holds its height in the page', () => {
       const view = (busy: boolean, key: string) => <div className="lab"><LabPhoneCard key={key} label="Simplify" kind="simplify" onClose={() => {}}><div aria-busy={busy}><p>Text</p></div></LabPhoneCard></div>
       const { rerender } = render(view(true, 'a'))
       const first = screen.getByTestId('lab-phone-card')
-      const opened = Math.round(window.innerHeight * 0.32)
+      const opened = Math.round(window.innerHeight * 0.42)
       expect(first.style.height).toBe(`${opened}px`)
       act(() => { rerender(view(false, 'a')) })
       expect(first.style.height).toBe(`${opened}px`)
@@ -154,9 +154,9 @@ describe('the card holds its height in the page', () => {
   })
   it('a busy prop holds a PDF card; a saved card opens at its kind\'s height too, so a follow-up never raises it (14 Nov 2026)', () => {
     render(<div className="lab"><LabPhoneCard label="Ask" kind="ask" busy onClose={() => {}} testId="pdf"><p>x</p></LabPhoneCard></div>)
-    expect(screen.getByTestId('pdf').style.height).toBe(`${Math.round(window.innerHeight * 0.6)}px`)
+    expect(screen.getByTestId('pdf').style.height).toBe(`${Math.round(window.innerHeight * 0.66)}px`)
     const { rerender } = render(<div className="lab"><LabPhoneCard label="Explain" kind="explain" onClose={() => {}} testId="saved"><div className="lab-pcard-answer">A saved answer.</div></LabPhoneCard></div>)
-    const opened = `${Math.round(window.innerHeight * 0.55)}px`
+    const opened = `${Math.round(window.innerHeight * 0.62)}px`
     expect(screen.getByTestId('saved').style.height).toBe(opened)
     rerender(<div className="lab"><LabPhoneCard label="Explain" kind="explain" onClose={() => {}} testId="saved"><div className="lab-pcard-answer">A saved answer.</div><div aria-busy="true" /></LabPhoneCard></div>)
     expect(screen.getByTestId('saved').style.height).toBe(opened)
