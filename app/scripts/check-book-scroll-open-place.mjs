@@ -8,6 +8,8 @@
 // Cases: the Bible with no chapter in the address (signed out, and signed in), a saved word past its paragraph's end
 // (another edition's or text revision's word), the place arriving from the account after first paint, Frankenstein at
 // Chapter 7, and an own EPUB at section 7.
+// Every address carries ?sharedReader=1: CI's build (plain `npm run build`) leaves the Margin reader off by default, and
+// only a release build turns it on (VITE_SHARED_READER_DEFAULT=1), as check-book-scroll-speed.mjs opens it.
 // cd app && npm run build && node scripts/check-book-scroll-open-place.mjs   (TINCT_DIST=<dir> for another build)
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
@@ -172,22 +174,22 @@ function expectAt(name, chapter, { seen, after, puts, errors }, word) {
 
 try {
   // (a) The Bible with no chapter in the address: the resume book is Luke, at Luke 13 paragraph 1 word 14.
-  expectAt('bible-signed-out', 986, await run('bible-signed-out', { url: '/reader?book=bible', prefs: KJV, local: lukeRecord(luke(1, 14)) }), '1:14')
-  expectAt('bible-signed-in-1920', 986, await run('bible-signed-in-1920', { url: '/reader?book=bible', viewport: { width: 1920, height: 1080 }, signedIn: true, prefs: KJV, local: lukeRecord(luke(1, 14), { owner: USER }) }), '1:14')
+  expectAt('bible-signed-out', 986, await run('bible-signed-out', { url: '/reader?book=bible&sharedReader=1', prefs: KJV, local: lukeRecord(luke(1, 14)) }), '1:14')
+  expectAt('bible-signed-in-1920', 986, await run('bible-signed-in-1920', { url: '/reader?book=bible&sharedReader=1', viewport: { width: 1920, height: 1080 }, signedIn: true, prefs: KJV, local: lukeRecord(luke(1, 14), { owner: USER }) }), '1:14')
   // A saved word this text does not have (paragraph 1 of Luke 13 has 114 words in the KJV): before 14 Nov this left
   // the page at Luke 1, and a click there saved Luke 1.
-  expectAt('bible-word-past-paragraph', 986, await run('bible-word-past-paragraph', { url: '/reader?book=bible', prefs: KJV, local: lukeRecord(luke(1, 400)) }))
-  expectAt('bible-paragraph-past-chapter', 986, await run('bible-paragraph-past-chapter', { url: '/reader?book=bible', prefs: KJV, local: lukeRecord(luke(40, 3)) }))
+  expectAt('bible-word-past-paragraph', 986, await run('bible-word-past-paragraph', { url: '/reader?book=bible&sharedReader=1', prefs: KJV, local: lukeRecord(luke(1, 400)) }))
+  expectAt('bible-paragraph-past-chapter', 986, await run('bible-paragraph-past-chapter', { url: '/reader?book=bible&sharedReader=1', prefs: KJV, local: lukeRecord(luke(40, 3)) }))
   // The place arriving from the account after the reader's first paint (nothing on this device).
-  expectAt('bible-cloud-arrival', 986, await run('bible-cloud-arrival', { url: '/reader?book=bible', signedIn: true, prefs: KJV, cloud: { ...lukeRecord(luke(1, 14)), owner: USER, hidden: {}, deviceId: 'qa-phone' }, cloudDelay: 1500 }), '1:14')
+  expectAt('bible-cloud-arrival', 986, await run('bible-cloud-arrival', { url: '/reader?book=bible&sharedReader=1', signedIn: true, prefs: KJV, cloud: { ...lukeRecord(luke(1, 14)), owner: USER, hidden: {}, deviceId: 'qa-phone' }, cloudDelay: 1500 }), '1:14')
   // (d) Frankenstein at Chapter 7 (the book's eleventh chapter), the whole book one scroll unit.
   const frank = (paragraphIndex, wordIndex) => ({ books: { frankenstein: { bookId: 'frankenstein', headerBook: 'Frankenstein', chapterNumber: 11, sequentialChapter: 11, paragraphIndex, wordIndex, primaryEditionKey: 'original-en', updatedAt: lukeAt, deviceId: 'qa', rev: 1 } }, finished: {}, lastSettledBookId: 'frankenstein', lastSettledAt: lukeAt, updatedAt: lukeAt })
   const frankPrefs = { primaryEdition: 'original-en', audioEdition: 'original-en' }
-  expectAt('frankenstein', 11, await run('frankenstein', { url: '/reader?book=frankenstein', prefs: frankPrefs, local: frank(20, 5) }), '20:5')
-  expectAt('frankenstein-word-past-paragraph', 11, await run('frankenstein-word-past-paragraph', { url: '/reader?book=frankenstein', prefs: frankPrefs, local: frank(20, 5000) }))
+  expectAt('frankenstein', 11, await run('frankenstein', { url: '/reader?book=frankenstein&sharedReader=1', prefs: frankPrefs, local: frank(20, 5) }), '20:5')
+  expectAt('frankenstein-word-past-paragraph', 11, await run('frankenstein-word-past-paragraph', { url: '/reader?book=frankenstein&sharedReader=1', prefs: frankPrefs, local: frank(20, 5000) }))
   // (d) An own EPUB saved at section 7 (an admin: own books scroll whole for admins), at a word and past its paragraph.
   for (const [label, place] of [['own-epub', { chapterNumber: 7, paragraphIndex: 4, wordIndex: 3 }], ['own-epub-word-past-paragraph', { chapterNumber: 7, paragraphIndex: 4, wordIndex: 900 }]]) {
-    const outcome = await run(label, { url: `/reader?userBook=${epubHex}`, signedIn: true, admin: true, ownBook: { hex: epubHex, place: { ...place, updatedAt: Date.now(), converter: 12 } } })
+    const outcome = await run(label, { url: `/reader?userBook=${epubHex}&sharedReader=1`, signedIn: true, admin: true, ownBook: { hex: epubHex, place: { ...place, updatedAt: Date.now(), converter: 12 } } })
     ok(`${label}: the own EPUB opens in book scroll`, outcome.seen.length > 0, { looks: outcome.seen.length })
     expectAt(label, 7, outcome, place.wordIndex < 90 ? `${place.paragraphIndex}:${place.wordIndex}` : undefined)
   }
