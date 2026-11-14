@@ -1,5 +1,5 @@
 import { supabase } from '../services/supabase'
-import { coerceRev, versionedWriteApplied, type VersionedStorageRow } from '../services/supabaseStorage.versioning'
+import { createShardedUserData, supabaseUserDataTransport, type ShardCodec } from './userDataShards'
 import { highlightWrittenAt } from './labHighlightContentMigration'
 import { readLabHighlights, validNoteCardPlace, writeLabHighlights, type LabHighlight } from './labHighlights'
 import { isUserBookId } from './userBook/userBookId'
@@ -8,10 +8,12 @@ import { isUserBookId } from './userBook/userBookId'
  * Highlights and notes across a signed-in reader's devices.
  *
  * The device copy stays where it always was (`tinct-lab-highlights`, one list
- * for every book). Signed in, each book also has one cloud row in `user_data`,
- * key `lab-highlights:{bookId}`, written through the versioned
+ * for every book). Signed in, each book is also kept in `user_data`, one row
+ * per chapter, key `lab-highlights:{bookId}:{chapter}` (since 14 Nov 2026,
+ * userDataShards.ts; the old whole-book row `lab-highlights:{bookId}` is still
+ * read and merged, never written), each through the versioned
  * `commit_user_data` RPC with an expected rev (invariant 9). Marks saved
- * before the reader recorded their book live in `lab-highlights:_unassigned`.
+ * before the reader recorded their book live under `lab-highlights:_unassigned`.
  *
  * The `lab-` prefix keeps these rows apart from the retired classic reader's
  * `highlights:{bookId}:{chapter}` rows, which hold a different shape.
@@ -254,38 +256,65 @@ export interface LabHighlightCloud {
 
 type SupabaseLike = NonNullable<typeof supabase>
 
-function rowFromVersioned(row: VersionedStorageRow | null | undefined, bucket: string): LabHighlightCloudRow | null {
-  if (!row) return null
-  return { set: parseLabHighlightRow(row.value, bucket), rev: coerceRev(row.rev) ?? 0 }
+/** Shard of a tombstone that names no chapter and whose mark this page has never seen in a stored copy. */
+export const LAB_HIGHLIGHT_LOOSE_SHARD = 'deleted'
+
+/**
+ * The account copy is one row per chapter, `lab-highlights:{bookId}:{chapter}` (userDataShards.ts), each the
+ * same `{ v: 1, highlights, deleted }` shape as the old whole-book row, which is still read and merged but no
+ * longer written. A tombstone carries no chapter: it goes to the shard that already holds that id, else the
+ * chapter of the deleted mark in any stored copy, else the `deleted` shard. A tombstone deletes the mark
+ * wherever it is, because a read merges every shard.
+ */
+export const labHighlightShardCodec: ShardCodec<LabHighlightSet> = {
+  parse: (raw, bucket) => parseLabHighlightRow(raw, bucket),
+  merge: sets => mergeLabHighlightSets(...sets),
+  split(set, _bucket, context) {
+    const parts = new Map<string, LabHighlightSet>()
+    const part = (shard: string) => {
+      let found = parts.get(shard)
+      if (!found) parts.set(shard, found = { highlights: [], deleted: [] })
+      return found
+    }
+    for (const highlight of set.highlights) part(String(highlight.chapterNumber)).highlights.push(highlight)
+    let chapterOf: Map<string, number> | null = null
+    for (const tombstone of set.deleted) {
+      let shard = context.placedIn(tombstone.id)
+      if (!shard) {
+        if (!chapterOf) {
+          chapterOf = new Map()
+          for (const known of context.known) for (const highlight of known.highlights) if (!chapterOf.has(highlight.id)) chapterOf.set(highlight.id, highlight.chapterNumber)
+        }
+        const chapter = chapterOf.get(tombstone.id)
+        shard = chapter === undefined ? LAB_HIGHLIGHT_LOOSE_SHARD : String(chapter)
+      }
+      part(shard).deleted.push(tombstone)
+    }
+    return parts
+  },
+  signature: set => labHighlightSetSignature(set),
+  value: set => labHighlightRowValue(set),
 }
 
 export function createLabHighlightCloud(userId: string, client: SupabaseLike | null = supabase): LabHighlightCloud | null {
   if (!client || !userId) return null
+  const shards = createShardedUserData({
+    codec: labHighlightShardCodec,
+    transport: supabaseUserDataTransport(userId, client as never),
+    baseKey: labHighlightsKey,
+    ids: set => [...set.highlights.map(highlight => highlight.id), ...set.deleted.map(tombstone => tombstone.id)],
+  })
   return {
-    async read(bucket) {
-      const { data, error } = await client
-        .from('user_data')
-        .select('key, value, rev')
-        .eq('user_id', userId)
-        .eq('key', labHighlightsKey(bucket))
-        .maybeSingle()
-      if (error) throw new Error(error.message)
-      return data ? rowFromVersioned(data as VersionedStorageRow, bucket) : null
-    },
-    async commit(bucket, set, expectedRev) {
-      const { data, error } = await client.rpc('commit_user_data', {
-        p_user_id: userId,
-        p_key: labHighlightsKey(bucket),
-        p_value: labHighlightRowValue(set),
-        p_expected_rev: expectedRev ?? null,
-      })
-      if (error) throw new Error(error.message)
-      const row = (Array.isArray(data) ? data[0] : data) as VersionedStorageRow | undefined
-      const applied = versionedWriteApplied(row)
-      return { applied, conflict: !applied && row?.conflict === true, row: rowFromVersioned(row, bucket) }
+    read: bucket => shards.read(bucket),
+    async commit(bucket, set) {
+      const result = await shards.commit(bucket, set)
+      return { applied: result.applied, conflict: result.conflict, row: result.row }
     },
   }
 }
+
+/** Debounce of the reader's highlight and note writes to the account (Disk IO, 14 Nov 2026). */
+export const LAB_HIGHLIGHT_COMMIT_DEBOUNCE_MS = 2_500
 
 /**
  * Serialized cloud sync for highlight rows, one operation in flight per book.
@@ -300,11 +329,21 @@ export function createLabHighlightCloud(userId: string, client: SupabaseLike | n
  * the reader's in-memory list can fold it in. Failures leave the device copy
  * as it is; the next sync (open, reconnect, focus) carries it up.
  */
-export function createLabHighlightCloudWriter(cloud: LabHighlightCloud, options: { onMerged?: (bucket: string, set: LabHighlightSet) => void } = {}) {
+export function createLabHighlightCloudWriter(cloud: LabHighlightCloud, options: {
+  onMerged?: (bucket: string, set: LabHighlightSet) => void
+  /**
+   * Wait this long after a change before it goes to the account, so a burst of edits (a note typed, a colour
+   * tried twice) shares one commit. `flush()` sends what is waiting at once (hide, pagehide, sign-out), and
+   * `dispose()` sends it too. 0 (the default): every push goes at once.
+   */
+  debounceMs?: number
+} = {}) {
+  const debounceMs = options.debounceMs ?? 0
   const revs = new Map<string, number>()
   /** Signature of what the cloud row is known to hold. */
   const known = new Map<string, string>()
   const queued = new Map<string, LabHighlightSet>()
+  const timers = new Map<string, ReturnType<typeof setTimeout>>()
   const chains = new Map<string, Promise<unknown>>()
   let dirty = false
   let disposed = false
@@ -337,6 +376,9 @@ export function createLabHighlightCloudWriter(cloud: LabHighlightCloud, options:
           return local
         }
         if (!row && local.highlights.length === 0 && local.deleted.length === 0) {
+          // Read and found empty: a later change inserts (expected rev 0) without reading again.
+          revs.set(bucket, 0)
+          known.set(bucket, labHighlightSetSignature(EMPTY))
           merged(bucket, local)
           return local
         }
@@ -360,12 +402,15 @@ export function createLabHighlightCloudWriter(cloud: LabHighlightCloud, options:
     }
   }
 
-  const flush = async (bucket: string): Promise<void> => {
-    const value = queued.get(bucket)
-    queued.delete(bucket)
-    if (!value || disposed) return
+  /**
+   * Send one book's waiting value. `force`: the writer was disposed after this value was released (unmount): it
+   * still goes to the account, but nothing touches the device copy or the reader any more, so a sign-out's wipe
+   * is never undone. Without a known rev it is left on the device for the next sync.
+   */
+  const send = async (bucket: string, value: LabHighlightSet | undefined, force = false): Promise<void> => {
+    if (!value || (disposed && !force)) return
     if (known.get(bucket) === labHighlightSetSignature(value)) return
-    if (!revs.has(bucket)) { await syncNow(bucket); return }
+    if (!revs.has(bucket)) { if (!disposed) await syncNow(bucket); return }
     try {
       const result = await cloud.commit(bucket, value, revs.get(bucket) ?? null)
       if (result.applied) {
@@ -374,7 +419,8 @@ export function createLabHighlightCloudWriter(cloud: LabHighlightCloud, options:
         return
       }
       if (result.conflict && result.row) {
-        const next = writeLocalLabHighlightSet(bucket, mergeLabHighlightSets(result.row.set, value))
+        const both = mergeLabHighlightSets(result.row.set, value)
+        const next = disposed ? both : writeLocalLabHighlightSet(bucket, both)
         merged(bucket, next)
         if (sameLabHighlightSet(result.row.set, next)) { settled(bucket, result.row); dirty = false; return }
         const retry = await cloud.commit(bucket, next, result.row.rev)
@@ -385,6 +431,23 @@ export function createLabHighlightCloudWriter(cloud: LabHighlightCloud, options:
       dirty = true
     }
   }
+  const flush = (bucket: string) => {
+    const value = queued.get(bucket)
+    queued.delete(bucket)
+    return send(bucket, value)
+  }
+
+  /** Start every push waiting for its debounce now; resolves when every book's queue has settled. */
+  const release = (force = false): Promise<void> => {
+    for (const bucket of [...timers.keys()]) {
+      clearTimeout(timers.get(bucket))
+      timers.delete(bucket)
+      const value = queued.get(bucket)
+      queued.delete(bucket)
+      void serial(bucket, () => send(bucket, value, force))
+    }
+    return Promise.all([...chains.values()]).then(() => undefined)
+  }
 
   return {
     push(bucket: string, set: LabHighlightSet) {
@@ -393,13 +456,32 @@ export function createLabHighlightCloudWriter(cloud: LabHighlightCloud, options:
       if (disposed || known.get(bucket) === labHighlightSetSignature(set)) return
       const waiting = queued.has(bucket)
       queued.set(bucket, set)
+      if (debounceMs > 0) {
+        if (!timers.has(bucket)) {
+          timers.set(bucket, setTimeout(() => {
+            timers.delete(bucket)
+            void serial(bucket, () => flush(bucket))
+          }, debounceMs))
+        }
+        return
+      }
       if (!waiting) void serial(bucket, () => flush(bucket))
     },
     sync(bucket: string) {
       if (isUserBookId(bucket)) return Promise.resolve(readLocalLabHighlightSet(bucket))
       return serial(bucket, () => syncNow(bucket))
     },
-    dispose() { disposed = true; queued.clear() },
+    /** Send what is waiting for its debounce now (hide, pagehide, before sign-out); resolves once sent or failed. */
+    flush: () => release(),
+    /** Pushes waiting for their debounce (tests and diagnostics). */
+    pending: () => [...timers.keys()],
+    /** Stop (sign-out, account change, unmount). A change still waiting for its debounce is sent first. */
+    dispose() {
+      if (disposed) return
+      void release(true)
+      disposed = true
+      queued.clear()
+    },
     isDirty: () => dirty,
     revs,
   }

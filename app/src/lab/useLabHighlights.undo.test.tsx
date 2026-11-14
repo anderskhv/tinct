@@ -2,45 +2,30 @@
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
-type Row = { key: string; value: unknown; rev: number }
-const db = vi.hoisted(() => ({ rows: new Map<string, Row>(), calls: [] as string[] }))
-
-vi.mock('../services/supabase', () => {
-  const client = {
-    from: () => {
-      let key = ''
-      const query = {
-        select: () => query,
-        eq: (column: string, value: string) => { if (column === 'key') key = value; return query },
-        maybeSingle: async () => { db.calls.push(`read:${key}`); return { data: db.rows.get(key) ?? null, error: null } },
-      }
-      return query
-    },
-    rpc: async (_name: string, args: { p_key: string; p_value: unknown; p_expected_rev: number | null }) => {
-      db.calls.push(`commit:${args.p_key}`)
-      const current = db.rows.get(args.p_key)
-      if (current ? args.p_expected_rev !== null && args.p_expected_rev !== current.rev : args.p_expected_rev) {
-        return { data: [{ ...(current ?? { key: args.p_key, value: null, rev: null }), applied: false, conflict: true }], error: null }
-      }
-      const row = { key: args.p_key, value: args.p_value, rev: (current?.rev ?? 0) + 1 }
-      db.rows.set(args.p_key, row)
-      return { data: [{ ...row, applied: true, conflict: false }], error: null }
-    },
-  }
-  return { supabase: client }
-})
+// The account: a fake `user_data` table with the server's commit rules (fakeUserDataTable.test-helpers.ts).
+// Highlights are one row per chapter since 14 Nov 2026 (userDataShards.ts); `rowIds` reads a book as the reader
+// does, every row of it merged, and `db.calls` names a read by its book.
+vi.mock('../services/supabase', async () => ({ supabase: (await import('./fakeUserDataTable.test-helpers')).fakeUserDataTable.client }))
 
 import { StrictMode } from 'react'
 import { useLabHighlights } from './useLabHighlights'
 import { readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
+import { mergeLabHighlightSets, parseLabHighlightRow } from './labHighlightSync'
+import { fakeUserDataTable as table } from './fakeUserDataTable.test-helpers'
 
 const T = 1_780_000_000_000
 const mark = (id: string, bookId: string | undefined, extra: Partial<LabHighlight> = {}): LabHighlight => ({
   id, ...(bookId ? { bookId } : {}), editionKey: 'original-en', chapterNumber: 1, paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 3, color: 'gold', ...extra,
 })
-const rowIds = (key: string) => ((db.rows.get(key)?.value as { highlights: LabHighlight[] } | undefined)?.highlights ?? []).map(h => h.id)
+const bookSet = (base: string) => mergeLabHighlightSets(...table.keysOf(base).map(key => parseLabHighlightRow(table.value(key), base.slice('lab-highlights:'.length))))
+const rowIds = (base: string) => bookSet(base).highlights.map(h => h.id)
+const db = {
+  get calls() { return table.calls.map(call => call.kind === 'commit' ? `commit:${call.target}` : `read:${/or=\(key\.eq\.([^,]+),/.exec(call.target)?.[1] ?? call.target}`) },
+}
+/** The page is hidden: what waits for the debounce goes now. */
+const hide = () => act(() => { window.dispatchEvent(new Event('pagehide')) })
 
-beforeEach(() => { db.rows.clear(); db.calls.length = 0 })
+beforeEach(() => { table.clear() })
 afterEach(() => { cleanup(); localStorage.clear() })
 
 const range = (fromWord = 0, toWord = 2) => ({ paragraphIndex: 0, endParagraphIndex: 0, fromWord, toWord, text: 'two words' })
@@ -51,10 +36,12 @@ it('undoes a new highlight: it leaves the device and the account', async () => {
   await waitFor(() => expect(db.calls).toContain('read:lab-highlights:emma'))
   let id = ''
   act(() => { id = result.current.addOrReuse(range(), 'sage').id })
+  hide()
   await waitFor(() => expect(rowIds('lab-highlights:emma')).toEqual([id]))
   let undone: ReturnType<typeof result.current.undo> = null
   act(() => { undone = result.current.undo() })
   expect(undone).toEqual({ kind: 'create', ids: [id] })
+  hide()
   await waitFor(() => expect(rowIds('lab-highlights:emma')).toEqual([]))
   expect(readLabHighlights()).toEqual([])
   act(() => { undone = result.current.undo() })
@@ -66,10 +53,12 @@ it('undoes a deletion so the mark survives the next sync and a reload, once', as
   const first = signedIn()
   await waitFor(() => expect(rowIds('lab-highlights:emma')).toEqual([`hl-${T}-a`]))
   act(() => { first.result.current.remove(`hl-${T}-a`) })
+  hide()
   await waitFor(() => expect(rowIds('lab-highlights:emma')).toEqual([]))
   act(() => { first.result.current.undo() })
+  hide()
   await waitFor(() => expect(rowIds('lab-highlights:emma')).toHaveLength(1))
-  const [restored] = (db.rows.get('lab-highlights:emma')!.value as { highlights: LabHighlight[] }).highlights
+  const [restored] = bookSet('lab-highlights:emma').highlights
   // The old id keeps its tombstone (other devices may hold it); the mark is back under a new id from the same moment.
   expect(restored.id).not.toBe(`hl-${T}-a`)
   expect(restored.id.startsWith(`hl-${T}-`)).toBe(true)

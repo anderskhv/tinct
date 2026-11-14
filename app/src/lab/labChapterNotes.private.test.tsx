@@ -7,43 +7,22 @@
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-type Row = { key: string; value: unknown; rev: number }
-const db = vi.hoisted(() => ({ rows: new Map<string, Row>(), calls: [] as Array<{ key: string; expectedRev: number | null }> }))
-vi.mock('../services/supabase', () => {
-  const client = {
-    from: () => {
-      let key = ''
-      const query = {
-        select: () => query,
-        eq: (column: string, value: string) => { if (column === 'key') key = value; return query },
-        maybeSingle: async () => ({ data: db.rows.get(key) ?? null, error: null }),
-      }
-      return query
-    },
-    rpc: async (name: string, args: { p_key: string; p_value: unknown; p_expected_rev: number | null }) => {
-      if (name !== 'commit_user_data') throw new Error('unexpected rpc ' + name)
-      db.calls.push({ key: args.p_key, expectedRev: args.p_expected_rev })
-      const current = db.rows.get(args.p_key)
-      if (current ? args.p_expected_rev !== null && args.p_expected_rev !== current.rev : args.p_expected_rev) {
-        return { data: [{ ...(current ?? { key: args.p_key, value: null, rev: null }), applied: false, conflict: true }], error: null }
-      }
-      const row = { key: args.p_key, value: args.p_value, rev: (current?.rev ?? 0) + 1 }
-      db.rows.set(args.p_key, row)
-      return { data: [{ ...row, applied: true, conflict: false }], error: null }
-    },
-  }
-  return { supabase: client }
-})
+// The account: a fake `user_data` table with the server's commit rules; highlights and notes are one row per
+// chapter since 14 Nov 2026 (userDataShards.ts), so `stored()` reads the book as the reader does.
+vi.mock('../services/supabase', async () => ({ supabase: (await import('./fakeUserDataTable.test-helpers')).fakeUserDataTable.client }))
 vi.mock('../data/editionLoader', () => ({ loadEditionChapterList: async () => [] }))
 vi.mock('./labSource', () => ({ loadLabBibleOutline: async () => null, loadLabChapterList: async () => [] }))
 
+import { fakeUserDataTable as table } from './fakeUserDataTable.test-helpers'
 import { useLabHighlights } from './useLabHighlights'
 import { createLabChapterNote, highlightAt, readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
 import { compareHighlightsInBookOrder, labNotesOnly, orderLabHighlights } from './labHighlightOrder'
-import { labHighlightRowValue, parseLabHighlightRow } from './labHighlightSync'
+import { labHighlightRowValue, mergeLabHighlightSets, parseLabHighlightRow } from './labHighlightSync'
 import { highlightNeedsMigration, highlightOffCurrentText } from './labHighlightContentMigration'
 import { personalHistoryEvidence } from './labPersonalHistory'
 import { recapHighlightPassages } from './labChapterChat'
+/** The page is hidden: highlight writes waiting for their debounce go now. */
+const hide = () => act(() => { window.dispatchEvent(new Event('pagehide')) })
 
 const T = 1_780_000_000_000
 const mark = (id: string, extra: Partial<LabHighlight> = {}): LabHighlight => ({
@@ -53,7 +32,7 @@ const chapterNote = (id: string, chapterNumber: number, note: string): LabHighli
   ...mark(id, { chapterNumber, toWord: 0 }), kind: 'chapter', note,
 })
 
-beforeEach(() => { db.rows.clear(); db.calls.length = 0; localStorage.clear() })
+beforeEach(() => { table.clear(); localStorage.clear() })
 afterEach(() => { cleanup(); localStorage.clear() })
 
 describe('Highlights & notes order', () => {
@@ -111,22 +90,27 @@ describe('Chapter note storage', () => {
   it('saves, edits and removes through the versioned lab-highlights row (commit_user_data with an expected rev)', async () => {
     writeLabHighlights([mark(`hl-${T}-passage`)])
     const { result } = renderHook(() => useLabHighlights(1, { bookId: 'emma', editionKey: 'original-en', paragraphs: ['one two three'], userId: 'user-1' }))
-    await waitFor(() => expect(db.rows.get('lab-highlights:emma')).toBeTruthy())
+    await waitFor(() => expect(table.keysOf('lab-highlights:emma').length).toBeGreaterThan(0))
     act(() => { result.current.setChapterNote(3, '  Knightley was right.  ') })
-    const stored = () => (db.rows.get('lab-highlights:emma')?.value as { highlights: LabHighlight[]; deleted: { id: string }[] })
+    hide()
+    const stored = () => mergeLabHighlightSets(...table.keysOf('lab-highlights:emma').map(key => parseLabHighlightRow(table.value(key), 'emma')))
     await waitFor(() => expect(stored().highlights.some(h => h.kind === 'chapter')).toBe(true))
     const saved = stored().highlights.find(h => h.kind === 'chapter')!
     expect(saved).toMatchObject({ kind: 'chapter', bookId: 'emma', editionKey: 'original-en', chapterNumber: 3, paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 0, note: 'Knightley was right.' })
     expect(typeof saved.updatedAt).toBe('number')
     // Every write after the first read carries the row's revision (invariant 9).
-    expect(db.calls.at(-1)?.expectedRev).toBe(db.rows.get('lab-highlights:emma')!.rev - 1)
+    const last = table.commits().at(-1)!
+    expect(last.target).toBe('lab-highlights:emma:3')
+    expect(last.expectedRev).toBe(table.rows.get(last.target)!.rev - 1)
     // Listed apart from the marks painted in the text.
     expect(result.current.chapterNotes.map(h => h.id)).toEqual([saved.id])
     expect(result.current.highlights.some(h => h.kind === 'chapter')).toBe(false)
     act(() => { result.current.setChapterNote(3, 'Knightley was right, again.') })
+    hide()
     await waitFor(() => expect(stored().highlights.find(h => h.id === saved.id)?.note).toBe('Knightley was right, again.'))
     expect(readLabHighlights().filter(h => h.kind === 'chapter')).toHaveLength(1)
     act(() => { result.current.setChapterNote(3, '') })
+    hide()
     await waitFor(() => expect(stored().deleted.map(t => t.id)).toContain(saved.id))
     expect(stored().highlights.map(h => h.id)).toEqual([`hl-${T}-passage`])
   })

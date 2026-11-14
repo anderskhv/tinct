@@ -5,7 +5,13 @@ on:
       - 'app/src/lab/useLabPositionSync*'
       - 'app/src/lab/labChatHistory*'
       - 'app/src/lab/useLabAsk*'
+      - 'app/src/lab/labHighlightSync*'
+      - 'app/src/lab/useLabHighlights*'
+      - 'app/src/lab/userDataShards*'
+      - 'app/src/services/leavingFetch*'
       - 'app/scripts/check-reader-device-sync.mjs'
+      - 'app/scripts/check-split-user-data-sync.mjs'
+      - 'app/scripts/lib/fakeUserData.mjs'
       - '.github/workflows/reader-device-sync.yml'
 permissions:
   contents: read
@@ -28,10 +34,14 @@ jobs:
       - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Verify two independent devices with isolated account services
         run: node scripts/check-reader-device-sync.mjs
+      - name: Verify highlights and chat in chapter rows across two devices and an old whole-book writer
+        run: node scripts/check-split-user-data-sync.mjs
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()
         with:
           retention-days: 3
           name: reader-device-sync
-          path: app/artifacts/reader-device-sync
+          path: |
+            app/artifacts/reader-device-sync
+            app/artifacts/split-user-data-sync

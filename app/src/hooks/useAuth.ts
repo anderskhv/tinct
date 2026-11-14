@@ -12,6 +12,7 @@ import { trackEvent } from '../utils/analytics'
 import { trackShareLinkSignup } from '../utils/shareAttribution'
 import { clearSignedInCookie, hasSignedInCookie, setSignedInCookie } from '../utils/authCookie'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
+import { flushBeforeSignOut } from '../lab/signOutFlush'
 
 interface UseAuthReturn {
   user: User | null
@@ -220,6 +221,8 @@ export function useAuth(): UseAuthReturn {
     // Clear before signOut() and again after it. The Worker and landing.html
     // both 302 `/` to `/app` when `tinct_auth=1` is present, so a leftover
     // cookie after logout locks the marketing page.
+    // Highlights and chat waiting for their debounce reach the account before the device copy is wiped.
+    await flushBeforeSignOut()
     clearSignedInCookie()
     await supabase.auth.signOut()
     clearLocalUserData()

@@ -30,6 +30,7 @@ import {
   createLabHighlightCloudWriter,
   labHighlightBucket,
   labHighlightSetFor,
+  LAB_HIGHLIGHT_COMMIT_DEBOUNCE_MS,
   LAB_HIGHLIGHTS_UNASSIGNED,
   localLabHighlightBuckets,
   readLabHighlightTombstones,
@@ -38,6 +39,7 @@ import {
   type LabHighlightSet,
 } from './labHighlightSync'
 import { labHighlightRestoreIds, pushLabHighlightUndo, type LabHighlightUndoEntry } from './labHighlightUndo'
+import { registerSignOutFlush } from './signOutFlush'
 
 function bucketSignatures(list: LabHighlight[]): Map<string, string> {
   const grouped = new Map<string, LabHighlight[]>()
@@ -54,7 +56,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
   paragraphs?: string[]
   compareEditionKey?: string
   compareParagraphs?: string[]
-  /** Signed-in account: highlights and notes also sync through its `lab-highlights:{bookId}` rows. Absent or null = this device only. */
+  /** Signed-in account: highlights and notes also sync through its `lab-highlights:{bookId}:{chapter}` rows. Absent or null = this device only. */
   userId?: string | null
   /** A highlight from a shared link (/q/{id}): shown on its passage, never saved. */
   shared?: LabHighlight | null
@@ -121,9 +123,22 @@ export function useLabHighlights(chapterNumber: number, scope?: {
         if (isUserBookId(bucket)) return
         setHighlights(current => applyLabHighlightSet(current, bucket, set))
       },
+      // A burst of edits shares one commit of the chapter's row (Disk IO, 14 Nov 2026).
+      debounceMs: LAB_HIGHLIGHT_COMMIT_DEBOUNCE_MS,
     })
     setCloudWriter(writer)
-    return () => writer.dispose()
+    // What is waiting leaves with the page (hide, pagehide), before sign-out, and on unmount (dispose).
+    const flush = () => { void writer.flush() }
+    const onVisibility = () => { if (document.visibilityState === 'hidden') flush() }
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('pagehide', flush)
+    const unregister = registerSignOutFlush(() => writer.flush())
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('pagehide', flush)
+      unregister()
+      writer.dispose()
+    }
   }, [userId])
 
   const savedRef = useRef<Map<string, string> | null>(null)

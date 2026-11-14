@@ -9,6 +9,8 @@ import { toggleReadingLanguage, type ReadingLanguage } from '../social/readingLa
  * on You and Your reading comes from one readingTimeStats.
  */
 import { CARDS_COPY } from './cardsCopy'
+// Highlights and chat waiting for their debounce reach the account before the device is wiped.
+import { flushBeforeSignOut } from '../lab/signOutFlush'
 import { croppedPicture, hasAvatarCrop, type AvatarCropSize } from '../social/avatarCrops'
 import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights, weekRange } from './cardsFormat'
 import { addDays, localDay } from '../readingTime/model'
@@ -1302,7 +1304,7 @@ export function settingsCard(env: CardsEnv): CardSpec {
         line.dataset.testid = 'settings-password-status'
         body.append(line)
       }
-      body.append(group(row({ label: CARDS_COPY.signOut, className: 'is-center', onClick: () => void env.signOut(), testid: 'settings-sign-out' }))!)
+      body.append(group(row({ label: CARDS_COPY.signOut, className: 'is-center', onClick: () => void flushBeforeSignOut().then(() => env.signOut()), testid: 'settings-sign-out' }))!)
       body.append(statusLine(status))
       status = ''
       return [navBar(card, CARDS_COPY.settings), body]

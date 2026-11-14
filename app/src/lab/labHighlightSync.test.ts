@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
+import { createFakeUserDataTable } from './fakeUserDataTable.test-helpers'
 import {
   applyLabHighlightSet,
   createLabHighlightCloud,
@@ -66,17 +67,22 @@ describe('row shape', () => {
     expect(parseLabHighlightRow({ highlights: [mark('u', { bookId: undefined })] }, '_unassigned').highlights).toHaveLength(1)
   })
 
-  it('writes through commit_user_data with the expected rev', async () => {
-    const rpc = vi.fn(async () => ({ data: [{ key: 'lab-highlights:emma', value: { v: 1, highlights: [], deleted: [] }, rev: 4, applied: true, conflict: false }], error: null }))
-    const cloud = createLabHighlightCloud('user-1', { rpc } as never)!
+  it('writes through commit_user_data with the expected rev, one row per chapter', async () => {
+    // Since 14 Nov 2026 the account copy is one row per chapter (userDataShards.ts); the rev is the chapter row's.
+    const table = createFakeUserDataTable()
+    table.set('lab-highlights:emma:1', { v: 1, highlights: [], deleted: [] }, 3)
+    const calls: unknown[] = []
+    const rpc = vi.fn((name: string, args: Record<string, unknown>) => { calls.push(args); return table.client.rpc(name, args as never) })
+    const cloud = createLabHighlightCloud('user-1', { from: table.client.from, rpc } as never)!
     const result = await cloud.commit('emma', set([mark(`hl-${T}-a`)]), 3)
     expect(rpc).toHaveBeenCalledWith('commit_user_data', {
       p_user_id: 'user-1',
-      p_key: 'lab-highlights:emma',
+      p_key: 'lab-highlights:emma:1',
       p_value: { v: 1, highlights: [mark(`hl-${T}-a`)], deleted: [] },
       p_expected_rev: 3,
     })
-    expect(result).toMatchObject({ applied: true, conflict: false, row: { rev: 4 } })
+    expect(result).toMatchObject({ applied: true, conflict: false })
+    expect(table.rows.get('lab-highlights:emma:1')?.rev).toBe(4)
     expect(createLabHighlightCloud('', { rpc } as never)).toBeNull()
     expect(createLabHighlightCloud('user-1', null)).toBeNull()
   })
