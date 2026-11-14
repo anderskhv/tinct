@@ -10,11 +10,12 @@ import {
   emptyLabPositionState,
   type LabBookPlace,
   type LabPositionState,
+  type LabReaderStateSnapshot,
 } from './labPosition'
 import { clearLabPositionLocal, readLabPositionLocal } from './labPositionStore'
 import * as sourceModule from './labSource'
 import { bibleFallbackSource, type LabChapter, type LabSource } from './labSource'
-import { bookFromResumePlace, bootLabReading, remoteResumeSelection, resumePlaceForLibrary, useLabPositionSync } from './useLabPositionSync'
+import { bookFromResumePlace, bootLabReading, placeRestoresInView, remoteResumeSelection, resumePlaceEditionKey, resumePlaceForLibrary, useLabPositionSync } from './useLabPositionSync'
 import { readLabPrefs } from './labPrefs'
 
 const PHONE = 'phone-device'
@@ -185,10 +186,12 @@ function Harness(props: {
   writesSuspended?: boolean
   initialCloudWaitMs?: number
   resolveBeforePaint?: boolean
+  readerStateRef?: MutableRefObject<LabReaderStateSnapshot>
 }) {
   const { notePlace, markChapterFinished, finishedChapters, initialPositionResolved } = useLabPositionSync({
     book: props.book,
     placeRef: props.placeRef,
+    readerStateRef: props.readerStateRef,
     sourceLocked: props.sourceLocked ?? false,
     writesSuspended: props.writesSuspended,
     authToken: props.token === undefined ? 'signed-in' : props.token,
@@ -446,6 +449,19 @@ describe('initial resolution: one place before first paint', () => {
     expect(placeRef.current).toEqual({ paragraphIndex: 9, wordIndex: 2 })
   })
 
+  it('cloud same chapter in another edition: reloads in that edition, never restores its words into this text', async () => {
+    // 14 Nov 2026: a KJV place restored by word into the BSB names another part of the chapter.
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({ ...settledProverbsLocal(), books: { proverbs: proverbs17({ primaryEditionKey: 'bsb-en' }) } }))
+    const kjv = { ...settledProverbsLocal(), books: { proverbs: proverbs17({ paragraphIndex: 9, wordIndex: 2, primaryEditionKey: 'kjv-en', updatedAt: 250_000, deviceId: DESK }) }, lastSettledAt: 250_000, updatedAt: 250_000, deviceId: DESK }
+    stubPositionApi(Promise.resolve(kjv))
+    const onRemoteResume = vi.fn()
+    const onResolvedPlace = vi.fn()
+    const readerStateRef = { current: { pageIndex: 0, primaryEditionKey: 'bsb-en', readerMode: 'read' as const } }
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} onResolvedPlace={onResolvedPlace} readerStateRef={readerStateRef} />)
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 9, wordIndex: 2, primaryEditionKey: 'kjv-en' })))
+    expect(onResolvedPlace).not.toHaveBeenCalled()
+  })
+
   it('a failed cloud answer resolves to the local place', async () => {
     localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
     stubPositionApi(Promise.resolve(null))
@@ -629,6 +645,40 @@ describe('remoteResumeSelection', () => {
     expect(selection?.primaryEditionKey).not.toBe('kjv-en')
     expect(selection?.prefs.primaryEdition).toBe(selection?.primaryEditionKey)
     expect(selection?.prefs).not.toBe(prefs)
+  })
+
+  it('a place from the account opens in the edition it was saved in, in the open book too (14 Nov 2026, KJV Luke 13 opened in the BSB)', () => {
+    const bsb = { ...prefs, primaryEdition: 'bsb-en', audioEdition: 'bsb-en' }
+    const luke: LabBookPlace = { ...hebrews3(), bookId: 'luke', headerBook: 'Luke', chapterNumber: 13, sequentialChapter: 986, paragraphIndex: 6, wordIndex: 150, primaryEditionKey: 'kjv-en' }
+    const selection = remoteResumeSelection(luke, { libraryBookId: 'bible', prefs: bsb })
+    expect(selection).toMatchObject({ bookId: 'bible', primaryEditionKey: 'kjv-en' })
+    // The reader's main edition on this device becomes the place's, as if chosen.
+    expect(selection?.prefs.primaryEdition).toBe('kjv-en')
+    const frankenstein: LabBookPlace = { ...hebrews3(), bookId: 'frankenstein', headerBook: 'Frankenstein', chapterNumber: 11, sequentialChapter: 11, primaryEditionKey: 'original-en' }
+    const modern = { ...prefs, primaryEdition: 'modern-en', audioEdition: 'modern-en' }
+    expect(remoteResumeSelection(frankenstein, { libraryBookId: 'frankenstein', prefs: modern })).toMatchObject({ bookId: 'frankenstein', primaryEditionKey: 'original-en' })
+    expect(remoteResumeSelection(frankenstein, { libraryBookId: 'bible', prefs: modern })).toMatchObject({ bookId: 'frankenstein', primaryEditionKey: 'original-en' })
+  })
+
+  it('a place in an edition the reader may not open reads in the current edition', () => {
+    const bsb = { ...prefs, primaryEdition: 'bsb-en', audioEdition: 'bsb-en' }
+    const gone: LabBookPlace = { ...hebrews3(), primaryEditionKey: 'modern-en' }
+    expect(resumePlaceEditionKey(gone)).toBeUndefined()
+    expect(remoteResumeSelection(gone, { libraryBookId: 'bible', prefs: bsb })).toMatchObject({ bookId: 'bible', primaryEditionKey: 'bsb-en' })
+    // Held (Frankenstein's Danish is no longer offered): the book's current edition, never the held one.
+    const danish: LabBookPlace = { ...hebrews3(), bookId: 'frankenstein', headerBook: 'Frankenstein', chapterNumber: 11, sequentialChapter: 11, primaryEditionKey: 'modern-da' }
+    expect(resumePlaceEditionKey(danish)).toBeUndefined()
+    const modern = { ...prefs, primaryEdition: 'modern-en', audioEdition: 'modern-en' }
+    expect(remoteResumeSelection(danish, { libraryBookId: 'frankenstein', prefs: modern })).toMatchObject({ primaryEditionKey: 'modern-en' })
+  })
+
+  it('restores in view only a place whose words are the ones on screen', () => {
+    const kjv = { bookId: 'luke', sequentialChapter: 986, primaryEditionKey: 'kjv-en' }
+    expect(placeRestoresInView(kjv, { bookId: 'luke', chapterNumber: 986, primaryEditionKey: 'kjv-en' })).toBe(true)
+    expect(placeRestoresInView(kjv, { bookId: 'luke', chapterNumber: 986, primaryEditionKey: 'bsb-en' })).toBe(false)
+    expect(placeRestoresInView(kjv, { bookId: 'luke', chapterNumber: 985, primaryEditionKey: 'kjv-en' })).toBe(false)
+    expect(placeRestoresInView({ ...kjv, primaryEditionKey: undefined }, { bookId: 'luke', chapterNumber: 986, primaryEditionKey: 'bsb-en' })).toBe(true)
+    expect(placeRestoresInView(kjv, { bookId: 'luke', chapterNumber: 986 })).toBe(true)
   })
 
   it('keeps the edition the registry pin was read in when that book offers it', () => {
