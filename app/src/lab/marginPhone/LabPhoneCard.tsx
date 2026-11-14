@@ -4,7 +4,7 @@ import { LAB_KEYBOARD_SHEET_ATTR } from '../labChrome'
 import { LabInlineMarkdown, LabMarkdown } from '../LabMarkdown'
 import { TalkIcon } from '../LabReaderIcons'
 import type { AiLength } from '../../aiSettings'
-import { PHONE_CARD_GROW_HEADROOM, PHONE_CARD_MAX_SHARE, type PhoneCardHeights, phoneCardExpectedHeight, phoneCardHoldStep, phoneCardLength, readPhoneCardHeights, recordPhoneCardHeight } from './phoneCardHeight'
+import { PHONE_CARD_MAX_SHARE, type PhoneCardHeights, phoneCardExpectedHeight, phoneCardHoldStep, phoneCardLength, readPhoneCardHeights, recordPhoneCardHeight } from './phoneCardHeight'
 import { leadSentenceEnd } from './leadSentence'
 import './marginPhone.css'
 
@@ -47,15 +47,17 @@ export interface LabPhoneCardProps {
 /** Set on an element in a card's body while an answer is on its way (a follow-up, Quiz me's questions). */
 export const PHONE_CARD_BUSY_ATTR = 'data-pcard-busy'
 const PHONE_CARD_BUSY_SELECTOR = `[aria-busy="true"], [${PHONE_CARD_BUSY_ATTR}]`
+/** An answer shown in the card (a saved card's, or one that arrived): the card then keeps its kind's height. */
+const PHONE_CARD_ANSWER_SELECTOR = '.lab-pcard-answer, .tc-answer, [data-testid="lab-phone-card-answer"]'
 
 /**
  * The phone's bottom card (the margin reader's `.mr-sheet`): a drag handle, the
  * label, the body and the follow-up line. One at a time; it slides up, closes
  * on a drag down or on a tap outside it, and stands on the bottom of the visual
  * viewport, so it rides above the software keyboard. As tall as its content, at
- * most 70% of the visible height; an AI card opens at the height its kind's answers reach on this device while its
- * answer arrives, the text filling it downward, and never shrinks on its own: a shorter answer leaves blank space
- * at its foot, a longer one grows it (phoneCardHeight.ts). It is fixed over the page and never moves it.
+ * most 70% of the visible height; an AI card opens at the height its kind's answers reach on this device (or its
+ * content, if taller) and keeps that height until it closes: a shorter answer leaves blank space at its foot, a
+ * longer one or a follow-up scrolls inside it (phoneCardHeight.ts). It is fixed over the page and never moves it.
  */
 export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', closeLabel, children, foot, tall = false, busy = false, testId = 'lab-phone-card' }: LabPhoneCardProps) {
   const ref = useRef<HTMLElement | null>(null)
@@ -81,11 +83,8 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
       // While the keyboard is up the room is small: blank space may take at most PHONE_CARD_MAX_SHARE of it, so the
       // page above stays in view and a tap there still closes the card. The text itself may use the whole room.
       // The held height is kept and comes back when the keyboard goes.
-      let shown = height
-      if (el.hasAttribute('data-keyboard') && state.base > 0) {
-        el.style.height = ''
-        shown = Math.min(height, Math.max(el.offsetHeight, Math.round(state.base * PHONE_CARD_MAX_SHARE)))
-      }
+      // A share of the room, not of the content: the card does not follow the text streaming in while the keyboard is up.
+      const shown = el.hasAttribute('data-keyboard') && state.base > 0 ? Math.min(height, Math.round(state.base * PHONE_CARD_MAX_SHARE)) : height
       el.style.height = `${shown}px`
     }
     // As tall as its content (at most its max-height), measured in the same frame: no paint between.
@@ -114,9 +113,11 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
       const cap = parseFloat(window.getComputedStyle(el).maxHeight)
       const step = phoneCardHoldStep(state.held, {
         expected, busy: answering, current: el.offsetHeight, natural,
-        cap: Number.isFinite(cap) ? cap : undefined, headroom: state.base * PHONE_CARD_GROW_HEADROOM,
+        cap: Number.isFinite(cap) ? cap : undefined,
+        empty: !el.querySelector(PHONE_CARD_ANSWER_SELECTOR),
       })
       if (step.held !== state.held || step.held !== null || el.hasAttribute('data-held')) apply(step.held)
+      markMore(el.querySelector<HTMLElement>('.lab-pcard-body'))
     }
     holdNow.current = hold
     const observer = typeof MutationObserver === 'undefined' ? null : new MutationObserver(hold)
@@ -227,11 +228,16 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
             onPointerDown={event => event.stopPropagation()} onClick={onDelete}><PhoneIcon name="trash" /></button>}
         </header>
       </div>
-      <div className="lab-pcard-body" data-testid="lab-phone-card-body" onScroll={event => { const body = event.currentTarget; body.toggleAttribute('data-scrolled', body.scrollTop > 2) }}>{children}</div>
+      <div className="lab-pcard-body" data-testid="lab-phone-card-body" onScroll={event => { const body = event.currentTarget; body.toggleAttribute('data-scrolled', body.scrollTop > 2); markMore(body) }}>{children}</div>
       {foot}
     </section>
     </div>
   </>)
+}
+
+/** The card keeps its height, so a longer answer runs on below its foot: the body fades out there while it does. */
+function markMore(body: HTMLElement | null) {
+  if (body) body.toggleAttribute('data-more', body.scrollHeight - body.clientHeight - body.scrollTop > 4)
 }
 
 /** Less than this between the window and what the reader sees is the software keyboard, not the browser's bars. */
@@ -340,7 +346,7 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
   return (
     <div className="lab-pcard-follow">
       <div className="lab-pcard-follow-box" onClick={() => field.current?.focus({ preventScroll: true })}>
-        <textarea
+        <textarea autoComplete="off"
           ref={field}
           className="lab-pcard-follow-input"
           data-testid="lab-phone-card-input"

@@ -11,7 +11,7 @@
 // page (no AI call): a short Simplify answer streamed in two parts after a wait. Samples the card's top edge every
 // 50 ms from the tap until 1 s after the answer completes and checks it never moves down; then opens Simplify
 // again and checks it opens at the calibrated, smaller height; that a long answer grows the card without it ever
-// coming down; and that the reading place is unchanged.
+// coming down; that a long answer keeps the card's height (it scrolls inside); and that the reading place is unchanged.
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -144,20 +144,20 @@ async function run(engineName) {
   const drops2 = tops2.filter((top, i) => i > 0 && top > tops2[i - 1] + 0.5)
   const final2 = second.samples[second.samples.length - 1]
   // The device's measured share plus PHONE_CARD_CALIBRATION_PAD (phoneCardHeight.ts).
-  const wanted = Math.round(844 * ((calibrated?.['simplify:any']?.share ?? 0) + 0.035))
+  const wanted = Math.round(844 * ((calibrated?.['simplify:any']?.share ?? 0) + 0.08))
   ok(`${tag}: second Simplify opens at the calibrated ${second.opened.height}px (measured ${Math.round(844 * (calibrated?.['simplify:any']?.share ?? 0))}px + a line; first ${first.opened.height}px) and never moves down`, second.opened.height < first.opened.height && Math.abs(second.opened.height - wanted) <= 2 && drops2.length === 0, { opened: second.opened, wanted, tops2 })
   ok(`${tag}: the calibrated card leaves little blank space (${final2?.height}px tall when answered)`, final2 && final2.height <= second.opened.height + 1, final2)
   await tapOutside(page)
 
-  // A long answer in a card opened at the small calibrated height: the card grows (its top only moves up), up to
-  // its cap, and never comes back down.
+  // A long answer in a card opened at the small calibrated height: the card keeps its height (14 Nov 2026).
   answer = LONG
   await select(page, 35, 60)
   const third = await simplify(page, shot('3-long'))
   const tops3 = third.samples.filter(s => s.t >= third.samples[0].t + 300).map(s => s.top)
   const drops3 = tops3.filter((top, i) => i > 0 && top > tops3[i - 1] + 0.5)
   const final3 = third.samples[third.samples.length - 1]
-  ok(`${tag}: a long answer grows the card (${third.opened.height}px → ${final3?.height}px, at most 70%) and its top never moves down`, final3 && final3.height > third.opened.height + 40 && final3.height <= Math.round(844 * 0.7) + 1 && drops3.length === 0, { opened: third.opened, tops3, final3 })
+  // Anders, 14 Nov 2026: the card keeps the height it opened at; a longer answer scrolls inside it (was: grows).
+  ok(`${tag}: a long answer keeps the card at ${third.opened.height}px (now ${final3?.height}px) and scrolls inside it`, final3 && Math.abs(final3.height - third.opened.height) <= 1 && drops3.length === 0 && new Set(tops3).size === 1, { opened: third.opened, tops3, final3 })
   answer = SHORT
   await tapOutside(page)
   ok(`${tag}: after all three cards the reading place is unchanged`, JSON.stringify(await placeOf(page)) === JSON.stringify(home), { home, now: await placeOf(page) })

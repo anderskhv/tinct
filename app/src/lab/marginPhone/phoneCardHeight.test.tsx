@@ -16,69 +16,53 @@ afterEach(() => { cleanup(); localStorage.clear() })
 
 describe('the expected height table (Anders, 9 Nov 2026)', () => {
   it('opens Define small, Explain and Ask mid, the chapter cards tall, never past the card\'s 70% cap', () => {
-    expect(phoneCardExpectedShare('define')).toBe(0.4)
-    expect(phoneCardExpectedShare('explain')).toBe(0.55)
-    expect(phoneCardExpectedShare('ask')).toBe(0.6)
-    expect(phoneCardExpectedShare('counterpoint')).toBe(0.6)
-    expect(phoneCardExpectedShare('factcheck')).toBe(0.6)
-    expect(phoneCardExpectedShare('quiz')).toBe(0.55)
+    expect(phoneCardExpectedShare('define')).toBe(0.45)
+    expect(phoneCardExpectedShare('explain')).toBe(0.62)
+    expect(phoneCardExpectedShare('ask')).toBe(0.66)
+    expect(phoneCardExpectedShare('counterpoint')).toBe(0.66)
+    expect(phoneCardExpectedShare('factcheck')).toBe(0.66)
+    expect(phoneCardExpectedShare('quiz')).toBe(0.6)
     for (const kind of ['chapter-notes-primer', 'chapter-notes-end', 'chapter-notes-sofar']) expect(phoneCardExpectedShare(kind)).toBe(0.7)
     for (const share of Object.values(PHONE_CARD_EXPECTED_SHARE.standard)) expect(share).toBeLessThanOrEqual(0.7)
-    expect(phoneCardExpectedHeight('explain', 844)).toBe(464)
+    expect(phoneCardExpectedHeight('explain', 844)).toBe(523)
   })
   it('holds Chat (Ask on the phone) like Ask; leaves Talk, notes and characters sized by their content', () => {
-    expect(phoneCardExpectedShare('chat')).toBe(0.6)
+    expect(phoneCardExpectedShare('chat')).toBe(0.66)
     for (const kind of ['talk', 'note', 'chapter-note', 'character', 'ask-compose']) expect(phoneCardExpectedShare(kind)).toBeNull()
     expect(phoneCardExpectedHeight('explain', 0)).toBeNull()
   })
 })
 
-describe('the held height never shrinks while an answer streams', () => {
-  it('opens at the expected height and holds it however the content grows or shrinks', () => {
-    let held: number | null = null
-    held = phoneCardHoldStep(held, { expected: 464, busy: true, current: 120 }).held
-    expect(held).toBe(464)
-    for (const current of [464, 300, 464, 590]) {
-      held = phoneCardHoldStep(held, { expected: 464, busy: true, current }).held
-      expect(held).toBe(464)
-    }
+describe('the card keeps the height it opened at until it closes (Anders, 14 Nov 2026)', () => {
+  it('opens at the expected height, or its content if taller, never past its cap', () => {
+    expect(phoneCardHoldStep(null, { expected: 464, busy: true, current: 120 }).held).toBe(464)
+    expect(phoneCardHoldStep(null, { expected: 464, busy: false, current: 520, natural: 520, cap: 590 }).held).toBe(520)
+    expect(phoneCardHoldStep(null, { expected: 464, busy: false, current: 590, natural: 700, cap: 590 }).held).toBe(590)
+    // A saved card opened with nothing on its way takes the kind's height too, so a follow-up never raises it.
+    expect(phoneCardHoldStep(null, { expected: 464, busy: false, current: 200, natural: 200 }).held).toBe(464)
   })
-  it('never lowers a card already taller than expected when an answer begins (a follow-up)', () => {
-    expect(phoneCardHoldStep(null, { expected: 464, busy: true, current: 520 }).held).toBe(520)
-    expect(phoneCardHoldStep(520, { expected: 464, busy: true, current: 520 }).held).toBe(520)
-  })
-  it('a larger screen (the keyboard going) may raise the expected height, never lower it', () => {
-    expect(phoneCardHoldStep(400, { expected: 464, busy: true, current: 400 }).held).toBe(464)
-    expect(phoneCardHoldStep(464, { expected: 300, busy: true, current: 300 }).held).toBe(464)
-  })
-  // Replaces 'settles once to fit when the finished answer is shorter' (Anders, 13 Nov 2026: the settle was the jump).
-  it('never shrinks once the answer has ended: a shorter answer leaves blank space (Anders, 13 Nov 2026)', () => {
-    expect(phoneCardHoldStep(464, { expected: 464, busy: false, current: 464, natural: 300 })).toEqual({ held: 464 })
-    expect(phoneCardHoldStep(464, { expected: 464, busy: false, current: 464, natural: 462 })).toEqual({ held: 464 })
-    // Nor when the expected height falls (the device learnt a shorter answer, the keyboard came up).
-    expect(phoneCardHoldStep(464, { expected: 200, busy: false, current: 464, natural: 150 })).toEqual({ held: 464 })
-    expect(phoneCardHoldStep(464, { expected: 200, busy: true, current: 464, natural: 150 })).toEqual({ held: 464 })
-    // Content-sized cards stay content-sized when nothing is on its way.
-    expect(phoneCardHoldStep(null, { expected: 464, busy: false, current: 200, natural: 200 })).toEqual({ held: null })
-    expect(phoneCardHoldStep(464, { expected: null, busy: true, current: 464 })).toEqual({ held: null })
-  })
-  it('a whole stream, then its end, then a while after: the held height only ever rises', () => {
+  it('a whole stream, a longer answer, a follow-up and its end: the height never changes', () => {
     let held: number | null = null
     const seen: number[] = []
     const steps = [
-      { busy: true, current: 120, natural: 120 }, { busy: true, current: 270, natural: 150 }, { busy: true, current: 270, natural: 190 },
-      { busy: false, current: 270, natural: 202 }, { busy: false, current: 270, natural: 202 },
+      { busy: true, current: 120, natural: 120 }, { busy: true, current: 270, natural: 150 }, { busy: true, current: 270, natural: 400 },
+      { busy: false, current: 270, natural: 590 }, { busy: true, current: 270, natural: 590 }, { busy: false, current: 270, natural: 202 },
     ]
-    for (const step of steps) { held = phoneCardHoldStep(held, { expected: 270, ...step, cap: 590, headroom: 84 }).held; seen.push(held!) }
-    expect(seen).toEqual([270, 270, 270, 270, 270])
+    for (const step of steps) { held = phoneCardHoldStep(held, { expected: 270, ...step, cap: 590 }).held; seen.push(held!) }
+    expect(seen).toEqual([270, 270, 270, 270, 270, 270])
   })
-  it('grows when the answer outgrows it, with headroom, never past its cap, streaming or after', () => {
-    expect(phoneCardHoldStep(231, { expected: 231, busy: true, current: 231, natural: 300, cap: 590, headroom: 84 })).toEqual({ held: 384 })
-    expect(phoneCardHoldStep(384, { expected: 231, busy: true, current: 384, natural: 590, cap: 590, headroom: 84 })).toEqual({ held: 590 })
-    expect(phoneCardHoldStep(590, { expected: 231, busy: false, current: 590, natural: 590, cap: 590, headroom: 84 })).toEqual({ held: 590 })
-    expect(phoneCardHoldStep(231, { expected: 231, busy: false, current: 231, natural: 260, cap: 590 })).toEqual({ held: 260 })
-    // A sliver over is not growth.
-    expect(phoneCardHoldStep(231, { expected: 231, busy: true, current: 231, natural: 234, cap: 590, headroom: 84 })).toEqual({ held: 231 })
+  it('a changed expected height (the device learnt a shorter answer, the screen changed) does not move an open card', () => {
+    expect(phoneCardHoldStep(464, { expected: 200, busy: true, current: 464, natural: 150 })).toEqual({ held: 464 })
+    expect(phoneCardHoldStep(400, { expected: 600, busy: true, current: 400, natural: 700, cap: 800 })).toEqual({ held: 400 })
+  })
+  it('an empty Chat stays as small as its field until its first question', () => {
+    expect(phoneCardHoldStep(null, { expected: 506, busy: false, current: 163, natural: 163, empty: true })).toEqual({ held: null })
+    expect(phoneCardHoldStep(null, { expected: 506, busy: true, current: 163, empty: true })).toEqual({ held: 506 })
+    expect(phoneCardHoldStep(506, { expected: 506, busy: false, current: 506, natural: 300, empty: false })).toEqual({ held: 506 })
+  })
+  it('content-sized kinds stay content-sized', () => {
+    expect(phoneCardHoldStep(null, { expected: null, busy: true, current: 464 })).toEqual({ held: null })
+    expect(phoneCardHoldStep(464, { expected: null, busy: false, current: 464 })).toEqual({ held: null })
   })
 })
 
@@ -97,9 +81,9 @@ describe('the opening height follows the length setting and calibrates from this
     expect(phoneCardLength('simplify')).toBeNull()
   })
   it('opens Brief small (about three lines), Detailed taller, Simplify small at every length', () => {
-    expect(phoneCardExpectedShare('explain', 'brief')).toBe(0.3)
-    expect(phoneCardExpectedShare('explain', 'detailed')).toBe(0.65)
-    expect(phoneCardExpectedShare('simplify', null)).toBe(0.32)
+    expect(phoneCardExpectedShare('explain', 'brief')).toBe(0.38)
+    expect(phoneCardExpectedShare('explain', 'detailed')).toBe(0.7)
+    expect(phoneCardExpectedShare('simplify', null)).toBe(0.42)
     for (const length of ['brief', 'standard', 'detailed'] as const) {
       for (const share of Object.values(PHONE_CARD_EXPECTED_SHARE[length])) expect(share).toBeLessThanOrEqual(0.7)
       expect(phoneCardExpectedShare('explain', length)! >= phoneCardExpectedShare('explain', 'brief')!).toBe(true)
@@ -121,12 +105,12 @@ describe('the opening height follows the length setting and calibrates from this
     expect(phoneCardHeightKey('simplify', null)).toBe('simplify:any')
   })
   it('opens at the learnt share plus a line, within the card\'s bounds; the table until something is learnt', () => {
-    expect(phoneCardOpeningShare('simplify', null, {})).toBe(0.32)
+    expect(phoneCardOpeningShare('simplify', null, {})).toBe(0.42)
     expect(phoneCardOpeningShare('simplify', null, { 'simplify:any': { share: 0.24, n: 1 } })).toBeCloseTo(0.24 + PHONE_CARD_CALIBRATION_PAD)
-    expect(phoneCardOpeningShare('simplify', null, { 'simplify:any': { share: 0.05, n: 1 } })).toBe(0.2)
-    expect(phoneCardOpeningShare('explain', 'brief', { 'explain:standard': { share: 0.6, n: 3 } })).toBe(0.3)
+    expect(phoneCardOpeningShare('simplify', null, { 'simplify:any': { share: 0.05, n: 1 } })).toBe(0.25)
+    expect(phoneCardOpeningShare('explain', 'brief', { 'explain:standard': { share: 0.6, n: 3 } })).toBe(0.38)
     expect(phoneCardOpeningShare('note', null, { 'note:any': { share: 0.3, n: 1 } })).toBeNull()
-    expect(phoneCardExpectedHeight('simplify', 844, null, { 'simplify:any': { share: 0.24, n: 1 } })).toBe(232)
+    expect(phoneCardExpectedHeight('simplify', 844, null, { 'simplify:any': { share: 0.24, n: 1 } })).toBe(270)
     localStorage.setItem(`tinct:${PHONE_CARD_HEIGHTS_KEY}`, '{"a:any":{"share":"x","n":1},"b:any":{"share":0.3,"n":0},"c:any":{"share":0.3,"n":2}}')
     expect(readPhoneCardHeights()).toEqual({ 'c:any': { share: 0.3, n: 2 } })
   })
@@ -139,10 +123,10 @@ describe('the card holds its height in the page', () => {
     const view = (busy: boolean) => <div className="lab"><LabPhoneCard label="Explain" kind="explain" onClose={() => {}}><div aria-busy={busy}><p>Text</p></div></LabPhoneCard></div>
     const { rerender } = render(view(true))
     const card = screen.getByTestId('lab-phone-card')
-    expect(card.style.height).toBe(`${Math.round(window.innerHeight * 0.55)}px`)
+    expect(card.style.height).toBe(`${Math.round(window.innerHeight * 0.62)}px`)
     expect(card.hasAttribute('data-held')).toBe(true)
     act(() => { rerender(view(false)) })
-    expect(card.style.height).toBe(`${Math.round(window.innerHeight * 0.55)}px`)
+    expect(card.style.height).toBe(`${Math.round(window.innerHeight * 0.62)}px`)
     expect(card.hasAttribute('data-held')).toBe(true)
   })
   it('remembers the first answer\'s height, and the next card of that kind opens at it', () => {
@@ -153,7 +137,7 @@ describe('the card holds its height in the page', () => {
       const view = (busy: boolean, key: string) => <div className="lab"><LabPhoneCard key={key} label="Simplify" kind="simplify" onClose={() => {}}><div aria-busy={busy}><p>Text</p></div></LabPhoneCard></div>
       const { rerender } = render(view(true, 'a'))
       const first = screen.getByTestId('lab-phone-card')
-      const opened = Math.round(window.innerHeight * 0.32)
+      const opened = Math.round(window.innerHeight * 0.42)
       expect(first.style.height).toBe(`${opened}px`)
       act(() => { rerender(view(false, 'a')) })
       expect(first.style.height).toBe(`${opened}px`)
@@ -168,11 +152,14 @@ describe('the card holds its height in the page', () => {
       expect(screen.getByTestId('lab-phone-card').style.height).toBe(`${Math.round(window.innerHeight * (learnt.share + PHONE_CARD_CALIBRATION_PAD))}px`)
     } finally { Object.defineProperty(HTMLElement.prototype, 'offsetHeight', offset) }
   })
-  it('a busy prop holds a PDF card; a card that opens with its answer is content-sized', () => {
+  it('a busy prop holds a PDF card; a saved card opens at its kind\'s height too, so a follow-up never raises it (14 Nov 2026)', () => {
     render(<div className="lab"><LabPhoneCard label="Ask" kind="ask" busy onClose={() => {}} testId="pdf"><p>x</p></LabPhoneCard></div>)
-    expect(screen.getByTestId('pdf').style.height).toBe(`${Math.round(window.innerHeight * 0.6)}px`)
-    render(<div className="lab"><LabPhoneCard label="Explain" kind="explain" onClose={() => {}} testId="saved"><p>A saved answer.</p></LabPhoneCard></div>)
-    expect(screen.getByTestId('saved').style.height).toBe('')
+    expect(screen.getByTestId('pdf').style.height).toBe(`${Math.round(window.innerHeight * 0.66)}px`)
+    const { rerender } = render(<div className="lab"><LabPhoneCard label="Explain" kind="explain" onClose={() => {}} testId="saved"><div className="lab-pcard-answer">A saved answer.</div></LabPhoneCard></div>)
+    const opened = `${Math.round(window.innerHeight * 0.62)}px`
+    expect(screen.getByTestId('saved').style.height).toBe(opened)
+    rerender(<div className="lab"><LabPhoneCard label="Explain" kind="explain" onClose={() => {}} testId="saved"><div className="lab-pcard-answer">A saved answer.</div><div aria-busy="true" /></LabPhoneCard></div>)
+    expect(screen.getByTestId('saved').style.height).toBe(opened)
   })
   // Was 'desktop cards and Talk are left alone; the settle is one transition, off without motion': the settle and
   // its transition are gone (13 Nov 2026).

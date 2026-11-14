@@ -123,7 +123,7 @@ export function LabAiSettings({ onClose, phone = false, dark = false, book = nul
           <input ref={fileRef} type="file" accept=".md,.markdown,.txt,text/markdown,text/plain" hidden onChange={upload} data-testid="ai-settings-file" />
         </div>
         <span className="lab-ai-hint">{AI_SETTINGS_COPY.instructionsHint}</span>
-        <textarea id="lab-ai-instructions" rows={4} maxLength={AI_INSTRUCTIONS_MAX_CHARS} value={settings.instructions}
+        <textarea autoComplete="off" id="lab-ai-instructions" rows={4} maxLength={AI_INSTRUCTIONS_MAX_CHARS} value={settings.instructions}
           onChange={event => { setNotice(''); change({ instructions: cleanInstruction(event.target.value) }) }} data-testid="ai-settings-instructions" />
         {notice && <span className="lab-ai-notice" role="status" data-testid="ai-settings-notice">{notice}</span>}
       </div>
@@ -132,7 +132,7 @@ export function LabAiSettings({ onClose, phone = false, dark = false, book = nul
         {AI_INSTRUCTION_ACTIONS.map(action => (
           <label key={action} className="lab-ai-field">
             <span className="lab-ai-sub">{AI_SETTINGS_COPY.actions[action]}</span>
-            <textarea rows={2} maxLength={AI_INSTRUCTIONS_MAX_CHARS} value={settings.perAction[action] ?? ''}
+            <textarea autoComplete="off" rows={2} maxLength={AI_INSTRUCTIONS_MAX_CHARS} value={settings.perAction[action] ?? ''}
               onChange={event => setPerAction(action, event.target.value)} data-testid={`ai-settings-action-${action}`} />
           </label>
         ))}
@@ -209,7 +209,7 @@ function AngleField({ value, onChange, focus, bookId, dictation }: { value: stri
       <label htmlFor="lab-ai-angle" className="lab-ai-heading">{AI_SETTINGS_COPY.readingAngle}</label>
       <span className="lab-ai-hint">{AI_SETTINGS_COPY.readingAngleHint}</span>
       <span className={`lab-ai-angle-box${dictation ? ' has-mic' : ''}`}>
-        <textarea ref={ref} id="lab-ai-angle" rows={3} maxLength={READING_ANGLE_MAX_CHARS} value={value} placeholder={AI_SETTINGS_COPY.readingAnglePlaceholder}
+        <textarea autoComplete="off" ref={ref} id="lab-ai-angle" rows={3} maxLength={READING_ANGLE_MAX_CHARS} value={value} placeholder={AI_SETTINGS_COPY.readingAnglePlaceholder}
           onChange={event => onChange(event.target.value)} data-testid="ai-settings-angle" />
         {dictation && <AngleMic bookId={bookId} value={value} onChange={onChange} dictation={dictation} />}
       </span>

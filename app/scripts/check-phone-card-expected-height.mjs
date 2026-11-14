@@ -174,7 +174,7 @@ async function run(engineName) {
   await page.getByTestId('lab-phone-card').waitFor()
   await page.waitForTimeout(300)
   const opened = await page.evaluate(() => { const c = document.querySelector('[data-testid="lab-phone-card"]'); return { kind: c.dataset.kind, height: Math.round(c.getBoundingClientRect().height), held: c.hasAttribute('data-held'), vh: innerHeight } })
-  ok(`${tag}: Explain opens at its expected height (${opened.height}px, ${Math.round(opened.height / opened.vh * 100)}% of the screen) before its answer`, opened.held && Math.abs(opened.height - Math.round(opened.vh * 0.55)) <= 2, opened)
+  ok(`${tag}: Explain opens at its expected height (${opened.height}px, ${Math.round(opened.height / opened.vh * 100)}% of the screen) before its answer`, opened.held && Math.abs(opened.height - Math.round(opened.vh * 0.62)) <= 2, opened)
   await page.getByTestId('lab-phone-card-answer').waitFor()
   await page.waitForTimeout(STREAM_MS / 2.5)
   await shot('explain-mid')
@@ -231,11 +231,10 @@ async function run(engineName) {
   await page.waitForTimeout(600)
   samples = await stopSampling(page)
   verdict = judge(samples)
-  // Since 13 Nov 2026 a card the answer outgrows grows (with headroom, up to 70%) rather than scrolling in place; it
-  // never comes down.
+  // Since 14 Nov 2026 the card keeps the height it opened at; an answer that outgrows it scrolls inside it.
   const askHeights = samples.filter(s => s.text > 0).map(s => s.height)
   const askDrops = samples.filter((s, i) => i > 0 && s.top > samples[i - 1].top + 1).length
-  ok(`${tag}: Ask (${askKind} card) streams in ${verdict.frames} frames from its expected height (${verdict.heights.join(' → ')}px); the card only grows, up to 70%, and its top never moves down`, verdict.frames >= 8 && verdict.grew && Math.abs(askHeights[0] - Math.round(844 * 0.6)) <= 2 && askHeights.every((h, i) => i === 0 || h >= askHeights[i - 1]) && Math.max(...askHeights) <= Math.round(844 * 0.7) + 1 && askDrops === 0, { verdict, samples: samples.filter((s, i) => i % 3 === 0).map(s => [s.t, s.top, s.height, s.text, s.answerTop, s.busy, s.scroll]) })
+  ok(`${tag}: Ask (${askKind} card) streams in ${verdict.frames} frames from its expected height (${verdict.heights.join(' → ')}px); the card keeps that height and its top never moves down`, verdict.frames >= 8 && verdict.grew && Math.abs(askHeights[0] - Math.round(844 * 0.66)) <= 2 && askHeights.every(h => Math.abs(h - askHeights[0]) <= 1) && Math.max(...askHeights) <= Math.round(844 * 0.7) + 1 && askDrops === 0, { verdict, samples: samples.filter((s, i) => i % 3 === 0).map(s => [s.t, s.top, s.height, s.text, s.answerTop, s.busy, s.scroll]) })
   done = await page.evaluate(() => {
     const c = document.querySelector('[data-testid="lab-phone-card"]'), r = c.getBoundingClientRect()
     const field = c.querySelector('.lab-pcard-follow, [data-testid="lab-ask-composer"]').getBoundingClientRect()

@@ -27,19 +27,21 @@ import { storage } from '../../services/storage'
  * as does any card with nothing on its way (a saved card, Chat before a question): only an answer on its way holds it.
  * These are only the first guess: the device's own answers replace them (PHONE_CARD_HEIGHTS_KEY).
  */
+// Raised 14 Nov 2026 (Anders: "open a bit bigger as default so scrolling isn't always required"), now that the card
+// keeps its opening height and no longer grows.
 const STANDARD_SHARE: Readonly<Record<string, number>> = {
-  define: 0.4,
-  explain: 0.55, simplify: 0.32, figure: 0.55, related: 0.55,
-  ask: 0.6, chat: 0.6, factcheck: 0.6, counterpoint: 0.6,
-  quiz: 0.55, 'unit-quiz': 0.55, 'unit-quiz-preparing': 0.55,
+  define: 0.45,
+  explain: 0.62, simplify: 0.42, figure: 0.62, related: 0.62,
+  ask: 0.66, chat: 0.66, factcheck: 0.66, counterpoint: 0.66,
+  quiz: 0.6, 'unit-quiz': 0.6, 'unit-quiz-preparing': 0.6,
   primer: 0.7, recap: 0.7, summary: 0.7, catchup: 0.7, 'book-summary': 0.7,
   'chapter-notes-primer': 0.7, 'chapter-notes-end': 0.7, 'chapter-notes-sofar': 0.7,
 }
 const CHAPTER_KINDS = ['primer', 'recap', 'summary', 'catchup', 'book-summary', 'chapter-notes-primer', 'chapter-notes-end', 'chapter-notes-sofar']
 export const PHONE_CARD_EXPECTED_SHARE: Readonly<Record<AiLength, Readonly<Record<string, number>>>> = {
-  brief: { ...STANDARD_SHARE, explain: 0.3, ask: 0.36, chat: 0.36, ...Object.fromEntries(CHAPTER_KINDS.map(kind => [kind, 0.5])) },
+  brief: { ...STANDARD_SHARE, explain: 0.38, ask: 0.44, chat: 0.44, ...Object.fromEntries(CHAPTER_KINDS.map(kind => [kind, 0.56])) },
   standard: STANDARD_SHARE,
-  detailed: { ...STANDARD_SHARE, explain: 0.65, ask: 0.7, chat: 0.7 },
+  detailed: { ...STANDARD_SHARE, explain: 0.7, ask: 0.7, chat: 0.7 },
 }
 
 /** The Length row in AI settings that sets how long a card's answer is (aiSettings.ts), or null for a kind without one. */
@@ -75,10 +77,10 @@ export interface PhoneCardHeightEntry { share: number; n: number }
 export type PhoneCardHeights = Record<string, PhoneCardHeightEntry>
 /** Each new answer counts this much once a few have been seen (the first ones are averaged evenly). */
 export const PHONE_CARD_CALIBRATION_WEIGHT = 0.35
-/** Room left above the average, so an answer a line longer than usual still fits without growing the card. */
-export const PHONE_CARD_CALIBRATION_PAD = 0.035
+/** Room left above the average (about three lines), so an answer longer than usual still fits without scrolling. */
+export const PHONE_CARD_CALIBRATION_PAD = 0.08
 /** No card opens lower than this share: the label, two lines and the follow-up field. */
-export const PHONE_CARD_MIN_SHARE = 0.2
+export const PHONE_CARD_MIN_SHARE = 0.25
 export const PHONE_CARD_MAX_SHARE = 0.7
 /** At most this many kind/length entries are kept. */
 const PHONE_CARD_HEIGHTS_MAX = 64
@@ -144,10 +146,21 @@ export function phoneCardExpectedHeight(kind: string, visibleHeight: number, len
 
 // --- The hold ---------------------------------------------------------------------------------------------------
 
-/** Content less than this much taller than the held height does not grow the card (a sub-pixel or a border). */
-export const PHONE_CARD_GROW_SLACK_PX = 4
-/** When an answer outgrows the card, it grows this share of the visible height past the content, so it steps rarely. */
-export const PHONE_CARD_GROW_HEADROOM = 0.1
+/**
+ * Anders, 14 Nov 2026 (iPhone): "the mobile cards are still jumpy -- sometimes they open up and resize up/down ...
+ * even had one jump upwards just to add a blank space. Ensure they open up and stay where they are."
+ *
+ * Root cause (frame-sampled in check-phone-card-steady.mjs): after opening, the card still changed height on its
+ * own. An answer longer than the opening height grew it, plus 10% of the screen of headroom (the blank space that
+ * jumped up); a follow-up grew it again while streaming; a saved card reopened content-sized and jumped to the
+ * kind's height when a follow-up began; and with the keyboard up its height followed the streaming text.
+ *
+ * So the card's height is set once, when it opens, and kept until it closes: the kind's expected height, or its
+ * content if that is taller, never past its cap (an empty Chat stays as small as its field until its first question
+ * is sent: that one step is the reader's own). A longer answer or a follow-up scrolls inside the card; a shorter
+ * one leaves blank space at its foot. Only the keyboard changes what is shown (the room above it), and the held
+ * height comes back when it goes.
+ */
 
 export interface PhoneCardHoldInput {
   /** The kind's opening height (phoneCardExpectedHeight), or null for a content-sized card. */
@@ -158,27 +171,20 @@ export interface PhoneCardHoldInput {
   current: number
   /** The card's height if it were as tall as its content. */
   natural?: number
-  /** The tallest the card may be (its max-height); growing stops there. */
+  /** The tallest the card may be (its max-height). */
   cap?: number
-  /** Extra room added when the card grows (PHONE_CARD_GROW_HEADROOM of the visible height). */
-  headroom?: number
+  /** Nothing answered in the card yet (an empty Chat): it stays as small as its field until the first question. */
+  empty?: boolean
 }
 
 /**
- * One step of the card's height. `held` is the height the card is held at (null: as tall as its content). It
- * never comes back lower than it went in: while an answer is on its way the card is held at its expected height
- * or higher; once the answer has ended it keeps that height (spare room is blank space at its foot); content taller
- * than the held height grows it, with some headroom, up to `cap`.
+ * One step of the card's height. `held` is the height the card is held at (null: as tall as its content, for kinds
+ * without an expected height). Once set it is returned unchanged for the life of the card.
  */
 export function phoneCardHoldStep(held: number | null, input: PhoneCardHoldInput): { held: number | null } {
   if (input.expected === null) return { held: null }
-  let next = held
-  if (input.busy) next = Math.max(held ?? input.current, input.expected)
-  if (next === null) return { held: null }
-  const natural = input.natural
-  if (typeof natural === 'number' && natural > next + PHONE_CARD_GROW_SLACK_PX) {
-    const cap = typeof input.cap === 'number' && input.cap > 0 ? input.cap : Infinity
-    next = Math.max(next, Math.min(cap, natural + (input.headroom ?? 0)))
-  }
-  return { held: Math.round(next) }
+  if (held !== null) return { held }
+  if (input.empty && !input.busy) return { held: null }
+  const cap = typeof input.cap === 'number' && input.cap > 0 ? input.cap : Infinity
+  return { held: Math.round(Math.min(cap, Math.max(input.expected, input.natural ?? input.current))) }
 }

@@ -22,7 +22,7 @@ export function ReadingAngleField({ value, onChange, focus = false, testId = 'la
     <label className="lab-reading-angle" data-testid={`${testId}-row`}>
       <span className="lab-reading-angle-top"><span className="lab-reading-angle-label">Reading angle</span><SavedNote shown={saved} testId={`${testId}-saved`} /></span>
       <span className={`lab-reading-angle-box${mic ? ' has-mic' : ''}`}>
-        <textarea ref={ref} className="lab-reading-angle-input" data-testid={testId} rows={2} maxLength={READING_ANGLE_MAX_CHARS}
+        <textarea autoComplete="off" ref={ref} className="lab-reading-angle-input" data-testid={testId} rows={2} maxLength={READING_ANGLE_MAX_CHARS}
           value={value} placeholder="What you want to notice in this book" onChange={event => onChange(event.target.value)} />
         {mic && <button type="button" className="lab-reading-angle-mic" data-testid={`${testId}-mic`} aria-pressed={mic.on}
           aria-label={mic.on ? 'Stop dictation' : 'Dictate your reading angle'} onClick={event => { event.preventDefault(); mic.onToggle() }}><PhoneIcon name="mic" /></button>}
