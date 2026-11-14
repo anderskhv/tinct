@@ -31,7 +31,7 @@ export function PdfNoteField({ id, label, placeholder, value, onChange, onSave, 
     onClick={() => { setEditing(true); requestAnimationFrame(() => { const el = field.current; if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length) } }) }}>{value.trim()}</button>
   return <form className="pdf-note-field" onSubmit={event => { event.preventDefault(); onSave() }}>
     <label htmlFor={id} className="lab-visually-hidden">{label}</label>
-    <textarea ref={field} id={id} rows={1} placeholder={placeholder} value={value} onBlur={onBlur} onChange={event => onChange(event.target.value)} />
+    <textarea autoComplete="off" ref={field} id={id} rows={1} placeholder={placeholder} value={value} onBlur={onBlur} onChange={event => onChange(event.target.value)} />
     <button type="submit" className="lab-pcard-send" aria-label="Save note" disabled={!value.trim()} onPointerDown={event => event.preventDefault()}><PhoneIcon name="up" /></button>
   </form>
 }

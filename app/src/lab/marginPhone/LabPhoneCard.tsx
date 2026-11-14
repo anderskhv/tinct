@@ -346,7 +346,7 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
   return (
     <div className="lab-pcard-follow">
       <div className="lab-pcard-follow-box" onClick={() => field.current?.focus({ preventScroll: true })}>
-        <textarea
+        <textarea autoComplete="off"
           ref={field}
           className="lab-pcard-follow-input"
           data-testid="lab-phone-card-input"

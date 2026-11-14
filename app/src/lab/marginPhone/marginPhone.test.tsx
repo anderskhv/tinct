@@ -274,6 +274,8 @@ describe('the cards', () => {
     const onTalk = vi.fn(), onMic = vi.fn(), onSend = vi.fn()
     const { rerender } = render(<div className="lab"><PhoneFollowField value="" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)
     expect(screen.getByTestId('lab-phone-card-input').getAttribute('placeholder')).toBe('Ask a follow-up')
+    // iOS offered "AutoFill Contact" (a home address) over the keyboard (Anders, 14 Nov 2026).
+    expect(screen.getByTestId('lab-phone-card-input').getAttribute('autocomplete')).toBe('off')
     fireEvent.click(screen.getByTestId('lab-phone-card-talk'))
     fireEvent.click(screen.getByTestId('lab-phone-card-mic'))
     rerender(<div className="lab"><PhoneFollowField value="Why?" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)

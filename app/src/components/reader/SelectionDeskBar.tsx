@@ -332,7 +332,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
         if (text && props.onAskQuestion) props.onAskQuestion(text)
       }}>
         <label className="lab-dbar-ask-label" htmlFor="lab-dbar-ask-field">Ask about this passage</label>
-        <textarea ref={askRef} id="lab-dbar-ask-field" data-testid="lab-dbar-ask-field" className="lab-dbar-ask-field" value={question} rows={1}
+        <textarea autoComplete="off" ref={askRef} id="lab-dbar-ask-field" data-testid="lab-dbar-ask-field" className="lab-dbar-ask-field" value={question} rows={1}
           onChange={event => setQuestion(event.target.value)} placeholder="Ask about this passage…" autoComplete="off" enterKeyHint="send"
           onKeyDown={event => {
             if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeAsk(); return }

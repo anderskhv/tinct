@@ -511,7 +511,7 @@ export function LabAskPane({
       )}
       <div className={`tc-field${draft.length === 0 ? ' is-empty' : ''}`}>
         <label className="lab-visually-hidden" htmlFor="lab-ask-input">{composerPlaceholder || LAB_COPY.askPlaceholder}</label>
-        <textarea
+        <textarea autoComplete="off"
           id="lab-ask-input"
           data-testid="lab-ask-input"
           ref={node => {

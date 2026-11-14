@@ -615,7 +615,7 @@ export function SelectionPopup({
               >{tag}</button>
             ))}
           </div>
-          <textarea
+          <textarea autoComplete="off"
             className="popup-note-input"
             value={issueComment}
             onChange={e => setIssueComment(e.target.value)}
@@ -644,7 +644,7 @@ export function SelectionPopup({
         <div className="lab-dnote">
           <div className="lab-dnote-body">
             {selection.text && <p className="lab-dnote-quote">“{cutQuote(selection.text)}”</p>}
-            <textarea
+            <textarea autoComplete="off"
               ref={noteFieldRef}
               className="lab-dnote-field"
               value={noteInput}
@@ -686,7 +686,7 @@ export function SelectionPopup({
             <button type="button" className="popup-add-note is-pressed" aria-label="Close note" aria-pressed="true" onClick={() => { setNoteInput(selection.existingNote || ''); setPopupMode(homeMode) }}><span aria-hidden="true">+</span></button>
           </div>}
           <div className={contextualExplain ? 'popup-note-body' : undefined}>
-            <textarea
+            <textarea autoComplete="off"
               ref={noteFieldRef}
               className="popup-textarea"
               value={noteInput}

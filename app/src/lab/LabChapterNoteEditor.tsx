@@ -84,7 +84,7 @@ export function LabChapterNoteEditor({ initialNote, keyboardDock, anchor, onSave
   >
     <div className="popup-issue-form popup-highlight-note">
       <div className="popup-note-body">
-        <textarea
+        <textarea autoComplete="off"
           ref={fieldRef}
           className="popup-textarea"
           data-testid="lab-chapter-note-field"
