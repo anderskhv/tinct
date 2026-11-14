@@ -4,7 +4,7 @@ import type { MutableRefObject } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { bibleFallbackSource, loadLabChapterList, type LabSource } from './labSource'
 import { getBook } from '../data/bookRegistry'
-import { bibleEditions, syncLabAudioEdition, type LabPrefs } from './labPrefs'
+import { bibleEditions, selectableLabEditions, syncLabAudioEdition, type LabPrefs } from './labPrefs'
 import { prefsFromLabResumePlace, resumePlaceForLibrary } from './labReaderHandoff'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import {
@@ -95,30 +95,68 @@ export interface LabRemoteResumeSelection {
 }
 
 /**
+ * The edition a saved place opens in: the one it was read in, as this device's
+ * own boot reads its local place (`prefsFromLabResumePlace`), wherever it came
+ * from. Undefined when the place names no edition, or one the reader may not
+ * open (withdrawn, held, a Danish edition Tinct no longer offers, unknown), or
+ * a Bible version without the place's chapter: then the reader's current
+ * edition of the book reads it, at the same chapter and paragraph, as before.
+ *
+ * 14 Nov 2026: a KJV place at Luke 13 paragraph 6 word 150, arriving from the
+ * account on a second device, opened in the BSB (this device's default; the
+ * account's preferences carry no edition) and was saved again there at word 22.
+ */
+export function resumePlaceEditionKey(place: Pick<LabBookPlace, 'bookId' | 'sequentialChapter' | 'primaryEditionKey'>): string | undefined {
+  const key = place.primaryEditionKey
+  if (!key) return undefined
+  const registryBook = getBook(place.bookId)
+  const bookId = registryBook && registryBook.id !== 'bible' ? registryBook.id : 'bible'
+  const editions = bookId === 'bible' ? bibleEditions() : selectableLabEditions(bookId, registryBook!.editions)
+  if (!editions.some(edition => edition.key === key)) return undefined
+  if (bookId === 'bible' && !bibleEditionHasChapter(key, place.sequentialChapter)) return undefined
+  return key
+}
+
+/**
+ * The reader can restore this place in the chapter on screen without a reload:
+ * same book and chapter, and the place's words are the words on screen (it
+ * names no edition it would open in, or the one shown).
+ */
+export function placeRestoresInView(
+  place: Pick<LabBookPlace, 'bookId' | 'sequentialChapter' | 'primaryEditionKey'>,
+  current: { bookId: string; chapterNumber: number; primaryEditionKey?: string },
+): boolean {
+  if (place.bookId !== current.bookId || place.sequentialChapter !== current.chapterNumber) return false
+  const edition = resumePlaceEditionKey(place)
+  return !edition || !current.primaryEditionKey || edition === current.primaryEditionKey
+}
+
+/**
  * What a resolved cloud place means for the reader: which library book to
  * load and in which editions. A biblical pin (hebrews) is the Bible; a
- * registry pin (crito) is that book, in the edition it was read in when this
- * book offers it, else its default edition. Never the currently open book's
- * loader for another book's chapter number.
+ * registry pin (crito) is that book. Either opens in the edition the place was
+ * read in (`resumePlaceEditionKey`), in this book or another, and that edition
+ * becomes the reader's main edition on this device, as if chosen; a place
+ * without a usable edition reads in the current edition of this book, else the
+ * book's saved-place default. Never the currently open book's loader for
+ * another book's chapter number.
  */
 export function remoteResumeSelection(place: LabBookPlace, current: { libraryBookId: string; prefs: LabPrefs }): LabRemoteResumeSelection | null {
   const registryBook = getBook(place.bookId)
   const bookId = registryBook && registryBook.id !== 'bible' ? registryBook.id : 'bible'
   const editions = bookId === 'bible' ? bibleEditions() : registryBook!.editions
-  const sameBookPrefs = bookId === current.libraryBookId
-    ? current.prefs
-    : syncLabAudioEdition(prefsFromLabResumePlace(current.prefs, place), editions)
-  // A Bible place in a chapter the current version lacks (Tobit, read in the
-  // Catholic edition) resumes in the version it was read in, never another chapter.
-  const basePrefs = bookId === 'bible' && !bibleEditionHasChapter(sameBookPrefs.primaryEdition, place.sequentialChapter)
-    && place.primaryEditionKey && bibleEditionHasChapter(place.primaryEditionKey, place.sequentialChapter)
-    ? syncLabAudioEdition(prefsFromLabResumePlace(sameBookPrefs, place), editions)
-    : sameBookPrefs
-  const primaryEditionKey = editions.some(edition => edition.key === basePrefs.primaryEdition)
-    ? basePrefs.primaryEdition
-    // A saved place without a usable edition predates edition keys: resume
-    // the old default (the original), never the new-reader default.
-    : savedPlaceFallbackEditionKey(bookId, editions)
+  const savedEdition = resumePlaceEditionKey(place)
+  const basePrefs = savedEdition
+    ? syncLabAudioEdition(prefsFromLabResumePlace(current.prefs, place), editions)
+    : bookId === current.libraryBookId
+      ? current.prefs
+      : syncLabAudioEdition(prefsFromLabResumePlace(current.prefs, place), editions)
+  const primaryEditionKey = savedEdition
+    ?? (editions.some(edition => edition.key === basePrefs.primaryEdition)
+      ? basePrefs.primaryEdition
+      // A saved place without a usable edition predates edition keys: resume
+      // the old default (the original), never the new-reader default.
+      : savedPlaceFallbackEditionKey(bookId, editions))
   if (!primaryEditionKey) return null
   const compareEditionKey = basePrefs.compareOpen
     && basePrefs.compareEdition !== primaryEditionKey
@@ -501,7 +539,8 @@ export function useLabPositionSync(args: {
       const currentBookId = current.bookId && current.bookId !== 'bible'
         ? current.bookId
         : biblicalBookId(current.headerBook)
-      const sameChapter = resume.sequentialChapter === current.chapterNumber && resume.bookId === currentBookId
+      // A place read in another edition reloads in it, never restores its words into this text.
+      const sameChapter = placeRestoresInView(resume, { bookId: currentBookId, chapterNumber: current.chapterNumber, primaryEditionKey: args.readerStateRef?.current.primaryEditionKey })
       if (!initial) {
         // The reader has painted. Follow only forward, inside this book, and
         // only while the reader has not touched the page.
@@ -550,7 +589,8 @@ export function useLabPositionSync(args: {
   /** Show an adopted place: in this chapter without a reload, else load its chapter. */
   const showAdoptedPlace = useCallback((place: LabBookPlace) => {
     const current = bookRef.current
-    if (place.sequentialChapter !== current.chapterNumber
+    const bookId = current.bookId && current.bookId !== 'bible' ? current.bookId : biblicalBookId(current.headerBook)
+    if (!placeRestoresInView(place, { bookId, chapterNumber: current.chapterNumber, primaryEditionKey: latestArgsRef.current.readerStateRef?.current.primaryEditionKey })
       || !current.chapters.some(chapter => chapter.number === place.sequentialChapter)) {
       if (current.chapters.some(chapter => chapter.number === place.sequentialChapter)) onRemoteResumeRef.current?.(place)
       return
@@ -684,7 +724,7 @@ export function useLabPositionSync(args: {
           || !chapters.some(chapter => chapter.number === resume.sequentialChapter)) return
         // Returning to a reader follows the latest intentional position,
         // including backwards moves and another Bible book.
-        if (currentId !== resume.bookId || current.chapterNumber !== resume.sequentialChapter) {
+        if (!placeRestoresInView(resume, { bookId: currentId, chapterNumber: current.chapterNumber, primaryEditionKey: latestArgsRef.current.readerStateRef?.current.primaryEditionKey })) {
           onRemoteResumeRef.current?.(resume)
         } else {
           latestArgsRef.current.placeRef.current = { paragraphIndex: resume.paragraphIndex, wordIndex: resume.wordIndex }
