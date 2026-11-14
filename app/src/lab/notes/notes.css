@@ -26,12 +26,13 @@
 /* The quiet B / I / • row: only while the note is being written. UI chrome in the system face. */
 .tn-fmt { display: flex; align-items: center; gap: 2px; margin-top: -2px; }
 .tn-fmt[hidden] { display: none; }
-.tn-fmt button { display: grid; place-items: center; min-width: 30px; height: 28px; padding: 0 6px; border: 0; border-radius: 7px; background: none; color: var(--lab-ink-muted, #777); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.tn-fmt button { display: grid; place-items: center; min-width: 30px; height: 28px; padding: 0 6px; border: 0; border-radius: 7px; background: none; color: var(--lab-ink, #1f1b16); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .tn-fmt button:hover { color: var(--lab-ink, inherit); }
 .tn-fmt .tn-b { font: 700 14px system-ui, -apple-system, 'Segoe UI', sans-serif; }
 .tn-fmt .tn-i { font: italic 15px Georgia, serif; }
 .tn-fmt .tn-u { font: 17px/1 system-ui, -apple-system, 'Segoe UI', sans-serif; }
-.tn-fmt button[aria-pressed="true"] { background: color-mix(in srgb, var(--lab-ink, #222) 9%, transparent); color: var(--lab-ink, inherit); }
+/* Plain ink, no squares (14 Nov 2026): the format in use is underlined. */
+.tn-fmt button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1.5px; }
 .tn-fmt button:focus-visible { outline: 1px solid var(--lab-accent, currentColor); outline-offset: 1px; }
 /* The phone: above the keyboard, the width of the screen, with Done. */
 .tn-wrap.is-phone .tn-fmt { position: fixed; left: 0; right: 0; z-index: 2147483000; height: 44px; margin: 0; padding: 0 12px; gap: 4px; background: var(--lab-surface, var(--lab-paper, #fff)); border-top: 1px solid var(--lab-border, rgba(0,0,0,.12)); }
