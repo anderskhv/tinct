@@ -4,6 +4,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'
 import { markInternal } from './lib/internalTraffic.cjs'
+import { bookChats, createUserDataFake } from './lib/fakeUserData.mjs'
 const origin='https://tinct.app',out='artifacts/reader-device-sync'
 fs.mkdirSync(out,{recursive:true})
 const assets=fs.readdirSync('dist/assets').filter(f=>f.endsWith('.js')).map(f=>fs.readFileSync('dist/assets/'+f,'utf8')).join('\n')
@@ -24,7 +25,11 @@ for(const engine of [chromium,webkit]){
  let position={owner:user.id,books:{ezra:local},finished:{},hidden:{},lastSettledBookId:'ezra',lastSettledAt:local.updatedAt,updatedAt:local.updatedAt,deviceId:'desktop'}
  const oldChat={id:'old-conversation',bookId:'bible',chapterNumber:412,startTimestamp:now-90000,endTimestamp:now-90000,preview:'Earlier desktop conversation',messages:[{id:'old-turn',role:'assistant',content:'Earlier desktop conversation',bookId:'bible',chapterNumber:412,timestamp:now-90000,isComplete:true}]}
  const newChat={id:'phone-conversation',bookId:'bible',chapterNumber:923,startTimestamp:now-500,endTimestamp:now-500,preview:'Newest phone conversation '+'\u{1F64F}'.slice(0,1),messages:[{id:'phone-turn',role:'assistant',content:'Newest phone conversation',bookId:'bible',chapterNumber:923,timestamp:now-500,isComplete:true}]}
- let chat={key:'chat-history:bible',value:[oldChat],rev:1}
+ // The account's user_data rows (lib/fakeUserData.mjs): an old whole-book chat row, as accounts from before the
+ // chapter rows (14 Nov 2026) have. The reader adds chapter rows and never writes the old one.
+ const account=createUserDataFake()
+ account.set('chat-history:bible',[oldChat],1)
+ const chat={get value(){return bookChats(account,'chat-history:bible')}}
  const contexts=[]
  const positionWrites=[]
  const chatCommits=[]
@@ -37,18 +42,13 @@ for(const engine of [chromium,webkit]){
     if(u.pathname.startsWith('/auth/'))return route.fulfill({json:user})
     if(u.pathname.endsWith('/rpc/commit_user_data')){
      const body=req.postDataJSON()
-     if(body.p_key==='chat-history:bible'){
+     if(body.p_key.startsWith('chat-history:bible')){
       chatCommits.push(body.p_expected_rev)
       if(postgresRejects(body.p_value))return route.fulfill({status:400,json:{code:'22P05',message:'unsupported Unicode escape sequence'}})
-      // NULL expected rev overwrites unconditionally, as the SQL function does.
-      if(body.p_expected_rev!==null&&body.p_expected_rev!==chat.rev)return route.fulfill({json:[{...chat,applied:false,conflict:true}]})
-      chat={key:body.p_key,value:body.p_value,rev:chat.rev+1}
-      return route.fulfill({json:[{...chat,applied:true,conflict:false}]})
      }
-     return route.fulfill({json:[]})
     }
-    const rows=u.searchParams.get('key')==='eq.chat-history:bible'?[chat]:[]
-    return route.fulfill({json:req.headers().accept?.includes('vnd.pgrst.object')?(rows[0]??null):rows})
+    if(await account.handle(route))return
+    return route.fulfill({json:[]})
    }
    if(u.origin!==origin)return route.abort()
    if(u.pathname==='/api/lab-position'){
@@ -104,6 +104,8 @@ for(const engine of [chromium,webkit]){
   for(let i=0;i<100&&!chat.value.some(c=>c.messages.some(m=>m.id==='phone-turn'));i++)await phone.waitForTimeout(50)
   assert(chat.value.some(c=>c.messages.some(m=>m.id==='phone-turn')),'Phone chat reached the shared account fixture')
   assert(chat.value.some(c=>c.messages.some(m=>m.id==='old-turn')),'Phone upload kept the desktop turn already in the row')
+  assert.equal(account.get('chat-history:bible').rev,1,'The old whole-book chat row is read, never rewritten')
+  assert(account.get('chat-history:bible:923'),'The phone turn went to its chapter row')
   assert(!chatCommits.includes(null),'Chat commits always carry an expected rev')
   const expected=position.books.zechariah
   const started=Date.now()

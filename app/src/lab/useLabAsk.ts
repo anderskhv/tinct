@@ -82,6 +82,7 @@ import { isUserBookId } from './userBook/userBookId'
 import { chapterWindow, passageWindow } from './userBook/userBookContext'
 import { catalogueCardConversation, upsertCatalogueCard, tombstoneCatalogueCard, type SharedReaderCard } from './sharedReader/sharedReaderCards'
 import type { OwnTextCardsSync } from './userBook/ownTextCardsSync'
+import { registerSignOutFlush } from './signOutFlush'
 
 export type CardSaveFailure = 'book-mismatch' | 'invalid-card' | 'stale-card' | 'private-storage' | 'quota' | 'access' | 'write' | 'readback'
 
@@ -382,13 +383,16 @@ export function useLabAsk(options: UseLabAskOptions) {
   // and the writer being replaced (account change) or unmounted.
   useEffect(() => {
     if (!cloudWriter) return
-    const flush = () => cloudWriter.flush()
+    const flush = () => { void cloudWriter.flush() }
     const onVisibility = () => { if (document.visibilityState === 'hidden') flush() }
     document.addEventListener('visibilitychange', onVisibility)
     window.addEventListener('pagehide', flush)
+    // Sign-out wipes the device copy: turns still waiting go to the account first.
+    const unregister = registerSignOutFlush(() => cloudWriter.flush())
     return () => {
       document.removeEventListener('visibilitychange', onVisibility)
       window.removeEventListener('pagehide', flush)
+      unregister()
       flush()
     }
   }, [cloudWriter])

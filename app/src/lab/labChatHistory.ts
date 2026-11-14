@@ -3,7 +3,7 @@ import type { ChatCard, ChatConversation, ChatMessage } from '../types'
 import { BOOKS } from '../data/bookRegistry'
 import { localStorageProvider, type StorageWriteFailure } from '../services/storage'
 import { supabase } from '../services/supabase'
-import { coerceRev, versionedWriteApplied, type VersionedStorageRow } from '../services/supabaseStorage.versioning'
+import { createShardedUserData, supabaseUserDataTransport, type ShardCodec } from './userDataShards'
 import { isStuckRepeatedLine, type LabAskTurn } from './labAsk'
 import { biblicalBookId } from './labPosition'
 import { isUserBookId } from './userBook/userBookId'
@@ -25,8 +25,9 @@ import {
  * sequential Bible chapter, so "Romans 8" and "Genesis 1" turns sit in one
  * thread under their chapter labels.
  *
- * Signed in, the row goes through the versioned `commit_user_data` RPC with an
- * expected rev; a conflict adopts the server row, merges, and retries once.
+ * Signed in, the account copy is one row per chapter (`chat-history:{bookId}:{chapter}`, since 14 Nov 2026;
+ * see createLabChatHistoryCloud), each through the versioned `commit_user_data` RPC with an expected rev; a
+ * conflict adopts the server row, merges, and retries once.
  */
 
 const CONVERSATION_GAP_MS = 5 * 60 * 1000
@@ -84,7 +85,7 @@ function parseChatMessage(raw: unknown, bookId: string, fallbackTimestamp: numbe
   }
 }
 
-/** A margin card's data is kept only while it is small (each write rewrites the book's whole row). */
+/** A margin card's data is kept only while it is small (each write rewrites its chapter's whole row). */
 export const LAB_CHAT_CARD_DATA_CHARS = 8_000
 const CARD_KIND = /^[a-z][a-z0-9-]{0,23}$/
 
@@ -680,12 +681,6 @@ function guardedCloud(cloud: LabChatHistoryCloud): LabChatHistoryCloud {
   }
 }
 
-type AbortableQuery<T> = PromiseLike<T> & { abortSignal?: (signal: AbortSignal) => PromiseLike<T> }
-
-function abortable<T>(query: AbortableQuery<T>, signal: AbortSignal | undefined): PromiseLike<T> {
-  return signal && typeof query.abortSignal === 'function' ? query.abortSignal(signal) : query
-}
-
 export interface LabChatCloudRow {
   conversations: ChatConversation[]
   rev: number
@@ -704,42 +699,44 @@ export interface LabChatHistoryCloud {
 
 type SupabaseLike = NonNullable<typeof supabase>
 
-function rowFromVersioned(row: VersionedStorageRow | null | undefined, bookId: string): LabChatCloudRow | null {
-  if (!row) return null
-  const rev = coerceRev(row.rev) ?? 0
-  if (row.value === null || row.value === undefined) return { conversations: [], rev }
-  return { conversations: parseChatConversations(row.value, bookId), rev }
+/**
+ * The book's thread in the account is one row per chapter, `chat-history:{bookId}:{chapter}` (since 14 Nov 2026,
+ * userDataShards.ts): each holds the conversations of that chapter (a conversation's chapter never changes), in
+ * the same `ChatConversation[]` shape as the old whole-book row `chat-history:{bookId}`, which is still read and
+ * merged (shards after it, so a shard's copy of a conversation's fields is kept) and never written. One new
+ * answer rewrites one chapter's conversations instead of the book's whole thread.
+ */
+export const labChatShardCodec: ShardCodec<ChatConversation[]> = {
+  parse: (raw, bookId) => (raw === null || raw === undefined ? [] : parseChatConversations(raw, bookId)),
+  merge: sets => sets.length === 0 ? [] : sets.length === 1 ? mergeChatConversations(sets[0], []) : mergeChatConversations(sets[0], sets.slice(1).flat()),
+  split(conversations) {
+    const parts = new Map<string, ChatConversation[]>()
+    for (const conversation of conversations) {
+      const shard = String(conversation.chapterNumber)
+      const list = parts.get(shard)
+      if (list) list.push(conversation)
+      else parts.set(shard, [conversation])
+    }
+    return parts
+  },
+  signature: (conversations, bookId) => JSON.stringify(parseChatConversations(conversations, bookId)),
+  value: conversations => cleanChatValueForCloud(conversations),
 }
 
 export function createLabChatHistoryCloud(userId: string, client: SupabaseLike | null = supabase): LabChatHistoryCloud | null {
   if (!client || !userId) return null
+  const shards = createShardedUserData({
+    codec: labChatShardCodec,
+    transport: supabaseUserDataTransport(userId, client as never, withCloudTimeout),
+    baseKey: labChatHistoryKey,
+    ids: conversations => conversations.map(conversation => conversation.id),
+  })
+  const toRow = (row: { set: ChatConversation[]; rev: number } | null): LabChatCloudRow | null => row ? { conversations: row.set, rev: row.rev } : null
   return {
-    async read(bookId) {
-      const { data, error } = await withCloudTimeout(signal => abortable(client
-        .from('user_data')
-        .select('key, value, rev')
-        .eq('user_id', userId)
-        .eq('key', labChatHistoryKey(bookId))
-        .maybeSingle(), signal), 'chat history read')
-      if (error) throw new Error(error.message)
-      if (!data) return null
-      return rowFromVersioned(data as VersionedStorageRow, bookId)
-    },
-    async commit(bookId, conversations, expectedRev) {
-      const { data, error } = await withCloudTimeout(signal => abortable(client.rpc('commit_user_data', {
-        p_user_id: userId,
-        p_key: labChatHistoryKey(bookId),
-        p_value: cleanChatValueForCloud(conversations),
-        p_expected_rev: expectedRev ?? null,
-      }), signal), 'chat history commit')
-      if (error) throw new Error(error.message)
-      const row = (Array.isArray(data) ? data[0] : data) as VersionedStorageRow | undefined
-      const applied = versionedWriteApplied(row)
-      return {
-        applied,
-        conflict: !applied && row?.conflict === true,
-        row: rowFromVersioned(row, bookId),
-      }
+    read: async bookId => toRow(await shards.read(bookId)),
+    async commit(bookId, conversations) {
+      const result = await shards.commit(bookId, conversations)
+      return { applied: result.applied, conflict: result.conflict, row: toRow(result.row) }
     },
   }
 }
@@ -807,8 +804,9 @@ export async function syncLabBookChatWithCloud(input: {
 
 /**
  * How long the reader's chat waits before its turns go to the account row
- * (Disk IO, 22 Oct 2026). Every commit rewrites the book's whole thread (up
- * to 600 messages), and a question and its answer used to be two commits;
+ * (Disk IO, 22 Oct 2026). Every commit rewrote the book's whole thread (up
+ * to 600 messages; since 14 Nov 2026 only the chapter's row), and a question
+ * and its answer used to be two commits;
  * a Talk conversation one per spoken turn. Turns that arrive within the
  * window share one commit. The device copy is written at once as before;
  * hide, pagehide and unmount send what is waiting (`flush`), and a turn the
@@ -878,7 +876,15 @@ export function createLabChatCloudWriter(
     if (!inFlight.has(bookId)) void run(bookId)
   }
 
-  const run = async (bookId: string) => {
+  /** Each book's commit loop while it runs, so a flush before sign-out can wait for it. */
+  const running = new Map<string, Promise<void>>()
+  const run = (bookId: string): Promise<void> => {
+    const loop = commitLoop(bookId)
+    running.set(bookId, loop)
+    void loop.finally(() => { if (running.get(bookId) === loop) running.delete(bookId) })
+    return loop
+  }
+  const commitLoop = async (bookId: string) => {
     inFlight.add(bookId)
     try {
       while (queued.has(bookId)) {
@@ -941,9 +947,10 @@ export function createLabChatCloudWriter(
       if (pushOptions.now) { release(bookId); return }
       if (!timers.has(bookId)) timers.set(bookId, setTimeout(() => release(bookId), coalesceMs))
     },
-    /** Send every waiting push now (hide, pagehide, unmount). */
-    flush() {
+    /** Send every waiting push now (hide, pagehide, unmount, before sign-out); resolves once sent or failed. */
+    flush(): Promise<void> {
       for (const bookId of [...waiting.keys()]) release(bookId)
+      return Promise.all([...running.values()]).then(() => undefined)
     },
     /** Pushes still waiting for their window (tests and diagnostics). */
     pending: () => [...waiting.keys()],

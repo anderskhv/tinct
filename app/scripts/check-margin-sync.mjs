@@ -16,6 +16,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'
 import { markInternal } from './lib/internalTraffic.cjs'
+import { bookChats, bookMarks, createUserDataFake } from './lib/fakeUserData.mjs'
 
 const MODE = process.argv[2] || 'all'
 const WHOLE_DELAY_MS = Number(process.env.WHOLE_DELAY_MS || 0)
@@ -41,7 +42,8 @@ const account = { position: null, rows: new Map(), puts: [], commits: [], ai: []
 function resetAccount(place) {
   const now = Date.now() - 60000
   account.position = place ? { owner: user.id, books: { [BOOK]: { bookId: BOOK, headerBook: 'Frankenstein', sequentialChapter: place.chapterNumber, ...place, primaryEditionKey: 'modern-en', readerMode: 'read', updatedAt: now, deviceId: 'qa-phone', rev: 1 } }, finished: {}, hidden: {}, lastSettledBookId: BOOK, lastSettledAt: now, updatedAt: now, deviceId: 'qa-phone' } : { books: {}, finished: {}, hidden: {}, lastSettledBookId: null, lastSettledAt: 0, updatedAt: 0, deviceId: 'qa' }
-  account.rows = new Map(); account.puts = []; account.commits = []; account.ai = []
+  // user_data (lib/fakeUserData.mjs): highlights and chat are one row per chapter since 14 Nov 2026.
+  account.data = createUserDataFake(); account.puts = []; account.ai = []
 }
 const MOCK_ANSWER = 'MOCK EXPLAIN: the passage sets the scene and names what the narrator wants.'
 
@@ -50,19 +52,7 @@ async function route(context) {
     const req = r.request(), u = new URL(req.url())
     if (u.origin === supabaseUrl) {
       if (u.pathname.startsWith('/auth/')) return r.fulfill({ json: user })
-      if (u.pathname.endsWith('/rpc/commit_user_data')) {
-        const body = req.postDataJSON(), row = account.rows.get(body.p_key) || { key: body.p_key, value: null, rev: 0 }
-        account.commits.push({ key: body.p_key, rev: body.p_expected_rev })
-        if (body.p_expected_rev !== null && body.p_expected_rev !== row.rev) return r.fulfill({ json: [{ ...row, applied: false, conflict: true }] })
-        const next = { key: body.p_key, value: body.p_value, rev: row.rev + 1 }
-        account.rows.set(body.p_key, next)
-        return r.fulfill({ json: [{ ...next, applied: true, conflict: false }] })
-      }
-      if (u.pathname.includes('/rest/v1/user_data')) {
-        const key = (u.searchParams.get('key') || '').replace(/^eq\./, '')
-        const rows = account.rows.has(key) ? [account.rows.get(key)] : []
-        return r.fulfill({ json: req.headers().accept?.includes('vnd.pgrst.object') ? (rows[0] ?? null) : rows })
-      }
+      if (await account.data.handle(r)) return
       return r.fulfill({ json: [] })
     }
     if (u.origin !== origin) return r.abort()
@@ -193,14 +183,14 @@ async function selectInView(frame, words = 4) {
     return getSelection().toString()
   }, words)
 }
-const rowMarks = () => account.rows.get('lab-highlights:' + BOOK)?.value || { highlights: [], deleted: [] }
+const rowMarks = () => ({ highlights: bookMarks(account.data, 'lab-highlights:' + BOOK), deleted: account.data.book('lab-highlights:' + BOOK).flatMap(row => row.value?.deleted ?? []) })
 
 async function checkMarks(browser) {
   resetAccount({ chapterNumber: 5, paragraphIndex: 3, wordIndex: 0 })
   const words = String(edition.chapters[chapterAt(5) - 1].paragraphs[3]).replace(/_/g, '').split(/\s+/).filter(Boolean)
   // The book reader made this one on the phone: chapter 5, paragraph 3, its first three words.
   const phoneMark = { id: 'hl-1790000000000-phone1', bookId: BOOK, editionKey: 'modern-en', chapterNumber: 5, paragraphIndex: 3, fromWord: 0, endParagraphIndex: 3, toWord: 3, color: 'rose', text: words.slice(0, 3).join(' '), note: 'From the phone.', updatedAt: Date.now() - 50000 }
-  account.rows.set('lab-highlights:' + BOOK, { key: 'lab-highlights:' + BOOK, value: { v: 1, highlights: [phoneMark], deleted: [] }, rev: 1 })
+  account.data.set('lab-highlights:' + BOOK, { v: 1, highlights: [phoneMark], deleted: [] }, 1)
   // A highlight the preview kept on this device before the margin view shared the book reader's (migrated once).
   const legacyText = words.slice(5, 7).join(' ')
   const { context, page } = await device(browser, { seed: {} })
@@ -218,7 +208,7 @@ async function checkMarks(browser) {
     await waitFor(() => rowMarks().highlights.some(h => h.id === made[0]?.id), 8000)
     const row = rowMarks().highlights.find(h => h.id === made[0]?.id)
     const want = picked.trim().split(/\s+/)
-    ok('marks: it reaches the account\'s lab-highlights row as word anchors (commit_user_data)', !!row && row.bookId === BOOK && row.editionKey === 'modern-en' && Number.isInteger(row.fromWord) && row.toWord - row.fromWord === want.length && row.text === want.join(' ') && account.commits.every(c => c.rev !== null || c.key !== 'lab-highlights:' + BOOK), row)
+    ok('marks: it reaches the account\'s lab-highlights row as word anchors (commit_user_data)', !!row && row.bookId === BOOK && row.editionKey === 'modern-en' && Number.isInteger(row.fromWord) && row.toWord - row.fromWord === want.length && row.text === want.join(' ') && account.data.commits.every(c => c.expectedRev !== null || !c.key.startsWith('lab-highlights:' + BOOK)), row)
     ok('marks: the phone\'s highlight is kept in the row', rowMarks().highlights.some(h => h.id === phoneMark.id))
     const local = await page.evaluate(() => Object.keys(localStorage).filter(k => /^tinct-addbook:hl/.test(k)))
     ok('marks: no preview-local highlight keys are written', local.length === 0, local)
@@ -250,7 +240,7 @@ async function checkMarks(browser) {
 }
 globalThis.checkMarks = checkMarks
 
-const chatRow = () => account.rows.get('chat-history:' + BOOK)?.value || []
+const chatRow = () => bookChats(account.data, 'chat-history:' + BOOK)
 async function checkCards(browser) {
   resetAccount({ chapterNumber: 5, paragraphIndex: 3, wordIndex: 0 })
   const { context, page } = await device(browser)
@@ -294,7 +284,7 @@ async function checkCards(browser) {
     const after = await marginFrame(page)
     await page.waitForTimeout(1500)
     ok('cards: and is gone from margin view on the first desktop', await after.evaluate(id => !keptCards().some(c => c.id === id && !c.gone), card.id))
-    ok('cards: chat history commits always carry an expected rev', account.commits.filter(c => c.key.startsWith('chat-history:')).every(c => c.rev !== null))
+    ok('cards: chat history commits always carry an expected rev', account.data.commits.filter(c => c.key.startsWith('chat-history:')).every(c => c.expectedRev !== null))
     ok('cards: no page errors', page.errors.length === 0 && other.page.errors.length === 0, [...page.errors, ...other.page.errors])
     await other.context.close()
   } finally { await context.close() }
