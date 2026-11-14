@@ -7040,29 +7040,20 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
   border: 0; border-radius: 0; background: transparent;
 }
 /* 8px between pills, as at the chapter's head (iPhone feedback, 21 Oct 2026); each keeps its 44px tap height. */
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: flex; flex-wrap: wrap; gap: 0 8px; }
+/* Plain ink text, no pills (Anders, 14 Nov 2026: black, subtle, plain text; approved mockup). */
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: flex; flex-wrap: wrap; gap: 0 22px; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button {
   display: inline-flex; align-items: center; gap: 6px;
   min-height: 44px; padding: 8px 0; border: 0; border-radius: 0;
-  background: transparent; color: var(--lab-ink-muted);
+  background: transparent; color: var(--lab-ink);
   font: 16px/1.4 'EB Garamond', Georgia, serif; text-align: left; cursor: pointer;
 }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions button:hover { color: var(--lab-ink); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions button:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--lab-ink) 35%, transparent); }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button:disabled { opacity: .5; cursor: wait; }
 /* Recap is the companion's, like Primer at the chapter's head: the same pill and mark. */
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap { font-size: 14px; }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap > span {
-  border: 1px solid color-mix(in srgb, var(--lab-border) 70%, transparent);
-  border-radius: 999px; padding: 2px 10px;
-}
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap:hover > span { background: var(--lab-surface); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap > span { padding: 0; }
 /* The chapter note: the same quiet pill, without the companion's mark (a note is the reader's, never the AI's). */
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-note { font-size: 14px; }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-note > span {
-  border: 1px solid color-mix(in srgb, var(--lab-border) 70%, transparent);
-  border-radius: 999px; padding: 2px 10px;
-}
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-note:hover > span { background: var(--lab-surface); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-note > span { padding: 0; }
 /* Social ship 3: the end of a book offers the "Finished {book}" reading card (only while SOCIAL_FRIENDS is on). */
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-finished-card { color: var(--lab-ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--lab-ink) 35%, transparent); }
 .lab[data-chrome-version="v2"] .lab-chapter-finished-note { margin: 0; font: italic 15px/1.4 'EB Garamond', Georgia, serif; color: var(--lab-ink-muted); }
