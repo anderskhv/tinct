@@ -265,6 +265,9 @@ jobs:
         env:
           TINCT_BOOK_SCROLL_SPEED_OUTPUT: artifacts/book-scroll-speed
         run: node scripts/check-book-scroll-speed.mjs
+      - name: Verify the phone card keeps the height it opened at
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        run: node scripts/check-phone-card-steady.mjs
       - name: Verify book scroll opens at the saved place and saves no other
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
         env:

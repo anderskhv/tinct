@@ -155,6 +155,8 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 /* Text scrolled up under the title fades out instead of showing a half-cut line (LabPhoneCard sets data-scrolled). */
 .lab .lab-pcard-body[data-scrolled] { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22px); mask-image: linear-gradient(to bottom, transparent 0, #000 22px); }
 .lab .lab-pcard-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 12px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+/* More of the answer below the card's foot (the card keeps its height, 14 Nov 2026): the last lines fade out. */
+.lab .lab-pcard-body[data-more] { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 36px), transparent); }
 /* No scroll bar over the answer: iOS drew its indicator into the text (iPhone, 10 Nov 2026). The card still scrolls. */
 .lab .lab-pcard-body::-webkit-scrollbar, .lab .lab-pcard-body *::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .lab .lab-pcard-body-inner { display: flex; flex-direction: column; gap: 12px; }
