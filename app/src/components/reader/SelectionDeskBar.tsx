@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import { PhoneIcon } from '../../lab/marginPhone/LabPhoneCard'
-import { deskBarPlace, deskMorePlace, firstAndLastLine, type DeskBox } from './deskBarPlace'
+import { deskBarPlace, deskMorePlace, firstAndLastLine, leafAt, type DeskBox } from './deskBarPlace'
 import { labKeyboardInsetPx } from '../../lab/labChrome'
 import { deskBarShortcut, deskBarShortcutLabel, type DeskBarShortcut } from './deskBarShortcuts'
 import '../../lab/marginPhone/marginPhone.css'
@@ -116,7 +116,13 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
       if (!el) return
       const bounds = frame()
       if (observedSelection.current.x !== fallback.x || observedSelection.current.y !== fallback.y) observedSelection.current = { x: fallback.x, y: fallback.y, seen: false }
-      const nodes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
+      const painted = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
+      // A passage over both leaves of a spread: the bar stands by the leaf where the pointer let go or tapped (leafAt).
+      const leafOf = (node: Element) => node.closest('.lab-book-col')
+      const leaves = Array.from(new Set(painted.map(leafOf)))
+      const leaf = leaves.length > 1 && leaves.every(Boolean)
+        ? leaves[leafAt(leaves.map(el => boxOf(el!.getBoundingClientRect())), props.cursor?.x)] : null
+      const nodes = leaf ? painted.filter(node => leafOf(node) === leaf) : painted
       const host = nodes[0]?.closest('.continuous-reader')?.getBoundingClientRect()
       if (host) { bounds.top = Math.max(bounds.top, host.top); bounds.bottom = Math.min(bounds.bottom, host.bottom) }
       const supplied = props.getAnchor?.()

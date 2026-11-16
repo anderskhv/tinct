@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { SelectionPopup, type PopupMode, type SelectionInfo, type SelectionPopupProps } from './SelectionPopup'
-import { deskBarPlace, deskMorePlace, firstAndLastLine } from './deskBarPlace'
+import { deskBarPlace, deskMorePlace, firstAndLastLine, leafAt } from './deskBarPlace'
 
 function selection(overrides: Partial<SelectionInfo> = {}): SelectionInfo {
   return { x: 300, y: 300, text: 'the selected passage', paragraphIndex: 0, startOffset: 0, endOffset: 3, ...overrides }
@@ -246,6 +246,46 @@ it('follows a nested reader scroll and hides when the selected words leave the v
   await act(async () => { fireEvent.scroll(host); await new Promise(resolve => setTimeout(resolve, 30)) })
   expect(bar.style.visibility).toBe('hidden')
   host.remove()
+})
+
+describe('a passage over both leaves of a two-page spread (iPad, 16 Nov 2026)', () => {
+  it('picks the leaf the pointer is in, else the nearest, else the first', () => {
+    const leaves = [{ left: 30, right: 650, top: 57, bottom: 967 }, { left: 690, right: 1300, top: 57, bottom: 967 }]
+    expect(leafAt(leaves, 1100)).toBe(1)
+    expect(leafAt(leaves, 200)).toBe(0)
+    expect(leafAt(leaves, 675)).toBe(1)
+    expect(leafAt(leaves, null)).toBe(0)
+    expect(leafAt([leaves[0]], 1100)).toBe(0)
+  })
+
+  it('stands by the lines on the right leaf where the finger let go, not under the left leaf\'s foot', () => {
+    const height = window.innerHeight
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 1024 })
+    const lab = document.createElement('div')
+    lab.className = 'lab'
+    const leaf = (left: number, right: number, lines: number[][]) => {
+      const col = document.createElement('div')
+      col.className = 'lab-book-col'
+      vi.spyOn(col, 'getBoundingClientRect').mockImplementation(() => ({ left, right, top: 57, bottom: 967, width: right - left, height: 910 } as DOMRect))
+      for (const [l, r, top] of lines) {
+        const word = document.createElement('span')
+        word.className = 'lab-hearing-word is-selecting'
+        vi.spyOn(word, 'getClientRects').mockImplementation(() => [{ left: l, right: r, top, bottom: top + 42, width: r - l, height: 42 }] as unknown as DOMRectList)
+        col.append(word)
+      }
+      lab.append(col)
+    }
+    // "vil bringe ham held. Jeg har kendt en hel fa-" at the left leaf's foot; "milie af ... at tigge.«" at the right's head.
+    leaf(72, 655, [[72, 655, 862]])
+    leaf(711, 1294, [[711, 1294, 68], [711, 1294, 109], [711, 1294, 150], [711, 1143, 191]])
+    document.body.append(lab)
+    // The finger let go on "tigge.«" (selection.y is the pointer 12px below it, as LabApp gives it).
+    render(<Harness {...props({ selection: selection({ x: 1100, y: 224, showBelow: true }) })} />)
+    const top = parseFloat(screen.getByTestId('lab-desk-bar').style.top)
+    expect(top).toBe(191 + 42 + 12)
+    lab.remove()
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: height })
+  })
 })
 
 it('accepts authoritative PDF ink geometry and hides when its source leaves view', async () => {
