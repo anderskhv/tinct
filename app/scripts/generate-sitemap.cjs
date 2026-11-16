@@ -37,9 +37,12 @@ const SEO_EXCERPT_WORDS = 1200
 const MAX_META_TITLE_CHARS = 60
 const MAX_META_DESCRIPTION_CHARS = 155
 const DEFAULT_OG_IMAGE = `${ORIGIN}/og-image-v3.jpg`
+// Hand-set meta for a book, used before the generated text. The Odyssey's stale hand-tuned title, which
+// promised an AI companion and an audiobook, was removed (16 Nov 2026): it is titled like every other book,
+// and its description names only the editions.
 const MANUAL_BOOK_META = {
   odyssey: {
-    title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
+    description: 'The Odyssey by Homer in modern English, with the original edition to compare. Read free, no ads.',
   },
 }
 
@@ -151,6 +154,23 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;')
 }
 
+// Project Gutenberg's `_emphasis_` markup, as the reader reads it (src/lab/emphasisText.ts, UNDERSCORE_EMPHASIS_RE):
+// a matched pair at token edges is emphasis; nothing else about the text changes.
+const UNDERSCORE_EMPHASIS_RE = /\b_([^_\n]+)_\b/g
+
+/** Escaped text with Gutenberg `_emphasis_` as <em>. An unmatched marker left at a word's edge (a clipped excerpt) is dropped. */
+function emphasisHtml(value) {
+  const text = String(value || '')
+  const loose = part => escapeHtml(part.replace(/(^|\s)_(?=\S)/g, '$1').replace(/(\S)_(?=\s|$|\.\.\.)/g, '$1'))
+  let out = ''
+  let last = 0
+  for (const match of text.matchAll(UNDERSCORE_EMPHASIS_RE)) {
+    out += `${loose(text.slice(last, match.index))}<em>${escapeHtml(match[1])}</em>`
+    last = match.index + match[0].length
+  }
+  return out + loose(text.slice(last))
+}
+
 function plainText(value) {
   return String(value || '')
     .replace(/\s+/g, ' ')
@@ -224,6 +244,8 @@ function seoChapterTitle(book, chapterTitle) {
 const PUBLISHER_PERMISSIONS = require('../src/data/publisherPermissions.json').books
 
 function seoBookDescription(book) {
+  const manual = MANUAL_BOOK_META[book.id]
+  if (manual?.description) return manual.description
   // No Modern English, narration or cast guide to advertise, and never "classic".
   if (book.noModernEdition || PUBLISHER_PERMISSIONS[book.id]) {
     return clipAtWord(`Read ${book.title} free, no ads, with an AI reading companion. On Tinct with the publisher's permission.`, MAX_META_DESCRIPTION_CHARS)
@@ -413,26 +435,103 @@ function libraryHero(book) {
     author: book.author,
     question: reviewedHook(book.id) || libraryBlurb(book.id) || '',
     cover: bookCoverSrc(book.id),
+    portrait: authorPortrait(book),
   }
   return `<script type="application/json" id="tinct-book-hero">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`
 }
 
-let libraryBlurbs = null
-/** The library's one-line blurb per book (src/data/libraryTaxonomy.ts). */
-function libraryBlurb(bookId) {
-  if (!libraryBlurbs) {
-    libraryBlurbs = new Map()
+let authorImages = null
+// The library's own fallback portraits by author name (public/lab/library_2/authors.js), for a book the author
+// image manifest does not list.
+const AUTHOR_PORTRAITS = [
+  [/Jane Austen/i, 'jane-austen', 'Jane Austen, drawn by her sister Cassandra Austen'],
+  [/Dostoevsky|Dostoyevsky/i, 'dostoevsky', 'Fyodor Dostoevsky, painted by Vasily Perov'],
+  [/Machiavelli/i, 'machiavelli', 'Niccolò Machiavelli, painted by Santi di Tito'],
+  [/^Homer$/i, 'homer', 'An ancient imagined likeness of Homer, British Museum'],
+  [/Marcus Aurelius/i, 'marcus-aurelius', 'Sculpted portrait of Marcus Aurelius'],
+]
+/**
+ * The author portrait the library's flap shows for a book (public/lab/library_2/author-images.json, then
+ * authors.js), as an absolute address; null when the library has none, so the page shows no portrait rather than
+ * another author's.
+ */
+function authorPortrait(book) {
+  if (!authorImages) {
+    try { authorImages = JSON.parse(fs.readFileSync(path.join(APP_DIR, 'public/lab/library_2/author-images.json'), 'utf8')) } catch { authorImages = { images: [], books: [] } }
+  }
+  const entry = (authorImages.books || []).find(item => item.bookId === book.id)
+  const image = entry && (authorImages.images || []).find(item => item.id === (entry.imageIds || [])[0])
+  if (image?.publicPath && fs.existsSync(path.join(APP_DIR, 'public', image.publicPath))) return { src: image.publicPath, alt: image.alt || '' }
+  const fallback = AUTHOR_PORTRAITS.find(([pattern]) => pattern.test(book.author || ''))
+  const src = fallback && `/lab/library_2/assets/authors/${fallback[1]}.jpg`
+  return src && fs.existsSync(path.join(APP_DIR, 'public', src)) ? { src, alt: fallback[2] } : null
+}
+
+let taxonomy = null
+/**
+ * The library taxonomy (src/data/libraryTaxonomy.ts): its books in order, shelves and houses. The three
+ * exports are JSON literals, read as JSON.
+ */
+function libraryTaxonomy() {
+  if (!taxonomy) {
+    taxonomy = { books: [], shelves: {}, houses: [] }
     try {
       const src = fs.readFileSync(path.join(APP_DIR, 'src/data/libraryTaxonomy.ts'), 'utf8')
-      const marker = 'LIBRARY_BOOK_META: LibraryBookMeta[] = '
-      const start = src.indexOf(marker) + marker.length
-      const end = src.indexOf('\n]\n', start) + 2
-      for (const meta of JSON.parse(src.slice(start, end))) libraryBlurbs.set(meta.id, meta.blurb)
+      const literal = (marker, close) => {
+        const start = src.indexOf(marker) + marker.length
+        if (start < marker.length) throw new Error(`${marker} not found`)
+        return JSON.parse(src.slice(start, src.indexOf(close, start) + 2))
+      }
+      taxonomy.books = literal('LIBRARY_BOOK_META: LibraryBookMeta[] = ', '\n]\n')
+      taxonomy.shelves = literal('LIBRARY_SHELVES: Record<string, LibraryShelf> = ', '\n}\n')
+      taxonomy.houses = literal('LIBRARY_HOUSES: LibraryHouse[] = ', '\n]\n')
     } catch (err) {
-      console.warn('[sitemap] library blurbs unavailable:', err.message)
+      console.warn('[sitemap] library taxonomy unavailable:', err.message)
     }
   }
-  return libraryBlurbs.get(bookId) || ''
+  return taxonomy
+}
+
+/** The library's one-line blurb per book (src/data/libraryTaxonomy.ts). */
+function libraryBlurb(bookId) {
+  return libraryTaxonomy().books.find(meta => meta.id === bookId)?.blurb || ''
+}
+
+const RELATED_BOOKS_MAX = 6
+const RELATED_BOOKS_MIN = 4
+/**
+ * Related books for a book page: the same author first, then the same shelf, then (only to reach four) the same
+ * house and then the same era, each in the library's order. Only books with a page of their own; at most six.
+ */
+function relatedBooks(book, books) {
+  const { books: metas, houses } = libraryTaxonomy()
+  const pages = new Map(books.filter(other => other.id !== book.id).map(other => [other.id, other]))
+  const order = [...metas.map(meta => meta.id).filter(id => pages.has(id)), ...[...pages.keys()].filter(id => !metas.some(meta => meta.id === id))]
+  const shelvesOf = id => metas.find(meta => meta.id === id)?.shelves || []
+  const picked = []
+  const add = id => { if (!picked.includes(id) && picked.length < RELATED_BOOKS_MAX) picked.push(id) }
+  for (const id of order) if (pages.get(id).author === book.author) add(id)
+  const shelves = shelvesOf(book.id)
+  for (const shelf of shelves) for (const id of order) if (shelvesOf(id).includes(shelf)) add(id)
+  if (picked.length < RELATED_BOOKS_MIN) {
+    const houseShelves = houses.filter(house => house.shelves.some(shelf => shelves.includes(shelf))).flatMap(house => house.shelves)
+    for (const id of order) if (picked.length < RELATED_BOOKS_MIN && shelvesOf(id).some(shelf => houseShelves.includes(shelf))) add(id)
+    // A house of one shelf or two (ancient history) still reaches four with the library's own era.
+    const era = metas.find(meta => meta.id === book.id)?.era
+    for (const id of order) if (era && picked.length < RELATED_BOOKS_MIN && metas.find(meta => meta.id === id)?.era === era) add(id)
+  }
+  return picked.map(id => pages.get(id))
+}
+
+function relatedBooksHtml(book, books) {
+  const related = relatedBooks(book, books)
+  if (!related.length) return ''
+  return `<section class="glance-section related-books" aria-label="Related books">
+    <div class="glance-label">Related books</div>
+    <ul class="glance">
+${related.map(other => `      <li><a href="/read/${other.id}"><span class="glance-text">${escapeHtml(other.title)}</span></a></li>`).join('\n')}
+    </ul>
+  </section>`
 }
 
 function bookCoverSrc(bookId) {
@@ -518,7 +617,7 @@ function bookChapterHref(bookId, chapter) {
   return `${readerChapterHref(bookId, chapter)}${german ? '&amp;edition=original-de' : ''}`
 }
 
-function buildBookIndexPage(book, edition) {
+function buildBookIndexPage(book, edition, books = []) {
   const chapters = edition.data.chapters || []
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
@@ -536,7 +635,7 @@ function buildBookIndexPage(book, edition) {
         return `<li><a href="/read/${book.id}/${scene.slug}"><span class="glance-num">${escapeHtml(where)}</span><span class="glance-text">${escapeHtml(place.join(' — ') || where)}</span></a></li>`
       }).join('\n')
     : chapters
-      .map((chapter, index) => `<li><a href="${bookChapterHref(book.id, index + 1)}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
+      .map((chapter, index) => `<li><a href="${bookChapterHref(book.id, index + 1)}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${emphasisHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
       .join('\n')
   const scene = bookSceneSrc(book.id)
   const cover = bookCoverSrc(book.id)
@@ -571,10 +670,11 @@ ${chapterLinks}
     </ol>
   </section>`}
 
-  <h2 class="section">${escapeHtml(firstChapter.title || 'Opening')}</h2>
+  <h2 class="section">${emphasisHtml(firstChapter.title || 'Opening')}</h2>
   <div class="body"${editionKey.endsWith("-de") ? ' lang="de"' : ''}>
-    ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n    ')}
+    ${firstParagraphs.map(p => `<p>${emphasisHtml(p)}</p>`).join('\n    ')}
   </div>${permission ? `\n  <p class="breadcrumb">${escapeHtml(permission.rights)} Published by ${escapeHtml(permission.publisher)}; on Tinct with permission.</p>` : ''}
+  ${relatedBooksHtml(book, books)}
 </main>
 <!--/tinct:about-->
 ${libraryHero(book)}
@@ -605,13 +705,15 @@ ${libraryHero(book)}
 
 function generateReaderSeoPages(books) {
   let indexes = 0
+  // Related books link only to books that get a page here.
+  const withPages = books.filter(book => preferredEditionPath(book.id))
   for (const book of books) {
     const edition = loadPreferredEdition(book.id)
     if (!edition) continue
     const dir = path.join(READ_DIR, book.id)
     fs.mkdirSync(dir, { recursive: true })
 
-    fs.writeFileSync(path.join(dir, 'book.html'), buildBookIndexPage(book, edition))
+    fs.writeFileSync(path.join(dir, 'book.html'), buildBookIndexPage(book, edition, withPages))
     indexes += 1
   }
   return { indexes }
