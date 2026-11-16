@@ -2014,10 +2014,10 @@ it('returns from V2 audio browsing without seeking or restarting playback', asyn
   fireEvent.click(screen.getByTestId('lab-v2-play'))
   await waitFor(() => expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing'))
   fireEvent.click(screen.getByTestId('lab-page-next'))
-  await waitFor(() => expect(screen.getByTestId('lab-back-to-audio')).toBeTruthy())
+  await waitFor(() => expect(screen.getByTestId('lab-back-to-voice')).toBeTruthy())
   const time = audio.currentTime
-  fireEvent.click(screen.getByTestId('lab-back-to-audio'))
-  expect(screen.queryByTestId('lab-back-to-audio')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-back-to-voice'))
+  expect(screen.queryByTestId('lab-back-to-voice')).toBeNull()
   expect(audio.currentTime).toBe(time)
   expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing')
 })
