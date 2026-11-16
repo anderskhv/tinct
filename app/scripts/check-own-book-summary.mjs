@@ -77,6 +77,7 @@ async function run(browser, { fail }) {
   page.on('pageerror', error => errors.push(error.message))
   await page.goto(`${origin}/`)
   await page.evaluate(async ({ hex, bytes }) => {
+    localStorage.setItem('tinct:selection-actions-used', '1') // a returning reader: the margin's full start actions, not the first-visit hint (16 Nov 2026)
     localStorage.setItem('sb-qa-auth-token', JSON.stringify({ access_token: 'qa', refresh_token: 'qa-refresh', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 36000, user: { id: 'u-qa', email: 'reader@example.com' } }))
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: 'dark' }))
     // A Catch me up window the reader once moved to the screen's left: as a floating window the embedded Summary took that place.
