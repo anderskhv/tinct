@@ -230,13 +230,12 @@ html.tinct-scene #root { height: auto; min-height: 100svh; display: block; overf
 .tinct-scene .lab-passage, .tinct-scene .lab-passage * { -webkit-user-select: text !important; user-select: text !important; -webkit-touch-callout: default !important; }
 .tinct-scene .scene-margin { flex: 1 1 0; min-width: 0; max-width: 380px; position: sticky; top: 87px; margin: 87px 0 0 18px; }
 .tinct-scene .scene-margin .source-margin-item { position: static; width: auto; }
-.tinct-scene .scene-welcome { font: 400 19px/1.35 'EB Garamond', Georgia, serif; color: var(--lab-ink); margin: 2px 0 14px; text-wrap: balance; }
-.tinct-scene .lab .selection-popup.scene-bar-picture { position: static !important; display: inline-flex; margin: 0 0 1px; pointer-events: none; transform: scale(.8); transform-origin: 0 0; animation: none; }
+.tinct-scene .scene-margin .lab-first-hint { margin: 0 0 16px; }
 .tinct-scene .lab .selection-popup.scene-selection-bar { position: absolute !important; }
 .tinct-scene .lab .selection-popup.scene-selection-bar[hidden] { display: none !important; }
 .tinct-scene .scene-ask-form { margin: 0 0 14px; }
 .tinct-scene .scene-ask-form .lab-pcard-follow { margin: 0; }
-.tinct-scene .scene-margin .lab-start-acts a { color: inherit; text-decoration: none; }
+.tinct-scene .scene-margin .lab-start-acts a { display: inline-flex; align-items: center; min-height: 30px; padding: 4px 0 2px; color: var(--lab-ink); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, currentColor 30%, transparent); font: 16px/1.4 'EB Garamond', Georgia, serif; }
 .tinct-scene .lab-chapter-end-actions a { color: inherit; text-decoration: none; }
 .tinct-scene .scene-turns { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin: 34px 0 0; }
 .tinct-scene .scene-turns a { text-decoration: none; font: 400 16px/1.4 'EB Garamond', Georgia, serif; color: var(--lab-ink-muted); border-bottom: 1px solid var(--lab-border, rgba(32,26,19,.2)); padding: 3px 0; }
@@ -372,11 +371,12 @@ ${original.paragraphs.map((text, at) => renderParagraph(text, at, 'orig-p-')).jo
 </div></div>
 </article>
 </div></div>
-<aside class="scene-margin" aria-label="Margin"><section class="source-margin-item is-open is-actions is-start-later"><header class="source-margin-head"><span class="source-margin-label">${escapeHtml(book.title)} in modern English · ${escapeHtml(scene)}</span></header><div class="source-margin-content">
-<p class="scene-welcome">Highlight any passage to have it explained, simplified, or to ask about it.</p>
-<div class="selection-popup is-lab is-desk-bar lab-pbar is-desk scene-bar-picture" aria-hidden="true"><span class="lab-pbar-item is-ask">Ask</span><span class="lab-pbar-sep"></span><span class="lab-pbar-item is-text">Explain</span><span class="lab-pbar-item is-text">Simplify</span></div>
+<aside class="scene-margin" aria-label="Margin"><section class="source-margin-item is-open is-actions is-hint"><div class="source-margin-content">
+<div class="lab-first-hint" data-testid="margin-first-hint">
+<p class="lab-first-hint-text">Highlight any passage to have it explained, simplified, or to ask about it.</p>
+<div class="lab-start-acts">${act(`Primer for ${scene}`, reader('primer'), 'primer')}</div>
+</div>
 ${askField('Or ask about this scene')}
-<div class="lab-start-card is-later"><div class="lab-start-acts" role="group" aria-label="${escapeHtml(scene)} actions">${act('Primer', reader('primer'), 'primer')}${act('Summary', reader('summary'), 'summary')}${act('Quiz me', reader('quiz'), 'quiz')}</div></div>
 </div></section></aside>
 </div>
 </div></div>

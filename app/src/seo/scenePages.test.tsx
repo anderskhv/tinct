@@ -108,18 +108,17 @@ describe('scene page text', () => {
     expect(doc.querySelector('a[rel="next"]')!.getAttribute('href')).toBe('/read/hamlet/act-3-scene-2')
     expect(new JSDOM(pages[0].html).window.document.querySelector('a[rel="prev"]')).toBeNull()
     const hrefs = Object.fromEntries([...doc.querySelectorAll('a[data-scene-action]')].map(a => [`${a.getAttribute('data-scene-action')}:${a.textContent}`, a.getAttribute('href')!]))
-    expect(hrefs['primer:✧Primer']).toBe('/reader?book=hamlet&chapter=8&edition=modern-en#scene=primer')
-    expect(hrefs['summary:✧Summary']).toBe('/reader?book=hamlet&chapter=8&edition=modern-en#scene=summary')
+    expect(hrefs['primer:✧Primer for Act 3, Scene 1']).toBe('/reader?book=hamlet&chapter=8&edition=modern-en#scene=primer')
     expect(hrefs['quiz:✧Quiz me']).toBe('/reader?book=hamlet&chapter=8&edition=modern-en#scene=quiz')
     const last = edition('hamlet', 'modern-en').chapters[7].paragraphs.length - 1
     expect(hrefs['recap:✧Recap']).toBe(`/reader?book=hamlet&chapter=8&edition=modern-en&paragraph=${last}#scene=recap`)
     for (const href of Object.values(hrefs)) expect(parseSceneHandoff(new URL(href, 'https://tinct.app').hash)).not.toBeNull()
-    // The margin, top to bottom, in the approved order.
+    // The margin, top to bottom: the reader's first-visit hint and its one Primer link (Anders, 16 Nov 2026), then the ask field.
     const margin = doc.querySelector('.scene-margin')!
-    expect(margin.querySelector('.source-margin-label')!.textContent).toBe('Hamlet in modern English · Act 3, Scene 1')
-    expect(margin.textContent).toContain('Highlight any passage to have it explained, simplified, or to ask about it.')
+    expect(margin.querySelector('.lab-first-hint-text')!.textContent).toBe('Highlight any passage to have it explained, simplified, or to ask about it.')
+    expect([...margin.querySelectorAll('.lab-start-acts a')].map(a => a.textContent)).toEqual(['✧Primer for Act 3, Scene 1'])
     expect(margin.querySelector('textarea')!.getAttribute('placeholder')).toBe('Or ask about this scene')
-    const order = ['source-margin-label', 'scene-welcome', 'scene-bar-picture', 'scene-ask-form', 'lab-start-acts'].map(name => margin.innerHTML.indexOf(name))
+    const order = ['lab-first-hint-text', 'lab-start-acts', 'scene-ask-form'].map(name => margin.innerHTML.indexOf(name))
     expect([...order].sort((a, b) => a - b)).toEqual(order)
     // The scene end: Recap and Quiz me, then the neighbours, then the original.
     const end = ['lab-chapter-end', 'scene-turns', 'scene-original'].map(name => pages[7].html.indexOf(`class="${name}`))
