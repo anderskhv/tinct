@@ -324,16 +324,19 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
   await p.waitForTimeout(2500);onlyLinked(await frames(p),where);assert.deepEqual(errors,[]);await c.close();
  }
  if(extended){
-  // A chapter link goes straight into the reader at that chapter.
+  // A chapter link opens that chapter's own page (/read/{book}/chapter-N, the SEO chapter pages brief of 16 Nov 2026),
+  // which hands over to the reader from there. The static dist has no Worker to cut a chapter out of its pack, so a
+  // local run checks the link; the live run follows it to the chapter page.
   const {c,p}=await open();
   await p.goto('https://tinct.app/read/'+LINKED+'/',{waitUntil:'domcontentloaded'});
-  const link=p.locator(`#book-about a[href="/reader?book=${LINKED}&chapter=3"]`);
+  const link=p.locator(`#book-about a[href="/read/${LINKED}/chapter-3"]`);
   await link.scrollIntoViewIfNeeded();
-  const reader=p.waitForRequest(r=>r.url()===`https://tinct.app/reader?book=${LINKED}&chapter=3`);
-  await link.click();await reader;
-  // The click navigates: wait for the reader document, which has no body for a moment while it loads.
-  await p.waitForURL(url=>url.pathname==='/reader',{waitUntil:'domcontentloaded'});
-  await p.waitForFunction(()=>/Chapter 3\b/.test(document.body?.innerText||''),null,{timeout:45000});
+  assert(await link.isVisible(),'the book page links chapter 3 to its chapter page');
+  if(live){
+   await link.click();
+   await p.waitForURL(url=>url.pathname===`/read/${LINKED}/chapter-3`,{waitUntil:'domcontentloaded'});
+   await p.waitForFunction(()=>/Chapter 3\b/.test(document.querySelector('h1')?.textContent||''),null,{timeout:45000});
+  }
   await p.screenshot({path:`${shots}/${label}-chapter-link-reader.png`});
   console.log('BOOK_LINK_CHAPTER '+JSON.stringify({engine,url:p.url()}));
   await c.close();

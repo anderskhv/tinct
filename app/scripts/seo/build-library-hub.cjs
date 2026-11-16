@@ -112,6 +112,9 @@ function build() {
     ],
   }
 
+  // Each shelf's hub page (/read/shelf/{shelf}, scripts/seo/build-chapter-pages.mjs), where the build wrote one.
+  let shelfHubs = {}
+  try { shelfHubs = JSON.parse(fs.readFileSync(path.join(APP_DIR, 'src/data/chapterPages.generated.json'), 'utf8')).hubs || {} } catch { /* no hubs */ }
   const houseSections = houses.map(house => {
     const shelfBlocks = house.shelves
       .filter(shelfId => shelfBooks.has(shelfId))
@@ -126,7 +129,7 @@ function build() {
         </li>`
         }).join('\n')
         return `      <section class="shelf">
-        <h3 class="sub">${esc(shelf.title)}</h3>
+        <h3 class="sub">${shelfHubs[shelfId] === undefined ? esc(shelf.title) : `<a href="/read/shelf/${shelfId}">${esc(shelf.title)}</a>`}</h3>
         <p class="shelf-sub">${esc(shelf.sub)}</p>
         <ul class="books">
 ${lis}

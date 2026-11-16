@@ -66,7 +66,6 @@ describe('scene pages', () => {
       ['/read/hamlet/chapter-99', '/read/hamlet'],
       ['/read/hamlet/summary', '/read/hamlet'],
       ['/read/hamlet/cast.html', '/read/hamlet'],
-      ['/read/wuthering-heights/chapter-3', '/read/wuthering-heights'],
       ['/read/king-lear/chapter-2', '/read/king-lear'],
     ]) {
       const resp = await get(path)

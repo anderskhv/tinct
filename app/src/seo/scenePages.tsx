@@ -98,7 +98,7 @@ export function sceneHandoffHref(bookId: string, chapterNumber: number, action: 
   return `/reader?${query}${action ? sceneHandoffHash({ action }) : ''}`
 }
 
-function escapeHtml(value: string): string {
+export function escapeHtml(value: string): string {
   return String(value)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -213,7 +213,7 @@ export function renderMinimap(chapters: readonly EditionChapter[], chapterNumber
 export const READER_ROOT_STYLE = "--lab-font-reader: 'Literata', 'EB Garamond', Georgia, serif; --lab-font-size: 1.1; --lab-text-align: left; --lab-line-height: 1.48; --lab-reader-margin: 1.55rem; --lab-reader-margin-scale: 1; --lab-paragraph-gap: .28em;"
 
 /** Page-only rules: a document that scrolls (the reader scrolls an inner box), the margin beside the paper, the ask field. */
-function pageStyles(): string {
+export function pageStyles(): string {
   return `<style>
 html.tinct-scene { overflow-x: hidden; background: var(--scene-room, #ece7db); }
 html.tinct-scene body { height: auto; min-height: 100%; overflow: visible; background: var(--scene-room, #ece7db); }
@@ -253,14 +253,23 @@ html.tinct-scene #root { height: auto; min-height: 100svh; display: block; overf
 </style>`
 }
 
-function headerHtml(book: ScenePageBook, chapter: EditionChapter): string {
-  const back = renderToStaticMarkup(<LibraryBackIcon size={LAB_V2_PLAY_PX} />)
-  const notebook = renderToStaticMarkup(<ReaderNotebookIcon />)
-  // The reader's own t button, at rest; a click hands over to the reader's menu.
-  const menu = renderToStaticMarkup(<LabSuperButton open={false} onToggle={() => {}} />)
-    .replace('<button ', `<button data-scene-action="menu" `)
-    // The button shows its first frame (the t); the reader sets the frames' opacity on mount.
-    .replace(/data-frame="(\d+)"/g, (_, frame: string) => `data-frame="${frame}" style="opacity:${frame === '0' ? 1 : 0}"`)
+/** The header's icons, drawn once per build: the same markup on every page. */
+let headerIcons: { back: string; notebook: string; menu: string } | null = null
+function icons() {
+  headerIcons ??= {
+    back: renderToStaticMarkup(<LibraryBackIcon size={LAB_V2_PLAY_PX} />),
+    notebook: renderToStaticMarkup(<ReaderNotebookIcon />),
+    // The reader's own t button, at rest; a click hands over to the reader's menu.
+    menu: renderToStaticMarkup(<LabSuperButton open={false} onToggle={() => {}} />)
+      .replace('<button ', `<button data-scene-action="menu" `)
+      // The button shows its first frame (the t); the reader sets the frames' opacity on mount.
+      .replace(/data-frame="(\d+)"/g, (_, frame: string) => `data-frame="${frame}" style="opacity:${frame === '0' ? 1 : 0}"`),
+  }
+  return headerIcons
+}
+
+export function headerHtml(book: ScenePageBook, chapter: EditionChapter): string {
+  const { back, notebook, menu } = icons()
   const handoff = (action: SceneHandoffAction) => escapeHtml(sceneHandoffHref(book.id, chapter.number, action))
   return `<header class="lab-header">
 <a class="lab-v2-library-back" href="/library?book=${encodeURIComponent(book.id)}" aria-label="Back to library" title="Library" data-scene-keep>${back}</a>
@@ -269,13 +278,15 @@ function headerHtml(book: ScenePageBook, chapter: EditionChapter): string {
 </header>`
 }
 
+let sendIcon: string | null = null
 /** The reader's own ask field (PhoneFollow: the margin cards' "Ask a follow-up"), sending to the reader. */
-function askField(placeholder: string, className = ''): string {
-  const send = renderToStaticMarkup(<PhoneIcon name="up" />)
-  return `<form class="scene-ask-form${className ? ` ${className}` : ''}" action="/reader" data-scene-ask><div class="lab-pcard-follow"><div class="lab-pcard-follow-box"><textarea class="lab-pcard-follow-input" name="q" rows="1" maxlength="500" enterkeyhint="send" placeholder="${escapeHtml(placeholder)}" aria-label="Ask about this scene"></textarea><button type="submit" class="lab-pcard-send" aria-label="Send" disabled>${send}</button></div></div></form>`
+export function askField(placeholder: string, className = '', label = 'Ask about this scene'): string {
+  sendIcon ??= renderToStaticMarkup(<PhoneIcon name="up" />)
+  const send = sendIcon
+  return `<form class="scene-ask-form${className ? ` ${className}` : ''}" action="/reader" data-scene-ask><div class="lab-pcard-follow"><div class="lab-pcard-follow-box"><textarea class="lab-pcard-follow-input" name="q" rows="1" maxlength="500" enterkeyhint="send" placeholder="${escapeHtml(placeholder)}" aria-label="${escapeHtml(label)}"></textarea><button type="submit" class="lab-pcard-send" aria-label="Send" disabled>${send}</button></div></div></form>`
 }
 
-const act = (label: string, href: string, action: SceneHandoffAction, className = '') =>
+export const act = (label: string, href: string, action: SceneHandoffAction, className = '') =>
   `<a${className ? ` class="${className}"` : ''} href="${escapeHtml(href)}" data-scene-action="${action}"><span><span class="lab-chapter-primer-mark" aria-hidden="true">✧</span>${label}</span></a>`
 
 /** One scene page. `chapters` are the modern edition's, in order; `original` is the same chapter of original-en. */
