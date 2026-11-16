@@ -63,6 +63,10 @@
 .lab-start-angle-text { flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:1px; }
 .lab-start-angle-value { font:15px/1.35 'EB Garamond',Georgia,serif; color:var(--lab-ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .lab-start-angle-chevron { flex:0 0 auto; }
+/* The first visit (Anders, 16 Nov 2026): one line on how to use the selection actions, in the UI face, and the
+   chapter's Primer as the start actions draw theirs. Shown until the reader first uses Ask, Explain or Simplify. */
+.lab-first-hint { display:flex; flex-direction:column; gap:12px; padding:2px 0 4px; }
+.lab-first-hint-text { margin:0; font:400 15px/1.45 system-ui,-apple-system,'Segoe UI',sans-serif; color:var(--lab-ink); text-wrap:balance; }
 /* "Before you start" folded: only its greyed label and a + (Anders, 10 Nov 2026). */
 .source-margin-item.is-collapsible.is-folded { padding-bottom:0; }
 .source-margin-item.is-collapsible .source-margin-label { background:none; border:0; padding:0; cursor:pointer; text-align:left; }

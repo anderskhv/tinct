@@ -53,6 +53,7 @@ import { apiUrl } from '../utils/apiUrl'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { useVoicePersonaSync } from './useVoicePersonaSync'
 import { useAiSettingsAccountSync } from './labAiAccount'
+import { useSelectionActions } from './labSelectionActions'
 import { setAiSettingsBook } from './labAiPrefs'
 import { useSwipeDownClose } from './useSwipeDownClose'
 import { flushSync } from 'react-dom'
@@ -126,7 +127,6 @@ import { useLabReadingYear } from './useLabReadingYear'
 import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
-import { ReadingAngleLink } from './LabReadingAngleField'
 import { PhoneIcon } from './marginPhone/LabPhoneCard'
 import { BOOK_SUMMARY_TITLE, CATCH_UP_TITLE, LabCatchUpSheet } from './LabCatchUpSheet'
 import { BOOK_PRIMER_TITLE, LabBookPrimerSheet, useBookPrimerAvailable } from './LabBookPrimerSheet'
@@ -833,6 +833,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, chosen: prefs.voicePersonaChosen === true, onRemote: applyRemoteVoicePersona })
   // AI settings and the books' reading angles follow the reader's account (labAiAccount.ts).
   useAiSettingsAccountSync(authUser?.id ?? null)
+  // The simple first page (Anders, 16 Nov 2026): until the reader has used Ask, Explain or Simplify once, the reader
+  // shows one line on how to use them instead of the start actions (labSelectionActions.ts). 'unknown' while a
+  // signed-in reader's account is read: then neither the hint nor anything that could flash.
+  const selectionActions = useSelectionActions(authUser?.id ?? null, !authUser && likelyAuthenticated)
+  const firstVisit = selectionActions === 'new'
   // Refresh the cached site-admin answer for the next visit.
   useEffect(() => { if (authUser?.id) void refreshSiteAdmin(authUser.id) }, [authUser?.id])
   // English narration is available across the published catalogue. Female
@@ -924,8 +929,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
   const [superSheet, setSuperSheet] = useState<LabV2SheetLayer | null>(null)
   const [compareFromLayout, setCompareFromLayout] = useState(false)
-  // The book's reading angle (labReadingAngle.ts): the "Before you start" card's field; the reading-angle pill and Book
-  // settings' row open it in AI settings' This book tab.
+  // The book's reading angle (labReadingAngle.ts), set in AI settings' This book tab: from the t menu's Reading angle
+  // row and the first chapter's end (Anders, 16 Nov 2026: offered once the reader has started, never before the first page).
   const [bookAngle, setBookAngle] = useReadingAngle(book.bookId || 'bible')
   // The book's "Before you start" card opens folded (Anders, 10 Nov 2026); the reader opens it with its +.
   const [startCardOpen, setStartCardOpen] = useState(false)
@@ -3640,6 +3645,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     prefs.margins,
     prefs.paragraphSpacing,
     fullscreen ? 'fullscreen' : 'windowed',
+    // What the chapter heading and end draw (the simple first page, 16 Nov 2026): the first visit's line and pills, and
+    // the first chapter's "Read with an angle". A change lays the chapter out again, anchored on the reader's word,
+    // as a type change is, so the place never moves.
+    marginPhone || sharedReader ? `${firstVisit ? 'first' : 'used'}/${!bookAngle.trim() && book.chapters[0]?.number === book.chapterNumber ? 'angle' : ''}` : '',
   ].join(':')
   const desktopLayoutKey = `${layoutKeyFor(readerEditionKey)}:${desktopCompareActive}:${book.bookId}`
   const [desktopEndInFooter, setDesktopEndInFooter] = useState(false)
@@ -5964,6 +5973,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
     setSuperMenuOpen(false)
     if (id === 'ai') { openAiSettings(); return }
+    // Reading angle: AI settings' This book with the caret in the angle, the existing flow (16 Nov 2026).
+    if (id === 'angle') { openReadingAngleRef.current(); return }
     // The Librarian row's body sends its mode; a bare 'librarian' never leaves the reader.
     if (id === 'chat' || id === 'librarian') { if (continuousReader) menuMarginChatRef.current(); else handleChat(); return }
     // Notebook: the existing Contents list of highlights and notes (no position write: Contents suspends them).
@@ -6399,7 +6410,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   const marginCatchUp = catchUpAvailable(book.chapters, book.chapterNumber)
   // The start actions (approved mockup, Anders 9 Nov 2026). The whole book: Primer (a Tinct book's introduction),
-  // Summary (every chapter, through the catch-up timeline) and Reading angle (Book settings, the field focused).
+  // Summary (every chapter, through the catch-up timeline). The reading angle (AI settings, the field focused) is the
+  // t menu's Reading angle and the first chapter's end since 16 Nov 2026.
   const openBookAction = (kind: 'primer' | 'summary') => {
     if (initialResolving || book.chaptersProvisional) return
     closePhoneCard(); setChapterNotes(null); setSuperSheet(null); setSuperMenuOpen(false)
@@ -6515,6 +6527,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const marginCatchUpRef = useRef<() => void>(() => {})
   const bookPrimer = useBookPrimerAvailable(privateBook ? null : book.bookId || null)
   const firstChapterTitle = book.chapters[0]?.title ?? ''
+  const angleOfferOn = !!firstChapterTitle && !bookAngle.trim()
   const marginPills: MarginPhonePills | null = useMemo(() => (marginPhone || sharedReader) ? {
     ...(marginPhone ? {
       layout: 'phone' as const,
@@ -6523,13 +6536,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       summary: true,
       book: firstChapterTitle ? {
         firstChapterTitle, title: book.bookTitle, author: book.bookAuthor || undefined, primer: bookPrimer,
-        onPrimer: () => openBookActionRef.current('primer'), onSummary: () => openBookActionRef.current('summary'), onAngle: () => openReadingAngleRef.current(),
+        onPrimer: () => openBookActionRef.current('primer'), onSummary: () => openBookActionRef.current('summary'),
       } : null,
+      // The simple first page (16 Nov 2026): until the reader first uses Ask, Explain or Simplify.
+      firstVisit,
     } : continuousReader ? { layout: 'desktop' as const } : {}),
     catchUp: marginCatchUp,
     onCatchUp: () => { if (!initialResolving && !book.chaptersProvisional) { if (continuousReader) { if (phoneCardRef.current?.kind === 'note' || phoneCardRef.current?.kind === 'chapter-note') closePhoneCard(); desktopUnitAnchorsRef.current.set(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`, {paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0}); setDesktopCatchup(true); setDesktopOpenId(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`); setDesktopContinuationId(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`) } else setSuperSheet('catchup') } },
     onQuiz: anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor) },
-  } : null, [marginPhone, sharedReader, marginCatchUp, initialResolving, book.chaptersProvisional, continuousReader, book.chapterNumber, readerEditionKey, privateBook, firstChapterTitle, book.bookTitle, book.bookAuthor, bookPrimer])
+    // The reading angle is offered at the end of the book's first chapter while the book has none (16 Nov 2026).
+    angleOffer: angleOfferOn ? { chapterTitle: firstChapterTitle, onOpen: () => openReadingAngleRef.current() } : null,
+  } : null, [marginPhone, sharedReader, marginCatchUp, initialResolving, book.chaptersProvisional, continuousReader, book.chapterNumber, readerEditionKey, privateBook, firstChapterTitle, book.bookTitle, book.bookAuthor, bookPrimer, firstVisit, angleOfferOn])
   marginCatchUpRef.current = () => marginPills?.onCatchUp?.()
   marginPhoneNoteRef.current = (chapterNumber: number) => {
     if (!(marginPhone || sharedReader)) return false
@@ -6956,10 +6973,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     </>
   }
   // The desktop Margin reader's start actions (approved mockup, Anders 9 Nov 2026): beside the book's opening, one
-  // "Before you start" card (the reading angle, the whole book's Primer and Summary, then the first chapter's
-  // Primer, Summary and Quiz me); at every later chapter's start, the same chapter actions in a greyed card. Nothing
-  // is asked for until an action is chosen; it then becomes an ordinary margin card there.
-  if (continuousReader && !book.chaptersProvisional && !initialResolving) {
+  // "Before you start" card (the whole book's Primer and Summary, then the first chapter's Primer, Summary and Quiz
+  // me); at every later chapter's start, the same chapter actions in a greyed card. Nothing is asked for until an
+  // action is chosen; it then becomes an ordinary margin card there. The reading angle is no longer here (Anders,
+  // 16 Nov 2026): it is the t menu's Reading angle and the first chapter's end.
+  // A reader who has never used Ask, Explain or Simplify sees only how to, and the chapter's Primer (the simple first
+  // page, 16 Nov 2026); while a signed-in reader's account is read, nothing.
+  if (continuousReader && !book.chaptersProvisional && !initialResolving && selectionActions !== 'unknown') {
     const first = book.chapters[0]?.number === book.chapterNumber
     // "Before you start" sits at the very top of the book, level with the opening heading (Anders, 10 Nov 2026),
     // not at the first line of text below it.
@@ -6983,12 +7003,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const rect = head?.getBoundingClientRect()
       return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : sourceForMargin(undefined)()
     }
-    desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: first ? 'Before you start' : chapterTitle, actions: true, variant: first ? 'start' : 'start-later',
+    if (firstVisit) desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: chapterTitle, actions: true, variant: 'hint',
+      source: first ? startCardSource : bookScroll ? ownHeadingSource : sourceForMargin(undefined), order: -10, free: true, open: true, onToggle: () => {},
+      content: <div className="lab-first-hint" data-testid="margin-first-hint">
+        <p className="lab-first-hint-text">Highlight any passage to have it explained, simplified, or to ask about it.</p>
+        <div className="lab-start-acts">{act(`Primer for ${chapterTitle}`, 'margin-hint-primer', () => openChapterNotes('primer', book.chapterNumber, 'pill'))}</div>
+      </div> })
+    else desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: first ? 'Before you start' : chapterTitle, actions: true, variant: first ? 'start' : 'start-later',
       source: first ? startCardSource : bookScroll ? ownHeadingSource : sourceForMargin(undefined), order: -10, free: true,
       // "Before you start" opens folded to its greyed label and a + (Anders, 10 Nov 2026); later chapters' actions stay open.
       ...(first ? { collapsible: true, open: startCardOpen, onToggle: () => setStartCardOpen(open => !open) } : { open: true, onToggle: () => {} }),
       content: first ? <div className="lab-start-card" data-testid="margin-start-card">
-        <ReadingAngleLink value={bookAngle} onOpen={() => openAiSettings(true)} testId="margin-reading-angle" />
         <p className="lab-start-head">The whole book</p>
         <div className="lab-start-acts" role="group" aria-label="The whole book">
           {bookPrimer && act('Primer', 'margin-book-primer', () => openDesktopBookCard('primer'))}
@@ -6998,9 +7023,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         {chapterActs}
       </div> : <div className="lab-start-card is-later" data-testid="margin-start-card">{chapterActs}</div> })
   }
+  // The first-visit hint steps aside whenever a card is open in the margin (the simple first page, 16 Nov 2026).
+  const withFirstHint = (entries: SourceMarginEntry[]) => entries.some(entry => entry.open && !entry.actions) ? entries.filter(entry => entry.variant !== 'hint') : entries
   // Book scroll: a painted neighbour's start actions beside its heading and its saved cards and notes folded beside their
   // passages, as they will be when it is the reader's own. Acting on one makes the chapter the reader's own first.
   if (bookScroll && bookScrollUnitNow && !book.chaptersProvisional && !initialResolving) {
+    // The simple first page: a reader who has never used the selection actions sees no neighbour's start actions either.
+    const neighbourStarts = selectionActions === 'used'
     const unitChapters = bookScrollUnitNow.chapters
     const ownIndex = unitChapters.findIndex(chapter => chapter.number === book.chapterNumber)
     const neighbourSource = (number: number, place?: { paragraphIndex: number; fromWord: number } | null, atEnd = false) => () => {
@@ -7025,7 +7054,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const base = index < ownIndex ? -1e16 + index * 1e13 : 1e15 + index * 1e13
       const chapter = unitChapters[index]
       const title = unitName(chapter.title || '') || chapter.title || 'This chapter'
-      desktopMarginEntries.push({ id: `start:${number}`, label: title, actions: true, variant: 'start-later', source: neighbourSource(number), order: base - 10, free: true,
+      if (neighbourStarts) desktopMarginEntries.push({ id: `start:${number}`, label: title, actions: true, variant: 'start-later', source: neighbourSource(number), order: base - 10, free: true,
         open: true, onToggle: () => {},
         content: <div className="lab-start-card is-later" data-testid="margin-neighbour-start-card" data-chapter={number}>
           <div className="lab-start-acts" role="group" aria-label={`${title} actions`}>
@@ -7428,6 +7457,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           ownPdf={ownEditions}
           sharedReader={sharedReader}
           profileDot={profileDot}
+          // The reading angle's row (Anders, 16 Nov 2026), where the start actions held it until then.
+          readingAngle={sharedReader || marginPhone ? bookAngle : undefined}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
@@ -8376,7 +8407,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         />
       )}
       {(marginPhone || sharedReader) && !continuousReader && phoneCard && renderPhoneCard(phoneCard)}
-      {continuousReader && <SourceMarginRail host={marginHost} entries={desktopMarginEntries} onBlankNote={openBlankMarginNote} />}
+      {continuousReader && <SourceMarginRail host={marginHost} entries={withFirstHint(desktopMarginEntries)} onBlankNote={openBlankMarginNote} />}
       {continuousReader && marginUndo && !highlightUndoNotice && <div className="source-margin-undo" role="status">Deleted. <button onClick={() => { marginUndo(); setMarginUndo(null) }}>Undo</button></div>}
       {highlightUndoNotice && <div key={highlightUndoNotice.at} className="source-margin-undo is-undone" role="status" data-testid="lab-undo-notice">{highlightUndoNotice.text}</div>}
       <LabFigurePreview chapterNumber={book.chapterNumber} figures={book.figures ?? []} enabled={!showPhoneChrome} />

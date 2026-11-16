@@ -6,7 +6,7 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'snip' | 'notebook' | 'text' | 'editions' | 'audio' | 'ai' | 'library' | 'account'
+export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'snip' | 'notebook' | 'text' | 'editions' | 'audio' | 'ai' | 'angle' | 'library' | 'account'
 /** Explain a figure (`snip`) is added by the Original PDF reader itself (PdfOriginalReaderShell), never by labSuperMenuRows. */
 
 export interface LabSuperMenuRow {
@@ -14,6 +14,8 @@ export interface LabSuperMenuRow {
   label: string
   /** A chevron says the row opens a layer rather than doing something. */
   chevron?: boolean
+  /** A quiet state after the label (Reading angle: "Not set", or the book's angle). */
+  detail?: string
   /** The rule that separates what is in this book from what is around it. */
   ruleBefore?: boolean
   /**
@@ -48,6 +50,16 @@ export const LAB_NOTEBOOK_LABEL = 'Notebook'
  */
 export const LAB_AI_SETTINGS_LABEL = 'AI settings'
 
+/**
+ * The book's reading angle (Anders, 16 Nov 2026): offered once the reader has started, so it moved from the start
+ * actions to the t menu, after AI settings. It opens AI settings' This book with the caret in the angle (the existing
+ * flow) and says whether this book has one.
+ */
+export const LAB_READING_ANGLE_LABEL = 'Reading angle'
+export function readingAngleRow(angle: string): LabSuperMenuRow {
+  return { id: 'angle', label: LAB_READING_ANGLE_LABEL, chevron: true, detail: angle.trim() ? angle.trim() : 'Not set' }
+}
+
 const SETTINGS_ROWS: LabSuperMenuRow[] = [
   ...LAB_SETTINGS_GROUPS.map((group, index) => ({ id: group.id, label: group.label, chevron: true, ...(index === 0 ? { ruleBefore: true } : {}) })),
   { id: 'ai', label: LAB_AI_SETTINGS_LABEL, chevron: true },
@@ -73,8 +85,10 @@ function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
  * Chapter actions (Catch me up, approved 2026-09-30, sits right under
  * Summarize), the settings groups, then library (phone only) and account.
  */
-export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, sharedReader = false, summarize = false }: {
+export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, sharedReader = false, summarize = false, readingAngle }: {
   phone?: boolean; privateBook?: boolean; ownPdf?: boolean
+  /** The open book's reading angle ('' for none): adds the Reading angle row after AI settings. Absent: no row. */
+  readingAngle?: string
   /**
    * Summarize the whole document: the Original PDF pages reader keeps it (Christian's whole-PDF summary). The book
    * reader has none (Anders, 10 Nov 2026): its start and chapter pills hold Summary, and Catch me up is "up to here".
@@ -91,7 +105,8 @@ export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = 
     // Desktop has the back arrow at the top left instead of a Library row (2026-10-01).
     { id: 'account', label: 'Profile', chevron: true, ruleBefore: true },
   ]
-  const rows = summarize ? all.flatMap(row => row.id === 'conversation' ? [row, { id: 'summarize' as const, label: 'Summarize' }] : [row]) : all
+  const withSummary = summarize ? all.flatMap(row => row.id === 'conversation' ? [row, { id: 'summarize' as const, label: 'Summarize' }] : [row]) : all
+  const rows = readingAngle !== undefined ? withSummary.flatMap(row => row.id === 'ai' ? [row, readingAngleRow(readingAngle)] : [row]) : withSummary
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter
   // at a time). Book settings appears only for separate source choices (PDF

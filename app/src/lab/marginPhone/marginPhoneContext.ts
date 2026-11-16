@@ -16,7 +16,7 @@ export interface MarginPhonePills {
   onQuiz?: (anchor?: DOMRect) => void
   /**
    * Where the start actions live (approved mockup, Anders 9 Nov 2026). 'phone': soft pills under the book's
-   * opening (Primer · Summary · Reading angle) and under each chapter heading (Primer · Summary · Quiz).
+   * opening (Primer · Summary; the reading angle moved to the t menu on 16 Nov 2026) and under each chapter heading.
    * 'desktop': in the margin's cards (start actions), so the heading stays bare. Absent: today's chips.
    */
   layout?: 'phone' | 'desktop'
@@ -26,6 +26,17 @@ export interface MarginPhonePills {
   summary?: boolean
   /** The book's start: the pill under its title and author, on the heading of the book's first chapter. */
   book?: MarginBookStart | null
+  /**
+   * The simple first page (Anders, 16 Nov 2026), layout 'phone': a reader who has never used Ask, Explain or Simplify
+   * sees the book's title and author without its pill, one ✧ Primer under each chapter heading, and under the first
+   * chapter's heading one line on how to use the selection actions (labSelectionActions.ts).
+   */
+  firstVisit?: boolean
+  /**
+   * "✧ Read with an angle" at the end of the book's first chapter, beside Summary and Quiz me, while the book has no
+   * reading angle (Anders, 16 Nov 2026). `chapterTitle` names that chapter (the chapter end knows only its title).
+   */
+  angleOffer?: { chapterTitle: string; onOpen: () => void } | null
 }
 
 export interface MarginBookStart {
@@ -38,6 +49,7 @@ export interface MarginBookStart {
   primer: boolean
   onPrimer?: () => void
   onSummary?: () => void
+  /** A Reading angle segment in the pill; the reader passes none since 16 Nov 2026 (the t menu holds it). */
   onAngle?: () => void
 }
 

@@ -24,6 +24,7 @@ import { withAiPrefs } from '../labAiPrefs'
 import type { PrimerOutline } from '../../companion/chapterChatPrompt'
 import { PdfOriginalTalkCard, pdfTalkConversations } from './PdfOriginalTalkCard'
 import { OwnTextCardsSync, unassignedOwnTextCardCount } from './ownTextCardsSync'
+import { isSelectionActionKind, markSelectionActionsUsed } from '../labSelectionActions'
 
 type Item = OwnMark | OwnCard | OwnMarkGone
 type SetName = 'marks' | 'cards'
@@ -522,6 +523,8 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       rects, text: selection.text, turns,
       at: time, u: time, ...(pageOnly ? { pageOnly: true } : {}), ...(Object.keys(data).length ? { data } : {}) })
     if (saved) this.savedCardId = id
+    // The first answered Ask, Explain or Simplify ends the reader's first visit, here as in the book reader.
+    if (saved && isSelectionActionKind(kind) && answer.trim()) markSelectionActionsUsed()
     return saved
   }
   saveCardWithId: NonNullable<PdfOriginalReaderServices['saveCardWithId']> = (selection, kind, answer, options) =>

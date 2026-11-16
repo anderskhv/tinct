@@ -192,9 +192,9 @@ Reader, multi-edition, AI chat, highlights, notes, reading journal, character tr
 **Phase 2 (April 2026 – ongoing): Content expansion + design refresh + launch.**
 - Design refresh per new design system (Playfair Display / EB Garamond / IBM Plex Mono, teal accent, refined layouts) — landing page, reader, onboarding
 - Book additions: 50–100 more titles across the canon
-- Onboarding overhaul centred on the reading angle — research confirmed personal connection before reading begins is the single strongest completion driver
+- Onboarding overhaul centred on the reading angle — research confirmed personal connection before reading begins is the single strongest completion driver. **Superseded in the reader on 16 Nov 2026 (Anders):** nothing stands between a new reader and the first sentence. The first page shows one line on how to use Ask, Explain and Simplify; the reading angle is offered once the reader has started (the t menu's Reading angle, and "Read with an angle" at the end of a book's first chapter). First-party data for 10–16 Nov: about 1 in 10 first-time visitors used Ask, Explain or Simplify; 3 accounts had ever saved a reading angle against about 40 with a saved reading position; phones, two thirds of visitors, opened a book 39% of the time against 61% on computers and used the AI 9% against 20%. See [DECISIONS.md](DECISIONS.md).
 - Marketing: manifesto goes public at `/about`, elevator pitch for live conversations, landing page aligned with both
-- Growth channel: SEO-driven traffic to per-book landing pages, each with the reading-angle onboarding as conversion mechanism
+- Growth channel: SEO-driven traffic to per-book landing pages. (They named the reading-angle onboarding as the conversion mechanism; since 16 Nov 2026 the angle is offered after the reader has started, not before the first page.)
 - First paying users beyond friends and family
 
 **Phase 3 (late 2026 / 2027): Scale.**
@@ -222,7 +222,7 @@ Decisions deferred until we get there: whether to raise price, introduce tiers, 
 Current thinking: 50 titles. Enough to feel like a library; not so many that QA becomes a bottleneck. 100+ by year end.
 
 **2. What's the first real growth channel?**
-- **SEO** — one landing page per book, indexable, converts via reading-angle onboarding. Most defensible long-term.
+- **SEO** — one landing page per book, indexable, converting into the book's first page (no angle step before it since 16 Nov 2026). Most defensible long-term.
 - **Twitter/X** — @FallibleMusings audience is the right demographic (Deutsch-adjacent, literary, optimistic-about-civilisation). Slower but pre-qualified.
 - **Paid acquisition** — likely unprofitable at $5/mo. Deprioritised.
 - **Word of mouth** — slow but compounds. Reading angle + character tracker are the kind of features readers tell each other about.
@@ -243,7 +243,7 @@ Not subscriber count alone. The better proxy: books finished per user. If a read
 ## 10. Design principles
 
 1. **Reading comes first.** The text is the hero. Everything else is in service of understanding.
-2. **The reading angle is the product.** Not a feature — the mechanism that makes classics completable. Free for everyone. Set before reading begins.
+2. **The reading angle is the product.** Not a feature — the mechanism that makes classics completable. Free for everyone and always skippable. Offered after the reader has started, never before the first page (Anders, 16 Nov 2026; until then: "set before reading begins"): from the t menu's Reading angle at any time, and at the end of a book's first chapter while the book has none.
 3. **Available but not pushy.** AI chat, reflection prompts, annotations — present when you want them, invisible when you don't.
 4. **Beautiful typography.** Warm, literary aesthetic. Playfair Display, EB Garamond, IBM Plex Mono. Not clinical, not techy.
 5. **Honest translations.** Modern translations focus on comprehension. They do not editorialise or moralise. Readers get the author's mind, not the translator's.
