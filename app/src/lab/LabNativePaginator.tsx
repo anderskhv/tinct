@@ -587,7 +587,11 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         probe.remove()
         // Hyphens where a line needs one, chosen in this column (labHyphenPlan).
         const planAt = performance.now()
-        const planKey = yield* planHyphenationSteps(stage, paragraphs, breakLang, (p, words, text, plan) => { labMeasureParagraphInto(p, words, { text, from: 0 }, { plan }) })
+        // Painted as the page paints it, a transcript turn's time and speaker
+        // included: the speaker's heavier weight moves the line ends.
+        const planKey = yield* planHyphenationSteps(stage, paragraphs, breakLang, (p, words, text, plan, paragraphIndex) => {
+          labMeasureParagraphInto(p, words, { text, from: 0 }, { plan, turn: transcriptTurns(paragraphs)?.get(paragraphIndex) })
+        })
         traceLayout('hyphen-plan', planAt)
         onStage = ''
         const lengths = sourceWords.map(words => words.length)
