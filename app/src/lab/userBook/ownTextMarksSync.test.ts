@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { readLabHighlights, writeLabHighlights, type LabHighlight } from '../labHighlights'
-import { adoptUnassignedOwnTextMarks, guardOwnTextMarks, mergeTextItems, OwnTextMarksSync, ownTextMarksBelongTo, ownTextMarksCanonical, readOwnedTextMarks, releaseOwnTextMarksGuard, textMarkOf, unassignedOwnTextMarkCount, type TextItem } from './ownTextMarksSync'
+import { adoptUnassignedOwnTextMarks, guardOwnTextMarks, mergeIncomingLabMarks, mergeTextItems, OwnTextMarksSync, ownTextMarksBelongTo, ownTextMarksCanonical, readOwnedTextMarks, releaseOwnTextMarksGuard, textMarkOf, unassignedOwnTextMarkCount, type TextItem } from './ownTextMarksSync'
 import { userBookId } from './userBookId'
 import type { UserBookEdition } from './userEdition'
 
@@ -214,6 +214,44 @@ describe('owned EPUB text marks', () => {
     expect(saved.items).toContainEqual(expect.objectContaining({ id: mine.id, gone: true }))
     expect(readLabHighlights()).toContainEqual(other)
     sync.dispose()
+  })
+
+  // 16 Nov 2026: a note made in the blank margin (a point, toWord === fromWord) could not be represented, so no
+  // highlight or note of Anders's own EPUB was kept anywhere but memory, and all were gone after a reload.
+  it('keeps and uploads a blank-margin note (a point) with the other marks of an own book', async () => {
+    const fileId = 'e'.repeat(32)
+    const point: LabHighlight = { ...mark('hl-1400-margin'), fromWord: 3, toWord: 3, text: '', note: 'A margin note' }
+    const start: LabHighlight = { ...mark('hl-1401-start'), fromWord: 0, toWord: 0, text: '', note: 'At the first word' }
+    expect(textMarkOf(point, HEX, edition)?.anchor).toMatchObject({ kind: 'range', paragraphIndex: 0, fromWord: 3, endParagraphIndex: 0, toWord: 4 })
+    // It comes back from the account as the same point, on another device too.
+    expect(mergeIncomingLabMarks([], [textMarkOf(point, HEX, edition)!], HEX, edition)).toEqual([expect.objectContaining({ id: point.id, fromWord: 3, toWord: 3, note: 'A margin note' })])
+    // A selected one-word highlight keeps its word.
+    expect(mergeIncomingLabMarks([], [textMarkOf({ ...mark('hl-1403-word'), toWord: 1, text: 'These' }, HEX, edition)!], HEX, edition)).toEqual([expect.objectContaining({ toWord: 1 })])
+    expect(textMarkOf(start, HEX, edition)).not.toBeNull()
+    expect(textMarkOf({ ...mark('hl-1402-back'), fromWord: 3, toWord: 2 }, HEX, edition)).toBeNull()
+    const puts: TextItem[][] = []
+    const fetchImpl = vi.fn(async (_url: RequestInfo | URL, init?: RequestInit) => {
+      if (init?.method === 'PUT') { puts.push(JSON.parse(String(init.body)).marks); return json({ rev: 1, fileId }) }
+      return json({ rev: 0, marks: [], fileId })
+    })
+    const controller = new OwnTextMarksSync(HEX, OWNER, edition, async () => 'token', fetchImpl as typeof fetch, fileId)
+    expect(controller.changed([point, mark()])).toBe(true)
+    await controller.sync()
+    expect(controller.read().map(m => m.id).sort()).toEqual([mark().id, point.id].sort())
+    expect(puts.at(-1)?.map(item => item.id)).toEqual(expect.arrayContaining([point.id, mark().id]))
+    controller.dispose()
+  })
+
+  it('keeps every mark on this device when one cannot be uploaded, and uploads no partial set', async () => {
+    const fileId = 'e'.repeat(32), tooLong = { ...mark('hl-1500-long'), note: 'x'.repeat(4001) }
+    const fetchImpl = vi.fn(async (_url: RequestInfo | URL, init?: RequestInit) => init?.method === 'PUT' ? json({ rev: 1, fileId }) : json({ rev: 0, marks: [], fileId }))
+    const controller = new OwnTextMarksSync(HEX, OWNER, edition, async () => 'token', fetchImpl as typeof fetch, fileId)
+    expect(controller.changed([mark(), tooLong])).toBe(true)
+    await controller.sync()
+    expect(fetchImpl.mock.calls.some(([, init]) => init?.method === 'PUT')).toBe(false)
+    const again = new OwnTextMarksSync(HEX, OWNER, edition, async () => null, undefined, fileId)
+    expect(again.read().map(m => m.id).sort()).toEqual([mark().id, tooLong.id].sort())
+    controller.dispose(); again.dispose()
   })
 
   it('refuses to upload a partial set when a local mark cannot be represented', async () => {
