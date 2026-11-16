@@ -14,6 +14,9 @@ import { listAccountBooks, ownBookToken, type FetchLike } from './ownAccount'
 import { loadOwnedPdfBytes, readOwnedBookFileId, savePendingOwnedPdf, userBookOwner } from './userBookStore'
 import { openPdfOriginalBytes } from '../sharedReader/pdf/PdfOriginalSurface'
 import { loadPdfEngine } from './pdfEdition'
+import { pdfBodySize, pdfEdgeKeys, pdfGraphicBoxes, pdfNarrationPlan, pdfNarrationRenderedWord, pdfRunningKeys,
+  type PdfNarrationBox, type PdfNarrationPageInput, type PdfNarrationPlan } from '../sharedReader/pdf/pdfNarration'
+import { narrationTokens } from '../../narration/narrationCore'
 import { useMarginListen, type MarginListenApi } from '../marginPreview/useMarginListen'
 import { userBookId } from './userBookId'
 import { readingAngleForAi } from '../labReadingAngle'
@@ -31,6 +34,10 @@ export type PdfOriginalUnitAction = 'primer' | 'catchup' | 'recap'
 type SavedSet<T extends Item> = { items: T[]; rev: number; dirty: boolean }
 const FILE_ID = /^[0-9a-f]{32}$/
 const HEX = /^[0-9a-f]{24}$/
+/** Pages on each side whose layout decides running heads and body size for read-aloud. */
+const PDF_NARRATION_WINDOW = 4
+/** How many pages read-aloud passes over looking for one with words to read. */
+const PDF_NARRATION_SKIP_PAGES = 10
 const key = (name: SetName, owner: string, fileId: string, hex: string) => `tinct-addbook:pdf-original-${name}:${owner}:${fileId}:${hex}`
 const gone = (item: Item): item is OwnMarkGone => 'gone' in item
 const updated = (item: Item) => gone(item) ? item.u : item.u ?? item.at
@@ -179,8 +186,16 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       chapters: () => Array.from({ length: this.pages }, (_, index) => ({ number: index + 1, title: `Original PDF page ${index + 1}` })),
       chapter: async page => {
         if (!this.trusted() || page < 1 || page > this.pages) return null
-        const text = this.pageTexts.get(page) ?? await this.loadPageText(page)
-        return this.trusted() && text ? { number: page, title: `Original PDF page ${page}`, paragraphs: [text] } : null
+        // A page with nothing to read aloud (blank, or only a table, a figure's labels, running heads) is passed
+        // over: the next page with words starts from its top (useMarginListen follows the number returned).
+        for (let n = page; n <= Math.min(this.pages, page + PDF_NARRATION_SKIP_PAGES); n++) {
+          const text = this.pageTexts.get(n) ?? await this.loadPageText(n)
+          if (!this.trusted()) return null
+          const spoken = text ? await this.spokenText(n, text) : ''
+          if (!this.trusted()) return null
+          if (spoken) return { number: n, title: `Original PDF page ${n}`, paragraphs: [spoken] }
+        }
+        return null
       },
     })
     if ('subscribe' in (this.player ?? {})) this.unsubscribePlayer = (this.player as MarginListenApi).subscribe(() => this.changed())
@@ -197,6 +212,61 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       this.pageTexts.set(page, text)
       return text
     } finally { await pdf.destroy() }
+  }
+  /** Per page, the narration plan whose text the player was handed (null: the page's whole text, as before). */
+  private spokenPlans = new Map<number, PdfNarrationPlan | null>()
+  private narrationLayouts = new Map<number, PdfNarrationPageInput>()
+  /**
+   * What read-aloud speaks for a page (pdfNarration.ts): its main text in reading order, without running heads,
+   * page numbers, footnotes, figure labels or table cells. On the device; nothing new is sent anywhere. When the
+   * page's layout cannot be read, the page's text as before.
+   */
+  private async spokenText(page: number, text: string): Promise<string> {
+    let plan: PdfNarrationPlan | null = null
+    try { plan = await this.narrationPlan(page) } catch { plan = null }
+    // The plan belongs to this page only when it was made from the same extraction as the rendered text.
+    const usable = plan && plan.source === text.trim() ? plan : null
+    // Its words map one to one onto the narrator's tokens unless the narration text drops one (a lone "_"):
+    // then the page is still read, without the follow highlight.
+    this.spokenPlans.set(page, usable && narrationTokens(usable.text).length !== usable.words.length ? { ...usable, words: [] } : usable)
+    return usable ? usable.text : text
+  }
+  private async narrationPlan(page: number): Promise<PdfNarrationPlan | null> {
+    // Running heads repeat on nearby pages: a window of pages around this one decides them (and the body size).
+    const window: number[] = []
+    for (let n = Math.max(1, page - PDF_NARRATION_WINDOW); n <= Math.min(Math.max(page, this.pages), page + PDF_NARRATION_WINDOW); n++) window.push(n)
+    const missing = window.filter(n => !this.narrationLayouts.has(n))
+    if (missing.length) {
+      const read = await this.readNarrationPages(missing)
+      if (!this.trusted()) return null
+      for (const [n, layout] of read) this.narrationLayouts.set(n, layout)
+      for (const n of [...this.narrationLayouts.keys()]) if (Math.abs(n - page) > PDF_NARRATION_WINDOW * 3) this.narrationLayouts.delete(n)
+    }
+    const layout = this.narrationLayouts.get(page)
+    if (!layout) return null
+    const pages = window.flatMap(n => this.narrationLayouts.get(n) ?? [])
+    return pdfNarrationPlan(layout, { running: pdfRunningKeys(pages.map(pdfEdgeKeys)), bodySize: pdfBodySize(pages) })
+  }
+  /** The text items, page size and graphics boxes of these pages, read on the device (tests replace it). */
+  readNarrationPages = async (pages: number[]): Promise<Map<number, PdfNarrationPageInput>> => {
+    const found = new Map<number, PdfNarrationPageInput>()
+    const bytes = await loadOwnedPdfBytes(this.hex, this.owner)
+    if (!bytes || !this.trusted()) return found
+    const engine = await loadPdfEngine()
+    const pdf = await openPdfOriginalBytes(bytes, engine.pdfjs as unknown as Parameters<typeof openPdfOriginalBytes>[1])
+    const ops = (engine.pdfjs as unknown as { OPS?: Record<string, number> }).OPS
+    try {
+      for (const n of pages) {
+        if (n < 1 || n > pdf.numPages || !this.trusted()) continue
+        const page = await pdf.getPage(n) as Awaited<ReturnType<typeof pdf.getPage>> & { getOperatorList?: () => Promise<{ fnArray: number[]; argsArray: unknown[] }> }
+        const view = page.getViewport({ scale: 1 })
+        const content = await page.getTextContent()
+        let graphics: PdfNarrationBox[] = []
+        try { if (ops && page.getOperatorList) graphics = pdfGraphicBoxes(await page.getOperatorList(), ops, view) } catch { /* text rules still apply */ }
+        found.set(n, { items: content.items, view: { width: view.width, height: view.height, transform: view.transform }, graphics })
+      }
+    } finally { await pdf.destroy() }
+    return found
   }
   setPdfPageText = (page: number, text: string, pages: number) => {
     if (!this.trusted() || !Number.isInteger(page) || page < 1 || !Number.isInteger(pages) || pages < page) return
@@ -351,9 +421,15 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   }
   get follow(): PdfOriginalFollow | null {
     const page = this.heardPage, snapshot = this.player?.snapshot(), wordIndex = snapshot?.follow?.wordIndex
-    const text = page !== null ? this.pageTexts.get(page) : null
-    return page !== null && snapshot?.follow?.paragraphIndex === 0 && Number.isInteger(wordIndex) && wordIndex! >= 0 && text
-      ? { page, wordIndex: wordIndex!, text } : null
+    if (page === null || snapshot?.follow?.paragraphIndex !== 0 || !Number.isInteger(wordIndex) || wordIndex! < 0) return null
+    // A spoken word maps to its rendered word; an inserted one ("Figure:") or a skipped page part has none.
+    const plan = this.spokenPlans.get(page)
+    if (plan) {
+      const rendered = pdfNarrationRenderedWord(plan, wordIndex!)
+      return rendered === null ? null : { page, wordIndex: rendered, text: plan.source }
+    }
+    const text = this.pageTexts.get(page)
+    return text ? { page, wordIndex: wordIndex!, text } : null
   }
   private trusted() { return this.live && !this.staleGeneration && userBookOwner() === this.owner }
   setBookMetadata(metadata?: { title: string; author: string }) {

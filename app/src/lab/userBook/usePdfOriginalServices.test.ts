@@ -217,6 +217,61 @@ it('hands real visible page text to the existing own-book narration player witho
   service.dispose()
 })
 
+it('reads aloud only the main text of a PDF page, and the follow highlight lands only on words it reads', async () => {
+  let snap: Record<string, unknown> = { available: true, playing: false }
+  let source: { chapter: (page: number) => Promise<{ number: number; paragraphs: string[] } | null> } | undefined
+  const player = { attachOwn: vi.fn(value => { source = value }), play: vi.fn(), snapshot: vi.fn(() => snap) }
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null, vi.fn() as typeof fetch, player as never)
+  const view = { width: 600, height: 800, transform: [1, 0, 0, -1, 0, 800] }
+  const item = (str: string, x: number, top: number, size = 10) => ({ str, transform: [size, 0, 0, size, x, 800 - top], width: str.length * size * 0.5 })
+  const foot = (n: number) => [item('THE REPORT | ITS TITLE', 50, 780, 7), item(String(n), 540, 780, 7)]
+  const layouts = new Map([1, 2, 3].map(n => [n, { view, graphics: [], items: n === 2
+    // Page 2 holds only a table of short cells: nothing on it is read aloud.
+    ? [...foot(2), ...['Method', 'Focus', 'Users', 'ROSI', 'Return', 'Retail', 'VBA', 'Accounting', 'Industry', 'TCA', 'Full cost', 'Food']
+      .map((cell, i) => item(cell, 60 + (i % 3) * 170, 200 + Math.floor(i / 3) * 30, 9))]
+    : [...foot(n), item(`Page ${n} opens here and`, 50, 100), item('carries on below.', 50, 113)] }]))
+  const asked: number[][] = []
+  service.readNarrationPages = async pages => { asked.push(pages); return new Map(pages.flatMap(n => layouts.has(n) ? [[n, layouts.get(n)!] as const] : [])) }
+  const extraction = (n: number) => layouts.get(n)!.items.map(it => it.str).join(' ').trim()
+  for (const n of [1, 2, 3]) service.setPdfPageText(n, extraction(n), 3)
+  expect(await source?.chapter(1)).toMatchObject({ number: 1, paragraphs: ['Page 1 opens here and carries on below.'] })
+  // The page's own text for the companion is untouched.
+  expect(await service.getPageText(1)).toBe('THE REPORT | ITS TITLE 1 Page 1 opens here and carries on below.')
+  expect(await source?.chapter(2)).toMatchObject({ number: 3, paragraphs: ['Page 3 opens here and carries on below.'] })
+  expect(asked.flat().sort()).toEqual([1, 2, 3])
+  // The heard word 0 ("Page") is rendered word 6, after the footer's five words and its number.
+  snap = { available: true, playing: true, chapterNumber: 1, follow: { paragraphIndex: 0, wordIndex: 0 } }
+  expect(service.follow).toEqual({ page: 1, wordIndex: 6, text: extraction(1) })
+  snap = { ...snap, follow: { paragraphIndex: 0, wordIndex: 7 } }
+  expect(service.follow).toMatchObject({ wordIndex: 13 })
+  snap = { ...snap, follow: { paragraphIndex: 0, wordIndex: 8 } }
+  expect(service.follow).toBeNull()
+  // A lone "_" leaves the narrator's text: the page is still read, the highlight would no longer line up and is off.
+  layouts.get(3)!.items.push(item('Post _ Feed _ LinkedIn', 50, 126))
+  service.setPdfPageText(3, extraction(3), 3)
+  const fresh = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null, vi.fn() as typeof fetch, player as never)
+  fresh.readNarrationPages = service.readNarrationPages
+  for (const n of [1, 2, 3]) fresh.setPdfPageText(n, extraction(n), 3)
+  expect(await source?.chapter(3)).toMatchObject({ paragraphs: ['Page 3 opens here and carries on below. Post _ Feed _ LinkedIn'] })
+  snap = { available: true, playing: true, chapterNumber: 3, follow: { paragraphIndex: 0, wordIndex: 0 } }
+  expect(fresh.follow).toBeNull()
+  fresh.dispose()
+  service.dispose()
+})
+
+it('reads the page as before when its layout cannot be read', async () => {
+  let source: { chapter: (page: number) => Promise<{ paragraphs: string[] } | null> } | undefined
+  let snap: Record<string, unknown> = { available: true }
+  const player = { attachOwn: vi.fn(value => { source = value }), play: vi.fn(), snapshot: vi.fn(() => snap) }
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null, vi.fn() as typeof fetch, player as never)
+  service.readNarrationPages = async () => { throw new Error('no engine') }
+  service.setPdfPageText(1, 'HEADER 1 Printed first page.', 1)
+  expect(await source?.chapter(1)).toMatchObject({ paragraphs: ['HEADER 1 Printed first page.'] })
+  snap = { available: true, playing: true, chapterNumber: 1, follow: { paragraphIndex: 0, wordIndex: 2 } }
+  expect(service.follow).toEqual({ page: 1, wordIndex: 2, text: 'HEADER 1 Printed first page.' })
+  service.dispose()
+})
+
 it('tells the shell when read aloud is starting, and when this PDF cannot be read aloud at all', () => {
   let snap: Record<string, unknown> = { available: true, playing: false, pending: true, speed: 1 }
   const player = { attachOwn: vi.fn(), play: vi.fn(), snapshot: vi.fn(() => snap) }
