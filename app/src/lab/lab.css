@@ -7676,6 +7676,14 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
   font-size: calc(1.6875rem * (var(--lab-font-size, 1.3) / 1.3));
   line-height: 1.25;
 }
+/* An upright iPad uses the phone chrome with 1.5rem prose (the 700-1024px block); its long title sits above that too. */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .lab[data-chrome-version="v2"].is-phone .lab-passage-header.is-long-title .lab-passage-headline,
+  .lab[data-chrome-version="v2"].has-phone-chrome .lab-passage-header.is-long-title .lab-passage-headline {
+    font-size: calc(1.6875rem * (var(--lab-font-size, 1.3) / 1.3));
+    line-height: 1.25;
+  }
+}
 
 /* A full final leaf keeps its prose. Its controls use the reserved footer
    instead of pushing a handful of words onto another leaf. */
