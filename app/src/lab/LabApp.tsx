@@ -220,7 +220,7 @@ import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { LabParagraphListen } from './LabParagraphListen'
+import { LabParagraphListen, LISTEN_OFFER_MS } from './LabParagraphListen'
 import { boxOnScreen, firstSentenceStartOnPage, firstSentenceStartOnScreen, sentenceStartTest, type ScreenWord, type SentenceStartTest } from './labListenFromHere'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, listeningSentenceStart, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
@@ -3734,6 +3734,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     && !mobileCompareActive
     && (listen.pending || listen.playing || audioChapterTransitioning || pausedTransportVisible)
   const desktopAudioBarActive = !showPhoneChrome && (listen.pending || listen.playing || pausedTransportVisible)
+  // Desktop: from Play until 4 s into the voice, a faint ▶ beside each paragraph on screen offers another start
+  // (Anders, 16 Nov 2026: the narration's load time is a chance to choose where to start).
+  const [listenOffer, setListenOffer] = useState(false)
+  useEffect(() => {
+    if (showPhoneChrome) { setListenOffer(false); return }
+    if (listen.pending) { setListenOffer(true); return }
+    if (!listen.playing) { setListenOffer(false); return }
+    const timer = window.setTimeout(() => setListenOffer(false), LISTEN_OFFER_MS)
+    return () => window.clearTimeout(timer)
+  }, [showPhoneChrome, listen.pending, listen.playing])
   // The dock rides over the leaf's foot, never over its text (labAudioDock).
   const desktopDockRef = useRef<HTMLElement | null>(null)
   useDesktopDockPlacement(desktopDockRef, desktopAudioBarActive && desktopPaging)
@@ -8001,11 +8011,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       </div>
 
       <LabParagraphListen
-        enabled={continuousReader && !showPhoneChrome && !listenPlaybackUnavailable && !selectionPopup && !frontispieceVisible && !initialResolving && !tocOpen}
+        enabled={continuousReader && !showPhoneChrome && !listenPlaybackUnavailable && !selectionPopup && !frontispieceVisible && !initialResolving && !tocOpen
+          && (listen.playing || listen.pending || pausedTransportVisible)}
         chapterNumber={book.chapterNumber}
         voice={(listen.playing || listen.pending || pausedTransportVisible) && listen.follow.kind !== 'none' && listenSource.bookId === (book.bookId || 'bible')
           ? { chapterNumber: listenSource.chapterNumber, paragraphIndex: listen.follow.paragraphIndex } : null}
         onListen={listenFromParagraph}
+        offer={listenOffer}
       />
       <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : listen.buffering ? 'Loading audio.' : ''}</span>
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>

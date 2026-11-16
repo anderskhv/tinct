@@ -6812,6 +6812,17 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   cursor: pointer;
   box-shadow: 0 1px 4px rgba(32, 26, 19, .18);
 }
+/* Just after Play: a faint ▶ beside every paragraph on screen, a chance to choose where the voice starts. */
+.lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer {
+  opacity: .32;
+  box-shadow: none;
+  transition: opacity .15s;
+  animation: lab-paragraph-listen-offer .25s ease-out;
+}
+.lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer:hover,
+.lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer:focus-visible { opacity: 1; }
+@keyframes lab-paragraph-listen-offer { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer { animation: none; transition: none; } }
 .lab[data-chrome-version="v2"] .lab-paragraph-listen:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: 2px; }
 .lab[data-chrome-version="v2"] .lab-paragraph-listen-tip {
   position: absolute;
