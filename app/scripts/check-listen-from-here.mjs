@@ -370,6 +370,26 @@ try {
     await page.getByTestId('lab-v2-play').click()
     let now = await waitFor(page, s => s.playing && s.voice, 4000)
     ok('desktop: Play starts the voice', now.playing && !!now.voice, { voice: now.voice })
+    // Just after Play: a faint ▶ beside each paragraph on screen offers another start (Anders, 16 Nov 2026).
+    const offers = () => page.evaluate(() => [...document.querySelectorAll('[data-testid="lab-paragraph-listen-offer"]')].map(b => {
+      const box = b.getBoundingClientRect()
+      return { p: Number(b.dataset.paragraphIndex), opacity: Number(getComputedStyle(b).opacity), left: box.left, top: box.top }
+    }))
+    let offered = await offers()
+    ok('desktop: right after Play, a faint ▶ beside each paragraph on screen offers another start (not the voice’s)',
+      offered.length >= 2 && offered.every(o => o.p !== now.voice.p && o.opacity < 0.6), offered)
+    await page.screenshot({ path: path.join(output, 'desktop-play-offer.png') })
+    const pick = offered.at(-1)
+    if (pick) {
+      await page.mouse.click(pick.left + 15, pick.top + 15)
+      now = await waitFor(page, s => s.voice && near(s.voice, { p: pick.p, w: 0 }, 3), 3000)
+      ok('desktop: clicking an offered ▶ starts the voice at that paragraph instead', now.playing && near(now.voice, { p: pick.p, w: 0 }, 3), { voice: now.voice, pick: pick.p })
+    }
+    now = await waitFor(page, s => s.playing, 2000)
+    await page.waitForTimeout(4600)
+    offered = await offers()
+    ok('desktop: the offer goes about 4 s into the voice', offered.length === 0, offered)
+    now = await look(page)
     // A paragraph above the voice, which it will not reach while the pointer is on its way.
     const ahead = v => Array.from({ length: 200 }, (_, i) => v + i)
     await page.mouse.move(700, 450)
