@@ -420,7 +420,6 @@ export function LabContentsV2(props: Props) {
       {crumbs.length > 0 && !view && <nav className="crumbs" aria-label="Visible chapter path">{crumbs.map((node,index) => <span key={node.id}>{index > 0 && <Icon name="next" />}<button onClick={() => showBranch(node.id)}>{node.label}</button></span>)}</nav>}
       <div className="viewport" ref={bodyRef} onScroll={breadcrumb} onPointerDown={settleReveal} onWheel={settleReveal} onTouchStart={settleReveal} onKeyDown={settleReveal} inert={view ? true : undefined}>
         {props.chaptersReady ? <nav className="tree" aria-label="Chapters">{props.onOpenIntroduction && <div className="front-matter"><div className="node"><button className="label" onClick={props.onOpenIntroduction}><span className="text">Introduction</span><Icon name="next" /></button></div></div>}{tree(nodes)}</nav> : <p className="status"><LabWait label="Loading contents…" size={18} testId="lab-contents-loading" /></p>}
-        {historyStatus}
         {props.navigationFooter}
       </div>
       </>}

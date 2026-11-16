@@ -47,6 +47,8 @@ export interface LabPhoneCardProps {
 /** Set on an element in a card's body while an answer is on its way (a follow-up, Quiz me's questions). */
 export const PHONE_CARD_BUSY_ATTR = 'data-pcard-busy'
 const PHONE_CARD_BUSY_SELECTOR = `[aria-busy="true"], [${PHONE_CARD_BUSY_ATTR}]`
+/** The reader's own follow-up questions in a card's body. */
+const PHONE_CARD_QUESTION_SELECTOR = '.lab-pcard-you'
 /** An answer shown in the card (a saved card's, or one that arrived): the card then keeps its kind's height. */
 const PHONE_CARD_ANSWER_SELECTOR = '.lab-pcard-answer, .tc-answer, [data-testid="lab-phone-card-answer"]'
 
@@ -70,7 +72,8 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
   tallRef.current = tall
   // The height the card is held at (null: as tall as its content), the visible height the expected height is a
   // share of, whether the card opened with its answer on its way, and whether that first answer has been measured.
-  const holdRef = useRef<{ held: number | null; base: number; openedBusy: boolean | null; measured: boolean; plan: { kind: string; length: AiLength | null; store: PhoneCardHeights } | null }>({ held: null, base: 0, openedBusy: null, measured: false, plan: null })
+  // `questions`: the reader's questions shown in the body (-1 until the first look), so a new one is seen arriving.
+  const holdRef = useRef<{ held: number | null; base: number; openedBusy: boolean | null; measured: boolean; plan: { kind: string; length: AiLength | null; store: PhoneCardHeights } | null; questions: number; pin: HTMLElement | null; pinning: boolean }>({ held: null, base: 0, openedBusy: null, measured: false, plan: null, questions: -1, pin: null, pinning: false })
   const holdNow = useRef<() => void>(() => {})
   useLayoutEffect(() => {
     const el = ref.current
@@ -117,7 +120,23 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
         empty: !el.querySelector(PHONE_CARD_ANSWER_SELECTOR),
       })
       if (step.held !== state.held || step.held !== null || el.hasAttribute('data-held')) apply(step.held)
-      markMore(el.querySelector<HTMLElement>('.lab-pcard-body'))
+      const body = el.querySelector<HTMLElement>('.lab-pcard-body')
+      // A follow-up just sent: the card keeps its height, so bring the new question to the top of the body and
+      // let its answer fill in below it (16 Nov 2026). Chat keeps its own thread position.
+      // Until its answer is long enough the body cannot scroll that far, so the question stays pinned while the
+      // answer streams in; the reader's own scroll lets it go.
+      const questions = body ? body.querySelectorAll<HTMLElement>(PHONE_CARD_QUESTION_SELECTOR) : []
+      if (body && state.questions >= 0 && questions.length > state.questions && kind !== 'chat') state.pin = questions[questions.length - 1]
+      state.questions = questions.length
+      if (body && state.pin) {
+        if (!state.pin.isConnected) state.pin = null
+        else {
+          const want = body.scrollTop + state.pin.getBoundingClientRect().top - body.getBoundingClientRect().top - 8
+          if (Math.abs(want - body.scrollTop) > 1) { state.pinning = true; body.scrollTop = want }
+          if (!answering && Math.abs(body.scrollTop - want) <= 1) state.pin = null
+        }
+      }
+      markMore(body)
     }
     holdNow.current = hold
     const observer = typeof MutationObserver === 'undefined' ? null : new MutationObserver(hold)
@@ -228,7 +247,8 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
             onPointerDown={event => event.stopPropagation()} onClick={onDelete}><PhoneIcon name="trash" /></button>}
         </header>
       </div>
-      <div className="lab-pcard-body" data-testid="lab-phone-card-body" onScroll={event => { const body = event.currentTarget; body.toggleAttribute('data-scrolled', body.scrollTop > 2); markMore(body) }}>{children}</div>
+      <div className="lab-pcard-body" data-testid="lab-phone-card-body" onScroll={event => { const body = event.currentTarget; body.toggleAttribute('data-scrolled', body.scrollTop > 2); markMore(body); if (holdRef.current.pinning) holdRef.current.pinning = false; else holdRef.current.pin = null }}
+        onTouchStart={() => { holdRef.current.pin = null }} onWheel={() => { holdRef.current.pin = null }}>{children}</div>
       {foot}
     </section>
     </div>
@@ -342,10 +362,19 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
     observer?.observe(el.closest('.lab-pcard-follow-box') ?? el)
     return () => observer?.disconnect()
   }, [value, field])
-  const send = () => { const text = value.trim(); if (text && !disabled) onSend(text) }
+  // On the phone the keyboard goes once the question is sent, so the card has its room back for the answer
+  // (Anders, 16 Nov 2026: with the keyboard left up "you don't really see the response").
+  const send = () => {
+    const text = value.trim()
+    if (!text || disabled) return
+    onSend(text)
+    // The focused field, not `field`: a shared input ref can name another card's field.
+    const active = typeof document !== 'undefined' ? document.activeElement as HTMLElement | null : null
+    if (active?.closest('.lab-pcard-follow') && !active.closest('.lab.is-desktop, .source-margin-item')) active.blur()
+  }
   return (
     <div className="lab-pcard-follow">
-      <div className="lab-pcard-follow-box" onClick={() => field.current?.focus({ preventScroll: true })}>
+      <div className="lab-pcard-follow-box" onClick={event => { if (!(event.target as Element).closest?.('button')) field.current?.focus({ preventScroll: true }) }}>
         <textarea autoComplete="off"
           ref={field}
           className="lab-pcard-follow-input"

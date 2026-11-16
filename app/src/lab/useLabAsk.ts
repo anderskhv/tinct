@@ -540,8 +540,11 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (cancelled) return
       let unavailable = false
       const merged = await cloudWriter.sync(chatBookId, () => { unavailable = true }, () => !cancelled)
-      if (cancelled || loadedForBookRef.current !== chatBookId) return
+      if (cancelled) return
+      // The read has ended: settle the status even when another book's chats are on the page meanwhile, or it
+      // stayed "Loading saved conversations…" for the rest of the visit (Anders, 16 Nov 2026).
       setHistoryStatus(unavailable ? 'unavailable' : 'ready')
+      if (loadedForBookRef.current !== chatBookId) return
       // Never lose what this page holds that the read did not (a turn saved
       // after the read began, or one whose save failed).
       const kept = mergeChatConversations(merged, conversationsRef.current)
