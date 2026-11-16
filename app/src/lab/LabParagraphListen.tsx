@@ -1,7 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-/** How long the pointer rests on a paragraph before its ▶ shows. */
-export const PARAGRAPH_LISTEN_REST_MS = 450
+/** How long the pointer rests in a paragraph's gutter before its ▶ shows (the gutter is a deliberate place to go). */
+export const PARAGRAPH_LISTEN_REST_MS = 250
+/** How long into the voice the after-Play offer (a faint ▶ beside each paragraph on screen) stays. */
+export const LISTEN_OFFER_MS = 4000
+/** How far left of the text column the gutter reaches. */
+export const PARAGRAPH_LISTEN_GUTTER_PX = 96
 const BUTTON = 30
 const GAP = 10
 
@@ -13,13 +17,18 @@ interface Shown extends Spot {
 }
 
 interface Props {
-  /** The desktop Margin reader with audio to offer and nothing else holding the text (no selection popup). */
+  /** The desktop Margin reader with the voice on (playing or paused) and nothing else holding the text (no selection popup). */
   enabled: boolean
   /** The reader's chapter (the one-chapter reader paints only it). */
   chapterNumber: number
   /** The paragraph the voice is reading (playing or paused): it never gets a ▶. */
   voice: Spot | null
   onListen: (chapterNumber: number, paragraphIndex: number) => void
+  /**
+   * Play was just pressed (narration loading, or the first seconds of the voice): offer a faint ▶ beside every
+   * paragraph on screen, so the wait is a chance to choose where to start (Anders, 16 Nov 2026).
+   */
+  offer?: boolean
 }
 
 const TEXT_FIELD = 'input, textarea, select, [contenteditable=""], [contenteditable="true"]'
@@ -42,18 +51,24 @@ function chapterScope(host: Element, chapterNumber: number): Element | null {
   return (host as HTMLElement).dataset.bookScroll ? host.querySelector(`[data-book-scroll-chapter="${chapterNumber}"]`) : host
 }
 
-/** The paragraph under a point, by its painted line, and its chapter. */
+/**
+ * The paragraph beside a point in the left gutter, and its chapter. Only the gutter counts, never the text: a reader
+ * rests the cursor on the text while reading (Anders, 16 Nov 2026: the ▶ appearing there was distracting).
+ */
 function paragraphAt(x: number, y: number, ownChapter: number): Spot | null {
   const target = document.elementFromPoint(x, y)
-  if (!target) return null
-  const host = target.closest<HTMLElement>('[data-testid="continuous-reader"]')
-  if (!host) return null
-  if (target.closest('.source-margin-item, button, a, input, textarea, select, [contenteditable="true"]')) return null
-  const line = target.closest('p.lab-hearing-line')
-  if (!line) return null
+  if (!target || target.closest('p.lab-hearing-line, .source-margin-item, button, a, input, textarea, select, [contenteditable="true"]')) return null
+  const host = document.querySelector<HTMLElement>('[data-testid="continuous-reader"]')
+  const column = host?.querySelector<HTMLElement>('p.lab-hearing-line')?.getBoundingClientRect()
+  if (!host || !column) return null
+  const view = host.getBoundingClientRect()
+  if (y < view.top || y > view.bottom || x >= column.left || x < column.left - PARAGRAPH_LISTEN_GUTTER_PX) return null
+  const beside = document.elementFromPoint(column.left + 2, y)
+  const line = beside?.closest('p.lab-hearing-line')
+  if (!line || !host.contains(line)) return null
   const block = host.dataset.bookScroll ? line.closest<HTMLElement>('[data-book-scroll-chapter]') : null
   const chapterNumber = block ? Number(block.dataset.bookScrollChapter) : ownChapter
-  const word = target.closest<HTMLElement>(`${WORD}[data-paragraph-index]`) ?? line.querySelector<HTMLElement>(`${WORD}[data-paragraph-index]`)
+  const word = beside!.closest<HTMLElement>(`${WORD}[data-paragraph-index]`) ?? line.querySelector<HTMLElement>(`${WORD}[data-paragraph-index]`)
   const paragraphIndex = Number(word?.dataset.paragraphIndex)
   return Number.isInteger(paragraphIndex) && Number.isFinite(chapterNumber) ? { chapterNumber, paragraphIndex } : null
 }
@@ -90,13 +105,34 @@ function geometry({ chapterNumber, paragraphIndex }: Spot): Shown | null {
   }
 }
 
+/** The reader's own chapter's paragraphs whose first line is on screen, each with its ▶ place (at most 24). */
+function visibleParagraphs(chapterNumber: number): Shown[] {
+  const host = document.querySelector('[data-testid="continuous-reader"]')
+  const scope = host && chapterScope(host, chapterNumber)
+  if (!host || !scope) return []
+  const view = host.getBoundingClientRect()
+  const header = document.querySelector('.lab-header')?.getBoundingClientRect()
+  const viewTop = header && header.height > 0 && header.bottom > view.top && header.bottom < view.top + view.height / 2 ? header.bottom : view.top
+  const out: Shown[] = []
+  for (const first of scope.querySelectorAll<HTMLElement>(`${WORD}[data-word-index="0"][data-paragraph-index]`)) {
+    const box = first.getBoundingClientRect()
+    if (box.height <= 0 || box.bottom < viewTop + 4) continue
+    if (box.top > view.bottom - BUTTON - 4) break
+    const spot = geometry({ chapterNumber, paragraphIndex: Number(first.dataset.paragraphIndex) })
+    if (spot && Number.isInteger(spot.paragraphIndex)) out.push(spot)
+    if (out.length >= 24) break
+  }
+  return out
+}
+
 /**
- * Listen from here, the gutter ▶ (Anders approved the mockups, 16 Nov 2026). On a desktop with a hovering mouse, a
- * dark round ▶ comes into the left gutter beside the paragraph the pointer has rested on for 450 ms, and the
+ * Listen from here, the gutter ▶ (Anders approved the mockups, 16 Nov 2026). On a desktop with a hovering mouse and the
+ * voice on (playing or paused), a dark round ▶ comes into the left gutter beside the paragraph whose gutter the pointer
+ * has rested in for 250 ms (never over the text: Anders, 16 Nov 2026), and the
  * paragraph takes a faint tint; a click starts the voice at its first word. It is an overlay (fixed, out of the
  * text's flow): it moves nothing, and nothing but the button itself takes the pointer.
  */
-export function LabParagraphListen({ enabled, chapterNumber, voice, onListen }: Props) {
+export function LabParagraphListen({ enabled, chapterNumber, voice, onListen, offer = false }: Props) {
   const [shown, setShown] = useState<Shown | null>(null)
   const [tip, setTip] = useState(false)
   const shownRef = useRef<Shown | null>(null)
@@ -148,11 +184,13 @@ export function LabParagraphListen({ enabled, chapterNumber, voice, onListen }: 
       pointer = { x: event.clientX, y: event.clientY }
       // A button held down is a selection (or a drag) in progress.
       if (event.buttons !== 0) { clear(); hide(); candidate = null; return }
+      // On the ▶ itself (hit-testing can reach it a pixel before its painted edge), or inside its paragraph: keep it.
+      if (event.target instanceof Element && event.target.closest('[data-testid="lab-paragraph-listen"], [data-testid="lab-paragraph-listen-offer"]')) return
       if (insideShown(event.clientX, event.clientY)) return
       arm(at(event.clientX, event.clientY))
     }
     const down = (event: PointerEvent) => {
-      if (event.target instanceof Element && event.target.closest('[data-testid="lab-paragraph-listen"]')) return
+      if (event.target instanceof Element && event.target.closest('[data-testid="lab-paragraph-listen"], [data-testid="lab-paragraph-listen-offer"]')) return
       clear(); hide(); candidate = null
     }
     const scroll = () => {
@@ -182,11 +220,34 @@ export function LabParagraphListen({ enabled, chapterNumber, voice, onListen }: 
     }
   }, [enabled, hide])
 
+  // Play was pressed: a faint ▶ beside each paragraph on screen until the offer ends; they follow the scroll.
+  const [offered, setOffered] = useState<Shown[]>([])
+  useEffect(() => {
+    if (!enabled || !offer) { setOffered([]); return }
+    const media = typeof window.matchMedia === 'function' ? window.matchMedia('(hover: hover) and (pointer: fine)') : null
+    if (!media?.matches || document.querySelector('.lab.is-phone')) return
+    let frame = 0
+    const measure = () => { frame = 0; setOffered(selectionExists() ? [] : visibleParagraphs(chapterRef.current)) }
+    const later = () => { if (!frame) frame = requestAnimationFrame(measure) }
+    measure()
+    window.addEventListener('scroll', later, { capture: true, passive: true })
+    window.addEventListener('resize', later)
+    return () => { if (frame) cancelAnimationFrame(frame); window.removeEventListener('scroll', later, true); window.removeEventListener('resize', later) }
+  }, [enabled, offer, chapterNumber])
+
   // The voice reached the paragraph: its ▶ goes.
   useEffect(() => { if (same(shown, voice)) hide() }, [shown, voice, hide])
 
-  if (!enabled || !shown) return null
+  const offers = offer ? offered.filter(spot => !same(spot, voice) && !same(spot, shown)) : []
+  if (!enabled || (!shown && !offers.length)) return null
   return <>
+    {offers.map(spot => <button key={`${spot.chapterNumber}:${spot.paragraphIndex}`} type="button" className="lab-paragraph-listen is-offer" data-testid="lab-paragraph-listen-offer"
+      data-chapter-number={spot.chapterNumber} data-paragraph-index={spot.paragraphIndex} aria-label="Listen from here" title="Listen from here"
+      style={{ left: spot.button.left, top: spot.button.top }}
+      onClick={() => { hide(); setOffered([]); onListenRef.current(spot.chapterNumber, spot.paragraphIndex) }}>
+      <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8L10.2 6z" fill="currentColor" /></svg>
+    </button>)}
+    {shown && <>
     <div className="lab-paragraph-listen-tint" data-testid="lab-paragraph-listen-tint" aria-hidden="true"
       style={{ left: shown.tint.left, top: shown.tint.top, width: shown.tint.width, height: shown.tint.height }} />
     <button type="button" className="lab-paragraph-listen" data-testid="lab-paragraph-listen" data-chapter-number={shown.chapterNumber} data-paragraph-index={shown.paragraphIndex}
@@ -196,5 +257,6 @@ export function LabParagraphListen({ enabled, chapterNumber, voice, onListen }: 
       <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8L10.2 6z" fill="currentColor" /></svg>
       {tip && <span className="lab-paragraph-listen-tip" role="tooltip" data-testid="lab-paragraph-listen-tip">Listen from here</span>}
     </button>
+    </>}
   </>
 }
