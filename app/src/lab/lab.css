@@ -32,6 +32,10 @@
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
 }
 
+/* The header is chrome: a long press on the book's title must not select it and raise iOS's copy menu, which
+   then could not be dismissed (Anders, 16 Nov 2026). */
+.lab .lab-header, .lab .lab-header * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+
 .lab-header {
   position: relative;
   z-index: 60;

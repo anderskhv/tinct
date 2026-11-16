@@ -10,7 +10,8 @@
 // word by word over ~3 s after a 1.2 s wait (no AI call). Every animation frame from the tap until well after the
 // answer, the card's top and height are recorded; once the slide-in has ended (300 ms) neither may change, except
 // when the keyboard comes or goes (the viewport is shrunk to 500 px to stand in for it), and while the keyboard is up
-// neither may change either. Covers Explain, a follow-up in the answered card, and Simplify with an answer longer
+// neither may change either; sending a follow-up puts the keyboard away and brings the question to the top of the
+// body; the header's book title cannot be selected. Covers Explain, a follow-up in the answered card, and Simplify with an answer longer
 // than its card (which then scrolls inside it, its foot faded).
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -105,11 +106,22 @@ async function run(engineName) {
   await page.goto(`${ORIGIN}/reader?book=${BOOK}&sharedReader=1`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 90000 })
   await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(1200)
+  const header = await page.evaluate(() => { const t = document.querySelector('[data-testid="lab-header-book"]'); const c = t && getComputedStyle(t); return c && { select: c.webkitUserSelect || c.userSelect, callout: c.webkitTouchCallout } })
+  ok(`${engineName}: the book title in the header cannot be selected (no iOS copy menu on a long press)`, header?.select === 'none', header)
+  // The follow-up's answer is three times the first, longer than the card: its question is held at the top.
   const scen = process.env.SCEN || 'explain,followup,simplify'
   // 1. Explain
   if (scen.includes('explain')) { await select(page, 0, 17); await startSampling(page); await page.getByTestId('lab-pbar-explain').click(); await waitDone(page); await page.waitForTimeout(1200); steady(`${engineName} Explain`, await stopSampling(page), 300)
     // 3. follow-up inside the answered card
-    if (scen.includes('followup')) { await startSampling(page); const f = page.getByTestId('lab-phone-card-input'); await f.click(); await page.setViewportSize({ width: 390, height: 500 }); await page.waitForTimeout(500); await f.fill('Why snow?'); await page.getByTestId('lab-phone-card-send').click(); await page.waitForTimeout(400); await waitDone(page); await page.waitForTimeout(800); await page.setViewportSize({ width: 390, height: 844 }); await page.evaluate(() => document.activeElement?.blur()); await page.waitForTimeout(1000); steady(`${engineName} a follow-up in the answered card, keyboard up then down`, await stopSampling(page), 0) }
+    if (scen.includes('followup')) { await startSampling(page); const f = page.getByTestId('lab-phone-card-input'); await f.click(); await page.setViewportSize({ width: 390, height: 500 }); await page.waitForTimeout(500); const base = await page.evaluate(() => window.__answer); await page.evaluate(() => { window.__answer = [1, 2, 3].map(() => window.__answer).join(' ') }); await f.fill('Why snow?'); await page.getByTestId('lab-phone-card-send').click(); await page.waitForTimeout(400)
+      // 16 Nov 2026: sending puts the keyboard away, and the new question comes to the top of the card's body.
+      ok(`${engineName}: sending a follow-up puts the keyboard away (the field loses the focus)`, await page.evaluate(() => document.activeElement?.getAttribute('data-testid') !== 'lab-phone-card-input'))
+      await page.setViewportSize({ width: 390, height: 844 }) // the keyboard going
+      await waitDone(page); await page.waitForTimeout(800)
+      const asked = await page.evaluate(() => { const body = document.querySelector('[data-testid="lab-phone-card"] .lab-pcard-body'), q = [...body.querySelectorAll('.lab-pcard-you')].pop(); if (!q) return null; const b = body.getBoundingClientRect(), r = q.getBoundingClientRect(); return { offset: Math.round(r.top - b.top), text: q.textContent, end: body.scrollTop + body.clientHeight >= body.scrollHeight - 2 } })
+      // The question at the top of the body, or, when its answer is shorter than the card, both wholly in view.
+      ok(`${engineName}: the follow-up question and its answer are in view (question ${asked?.offset}px down${asked?.end ? ', answer to its end' : ''})`, !!asked && /Why snow/.test(asked.text) && asked.offset >= 0 && (asked.offset <= 24 || asked.end), asked)
+ await page.setViewportSize({ width: 390, height: 844 }); await page.evaluate(text => { window.__answer = text; document.activeElement?.blur() }, base); await page.waitForTimeout(1000); steady(`${engineName} a follow-up in the answered card, keyboard up then down`, await stopSampling(page), 0) }
     await tapOutside(page) }
   if (scen.includes('simplify')) { await page.evaluate(() => { window.__answer = [1, 2, 3].map(() => window.__answer).join(' ') }); await select(page, 18, 34); await startSampling(page); await page.getByTestId('lab-pbar-simplify').click(); await waitDone(page); await page.waitForTimeout(1200); steady(`${engineName} Simplify, an answer longer than the card`, await stopSampling(page), 300); ok(`${engineName}: the longer answer scrolls inside the card, its foot faded`, await page.evaluate(() => document.querySelector('[data-testid="lab-phone-card"] .lab-pcard-body')?.hasAttribute('data-more'))); await tapOutside(page) }
   await context.close(); await browser.close()
