@@ -32,7 +32,7 @@ import {
   type ProfilePicture,
   type ReadingLoad,
 } from './cardsApi'
-import { boardHiddenLine, chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
+import { boardHiddenLine, chapterFraction, followBackCount, followButton, followingYouRows, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
 import { COVER_BOOK_IDS, EMAIL_CONSENT_TEXT, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
 import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, rememberReadingLanguages, uploadProfileImage } from '../social/socialClient'
@@ -1017,7 +1017,7 @@ export function findCard(env: CardsEnv): CardSpec {
       })
       const search = el('label', { className: 'tc-search', dataset: { testid: 'find-search' } }, el('span', { html: ICONS.search, style: { display: 'contents' } }), input)
 
-      const followingYou = (data?.followingYou ?? []).filter(person => !removed.has(person.handle))
+      const followingYou = followingYouRows(data?.followingYou).filter(person => !removed.has(person.handle))
       // Listed here, the requests count as seen on this device (the dot on the reader's picture clears).
       if (data) markRequestsSeen(env.session.userId, data.followingYou)
       if (followingYou.length) {

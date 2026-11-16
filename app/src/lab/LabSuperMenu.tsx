@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, type ReactNode } from 'react'
 import { labSuperMenuRows, type LabSuperMenuId, type LabSuperMenuRow } from './labSuperMenu'
 import { ChatIcon, TalkIcon } from './LabReaderIcons'
 
@@ -14,6 +14,8 @@ export interface LabSuperMenuProps {
   sharedReader?: boolean
   /** Someone asks to be friends and this device has not shown it yet (social/followRequests.ts). */
   profileDot?: boolean
+  /** The follow request row (LabMenuRequest), first in the menu while a request was due when it opened. */
+  request?: ReactNode
   /** The open book's reading angle ('' for none): the Reading angle row (labSuperMenu.ts). Absent: no row. */
   readingAngle?: string
   onSelect: (id: LabSuperMenuId) => void
@@ -113,7 +115,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, ownPdf, sharedReader, profileDot, readingAngle, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, ownPdf, sharedReader, profileDot, request, readingAngle, onSelect, onClose }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -152,6 +154,7 @@ export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, own
         onClick={onClose}
       />
       <nav className="lab-super-panel" data-testid="lab-super-menu" aria-label="Menu">
+        {request}
         {/* Chat and Talk keep their existing destinations on every surface. */}
         {rows.map(row => row.modes && row.id === 'conversation' ? (
           // Chat · Talk, one row, each half its own button.

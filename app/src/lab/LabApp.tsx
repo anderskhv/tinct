@@ -184,7 +184,10 @@ import {
   labSignInUrl,
 } from './labPrefs'
 import { consumeCardParam } from '../cards/cardsBoot'
-import { useFollowRequestDot } from '../social/useFollowRequestDot'
+import { useFollowRequests } from '../social/useFollowRequestDot'
+import { markRequestsSeen, menuRequest, readSeenRequests, type MenuRequest } from '../social/followRequests'
+import { socialAction, type FindRow } from '../social/friendsClient'
+import { LabMenuRequest, type MenuFollowBack } from './LabMenuRequest'
 import type { CardName } from '../cards/cardRoutes'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
@@ -1016,7 +1019,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const accountCardsWanted = superSheet === 'account'
   // The menu's Profile row shows a dot while someone asks to be friends (social/followRequests.ts).
   const requestDotUser = signedIn && !privateBook ? (authUser?.id ?? (authToken === undefined ? readCachedSupabaseUser()?.id ?? null : null)) : null
-  const profileDot = useFollowRequestDot(requestDotUser, async () => authToken ?? await readSupabaseAccessToken())
+  const readRequestToken = useCallback(async () => authToken ?? await readSupabaseAccessToken(), [authToken])
+  const followRequests = useFollowRequests(requestDotUser, readRequestToken)
+  // The same dot on the t button (Anders, 16 Nov 2026), and the menu's request row: shown for the one open of the
+  // menu that found a request due (that open marks them seen, as Following you does), so Follow back can be used.
+  const profileDot = followRequests.due
+  const settleFollowRequest = followRequests.settle
+  const [menuRequestShown, setMenuRequestShown] = useState<{ request: MenuRequest<FindRow>; followBack: MenuFollowBack } | null>(null)
   useEffect(() => {
     if (!accountCardsWanted) { closeLoadedAccountCards(); return }
     const start = accountCardRef.current ?? 'you'
@@ -5750,7 +5759,32 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   const openSuperMenu = useCallback(() => {
     setTocOpen(false)
+    // A request due: its row leads the menu for this open, and the requests count as seen (the dot goes).
+    const request = followRequests.due && requestDotUser ? menuRequest(followRequests.rows, readSeenRequests(requestDotUser)) : null
+    setMenuRequestShown(request ? { request, followBack: 'idle' } : null)
+    if (request) markRequestsSeen(requestDotUser, followRequests.rows)
     setSuperMenuOpen(true)
+  }, [followRequests.due, followRequests.rows, requestDotUser])
+  useEffect(() => { if (!superMenuOpen) setMenuRequestShown(null) }, [superMenuOpen])
+  // Follow back from the menu: the call Following you makes (POST /api/social/follow), answered in place.
+  const followBackFromMenu = useCallback(async () => {
+    const shown = menuRequestShown
+    if (!shown || shown.request.others > 0 || shown.followBack === 'pending' || shown.followBack === 'done') return
+    const handle = shown.request.first.handle
+    const mark = (followBack: MenuFollowBack) => setMenuRequestShown(current => current && current.request.first.handle === handle ? { ...current, followBack } : current)
+    mark('pending')
+    const token = await readRequestToken().catch(() => null)
+    const result = token ? await socialAction(token, 'follow', handle) : { ok: false as const, relation: undefined }
+    if (result.ok) {
+      settleFollowRequest(handle, result.relation ?? 'friend')
+      mark('done')
+    } else mark('failed')
+  }, [menuRequestShown, readRequestToken, settleFollowRequest])
+  // Several requests: Find readers, where Following you lists them (the account cards over the reader).
+  const openRequestsFromMenu = useCallback(() => {
+    setSuperMenuOpen(false)
+    accountCardRef.current = 'find'
+    setSuperSheet('account')
   }, [])
 
   const handleSuperToggle = useCallback(() => {
@@ -7438,6 +7472,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 firstView={superFirstView}
                 onFirstViewEnd={handleFirstViewEnd}
                 reducedMotion={reducedMotion}
+                dot={profileDot && !superMenuOpen}
               />
             </>
           ) : null}
@@ -7467,6 +7502,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           ownPdf={ownEditions}
           sharedReader={sharedReader}
           profileDot={profileDot}
+          request={menuRequestShown && <LabMenuRequest
+            request={menuRequestShown.request}
+            followBack={menuRequestShown.followBack}
+            getToken={readRequestToken}
+            onFollowBack={() => { void followBackFromMenu() }}
+            onOpenRequests={openRequestsFromMenu}
+          />}
           // The reading angle's row (Anders, 16 Nov 2026), where the start actions held it until then.
           readingAngle={sharedReader || marginPhone ? bookAngle : undefined}
           onSelect={handleSuperMenuSelect}
