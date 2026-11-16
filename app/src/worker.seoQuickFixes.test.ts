@@ -90,7 +90,8 @@ describe('book pages', () => {
 
   it('set Gutenberg _underscores_ as emphasis on every book page', () => {
     for (const id of bookIds) expect(about(bookPage(id)), id).not.toMatch(/(^|[\s>(“"‘'])_[^_\s<][^_<]*_(?=$|[\s<.,;:!?)”"’'])/)
-    expect(about(bookPage('pride-and-prejudice'))).toMatch(/<em>[^<]+<\/em>/)
+    // Some book page's own text still carries emphasis (book pages with chapter pages open with one paragraph).
+    expect(bookIds.some(id => /<em>[^<]+<\/em>/.test(about(bookPage(id))))).toBe(true)
   })
 
   it('list four to six related books: the same author first, then the same shelf', () => {

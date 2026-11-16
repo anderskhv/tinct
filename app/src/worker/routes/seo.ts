@@ -7,6 +7,7 @@ import { isPublicBookId } from '../../../public/lab/public-books.js'
 import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage, type GeneratedBookPage } from '../lib/bookLibraryPage'
 import { withStaticCache } from '../lib/staticCache'
 import { isScenePage, scenePageForChapter } from '../lib/scenePages'
+import { CHAPTER_PACK_PREFIX, chapterPageEntry, chapterPageFromPack, hasChapterPages, shelfHubIndexable } from '../lib/chapterPages'
 
 export type SeoEnv = {
   INDEXNOW_KEY?: string
@@ -570,12 +571,61 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
     }
 
+    // The chapter packs are read by the chapter route below, never fetched by a visitor.
+    if (url.pathname.startsWith(CHAPTER_PACK_PREFIX)) return missingFileResponse(request.method)
+
+    // Chapter pages (16 Nov 2026): /read/{bookId}/chapter-N, the whole chapter in
+    // Modern English beside its original (scripts/seo/build-chapter-pages.mjs),
+    // for every book with one. The same page for everyone; a chapter the book
+    // does not have is a 404. Only allowlisted books are indexable
+    // (src/data/seoIndexAllowlist.ts); the others answer `noindex, follow`.
+    const chapterMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/chapter-(\d{1,5})(\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && chapterMatch && hasChapterPages(chapterMatch[1].toLowerCase())) {
+      const bookId = chapterMatch[1].toLowerCase()
+      const chapter = Number(chapterMatch[2])
+      const entry = chapterPageEntry(bookId, chapter)
+      if (!entry) return serveNotFound(request.method, url, env)
+      const clean = `/read/${bookId}/chapter-${chapter}`
+      if (url.pathname !== clean) {
+        return new Response(null, { status: 301, headers: { Location: clean + url.search, 'Cache-Control': 'public, max-age=86400' } })
+      }
+      const packResp = await env.ASSETS.fetch(new Request(`${url.origin}${entry.pack}`))
+      const page = packResp.ok ? chapterPageFromPack(await packResp.text(), chapter) : null
+      if (!page) return serveNotFound(request.method, url, env)
+      const resp = new Response(request.method === 'HEAD' ? null : brandedHtml(page, bookId), {
+        status: 200,
+        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': PUBLIC_PAGE_CACHE, Vary: 'Cookie' },
+      })
+      for (const [key, value] of Object.entries(SECURITY_HEADERS)) resp.headers.set(key, value)
+      if (!entry.indexable) resp.headers.set('X-Robots-Tag', 'noindex, follow')
+      return resp
+    }
+
+    // Shelf hubs: /read/shelf/{shelf}, a library shelf's books (titles, covers,
+    // links). Indexable only when the shelf lists an allowlisted book.
+    const hubMatch = url.pathname.match(/^\/read\/shelf\/([a-z0-9-]+?)(\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && hubMatch) {
+      const shelfId = hubMatch[1].toLowerCase()
+      const indexable = shelfHubIndexable(shelfId)
+      if (indexable === null) return serveNotFound(request.method, url, env)
+      const clean = `/read/shelf/${shelfId}`
+      if (url.pathname !== clean) {
+        return new Response(null, { status: 301, headers: { Location: clean + url.search, 'Cache-Control': 'public, max-age=86400' } })
+      }
+      const hubResp = await serveStaticHtml(request.method, request, url, clean, env)
+      if (!hubResp) return serveNotFound(request.method, url, env)
+      if (!indexable) hubResp.headers.set('X-Robots-Tag', 'noindex, follow')
+      return hubResp
+    }
+
     // Retired page types. The AI-written summary, themes, cast, chapters and
     // chapter-N pages under /read/{bookId}/ were removed (2026-10-05); every
     // such URL, with or without .html, answers with one permanent redirect to
     // the book page. The bible-{book} summary folders point at the Bible.
     // Since 13 Nov 2026 a play with scene pages sends its old chapter-N to the
     // scene page of that chapter (the same scene, now its own text) instead.
+    // Since 16 Nov 2026 a book with chapter pages answers chapter-N above; the
+    // redirect remains for books without them (the other plays, the Bible).
     const retiredMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(?:summary|chapters|cast|themes|chapter-(\d{1,5}))(?:\.html|\/)?$/i)
     if ((request.method === 'GET' || request.method === 'HEAD') && retiredMatch) {
       const retiredBook = retiredMatch[1].toLowerCase()
