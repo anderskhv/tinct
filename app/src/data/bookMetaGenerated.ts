@@ -17,8 +17,8 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     author: 'Virginia Woolf',
   },
   'odyssey': {
-    title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
-    description: 'The Odyssey by Homer in modern English, with the original edition to compare. Read free, no ads, with an AI companion that explains any passage.',
+    title: 'The Odyssey in modern English, free to read | Tinct',
+    description: 'The Odyssey by Homer in modern English, with the original edition to compare. Read free, no ads.',
     bookName: 'The Odyssey',
     author: 'Homer',
   },
