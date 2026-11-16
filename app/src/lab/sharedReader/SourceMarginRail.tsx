@@ -38,9 +38,10 @@ export interface SourceMarginEntry {
   actions?: true
   /**
    * The start actions (approved mockup, Anders 9 Nov 2026): 'start' is the book's "Before you start" card; 'start-later'
-   * a later chapter's greyed card (dashed, muted) until one of its actions is chosen.
+   * a later chapter's greyed card (dashed, muted) until one of its actions is chosen. 'hint': the first visit's
+   * line on how to use the selection actions (Anders, 16 Nov 2026), its content alone under the margin's rule: no label.
    */
-  variant?: 'start' | 'start-later'
+  variant?: 'start' | 'start-later' | 'hint'
   /** An actions card that folds to its label alone, greyed with a +, until opened (Anders, 10 Nov 2026: "Before you start"). */
   collapsible?: boolean
   /**
@@ -299,11 +300,11 @@ export function SourceMarginRail({ host, entries: given, onBlankNote, ownsSource
           onClick={event => event.stopPropagation()}>
           <svg viewBox="0 0 10 16" aria-hidden="true"><circle cx="2.5" cy="3" r="1.4"/><circle cx="7.5" cy="3" r="1.4"/><circle cx="2.5" cy="8" r="1.4"/><circle cx="7.5" cy="8" r="1.4"/><circle cx="2.5" cy="13" r="1.4"/><circle cx="7.5" cy="13" r="1.4"/></svg>
         </button>}
-        <header className="source-margin-head">{entry.actions && !entry.collapsible ? <span className="source-margin-label">{entry.label}</span> : <button type="button" data-testid="source-margin-open" className="source-margin-label" onClick={entry.onToggle} aria-expanded={entry.open}>{entry.label}</button>}
+        {entry.variant !== 'hint' && <header className="source-margin-head">{entry.actions && !entry.collapsible ? <span className="source-margin-label">{entry.label}</span> : <button type="button" data-testid="source-margin-open" className="source-margin-label" onClick={entry.onToggle} aria-expanded={entry.open}>{entry.label}</button>}
           {/* One place opens and minimises (tester, 9 Nov 2026: the open click and the minimise sat apart). */}
           {(!entry.actions || entry.collapsible) && <button type="button" data-testid={entry.open ? 'source-margin-minimise' : 'source-margin-expand'} className="source-margin-toggle" aria-label={entry.open ? 'Minimise' : 'Open'} aria-expanded={entry.open} onClick={entry.onToggle}>{entry.open ? '−' : '+'}</button>}
           {entry.onDelete && <button type="button" aria-label={`Delete ${entry.label}`} onClick={entry.onDelete}><PhoneIcon name="trash" /></button>}
-        </header>
+        </header>}
         {entry.sourceText && <span className="lab-visually-hidden" id={`source-about-${entry.id}`}>{entry.sourceText}</span>}
         {!entry.open && !entry.actions && <button type="button" className="source-margin-preview" data-preview={entry.previewStyle} onClick={entry.onToggle}>{/* Folded is one line, enough to recall the card (Anders, 9 Nov 2026): an Ask shows its question, every other card its first words. A note keeps its formatting, up to six lines (13 Nov 2026). */}{entry.previewNote && entry.preview ? <NoteView lines={6} className="source-margin-preview-note" testId="source-margin-note">{entry.preview}</NoteView> : entry.previewQuestion ? <span className="source-margin-preview-question">{entry.previewQuestion}</span> : <span className="source-margin-preview-lead">{entry.preview ? clampWords(entry.preview, 220) : 'Open this card'}</span>}</button>}
         <div className="source-margin-content" hidden={!entry.open}>{entry.content}</div>

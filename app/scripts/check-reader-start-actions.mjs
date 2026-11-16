@@ -85,6 +85,7 @@ async function boot(engine, { phone, chapterNumber = 1, own = false }) {
   await context.route('**/*', route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort())
   await context.addInitScript(({ chapterNumber, own }) => {
     localStorage.setItem('tinct:wipe-v1-done', '1')
+    localStorage.setItem('tinct:selection-actions-used', '1') // a returning reader: the margin's full start actions, not the first-visit hint (16 Nov 2026)
     if (!own && !sessionStorage.getItem('qa:booted')) {
       sessionStorage.setItem('qa:booted', '1')
       sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'frankenstein', primaryEditionKey: 'original-en', savedPlace: { bookId: 'frankenstein', chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 } }))

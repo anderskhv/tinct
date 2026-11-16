@@ -45,7 +45,7 @@ function bookSegments(book: MarginBookStart): Segment[] {
   return [
     ...(book.primer ? [{ key: 'primer', icon: 'primer' as const, label: 'Primer', aria: `Primer for ${book.title}`, testId: 'lab-book-primer', run: () => book.onPrimer?.() }] : []),
     { key: 'summary', icon: 'summary', label: 'Summary', aria: `Summary of ${book.title}`, testId: 'lab-book-summary', run: () => book.onSummary?.() },
-    { key: 'angle', icon: 'angle', label: 'Reading angle', aria: 'Reading angle', testId: 'lab-book-angle', run: () => book.onAngle?.() },
+    ...(book.onAngle ? [{ key: 'angle', icon: 'angle' as const, label: 'Reading angle', aria: 'Reading angle', testId: 'lab-book-angle', run: () => book.onAngle?.() }] : []),
   ]
 }
 
@@ -62,17 +62,21 @@ export function LabChapterHeading({ title, preview = false, busy = false, measur
   // The phone's margin mode before the start actions: ✧ Primer · ✧ Catch me up on the heading's line, beside it.
   const chips = preview && !!margin && !margin.layout
   const book = phone && margin?.book && margin.book.firstChapterTitle === title ? margin.book : null
+  // The simple first page (Anders, 16 Nov 2026): no book pill, one Primer, and under the first chapter's heading the
+  // line on how to use the selection actions. Measuring copies draw the same, so the pages are laid out with it.
+  const firstVisit = phone && !!margin?.firstVisit
+  const bookPill = book && !firstVisit
   return <header className={`lab-passage-header${chips || phone || (preview && !margin) ? ' has-preview' : ''}${preview && title.length > 64 ? ' is-long-title' : ''}${opening || book ? ' has-book-opening' : ''}`}>
     {opening && <div className="lab-book-opening" data-testid={measuring ? undefined : 'lab-book-opening'}>
       <p className="lab-book-opening-title">{opening.title}</p>
       {opening.subtitle && <p className="lab-book-opening-subtitle">{opening.subtitle}</p>}
       {opening.author && <p className="lab-book-opening-author">{opening.author}</p>}
-      {book && <StartPill kind="book" segments={bookSegments(book)} measuring={measuring} busy={busy} testId="lab-book-start" />}
+      {bookPill && <StartPill kind="book" segments={bookSegments(book)} measuring={measuring} busy={busy} testId="lab-book-start" />}
     </div>}
     {!opening && book && <div className="lab-book-opening is-tinct" data-testid={measuring ? undefined : 'lab-book-opening'}>
       <p className="lab-book-opening-title">{book.title}</p>
       {book.author && <p className="lab-book-opening-author">{book.author}</p>}
-      <StartPill kind="book" segments={bookSegments(book)} measuring={measuring} busy={busy} testId="lab-book-start" />
+      {bookPill && <StartPill kind="book" segments={bookSegments(book)} measuring={measuring} busy={busy} testId="lab-book-start" />}
     </div>}
     {/* Kept, hidden, when it repeats the opening: the paginators read its face from it. */}
     <h1 className="lab-passage-headline" data-testid={measuring ? undefined : "lab-passage-headline"} hidden={repeats || undefined}>{title}</h1>
@@ -86,7 +90,7 @@ export function LabChapterHeading({ title, preview = false, busy = false, measur
           onClick={event => { event.stopPropagation(); if (!measuring) onPreview?.() }}>
           <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Primer</span>
         </button>
-        {margin.summary !== false && <button type="button" className="lab-chapter-preview" data-testid={measuring ? undefined : 'lab-unit-summary'} disabled={busy}
+        {margin.summary !== false && !firstVisit && <button type="button" className="lab-chapter-preview" data-testid={measuring ? undefined : 'lab-unit-summary'} disabled={busy}
           tabIndex={measuring ? -1 : 0} aria-label={`Summary of ${unitName(title)}`}
           onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()}
           onClick={event => { event.stopPropagation(); if (!measuring) margin.onSummary?.() }}>
@@ -94,6 +98,7 @@ export function LabChapterHeading({ title, preview = false, busy = false, measur
         </button>}
       </div>
     </div>}
+    {firstVisit && book && <p className="lab-first-hint-line" data-testid={measuring ? undefined : 'lab-first-hint'}>Press and hold any passage to have it explained, simplified, or to ask about it.</p>}
     {chips && margin && <div className="lab-unit-pills is-start" data-testid={measuring ? undefined : 'lab-unit-start'}>
       <div className="lab-unit-acts">
         <button type="button" className="lab-chapter-preview" data-testid={measuring ? undefined : 'lab-unit-primer'} disabled={busy}

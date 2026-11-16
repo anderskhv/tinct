@@ -55,6 +55,7 @@ try {
         return result
       }
     })
+    await page.addInitScript(() => { localStorage.setItem('tinct:selection-actions-used', '1') }) // a returning reader: the margin's full start actions, not the first-visit hint (16 Nov 2026)
     await page.addInitScript(phone => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ ...(phone ? {fontSize:1.3,fontSizeExplicit:true} : {}), theme: 'book', primaryEdition: 'original-en', audioEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true, compareChosen: true })), phone)
     const ready = () => page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
     const wordSelector = '[data-testid="lab-word"]:visible'

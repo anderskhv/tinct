@@ -1,6 +1,6 @@
 import { useMarginPhone } from './marginPhone/marginPhoneContext'
 
-export function LabChapterEnd({ hasNext, busy = false, measuring = false, docked = false, recap = true, note = true, onContinue, onDiscuss, onNote, finishedCard }: {
+export function LabChapterEnd({ chapterTitle, hasNext, busy = false, measuring = false, docked = false, recap = true, note = true, onContinue, onDiscuss, onNote, finishedCard }: {
   /** The chapter's title (measuring copies pass it too). */
   chapterTitle?: string
   hasNext: boolean; busy?: boolean; measuring?: boolean; docked?: boolean
@@ -25,6 +25,11 @@ export function LabChapterEnd({ hasNext, busy = false, measuring = false, docked
       </button>}
       {margin && recap && <button type="button" className="lab-chapter-recap" data-testid={measuring ? undefined : 'lab-unit-quiz'} tabIndex={measuring ? -1 : 0} aria-label="Quiz me on this chapter" onClick={event => { if (!measuring) margin.onQuiz?.(event.currentTarget.getBoundingClientRect()) }}>
         <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Quiz me</span>
+      </button>}
+      {/* The reading angle, offered once the reader has read a chapter (Anders, 16 Nov 2026): at the end of the book's
+          first chapter while the book has none. It opens AI settings' This book, the existing angle flow. */}
+      {margin?.angleOffer && chapterTitle != null && chapterTitle === margin.angleOffer.chapterTitle && <button type="button" className="lab-chapter-recap lab-chapter-angle" data-testid={measuring ? undefined : 'lab-chapter-angle'} tabIndex={measuring ? -1 : 0} onClick={() => { if (!measuring) margin.angleOffer?.onOpen() }}>
+        <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Read with an angle</span>
       </button>}
       {note && <button type="button" className="lab-chapter-note" data-testid={measuring ? undefined : 'lab-chapter-note-open'} tabIndex={onNote ? 0 : -1} aria-label="Chapter note"
         onClick={event => onNote?.(event.currentTarget.getBoundingClientRect())}>

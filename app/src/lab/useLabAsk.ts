@@ -83,6 +83,7 @@ import { chapterWindow, passageWindow } from './userBook/userBookContext'
 import { catalogueCardConversation, upsertCatalogueCard, tombstoneCatalogueCard, type SharedReaderCard } from './sharedReader/sharedReaderCards'
 import type { OwnTextCardsSync } from './userBook/ownTextCardsSync'
 import { registerSignOutFlush } from './signOutFlush'
+import { isSelectionActionKind, markSelectionActionsUsed } from './labSelectionActions'
 
 export type CardSaveFailure = 'book-mismatch' | 'invalid-card' | 'stale-card' | 'private-storage' | 'quota' | 'access' | 'write' | 'readback'
 
@@ -463,7 +464,17 @@ export function useLabAsk(options: UseLabAskOptions) {
     cloudWriterRef.current?.push(bookId, next, { now: !saved })
     return saved
   }, [failCardSave])
+  // The first answered Ask, Explain or Simplify ends the reader's first visit (labSelectionActions.ts).
+  const noteSelectionAction = (card: SharedReaderCard) => {
+    if (isSelectionActionKind(card.kind) && card.turns.some(turn => turn.role === 'assistant' && turn.content.trim())) markSelectionActionsUsed()
+  }
   const saveCard = useCallback((card: SharedReaderCard): boolean => {
+    const saved = saveCardNow(card)
+    if (saved) noteSelectionAction(card)
+    return saved
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [storeCardHistory, failCardSave])
+  const saveCardNow = useCallback((card: SharedReaderCard): boolean => {
     const bookId = chatBookIdRef.current
     const owned = optionsRef.current.ownCardController
     if (owned && card.source.kind === 'own-text' && card.source.bookId === bookId) {
@@ -1136,6 +1147,7 @@ export function useLabAsk(options: UseLabAskOptions) {
           dumpLabTalkTurns(next)
           return next
         })
+        if (!chapterRequest && (attachment?.highlightedText || retry?.attachment?.highlightedText || retry?.userTurn.highlightedText)) markSelectionActionsUsed()
         recordTurn({
           id: assistantTurn.id,
           role: 'assistant',
@@ -1229,6 +1241,11 @@ export function useLabAsk(options: UseLabAskOptions) {
   }, onDelta: (text: string) => void): Promise<string> => {
     const text = input.text.trim()
     const textless = input.intent === 'quiz' || input.intent === 'quiz_check'
+    // An answered Explain or Simplify the reader asked for ends their first visit (labSelectionActions.ts); a speculative fetch does not.
+    const noteExplained = (answer: string) => {
+      if (!input.speculative && (!input.intent || input.intent === 'simplify') && answer.trim()) markSelectionActionsUsed()
+      return answer
+    }
     if ((!text && !textless) || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
     const requestBookId = chatBookIdRef.current
     const requestChapter = input.chapterNumber ?? optionsRef.current.chapterNumber
@@ -1243,7 +1260,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       }
       if (cached.text) onDelta(cached.text)
       cached.listeners.add(onDelta)
-      try { return await cached.promise } finally { cached.listeners.delete(onDelta) }
+      try { return noteExplained(await cached.promise) } finally { cached.listeners.delete(onDelta) }
     }
     // Speculation is on the house: it fires as a selection settles and is
     // never charged. Only a tap on Explain goes through the gate.
@@ -1309,7 +1326,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     work.catch(() => { /* settled through the race below */ })
     entry.promise = Promise.race([work, stall]).finally(() => clearTimeout(stallTimer))
     try {
-      return await entry.promise
+      return noteExplained(await entry.promise)
     } catch (error) {
       if (explanationRef.current === entry) explanationRef.current = null
       throw error

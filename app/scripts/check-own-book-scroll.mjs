@@ -101,6 +101,7 @@ const context = await browser.newContext({ viewport: { width: 1440, height: 900 
 await context.route('**/*', answer)
 // Signed in, a site admin (the cached answer the reader reads at first paint), on every load.
 function signIn({ user, supabaseKey }) {
+  localStorage.setItem('tinct:selection-actions-used', '1') // a returning reader: the margin's full start actions, not the first-visit hint (16 Nov 2026)
   const session = JSON.stringify({ access_token: 'qa', refresh_token: 'qa-refresh', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 36000, user: { id: user, email: 'reader@example.com' } })
   // The dev server's client (VITE_SUPABASE_URL=https://qa.supabase.co) and a built bundle's (TINCT_SUPABASE_KEY).
   for (const key of ['sb-qa-auth-token', supabaseKey]) if (key) localStorage.setItem(key, session)

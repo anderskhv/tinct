@@ -959,7 +959,9 @@ async function menuRedesign(engine,name,phone,explicitShared=false) {
     // Desktop: Library lives in the icon-only back arrow at the top left.
     // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; Catch me up stays on a book's first
     // chapter (this is chapter 1); then Notebook and the settings groups: Appearance, Book settings, Audio settings.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Catch me up','Notebook','Appearance','Book settings','Audio settings','AI settings','Library',accountRow]:['Chat','Talk','Catch me up','Appearance','Book settings','Audio settings','AI settings',accountRow])
+    // The reading angle moved into the t menu, after AI settings, in the live (shared) reader (Anders, 16 Nov 2026).
+    const angleRow=shared?['Reading angle']:[]
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Catch me up','Notebook','Appearance','Book settings','Audio settings','AI settings',...angleRow,'Library',accountRow]:['Chat','Talk','Catch me up','Appearance','Book settings','Audio settings','AI settings',...angleRow,accountRow])
     // Desktop and phone share two explicitly labelled Chat and Talk actions.
     assert.equal(await page.getByTestId('lab-super-row-librarian').count(),0)
     assert.equal(await page.getByTestId('lab-super-row-notebook').count(),phone?1:0,'Notebook remains accessible on phone without duplicating the desktop toolbar')
