@@ -3712,6 +3712,17 @@ html[data-eink="true"] .lab .lab-audio-speed-popover::after { background: #fff; 
   gap: 8px;
 }
 
+/* The right column holds up to four 42px discs (Notebook, Play, Aa, t), not 48px: on a narrow desktop or a
+   landscape iPad the centred title ran under them (Pinocchio, 16 Nov 2026). Both sides reserve that width so the
+   title stays centred and ends in an ellipsis before the first disc. */
+.lab[data-chrome-version="v2"].is-desktop .lab-header {
+  grid-template-columns: minmax(200px, 1fr) minmax(0, auto) minmax(200px, 1fr);
+}
+.lab[data-chrome-version="v2"].is-desktop .lab-header-brand {
+  min-width: 0;
+  max-width: min(720px, 100%);
+}
+
 .lab.is-desktop .lab-header-work {
   flex: 0 1 auto;
   min-width: 0;
