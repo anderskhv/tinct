@@ -4387,7 +4387,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
 
   // A new passage/view invalidates a frozen card, including while edition data loads.
-  useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
+  useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
+  // New Compare text invalidates a selection too, except a cold open's Compare edition landing after the first page
+  // (compareLater): it replaces no text, so nothing on screen could have been selected in it, and the reader's
+  // selection of the main text stays (16 Nov 2026: it closed the bar under the reader's finger).
+  const selectionCompareRef = useRef(book.compareParagraphs)
+  useLayoutEffect(() => {
+    const before = selectionCompareRef.current
+    selectionCompareRef.current = book.compareParagraphs
+    if (before !== book.compareParagraphs && before.length > 0) setSelectionPopup(null)
+  }, [book.compareParagraphs])
   // A new passage or view invalidates an open note, as it does a selection card.
   useLayoutEffect(() => { setOpenFootnote(null) }, [book.bookId, book.chapterNumber, readerParagraphs, readerEditionKey, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
 

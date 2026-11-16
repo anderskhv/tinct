@@ -7,10 +7,20 @@ import {checkHeaders} from '../lib/internalTraffic.cjs'
 // and one complete on-demand book against the build's content identities.
 const origin=process.argv[2]||'https://tinct.app'
 const expected=await fs.readFile('dist/native-books/index.json')
+// A dropped connection (ECONNRESET, a reset TLS stream) says nothing about what is published: it is retried
+// twice. Any answer, a wrong status included, is final (two releases on 16 Nov 2026 rolled back on a reset).
 async function get(path){
- const response=await fetch(new URL(path,origin),{redirect:'error',headers:checkHeaders(),signal:AbortSignal.timeout(20000)})
- assert.equal(response.status,200,'published asset '+path)
- return Buffer.from(await response.arrayBuffer())
+ for(let attempt=1;;attempt++){
+  let response
+  try{response=await fetch(new URL(path,origin),{redirect:'error',headers:checkHeaders(),signal:AbortSignal.timeout(20000)})}
+  catch(error){
+   const code=error?.cause?.code
+   if(attempt<3&&(code==='ECONNRESET'||code==='UND_ERR_SOCKET'||code==='ETIMEDOUT')){await new Promise(r=>setTimeout(r,1000*attempt));continue}
+   throw error
+  }
+  assert.equal(response.status,200,'published asset '+path)
+  return Buffer.from(await response.arrayBuffer())
+ }
 }
 const index=await get('/native-books/index.json')
 assert(index.equals(expected),'production native catalogue matches this deployment')
