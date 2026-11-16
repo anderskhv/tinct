@@ -380,6 +380,16 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     if(await page.getByTestId('lab-header-notebook').isVisible())await page.getByTestId('lab-header-notebook').click()
     else {await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-notebook').click()}
   }
+  // While this script reloads the reader, the outgoing document may be
+  // constructing a pdf.js worker: WebKit then fails that load and reports it on
+  // the outgoing document as an uncaught "Cannot load …/pdf.worker.min.js due to
+  // access control checks" (deploy run 43939499404, 16 Nov 2026; reproduced
+  // locally against the pre-#838 Worker as well). That one message, during this
+  // script's own reload, is the reload's doing, not the reader's; a worker that
+  // cannot load at any other time still fails the check.
+  let reloading = false
+  // (Playwright's WebKit splits that text at "https:" into name and message; the stack's first line keeps it whole.)
+  const cancelledWorker = error => reloading && /^Cannot load \S+\/vendor\/pdfjs\/pdf\.worker\.min\.js due to access control checks\.?$/.test(String(error.stack || '').split('\n')[0])
   // Let the synthetic account acknowledge the position before replacing its
   // document. WebKit reports intercepted keepalive fetches aborted by reload
   // as page errors even when the application's fetch rejection is caught.
@@ -395,14 +405,18 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       }))
       throw error
     })
-    await page.reload({ waitUntil: 'domcontentloaded' })
+    reloading = true
+    try { await page.reload({ waitUntil: 'domcontentloaded' }) } finally { reloading = false }
   }
   const narrationReady = narrationSuccess
   const visual = process.env.PDF_VISUAL_OUTPUT && name === 'chromium' ? path.resolve(process.env.PDF_VISUAL_OUTPUT) : null
   if (visual) await fs.mkdir(visual, { recursive: true })
   const places = {}
   const sets = { marks: { list: [], rev: 0 }, cards: { list: [], rev: 0 } }
-  page.on('pageerror', error => { console.log(`${name}: page error at ${page.url()}: ${error.message}`); errors.push(error.stack || error.message) })
+  page.on('pageerror', error => {
+    if (cancelledWorker(error)) return console.log(`${name}: reload cancelled a pdf.js worker load: ${error.stack.split('\n')[0]}`)
+    console.log(`${name}: page error at ${page.url()}: ${error.message}`); errors.push(error.stack || error.message)
+  })
   page.on('requestfailed', request => console.log(`${name}: failed ${request.method()} ${request.url()}: ${request.failure()?.errorText}`))
   page.on('console', message => { if (message.type() === 'error') consoleErrors.push(message.text().slice(0, 1200)) })
   // Position writes use keepalive on reload. Keep their synthetic API handler
