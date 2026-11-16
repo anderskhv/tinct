@@ -43,7 +43,7 @@ export const RULES = [
   // A check's own script: that check.
   [/^app\/scripts\/check-sign-in\.mjs$/, ['signin']],
   [/^app\/scripts\/check-reader-panels\.mjs$/, ['panels', 'featured']],
-  [/^app\/scripts\/check-(reader-feedback|book-transition)\.mjs$/, ['panels']],
+  [/^app\/scripts\/check-(reader-feedback|book-transition|follow-request-t-dot)\.mjs$/, ['panels']],
   [/^app\/scripts\/check-library-(public|shelf-remove)\.mjs$/, ['library']],
   // /byob (the page about reading your own books) leads into the library's own-book pop-up.
   [/^app\/(public\/byob\.(html|js)|scripts\/check-byob-entry\.mjs)$/, ['library']],

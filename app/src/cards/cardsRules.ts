@@ -68,6 +68,14 @@ export function relationAfter(relation: Relation | null, follow: boolean): Relat
   return followsYou ? 'followed' : 'stranger'
 }
 
+/**
+ * Following you's rows: readers who follow you (a request, or a friend). The Worker already leaves out blocked
+ * readers and removed followers; a row that still says otherwise (a stale answer) is never listed (16 Nov 2026).
+ */
+export function followingYouRows<T extends { relation: Relation }>(rows: readonly T[] | null | undefined): T[] {
+  return (rows ?? []).filter(row => row.relation === 'followed' || row.relation === 'friend')
+}
+
 /** The Find readers badge: readers who follow you whom you do not follow back. */
 export function followBackCount(rows: Array<{ relation: Relation }>): number {
   return rows.filter(row => row.relation === 'followed').length
