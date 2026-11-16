@@ -1,0 +1,1392 @@
+{
+ "bookId": "gilgamesh",
+ "package": "books/wip/gilgamesh-thompson",
+ "editions": [
+  "original-en",
+  "modern-en",
+  "modern-da"
+ ],
+ "baseline": "R. Campbell Thompson, The Epic of Gilgamish: a new translation from a collation of the cuneiform tablets in the British Museum rendered literally into English hexameters, London: Luzac & Co., 1928 (archive.org thompson-1928-gilgamesh)",
+ "sources": {
+  "TH-A": "Thompson 1928, his translation of the Assyrian (Nineveh, 7th c. BC) version",
+  "TH-OB": "Thompson 1928, his translation of Old Babylonian tablets he interpolates (Pennsylvania and Yale tablets in Tablets II-III; Berlin/Meissner tablet in Tablets IX-X)",
+  "TH-A+OB": "Thompson 1928, Assyrian text restored in part from the Old Babylonian (his note, p. 20)",
+  "TH-BOG": "Thompson 1928, printed note translating an Akkadian fragment from Boghaz Keui (cuneiform text published by Weidner, KUB IV 12)",
+  "TH-HIT": "Thompson 1928, English of the Hittite version; Thompson credits 'Translation from J. Friedrich, Alter Orient 25, 2, 31, and Ungnad, Kulturfragen 4-5, 20' (p. 31) and 'Translation by Friedrich, and Ungnad' (p. 36). RIGHTS FLAG."
+ },
+ "nonThompsonParagraphs": [],
+ "conventions": [
+  "Every original-en paragraph is Thompson's own printed text; no other translator's words are used anywhere.",
+  "Verse lines are joined with single spaces (no embedded newlines); paragraph breaks follow Thompson's section headings, column breaks and sense blocks.",
+  "Kept as printed: Thompson's wording, spelling, name forms (Gilgamish, Erech, Uta-Napishtim, Ur-Shanabi, Nin-sun), round-bracket amplifications, (?) marks, accents (removéd), quotation marks.",
+  "Normalised typography: restoration half-brackets and square brackets removed (restored words kept); footnote numbers and line numbers removed; runs of gap dots printed as ' . . . '; Thompson's italic section headings omitted (recorded in locators).",
+  "Thompson's own Addenda et Corrigenda applied: p.11 l.48 '(and)'; p.22 l.5 '(forsooth),'; p.22 l.21 'friend'; p.27 l.46 'Nippur'; p.31 l.3 'seven mutilated'; p.18 l.14 dash deleted. (p.15 bracket and p.51 footnote-number corrections are moot after bracket/footnote removal.)",
+  "Thompson's italic editorial notes are kept in original-en only where they print translated lines (5 paragraphs, kind=thompson-printed-note-with-translated-lines); purely descriptive gap notes are recorded in the locator field instead.",
+  "modern-en and modern-da are fresh renderings aligned 1:1 with original-en; no brackets, asterisks or (?) marks; lacunae end at the gap (em dash) or use a short bridge only where Thompson's surviving text or note makes the meaning plain."
+ ],
+ "chapters": [
+  {
+   "chapter": 1,
+   "title": "Tablet I",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-A",
+     "printedPages": "pp. 9",
+     "locator": "Assyrian, Col. I 1-10 (The Argument)",
+     "kind": "thompson-verse",
+     "words": 91
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-A",
+     "printedPages": "pp. 9",
+     "locator": "Assyrian, Col. I 11-15; gap note: about thirty lines wanting",
+     "kind": "thompson-verse",
+     "words": 64
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-A",
+     "printedPages": "pp. 9",
+     "locator": "Assyrian, Col. II 1-3; gap note: gap of about three lines",
+     "kind": "thompson-verse",
+     "words": 29
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-A",
+     "printedPages": "pp. 10",
+     "locator": "Assyrian, Col. II 7-17 (The Plaint of Erech)",
+     "kind": "thompson-verse",
+     "words": 103
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-A",
+     "printedPages": "pp. 10",
+     "locator": "Assyrian, Col. II 17-28",
+     "kind": "thompson-verse",
+     "words": 126
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-A",
+     "printedPages": "pp. 10",
+     "locator": "Assyrian, Col. II 29-33",
+     "kind": "thompson-verse",
+     "words": 56
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-A",
+     "printedPages": "pp. 10-11",
+     "locator": "Assyrian, Col. II 33-41 (The Creation of Enkidu)",
+     "kind": "thompson-verse",
+     "words": 125
+    },
+    {
+     "paragraph": 8,
+     "source": "TH-A",
+     "printedPages": "pp. 11",
+     "locator": "Assyrian, Col. II 42-50 (The Encounter of Enkidu with the Hunter)",
+     "kind": "thompson-verse",
+     "words": 87
+    },
+    {
+     "paragraph": 9,
+     "source": "TH-A",
+     "printedPages": "pp. 11",
+     "locator": "Assyrian, Col. III 1-12",
+     "kind": "thompson-verse",
+     "words": 130
+    },
+    {
+     "paragraph": 10,
+     "source": "TH-A",
+     "printedPages": "pp. 11-12",
+     "locator": "Assyrian, Col. III 14-24",
+     "kind": "thompson-verse",
+     "words": 134
+    },
+    {
+     "paragraph": 11,
+     "source": "TH-A",
+     "printedPages": "pp. 12",
+     "locator": "Assyrian, Col. III 25-39 (How Gilgamish first heard of Enkidu)",
+     "kind": "thompson-verse",
+     "words": 153
+    },
+    {
+     "paragraph": 12,
+     "source": "TH-A",
+     "printedPages": "pp. 12",
+     "locator": "Assyrian, Col. III 40-46",
+     "kind": "thompson-verse",
+     "words": 74
+    },
+    {
+     "paragraph": 13,
+     "source": "TH-A",
+     "printedPages": "pp. 12-13",
+     "locator": "Assyrian, Col. III 47-51, Col. IV 1-7 (The Seduction of Enkidu)",
+     "kind": "thompson-verse",
+     "words": 148
+    },
+    {
+     "paragraph": 14,
+     "source": "TH-A",
+     "printedPages": "pp. 13",
+     "locator": "Assyrian, Col. IV 9-15",
+     "kind": "thompson-verse",
+     "words": 82
+    },
+    {
+     "paragraph": 15,
+     "source": "TH-A",
+     "printedPages": "pp. 13",
+     "locator": "Assyrian, Col. IV 15-22",
+     "kind": "thompson-verse",
+     "words": 68
+    },
+    {
+     "paragraph": 16,
+     "source": "TH-A",
+     "printedPages": "pp. 13",
+     "locator": "Assyrian, Col. IV 23-29 (How Enkidu was inveigled into Erech to fight with Gilgamish)",
+     "kind": "thompson-verse",
+     "words": 72
+    },
+    {
+     "paragraph": 17,
+     "source": "TH-A",
+     "printedPages": "pp. 13",
+     "locator": "Assyrian, Col. IV 30-39",
+     "kind": "thompson-verse",
+     "words": 86
+    },
+    {
+     "paragraph": 18,
+     "source": "TH-A",
+     "printedPages": "pp. 14",
+     "locator": "Assyrian, Col. IV 40-46, Col. V 1-5",
+     "kind": "thompson-verse",
+     "words": 115
+    },
+    {
+     "paragraph": 19,
+     "source": "TH-A",
+     "printedPages": "pp. 14",
+     "locator": "Assyrian, Col. V 6-21",
+     "kind": "thompson-verse",
+     "words": 120
+    },
+    {
+     "paragraph": 20,
+     "source": "TH-A",
+     "printedPages": "pp. 14",
+     "locator": "Assyrian, Col. V 23-33 (How Gilgamish dreamt of Enkidu)",
+     "kind": "thompson-verse",
+     "words": 100
+    },
+    {
+     "paragraph": 21,
+     "source": "TH-A",
+     "printedPages": "pp. 15",
+     "locator": "Assyrian, Col. V 35-38",
+     "kind": "thompson-verse",
+     "words": 42
+    },
+    {
+     "paragraph": 22,
+     "source": "TH-A",
+     "printedPages": "pp. 15",
+     "locator": "Assyrian, Col. V 39-46, Col. VI 1-6",
+     "kind": "thompson-verse",
+     "words": 172
+    },
+    {
+     "paragraph": 23,
+     "source": "TH-A",
+     "printedPages": "pp. 15",
+     "locator": "Assyrian, Col. VI 7-16",
+     "kind": "thompson-verse",
+     "words": 70
+    },
+    {
+     "paragraph": 24,
+     "source": "TH-A",
+     "printedPages": "pp. 15",
+     "locator": "Assyrian, Col. VI 17-25",
+     "kind": "thompson-verse",
+     "words": 112
+    }
+   ]
+  },
+  {
+   "chapter": 2,
+   "title": "Tablet II",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-OB",
+     "printedPages": "pp. 16",
+     "locator": "Old Babylonian (Pennsylvania tablet), Col. II 2-24; Thompson's bridging note before the tablet is recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 149
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-OB",
+     "printedPages": "pp. 16",
+     "locator": "Old Babylonian (Pennsylvania tablet), Col. II 24-35; gap note: gap of four or five lines",
+     "kind": "thompson-verse",
+     "words": 66
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-OB",
+     "printedPages": "pp. 17",
+     "locator": "Old Babylonian (Pennsylvania tablet), Col. III 1-37 (How the Hetaera schooled Enkidu); gap note: about thirteen lines missing",
+     "kind": "thompson-verse",
+     "words": 185
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-OB",
+     "printedPages": "pp. 17-18",
+     "locator": "Old Babylonian (Pennsylvania tablet), Col. IV 10-35; gap note: about nine lines",
+     "kind": "thompson-verse",
+     "words": 182
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-OB",
+     "printedPages": "pp. 18",
+     "locator": "Old Babylonian (Pennsylvania tablet), Col. V 7-26 (The Entry of Enkidu into Erech)",
+     "kind": "thompson-verse",
+     "words": 95
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-OB",
+     "printedPages": "pp. 18",
+     "locator": "Old Babylonian (Pennsylvania tablet), Col. V 30-36 (How Enkidu fought with Gilgamish for the Hetaera); gap note: gap of seven or eight lines",
+     "kind": "thompson-verse",
+     "words": 43
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-OB",
+     "printedPages": "pp. 18-19",
+     "locator": "Old Babylonian (Pennsylvania tablet), Col. VI 6-22",
+     "kind": "thompson-verse",
+     "words": 70
+    },
+    {
+     "paragraph": 8,
+     "source": "TH-OB",
+     "printedPages": "pp. 19",
+     "locator": "Old Babylonian (Pennsylvania tablet), Col. VI 25-37 (The Birth of Friendship)",
+     "kind": "thompson-verse",
+     "words": 64
+    }
+   ]
+  },
+  {
+   "chapter": 3,
+   "title": "Tablet III",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-OB",
+     "printedPages": "pp. 19",
+     "locator": "Old Babylonian (Yale tablet), Col. II (The Tale of the Fight); Thompson's introductory note (about a column and a half lost) recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 46
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-A+OB",
+     "printedPages": "pp. 20",
+     "locator": "Col. II 25-41 (Enkidu’s sorrow at the loss of his Love); Thompson notes that the Assyrian version is used here, restored in part from the Old Babylonian",
+     "kind": "thompson-verse",
+     "words": 76
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-OB",
+     "printedPages": "pp. 20",
+     "locator": "Col. II 45, Col. III 1-10 (The Ambition of Gilgamish); gap note: about two lines",
+     "kind": "thompson-verse",
+     "words": 50
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-OB",
+     "printedPages": "pp. 20",
+     "locator": "Col. III 13-26; Thompson then summarises seven mutilated lines (recorded in provenance)",
+     "kind": "thompson-verse",
+     "words": 105
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-OB",
+     "printedPages": "pp. 21",
+     "locator": "Col. III 36-41; Thompson summarises three mutilated lines on the powers given to Humbaba (recorded in provenance)",
+     "kind": "thompson-verse",
+     "words": 37
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-A",
+     "printedPages": "pp. 21",
+     "locator": "Col. IV 1-3, supplied by Thompson from the Assyrian Version, Second Tablet, Col. v",
+     "kind": "thompson-verse",
+     "words": 79
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-OB",
+     "printedPages": "pp. 21",
+     "locator": "Col. IV 3-25; gap note: four lines mutilated",
+     "kind": "thompson-verse",
+     "words": 144
+    },
+    {
+     "paragraph": 8,
+     "source": "TH-OB",
+     "printedPages": "pp. 21-22",
+     "locator": "Col. IV 26-37 (The Weapons are cast for the Expedition)",
+     "kind": "thompson-verse",
+     "words": 89
+    },
+    {
+     "paragraph": 9,
+     "source": "TH-OB",
+     "printedPages": "pp. 22",
+     "locator": "Col. IV 38-45, Col. V 1-8 (Gilgamish takes counsel with the Elders); includes corrigendum p. 22 l. 5 “(forsooth),”",
+     "kind": "thompson-verse",
+     "words": 125
+    },
+    {
+     "paragraph": 10,
+     "source": "TH-OB",
+     "printedPages": "pp. 22",
+     "locator": "Col. V 9-22; includes corrigendum p. 22 l. 21 “friend”; gap note: about seven lines in which the Elders bless Gilgamish in farewell",
+     "kind": "thompson-verse",
+     "words": 151
+    },
+    {
+     "paragraph": 11,
+     "source": "TH-OB",
+     "printedPages": "pp. 23",
+     "locator": "Col. V 32-41; gap note: about six lines mutilated or missing",
+     "kind": "thompson-verse",
+     "words": 76
+    },
+    {
+     "paragraph": 12,
+     "source": "TH-OB",
+     "printedPages": "pp. 23",
+     "locator": "Col. VI 1-17; Thompson notes two mutilated lines with the words “on seats” and “his equipment” (recorded in provenance)",
+     "kind": "thompson-verse",
+     "words": 111
+    },
+    {
+     "paragraph": 13,
+     "source": "TH-OB",
+     "printedPages": "pp. 23-24",
+     "locator": "Col. VI 20-43 (The Departure of the two Heroes)",
+     "kind": "thompson-verse",
+     "words": 207
+    },
+    {
+     "paragraph": 14,
+     "source": "TH-OB",
+     "printedPages": "pp. 24",
+     "locator": "Col. VI 45-63; Thompson summarises five mutilated lines (the heroes meet a man who sets them on their way) and notes that the Old Babylonian version breaks off (recorded in provenance)",
+     "kind": "thompson-verse",
+     "words": 112
+    },
+    {
+     "paragraph": 15,
+     "source": "TH-A",
+     "printedPages": "pp. 24",
+     "locator": "Assyrian Version, opening of the Assyrian Third Tablet (the conclave of the Elders), ll. 1-18",
+     "kind": "thompson-verse",
+     "words": 171
+    },
+    {
+     "paragraph": 16,
+     "source": "TH-A",
+     "printedPages": "pp. 25",
+     "locator": "Assyrian Third Tablet, Col. I 20-29; Thompson summarises the lost remainder of the speech (recorded in provenance)",
+     "kind": "thompson-verse",
+     "words": 106
+    },
+    {
+     "paragraph": 17,
+     "source": "TH-A",
+     "printedPages": "pp. 25",
+     "locator": "Assyrian Third Tablet, end of Col. I and Col. II 1-22",
+     "kind": "thompson-verse",
+     "words": 217
+    },
+    {
+     "paragraph": 18,
+     "source": "TH-A",
+     "printedPages": "pp. 26",
+     "locator": "Assyrian Third Tablet, last column ll. 9-14; Thompson’s summary of mutilated Columns III-V recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 61
+    }
+   ]
+  },
+  {
+   "chapter": 4,
+   "title": "Tablet IV",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-A",
+     "printedPages": "pp. 26-27",
+     "locator": "Assyrian Version, Col. I 36-50 (Enkidu addresses the Gate); Thompson’s note that ll. 1-36 are mutilated is recorded in provenance; includes corrigendum p. 27 l. 46 “Nippur”",
+     "kind": "thompson-verse",
+     "words": 153
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-A",
+     "printedPages": "pp. 27",
+     "locator": "Assyrian Version, Col. V 6-13 (after a few broken lines; first speaker probably Enkidu at the Gate of the Forest, per Thompson); Thompson’s summary of the fragmentary Columns II-IV is recorded in provenance; gap note: a small gap",
+     "kind": "thompson-verse",
+     "words": 96
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-A",
+     "printedPages": "pp. 27",
+     "locator": "Assyrian Version, Col. VI 1-7 (Enkidu is speaking)",
+     "kind": "thompson-verse",
+     "words": 36
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-A",
+     "printedPages": "pp. 28",
+     "locator": "Assyrian Version, Col. VI 8-18 (Enkidu is stricken with fear at thought of the combat); Thompson notes a small gap in which Gilgamish has answered",
+     "kind": "thompson-verse",
+     "words": 98
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-A",
+     "printedPages": "pp. 28",
+     "locator": "Assyrian Version, Col. VI 26-28 (Enkidu replies)",
+     "kind": "thompson-verse",
+     "words": 39
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-A",
+     "printedPages": "pp. 28",
+     "locator": "Assyrian Version, Col. VI 29-34; Thompson notes two difficult and mutilated lines after this",
+     "kind": "thompson-verse",
+     "words": 56
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-A",
+     "printedPages": "pp. 28",
+     "locator": "Assyrian Version, Col. VI 37-46",
+     "kind": "thompson-verse",
+     "words": 106
+    }
+   ]
+  },
+  {
+   "chapter": 5,
+   "title": "Tablet V",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-A",
+     "printedPages": "pp. 29",
+     "locator": "Assyrian Version, Col. I 1-9 (The Wonders of the Forest); Thompson’s note on the mutilated upper part of Col. II recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 88
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-A",
+     "printedPages": "pp. 29",
+     "locator": "Assyrian Version, Col. II 32-43 (Gilgamish relates his dreams); Thompson notes that the restorations at l. 32 are obviously uncertain",
+     "kind": "thompson-verse",
+     "words": 129
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-A",
+     "printedPages": "pp. 29-30",
+     "locator": "Assyrian Version, Col. II 44-50, Col. III 1-12",
+     "kind": "thompson-verse",
+     "words": 176
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-A",
+     "printedPages": "pp. 30",
+     "locator": "Assyrian Version, Col. III 13-23 (The dream of the volcano, which probably represents Humbaba); gap note: remainder of Column III broken away",
+     "kind": "thompson-verse",
+     "words": 88
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-BOG",
+     "printedPages": "pp. 30-31",
+     "locator": "Thompson’s note: variant on a Semitic (Akkadian) tablet from Boghaz Keui, text published by Weidner, Keilschrifturkunden aus Boghazkoi IV. 12, p. 13; includes corrigendum p. 31 l. 3 “seven mutilated”",
+     "kind": "thompson-printed-note-with-translated-lines",
+     "words": 185
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-HIT",
+     "printedPages": "pp. 31",
+     "locator": "Col. VI (The Fight with Humbaba), supplied by Thompson from the Hittite version, ll. 1-11; RIGHTS FLAG: Thompson’s footnote: “Translation from J. Friedrich, Alter Orient, 25, 2. 31, and Ungnad, Kulturfragen, 4-5, 20”; Thompson’s note that Columns IV-V are lost is recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 80,
+     "rightsFlag": "FRIEDRICH: Thompson's English of the Hittite version is credited by him as 'Translation from J. Friedrich ... and Ungnad' (Friedrich d.1972). Isolated paragraph; can be dropped from all editions without affecting neighbours."
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-HIT",
+     "printedPages": "pp. 31",
+     "locator": "Col. VI 12-27, from the Hittite version; RIGHTS FLAG as above (Friedrich, Ungnad); Thompson notes that the Hittite version breaks off here",
+     "kind": "thompson-verse",
+     "words": 153,
+     "rightsFlag": "FRIEDRICH: Thompson's English of the Hittite version is credited by him as 'Translation from J. Friedrich ... and Ungnad' (Friedrich d.1972). Isolated paragraph; can be dropped from all editions without affecting neighbours."
+    },
+    {
+     "paragraph": 8,
+     "source": "TH-A",
+     "printedPages": "pp. 31",
+     "locator": "Assyrian Version, end of the Fifth Tablet; Thompson notes the Assyrian version ends with six badly mutilated lines, of which the last tells the successful issue of the expedition",
+     "kind": "thompson-verse",
+     "words": 10
+    }
+   ]
+  },
+  {
+   "chapter": 6,
+   "title": "Tablet VI",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-A",
+     "printedPages": "pp. 32",
+     "locator": "Assyrian Version, Col. I 1-5 (Gilgamish is removing the stains of combat)",
+     "kind": "thompson-verse",
+     "words": 58
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-A",
+     "printedPages": "pp. 32",
+     "locator": "Assyrian Version, Col. I 6-21 (Ishtar sees him and seeks to wed him); Thompson notes a Semitic fragment from Boghaz Keui that adds “great horses” and “crystal for thy feet” to her gifts (recorded in provenance)",
+     "kind": "thompson-verse",
+     "words": 149
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-A",
+     "printedPages": "pp. 32-33",
+     "locator": "Assyrian Version, Col. I 22-44",
+     "kind": "thompson-verse",
+     "words": 246
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-A",
+     "printedPages": "pp. 33",
+     "locator": "Assyrian Version, Col. I 45-58",
+     "kind": "thompson-verse",
+     "words": 140
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-A",
+     "printedPages": "pp. 33",
+     "locator": "Assyrian Version, Col. I 59-63",
+     "kind": "thompson-verse",
+     "words": 50
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-A",
+     "printedPages": "pp. 33-34",
+     "locator": "Assyrian Version, Col. I 64-79; Thompson notes that Ishtar’s invitation is omitted (two words) and that the reply of Ishullanu is difficult",
+     "kind": "thompson-verse",
+     "words": 150
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-A",
+     "printedPages": "pp. 34",
+     "locator": "Assyrian Version, Col. I 80-86",
+     "kind": "thompson-verse",
+     "words": 48
+    },
+    {
+     "paragraph": 8,
+     "source": "TH-A",
+     "printedPages": "pp. 34",
+     "locator": "Assyrian Version, Col. I 87-90",
+     "kind": "thompson-verse",
+     "words": 38
+    },
+    {
+     "paragraph": 9,
+     "source": "TH-A",
+     "printedPages": "pp. 34",
+     "locator": "Assyrian Version, Col. I 92-100 (The Creation of the Divine Bull which is to destroy the heroes); Thompson notes this passage is usually restored from the Descent of Ishtar (recorded in provenance)",
+     "kind": "thompson-verse",
+     "words": 69
+    },
+    {
+     "paragraph": 10,
+     "source": "TH-A",
+     "printedPages": "pp. 34",
+     "locator": "Assyrian Version, Col. I 102-105",
+     "kind": "thompson-verse",
+     "words": 53
+    },
+    {
+     "paragraph": 11,
+     "source": "TH-A",
+     "printedPages": "pp. 35",
+     "locator": "Assyrian Version, Col. I 107-111; gap note: perhaps a small gap; Thompson then summarises about seven badly mutilated lines (the Bull’s breath annihilates a hundred, two hundred, then three hundred men in Erech), recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 50
+    },
+    {
+     "paragraph": 12,
+     "source": "TH-A",
+     "printedPages": "pp. 35",
+     "locator": "Assyrian Version, Col. I 130-133, 147-148; gap notes: gap of thirteen mutilated lines; gap of about fourteen mutilated lines in which the Bull is slain",
+     "kind": "thompson-verse",
+     "words": 67
+    },
+    {
+     "paragraph": 13,
+     "source": "TH-A",
+     "printedPages": "pp. 35",
+     "locator": "Assyrian Version, Col. I 153-155",
+     "kind": "thompson-verse",
+     "words": 38
+    },
+    {
+     "paragraph": 14,
+     "source": "TH-A",
+     "printedPages": "pp. 35",
+     "locator": "Assyrian Version, Col. I 157-168 (The Frenzy of Ishtar)",
+     "kind": "thompson-verse",
+     "words": 108
+    },
+    {
+     "paragraph": 15,
+     "source": "TH-A",
+     "printedPages": "pp. 36",
+     "locator": "Assyrian Version, Col. I 170-181 (The Triumph of Gilgamish)",
+     "kind": "thompson-verse",
+     "words": 126
+    },
+    {
+     "paragraph": 16,
+     "source": "TH-A",
+     "printedPages": "pp. 36",
+     "locator": "Assyrian Version, Col. I 182-185; gap note: three mutilated lines follow",
+     "kind": "thompson-verse",
+     "words": 26
+    },
+    {
+     "paragraph": 17,
+     "source": "TH-A",
+     "printedPages": "pp. 36",
+     "locator": "Assyrian Version, Col. I 190-193",
+     "kind": "thompson-verse",
+     "words": 44
+    }
+   ]
+  },
+  {
+   "chapter": 7,
+   "title": "Tablet VII",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-A",
+     "printedPages": "pp. 36",
+     "locator": "Assyrian Version, Col. I 1 (Enkidu’s dream)",
+     "kind": "thompson-verse",
+     "words": 12
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-HIT",
+     "printedPages": "pp. 36-37",
+     "locator": "Thompson’s note: remainder of Col. I supplied from the Hittite version; RIGHTS FLAG: Thompson’s footnote “Translation by Friedrich, and Ungnad”",
+     "kind": "thompson-printed-note-with-translated-lines",
+     "words": 181,
+     "rightsFlag": "FRIEDRICH: Thompson's English of the Hittite version is credited by him as 'Translation from J. Friedrich ... and Ungnad' (Friedrich d.1972). Isolated paragraph; can be dropped from all editions without affecting neighbours."
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-A",
+     "printedPages": "pp. 37",
+     "locator": "Thompson’s note on Col. II (entirely lost) and the next fragment: Enkidu’s curse on the hetaera, Assyrian Version fragments quoted in the note",
+     "kind": "thompson-printed-note-with-translated-lines",
+     "words": 220
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-A",
+     "printedPages": "pp. 37",
+     "locator": "Assyrian Version, Col. III 30-31 (The End of Enkidu’s curse on the Hetaera)",
+     "kind": "thompson-verse",
+     "words": 26
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-A",
+     "printedPages": "pp. 37-38",
+     "locator": "Assyrian Version, Col. III 32-47 (The Answer of Shamash)",
+     "kind": "thompson-verse",
+     "words": 171
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-A",
+     "printedPages": "pp. 38",
+     "locator": "Assyrian Version, Col. III 48-49; gap note: one or two lines missing",
+     "kind": "thompson-verse",
+     "words": 19
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-A",
+     "printedPages": "pp. 38",
+     "locator": "Assyrian Version, Col. IV 1-10 (Enkidu, relenting, regrets his curse, and blesses the Hetaera)",
+     "kind": "thompson-verse",
+     "words": 105
+    },
+    {
+     "paragraph": 8,
+     "source": "TH-A",
+     "printedPages": "pp. 38",
+     "locator": "Assyrian Version, Col. IV 11-21 (Enkidu, sorrowful at his approaching end, sleeps alone and dreams); Thompson notes a gap of perhaps three lines before the description of the Underworld",
+     "kind": "thompson-verse",
+     "words": 107
+    },
+    {
+     "paragraph": 9,
+     "source": "TH-A",
+     "printedPages": "pp. 39",
+     "locator": "Assyrian Version, Col. IV 33-50; Thompson notes that the text here breaks off",
+     "kind": "thompson-verse",
+     "words": 222
+    }
+   ]
+  },
+  {
+   "chapter": 8,
+   "title": "Tablet VIII",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-A",
+     "printedPages": "pp. 39-40",
+     "locator": "Thompson’s note on the badly mutilated Col. I (Assyrian Version), quoting its surviving phrases",
+     "kind": "thompson-printed-note-with-translated-lines",
+     "words": 93
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-A",
+     "printedPages": "pp. 40",
+     "locator": "Assyrian Version, Col. II 1-7",
+     "kind": "thompson-verse",
+     "words": 73
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-A",
+     "printedPages": "pp. 40",
+     "locator": "Assyrian Version, Col. II 8-14",
+     "kind": "thompson-verse",
+     "words": 71
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-A",
+     "printedPages": "pp. 40",
+     "locator": "Assyrian Version, Col. II 15-21",
+     "kind": "thompson-verse",
+     "words": 71
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-A",
+     "printedPages": "pp. 40-41",
+     "locator": "Assyrian Version, Col. II 22, then ll. 49-50 supplied by Thompson from Shamash’s words in the Seventh Tablet, and Col. III 1-7 (The Lament of Gilgamish)",
+     "kind": "thompson-verse",
+     "words": 120
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-A",
+     "printedPages": "pp. 41",
+     "locator": "Assyrian Version, Col. III 8-9; Thompson’s note on the fragmentary Columns IV-V recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 18
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-A",
+     "printedPages": "pp. 41",
+     "locator": "Assyrian Version, Col. V 43-48; gap note: one line lost at end of Column, Column VI is all lost",
+     "kind": "thompson-verse",
+     "words": 80
+    }
+   ]
+  },
+  {
+   "chapter": 9,
+   "title": "Tablet IX",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-A",
+     "printedPages": "pp. 41-42",
+     "locator": "Assyrian Version, Col. I 1-8 (Gilgamish determines to seek Eternal Life)",
+     "kind": "thompson-verse",
+     "words": 56
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-A",
+     "printedPages": "pp. 42",
+     "locator": "Assyrian Version, Col. I 9-16; Thompson notes that the rest of the Column is mutilated",
+     "kind": "thompson-verse",
+     "words": 106
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-A",
+     "printedPages": "pp. 42",
+     "locator": "Assyrian Version, Col. II 1-13 (The hero reaches the Mountains of Mashu)",
+     "kind": "thompson-verse",
+     "words": 98
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-A",
+     "printedPages": "pp. 42",
+     "locator": "Assyrian Version, Col. II 13-16",
+     "kind": "thompson-verse",
+     "words": 39
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-A",
+     "printedPages": "pp. 42-43",
+     "locator": "Thompson’s note on Col. II-V (the Scorpion-man and the Road of the Sun), quoting surviving lines",
+     "kind": "thompson-printed-note-with-translated-lines",
+     "words": 309
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-A",
+     "printedPages": "pp. 43",
+     "locator": "Assyrian Version, Col. V 48-51 (the Tree of the Gods); Thompson’s note that Col. VI is nearly all lost and that a third Old Babylonian tablet helps is recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 29
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-OB",
+     "printedPages": "pp. 43",
+     "locator": "Old Babylonian (third Old Babylonian tablet), ll. 1-4; the Sun-god takes pity on the hero",
+     "kind": "thompson-verse",
+     "words": 46
+    },
+    {
+     "paragraph": 8,
+     "source": "TH-OB",
+     "printedPages": "pp. 43",
+     "locator": "Old Babylonian (third Old Babylonian tablet), ll. 6-14; Thompson’s note that the Assyrian Version ends with about a dozen mutilated lines and that Gilgamish now comes to Siduri is recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 90
+    }
+   ]
+  },
+  {
+   "chapter": 10,
+   "title": "Tablet X",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-A",
+     "printedPages": "pp. 44",
+     "locator": "Assyrian Version, Col. I 1-17 (Gilgamish meets Siduri); Thompson notes a Hurrian-dialect fragment from Boghaz Keui (Keils. Boghazk. VI. 33) that mentions Siduri; erratum to the Preface suggests “a seller of wine” / “ale-wife” for Siduri",
+     "kind": "thompson-verse",
+     "words": 157
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-A",
+     "printedPages": "pp. 44",
+     "locator": "Assyrian Version, Col. I 18-22; Thompson notes about nine lines mutilated, after which l. 32 can be restored from Col. II 8",
+     "kind": "thompson-verse",
+     "words": 41
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-A",
+     "printedPages": "pp. 44-45",
+     "locator": "Assyrian Version, Col. I 32-45",
+     "kind": "thompson-verse",
+     "words": 143
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-A",
+     "printedPages": "pp. 45",
+     "locator": "Assyrian Version, Col. I 46-51, Col. II 1-14",
+     "kind": "thompson-verse",
+     "words": 220
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-OB",
+     "printedPages": "pp. 45",
+     "locator": "Old Babylonian Version (the Berlin tablet), Col. II 1-13, interpolated by Thompson",
+     "kind": "thompson-verse",
+     "words": 106
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-OB",
+     "printedPages": "pp. 45-46",
+     "locator": "Old Babylonian Version (the Berlin tablet), Col. II 14, Col. III 1-14 (The Philosophy of the Wine-maker); Thompson notes that the Old Babylonian Version here breaks off",
+     "kind": "thompson-verse",
+     "words": 106
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-A",
+     "printedPages": "pp. 46",
+     "locator": "Assyrian Version, Col. III 15-19 (Gilgamish, dissatisfied with a Wine-maker’s philosophy, would seek further afield)",
+     "kind": "thompson-verse",
+     "words": 54
+    },
+    {
+     "paragraph": 8,
+     "source": "TH-A",
+     "printedPages": "pp. 46",
+     "locator": "Assyrian Version, Col. III 20-31 (The Wine-maker, in accordance with tradition, attempts to dissuade him)",
+     "kind": "thompson-verse",
+     "words": 136
+    },
+    {
+     "paragraph": 9,
+     "source": "TH-A",
+     "printedPages": "pp. 46-47",
+     "locator": "Assyrian Version, Col. III 32-33; Thompson’s note that the remainder of the Column is mutilated (Gilgamish meets Ur-Shanabi and destroys the sails) is recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 17
+    },
+    {
+     "paragraph": 10,
+     "source": "TH-OB",
+     "printedPages": "pp. 47",
+     "locator": "Old Babylonian Version (the Berlin tablet), Col. IV 1-12, interpolated by Thompson",
+     "kind": "thompson-verse",
+     "words": 76
+    },
+    {
+     "paragraph": 11,
+     "source": "TH-A",
+     "printedPages": "pp. 47",
+     "locator": "Assyrian Version, Col. III 1-2; Thompson notes that ll. 2-31 repeat Siduri’s words (Col. I 33 to Col. II 14) with Ur-Shanabi as speaker",
+     "kind": "thompson-verse",
+     "words": 19
+    },
+    {
+     "paragraph": 12,
+     "source": "TH-A",
+     "printedPages": "pp. 47",
+     "locator": "Assyrian Version, Col. III 32-35",
+     "kind": "thompson-verse",
+     "words": 52
+    },
+    {
+     "paragraph": 13,
+     "source": "TH-A",
+     "printedPages": "pp. 47-48",
+     "locator": "Assyrian Version, Col. III 36-43",
+     "kind": "thompson-verse",
+     "words": 82
+    },
+    {
+     "paragraph": 14,
+     "source": "TH-A",
+     "printedPages": "pp. 48",
+     "locator": "Assyrian Version, Col. III 43-50",
+     "kind": "thompson-verse",
+     "words": 100
+    },
+    {
+     "paragraph": 15,
+     "source": "TH-A",
+     "printedPages": "pp. 48",
+     "locator": "Assyrian Version, Col. IV 1-10",
+     "kind": "thompson-verse",
+     "words": 107
+    },
+    {
+     "paragraph": 16,
+     "source": "TH-A",
+     "printedPages": "pp. 48",
+     "locator": "Assyrian Version, Col. IV 13-20 (He reaches Uta-Napishtim); Thompson’s note that Uta-Napishtim repeats Siduri’s questions is recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 70
+    },
+    {
+     "paragraph": 17,
+     "source": "TH-A",
+     "printedPages": "pp. 48-49",
+     "locator": "Assyrian Version, Col. V 23-32; Thompson notes that the remainder of the Column is mutilated (“let them bolt her gate . . . ; with pitch and bitumen”)",
+     "kind": "thompson-verse",
+     "words": 116
+    },
+    {
+     "paragraph": 18,
+     "source": "TH-A",
+     "printedPages": "pp. 49",
+     "locator": "Assyrian Version, Col. VI 26-39 (Uta-Napishtim’s answer); Thompson notes l. 30 is difficult",
+     "kind": "thompson-verse",
+     "words": 116
+    }
+   ]
+  },
+  {
+   "chapter": 11,
+   "title": "Tablet XI",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-A",
+     "printedPages": "pp. 49",
+     "locator": "Assyrian Version, Col. I 1-7 (The Cause of the Flood); Thompson notes l. 6 is difficult",
+     "kind": "thompson-verse",
+     "words": 75
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-A",
+     "printedPages": "pp. 50",
+     "locator": "Assyrian Version, Col. I 8-19",
+     "kind": "thompson-verse",
+     "words": 86
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-A",
+     "printedPages": "pp. 50",
+     "locator": "Assyrian Version, Col. I 20-31",
+     "kind": "thompson-verse",
+     "words": 87
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-A",
+     "printedPages": "pp. 50",
+     "locator": "Assyrian Version, Col. I 31-47; Thompson notes two difficult lines at the end",
+     "kind": "thompson-verse",
+     "words": 133
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-A",
+     "printedPages": "pp. 50-51",
+     "locator": "Assyrian Version, Col. I 48-72; gap note: five lines mutilated; Thompson then quotes five mutilated lines (“I added salve for the hand(s),” “the vessel was finish’d . . . Shamash the great,” “was difficult,” “I caused to bring above and below,” “two-thirds of it”), recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 208
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-A",
+     "printedPages": "pp. 51",
+     "locator": "Assyrian Version, Col. I 80-95",
+     "kind": "thompson-verse",
+     "words": 165
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-A",
+     "printedPages": "pp. 51",
+     "locator": "Assyrian Version, Col. II 97-106",
+     "kind": "thompson-verse",
+     "words": 81
+    },
+    {
+     "paragraph": 8,
+     "source": "TH-A",
+     "printedPages": "pp. 52",
+     "locator": "Assyrian Version, Col. II 111-124; Thompson first quotes four mutilated lines (“the land like . . . ,” “for one day the storm . . . ,” “fiercely blew . . . ,” “like a battle . . .”), recorded in provenance",
+     "kind": "thompson-verse",
+     "words": 127
+    },
+    {
+     "paragraph": 9,
+     "source": "TH-A",
+     "printedPages": "pp. 52",
+     "locator": "Assyrian Version, Col. III 125-134",
+     "kind": "thompson-verse",
+     "words": 95
+    },
+    {
+     "paragraph": 10,
+     "source": "TH-A",
+     "printedPages": "pp. 52",
+     "locator": "Assyrian Version, Col. III 135-144",
+     "kind": "thompson-verse",
+     "words": 105
+    },
+    {
+     "paragraph": 11,
+     "source": "TH-A",
+     "printedPages": "pp. 52",
+     "locator": "Assyrian Version, Col. III 145-154",
+     "kind": "thompson-verse",
+     "words": 80
+    },
+    {
+     "paragraph": 12,
+     "source": "TH-A",
+     "printedPages": "pp. 52-53",
+     "locator": "Assyrian Version, Col. III 155-170",
+     "kind": "thompson-verse",
+     "words": 149
+    },
+    {
+     "paragraph": 13,
+     "source": "TH-A",
+     "printedPages": "pp. 53",
+     "locator": "Assyrian Version, Col. IV 170-177",
+     "kind": "thompson-verse",
+     "words": 72
+    },
+    {
+     "paragraph": 14,
+     "source": "TH-A",
+     "printedPages": "pp. 53",
+     "locator": "Assyrian Version, Col. IV 177-189",
+     "kind": "thompson-verse",
+     "words": 159
+    },
+    {
+     "paragraph": 15,
+     "source": "TH-A",
+     "printedPages": "pp. 53-54",
+     "locator": "Assyrian Version, Col. IV 190-197",
+     "kind": "thompson-verse",
+     "words": 128
+    },
+    {
+     "paragraph": 16,
+     "source": "TH-A",
+     "printedPages": "pp. 54",
+     "locator": "Assyrian Version, Col. IV 200-218 (But Gilgamish is too mortal to resist even sleep); Thompson notes ll. 211-212 are a difficult passage",
+     "kind": "thompson-verse",
+     "words": 193
+    },
+    {
+     "paragraph": 17,
+     "source": "TH-A",
+     "printedPages": "pp. 54",
+     "locator": "Assyrian Version, Col. V 219-232; Thompson notes the word rendered “Robber” is not intelligible as it stands",
+     "kind": "thompson-verse",
+     "words": 136
+    },
+    {
+     "paragraph": 18,
+     "source": "TH-A",
+     "printedPages": "pp. 54-55",
+     "locator": "Assyrian Version, Col. V 233-257",
+     "kind": "thompson-verse",
+     "words": 244
+    },
+    {
+     "paragraph": 19,
+     "source": "TH-A",
+     "printedPages": "pp. 55-56",
+     "locator": "Assyrian Version, Col. V 258-276 (The magic gift of restored youth); Thompson notes the word rendered “loosen’d” is not spelt quite correctly",
+     "kind": "thompson-verse",
+     "words": 184
+    },
+    {
+     "paragraph": 20,
+     "source": "TH-A",
+     "printedPages": "pp. 56",
+     "locator": "Assyrian Version, Col. VI 277-282; Thompson notes two difficult words in ll. 279-280",
+     "kind": "thompson-verse",
+     "words": 67
+    },
+    {
+     "paragraph": 21,
+     "source": "TH-A",
+     "printedPages": "pp. 56",
+     "locator": "Assyrian Version, Col. VI 284-302 (The Quest ends in Tragedy); Thompson notes l. 297 refers to an incident lost in one of the previous gaps",
+     "kind": "thompson-verse",
+     "words": 191
+    },
+    {
+     "paragraph": 22,
+     "source": "TH-A",
+     "printedPages": "pp. 56",
+     "locator": "Assyrian Version, Col. VI 302-307 (The Pride of the Architect); Thompson notes two difficult words in these lines",
+     "kind": "thompson-verse",
+     "words": 84
+    }
+   ]
+  },
+  {
+   "chapter": 12,
+   "title": "Tablet XII",
+   "paragraphs": [
+    {
+     "paragraph": 1,
+     "source": "TH-A",
+     "printedPages": "pp. 57",
+     "locator": "Assyrian Version, Col. I 1-7 (How the dead haunt the living); Thompson’s note that the “Architect” is Gilgamish and the passing of the seine a euphemism for Enkidu’s death is recorded in provenance; gap note: about two lines wanting",
+     "kind": "thompson-verse",
+     "words": 69
+    },
+    {
+     "paragraph": 2,
+     "source": "TH-A",
+     "printedPages": "pp. 57",
+     "locator": "Assyrian Version, Col. I 10-27 (The Mourner’s Duty); Thompson notes ll. 13-14 admit two restorations",
+     "kind": "thompson-verse",
+     "words": 143
+    },
+    {
+     "paragraph": 3,
+     "source": "TH-A",
+     "printedPages": "pp. 58",
+     "locator": "Assyrian Version, Col. I 28-33; Thompson suggests this short poem may be the regular lament of the professional mourner",
+     "kind": "thompson-verse",
+     "words": 33
+    },
+    {
+     "paragraph": 4,
+     "source": "TH-A",
+     "printedPages": "pp. 58",
+     "locator": "Assyrian Version, Col. I 34-46 (Gilgamish by contravening these customs attempts to raise Enkidu); Thompson notes some confusion in the next three or four lines compared with the parallel text",
+     "kind": "thompson-verse",
+     "words": 145
+    },
+    {
+     "paragraph": 5,
+     "source": "TH-A",
+     "printedPages": "pp. 58",
+     "locator": "Assyrian Version, Col. I 47-49",
+     "kind": "thompson-verse",
+     "words": 33
+    },
+    {
+     "paragraph": 6,
+     "source": "TH-A",
+     "printedPages": "pp. 58",
+     "locator": "Assyrian Version, Col. I 50-54; Thompson notes it is uncertain what to restore for the two mutilated words at the beginning of l. 54",
+     "kind": "thompson-verse",
+     "words": 67
+    },
+    {
+     "paragraph": 7,
+     "source": "TH-A",
+     "printedPages": "pp. 59",
+     "locator": "Assyrian Version, Col. II 55-62",
+     "kind": "thompson-verse",
+     "words": 96
+    },
+    {
+     "paragraph": 8,
+     "source": "TH-A",
+     "printedPages": "pp. 59",
+     "locator": "Assyrian Version, Col. II 62-70",
+     "kind": "thompson-verse",
+     "words": 89
+    },
+    {
+     "paragraph": 9,
+     "source": "TH-A",
+     "printedPages": "pp. 59",
+     "locator": "Assyrian Version, Col. II 71-77",
+     "kind": "thompson-verse",
+     "words": 82
+    },
+    {
+     "paragraph": 10,
+     "source": "TH-A",
+     "printedPages": "pp. 59",
+     "locator": "Assyrian Version, Col. II 78-84",
+     "kind": "thompson-verse",
+     "words": 58
+    },
+    {
+     "paragraph": 11,
+     "source": "TH-A",
+     "printedPages": "pp. 59-60",
+     "locator": "Assyrian Version, Col. II 85-92",
+     "kind": "thompson-verse",
+     "words": 94
+    },
+    {
+     "paragraph": 12,
+     "source": "TH-A",
+     "printedPages": "pp. 60",
+     "locator": "Assyrian Version, Col. III 93-98 (The wretched lot of all who must die)",
+     "kind": "thompson-verse",
+     "words": 73
+    },
+    {
+     "paragraph": 13,
+     "source": "TH-A",
+     "printedPages": "pp. 60",
+     "locator": "Assyrian Version, Col. III 99-100, 118-119; gap notes: about seventeen lines missing; about twenty-five lines missing",
+     "kind": "thompson-verse",
+     "words": 32
+    },
+    {
+     "paragraph": 14,
+     "source": "TH-A",
+     "printedPages": "pp. 60",
+     "locator": "Assyrian Version, Col. VI 145-150",
+     "kind": "thompson-verse",
+     "words": 74
+    },
+    {
+     "paragraph": 15,
+     "source": "TH-A",
+     "printedPages": "pp. 60",
+     "locator": "Assyrian Version, Col. VI 151-157 (the close of the Epic)",
+     "kind": "thompson-verse",
+     "words": 46
+    }
+   ]
+  }
+ ]
+}
