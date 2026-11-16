@@ -512,7 +512,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       return withStaticCache(url, result)
     }
 
-    // The catalogue-backed library, sign-in and featured preview pages are
+    // The catalogue-backed library and sign-in pages are
     // static assets answered at their public URL. The reader SPA is /reader.
     if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
       const entryPath = LAB_PRE_READER_PATHS.get(url.pathname)!
