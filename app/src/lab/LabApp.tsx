@@ -220,6 +220,8 @@ import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
+import { LabParagraphListen } from './LabParagraphListen'
+import { boxOnScreen, firstSentenceStartOnPage, firstSentenceStartOnScreen, sentenceStartTest, type ScreenWord, type SentenceStartTest } from './labListenFromHere'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, listeningSentenceStart, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
@@ -293,6 +295,8 @@ function phoneSurfaceInput(layoutOverride: ReturnType<typeof labLayoutOverride>)
 
 /** How long the first page's fade-in class stays; the animation itself is shorter (lab.css). */
 const LAB_FIRST_REVEAL_MS = 400
+/** Listen from here's pills wait for the view to rest this long off the voice (no settle delay before them). */
+const LISTEN_PILLS_SETTLE_MS = 500
 /** Longest a page turn waits for the rest of a head-first chapter map before using the one it has. */
 const LAB_HEAD_FIRST_HOLD_MS = 3000
 /** Whether the map on screen is a head-first map whose rest is still being laid out (LabNativePaginator `headFirst`). */
@@ -1655,9 +1659,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     } : null),
     [narrationApplies, ownNarration, narrationVoice, narrationEnsure, narrationPrepared, bookTransition, narrationEndingEnsure, editionNarrationLanguage],
   )
+  /** Nothing can be heard here: the player refuses to start, and Listen from here's gutter ▶ is never offered. */
+  const listenPlaybackUnavailable = (privateBook && !ownNarration) || Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && streamedNarrationEdition ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable)
   const listen = useLabListen({
     guardPlaybackRequests: true,
-    playbackUnavailable: (privateBook && !ownNarration) || Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && streamedNarrationEdition ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
+    playbackUnavailable: listenPlaybackUnavailable,
     bookId: listenSource.bookId,
     bookTitle: book.bookTitle,
     chapterTitle: book.chapterLabel,
@@ -5138,7 +5144,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [narrationAccountRequired, listen.dismissNarration, listen.pause])
   useEffect(() => { if (signedIn) audioAccountRequiredRef.current = false }, [signedIn])
 
-  const startHearing = useCallback((opts?: { force?: boolean }) => {
+  const startHearing = useCallback((opts?: { force?: boolean; at?: { paragraphIndex: number; wordIndex: number } }) => {
     if (temporaryHold || narrationInfo?.loading) return
     // An edition with no audio at all (To the Lighthouse in Danish) says so,
     // rather than asking a signed-out reader to sign in for audio.
@@ -5209,7 +5215,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // Paused with the transport still up on this chapter (a page turn puts it
     // away): Play resumes the listening place — the word last heard, or the
     // word the reader tapped since — from the start of its sentence.
-    const resumePlace = listeningHere && pausedTransportVisible ? resumeListeningPlace() : null
+    // A place the reader chose (Listen from here's gutter ▶) is where Play starts, paused cursor or not.
+    const resumePlace = opts?.at ?? (listeningHere && pausedTransportVisible ? resumeListeningPlace() : null)
     const place = continuousReader ? (resumePlace ?? continuousVisibleRef.current) : resumePlace ?? visiblePlace ?? (page
       ? { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
       : placeRef.current)
@@ -5251,6 +5258,143 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
     startHearing()
   }, [chrome, listen, peekBook, startHearing])
+
+  /**
+   * Listen from here (Anders approved the mockups, 16 Nov 2026). While audio plays (or waits paused) and the reader
+   * has moved away from the voice — "Back to audio"'s own trigger, browseWhileListening, which the reader's scrolling
+   * and page turns set and the voice's own follow turns never do — and the voice's word is off screen, two pills offer
+   * "Back to the voice" and "Listen from here". They come once the view has rested off the voice for 500 ms and go
+   * when the voice's word is back on screen, when either is tapped (both end the browse) and when audio stops.
+   */
+  const voicePillsBase = browseWhileListening && (listen.playing || pausedTransportVisible) && !phoneAsk
+    && listen.follow.kind !== 'none' && !mobileCompareActive
+  const [voicePills, setVoicePills] = useState(false)
+  /** The scrolling reader's view: below the top bar, above the audio player. */
+  const continuousView = useCallback((host: HTMLElement) => {
+    const box = host.getBoundingClientRect()
+    const header = document.querySelector<HTMLElement>('.lab-header')?.getBoundingClientRect()
+    const dock = document.querySelector<HTMLElement>('[data-testid="lab-desktop-audio-dock"]')?.getBoundingClientRect()
+    return {
+      top: Math.max(box.top, header && header.height > 0 && header.bottom < box.top + box.height / 2 ? header.bottom : box.top),
+      bottom: Math.min(box.bottom, dock && dock.height > 0 ? dock.top : box.bottom),
+    }
+  }, [])
+  const voiceOnScreenRef = useRef<() => { onScreen: boolean; view: string }>(() => ({ onScreen: true, view: '' }))
+  voiceOnScreenRef.current = () => {
+    const follow = listen.follow
+    if (follow.kind === 'none') return { onScreen: true, view: '' }
+    const sameBook = listenSource.bookId === (book.bookId || 'bible')
+    const wordIndex = follow.kind === 'word' ? follow.wordIndex : 0
+    if (continuousReader) {
+      const host = document.querySelector<HTMLElement>('[data-testid="continuous-reader"]')
+      if (!host) return { onScreen: true, view: '' }
+      const view = `${Math.round(host.scrollTop)}`
+      if (!sameBook) return { onScreen: false, view }
+      const scope = host.querySelector<HTMLElement>(`[data-book-scroll-chapter="${listenSource.chapterNumber}"]`)
+        ?? (listenSource.chapterNumber === book.chapterNumber && !host.dataset.bookScroll ? host : null)
+      const word = scope?.querySelector<HTMLElement>(`[data-paragraph-index="${follow.paragraphIndex}"][data-word-index="${wordIndex}"]:is([data-testid="lab-word"],[data-testid="lab-opening-word"])`)
+      return { onScreen: !!word && boxOnScreen(word.getBoundingClientRect(), continuousView(host)), view }
+    }
+    const view = `${book.chapterNumber}:${readingPageIndex}`
+    if (!sameBook || listenSource.chapterNumber !== book.chapterNumber || chapterCoverTitle) return { onScreen: false, view }
+    return {
+      onScreen: followOnReadingPage(follow, readingPages, readingPageIndex)
+        || (desktopSpread && !openingOnRight && followOnReadingPage(follow, readingPages, readingPageIndex + 1)),
+      view,
+    }
+  }
+  useEffect(() => {
+    if (!voicePillsBase) { setVoicePills(false); return }
+    let restingSince = performance.now()
+    let lastView: string | null = null
+    const tick = () => {
+      const { onScreen, view } = voiceOnScreenRef.current()
+      const now = performance.now()
+      // The view moved: the 500 ms count starts again once it rests.
+      if (view !== lastView) { lastView = view; restingSince = now }
+      if (onScreen) { restingSince = now; setVoicePills(false); return }
+      if (now - restingSince >= LISTEN_PILLS_SETTLE_MS) setVoicePills(true)
+    }
+    tick()
+    const timer = window.setInterval(tick, 100)
+    return () => window.clearInterval(timer)
+  }, [voicePillsBase])
+  const showVoicePills = voicePillsBase && voicePills
+
+  /** Back to the voice: what "Back to audio" did. */
+  const backToVoice = useCallback(() => {
+    const follow = listen.follow
+    if (follow.kind === 'none') return
+    const wordIndex = follow.kind === 'word' ? follow.wordIndex : 0
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
+    setVoicePills(false)
+    setChapterCoverTitle(null)
+    setReadingPageIndex(pageIndexForPlace(readingPages, follow.paragraphIndex, wordIndex))
+  }, [listen.follow, readingPages])
+
+  /**
+   * Listen from here: the voice moves to the first sentence that begins on screen (on the phone, on this page), by
+   * the path a tap on a word takes — playing it carries on there, paused it stays paused with its cursor moved — and
+   * the reading place becomes that spot.
+   */
+  const listenFromHere = useCallback(() => {
+    setVoicePills(false)
+    if (!continuousReader) {
+      const place = firstSentenceStartOnPage(readingPages[readingPageIndex], sentenceStartTest(book.paragraphs))
+      if (place) void seekAudioToWord(place.paragraphIndex, place.wordIndex)
+      return
+    }
+    const host = document.querySelector<HTMLElement>('[data-testid="continuous-reader"]')
+    if (!host) return
+    const view = continuousView(host)
+    // Book scroll paints the neighbouring chapters too: the first sentence on screen may be in one of them.
+    const blocks = host.dataset.bookScroll ? Array.from(host.querySelectorAll<HTMLElement>('[data-book-scroll-chapter]')) : [host]
+    const texts = new Map<number, SentenceStartTest>()
+    const startsIn = (chapter: number) => {
+      let test = texts.get(chapter)
+      if (!test) {
+        test = sentenceStartTest(chapter === book.chapterNumber ? book.paragraphs : bookScrollTexts.texts.get(chapter)?.paragraphs ?? [])
+        texts.set(chapter, test)
+      }
+      return test
+    }
+    const words: ScreenWord[] = []
+    for (const block of blocks) {
+      const chapterNumber = block === host ? book.chapterNumber : Number(block.dataset.bookScrollChapter)
+      const box = block.getBoundingClientRect()
+      if (!Number.isFinite(chapterNumber) || box.bottom <= view.top || box.top >= view.bottom) continue
+      for (const line of block.querySelectorAll<HTMLElement>('p.lab-hearing-line')) {
+        const lineBox = line.getBoundingClientRect()
+        if (lineBox.bottom <= view.top || lineBox.top >= view.bottom) continue
+        for (const word of line.querySelectorAll<HTMLElement>(':is([data-testid="lab-word"],[data-testid="lab-opening-word"])[data-paragraph-index][data-word-index]')) {
+          const rect = word.getBoundingClientRect()
+          words.push({ chapterNumber, paragraphIndex: Number(word.dataset.paragraphIndex), wordIndex: Number(word.dataset.wordIndex), top: rect.top, bottom: rect.bottom })
+        }
+      }
+    }
+    const place = firstSentenceStartOnScreen(words, view, (paragraphIndex, wordIndex, chapter) => startsIn(chapter ?? book.chapterNumber)(paragraphIndex, wordIndex))
+      ?? { ...continuousVisibleRef.current, chapterNumber: book.chapterNumber }
+    const chapter = place.chapterNumber ?? book.chapterNumber
+    // A neighbour becomes the reader's own where it stands first, as a tap on its words does; then the voice moves.
+    actOnChapterRef.current(chapter, () => { void seekAudioToWordRef.current(place.paragraphIndex, place.wordIndex) })
+  }, [book.chapterNumber, book.paragraphs, bookScrollTexts.texts, continuousReader, continuousView, readingPageIndex, readingPages, seekAudioToWord])
+
+  /** The gutter ▶ beside a paragraph: the voice starts at its first word, playing (from a stop it starts there). */
+  const listenFromParagraph = useCallback((chapter: number, paragraphIndex: number) => {
+    actOnChapterRef.current(chapter, () => {
+      if (listenPlayingRef.current || listenRef.current.isPending()) { void seekAudioToWordRef.current(paragraphIndex, 0); return }
+      startHearingAtRef.current({ paragraphIndex, wordIndex: 0 })
+    })
+  }, [])
+  const seekAudioToWordRef = useRef(seekAudioToWord)
+  seekAudioToWordRef.current = seekAudioToWord
+  const listenRef = useRef(listen)
+  listenRef.current = listen
+  const startHearingAtRef = useRef((at: { paragraphIndex: number; wordIndex: number }) => startHearing({ force: true, at }))
+  startHearingAtRef.current = at => startHearing({ force: true, at })
+  /** Book scroll's act-on-a-neighbour (set where it is defined, below). */
+  const actOnChapterRef = useRef<(chapter: number, run: () => void) => void>((_chapter, run) => run())
 
   // Vocabulary hints are read when a clip is sent, so they follow the open
   // chapter. A reader's own file sends none: its names stay on the device.
@@ -6356,6 +6500,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     explicitAdoption.current = false
     if (!adopted) pendingChapterAction.current = null
   }
+  actOnChapterRef.current = (chapter, run) => actOnChapter(chapter, run)
   useEffect(() => {
     const pending = pendingChapterAction.current
     if (!pending) return
@@ -7824,6 +7969,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         {((!showPhoneChrome && desktopAskOpen && !desktopVoiceOpen) || (phoneAsk && !marginPhone)) && askPaneElement}
       </div>
 
+      <LabParagraphListen
+        enabled={continuousReader && !showPhoneChrome && !listenPlaybackUnavailable && !selectionPopup && !frontispieceVisible && !initialResolving && !tocOpen}
+        chapterNumber={book.chapterNumber}
+        voice={(listen.playing || listen.pending || pausedTransportVisible) && listen.follow.kind !== 'none' && listenSource.bookId === (book.bookId || 'bible')
+          ? { chapterNumber: listenSource.chapterNumber, paragraphIndex: listen.follow.paragraphIndex } : null}
+        onListen={listenFromParagraph}
+      />
       <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : listen.buffering ? 'Loading audio.' : ''}</span>
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
       {listen.narration.status === 'loading' && listen.narration.waiting && listen.pending && <div className="lab-narration-inline" role="status" data-testid="lab-narration-preparing">
@@ -7859,16 +8011,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           openContentsPassage({ chapterNumber: book.chapterNumber, paragraphIndex: recentChapterReturn.paragraphIndex, wordIndex: recentChapterReturn.wordIndex })
         }}>Continue from last position</button>
       )}
-      {browseWhileListening && listen.playing && !phoneAsk && listen.follow.kind !== 'none' && (
-        <button type="button" className="lab-back-to-audio" data-testid="lab-back-to-audio" onClick={() => {
-          const follow = listen.follow
-          if (follow.kind === 'none') return
-          const wordIndex = follow.kind === 'word' ? follow.wordIndex : 0
-          browseWhileListeningRef.current = false
-          setBrowseWhileListening(false)
-          setChapterCoverTitle(null)
-          setReadingPageIndex(pageIndexForPlace(readingPages, follow.paragraphIndex, wordIndex))
-        }}>Back to audio</button>
+      {showVoicePills && (
+        <div className="lab-listen-pills" data-testid="lab-listen-pills">
+          <button type="button" className="lab-listen-pill" data-testid="lab-back-to-voice" onClick={backToVoice}><span aria-hidden="true">↑</span> Back to the voice</button>
+          <button type="button" className="lab-listen-pill is-primary" data-testid="lab-listen-from-here" onClick={listenFromHere}><span aria-hidden="true">▶</span> Listen from here</button>
+        </div>
       )}
       {showReaderRail && !continuousReader && (
         <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}`} data-testid="lab-page-turn" aria-label="Page">

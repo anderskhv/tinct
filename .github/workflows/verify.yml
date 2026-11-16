@@ -273,6 +273,11 @@ jobs:
         env:
           TINCT_BOOK_SCROLL_OPEN_OUTPUT: artifacts/book-scroll-open-place
         run: node scripts/check-book-scroll-open-place.mjs
+      - name: Verify Listen from here (pills and the gutter play button)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_LISTEN_FROM_HERE_OUTPUT: artifacts/listen-from-here
+        run: node scripts/check-listen-from-here.mjs
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
