@@ -91,11 +91,17 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
       el.style.height = `${shown}px`
     }
     // As tall as its content (at most its max-height), measured in the same frame: no paint between.
+    // Unsetting the height shrinks the card for that one layout, and the browser clamps every scroll inside it to the
+    // smaller box; putting the height back does not undo that. Keep each scroll where it was (16 Nov 2026: a chat
+    // opened at its latest message slipped 34px up on a slow phone, and the deploy check caught it).
     const naturalHeight = () => {
       if (state.held === null) return el.offsetHeight
+      const scrolled = Array.from(el.querySelectorAll<HTMLElement>('.lab-pcard-body, .tc-thread, .lab-ask-thread'))
+        .filter(node => node.scrollTop > 0).map(node => [node, node.scrollTop] as const)
       el.style.height = ''
       const natural = el.offsetHeight
       el.style.height = `${state.held}px`
+      for (const [node, top] of scrolled) if (node.scrollTop !== top) node.scrollTop = top
       return natural
     }
     const hold = () => {

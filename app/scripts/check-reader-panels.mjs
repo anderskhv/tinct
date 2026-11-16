@@ -54,6 +54,8 @@ async function checkLibraryRow(page, name) {
 
 async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNumber=1, fixture={}) {
   const context = await browser.newContext({ viewport: phone ? { width:390,height:844 } : {width:1440,height:900}, serviceWorkers:'block', hasTouch:phone, deviceScaleFactor:fixture.deviceScaleFactor||1 })
+  // A returning reader, who has used Ask, Explain or Simplify: no first-visit hint above the text (16 Nov 2026).
+  if(!fixture.firstVisit) await context.addInitScript(() => localStorage.setItem('tinct:selection-actions-used', '1'))
   const page = await context.newPage()
   page.setDefaultTimeout(10000)
   const requests = [], errors = [], networkFailures = []
