@@ -69,6 +69,8 @@ export interface SelectionDeskBarProps {
   onSwatch: (color: HighlightColor) => void
   onNote?: () => void
   onRemove: () => void
+  /** Listen from here: the voice starts at the selection (an own PDF's original pages, while it can be read aloud). */
+  onListen?: () => void
   /** Container props owned by SelectionPopup (keyboard trap, dismissal guards). */
   containerProps?: Record<string, unknown>
 }
@@ -276,12 +278,14 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   ))
   const keyHint = (action: DeskBarShortcut, label: string) => { const key = deskBarShortcutLabel(action, typeToAsk); return { title: `${label} (${key.hint})`, 'aria-keyshortcuts': key.aria } }
   const note = props.onNote && <button type="button" className="lab-pbar-item" data-testid="lab-dbar-note" aria-label={noted ? 'Edit note' : 'Add note'} {...keyHint('note', noted ? 'Edit note' : 'Add note')} onClick={props.onNote}><PhoneIcon name="note" /></button>
+  const listen = props.onListen && <><button type="button" className="lab-pbar-item" data-testid="lab-dbar-listen" aria-label="Listen from here" title="Listen from here" onClick={props.onListen}><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8L10.2 6z" fill="currentColor" /></svg></button>{sep}</>
   const more = (rows: DeskMoreId[][]) => rows.some(group => group.length)
     ? <button type="button" className="lab-pbar-item" data-testid="lab-dbar-more" aria-label="More" aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => setMoreOpen(open => !open)}><PhoneIcon name="more" /></button>
     : null
   let body: ReactNode
   if (state === 'existing') {
     body = <>
+      {listen}
       <button ref={askButtonRef} type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-ask" {...keyHint('ask', 'Ask')} onClick={() => openAsk()}>Ask</button>
       {sep}
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" {...keyHint('explain', 'Explain')} onClick={props.onExplain}>Explain</button>
@@ -302,6 +306,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     </>
   } else {
     body = <>
+      {listen}
       <button ref={askButtonRef} type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" {...keyHint('ask', 'Ask')} onClick={() => openAsk()}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
       {sep}
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" {...keyHint('explain', 'Explain')} onClick={props.onExplain}>Explain</button>

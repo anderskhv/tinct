@@ -259,6 +259,42 @@ it('reads aloud only the main text of a PDF page, and the follow highlight lands
   service.dispose()
 })
 
+it('starts the voice at a selected word, or at the first sentence that begins on screen (Listen from here)', async () => {
+  const play = vi.fn()
+  const player = { attachOwn: vi.fn(), play, snapshot: vi.fn(() => ({ available: true })) }
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null, vi.fn() as typeof fetch, player as never)
+  const view = { width: 600, height: 800, transform: [1, 0, 0, -1, 0, 800] }
+  const item = (str: string, x: number, top: number, size = 10, width = str.length * size * 0.5) => ({ str, transform: [size, 0, 0, size, x, 800 - top], width })
+  const foot = (n: number) => [item('THE REPORT | ITS TITLE', 50, 780, 7), item(String(n), 540, 780, 7)]
+  // Each page: footer (rendered words 0–5), then "First sentence here. Second one starts" (6–11) / "on this line, Feb" "ruary." (12–16).
+  const layouts = new Map([1, 2, 3].map(n => [n, { view, graphics: [], items: [...foot(n), item('First sentence here. Second one starts', 50, 100, 10, 190),
+    item('on this line, Feb', 50, 113, 10, 85), item('ruary.', 135, 113, 10, 30)] }]))
+  service.readNarrationPages = async pages => new Map(pages.flatMap(n => layouts.has(n) ? [[n, layouts.get(n)!] as const] : []))
+  const extraction = (n: number) => layouts.get(n)!.items.map(it => it.str).join(' ').trim()
+  for (const n of [1, 2, 3]) service.setPdfPageText(n, extraction(n), 3)
+  // "Second" is rendered word 9 and spoken word 3.
+  expect(await service.listenAt(1, 9)).toBe(true)
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 3 })
+  // "Feb" (rendered 15) and its piece "ruary." (16) are the one spoken word "February.", spoken word 9.
+  await service.listenAt(1, 15)
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 9 })
+  await service.listenAt(1, 16)
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 9 })
+  // A footer word is not read: the voice starts at the first word read after it ("First").
+  await service.listenAt(1, 2)
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 })
+  // On screen: the second line of page 2 only; no sentence begins there, so its first word read ("on").
+  await service.listenFromScreen([{ page: 2, words: [12, 13, 14, 15] }])
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 6 })
+  // Both lines of page 3 on screen: "First" begins a sentence.
+  await service.listenFromScreen([{ page: 3, words: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15] }])
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 3, paragraphIndex: 0, wordIndex: 0 })
+  // From the middle of the first line: the sentence that begins at "Second".
+  await service.listenFromScreen([{ page: 3, words: [8, 9, 10, 11] }])
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 3, paragraphIndex: 0, wordIndex: 3 })
+  service.dispose()
+})
+
 it('reads the page as before when its layout cannot be read', async () => {
   let source: { chapter: (page: number) => Promise<{ paragraphs: string[] } | null> } | undefined
   let snap: Record<string, unknown> = { available: true }

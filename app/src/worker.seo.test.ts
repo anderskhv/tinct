@@ -340,11 +340,12 @@ describe('worker SEO routing', () => {
       expect(html).toContain('src="/covers/v2/wuthering-heights.webp"')
       expect(html).not.toContain('Frankenstein</h1>')
       expect(html).toContain('<script src="boot.js')
-      // Its crawlable text: the book's own opening and chapter links straight into the reader; no AI-written blurb.
+      // Its crawlable text: the book's own opening and chapter links to its chapter pages (since 16 Nov 2026; they
+      // went straight into the reader before); no AI-written blurb.
       expect(html).toContain('id="book-about"')
       expect(html).not.toContain('A tenant&#39;s curiosity and a housekeeper&#39;s memory tell the story')
       expect(html).toContain('I have just returned from a visit to my landlord')
-      expect(html).toContain('href="/reader?book=wuthering-heights&amp;chapter=3"')
+      expect(html).toContain('href="/read/wuthering-heights/chapter-3"')
       expect(html.match(/<main\b/g)).toHaveLength(1)
     })
 
@@ -390,12 +391,12 @@ describe('worker SEO routing', () => {
       expect(resp.headers.get('Vary')).toBe('Cookie')
     })
 
-    // The AI-written summary, themes, cast, chapters and chapter-N pages were
-    // removed: every old URL is one permanent redirect to the indexable book page.
+    // The AI-written summary, themes, cast and chapters pages were removed: every
+    // old URL is one permanent redirect to the indexable book page. (chapter-N is a
+    // chapter page again since 16 Nov 2026: worker.chapterPages.test.ts.)
     it.each([
       '/read/wuthering-heights/summary', '/read/wuthering-heights/summary/', '/read/wuthering-heights/summary.html',
       '/read/wuthering-heights/themes', '/read/wuthering-heights/cast.html', '/read/wuthering-heights/chapters',
-      '/read/wuthering-heights/chapter-3', '/read/wuthering-heights/chapter-3.html',
     ])('sends the retired page %s to the book page in one 301', async pathname => {
       const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`, { headers: { 'User-Agent': 'Googlebot' } }), env as never, ctx)
       expect(resp.status).toBe(301)

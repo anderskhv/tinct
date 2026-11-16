@@ -77,6 +77,42 @@ function edge(node: Node, offset: number, direction: -1 | 1): { node: Text; offs
   return { node: current, offset }
 }
 
+/** The text layer's item spans in item order, each with the rendered word its first word is (/\S+/ per item). */
+function itemSpans(layer: Element): Array<{ span: HTMLElement; first: number; count: number }> {
+  const spans = [...layer.querySelectorAll<HTMLElement>('span[data-pdf-item]')].sort((a, b) => Number(a.dataset.pdfItem) - Number(b.dataset.pdfItem))
+  let next = 0
+  return spans.map(span => { const count = (span.textContent?.match(/\S+/gu) ?? []).length, first = next; next += count; return { span, first, count } })
+}
+
+/** The rendered word a point in a page's text falls in (the word after it, at a space); null outside an item. */
+export function pdfRenderedWord(node: Node, offset: number): number | null {
+  const span = element(node)?.closest<HTMLElement>('span[data-pdf-item]'), layer = span?.closest('.pdf-original__text')
+  if (!span || !layer) return null
+  const found = itemSpans(layer).find(entry => entry.span === span)
+  if (!found) return null
+  // Characters before the point, through the start of this text node within the span.
+  let before = 0
+  const walker = document.createTreeWalker(span, NodeFilter.SHOW_TEXT)
+  for (let text = walker.nextNode(); text && text !== node; text = walker.nextNode()) before += (text as Text).length
+  const full = span.textContent ?? '', at = before + (node.nodeType === Node.TEXT_NODE ? offset : 0)
+  // The word the point is in, or the next one when it stands on a space.
+  const words = [...full.matchAll(/\S+/gu)]
+  const k = words.findIndex(match => at < match.index + match[0].length)
+  return found.count ? found.first + (k < 0 ? found.count - 1 : k) : null
+}
+
+/** The rendered words of a page's text layer whose line stands wholly inside [top, bottom] (viewport pixels). */
+export function pdfRenderedWordsIn(layer: Element, top: number, bottom: number): number[] {
+  const words: number[] = []
+  for (const { span, first, count } of itemSpans(layer)) {
+    if (span.closest('[data-pdf-furniture]')) continue
+    const box = span.getBoundingClientRect()
+    if (box.height <= 0 || box.top < top - 0.5 || box.bottom > bottom + 0.5) continue
+    for (let k = 0; k < count; k++) words.push(first + k)
+  }
+  return words
+}
+
 /** A deliberate native range becomes whole words with every box owned by its real source page. */
 export function readPdfOriginalSelection(root: HTMLElement, selection: Selection | null, expandWords = true): PdfOriginalSelection | null {
   if (!selection?.rangeCount || selection.isCollapsed) return null
@@ -90,7 +126,7 @@ export function readPdfOriginalSelection(root: HTMLElement, selection: Selection
   const startSide = element(range.startContainer)?.closest('[data-pdf-side]'), endSide = element(range.endContainer)?.closest('[data-pdf-side]')
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), rects: PdfSelectionRect[] = [], parts: string[] = [], pages = new Map<number, string[]>()
   const aspects = new Map<number, number>()
-  let previous: { node: Text; last: number } | null = null
+  let previous: { node: Text; last: number } | null = null, word: number | null = null
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
     if (!range.intersectsNode(node)) continue
     const span = element(node), layer = span?.closest<HTMLElement>('.pdf-original__text'), sheet = layer?.closest<HTMLElement>('.pdf-original__page')
@@ -99,6 +135,7 @@ export function readPdfOriginalSelection(root: HTMLElement, selection: Selection
     if (side && side !== startSide && side !== endSide) continue
     const text = node as Text, from = node === range.startContainer ? range.startOffset : 0, to = node === range.endContainer ? range.endOffset : text.length
     if (to <= from || !text.data.slice(from, to).trim()) continue
+    if (!rects.length) word = pdfRenderedWord(text, from)
     const fragment = document.createRange(); fragment.setStart(text, from); fragment.setEnd(text, to)
     const boxes = fragment.getClientRects?.() ?? []
     const bounds = layer.getBoundingClientRect(), pageNumber = Number(sheet.dataset.page)
@@ -114,7 +151,7 @@ export function readPdfOriginalSelection(root: HTMLElement, selection: Selection
     previous = { node: text, last: to }
   }
   const text = parts.join('').replace(/\s+/g, ' ').trim()
-  return rects.length && text.length >= (expandWords ? 2 : 1) ? { page: rects[0][0], text, rects: pdfSelectionLineRects(rects, aspects), ...(pages.size > 1 ? { pages: [...pages].map(([n, parts]) => ({ n, text: parts.join('').replace(/\s+/g, ' ').trim() })) } : {}) } : null
+  return rects.length && text.length >= (expandWords ? 2 : 1) ? { page: rects[0][0], text, rects: pdfSelectionLineRects(rects, aspects), ...(word !== null ? { word } : {}), ...(pages.size > 1 ? { pages: [...pages].map(([n, parts]) => ({ n, text: parts.join('').replace(/\s+/g, ' ').trim() })) } : {}) } : null
 }
 
 /** Join word-sized PDF items on their own line, never across a column or page.

@@ -9,8 +9,9 @@
  *   - app/public/data/editions/{bookId}-modern-en.json → chapter count
  *
  * The sitemap lists only real pages: /, /about, /credits, /story, /privacy, /terms,
- * /read/, one /read/{bookId} per public book and the scene pages the build wrote
- * (/read/{bookId}/{scene}, scripts/seo/build-scene-pages.mjs, which runs first). Each
+ * /read/, one /read/{bookId} per public book, the scene pages the build wrote
+ * (/read/{bookId}/{scene}, scripts/seo/build-scene-pages.mjs, which runs first), the chapter pages of
+ * the indexable books and the shelf hubs that list one (scripts/seo/build-chapter-pages.mjs). Each
  * <lastmod> changes only when that page's content does (see sitemap-lastmod.json).
  *
  * Why static rather than worker-generated: keeping the sitemap in
@@ -207,6 +208,33 @@ function scenePagesOf(bookId) {
     try { sceneManifest = JSON.parse(fs.readFileSync(SCENE_MANIFEST, 'utf8')).books || {} } catch { sceneManifest = {} }
   }
   return (sceneManifest[bookId] || []).filter(scene => fs.existsSync(path.join(READ_DIR, bookId, `${scene.slug}.html`)))
+}
+
+// --- Chapter pages and edition notes (scripts/seo/build-chapter-pages.mjs) ---
+
+const CHAPTER_MANIFEST = path.join(APP_DIR, 'src/data/chapterPages.generated.json')
+const EDITION_NOTES = path.join(APP_DIR, 'src/data/editionNotes.generated.json')
+const CHAPTER_PACK_DIR = path.join(APP_DIR, 'public/seo/chapter-packs')
+let chapterManifest = null
+function loadChapterManifest() {
+  if (!chapterManifest) {
+    try { chapterManifest = JSON.parse(fs.readFileSync(CHAPTER_MANIFEST, 'utf8')) } catch { chapterManifest = {} }
+    chapterManifest.books ||= {}
+    chapterManifest.hubs ||= {}
+  }
+  return chapterManifest
+}
+/** The book's chapter pages ({ chapters, packs, indexable, original, labels }), or null. */
+function chapterPagesOf(bookId) {
+  return loadChapterManifest().books[bookId] || null
+}
+let editionNotes = null
+/** The book's edition note (HTML, Anders's exact wording), or '' when its source is unknown. */
+function editionNoteOf(bookId) {
+  if (!editionNotes) {
+    try { editionNotes = JSON.parse(fs.readFileSync(EDITION_NOTES, 'utf8')).books || {} } catch { editionNotes = {} }
+  }
+  return editionNotes[bookId] || ''
 }
 
 /** Whether readers get a Modern English edition of the book (served and not held). */
@@ -617,6 +645,27 @@ function bookChapterHref(bookId, chapter) {
   return `${readerChapterHref(bookId, chapter)}${german ? '&amp;edition=original-de' : ''}`
 }
 
+/**
+ * A book with chapter pages opens with its first paragraph in both versions, as plain text a crawler reads without
+ * scripts: the Modern English, then the same paragraph of the original beside it on the chapter page.
+ */
+function openingPair(modern, original, chapterPages) {
+  const first = modern.chapters[0] || { paragraphs: [] }
+  const index = first.paragraphs.findIndex(text => plainText(text) && !plainText(text).startsWith('\uFFFC'))
+  const modernText = index >= 0 ? first.paragraphs[index] : ''
+  const originalText = index >= 0 ? (original?.chapters?.find(chapter => chapter.number === first.number)?.paragraphs || [])[index] || '' : ''
+  const [modernLabel, originalLabel] = chapterPages.labels || ['Modern English', 'Original']
+  const lang = (chapterPages.original || 'original-en').split('-').pop()
+  return `<h2 class="section">${emphasisHtml(first.title || 'Opening')}</h2>
+  <div class="body opening-pair">
+    <p class="opening-label">${escapeHtml(modernLabel)}</p>
+    <p>${emphasisHtml(modernText)}</p>${originalText ? `
+    <p class="opening-label">${escapeHtml(originalLabel)}</p>
+    <p${lang === 'en' ? '' : ` lang="${lang}"`}>${emphasisHtml(originalText)}</p>` : ''}
+  </div>
+  <style>.opening-label{margin:24px 0 6px!important;font:13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif!important;color:var(--muted)}.book-edition-note{margin:28px 0 40px;font:15px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--muted);max-width:720px}.book-edition-note strong{color:var(--cream);font-weight:600}</style>`
+}
+
 function buildBookIndexPage(book, edition, books = []) {
   const chapters = edition.data.chapters || []
   const firstChapter = chapters[0] || {}
@@ -629,7 +678,13 @@ function buildBookIndexPage(book, edition, books = []) {
   const languageLabel = editionKey.endsWith("-de") ? "Original German" : "Original English translation"
   // A play with scene pages lists its scenes, each linking to its page; other books link chapters into the reader.
   const scenes = scenePagesOf(book.id)
-  const chapterLinks = scenes.length
+  const chapterPages = scenes.length ? null : chapterPagesOf(book.id)
+  const modern = chapterPages ? JSON.parse(fs.readFileSync(path.join(EDITIONS_DIR, `${book.id}-modern-en.json`), 'utf8')) : null
+  const original = chapterPages?.original ? JSON.parse(fs.readFileSync(path.join(EDITIONS_DIR, `${book.id}-${chapterPages.original}.json`), 'utf8')) : null
+  const chapterLinks = chapterPages
+    // A book with chapter pages links every chapter to its page.
+    ? modern.chapters.map(chapter => `<li><a href="/read/${book.id}/chapter-${chapter.number}"><span class="glance-num">Chapter ${chapter.number}</span><span class="glance-text">${emphasisHtml(chapter.title || `Chapter ${chapter.number}`)}</span></a></li>`).join('\n')
+    : scenes.length
     ? scenes.map(scene => {
         const [where, ...place] = scene.title.split(' — ')
         return `<li><a href="/read/${book.id}/${scene.slug}"><span class="glance-num">${escapeHtml(where)}</span><span class="glance-text">${escapeHtml(place.join(' — ') || where)}</span></a></li>`
@@ -663,17 +718,17 @@ function buildBookIndexPage(book, edition, books = []) {
     <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>${escapeHtml(book.title)}</span>
   </div>
 
-  ${book.id === 'bible' ? '' : `<section class="glance-section" aria-label="${scenes.length ? 'Scenes in modern English' : 'Chapters'}">
+  ${book.id === 'bible' ? '' : `<section class="glance-section" id="chapters" aria-label="${scenes.length ? 'Scenes in modern English' : 'Chapters'}">
     <div class="glance-label">${scenes.length ? 'Scenes in modern English' : 'Chapters'}</div>
     <ol class="glance">
 ${chapterLinks}
     </ol>
   </section>`}
 
-  <h2 class="section">${emphasisHtml(firstChapter.title || 'Opening')}</h2>
+  ${chapterPages ? openingPair(modern, original, chapterPages) : `<h2 class="section">${emphasisHtml(firstChapter.title || 'Opening')}</h2>
   <div class="body"${editionKey.endsWith("-de") ? ' lang="de"' : ''}>
     ${firstParagraphs.map(p => `<p>${emphasisHtml(p)}</p>`).join('\n    ')}
-  </div>${permission ? `\n  <p class="breadcrumb">${escapeHtml(permission.rights)} Published by ${escapeHtml(permission.publisher)}; on Tinct with permission.</p>` : ''}
+  </div>`}${editionNoteOf(book.id) ? `\n  <p class="book-edition-note">${editionNoteOf(book.id)}</p>` : ''}${permission ? `\n  <p class="breadcrumb">${escapeHtml(permission.rights)} Published by ${escapeHtml(permission.publisher)}; on Tinct with permission.</p>` : ''}
   ${relatedBooksHtml(book, books)}
 </main>
 <!--/tinct:about-->
@@ -753,6 +808,27 @@ function sceneLastmod(state, next, loc, file) {
   return lastmod
 }
 
+/** As sceneLastmod, for a chapter page's HTML. */
+function textLastmod(state, next, loc, html) {
+  const digest = require('crypto').createHash('sha256').update(html.replace(/\/read\/(?:scene-[a-z]+\.js|chapter-page\.css)\?v=[0-9a-f]+/g, '').replace(/<link\b[^>]*href="\/assets\/[^"]+\.css"[^>]*>/g, '')).digest('hex').slice(0, 16)
+  const lastmod = state[loc]?.hash === digest ? state[loc].lastmod : BUILD_DATE
+  next[loc] = { hash: digest, lastmod }
+  return lastmod
+}
+
+/** The chapter pages the build wrote for a book, [number, html] in order, read out of its packs. */
+function chapterPagesInPacks(bookId) {
+  const dir = path.join(CHAPTER_PACK_DIR, bookId)
+  if (!fs.existsSync(dir)) return []
+  const pages = []
+  const files = fs.readdirSync(dir).filter(file => /^\d+\.txt$/.test(file)).sort((a, b) => parseInt(a) - parseInt(b))
+  for (const file of files) {
+    const parts = fs.readFileSync(path.join(dir, file), 'utf8').split(/<!--tinct:chapter-page (\d+)-->\n/)
+    for (let index = 1; index < parts.length; index += 2) pages.push([Number(parts[index]), parts[index + 1]])
+  }
+  return pages
+}
+
 function urlEntry(loc, opts = {}) {
   const { changefreq = 'monthly', priority = 0.5, lastmod = BUILD_DATE } = opts
   return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority.toFixed(1)}</priority>\n  </url>`
@@ -779,6 +855,19 @@ function buildSitemap(books, state = loadLastmodState(), next = {}) {
       const loc = `${ORIGIN}/read/${b.id}/${scene.slug}`
       lines.push(urlEntry(loc, { changefreq: 'monthly', priority: 0.7, lastmod: sceneLastmod(state, next, loc, path.join(READ_DIR, b.id, `${scene.slug}.html`)) }))
     }
+    // Chapter pages: only an indexable (allowlisted) book's, and only those the build wrote.
+    const chapters = chapterPagesOf(b.id)
+    if (chapters?.indexable) {
+      for (const [number, html] of chapterPagesInPacks(b.id)) {
+        const loc = `${ORIGIN}/read/${b.id}/chapter-${number}`
+        lines.push(urlEntry(loc, { changefreq: 'monthly', priority: 0.6, lastmod: textLastmod(state, next, loc, html) }))
+      }
+    }
+  }
+  // Shelf hubs that list an indexable book.
+  for (const [shelf, indexable] of Object.entries(loadChapterManifest().hubs)) {
+    const file = path.join(READ_DIR, 'shelf', `${shelf}.html`)
+    if (indexable && fs.existsSync(file)) entry(`${ORIGIN}/read/shelf/${shelf}`, { changefreq: 'monthly', priority: 0.5 }, file)
   }
   lines.push('</urlset>')
   lines.push('')
@@ -855,6 +944,9 @@ if (require.main === module) {
 
 module.exports = {
   loadPublicBooks,
+  preferredEditionPath,
+  hasModernEdition,
+  MACHINE_MADE_ORIGINALS,
   scenePagesOf,
   buildSitemap,
   buildBookMeta,
