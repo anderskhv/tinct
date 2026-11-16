@@ -14,9 +14,10 @@ import { listAccountBooks, ownBookToken, type FetchLike } from './ownAccount'
 import { loadOwnedPdfBytes, readOwnedBookFileId, savePendingOwnedPdf, userBookOwner } from './userBookStore'
 import { openPdfOriginalBytes } from '../sharedReader/pdf/PdfOriginalSurface'
 import { loadPdfEngine } from './pdfEdition'
-import { pdfBodySize, pdfEdgeKeys, pdfGraphicBoxes, pdfNarrationPlan, pdfNarrationRenderedWord, pdfRunningKeys,
+import { pdfBodySize, pdfEdgeKeys, pdfGraphicBoxes, pdfNarrationPlan, pdfNarrationRenderedWord, pdfNarrationSpokenIndex, pdfRunningKeys,
   type PdfNarrationBox, type PdfNarrationPageInput, type PdfNarrationPlan } from '../sharedReader/pdf/pdfNarration'
 import { narrationTokens } from '../../narration/narrationCore'
+import { listeningSentenceStart } from '../labHearing'
 import { useMarginListen, type MarginListenApi } from '../marginPreview/useMarginListen'
 import { userBookId } from './userBookId'
 import { readingAngleForAi } from '../labReadingAngle'
@@ -405,6 +406,60 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       this.pageTexts.set(page, text)
       this.player?.play({ chapterNumber: page, paragraphIndex: 0, wordIndex: 0 })
     }
+  }
+  /** The page's narration plan as the player gets it (made now when the voice has not reached the page yet). */
+  private async planFor(page: number): Promise<{ text: string; plan: PdfNarrationPlan | null } | null> {
+    const text = this.pageTexts.get(page) ?? await this.loadPageText(page)
+    if (!this.trusted() || !text.trim()) return null
+    const spoken = await this.spokenText(page, text)
+    return this.trusted() ? { text: spoken, plan: this.spokenPlans.get(page) ?? null } : null
+  }
+  /** Rendered word to spoken word on a page: through the plan, or one to one when the page's whole text is read. */
+  private spokenAt(found: { text: string; plan: PdfNarrationPlan | null }, rendered: number): number | null {
+    if (found.plan) return found.plan.words.length ? pdfNarrationSpokenIndex(found.plan, rendered) : 0
+    const count = narrationTokens(found.text).length
+    return rendered < count ? rendered : null
+  }
+  private startAt(page: number, wordIndex: number) {
+    if (!this.trusted() || this.player?.snapshot().available === false) return false
+    this.player?.play({ chapterNumber: page, paragraphIndex: 0, wordIndex })
+    return true
+  }
+  /**
+   * Listen from here on a selection (Anders, 16 Nov 2026): the voice starts at the selected word, playing or not; a word
+   * that is not read (a table, a link) starts at the next word read after it, and past the page's last, the next page.
+   */
+  listenAt = async (page: number, rendered: number | null): Promise<boolean> => {
+    if (!this.trusted() || !this.player || this.player.snapshot().available === false || !Number.isInteger(page) || page < 1 || page > this.pages) return false
+    const found = await this.planFor(page)
+    if (!found) return this.startAt(Math.min(this.pages, page + 1), 0)
+    const at = rendered === null ? 0 : this.spokenAt(found, rendered)
+    return at === null ? (page < this.pages ? this.startAt(page + 1, 0) : false) : this.startAt(page, at)
+  }
+  /**
+   * Listen from here when the reader has moved off the voice (the text reader's pills): the first sentence that begins
+   * on screen, in the order the voice reads (pages top to bottom), else the first word read on screen.
+   */
+  listenFromScreen = async (pages: Array<{ page: number; words: number[] }>): Promise<boolean> => {
+    if (!this.trusted() || !this.player || this.player.snapshot().available === false) return false
+    for (const { page, words } of pages) {
+      if (!Number.isInteger(page) || page < 1 || page > this.pages || !words.length) continue
+      const found = await this.planFor(page)
+      if (!found) continue
+      const visible = new Set(words), tokens = narrationTokens(found.text).map(text => ({ text }))
+      const renderedOf = (i: number) => found.plan ? found.plan.words[i] : i
+      // An inserted word ("Figure:") stands where the word after it does.
+      const onScreen = (i: number) => { for (let k = i; k < tokens.length; k++) { const r = renderedOf(k); if (r === undefined) return false; if (r >= 0) return visible.has(r) } return false }
+      if (found.plan && !found.plan.words.length) { if (words.length) return this.startAt(page, 0); continue }
+      let first: number | null = null
+      for (let i = 0; i < tokens.length; i++) {
+        if (!onScreen(i)) continue
+        first ??= i
+        if (listeningSentenceStart(tokens, i) === i) return this.startAt(page, i)
+      }
+      if (first !== null) return this.startAt(page, first)
+    }
+    return false
   }
   get audio(): PdfOriginalReaderServices['audio'] {
     if (!this.trusted() || !this.player) return undefined
