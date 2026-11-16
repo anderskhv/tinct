@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-/** How long the pointer rests on a paragraph before its ▶ shows. */
-export const PARAGRAPH_LISTEN_REST_MS = 450
+/** How long the pointer rests in a paragraph's gutter before its ▶ shows (the gutter is a deliberate place to go). */
+export const PARAGRAPH_LISTEN_REST_MS = 250
+/** How far left of the text column the gutter reaches. */
+export const PARAGRAPH_LISTEN_GUTTER_PX = 96
 const BUTTON = 30
 const GAP = 10
 
@@ -13,7 +15,7 @@ interface Shown extends Spot {
 }
 
 interface Props {
-  /** The desktop Margin reader with audio to offer and nothing else holding the text (no selection popup). */
+  /** The desktop Margin reader with the voice on (playing or paused) and nothing else holding the text (no selection popup). */
   enabled: boolean
   /** The reader's chapter (the one-chapter reader paints only it). */
   chapterNumber: number
@@ -42,18 +44,24 @@ function chapterScope(host: Element, chapterNumber: number): Element | null {
   return (host as HTMLElement).dataset.bookScroll ? host.querySelector(`[data-book-scroll-chapter="${chapterNumber}"]`) : host
 }
 
-/** The paragraph under a point, by its painted line, and its chapter. */
+/**
+ * The paragraph beside a point in the left gutter, and its chapter. Only the gutter counts, never the text: a reader
+ * rests the cursor on the text while reading (Anders, 16 Nov 2026: the ▶ appearing there was distracting).
+ */
 function paragraphAt(x: number, y: number, ownChapter: number): Spot | null {
   const target = document.elementFromPoint(x, y)
-  if (!target) return null
-  const host = target.closest<HTMLElement>('[data-testid="continuous-reader"]')
-  if (!host) return null
-  if (target.closest('.source-margin-item, button, a, input, textarea, select, [contenteditable="true"]')) return null
-  const line = target.closest('p.lab-hearing-line')
-  if (!line) return null
+  if (!target || target.closest('p.lab-hearing-line, .source-margin-item, button, a, input, textarea, select, [contenteditable="true"]')) return null
+  const host = document.querySelector<HTMLElement>('[data-testid="continuous-reader"]')
+  const column = host?.querySelector<HTMLElement>('p.lab-hearing-line')?.getBoundingClientRect()
+  if (!host || !column) return null
+  const view = host.getBoundingClientRect()
+  if (y < view.top || y > view.bottom || x >= column.left || x < column.left - PARAGRAPH_LISTEN_GUTTER_PX) return null
+  const beside = document.elementFromPoint(column.left + 2, y)
+  const line = beside?.closest('p.lab-hearing-line')
+  if (!line || !host.contains(line)) return null
   const block = host.dataset.bookScroll ? line.closest<HTMLElement>('[data-book-scroll-chapter]') : null
   const chapterNumber = block ? Number(block.dataset.bookScrollChapter) : ownChapter
-  const word = target.closest<HTMLElement>(`${WORD}[data-paragraph-index]`) ?? line.querySelector<HTMLElement>(`${WORD}[data-paragraph-index]`)
+  const word = beside!.closest<HTMLElement>(`${WORD}[data-paragraph-index]`) ?? line.querySelector<HTMLElement>(`${WORD}[data-paragraph-index]`)
   const paragraphIndex = Number(word?.dataset.paragraphIndex)
   return Number.isInteger(paragraphIndex) && Number.isFinite(chapterNumber) ? { chapterNumber, paragraphIndex } : null
 }
@@ -91,8 +99,9 @@ function geometry({ chapterNumber, paragraphIndex }: Spot): Shown | null {
 }
 
 /**
- * Listen from here, the gutter ▶ (Anders approved the mockups, 16 Nov 2026). On a desktop with a hovering mouse, a
- * dark round ▶ comes into the left gutter beside the paragraph the pointer has rested on for 450 ms, and the
+ * Listen from here, the gutter ▶ (Anders approved the mockups, 16 Nov 2026). On a desktop with a hovering mouse and the
+ * voice on (playing or paused), a dark round ▶ comes into the left gutter beside the paragraph whose gutter the pointer
+ * has rested in for 250 ms (never over the text: Anders, 16 Nov 2026), and the
  * paragraph takes a faint tint; a click starts the voice at its first word. It is an overlay (fixed, out of the
  * text's flow): it moves nothing, and nothing but the button itself takes the pointer.
  */
@@ -148,6 +157,8 @@ export function LabParagraphListen({ enabled, chapterNumber, voice, onListen }: 
       pointer = { x: event.clientX, y: event.clientY }
       // A button held down is a selection (or a drag) in progress.
       if (event.buttons !== 0) { clear(); hide(); candidate = null; return }
+      // On the ▶ itself (hit-testing can reach it a pixel before its painted edge), or inside its paragraph: keep it.
+      if (event.target instanceof Element && event.target.closest('[data-testid="lab-paragraph-listen"]')) return
       if (insideShown(event.clientX, event.clientY)) return
       arm(at(event.clientX, event.clientY))
     }

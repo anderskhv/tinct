@@ -8001,7 +8001,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       </div>
 
       <LabParagraphListen
-        enabled={continuousReader && !showPhoneChrome && !listenPlaybackUnavailable && !selectionPopup && !frontispieceVisible && !initialResolving && !tocOpen}
+        enabled={continuousReader && !showPhoneChrome && !listenPlaybackUnavailable && !selectionPopup && !frontispieceVisible && !initialResolving && !tocOpen
+          && (listen.playing || listen.pending || pausedTransportVisible)}
         chapterNumber={book.chapterNumber}
         voice={(listen.playing || listen.pending || pausedTransportVisible) && listen.follow.kind !== 'none' && listenSource.bookId === (book.bookId || 'bible')
           ? { chapterNumber: listenSource.chapterNumber, paragraphIndex: listen.follow.paragraphIndex } : null}

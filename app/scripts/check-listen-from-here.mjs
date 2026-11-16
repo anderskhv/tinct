@@ -4,7 +4,7 @@
 //   voice and the reading place to the first sentence that begins below the top bar; Back to the voice brings the
 //   voice's word back on screen; the pills go by themselves when the voice's word is back on screen (scrolled back,
 //   or the voice caught up).
-// - desktop gutter ▶: a paragraph rested on for 500 ms shows a ▶ in its left gutter at its first line (never before
+// - desktop gutter ▶ (voice on only): resting 250 ms in a paragraph's left gutter, never on the text, shows a ▶ at its first line (never before
 //   ~450 ms, never beside the voice's paragraph, never with a text selection); it shifts nothing; its tooltip shows on
 //   the button; a click starts the voice at the paragraph's first word (from a stop, and while playing). None on a
 //   touch device.
@@ -357,14 +357,35 @@ try {
       return { index: Number(button.dataset.paragraphIndex), left: box.left, top: box.top, width: box.width, height: box.height, radius: style.borderRadius, bg: style.backgroundColor, color: style.color, position: style.position, tint: tint ? getComputedStyle(tint).backgroundColor : null }
     })
     ok('desktop: the browser hovers with a fine pointer', hoverable)
+    // The ▶ lives in the left gutter only, and only while the voice is on (Anders, 16 Nov 2026: a cursor resting on
+    // the text while reading must not bring it up).
+    const inGutter = p => ({ x: p.box.left - 72, y: p.first.top + p.first.height / 2 })
     let para = await target()
     await page.mouse.move(para.rest.x, para.rest.y)
-    await page.waitForTimeout(250)
-    ok('desktop: no ▶ before the pointer has rested ~450 ms', !(await gutter()))
-    await page.waitForTimeout(350)
+    await page.waitForTimeout(800)
+    ok('desktop, voice off: resting on the text shows no ▶', !(await gutter()))
+    await page.mouse.move(inGutter(para).x, inGutter(para).y, { steps: 4 })
+    await page.waitForTimeout(800)
+    ok('desktop, voice off: resting in the gutter shows no ▶ either', !(await gutter()))
+    await page.getByTestId('lab-v2-play').click()
+    let now = await waitFor(page, s => s.playing && s.voice, 4000)
+    ok('desktop: Play starts the voice', now.playing && !!now.voice, { voice: now.voice })
+    // A paragraph above the voice, which it will not reach while the pointer is on its way.
+    const ahead = v => Array.from({ length: 200 }, (_, i) => v + i)
+    await page.mouse.move(700, 450)
+    await page.mouse.wheel(0, -450)
+    await page.waitForTimeout(700)
+    para = await target(ahead(now.voice?.p ?? 0))
+    await page.mouse.move(para.rest.x, para.rest.y, { steps: 4 })
+    await page.waitForTimeout(800)
+    ok('desktop, voice on: resting on the text still shows no ▶', !(await gutter()))
+    await page.mouse.move(inGutter(para).x, inGutter(para).y, { steps: 4 })
+    await page.waitForTimeout(100)
+    ok('desktop: no ▶ before the pointer has rested ~250 ms in the gutter', !(await gutter()))
+    await page.waitForTimeout(400)
     let shown = await gutter()
-    ok('desktop: resting 500+ ms on a paragraph shows a ▶ beside it (audio never started)', !!shown && shown.index === para.index, { shown, para: para.index })
-    const after = await target()
+    ok('desktop, voice on: resting in a paragraph’s gutter shows its ▶', !!shown && shown.index === para.index, { shown, para: para.index })
+    const after = await target(ahead(now.voice?.p ?? 0))
     ok('desktop: the ▶ is a 30 px dark round overlay in the left gutter at the paragraph’s first line, and moves no text',
       !!shown && shown.position === 'fixed' && Math.round(shown.width) === 30 && Math.round(shown.height) === 30 && shown.left + shown.width <= para.box.left
         && Math.abs((shown.top + 15) - (para.first.top + para.first.height / 2)) <= 3 && after?.index === para.index && Math.abs(after.box.top - para.box.top) < 0.5 && Math.abs(after.box.left - para.box.left) < 0.5,
@@ -377,34 +398,22 @@ try {
     ok('desktop: moving onto the ▶ keeps it, and its tooltip says "Listen from here" (system UI, 13 px)', !!(await gutter()) && tip?.text === 'Listen from here' && /system-ui/.test(tip.font) && tip.size === '13px', tip)
     await page.screenshot({ path: path.join(output, 'desktop-gutter.png') })
     await page.getByTestId('lab-paragraph-listen').click()
-    let now = await waitFor(page, s => s.playing && s.voice, 4000)
-    ok('desktop: clicking ▶ starts playback at the paragraph’s first word', now.playing && near(now.voice, { p: para.index, w: 0 }, 3), { voice: now.voice, para: para.index })
+    now = await waitFor(page, s => s.voice && near(s.voice, { p: para.index, w: 0 }, 3), 3000)
+    ok('desktop: clicking ▶ moves the voice to that paragraph’s first word, playing on', now.playing && near(now.voice, { p: para.index, w: 0 }, 3), { voice: now.voice, para: para.index })
+    ok('desktop: the reading place goes there too', near(parse(now.place), { p: para.index, w: 0 }, 6), now.place)
     ok('desktop: the ▶ goes on the click', !(await gutter()))
     await page.waitForTimeout(600)
     now = await look(page)
-    // Rest on the voice's paragraph: no ▶ there.
-    const voicePara = await page.evaluate(p => {
+    // The voice's own paragraph: no ▶ in its gutter.
+    const voiceGutter = await page.evaluate(p => {
       const host = document.querySelector('[data-testid="continuous-reader"]')
       const own = host.querySelector('.book-scroll-chapter.is-own') ?? host
-      const word = [...own.querySelectorAll(`[data-testid="lab-word"][data-paragraph-index="${p}"]`)].at(-1)?.getBoundingClientRect()
-      return word && { x: word.left + word.width / 2, y: word.top + word.height / 2 }
+      const first = [...own.querySelectorAll(`[data-testid="lab-word"][data-paragraph-index="${p}"]`)][0]
+      const line = first?.closest('p.lab-hearing-line')?.getBoundingClientRect(), box = first?.getBoundingClientRect()
+      return line && box && { x: line.left - 72, y: box.top + box.height / 2 }
     }, now.voice.p)
-    await page.mouse.move(voicePara.x, voicePara.y, { steps: 4 })
-    await page.waitForTimeout(800)
-    ok('desktop: no ▶ beside the paragraph the voice is reading', !(await gutter()), { voice: now.voice })
-    // Another paragraph while playing: the voice moves there.
-    para = await target([now.voice.p])
-    await page.mouse.move(para.rest.x, para.rest.y, { steps: 4 })
-    await page.waitForTimeout(650)
-    shown = await gutter()
-    ok('desktop: resting on another paragraph while playing shows its ▶', shown?.index === para.index, { shown, para: para.index })
-    if (shown) {
-      await page.mouse.move(shown.left + 15, shown.top + 15, { steps: 4 })
-      await page.getByTestId('lab-paragraph-listen').click()
-      now = await waitFor(page, s => s.voice && near(s.voice, { p: para.index, w: 0 }, 3), 3000)
-      ok('desktop: clicking it while playing moves the voice to that paragraph’s first word, playing on', now.playing && near(now.voice, { p: para.index, w: 0 }, 3), { voice: now.voice, para: para.index })
-      ok('desktop: the reading place goes there too', near(parse(now.place), { p: para.index, w: 0 }, 6), now.place)
-    }
+    if (voiceGutter) { await page.mouse.move(voiceGutter.x, voiceGutter.y, { steps: 4 }); await page.waitForTimeout(800) }
+    ok('desktop: no ▶ beside the paragraph the voice is reading', !!voiceGutter && !(await gutter()), { voice: now.voice })
     // A text selection: no ▶.
     para = await target([now.voice?.p])
     await page.evaluate(index => {
@@ -412,7 +421,7 @@ try {
       const range = document.createRange(); range.selectNodeContents(line.querySelector('[data-testid="lab-word"]'))
       getSelection().removeAllRanges(); getSelection().addRange(range)
     }, para.index)
-    await page.mouse.move(para.rest.x, para.rest.y, { steps: 4 })
+    await page.mouse.move(inGutter(para).x, inGutter(para).y, { steps: 4 })
     await page.waitForTimeout(800)
     ok('desktop: no ▶ while a text selection exists', !(await gutter()))
     await page.evaluate(() => getSelection().removeAllRanges())
