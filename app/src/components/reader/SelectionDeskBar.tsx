@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import { PhoneIcon } from '../../lab/marginPhone/LabPhoneCard'
-import { deskBarPlace, deskMorePlace, firstAndLastLine, type DeskBox } from './deskBarPlace'
+import { deskBarPlace, deskMorePlace, firstAndLastLine, leafAt, type DeskBox } from './deskBarPlace'
 import { labKeyboardInsetPx } from '../../lab/labChrome'
 import { deskBarShortcut, deskBarShortcutLabel, type DeskBarShortcut } from './deskBarShortcuts'
 import '../../lab/marginPhone/marginPhone.css'
@@ -69,6 +69,8 @@ export interface SelectionDeskBarProps {
   onSwatch: (color: HighlightColor) => void
   onNote?: () => void
   onRemove: () => void
+  /** Listen from here: the voice starts at the selection (an own PDF's original pages, while it can be read aloud). */
+  onListen?: () => void
   /** Container props owned by SelectionPopup (keyboard trap, dismissal guards). */
   containerProps?: Record<string, unknown>
 }
@@ -116,7 +118,13 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
       if (!el) return
       const bounds = frame()
       if (observedSelection.current.x !== fallback.x || observedSelection.current.y !== fallback.y) observedSelection.current = { x: fallback.x, y: fallback.y, seen: false }
-      const nodes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
+      const painted = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
+      // A passage over both leaves of a spread: the bar stands by the leaf where the pointer let go or tapped (leafAt).
+      const leafOf = (node: Element) => node.closest('.lab-book-col')
+      const leaves = Array.from(new Set(painted.map(leafOf)))
+      const leaf = leaves.length > 1 && leaves.every(Boolean)
+        ? leaves[leafAt(leaves.map(el => boxOf(el!.getBoundingClientRect())), props.cursor?.x)] : null
+      const nodes = leaf ? painted.filter(node => leafOf(node) === leaf) : painted
       const host = nodes[0]?.closest('.continuous-reader')?.getBoundingClientRect()
       if (host) { bounds.top = Math.max(bounds.top, host.top); bounds.bottom = Math.min(bounds.bottom, host.bottom) }
       const supplied = props.getAnchor?.()
@@ -270,12 +278,14 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   ))
   const keyHint = (action: DeskBarShortcut, label: string) => { const key = deskBarShortcutLabel(action, typeToAsk); return { title: `${label} (${key.hint})`, 'aria-keyshortcuts': key.aria } }
   const note = props.onNote && <button type="button" className="lab-pbar-item" data-testid="lab-dbar-note" aria-label={noted ? 'Edit note' : 'Add note'} {...keyHint('note', noted ? 'Edit note' : 'Add note')} onClick={props.onNote}><PhoneIcon name="note" /></button>
+  const listen = props.onListen && <><button type="button" className="lab-pbar-item" data-testid="lab-dbar-listen" aria-label="Listen from here" title="Listen from here" onClick={props.onListen}><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8L10.2 6z" fill="currentColor" /></svg></button>{sep}</>
   const more = (rows: DeskMoreId[][]) => rows.some(group => group.length)
     ? <button type="button" className="lab-pbar-item" data-testid="lab-dbar-more" aria-label="More" aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => setMoreOpen(open => !open)}><PhoneIcon name="more" /></button>
     : null
   let body: ReactNode
   if (state === 'existing') {
     body = <>
+      {listen}
       <button ref={askButtonRef} type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-ask" {...keyHint('ask', 'Ask')} onClick={() => openAsk()}>Ask</button>
       {sep}
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" {...keyHint('explain', 'Explain')} onClick={props.onExplain}>Explain</button>
@@ -296,6 +306,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     </>
   } else {
     body = <>
+      {listen}
       <button ref={askButtonRef} type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" {...keyHint('ask', 'Ask')} onClick={() => openAsk()}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
       {sep}
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" {...keyHint('explain', 'Explain')} onClick={props.onExplain}>Explain</button>

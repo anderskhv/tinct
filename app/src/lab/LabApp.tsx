@@ -194,6 +194,7 @@ import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioE
 import { labLayoutOverride } from './labRoute'
 import { chapterAnchorMap, loadEditionAnchors, mapPlaceThroughAnchors } from './labEditionAnchors'
 import { chapterEditionKey, chapterWordFraction, editionSwitchReturn, leadingPreface, mapPlaceByWords, rememberEditionSwitch } from './labEditionSwitch'
+import { nextOpeningCacheKey } from './labNextOpening'
 import { holdPlaceWrite, labRestoreChapterKey, restoreLanded, restoreRetryIndex, restoreTargetFor, restoreTargetIn, type LabRestoreView, type LabRestoreWatch } from './labRestoreTarget'
 import { useLabDictation } from './useLabDictation'
 import { cardInMargin, cardShownMessages } from './marginPreview/marginPreviewCards'
@@ -926,6 +927,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [notebookCard, setNotebookCard] = useState<ChatConversation | null>(null)
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
+  // "Back to reading" after a Notebook jump: an offer made right after the jump.
+  // It leaves when tapped, when the reader goes somewhere else on purpose
+  // (Contents, search, another chapter) or once they read on at the destination
+  // (a page turn or a scroll of their own). The landing itself is none of these.
+  const [notebookReturn, setNotebookReturn] = useState<(ContentsPlace & { bookId: string; editionKey: string }) | null>(null)
   const [contentsTarget, setContentsTarget] = useState<(ContentsPlace & { bookId: string; navigation: number; chapterOnly?: boolean; chat?: ChatConversation; flash?: PhoneCardRange['range'] }) | null>(null)
   const [fullscreen, setFullscreen] = useState(false)
   const [readerControlsVisible, setReaderControlsVisible] = useState(true)
@@ -3849,9 +3855,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const nextChapterNumber = nextLabChapter(book.chapters, book.chapterNumber)
   const nextChapterTitle = nextChapterNumber != null ? book.chapters.find(chapter => chapter.number === nextChapterNumber)?.title ?? null : null
   const nextOpensBibleBook = book.bookTitle === LAB_COPY.bookTitle && nextChapterNumber != null && bibleBookOpeningTitle(book.chapters, nextChapterNumber) != null
-  const nextOpeningKey = desktopSpread && nextChapterNumber != null && nextChapterTitle && !nextOpensBibleBook && !book.chaptersProvisional
-    ? `${book.bookId || 'bible'}:${readerEditionKey}:${nextChapterNumber}`
-    : null
+  const nextOpeningKey = nextOpeningCacheKey({
+    desktopSpread, bookId: book.bookId || 'bible', readerEditionKey, shownEditionKey,
+    nextChapterNumber, nextChapterTitle, nextOpensBibleBook, chaptersProvisional: book.chaptersProvisional,
+  })
   const [nextOpening, setNextOpening] = useState<{ key: string; title: string; paragraphs: string[] } | null>(null)
   const [nextOpeningPage, setNextOpeningPage] = useState<{ key: string; paragraphs: string[]; page: ChapterHearingPage; continuation: { paragraphIndex: number; wordIndex: number } | null } | null>(null)
   useEffect(() => {
@@ -4387,7 +4394,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
 
   // A new passage/view invalidates a frozen card, including while edition data loads.
-  useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
+  useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
+  // New Compare text invalidates a selection too, except a cold open's Compare edition landing after the first page
+  // (compareLater): it replaces no text, so nothing on screen could have been selected in it, and the reader's
+  // selection of the main text stays (16 Nov 2026: it closed the bar under the reader's finger).
+  const selectionCompareRef = useRef(book.compareParagraphs)
+  useLayoutEffect(() => {
+    const before = selectionCompareRef.current
+    selectionCompareRef.current = book.compareParagraphs
+    if (before !== book.compareParagraphs && before.length > 0) setSelectionPopup(null)
+  }, [book.compareParagraphs])
   // A new passage or view invalidates an open note, as it does a selection card.
   useLayoutEffect(() => { setOpenFootnote(null) }, [book.bookId, book.chapterNumber, readerParagraphs, readerEditionKey, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
 
@@ -4685,6 +4701,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   const browseToChapter = useCallback(async (number: number, landing: 'start' | 'end', continuation?: { paragraphIndex: number; wordIndex: number }) => {
     setRecentChapterReturn(null)
+    setNotebookReturn(null)
     const navigation = ++chapterNavigationRef.current
     if (listen.playing) {
       browseWhileListeningRef.current = true
@@ -4755,6 +4772,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   const goToChapter = useCallback(async (number: number, landing: 'start' | 'end', preserveAudioSession = false, continuation?: { paragraphIndex: number; wordIndex: number }, scrolledInto = false) => {
     setRecentChapterReturn(null)
+    // A chapter adopted from the book scroll's reading line is not a choice;
+    // the scroll that reached it already dismissed the offer (onUserBrowse).
+    if (!scrolledInto) setNotebookReturn(null)
     const navigation = ++chapterNavigationRef.current
     browseWhileListeningRef.current = false
     setBrowseWhileListening(false)
@@ -4966,6 +4986,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const goNext = useCallback(() => {
     // A page still being written in Modern English is covered: the reader waits there, never turning on into text they cannot see.
     if (modernBlocksNextRef.current) return
+    setNotebookReturn(null)
     if (continuousReader && !chapterCoverTitle) {
       const next = nextLabChapter(book.chapters, book.chapterNumber)
       if (!temporaryHold) markChapterFinished(book.chapterNumber)
@@ -5035,6 +5056,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   const goPrev = useCallback(() => {
     cancelHeadFirstTurn()
+    setNotebookReturn(null)
     quietDesktopAfterTurn()
     if (continuousReader && !chapterCoverTitle) {
       const previous = prevLabChapter(book.chapters, book.chapterNumber)
@@ -5637,17 +5659,26 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setDraft('')
   }, [book.bookId, openChatForFigure])
 
-  const [notebookReturn, setNotebookReturn] = useState<(ContentsPlace & { bookId: string; editionKey: string }) | null>(null)
   useEffect(() => { setNotebookReturn(null) }, [book.bookId, prefs.primaryEdition])
-  const rememberNotebookOrigin = () => setNotebookReturn(current => current ?? {
-    bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition,
-    chapterNumber: book.chapterNumber, ...placeRef.current,
-  })
+  // A Notebook jump offers "Back to reading" to the place it left. The origin
+  // is taken before the jump moves the reader, and set again after it: the
+  // jump itself goes through openContentsPassage, which dismisses the offer for
+  // every other Contents or search choice. A second Notebook jump keeps the
+  // first origin.
+  const openFromNotebook = (place: ContentsPlace, flash?: PhoneCardRange['range']) => {
+    const origin = notebookReturn ?? {
+      bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition,
+      chapterNumber: book.chapterNumber, ...placeRef.current,
+    }
+    openContentsPassage(place, undefined, false, flash)
+    setNotebookReturn(origin)
+  }
   const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false, flash?: PhoneCardRange['range']) => {
     const bookId = book.bookId || 'bible'
     if (!book.chapters.some(ch => ch.number === place.chapterNumber) || (chat && chat.bookId !== bookId)) return
     const chapter = book.chapters.find(ch => ch.number === place.chapterNumber)!
     const remembered = chapterOnly ? recentChapterPlace(readPositionState(), bookId, chapter, prefs.primaryEdition) : null
+    setNotebookReturn(null)
     if (place.chapterNumber !== book.chapterNumber && readToEndRef.current === book.chapterNumber && !temporaryHold) markChapterFinished(book.chapterNumber)
     setTocOpen(false)
     setPhoneAskOpen(false)
@@ -7739,7 +7770,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             bookHighlights={bookScrollHighlights}
             bookCards={bookScrollCards}
             cardOpen={desktopOpenId != null}
-            onJumpChapter={(number, anchor) => { void goToChapter(number, 'start', false, anchor, !!anchor) }}
+            onJumpChapter={(number, anchor) => { setNotebookReturn(null); void goToChapter(number, 'start', false, anchor, !!anchor) }}
             onCrossChapter={(number, anchor) => {
               // The reading line is in another chapter of the unit: that chapter becomes the reader's own, at the
               // word on the line. Never behind an overlay, during a restore, or while narration reads this chapter
@@ -7771,6 +7802,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               // The Margin reader has no pages, so "Continue from last position" (shown while on
               // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
               setRecentChapterReturn(null)
+              setNotebookReturn(null)
               if (!listen.playing) return
               browseWhileListeningRef.current = true
               setBrowseWhileListening(true)
@@ -7821,6 +7853,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               // The Margin reader has no pages, so "Continue from last position" (shown while on
               // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
               setRecentChapterReturn(null)
+              setNotebookReturn(null)
               if (!listen.playing) return
               browseWhileListeningRef.current = true
               setBrowseWhileListening(true)
@@ -8370,11 +8403,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         unassignedHighlights={highlightsApi.unassignedHighlights}
         chapterNotes={highlightsApi.chapterNotes}
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
-        onOpenPassage={place => {
-          rememberNotebookOrigin()
-          openContentsPassage(place, undefined, false, { paragraphIndex: place.paragraphIndex, endParagraphIndex: place.paragraphIndex, fromWord: place.wordIndex, toWord: place.wordIndex + 1 })
-        }}
-        onOpenHighlight={highlight => { rememberNotebookOrigin(); openContentsPassage({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, undefined, false, highlight) }}
+        onOpenPassage={place => openFromNotebook(place, { paragraphIndex: place.paragraphIndex, endParagraphIndex: place.paragraphIndex, fromWord: place.wordIndex, toWord: place.wordIndex + 1 })}
+        onOpenHighlight={highlight => openFromNotebook({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, highlight)}
         onContinueConversation={openNotebookConversation}
         onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
@@ -8474,8 +8504,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           {saved.messages.filter(message => message.role === 'assistant').map(message => <div key={message.id} className="lab-pcard-answer">{saved.card?.kind === 'define' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
           <button type="button" className="lab-pcard-link" onClick={() => {
             setNotebookCard(null)
-            rememberNotebookOrigin()
-            openContentsPassage({ chapterNumber: saved.chapterNumber, paragraphIndex: saved.card?.anchor?.paragraphIndex ?? saved.paragraphIndex ?? 0, wordIndex: saved.card?.anchor?.fromWord ?? 0 }, undefined, false, saved.card?.anchor)
+            openFromNotebook({ chapterNumber: saved.chapterNumber, paragraphIndex: saved.card?.anchor?.paragraphIndex ?? saved.paragraphIndex ?? 0, wordIndex: saved.card?.anchor?.fromWord ?? 0 }, saved.card?.anchor)
           }}>Show passage</button>
           {saved.card?.kind !== 'quiz' && <PhoneFollowField draft={draftStore} onChange={setDraft} disabled={ask.typedLoading} onSend={question => {
             ask.revealConversation(saved.id)

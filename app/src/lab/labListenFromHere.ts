@@ -5,6 +5,9 @@
  */
 import { chapterPageSegments, listeningSentenceStart, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 
+/** The pills wait for the view to rest this long off the voice (LabApp's text reader and the PDF's original pages). */
+export const LISTEN_PILLS_SETTLE_MS = 500
+
 export interface ListenPlace { paragraphIndex: number; wordIndex: number; /** Book scroll paints several chapters. */ chapterNumber?: number }
 
 /** A painted word and its box's top and bottom (viewport pixels), in reading order. */
