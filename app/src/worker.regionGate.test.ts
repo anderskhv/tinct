@@ -67,6 +67,12 @@ const PATHS: Array<{ name: string; path: string; init?: RequestInit; page?: bool
   { name: 'generated book page', path: `/read/${BOOK}/book`, page: true },
   { name: 'old chapter page', path: `/read/${BOOK}/chapter-3`, page: true },
   { name: 'reader direct link', path: `/reader?book=${BOOK}&chapter=2`, page: true },
+  { name: 'SEO chapter page (16 Nov)', path: `/read/${BOOK}/chapter-12`, page: true },
+  { name: 'SEO chapter pack slice', path: `/seo/chapter-packs/${BOOK}/0.txt` },
+  { name: 'library book link', path: `/library?book=${BOOK}`, page: true },
+  { name: 'library book introduction link', path: `/library?book=${BOOK}&view=book-detail`, page: true },
+  { name: 'home book link', path: `/?book=${BOOK}`, page: true },
+  { name: 'old app book link', path: `/app?book=${BOOK}`, page: true },
   { name: 'recorded audio manifest', path: `/api/audio-manifest?path=${BOOK}/modern-en/ch1/manifest.json` },
   { name: 'narration recording', path: `/api/audio-file?path=${BLOB}` },
   { name: 'narration chapter map', path: `/api/narration/chapter?bookId=${BOOK}&editionKey=modern-en&chapter=1&voice=f` },
@@ -132,7 +138,7 @@ describe('the request country', () => {
 
 describe('content paths', () => {
   it('maps every content path class to the book, and leaves other books and shared files alone', () => {
-    for (const { path } of PATHS.filter(item => !item.path.startsWith('/api/') && !item.path.startsWith('/reader'))) {
+    for (const { path } of PATHS.filter(item => !item.path.startsWith('/api/') && !item.path.includes('?book='))) {
       expect(contentBookIdForPath(new URL('https://tinct.app' + path).pathname), path).toBe(BOOK)
     }
     expect(contentBookIdForPath('/data/editions/odyssey-modern-en.json')).toBe('odyssey')

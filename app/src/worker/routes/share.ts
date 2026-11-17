@@ -272,7 +272,7 @@ export async function handleSharePage(request: Request, env: ShareEnv, ctx: Exec
   const record = await storeOf(env)?.get(match[1])
   if (!record) return notFound()
   // A book not served in this request's country (lib/regionGate.ts): checked before the image cache.
-  if (region?.refuses(record.bookId)) return match[2] ? regionRefusalJson(request) : regionRefusalPage(request)
+  if (region?.refuses(record.bookId)) return match[2] ? regionRefusalJson(request) : regionRefusalPage(request, record.bookId)
   const regional = (response: Response) => region?.varies(record.bookId) ? privateToCountry(response) : response
   const kind = match[2]
   if (kind) {

@@ -19,7 +19,8 @@
  *   paths except the share images' Cache API copy, which is checked after the
  *   gate (routes/share.ts).
  */
-import { ALL_BOOKS } from '../../data/bookRegistry'
+import { ALL_BOOKS, getBook } from '../../data/bookRegistry'
+import { htmlEscape } from './html'
 import {
   BOOK_COUNTRY_RESTRICTIONS,
   RESTRICTED_COUNTRIES,
@@ -67,6 +68,8 @@ export function contentBookIdForPath(pathname: string): string | null {
   try { path = decodeURIComponent(pathname) } catch { return null }
   const data = path.match(/^\/data\/([a-z0-9_-]+)\/([^/]+)/i)
   if (data) return data[1] === 'dict' ? null : bookIdFromName(data[2])
+  const pack = path.match(/^\/seo\/chapter-packs\/([a-z0-9-]+)\//)
+  if (pack) return BOOK_IDS.includes(pack[1]) ? pack[1] : null
   const library = path.match(/^\/lab\/library_2\/(?:intro-data|primer-data)\/([^/]+)$/) || path.match(/^\/lab\/prefaces\/([^/]+)$/)
   if (library) return bookIdFromName(library[1])
   const page = path.match(/^\/read\/([a-z0-9-]+)(?:\/|\.html$|$)/i)
@@ -98,6 +101,9 @@ async function narrationBlobBookId(env: RegionGateEnv, path: string): Promise<st
     return null
   }
 }
+
+/** Pages a `?book=<id>` link opens: the reader, the library, the home page and the old app entry. */
+const BOOK_LINK_PATHS = new Set(['/reader', '/reader/', '/library', '/library/', '/', '/index.html', '/app'])
 
 /** Routes whose JSON body names the book whose text they send to an AI provider, narrate or quote. */
 const BODY_BOOK_ROUTES = new Set([
@@ -153,24 +159,69 @@ export function regionRefusalJson(request: Request): Response {
   return new Response(request.method === 'HEAD' ? null : JSON.stringify({ error: REGION_REFUSAL_ERROR }), { status: 451, headers })
 }
 
+/** The dark paper of tinct-ui.css (`data-tui-theme="dark"`), for a visitor whose device asks for dark. */
+const DARK_TOKENS = '--tui-paper:#111610;--tui-ink:#eee7d0;--tui-ink-muted:#b8bea9;--tui-primary:#eee7d0;--tui-on-primary:#222b20;--tui-focus:#dbd3ae;--tui-shadow-pop:0 12px 32px rgba(0,0,0,.45);color-scheme:dark'
+
 /**
- * The 451 answer to a page navigation. A plain holding page in the shape of
- * the branded 404's inline fallback; the approved design replaces it (the
- * direct-link message is awaiting Anders's mockup approval, 16 Nov 2026).
+ * The 451 answer to a page navigation: the approved direct-link message
+ * (Anders, 17 Nov 2026, mockup b). The book's cover, "This book isn't
+ * available in your country.", the book and its author, and Browse the
+ * library. tinct-ui.css tokens and pill; two families (Playfair Display
+ * title, system UI); light or dark paper as the device asks. Names the book,
+ * never the country.
  */
-export function regionRefusalPage(request: Request): Response {
-  const html = '<!doctype html><html lang="en"><head><meta charset="UTF-8">'
+export function regionRefusalPage(request: Request, bookId?: string | null): Response {
+  const book = bookId ? getBook(bookId) : undefined
+  const cover = book ? `<img src="/covers/v2/${htmlEscape(book.id)}.webp" alt="" width="112" height="168">` : ''
+  const line = book ? `<p class="book">${htmlEscape(book.title)} · ${htmlEscape(book.author)}</p>` : ''
+  const html = '<!doctype html><html lang="en"><head><meta charset="utf-8">'
     + '<meta name="viewport" content="width=device-width, initial-scale=1">'
     + '<meta name="robots" content="noindex, noarchive"><title>Not available in your country — Tinct</title>'
-    + '<link rel="stylesheet" href="/fonts/tinct-fonts.css">'
-    + '<style>body{margin:0;min-height:100dvh;display:grid;place-items:center;background:#071723;'
-    + "color:#f4eddf;font-family:'EB Garamond',Georgia,serif;text-align:center;padding:24px}"
-    + "h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(26px,5vw,38px);margin:0 0 16px}"
-    + 'a{color:#f4eddf}</style></head><body><main>'
-    + '<h1>This book isn’t available in your country.</h1>'
-    + '<p><a href="/library">Browse the library</a></p></main></body></html>'
+    + '<link rel="stylesheet" href="/fonts/tinct-fonts.css"><link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel10">'
+    + '<style>'
+    + `@media (prefers-color-scheme: dark){:root{${DARK_TOKENS}}}`
+    + 'html,body{margin:0;min-height:100dvh;background:var(--tui-paper);color:var(--tui-ink)}'
+    + 'main{min-height:100dvh;box-sizing:border-box;display:grid;place-items:center;padding:24px var(--tui-gutter) 10vh}'
+    + '.unavailable{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:30rem;gap:18px}'
+    + '.unavailable img{width:112px;height:168px;object-fit:cover;border-radius:3px;box-shadow:var(--tui-shadow-pop)}'
+    + '.unavailable h1{margin:6px 0 0;font-family:var(--tui-font-display);font-weight:500;font-size:clamp(26px,4.2vw,34px);line-height:1.2}'
+    + '.book{margin:0;font-family:var(--tui-font-ui);font-size:var(--tui-text-ui);color:var(--tui-ink-muted)}'
+    + '.unavailable .tui-btn{margin-top:10px}'
+    + '</style></head><body><main><section class="unavailable" aria-labelledby="unavailable-title">'
+    + cover
+    + '<h1 id="unavailable-title">This book isn’t available in your country.</h1>'
+    + line
+    + '<a class="tui-btn tui-btn--primary" href="/library">Browse the library</a>'
+    + '</section></main></body></html>'
   const headers = refusalHeaders('text/html; charset=utf-8')
   return new Response(request.method === 'HEAD' ? null : html, { status: 451, headers })
+}
+
+/** A restricted book's card (`<li>…href="/read/<id>"…</li>`) taken out of a public page: hubs, shelf hubs, related books. */
+export function withoutRestrictedCards(html: string, ids: ReadonlySet<string>): string {
+  if (!ids.size) return html
+  let out = html.replace(/<li\b[^>]*>(?:(?!<\/?li\b)[\s\S])*?<\/li>/gi, card => {
+    const id = card.match(/href=["'](?:https:\/\/tinct\.app)?\/read\/([a-z0-9-]+)["'\/?#]/i)?.[1]?.toLowerCase()
+    return id && ids.has(id) ? '' : card
+  })
+  // Its entry in the page's structured data (a shelf hub's list of books) goes too, with one
+  // separating comma (the one after it, or before it when it was last), so the JSON stays valid.
+  const entry = /\{[^{}]*"url":"https:\/\/tinct\.app\/read\/([a-z0-9-]+)"[^{}]*\}/g
+  for (let match = entry.exec(out); match; match = entry.exec(out)) {
+    if (!ids.has(match[1])) continue
+    let start = match.index, end = start + match[0].length
+    if (out[end] === ',') end += 1
+    else if (out[start - 1] === ',') start -= 1
+    out = out.slice(0, start) + out.slice(end)
+    entry.lastIndex = start
+  }
+  return out
+}
+
+/** Whether a public page links a book with a country restriction (its answer then differs by country). */
+export function linksRestrictableBook(html: string): boolean {
+  for (const id of BOOK_COUNTRY_RESTRICTIONS.keys()) if (html.includes(`/read/${id}"`)) return true
+  return false
 }
 
 /** `GET /api/restricted-books`: only the ids not served to this request, never the country. */
@@ -211,12 +262,12 @@ export async function regionGate(request: Request, env: RegionGateEnv): Promise<
   if (read) {
     const contentBook = contentBookIdForPath(url.pathname)
     if (contentBook && restricted(contentBook)) {
-      return url.pathname.startsWith('/read/') ? regionRefusalPage(request) : regionRefusalJson(request)
+      return url.pathname.startsWith('/read/') ? regionRefusalPage(request, contentBook) : regionRefusalJson(request)
     }
-    // A direct link into the reader (`/reader?book=<id>`) opens nothing for a restricted book.
-    if (url.pathname === '/reader' || url.pathname === '/reader/') {
+    // A direct link to the book (`/reader?book=<id>`, the library's `?book=<id>`) shows the message, not the book.
+    if (BOOK_LINK_PATHS.has(url.pathname)) {
       const book = url.searchParams.get('book')
-      if (book && restricted(book)) return regionRefusalPage(request)
+      if (book && restricted(book)) return regionRefusalPage(request, book)
     }
     if (url.pathname === '/api/audio-file' || url.pathname === '/api/audio-manifest') {
       const path = url.searchParams.get('path') || ''
@@ -277,4 +328,23 @@ export function withRegionCacheHeaders(request: Request, response: Response): Re
   if (!book && (url.pathname === '/reader' || url.pathname === '/reader/')) book = url.searchParams.get('book')
   if (!book || !bookHasCountryRestriction(book)) return response
   return privateToCountry(response)
+}
+
+/**
+ * The response on its way out: a restricted book's own responses are kept
+ * private to the request's country (withRegionCacheHeaders), and a public page
+ * under /read (the hub, shelf hubs, other books' pages) that links such a book
+ * is too, with the book's card taken out for a request it is not served to.
+ */
+export async function regionResponse(request: Request, response: Response): Promise<Response> {
+  const url = new URL(request.url)
+  const html = (response.headers.get('Content-Type') || '').includes('text/html')
+  if (response.status !== 200 || !html || !url.pathname.startsWith('/read') || request.method !== 'GET') return withRegionCacheHeaders(request, response)
+  const text = await response.text()
+  if (!linksRestrictableBook(text)) return withRegionCacheHeaders(request, new Response(text, response))
+  const ids = new Set(restrictedBookIdsIn(requestCountry(request)))
+  const shown = new Response(ids.size ? withoutRestrictedCards(text, ids) : text, response)
+  shown.headers.delete('Content-Length')
+  shown.headers.delete('ETag')
+  return privateToCountry(shown)
 }

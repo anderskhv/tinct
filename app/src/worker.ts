@@ -92,7 +92,7 @@ import {
 import { handleReadingTime } from './worker/routes/readingTime'
 import { handleGoogleAuth, isGoogleAuthPath } from './worker/routes/googleAuth'
 import { BEAT_MIN_GAP_MS } from './readingTime/model'
-import { regionGate, shareRegion, withRegionCacheHeaders } from './worker/lib/regionGate'
+import { regionGate, regionResponse, shareRegion } from './worker/lib/regionGate'
 
 
 interface Env {
@@ -521,7 +521,7 @@ export default {
       // Books not served in the request's country (lib/regionGate.ts): decided per request, never stored.
       const gated = await regionGate(request, env)
       if (gated instanceof Response) return gated
-      return withRegionCacheHeaders(request, await worker.fetch(gated ?? request, env, ctx))
+      return await regionResponse(request, await worker.fetch(gated ?? request, env, ctx))
     } catch (error) {
       if (!(error instanceof AuthUnavailableError)) throw error
       console.warn(JSON.stringify({ event: 'auth_unavailable', reason: error.reason }))
