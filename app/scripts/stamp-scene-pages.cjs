@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * After `vite build`: give every scene page (dist/read/{bookId}/{scene}.html, scripts/seo/build-scene-pages.mjs)
+ * and every chapter page (dist/seo/chapter-packs/{bookId}/{n}.txt, scripts/seo/build-chapter-pages.mjs)
  * the reader's own stylesheets, the exact <link rel="stylesheet"> tags of the built reader page (dist/app.html),
  * so a scene page and the reader are drawn by the same CSS and cannot drift. Fails the build when the reader page
  * has no stylesheet or a scene page is left without one.
@@ -41,8 +42,23 @@ function stampScenePages(dist = DIST) {
       stamped += 1
     }
   }
-  console.log(`[scene pages] Stamped the reader's ${links.length} stylesheet(s) into ${stamped} scene pages`)
-  return { stamped, links }
+  // The chapter pages (scripts/seo/build-chapter-pages.mjs) are written in packs; every page in a pack gets the same tags.
+  let packs = 0
+  const packDir = path.join(dist, 'seo', 'chapter-packs')
+  for (const book of fs.existsSync(packDir) ? fs.readdirSync(packDir) : []) {
+    const dir = path.join(packDir, book)
+    if (!fs.statSync(dir).isDirectory()) continue
+    for (const file of fs.readdirSync(dir)) {
+      if (!file.endsWith('.txt')) continue
+      const pack = path.join(dir, file)
+      const text = fs.readFileSync(pack, 'utf8')
+      if (!text.includes(PLACEHOLDER)) continue
+      fs.writeFileSync(pack, text.split(PLACEHOLDER).join(tags))
+      packs += 1
+    }
+  }
+  console.log(`[scene pages] Stamped the reader's ${links.length} stylesheet(s) into ${stamped} scene pages and ${packs} chapter page packs`)
+  return { stamped, packs, links }
 }
 
 if (require.main === module) {

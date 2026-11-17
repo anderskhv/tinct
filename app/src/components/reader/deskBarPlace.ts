@@ -51,6 +51,19 @@ export function deskMorePlace(bar: DeskBox & { below: boolean }, dots: DeskBox, 
   return { left: Math.round(left), top: Math.round(top), below }
 }
 
+/**
+ * Which leaf of a two-page spread the bar stands by, when the selected words run over more than one (from the foot of
+ * the left leaf onto the head of the right). Lines are read within one leaf: across two, the topmost line is on the
+ * right leaf and the lowest on the left, and the bar went under the left leaf's foot, far from the passage (iPad,
+ * 16 Nov 2026). -> the index of the leaf `x` (where the pointer let go, or tapped) is in, else the nearest; the first
+ * without `x`.
+ */
+export function leafAt(leaves: DeskBox[], x?: number | null): number {
+  if (leaves.length < 2 || x == null || !Number.isFinite(x)) return 0
+  const away = (leaf: DeskBox) => Math.max(leaf.left - x, 0, x - leaf.right)
+  return leaves.reduce((best, leaf, index) => (away(leaf) < away(leaves[best]) ? index : best), 0)
+}
+
 /** The selection's first and last lines from its word boxes (in reading order): each line's union. */
 export function firstAndLastLine(boxes: DeskBox[]): { first: DeskBox; last: DeskBox } | null {
   if (!boxes.length) return null

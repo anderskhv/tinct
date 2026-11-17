@@ -13,6 +13,11 @@ export interface LibraryBookHero {
   author: string
   question: string
   cover: string | null
+  /**
+   * The author's portrait for the flap (the library's author images), or null: the library page's own
+   * placeholder (Mary Shelley, a relative path) is then removed rather than shown for another author.
+   */
+  portrait?: { src: string; alt: string } | null
 }
 
 export interface GeneratedBookPage {
@@ -51,6 +56,9 @@ export function readGeneratedBookPage(html: string, bookId: string): GeneratedBo
         author: data.author,
         question: typeof data.question === 'string' ? data.question : '',
         cover: typeof data.cover === 'string' && /^\/covers\/[a-z0-9/._-]+$/i.test(data.cover) ? data.cover : null,
+        portrait: data.portrait && typeof data.portrait.src === 'string' && /^\/lab\/library_2\/assets\/[a-z0-9/._-]+$/i.test(data.portrait.src)
+          ? { src: data.portrait.src, alt: typeof data.portrait.alt === 'string' ? data.portrait.alt : '' }
+          : null,
       },
       seoHead,
       about,
@@ -77,6 +85,8 @@ export function prefillLibraryHero(html: string, hero: LibraryBookHero): string 
     .replace(/(<button id="hero-book"[^>]*aria-label=")[^"]*(")/, `$1Open ${title}$2`)
     .replace(/<img id="hero-cover-preview"([^>]*)>/, (_tag, attributes: string) => `<img id="hero-cover-preview"${attributes.replace(/\ssrc="[^"]*"/, '')}${hero.cover ? ` src="${escape(hero.cover)}"` : ''}>`)
     .replace(/(<canvas class="cover" data-book=")[^"]*(")/, `$1${escape(hero.id)}$2`)
+    // The flap's first-paint portrait is this book's author (an absolute address), or none at all.
+    .replace(/<img id="slip-portrait"[^>]*>/, hero.portrait ? `<img id="slip-portrait" src="${escape(hero.portrait.src)}" alt="${escape(hero.portrait.alt)}">` : '')
 }
 
 /**

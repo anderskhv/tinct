@@ -258,8 +258,12 @@ async function checkBookOpening(b,engine,w,h,mobile){
 
 // ---- Book links: /library?book=<id> and the shared /read/<id>/ (approved 6 Oct) ----
 async function checkBookLinks(b,engine,w,h,mobile,extended){
- const LINKED='wuthering-heights',TITLE='Wuthering Heights',AUTHOR='Emily Brontë',label=`${engine}-${w}x${h}`,shots=out+'/book-links';
+ const LINKED='wuthering-heights',TITLE='Wuthering Heights',AUTHOR='Emily Brontë',CHAPTER_3='Chapter III',label=`${engine}-${w}x${h}`,shots=out+'/book-links';
  const library=()=>fs.readFileSync(path.join(root,'lab/library_2/index.html'),'utf8');
+ // The page after its `<!--tinct:chapter-page N-->` marker in the book's packs (dist/seo/chapter-packs/{book}/*.txt).
+ const chapterPage=(id,n)=>{const dir=path.join(root,'seo/chapter-packs',id),marker=`<!--tinct:chapter-page ${n}-->\n`;if(!fs.existsSync(dir))return null;
+  for(const name of fs.readdirSync(dir)){const pack=fs.readFileSync(path.join(dir,name),'utf8'),at=pack.indexOf(marker);if(at<0)continue;const end=pack.indexOf('<!--tinct:chapter-page ',at+marker.length);return pack.slice(at+marker.length,end<0?undefined:end);}
+  return null;};
  const generated=id=>{const f=path.join(root,'read',id||'','book.html');return /^[a-z0-9-]+$/.test(id||'')&&fs.existsSync(f)?readGeneratedBookPage(fs.readFileSync(f,'utf8'),id):null;};
  async function open({state=null,raw=false}={}){
   const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(mobile?{isMobile:true,hasTouch:true}:{})}),p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
@@ -276,6 +280,9 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
     const read=u.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/)?.[1],entry=['/','/index.html','/library','/library/'].includes(u.pathname);
     if(read||entry){const page=generated(read||u.searchParams.get('book'));if(read&&!page)return r.fulfill({status:404,body:'missing'});return r.fulfill({contentType:'text/html',body:read?composeBookLibraryPage(library(),page):page&&!raw?prefillLibraryHero(library(),page.hero):library()});}
     if(u.pathname==='/reader')return r.fulfill({path:path.join(root,'app.html'),contentType:'text/html'});
+    // A chapter page, cut out of its book's packs as the Worker does (src/worker/lib/chapterPages.ts).
+    const chapter=u.pathname.match(/^\/read\/([a-z0-9-]+)\/chapter-(\d+)$/);
+    if(chapter){const page=chapterPage(chapter[1],Number(chapter[2]));return page?r.fulfill({contentType:'text/html; charset=utf-8',body:page}):r.fulfill({status:404,body:'missing'});}
     const f=path.join(root,u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f});return r.fulfill({status:404,body:''});});
    await p.route(/supabase\.co/,r=>r.fulfill({status:404,contentType:'application/json',body:'{}'}));
   }
@@ -324,16 +331,19 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
   await p.waitForTimeout(2500);onlyLinked(await frames(p),where);assert.deepEqual(errors,[]);await c.close();
  }
  if(extended){
-  // A chapter link goes straight into the reader at that chapter.
+  // A chapter link opens that chapter's own page (/read/{book}/chapter-N, the SEO chapter pages brief of 16 Nov 2026),
+  // which hands over to the reader from there. A local run cuts the page out of the built packs as the Worker does.
+  // The page's heading is the book's own chapter title: Wuthering Heights numbers its chapters "Chapter III", so the
+  // reader-era "Chapter 3" never appears there (the 16 Nov release of #839 timed out waiting for it).
   const {c,p}=await open();
   await p.goto('https://tinct.app/read/'+LINKED+'/',{waitUntil:'domcontentloaded'});
-  const link=p.locator(`#book-about a[href="/reader?book=${LINKED}&chapter=3"]`);
+  const link=p.locator(`#book-about a[href="/read/${LINKED}/chapter-3"]`);
   await link.scrollIntoViewIfNeeded();
-  const reader=p.waitForRequest(r=>r.url()===`https://tinct.app/reader?book=${LINKED}&chapter=3`);
-  await link.click();await reader;
-  // The click navigates: wait for the reader document, which has no body for a moment while it loads.
-  await p.waitForURL(url=>url.pathname==='/reader',{waitUntil:'domcontentloaded'});
-  await p.waitForFunction(()=>/Chapter 3\b/.test(document.body?.innerText||''),null,{timeout:45000});
+  assert(await link.isVisible(),'the book page links chapter 3 to its chapter page');
+  await link.click();
+  await p.waitForURL(url=>url.pathname===`/read/${LINKED}/chapter-3`,{waitUntil:'domcontentloaded'});
+  await p.waitForFunction(([book,heading])=>{const root=document.querySelector('[data-chapter-page]');
+   return root?.dataset.bookId===book&&root.dataset.chapter==='3'&&document.querySelector('h1')?.textContent.trim()===heading;},[LINKED,CHAPTER_3],{timeout:45000});
   await p.screenshot({path:`${shots}/${label}-chapter-link-reader.png`});
   console.log('BOOK_LINK_CHAPTER '+JSON.stringify({engine,url:p.url()}));
   await c.close();

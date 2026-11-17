@@ -8,6 +8,8 @@ import { readLabPrefs, writeLabPrefs } from '../../labPrefs'
 import type { PdfOriginalUnitRules } from './pdfOriginalUnits'
 
 const readingTimer = vi.hoisted(() => vi.fn())
+/** Every place the shell asked the surface to show, in order. */
+const requestedPages = vi.hoisted(() => [] as number[])
 vi.mock('../../useLabReadingYear', () => ({ useLabReadingYear: readingTimer }))
 
 const require = createRequire(import.meta.url)
@@ -25,13 +27,15 @@ vi.mock('./PdfContinuousSurface', () => ({
     requestedPlace?: { page: number; frac: number }
   }) => {
     useEffect(() => { onScrollHost?.(document.querySelector('.pdf-original__scroll')); onDocument(3); onPageText(1, 'A page with usable text.'); onVisiblePlace({ page: 1, frac: .3 }) }, [])
+    useEffect(() => { if (requestedPlace) requestedPages.push(requestedPlace.page) }, [requestedPlace])
     const openFinal = () => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(30, 'Last text on unit page 30.'); onVisiblePlace({ page: 30, frac: 0 }); onPageEnd?.(30, false) }
     const pageBounds = (node: HTMLElement | null) => { if (node) node.getBoundingClientRect = () => ({ left: 50, right: 950, top: 100, bottom: 1300, width: 900, height: 1200 } as DOMRect) }
     return <div className="pdf-original__scroll" ref={node => { if (node) node.getBoundingClientRect = () => ({ left: 40, right: 970, top: 90, bottom: 800, width: 930, height: 710 } as DOMRect) }}>{[1, 2, 14, 30].map(page => <div key={page} className="pdf-original__page" data-page={page} ref={pageBounds} />)}<button onClick={() => onSelection({ page: 1, text: 'Selected PDF sentence.', rects: [[1, .1, .2, .3, .04]] })}>Select PDF text</button><button onClick={() => onVisiblePlace({ page: 2, frac: 0 })}>Move to PDF page 2</button><button onClick={() => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(14, 'Real extracted text on page 14.'); onVisiblePlace({ page: 14, frac: 0 }); onPageEnd?.(14, false) }}>Open outlined page 14</button><button onClick={() => { onDocument(12); onOutline?.([{ title: '1 Introduction', page: 2, items: [] }, { title: '2 Method', page: 4, items: [] }]); onPageText(1, 'Title and abstract of the paper.'); onVisiblePlace({ page: 1, frac: 0 }) }}>Open research paper</button><button onClick={openFinal}>Open final page top</button><button onClick={() => { openFinal(); onPageEnd?.(30, true) }}>Finish outlined unit</button>{headingActions?.map(heading => <div key={heading.key} data-testid="mock-heading-actions" aria-label={`${heading.title} actions`}>{heading.actions.map(action => <button key={action.id} onClick={() => heading.onAction(action.id, { page: heading.page, text: heading.title, rects: [[heading.page, .1, .1, .3, .03]] })}>{action.label} for {heading.title}</button>)}</div>)}<output data-testid="requested-pdf-place">{requestedPlace?.page || 0}</output><output data-testid="requested-pdf-frac">{requestedPlace?.frac ?? 0}</output></div>
   },
 }))
 vi.mock('../../../components/reader/SelectionDeskBar', () => ({
-  SelectionDeskBar: ({ onAsk, onAskQuestion, onExplain, onSwatch, onNote, onMore, onHighlight, state, color }: { onHighlight: () => void; state: string; color: string; onAsk: () => void; onAskQuestion: (s: string) => void; onExplain: () => void; onSwatch: (c: 'sage') => void; onNote: () => void; onMore: (id: 'quiz' | 'define') => void }) => <div role="toolbar">
+  SelectionDeskBar: ({ onAsk, onAskQuestion, onExplain, onSwatch, onNote, onMore, onHighlight, onListen, state, color }: { onHighlight: () => void; state: string; color: string; onAsk: () => void; onAskQuestion: (s: string) => void; onExplain: () => void; onSwatch: (c: 'sage') => void; onNote: () => void; onMore: (id: 'quiz' | 'define') => void; onListen?: () => void }) => <div role="toolbar">
+    {onListen && <button onClick={onListen}>Listen from the selection</button>}
     <button onClick={onHighlight}>Apply PDF {color}</button>{state === 'colors' && <span>PDF palette</span>}<button onClick={onAsk}>Compose PDF question</button><button onClick={() => onAskQuestion('Why?')}>Ask this PDF</button><button onClick={onExplain}>Explain this PDF</button>
     <button onClick={() => onSwatch('sage')}>Highlight sage</button><button onClick={onNote}>Note PDF</button><button onClick={() => onMore('quiz')}>Quiz this PDF</button><button onClick={() => onMore('define')}>Define this PDF</button>
   </div>,
@@ -1147,4 +1151,51 @@ it('goes back to My shelf with the place kept', () => {
   fireEvent.click(back)
   expect(onBeforeLeave).toHaveBeenCalledWith({ page: 1, frac: .3 })
   expect(assign).toHaveBeenCalledWith('/library?sharedReader=1#my-shelf')
+})
+
+it('follows the voice to its next page but never pulls a reader who scrolled away back to it; the pills take them back or move the voice', async () => {
+  requestedPages.length = 0
+  let heard = 2
+  const listenFromScreen = vi.fn(async () => true)
+  const services = (): PdfOriginalReaderServices => ({ ...listenServices(idleAudio({ playing: true })), heardPage: heard, listenFromScreen })
+  const { rerender } = render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services()} />)
+  // Play started the voice on page 2 while page 1 was in view: the view goes with it.
+  await waitFor(() => expect(requestedPages).toEqual([2]))
+  // The reader scrolls on to page 14 while the voice reads page 2: no snap back.
+  fireEvent.wheel(document.querySelector('.pdf-original__scroll')!)
+  fireEvent.click(screen.getByRole('button', { name: 'Open outlined page 14' }))
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services()} />)
+  // The voice turns its page: the view stays with the reader.
+  heard = 3
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services()} />)
+  expect(requestedPages).toEqual([2])
+  // Off the voice for a moment: the two pills.
+  await waitFor(() => expect(screen.getByTestId('lab-listen-pills')).toBeTruthy(), { timeout: 2000 })
+  expect(screen.getByTestId('lab-back-to-voice').textContent).toBe('↑ Back to the voice')
+  fireEvent.click(screen.getByTestId('lab-back-to-voice'))
+  expect(requestedPages).toEqual([2, 3])
+  expect(screen.queryByTestId('lab-listen-pills')).toBeNull()
+  // Back with the voice, its next page turn moves the view again.
+  heard = 4
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services()} />)
+  expect(requestedPages).toEqual([2, 3, 4])
+  // Away again: Listen from here moves the voice to what is on screen and leaves the reader's place alone.
+  fireEvent.wheel(document.querySelector('.pdf-original__scroll')!)
+  fireEvent.click(screen.getByRole('button', { name: 'Open outlined page 14' }))
+  await waitFor(() => expect(screen.getByTestId('lab-listen-from-here')).toBeTruthy(), { timeout: 2000 })
+  fireEvent.click(screen.getByTestId('lab-listen-from-here'))
+  expect(listenFromScreen).toHaveBeenCalledWith(expect.arrayContaining([expect.objectContaining({ page: 14 })]))
+  expect(requestedPages).toEqual([2, 3, 4])
+})
+
+it('offers Listen from here on a selection while the PDF can be read aloud, starting the voice at the selected words', () => {
+  const listenAt = vi.fn(async () => true)
+  const { rerender } = render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={{ ...listenServices(idleAudio()), listenAt }} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Select PDF text' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Listen from the selection' }))
+  expect(listenAt).toHaveBeenCalledWith(1, null)
+  expect(screen.queryByRole('toolbar')).toBeNull()
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={{ ...listenServices(idleAudio({ available: false, unavailable: true })), listenAt }} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Select PDF text' }))
+  expect(screen.queryByRole('button', { name: 'Listen from the selection' })).toBeNull()
 })

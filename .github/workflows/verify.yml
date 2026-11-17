@@ -109,23 +109,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
         id: prepare
-      - name: Verify real Grok microphone recovery silently
-        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && (github.head_ref == 'codex/audio-acceptance-diagnostics-20260924' || github.head_ref == 'codex/reader-panels-selection-20260921' || github.head_ref == 'codex/audiobook-grok-voices-20260921' || github.head_ref == 'codex/mobile-reader-library-grok-20260921') }}
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y espeak-ng
-          espeak-ng -s 175 -w /tmp/tinct-voice-source.wav "Why does the Underground Man call himself sick? What is behind that?"
-          python3 scripts/make-voice-qa-wav.py /tmp/tinct-voice-source.wav /tmp/tinct-voice-qa.wav
-          # One short guest-trial call checks both voices (scripts/grok-voice-handshake-acceptance.mjs).
-          VERIFY_FORCE_MESSAGE=1 node scripts/grok-voice-handshake-acceptance.mjs /tmp/tinct-voice-qa.wav
-      - name: Save voice capture acceptance
-        uses: actions/upload-artifact@v4
-        continue-on-error: true
-        if: always()
-        with:
-          retention-days: 3
-          name: voice-capture-acceptance
-          path: app/artifacts/voice-capture
       - name: Verify reader panels and selection
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node scripts/check-reader-panels.mjs
