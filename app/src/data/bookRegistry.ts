@@ -3275,6 +3275,12 @@ export const MASTER_AND_MARGARITA: Book = {
   wordCount: 150000,
   coverColor: '#17151f',
   coverAccent: '#c9a45c',
+  // Public domain in Denmark/EU (Bulgakov d. 1940), but probably protected in the
+  // US (posthumous 1966–67 publication, URAA restoration, ~2062) and Russia
+  // (~2037), where our translations and narration are derivative works. Not
+  // served where the request's country is known to be one of these (Anders,
+  // 16 Nov 2026; DECISIONS.md). Unknown country: served.
+  restrictedCountries: ['US', 'RU'],
   editions: [
     // Listed first: with no human English edition, defaultCompareEditionKey takes the first comparable edition.
     { key: 'original-ru', language: 'ru', style: 'original', label: 'Мастер и Маргарита (1940)', year: 1990, aligned: true },

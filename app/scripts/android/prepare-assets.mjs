@@ -84,3 +84,23 @@ await writeFile('artifacts/android/native-library-footprint.json',JSON.stringify
  note:'Other books download on request; published source files and saved reader data are untouched.'
 },null,2))
 console.log(JSON.stringify({bundledBooks,bookBytesAvailableOnDemand:onDemandBytes}))
+
+// Books with a country restriction (Book.restrictedCountries) carry no text of
+// their own in the APK: the APK cannot know the reader's country, so text taken
+// from our editions comes only from tinct.app, whose Worker checks it per request
+// (src/worker/lib/regionGate.ts). The onboarding file holds the opening passage of
+// our translation and the primer quotes it; the on-demand download brings the
+// onboarding file back where the book is served. Covers, the introduction and the
+// preface are Tinct's own words about the book and stay.
+const regionRemoved=[]
+for(const entry of nativeIndex.books.filter(book=>Array.isArray(book.book?.restrictedCountries)&&book.book.restrictedCountries.length)) {
+  const id=entry.id
+  for(const folder of ['data/onboarding','lab/library_2/primer-data']) {
+    for(const name of await readdir(join(root,folder)).catch(()=>[])) {
+      if(name!==id+'.json'&&!name.startsWith(id+'.'))continue
+      await rm(join(root,folder,name),{force:true})
+      regionRemoved.push(folder+'/'+name)
+    }
+  }
+}
+console.log(JSON.stringify({countryRestrictedTextRemoved:regionRemoved}))

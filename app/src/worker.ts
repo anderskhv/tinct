@@ -92,6 +92,7 @@ import {
 import { handleReadingTime } from './worker/routes/readingTime'
 import { handleGoogleAuth, isGoogleAuthPath } from './worker/routes/googleAuth'
 import { BEAT_MIN_GAP_MS } from './readingTime/model'
+import { regionGate, regionResponse, shareRegion } from './worker/lib/regionGate'
 
 
 interface Env {
@@ -332,7 +333,7 @@ const worker = {
     if (url.pathname === '/api/share' || url.pathname.startsWith('/api/share/')) {
       return handleShareApi(request, env, ctx, { verifyUser: req => verifyUser(env, req), checkRateLimit })
     }
-    const sharePage = url.pathname.startsWith('/q/') ? await handleSharePage(request, env, ctx) : null
+    const sharePage = url.pathname.startsWith('/q/') ? await handleSharePage(request, env, ctx, shareRegion(request)) : null
     if (sharePage) return sharePage
 
     if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) {
@@ -517,7 +518,10 @@ export default {
   ...worker,
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     try {
-      return await worker.fetch(request, env, ctx)
+      // Books not served in the request's country (lib/regionGate.ts): decided per request, never stored.
+      const gated = await regionGate(request, env)
+      if (gated instanceof Response) return gated
+      return await regionResponse(request, await worker.fetch(gated ?? request, env, ctx))
     } catch (error) {
       if (!(error instanceof AuthUnavailableError)) throw error
       console.warn(JSON.stringify({ event: 'auth_unavailable', reason: error.reason }))
