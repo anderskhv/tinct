@@ -646,12 +646,22 @@ export function LabPassage({
     cancelEdge()
   }, [])
 
-  useEffect(() => {
+  const endSelectionGesture = () => {
     dragRef.current = null
     setLocalSelecting(null)
     if (longPressRef.current) clearTimeout(longPressRef.current)
     cancelEdge()
-  }, [chapterNumber, paragraphs, compareParagraphs])
+  }
+  // New text ends a selection in progress.
+  useEffect(endSelectionGesture, [chapterNumber, paragraphs])
+  // So does new Compare text, except Compare text arriving where there was none (a cold open's Compare edition,
+  // fetched after the first page): it replaces nothing a finger could be on, so a drag through the main text goes on.
+  const shownCompareRef = useRef(compareParagraphs)
+  useEffect(() => {
+    const before = shownCompareRef.current
+    shownCompareRef.current = compareParagraphs
+    if (before !== compareParagraphs && before.length > 0) endSelectionGesture()
+  }, [compareParagraphs])
 
   // Pointer cancellation alone does not cancel Safari's native long-press
   // selection. React touch listeners are passive, so own these native events
