@@ -194,6 +194,7 @@ import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioE
 import { labLayoutOverride } from './labRoute'
 import { chapterAnchorMap, loadEditionAnchors, mapPlaceThroughAnchors } from './labEditionAnchors'
 import { chapterEditionKey, chapterWordFraction, editionSwitchReturn, leadingPreface, mapPlaceByWords, rememberEditionSwitch } from './labEditionSwitch'
+import { nextOpeningCacheKey } from './labNextOpening'
 import { holdPlaceWrite, labRestoreChapterKey, restoreLanded, restoreRetryIndex, restoreTargetFor, restoreTargetIn, type LabRestoreView, type LabRestoreWatch } from './labRestoreTarget'
 import { useLabDictation } from './useLabDictation'
 import { cardInMargin, cardShownMessages } from './marginPreview/marginPreviewCards'
@@ -3849,9 +3850,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const nextChapterNumber = nextLabChapter(book.chapters, book.chapterNumber)
   const nextChapterTitle = nextChapterNumber != null ? book.chapters.find(chapter => chapter.number === nextChapterNumber)?.title ?? null : null
   const nextOpensBibleBook = book.bookTitle === LAB_COPY.bookTitle && nextChapterNumber != null && bibleBookOpeningTitle(book.chapters, nextChapterNumber) != null
-  const nextOpeningKey = desktopSpread && nextChapterNumber != null && nextChapterTitle && !nextOpensBibleBook && !book.chaptersProvisional
-    ? `${book.bookId || 'bible'}:${readerEditionKey}:${nextChapterNumber}`
-    : null
+  const nextOpeningKey = nextOpeningCacheKey({
+    desktopSpread, bookId: book.bookId || 'bible', readerEditionKey, shownEditionKey,
+    nextChapterNumber, nextChapterTitle, nextOpensBibleBook, chaptersProvisional: book.chaptersProvisional,
+  })
   const [nextOpening, setNextOpening] = useState<{ key: string; title: string; paragraphs: string[] } | null>(null)
   const [nextOpeningPage, setNextOpeningPage] = useState<{ key: string; paragraphs: string[]; page: ChapterHearingPage; continuation: { paragraphIndex: number; wordIndex: number } | null } | null>(null)
   useEffect(() => {
