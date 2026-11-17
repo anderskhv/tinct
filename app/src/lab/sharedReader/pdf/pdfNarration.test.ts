@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
-  isPdfPageNumber, pdfBodySize, pdfEdgeKeys, pdfGraphicBoxes, pdfNarrationPlan, pdfNarrationRenderedWord, pdfRunningKeys,
+  isPdfPageNumber, pdfBodySize, pdfEdgeKeys, pdfGraphicBoxes, pdfNarrationPlan, pdfNarrationRenderedWord, pdfNarrationSpokenIndex, pdfRunningKeys,
   type PdfNarrationBox, type PdfNarrationItem, type PdfNarrationPageInput,
 } from './pdfNarration'
 
@@ -267,5 +267,117 @@ describe('follow mapping and inputs', () => {
       argsArray: [null, [1, 0, 0, 1, 100, 100], [[], [], [0, 50, 0, 20]], null, null, [[], [], [0, 10, 0, 10]], null, null, [200, 0, 0, 100, 300, 500], null, null],
     }, ops, view)
     expect(boxes).toEqual([{ x: 100, y: 680, w: 50, h: 20 }, { x: 300, y: 200, w: 200, h: 100 }])
+  })
+})
+
+// Rules 7–11 (Anders, 16 Nov 2026: a listening check on a real report). Synthetic fixtures only.
+describe('rule 7: pieces of one word', () => {
+  it('joins touching items in the same type into one spoken word, mapped to its first piece', () => {
+    const input = page([item('Released in', 50, 100, 10, 55), item('F', 108, 100, 10, 7), item('e', 115, 100, 10, 6), item('bruary', 121, 100, 10, 34),
+      item('202', 158, 100, 10, 18), item('6', 176, 100, 10, 6), item('after review.', 185, 100, 10, 60)])
+    const plan = pdfNarrationPlan(input)
+    expect(plan.text).toBe('Released in February 2026 after review.')
+    const rendered = renderedWords(input)
+    expect(rendered[plan.words[2]]).toBe('F')
+    expect(rendered[plan.words[3]]).toBe('202')
+    expect(new Set(plan.words).size).toBe(plan.words.length)
+  })
+
+  it('keeps words apart across a space-sized gap, and never joins a raised mark', () => {
+    const plan = pdfNarrationPlan(page([item('Two', 50, 100, 10, 18), item('words', 71, 100, 10, 28), item('and an area of 40 m', 102, 100, 10, 90),
+      item('2', 192.5, 96, 5, 3)]))
+    expect(plan.text).toBe('Two words and an area of 40 m 2')
+  })
+})
+
+describe('rule 8: boxes and tables', () => {
+  const boxLines = (x: number, top: number, lines: string[], size = 8) => lines.map((line, i) => item(line, x, top + i * 10, size, 85))
+  it('reads boxes side by side under a centred heading box by box, after the heading', () => {
+    const callout = ['A centred statement over the boxes', 'set in three short lines of', 'its own, wider than one box.'].map((line, i) => item(line, 210, 100 + i * 12, 9, 180))
+    const titles = ['Growth', 'Efficiency', 'Resilience', 'Trust']
+    const boxes = [0, 1, 2, 3].flatMap(b => [item(titles[b], 60 + b * 120, 200, 9, 60),
+      ...boxLines(60 + b * 120, 215, [`Box ${b + 1} begins its point`, 'and carries it down', 'to its own end.'])])
+    const plan = pdfNarrationPlan(page([...callout, ...boxes]))
+    expect(plan.text).toBe('A centred statement over the boxes set in three short lines of its own, wider than one box. '
+      + titles.map((title, b) => `${title}. Box ${b + 1} begins its point and carries it down to its own end.`).join(' '))
+  })
+
+  it('reads two boxes with their titles on one line each under its own title', () => {
+    const left = ['The left box opens its case', 'and goes on with it here', 'until the case is made.'], right = ['The right box answers it', 'in its own few lines', 'and closes the matter.']
+    const plan = pdfNarrationPlan(page([...body(80, prose), item('The Challenge', 60, 160, 10, 70), item('The Insight', 330, 160, 10, 60),
+      ...left.map((line, i) => item(line, 60, 185 + i * 12, 10, 200)), ...right.map((line, i) => item(line, 330, 185 + i * 12, 10, 200))]))
+    expect(plan.text).toBe(`${prose.join(' ')} The Challenge. ${left.join(' ')} The Insight. ${right.join(' ')}`)
+  })
+
+  it('reads a table of labels and descriptions row by row, a pause after each cell', () => {
+    const rows: Array<[string, string[]]> = [['Revenue', ['The total income a company', 'makes from its sales.']], ['Cost of goods', ['The direct costs of making', 'the goods it sells']],
+      ['Equity', ['The value its owners hold', 'in the company.']], ['Liabilities', ['What the company owes', 'to others']]]
+    const input = page([item('Driver', 60, 100, 9, 40), item('Description', 220, 100, 9, 60),
+      ...rows.flatMap(([label, lines], r) => [item(label, 60, 130 + r * 30, 8, 60), ...lines.map((line, i) => item(line, 220, 130 + r * 30 + i * 9, 7, 160))])])
+    expect(pdfNarrationPlan(input).text).toBe('Driver. Description. Revenue. The total income a company makes from its sales. Cost of goods. The direct costs of making the goods it sells. '
+      + 'Equity. The value its owners hold in the company. Liabilities. What the company owes to others.')
+  })
+
+  it('announces a long table of short cells it leaves out, once', () => {
+    const cells = Array.from({ length: 8 }, (_, r) => [`Method ${r}`, `Focus area ${r}`, `Used for ${r}`, `Users ${r}`])
+    const plan = pdfNarrationPlan(page([...body(80, prose), ...cells.flatMap((row, r) => row.map((cell, c) => item(cell, 60 + c * 130, 200 + r * 30, 9)))]))
+    expect(plan.text).toBe(`${prose.join(' ')} Table, not read aloud.`)
+    expect(plan.words.slice(-4)).toEqual([-1, -1, -1, -1])
+  })
+})
+
+describe('rule 9: chart values', () => {
+  it('leaves out the values of a chart drawn on a panel, reads its labels, and announces its title', () => {
+    const labels = ['Technology and research', 'Better products', 'Supply chains', 'Working culture', 'Investment decisions']
+    const input = page([...body(60, prose), item('Top levers of change', 50, 120, 12, 120),
+      item('Share of experts naming each lever as one that could lead to real change', 60, 160, 9, 400),
+      ...labels.flatMap((label, i) => [item(label, 60, 200 + i * 20, 8, 140), item(`${70 - i * 5}%`, 400, 200 + i * 20, 9, 20)]),
+      item('Source: a survey of experts, 2025', 60, 330, 8, 150), ...body(380, ['After the chart the text goes on.'])],
+    [{ x: 40, y: 140, w: 520, h: 180 }, ...labels.map((_, i) => ({ x: 210, y: 192 + i * 20, w: 180 - i * 15, h: 10 }))])
+    const plan = pdfNarrationPlan(input)
+    expect(plan.text).toBe(`${prose.join(' ')} Figure: Top levers of change. Share of experts naming each lever as one that could lead to real change. `
+      + `${labels.join('. ')}. Source: a survey of experts, 2025. After the chart the text goes on.`)
+    expect(plan.skipped).toEqual(labels.map((_, i) => ({ text: `${70 - i * 5}%`, reason: 'figure labels' })))
+  })
+})
+
+describe('rule 10: links and lists of sources', () => {
+  it('does not read a web address, even one broken over two lines', () => {
+    const plan = pdfNarrationPlan(page(body(100, ['The full study is online at https://www.example.org/', 'reports/2025/the-full-study-of-reading', 'and in print.'])))
+    expect(plan.text).toBe('The full study is online at and in print.')
+    expect(plan.skipped).toEqual([{ text: 'https://www.example.org/ reports/2025/the-full-study-of-reading', reason: 'link' }])
+  })
+
+  it('leaves out a page of numbered sources with addresses, keeping its heading and introduction', () => {
+    const entries = [1, 2, 3, 4, 5].flatMap(n => [`${n}. Some Author. “A report on topic ${n}.”`, `https://www.example.org/reports/topic-${n}`])
+    const plan = pdfNarrationPlan(page([item('Sources', 50, 60, 14), ...body(90, ['The reports below were read for this study:']),
+      ...body(120, entries, 50, 10, 14)]))
+    expect(plan.text).toBe('Sources. The reports below were read for this study: Sources list, not read aloud.')
+    expect(plan.skipped.every(s => s.reason === 'reference list' || s.reason === 'link')).toBe(true)
+  })
+})
+
+describe('rule 11: pauses', () => {
+  it('puts a full stop after a title, a box text or a source line that ends without one', () => {
+    const plan = pdfNarrationPlan(page([item('Company Engagement', 60, 100, 10, 110), ...body(116, ['Interviews with the companies', 'to uncover examples of practice'], 60, 8, 10),
+      item('Literature Review', 60, 160, 10, 100), ...body(176, ['A review of what is written'], 60, 8),
+      item('Source: a study of practice, 2025', 50, 220, 8, 160), ...body(250, ['A review of practice sheds light on it.'])]))
+    expect(plan.text).toBe('Company Engagement. Interviews with the companies to uncover examples of practice. Literature Review. A review of what is written. '
+      + 'Source: a study of practice, 2025. A review of practice sheds light on it.')
+  })
+})
+
+describe('listen from a rendered word', () => {
+  it('starts at the word, at the word a piece belongs to, or at the next word read after one that is not read', () => {
+    const input = page([...footer(3), item('Released in', 50, 100, 10, 55), item('F', 108, 100, 10, 7), item('e', 115, 100, 10, 6), item('bruary', 121, 100, 10, 34),
+      item('after review.', 158, 100, 10, 60)], [])
+    const plan = pdfNarrationPlan(input, { running: new Set(pdfEdgeKeys(page(footer(3)))) })
+    const rendered = renderedWords(input)
+    const at = (word: string) => rendered.indexOf(word)
+    expect(words(plan.text)[pdfNarrationSpokenIndex(plan, at('Released'))!]).toBe('Released')
+    expect(words(plan.text)[pdfNarrationSpokenIndex(plan, at('e'))!]).toBe('February')
+    expect(words(plan.text)[pdfNarrationSpokenIndex(plan, at('bruary'))!]).toBe('February')
+    expect(words(plan.text)[pdfNarrationSpokenIndex(plan, at('ANNUAL'))!]).toBe('Released')
+    expect(pdfNarrationSpokenIndex(plan, rendered.length + 3)).toBeNull()
   })
 })

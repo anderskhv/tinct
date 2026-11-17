@@ -81,6 +81,8 @@ export interface LabPhoneBarProps {
   /** Keep Define in •••: the original-pages PDF view, where a tap does not define a word. */
   withDefine?: boolean
   onDismiss: () => void
+  /** Listen from here: the voice starts at the selection (an own PDF's original pages, while it can be read aloud). */
+  onListen?: () => void
 }
 
 /**
@@ -186,6 +188,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
         </>
       ) : (
         <>
+          {props.onListen && <><button type="button" className="lab-pbar-item" data-testid="lab-pbar-listen" aria-label="Listen from here" title="Listen from here" onClick={props.onListen}><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8L10.2 6z" fill="currentColor" /></svg></button>{sep}</>}
           <button type="button" className="lab-pbar-item is-ask" data-testid="lab-pbar-ask" onClick={props.onAsk}>Ask</button>
           {sep}
           <button type="button" className="lab-pbar-item is-text" data-testid="lab-pbar-explain" onClick={props.onExplain}>Explain</button>

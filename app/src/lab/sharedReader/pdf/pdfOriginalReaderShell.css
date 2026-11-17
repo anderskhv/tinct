@@ -131,3 +131,7 @@ html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-origi
 /* A folded PDF note's words in the place and type its saved note reopens in (.pdf-note-field__saved, 17px/1.45,
    measured 10px below the header), so opening only reveals more (tester, 9 Nov 2026). */
 .pdf-original-reader .source-margin-preview[data-preview="note"] { padding-top:10px!important; line-height:1.45!important; }
+
+/* Listen from here's pills (the text reader's .lab-listen-pills, LabApp): above the page's foot, or the phone's page rail. */
+.pdf-original-reader .pdf-original-reader__listen-pills { position:fixed; left:0; right:0; bottom:16px; height:0; z-index:7; pointer-events:none; }
+.pdf-original-reader.is-phone .pdf-original-reader__listen-pills { bottom:calc(42px + env(safe-area-inset-bottom,0px)); }

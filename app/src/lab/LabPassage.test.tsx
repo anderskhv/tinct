@@ -816,6 +816,26 @@ describe('tap to move while listening', () => {
     expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'one two three' }), 85, 30, undefined)
     expect(seek).not.toHaveBeenCalled()
   })
+  // A cold open's Compare edition lands after the first page (labSource compareLater), possibly mid-drag (#840 release, 16 Nov 2026).
+  it('keeps a drag through the main text when Compare text arrives where there was none, and ends it when Compare text is replaced', () => {
+    const select = vi.fn()
+    const drag = (rerenderWith: string[], rerender: (ui: React.ReactElement) => void) => {
+      const words = screen.getAllByTestId('lab-word')
+      words.forEach((word, i) => vi.spyOn(word, 'getBoundingClientRect').mockReturnValue({ left: i * 40, right: i * 40 + 30, top: 20, bottom: 40, width: 30, height: 20 } as DOMRect))
+      fireEvent.pointerDown(words[0], { pointerType: 'mouse', button: 0, clientX: 5, clientY: 30 })
+      fireEvent.pointerMove(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 45, clientY: 30 })
+      rerender(<LabPassage {...props()} compareParagraphs={rerenderWith} onSelectRange={select} />)
+      fireEvent.pointerMove(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 85, clientY: 30 })
+      fireEvent.pointerUp(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 85, clientY: 30 })
+    }
+    const { rerender } = render(<LabPassage {...props()} onSelectRange={select} />)
+    const compare = ['uno dos tres cuatro']
+    drag(compare, rerender)
+    expect(select).toHaveBeenCalledOnce()
+    expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'one two three' }), 85, 30, undefined)
+    drag(['A different Compare edition'], rerender)
+    expect(select).toHaveBeenCalledOnce()
+  })
 })
 
 describe('touch selection owns the gesture', () => {
