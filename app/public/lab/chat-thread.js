@@ -13,8 +13,7 @@
 //     thread renders the same classes from the same rows (a test compares them);
 //   - the behaviour: composer keys (Return sends, Shift-Return new line, ↑
 //     recalls the last question, Escape closes), the composer growing to five
-//     lines, press-and-hold on the phone, the "Latest" pill, the once-a-session
-//     keyboard hint, the calm scroll while an answer arrives (the question is
+//     lines, press-and-hold on the phone, the once-a-session keyboard hint, the calm scroll while an answer arrives (the question is
 //     brought near the top once, then nothing moves), and words fading in;
 //   - the icons.
 // No browser globals at import time; the DOM helpers take the nodes they work on.
@@ -193,47 +192,12 @@ export function contentEnd(node) {
   return node.scrollHeight - height
 }
 
-/** The newest message's end is more than one screen below the window: the "Latest" pill shows. */
+/**
+ * The newest message's end is more than one screen below the window: the reader is reading back, so an answer
+ * arriving does not pull the view down (the PDF reader's chat). There is no "Latest" pill (Anders, 17 Nov 2026).
+ */
 export function isAway(node) {
   return contentEnd(node) - node.scrollTop - node.clientHeight > node.clientHeight
-}
-
-/**
- * The newest message ends below the window's foot (more than `slack` of it
- * hidden). While an answer grows under a question held near the top, this is
- * when the "Latest" pill shows: the view does not follow the answer.
- */
-export function isBelow(node, slack = 12) {
-  return contentEnd(node) - node.scrollTop - node.clientHeight > slack
-}
-
-/**
- * When the "Latest" pill shows (Anders, 12 Oct 2026): only after the reader
- * has scrolled up from where the thread last put the view, and something new
- * has arrived below since. Never right after a send (the question is placed
- * near the top and its answer grows under it), never while the reader follows
- * the answer down. It goes once the reader is back at the newest line or
- * below where the view was put.
- */
-export function latestPill() {
-  let placedTop = null
-  let end = 0
-  let arrived = false
-  return {
-    /** The thread put the view where it is now (opened, pinned to the end, a question held near the top). */
-    placed(node) { placedTop = node.scrollTop; end = contentEnd(node); arrived = false },
-    /** Older messages were added above: the same place, `by` pixels further down. */
-    shift(by) { if (placedTop !== null) placedTop += by; end += by },
-    /** `readerScrolled`: the reader has scrolled since the view was placed. */
-    shows(node, readerScrolled) {
-      const now = contentEnd(node)
-      const up = readerScrolled && placedTop !== null && node.scrollTop < placedTop - 1
-      if (!up || !isBelow(node)) arrived = false
-      else if (now > end + 1) arrived = true
-      end = now
-      return arrived
-    },
-  }
 }
 
 /**
@@ -278,13 +242,6 @@ export function fitSpacer(node, top) {
   // A browser that pulled the view up while the space was briefly too short
   // (WebKit clamps on the intermediate layout): put it back where it was.
   if (node.scrollTop < was - 1 && was <= node.scrollHeight - node.clientHeight + 1) node.scrollTop = was
-}
-
-/** "Latest": the newest message at the foot of the window (the clean space stays below it). */
-export function scrollToLatest(node) {
-  const top = Math.max(0, contentEnd(node) - node.clientHeight)
-  if (node.scrollTo) node.scrollTo({ top, behavior: 'smooth' })
-  else node.scrollTop = top
 }
 
 /**

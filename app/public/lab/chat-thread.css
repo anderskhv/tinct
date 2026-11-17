@@ -155,15 +155,6 @@
 .tc .tc-time { margin-left: 0; font: 400 12px/1 var(--tc-sans); letter-spacing: .01em; color: var(--tc-faint); white-space: nowrap; }
 .tc .tc-copy { margin-left: -2px; }
 
-/* "Latest": ink pill, paper text, centred 14px above the composer. */
-.tc .tc-latest {
-  position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 3;
-  display: flex; align-items: center; gap: 6px; min-height: 0; margin: 0; padding: 8px 14px; border: 0; border-radius: 999px;
-  background: var(--tc-ink); color: var(--tc-paper); font: 500 13px/1 var(--tc-sans); cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
-}
-.tc .tc-latest[hidden] { display: none; }
-
 /* Status lines above the composer (dictation, Talk, a notice): quiet italics. */
 .tc .tc-status {
   position: static; inset: auto; transform: none; width: auto; max-width: none; z-index: auto;
@@ -220,9 +211,8 @@ html[data-eink="true"] .tc, html[data-pdf-theme="eink"] .tc {
   --tc-paper: #fff; --tc-ink: #111; --tc-muted: #333; --tc-faint: #555; --tc-hair: #777; --tc-wash: transparent; --tc-bar: #111; --tc-ring: none;
 }
 html[data-eink="true"] .tc.tc, html[data-pdf-theme="eink"] .tc.tc,
-html[data-eink="true"] .tc :is(.tc-tab, .tc-latest), html[data-pdf-theme="eink"] .tc :is(.tc-tab, .tc-latest) { box-shadow: none !important; }
+html[data-eink="true"] .tc .tc-tab, html[data-pdf-theme="eink"] .tc .tc-tab { box-shadow: none !important; }
 html[data-eink="true"] .lab .lab-ask.tc.tc, html[data-pdf-theme="eink"] .lab .lab-ask.tc.tc { border: 1px solid #777 !important; }
 html[data-eink="true"] .tc :is(.tc-bubble, .tc-back), html[data-pdf-theme="eink"] .tc :is(.tc-bubble, .tc-back) { background: transparent; outline: 1px solid var(--tc-ink); outline-offset: -1px; filter: none; }
 html[data-eink="true"] .tc .tc-fade, html[data-pdf-theme="eink"] .tc .tc-fade { display: none; }
-html[data-eink="true"] .tc .tc-latest, html[data-pdf-theme="eink"] .tc .tc-latest { background: #fff; color: #111; outline: 1px solid #111; }
 html[data-eink="true"] .tc *, html[data-pdf-theme="eink"] .tc * { animation: none !important; }

@@ -32,7 +32,7 @@ import {
   type ProfilePicture,
   type ReadingLoad,
 } from './cardsApi'
-import { boardHiddenLine, chapterFraction, followBackCount, followButton, followingYouRows, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
+import { boardHiddenLine, boardRows, chapterFraction, followBackCount, followButton, followingYouRows, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
 import { COVER_BOOK_IDS, EMAIL_CONSENT_TEXT, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
 import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, rememberReadingLanguages, uploadProfileImage } from '../social/socialClient'
@@ -782,7 +782,11 @@ function shownRank(env: CardsEnv): string | null {
 /** How many rows a board still loading will have: the last count this page saw for the tab, else its friends, else five. */
 function expectedRows(env: CardsEnv, tab: BoardTab): number {
   const known = knownBoard(env.session.userId, tab)
-  if (known) return Math.max(1, known.entries.length + (known.me && !known.entries.some(entry => entry.me) ? 1 : 0))
+  if (known) {
+    // As many rows as the folded board will draw (boardRows), its Show all row included.
+    const view = boardRows(known.me && !known.entries.some(entry => entry.me) ? [...known.entries, known.me] : known.entries, false)
+    return Math.max(1, view.rows.length + (view.toggle ? 1 : 0))
+  }
   const friends = env.data.board?.friends
   return tab === 'friends' && typeof friends === 'number' ? Math.min(BOARD_SKELETON_MAX, friends + 1) : 5
 }
@@ -817,6 +821,8 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
   let tab: BoardTab = tabOf(first)
   /** undefined: not asked yet; 'loading'; null: not available. */
   let board: BoardData | null | 'loading' | undefined
+  // Every time the board opens it starts folded (top five); the tab switch folds it too.
+  let expanded = false
   // Known before any board from Find readers' answer, so the tabs show from the first frame.
   let everyoneOpen = first ? first.everyoneOpen === true || tabOf(first) === 'everyone' : env.data.find?.everyoneOpen === true
   let handle: CardHandle | null = null
@@ -893,6 +899,7 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
           env.data.rank = shownRank(env)
           env.data.board = knownBoard(userId, value) ?? env.data.board
           board = undefined
+          expanded = false
           card.refresh()
         }, { wide: true, testid: 'board-tabs' }))
       }
@@ -901,7 +908,15 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         // Your own row and rank always show.
         if (board.me && !rows.some(entry => entry.me)) rows.push(board.me)
         body.append(heading(CARDS_COPY.lastSevenDays, { marginBottom: '-16px' }))
-        const list = group(...rows.map(entry => boardRow(env, card, entry)))
+        // Top five, then the viewer; readers with no time are left out (cardsRules boardRows, 17 Nov 2026).
+        const view = boardRows(rows, expanded)
+        const toggle = view.toggle && row({
+          label: view.toggle === 'expand' ? CARDS_COPY.boardShowAll : CARDS_COPY.boardShowTop, className: 'is-center is-more', testid: 'board-toggle',
+          onClick: () => { expanded = view.toggle === 'expand'; card.refresh() },
+        })
+        const list = group(...view.rows.map(item => item === 'gap'
+          ? el('div', { className: 'tc-r is-gap', 'aria-hidden': 'true', text: '···', dataset: { testid: 'board-gap' } })
+          : boardRow(env, card, item)), toggle)
         if (list) { list.dataset.testid = 'board-rows'; body.append(list) }
         const hidden = boardHiddenLine(board.meShown, env.data.profile)
         if (hidden) body.append(el('p', { className: 'tc-foot', text: hidden, dataset: { testid: 'board-hidden' } }))
