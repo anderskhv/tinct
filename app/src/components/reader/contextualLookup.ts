@@ -11,7 +11,7 @@ export type ContextualLookup =
 export const CONTEXTUAL_LOOKUP_GROUNDING_LINE = `Identify a named person from the selected occurrence itself, in the current paragraph, and its own qualifiers ("son of X", a title, an epithet), never from another person of that name nearby or from fame. If the text does not settle who it is, say the identity is unclear and use uncertain rather than name the famous namesake.`
 /**
  * A word's definition is short (Anders, 12 Nov 2026, "tetrarch"): the part of speech as one word, one short sentence,
- * and one line on its sense here. The card shows "tetrarch (noun)" over the two lines (splitDefinition).
+ * and one line on its sense here. The card shows "tetrarch · Noun" over the two lines (splitDefinition).
  */
 export const CONTEXTUAL_LOOKUP_DEFINITION_LINE = `For an ordinary word: the part of speech as one word and a full stop ("Noun."), then one short sentence of meaning, then one short sentence beginning "Here," on its sense in this passage; at most 25 words in all.`
 export const CONTEXTUAL_LOOKUP_PROMPT = `Identify what the selected word denotes in the supplied passage before answering. A personal name or personification is a person only when the local context supports that reading; a capital letter, place, group, title or ordinary noun alone is not enough. Prefer the local relationship over matching a famous namesake. Do not merge people with the same name, invent a biography, or reveal later events.

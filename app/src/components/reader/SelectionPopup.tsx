@@ -7,7 +7,7 @@ import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import type { DictResult } from '../../services/dictionary'
 import type { SelectionSegment } from './selectionGeometry'
 import { defaultPopupMode, type SelectionPopupHomeMode } from './selectionPopupMode'
-import { ContextualLookupView, DefinitionFallback } from './DefinitionFallback'
+import { ContextualLookupView, DefinitionFallback, HeadwordLabel } from './DefinitionFallback'
 import { useReaderWindow } from '../../lab/useReaderWindow'
 import { ContextualExplainCard } from './ContextualExplainCard'
 import { useReaderSelectionCopy } from './useReaderSelectionCopy'
@@ -430,9 +430,9 @@ export function SelectionPopup({
     return () => { window.removeEventListener('pointerdown', outside, true); window.removeEventListener('keydown', onKey, true) }
   }, [popupRef, sharedReader])
   const headword = defineResult?.word || defineQuery
-  // The definition's part of speech, shown after the word: "tetrarch (noun)" (Anders, 12 Nov 2026).
-  const [definePos, setDefinePos] = useState({ word: '', pos: '' })
-  const headwordPos = definePos.word === defineQuery ? definePos.pos : ''
+  // What the word is, shown after it: "sepulchre · Noun", "Joanna · Minor character" (Anders, 17 Nov 2026).
+  const [defineLabel, setDefineLabel] = useState({ word: '', label: '' })
+  const headwordLabel = defineLabel.word === defineQuery ? defineLabel.label : ''
   const contextualLookup = !character && contextualExplain
     && (typeof navigator === 'undefined' || navigator.onLine !== false)
     && (defineNotFound || /^[A-Z]/.test(defineQuery))
@@ -569,7 +569,7 @@ export function SelectionPopup({
       {showDefinePanel && (
         <div className="popup-define">
           <header className="lab-reader-window-head" data-reader-window-handle>
-            <span className="lab-reader-window-title popup-define-word">{headword}{headwordPos && <span className="popup-define-pos"> ({headwordPos})</span>}</span>
+            <span className="lab-reader-window-title popup-define-word">{headword}<HeadwordLabel label={headwordLabel} /></span>
             <button className="lab-window-control" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button>
             {lab && <button className="lab-window-control" type="button" aria-label="Close definition" onClick={dismissPopup}>×</button>}
           </header>
@@ -595,7 +595,7 @@ export function SelectionPopup({
           )}
           {/* The passage lookup starts with the dictionary, not after it (Anders, 2026-10-06). */}
           {contextualLookup ? (
-            <DefinitionFallback word={defineQuery} onPartOfSpeech={pos => setDefinePos({ word: defineQuery, pos })} request={onRequestExplanation!} dictionaryDefinitions={defineLoading ? undefined : defineResult?.definitions} onChat={text => onExplain(text)} onTalk={onTalkExplanation} namesakes={selection.namesakes} />
+            <DefinitionFallback word={defineQuery} onHeadwordLabel={label => setDefineLabel({ word: defineQuery, label })} request={onRequestExplanation!} dictionaryDefinitions={defineLoading ? undefined : defineResult?.definitions} onChat={text => onExplain(text)} onTalk={onTalkExplanation} namesakes={selection.namesakes} />
           ) : !defineLoading && defineNotFound && (
             <div className="popup-define-status popup-define-empty">
               No definition found for &ldquo;{defineQuery}&rdquo;.
