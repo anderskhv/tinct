@@ -8,7 +8,7 @@
  *   - app/public/read/{bookId}/    → which books have static SEO pages
  *   - app/public/data/editions/{bookId}-modern-en.json → chapter count
  *
- * The sitemap lists only real pages: /, /about, /credits, /story, /privacy, /terms,
+ * The sitemap lists only real pages: /, /about, /credits, /story, /privacy, /terms, /copyright,
  * /read/, one /read/{bookId} per public book, the scene pages the build wrote
  * (/read/{bookId}/{scene}, scripts/seo/build-scene-pages.mjs, which runs first), the chapter pages of
  * the indexable books and the shelf hubs that list one (scripts/seo/build-chapter-pages.mjs). Each
@@ -845,6 +845,7 @@ function buildSitemap(books, state = loadLastmodState(), next = {}) {
   entry(`${ORIGIN}/story`, { changefreq: 'monthly', priority: 0.6 }, path.join(APP_DIR, 'public/story.html'))
   entry(`${ORIGIN}/privacy`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/privacy.html'))
   entry(`${ORIGIN}/terms`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/terms.html'))
+  entry(`${ORIGIN}/copyright`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/copyright.html'))
   entry(`${ORIGIN}/read/`, { changefreq: 'weekly', priority: 0.8 }, path.join(READ_DIR, 'index.html'))
   for (const b of books) {
     const page = path.join(READ_DIR, b.id, 'book.html')
