@@ -351,7 +351,8 @@ export function useLabPositionSync(args: {
       persist: (state, cause, reason) => {
         writeLabPositionLocal(state)
         if (cause === 'local') return
-        syncRef.current?.persist(state, { keepalive: reason === 'hide' })
+        // A write without a reason is the dwell settle or a finished chapter.
+        syncRef.current?.persist(state, { keepalive: reason === 'hide', reason: reason ?? cause })
       },
       schedule: (fn, ms) => {
         const id = window.setTimeout(fn, ms)
@@ -486,7 +487,7 @@ export function useLabPositionSync(args: {
         cloudDoneRef.current = true
         writeLabPositionLocal(next, { authoritative: true })
         syncRef.current?.noteWritten(cloud)
-        syncRef.current?.persist(next)
+        syncRef.current?.persist(next, { reason: 'cloud-merge' })
         setFinishedRevision(revision => revision + 1)
         return
       }
@@ -529,7 +530,7 @@ export function useLabPositionSync(args: {
       writeLabPositionLocal(next, { authoritative: true })
       // Nothing to add to the account's record: no write-back of what was just read.
       syncRef.current?.noteWritten(cloud)
-      syncRef.current?.persist(next)
+      syncRef.current?.persist(next, { reason: 'cloud-merge' })
       setFinishedRevision(revision => revision + 1)
       const initial = !initialResolvedRef.current || (paintedInventedPlace && !args.interactedRef?.current)
       settleInitial()
