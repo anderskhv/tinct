@@ -564,7 +564,8 @@ describe('calm answer: the question is brought near the top once, then nothing m
   }
   const ask = { id: 'u-ask', role: 'user' as const, content: 'Why does he mention Phinehas?', source: 'typed' as const }
   const reply = (content: string) => ({ id: 'a-reply', role: 'assistant' as const, content, source: 'typed' as const })
-  const latest = () => screen.getByTestId('lab-ask-latest') as HTMLButtonElement
+  // There is no Latest pill any more (Anders, 17 Nov 2026): never drawn counts as hidden.
+  const latest = () => ({ hidden: !document.querySelector('[data-testid="lab-ask-latest"], .tc-latest') })
 
   it('holds a continued question near the top even in the phone card wrapper', () => {
     const history = turnsOf(20)
@@ -628,12 +629,12 @@ describe('calm answer: the question is brought near the top once, then nothing m
       expect(thread.scrollTop).toBe(questionAt)
       expect(latest().hidden).toBe(true)
     }
-    // The reader scrolling up from there is still the reader: the pill comes back for them.
+    // The reader scrolling up from there is still the reader: they stay where they are (and no pill, 17 Nov 2026).
     thread.scrollTop = questionAt - 300
     fireEvent.scroll(thread)
     rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(30))]} />)
     expect(thread.scrollTop).toBe(questionAt - 300)
-    expect(latest().hidden).toBe(false)
+    expect(latest().hidden).toBe(true)
   })
 
   it('a reader who scrolls while the answer arrives is never moved', () => {
@@ -652,7 +653,7 @@ describe('calm answer: the question is brought near the top once, then nothing m
     expect(thread.scrollTop).toBe(900)
   })
 
-  it('the Latest pill shows only once the reader scrolled up and more arrived below; following the answer down never shows it', () => {
+  it('no Latest pill (17 Nov 2026): not when the reader scrolled up and more arrived below, nor while following the answer down', () => {
     const history = turnsOf(20)
     const long = (n: number) => reply('Phinehas is the model of zeal for the law. '.repeat(n))
     const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} />)
@@ -671,10 +672,10 @@ describe('calm answer: the question is brought near the top once, then nothing m
     thread.scrollTop = 900
     fireEvent.scroll(thread)
     expect(latest().hidden).toBe(true)
-    // More arrives below while they read up there: the pill, and they stay put.
+    // More arrives below while they read up there: they stay put, and no pill (17 Nov 2026).
     rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, long(40)]} />)
     expect(thread.scrollTop).toBe(900)
-    expect(latest().hidden).toBe(false)
+    expect(latest().hidden).toBe(true)
     // Back at the newest line: gone.
     thread.scrollTop = thread.scrollHeight - thread.clientHeight
     fireEvent.scroll(thread)

@@ -11,7 +11,7 @@
  * - A reader's profile shows what the server sends: a Friends-only profile
  *   seen by a non-friend (`limited`) is the header only (name and picture).
  */
-import type { OwnProfile, ProfilePageData } from './cardsApi'
+import type { BoardEntry, OwnProfile, ProfilePageData } from './cardsApi'
 import type { Relation } from '../social/profileRules'
 import { CARDS_COPY } from './cardsCopy'
 import { durationShort } from './cardsFormat'
@@ -111,4 +111,26 @@ export function readerCardView(data: ProfilePageData): ReaderCardView {
     readingNow: data.readingNow?.length ? data.readingNow : null,
     finished: data.finished?.length ? data.finished : null,
   }
+}
+
+/** A folded Leaderboard shows this many rows first. */
+export const BOARD_TOP = 5
+
+/**
+ * The Leaderboard's rows (Anders, 17 Nov 2026): readers with no time in the window are left out, except the viewer,
+ * whose own row always shows. Folded (each time the board opens): the top five, then, when the viewer ranks lower and
+ * readers between are hidden, a gap ("···") and the viewer's row at their real rank. `toggle` is the row under the
+ * list: Show all while rows are hidden, Show top 5 when unfolded, none when every row already shows.
+ */
+export function boardRows(entries: BoardEntry[], expanded: boolean): { rows: Array<BoardEntry | 'gap'>; toggle: 'expand' | 'collapse' | null } {
+  const shown = entries.filter(entry => entry.me || entry.seconds > 0)
+  const mine = shown.findIndex(entry => entry.me)
+  const folded: Array<BoardEntry | 'gap'> = shown.slice(0, BOARD_TOP)
+  if (mine >= BOARD_TOP) {
+    if (mine > BOARD_TOP) folded.push('gap')
+    folded.push(shown[mine])
+  }
+  const hidden = shown.length - folded.filter(item => item !== 'gap').length
+  if (!hidden) return { rows: shown, toggle: null }
+  return expanded ? { rows: shown, toggle: 'collapse' } : { rows: folded, toggle: 'expand' }
 }
