@@ -103,6 +103,7 @@ import {
   stabilizeLabPageMetrics,
   labKeyboardPageDirection,
   labUndoShortcut,
+  labFindShortcut,
   nextPaintShrinkTo,
   type LabPageAdjust,
   type LabPageMetrics,
@@ -901,7 +902,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [tocOpen, setTocOpen] = useState(false)
   // The phone's Notebook row (t menu, 22 Oct 2026): the Contents opened at its Highlights & notes, closed back to the book.
   const [contentsNotebook, setContentsNotebook] = useState(false)
-  useEffect(() => { if (!tocOpen) setContentsNotebook(false) }, [tocOpen])
+  const [contentsSearch, setContentsSearch] = useState(false)
+  useEffect(() => { if (!tocOpen) { setContentsNotebook(false); setContentsSearch(false) } }, [tocOpen])
   const desktopUnitPositionsRef = useRef(new Map<string, number>())
   const desktopUnitAnchorsRef = useRef(new Map<string, MarginSourceAnchor>())
   const desktopDraftsRef = useRef<Record<string, string>>({})
@@ -5163,6 +5165,27 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
+  // Ctrl+F / Cmd+F opens the book's own search, which finds text in every chapter; the browser's Find
+  // only sees the pages on screen (Anders, 17 Nov 2026). A reader's own PDF keeps the browser's Find:
+  // its pages are the text, and Contents has no search over them.
+  const findShortcutRef = useRef<(event: KeyboardEvent) => void>(() => {})
+  findShortcutRef.current = event => {
+    if (ownPdf || document.documentElement.dataset.tinctCommandsOpen === 'true') return
+    if (!labFindShortcut(event, document.activeElement)) return
+    event.preventDefault()
+    setReaderControlsVisible(true)
+    setContentsNotebook(false)
+    setContentsSearch(true)
+    setTocOpen(true)
+    // Pressed again while the search is open: back to its field.
+    requestAnimationFrame(() => document.querySelector<HTMLInputElement>('.overlay input[type=search]')?.focus())
+  }
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => findShortcutRef.current(event)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
   const audioAccountRequiredRef = useRef(false)
   // An own book read aloud needs Premium (trial included): the account sheet, with its Premium offer, says the rest.
   const ownNarrationPremiumRequired = listen.narration.status === 'error' && listen.narration.reason === 'own_book_premium'
@@ -8409,6 +8432,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
         notebook={contentsNotebook}
+        search={contentsSearch}
         notebookRecovery={ownNotebookRecovery}
         sharedNotebook={sharedReader}
         legacyOwnEpubItems={sharedReader && userBook && userBook.kind !== 'pdf' ? legacyOwnEpubItems : undefined}
