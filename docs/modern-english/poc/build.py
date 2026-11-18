@@ -182,7 +182,7 @@ footer .inner {{ display: flex; flex-wrap: wrap; gap: 8px 20px }}
   <div class="bg" aria-hidden="true"></div>
   <div class="pad"><div class="inner top">
     <div class="claim">
-      <h1>{N} classics in modern translation. Free.</h1>
+      <h1>100+ classics in modern translation. Free.</h1>
       <p class="sub">The original, or its classic human translation, is always one tap away.</p>
       <div class="search" role="search">
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
@@ -194,7 +194,7 @@ footer .inner {{ display: flex; flex-wrap: wrap; gap: 8px 20px }}
         {"".join(f'<button type="button" data-k="house" data-v="{hid}">{esc(t)}</button>' for hid, t in [('philosophy','Philosophy'),('drama','Drama'),('novel','Fiction'),('epic','Poetry'),('politics','Politics')])}
       </div>
       <div class="pills" role="group" aria-label="Period">
-        {"".join(f'<button type="button" data-k="era" data-v="{v}">{t}</button>' for v, t in [('ancient','Ancient'),('medieval','Medieval'),('early','1500s–1600s'),('1700s','1700s'),('1800s','1800s'),('1900s','1900s')])}
+        {"".join(f'<button type="button" data-k="era" data-v="{v}">{t}</button>' for v, t in [('ancient','Ancient, before 500'),('medieval','Medieval, 500–1500'),('early','1500s–1600s'),('1700s','1700s'),('1800s','1800s'),('1900s','1900s')])}
       </div>
     </div>
     <ul class="pile">{"".join(f'<li><a href="{link(by_id[i])}"><img src="covers/{i}.webp" alt="{esc(by_id[i]["title"])}" width="300" height="450"></a></li>' for i in START)}</ul>
