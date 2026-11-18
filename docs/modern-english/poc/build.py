@@ -57,7 +57,7 @@ def card(b, big=False):
     return (f'<li class="card{" big" if big else ""}" data-q="{q}"><a href="{link(b)}">'
             f'<img src="covers/{b["id"]}.webp" alt="{esc(b["title"])} by {esc(b["author"])}" width="300" height="450" loading="lazy">'
             f'<span class="t">{esc(b["title"])}</span>{hook}'
-            f'<span class="m">{esc(meta(b))}</span><span class="s">Modern English {esc(source(b))}</span></a></li>')
+            f'<span class="s">{esc(source(b))}</span></a></li>')
 
 reels = ''.join(
     f'<section class="shelf" data-shelf><h2>{esc(title)} <span>{len(groups[hid])}</span></h2><ul class="reel">{"".join(card(b) for b in groups[hid])}</ul></section>'
@@ -96,51 +96,40 @@ a {{ color: inherit; text-decoration: none }}
 .pad {{ padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }}
 .inner {{ max-width: 1240px; margin: 0 auto }}
 
-.opening {{ position: relative; background: #000 center / cover no-repeat; transition: background-image .4s }}
-.opening::before {{ content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,8,6,0.82) 0%, rgba(10,8,6,0.45) 55%, rgba(10,8,6,0.15) 100%); pointer-events: none }}
-.opening::after {{ content: ""; position: absolute; inset: auto 0 0; height: 160px; background: linear-gradient(transparent, var(--room)); pointer-events: none }}
-.bar, .claim, .feature {{ position: relative; z-index: 1 }}
-.bar {{ display: flex; align-items: center; justify-content: space-between; padding-block: 14px }}
+.opening {{ position: relative; background: url("scenes/meditations-phone.jpg") center / cover no-repeat }}
+.opening::before {{ content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,8,6,0.85), rgba(10,8,6,0.35)); pointer-events: none }}
+.opening::after {{ content: ""; position: absolute; inset: auto 0 0; height: 120px; background: linear-gradient(transparent, var(--room)); pointer-events: none }}
+.bar, .top {{ position: relative; z-index: 1 }}
+.bar {{ padding-block: 14px }}
 .logo {{ font: 26px var(--book) }}
-.bar nav {{ display: flex; gap: 18px; align-items: center; font: 14px var(--book); color: var(--dim) }}
-.bar nav a:hover {{ color: var(--text) }}
-@media (max-width: 599px) {{ .bar nav .wide {{ display: none }} }}
-.claim {{ padding-block: 14px 0; z-index: 3 }}
-h1 {{ font: 600 clamp(30px, 5vw, 50px)/1.08 var(--display); margin: 0; text-wrap: balance; max-width: 18ch }}
-.sub {{ font: clamp(18px, 2vw, 21px)/1.45 var(--book); color: var(--dim); margin: 10px 0 0; max-width: 40ch }}
+.top {{ display: grid; gap: 28px; padding-block: 40px 48px; align-items: center }}
+h1 {{ font: 600 clamp(32px, 5vw, 54px)/1.06 var(--display); margin: 0; text-wrap: balance; max-width: 16ch }}
+.sub {{ font: clamp(18px, 2vw, 21px)/1.4 var(--book); color: var(--dim); margin: 10px 0 0 }}
 .sr {{ position: absolute; left: -9999px }}
-.search {{ position: relative; margin-top: 20px; max-width: 540px }}
+.search {{ position: relative; margin-top: 22px; max-width: 480px; z-index: 3 }}
 .search svg {{ position: absolute; left: 18px; top: 16px; color: var(--dim); z-index: 1; pointer-events: none }}
 .search input {{ width: 100%; height: 52px; border-radius: 26px; border: 0; padding: 0 20px 0 50px; font: 18px var(--book); color: var(--text);
   background: rgba(20,17,13,0.62); box-shadow: inset 0 0 0 1px rgba(239,232,219,0.28); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px) }}
 .search input::placeholder {{ color: var(--dim) }}
 .search input:focus {{ outline: 2px solid var(--text); outline-offset: 2px }}
-.results {{ position: absolute; left: 0; right: 0; top: 60px; list-style: none; margin: 0; padding: 6px; border-radius: 16px; background: #1b1814; box-shadow: 0 18px 50px rgba(0,0,0,0.6), inset 0 0 0 1px var(--rule); z-index: 5; max-height: 420px; overflow-y: auto }}
+.results {{ position: absolute; left: 0; right: 0; top: 60px; list-style: none; margin: 0; padding: 6px; border-radius: 16px; background: #1b1814; box-shadow: 0 18px 50px rgba(0,0,0,0.6), inset 0 0 0 1px var(--rule); max-height: 420px; overflow-y: auto }}
 .results a {{ display: flex; gap: 12px; align-items: center; padding: 7px 8px; border-radius: 10px }}
 .results a:hover, .results a[aria-selected="true"] {{ background: rgba(239,232,219,0.08) }}
 .results img {{ width: 36px; height: 54px; object-fit: cover; border-radius: 2px; flex: none }}
-.results .rt {{ font: 500 17px/1.2 var(--book); display: block }} .results .ra {{ font: 13px var(--ui); color: var(--faint) }}
-.results .rs {{ font: italic 13px var(--book); color: var(--faint); display: block }}
+.results .rt {{ font: 500 17px/1.2 var(--book); display: block }} .results .rs {{ font: italic 13px var(--book); color: var(--faint); display: block }}
 .results .empty {{ padding: 10px; font: 16px var(--book); color: var(--dim) }}
-.feature {{ display: grid; grid-template-columns: 1fr; gap: 18px; padding-block: 34px 40px; align-items: end }}
-.kicker {{ font: italic 17px var(--book); color: var(--dim); margin: 0 }}
-.f-title {{ font: 600 clamp(34px, 5.4vw, 56px)/1.04 var(--display); margin: 2px 0 0 }}
-.f-q {{ font: clamp(18px, 2vw, 21px)/1.4 var(--book); margin: 8px 0 0; max-width: 30ch }}
-.f-meta {{ font: 13px var(--ui); color: var(--dim); margin: 10px 0 0 }}
-.acts {{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px }}
-.btn {{ display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 20px; border-radius: 23px; font: 500 15px var(--ui) }}
-.btn.main {{ background: var(--paper); color: var(--paper-ink) }}
-.btn.quiet {{ box-shadow: inset 0 0 0 1px rgba(239,232,219,0.4); color: var(--text) }}
-.btn:focus-visible, .card a:focus-visible, .dots button:focus-visible, .results a:focus-visible {{ outline: 2px solid var(--text); outline-offset: 3px }}
-.dots {{ display: flex; gap: 8px; margin-top: 22px }}
-.dots button {{ width: 8px; height: 8px; border-radius: 4px; border: 0; padding: 0; background: rgba(239,232,219,0.35); cursor: pointer }}
-.dots button[aria-selected="true"] {{ width: 22px; background: var(--text) }}
-.f-cover {{ order: -1; justify-self: center }}
-.f-cover img {{ width: 150px; height: auto; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 3px; box-shadow: 0 24px 50px rgba(0,0,0,0.7) }}
+.pile {{ list-style: none; margin: 0; padding: 0; display: flex; gap: 10px; overflow-x: auto }}
+.pile li {{ flex: none }}
+.pile img {{ width: 92px; height: auto; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 3px; box-shadow: 0 14px 30px rgba(0,0,0,0.6); display: block }}
+.pile a:focus-visible, .card a:focus-visible, .results a:focus-visible {{ outline: 2px solid var(--text); outline-offset: 3px }}
 @media (min-width: 900px) {{
-  .feature {{ grid-template-columns: 1fr auto; padding-block: 60px 80px }}
-  .f-cover {{ order: 0; margin-right: 6% }}
-  .f-cover img {{ width: 230px }}
+  .opening {{ background-image: url("scenes/meditations-wide.jpg") }}
+  .top {{ grid-template-columns: minmax(0, 1fr) auto; padding-block: 80px 90px }}
+  .pile {{ overflow: visible; padding-right: 30px }}
+  .pile li {{ margin-left: -34px }} .pile li:first-child {{ margin-left: 0 }}
+  .pile li:nth-child(odd) {{ transform: translateY(18px) rotate(-2deg) }} .pile li:nth-child(even) {{ transform: rotate(2deg) }}
+  .pile img {{ width: 150px }}
+  @media (prefers-reduced-motion: no-preference) {{ .pile li {{ transition: transform .2s }} .pile li:hover {{ transform: translateY(-8px); z-index: 2; position: relative }} }}
 }}
 .shelves {{ padding-block: 8px 20px }}
 .find {{ display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--rule); max-width: 420px; margin: 0 0 6px }}
@@ -160,6 +149,7 @@ h1 {{ font: 600 clamp(30px, 5vw, 50px)/1.08 var(--display); margin: 0; text-wrap
 .card a:hover .t {{ text-decoration: underline; text-underline-offset: 3px }}
 .none {{ font: 18px var(--book); color: var(--dim); padding-top: 20px }}
 
+.note {{ font: 17px/1.5 var(--book); color: var(--faint); max-width: 60ch; border-top: 1px solid var(--rule); margin: 34px 0 0; padding-top: 22px }}
 .colophon {{ border-top: 1px solid var(--rule); margin-top: 34px; padding-block: 34px 10px; display: grid; gap: 14px; max-width: 640px }}
 .colophon h2 {{ font: 600 22px var(--display); margin: 0 }}
 .colophon p {{ font: 18px/1.55 var(--book); color: var(--dim); margin: 0 }}
@@ -174,31 +164,19 @@ footer .inner {{ display: flex; flex-wrap: wrap; gap: 8px 20px }}
 }}
 </style>
 
-<div class="opening" id="opening">
-  <div class="pad"><div class="inner bar">
-    <a class="logo" href="{SITE}/library">tinct</a>
-    <nav><a href="#shelves">Every book</a><a class="wide" href="#about">About these editions</a></nav>
-  </div></div>
-  <div class="pad"><div class="inner claim">
-    <h1>The classics, in plain modern English.</h1>
-    <p class="sub">Free to read. Made with AI, with the original one tap away.</p>
-    <div class="search" role="search">
-      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-      <label for="q" class="sr">Search the books</label>
-      <input id="q" type="search" placeholder="Search {N} books or authors" autocomplete="off" aria-controls="results" aria-expanded="false">
-      <ul id="results" class="results" hidden></ul>
+<div class="opening">
+  <div class="pad"><div class="inner top">
+    <div class="claim">
+      <h1>The classics, in plain modern English.</h1>
+      <p class="sub">Free. Made with AI. The original one tap away.</p>
+      <div class="search" role="search">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <label for="q" class="sr">Search the books</label>
+        <input id="q" type="search" placeholder="Search {N} books" autocomplete="off" aria-controls="results" aria-expanded="false">
+        <ul id="results" class="results" hidden></ul>
+      </div>
     </div>
-  </div></div>
-  <div class="pad"><div class="inner feature" id="feature">
-    <div class="feature-text">
-      <p class="kicker" id="f-kicker"></p>
-      <p class="f-title" id="f-title"></p>
-      <p class="f-q" id="f-q"></p>
-      <p class="f-meta" id="f-meta"></p>
-      <div class="acts"><a class="btn main" id="f-read" href="#">Read in modern English <span aria-hidden="true">\u2192</span></a></div>
-      <div class="dots" role="tablist" aria-label="Featured books">{"".join(f'<button type="button" role="tab" aria-label="{esc(by_id[i]["title"])}" data-i="{n}"></button>' for n, (i, _, _) in enumerate(FEATURED))}</div>
-    </div>
-    <a class="f-cover" id="f-cover-link" href="#"><img id="f-cover" src="covers/meditations.webp" alt="" width="300" height="450"></a>
+    <ul class="pile">{"".join(f'<li><a href="{link(by_id[i])}"><img src="covers/{i}.webp" alt="{esc(by_id[i]["title"])}" width="300" height="450"></a></li>' for i in START)}</ul>
   </div></div>
 </div>
 
@@ -208,11 +186,7 @@ footer .inner {{ display: flex; flex-wrap: wrap; gap: 8px 20px }}
     <p class="none" id="none" hidden>Nothing on the shelves by that name. Try the author.</p>
   </div>
 
-  <section class="colophon" id="about">
-    <h2>About these editions</h2>
-    <p>Each modern-English edition is made with AI, page by page, from the original text or from the older translation named under the book. It is a way into the book, not a scholarly translation, so the original stays with it: in the reader, one tap switches back at the same line, and on a computer the two sit side by side.</p>
-    <p>Every book here stays free to read, in both versions. No account, no trial, nothing to unlock.</p>
-  </section>
+  <p class="note" id="about">Made with AI from the original, or from the older translation named under each book. A way in, not a scholarly translation. Free to read, in both versions.</p>
 
 </div></main>
 
@@ -221,28 +195,8 @@ footer .inner {{ display: flex; flex-wrap: wrap; gap: 8px 20px }}
 
 '''
 SCRIPT = r'''<script>
-var FEATURED = FEAT_JSON;
 var BOOKS = BOOKS_JSON;
 (function () {
-  var op = document.getElementById('opening'), i = 0;
-  var wide = window.matchMedia('(min-width: 900px)');
-  var dots = Array.prototype.slice.call(document.querySelectorAll('.dots button'));
-  function show(n) {
-    i = n; var f = FEATURED[n];
-    op.style.backgroundImage = 'url("scenes/' + f.id + (wide.matches ? '-wide' : '-phone') + '.jpg")';
-    document.getElementById('f-kicker').textContent = f.kicker;
-    document.getElementById('f-title').textContent = f.title;
-    document.getElementById('f-q').textContent = f.q;
-    document.getElementById('f-meta').textContent = f.meta;
-    document.getElementById('f-read').href = f.href;
-    document.getElementById('f-cover-link').href = f.href;
-    var img = document.getElementById('f-cover'); img.src = 'covers/' + f.id + '.webp'; img.alt = f.title;
-    dots.forEach(function (d, k) { d.setAttribute('aria-selected', String(k === n)); });
-  }
-  dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); }); });
-  wide.addEventListener('change', function () { show(i); });
-  show(0);
-
   var q = document.getElementById('q'), list = document.getElementById('results'), sel = -1;
   function esc(t) { return t.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function render() {
@@ -252,11 +206,12 @@ var BOOKS = BOOKS_JSON;
     hits.sort(function (a, b) { return (a.t.toLowerCase().indexOf(t) === 0 ? 0 : 1) - (b.t.toLowerCase().indexOf(t) === 0 ? 0 : 1); });
     sel = hits.length ? 0 : -1;
     list.innerHTML = hits.length ? hits.slice(0, 8).map(function (b, k) {
-      return '<li><a href="' + b.href + '"' + (k === 0 ? ' aria-selected="true"' : '') + '><img src="covers/' + b.id + '.webp" alt=""><span><span class="rt">' + esc(b.t) + '</span><span class="ra">' + esc(b.a) + '</span><span class="rs">Modern English ' + esc(b.s) + '</span></span></a></li>';
-    }).join('') : '<li class="empty">No book by that name yet. Try the author.</li>';
+      return '<li><a href="' + b.href + '"' + (k === 0 ? ' aria-selected="true"' : '') + '><img src="covers/' + b.id + '.webp" alt=""><span><span class="rt">' + esc(b.t) + '</span><span class="rs">' + esc(b.a) + ' \u00b7 ' + esc(b.s) + '</span></span></a></li>';
+    }).join('') : '<li class="empty">No book by that name. Try the author.</li>';
     list.hidden = false; q.setAttribute('aria-expanded', 'true');
   }
   q.addEventListener('input', render);
+  q.addEventListener('focus', render);
   q.addEventListener('keydown', function (e) {
     var links = list.querySelectorAll('a'); if (!links.length) return;
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sel = (sel + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length;
@@ -264,11 +219,10 @@ var BOOKS = BOOKS_JSON;
     if (e.key === 'Enter' && sel >= 0) { window.open(links[sel].href, '_blank'); }
     if (e.key === 'Escape') { q.value = ''; render(); }
   });
-  document.addEventListener('click', function (e) { if (!e.target.closest('.search')) { list.hidden = true; } });
-  q.addEventListener('focus', render);
+  document.addEventListener('click', function (e) { if (!e.target.closest('.search')) list.hidden = true; });
 })();
 </script>'''
 page = page + SCRIPT
-page = page.replace('FEAT_JSON', json.dumps(FEAT_DATA)).replace('BOOKS_JSON', json.dumps(SEARCH_DATA))
+page = page.replace('BOOKS_JSON', json.dumps(SEARCH_DATA))
 open(OUT, 'w').write(page)
 print('ok', N, {hid: len(g) for hid, g in groups.items() if g})
