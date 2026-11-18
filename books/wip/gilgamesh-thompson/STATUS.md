@@ -7,7 +7,14 @@ Decisions applied at integration (Anders, 17 Nov 2026):
 - **modern-da published without a native-speaker read** (explicit owner waiver). The independent fidelity spot-check is also not done. Both remain open quality steps, not release blockers.
 - `structure-map.json`: counts-only proportional map from the old 253-paragraph text, input to `app/scripts/build-replacement-migration.py`.
 
-Final sha256: original-en `13a06194f842eece71b770b4557bbcf6eca5c251610c5a83140b36c1a5c769ce`, modern-en `1641d807941a9480512f1324869e8abcb635fb31aaff0d2d659eb88985d896d0`, modern-da `3469ed8fc8cc6ccc3f832e01bcf9fa81dfaaa9edac39ddc16c40983535d3aa56`.
+Verse lines restored (Anders, 18 Nov 2026):
+- **original-en is set in Thompson's printed lines.** 1,139 single spaces became newlines (1,293 text lines in the 154 verse paragraphs); no word, character count or paragraph slot changed, so the 17 Nov text is the 18 Nov text with every newline read as a space. The reader sets the lines through the registry flag `newlineVerse` (the convention of Pope's `style: 'verse'` Odyssey, without changing the edition's role as the book's original).
+- Method: the line starts were read from the PDF text layer of the hashed archive.org scan (`extracts/download-manifest.json`, `Thompson_1928_Gilgamesh.pdf`, sha256 `aa17040e…f7584b9`), using each printed line's position on the page: an indented short line that continues a word group is Thompson's wrap of an over-long hexameter and is rejoined; his right-set half-lines (e.g. "Of Erech, the high-wall'd,") stay lines; gap dots go with the printed line they stand on. Each edition word was aligned to the scan (99%+ of words matched per tablet). Three places were set by hand from the page images: IV.1 keeps the printed wrap before "and thy shutter (?)," (the joined line would pass the reader's 100-character verse limit); XI.4 ". . . causing a plentiful rainfall"; XII.12 ". . . he hath spoken". Spot-checked against the page images of pp. 9-10, 27 and 60.
+- Thompson's four prose notes (V.5, VII.2, VIII.1, IX.5) stay one flowing paragraph.
+- **modern-en and modern-da stay prose.** They are sentence-by-sentence prose renderings (90% of Thompson's words, reordered), not line-for-line versions, so there is no line to break on; the repo sets every other verse original's modern edition as prose too (Odyssey, Aeneid, Paradise Lost, Divine Comedy, Oresteia; Beowulf alone was rendered line by line).
+- `books/raw/gilgamesh/raw.txt` (the old Colavito page) is deleted; `books/raw/gilgamesh/SOURCE.md` records its hash and where the Thompson provenance lives.
+
+Final sha256 (18 Nov, with verse lines): original-en `2a91b1e1f3c7180dbb1d02360dceda6c3c7f0ca836685dc40a91fb82c6125b38`. Before the verse lines (17 Nov): original-en `13a06194f842eece71b770b4557bbcf6eca5c251610c5a83140b36c1a5c769ce`; unchanged: modern-en `1641d807941a9480512f1324869e8abcb635fb31aaff0d2d659eb88985d896d0`, modern-da `3469ed8fc8cc6ccc3f832e01bcf9fa81dfaaa9edac39ddc16c40983535d3aa56`.
 
 Original package status (16 Nov):
 

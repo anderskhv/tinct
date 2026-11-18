@@ -16,7 +16,7 @@ import { isChapterShardedEdition, loadEdition, loadEditionWindow } from '../../d
 import { apiUrl } from '../../utils/apiUrl'
 import { LAB_POSITION_STORAGE_KEY, libraryResumePlace, parseLabPositionState, type LabBookPlace } from '../labPosition'
 import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
-import type { EditionData } from '../../types'
+import { setsNewlineVerse, type EditionData } from '../../types'
 import type { MarginPreviewAt } from './marginPreviewFlag'
 import { READER_BOOT_POSITION_PREFETCH, type ReaderBootPositionPrefetch } from '../readerBoot'
 import { landEditionSwitch, leadingPreface, pendingEditionSwitch, placeAtWordFraction } from '../labEditionSwitch'
@@ -184,7 +184,7 @@ export function loadMarginPreviewBookParts(bookId: string, deps: MarginPreviewDe
   })
   const full = placed.then(async ({ place, editionKey }) => {
     const data = await (editionKey === guess && early ? early : load(bookId, editionKey))
-    const chapters = marginPreviewChapters(data, { verse: edition(editionKey).style === 'verse' })
+    const chapters = marginPreviewChapters(data, { verse: setsNewlineVerse(edition(editionKey)) })
     if (!chapters.length) throw new Error(`${bookId} ${editionKey} has no chapters`)
     return modelOf(place, editionKey, chapters)
   })
@@ -194,7 +194,7 @@ export function loadMarginPreviewBookParts(bookId: string, deps: MarginPreviewDe
     if (!task) return null
     // The whole book first (cached, or quicker): no window is needed.
     const data = await Promise.race([task, full.then(() => null, () => null)])
-    const chapters = data ? marginPreviewWindowChapters(data, { verse: edition(editionKey).style === 'verse' }) : null
+    const chapters = data ? marginPreviewWindowChapters(data, { verse: setsNewlineVerse(edition(editionKey)) }) : null
     if (!chapters?.length) return null
     const model = modelOf(place, editionKey, chapters)
     // The place's chapter must be one with its text; a place outside the window opens with the whole book.

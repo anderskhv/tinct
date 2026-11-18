@@ -208,6 +208,9 @@ export const GILGAMESH: Book = {
       year: 1928,
       aligned: true,
       hasAudio: true,
+      // Thompson's verse lines, one per text line, as printed (restored 18 Nov 2026 from the page
+      // layout of the archive.org scan); the paragraphs and their words are unchanged.
+      newlineVerse: true,
     },
     {
       key: 'modern-en',

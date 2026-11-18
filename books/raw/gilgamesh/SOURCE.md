@@ -2,7 +2,9 @@
 
 > **Replaced on 2026-11-18.** The live text is now R. Campbell Thompson, *The Epic of Gilgamish* (London: Luzac, 1928), transcribed from the page images of archive.org item `thompson-1928-gilgamesh`, with fresh Tinct modern English and modern Danish renderings. Source, rights evidence, per-paragraph provenance and gates: `books/wip/gilgamesh-thompson/` (SOURCE.md, provenance-map.json, gates-last-run.txt). Thompson's three paragraphs of the Hittite version, which he credits as translated from J. Friedrich (d. 1972) and A. Ungnad, are left out (Anders, 17 Nov 2026).
 >
-> Everything below documents the previous source (Jason Colavito's adaptation), whose rights were not cleared for Tinct; that text was held from 2 Oct 2026 and is no longer served. `raw.txt` in this folder is that old download, kept here only as a record.
+> Everything below documents the previous source (Jason Colavito's adaptation), whose rights were not cleared for Tinct; that text was held from 2 Oct 2026 and is no longer served.
+>
+> **`raw.txt` removed on 18 Nov 2026** (Anders). It was the old Colavito web page (HTML, 446,264 bytes, sha256 `be5bedc7fbf3f91ad85225783394ba908c6622bc8c29d89e10c12396c7a28929`), not a source of the current text, and no script or check read it. It stays in the Git history before that date. The Thompson source is traceable without it: `books/wip/gilgamesh-thompson/extracts/download-manifest.json` records the archive.org URLs and sha256 of the scan PDF (`aa17040e…f7584b9`), its OCR text (kept as `extracts/thompson-1928-djvu-ocr.txt`) and the page-number file; `provenance-map.json` locates every paragraph on Thompson's printed pages.
 
 ## Previous source (no longer served)
 

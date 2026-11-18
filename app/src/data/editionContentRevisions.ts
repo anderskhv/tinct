@@ -32,7 +32,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     editions: {
       'original-en': {
         before: '1c9886e2b341187c3dd2b0e4fbcbfc285e65f7631ae6944d094424ac50ef31cc',
-        after: '13a06194f842eece71b770b4557bbcf6eca5c251610c5a83140b36c1a5c769ce',
+        after: '2a91b1e1f3c7180dbb1d02360dceda6c3c7f0ca836685dc40a91fb82c6125b38',
       },
       'modern-en': {
         before: '419a43b05bfcbf84dce9f1948158a8f3d34a4b6dc41c93767c827aede87ad63c',
