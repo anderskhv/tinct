@@ -551,24 +551,6 @@
     },
     {
      "paragraph": 6,
-     "source": "TH-HIT",
-     "printedPages": "pp. 31",
-     "locator": "Col. VI (The Fight with Humbaba), supplied by Thompson from the Hittite version, ll. 1-11; RIGHTS FLAG: Thompson’s footnote: “Translation from J. Friedrich, Alter Orient, 25, 2. 31, and Ungnad, Kulturfragen, 4-5, 20”; Thompson’s note that Columns IV-V are lost is recorded in provenance",
-     "kind": "thompson-verse",
-     "words": 80,
-     "rightsFlag": "FRIEDRICH: Thompson's English of the Hittite version is credited by him as 'Translation from J. Friedrich ... and Ungnad' (Friedrich d.1972). Isolated paragraph; can be dropped from all editions without affecting neighbours."
-    },
-    {
-     "paragraph": 7,
-     "source": "TH-HIT",
-     "printedPages": "pp. 31",
-     "locator": "Col. VI 12-27, from the Hittite version; RIGHTS FLAG as above (Friedrich, Ungnad); Thompson notes that the Hittite version breaks off here",
-     "kind": "thompson-verse",
-     "words": 153,
-     "rightsFlag": "FRIEDRICH: Thompson's English of the Hittite version is credited by him as 'Translation from J. Friedrich ... and Ungnad' (Friedrich d.1972). Isolated paragraph; can be dropped from all editions without affecting neighbours."
-    },
-    {
-     "paragraph": 8,
      "source": "TH-A",
      "printedPages": "pp. 31",
      "locator": "Assyrian Version, end of the Fifth Tablet; Thompson notes the Assyrian version ends with six badly mutilated lines, of which the last tells the successful issue of the expedition",
@@ -733,15 +715,6 @@
     },
     {
      "paragraph": 2,
-     "source": "TH-HIT",
-     "printedPages": "pp. 36-37",
-     "locator": "Thompson’s note: remainder of Col. I supplied from the Hittite version; RIGHTS FLAG: Thompson’s footnote “Translation by Friedrich, and Ungnad”",
-     "kind": "thompson-printed-note-with-translated-lines",
-     "words": 181,
-     "rightsFlag": "FRIEDRICH: Thompson's English of the Hittite version is credited by him as 'Translation from J. Friedrich ... and Ungnad' (Friedrich d.1972). Isolated paragraph; can be dropped from all editions without affecting neighbours."
-    },
-    {
-     "paragraph": 3,
      "source": "TH-A",
      "printedPages": "pp. 37",
      "locator": "Thompson’s note on Col. II (entirely lost) and the next fragment: Enkidu’s curse on the hetaera, Assyrian Version fragments quoted in the note",
@@ -749,7 +722,7 @@
      "words": 220
     },
     {
-     "paragraph": 4,
+     "paragraph": 3,
      "source": "TH-A",
      "printedPages": "pp. 37",
      "locator": "Assyrian Version, Col. III 30-31 (The End of Enkidu’s curse on the Hetaera)",
@@ -757,7 +730,7 @@
      "words": 26
     },
     {
-     "paragraph": 5,
+     "paragraph": 4,
      "source": "TH-A",
      "printedPages": "pp. 37-38",
      "locator": "Assyrian Version, Col. III 32-47 (The Answer of Shamash)",
@@ -765,7 +738,7 @@
      "words": 171
     },
     {
-     "paragraph": 6,
+     "paragraph": 5,
      "source": "TH-A",
      "printedPages": "pp. 38",
      "locator": "Assyrian Version, Col. III 48-49; gap note: one or two lines missing",
@@ -773,7 +746,7 @@
      "words": 19
     },
     {
-     "paragraph": 7,
+     "paragraph": 6,
      "source": "TH-A",
      "printedPages": "pp. 38",
      "locator": "Assyrian Version, Col. IV 1-10 (Enkidu, relenting, regrets his curse, and blesses the Hetaera)",
@@ -781,7 +754,7 @@
      "words": 105
     },
     {
-     "paragraph": 8,
+     "paragraph": 7,
      "source": "TH-A",
      "printedPages": "pp. 38",
      "locator": "Assyrian Version, Col. IV 11-21 (Enkidu, sorrowful at his approaching end, sleeps alone and dreams); Thompson notes a gap of perhaps three lines before the description of the Underworld",
@@ -789,7 +762,7 @@
      "words": 107
     },
     {
-     "paragraph": 9,
+     "paragraph": 8,
      "source": "TH-A",
      "printedPages": "pp. 39",
      "locator": "Assyrian Version, Col. IV 33-50; Thompson notes that the text here breaks off",
@@ -1388,5 +1361,40 @@
     }
    ]
   }
- ]
+ ],
+ "droppedParagraphs": {
+  "decision": "Dropped at integration on 18 Nov 2026, as Anders approved on 17 Nov 2026 (EU life+70: Johannes Friedrich d. 1972). Removed from original-en, modern-en and modern-da at the same index; the later paragraphs of Tablets V and VII move up (Tablet V: 8 -> 6 paragraphs, Tablet VII: 9 -> 8).",
+  "paragraphs": [
+   {
+    "tablet": 5,
+    "formerParagraph": 6,
+    "source": "TH-HIT",
+    "printedPages": "pp. 31",
+    "locator": "Col. VI (The Fight with Humbaba), supplied by Thompson from the Hittite version, ll. 1-11; RIGHTS FLAG: Thompson’s footnote: “Translation from J. Friedrich, Alter Orient, 25, 2. 31, and Ungnad, Kulturfragen, 4-5, 20”; Thompson’s note that Columns IV-V are lost is recorded in provenance",
+    "kind": "thompson-verse",
+    "words": 80,
+    "rightsFlag": "FRIEDRICH: Thompson's English of the Hittite version is credited by him as 'Translation from J. Friedrich ... and Ungnad' (Friedrich d.1972). Isolated paragraph; can be dropped from all editions without affecting neighbours."
+   },
+   {
+    "tablet": 5,
+    "formerParagraph": 7,
+    "source": "TH-HIT",
+    "printedPages": "pp. 31",
+    "locator": "Col. VI 12-27, from the Hittite version; RIGHTS FLAG as above (Friedrich, Ungnad); Thompson notes that the Hittite version breaks off here",
+    "kind": "thompson-verse",
+    "words": 153,
+    "rightsFlag": "FRIEDRICH: Thompson's English of the Hittite version is credited by him as 'Translation from J. Friedrich ... and Ungnad' (Friedrich d.1972). Isolated paragraph; can be dropped from all editions without affecting neighbours."
+   },
+   {
+    "tablet": 7,
+    "formerParagraph": 2,
+    "source": "TH-HIT",
+    "printedPages": "pp. 36-37",
+    "locator": "Thompson’s note: remainder of Col. I supplied from the Hittite version; RIGHTS FLAG: Thompson’s footnote “Translation by Friedrich, and Ungnad”",
+    "kind": "thompson-printed-note-with-translated-lines",
+    "words": 181,
+    "rightsFlag": "FRIEDRICH: Thompson's English of the Hittite version is credited by him as 'Translation from J. Friedrich ... and Ungnad' (Friedrich d.1972). Isolated paragraph; can be dropped from all editions without affecting neighbours."
+   }
+  ]
+ }
 }

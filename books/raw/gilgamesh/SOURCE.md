@@ -1,5 +1,11 @@
 # Source: Epic of Gilgamesh
 
+> **Replaced on 2026-11-18.** The live text is now R. Campbell Thompson, *The Epic of Gilgamish* (London: Luzac, 1928), transcribed from the page images of archive.org item `thompson-1928-gilgamesh`, with fresh Tinct modern English and modern Danish renderings. Source, rights evidence, per-paragraph provenance and gates: `books/wip/gilgamesh-thompson/` (SOURCE.md, provenance-map.json, gates-last-run.txt). Thompson's three paragraphs of the Hittite version, which he credits as translated from J. Friedrich (d. 1972) and A. Ungnad, are left out (Anders, 17 Nov 2026).
+>
+> Everything below documents the previous source (Jason Colavito's adaptation), whose rights were not cleared for Tinct; that text was held from 2 Oct 2026 and is no longer served. `raw.txt` in this folder is that old download, kept here only as a record.
+
+## Previous source (no longer served)
+
 **URL:** https://www.jasoncolavito.com/epic-of-gilgamesh.html
 
 **Translator/Adapter:** Jason Colavito (modernized adaptation based on multiple public domain translations)
