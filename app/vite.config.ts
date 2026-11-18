@@ -160,7 +160,11 @@ export default defineConfig(({ mode, command }) => {
           // with it (LabApp waits for it briefly); fetch it beside the bundle.
           const hyphenation = Object.values(ctx.bundle ?? {}).filter(chunk => chunk.type === 'chunk'
             && chunk.moduleIds.some(id => /[\\/]node_modules[\\/](?:hypher|hyphenation\.en-us)[\\/]/.test(id)))
+          // The /try page's reader (/reader?demo=try): on the dev server its demo script goes first, as the Worker
+          // adds it in production (worker/routes/seo.ts withTryDemo); the built app.html never carries it.
+          const tryDemo = command !== 'build' && /[?&]demo=try(?:&|$)/.test(ctx.originalUrl || '')
           return [
+            ...(tryDemo ? [{ tag: 'script', attrs: { src: '/lab/try/reader-demo.js' }, injectTo: 'head-prepend' as const }] : []),
             { tag: 'script', attrs: { src }, injectTo: 'head-prepend' },
             ...hyphenation.map(chunk => ({ tag: 'link', attrs: { rel: 'modulepreload', crossorigin: true, href: `/${chunk.fileName}` }, injectTo: 'head' as const })),
           ]
@@ -294,6 +298,8 @@ export default defineConfig(({ mode, command }) => {
             '/index.html': '/lab/library_2/index.html',
             '/library': '/lab/library_2/index.html',
             '/library/': '/lab/library_2/index.html',
+            // The unlisted Try page (the Worker's serveTryPage; its signed-in redirect is the page's head script here).
+            '/try': '/try.html',
             // Social (ship 3): the Worker serves this only while SOCIAL_FRIENDS is on.
             '/admin/social': '/lab/admin-social/index.html',
             // The PDF reader's folder page, as the Worker's assets serve it (the margin preview frames it).
