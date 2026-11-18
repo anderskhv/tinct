@@ -6,7 +6,7 @@
   "preparedFromBranch": "dd7d22437633d57d624f18ff93cd88f33845857c",
   "integratedOnMain": "34d0a656ce95b73577acee574a336bb884ecd4cf",
   "reconciliation": "Every current-main file still had MANIFEST.json currentMainSha256 (inspected main b02c2c9ad4); nothing on main changed since the package was inspected, so no newer fix needed preserving. Every candidate matched its candidateSha256 (four Danish files only after canonical serialization: indent 2, UTF-8, final newline, which is the form published here).",
-  "releasedAtNote": "Edition releasedAt is pinned at 2026-11-20T00:00:00Z. Re-pin it to the actual go-live if the merge lands later; it must not be earlier than the deploy.",
+  "releasedAtNote": "Edition releasedAt re-pinned at merge to 2026-11-19T00:30:00Z, just after the expected go-live. Re-pin it if the merge lands later; it must not be earlier than the deploy.",
   "books": {
     "antigone": {
       "enabled": true,

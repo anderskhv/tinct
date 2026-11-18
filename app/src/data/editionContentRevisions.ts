@@ -22,109 +22,133 @@ export interface ContentRelease {
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   'oedipus-rex': {
     revision: 'text-2026-11-18.oedipus-rex.1',
-    releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-19T00:30:00Z'),
     editions: {
       'modern-en': {
         // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: 'f96170b779e2c9faf1050b0ad4fa43222dc42ab4f96b2b58a5c372e09dc21281',
         after: 'bff7b3623105bcdab947887fe96a9d345b1f181047babca3d7f98753e3092cb0',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
       'modern-da': {
         // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: 'bd607d8644de54d136ec2b81a65dcfc6050963d959b09d745ee850ada8a1537a',
         after: '08d3761beed61d8f6c5c447c4c6947965e608470aab4f5aaa69a85715beed4a6',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
     },
   },
   'oedipus-at-colonus': {
     revision: 'text-2026-11-18.oedipus-at-colonus.1',
-    releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-19T00:30:00Z'),
     editions: {
       'modern-en': {
         // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: '5c18460809bf2eacfd1d3f17e5f31b7959f2fada81ddccc59a3588ba92683a7b',
         after: '504bfd4b248fbcd28039960c0317971f749e8ae53c9da2579473313aef55fbdc',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
       'modern-da': {
         // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: '04a3c0a06f626a6508b1ae3d03b53acb4bb1016e26e964437b4bfda007c44885',
         after: '0f0138a4c905e8cc093cf39816800ff4451c0c97d6a4a9b16310f63e23c72e09',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
     },
   },
   'frederick-douglass': {
     revision: 'text-2026-11-18.frederick-douglass.1',
-    releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-19T00:30:00Z'),
     editions: {
       'modern-en': {
         // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: '695db129557f339345670d8ea3abeceae6625101d91c530891ee303fe8321b0b',
         after: 'd2a317207f5b82fd244eeb586063311bf431f57397439f7231424253e90755cc',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
       'modern-da': {
         // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: '45495079dc5f8ac4ce50d97bd56b9d4eab9f8117cf6218e85f114daa56a33bfe',
         after: '3daadad3e856be1d3eddc253d42e92e5d3b4414726e32517b3b768b4d138bd4b',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
     },
   },
   'frankenstein': {
     revision: 'text-2026-11-18.frankenstein.1',
-    releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-19T00:30:00Z'),
     editions: {
       'modern-en': {
         // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: 'a99352b3bf5f9d1f7a78970b658f2a35722a2b5031d4037a398d284c6ab390ff',
         after: 'c497bc60fc7ad0ffc6de74df2c47d7eace252f5c27243c36010183756d706cd0',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
       'modern-da': {
         // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: 'f52630181990e7aefcdbd89f4cf76ae1f25e1c336108f8c76b8796b4ecdeeda9',
         after: 'e6081d9a3c54cb55edf800d8f56c2573bf881224992ffdcc2255556572d11dff',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
     },
   },
   'candide': {
     revision: 'text-2026-11-18.candide.1',
-    releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-19T00:30:00Z'),
     editions: {
       'modern-en': {
         // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: 'e7fd2a802ac233b8598ddccbb03cef8a4fc422fba2d67f6aa0387bee80ba2b25',
         after: '2c4c48b957428ba8a801f224863613127b35684a112778c6c11663ed492de1c6',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
       'modern-da': {
         // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: '5d461138e1b097dd40dadb76aedf108ec8e7efea4f19eb3d935af20a44d4e90d',
         after: 'c6216fed5f3e07bf004b74043c2540bfcc641789776a7f9d4d8769a429de10b0',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
     },
   },
   'antigone': {
     revision: 'text-2026-11-18.antigone.1',
-    releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-19T00:30:00Z'),
     editions: {
       'modern-en': {
         // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: '923ec3c1b9bcc3e1c2ddeeae4b6e65e4a1dfd72a425f769f02ff12565cdd05ff',
         after: 'b6fe87351be805a9f9aa384cd298cf71066e4df1b0f23531eab27c6fe03f4c6b',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
       'modern-da': {
         // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: '5bfac8c577539e955a8375d4d5db11ff1e4e46e98d47fcdb564f79cee06c5dbb',
         after: 'c3f6b3b066f305d3088835e13a148b6b0b0c7882b1594fa175ff7644f29c086d',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
+      },
+    },
+  },
+  // Whole text replaced by R. Campbell Thompson's 1928 translation and fresh
+  // Tinct modern editions (books/wip/gilgamesh-thompson). Unrelated wording and
+  // paragraphing: the maps (app/scripts/build-replacement-migration.py) move a
+  // saved place proportionally within its tablet; highlights stay recoverable.
+  // The book was held from 2 Oct 2026, so every unstamped record predates the
+  // new text; move releasedAt past the deploy time if the release slips.
+  gilgamesh: {
+    revision: 'text-2026-11-18.gilgamesh.1',
+    releasedAt: Date.parse('2026-11-18T23:45:00Z'),
+    editions: {
+      'original-en': {
+        before: '1c9886e2b341187c3dd2b0e4fbcbfc285e65f7631ae6944d094424ac50ef31cc',
+        after: '2a91b1e1f3c7180dbb1d02360dceda6c3c7f0ca836685dc40a91fb82c6125b38',
+      },
+      'modern-en': {
+        before: '419a43b05bfcbf84dce9f1948158a8f3d34a4b6dc41c93767c827aede87ad63c',
+        after: '1641d807941a9480512f1324869e8abcb635fb31aaff0d2d659eb88985d896d0',
+      },
+      'modern-da': {
+        before: '70a40c3d7e96da38870fda747ccf3d7bd7fb5c111271547fd22ef88385231094',
+        after: '3469ed8fc8cc6ccc3f832e01bcf9fa81dfaaa9edac39ddc16c40983535d3aa56',
       },
     },
   },
@@ -498,14 +522,14 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: 'f108ea298f97f055749347e71a5bfbe55398409c79b4162e7691735331677c6f',
         after: '19f61cb36d682f16612d45fad0e21df3efb5374027ce4de3f354d5dfadb3eceb',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
         previous: [{ before: '72ca79453b9a485fa0a8277df452809dba80b87ecaf6985121e020ef51d30a9c', releasedAt: Date.parse('2026-10-21T12:00:00Z') }],
       },
       'modern-da': {
         // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: '4e1dc72f97f6c9ac48a3d65e98f1de0f0d85d6f7bf3d3f03083c2299b2b9e71e',
         after: 'ce64080afa9ae08ae6418eab8b81dcaa56dc799b3cd022b31fe760817b94bd2e',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
     },
   },
@@ -558,7 +582,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: '5654b6b12c596775fe92516cbf5c5c609087cbb787987870548fcd8159cf96fe',
         after: 'a2b99346d4852b2345442d9bec04538eac00268a566dcbd3d91c015d8ff09a18',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
     },
   },
@@ -570,14 +594,14 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: 'abcf3c20a7d0b42c15ad3196032cea5a14a113f8cecea35c70d5af8023d4aebf',
         after: 'e631c9d999c9cfaadd245049f768917beab19374b59c56fede8acf43c8777a76',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
         previous: [{ before: '169c288c26f0c8c07be6d181855123cd982023a0b780262576944f5833afa435', releasedAt: Date.parse('2026-10-01T09:00:00Z') }],
       },
       'modern-da': {
         // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-01).
         before: 'b0d43952a120819a451538113d82947f922ddaba0535257fb19bd909ba834444',
         after: '47ec0ed6c5ff447a6c2a2b464a5b107a7414e9121330a6eb43cf76244720191e',
-        releasedAt: Date.parse('2026-11-20T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-19T00:30:00Z'),
       },
     },
   },

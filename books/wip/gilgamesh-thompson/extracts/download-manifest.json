@@ -1,0 +1,38 @@
+{
+ "retrieved": "2026-11-16",
+ "item": "https://archive.org/details/thompson-1928-gilgamesh",
+ "metadata_api": "https://archive.org/metadata/thompson-1928-gilgamesh",
+ "files": [
+  {
+   "name": "Thompson_1928_Gilgamesh.pdf",
+   "url": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh.pdf",
+   "sha256": "aa17040edb5be7699084e02442aed767dda38f4a5298952b0820b4c68f7584b9",
+   "bytes": 2156159,
+   "kept_in_repo": false,
+   "note": "Google Books scan, 59 pages; page images (rendered with pdftoppm at 100 dpi) were the primary transcription source. Printed page = PDF page + 2."
+  },
+  {
+   "name": "Thompson_1928_Gilgamesh_djvu.txt",
+   "url": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+   "sha256": "f519c05869fa472f7817afef9b0e540b2ad4e937124810d648a6ecd5acbe19c4",
+   "kept_in_repo": "extracts/thompson-1928-djvu-ocr.txt",
+   "note": "Internet Archive tesseract OCR; used to cross-check the transcription"
+  },
+  {
+   "name": "Thompson_1928_Gilgamesh_page_numbers.json",
+   "url": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_page_numbers.json",
+   "sha256": "2c8e3da42b0a9bdbf342f7f9d4d93dad389b9433625c699579f79f69b50f287f",
+   "kept_in_repo": false
+  },
+  {
+   "name": "pdf text layer (pdftotext -layout of the PDF above)",
+   "sha256": "825099ae9ebd09cbac7d08cb06a1d6cdb5a6359d0073e99b864b5daf3aec4457",
+   "kept_in_repo": false,
+   "note": "second OCR layer used for the trigram check"
+  }
+ ],
+ "not_used": [
+  "epicgilgamish0000rcam (Thompson 1930 text edition) was not needed: the 1928 scan is complete and legible on all 53 text pages",
+  "The uploader notes that an HTML of N. K. Sandars' prose translation (in copyright) is attached to the PDF; it was not opened, extracted or used. Only the page images and the two OCR layers of Thompson's printed pages were used."
+ ]
+}

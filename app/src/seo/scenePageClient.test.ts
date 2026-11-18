@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 ;(globalThis as { __tinctSceneNoStart?: boolean }).__tinctSceneNoStart = true
-const { attributionParams, readerHandoffHref, selectionToWords, startScenePage, withAttribution, wordSpans } = await import('./scenePageClient')
+const { attributionParams, createSceneDuration, readerHandoffHref, SCENE_BEAT_MS, selectionToWords, startScenePage, withAttribution, wordSpans } = await import('./scenePageClient')
 const { renderScenePage } = await import('./scenePages')
 const { parseSceneHandoff } = await import('../lab/labSceneHandoff')
 
@@ -91,5 +91,38 @@ describe('scene page client', () => {
     document.querySelector<HTMLButtonElement>('button[data-scene-action="appearance"]')!.click()
     expect(parseSceneHandoff(new URL(assign.mock.calls[1][0], 'https://tinct.app').hash)).toEqual({ action: 'appearance' })
     vi.unstubAllGlobals()
+  })
+})
+
+describe('scene page visible time (page_duration, the reader\'s rules)', () => {
+  const setup = (visibleAtStart = true) => {
+    let now = 0
+    let beat: (() => void) | null = null
+    const reports: number[] = []
+    const duration = createSceneDuration({ now: () => now, visible: () => visibleAtStart, report: ms => reports.push(ms), every: fn => { beat = fn } })
+    return { duration, reports, advance: (ms: number) => { now += ms }, beat: () => beat?.() }
+  }
+
+  it('reports the visible time when the page is hidden, and starts again when it comes back', () => {
+    const t = setup()
+    t.advance(42_000); t.duration.visibility(false)
+    t.advance(600_000) // hidden time does not count
+    t.duration.visibility(true); t.advance(8_000); t.duration.visibility(false)
+    expect(t.reports).toEqual([42_000, 8_000])
+  })
+
+  it('reports every five minutes while the page stays open, then the rest on hide', () => {
+    const t = setup()
+    expect(SCENE_BEAT_MS).toBe(5 * 60_000)
+    t.advance(SCENE_BEAT_MS); t.beat()
+    t.advance(30_000); t.duration.visibility(false)
+    expect(t.reports).toEqual([SCENE_BEAT_MS, 30_000])
+  })
+
+  it('drops less than a second and counts nothing for a page opened in the background', () => {
+    const quick = setup(); quick.advance(400); quick.duration.visibility(false)
+    expect(quick.reports).toEqual([])
+    const background = setup(false); background.advance(90_000); background.beat(); background.duration.visibility(false)
+    expect(background.reports).toEqual([])
   })
 })

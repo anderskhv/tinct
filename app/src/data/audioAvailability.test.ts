@@ -42,8 +42,8 @@ describe('reversible edition discovery availability', () => {
     // symposium and second-treatise leave discovery (94 -> 89); 93 with the
     // four books published 2026-10-03; 98 with the five Conjecture books;
     // 100 with Grimm and the Arabian Nights; 101 with The Master and Margarita.
-    // 102 with Pinocchio.
-    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(102)
+    // 102 with Pinocchio. 103 with Gilgamesh back (Thompson's 1928 text, 2026-11-18).
+    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(103)
     for (const id of manifest.held_books) {
       expect(isBookDiscoverable(id)).toBe(id === 'faust-part-1')
       const book = PRE_READER_CATALOGUE.booksById.get(id)!

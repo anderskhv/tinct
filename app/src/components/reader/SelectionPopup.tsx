@@ -547,8 +547,8 @@ export function SelectionPopup({
         <div className="popup-character">
           <div className="popup-character-heading"><button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button></div>
           {popupMode === 'character' && card && <>
-            <h2>{card.name}</h2>
-            {roleLabel && <small>{roleLabel}</small>}
+            {/* "Mary Magdalene · Major figure": the name and its role on one line, as a definition's headword (Anders, 18 Nov 2026). */}
+            <h2 className="popup-character-name">{card.name}<HeadwordLabel label={roleLabel ?? ''} /></h2>
             {card.subtitle && !subtitleRepeatsBody(card.subtitle, card.body) && <p className="popup-character-subtitle">{card.subtitle}</p>}
             <p>{card.body}</p>
 
