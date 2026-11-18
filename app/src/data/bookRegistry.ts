@@ -123,7 +123,7 @@ export const WAR_AND_PEACE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -859,6 +859,7 @@ export const THE_REPUBLIC: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1012,6 +1013,7 @@ export const THE_AENEID: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1858,6 +1860,7 @@ export const ORESTEIA: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2933,6 +2936,7 @@ export const WALDEN: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }

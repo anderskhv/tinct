@@ -28,6 +28,13 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'medea/modern-da',
   'meditations/modern-da',
   'middlemarch/modern-da',
+  // Recovered Danish batch 03, 18 Nov 2026 (books/wip/danish-recovered-batch-03).
+  'oresteia/modern-da',
+  'the-aeneid/modern-da',
+  'the-republic/modern-da',
+  'walden/modern-da',
+  'war-and-peace/modern-da',
+  // End of batch 03.
   'the-art-of-war/modern-da',
   'the-manual/modern-da',
   'wuthering-heights/modern-da',
