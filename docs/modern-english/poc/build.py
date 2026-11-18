@@ -51,16 +51,20 @@ FEATURED = [
     ('frankenstein', 'Mary Shelley\u2019s', 'What do we owe to the intelligence we create?'),
 ]
 
+def era(b):
+    y = b.get('ySort') or 0
+    return 'ancient' if y < 500 else 'medieval' if y < 1500 else 'early' if y < 1700 else '1700s' if y < 1800 else '1800s' if y < 1900 else '1900s'
+
 def card(b, big=False):
     q = esc((b['title'] + ' ' + b['author']).lower())
     hook = f'<span class="hook">{esc(b.get("blurb"))}</span>' if big and b.get('blurb') else ''
-    return (f'<li class="card{" big" if big else ""}" data-q="{q}"><a href="{link(b)}">'
+    return (f'<li class="card{" big" if big else ""}" data-q="{q}" data-era="{era(b)}"><a href="{link(b)}">'
             f'<img src="covers/{b["id"]}.webp" alt="{esc(b["title"])} by {esc(b["author"])}" width="300" height="450" loading="lazy">'
             f'<span class="t">{esc(b["title"])}</span>{hook}'
             f'<span class="s">{esc(source(b))}</span></a></li>')
 
 reels = ''.join(
-    f'<section class="shelf" data-shelf><h2>{esc(title)} <span>{len(groups[hid])}</span></h2><ul class="reel">{"".join(card(b) for b in groups[hid])}</ul></section>'
+    f'<section class="shelf" data-shelf data-house="{hid}"><h2>{esc(title)} <span>{len(groups[hid])}</span></h2><ul class="reel">{"".join(card(b) for b in groups[hid])}</ul></section>'
     for hid, title in HOUSES if groups.get(hid))
 
 N = len(books)
@@ -96,8 +100,9 @@ a {{ color: inherit; text-decoration: none }}
 .pad {{ padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }}
 .inner {{ max-width: 1240px; margin: 0 auto }}
 
-.opening {{ position: relative; background: url("scenes/meditations-phone.jpg") center / cover no-repeat }}
-.opening::before {{ content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,8,6,0.85), rgba(10,8,6,0.35)); pointer-events: none }}
+.opening {{ position: relative; overflow: hidden }}
+.bg {{ position: absolute; inset: -40px; background: url("scenes/meditations-phone.jpg") center / cover no-repeat; filter: blur(14px) brightness(0.8) }}
+.opening::before {{ content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(90deg, rgba(10,8,6,0.85), rgba(10,8,6,0.35)); pointer-events: none }}
 .opening::after {{ content: ""; position: absolute; inset: auto 0 0; height: 120px; background: linear-gradient(transparent, var(--room)); pointer-events: none }}
 .bar, .top {{ position: relative; z-index: 1 }}
 .bar {{ padding-block: 14px }}
@@ -118,17 +123,23 @@ h1 {{ font: 600 clamp(32px, 5vw, 54px)/1.06 var(--display); margin: 0; text-wrap
 .results img {{ width: 36px; height: 54px; object-fit: cover; border-radius: 2px; flex: none }}
 .results .rt {{ font: 500 17px/1.2 var(--book); display: block }} .results .rs {{ font: italic 13px var(--book); color: var(--faint); display: block }}
 .results .empty {{ padding: 10px; font: 16px var(--book); color: var(--dim) }}
+.pills {{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; max-width: 560px }}
+.pills button {{ height: 34px; padding: 0 14px; border-radius: 17px; border: 0; background: rgba(20,17,13,0.55); color: var(--dim); font: 14px var(--ui); box-shadow: inset 0 0 0 1px rgba(239,232,219,0.22); cursor: pointer }}
+.pills button:hover {{ color: var(--text) }}
+.pills button[aria-pressed="true"] {{ background: var(--text); color: var(--room); box-shadow: none }}
+.pills button:focus-visible {{ outline: 2px solid var(--text); outline-offset: 2px }}
+.pills .sep {{ flex-basis: 100%; height: 0 }}
 .pile {{ list-style: none; margin: 0; padding: 0; display: flex; gap: 10px; overflow-x: auto }}
 .pile li {{ flex: none }}
 .pile img {{ width: 92px; height: auto; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 3px; box-shadow: 0 14px 30px rgba(0,0,0,0.6); display: block }}
 .pile a:focus-visible, .card a:focus-visible, .results a:focus-visible {{ outline: 2px solid var(--text); outline-offset: 3px }}
 @media (min-width: 900px) {{
-  .opening {{ background-image: url("scenes/meditations-wide.jpg") }}
-  .top {{ grid-template-columns: minmax(0, 1fr) auto; padding-block: 80px 90px }}
-  .pile {{ overflow: visible; padding-right: 30px }}
-  .pile li {{ margin-left: -34px }} .pile li:first-child {{ margin-left: 0 }}
+  .bg {{ background-image: url("scenes/meditations-wide.jpg") }}
+  .top {{ grid-template-columns: minmax(400px, 5fr) minmax(0, 6fr); padding-block: 80px 90px }}
+  .pile {{ overflow: visible; padding-right: 20px; gap: 0 }}
+  .pile li {{ flex: 1 1 0; min-width: 0; margin-left: -4% }} .pile li:first-child {{ margin-left: 0 }}
   .pile li:nth-child(odd) {{ transform: translateY(18px) rotate(-2deg) }} .pile li:nth-child(even) {{ transform: rotate(2deg) }}
-  .pile img {{ width: 150px }}
+  .pile img {{ width: 100%; max-width: 170px }}
   @media (prefers-reduced-motion: no-preference) {{ .pile li {{ transition: transform .2s }} .pile li:hover {{ transform: translateY(-8px); z-index: 2; position: relative }} }}
 }}
 .shelves {{ padding-block: 8px 20px }}
@@ -165,6 +176,7 @@ footer .inner {{ display: flex; flex-wrap: wrap; gap: 8px 20px }}
 </style>
 
 <div class="opening">
+  <div class="bg" aria-hidden="true"></div>
   <div class="pad"><div class="inner top">
     <div class="claim">
       <h1>The classics, in plain modern English.</h1>
@@ -174,6 +186,11 @@ footer .inner {{ display: flex; flex-wrap: wrap; gap: 8px 20px }}
         <label for="q" class="sr">Search the books</label>
         <input id="q" type="search" placeholder="Search {N} books" autocomplete="off" aria-controls="results" aria-expanded="false">
         <ul id="results" class="results" hidden></ul>
+      </div>
+      <div class="pills" role="group" aria-label="Filter the shelves">
+        {"".join(f'<button type="button" data-k="house" data-v="{hid}">{esc(t)}</button>' for hid, t in [('philosophy','Philosophy'),('drama','Drama'),('novel','Fiction'),('epic','Poetry'),('politics','Politics')])}
+        <span class="sep" aria-hidden="true"></span>
+        {"".join(f'<button type="button" data-k="era" data-v="{v}">{t}</button>' for v, t in [('ancient','Ancient'),('medieval','Medieval'),('early','1500s–1600s'),('1700s','1700s'),('1800s','1800s'),('1900s','1900s')])}
       </div>
     </div>
     <ul class="pile">{"".join(f'<li><a href="{link(by_id[i])}"><img src="covers/{i}.webp" alt="{esc(by_id[i]["title"])}" width="300" height="450"></a></li>' for i in START)}</ul>
@@ -220,6 +237,21 @@ var BOOKS = BOOKS_JSON;
     if (e.key === 'Escape') { q.value = ''; render(); }
   });
   document.addEventListener('click', function (e) { if (!e.target.closest('.search')) list.hidden = true; });
+  var pick = { house: null, era: null };
+  var pills = Array.prototype.slice.call(document.querySelectorAll('.pills button'));
+  var shelves = Array.prototype.slice.call(document.querySelectorAll('[data-shelf]'));
+  pills.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); b.addEventListener('click', function () {
+    var k = b.dataset.k, v = b.dataset.v; pick[k] = pick[k] === v ? null : v;
+    pills.forEach(function (o) { o.setAttribute('aria-pressed', String(pick[o.dataset.k] === o.dataset.v)); });
+    var any = false;
+    shelves.forEach(function (sh) {
+      var n = 0, houseOk = !pick.house || sh.dataset.house === pick.house;
+      sh.querySelectorAll('.card').forEach(function (c) { var on = houseOk && (!pick.era || c.dataset.era === pick.era); c.hidden = !on; if (on) n++; });
+      sh.hidden = n === 0; if (n) any = true;
+    });
+    document.getElementById('none').hidden = any;
+    if (pick.house || pick.era) document.getElementById('shelves').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }); });
 })();
 </script>'''
 page = page + SCRIPT
