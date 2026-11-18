@@ -28,7 +28,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   // new text; move releasedAt past the deploy time if the release slips.
   gilgamesh: {
     revision: 'text-2026-11-18.gilgamesh.1',
-    releasedAt: Date.parse('2026-11-18T18:00:00Z'),
+    releasedAt: Date.parse('2026-11-18T23:45:00Z'),
     editions: {
       'original-en': {
         before: '1c9886e2b341187c3dd2b0e4fbcbfc285e65f7631ae6944d094424ac50ef31cc',
