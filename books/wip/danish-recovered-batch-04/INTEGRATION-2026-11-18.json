@@ -1,0 +1,766 @@
+{
+  "date": "2026-11-18",
+  "sourceBranch": "origin/handoff/danish-recovered",
+  "sourceCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+  "scope": "Every CONTENT_CHECKS_PASS record of CLAUDE-RELEASE-MASTER.md whose Danish edition is already live (27 books).",
+  "integratedOnMain": "39fffba205",
+  "reconciliation": "Each candidate was hash-compared with main (Danish body, paired English, both guides), then classified paragraph by paragraph against main's copy of the modern-da-quality package (books/wip/modern-da-quality-20261102, the source of #818) and its INTEGRATION-2026-11-13.json. The recovered-branch Danish bodies equal that package exactly; every remaining Danish difference is one of #818's 45 integration adjustments, which main keeps. Their English differences are the package's modern-en repairs, which #818 did not publish (\"they need their own English release\"); the English base each review started from equals main's live English, so they apply cleanly. Confessions and Middlemarch: the source snapshots in their folders equal main byte for byte (Confessions) or are main at a1ee0ffd with no later change (Middlemarch), so the recovered revisions replace nothing newer.",
+  "releasedAtNote": "Edition releasedAt is pinned at 2026-11-20T00:00:00Z, the placeholder of batches 01-03. Re-pin to the actual go-live at merge; it must not be earlier than the deploy.",
+  "books": {
+    "a-little-princess": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 2 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {
+        "gen": "app/public/data/onboarding/a-little-princess.json"
+      },
+      "danishSha256": "33f8e5b5a5434ce52ef48ba906d306ef130b43374fb48f72893ae0573598d40b",
+      "modernEnglishSha256": "4af55bb751cefb17c95a2d9cedae337ef1e26660fef67a1e816debca177c69b9",
+      "packageDanishSha256": "33f8e5b5a5434ce52ef48ba906d306ef130b43374fb48f72893ae0573598d40b",
+      "packageEnglishSha256": "4af55bb751cefb17c95a2d9cedae337ef1e26660fef67a1e816debca177c69b9",
+      "contentRelease": "text-2026-11-18.a-little-princess.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "c47540c17dd567bafe0934392b31a8d236e15e809244e419080e8abf3c4fa1b6",
+          "after": "4af55bb751cefb17c95a2d9cedae337ef1e26660fef67a1e816debca177c69b9",
+          "changedParagraphs": 2,
+          "previous": {
+            "5e359e936c37e8e79ea7738597da244b7356369558e59ada48fc0f32fde8a020": 1624
+          }
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "ce3adc75e9e7cba629e901c716b551933cd855e06d4cac830d261603dbc62571",
+          "after": "33f8e5b5a5434ce52ef48ba906d306ef130b43374fb48f72893ae0573598d40b",
+          "changedParagraphs": 1369,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/a-little-princess.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 2199,
+        "moved": 3,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording held in the 2 of 19 chapters whose text changed: [1, 10]"
+    },
+    "aristotle-politics": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 4 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {},
+      "danishSha256": "2dea810ddab3a318e58387d35e31cfa2d7e64e87b432f8e66dd238bd760270bf",
+      "modernEnglishSha256": "42af363809c2be2b66482d3ddbbe6c7330badd514cf2d264a9a8152a1ff2ea89",
+      "packageDanishSha256": "b96d0b6873fb9b219530f426c436cd321ce5c1063583d877ad56d0acc7093f77",
+      "packageEnglishSha256": "42af363809c2be2b66482d3ddbbe6c7330badd514cf2d264a9a8152a1ff2ea89",
+      "contentRelease": "text-2026-11-18.aristotle-politics.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "eec87f405113c665c38fd1edfc940a94c524c2c631a09c652e7fb21c0c05e511",
+          "after": "42af363809c2be2b66482d3ddbbe6c7330badd514cf2d264a9a8152a1ff2ea89",
+          "changedParagraphs": 4,
+          "previous": {
+            "8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224": 434
+          }
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "57d699612aa360b08a72c2a5c6c800e0eae6c838b69f91a648295c389d1865fa",
+          "after": "2dea810ddab3a318e58387d35e31cfa2d7e64e87b432f8e66dd238bd760270bf",
+          "changedParagraphs": 425,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/aristotle-politics.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 12,
+        "moved": 0,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording held in the 3 of 8 chapters whose text changed: [1, 4, 5]"
+    },
+    "around-the-world-80-days": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 20 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {
+        "gen": "app/public/data/onboarding/around-the-world-80-days.json"
+      },
+      "danishSha256": "202820448ffeab82bcdab08c525204c9a3c366054e330c6138fe4eca9ba1247c",
+      "modernEnglishSha256": "b0ed142aef04c14aa5ee56882a368318834d29338479b07d1a08ed9d1743f303",
+      "packageDanishSha256": "1160f17ca0942ac1e6621e9bf83704989f540629bf8adc03d40c398cba5556e1",
+      "packageEnglishSha256": "b0ed142aef04c14aa5ee56882a368318834d29338479b07d1a08ed9d1743f303",
+      "contentRelease": "text-2026-11-18.around-the-world-80-days.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "a2d94a65fb3f0a3872f105b6300e8c3ab4c61ca0ac84614822a17ff91c05f426",
+          "after": "b0ed142aef04c14aa5ee56882a368318834d29338479b07d1a08ed9d1743f303",
+          "changedParagraphs": 20,
+          "previous": {
+            "13b90c0526762af96d550fa512941dff043473c31c55efa877bb9465770745af": 1382
+          }
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "c6c87d873d08fb8dd98d8ab0e48619383dc0f97bab830c412b7c750df4150496",
+          "after": "202820448ffeab82bcdab08c525204c9a3c366054e330c6138fe4eca9ba1247c",
+          "changedParagraphs": 210,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/around-the-world-80-days.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 1940,
+        "moved": 12,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": [
+          "22:17 passepartout 'Passepartout'"
+        ]
+      },
+      "audio": "modern-en recording already held as a whole edition; nothing to hold (text changed in chapters [7, 8, 9, 10, 17, 18, 22, 25, 27, 29, 31, 33, 34, 36])."
+    },
+    "communist-manifesto": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 15 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; 6 paragraphs take the package text because the repaired English now needs it (see adjustments).",
+      "guides": {
+        "gen": "app/public/data/onboarding/communist-manifesto.json"
+      },
+      "danishSha256": "37f25a8c20457038539a95a416aaf8972954a6780ea7a6f8abe9f0749d6b638d",
+      "modernEnglishSha256": "9d8c931d1b35a483d17c990fa77bae81ace9d33706cbdba7ce184e149056cbf6",
+      "packageDanishSha256": "282d15ed200b1afc9c17dafd9c6fb0d43166bc64bab5c516e10698485bfb704b",
+      "packageEnglishSha256": "9d8c931d1b35a483d17c990fa77bae81ace9d33706cbdba7ce184e149056cbf6",
+      "contentRelease": "text-2026-11-18.communist-manifesto.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "5cccffe12e998383856f3d80ba64eddfb5371bbfe0b01cf04d0df503fe6760eb",
+          "after": "9d8c931d1b35a483d17c990fa77bae81ace9d33706cbdba7ce184e149056cbf6",
+          "changedParagraphs": 15,
+          "previous": {
+            "909c7496f66b1314666a2053ca056d1f2defc2cdf50ad44719208b38c153fc62": 201
+          }
+        },
+        "modern-da": {
+          "status": "new",
+          "before": "c4798893134511db4e2479af47f07436f2f73db2aadcc040048cff0e9cd84698",
+          "after": "37f25a8c20457038539a95a416aaf8972954a6780ea7a6f8abe9f0749d6b638d",
+          "changedParagraphs": 6,
+          "previous": {
+            "6c4fafb667b40f265943a6bb531a4246a92f7c47192c0e2247abc1e6a7c5485e": 180
+          }
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/communist-manifesto.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 10,
+        "moved": 0,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording held in the 3 of 5 chapters whose text changed: [2, 3, 4]"
+    },
+    "hume-enquiry": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 6 paragraphs and 1 chapter titles ([19]). #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {
+        "gen": "app/public/data/onboarding/hume-enquiry.json"
+      },
+      "danishSha256": "26db5929b2988232f5de6b6d074b2a0ffcd49c2e87925e0c4b6216aafba50cf6",
+      "modernEnglishSha256": "09c385a08b6a1b9bc470f0a1afb604f71e34b363e26bfdc11bbb1ab70971e531",
+      "packageDanishSha256": "ca667c5cf3c5a329db120745dd71da7f2165fb9eedce8738dfa2b78aed0ccbe0",
+      "packageEnglishSha256": "09c385a08b6a1b9bc470f0a1afb604f71e34b363e26bfdc11bbb1ab70971e531",
+      "contentRelease": "text-2026-11-18.hume-enquiry.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "cd8a4daab2bed38c816b79ca74c7d464bbcce9bcc2ef8e1a9ee1f374f0977633",
+          "after": "09c385a08b6a1b9bc470f0a1afb604f71e34b363e26bfdc11bbb1ab70971e531",
+          "changedParagraphs": 6,
+          "previous": {
+            "8b9b306e32e35f9047f4f5247d07562b601024e014d9e93a373e6104204d3290": 188
+          }
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "228687c99a0293b8c616763c55a336081117e47d5154ae2fe79ed86e5aa74f3a",
+          "after": "26db5929b2988232f5de6b6d074b2a0ffcd49c2e87925e0c4b6216aafba50cf6",
+          "changedParagraphs": 313,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/hume-enquiry.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 186,
+        "moved": 13,
+        "placedAgainNearby": [
+          "15:24 arnauld 'Amaud'@1746 -> 'Arnaud'@1746"
+        ],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording held in the 6 of 19 chapters whose text changed: [4, 7, 12, 15, 16, 19]"
+    },
+    "ivan-ilyich": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 5 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {},
+      "danishSha256": "3bbf6181daf6e268093ca9601e00b4b986585b789114b149221d88945d3246ac",
+      "modernEnglishSha256": "319f97002f1336873ee19c404e62614437cf57cd64db46862ee8443c6e6826d2",
+      "packageDanishSha256": "3bbf6181daf6e268093ca9601e00b4b986585b789114b149221d88945d3246ac",
+      "packageEnglishSha256": "e1e2f43ef5faa177afcdc5bd5f57c4ff5617daa5f818958738f4d2844bdadb28",
+      "contentRelease": "text-2026-11-18.ivan-ilyich.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "1bb15d1bc0758feadd7ccd239ecc5f8b87d53b9676915d4b3e222d9235e0d5a6",
+          "after": "319f97002f1336873ee19c404e62614437cf57cd64db46862ee8443c6e6826d2",
+          "changedParagraphs": 5,
+          "previous": {}
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "7b420f9e7d3d8a477ae024fb20aa0f8746a62aeec9839c42e007e0af9098093a",
+          "after": "3bbf6181daf6e268093ca9601e00b4b986585b789114b149221d88945d3246ac",
+          "changedParagraphs": 163,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/ivan-ilyich.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 458,
+        "moved": 2,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording already held as a whole edition; nothing to hold (text changed in chapters [3, 4, 12])."
+    },
+    "jungle-book": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 12 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {
+        "gen": "app/public/data/onboarding/jungle-book.json"
+      },
+      "danishSha256": "38ed0329dcd2cc276c51c3149e264c51430826336fca965e7ce329cb06b00f73",
+      "modernEnglishSha256": "3ab69e13379c0c3dd42d7f9d661d4641fbdbc460bbccf63b08e7dc499e0aae41",
+      "packageDanishSha256": "3917629327b6a1480a12697abd51c0244fc49c72195d37aadf2eaca3d3727e4f",
+      "packageEnglishSha256": "3ab69e13379c0c3dd42d7f9d661d4641fbdbc460bbccf63b08e7dc499e0aae41",
+      "contentRelease": "text-2026-11-18.jungle-book.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "9eaf20289bbc99281feeae0310ffb4f434c6808c6943b986df07722dcd9debd0",
+          "after": "3ab69e13379c0c3dd42d7f9d661d4641fbdbc460bbccf63b08e7dc499e0aae41",
+          "changedParagraphs": 12,
+          "previous": {
+            "821357c6bb7dc016b819f89fd9f857ffcc78b057f5718cf0e66068b3f249c640": 929
+          }
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "3e63c88be5d4ea74e09498608ba267fcee9d20f1293851584983299ced54470f",
+          "after": "38ed0329dcd2cc276c51c3149e264c51430826336fca965e7ce329cb06b00f73",
+          "changedParagraphs": 331,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/jungle-book.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 1591,
+        "moved": 6,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording held in the 5 of 7 chapters whose text changed: [1, 2, 4, 5, 6]"
+    },
+    "kant-groundwork": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 2 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {},
+      "danishSha256": "85cd0b815b9bccf03a0b1db825a9eb1281f2aba7a6bc948bda27fc8737ae0d5c",
+      "modernEnglishSha256": "49e357fe69f5a375f9cee57bc32f6e70c597671c632800ecf3590d6dc70731e5",
+      "packageDanishSha256": "85cd0b815b9bccf03a0b1db825a9eb1281f2aba7a6bc948bda27fc8737ae0d5c",
+      "packageEnglishSha256": "49e357fe69f5a375f9cee57bc32f6e70c597671c632800ecf3590d6dc70731e5",
+      "contentRelease": "text-2026-11-18.kant-groundwork.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "57c821d775792c3950f94a6d394e0d556310b21422e2c3bb2e6b63e77b249a9d",
+          "after": "49e357fe69f5a375f9cee57bc32f6e70c597671c632800ecf3590d6dc70731e5",
+          "changedParagraphs": 2,
+          "previous": {
+            "2ac2fce500388299d084ecf5b8e3be84c6f06bfc3747aa7262a4bacc7459d84d": 148
+          }
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "1ec3983ff14eba1aed249aae2c85a4c53fb79546a8db14acdd3b2b82a5039da6",
+          "after": "85cd0b815b9bccf03a0b1db825a9eb1281f2aba7a6bc948bda27fc8737ae0d5c",
+          "changedParagraphs": 179,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/kant-groundwork.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 10,
+        "moved": 0,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording held in the 2 of 4 chapters whose text changed: [1, 3]"
+    },
+    "meditations": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 6 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {
+        "gen": "app/public/data/onboarding/meditations.json"
+      },
+      "danishSha256": "2cbd0ad0a098c1a1c41b1be2d48f33eea585f75d6537652c0be0084403f5145a",
+      "modernEnglishSha256": "7537097e54b9f2c46514847ad69862cefce2fbfd039368718570644f766eb013",
+      "packageDanishSha256": "2cbd0ad0a098c1a1c41b1be2d48f33eea585f75d6537652c0be0084403f5145a",
+      "packageEnglishSha256": "a01029a9226e8cda8ff1bd7baf208e2015e9b455662c48c80e1956822bb9459b",
+      "contentRelease": "text-2026-11-18.meditations.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "4623d1191fbd1c09f9257acf7e73b49d5467e35fa0d9979e35c910bb24b9cc9f",
+          "after": "7537097e54b9f2c46514847ad69862cefce2fbfd039368718570644f766eb013",
+          "changedParagraphs": 6,
+          "previous": {}
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "c8abc04f4a30589f29c202be7182d220a0ff76b7165c674400884c0c3cfd773c",
+          "after": "2cbd0ad0a098c1a1c41b1be2d48f33eea585f75d6537652c0be0084403f5145a",
+          "changedParagraphs": 441,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/meditations.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 81,
+        "moved": 4,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording already held as a whole edition; nothing to hold (text changed in chapters [1, 5, 7, 8, 9])."
+    },
+    "phaedrus": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 11 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; 1 paragraphs take the package text because the repaired English now needs it (see adjustments).",
+      "guides": {
+        "gen": "app/public/data/onboarding/phaedrus.json"
+      },
+      "danishSha256": "0fe3e60e58846efb19ddbf6d11a7d3bbe838acb64b03cd2a5d837e24eb78626e",
+      "modernEnglishSha256": "45a82f434bb42bd8cbe2bcb767484c1c4fb74005a8857458e4b8480b7205cb24",
+      "packageDanishSha256": "c030a85dccd414b028b7d0c70e862a571d801629a7e7d8fe2f27448ac38c8129",
+      "packageEnglishSha256": "c3626febffab5e2b70e70b37468ea8d68dafc84fee6d8ae82aea3f1729ccc8db",
+      "contentRelease": "text-2026-11-18.phaedrus.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "5ad44b8b4dbd819c14936e91514f25d8f02a0c81f728ae7d666adaedf8e9575b",
+          "after": "45a82f434bb42bd8cbe2bcb767484c1c4fb74005a8857458e4b8480b7205cb24",
+          "changedParagraphs": 11,
+          "previous": {
+            "a246a86ca83ff33521735c1ff70681037ed4d956f87e71d0812ddf864979e06c": 52
+          }
+        },
+        "modern-da": {
+          "status": "new",
+          "before": "7577d9822136dcade54ca1d9b1c43d53e6bbd56d33ebd9790912d6c9e9c04951",
+          "after": "0fe3e60e58846efb19ddbf6d11a7d3bbe838acb64b03cd2a5d837e24eb78626e",
+          "changedParagraphs": 1,
+          "previous": {
+            "f779e3b14e3a18803657bcfde238eb90b554fe67c263e401fc02c0f34fcde66b": 322
+          }
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/phaedrus.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 657,
+        "moved": 13,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording held in the 4 of 6 chapters whose text changed: [1, 3, 4, 5]"
+    },
+    "poetics": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 21 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {
+        "gen": "app/public/data/onboarding/poetics.json"
+      },
+      "danishSha256": "4a6d7e49f024c2ea7da2697da770aca89b224c20d1f9c1d4209cc3f33df784e5",
+      "modernEnglishSha256": "d74a723c742c3b2b7beddbfcc80f80c080389f443aefb479e3fd662095bf6e63",
+      "packageDanishSha256": "4a6d7e49f024c2ea7da2697da770aca89b224c20d1f9c1d4209cc3f33df784e5",
+      "packageEnglishSha256": "d74a723c742c3b2b7beddbfcc80f80c080389f443aefb479e3fd662095bf6e63",
+      "contentRelease": "text-2026-11-18.poetics.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "c14bf2d099284fad9b2801ba2272ef92ce9be3ba3e1eb43dfa789febd2f17323",
+          "after": "d74a723c742c3b2b7beddbfcc80f80c080389f443aefb479e3fd662095bf6e63",
+          "changedParagraphs": 21,
+          "previous": {
+            "20c7f0695e0360b9ea800ae11c0720bfe38d1e7e85b828d0a19bed542a9b175e": 128
+          }
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "98b7db8373b61d59aaecb9a77afb2241f163245b76ac692cf9cda44185d61ee9",
+          "after": "4a6d7e49f024c2ea7da2697da770aca89b224c20d1f9c1d4209cc3f33df784e5",
+          "changedParagraphs": 130,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/poetics.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 220,
+        "moved": 17,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording held in the 6 of 26 chapters whose text changed: [1, 3, 20, 21, 22, 25]"
+    },
+    "utilitarianism": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 1 paragraphs. #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {
+        "gen": "app/public/data/onboarding/utilitarianism.json"
+      },
+      "danishSha256": "4c4f8541617137907aa7ddc4c7c1de06a3958b4027c2646c10a6e914595e1758",
+      "modernEnglishSha256": "a46fa4199e8e4093ccb5c013ed8912f951194d2381bd24b32a1f1973bb6a2360",
+      "packageDanishSha256": "f6ca391fbb73b011193595b0bc9471bc7e97665b80bf031a64ec1fe1c35f3298",
+      "packageEnglishSha256": "368d97d3a2eba99d954fc8c93c5f8670b0c1c8faf9a8fcd430d043f9b713d973",
+      "contentRelease": "text-2026-11-18.utilitarianism.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "534c43afa8af1f7dea12997361cd568a0569261d241e72c3fd6f961950a26fa1",
+          "after": "a46fa4199e8e4093ccb5c013ed8912f951194d2381bd24b32a1f1973bb6a2360",
+          "changedParagraphs": 1,
+          "previous": {
+            "7457e909ce911b5043c692ccf51e7ce30266b5824aec22c10997931dfb737361": 94
+          }
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "46ed443acf9c23bbce899a7a2b67b938192b6e4f6f1828e165e27594dc21cc94",
+          "after": "4c4f8541617137907aa7ddc4c7c1de06a3958b4027c2646c10a6e914595e1758",
+          "changedParagraphs": 94,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/utilitarianism.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 41,
+        "moved": 0,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording already held as a whole edition; nothing to hold (text changed in chapters [5])."
+    },
+    "werther": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovered-branch",
+      "english": "The package's modern-en repairs (reasons in the book's review record) published: 72 paragraphs and 2 chapter titles ([55, 56]). #818 published the Danish that follows them but left them out.",
+      "danish": "Main's live Danish kept; it already follows the repaired English.",
+      "guides": {
+        "gen": "app/public/data/onboarding/werther.json"
+      },
+      "danishSha256": "71a255b799d50b1e048a6302ae5058e837e7859e9cc4ccc356000d1be2b25627",
+      "modernEnglishSha256": "fa7e342d335bd8e91fba28fbcad81820b180788a78bac1837a4c43097bf71386",
+      "packageDanishSha256": "f7cb6d3f4c3addbed9a74991d63e25766d40c4d4a8b71ac6a91e85d978711585",
+      "packageEnglishSha256": "7fe1cfe41f2f86e6d5ac6aeb14b885cd7ba890cd866ec7243c0b3cdee81a32e1",
+      "contentRelease": "text-2026-11-18.werther.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "f45d353204e356b34bd473e250ed557c8ec899d83cfd8076aeb7ee16b1a05bc0",
+          "after": "fa7e342d335bd8e91fba28fbcad81820b180788a78bac1837a4c43097bf71386",
+          "changedParagraphs": 72,
+          "previous": {}
+        },
+        "modern-da": {
+          "status": "carried",
+          "before": "e97c294c690fe118eb1a5556a5b399de7a1a7689f658a650d25deebb2b446916",
+          "after": "71a255b799d50b1e048a6302ae5058e837e7859e9cc4ccc356000d1be2b25627",
+          "changedParagraphs": 346,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/werther.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 769,
+        "moved": 118,
+        "placedAgainNearby": [
+          "48:1 count-c 'Count O—'@0 -> 'Count C—'@0",
+          "84:120 judge 'steward'@8 -> 'magistrate'@8",
+          "84:120 judge 'steward'@363 -> 'magistrate'@366",
+          "84:121 judge 'steward'@4 -> 'magistrate'@4"
+        ],
+        "droppedWithTheirText": [
+          "32:0 pistol-maid 'maid'",
+          "32:5 levite 'Levite'",
+          "80:3 god 'Father'"
+        ]
+      },
+      "audio": "modern-en recording held in the 25 of 84 chapters whose text changed: [2, 4, 7, 9, 10, 12, 13, 14, 16, 17, 20, 22, 28, 31, 32, 38, 40, 42, 48, 53, 60, 61, 65, 80, 84]"
+    },
+    "confessions": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovery-worker-b/reconstructed/confessions-replayed",
+      "english": "One verified English correction at 6:1 (\"cakes\" -> \"porridge\", Latin pultes; ENGLISH-CHANGES.json).",
+      "danish": "Recovered Danish body replaces main's (prepared against current main; its source snapshots equal main).",
+      "guides": {
+        "gen": "app/public/data/onboarding/confessions.json",
+        "gda": "app/public/data/onboarding/confessions.da.json"
+      },
+      "danishSha256": "5028babb2b550a190e00e94eaf33ecee0c0aa2d647bafd51d03115714c1264f1",
+      "modernEnglishSha256": "3c87df8707457b72407c0f21b5a6669e73b7116fc7a60621bf9d8a2025d7c196",
+      "packageDanishSha256": "29796459edae1fb8b43820cbdc0fb02d51af745703e30cec6106448dc4cd2d40",
+      "packageEnglishSha256": "3c87df8707457b72407c0f21b5a6669e73b7116fc7a60621bf9d8a2025d7c196",
+      "contentRelease": "text-2026-11-18.confessions.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "949e4f77fd317601cc39dc701cfbc3f5f82a5b5a842c34e93c9a6328ef78add7",
+          "after": "3c87df8707457b72407c0f21b5a6669e73b7116fc7a60621bf9d8a2025d7c196",
+          "changedParagraphs": 1,
+          "previous": {
+            "420b17153b6cb46f6a74e41bb633dcbc88099975720dac27c6bfb0bf6be51b4e": 461
+          }
+        },
+        "modern-da": {
+          "status": "new",
+          "before": "ac1dfc10a1001442f868a76c722ca2cfe07b833d0ea2b75eaf83d76284d66176",
+          "after": "5028babb2b550a190e00e94eaf33ecee0c0aa2d647bafd51d03115714c1264f1",
+          "changedParagraphs": 462,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/confessions.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 122,
+        "moved": 1,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording held in the 1 of 13 chapters whose text changed: [6]"
+    },
+    "middlemarch": {
+      "status": "updated",
+      "candidateFolder": "handoff/Tinct-Danish-Handoff/recovery-parallel/middlemarch",
+      "english": "30 English repairs in 19 chapters restoring Eliot's wording, emphasis and foreign phrases (changes.json).",
+      "danish": "Recovered Danish body replaces main's (prepared against current main; its source snapshots equal main).",
+      "guides": {
+        "gda": "app/public/data/onboarding/middlemarch.da.json"
+      },
+      "danishSha256": "b79a62d383b199b8475946a336c61e6b33b373e879cbef0c390e8928e8553a5e",
+      "modernEnglishSha256": "8db8425a80483ade3621e983bab6a2dadcb3bca7c4d54492f59408668c4698d5",
+      "packageDanishSha256": "b2ba476bab64a1ad0486b51df405095d2e43beec32080f4654153e537ec3a254",
+      "packageEnglishSha256": "8db8425a80483ade3621e983bab6a2dadcb3bca7c4d54492f59408668c4698d5",
+      "contentRelease": "text-2026-11-18.middlemarch.1",
+      "maps": {
+        "modern-en": {
+          "status": "new",
+          "before": "304f7ac56d6def7c254fc2eeae95ce18c75a36329e8a722c484dfe0f5b52182e",
+          "after": "8db8425a80483ade3621e983bab6a2dadcb3bca7c4d54492f59408668c4698d5",
+          "changedParagraphs": 30,
+          "previous": {}
+        },
+        "modern-da": {
+          "status": "new",
+          "before": "964adedfdf3613fb95bf14e6b8623092d5d74090ff102933ab9a12afe536a3fa",
+          "after": "b79a62d383b199b8475946a336c61e6b33b373e879cbef0c390e8928e8553a5e",
+          "changedParagraphs": 189,
+          "previous": {}
+        }
+      },
+      "characters": {
+        "package": "app/public/data/characters/middlemarch.v1.json",
+        "edition": "modern-en",
+        "revision": "text-2026-11-18.1",
+        "mentions": 6100,
+        "moved": 22,
+        "placedAgainNearby": [],
+        "droppedWithTheirText": []
+      },
+      "audio": "modern-en recording held in the 19 of 88 chapters whose text changed: [9, 12, 16, 20, 21, 23, 24, 26, 30, 31, 32, 33, 34, 39, 40, 47, 49, 72, 87]"
+    }
+  },
+  "identical": {
+    "apology": "Danish body, paired English and both guides byte-identical to main.",
+    "crito": "Danish body and paired English byte-identical to main; no guide in the packet (main keeps its matching current guides, as the master index says).",
+    "grimms-fairy-tales": "Danish body, paired English and Danish guide byte-identical to main; no English guide in the packet.",
+    "the-art-of-war": "Danish body, paired English and both guides byte-identical to main.",
+    "the-manual": "Danish body and paired English byte-identical to main; no guide in the packet (main keeps its matching current guides).",
+    "us-founding-documents": "Danish body, paired English and both guides byte-identical to main."
+  },
+  "keptMain": {
+    "bacchae": "Danish body identical. The one English difference (5:18) and the Danish guide era (\"405 BCE\" vs main's \"405 f.Kr.\") are exactly what #817 decided against on 13 Nov (stylistic English not kept; Danish era in Danish). Main kept.",
+    "medea": "Danish body identical. English 1:4 is the stylistic edit #817 left out; both guides' era (\"Ancient Greek tragedy\") was replaced on main by \"431 BCE\" / \"431 f.Kr.\" at Anders's release. Main kept.",
+    "the-prince": "Danish body identical as parsed JSON (serialization only). English 1:3 and 1:5 are the stylistic edits #817 left out; the guides' opening teaser is the dedication's salutation, which main replaced by its first paragraph. Main kept.",
+    "jekyll-and-hyde": "No English candidate. The one Danish difference (#818 integration adjustment against the live English) stays. The package's English guide rewrite differs in 11 fields but the book's text does not change, so main's guide is kept and listed for a decision.",
+    "on-liberty": "No English candidate. The nine Danish differences are #818's integration adjustments against the live English (italic markers the English lacks); main kept. The package's English guide rewrite (40 fields) is listed for a decision; the body does not change.",
+    "to-the-lighthouse": "Not applied; listed for a decision. The 13 English changes remove explanatory glosses Tinct's modern English added (an editorial-policy reversal on a live English book, not error fixes); the Danish revision follows that English, its review record is still \"in_progress\", and its 1:1 drops the main verb when the gloss is removed (\"... fra Army and Navy Stores, billedet af et køleskab med himmelsk lykke\"). A Danish guide would be new (Lighthouse has none on main, per the 10 Oct decision). Main kept."
+  },
+  "notTaken": {
+    "middlemarch": "front-matter.json (the dedication, outside the numbered chapters) is not integrated: the reader has no slot for it and adding one changes structure. The primers in the folder equal main's.",
+    "werther": "The package Danish keeps English section titles (\"Book One\"); main's Danish titles from #818 stay."
+  },
+  "adjustments": [
+    {
+      "book": "communist-manifesto",
+      "edition": "modern-da",
+      "chapter": 2,
+      "paragraph": 19,
+      "before": "Gennem den hurtige forbedring af alle produktionsredskaber og de langt lettere forbindelser mellem lande trækker borgerskabet alle nationer, selv de mest barbariske, ind i civilisationen. Varernes lave priser er det tunge artilleri, hvormed det skyder alle kinesiske mure ned og tvinger barbarernes stædige fremmedhad til at kapitulere. Det tvinger alle nationer til at overtage den borgerlige produktionsmåde, hvis de ikke vil gå under. Det tvinger dem til at indføre det, det kalder civilisation, dvs. selv at blive borgerlige. Kort sagt skaber det en verden i sit eget billede.",
+      "after": "Gennem den hurtige forbedring af alle produktionsredskaber og de langt lettere forbindelser mellem lande trækker borgerskabet alle nationer, selv de mest barbariske, ind i civilisationen. Varernes lave priser er det tunge artilleri, hvormed det skyder alle kinesiske mure ned og tvinger barbarernes stædige fremmedhad til at kapitulere. Det tvinger alle nationer til at overtage den borgerlige produktionsmåde, hvis de ikke vil gå under. Det tvinger dem til at indføre det, det kalder civilisation, _dvs._ selv at blive borgerlige. Kort sagt skaber det en verden i sit eget billede.",
+      "reason": "The recovered (package) Danish paragraph is used: main's #818 adjustment of this slot was needed only against the unrepaired English, and the repaired English that ships now has the italics the package Danish has (alignment contract)."
+    },
+    {
+      "book": "communist-manifesto",
+      "edition": "modern-da",
+      "chapter": 2,
+      "paragraph": 27,
+      "before": "I takt med at borgerskabet, dvs. kapitalen, udvikler sig, udvikler proletariatet, den moderne arbejderklasse, sig også. Det er en klasse af arbejdere, som kun kan leve, så længe de finder arbejde, og kun finder arbejde, så længe deres arbejde øger kapitalen. Disse arbejdere, som må sælge sig selv stykkevis, er en vare som enhver anden handelsartikel. Derfor er de udsat for alle konkurrencens omskiftelser og alle markedets svingninger.",
+      "after": "I takt med at borgerskabet, _dvs._ kapitalen, udvikler sig, udvikler proletariatet, den moderne arbejderklasse, sig også. Det er en klasse af arbejdere, som kun kan leve, så længe de finder arbejde, og kun finder arbejde, så længe deres arbejde øger kapitalen. Disse arbejdere, som må sælge sig selv stykkevis, er en vare som enhver anden handelsartikel. Derfor er de udsat for alle konkurrencens omskiftelser og alle markedets svingninger.",
+      "reason": "The recovered (package) Danish paragraph is used: main's #818 adjustment of this slot was needed only against the unrepaired English, and the repaired English that ships now has the italics the package Danish has (alignment contract)."
+    },
+    {
+      "book": "communist-manifesto",
+      "edition": "modern-da",
+      "chapter": 3,
+      "paragraph": 20,
+      "before": "Lønarbejdets gennemsnitlige pris er den lavest mulige løn, dvs. den mængde livsfornødenheder, der er nødvendig for at holde arbejderen i live som arbejder. Det, lønarbejderen får gennem sit arbejde, rækker derfor kun til at opretholde og videreføre den nøgne tilværelse. Vi vil på ingen måde afskaffe denne personlige tilegnelse af arbejdets produkter, som opretholder og viderefører menneskelivet uden at efterlade et overskud, der kan give magt over andres arbejde. Vi vil kun ophæve de elendige vilkår for denne tilegnelse: at arbejderen udelukkende lever for at øge kapitalen og kun får lov at leve, så længe den herskende klasses interesser kræver det.",
+      "after": "Lønarbejdets gennemsnitlige pris er den lavest mulige løn, _dvs._ den mængde livsfornødenheder, der er nødvendig for at holde arbejderen i live som arbejder. Det, lønarbejderen får gennem sit arbejde, rækker derfor kun til at opretholde og videreføre den nøgne tilværelse. Vi vil på ingen måde afskaffe denne personlige tilegnelse af arbejdets produkter, som opretholder og viderefører menneskelivet uden at efterlade et overskud, der kan give magt over andres arbejde. Vi vil kun ophæve de elendige vilkår for denne tilegnelse: at arbejderen udelukkende lever for at øge kapitalen og kun får lov at leve, så længe den herskende klasses interesser kræver det.",
+      "reason": "The recovered (package) Danish paragraph is used: main's #818 adjustment of this slot was needed only against the unrepaired English, and the repaired English that ships now has the italics the package Danish has (alignment contract)."
+    },
+    {
+      "book": "communist-manifesto",
+      "edition": "modern-da",
+      "chapter": 3,
+      "paragraph": 28,
+      "before": "Fra det øjeblik, hvor arbejde ikke længere kan forvandles til kapital, penge eller jordrente — til en samfundsmæssig magt, som nogen kan få monopol på — dvs. fra det øjeblik, hvor personlig ejendom ikke længere kan blive til borgerlig ejendom, til kapital, erklærer I, at individualiteten er forsvundet.",
+      "after": "Fra det øjeblik, hvor arbejde ikke længere kan forvandles til kapital, penge eller jordrente — til en samfundsmæssig magt, som nogen kan få monopol på — _dvs._ fra det øjeblik, hvor personlig ejendom ikke længere kan blive til borgerlig ejendom, til kapital, erklærer I, at individualiteten er forsvundet.",
+      "reason": "The recovered (package) Danish paragraph is used: main's #818 adjustment of this slot was needed only against the unrepaired English, and the repaired English that ships now has the italics the package Danish has (alignment contract)."
+    },
+    {
+      "book": "communist-manifesto",
+      "edition": "modern-da",
+      "chapter": 3,
+      "paragraph": 49,
+      "before": "Det borgerlige ægteskab er i virkeligheden en ordning, hvor mændene deler hinandens koner. Det højeste, man kunne bebrejde kommunisterne, er derfor, at de vil erstatte en hyklerisk skjult fælles rådighed over kvinderne med en åbent lovliggjort. Det siger i øvrigt sig selv, at afskaffelsen af de nuværende produktionsforhold også afskaffer den fælles rådighed over kvinderne, som udspringer af dem, dvs. både den offentlige og den private prostitution.",
+      "after": "Det borgerlige ægteskab er i virkeligheden en ordning, hvor mændene deler hinandens koner. Det højeste, man kunne bebrejde kommunisterne, er derfor, at de vil erstatte en hyklerisk skjult fælles rådighed over kvinderne med en åbent lovliggjort. Det siger i øvrigt sig selv, at afskaffelsen af de nuværende produktionsforhold også afskaffer den fælles rådighed over kvinderne, som udspringer af dem, _dvs._ både den offentlige og den private prostitution.",
+      "reason": "The recovered (package) Danish paragraph is used: main's #818 adjustment of this slot was needed only against the unrepaired English, and the repaired English that ships now has the italics the package Danish has (alignment contract)."
+    },
+    {
+      "book": "communist-manifesto",
+      "edition": "modern-da",
+      "chapter": 3,
+      "paragraph": 67,
+      "before": "Proletariatet vil bruge sit politiske herredømme til gradvist at tage al kapital fra borgerskabet, samle alle produktionsredskaber i statens hænder — dvs. hos proletariatet organiseret som herskende klasse — og øge produktivkræfterne så hurtigt som muligt.",
+      "after": "Proletariatet vil bruge sit politiske herredømme til gradvist at tage al kapital fra borgerskabet, samle alle produktionsredskaber i statens hænder — _dvs._ hos proletariatet organiseret som herskende klasse — og øge produktivkræfterne så hurtigt som muligt.",
+      "reason": "The recovered (package) Danish paragraph is used: main's #818 adjustment of this slot was needed only against the unrepaired English, and the repaired English that ships now has the italics the package Danish has (alignment contract)."
+    },
+    {
+      "book": "phaedrus",
+      "edition": "modern-da",
+      "chapter": 4,
+      "paragraph": 19,
+      "before": "»De dødelige kalder ham flagrende kærlighed, men de udødelige kalder ham den vingede, for vinger må vokse frem hos ham.« (Kildens alternative læsning, pterothoiton, giver »vingernes bevægelse« i stedet for »vingernes vækst«.)",
+      "after": "»De dødelige kalder ham flagrende kærlighed, men de udødelige kalder ham den vingede, for vinger må vokse frem hos ham.«\n(Kildens alternative læsning, pterothoiton, giver »vingernes bevægelse« i stedet for »vingernes vækst«.)",
+      "reason": "The repaired English sets the restored source-variant note on its own line after the verse; the Danish note (already live) gets the same single line break (alignment contract: equal line breaks)."
+    },
+    {
+      "book": "middlemarch",
+      "edition": "modern-da",
+      "chapter": 27,
+      "paragraph": 0,
+      "before": "Han slår mig, og jeg skælder ham ud. Sikken oprejsning! Gid det var omvendt, så jeg kunne slå ham, mens han skældte mig ud. —_Troilus og Cressida_.",
+      "after": "Han slår mig, og jeg skælder ham ud: o, værdig tilfredsstillelse! Gid det\nvar omvendt — at jeg kunne slå ham,\nmens han skældte mig ud. — _Troilus og Cressida_.",
+      "reason": "Main's Danish epigraph kept: the English keeps the source's line breaks inside this epigraph and main's Danish mirrors them; the recovered Danish runs the lines on (alignment contract: equal line breaks)."
+    },
+    {
+      "book": "middlemarch",
+      "edition": "modern-da",
+      "chapter": 39,
+      "paragraph": 0,
+      "before": "»Menneskers dom over menneskers gerninger vejer tungt. Før eller siden får den følger.« —GUIZOT.",
+      "after": "»Menneskenes dom over menneskelige handlinger er meget;\nfør eller siden bliver den virksom.« — GUIZOT.",
+      "reason": "Main's Danish epigraph kept: the English keeps the source's line breaks inside this epigraph and main's Danish mirrors them; the recovered Danish runs the lines on (alignment contract: equal line breaks)."
+    },
+    {
+      "book": "middlemarch",
+      "edition": "modern-da",
+      "chapter": 76,
+      "paragraph": 0,
+      "before": "»Vi mærker, hvor lidt de glæder, vi har, holder, hvad de lover, og aner ikke, hvor tomme de glæder er, vi savner. Derfor er vi så omskiftelige.« —PASCAL.",
+      "after": "»Følelsen af de nuværende fornøjelsers falskhed og uvidenheden om de fraværende\nfornøjelsers tomhed er årsag til ustadighed.« — PASCAL.",
+      "reason": "Main's Danish epigraph kept: the English keeps the source's line breaks inside this epigraph and main's Danish mirrors them; the recovered Danish runs the lines on (alignment contract: equal line breaks)."
+    },
+    {
+      "book": "middlemarch",
+      "edition": "modern-da",
+      "chapter": 87,
+      "paragraph": 0,
+      "before": "»Hjertet mættes af kærlighed som af et guddommeligt salt, der bevarer det. Deraf det ubrydelige bånd mellem dem, der har elsket hinanden fra livets morgen, og den friske glød i gammel kærlighed, som har holdt ved. Kærligheden har sin egen balsam. Af Dafnis og Kloe bliver der en Filemon og en Baukis. I den slags alderdom ligner aftenen morgenrøden.« —VICTOR HUGO: _L’homme qui rit_.",
+      "after": "»Hjertet mættes med kærlighed som med et guddommeligt salt, der\nbevarer det; deraf kommer den uforgængelige tilknytning hos dem,\nder har elsket hinanden fra livets morgen, og de forlængede gamle\nkærligheders friskhed. Der findes en balsamering af kærlighed. Af\nDaphnis og Chloe er Filemon og Baucis gjort. Den alderdom dér, aftenens\nlighed med morgenrøden.«— VICTOR HUGO: _L'homme qui rit_.",
+      "reason": "Main's Danish epigraph kept: the English keeps the source's line breaks inside this epigraph and main's Danish mirrors them; the recovered Danish runs the lines on (alignment contract: equal line breaks)."
+    }
+  ]
+}

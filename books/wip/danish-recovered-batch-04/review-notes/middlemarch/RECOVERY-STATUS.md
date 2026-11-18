@@ -1,0 +1,5 @@
+# Recovery — 18 November 2026
+
+88 units / 4,674 paragraph positions. 193 Danish changed positions and 30 English positions, with 233 edit operations. Final totals match historical records. Entire ledger replayed exactly against surviving pinned sources. Chapter/paragraph alignment checked; the historical independent Gutenberg145 witness comparison has NOT been rerun. Dedication is included as front-matter.json outside the numbered chapters. Both guides, primers and bookmark map are included.
+
+Recovered from literal historical editorial scripts, which were reviewed and run only in this durable recovery folder. Source commit a1ee0ffda8de113b06814e2986802f90e24eccff; Middlemarch body source blobs also equal prior225979e36743d21502ebbace6c253fbc5ce09bfa. No new prose was generated to stand in for missing drafts. Historical candidate hashes not available; present hashes independently calculated. Native Danish sign-off remains pending. This is recovery and verification of recorded changes, not a new full literary review. Reconcile with current main before release; Claude is release owner.

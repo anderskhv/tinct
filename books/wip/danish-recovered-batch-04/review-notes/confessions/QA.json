@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "books": 13,
+  "paragraphs": 462,
+  "paragraph_counts": [
+    38,
+    18,
+    21,
+    31,
+    25,
+    27,
+    27,
+    31,
+    38,
+    70,
+    41,
+    42,
+    53
+  ],
+  "danish_words_whitespace": 108880,
+  "original_words_whitespace": 111775,
+  "rewritten_danish_slots": 462,
+  "english_body_changes": 1,
+  "guides_rewritten": [
+    "en",
+    "da"
+  ],
+  "checks": [
+    "Valid UTF-8 JSON",
+    "Exact original book and paragraph counts",
+    "Stable chapter numbers",
+    "All paragraphs nonempty",
+    "Danish chapter headings localized",
+    "Guide schema and array counts preserved",
+    "Complete 462-slot Danish before/after ledger",
+    "Primary Pusey normalized body coverage matches all 13 books"
+  ],
+  "review_scope": "Full source read and Danish drafting across all slots; targeted Latin adjudication and final fluency reread of high-risk passages. English checked for clear inherited source errors at adjudicated passages; not a complete independent English line audit. No independent native Danish review yet.",
+  "native_danish_review": "pending",
+  "release": "not performed"
+}

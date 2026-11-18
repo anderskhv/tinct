@@ -1,0 +1,37 @@
+{
+  "recovery_date": "2026-11-18",
+  "book": "confessions",
+  "books": 13,
+  "slots": 462,
+  "danish_words": 108880,
+  "danish_rewritten_slots": 462,
+  "english_changes": 1,
+  "both_ledgers_replay_exactly": true,
+  "source_checks": {
+    "confessions-original-en.json": {
+      "local_blob_matches_pin": true,
+      "recovered_source_semantically_equal": true
+    },
+    "confessions-modern-en.json": {
+      "local_blob_matches_pin": true,
+      "recovered_source_semantically_equal": true
+    },
+    "confessions-modern-da.json": {
+      "local_blob_matches_pin": true,
+      "recovered_source_semantically_equal": true
+    },
+    "confessions.json": {
+      "local_blob_matches_pin": true,
+      "recovered_source_semantically_equal": true
+    },
+    "confessions.da.json": {
+      "local_blob_matches_pin": true,
+      "recovered_source_semantically_equal": true
+    }
+  },
+  "historical_counts_match": true,
+  "native_review": "pending",
+  "new_linguistic_review": false,
+  "source_audit_restored": false,
+  "note": "Original Pusey/Latin witness files and complete coverage audit missing. Historical QA claims retained as historical evidence, not a new source verification. No release performed."
+}

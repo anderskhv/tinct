@@ -1,0 +1,1089 @@
+{
+  "sourceCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+  "books": [
+    {
+      "bookId": "a-little-princess",
+      "masterIndex": {
+        "bookId": "a-little-princess",
+        "danishCandidate": "recovered-branch/editions/a-little-princess-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "33f8e5b5a5434ce52ef48ba906d306ef130b43374fb48f72893ae0573598d40b"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/a-little-princess-modern-da.json",
+          "sha256": "33f8e5b5a5434ce52ef48ba906d306ef130b43374fb48f72893ae0573598d40b",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/a-little-princess-modern-en.json",
+          "sha256": "4af55bb751cefb17c95a2d9cedae337ef1e26660fef67a1e816debca177c69b9",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/a-little-princess.da.json",
+          "sha256": "f8e9ff6c44e00bd88ecdd24d0180e5f945e7fa1abe3198f2033a80c8ce0896d6",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/a-little-princess.json",
+          "sha256": "c09897f3d1426557a479486d9a0da587ba010d756613c0e87da2282b8d1b491e",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "apology",
+      "masterIndex": {
+        "bookId": "apology",
+        "danishCandidate": "recovered-branch/editions/apology-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "provisional_published_native_review_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "69f4b9ca50149d0bb180a86f3e5548448808eb038e559b9575a47e6f5cc3c60f"
+      },
+      "disposition": "identical",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/apology-modern-da.json",
+          "sha256": "69f4b9ca50149d0bb180a86f3e5548448808eb038e559b9575a47e6f5cc3c60f",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/apology-modern-en.json",
+          "sha256": "21e09965eefab651eb1eb4045ccbbb66f72d1c84413589dc656f3c8687a23320",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/apology.da.json",
+          "sha256": "07e4b4ee947b405a52da457bd5681c6dac39d14721657679a82d8e51d9c4c10d",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/apology.json",
+          "sha256": "66560101ecc719fbc76da855e3c35c26c434197bde23f3c1e87c7dc8028357e6",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "aristotle-politics",
+      "masterIndex": {
+        "bookId": "aristotle-politics",
+        "danishCandidate": "recovered-branch/editions/aristotle-politics-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": false,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "b96d0b6873fb9b219530f426c436cd321ce5c1063583d877ad56d0acc7093f77"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/aristotle-politics-modern-da.json",
+          "sha256": "b96d0b6873fb9b219530f426c436cd321ce5c1063583d877ad56d0acc7093f77",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/aristotle-politics-modern-en.json",
+          "sha256": "42af363809c2be2b66482d3ddbbe6c7330badd514cf2d264a9a8152a1ff2ea89",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/aristotle-politics.da.json",
+          "sha256": "781d3365e61983c78049ac3d3a8c93b8015eba0b845f08772698ef2e83670a37",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "around-the-world-80-days",
+      "masterIndex": {
+        "bookId": "around-the-world-80-days",
+        "danishCandidate": "recovered-branch/editions/around-the-world-80-days-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": false,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "1160f17ca0942ac1e6621e9bf83704989f540629bf8adc03d40c398cba5556e1"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/around-the-world-80-days-modern-da.json",
+          "sha256": "1160f17ca0942ac1e6621e9bf83704989f540629bf8adc03d40c398cba5556e1",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/around-the-world-80-days-modern-en.json",
+          "sha256": "b0ed142aef04c14aa5ee56882a368318834d29338479b07d1a08ed9d1743f303",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/around-the-world-80-days.da.json",
+          "sha256": "b975bc5e2f32b5a4a60d7d3f2e3a9725638a5665a1da217a114ea3869b6f150e",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/around-the-world-80-days.json",
+          "sha256": "7a42953a1078c2c9ad15f15abbdb245a1cd4aaf61940fd5cbeb00a50c63bbabe",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "bacchae",
+      "masterIndex": {
+        "bookId": "bacchae",
+        "danishCandidate": "recovered-branch/editions/bacchae-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_release_ci",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "bc9cf5e29e95848ca24e002f60760d9c2719d87d5409f7cfdef6be054c569209"
+      },
+      "disposition": "kept-main",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/bacchae-modern-da.json",
+          "sha256": "bc9cf5e29e95848ca24e002f60760d9c2719d87d5409f7cfdef6be054c569209",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/bacchae-modern-en.json",
+          "sha256": "3bcf0e77bdab05a237c558e61473fbba3008bd3a7f65ec55640af4d9ee4091a7",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/bacchae.da.json",
+          "sha256": "a3d9531d3fe7468776968c40b66bd0c5657c9bac5352e199fb349279c5943bce",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/bacchae.json",
+          "sha256": "e872208a3413df69b6235a884eb97069cf54b26ae512af4fac03055e280b006f",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "communist-manifesto",
+      "masterIndex": {
+        "bookId": "communist-manifesto",
+        "danishCandidate": "recovered-branch/editions/communist-manifesto-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": false,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "282d15ed200b1afc9c17dafd9c6fb0d43166bc64bab5c516e10698485bfb704b",
+        "localOriginalDanishSha256": "37f25a8c20457038539a95a416aaf8972954a6780ea7a6f8abe9f0749d6b638d"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/communist-manifesto-modern-da.json",
+          "sha256": "282d15ed200b1afc9c17dafd9c6fb0d43166bc64bab5c516e10698485bfb704b",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/communist-manifesto-modern-en.json",
+          "sha256": "9d8c931d1b35a483d17c990fa77bae81ace9d33706cbdba7ce184e149056cbf6",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/communist-manifesto.da.json",
+          "sha256": "480d54aca60922230a2ba18a1a42a0cf8ee8dabfa6fc85e171df3bb7bb73d2d8",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/communist-manifesto.json",
+          "sha256": "9fc0db5b4c40fc09ad844499fea45969bffd7b0bdb277521bb2f5f445a73cabb",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "confessions",
+      "masterIndex": {
+        "bookId": "confessions",
+        "danishCandidate": "recovery-worker-b/reconstructed/confessions-replayed/confessions-modern-da.json",
+        "englishCandidate": "recovery-worker-b/reconstructed/confessions-replayed/confessions-modern-en.json",
+        "folder": "recovery-worker-b/reconstructed/confessions-replayed",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "29796459edae1fb8b43820cbdc0fb02d51af745703e30cec6106448dc4cd2d40"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-worker-b/reconstructed/confessions-replayed/confessions-modern-da.json",
+          "sha256": "29796459edae1fb8b43820cbdc0fb02d51af745703e30cec6106448dc4cd2d40",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovery-worker-b/reconstructed/confessions-replayed/confessions-modern-en.json",
+          "sha256": "3c87df8707457b72407c0f21b5a6669e73b7116fc7a60621bf9d8a2025d7c196",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovery-worker-b/reconstructed/confessions-replayed/confessions.da.json",
+          "sha256": "be0b24d4d7895bc7fdeaee9f09f3fc34759582ef15ecf520021b4d032ac2f5b2",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gen",
+          "path": "recovery-worker-b/reconstructed/confessions-replayed/confessions.json",
+          "sha256": "ffb42a1d46f0bc54928718e59f54b2614dbdb2668c61cb1b0cf50cfdc0ab5b8a",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "crito",
+      "masterIndex": {
+        "bookId": "crito",
+        "danishCandidate": "recovered-branch/editions/crito-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "provisional_published_native_review_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "d91a71009bd515eb1fa5cab47415224fc588a28b2b8e8644c6a6a886c60dd12d"
+      },
+      "disposition": "identical",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/crito-modern-da.json",
+          "sha256": "d91a71009bd515eb1fa5cab47415224fc588a28b2b8e8644c6a6a886c60dd12d",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/crito-modern-en.json",
+          "sha256": "241326ee42ee5c457192a91961a6d276c5add7b09304eda987a2cca562d44d89",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "grimms-fairy-tales",
+      "masterIndex": {
+        "bookId": "grimms-fairy-tales",
+        "danishCandidate": "recovered-branch/editions/grimms-fairy-tales-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "provisional_published_native_review_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "7e979a057f1a24ec23706c8bd408613bec5ef7310a2375925b67fc29b5621487"
+      },
+      "disposition": "identical",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/grimms-fairy-tales-modern-da.json",
+          "sha256": "7e979a057f1a24ec23706c8bd408613bec5ef7310a2375925b67fc29b5621487",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/grimms-fairy-tales-modern-en.json",
+          "sha256": "a2d68274da2776b661efdc9d84719935e910282ae9790cc051290e296cf84441",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/grimms-fairy-tales.da.json",
+          "sha256": "2d53e75ec16173d4213b728c959ecbf2b15af71bbeb314073514bd0768b0b6bd",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "hume-enquiry",
+      "masterIndex": {
+        "bookId": "hume-enquiry",
+        "danishCandidate": "recovered-branch/editions/hume-enquiry-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": false,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "ca667c5cf3c5a329db120745dd71da7f2165fb9eedce8738dfa2b78aed0ccbe0",
+        "localOriginalDanishSha256": "fae4e9e6401d8447bfe09c55500670ced3fae1dab84d059cca6287e246d57737"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/hume-enquiry-modern-da.json",
+          "sha256": "ca667c5cf3c5a329db120745dd71da7f2165fb9eedce8738dfa2b78aed0ccbe0",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/hume-enquiry-modern-en.json",
+          "sha256": "09c385a08b6a1b9bc470f0a1afb604f71e34b363e26bfdc11bbb1ab70971e531",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/hume-enquiry.da.json",
+          "sha256": "682333982fc11e6532f80c19f3084f1f29edcb790a7abc673ed6227e0d9398f2",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/hume-enquiry.json",
+          "sha256": "b5ed780719cf84a20ead30d6366ffaf0251b8dd0d686d03da3fe92642f942d88",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "ivan-ilyich",
+      "masterIndex": {
+        "bookId": "ivan-ilyich",
+        "danishCandidate": "recovered-branch/editions/ivan-ilyich-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "3bbf6181daf6e268093ca9601e00b4b986585b789114b149221d88945d3246ac"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/ivan-ilyich-modern-da.json",
+          "sha256": "3bbf6181daf6e268093ca9601e00b4b986585b789114b149221d88945d3246ac",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/ivan-ilyich-modern-en.json",
+          "sha256": "e1e2f43ef5faa177afcdc5bd5f57c4ff5617daa5f818958738f4d2844bdadb28",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/ivan-ilyich.da.json",
+          "sha256": "4d73951ddd2b91bd2a144268a7dee21519431c856c4f32c5698c51cd11f9a57e",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "jekyll-and-hyde",
+      "masterIndex": {
+        "bookId": "jekyll-and-hyde",
+        "danishCandidate": "recovered-branch/editions/jekyll-and-hyde-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": false,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "50ff6544e36d8e697136590efdb6985a2f8def8102b4fbb6c3acd82825570a46"
+      },
+      "disposition": "kept-main",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/jekyll-and-hyde-modern-da.json",
+          "sha256": "50ff6544e36d8e697136590efdb6985a2f8def8102b4fbb6c3acd82825570a46",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/jekyll-and-hyde.da.json",
+          "sha256": "249caa3b59432d1f89bcb62201f452e67493ba9779713c959cc45fbdfeab253a",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/jekyll-and-hyde.json",
+          "sha256": "56919f8f456f167cd96730646a2d8ad25764d5f930a6210b01640b153f61d109",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "jungle-book",
+      "masterIndex": {
+        "bookId": "jungle-book",
+        "danishCandidate": "recovered-branch/editions/jungle-book-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": false,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "3917629327b6a1480a12697abd51c0244fc49c72195d37aadf2eaca3d3727e4f",
+        "localOriginalDanishSha256": "dc1b5baf05828d2e393009352612a9f67aee02bbdd13f7d9456c7ca5e4f637c3"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/jungle-book-modern-da.json",
+          "sha256": "3917629327b6a1480a12697abd51c0244fc49c72195d37aadf2eaca3d3727e4f",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/jungle-book-modern-en.json",
+          "sha256": "3ab69e13379c0c3dd42d7f9d661d4641fbdbc460bbccf63b08e7dc499e0aae41",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/jungle-book.da.json",
+          "sha256": "52f03ad16bcc887b5bc383e74353d799e6ee346f582291307a9dcfd6c4aa3b87",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/jungle-book.json",
+          "sha256": "dc75d00dd32111a6e744df912b849a8ae0f1ffade8de2b3dc5e237589e961c60",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "kant-groundwork",
+      "masterIndex": {
+        "bookId": "kant-groundwork",
+        "danishCandidate": "recovered-branch/editions/kant-groundwork-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "85cd0b815b9bccf03a0b1db825a9eb1281f2aba7a6bc948bda27fc8737ae0d5c"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/kant-groundwork-modern-da.json",
+          "sha256": "85cd0b815b9bccf03a0b1db825a9eb1281f2aba7a6bc948bda27fc8737ae0d5c",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/kant-groundwork-modern-en.json",
+          "sha256": "49e357fe69f5a375f9cee57bc32f6e70c597671c632800ecf3590d6dc70731e5",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/kant-groundwork.da.json",
+          "sha256": "862b636df9e9a5bfcd6da8f56ea48272a5df9646ca791e6b353cba087b8302b3",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "medea",
+      "masterIndex": {
+        "bookId": "medea",
+        "danishCandidate": "recovered-branch/editions/medea-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_release_ci",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "ffd12cb3fb19c1ff904542c68985d657b415da8df201b0d707c3c411bcb4a7e4"
+      },
+      "disposition": "kept-main",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/medea-modern-da.json",
+          "sha256": "ffd12cb3fb19c1ff904542c68985d657b415da8df201b0d707c3c411bcb4a7e4",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/medea-modern-en.json",
+          "sha256": "4292c91a77ff5369151d746b36adb27720f5a90ebc8f84eaf1ee8d51de6c1e46",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/medea.da.json",
+          "sha256": "f3b32f00f817015344e38a3b5488b70ef8644cfcc4c2adcfe68425c66548cfee",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/medea.json",
+          "sha256": "ed24c46a6b4f863e2b457184bd5313444f78a2d58e989dabe8b88fd422ed986a",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "meditations",
+      "masterIndex": {
+        "bookId": "meditations",
+        "danishCandidate": "recovered-branch/editions/meditations-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "2cbd0ad0a098c1a1c41b1be2d48f33eea585f75d6537652c0be0084403f5145a"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/meditations-modern-da.json",
+          "sha256": "2cbd0ad0a098c1a1c41b1be2d48f33eea585f75d6537652c0be0084403f5145a",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/meditations-modern-en.json",
+          "sha256": "a01029a9226e8cda8ff1bd7baf208e2015e9b455662c48c80e1956822bb9459b",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/meditations.da.json",
+          "sha256": "33674875de63ed5541ff29a772958ac4802354e4aaf92c8ffa355bfb76e2e138",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/meditations.json",
+          "sha256": "f1f20df5ead79245ab3e6a3b4fcd2375c58c899ffaa986baa5b44d9e62c4e8e1",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "middlemarch",
+      "masterIndex": {
+        "bookId": "middlemarch",
+        "danishCandidate": "recovery-parallel/middlemarch/modern-da.json",
+        "englishCandidate": "recovery-parallel/middlemarch/modern-en.json",
+        "folder": "recovery-parallel/middlemarch",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "b2ba476bab64a1ad0486b51df405095d2e43beec32080f4654153e537ec3a254"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/middlemarch/modern-da.json",
+          "sha256": "b2ba476bab64a1ad0486b51df405095d2e43beec32080f4654153e537ec3a254",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/middlemarch/modern-en.json",
+          "sha256": "8db8425a80483ade3621e983bab6a2dadcb3bca7c4d54492f59408668c4698d5",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/middlemarch/onboarding-da.json",
+          "sha256": "a15cfe8b803e867fa2a5258aa7b98aaa0423a5692a372202ba2e50d3ae96cc46",
+          "mainComparison": "no-main"
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/middlemarch/onboarding-en.json",
+          "sha256": "c6bcbe66797c2f4dc83ca67fafb99f386c944893648b5604a0077cc893c6f0ab",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "on-liberty",
+      "masterIndex": {
+        "bookId": "on-liberty",
+        "danishCandidate": "recovered-branch/editions/on-liberty-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": false,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "96480693daf33dc6eb8aaef4e29bde16bc9a218c7c0897786e8c672454c37b72",
+        "localOriginalDanishSha256": "aae1a0d9dcf5025789567e724a7b9cadd5f98589b33cf3e2056a6e2330dff749"
+      },
+      "disposition": "kept-main",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/on-liberty-modern-da.json",
+          "sha256": "96480693daf33dc6eb8aaef4e29bde16bc9a218c7c0897786e8c672454c37b72",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/on-liberty.da.json",
+          "sha256": "52ef7dc740228f76d593c77963db44b0bdb016c65977a778bb8722bc48e4a76e",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/on-liberty.json",
+          "sha256": "8ebbfd792183f673a11b8049d75e5705948ac38d364e016306167b4d68032398",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "phaedrus",
+      "masterIndex": {
+        "bookId": "phaedrus",
+        "danishCandidate": "recovered-branch/editions/phaedrus-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": false,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "c030a85dccd414b028b7d0c70e862a571d801629a7e7d8fe2f27448ac38c8129"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/phaedrus-modern-da.json",
+          "sha256": "c030a85dccd414b028b7d0c70e862a571d801629a7e7d8fe2f27448ac38c8129",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/phaedrus-modern-en.json",
+          "sha256": "c3626febffab5e2b70e70b37468ea8d68dafc84fee6d8ae82aea3f1729ccc8db",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/phaedrus.da.json",
+          "sha256": "17060afee6b326f3889952d97d3fcc1cae7722417821266ad774016a85131506",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/phaedrus.json",
+          "sha256": "f7c4cd605173d6f1f6a0115fd9b4d9af1c6367cbcc6887d1de6cd6327e0c70f6",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "poetics",
+      "masterIndex": {
+        "bookId": "poetics",
+        "danishCandidate": "recovered-branch/editions/poetics-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "4a6d7e49f024c2ea7da2697da770aca89b224c20d1f9c1d4209cc3f33df784e5"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/poetics-modern-da.json",
+          "sha256": "4a6d7e49f024c2ea7da2697da770aca89b224c20d1f9c1d4209cc3f33df784e5",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/poetics-modern-en.json",
+          "sha256": "d74a723c742c3b2b7beddbfcc80f80c080389f443aefb479e3fd662095bf6e63",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/poetics.da.json",
+          "sha256": "7126765bed8ae0ab7b1209e58f6d78e305e103999084bd9af7f2fd4cf526949d",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/poetics.json",
+          "sha256": "fd1638f51db220a8259b71d364618ce67a7c6ec0b48f9d2d2fc7a11290dc23aa",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "the-art-of-war",
+      "masterIndex": {
+        "bookId": "the-art-of-war",
+        "danishCandidate": "recovered-branch/editions/the-art-of-war-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "provisional_published_native_review_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "82beb558ec7f64151707b72c76f2d7adecbe6eebf0f05b684b9b5af49ce902b6"
+      },
+      "disposition": "identical",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/the-art-of-war-modern-da.json",
+          "sha256": "82beb558ec7f64151707b72c76f2d7adecbe6eebf0f05b684b9b5af49ce902b6",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/the-art-of-war-modern-en.json",
+          "sha256": "4572cbf35f7daf2d98f35e87aed5737510706612118d9d3ffe04d427dfdb682d",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/the-art-of-war.da.json",
+          "sha256": "8a85059308f597774a62e2771b75531fb60b0b590af0e7e7fd1dc999249a7eef",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/the-art-of-war.json",
+          "sha256": "fd06a18ce52986d4cc32232e93da47bc14b7bd54b95e745815240432316b57e8",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "the-manual",
+      "masterIndex": {
+        "bookId": "the-manual",
+        "danishCandidate": "recovered-branch/editions/the-manual-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "provisional_published_native_review_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "4d5e4e5a1ece8ed79b1f980e9d7e1219ea84938bbdc2dac4eeab6cb5789947cb"
+      },
+      "disposition": "identical",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/the-manual-modern-da.json",
+          "sha256": "4d5e4e5a1ece8ed79b1f980e9d7e1219ea84938bbdc2dac4eeab6cb5789947cb",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/the-manual-modern-en.json",
+          "sha256": "440a9f9abcb899abbffee46275c06b9c360b0e5d9692db0e459534cb8cb10493",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "the-prince",
+      "masterIndex": {
+        "bookId": "the-prince",
+        "danishCandidate": "recovered-branch/editions/the-prince-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_release_ci",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "d9daa5a54529190fb271285cdbbd685f1bc89ea94c1b54c09e4b12b183997778",
+        "localOriginalDanishSha256": "3b4a608cb0c5bb122e0dd4b1120188ade53b61f067f9975317102cf1221d5268"
+      },
+      "disposition": "kept-main",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/the-prince-modern-da.json",
+          "sha256": "d9daa5a54529190fb271285cdbbd685f1bc89ea94c1b54c09e4b12b183997778",
+          "mainComparison": "same-canon"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/the-prince-modern-en.json",
+          "sha256": "e2f4a3fd8158c6d7a910aa9c9a947afe103185ffb2d3d147d1fe81b10c2f9190",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/the-prince.da.json",
+          "sha256": "5152b7e3fa66f6f1d4e7931e7494ab3b1fa7134c41a18925a018d9b6cf7307c1",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/the-prince.json",
+          "sha256": "1df2ad87aae06f05fa455a75a488a8db32b80f52a4db71b5b3588e0b7f5ba93a",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "to-the-lighthouse",
+      "masterIndex": {
+        "bookId": "to-the-lighthouse",
+        "danishCandidate": "recovery-worker-a/reconstructed/to-the-lighthouse/modern-da.json",
+        "englishCandidate": "recovery-worker-a/reconstructed/to-the-lighthouse/modern-en.json",
+        "folder": "recovery-worker-a/reconstructed/to-the-lighthouse",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "aedeabe28e3d3e095c5a699758c221ea69d70e704abc75135b416db7e326fb72",
+        "localOriginalDanishSha256": "bca23dafaff4276d77f479008f6cd10761022066d32c55b64fad1cd743db14cc"
+      },
+      "disposition": "kept-main",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-worker-a/reconstructed/to-the-lighthouse/modern-da.json",
+          "sha256": "aedeabe28e3d3e095c5a699758c221ea69d70e704abc75135b416db7e326fb72",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovery-worker-a/reconstructed/to-the-lighthouse/modern-en.json",
+          "sha256": "55a2cccdb31fab3f19a42b66698283587de48868c7ed06467beec39823340936",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovery-worker-a/reconstructed/to-the-lighthouse/onboarding-da.json",
+          "sha256": "6e10e8b7c80fd83f580998ed1d3c6e7b36cffcd7d03777a08213686d24dbd38e",
+          "mainComparison": "no-main"
+        },
+        {
+          "role": "gen",
+          "path": "recovery-worker-a/reconstructed/to-the-lighthouse/onboarding-en.json",
+          "sha256": "f234bca0aed66c9cc80141410cb5db869bd5156ddbb56bdc247b4b8e0f9dba9b",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "us-founding-documents",
+      "masterIndex": {
+        "bookId": "us-founding-documents",
+        "danishCandidate": "recovered-branch/editions/us-founding-documents-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "provisional_published_native_review_pending",
+        "alreadySameDanishBody": true,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "369bac28503274314566ac6877ae04ea55ec4b39ef7ed3d00f3a0dbf501a6123"
+      },
+      "disposition": "identical",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/us-founding-documents-modern-da.json",
+          "sha256": "369bac28503274314566ac6877ae04ea55ec4b39ef7ed3d00f3a0dbf501a6123",
+          "mainComparison": "same"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/us-founding-documents-modern-en.json",
+          "sha256": "488c6a486b89d577c24d629e8118f1854c95134565a5687b12d758ca5a2929e4",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/us-founding-documents.da.json",
+          "sha256": "304cef0700c3a9d0d83cb3b2714e7e55304f8dd4a6a4df47314fed8bdf549a6d",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/us-founding-documents.json",
+          "sha256": "55974c25314ae9631dfc9507e068cd511e2703c7459dffdea03e13ef8e0813aa",
+          "mainComparison": "same"
+        }
+      ]
+    },
+    {
+      "bookId": "utilitarianism",
+      "masterIndex": {
+        "bookId": "utilitarianism",
+        "danishCandidate": "recovered-branch/editions/utilitarianism-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": false,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "f6ca391fbb73b011193595b0bc9471bc7e97665b80bf031a64ec1fe1c35f3298"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/utilitarianism-modern-da.json",
+          "sha256": "f6ca391fbb73b011193595b0bc9471bc7e97665b80bf031a64ec1fe1c35f3298",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/utilitarianism-modern-en.json",
+          "sha256": "368d97d3a2eba99d954fc8c93c5f8670b0c1c8faf9a8fcd430d043f9b713d973",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/utilitarianism.da.json",
+          "sha256": "51a037220169c4b536bd722f93b0f093341be379049f7872795b5cf5cff6b713",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/utilitarianism.json",
+          "sha256": "2cc34dce88a1141d1d0dfd6ee9e3b236ee3cd7ee301aa9611f201b0861a01a3c",
+          "mainComparison": "DIFF"
+        }
+      ]
+    },
+    {
+      "bookId": "werther",
+      "masterIndex": {
+        "bookId": "werther",
+        "danishCandidate": "recovered-branch/editions/werther-modern-da.json",
+        "folder": "recovered-branch",
+        "englishGate": 0,
+        "historicalStatus": "editorial_complete_integration_pending",
+        "alreadySameDanishBody": false,
+        "note": "Historical editorial record; fresh structural/gate checks only. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": true,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "f7cb6d3f4c3addbed9a74991d63e25766d40c4d4a8b71ac6a91e85d978711585",
+        "localOriginalDanishSha256": "f846911fb8ceab59dac89bcad2813203e94c7d1f3f98a80c9eb1c14e49c7de9b"
+      },
+      "disposition": "updated",
+      "files": [
+        {
+          "role": "da",
+          "path": "recovered-branch/editions/werther-modern-da.json",
+          "sha256": "f7cb6d3f4c3addbed9a74991d63e25766d40c4d4a8b71ac6a91e85d978711585",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "en",
+          "path": "recovered-branch/editions/werther-modern-en.json",
+          "sha256": "7fe1cfe41f2f86e6d5ac6aeb14b885cd7ba890cd866ec7243c0b3cdee81a32e1",
+          "mainComparison": "DIFF"
+        },
+        {
+          "role": "gda",
+          "path": "recovered-branch/onboarding/werther.da.json",
+          "sha256": "90a184f43052f9d6a4f8f2fb4f2f95643a74b14e726be3a5596c38fee418b08c",
+          "mainComparison": "same"
+        },
+        {
+          "role": "gen",
+          "path": "recovered-branch/onboarding/werther.json",
+          "sha256": "3205bacbebca206050ccf10c84d5c05ec7203579dfc694b0e66c3cedfcf7ef6c",
+          "mainComparison": "DIFF"
+        }
+      ]
+    }
+  ]
+}
