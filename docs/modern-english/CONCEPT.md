@@ -165,3 +165,53 @@ The thresholds are proposals until the baseline is in; adjust them once.
 - **Today's baseline numbers:** read 1+ minute, and third reading day. I don't have analytics access; it's a Coder query.
 - **Which 6 books get the most modern-English reading:** this decides the "Start here" picks.
 - **Whether the reader already has a "report this passage" path** or only edition patches applied by us.
+
+---
+
+## Anders's decisions (18 Nov 2026) and what changes
+
+1. **One tap on phones:** agreed. For signed-out visitors on a phone, the reader's top bar shows **Original | Modern** in the slot the Play button uses today. Play moves into the menu for them, because they can't record new narration anyway. Signed-in readers keep Play in the bar. This is a reader UI change, so it needs a mockup first. It also fixes the "one tap away" promise for the Try page.
+2. **No new recordings by signed-out visitors:** decided. Already-recorded narration stays playable for guests, as the code does today. Open: should we pre-record chapter 1 of the 6 "Start here" books ourselves (about $11) so guests can hear them? I recommend yes, but it isn't decided.
+3. **The hub points to the existing `/read/{book}` pages:** agreed.
+4. **Label the source translation on translated books:** agreed.
+5. **Danish version:** yes, at `tinct.app/moderne-dansk`, pointing only at the **37 Danish editions Tinct offers** (the `OFFERED_DANISH_EDITIONS` allowlist; the other 71 Danish files are held). The rules are the same:
+   - "moderne dansk, lavet med AI";
+   - name the source;
+   - no accuracy claims;
+   - a native speaker checks the page copy and the "Start her" picks before it goes live.
+6. **Ad testing:** yes. See "Ad test" below.
+
+## The goal is a snowball of leads
+
+That changes what we count and adds one piece the page lacks: a way for each new reader to bring the next one.
+
+- **A lead is a created account** (an email we can write to), not a visit. With no tracking pixels, it's counted first-party, by `utm` and `ref`.
+- **The loop:**
+  1. A visitor reads a chapter.
+  2. They make an account to keep their place and notes. This is the lead.
+  3. They share a passage or invite a friend, with a book attached. The invite flow is already designed in `docs/social/INVITE-BY-EMAIL.md`.
+  4. The friend lands on *that book* in modern English, and the loop starts again.
+- **Share moment in the reader:** after a reader's first Explain, or at the end of a chapter, offer "Send this passage to someone". It sends the line, its modern version and a link to that spot, tagged `ref=share`. No prompts before the reader has read anything.
+- **Reddit and search start the snowball; sharing keeps it rolling.** The Reddit posts also build the founder's account, so later posts reach more people.
+- **Measured weekly:**
+  - **new accounts per channel;**
+  - **invited or shared visits per new account:** the snowball number. Above about 0.3 the loop is doing real work; above 1 it would grow on its own, which is rare;
+  - **cost per account** from ads.
+
+## Ad test (Google search, first-party `utm` only)
+
+| | English | Danish |
+|---|---|---|
+| Budget, 3 weeks | about $100 | about $50 (Danish clicks are usually cheaper) |
+| Searches | "[title] in modern English / plain English / read online / full text" | "[title] på dansk", "læs [title] gratis", "[title] moderne dansk", "[title] online" |
+| Books | the 6 "Start here" books + Moby Dick | the Danish "Start her" picks from the 37 offered (e.g. Meditationer, Forbrydelse og straf, Moby Dick, Fyrsten) |
+| Lands on | the book, chapter 1, modern edition | the book, chapter 1, Danish edition |
+
+- **Two messages per language,** as separate ads in the same ad group:
+  - **"Stuck":** "Gave up on Hamlet? Read it in plain modern English. Free."
+  - **"Free and honest":** "Hamlet in modern English, free. Made with AI, original beside it."
+- **Judge on cost per account and on reading 1+ minute, not on clicks.**
+- **Exclude:** pdf, download, epub, summary, resumé, opgave, noter.
+- **Stop any ad group** that has spent $25 without an account.
+
+**What we'll learn:** which message brings readers who stay, and whether Danish brings leads more cheaply than English. If it does, that's the case for more languages.
