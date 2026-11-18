@@ -53,6 +53,8 @@ It will become `/about` later. For now it lives at **`/try`**:
 
 ## The five steps
 
+> **Superseded 18 Nov 2026 (Anders): hints instead of steps.** No Next, no Back and no scripted actions; the page never scrolls the reader. Desktop: a "Try it yourself" checklist of five (Explain a passage · Ask a follow-up · Read it in today's words · Hear it as you read · Get the gist in a minute) that ticks when the visitor does each thing, in any order, with the next one highlighted and a one-line instruction. Phone: a compact "Try it yourself" card with five chips. One small dark hint at a time sits by the real control in the reader, only while that control is on screen, with × to dismiss. Screenshots: `screenshots/hints-*.png`. The table below is kept as the history of the first version.
+
 The title says what you get; the line under it says how.
 
 | # | Title | Line | Next → makes the reader… |

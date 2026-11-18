@@ -62,7 +62,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
   font-family: var(--tui-font-display); font-weight: 700; font-size: clamp(44px, 4.6vw, 70px); line-height: 1.05; letter-spacing: -.01em;
 }
 
-/* ---- The stage: steps beside the reader ---- */
+/* ---- The stage: the checklist beside the reader ---- */
 .try-stage {
   display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 36px; align-items: start;
   padding: 0 22px 0 56px;
@@ -76,18 +76,42 @@ html[data-eink="true"] .try-backdrop { display: none; }
   font: italic 17px/1.3 var(--tui-font-serif); cursor: pointer;
 }
 .try-book select option { color: #111; }
-.try-step { margin-top: 30px; }
-.try-count { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--try-cream-ink); }
-.try-dots { display: inline-flex; gap: 5px; align-items: center; }
-.try-dots i { display: block; width: 6px; height: 6px; border-radius: 3px; background: rgba(244, 239, 228, .35); transition: width var(--tui-dur) var(--tui-ease), background var(--tui-dur); }
-.try-dots i.is-done { background: rgba(244, 239, 228, .8); }
-.try-dots i.is-current { width: 22px; background: var(--try-cream-ink); }
-.try-step-title { margin: 0 0 12px; font-family: var(--tui-font-display); font-weight: 700; font-size: 32px; line-height: 1.12; }
-.try-step-line { margin: 0 0 26px; font-family: var(--tui-font-serif); font-size: 18px; line-height: 1.5; color: var(--try-muted-on-dark); }
-.try-step-actions { display: flex; gap: 10px; }
-.try-step-actions .try-pill { min-height: 44px; padding: 0 20px; font-size: 15px; }
-.try-step-hint { margin: 18px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--try-muted-on-dark); }
-.try-step-card, .try-phone-row { display: none; }
+/* The checklist (desktop): five things that tick as the visitor does them, in any order; the next one says how. */
+.try-todo {
+  margin: 30px -16px 0; padding: 18px 16px 6px;
+  border: 1px solid var(--try-line-on-dark); border-radius: 16px; background: rgba(14, 11, 8, .55);
+}
+.try-todo-title { margin: 0 0 8px; font-family: var(--tui-font-display); font-weight: 700; font-size: 32px; line-height: 1.12; }
+.try-todo-sub { margin: 0 0 22px; font-family: var(--tui-font-serif); font-size: 18px; line-height: 1.4; color: var(--try-muted-on-dark); }
+.try-checks { list-style: none; margin: 0; padding: 0; }
+.try-checks li { display: flex; gap: 12px; align-items: flex-start; padding: 0 0 15px; font-size: 15.5px; line-height: 1.3; color: var(--try-cream-ink); }
+.try-check { flex: none; display: grid; place-items: center; width: 20px; height: 20px; margin-top: -1px; border: 1.5px solid rgba(244, 239, 228, .5); border-radius: 50%; }
+.try-check-text { display: grid; gap: 2px; }
+.try-check-line { display: none; font-size: 13px; color: var(--try-muted-on-dark); }
+.try-checks li.is-next .try-check { border-color: var(--try-cream-ink); }
+.try-checks li.is-next .try-check-title { font-weight: 600; }
+.try-checks li.is-next .try-check-line { display: block; }
+.try-checks li.is-done { color: var(--try-muted-on-dark); }
+.try-checks li.is-done .try-check { border-color: var(--try-cream-ink); background: var(--try-cream-ink); }
+.try-checks li.is-done .try-check::after { content: ''; width: 8px; height: 4.5px; margin-top: -2px; border: solid var(--tui-ink); border-width: 0 0 1.5px 1.5px; transform: rotate(-45deg); }
+.try-chips-card, .try-phone-row { display: none; }
+
+/* The hint: one dark bubble beside its control in the reader (try.js places it; it never moves the page). */
+.try-hint {
+  position: fixed; z-index: 20; max-width: 340px; margin: 0; padding: 10px 34px 10px 14px; border-radius: 10px;
+  background: #1d1a16; color: #f4efe4; box-shadow: 0 6px 24px rgba(0, 0, 0, .28);
+  font: 400 14px/1.35 var(--tui-font-ui); pointer-events: none;
+}
+.try-hint-text { margin: 0; }
+.try-hint-text b { font-weight: 600; }
+.try-hint::after { content: ''; position: absolute; left: var(--try-hint-arrow, 28px); width: 12px; height: 12px; background: #1d1a16; transform: rotate(45deg); }
+.try-hint[data-side="above"]::after { bottom: -6px; }
+.try-hint[data-side="below"]::after { top: -6px; }
+.try-hint-close {
+  position: absolute; top: 4px; right: 4px; width: 26px; height: 26px; padding: 0; border: 0; border-radius: 50%;
+  background: transparent; color: #8d8373; font: 400 16px/1 var(--tui-font-ui); cursor: pointer; pointer-events: auto;
+}
+.try-hint-close:hover { color: #f4efe4; }
 
 .try-reader {
   position: relative; height: var(--try-reader-h); border-radius: 14px; overflow: hidden;
@@ -176,25 +200,28 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-section, .try-peek, .try-footer { padding-left: 40px; padding-right: 40px; }
 }
 
-/* ---- Phone (M1–M10): the step card, the book and edition row, the reader, a text strip ---- */
+/* ---- Phone (M1–M10): the checklist chips, the book and edition row, the reader, a text strip ---- */
 @media (max-width: 899px) {
-  .try { --try-reader-h: max(440px, calc(100svh - 342px)); }
-  .try-only-wide, .try-sections, .try-step { display: none !important; }
+  .try { --try-reader-h: max(440px, calc(100svh - 375px)); }
+  .try-only-wide, .try-sections, .try-todo { display: none !important; }
   .try-nav { display: flex; justify-content: space-between; padding: 14px 16px 0; }
   .try-logo { font-size: 22px; }
   .try-account .try-pill { min-height: 34px; padding: 0 14px; font-size: 13.5px; }
   .try-headline { margin: 24px 0 18px; padding: 0 16px; font-size: 31px; }
   .try-stage { display: block; padding: 0 16px; }
-  .try-step-card {
-    display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto auto; column-gap: 12px; align-items: center;
-    min-height: 102px; /* two lines of the step's line: the reader below keeps its place from step to step (M1–M9) */
-    padding: 12px 14px 12px 16px; border: 1px solid var(--try-line-on-dark); border-radius: 16px; background: rgba(244, 239, 228, .08);
+  /* The checklist as five chips that tick (✓, filled) as the visitor does each thing (M1–M3). */
+  .try-chips-card {
+    display: block; padding: 12px 14px 14px; border: 1px solid var(--try-line-on-dark); border-radius: 16px; background: rgba(244, 239, 228, .08);
     -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
   }
-  .try-step-card .try-dots { grid-column: 1; margin-bottom: 7px; }
-  .try-card-title { grid-column: 1; margin: 0 0 3px; font: 600 15px/1.3 var(--tui-font-ui); }
-  .try-card-line { grid-column: 1; margin: 0; font-family: var(--tui-font-serif); font-size: 14.5px; line-height: 1.4; color: var(--try-muted-on-dark); }
-  .try-card-next { grid-column: 2; grid-row: 1 / span 3; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--try-cream-ink); color: var(--tui-ink); font-size: 18px; cursor: pointer; }
+  .try-chips-title { margin: 0 0 9px; font: 600 15px/1.3 var(--tui-font-ui); }
+  /* Room for a second row from the start: ticked chips grow, and the reader below must never move (M1–M3). */
+  .try-chips { list-style: none; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 5px; min-height: 61px; margin: 0; padding: 0; }
+  .try-chips li { display: inline-flex; align-items: center; gap: 3px; min-height: 28px; padding: 0 8px; border: 1px solid rgba(244, 239, 228, .26); border-radius: var(--tui-radius-pill); font-size: 13px; color: var(--try-cream-ink); }
+  .try-chips li.is-next { border-color: var(--try-cream-ink); }
+  .try-chips li.is-done { border-color: var(--try-cream-ink); background: var(--try-cream-ink); color: var(--tui-ink); }
+  .try-chips li.is-done::before { content: "✓"; font-size: 11px; }
+  .try-hint { max-width: min(330px, calc(100vw - 48px)); font-size: 13.5px; }
   .try-phone-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 12px 0 10px; }
   .try-phone-row .try-book select { min-height: 34px; font-size: 16px; }
   .try-editions { display: inline-flex; padding: 3px; border-radius: var(--tui-radius-pill); background: rgba(244, 239, 228, .08); border: 1px solid var(--try-line-on-dark); }
