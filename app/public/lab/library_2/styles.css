@@ -548,3 +548,7 @@ html.signed-in.own-avatar #sign-in:not(.cards-you)::before{content:'';width:24px
 html.signed-in .hero-own{display:none}
 @media(max-width:699px){.hero-actions{gap:10px}.hero-own{min-height:42px;font-size:14px;padding:0 16px}}
 @media(max-height:500px) and (min-width:700px){.hero-own{min-height:36px;font-size:14px}}
+/* A row snaps its first card to its own left inset, in line with the shelf heading, not to the screen edge (QA 18 Nov 2026). */
+.book-row{scroll-padding-inline:max(28px,2.5vw)}
+@media(max-width:699px){.book-row{scroll-padding-inline:20px}}
+.collection-reel .book-row{scroll-padding-inline:4px;margin-inline:-4px}
