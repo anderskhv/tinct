@@ -149,3 +149,7 @@ Anders: Talk and follow-ups should be **fully open and live**. The more real it 
 - **Launch video:** link to this page, using `?ref=launch` to count visits and sign-ups.
 - **Launch-day budget:** a higher daily budget for this page on launch day, around $50–100.
 - **Later:** test this page as the home page for signed-out visitors against the current landing page.
+
+## Copy correction (18 Nov 2026)
+
+The FAQ answer in the D10 mockup, "It's an AI rewrite of every line, checked against the original", must **not** ship. We never claim accuracy checks that haven't been done. Use this instead: "It's every page rewritten in modern English with AI — a reading aid, not a scholarly translation. The original is always one tap away." For the 52 books whose "original" is an older English translation, name that translation.
