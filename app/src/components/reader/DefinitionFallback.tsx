@@ -107,6 +107,16 @@ export function savedDefineHeadword(selection: string, answer: PartialContextual
 }
 
 /**
+ * Whether a saved Define card's headword already says what its source line would ("spices" over "spices · Noun"):
+ * the notebook then leaves the source line out (Anders, 18 Nov 2026). A selection the headword does not repeat
+ * ("Mary the mother of James" under "Joanna", or several words with no headword) keeps it.
+ */
+export function headwordRepeatsSelection(selection: string, firstAnswer: string | undefined): boolean {
+  const headword = firstAnswer ? savedDefineHeadword(selection, parseContextualLookup(firstAnswer)) : ''
+  return !!headword && headword.toLocaleLowerCase() === trimHeadword(selection).toLocaleLowerCase()
+}
+
+/**
  * A saved Define card's answer. The first carries the headword with what it is after it ("Joanna · Minor character",
  * "sepulchre · Noun"), so its body leaves that label out; a follow-up answer reads as it always has.
  */

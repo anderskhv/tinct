@@ -42,6 +42,21 @@ it('a saved Define entry heads its first answer with "Joanna · Minor character"
   expect([...headwords].map(head => head.textContent)).toEqual(['Joanna · Minor character'])
   expect(screen.getByTestId('popup-contextual-character').querySelector('small')).toBeNull()
   expect(screen.getByText('Only in Luke.')).toBeTruthy()
+  // The headword already says "Joanna": no "Joanna," source line above it. On paper, over the margin's cards.
+  expect(document.querySelector('.lab-pcard-source')).toBeNull()
+  expect(document.querySelector('.lab-desktop-card')?.hasAttribute('data-notebook')).toBe(true)
+})
+
+it('a saved Define entry keeps its source line when the headword does not repeat it', () => {
+  vi.stubGlobal('fetch', vi.fn(async () => new Response('{}', { status: 404 })))
+  fixture.row = catalogueCardConversation({ source: { kind: 'catalogue', bookId: 'bible' }, id: 'saved-phrase', kind: 'define', chapterNumber: 1, text: 'rolled away', at: 1000, u: 1000,
+    turns: [{ role: 'assistant', content: JSON.stringify({ kind: 'definition', definition: 'Verb. Moved by turning over. Here, the stone moved from the tomb.' }) }] })!
+  writeLabBookChat('bible', [fixture.row])
+  window.history.replaceState(null, '', '/reader?sharedReader=1&layout=desktop&view=margin')
+  render(<LabApp pathname="/reader" source={{ ...fallbackLabSource(), chapterNumber: 2, chapterLabel: 'Book 2', chapters: [{number:1,title:'Book 1'},{number:2,title:'Book 2'}] }} authToken={null} sharedReader />)
+  fireEvent.click(screen.getByText('Open saved entry'))
+  expect(document.querySelector('.lab-pcard-source')?.textContent).toBe('rolled away')
+  expect(document.querySelector('.lab-pcard-headword')).toBeNull()
 })
 
 it('highlights a mobile saved Define destination and returns to the pre-jump position', async () => {

@@ -280,7 +280,7 @@ import { markPhoneCardPassage, onlyFieldEdits, type PhoneCardRange } from './mar
 import { createDraftStore, WithDraft } from './labDraftStore'
 import { liveCardFollowupTurns, PHONE_CARD_NAMES, PhoneCharacterBody, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
 import { contextualLookupPreview } from '../components/reader/contextualLookup'
-import { DefinitionWithHeadword, SavedDefineAnswer } from '../components/reader/DefinitionFallback'
+import { DefinitionWithHeadword, SavedDefineAnswer, headwordRepeatsSelection } from '../components/reader/DefinitionFallback'
 import './lab.css'
 
 const PHONE_QUERY = LAB_PHONE_QUERY
@@ -8523,8 +8523,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         const Card = showPhoneChrome ? LabPhoneCard : LabDesktopCard
         const saved = notebookCard
         return <Card label={`${marginActionLabel(saved.card?.kind || 'ask')} · ${book.chapters.find(ch => ch.number === saved.chapterNumber)?.title || `Chapter ${saved.chapterNumber}`}`}
-          kind={saved.card?.kind || 'ask'} onClose={() => { setNotebookCard(null); setDraft('') }}>
-          {saved.card?.text && <p className="lab-pcard-source">{saved.card.text}</p>}
+          kind={saved.card?.kind || 'ask'} notebook onClose={() => { setNotebookCard(null); setDraft('') }}>
+          {/* A definition's headword already names a one-word selection: "spices · Noun", not "spices" over it. */}
+          {saved.card?.text && !(saved.card.kind === 'define' && headwordRepeatsSelection(saved.card.text, saved.messages.find(message => message.role === 'assistant')?.content))
+            && <p className="lab-pcard-source">{saved.card.text}</p>}
           {saved.messages.filter(message => message.role === 'assistant').map((message, index) => <div key={message.id} className="lab-pcard-answer">{saved.card?.kind === 'define' ? <SavedDefineAnswer selection={saved.card.text || ''} content={message.content} first={index === 0} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
           <button type="button" className="lab-pcard-link" onClick={() => {
             setNotebookCard(null)

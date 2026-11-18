@@ -3,7 +3,7 @@ import { act, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
 import { cleanup } from '@testing-library/react'
 import { CONTEXTUAL_LOOKUP_DEFINITION_LINE, CONTEXTUAL_LOOKUP_PROMPT, contextualLookupPreview, splitDefinition } from './contextualLookup'
-import { ContextualLookupView, DefinitionWithHeadword, SavedDefineAnswer, headwordLabel, savedDefineHeadword } from './DefinitionFallback'
+import { ContextualLookupView, DefinitionWithHeadword, SavedDefineAnswer, headwordLabel, headwordRepeatsSelection, savedDefineHeadword } from './DefinitionFallback'
 
 afterEach(cleanup)
 
@@ -167,5 +167,15 @@ describe('a saved Define card in the desktop margin or notebook carries its head
 
   it('no answer to read: no headword', () => {
     expect(savedDefineHeadword('sepulchre', null)).toBe('')
+  })
+
+  it('the notebook drops a source line the headword repeats, whatever its case or punctuation, and keeps any other', () => {
+    expect(headwordRepeatsSelection('Joanna,', person)).toBe(true)
+    expect(headwordRepeatsSelection('sepulchre,', word)).toBe(true)
+    expect(headwordRepeatsSelection('Sepulchre', word)).toBe(true)
+    expect(headwordRepeatsSelection('“Peter’s', word)).toBe(true)
+    expect(headwordRepeatsSelection('Mary the mother of James', person)).toBe(false)
+    expect(headwordRepeatsSelection('rolled away', word)).toBe(false)
+    expect(headwordRepeatsSelection('sepulchre', undefined)).toBe(false)
   })
 })
