@@ -43,3 +43,12 @@
   box-shadow: 0 1px 2px rgba(40, 34, 20, .12);
 }
 .lab-try-editions button:focus-visible { outline: 2px solid var(--lab-accent, #2f7f7a); outline-offset: 2px; }
+
+/* The margin's cards a step smaller with the demo's reading size (TRY_DEMO_DESKTOP_FONT_SIZE), so an Explain card with
+   its follow-up, or the chapter Summary with the folded Explain under it, fits the frame (D5, D8). */
+.lab.is-desktop[data-try-demo] .source-margin-item { font-size: 15px; }
+.lab.is-desktop[data-try-demo] .source-margin-preview,
+.lab.is-desktop[data-try-demo] .source-margin-preview .source-margin-preview-note { font-size: 15px !important; }
+.lab.is-desktop[data-try-demo] .source-margin-preview-question { font-size: 14.5px; }
+.lab.is-desktop[data-try-demo] .source-margin-content .lab-pcard-answer { font-size: 15px; }
+.lab.is-desktop[data-try-demo] .source-margin-head .source-margin-label { font-size: 13px; }

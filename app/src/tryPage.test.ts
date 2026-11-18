@@ -5,7 +5,7 @@ import { handleSeoAndStaticRequest, withTryDemo, TRY_DEMO_SCRIPT } from './worke
 import { CARDS_COPY } from './cards/cardsCopy'
 import { TRIAL_DAYS } from './worker/lib/aiAllowance'
 import { LAB_COPY } from './lab/labCopy'
-import { firstSentenceWords } from './lab/tryDemo/tryDemo'
+import { firstSentenceWords, revealScrollBy } from './lab/tryDemo/tryDemo'
 import { LAB_EXPLAIN_PROMPT } from './companion/companionRequest'
 import { parseChapterNotesBeats } from './chapterNotes'
 
@@ -168,5 +168,13 @@ describe('the reader in demo mode', () => {
   it('firstSentenceWords skips a section number and stops at the first full stop', () => {
     expect(firstSentenceWords('1. Begin the morning. All these things')).toEqual({ fromWord: 1, toWord: 3 })
     expect(firstSentenceWords('No number here, and no stop')).toEqual({ fromWord: 0, toWord: 5 })
+  })
+
+  it('an open margin card that grows past the frame scrolls in, but never past its own top', () => {
+    const frame = { top: 60, bottom: 600 }
+    expect(revealScrollBy(frame, { top: 300, bottom: 500 })).toBe(0)
+    expect(revealScrollBy(frame, { top: 300, bottom: 700 })).toBe(116)
+    expect(revealScrollBy(frame, { top: 200, bottom: 1200 })).toBe(84)
+    expect(revealScrollBy(frame, { top: 110, bottom: 900 })).toBe(0)
   })
 })

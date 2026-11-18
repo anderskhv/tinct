@@ -21,6 +21,13 @@ function demoGlobal(): TryDemoGlobal | null {
 /** This reader is the /try page's demo (decided once, before the app runs). */
 export const TRY_DEMO = demoGlobal() !== null
 
+/**
+ * The demo's reading size on the desktop. The boards (docs/try-page/mockups D1–D9) show production's reader at
+ * 1600px scaled into the page's ~1056px frame; one step under the desktop minimum (1.0) keeps the passage, its
+ * Explain card and the follow-up answer on one screen without shrinking the whole reader.
+ */
+export const TRY_DEMO_DESKTOP_FONT_SIZE = 0.9
+
 export function tryDemoTell(message: Record<string, unknown>): void {
   demoGlobal()?.tell(message)
 }
@@ -122,4 +129,42 @@ export function firstSentenceWords(paragraph: string): { fromWord: number; toWor
     if (/[.!?]["'’”)]*$/.test(words[index])) return { fromWord, toWord: index }
   }
   return { fromWord, toWord: words.length - 1 }
+}
+
+/** How far to scroll the reader so an open margin card ends inside it, keeping the card's top at least `keepTop` from the scroller's top. */
+export function revealScrollBy(host: { top: number; bottom: number }, card: { top: number; bottom: number }, keepTop = 56, gap = 16): number {
+  const overflow = card.bottom + gap - host.bottom
+  const room = card.top - host.top - keepTop
+  const by = Math.min(overflow, room)
+  return by > 8 ? Math.round(by) : 0
+}
+
+/**
+ * Desktop demo: an open margin card that grows past the frame's bottom (an Explain with its follow-up answer, the
+ * chapter Summary) scrolls into view as it grows, so the visitor sees the answer land (D5, D8). Only the open card's
+ * own growth scrolls; the visitor's scrolling is never undone.
+ */
+export function useTryDemoRevealOpenCard(host: HTMLElement | null, phone: boolean): void {
+  useEffect(() => {
+    if (!TRY_DEMO || !host || phone || typeof ResizeObserver === 'undefined') return
+    let frame = 0
+    const reveal = () => {
+      const card = host.querySelector<HTMLElement>('.source-margin-item[data-open="true"]')
+      if (!card) return
+      const by = revealScrollBy(host.getBoundingClientRect(), card.getBoundingClientRect())
+      if (by) host.scrollBy({ top: by, behavior: 'smooth' })
+    }
+    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(reveal) }
+    const resize = new ResizeObserver(schedule)
+    const watched = new Set<Element>()
+    const observe = () => {
+      const open = new Set(host.querySelectorAll('.source-margin-item[data-open="true"]'))
+      for (const node of watched) if (!open.has(node)) { resize.unobserve(node); watched.delete(node) }
+      for (const node of open) if (!watched.has(node)) { resize.observe(node); watched.add(node) }
+    }
+    const mutation = new MutationObserver(observe)
+    mutation.observe(host, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-open'] })
+    observe()
+    return () => { mutation.disconnect(); resize.disconnect(); cancelAnimationFrame(frame) }
+  }, [host, phone])
 }

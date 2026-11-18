@@ -1,5 +1,5 @@
 {
-  "note": "The /try page's scripted answers for Meditations Book 2 (original edition), written in a Claude Code session per the no-API rule (2026-11-18). Explain follows LAB_EXPLAIN_PROMPT's shape (a lead sentence the card sets in bold, then at most two short paragraphs); the Summary follows the chapter-notes 'end' prompt (four beats, a particular title, two sentences of at most 40 words).",
+  "note": "The /try page's scripted answers for Meditations Book 2 (original edition), written in a Claude Code session per the no-API rule (2026-11-18). Explain follows LAB_EXPLAIN_PROMPT's shape (a lead sentence the card sets in bold, then at most two short paragraphs); the Summary follows the chapter-notes 'end' prompt (four beats, a particular title, one or two short sentences, as on the D8/M8 boards).",
   "bookId": "meditations",
   "editionKey": "original-en",
   "chapterNumber": 2,
@@ -9,10 +9,22 @@
   },
   "summary": {
     "beats": [
-      { "title": "Rehearsing the difficult morning", "text": "Marcus names the busybody, the ungrateful and the envious before he meets them. He disarms them with kinship: they share his reason, so anger at them is one hand fighting the other." },
-      { "title": "A deadline on time", "text": "He reminds himself that his time is fixed and running out, so each act should be done as if it were his last. Even his beloved books count as distraction here." },
-      { "title": "Only the present moment", "text": "No one loses any life but the one he is living now, so the longest and shortest lives lose the same. He tests it against three thousand years and finds no difference." },
-      { "title": "Philosophy as the guard", "text": "Life is short, the body decays and fame is uncertain; only philosophy can guard the spirit within. That means keeping it free of anger, pleasure and pain, and doing nothing at random." }
+      {
+        "title": "Prepare for the day",
+        "text": "Expect difficult people. They act from ignorance, and they are still your kin."
+      },
+      {
+        "title": "Time is short",
+        "text": "Stop drifting. Do each thing as if it were the last thing you do."
+      },
+      {
+        "title": "Only the present",
+        "text": "You can only lose the moment you are living in, so no one loses more than that."
+      },
+      {
+        "title": "Guard your mind",
+        "text": "The ruling part within you is what matters: keep it free of anger and distraction."
+      }
     ]
   }
 }
