@@ -280,8 +280,8 @@ import { flashNotebookPassage } from './marginPhone/flashNotebookPassage'
 import { markPhoneCardPassage, onlyFieldEdits, type PhoneCardRange } from './marginPhone/phoneCardPassage'
 import { createDraftStore, WithDraft } from './labDraftStore'
 import { liveCardFollowupTurns, PHONE_CARD_NAMES, PhoneCharacterBody, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
-import { contextualLookupPreview, parseContextualLookup } from '../components/reader/contextualLookup'
-import { ContextualLookupView, DefinitionWithHeadword } from '../components/reader/DefinitionFallback'
+import { contextualLookupPreview } from '../components/reader/contextualLookup'
+import { DefinitionWithHeadword, SavedDefineAnswer, headwordRepeatsSelection } from '../components/reader/DefinitionFallback'
 import './lab.css'
 
 const PHONE_QUERY = LAB_PHONE_QUERY
@@ -7088,7 +7088,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     free: !item.card!.anchor, open: desktopOpenId === item.id, ...foldedPreview(item.card!.kind, item.messages, raw => marginAnswerPreview(item.card!.kind, raw)), sourceText: item.card!.text,
     onToggle: () => toggleMargin(item.id), onDelete: () => deleteMarginConversation(item),
     content: <LabDesktopCard embedded label={item.card!.kind} kind={item.card!.kind} onClose={() => setDesktopOpenId(null)}>
-      {cardShownMessages(item.card!.kind, item.messages).map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : message.role === 'assistant' ? <PhoneAnswer text={message.content} plain={item.card!.kind === 'simplify'} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
+      {cardShownMessages(item.card!.kind, item.messages).map((message, index, shown) => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <SavedDefineAnswer selection={item.card!.text || ''} content={message.content} first={shown.findIndex(entry => entry.role === 'assistant') === index} /> : message.role === 'assistant' ? <PhoneAnswer text={message.content} plain={item.card!.kind === 'simplify'} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
       {desktopOpenId === item.id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === item.id && (turn.timestamp ?? 0) > item.endTimestamp)} pending={ask.typedLoading} />}
       <PhoneFollowField draft={draftStore} active={desktopOpenId === item.id} onChange={setDraft} onSend={question => discussSavedCard(item.id, question, item.card!.text)} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }} disabled={ask.typedLoading} />
     </LabDesktopCard>,
@@ -8605,9 +8605,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         const Card = showPhoneChrome ? LabPhoneCard : LabDesktopCard
         const saved = notebookCard
         return <Card label={`${marginActionLabel(saved.card?.kind || 'ask')} · ${book.chapters.find(ch => ch.number === saved.chapterNumber)?.title || `Chapter ${saved.chapterNumber}`}`}
-          kind={saved.card?.kind || 'ask'} onClose={() => { setNotebookCard(null); setDraft('') }}>
-          {saved.card?.text && <p className="lab-pcard-source">{saved.card.text}</p>}
-          {saved.messages.filter(message => message.role === 'assistant').map(message => <div key={message.id} className="lab-pcard-answer">{saved.card?.kind === 'define' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
+          kind={saved.card?.kind || 'ask'} notebook onClose={() => { setNotebookCard(null); setDraft('') }}>
+          {/* A definition's headword already names a one-word selection: "spices · Noun", not "spices" over it. */}
+          {saved.card?.text && !(saved.card.kind === 'define' && headwordRepeatsSelection(saved.card.text, saved.messages.find(message => message.role === 'assistant')?.content))
+            && <p className="lab-pcard-source">{saved.card.text}</p>}
+          {saved.messages.filter(message => message.role === 'assistant').map((message, index) => <div key={message.id} className="lab-pcard-answer">{saved.card?.kind === 'define' ? <SavedDefineAnswer selection={saved.card.text || ''} content={message.content} first={index === 0} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
           <button type="button" className="lab-pcard-link" onClick={() => {
             setNotebookCard(null)
             openFromNotebook({ chapterNumber: saved.chapterNumber, paragraphIndex: saved.card?.anchor?.paragraphIndex ?? saved.paragraphIndex ?? 0, wordIndex: saved.card?.anchor?.fromWord ?? 0 }, saved.card?.anchor)

@@ -32,7 +32,7 @@ export function DefinitionFallback({ word, request, dictionaryDefinitions, onCha
   const [answer, setAnswer] = useState<PartialContextualLookup | null>(null)
   const [status, setStatus] = useState<'loading' | 'ready' | 'resting' | 'error'>('loading')
   const [attempt, setAttempt] = useState(0)
-  const shared = namesakes && namesakes.name === word.trim().replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '').replace(/[’']s$/, '') ? namesakes : null
+  const shared = namesakes && namesakes.name === trimHeadword(word) ? namesakes : null
   useEffect(() => {
     if (shared) return
     let active = true
@@ -87,6 +87,47 @@ export function headwordLabel(answer: PartialContextualLookup | null, dictionary
  */
 export function HeadwordLabel({ label }: { label: string }) {
   return label ? <> <span className="popup-define-pos"><span className="popup-define-sep" aria-hidden="true">·</span> <span>{label}</span></span></> : null
+}
+
+/** A looked-up selection as its headword: no surrounding punctuation, no possessive ("Joanna," → "Joanna", "Peter’s" → "Peter"). */
+export function trimHeadword(selection: string): string {
+  return selection.trim().replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '').replace(/[’']s$/, '')
+}
+
+/**
+ * The headword over a saved Define card's first answer (the desktop margin and notebook, Anders, 18 Nov 2026): a
+ * person's or place's own name, else the selected word. A selection of several words that is not a person or place
+ * has none, and its card keeps the label in the body, as the phone's does.
+ */
+export function savedDefineHeadword(selection: string, answer: PartialContextualLookup | null): string {
+  if (!answer) return ''
+  const word = trimHeadword(selection)
+  const single = /\s/.test(word) ? '' : word
+  return (answer.kind === 'person' || answer.kind === 'place') ? answer.name.trim() || single : single
+}
+
+/**
+ * Whether a saved Define card's headword already says what its source line would ("spices" over "spices · Noun"):
+ * the notebook then leaves the source line out (Anders, 18 Nov 2026). A selection the headword does not repeat
+ * ("Mary the mother of James" under "Joanna", or several words with no headword) keeps it.
+ */
+export function headwordRepeatsSelection(selection: string, firstAnswer: string | undefined): boolean {
+  const headword = firstAnswer ? savedDefineHeadword(selection, parseContextualLookup(firstAnswer)) : ''
+  return !!headword && headword.toLocaleLowerCase() === trimHeadword(selection).toLocaleLowerCase()
+}
+
+/**
+ * A saved Define card's answer. The first carries the headword with what it is after it ("Joanna · Minor character",
+ * "sepulchre · Noun"), so its body leaves that label out; a follow-up answer reads as it always has.
+ */
+export function SavedDefineAnswer({ selection, content, first }: { selection: string; content: string; first: boolean }) {
+  const answer = parseContextualLookup(content)
+  const headword = first ? savedDefineHeadword(selection, answer) : ''
+  if (!headword) return <ContextualLookupView answer={answer} />
+  return <>
+    <p className="lab-pcard-headword popup-define-word" data-testid="saved-define-headword">{headword}<HeadwordLabel label={headwordLabel(answer)} /></p>
+    <ContextualLookupView answer={answer} labelInTitle />
+  </>
 }
 
 /** A card's headword over its definition, with what the word is after it: "sepulchre · Noun" (the phone and margin cards). */
