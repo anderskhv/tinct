@@ -29,6 +29,20 @@ it.each([false, true])('opens an earlier-chapter Notebook entry without moving r
   expect(root.getAttribute('data-place')).toBe(place)
 })
 
+it('a saved Define entry heads its first answer with "Joanna · Minor character"; a later answer has no headword (Anders, 18 Nov 2026)', () => {
+  vi.stubGlobal('fetch', vi.fn(async () => new Response('{}', { status: 404 })))
+  fixture.row = catalogueCardConversation({ source: { kind: 'catalogue', bookId: 'bible' }, id: 'saved-person', kind: 'define', chapterNumber: 1, text: 'Joanna,', at: 1000, u: 1000,
+    turns: [{ role: 'assistant', content: JSON.stringify({ kind: 'person', name: 'Joanna', importance: 'minor', subtitle: 'One of the women at the tomb', body: 'Named among the women.' }) },
+      { role: 'assistant', content: 'Only in Luke.' }] })!
+  writeLabBookChat('bible', [fixture.row])
+  window.history.replaceState(null, '', '/reader?sharedReader=1&layout=desktop&view=margin')
+  render(<LabApp pathname="/reader" source={{ ...fallbackLabSource(), chapterNumber: 2, chapterLabel: 'Book 2', chapters: [{number:1,title:'Book 1'},{number:2,title:'Book 2'}] }} authToken={null} sharedReader />)
+  fireEvent.click(screen.getByText('Open saved entry'))
+  const headwords = document.querySelectorAll('.lab-pcard-answer .lab-pcard-headword')
+  expect([...headwords].map(head => head.textContent)).toEqual(['Joanna · Minor character'])
+  expect(screen.getByTestId('popup-contextual-character').querySelector('small')).toBeNull()
+  expect(screen.getByText('Only in Luke.')).toBeTruthy()
+})
 
 it('highlights a mobile saved Define destination and returns to the pre-jump position', async () => {
   vi.stubGlobal('fetch', vi.fn(async () => new Response('{}', { status: 404 })))

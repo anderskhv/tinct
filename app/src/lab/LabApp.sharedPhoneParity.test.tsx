@@ -101,7 +101,8 @@ it('opens a reviewed name as its released character card and keeps the future ga
   fireEvent.pointerDown(word, { pointerId: 42, pointerType: 'mouse', clientX: 150, clientY: 200 })
   fireEvent.pointerUp(word, { pointerId: 42, pointerType: 'mouse', clientX: 150, clientY: 200 })
   expect(screen.getByTestId('lab-phone-character').getAttribute('data-kind')).toBe('character')
-  expect(screen.getByRole('heading', { name: 'Mrs. Ramsay' })).toBeTruthy()
+  // The role sits on the name's line since 18 Nov 2026 ("Mrs. Ramsay · Major figure"; the dot is aria-hidden).
+  expect(screen.getByRole('heading', { name: 'Mrs. Ramsay Major figure' })).toBeTruthy()
   expect(screen.getByText('A released reminder.')).toBeTruthy()
   expect(screen.queryByText('Future information.')).toBeNull()
   expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
