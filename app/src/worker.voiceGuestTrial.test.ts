@@ -159,6 +159,24 @@ describe('guest Talk trial: the session route', () => {
   })
 })
 
+describe('guest Talk trial from the /try page', () => {
+  beforeEach(() => { vi.spyOn(console, 'log').mockImplementation(() => {}); vi.spyOn(console, 'warn').mockImplementation(() => {}) })
+  afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals() })
+
+  it('reserves on the page\'s own day and the ticket says so, so the relay gives back to that day', async () => {
+    const deps = setup()
+    const tryHold = createGuestSpendHolder({ ...deps.env, TRY_AI_DAILY_CENTS: '300' }, () => NOW, 'try')
+    const response = await handleLabVoiceSession(new Request('https://tinct.app/api/lab-voice-session', {
+      method: 'POST', headers: { 'cf-connecting-ip': IP, 'x-tinct-surface': 'try' }, body: '{}',
+    }), deps.env, deps.checkRateLimit, tryHold, () => NOW)
+    expect(response.status).toBe(200)
+    const ticket = await verifyTalkTicket(deps.env, (await response.json() as { value: string }).value, NOW)
+    expect(ticket).toMatchObject({ s: 'try', u: TALK_TRIAL_RESERVE_MICROS })
+    expect(deps.spent()).toBe(0)
+    expect(deps.ns.getByName('spend:try-ai:2026-10').usage().find(row => row.day === '2026-10-16')?.units).toBe(TALK_TRIAL_RESERVE_MICROS)
+  })
+})
+
 describe('guest Talk trial: the relay', () => {
   beforeEach(() => { vi.spyOn(console, 'log').mockImplementation(() => {}); vi.spyOn(console, 'warn').mockImplementation(() => {}) })
   afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals() })
