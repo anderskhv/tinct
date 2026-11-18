@@ -7597,6 +7597,9 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 /* "sepulchre · Noun", "Joanna · Minor character", "Galilee · Place": what the word is, on its line, quieter than it (Anders,
    17 Nov 2026). The card's own serif, upright and regular, in sentence case; kept whole, it wraps below as one unit. */
 .lab[data-chrome-version="v2"] .popup-define-pos { font-family:inherit; font-size:0.8em; font-style:normal; font-weight:400; letter-spacing:normal; text-transform:none; color:var(--lab-ink-muted); white-space:nowrap; }
+/* "Mary Magdalene · Major figure": a character's name is a headword too, in the card's own serif, italic and regular,
+   not a third typeface in bold (Anders, 18 Nov 2026). */
+.lab[data-chrome-version="v2"] .popup-character h2.popup-character-name { font-family:inherit; font-style:italic; font-weight:400; }
 /* The header's own controls sit beside the title, so the old popup's room for a floating More button is not needed. */
 .lab[data-chrome-version="v2"] .selection-popup.is-compact .popup-define .lab-reader-window-title.popup-define-word { padding-right:0; }
 .lab[data-chrome-version="v2"] .selection-popup.is-lab.is-dark .popup-define-pos { color:var(--lab-pbar-soft); }

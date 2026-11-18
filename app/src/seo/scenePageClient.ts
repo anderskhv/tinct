@@ -122,6 +122,36 @@ function send(events: Array<{ name: string; props?: Record<string, string | numb
   } catch { /* analytics never blocks the page */ }
 }
 
+/** Visible time goes up every 5 minutes and in full on hide/pagehide, as the reader and library send it. */
+export const SCENE_BEAT_MS = 5 * 60_000
+
+/**
+ * page_duration for the static scene and chapter pages, with the reader's rules (src/utils/funnel.ts): only
+ * time the page is visible counts, a beat under a second is dropped, and each report starts the clock again.
+ */
+export function createSceneDuration(deps: {
+  now: () => number
+  visible: () => boolean
+  report: (durationMs: number) => void
+  every: (fn: () => void, ms: number) => unknown
+}): { visibility: (visible: boolean) => void } {
+  let since: number | null = deps.visible() ? deps.now() : null
+  const take = () => {
+    if (since === null) return
+    const now = deps.now(), ms = now - since
+    since = now
+    if (ms >= 1000) deps.report(Math.round(ms))
+  }
+  deps.every(take, SCENE_BEAT_MS)
+  return {
+    visibility(visible) {
+      if (visible) { if (since === null) since = deps.now(); return }
+      take()
+      since = null
+    },
+  }
+}
+
 // ===== The page =====
 
 const MORE_ICON = '<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false" class="lab-picon"><circle cx="4" cy="9" r=".9"></circle><circle cx="9" cy="9" r=".9"></circle><circle cx="14" cy="9" r=".9"></circle></svg>'
@@ -211,6 +241,16 @@ export function startScenePage(doc: Document = document): void {
   })
 
   send([{ name: 'pageview', props: { book: bookId, chapter: chapterNumber } }])
+  if (analyticsOn()) {
+    const duration = createSceneDuration({
+      now: () => Date.now(),
+      visible: () => doc.visibilityState !== 'hidden',
+      report: ms => send([{ name: 'page_duration', props: { duration_ms: ms } }]),
+      every: (fn, ms) => window.setInterval(fn, ms),
+    })
+    doc.addEventListener('visibilitychange', () => duration.visibility(doc.visibilityState !== 'hidden'))
+    window.addEventListener('pagehide', () => duration.visibility(false))
+  }
 }
 
 if (typeof document !== 'undefined' && !(globalThis as { __tinctSceneNoStart?: boolean }).__tinctSceneNoStart) {

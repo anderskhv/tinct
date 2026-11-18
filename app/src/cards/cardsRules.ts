@@ -117,13 +117,14 @@ export function readerCardView(data: ProfilePageData): ReaderCardView {
 export const BOARD_TOP = 5
 
 /**
- * The Leaderboard's rows (Anders, 17 Nov 2026): readers with no time in the window are left out, except the viewer,
+ * The Leaderboard's rows (Anders, 17 Nov 2026): readers with no time in the window (under a minute, shown as "0 m") are left out, except the viewer,
  * whose own row always shows. Folded (each time the board opens): the top five, then, when the viewer ranks lower and
  * readers between are hidden, a gap ("···") and the viewer's row at their real rank. `toggle` is the row under the
  * list: Show all while rows are hidden, Show top 5 when unfolded, none when every row already shows.
  */
 export function boardRows(entries: BoardEntry[], expanded: boolean): { rows: Array<BoardEntry | 'gap'>; toggle: 'expand' | 'collapse' | null } {
-  const shown = entries.filter(entry => entry.me || entry.seconds > 0)
+  // A reader under a minute reads "0 m" on the board, so counts as no time (Anders, 18 Nov 2026).
+  const shown = entries.filter(entry => entry.me || entry.seconds >= 60)
   const mine = shown.findIndex(entry => entry.me)
   const folded: Array<BoardEntry | 'gap'> = shown.slice(0, BOARD_TOP)
   if (mine >= BOARD_TOP) {

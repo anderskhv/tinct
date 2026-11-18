@@ -199,7 +199,7 @@ function paint(hero,model){
   const w=hero.clientWidth,h=hero.clientHeight,wide=w/h>1.2,asset=String(window.__library2Boot.asset||'');
   if(asset.endsWith(wide?'-wide.jpg':'-phone.jpg')){
     const iw=wide?1536:1024,ih=wide?1024:1536,heroTop=hero.getBoundingClientRect().top;
-    const edge=Math.max(h*.3,Math.min(h*.8,r.bottom-heroTop-fit.H*.22));
+    const edge=Math.max(h*.2,Math.min(h*.9,r.bottom-heroTop-fit.H*.22));
     const c=L.tableCrop(w,h,iw,ih,ih*(wide?.64:.51),edge),s=w/c.w;
     document.documentElement.style.setProperty('--initial-scene-size',`${(iw*s).toFixed(2)}px ${(ih*s).toFixed(2)}px`);
     document.documentElement.style.setProperty('--initial-scene-position',`${(-c.x*s).toFixed(2)}px ${(-c.y*s).toFixed(2)}px`);
