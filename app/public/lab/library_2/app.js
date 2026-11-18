@@ -163,7 +163,7 @@ function coverButton(book,cls='book-card cover-button'){const b=el('button',cls)
  * at Paste text for paste, holding the text /byob kept (file-handoff.js) if there is one. A file
  * /byob kept for the library is added at once, as if chosen in the pop-up; several go to its queue.
  */
-// The hero's "Add your own book or text" (signed out): the add sheet here, not /byob (Anders, 5 Nov 2026). href="/byob" is the no-script fallback.
+// The hero's "Bring your own text" (signed out): the add sheet here, not /byob (Anders, 5 Nov 2026). href="/byob" is the no-script fallback.
 $('hero-own')?.addEventListener('click',event=>{
  if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
  if(document.documentElement.classList.contains('signed-in'))return;
