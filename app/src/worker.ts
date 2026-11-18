@@ -34,7 +34,7 @@ import {
 import { handleAdminIssues } from './worker/routes/adminIssues'
 import { handleEvents, recordServerEvent } from './worker/routes/events'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
-import { handleAdminDeleteUser, handleAdminExportUser } from './worker/routes/adminAccounts'
+import { handleAdminDeleteUser, handleAdminExportUser, handleAdminPositionHistory } from './worker/routes/adminAccounts'
 import { ACCOUNT_DELETE_PATH, handleAccountDelete } from './worker/routes/accountDelete'
 import { handleChat, handleLabChat } from './worker/routes/chat'
 import { handleDictation } from './worker/routes/dictation'
@@ -472,6 +472,7 @@ const worker = {
       case '/api/admin/modern-diagnostics': return handleModernDiagnostics(request, env, verifySiteAdmin)
       case '/api/admin/export-user': return handleAdminExportUser(request, env, verifySiteAdmin)
       case '/api/admin/delete-user': return handleAdminDeleteUser(request, env, verifySiteAdmin)
+      case '/api/admin/position-history': return handleAdminPositionHistory(request, env, verifySiteAdmin)
       // The reader's own Delete account (Settings → Account): the same erasure, for the caller's own account.
       case ACCOUNT_DELETE_PATH: {
         const response = await handleAccountDelete(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit })

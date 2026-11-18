@@ -584,6 +584,19 @@ describe('writes from the reader', () => {
     act(() => { window.dispatchEvent(new Event('online')) })
     await waitFor(() => expect(api.puts().length).toBe(before + 1))
   })
+
+  it('labels each PUT with this tab, the build and why it was written, for the server history only', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const api = stubPositionApi(Promise.resolve(null))
+    const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
+    render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={() => {}} />)
+    await settle()
+    act(() => { harness.notePlace!('hide') })
+    await settle()
+    const body = JSON.parse(String(api.puts()[api.puts().length - 1]?.init?.body)) as LabPositionState & { client?: Record<string, string> }
+    expect(body.client).toEqual({ tab: expect.stringMatching(/^[a-f0-9]{8}\.[a-f0-9]{4}$/), build: 'dev', reason: 'hide' })
+    expect(body.books.proverbs).not.toHaveProperty('client')
+  })
 })
 
 describe('bookFromResumePlace', () => {
