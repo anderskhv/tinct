@@ -31,6 +31,19 @@ export interface Edition {
    * which is why no other book pays for the request.
    */
   hasVerseLines?: boolean
+  /**
+   * A verse edition that keeps its role as the book's original or human
+   * translation: each verse line ends with a newline in its own text, and the
+   * reader sets the lines exactly as for a `style: 'verse'` edition
+   * (labVerseLines registerNewlineVerseLines). Thompson's 1928 Gilgamesh
+   * hexameters. Absent for prose, whose newlines (a source's hard wraps) flow.
+   */
+  newlineVerse?: boolean
+}
+
+/** Whether the reader sets an edition's newline-ended lines as verse lines. */
+export function setsNewlineVerse(edition: Pick<Edition, 'style' | 'newlineVerse'> | undefined): boolean {
+  return !!edition && (edition.style === 'verse' || edition.newlineVerse === true)
 }
 
 /**

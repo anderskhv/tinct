@@ -66,7 +66,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'communist-manifesto': { editions: EN, revision: '2026-10-01.1' },
   'discourse-on-inequality': { editions: EN, revision: '2026-09-11.2' },
   'frederick-douglass': { editions: EN, revision: '2026-09-11.2' },
-  gilgamesh: { editions: EN, revision: '2026-09-11.2' },
+  gilgamesh: { editions: EN, revision: 'text-2026-11-18.gilgamesh.1' },
   'heart-of-darkness': { editions: EN, revision: '2026-10-01.1' },
   'hume-enquiry': { editions: EN, revision: '2026-10-01.1' },
   'ivan-ilyich': { editions: EN, revision: '2026-09-11.2' },

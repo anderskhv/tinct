@@ -20,6 +20,30 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  // Whole text replaced by R. Campbell Thompson's 1928 translation and fresh
+  // Tinct modern editions (books/wip/gilgamesh-thompson). Unrelated wording and
+  // paragraphing: the maps (app/scripts/build-replacement-migration.py) move a
+  // saved place proportionally within its tablet; highlights stay recoverable.
+  // The book was held from 2 Oct 2026, so every unstamped record predates the
+  // new text; move releasedAt past the deploy time if the release slips.
+  gilgamesh: {
+    revision: 'text-2026-11-18.gilgamesh.1',
+    releasedAt: Date.parse('2026-11-18T23:45:00Z'),
+    editions: {
+      'original-en': {
+        before: '1c9886e2b341187c3dd2b0e4fbcbfc285e65f7631ae6944d094424ac50ef31cc',
+        after: '2a91b1e1f3c7180dbb1d02360dceda6c3c7f0ca836685dc40a91fb82c6125b38',
+      },
+      'modern-en': {
+        before: '419a43b05bfcbf84dce9f1948158a8f3d34a4b6dc41c93767c827aede87ad63c',
+        after: '1641d807941a9480512f1324869e8abcb635fb31aaff0d2d659eb88985d896d0',
+      },
+      'modern-da': {
+        before: '70a40c3d7e96da38870fda747ccf3d7bd7fb5c111271547fd22ef88385231094',
+        after: '3469ed8fc8cc6ccc3f832e01bcf9fa81dfaaa9edac39ddc16c40983535d3aa56',
+      },
+    },
+  },
   'the-prince': {
   "revision": "text-2026-11-03.the-prince.1",
   "releasedAt": 1794579300000,
