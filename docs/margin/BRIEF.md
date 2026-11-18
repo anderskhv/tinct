@@ -99,7 +99,7 @@ The card layouts are in mockup section 6. The prompts are in PROMPTS.md.
 - **Quiz me:**
   - The label shows "1 of 3" on the right, and the question is set at 18px.
   - The reader types or dictates an answer in the follow-up line. "Show answer" is on its right.
-  - After an answer, the reader's bubble appears, then "Right.", "Nearly." or "Not yet." as the bottom line, the feedback and the cite tag. "Next question →" replaces "Show answer".
+  - After an answer, the reader's bubble appears, then "Right.", "Nearly." or "Not quite." as the bottom line, the feedback and the cite tag. "Next question →" replaces "Show answer".
   - After question 3, the card shows the score and the question to reread.
 - **Citation tags:** a `{p. 12}`-style token in any answer renders as a tag; clicking it scrolls the PDF there.
 

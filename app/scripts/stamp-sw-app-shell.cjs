@@ -27,7 +27,9 @@ if (!fs.existsSync(swPath)) {
   throw new Error(`Missing ${swPath}`)
 }
 
-const urls = new Set(['/app.html'])
+// The reader page itself is the offline shell (see READER_SHELL_URL in sw.js);
+// /app.html is redirected by the Worker and is not the reader.
+const urls = new Set(['/reader'])
 const appHtml = read(appHtmlPath)
 for (const match of appHtml.matchAll(/\b(?:src|href)=["']([^"']+)["']/g)) {
   addLocalUrl(urls, match[1])
@@ -46,10 +48,32 @@ if (fs.existsSync(fontCssPath)) {
   }
 }
 
+// Bundles the reader imports on demand that it must still have offline,
+// installed with the shell (in the background, never with the first page):
+// Symposium's coordinate map moves a reader's old places and highlights before
+// the first read (src/data/editionContentRevisions.ts); the account cards open
+// offline from the device cache (src/cards/openCards.ts, loaded on first open).
+const OFFLINE_REQUIRED_BUNDLE = /^(?:symposiumCoordinateMap|openCards|cardsCopy)-[\w-]+\.js$/
+const builtAssets = path.join(dist, 'assets')
+if (fs.existsSync(builtAssets)) {
+  for (const name of fs.readdirSync(builtAssets)) if (OFFLINE_REQUIRED_BUNDLE.test(name)) urls.add(`/assets/${name}`)
+}
+
 const sortedUrls = [...urls].sort()
+// Every other bundle in assets/: imported on demand (the voice call, a PDF,
+// collections), cached by sw.js on first use or when a book is made available
+// offline, never downloaded at install.
+const assetsDir = path.join(dist, 'assets')
+const lazyUrls = fs.existsSync(assetsDir)
+  ? fs.readdirSync(assetsDir)
+    .filter(name => /\.(?:js|css)$/.test(name))
+    .map(name => `/assets/${name}`)
+    .filter(url => !urls.has(url))
+    .sort()
+  : []
 const digest = crypto
   .createHash('sha256')
-  .update(sortedUrls.join('\n'))
+  .update(sortedUrls.concat(lazyUrls).join('\n'))
   .digest('hex')
   .slice(0, 12)
 
@@ -63,5 +87,10 @@ sw = sw.replace(
   `const APP_SHELL_PRECACHE_URLS = ${JSON.stringify(sortedUrls, null, 2)}`,
 )
 
+sw = sw.replace(
+  /const APP_SHELL_LAZY_URLS = \[[\s\S]*?\]/,
+  `const APP_SHELL_LAZY_URLS = ${JSON.stringify(lazyUrls, null, 2)}`,
+)
+
 fs.writeFileSync(swPath, sw)
-console.log(`[sw] Stamped app shell cache tinct-app-shell-${digest} with ${sortedUrls.length} URLs`)
+console.log(`[sw] Stamped app shell cache tinct-app-shell-${digest} with ${sortedUrls.length} URLs and ${lazyUrls.length} on-demand bundles`)

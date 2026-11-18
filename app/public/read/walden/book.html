@@ -3,91 +3,108 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Read Walden Free Online | Tinct</title>
-  <meta name="description" content="Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Walden.">
+  <!--tinct:seo-->
+  <title>Walden in modern English, free to read | Tinct</title>
+  <meta name="description" content="Walden by Henry David Thoreau in modern English, with the original edition to compare. Read free, no ads, with an AI companion that explains any passage.">
   <link rel="canonical" href="https://tinct.app/read/walden">
-  <meta property="og:title" content="Read Walden Free Online | Tinct">
-  <meta property="og:description" content="Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Walden.">
+  <meta property="og:title" content="Walden in modern English, free to read | Tinct">
+  <meta property="og:description" content="Walden by Henry David Thoreau in modern English, with the original edition to compare. Read free, no ads, with an AI companion that explains any passage.">
   <meta property="og:url" content="https://tinct.app/read/walden">
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
-  <meta property="og:image" content="https://tinct.app/og-image-v2.jpg">
+  <meta property="og:image" content="https://tinct.app/og-image-v3.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Read Walden Free Online | Tinct">
-  <meta name="twitter:description" content="Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Walden.">
-  <meta name="twitter:image" content="https://tinct.app/og-image-v2.jpg">
+  <meta name="twitter:title" content="Walden in modern English, free to read | Tinct">
+  <meta name="twitter:description" content="Walden by Henry David Thoreau in modern English, with the original edition to compare. Read free, no ads, with an AI companion that explains any passage.">
+  <meta name="twitter:image" content="https://tinct.app/og-image-v3.jpg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/walden#book","name":"Walden","author":{"@type":"Person","name":"Henry David Thoreau"},"description":"Walden by Henry David Thoreau in modern English, with the original edition to compare. Read free, no ads, with an AI companion that explains any passage.","url":"https://tinct.app/read/walden","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
+  <!--/tinct:seo-->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/fonts/tinct-fonts.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","@id":"https://tinct.app/read/walden#book","name":"Walden","author":{"@type":"Person","name":"Henry David Thoreau"},"description":"Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Walden.","url":"https://tinct.app/read/walden","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Tinct","url":"https://tinct.app"}}</script>
+  
   <style>
-    :root { --paper: #ece7db; --ink: #0b0b0b; --dim: #6a6555; --accent: #1f4a5c; --rule: rgba(11, 11, 11, 0.12); color-scheme: light; }
+    :root { --bg: #111610; --cream: #eee7d0; --muted: #b8bea9; --line: rgba(238, 231, 208, 0.2); color-scheme: dark; }
     *, *::before, *::after { box-sizing: border-box; }
-    html, body { min-height: 100vh; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    body { margin: 0; background: var(--bg); color: var(--cream); font-family: 'EB Garamond', Georgia, serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
     a { color: inherit; }
-    nav.top { padding: 24px 48px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; text-decoration: none; color: var(--ink); }
-    .logo span { color: var(--accent); }
-    .top-cta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 8px 14px; transition: background 0.15s, color 0.15s; }
-    .top-cta:hover { background: var(--ink); color: var(--paper); }
-    main { max-width: 1180px; margin: 0 auto; padding: 64px 48px 96px; }
-    .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
-    .breadcrumb a { color: var(--dim); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--accent); }
-    .breadcrumb span { color: var(--ink); }
-    .booknum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
-    h1.title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.02; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px 0; }
-    .byline { font-family: 'EB Garamond', Georgia, serif; color: var(--dim); font-size: 22px; margin: 0 0 24px; }
-    .hook { font-family: 'EB Garamond', Georgia, serif; font-size: 24px; font-style: italic; color: var(--ink); margin: 0 0 32px 0; max-width: 850px; }
-    .primary-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 14px; margin: 0 0 44px; transition: background 0.15s, color 0.15s; }
-    .primary-cta:hover { background: var(--ink); color: var(--paper); }
-    .glance-section { margin: 10px 0 54px; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-    .glance-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
-    .glance { list-style: none; counter-reset: gl; padding: 0; margin: 0; display: grid; gap: 4px; }
-    .glance li { counter-increment: gl; }
-    .glance li a { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
-    .glance li a:hover { color: var(--accent); }
-    .glance-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--dim); min-width: 80px; }
+    nav.top { position: absolute; z-index: 3; top: 0; left: 0; right: 0; height: 76px; padding: 0 max(28px, 2.5vw); display: flex; align-items: center; justify-content: space-between; background: linear-gradient(#090e0b66, transparent); }
+    .logo { font-family: Georgia, 'Times New Roman', serif; font-size: 34px; letter-spacing: -1.8px; color: var(--cream); text-decoration: none; }
+    .top-link { font: 15px system-ui, sans-serif; color: var(--cream); text-decoration: none; opacity: 0.85; }
+    .hero { position: relative; height: 92svh; min-height: 560px; overflow: hidden; isolation: isolate; }
+    .scene, .scene img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .shade { position: absolute; inset: 0; background: linear-gradient(0deg, var(--bg), transparent 26%), linear-gradient(90deg, #080d0b83, transparent 65%); }
+    .hero-book { position: absolute; right: 18%; bottom: 20%; height: 43%; aspect-ratio: 2 / 3; filter: drop-shadow(3px 3px 3px #0006); }
+    .hero-book img { display: block; width: 100%; height: 100%; border-radius: 2px; }
+    .hero-copy { position: absolute; left: max(28px, 2.5vw); bottom: 19%; width: 47%; z-index: 2; }
+    .eyebrow { font: 12px system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin: 0 0 14px; }
+    h1.title { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(44px, 4.6vw, 80px); font-weight: 400; line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 12px; }
+    .byline { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(21px, 2vw, 30px); margin: 0; color: var(--muted); }
+    .blurb { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(19px, 1.5vw, 25px); line-height: 1.4; max-width: 440px; margin: 25px 0 22px; }
+    .primary-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--cream); color: #222b20; min-height: 48px; padding: 0 25px; border-radius: 5px; font: 600 17px/1 system-ui, sans-serif; text-decoration: none; }
+    main { max-width: 880px; margin: 0 auto; padding: 16px max(28px, 2.5vw) 80px; }
+    .breadcrumb { font: 12px system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb span { color: var(--cream); }
+    .hook { font-size: 22px; font-style: italic; line-height: 1.6; margin: 0 0 40px; }
+    .glance-section { margin: 0 0 48px; padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .glance-label { font: 12px system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .glance { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 40px; }
+    .glance li { break-inside: avoid; }
+    .glance li a { font-size: 17px; text-decoration: none; display: flex; gap: 14px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: #fff; }
+    .glance-num { font: 12px system-ui, sans-serif; color: var(--muted); min-width: 76px; }
     .glance-text { flex: 1; }
-    h2.section { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 14px 0; color: var(--ink); }
-    .body { max-width: 860px; }
-    .body p { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; line-height: 1.6; margin: 0 0 16px 0; }
-    footer.site { padding: 24px 48px; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
-    footer.site a { color: inherit; text-decoration: none; transition: color 0.15s; }
-    footer.site a:hover { color: var(--accent); }
+    h2.section { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 400; line-height: 1.1; margin: 0 0 16px; }
+    .body p { font-size: 20px; line-height: 1.6; margin: 0 0 16px; }
+    footer.site { padding: 24px max(28px, 2.5vw); border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font: 13px system-ui, sans-serif; color: var(--muted); }
+    footer.site a { text-decoration: none; }
     .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
-    @media (max-width: 960px) { main { padding: 48px 32px 80px; } }
-    @media (max-width: 720px) {
-      nav.top { padding: 18px 22px; }
-      .top-cta { font-size: 10px; letter-spacing: 0.14em; padding: 7px 10px; }
-      main { padding: 32px 22px 56px; }
-      .hook { font-size: 21px; }
+    @media (max-width: 699px) {
+      nav.top { height: 64px; padding: 0 20px; }
+      .logo { font-size: 32px; }
+      .hero { height: 84svh; min-height: 530px; max-height: 850px; }
+      .hero-book { height: 35%; right: 50%; bottom: 46%; transform: translateX(50%); }
+      .hero-copy { left: 20px; bottom: 7%; width: calc(100% - 40px); }
+      h1.title { font-size: clamp(32px, 8.6vw, 40px); }
+      .byline { font-size: 17px; }
+      .blurb { font-size: 16px; line-height: 1.35; margin: 13px 0 15px; max-width: 310px; }
+      .primary-cta { font-size: 14px; min-height: 42px; padding: 0 19px; }
+      .shade { background: linear-gradient(0deg, var(--bg) 0%, #111610d9 13%, #1116109c 33%, transparent 67%); }
+      .hook { font-size: 19px; }
+      .glance { columns: 1; }
       .glance li a { display: block; }
       .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
-      footer.site { padding: 22px; flex-direction: column; align-items: flex-start; }
+      footer.site { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 <nav class="top">
-  <a href="/" class="logo">Tinct<span>.</span></a>
-  <a href="/read/walden?chapter=1&edition=original-en&compare=modern-en&split=1" class="top-cta">Read this book free →</a>
+  <a href="/" class="logo">tinct</a>
+  <a href="/read/" class="top-link">Library</a>
 </nav>
+<header class="hero">
+  <picture class="scene"><source media="(max-width: 699px)" srcset="/lab/library_2/assets/table-evening-phone.jpg"><img src="/lab/library_2/assets/table-evening-wide.jpg" alt="" fetchpriority="high"></picture>
+  <div class="shade"></div>
+  <div class="hero-book"><img src="/covers/v2/walden.webp" alt="Walden cover"></div>
+  <div class="hero-copy">
+    <p class="eyebrow">Free online book</p>
+    <h1 class="title">Walden</h1>
+    <p class="byline">Henry David Thoreau</p>
+    <p class="blurb">Two years in a cabin, and notes on what was simplified out.</p>
+    <a class="primary-cta" href="/library?book=walden">Start reading →</a>
+  </div>
+</header>
+<!--tinct:about-->
 <main>
   <div class="breadcrumb">
     <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>Walden</span>
   </div>
 
-  <div class="booknum">Free online book</div>
-  <h1 class="title">Walden</h1>
-  <p class="byline">by Henry David Thoreau</p>
-  <p class="hook">In 1845 Thoreau built a cabin by Walden Pond and stayed two years to find out what living actually required. Walden is the result: a season-by-season report on solitude, work, food, sound, neighbors, and the price of a life. The founding text of American simplicity, written with a sharper edge than its reputation suggests.</p>
-  <a class="primary-cta" href="/read/walden?chapter=1&edition=original-en&compare=modern-en&split=1">Start reading in Tinct →</a>
-
-  <section class="glance-section" aria-label="Chapters">
+  <section class="glance-section" id="chapters" aria-label="Chapters">
     <div class="glance-label">Chapters</div>
     <ol class="glance">
 <li><a href="/read/walden/chapter-1"><span class="glance-num">Chapter 1</span><span class="glance-text">Economy</span></a></li>
@@ -112,15 +129,31 @@
   </section>
 
   <h2 class="section">Economy</h2>
-  <div class="body">
+  <div class="body opening-pair">
+    <p class="opening-label">Modern English</p>
+    <p>When I wrote these pages, or most of them, I lived by myself in the woods, a mile from my nearest neighbor, in a house I had built with my own hands beside Walden Pond in Concord, Massachusetts. I supported myself entirely by manual labor. I stayed there for two years and two months. For now, I am once again a temporary resident of civilized life.</p>
+    <p class="opening-label">Thoreau (1854)</p>
     <p>When I wrote the following pages, or rather the bulk of them, I lived alone, in the woods, a mile from any neighbor, in a house which I had built myself, on the shore of Walden Pond, in Concord, Massachusetts, and earned my living by the labor of my hands only. I lived there two years and two months. At present I am a sojourner in civilized life again.</p>
-    <p>I should not obtrude my affairs so much on the notice of my readers if very particular inquiries had not been made by my townsmen concerning my mode of life, which some would call impertinent, though they do not appear to me at all impertinent, but, considering the circumstances, very natural and pertinent. Some have asked what I got to eat; if I did not feel lonesome; if I was not afraid; and the like. Others have been curious to learn what portion of my income I devoted to charitable purposes; and some, who have large families, how many poor children I maintained. I will therefore ask those of my readers who feel no particular interest in me to pardon me if I undertake to answer some of these questions in this book. In most books, the _I_, or first person, is omitted; in this it will be retained; that, in respect to egotism, is the main difference. We commonly do not remember that it is, after all, always the first person that is speaking. I should not talk so much about myself if there were anybody else whom I knew as well. Unfortunately, I am confined to this theme by the narrowness of my experience. Moreover, I, on my side, require of every writer, first or last, a simple and sincere account of his own life, and not merely what he has heard of other men’s lives; some such account as he would send to his kindred from a distant land; for if he has lived sincerely, it must have been in a distant land to me. Perhaps these pages are more particularly addressed to poor students. As for the rest of my readers, they will accept such portions as apply to them. I trust that none will stretch the seams in putting on the coat, for it may do good service to him whom it fits.</p>
-    <p>I would fain say something, not so much concerning the Chinese and Sandwich Islanders as you who read these pages, who are said to live in New England; something about your condition, especially your outward condition or circumstances in this world, in this town, what it is, whether it is necessary that it be as bad as it is, whether it cannot be improved as well as not. I have travelled a good deal in Concord; and everywhere, in shops, and offices, and fields, the inhabitants have appeared to me to be doing penance in a thousand remarkable ways. What I have heard of Brahmins sitting exposed to four fires and looking in the face of the sun; or hanging suspended, with their heads downward, over flames; or looking at the heavens over their shoulders “until it becomes impossible for them to resume their natural position, while from the twist of the neck nothing but liquids can pass into the stomach;” or dwelling, chained for life, at the foot of a tree; or measuring with their bodies, like caterpillars, the breadth of vast empires; or standing on one leg on the tops of pillars,—even these forms of conscious penance are hardly more incredible and astonishing than the scenes which I daily witness. The twelve labors of Hercules were trifling in comparison with those which my neighbors have undertaken; for they were only twelve, and had an end; but I could never see that these men slew or captured any monster or finished any labor. They have no friend Iolas to burn with a...</p>
   </div>
+  <style>.opening-label{margin:24px 0 6px!important;font:13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif!important;color:var(--muted)}.book-edition-note{margin:28px 0 40px;font:15px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--muted);max-width:720px}.book-edition-note strong{color:var(--cream);font-weight:600}</style>
+  <p class="book-edition-note"><strong>How this edition was made.</strong> Tinct's modern English is drafted with AI from Henry David Thoreau's original text, then checked by a separate AI review against it. The original is always beside it, and if you spot a mistake, tell us.</p>
+  <section class="glance-section related-books" aria-label="Related books">
+    <div class="glance-label">Related books</div>
+    <ul class="glance">
+      <li><a href="/read/descartes-meditations"><span class="glance-text">Meditations on First Philosophy</span></a></li>
+      <li><a href="/read/kant-groundwork"><span class="glance-text">Groundwork of the Metaphysics of Morals</span></a></li>
+      <li><a href="/read/werther"><span class="glance-text">The Sorrows of Young Werther</span></a></li>
+      <li><a href="/read/utilitarianism"><span class="glance-text">Utilitarianism</span></a></li>
+      <li><a href="/read/beyond-good-and-evil"><span class="glance-text">Beyond Good and Evil</span></a></li>
+      <li><a href="/read/genealogy-of-morals"><span class="glance-text">On the Genealogy of Morals</span></a></li>
+    </ul>
+  </section>
 </main>
+<!--/tinct:about-->
+<script type="application/json" id="tinct-book-hero">{"id":"walden","title":"Walden","author":"Henry David Thoreau","question":"How much of your life are you spending on things you do not need?","cover":"/covers/v2/walden.webp","portrait":{"src":"/lab/library_2/assets/author-flaps/henry-david-thoreau.jpg","alt":"Henry David Thoreau, historical portrait"}}</script>
 <footer class="site">
   <span>Read Walden free online on Tinct.</span>
-  <span class="footer-links"><a href="/read/">Library</a><a href="/read/walden?chapter=1&edition=original-en&compare=modern-en&split=1">Open reader</a></span>
+  <span class="footer-links"><a href="/read/">Library</a><a href="/library?book=walden">Open reader</a></span>
 </footer>
 </body>
 </html>

@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   align:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 55
     env:
       RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
@@ -118,6 +118,7 @@ jobs:
             > "$ARTIFACT_DIR/billing.txt" 2>&1 || true
 
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
           name: audio-align-canary-${{ github.run_id }}

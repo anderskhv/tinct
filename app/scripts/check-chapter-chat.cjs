@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Real reader/layout/edition data; Chat responses are intercepted. No model calls.
 const { chromium, webkit } = require('playwright')
 const assert = require('node:assert/strict')
@@ -13,7 +14,7 @@ async function state(page) {
 async function main() {
  const results=[]
  for(const config of [{name:'phone',engine:webkit,width:390,height:844},{name:'small-phone-large-text',engine:webkit,width:360,height:640,fontSize:1.8},{name:'desktop',engine:chromium,width:1440,height:950}]) {
-  const browser=await config.engine.launch()
+  const browser=await markInternal(await config.engine.launch())
   try {
    const page=await browser.newPage({serviceWorkers:'block',viewport:{width:config.width,height:config.height},isMobile:config.width<800,hasTouch:config.width<800})
    await page.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}))
@@ -35,7 +36,7 @@ async function main() {
    await page.waitForTimeout(2400)
    assert.equal(await page.getByTestId('lab-chapter-end').count(),0,'No actions at chapter opening')
    for(let i=0;i<60&&await page.getByTestId('lab-chapter-end').count()===0;i++) {await page.keyboard.press('ArrowRight'); await page.waitForTimeout(100)}
-   if (!await page.getByRole('button',{name:'Recap this chapter'}).isVisible()) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(150) }
+   if (!await page.getByRole('button',{name:'Summary of this chapter'}).isVisible()) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(150) }
    await page.getByRole('button',{name:'Prepare for the next chapter'}).scrollIntoViewIfNeeded()
    assert.equal(calls.length,0,'Rendering a chapter end must not call Chat')
    assert.equal(await page.getByRole('heading',{name:'End of chapter',exact:true}).count(),1)
@@ -68,7 +69,7 @@ async function main() {
    assert.deepEqual(await state(page),before,'Back to book retains chapter, place and source words')
    // Reset only this isolated anonymous fixture's free-action counter.
    await page.evaluate(()=>localStorage.removeItem('tinct:lab-ai-actions'))
-   await page.getByRole('button',{name:'Recap this chapter'}).click()
+   await page.getByRole('button',{name:'Summary of this chapter'}).click()
    await page.waitForFunction(()=>document.querySelectorAll('[data-testid="lab-ask-turn-assistant"]').length===2)
    assert.equal(calls.length,2)
    assert.equal(calls[1].messages.at(-1).content,'Recap this chapter.')

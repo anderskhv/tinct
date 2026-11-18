@@ -1,10 +1,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { COMPANION_MODEL } from './companionModel'
-import { RECAP_PROMPT_VERSION } from './recapSummary'
+import { COMPANION_MODEL, RECAP_FAST_MODEL } from './companionModel'
+import { RECAP_BRIEF_VERSION, RECAP_PROMPT_VERSION } from './recapSummary'
 import type { ChapterText } from './worker/lib/bookRetrieval'
 import {
   RECAP_MAX_PASSAGE_CHARS,
   RECAP_MAX_TOKENS,
+  RECAP_BRIEF_MAX_TOKENS,
   RECAP_RATE_LIMIT_PER_MINUTE,
   buildRecapPassage,
   elidePassage,
@@ -76,9 +77,12 @@ const env = { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: fakeAssets({ 645: prov
 const allow = async () => true
 const place = { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 645, paragraphIndex: 3, bookTitle: 'The Bible' }
 
+const spend = async () => true
+
 describe('parseRecapRequest', () => {
   it('accepts a well-formed place and normalises the optional fields', () => {
-    expect(parseRecapRequest(place)).toEqual({ ...place, completed: false, previousChapterNumber: null })
+    expect(parseRecapRequest(place)).toEqual({ ...place, completed: false, previousChapterNumber: null, brief: false })
+    expect(parseRecapRequest({ ...place, brief: true })).toMatchObject({ brief: true })
     expect(parseRecapRequest({ ...place, completed: true, previousChapterNumber: 644, bookTitle: '  The Bible  ' })).toMatchObject({ completed: true, previousChapterNumber: 644, bookTitle: 'The Bible' })
   })
 
@@ -127,24 +131,24 @@ describe('POST /api/lab-recap', () => {
   it('rejects non-POST, missing config and malformed bodies before any upstream call', async () => {
     const { ctx } = makeContext()
     const fetchAnthropic = vi.fn()
-    expect((await handleLabRecap(new Request('https://tinct.app/api/lab-recap'), env, ctx, allow, { cache: null, fetchAnthropic })).status).toBe(405)
-    expect((await handleLabRecap(recapRequest(place), { ASSETS: env.ASSETS }, ctx, allow, { cache: null, fetchAnthropic })).status).toBe(503)
-    expect((await handleLabRecap(recapRequest({ ...place, paragraphIndex: 'three' }), env, ctx, allow, { cache: null, fetchAnthropic })).status).toBe(400)
-    expect((await handleLabRecap(new Request('https://tinct.app/api/lab-recap', { method: 'POST', body: '{nope' }), env, ctx, allow, { cache: null, fetchAnthropic })).status).toBe(400)
+    expect((await handleLabRecap(new Request('https://tinct.app/api/lab-recap'), env, ctx, allow, { reserveGuestSpend: spend,  cache: null, fetchAnthropic })).status).toBe(405)
+    expect((await handleLabRecap(recapRequest(place), { ASSETS: env.ASSETS }, ctx, allow, { reserveGuestSpend: spend,  cache: null, fetchAnthropic })).status).toBe(503)
+    expect((await handleLabRecap(recapRequest({ ...place, paragraphIndex: 'three' }), env, ctx, allow, { reserveGuestSpend: spend,  cache: null, fetchAnthropic })).status).toBe(400)
+    expect((await handleLabRecap(new Request('https://tinct.app/api/lab-recap', { method: 'POST', body: '{nope' }), env, ctx, allow, { reserveGuestSpend: spend,  cache: null, fetchAnthropic })).status).toBe(400)
     expect(fetchAnthropic).not.toHaveBeenCalled()
   })
 
   it('rate-limits by IP with the recap ceiling', async () => {
     const { ctx } = makeContext()
     const rateLimit = vi.fn(async () => false)
-    const response = await handleLabRecap(recapRequest(place), env, ctx, rateLimit, { cache: null, fetchAnthropic: vi.fn() })
+    const response = await handleLabRecap(recapRequest(place), env, ctx, rateLimit, { reserveGuestSpend: spend,  cache: null, fetchAnthropic: vi.fn() })
     expect(response.status).toBe(429)
     expect(rateLimit).toHaveBeenCalledWith('lab-recap:203.0.113.7', undefined, RECAP_RATE_LIMIT_PER_MINUTE)
   })
 
   it('returns 404 when the edition has no such chapter', async () => {
     const { ctx } = makeContext()
-    const response = await handleLabRecap(recapRequest({ ...place, chapterNumber: 9000 }), env, ctx, allow, { cache: null, fetchAnthropic: vi.fn() })
+    const response = await handleLabRecap(recapRequest({ ...place, chapterNumber: 9000 }), env, ctx, allow, { reserveGuestSpend: spend,  cache: null, fetchAnthropic: vi.fn() })
     expect(response.status).toBe(404)
   })
 
@@ -152,7 +156,7 @@ describe('POST /api/lab-recap', () => {
     const { ctx, pending } = makeContext()
     const cache = fakeCache()
     const fetchAnthropic = anthropicOk('The proverbs so far prize a quiet home over a house full of strife, a wise servant over a shameful son, and the LORD\'s testing of hearts over the refining of silver and gold.')
-    const response = await handleLabRecap(recapRequest(place), env, ctx, allow, { cache, fetchAnthropic })
+    const response = await handleLabRecap(recapRequest(place), env, ctx, allow, { reserveGuestSpend: spend,  cache, fetchAnthropic })
     expect(response.status).toBe(200)
     const data = await response.json()
     expect(data).toEqual({
@@ -182,14 +186,121 @@ describe('POST /api/lab-recap', () => {
     expect([...cache.entries.keys()][0]).toBe(`https://tinct.app/__lab-recap/${RECAP_PROMPT_VERSION}/bible/kjv-en/645/645/3`)
   })
 
+  it('a brief request (Catch me up) uses the fast model, a 40-word prompt and its own cache key', async () => {
+    const { ctx, pending } = makeContext()
+    const cache = fakeCache()
+    const fetchAnthropic = anthropicOk('The proverbs so far prize a quiet home over strife.')
+    const response = await handleLabRecap(recapRequest({ ...place, brief: true }), env, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+    expect(response.status).toBe(200)
+    const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>, string]
+    expect(payload.model).toBe(RECAP_FAST_MODEL)
+    expect(payload.max_tokens).toBe(RECAP_BRIEF_MAX_TOKENS)
+    expect(payload).not.toHaveProperty('output_config')
+    expect(String(payload.system)).toMatch(/at most 40 words/)
+    expect(String(payload.system)).toMatch(/Do not go beyond it/)
+    await Promise.all(pending)
+    expect([...cache.entries.keys()][0]).toBe(`https://tinct.app/__lab-recap/${RECAP_BRIEF_VERSION}/${RECAP_PROMPT_VERSION}/bible/kjv-en/645/645/3`)
+  })
+
+  describe('Catch me up: a chapter with nothing read but its heading (Frankenstein, Letter 4)', () => {
+    const narrative = 'So strange an accident has happened to us that I cannot forbear recording it, although it is very probable that you will see me before these papers can come into your possession.'
+    const letter4: ChapterText = {
+      number: 4,
+      title: 'Letter 4',
+      paragraphs: ['_To Mrs. Saville, England._', 'August 5th, 17—.', ...Array.from({ length: 37 }, () => narrative)],
+    }
+    const frankensteinEnv = { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: fakeAssets({ 4: letter4 }) }
+    const atStart = { bookId: 'frankenstein', editionKey: 'original-en', chapterNumber: 4, paragraphIndex: 1, bookTitle: 'Frankenstein', brief: true }
+    const complaint = 'I need to see the actual content of Letter 4 to write an accurate summary. The passage provided only shows the heading "Letter 4" and the salutation "To Mrs. Saville, England." but contains no narrative or content beyond that. Could you provide the full text of the passage where the reader stopped?'
+    const toolAnswer = (input: Record<string, unknown>) => vi.fn(async () => Response.json({
+      model: RECAP_FAST_MODEL, stop_reason: 'tool_use', content: [{ type: 'tool_use', id: 'toolu_1', name: 'write_entry', input }], usage: { input_tokens: 400, output_tokens: 30 },
+    }))
+
+    it('answers an empty entry without a model call or a cache write when only the heading lines are covered', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const fetchAnthropic = vi.fn()
+      // Paragraph 4 of a 39-paragraph chapter is bucketed down to paragraph 0: still only the address line.
+      for (const paragraphIndex of [0, 1, 4]) {
+        const response = await handleLabRecap(recapRequest({ ...atStart, paragraphIndex }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+        expect(response.status).toBe(200)
+        expect(await response.json()).toMatchObject({ summary: '', empty: true, coverage: { chapterNumber: 4, complete: false } })
+      }
+      await Promise.all(pending)
+      expect(fetchAnthropic).not.toHaveBeenCalled()
+      expect(cache.entries.size).toBe(0)
+    })
+
+    it('asks for a structured entry once there is narrative, and shows the summary field', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const fetchAnthropic = toolAnswer({ nothing_to_summarise: false, summary: 'Walton records a strange accident in the ice.' })
+      const response = await handleLabRecap(recapRequest({ ...atStart, paragraphIndex: 5 }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: 'Walton records a strange accident in the ice.', cached: false })
+      const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>]
+      expect(payload.tool_choice).toEqual({ type: 'tool', name: 'write_entry' })
+      expect((payload.tools as Array<{ name: string; input_schema: { required: string[] } }>)[0]).toMatchObject({ name: 'write_entry', input_schema: { required: ['nothing_to_summarise', 'summary'] } })
+      expect(String(payload.system)).toMatch(/nothing_to_summarise to true/)
+      expect(String(payload.system)).toMatch(/Never ask for more text/)
+      await Promise.all(pending)
+      expect(cache.entries.size).toBe(1)
+    })
+
+    it('returns an empty entry, uncached, when the model says there is nothing to summarise', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      for (const fetchAnthropic of [toolAnswer({ nothing_to_summarise: true, summary: '' }), toolAnswer({ nothing_to_summarise: false, summary: complaint }), anthropicOk(complaint)]) {
+        const response = await handleLabRecap(recapRequest({ ...atStart, paragraphIndex: 5 }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+        expect(response.status).toBe(200)
+        const data = await response.json() as { summary: string; empty?: boolean }
+        expect(data).toMatchObject({ summary: '', empty: true })
+        expect(fetchAnthropic).toHaveBeenCalledOnce()
+      }
+      await Promise.all(pending)
+      expect(cache.entries.size).toBe(0)
+    })
+
+    it('a cut-off structured answer is a failure, not an entry', async () => {
+      const { ctx } = makeContext()
+      const cutOff = vi.fn(async () => Response.json({ stop_reason: 'max_tokens', content: [{ type: 'tool_use', name: 'write_entry', input: { summary: 'Walton rec' } }] }))
+      expect((await handleLabRecap(recapRequest({ ...atStart, paragraphIndex: 5 }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache: null, fetchAnthropic: cutOff })).status).toBe(502)
+    })
+
+    it('skips a cached complaint and replaces it with a real summary', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const key = `https://tinct.app/__lab-recap/${RECAP_BRIEF_VERSION}/${RECAP_PROMPT_VERSION}/frankenstein/original-en/4/4/5`
+      cache.entries.set(key, JSON.stringify({ summary: complaint, coverage: {}, model: 'x', version: RECAP_PROMPT_VERSION, cached: false }))
+      const fetchAnthropic = toolAnswer({ nothing_to_summarise: false, summary: 'Walton records a strange accident in the ice.' })
+      const response = await handleLabRecap(recapRequest({ ...atStart, paragraphIndex: 5 }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: 'Walton records a strange accident in the ice.', cached: false })
+      expect(fetchAnthropic).toHaveBeenCalledOnce()
+      await Promise.all(pending)
+      expect(JSON.parse(cache.entries.get(key)!)).toMatchObject({ summary: 'Walton records a strange accident in the ice.' })
+    })
+
+    it('the full "so far" never shows or caches a reply about the passage, and keeps its free-text call', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const fetchAnthropic = anthropicOk(complaint)
+      const response = await handleLabRecap(recapRequest({ ...atStart, brief: false, paragraphIndex: 1 }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: '', empty: true })
+      const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>]
+      expect(payload).not.toHaveProperty('tools')
+      expect(payload.output_config).toEqual({ effort: 'low' })
+      await Promise.all(pending)
+      expect(cache.entries.size).toBe(0)
+    })
+  })
+
   it('serves a cached summary without calling the model', async () => {
     const { ctx, pending } = makeContext()
     const cache = fakeCache()
     const first = anthropicOk('First summary.')
-    await handleLabRecap(recapRequest(place), env, ctx, allow, { cache, fetchAnthropic: first })
+    await handleLabRecap(recapRequest(place), env, ctx, allow, { reserveGuestSpend: spend,  cache, fetchAnthropic: first })
     await Promise.all(pending)
     const second = vi.fn()
-    const response = await handleLabRecap(recapRequest(place), env, ctx, allow, { cache, fetchAnthropic: second })
+    const response = await handleLabRecap(recapRequest(place), env, ctx, allow, { reserveGuestSpend: spend,  cache, fetchAnthropic: second })
     expect(response.status).toBe(200)
     expect(await response.json()).toMatchObject({ summary: 'First summary.', cached: true })
     expect(second).not.toHaveBeenCalled()
@@ -198,7 +309,7 @@ describe('POST /api/lab-recap', () => {
   it('covers the whole chapter when finished and the previous chapter when asked', async () => {
     const { ctx } = makeContext()
     const fetchAnthropic = anthropicOk('Both chapters so far.')
-    const response = await handleLabRecap(recapRequest({ ...place, paragraphIndex: 0, chapterNumber: 645, previousChapterNumber: 644 }), env, ctx, allow, { cache: null, fetchAnthropic })
+    const response = await handleLabRecap(recapRequest({ ...place, paragraphIndex: 0, chapterNumber: 645, previousChapterNumber: 644 }), env, ctx, allow, { reserveGuestSpend: spend,  cache: null, fetchAnthropic })
     expect(await response.json()).toMatchObject({ coverage: { chapterNumber: 645, throughParagraph: 0, complete: false, fromChapterNumber: 644 } })
     const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>]
     const content = (payload.messages as Array<{ content: string }>)[0].content
@@ -208,7 +319,7 @@ describe('POST /api/lab-recap', () => {
     expect(content).not.toContain('wise servant')
     expect(content).toContain('same sitting')
 
-    const finished = await handleLabRecap(recapRequest({ ...place, paragraphIndex: 1, completed: true }), env, ctx, allow, { cache: null, fetchAnthropic: anthropicOk('All of it.') })
+    const finished = await handleLabRecap(recapRequest({ ...place, paragraphIndex: 1, completed: true }), env, ctx, allow, { reserveGuestSpend: spend,  cache: null, fetchAnthropic: anthropicOk('All of it.') })
     expect(await finished.json()).toMatchObject({ coverage: { throughParagraph: 5, complete: true, fromChapterNumber: null } })
   })
 
@@ -216,13 +327,13 @@ describe('POST /api/lab-recap', () => {
     const { ctx, pending } = makeContext()
     const cache = fakeCache()
     const failing = vi.fn(async () => Response.json({ error: 'overloaded' }, { status: 529 }))
-    expect((await handleLabRecap(recapRequest(place), env, ctx, allow, { cache, fetchAnthropic: failing })).status).toBe(502)
+    expect((await handleLabRecap(recapRequest(place), env, ctx, allow, { reserveGuestSpend: spend,  cache, fetchAnthropic: failing })).status).toBe(502)
     const refusing = vi.fn(async () => Response.json({ stop_reason: 'refusal', content: [{ type: 'text', text: 'no' }] }))
-    expect((await handleLabRecap(recapRequest(place), env, ctx, allow, { cache, fetchAnthropic: refusing })).status).toBe(502)
+    expect((await handleLabRecap(recapRequest(place), env, ctx, allow, { reserveGuestSpend: spend,  cache, fetchAnthropic: refusing })).status).toBe(502)
     const empty = vi.fn(async () => Response.json({ stop_reason: 'end_turn', content: [] }))
-    expect((await handleLabRecap(recapRequest(place), env, ctx, allow, { cache, fetchAnthropic: empty })).status).toBe(502)
+    expect((await handleLabRecap(recapRequest(place), env, ctx, allow, { reserveGuestSpend: spend,  cache, fetchAnthropic: empty })).status).toBe(502)
     const throwing = vi.fn(async () => { throw new Error('network') })
-    expect((await handleLabRecap(recapRequest(place), env, ctx, allow, { cache, fetchAnthropic: throwing })).status).toBe(502)
+    expect((await handleLabRecap(recapRequest(place), env, ctx, allow, { reserveGuestSpend: spend,  cache, fetchAnthropic: throwing })).status).toBe(502)
     await Promise.all(pending)
     expect(cache.entries.size).toBe(0)
   })
@@ -231,7 +342,7 @@ describe('POST /api/lab-recap', () => {
     const globalFetch = vi.fn(async () => Response.json({ stop_reason: 'end_turn', content: [{ type: 'text', text: 'via global fetch' }] }))
     vi.stubGlobal('fetch', globalFetch)
     const { ctx } = makeContext()
-    const response = await handleLabRecap(recapRequest(place), env, ctx, allow, { cache: null })
+    const response = await handleLabRecap(recapRequest(place), env, ctx, allow, { reserveGuestSpend: spend,  cache: null })
     expect(await response.json()).toMatchObject({ summary: 'via global fetch' })
     const [url, init] = globalFetch.mock.calls[0] as unknown as [string, RequestInit]
     expect(url).toBe('https://api.anthropic.com/v1/messages')
@@ -243,9 +354,22 @@ it('uses a prepared account recap without a model call, but never one beyond the
  const {ctx}=makeContext(), fetchAnthropic=anthropicOk('Fresh current passage.')
  const payload={summary:'Prepared passage.',model:'mock',version:RECAP_PROMPT_VERSION,cached:false,coverage:{chapterNumber:645,throughParagraph:3,paragraphCount:6,complete:false,fromChapterNumber:null}}
  const prepared=vi.fn(async()=>payload)
- const response=await handleLabRecap(recapRequest(place),env,ctx,allow,{cache:null,fetchAnthropic,prepared})
+ const response=await handleLabRecap(recapRequest(place),env,ctx,allow,{ reserveGuestSpend: spend, cache: null,fetchAnthropic,prepared})
  expect(await response.json()).toMatchObject({summary:'Prepared passage.',cached:true})
  expect(fetchAnthropic).not.toHaveBeenCalled()
- await handleLabRecap(recapRequest({...place,paragraphIndex:1}),env,ctx,allow,{cache:null,fetchAnthropic,prepared})
+ await handleLabRecap(recapRequest({...place,paragraphIndex:1}),env,ctx,allow,{ reserveGuestSpend: spend, cache: null,fetchAnthropic,prepared})
  expect(fetchAnthropic).toHaveBeenCalledOnce()
+})
+
+describe('signed-out AI ceiling', () => {
+  it('answers calmly without a model call when the ceiling is spent or unavailable', async () => {
+    const { ctx } = makeContext()
+    const fetchAnthropic = vi.fn()
+    for (const reserveGuestSpend of [async () => false, undefined]) {
+      const response = await handleLabRecap(recapRequest(place), env, ctx, allow, { reserveGuestSpend, cache: null, fetchAnthropic })
+      expect(response.status).toBe(503)
+      expect(await response.json()).toMatchObject({ error: { type: 'ai_resting' } })
+    }
+    expect(fetchAnthropic).not.toHaveBeenCalled()
+  })
 })

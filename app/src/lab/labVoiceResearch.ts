@@ -1,5 +1,6 @@
 import { apiUrl } from '../utils/apiUrl'
 import type { VoiceApplicationToolResult } from '../voice/types'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 export interface VoiceSource { title: string; url: string }
 export const VOICE_RESEARCH_TOOL = {
@@ -14,7 +15,7 @@ export async function researchVoiceQuestion(query: unknown, token: string | null
   if (!token) return failure('sign_in_required')
   try {
     const response = await fetch(apiUrl('/api/voice-research'), {
-      method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+      method: 'POST', headers: { 'Content-Type': 'application/json', ...internalTrafficHeaders(), Authorization: `Bearer ${token}` },
       body: JSON.stringify({ query: query.slice(0, 1000) }), signal: AbortSignal.timeout(30000),
     })
     if (!response.ok) return failure('search_unavailable')

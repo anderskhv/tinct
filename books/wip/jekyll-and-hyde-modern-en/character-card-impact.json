@@ -1,0 +1,3499 @@
+{
+ "package": "app/public/data/characters/jekyll-and-hyde.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "7bcc0ee81b68635f017b8324fab9dc2e4cc3fc0febb827e0431ce876a2d0ac6b",
+ "candidateSha256": "640dc4ea5d7d56f4b015b000404b5275c5cf9223b9979ed6bfb3765155c4883d",
+ "pinMatchesServedLive": true,
+ "offsetUnit": "utf16",
+ "mentionsTotal": 504,
+ "unchanged": 272,
+ "moved": 232,
+ "needsRuling": 0,
+ "notes": [
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
+  "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "cain",
+   "chapter": 1,
+   "paragraph": 0,
+   "oldStartOffset": 850,
+   "oldEndOffset": 854,
+   "oldText": "Cain",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 881,
+    "endOffset": 885,
+    "text": "Cain",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 1,
+   "paragraph": 1,
+   "oldStartOffset": 513,
+   "oldEndOffset": 528,
+   "oldText": "Richard Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 487,
+    "endOffset": 502,
+    "text": "Richard Enfield",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 1,
+   "paragraph": 4,
+   "oldStartOffset": 109,
+   "oldEndOffset": 116,
+   "oldText": "Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 112,
+    "endOffset": 119,
+    "text": "Enfield",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 1,
+   "paragraph": 6,
+   "oldStartOffset": 15,
+   "oldEndOffset": 27,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 14,
+    "endOffset": 26,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 26,
+   "oldEndOffset": 37,
+   "oldText": "Mr. Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 28,
+    "endOffset": 39,
+    "text": "Mr. Enfield",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "girl",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 593,
+   "oldEndOffset": 597,
+   "oldText": "girl",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 608,
+    "endOffset": 612,
+    "text": "girl",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 826,
+   "oldEndOffset": 831,
+   "oldText": "child",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 834,
+    "endOffset": 839,
+    "text": "child",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 1127,
+   "oldEndOffset": 1132,
+   "oldText": "child",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1167,
+    "endOffset": 1172,
+    "text": "child",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 1309,
+   "oldEndOffset": 1313,
+   "oldText": "girl",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1354,
+    "endOffset": 1358,
+    "text": "girl",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl-doctor",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 1348,
+   "oldEndOffset": 1354,
+   "oldText": "doctor",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1386,
+    "endOffset": 1392,
+    "text": "doctor",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 1392,
+   "oldEndOffset": 1397,
+   "oldText": "child",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1443,
+    "endOffset": 1448,
+    "text": "child",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl-doctor",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 1475,
+   "oldEndOffset": 1481,
+   "oldText": "doctor",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1386,
+    "endOffset": 1392,
+    "text": "doctor",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 1629,
+   "oldEndOffset": 1634,
+   "oldText": "child",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1688,
+    "endOffset": 1693,
+    "text": "child",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl-doctor",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 1690,
+   "oldEndOffset": 1696,
+   "oldText": "doctor",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1743,
+    "endOffset": 1749,
+    "text": "doctor",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl-doctor",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 1972,
+   "oldEndOffset": 1978,
+   "oldText": "doctor",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1743,
+    "endOffset": 1749,
+    "text": "doctor",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "satan",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 2695,
+   "oldEndOffset": 2700,
+   "oldText": "Satan",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2712,
+    "endOffset": 2717,
+    "text": "Satan",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "girl",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 2909,
+   "oldEndOffset": 2914,
+   "oldText": "child",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2918,
+    "endOffset": 2923,
+    "text": "child",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl-doctor",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 3944,
+   "oldEndOffset": 3950,
+   "oldText": "doctor",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 3957,
+    "endOffset": 3963,
+    "text": "doctor",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "girl-father",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 3956,
+   "oldEndOffset": 3970,
+   "oldText": "child’s father",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 3969,
+    "endOffset": 3983,
+    "text": "child’s father",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 1,
+   "paragraph": 10,
+   "oldStartOffset": 31,
+   "oldEndOffset": 43,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 12,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 1,
+   "paragraph": 11,
+   "oldStartOffset": 37,
+   "oldEndOffset": 48,
+   "oldText": "Mr. Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 27,
+    "endOffset": 38,
+    "text": "Mr. Enfield",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 1,
+   "paragraph": 12,
+   "oldStartOffset": 58,
+   "oldEndOffset": 70,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 62,
+    "endOffset": 74,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 1,
+   "paragraph": 16,
+   "oldStartOffset": 60,
+   "oldEndOffset": 67,
+   "oldText": "Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 68,
+    "endOffset": 75,
+    "text": "Enfield",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 1,
+   "paragraph": 16,
+   "oldStartOffset": 75,
+   "oldEndOffset": 87,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 48,
+    "endOffset": 60,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 1,
+   "paragraph": 17,
+   "oldStartOffset": 31,
+   "oldEndOffset": 38,
+   "oldText": "Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 22,
+    "endOffset": 29,
+    "text": "Enfield",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 1,
+   "paragraph": 19,
+   "oldStartOffset": 90,
+   "oldEndOffset": 94,
+   "oldText": "Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 74,
+    "endOffset": 78,
+    "text": "Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 1,
+   "paragraph": 24,
+   "oldStartOffset": 162,
+   "oldEndOffset": 169,
+   "oldText": "Richard",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 179,
+    "endOffset": 186,
+    "text": "Richard",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 1,
+   "paragraph": 27,
+   "oldStartOffset": 62,
+   "oldEndOffset": 69,
+   "oldText": "Richard",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 50,
+    "endOffset": 57,
+    "text": "Richard",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 565,
+   "oldEndOffset": 575,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 562,
+    "endOffset": 572,
+    "text": "Dr. Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 711,
+   "oldEndOffset": 723,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 673,
+    "endOffset": 685,
+    "text": "Mr. Utterson",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 847,
+   "oldEndOffset": 859,
+   "oldText": "Henry Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 815,
+    "endOffset": 827,
+    "text": "Henry Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 970,
+   "oldEndOffset": 981,
+   "oldText": "Edward Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 955,
+    "endOffset": 966,
+    "text": "Edward Hyde",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 1016,
+   "oldEndOffset": 1026,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 994,
+    "endOffset": 1004,
+    "text": "Dr. Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 1116,
+   "oldEndOffset": 1127,
+   "oldText": "Edward Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1114,
+    "endOffset": 1125,
+    "text": "Edward Hyde",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 1493,
+   "oldEndOffset": 1501,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1518,
+    "endOffset": 1526,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lanyon",
+   "chapter": 2,
+   "paragraph": 2,
+   "oldStartOffset": 150,
+   "oldEndOffset": 160,
+   "oldText": "Dr. Lanyon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 144,
+    "endOffset": 154,
+    "text": "Dr. Lanyon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lanyon",
+   "chapter": 2,
+   "paragraph": 2,
+   "oldStartOffset": 236,
+   "oldEndOffset": 242,
+   "oldText": "Lanyon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 230,
+    "endOffset": 236,
+    "text": "Lanyon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "lanyon",
+   "chapter": 2,
+   "paragraph": 3,
+   "oldStartOffset": 146,
+   "oldEndOffset": 156,
+   "oldText": "Dr. Lanyon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 139,
+    "endOffset": 149,
+    "text": "Dr. Lanyon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 3,
+   "oldStartOffset": 328,
+   "oldEndOffset": 340,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 316,
+    "endOffset": 328,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 5,
+   "oldStartOffset": 72,
+   "oldEndOffset": 84,
+   "oldText": "Henry Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 77,
+    "endOffset": 89,
+    "text": "Henry Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lanyon",
+   "chapter": 2,
+   "paragraph": 6,
+   "oldStartOffset": 44,
+   "oldEndOffset": 54,
+   "oldText": "Dr. Lanyon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 45,
+    "endOffset": 55,
+    "text": "Dr. Lanyon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 8,
+   "oldStartOffset": 61,
+   "oldEndOffset": 73,
+   "oldText": "Henry Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 62,
+    "endOffset": 74,
+    "text": "Henry Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 9,
+   "oldStartOffset": 57,
+   "oldEndOffset": 69,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 60,
+    "endOffset": 72,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 9,
+   "oldStartOffset": 455,
+   "oldEndOffset": 459,
+   "oldText": "Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 434,
+    "endOffset": 438,
+    "text": "Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lanyon",
+   "chapter": 2,
+   "paragraph": 10,
+   "oldStartOffset": 8,
+   "oldEndOffset": 14,
+   "oldText": "Lanyon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 23,
+    "text": "Lanyon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 12,
+   "oldStartOffset": 70,
+   "oldEndOffset": 82,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 78,
+    "endOffset": 90,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 2,
+   "paragraph": 12,
+   "oldStartOffset": 322,
+   "oldEndOffset": 333,
+   "oldText": "Mr. Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 339,
+    "endOffset": 350,
+    "text": "Mr. Enfield",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 12,
+   "oldStartOffset": 1615,
+   "oldEndOffset": 1623,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1640,
+    "endOffset": 1648,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 2,
+   "paragraph": 12,
+   "oldStartOffset": 2132,
+   "oldEndOffset": 2139,
+   "oldText": "Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2148,
+    "endOffset": 2155,
+    "text": "Enfield",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 15,
+   "oldStartOffset": 532,
+   "oldEndOffset": 544,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 553,
+    "endOffset": 565,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 17,
+   "oldStartOffset": 72,
+   "oldEndOffset": 80,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 76,
+    "endOffset": 84,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 20,
+   "oldStartOffset": 16,
+   "oldEndOffset": 26,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 29,
+    "text": "Dr. Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 20,
+   "oldStartOffset": 58,
+   "oldEndOffset": 66,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 57,
+    "endOffset": 65,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 21,
+   "oldStartOffset": 22,
+   "oldEndOffset": 34,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 18,
+    "endOffset": 30,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 24,
+   "oldStartOffset": 219,
+   "oldEndOffset": 231,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 214,
+    "endOffset": 226,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 30,
+   "oldStartOffset": 31,
+   "oldEndOffset": 43,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 34,
+    "endOffset": 46,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 31,
+   "oldStartOffset": 25,
+   "oldEndOffset": 33,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 28,
+    "endOffset": 36,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 33,
+   "oldStartOffset": 27,
+   "oldEndOffset": 35,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 40,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 34,
+   "oldStartOffset": 13,
+   "oldEndOffset": 25,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 29,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 36,
+   "oldStartOffset": 30,
+   "oldEndOffset": 38,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 5,
+    "endOffset": 13,
+    "text": "Mr. Hyde",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 36,
+   "oldStartOffset": 291,
+   "oldEndOffset": 299,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 290,
+    "endOffset": 298,
+    "text": "Mr. Hyde",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 36,
+   "oldStartOffset": 720,
+   "oldEndOffset": 732,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 708,
+    "endOffset": 720,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "fell",
+   "chapter": 2,
+   "paragraph": 36,
+   "oldStartOffset": 999,
+   "oldEndOffset": 1007,
+   "oldText": "Dr. Fell",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 970,
+    "endOffset": 978,
+    "text": "Dr. Fell",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 36,
+   "oldStartOffset": 1190,
+   "oldEndOffset": 1202,
+   "oldText": "Harry Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1116,
+    "endOffset": 1128,
+    "text": "Harry Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "satan",
+   "chapter": 2,
+   "paragraph": 36,
+   "oldStartOffset": 1219,
+   "oldEndOffset": 1224,
+   "oldText": "Satan",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1145,
+    "endOffset": 1150,
+    "text": "Satan",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 37,
+   "oldStartOffset": 482,
+   "oldEndOffset": 494,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 497,
+    "endOffset": 509,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 39,
+   "oldStartOffset": 13,
+   "oldEndOffset": 25,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 18,
+    "endOffset": 30,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 2,
+   "paragraph": 39,
+   "oldStartOffset": 33,
+   "oldEndOffset": 38,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 38,
+    "endOffset": 43,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 40,
+   "oldStartOffset": 176,
+   "oldEndOffset": 184,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 175,
+    "endOffset": 183,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 40,
+   "oldStartOffset": 304,
+   "oldEndOffset": 308,
+   "oldText": "Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 298,
+    "endOffset": 302,
+    "text": "Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 2,
+   "paragraph": 40,
+   "oldStartOffset": 606,
+   "oldEndOffset": 611,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 599,
+    "endOffset": 604,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 40,
+   "oldStartOffset": 644,
+   "oldEndOffset": 654,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 636,
+    "endOffset": 646,
+    "text": "Dr. Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 2,
+   "paragraph": 41,
+   "oldStartOffset": 55,
+   "oldEndOffset": 60,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 60,
+    "endOffset": 65,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 41,
+   "oldStartOffset": 93,
+   "oldEndOffset": 103,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 99,
+    "endOffset": 109,
+    "text": "Dr. Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 42,
+   "oldStartOffset": 56,
+   "oldEndOffset": 64,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 57,
+    "endOffset": 65,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 2,
+   "paragraph": 43,
+   "oldStartOffset": 69,
+   "oldEndOffset": 74,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 67,
+    "endOffset": 72,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 2,
+   "paragraph": 44,
+   "oldStartOffset": 33,
+   "oldEndOffset": 38,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 28,
+    "endOffset": 33,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 45,
+   "oldStartOffset": 26,
+   "oldEndOffset": 34,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 31,
+    "endOffset": 39,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 2,
+   "paragraph": 45,
+   "oldStartOffset": 43,
+   "oldEndOffset": 51,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 48,
+    "endOffset": 56,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 49,
+   "oldStartOffset": 992,
+   "oldEndOffset": 1003,
+   "oldText": "Master Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 979,
+    "endOffset": 990,
+    "text": "Master Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 49,
+   "oldStartOffset": 1136,
+   "oldEndOffset": 1142,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1120,
+    "endOffset": 1126,
+    "text": "Jekyll",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 49,
+   "oldStartOffset": 1279,
+   "oldEndOffset": 1284,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1282,
+    "endOffset": 1287,
+    "text": "Harry",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 49,
+   "oldStartOffset": 1301,
+   "oldEndOffset": 1306,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1282,
+    "endOffset": 1287,
+    "text": "Harry",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 2,
+   "paragraph": 49,
+   "oldStartOffset": 1361,
+   "oldEndOffset": 1365,
+   "oldText": "Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1338,
+    "endOffset": 1342,
+    "text": "Hyde",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 49,
+   "oldStartOffset": 1474,
+   "oldEndOffset": 1480,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1456,
+    "endOffset": 1462,
+    "text": "Jekyll",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 2,
+   "paragraph": 49,
+   "oldStartOffset": 1514,
+   "oldEndOffset": 1520,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1496,
+    "endOffset": 1502,
+    "text": "Jekyll",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 0,
+   "oldStartOffset": 34,
+   "oldEndOffset": 46,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 20,
+    "endOffset": 32,
+    "text": "Mr. Utterson",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 5,
+   "paragraph": 0,
+   "oldStartOffset": 63,
+   "oldEndOffset": 73,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 43,
+    "endOffset": 53,
+    "text": "Dr. Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 5,
+   "paragraph": 0,
+   "oldStartOffset": 88,
+   "oldEndOffset": 93,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 68,
+    "endOffset": 73,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 0,
+   "oldStartOffset": 1031,
+   "oldEndOffset": 1043,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1006,
+    "endOffset": 1018,
+    "text": "Mr. Utterson",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 5,
+   "paragraph": 0,
+   "oldStartOffset": 1434,
+   "oldEndOffset": 1444,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1413,
+    "endOffset": 1423,
+    "text": "Dr. Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 1,
+   "oldStartOffset": 16,
+   "oldEndOffset": 28,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 13,
+    "endOffset": 25,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 5,
+   "paragraph": 1,
+   "oldStartOffset": 41,
+   "oldEndOffset": 46,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 38,
+    "endOffset": 43,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "carew",
+   "chapter": 5,
+   "paragraph": 3,
+   "oldStartOffset": 30,
+   "oldEndOffset": 35,
+   "oldText": "Carew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 47,
+    "text": "Carew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 5,
+   "paragraph": 6,
+   "oldStartOffset": 25,
+   "oldEndOffset": 31,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 37,
+    "endOffset": 43,
+    "text": "Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 6,
+   "oldStartOffset": 273,
+   "oldEndOffset": 281,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 271,
+    "endOffset": 279,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 5,
+   "paragraph": 8,
+   "oldStartOffset": 58,
+   "oldEndOffset": 62,
+   "oldText": "Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 61,
+    "endOffset": 65,
+    "text": "Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 5,
+   "paragraph": 10,
+   "oldStartOffset": 59,
+   "oldEndOffset": 70,
+   "oldText": "Edward Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 52,
+    "endOffset": 63,
+    "text": "Edward Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 5,
+   "paragraph": 10,
+   "oldStartOffset": 134,
+   "oldEndOffset": 144,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 84,
+    "endOffset": 94,
+    "text": "Dr. Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 5,
+   "paragraph": 12,
+   "oldStartOffset": 15,
+   "oldEndOffset": 21,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 23,
+    "endOffset": 29,
+    "text": "Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 13,
+   "oldStartOffset": 43,
+   "oldEndOffset": 51,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 49,
+    "endOffset": 57,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 5,
+   "paragraph": 15,
+   "oldStartOffset": 81,
+   "oldEndOffset": 85,
+   "oldText": "Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 90,
+    "endOffset": 94,
+    "text": "Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 18,
+   "oldStartOffset": 100,
+   "oldEndOffset": 108,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 108,
+    "endOffset": 116,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 5,
+   "paragraph": 19,
+   "oldStartOffset": 62,
+   "oldEndOffset": 67,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 61,
+    "endOffset": 66,
+    "text": "Poole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 5,
+   "paragraph": 19,
+   "oldStartOffset": 168,
+   "oldEndOffset": 173,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 166,
+    "endOffset": 171,
+    "text": "Poole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "guest",
+   "chapter": 5,
+   "paragraph": 21,
+   "oldStartOffset": 53,
+   "oldEndOffset": 62,
+   "oldText": "Mr. Guest",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 62,
+    "endOffset": 71,
+    "text": "Mr. Guest",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "guest",
+   "chapter": 5,
+   "paragraph": 21,
+   "oldStartOffset": 931,
+   "oldEndOffset": 940,
+   "oldText": "Mr. Guest",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 904,
+    "endOffset": 913,
+    "text": "Mr. Guest",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "guest",
+   "chapter": 5,
+   "paragraph": 21,
+   "oldStartOffset": 1000,
+   "oldEndOffset": 1005,
+   "oldText": "Guest",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 979,
+    "endOffset": 984,
+    "text": "Guest",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 5,
+   "paragraph": 21,
+   "oldStartOffset": 1069,
+   "oldEndOffset": 1074,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1038,
+    "endOffset": 1043,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 5,
+   "paragraph": 21,
+   "oldStartOffset": 1115,
+   "oldEndOffset": 1123,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1088,
+    "endOffset": 1096,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "guest",
+   "chapter": 5,
+   "paragraph": 21,
+   "oldStartOffset": 1303,
+   "oldEndOffset": 1308,
+   "oldText": "Guest",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1264,
+    "endOffset": 1269,
+    "text": "Guest",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 21,
+   "oldStartOffset": 1543,
+   "oldEndOffset": 1555,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1507,
+    "endOffset": 1519,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "guest",
+   "chapter": 5,
+   "paragraph": 23,
+   "oldStartOffset": 68,
+   "oldEndOffset": 73,
+   "oldText": "Guest",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 76,
+    "endOffset": 81,
+    "text": "Guest",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 24,
+   "oldStartOffset": 42,
+   "oldEndOffset": 50,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 54,
+    "endOffset": 62,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 28,
+   "oldStartOffset": 98,
+   "oldEndOffset": 110,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 110,
+    "endOffset": 122,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 31,
+   "oldStartOffset": 32,
+   "oldEndOffset": 44,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 27,
+    "endOffset": 39,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "guest",
+   "chapter": 5,
+   "paragraph": 31,
+   "oldStartOffset": 96,
+   "oldEndOffset": 101,
+   "oldText": "Guest",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 88,
+    "endOffset": 93,
+    "text": "Guest",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "guest",
+   "chapter": 5,
+   "paragraph": 34,
+   "oldStartOffset": 33,
+   "oldEndOffset": 38,
+   "oldText": "Guest",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 47,
+    "text": "Guest",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 5,
+   "paragraph": 37,
+   "oldStartOffset": 18,
+   "oldEndOffset": 30,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 15,
+    "endOffset": 27,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 5,
+   "paragraph": 37,
+   "oldStartOffset": 151,
+   "oldEndOffset": 163,
+   "oldText": "Henry Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 142,
+    "endOffset": 154,
+    "text": "Henry Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 7,
+   "paragraph": 0,
+   "oldStartOffset": 30,
+   "oldEndOffset": 42,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 15,
+    "endOffset": 27,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 7,
+   "paragraph": 0,
+   "oldStartOffset": 74,
+   "oldEndOffset": 85,
+   "oldText": "Mr. Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 59,
+    "endOffset": 70,
+    "text": "Mr. Enfield",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 7,
+   "paragraph": 1,
+   "oldStartOffset": 72,
+   "oldEndOffset": 80,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 84,
+    "endOffset": 92,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 7,
+   "paragraph": 3,
+   "oldStartOffset": 49,
+   "oldEndOffset": 56,
+   "oldText": "Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 47,
+    "endOffset": 54,
+    "text": "Enfield",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 7,
+   "paragraph": 3,
+   "oldStartOffset": 163,
+   "oldEndOffset": 173,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 168,
+    "endOffset": 178,
+    "text": "Dr. Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 7,
+   "paragraph": 4,
+   "oldStartOffset": 31,
+   "oldEndOffset": 39,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 34,
+    "endOffset": 42,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 7,
+   "paragraph": 4,
+   "oldStartOffset": 175,
+   "oldEndOffset": 181,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 148,
+    "endOffset": 154,
+    "text": "Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 7,
+   "paragraph": 5,
+   "oldStartOffset": 295,
+   "oldEndOffset": 303,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 307,
+    "endOffset": 315,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 7,
+   "paragraph": 5,
+   "oldStartOffset": 308,
+   "oldEndOffset": 318,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 320,
+    "endOffset": 330,
+    "text": "Dr. Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 7,
+   "paragraph": 7,
+   "oldStartOffset": 16,
+   "oldEndOffset": 24,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 15,
+    "endOffset": 23,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 7,
+   "paragraph": 8,
+   "oldStartOffset": 100,
+   "oldEndOffset": 111,
+   "oldText": "Mr. Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 115,
+    "endOffset": 126,
+    "text": "Mr. Enfield",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 7,
+   "paragraph": 8,
+   "oldStartOffset": 139,
+   "oldEndOffset": 150,
+   "oldText": "Mr. Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 157,
+    "endOffset": 168,
+    "text": "Mr. Enfield",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 7,
+   "paragraph": 8,
+   "oldStartOffset": 151,
+   "oldEndOffset": 161,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 169,
+    "endOffset": 179,
+    "text": "Dr. Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 7,
+   "paragraph": 9,
+   "oldStartOffset": 132,
+   "oldEndOffset": 140,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 134,
+    "endOffset": 142,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 7,
+   "paragraph": 9,
+   "oldStartOffset": 214,
+   "oldEndOffset": 225,
+   "oldText": "Mr. Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 213,
+    "endOffset": 224,
+    "text": "Mr. Enfield",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 7,
+   "paragraph": 11,
+   "oldStartOffset": 609,
+   "oldEndOffset": 621,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 579,
+    "endOffset": 591,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "enfield",
+   "chapter": 7,
+   "paragraph": 13,
+   "oldStartOffset": 4,
+   "oldEndOffset": 15,
+   "oldText": "Mr. Enfield",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 11,
+    "text": "Mr. Enfield",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 0,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 16,
+    "endOffset": 28,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 0,
+   "oldStartOffset": 113,
+   "oldEndOffset": 118,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 92,
+    "endOffset": 97,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 4,
+   "oldStartOffset": 175,
+   "oldEndOffset": 187,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 180,
+    "endOffset": 192,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 6,
+   "oldStartOffset": 46,
+   "oldEndOffset": 51,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 47,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 8,
+   "oldStartOffset": 59,
+   "oldEndOffset": 64,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 54,
+    "endOffset": 59,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 9,
+   "oldStartOffset": 39,
+   "oldEndOffset": 44,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 34,
+    "endOffset": 39,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 13,
+   "oldStartOffset": 319,
+   "oldEndOffset": 331,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 322,
+    "endOffset": 334,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 16,
+   "oldStartOffset": 134,
+   "oldEndOffset": 139,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 124,
+    "endOffset": 129,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 18,
+   "oldStartOffset": 195,
+   "oldEndOffset": 207,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 189,
+    "endOffset": 201,
+    "text": "Mr. Utterson",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll-housemaid",
+   "chapter": 8,
+   "paragraph": 18,
+   "oldStartOffset": 213,
+   "oldEndOffset": 222,
+   "oldText": "housemaid",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 207,
+    "endOffset": 216,
+    "text": "housemaid",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll-cook",
+   "chapter": 8,
+   "paragraph": 18,
+   "oldStartOffset": 265,
+   "oldEndOffset": 269,
+   "oldText": "cook",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 259,
+    "endOffset": 263,
+    "text": "cook",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 18,
+   "oldStartOffset": 300,
+   "oldEndOffset": 312,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 292,
+    "endOffset": 304,
+    "text": "Mr. Utterson",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 20,
+   "oldStartOffset": 27,
+   "oldEndOffset": 32,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 31,
+    "endOffset": 36,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll-housemaid",
+   "chapter": 8,
+   "paragraph": 21,
+   "oldStartOffset": 52,
+   "oldEndOffset": 56,
+   "oldText": "maid",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 57,
+    "endOffset": 61,
+    "text": "maid",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 22,
+   "oldStartOffset": 20,
+   "oldEndOffset": 25,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 12,
+    "endOffset": 17,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "knife-boy",
+   "chapter": 8,
+   "paragraph": 22,
+   "oldStartOffset": 293,
+   "oldEndOffset": 302,
+   "oldText": "knife-boy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 291,
+    "endOffset": 300,
+    "text": "knife-boy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 22,
+   "oldStartOffset": 377,
+   "oldEndOffset": 389,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 372,
+    "endOffset": 384,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 24,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 29,
+    "endOffset": 41,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 24,
+   "oldStartOffset": 282,
+   "oldEndOffset": 287,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 278,
+    "endOffset": 283,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 27,
+   "oldStartOffset": 105,
+   "oldEndOffset": 117,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 104,
+    "endOffset": 116,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 30,
+   "oldStartOffset": 344,
+   "oldEndOffset": 356,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 363,
+    "endOffset": 375,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 31,
+   "oldStartOffset": 70,
+   "oldEndOffset": 82,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 87,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 34,
+   "oldStartOffset": 133,
+   "oldEndOffset": 143,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 145,
+    "endOffset": 155,
+    "text": "Dr. Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 34,
+   "oldStartOffset": 294,
+   "oldEndOffset": 300,
+   "oldText": "Dr. J.",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 306,
+    "endOffset": 312,
+    "text": "Dr. J.",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 34,
+   "oldStartOffset": 527,
+   "oldEndOffset": 533,
+   "oldText": "Dr. J.",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 534,
+    "endOffset": 540,
+    "text": "Dr. J.",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 36,
+   "oldStartOffset": 97,
+   "oldEndOffset": 102,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 80,
+    "endOffset": 85,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 41,
+   "oldStartOffset": 121,
+   "oldEndOffset": 126,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 107,
+    "endOffset": 112,
+    "text": "Poole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 41,
+   "oldStartOffset": 524,
+   "oldEndOffset": 529,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 538,
+    "endOffset": 543,
+    "text": "Poole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 42,
+   "oldStartOffset": 226,
+   "oldEndOffset": 234,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 222,
+    "endOffset": 230,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 42,
+   "oldStartOffset": 270,
+   "oldEndOffset": 275,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 264,
+    "endOffset": 269,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 42,
+   "oldStartOffset": 487,
+   "oldEndOffset": 497,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 482,
+    "endOffset": 492,
+    "text": "Dr. Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 42,
+   "oldStartOffset": 538,
+   "oldEndOffset": 548,
+   "oldText": "Dr. Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 534,
+    "endOffset": 544,
+    "text": "Dr. Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 49,
+   "oldStartOffset": 85,
+   "oldEndOffset": 90,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 87,
+    "endOffset": 92,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 8,
+   "paragraph": 52,
+   "oldStartOffset": 143,
+   "oldEndOffset": 151,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 154,
+    "endOffset": 162,
+    "text": "Mr. Hyde",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 52,
+   "oldStartOffset": 451,
+   "oldEndOffset": 463,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 452,
+    "endOffset": 464,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 8,
+   "paragraph": 52,
+   "oldStartOffset": 491,
+   "oldEndOffset": 499,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 492,
+    "endOffset": 500,
+    "text": "Mr. Hyde",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 55,
+   "oldStartOffset": 54,
+   "oldEndOffset": 66,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 56,
+    "endOffset": 68,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 56,
+   "oldStartOffset": 25,
+   "oldEndOffset": 30,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 16,
+    "endOffset": 21,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 56,
+   "oldStartOffset": 201,
+   "oldEndOffset": 213,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 195,
+    "endOffset": 207,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 8,
+   "paragraph": 56,
+   "oldStartOffset": 325,
+   "oldEndOffset": 333,
+   "oldText": "Mr. Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 306,
+    "endOffset": 314,
+    "text": "Mr. Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 57,
+   "oldStartOffset": 193,
+   "oldEndOffset": 198,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 161,
+    "endOffset": 166,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bradshaw",
+   "chapter": 8,
+   "paragraph": 57,
+   "oldStartOffset": 362,
+   "oldEndOffset": 370,
+   "oldText": "Bradshaw",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 331,
+    "endOffset": 339,
+    "text": "Bradshaw",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 59,
+   "oldStartOffset": 140,
+   "oldEndOffset": 145,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 131,
+    "endOffset": 136,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "knife-boy",
+   "chapter": 8,
+   "paragraph": 59,
+   "oldStartOffset": 381,
+   "oldEndOffset": 384,
+   "oldText": "boy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 354,
+    "endOffset": 357,
+    "text": "boy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 60,
+   "oldStartOffset": 58,
+   "oldEndOffset": 63,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 64,
+    "endOffset": 69,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 61,
+   "oldStartOffset": 36,
+   "oldEndOffset": 41,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 37,
+    "endOffset": 42,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 61,
+   "oldStartOffset": 340,
+   "oldEndOffset": 352,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 317,
+    "endOffset": 329,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 62,
+   "oldStartOffset": 132,
+   "oldEndOffset": 144,
+   "oldText": "Henry Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 112,
+    "endOffset": 124,
+    "text": "Henry Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 62,
+   "oldStartOffset": 146,
+   "oldEndOffset": 154,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 150,
+    "endOffset": 158,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 66,
+   "oldStartOffset": 40,
+   "oldEndOffset": 45,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 47,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 8,
+   "paragraph": 69,
+   "oldStartOffset": 36,
+   "oldEndOffset": 40,
+   "oldText": "Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 37,
+    "endOffset": 41,
+    "text": "Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 69,
+   "oldStartOffset": 51,
+   "oldEndOffset": 59,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 52,
+    "endOffset": 60,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 8,
+   "paragraph": 72,
+   "oldStartOffset": 154,
+   "oldEndOffset": 165,
+   "oldText": "Edward Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 146,
+    "endOffset": 157,
+    "text": "Edward Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 72,
+   "oldStartOffset": 438,
+   "oldEndOffset": 446,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 387,
+    "endOffset": 395,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 8,
+   "paragraph": 73,
+   "oldStartOffset": 78,
+   "oldEndOffset": 82,
+   "oldText": "Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 81,
+    "endOffset": 85,
+    "text": "Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 74,
+   "oldStartOffset": 730,
+   "oldEndOffset": 736,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 684,
+    "endOffset": 690,
+    "text": "Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 74,
+   "oldStartOffset": 942,
+   "oldEndOffset": 954,
+   "oldText": "Henry Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 885,
+    "endOffset": 897,
+    "text": "Henry Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 76,
+   "oldStartOffset": 28,
+   "oldEndOffset": 36,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 40,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 79,
+   "oldStartOffset": 129,
+   "oldEndOffset": 134,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 126,
+    "endOffset": 131,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 81,
+   "oldStartOffset": 55,
+   "oldEndOffset": 60,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 56,
+    "endOffset": 61,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 82,
+   "oldStartOffset": 226,
+   "oldEndOffset": 234,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 245,
+    "endOffset": 253,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 82,
+   "oldStartOffset": 290,
+   "oldEndOffset": 296,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 308,
+    "endOffset": 314,
+    "text": "Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 84,
+   "oldStartOffset": 59,
+   "oldEndOffset": 64,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 48,
+    "endOffset": 53,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 85,
+   "oldStartOffset": 98,
+   "oldEndOffset": 104,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 95,
+    "endOffset": 101,
+    "text": "Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 8,
+   "paragraph": 85,
+   "oldStartOffset": 189,
+   "oldEndOffset": 195,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 186,
+    "endOffset": 192,
+    "text": "Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 86,
+   "oldStartOffset": 30,
+   "oldEndOffset": 35,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 25,
+    "endOffset": 30,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 87,
+   "oldStartOffset": 134,
+   "oldEndOffset": 146,
+   "oldText": "Mr. Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 137,
+    "endOffset": 149,
+    "text": "Mr. Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 8,
+   "paragraph": 87,
+   "oldStartOffset": 440,
+   "oldEndOffset": 451,
+   "oldText": "Edward Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 461,
+    "endOffset": 472,
+    "text": "Edward Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 87,
+   "oldStartOffset": 515,
+   "oldEndOffset": 536,
+   "oldText": "Gabriel John Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 551,
+    "endOffset": 572,
+    "text": "Gabriel John Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 87,
+   "oldStartOffset": 551,
+   "oldEndOffset": 556,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 587,
+    "endOffset": 592,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 8,
+   "paragraph": 89,
+   "oldStartOffset": 94,
+   "oldEndOffset": 99,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 100,
+    "endOffset": 105,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lanyon",
+   "chapter": 8,
+   "paragraph": 92,
+   "oldStartOffset": 291,
+   "oldEndOffset": 297,
+   "oldText": "Lanyon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 301,
+    "endOffset": 307,
+    "text": "Lanyon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 8,
+   "paragraph": 98,
+   "oldStartOffset": 64,
+   "oldEndOffset": 72,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 60,
+    "endOffset": 68,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 158,
+   "oldEndOffset": 170,
+   "oldText": "Henry Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 159,
+    "endOffset": 171,
+    "text": "Henry Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 9,
+   "paragraph": 2,
+   "oldStartOffset": 236,
+   "oldEndOffset": 242,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 224,
+    "endOffset": 230,
+    "text": "Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lanyon",
+   "chapter": 9,
+   "paragraph": 2,
+   "oldStartOffset": 347,
+   "oldEndOffset": 353,
+   "oldText": "Lanyon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 327,
+    "endOffset": 333,
+    "text": "Lanyon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "poole",
+   "chapter": 9,
+   "paragraph": 3,
+   "oldStartOffset": 258,
+   "oldEndOffset": 263,
+   "oldText": "Poole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 245,
+    "endOffset": 250,
+    "text": "Poole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "locksmith",
+   "chapter": 9,
+   "paragraph": 3,
+   "oldStartOffset": 333,
+   "oldEndOffset": 342,
+   "oldText": "locksmith",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 320,
+    "endOffset": 329,
+    "text": "locksmith",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lanyon",
+   "chapter": 9,
+   "paragraph": 5,
+   "oldStartOffset": 395,
+   "oldEndOffset": 401,
+   "oldText": "Lanyon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 399,
+    "endOffset": 405,
+    "text": "Lanyon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 9,
+   "paragraph": 8,
+   "oldStartOffset": 462,
+   "oldEndOffset": 474,
+   "oldText": "Henry Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 442,
+    "endOffset": 454,
+    "text": "Henry Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 414,
+   "oldEndOffset": 420,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 365,
+    "endOffset": 371,
+    "text": "Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "locksmith",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 574,
+   "oldEndOffset": 583,
+   "oldText": "locksmith",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 516,
+    "endOffset": 525,
+    "text": "locksmith",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "carpenter",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 590,
+   "oldEndOffset": 599,
+   "oldText": "carpenter",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 532,
+    "endOffset": 541,
+    "text": "carpenter",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "denman",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 685,
+   "oldEndOffset": 695,
+   "oldText": "Dr. Denman",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 623,
+    "endOffset": 633,
+    "text": "Dr. Denman",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 754,
+   "oldEndOffset": 760,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 689,
+    "endOffset": 695,
+    "text": "Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "carpenter",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 857,
+   "oldEndOffset": 866,
+   "oldText": "carpenter",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 795,
+    "endOffset": 804,
+    "text": "carpenter",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "locksmith",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 965,
+   "oldEndOffset": 974,
+   "oldText": "locksmith",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 927,
+    "endOffset": 936,
+    "text": "locksmith",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 9,
+   "paragraph": 10,
+   "oldStartOffset": 159,
+   "oldEndOffset": 165,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 154,
+    "endOffset": 160,
+    "text": "Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 9,
+   "paragraph": 10,
+   "oldStartOffset": 1157,
+   "oldEndOffset": 1163,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1126,
+    "endOffset": 1132,
+    "text": "Jekyll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 9,
+   "paragraph": 19,
+   "oldStartOffset": 182,
+   "oldEndOffset": 198,
+   "oldText": "Dr. Henry Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 181,
+    "endOffset": 197,
+    "text": "Dr. Henry Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "satan",
+   "chapter": 9,
+   "paragraph": 27,
+   "oldStartOffset": 717,
+   "oldEndOffset": 722,
+   "oldText": "Satan",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 715,
+    "endOffset": 720,
+    "text": "Satan",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "utterson",
+   "chapter": 9,
+   "paragraph": 32,
+   "oldStartOffset": 649,
+   "oldEndOffset": 657,
+   "oldText": "Utterson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 624,
+    "endOffset": 632,
+    "text": "Utterson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jekyll",
+   "chapter": 9,
+   "paragraph": 32,
+   "oldStartOffset": 791,
+   "oldEndOffset": 797,
+   "oldText": "Jekyll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 768,
+    "endOffset": 774,
+    "text": "Jekyll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hyde",
+   "chapter": 9,
+   "paragraph": 32,
+   "oldStartOffset": 837,
+   "oldEndOffset": 841,
+   "oldText": "Hyde",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 814,
+    "endOffset": 818,
+    "text": "Hyde",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "carew",
+   "chapter": 9,
+   "paragraph": 32,
+   "oldStartOffset": 905,
+   "oldEndOffset": 910,
+   "oldText": "Carew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 877,
+    "endOffset": 882,
+    "text": "Carew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  }
+ ]
+}

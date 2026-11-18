@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const { chromium, webkit } = require('playwright')
 const assert = require('node:assert/strict'), fs = require('node:fs')
 const origin = process.env.TEST_ORIGIN || 'http://127.0.0.1:5195'
@@ -5,13 +6,12 @@ const dir = process.env.ARTIFACT_DIR || '/tmp/tinct-desktop-selection'
 fs.mkdirSync(dir, { recursive: true })
 ;(async () => {
   for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
-    const browser = await engine.launch()
+    const browser = await markInternal(await engine.launch())
     try {
       const page = await browser.newPage({serviceWorkers:'block', viewport: { width: 1440, height: 950 } })
       await page.route('**/api/**', route => route.fulfill({ status: 404, body: '{}' }))
       await page.addInitScript(() => sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId:'the-awakening',primaryEditionKey:'original-en'})))
       await page.goto(origin + '/reader')
-      await page.getByTestId('lab-book-preface').getByRole('button', {name:'Begin reading',exact:true}).first().click()
       await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true')
       await page.evaluate(() => document.fonts.ready)
       const words = page.locator('.lab-page-wrap [data-testid="lab-word"]')

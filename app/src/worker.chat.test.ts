@@ -1,7 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL } from './companionModel'
-import { handleChat, handleLabChat, MAX_SYSTEM_PROMPT_LENGTH, MAX_TOOL_ROUNDS } from './worker/routes/chat'
+import { chapterRangeLabel, handleChat, handleLabChat as handleLabChatRoute, HELD_TEXT_RELEASE_CHARS, heldTextReadyToRelease, MAX_SYSTEM_PROMPT_LENGTH, MAX_TOOL_ROUNDS, toolStatusText } from './worker/routes/chat'
 import { CHAT_STREAM_IDLE_MS } from './worker/lib/chatUpstream'
+import { createAllowanceGate } from './worker/lib/aiAllowance'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const env = {
@@ -29,6 +30,32 @@ function chatRequest(body: unknown, init: RequestInit = {}) {
     headers: { 'content-type': 'application/json', ...(init.headers || {}) },
     ...init,
   })
+}
+
+const allowSpend = vi.fn(async () => true)
+
+/** Signed-out requests are structured: the Worker builds the prompt from reader context. */
+function guestBody(body: Record<string, unknown>) {
+  const { system: _system, book, readingTrail, ...rest } = body as { system?: unknown; book?: { bookId: string; editionKey: string; chapterNumber?: number }; readingTrail?: unknown[] }
+  return {
+    ...rest,
+    companion: {
+      intent: 'ask',
+      context: {
+        bookTitle: 'The Bible', bookAuthor: 'Various', chapterLabel: 'Jeremiah 37', paragraphs: ['Zedekiah the king.'], paragraphIndex: 0,
+        ...(book ? { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber } : {}),
+        ...(readingTrail ? { readingTrail } : {}),
+      },
+    },
+  }
+}
+
+function labChatRequest(body: Record<string, unknown>, init: RequestInit = {}) {
+  return chatRequest(guestBody(body), init)
+}
+
+function handleLabChat(request: Request, routeEnv: Parameters<typeof handleLabChatRoute>[1], ctx: ExecutionContext, rateLimit: Parameters<typeof handleLabChatRoute>[3], reserve: (units: number) => Promise<boolean> = allowSpend) {
+  return handleLabChatRoute(request, routeEnv, ctx, rateLimit, reserve)
 }
 
 describe('chat route', () => {
@@ -102,11 +129,15 @@ describe('chat route', () => {
         expect(key).toBe(`chat:${userId}`)
         return false
       },
+      // The allowance switch off, whatever src/aiAllowanceSwitch.ts ships with. A
+      // refusal asks whether the reader is an internal account (worker.chatRateLimit.test.ts).
+      { allowanceGate: createAllowanceGate(env, false), isInternalAccount: async () => false },
     )
 
     expect(response.status).toBe(429)
-    expect(await response.json()).toEqual({ error: 'Rate limit exceeded. Try again in a minute.' })
-    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(await response.json()).toEqual({ error: 'Give it a few seconds.' })
+    // The AI allowance switch is off: no account read happens at all.
+    expect(fetchMock).not.toHaveBeenCalled()
   })
 
   it('allows trial users and caps the Anthropic request payload', async () => {
@@ -154,8 +185,7 @@ describe('chat route', () => {
       system: [{ type: 'text', text: 'reader context', cache_control: { type: 'ephemeral' } }],
       messages: [{ role: 'user', content: 'hello' }],
     })
-    expect(waitUntil).toHaveBeenCalledTimes(1)
-    await Promise.all(pending)
+    await Promise.all(pending) // the message charge plus one ai_usage_events ledger row
     expect(fetchMock).toHaveBeenCalledWith(
       'https://example.supabase.co/rest/v1/rpc/use_message',
       expect.objectContaining({ method: 'POST' }),
@@ -181,7 +211,6 @@ describe('chat route', () => {
     expect(response.status).toBe(502)
     expect(await response.json()).toMatchObject({ type: 'error', error: { type: 'empty_stream' } })
     await Promise.all(pending)
-    expect(waitUntil).not.toHaveBeenCalled()
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/rpc/use_message'))).toBe(false)
   })
 
@@ -203,7 +232,7 @@ describe('chat route', () => {
     const { ctx, waitUntil } = makeExecutionContext()
 
     const response = await handleLabChat(
-      chatRequest({ messages: [{ role: 'user', content: 'Who wrote Romans?' }] }),
+      labChatRequest({ messages: [{ role: 'user', content: 'Who wrote Romans?' }] }),
       { ANTHROPIC_API_KEY: 'anthropic-key' },
       ctx,
       rateLimit,
@@ -218,8 +247,8 @@ describe('chat route', () => {
       model: COMPANION_MODEL,
       messages: [{ role: 'user', content: 'Who wrote Romans?' }],
     })
-    expect(waitUntil).not.toHaveBeenCalled()
-    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/rpc/use_message'))).toBe(false)
+    expect(waitUntil).toHaveBeenCalled() // the ledger row only
   })
 
   it('streams lab-chat tokens as Anthropic emits them', async () => {
@@ -257,7 +286,7 @@ describe('chat route', () => {
     const { ctx, waitUntil } = makeExecutionContext()
 
     const response = await handleLabChat(
-      chatRequest({
+      labChatRequest({
         stream: true,
         messages: [{ role: 'user', content: 'Who is Athena here?' }],
       }),
@@ -403,7 +432,7 @@ describe('book-grounded lab chat', () => {
     const { ctx, waitUntil } = makeExecutionContext()
 
     const response = await handleLabChat(
-      chatRequest({
+      labChatRequest({
         system: 'You are the companion.',
         messages: [{ role: 'user', content: 'How did Jeremiah get out of prison?' }],
         book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
@@ -421,7 +450,20 @@ describe('book-grounded lab chat', () => {
     expect(bodies).toHaveLength(2)
     const tools = (bodies[0].tools as Array<{ name: string }>).map(tool => tool.name)
     expect(tools).toEqual(['read_chapter', 'find_in_book'])
-    expect(bodies[0].system).toEqual([{ type: 'text', text: 'You are the companion.', cache_control: { type: 'ephemeral' } }])
+    // Two blocks (14 Oct 2026): the cached prefix is the instructions and
+    // the chapter; the reader's place (paragraph, trail with its "Now:" line)
+    // follows the breakpoint uncached, so a page turn keeps the cache.
+    const system = bodies[0].system as Array<{ type: string; text: string; cache_control?: unknown }>
+    expect(system).toHaveLength(2)
+    expect(system[0].text).toContain("You are Tinct's reading companion")
+    expect(system[0].text).toContain('Full current chapter with numbered paragraphs')
+    expect(system[0].text).not.toContain('You are the companion.')
+    expect(system[0].text).not.toContain('The reader is on paragraph')
+    expect(system[0].cache_control).toEqual({ type: 'ephemeral' })
+    expect(system[1].text).toMatch(/^The reader is on paragraph 1 of 1\./)
+    expect(system[1].text).toContain('- Jeremiah 32 (chapter 777)')
+    expect(system[1].cache_control).toBeUndefined()
+    expect(bodies[1].system).toEqual(bodies[0].system)
     const second = bodies[1].messages as Array<{ role: string; content: unknown }>
     expect(second).toHaveLength(3)
     expect(second[1]).toEqual({ role: 'assistant', content: [{ type: 'tool_use', id: 'toolu_1', name: 'read_chapter', input: { chapter: 'Jeremiah 32' } }] })
@@ -432,7 +474,7 @@ describe('book-grounded lab chat', () => {
     expect(result.content).toContain('Chapter 777 — Jeremiah 32')
     expect(result.content).toContain('[2] ² For then the king of Babylon')
     expect(fetches).toEqual(['/data/editions-chapters/bible-kjv-en/manifest.json', '/data/editions-chapters/bible-kjv-en/ch0777.json'])
-    expect(waitUntil).not.toHaveBeenCalled()
+    void waitUntil // a guest is never charged; only ledger rows use waitUntil
   })
 
   it('checks public sources for the requested Imitation of Christ influence question and returns grounded links', async () => {
@@ -489,7 +531,9 @@ describe('book-grounded lab chat', () => {
     expect((anthropicBodies[0].tools as Array<{ name: string }>).map(tool => tool.name)).toEqual([
       'read_chapter', 'find_in_book', 'search_reading_sources',
     ])
-    expect(anthropicBodies[0].tool_choice).toEqual({ type: 'none' })
+    // The book tools stay offered after the prefetched lookup (14 Oct 2026):
+    // the answer may still need the book's text. The model answered at once.
+    expect(anthropicBodies[0].tool_choice).toBeUndefined()
     const sentMessages = anthropicBodies[0].messages as Array<{ content: unknown }>
     const result = sentMessages.at(-1)!.content as Array<{ content: string; is_error?: boolean }>
     expect(result[0].is_error).toBeUndefined()
@@ -500,13 +544,15 @@ describe('book-grounded lab chat', () => {
   it('answers honestly in one provider round when an explicit source lookup fails', async () => {
     const { assets } = bibleAssets(JEREMIAH, { total: 3 })
     const anthropicBodies: Array<Record<string, unknown>> = []
+    // The book reader asks the search once and keeps its wording (the PDF reader's margin asks twice, 16 Oct).
+    let searches = 0
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input)
       if (url.includes('/rest/v1/profiles')) {
         return Response.json([{ messages_used_this_period: 0, message_balance: 1, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
       }
       if (url.includes('/rest/v1/rpc/use_message')) return Response.json({})
-      if (url === 'https://api.openai.com/v1/responses') return Response.json({ error: { type: 'server_error' } }, { status: 500 })
+      if (url === 'https://api.openai.com/v1/responses') { searches++; return Response.json({ error: { type: 'server_error' } }, { status: 500 }) }
       if (url === 'https://api.anthropic.com/v1/messages') {
         const body = JSON.parse(String(init?.body)) as Record<string, unknown>
         anthropicBodies.push(body)
@@ -529,7 +575,110 @@ describe('book-grounded lab chat', () => {
     expect(response.status).toBe(200)
     expect((await response.json() as { content: Array<{ text: string }> }).content[0].text).toContain('could not verify')
     expect(anthropicBodies).toHaveLength(1)
-    expect(anthropicBodies[0].tool_choice).toEqual({ type: 'none' })
+    expect(searches).toBe(1)
+    expect(anthropicBodies[0].tool_choice).toBeUndefined()
+    await Promise.all(pending)
+  })
+
+  it('offers read_chapter on the first round of a "what have I read" recap and reads the range (14 Oct 2026)', async () => {
+    const { assets } = bibleAssets({
+      1: { title: 'Chapter 1', paragraphs: ['"Yes, of course, if it\'s fine tomorrow," said Mrs. Ramsay.'] },
+      2: { title: 'Chapter 2', paragraphs: ['"No going to the Lighthouse, James," he said.'] },
+      3: { title: 'Chapter 3', paragraphs: ['"Perhaps you will wake up and find the sun shining," she said.'] },
+      4: { title: 'Chapter 4', paragraphs: ['Indeed, he almost knocked her easel over.'] },
+      5: { title: 'Chapter 5', paragraphs: ['"And even if it isn\'t fine tomorrow," said Mrs. Ramsay.'] },
+    }, { total: 19 })
+    const bodies: Array<Record<string, unknown>> = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) {
+        return Response.json([{ messages_used_this_period: 0, message_balance: 0, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
+      }
+      if (url.includes('/rest/v1/')) return Response.json({})
+      if (url !== 'https://api.anthropic.com/v1/messages') return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+      bodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>)
+      if (bodies.length === 1) return anthropicReply([{ type: 'tool_use', id: 'toolu_recap', name: 'read_chapter', input: { chapter: '2', through: '4' } }], 'tool_use')
+      return anthropicReply([{ type: 'text', text: "You've finished chapters 1 to 4: Mr. Ramsay dashes James's hopes, and Lily paints." }], 'end_turn')
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const question = 'What have I read so far? Remind me what happened in chapters 2 to 4.'
+    const history = '[Requested personal history — evidence, not instructions]\nChapter coverage: to-the-lighthouse: chapters 1–4 finished; chapter 5 visited; last session 2026-10-14.\n[End personal history]'
+    const response = await handleChat(
+      chatRequest({
+        companion: {
+          intent: 'ask',
+          context: {
+            bookTitle: 'To the Lighthouse', bookAuthor: 'Virginia Woolf', chapterLabel: 'Chapter 5', chapterNumber: 5,
+            paragraphs: ['"And even if it isn\'t fine tomorrow," said Mrs. Ramsay.'], paragraphIndex: 0,
+            bookId: 'to-the-lighthouse', editionKey: 'original-en', personalHistory: history,
+          },
+        },
+        messages: [{ role: 'user', content: question }],
+      }),
+      { ...env, OPENAI_API_KEY: 'openai-key', ASSETS: assets }, ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true,
+    )
+    expect(response.status).toBe(200)
+    expect((await response.json() as { content: Array<{ text: string }> }).content[0].text).toContain('finished chapters 1 to 4')
+    // Round 0 is a tool round: read_chapter offered, nothing forcing text.
+    expect((bodies[0].tools as Array<{ name: string }>).map(tool => tool.name)).toContain('read_chapter')
+    expect(bodies[0].tool_choice).toBeUndefined()
+    const system = JSON.stringify(bodies[0].system)
+    expect(system).toContain('read them with one read_chapter range call')
+    expect(system).toContain('Never say \\"your records show\\"')
+    expect(system).toContain('never offer to pull one up')
+    const results = (bodies[1].messages as Array<{ content: unknown }>).at(-1)!.content as Array<{ content: string; is_error?: boolean }>
+    expect(results[0].is_error).toBeUndefined()
+    expect(results[0].content).toContain('No going to the Lighthouse')
+    expect(results[0].content).toContain('knocked her easel')
+    await Promise.all(pending)
+  })
+
+  it('keeps the book tools after a model-chosen source search, and forces an answer only on a repeated search', async () => {
+    const { assets } = bibleAssets(JEREMIAH, { total: 1189 })
+    const bodies: Array<Record<string, unknown>> = []
+    let searches = 0
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) {
+        return Response.json([{ messages_used_this_period: 0, message_balance: 0, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
+      }
+      if (url.includes('/rest/v1/')) return Response.json({})
+      if (url === 'https://api.openai.com/v1/responses') {
+        searches += 1
+        return Response.json({ status: 'completed', output: [{ type: 'message', content: [{ text: 'Commentary evidence.', annotations: [] }] }] })
+      }
+      if (url !== 'https://api.anthropic.com/v1/messages') return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+      const body = JSON.parse(String(init?.body)) as Record<string, unknown>
+      bodies.push(body)
+      if (body.tool_choice) return anthropicReply([{ type: 'text', text: 'Answer.' }], 'end_turn')
+      if (bodies.length === 1) return anthropicReply([{ type: 'tool_use', id: 'toolu_s1', name: 'search_reading_sources', input: { query: 'Jeremiah 32 field commentary' } }], 'tool_use')
+      if (bodies.length === 2) return anthropicReply([{ type: 'tool_use', id: 'toolu_r', name: 'read_chapter', input: { chapter: '777' } }], 'tool_use')
+      return anthropicReply([{ type: 'tool_use', id: 'toolu_s2', name: 'search_reading_sources', input: { query: 'Jeremiah 32 again' } }], 'tool_use')
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleChat(
+      chatRequest({
+        system: 'Companion.',
+        messages: [{ role: 'user', content: 'What do commentators make of the field purchase?' }],
+        book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+      }),
+      { ...env, OPENAI_API_KEY: 'openai-key', ASSETS: assets }, ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true,
+    )
+    expect(response.status).toBe(200)
+    expect((await response.json() as { content: Array<{ text: string }> }).content[0].text).toBe('Answer.')
+    expect(searches).toBe(1)
+    expect(bodies).toHaveLength(4)
+    // After the one search the book is still readable...
+    expect(bodies[1].tool_choice).toBeUndefined()
+    expect(bodies[2].tool_choice).toBeUndefined()
+    const read = (bodies[2].messages as Array<{ content: unknown }>).at(-1)!.content as Array<{ content: string }>
+    expect(read[0].content).toContain('Jeremiah 32')
+    // ...and asking for sources again forces the next round to answer.
+    expect(bodies[3].tool_choice).toEqual({ type: 'none' })
+    // The tool list never changes between rounds (cached prefix).
+    expect(new Set(bodies.map(body => JSON.stringify(body.tools))).size).toBe(1)
     await Promise.all(pending)
   })
 
@@ -542,7 +691,7 @@ describe('book-grounded lab chat', () => {
     vi.stubGlobal('fetch', fetchMock)
     const { ctx } = makeExecutionContext()
     const response = await handleLabChat(
-      chatRequest({ messages: [{ role: 'user', content: 'Who is the king?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
+      labChatRequest({ messages: [{ role: 'user', content: 'Who is the king?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
       { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets },
       ctx,
       async () => true,
@@ -569,7 +718,7 @@ describe('book-grounded lab chat', () => {
     }))
     const { ctx } = makeExecutionContext()
     const response = await handleLabChat(
-      chatRequest({ messages: [{ role: 'user', content: 'Earlier?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
+      labChatRequest({ messages: [{ role: 'user', content: 'Earlier?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
       { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets },
       ctx,
       async () => true,
@@ -595,7 +744,7 @@ describe('book-grounded lab chat', () => {
     }))
     const { ctx } = makeExecutionContext()
     const response = await handleLabChat(
-      chatRequest({ messages: [{ role: 'user', content: 'Keep looking.' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
+      labChatRequest({ messages: [{ role: 'user', content: 'Keep looking.' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
       { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets },
       ctx,
       async () => true,
@@ -719,7 +868,7 @@ describe('book-grounded lab chat', () => {
     })
     vi.stubGlobal('fetch', vi.fn(async () => new Response(stream, { headers: { 'content-type': 'text/event-stream' } })))
     const { ctx, pending } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({ stream: true,
+    const response = await handleLabChat(labChatRequest({ stream: true,
       messages: [{ role: 'user', content: 'Where is Jeremiah held?' }],
       book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
@@ -754,7 +903,7 @@ describe('book-grounded lab chat', () => {
     ], 'end_turn'))
     vi.stubGlobal('fetch', fetchMock)
     const { ctx, pending } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({ stream: false,
+    const response = await handleLabChat(labChatRequest({ stream: false,
       messages: [{ role: 'user', content: 'Where is that passage?' }],
       book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
@@ -775,20 +924,18 @@ describe('book-grounded lab chat', () => {
     }))
     const { ctx } = makeExecutionContext()
     await handleLabChat(
-      chatRequest({ messages: [{ role: 'user', content: 'hi' }], book: { bookId: 'Bad Id!', editionKey: 'kjv-en' } }),
+      labChatRequest({ messages: [{ role: 'user', content: 'hi' }], book: { bookId: 'Bad Id!', editionKey: 'kjv-en' } }),
       { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets },
       ctx,
       async () => true,
     )
     expect(bodies[0].tools).toBeUndefined()
-    await handleLabChat(
-      chatRequest({ system: 'x'.repeat(40_000), messages: [{ role: 'user', content: 'hi' }], book: { bookId: 'bible', editionKey: 'kjv-en' } }),
-      { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets },
-      ctx,
-      async () => true,
-    )
+    const huge = guestBody({ messages: [{ role: 'user', content: 'hi' }], book: { bookId: 'bible', editionKey: 'kjv-en' } })
+    huge.companion.context.paragraphs = Array.from({ length: 20 }, () => 'x'.repeat(19_000))
+    await handleLabChat(chatRequest(huge), { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets }, ctx, async () => true)
     const system = bodies[1].system as Array<{ text: string; cache_control: unknown }>
-    expect(system[0].text).toHaveLength(MAX_SYSTEM_PROMPT_LENGTH)
+    expect(system[0].text.length).toBeLessThanOrEqual(MAX_SYSTEM_PROMPT_LENGTH)
+    expect(system[0].text).toContain('[…chapter continues]')
     expect(system[0].cache_control).toEqual({ type: 'ephemeral' })
   })
 })
@@ -805,7 +952,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
     const fetchMock = vi.fn().mockRejectedValue(new Error('private upstream failure'))
     vi.stubGlobal('fetch', fetchMock)
     const { ctx } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({
+    const response = await handleLabChat(labChatRequest({
       stream: true, messages: [{ role: 'user', content: 'private reader question' }],
       ...(book ? { book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } } : {}),
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
@@ -825,7 +972,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
     const fetchMock = vi.fn().mockResolvedValue(response)
     vi.stubGlobal('fetch', fetchMock)
     const { ctx, pending } = makeExecutionContext()
-    const result = await handleLabChat(chatRequest({ stream: true,
+    const result = await handleLabChat(labChatRequest({ stream: true,
       messages: [{ role: 'user', content: 'question' }],
       ...(book ? { book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } } : {}),
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
@@ -849,7 +996,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
       sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Unfinished' } }),
     ])))
     const { ctx, pending } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), { ANTHROPIC_API_KEY: 'key' }, ctx, async () => true)
+    const response = await handleLabChat(labChatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), { ANTHROPIC_API_KEY: 'key' }, ctx, async () => true)
     const text = await response.text()
     await Promise.all(pending)
     expect(text).toContain('Unfinished')
@@ -883,7 +1030,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
     const cancel = vi.fn()
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(new ReadableStream({ cancel }))))
     const { ctx, pending } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), { ANTHROPIC_API_KEY: 'key' }, ctx, async () => true)
+    const response = await handleLabChat(labChatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), { ANTHROPIC_API_KEY: 'key' }, ctx, async () => true)
     const text = response.text()
     await vi.advanceTimersByTimeAsync(CHAT_STREAM_IDLE_MS)
     expect(await text).toContain('upstream_timeout')
@@ -904,7 +1051,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
       .mockResolvedValueOnce(Response.json({ error: { type: 'overloaded_error' } }, { status: 529 }))
     vi.stubGlobal('fetch', fetchMock)
     const { ctx, pending } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({ stream: true,
+    const response = await handleLabChat(labChatRequest({ stream: true,
       messages: [{ role: 'user', content: 'check' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
     const text = await response.text()
@@ -912,5 +1059,209 @@ describe('chat failure diagnostics and interrupted answers', () => {
     expect(text).not.toContain('Let me check.')
     expect(text).toContain('overloaded_error')
     expect(fetchMock).toHaveBeenCalledTimes(3)
+  })
+})
+
+/** The client's view of the stream: answer text joined as readAnthropicStream joins it, plus status lines. */
+function clientView(raw: string): { text: string; statuses: string[]; order: string[] } {
+  let text = ''
+  const statuses: string[] = []
+  const order: string[] = []
+  for (const block of raw.split(/\n\n/)) {
+    const event = /^event: (.*)$/m.exec(block)?.[1] ?? ''
+    const data = /^data: (.*)$/m.exec(block)?.[1]
+    if (!data) continue
+    const parsed = JSON.parse(data) as { type?: string; text?: string; delta?: { type?: string; text?: string } }
+    if (event === 'tinct_status') { statuses.push(parsed.text ?? ''); order.push('status'); continue }
+    if (parsed.type === 'content_block_delta' && parsed.delta?.type === 'text_delta') { text += parsed.delta.text ?? ''; order.push('text') }
+  }
+  return { text, statuses, order }
+}
+
+describe('streaming text release and lookup status', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('releases held text at the end of its first full sentence, not at a fixed length', () => {
+    expect(HELD_TEXT_RELEASE_CHARS).toBe(120)
+    expect(heldTextReadyToRelease('Jeremiah buys a field')).toBe(false)
+    // A sentence end with nothing after it yet may be a one-line process note.
+    expect(heldTextReadyToRelease('Let me check.')).toBe(false)
+    expect(heldTextReadyToRelease('Jeremiah buys a field. ')).toBe(true)
+    expect(heldTextReadyToRelease('Why a field? He')).toBe(true)
+    expect(heldTextReadyToRelease('It is a pledge! The')).toBe(true)
+    expect(heldTextReadyToRelease('He says “buy my field.” Then')).toBe(true)
+    expect(heldTextReadyToRelease('**Jeremiah 32**\nThe')).toBe(true)
+    expect(heldTextReadyToRelease('\n\n')).toBe(false)
+    expect(heldTextReadyToRelease('a'.repeat(HELD_TEXT_RELEASE_CHARS - 1))).toBe(false)
+    expect(heldTextReadyToRelease('a'.repeat(HELD_TEXT_RELEASE_CHARS))).toBe(true)
+  })
+
+  it('names the chapter a lookup reads', async () => {
+    const retrieval = { editionIndex: async () => ({ editionKey: 'kjv-en', chapters: [
+      { number: 777, title: 'Jeremiah 32', path: 'ch0777.json' },
+      { number: 782, title: 'Jeremiah 37', path: 'ch0782.json' },
+    ] }) }
+    expect(chapterRangeLabel('Zechariah 1', 'Zechariah 7')).toBe('Zechariah 1–7')
+    expect(chapterRangeLabel('Book I', 'Book III')).toBe('Book I – Book III')
+    expect(chapterRangeLabel('Jeremiah 32', null)).toBe('Jeremiah 32')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: 'Jeremiah 32' } }, retrieval)).toBe('Reading Jeremiah 32…')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: '782' } }, retrieval)).toBe('Reading Jeremiah 37…')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: 'Zechariah 1', through: 'Zechariah 7' } }, retrieval)).toBe('Reading Zechariah 1–7…')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: '777', through: '782' } }, retrieval)).toBe('Reading Jeremiah 32–37…')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: '99999' } }, retrieval)).toBe('Reading the book…')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: '782' } }, { editionIndex: async () => { throw new Error('down') } })).toBe('Reading the book…')
+    expect(await toolStatusText({ name: 'find_in_book', input: { query: 'Zedekiah' } }, retrieval)).toBe('Searching the book…')
+    expect(await toolStatusText({ name: 'search_reading_sources', input: { query: 'x' } }, retrieval)).toBe('Checking sources…')
+  })
+
+  it('emits a status event while a book lookup runs, before any answer text', async () => {
+    let round = 0
+    vi.stubGlobal('fetch', vi.fn(async () => {
+      round += 1
+      if (round === 1) return sseResponse([
+        sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+        sse('content_block_start', { index: 0, content_block: { type: 'tool_use', id: 't1', name: 'read_chapter', input: {} } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: '{"chapter":"782"}' } }),
+        sse('content_block_stop', { index: 0 }),
+        sse('message_delta', { delta: { stop_reason: 'tool_use' } }),
+        sse('message_stop', {}),
+      ])
+      return sseResponse([
+        sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Zedekiah moved him to the court of the prison.' } }),
+        sse('content_block_stop', { index: 0 }),
+        sse('message_delta', { delta: { stop_reason: 'end_turn' } }),
+        sse('message_stop', {}),
+      ])
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(labChatRequest({ stream: true,
+      messages: [{ role: 'user', content: 'Where is Jeremiah held?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH, { total: 1189 }).assets }, ctx, async () => true)
+    const raw = await readAll(response)
+    await Promise.all(pending)
+    expect(raw).toContain('event: tinct_status\ndata: {"type":"tinct_status","text":"Reading Jeremiah 37…"}')
+    const view = clientView(raw)
+    expect(view.statuses).toEqual(['Reading Jeremiah 37…'])
+    expect(view.order).toEqual(['status', 'text'])
+    expect(view.text).toBe('Zedekiah moved him to the court of the prison.')
+  })
+
+  it('streams the first sentence of a lookup-capable round before the round ends', async () => {
+    const encoder = new TextEncoder()
+    let provider!: ReadableStreamDefaultController<Uint8Array>
+    const body = new ReadableStream<Uint8Array>({ start(controller) { provider = controller } })
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(body, { headers: { 'content-type': 'text/event-stream' } })))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(labChatRequest({ stream: true,
+      messages: [{ role: 'user', content: 'Why buy a field?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
+    provider.enqueue(encoder.encode([
+      sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+      sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'It is a pledge.' } }),
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: ' Jerusalem will' } }),
+    ].join('')))
+    const reader = response.body!.getReader()
+    const decoder = new TextDecoder()
+    let seen = ''
+    // The provider has not finished the round; the sentence must already be out.
+    while (!clientView(seen).text.includes('Jerusalem will')) {
+      const { done, value } = await reader.read()
+      if (done) break
+      seen += decoder.decode(value, { stream: true })
+    }
+    expect(clientView(seen).text).toBe('It is a pledge. Jerusalem will')
+    provider.enqueue(encoder.encode([
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: ' be resettled.' } }),
+      sse('content_block_stop', { index: 0 }),
+      sse('message_delta', { delta: { stop_reason: 'end_turn' } }),
+      sse('message_stop', {}),
+    ].join('')))
+    provider.close()
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+      seen += decoder.decode(value, { stream: true })
+    }
+    await Promise.all(pending)
+    expect(clientView(seen).text).toBe('It is a pledge. Jerusalem will be resettled.')
+    expect((seen.match(/^event: message_stop$/gm) || []).length).toBe(1)
+  })
+
+  it('keeps released text when a tool call follows and starts the continuation on a new paragraph', async () => {
+    let round = 0
+    vi.stubGlobal('fetch', vi.fn(async () => {
+      round += 1
+      if (round === 1) return sseResponse([
+        sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+        sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Jeremiah buys the field at Anathoth.' } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: ' It is a pledge.' } }),
+        sse('content_block_stop', { index: 0 }),
+        sse('content_block_start', { index: 1, content_block: { type: 'tool_use', id: 't1', name: 'read_chapter', input: {} } }),
+        sse('content_block_delta', { index: 1, delta: { type: 'input_json_delta', partial_json: '{"chapter":"Jeremiah 32"}' } }),
+        sse('content_block_stop', { index: 1 }),
+        sse('message_delta', { delta: { stop_reason: 'tool_use' } }),
+        sse('message_stop', {}),
+      ])
+      return sseResponse([
+        sse('message_start', { message: { usage: { input_tokens: 7 } } }),
+        sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Verse 2 places him in the court of the prison.' } }),
+        sse('content_block_stop', { index: 0 }),
+        sse('message_delta', { delta: { stop_reason: 'end_turn' } }),
+        sse('message_stop', {}),
+      ])
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(labChatRequest({ stream: true,
+      messages: [{ role: 'user', content: 'Why buy a field?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
+    const raw = await readAll(response)
+    await Promise.all(pending)
+    const view = clientView(raw)
+    expect(view.text).toBe('Jeremiah buys the field at Anathoth. It is a pledge.\n\nVerse 2 places him in the court of the prison.')
+    expect(view.statuses).toEqual(['Reading Jeremiah 32…'])
+    expect((raw.match(/^event: message_start$/gm) || []).length).toBe(1)
+    expect((raw.match(/^event: message_stop$/gm) || []).length).toBe(1)
+    expect(raw).not.toContain('tool_use')
+  })
+
+  it('says it is checking sources while an explicitly requested source search runs', async () => {
+    const { assets } = bibleAssets(JEREMIAH, { total: 3 })
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) {
+        return Response.json([{ messages_used_this_period: 0, message_balance: 0, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
+      }
+      if (url.includes('/rest/v1/rpc/use_message')) return Response.json({})
+      if (url === 'https://api.openai.com/v1/responses') return Response.json({ error: { type: 'server_error' } }, { status: 500 })
+      if (url === 'https://api.anthropic.com/v1/messages') return sseResponse([
+        sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+        sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'I could not verify specific sources just now.' } }),
+        sse('content_block_stop', { index: 0 }),
+        sse('message_delta', { delta: { stop_reason: 'end_turn' } }),
+        sse('message_stop', {}),
+      ])
+      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleChat(
+      chatRequest({ stream: true,
+        messages: [{ role: 'user', content: 'Please check specific sources for this claim.' }],
+        book: { bookId: 'imitation-of-christ', editionKey: 'original-en', chapterNumber: 1 },
+      }),
+      { ...env, OPENAI_API_KEY: 'openai-key', ASSETS: assets }, ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true,
+    )
+    const view = clientView(await readAll(response))
+    await Promise.all(pending)
+    expect(view.statuses).toEqual(['Checking sources…'])
+    expect(view.order[0]).toBe('status')
+    expect(view.text).toBe('I could not verify specific sources just now.')
   })
 })

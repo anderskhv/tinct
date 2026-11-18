@@ -1,0 +1,312 @@
+/**
+ * The signed-in reader's private copies of their own books in their account
+ * (`/api/user-books`, worker/routes/userBooks.ts): the list, one file's bytes,
+ * and the reader's place in each book (`/api/user-books/places`). Only the
+ * owner reaches any of it; a place carries the chapter, paragraph and word (an
+ * EPUB) or the page and how far down it (a PDF), the time and whole-book
+ * percent, never the book's title or text, and never goes to
+ * the shared position stores.
+ *
+ * Every call answers null when the account cannot be asked (signed out,
+ * offline, a server error): callers keep what this device has.
+ */
+import { supabase } from '../../services/supabase'
+import { editionSource, usableUserEdition, type UserBookEdition } from './userEdition'
+
+export interface AccountBook {
+  id: string
+  type: 'pdf' | 'epub'
+  name: string
+  title: string
+  author: string
+  size: number
+  sha256: string
+  createdAt: string
+  /** Positive only after a reader edited the display metadata; upload defaults do not replace parsed OPF labels. */
+  metadataRev?: number
+  /** The small image of its cover kept with the account copy (`/api/user-books/covers/<hex>?v=…`), or null. */
+  cover?: string | null
+}
+
+export interface AccountPlace {
+  chapterNumber: number
+  paragraphIndex: number
+  wordIndex: number
+  updatedAt: number
+  percent?: number
+  /** The conversion rules the place was read under (userEdition.ts; userBookPlace.ts). */
+  converter?: number
+  rev: number
+}
+
+/**
+ * A PDF's place: the page and how far down it (0–1), and, when its Tinct text
+ * was read or known there (pdfEditions.ts), the same spot in the text and the
+ * edition it was read in ('t' Tinct text, 'p' Original pages).
+ */
+export interface AccountPagePlace {
+  page: number
+  frac?: number
+  updatedAt: number
+  percent?: number
+  chapterNumber?: number
+  paragraphIndex?: number
+  wordIndex?: number
+  converter?: number
+  edition?: 't' | 'p'
+  rev: number
+}
+
+export type FetchLike = typeof fetch
+
+/** The session's access token, refreshed by the auth client when it has lapsed; null signed out. */
+export async function ownBookToken(): Promise<string | null> {
+  if (!supabase) return null
+  try {
+    const { data } = await supabase.auth.getSession()
+    return data.session?.access_token ?? null
+  } catch {
+    return null
+  }
+}
+
+const authorized = (token: string, init: RequestInit = {}): RequestInit => ({
+  ...init,
+  cache: 'no-store',
+  credentials: 'same-origin',
+  headers: { ...(init.headers as Record<string, string> | undefined), Authorization: `Bearer ${token}` },
+})
+
+/** The account's books (metadata only); null when the list cannot be read. */
+export async function listAccountBooks(token: string | null, fetchImpl: FetchLike = fetch): Promise<AccountBook[] | null> {
+  if (!token) return null
+  try {
+    const response = await fetchImpl('/api/user-books', authorized(token))
+    if (!response.ok) return null
+    const data = await response.json() as { books?: unknown }
+    if (!Array.isArray(data.books)) return null
+    return data.books.filter((book): book is AccountBook => !!book && typeof book === 'object'
+      && ((book as AccountBook).type === 'epub' || (book as AccountBook).type === 'pdf')
+      && typeof (book as AccountBook).sha256 === 'string' && /^[0-9a-f]{64}$/.test((book as AccountBook).sha256))
+      .map(book => ({ ...book, id: typeof book.id === 'string' ? book.id : '', name: typeof book.name === 'string' ? book.name : '', title: typeof book.title === 'string' ? book.title : '', author: typeof book.author === 'string' ? book.author : '', createdAt: typeof book.createdAt === 'string' ? book.createdAt : '', cover: accountCoverUrl(book.cover, book.sha256) }))
+  } catch {
+    return null
+  }
+}
+
+/** The list's cover URL when it is this book's own (`/api/user-books/covers/<hex>?v=…`), else null. */
+function accountCoverUrl(value: unknown, sha256: string): string | null {
+  return typeof value === 'string' && value.startsWith(`/api/user-books/covers/${sha256.slice(0, 24)}?v=`) && /^[\w/?=.-]+$/.test(value) ? value : null
+}
+
+/** The account keeps covers up to this many bytes (worker/routes/userBooks.ts MAX_COVER_BYTES). */
+export const ACCOUNT_COVER_MAX_BYTES = 64 * 1024
+
+/** Store the small image of a book's cover with its account copy; the stored cover's URL, or null when it was not stored. */
+export async function putAccountCover(hex: string, image: Blob, token: string | null, fetchImpl: FetchLike = fetch): Promise<string | null> {
+  if (!token || !/^[0-9a-f]{24}$/.test(hex) || image.size > ACCOUNT_COVER_MAX_BYTES || !/^image\/(jpeg|webp)$/.test(image.type)) return null
+  try {
+    const response = await fetchImpl(`/api/user-books/covers/${hex}`, authorized(token, { method: 'PUT', headers: { 'Content-Type': image.type }, body: image }))
+    if (!response.ok) return null
+    const data = await response.json().catch(() => null) as { cover?: unknown } | null
+    return accountCoverUrl(data?.cover, hex) ?? null
+  } catch {
+    return null
+  }
+}
+
+/** A stored cover (the URL the list gave) as a data: URL; null when it cannot be read. */
+export async function fetchAccountCover(url: string, token: string | null, fetchImpl: FetchLike = fetch): Promise<string | null> {
+  if (!token || !/^\/api\/user-books\/covers\/[0-9a-f]{24}\?v=[0-9a-z]+$/.test(url)) return null
+  try {
+    // Kept on this device after the first read (ownCovers.ts), so the browser's own cache is not needed.
+    const response = await fetchImpl(url, authorized(token))
+    if (!response.ok) return null
+    const type = (response.headers.get('content-type') || '').split(';')[0].trim()
+    if (type !== 'image/jpeg' && type !== 'image/webp') return null
+    const bytes = new Uint8Array(await response.arrayBuffer())
+    if (!bytes.byteLength || bytes.byteLength > ACCOUNT_COVER_MAX_BYTES) return null
+    let binary = ''
+    for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000))
+    return `data:${type};base64,${btoa(binary)}`
+  } catch {
+    return null
+  }
+}
+
+/** The key Add a book gives a file on this device and in the account: `<type>:<first 24 hex digits of its SHA-256>`. */
+export const accountBookKey = (book: Pick<AccountBook, 'type' | 'sha256'>) => `${book.type}:${book.sha256.slice(0, 24)}`
+
+async function sha256Prefix(bytes: ArrayBuffer): Promise<string | null> {
+  try {
+    const digest = await crypto.subtle.digest('SHA-256', bytes)
+    return [...new Uint8Array(digest)].slice(0, 12).map(byte => byte.toString(16).padStart(2, '0')).join('')
+  } catch {
+    return null
+  }
+}
+
+export type AccountCopy =
+  | { status: 'found'; book: AccountBook; bytes: ArrayBuffer }
+  /** The account has this book as a PDF: Add a book's viewer opens it. */
+  | { status: 'pdf' }
+  /** The account was asked and has no such book. */
+  | { status: 'gone' }
+  /** The account could not be asked, or the file could not be fetched intact. */
+  | { status: 'unavailable' }
+
+/**
+ * One EPUB's bytes from the account, checked against the book's hex (the
+ * first 24 hex digits of the file's SHA-256) before they are used.
+ */
+export async function fetchAccountCopy(hex: string, token: string | null, fetchImpl: FetchLike = fetch, onEpub?: () => void): Promise<AccountCopy> {
+  const books = await listAccountBooks(token, fetchImpl)
+  if (!books || !token) return { status: 'unavailable' }
+  const book = books.find(item => item.type === 'epub' && item.id && item.sha256.startsWith(hex))
+  if (!book) return books.some(item => item.type === 'pdf' && item.sha256.startsWith(hex)) ? { status: 'pdf' } : { status: 'gone' }
+  // The account list has established that this is an EPUB. A caller may warm
+  // its public converter while the verified private file is still in flight.
+  try { onEpub?.() } catch { /* warming cannot change the download result */ }
+  try {
+    const response = await fetchImpl(`/api/user-books/${encodeURIComponent(book.id)}`, authorized(token))
+    if (response.status === 404) return { status: 'gone' }
+    if (!response.ok) return { status: 'unavailable' }
+    const bytes = await response.arrayBuffer()
+    // A truncated or altered download is never kept or converted.
+    if (await sha256Prefix(bytes) !== hex.slice(0, 24)) return { status: 'unavailable' }
+    return { status: 'found', book, bytes }
+  } catch {
+    return { status: 'unavailable' }
+  }
+}
+
+/**
+ * The recognised Tinct text of a scanned PDF of the account
+ * (`GET /api/user-books/ocr/{hex}/edition`), or null: none recognised yet,
+ * recognition switched off (the route answers 404), signed out, offline, or
+ * not a recognised text this code reads.
+ */
+export async function fetchOcrEdition(hex: string, token: string | null, fetchImpl: FetchLike = fetch): Promise<UserBookEdition | null> {
+  if (!token || !/^[0-9a-f]{24}$/.test(hex)) return null
+  try {
+    const response = await fetchImpl(`/api/user-books/ocr/${hex}/edition`, authorized(token))
+    if (!response.ok) return null
+    const edition = await response.json() as unknown
+    return usableUserEdition(edition, 'pdf') && editionSource(edition) === 'ocr' ? edition : null
+  } catch {
+    return null
+  }
+}
+
+function accountPlace(value: unknown): AccountPlace | null {
+  if (!value || typeof value !== 'object') return null
+  const raw = value as Record<string, unknown>
+  const whole = (field: unknown, min = 0) => Number.isInteger(field) && (field as number) >= min
+  if (!whole(raw.chapterNumber, 1) || !whole(raw.paragraphIndex) || !whole(raw.wordIndex) || !whole(raw.updatedAt, 1) || !whole(raw.rev, 1)) return null
+  const place: AccountPlace = { chapterNumber: raw.chapterNumber as number, paragraphIndex: raw.paragraphIndex as number, wordIndex: raw.wordIndex as number, updatedAt: raw.updatedAt as number, rev: raw.rev as number }
+  if (typeof raw.percent === 'number' && Number.isFinite(raw.percent)) place.percent = Math.max(0, Math.min(100, raw.percent))
+  if (whole(raw.converter, 1)) place.converter = raw.converter as number
+  return place
+}
+
+function accountPagePlace(value: unknown): AccountPagePlace | null {
+  if (!value || typeof value !== 'object') return null
+  const raw = value as Record<string, unknown>
+  if (!Number.isInteger(raw.page) || (raw.page as number) < 1 || !Number.isInteger(raw.updatedAt) || (raw.updatedAt as number) < 1 || !Number.isInteger(raw.rev) || (raw.rev as number) < 1) return null
+  const place: AccountPagePlace = { page: raw.page as number, updatedAt: raw.updatedAt as number, rev: raw.rev as number }
+  if (typeof raw.frac === 'number' && Number.isFinite(raw.frac)) place.frac = Math.max(0, Math.min(1, raw.frac))
+  if (typeof raw.percent === 'number' && Number.isFinite(raw.percent)) place.percent = Math.max(0, Math.min(100, raw.percent))
+  const whole = (field: unknown, min = 0) => Number.isInteger(field) && (field as number) >= min
+  // The spot in the Tinct text: whole, or not at all.
+  if (whole(raw.chapterNumber, 1) && whole(raw.paragraphIndex) && whole(raw.wordIndex)) {
+    Object.assign(place, { chapterNumber: raw.chapterNumber, paragraphIndex: raw.paragraphIndex, wordIndex: raw.wordIndex })
+    if (whole(raw.converter, 1)) place.converter = raw.converter as number
+  }
+  if (raw.edition === 't' || raw.edition === 'p') place.edition = raw.edition
+  return place
+}
+
+/** Every place the account keeps, by book hex: EPUBs' (`text`) and PDFs' (`pages`); null when they cannot be read. */
+export async function fetchAccountPlaceSets(token: string | null, fetchImpl: FetchLike = fetch): Promise<{ text: Record<string, AccountPlace>; pages: Record<string, AccountPagePlace> } | null> {
+  if (!token) return null
+  try {
+    const response = await fetchImpl('/api/user-books/places', authorized(token))
+    if (!response.ok) return null
+    const data = await response.json() as { places?: Record<string, unknown> }
+    const text: Record<string, AccountPlace> = {}
+    const pages: Record<string, AccountPagePlace> = {}
+    for (const [hex, value] of Object.entries(data.places ?? {})) {
+      if (!/^[0-9a-f]{24}$/.test(hex)) continue
+      // A place with a page is a PDF's, whichever of its editions it was read in.
+      const page = accountPagePlace(value)
+      if (page) { pages[hex] = page; continue }
+      const place = accountPlace(value)
+      if (place) text[hex] = place
+    }
+    return { text, pages }
+  } catch {
+    return null
+  }
+}
+
+/** Every EPUB place the account keeps, by book hex; null when they cannot be read. */
+export async function fetchAccountPlaces(token: string | null, fetchImpl: FetchLike = fetch): Promise<Record<string, AccountPlace> | null> {
+  return (await fetchAccountPlaceSets(token, fetchImpl))?.text ?? null
+}
+
+export type PlaceWrite<P = AccountPlace> =
+  | { status: 'saved'; place: P }
+  /** The account holds a newer revision (`place`, or none any more). */
+  | { status: 'conflict'; place: P | null }
+  /** The book is not in the account (removed, or never saved there). */
+  | { status: 'gone' }
+  | { status: 'unavailable' }
+
+/** Save one place, naming the revision this device last read (0 for none). */
+export function putAccountPlace(
+  hex: string,
+  place: Omit<AccountPlace, 'rev'>,
+  rev: number,
+  token: string | null,
+  options: { fetchImpl?: FetchLike; keepalive?: boolean } = {},
+): Promise<PlaceWrite> {
+  return putPlace(hex, place, rev, token, accountPlace, options)
+}
+
+/** Save one PDF's place (the same endpoint and revisions as an EPUB's). */
+export function putAccountPagePlace(
+  hex: string,
+  place: Omit<AccountPagePlace, 'rev'>,
+  rev: number,
+  token: string | null,
+  options: { fetchImpl?: FetchLike; keepalive?: boolean } = {},
+): Promise<PlaceWrite<AccountPagePlace>> {
+  return putPlace(hex, place, rev, token, accountPagePlace, options)
+}
+
+async function putPlace<P>(
+  hex: string,
+  place: object,
+  rev: number,
+  token: string | null,
+  parse: (value: unknown) => P | null,
+  options: { fetchImpl?: FetchLike; keepalive?: boolean },
+): Promise<PlaceWrite<P>> {
+  if (!token) return { status: 'unavailable' }
+  const fetchImpl = options.fetchImpl ?? fetch
+  try {
+    const response = await fetchImpl(`/api/user-books/places/${encodeURIComponent(hex)}`, authorized(token, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ place, rev }),
+      ...(options.keepalive ? { keepalive: true } : {}),
+    }))
+    if (response.status === 404) return { status: 'gone' }
+    const data = await response.json().catch(() => null) as { place?: unknown } | null
+    if (response.status === 409) return { status: 'conflict', place: parse(data?.place) }
+    const saved = response.ok ? parse(data?.place) : null
+    return saved ? { status: 'saved', place: saved } : { status: 'unavailable' }
+  } catch {
+    return { status: 'unavailable' }
+  }
+}

@@ -1,0 +1,15 @@
+/* Book scroll (Anders, 11 Nov 2026): a thin rule, space, then the next chapter's heading. A novel's chapter ending is
+   a pause, so it has a little more room than a short scripture chapter; a pasted article's sections (later) none. */
+.lab[data-continuous-reader="true"] .continuous-reader[data-book-scroll="true"] .book-scroll-chapter + .book-scroll-chapter {
+  margin-top: 4.5rem; padding-top: 2.5rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+}
+.lab[data-continuous-reader="true"] .continuous-reader[data-book-scroll-gap="book"] .book-scroll-chapter + .book-scroll-chapter {
+  margin-top: 6rem; padding-top: 3.5rem;
+}
+.lab[data-continuous-reader="true"] .continuous-reader[data-book-scroll-gap="none"] .book-scroll-chapter + .book-scroll-chapter {
+  margin-top: 0; padding-top: 0; border-top: 0;
+}
+.lab[data-continuous-reader="true"] .continuous-reader[data-book-scroll="true"] .book-scroll-chapter.is-placeholder { box-sizing: border-box; }
+/* The tracker shows the whole unit: a tick where each chapter starts. */
+.lab .source-minimap-chapter-mark { stroke: currentColor; stroke-width: 1.6; opacity: .9; pointer-events: none; }

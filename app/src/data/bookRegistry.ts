@@ -36,6 +36,18 @@ export const ODYSSEY: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      // Optional verse translation (re-added at Anders's request, 5 Nov 2026).
+      // Pope's verse paragraphs do not match Butler's prose (1,047 against
+      // Butler's 1,027), so it is never paired in Compare or chosen as a default.
+      key: 'verse-en',
+      language: 'en',
+      style: 'verse',
+      label: 'Pope (Verse, 1726)',
+      translator: 'Alexander Pope',
+      year: 1726,
+      aligned: false,
+    },
   ],
 }
 
@@ -277,7 +289,8 @@ export const MACBETH: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
+      // Paragraph structure differs from the repaired English editions (806 against 840).
+      aligned: false,
       hasAudio: true,
     },
   ],
@@ -536,7 +549,8 @@ export const AS_YOU_LIKE_IT: Book = {
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
       hasAudio: true,
     },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    // Chapter structure differs from the repaired English editions (17 chapters against 23).
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
   ],
 }
 
@@ -759,9 +773,11 @@ export const THE_ART_OF_WAR: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Giles Translation (1910)',
-      translator: 'Lionel Giles',
-      year: 1910,
+      // Replaced 2026-10-01 (rights): Captain E. F. Calthrop, The Book of War (London: John Murray, 1908),
+      // Project Gutenberg #44024. Calthrop died 1915. Modern English is a Tinct rendering of this text.
+      label: 'Calthrop Translation (1908)',
+      translator: 'E. F. Calthrop',
+      year: 1908,
       aligned: true,
       hasAudio: true,
     },
@@ -773,14 +789,7 @@ export const THE_ART_OF_WAR: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -812,13 +821,7 @@ export const CRIME_AND_PUNISHMENT: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -895,6 +898,7 @@ export const MEDITATIONS: Book = {
       label: 'Modern English',
       aligned: true,
     },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -968,7 +972,7 @@ export const JANE_EYRE: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      // Keeps the pre-2026-09-25 paragraphing; the English editions were restructured.
+      // Reviewed Danish replacement matches the current English paragraphing (2026-10-24).
       aligned: false,
     },
   ],
@@ -1120,7 +1124,7 @@ export const THE_MANUAL: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1153,14 +1157,7 @@ export const CONFESSIONS: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1243,7 +1240,8 @@ export const JERUSALEM: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
+      // 18 chapters against the repaired English editions' 17.
+      aligned: false,
       hasAudio: true,
     },
   ],
@@ -1283,7 +1281,7 @@ export const APOLOGY: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1361,6 +1359,7 @@ export const PHAEDO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1399,7 +1398,7 @@ export const POETICS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1438,7 +1437,7 @@ export const CRITO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1476,7 +1475,7 @@ export const PHAEDRUS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1508,13 +1507,7 @@ export const MOBY_DICK: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1883,9 +1876,12 @@ export const BACCHAE: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Murray (1906)',
-      translator: 'Gilbert Murray',
-      year: 1906,
+      // Replaced 2026-10-01 (rights): Arthur S. Way, The Tragedies of Euripides in English Verse, vol. 3
+      // (Macmillan, 1898), text from the Wikisource transcription (CC BY-SA 4.0, Wikisource contributors).
+      // Way died 1930. Modern English is a Tinct rendering of this text, shared under the same licence.
+      label: 'Way (1898)',
+      translator: 'Arthur S. Way',
+      year: 1898,
       aligned: true,
       hasAudio: true,
     },
@@ -1897,14 +1893,7 @@ export const BACCHAE: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1922,9 +1911,12 @@ export const MEDEA: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Murray (1906)',
-      translator: 'Gilbert Murray',
-      year: 1906,
+      // Replaced 2026-10-01 (rights): Arthur S. Way, The Tragedies of Euripides in English Verse, vol. 1
+      // (Macmillan, 1894), text from the Wikisource transcription (CC BY-SA 4.0, Wikisource contributors).
+      // Way died 1930. Modern English is a Tinct rendering of this text, shared under the same licence.
+      label: 'Way (1894)',
+      translator: 'Arthur S. Way',
+      year: 1894,
       aligned: true,
       hasAudio: true,
     },
@@ -1936,14 +1928,7 @@ export const MEDEA: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1981,7 +1966,7 @@ export const COMMUNIST_MANIFESTO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2079,7 +2064,7 @@ export const FAUST_PART_1: Book = {
       style: 'original',
       label: 'Goethe (1808)',
       year: 1808,
-      // Verse set line by line: 1,056 paragraphs against the English editions' 895.
+      // Verse set line by line: 1,095 paragraphs against the English editions' 1,060.
       aligned: false,
     },
     {
@@ -2089,7 +2074,8 @@ export const FAUST_PART_1: Book = {
       label: 'Bayard Taylor (1870)',
       translator: 'Bayard Taylor',
       year: 1870,
-      aligned: false,
+      // Same 28 chapters and 1,060 paragraphs as Modern English (Taylor, PG 14591).
+      aligned: true,
     },
     {
       key: 'modern-en',
@@ -2104,7 +2090,8 @@ export const FAUST_PART_1: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
+      // Built on the earlier English text (895 paragraphs), not the Taylor replacement (1,060).
+      aligned: false,
       hasAudio: true,
     },
   ],
@@ -2114,9 +2101,9 @@ export const FEAR_AND_TREMBLING: Book = {
   id: 'fear-and-trembling',
   title: 'Fear and Trembling',
   author: 'Søren Kierkegaard',
-  description: 'A short, savage book about Abraham — the father of faith — who is told by God to murder his son. Kierkegaard, writing under the name Johannes de Silentio, refuses every comfortable Hegelian explanation and forces the reader to feel what faith actually demands. The "knight of faith" and the "teleological suspension of the ethical" begin here.',
+  description: 'A short, savage book about Abraham — the father of faith — who is told by God to murder his son. Kierkegaard, writing under the name Johannes de silentio, refuses every comfortable Hegelian explanation and forces the reader to feel what faith actually demands. The "knight of faith" and the "teleological suspension of the ethical" begin here.',
   year: 1843,
-  wordCount: 40000,
+  wordCount: 43700,
   coverColor: '#1a1a24',
   coverAccent: '#a08a4a',
   editions: [
@@ -2133,13 +2120,15 @@ export const FEAR_AND_TREMBLING: Book = {
       language: 'en',
       style: 'original',
       label: 'Original (English)',
-      aligned: true,
+      // Machine translation on the earlier 232-paragraph structure; the accepted
+      // text has 184 printed paragraphs. Never a default (editionDefaults).
+      aligned: false,
     },
     {
       key: 'modern-en',
       language: 'en',
       style: 'modern',
-      label: 'Modern English',
+      label: 'Tinct Modern English — translated from Danish',
       aligned: true,
       hasAudio: true,
     },
@@ -2148,7 +2137,8 @@ export const FEAR_AND_TREMBLING: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
+      // 232 paragraphs against the accepted 184.
+      aligned: false,
       hasAudio: true,
     },
   ],
@@ -2225,7 +2215,7 @@ export const ARISTOTLE_POLITICS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2266,14 +2256,7 @@ export const THE_PRINCE: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -2466,7 +2449,7 @@ export const DESCARTES_MEDITATIONS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2503,7 +2486,7 @@ export const ON_LIBERTY: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2540,7 +2523,7 @@ export const UTILITARIANISM: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2701,7 +2684,8 @@ export const MAGNA_CARTA: Book = {
   id: 'magna-carta',
   title: 'Magna Carta',
   author: 'Anonymous (sealed by King John)',
-  description: 'The Great Charter of 1215 — the document that bound a king to law, sealed at Runnymede after the barons rose against royal absolutism. Its iconic Clause 39 ("No free man shall be seized or imprisoned…") is the seed of due process, habeas corpus, and the rule of law in the English-speaking world.',
+  altTitles: ['The Great Charter', 'Magna Carta Libertatum'],
+  description: 'The Great Charter of 1215 — the document that bound a king to law, sealed at Runnymede after the barons rose against royal absolutism. Its iconic Clause 39 ("No freeman shall be taken…") is the seed of due process, habeas corpus, and the rule of law in the English-speaking world.',
   year: 1215,
   wordCount: 5000,
   coverColor: '#3a2d1f',
@@ -2711,8 +2695,12 @@ export const MAGNA_CARTA: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'English Translation',
-      year: 1215,
+      // Replaced 2026-10-01 (rights): W. S. McKechnie, Magna Carta: A Commentary on the Great Charter of
+      // King John, 2nd ed. (Glasgow: MacLehose, 1914), English charter text as published by Liberty Fund
+      // (Online Library of Liberty). McKechnie died 1930. Modern English is a Tinct rendering of this text.
+      label: 'McKechnie (1914)',
+      translator: 'William Sharp McKechnie',
+      year: 1914,
       aligned: true,
       hasAudio: true,
     },
@@ -2724,21 +2712,15 @@ export const MAGNA_CARTA: Book = {
       aligned: true,
       hasAudio: true,
     },
-      {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
-],
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
 }
 
 export const US_FOUNDING_DOCUMENTS: Book = {
   id: 'us-founding-documents',
   title: 'The US Founding Documents',
   author: 'Various (Jefferson, Madison, et al.)',
+  altTitles: ['Declaration of Independence', 'Constitution of the United States', 'Bill of Rights'],
   description: 'The four texts that built the American Republic: the Declaration of Independence (1776), the Constitution (1787), the Bill of Rights (1791), and every Amendment since. Together they define how a continental democracy was imagined, codified, and then expanded to include those it once excluded.',
   year: 1776,
   wordCount: 22000,
@@ -2766,7 +2748,7 @@ export const US_FOUNDING_DOCUMENTS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2840,7 +2822,7 @@ export const A_LITTLE_PRINCESS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
     },
   ],
 }
@@ -2877,7 +2859,7 @@ export const THE_JUNGLE_BOOK: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
     },
   ],
 }
@@ -2915,7 +2897,7 @@ export const AROUND_THE_WORLD_IN_80_DAYS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
     },
   ],
 }
@@ -3105,7 +3087,7 @@ export const JEKYLL_AND_HYDE: Book = {
       hasAudio: true,
     },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -3154,7 +3136,7 @@ export const HUME_ENQUIRY: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Hume (1748)', year: 1748, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3162,6 +3144,7 @@ export const KANT_GROUNDWORK: Book = {
   id: 'kant-groundwork',
   title: 'Groundwork of the Metaphysics of Morals',
   author: 'Immanuel Kant',
+  altTitles: ['Fundamental Principles of the Metaphysic of Morals', 'Grounding for the Metaphysics of Morals'],
   description: 'Kant\'s shortest book and the entry-point to his ethics. He sets out to derive the moral law from pure reason alone, arrives at the categorical imperative — act only on a maxim you could will as a universal law — and rebuilds the entire foundation of modern ethical philosophy.',
   year: 1785,
   wordCount: 30000,
@@ -3170,7 +3153,7 @@ export const KANT_GROUNDWORK: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Abbott (1879)', translator: 'Thomas Kingsmill Abbott', year: 1879, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3202,7 +3185,7 @@ export const WERTHER: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Boylan (1779)', translator: 'R. D. Boylan', year: 1779, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3275,7 +3258,56 @@ export const IVAN_ILYICH: Book = {
     { key: 'original-ru', language: 'ru', style: 'original', label: 'Смерть Ивана Ильича (1886)', year: 1886, aligned: false },
     { key: 'original-en', language: 'en', style: 'original', label: 'Maude', translator: 'Louise & Aylmer Maude', aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+// Translated by Tinct from the Russian (L. M. Yanovskaya's 1990 text), with no
+// human English edition: Compare defaults to the Russian original (Anders,
+// 5 Nov 2026). Package: books/wip/master-and-margarita/package.
+export const MASTER_AND_MARGARITA: Book = {
+  id: 'master-and-margarita',
+  title: 'The Master and Margarita',
+  author: 'Mikhail Bulgakov',
+  altTitles: ['Master i Margarita', 'Мастер и Маргарита'],
+  description: 'Bulgakov\'s great comic novel: the devil and his retinue spend a few spring days turning 1930s Moscow upside down, while a persecuted writer\'s novel tells how Pontius Pilate judged a wandering philosopher. A love story, a satire and a fable about cowardice and mercy.',
+  year: 1967,
+  wordCount: 150000,
+  coverColor: '#17151f',
+  coverAccent: '#c9a45c',
+  // Public domain in Denmark/EU (Bulgakov d. 1940), but probably protected in the
+  // US (posthumous 1966–67 publication, URAA restoration, ~2062) and Russia
+  // (~2037), where our translations and narration are derivative works. Not
+  // served where the request's country is known to be one of these (Anders,
+  // 16 Nov 2026; DECISIONS.md). Unknown country: served.
+  restrictedCountries: ['US', 'RU'],
+  editions: [
+    // Listed first: with no human English edition, defaultCompareEditionKey takes the first comparable edition.
+    { key: 'original-ru', language: 'ru', style: 'original', label: 'Мастер и Маргарита (1940)', year: 1990, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
+  ],
+}
+
+// Translated by Tinct from Collodi's Italian (the 1902 Bemporad text, Project
+// Gutenberg #52484), with no human English edition: Compare defaults to the
+// Italian original, listed first. Three illustrations, shared by every edition
+// as figure paragraphs. Package: books/wip/pinocchio.
+export const PINOCCHIO: Book = {
+  id: 'pinocchio',
+  title: 'The Adventures of Pinocchio',
+  author: 'Carlo Collodi',
+  altTitles: ['Pinocchio', 'Le avventure di Pinocchio'],
+  description: 'Collodi\'s tale of a wooden puppet carved by a poor old woodcarver, who runs away on his first day, lies, boasts, trusts every swindler on the road and keeps promising to do better. Funny, fast and often frightening, it follows Pinocchio through hunger, prison, a Field of Miracles and the belly of a shark, toward the day he stops being a puppet.',
+  year: 1883,
+  wordCount: 41000,
+  coverColor: '#1f2a24',
+  coverAccent: '#c8a35a',
+  editions: [
+    // Listed first: with no human English edition, defaultCompareEditionKey takes the first comparable edition.
+    { key: 'original-it', language: 'it', style: 'original', label: 'Le avventure di Pinocchio (1883)', year: 1902, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration (narrationLanguage); no recorded audio.
   ],
 }
 
@@ -3291,10 +3323,243 @@ export const TO_THE_LIGHTHOUSE: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Woolf (1927)', year: 1927, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    // The only Danish edition Tinct offers (Anders, 2026-10-10; OFFERED_DANISH_EDITIONS).
+    // Translated 1:1 from modern-en. Streamed Danish narration since 2026-11-06; no recorded audio.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
-export const BOOKS: Book[] = [TO_THE_LIGHTHOUSE, ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, KANT_GROUNDWORK, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, HUME_ENQUIRY, SOCIAL_CONTRACT, WEALTH_OF_NATIONS, WERTHER, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, FREDERICK_DOUGLASS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE, IVAN_ILYICH]
+// Alice's Adventures in Wonderland, Wuthering Heights and Middlemarch.
+// English-only packages, integrated 2026-09-30 on
+// integration/new-books-alice-wh-middlemarch; independently accepted 2026-10-02
+// (books/wip/<id>/release/HANDOFF.md) and published 2026-10-03 with covers,
+// character cards, introductions and SEO pages.
+//
+// Alice: the original is Gutenberg's Millennium Fulcrum Edition 3.0, which keeps
+// two verse continuations from later editions; it is not a transcription of the
+// 1865 first impression.
+export const ALICE_IN_WONDERLAND: Book = {
+  id: 'alice-in-wonderland',
+  title: 'Alice\'s Adventures in Wonderland',
+  author: 'Lewis Carroll',
+  description: 'Alice follows a hurried rabbit down a hole into a world of shifting sizes, disputed meanings and impatient rulers. Carroll\'s twelve-chapter tale turns manners, lessons, arguments and courtroom procedure into nonsense that is stricter than it looks.',
+  year: 1865,
+  wordCount: 26000,
+  coverColor: '#1f3a2c',
+  coverAccent: '#d4b25a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Carroll (Original)', year: 1865, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const WUTHERING_HEIGHTS: Book = {
+  id: 'wuthering-heights',
+  title: 'Wuthering Heights',
+  author: 'Emily Brontë',
+  description: 'Two Yorkshire households carry a childhood attachment, a family grievance and a struggle over property into another generation. A tenant\'s curiosity and a housekeeper\'s memory tell the story, and neither is a neutral witness.',
+  year: 1847,
+  wordCount: 116000,
+  coverColor: '#26262c',
+  coverAccent: '#9fb0bd',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Original (1847)', year: 1847, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+// Middlemarch has 88 reading units: Prelude, chapters I-LXXXVI and Finale. The
+// source package numbered the Prelude 0 (chapters 1-86, Finale 87), but the
+// reader, position store, chat history and worker routes all reject chapter
+// numbers below 1. Both editions, the shards and the notes therefore number the
+// units 1-88 in reading order: Prelude = 1, Eliot's chapter N = N + 1,
+// Finale = 88. Titles keep Eliot's own labels ("Book I: Miss Brooke — Chapter I").
+export const MIDDLEMARCH: Book = {
+  id: 'middlemarch',
+  title: 'Middlemarch',
+  author: 'George Eliot',
+  description: 'Interwoven lives in a provincial town test what ambition, marriage and sympathy can make possible. Eliot follows Dorothea Brooke, Tertius Lydgate and the households around them on the eve of reform.',
+  year: 1871,
+  wordCount: 316000,
+  coverColor: '#2b2618',
+  coverAccent: '#c5a45e',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Original (1871–72)', year: 1871, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+// Sense and Sensibility, integrated 2026-10-01 on
+// integration/new-book-sense-and-sensibility; independently accepted 2026-10-02
+// and published 2026-10-03. Chapters are numbered 1-50 in both editions.
+export const SENSE_AND_SENSIBILITY: Book = {
+  id: 'sense-and-sensibility',
+  title: 'Sense and Sensibility',
+  author: 'Jane Austen',
+  description: 'Two sisters confront love, money, and the limits of their own judgment after losing the security of their family home.',
+  year: 1811,
+  wordCount: 118639,
+  coverColor: '#263c38',
+  coverAccent: '#c6ad7b',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Austen (Original)', year: 1811, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+  ],
+}
+
+// STAGED (not in BOOKS): The Adventures of Sherlock Holmes, integrated 2026-10-01 on
+// integration/release-candidate-3. Twelve stories as flat chapters 1-12 in both
+// editions. Covers, character cards, SEO pages, audio and Anders's approval are not done.
+export const ADVENTURES_OF_SHERLOCK_HOLMES: Book = {
+  id: 'adventures-of-sherlock-holmes',
+  title: 'The Adventures of Sherlock Holmes',
+  author: 'Arthur Conan Doyle',
+  description: 'Twelve cases from Baker Street, told by Watson, in which an apparently trivial detail turns an entire explanation.',
+  year: 1892,
+  wordCount: 104347,
+  coverColor: '#2a2e38',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Doyle (Original)', year: 1892, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+  ],
+}
+
+// Conjecture Institute / Conjecture Press books (shelf Critical Rationalism),
+// integrated 2026-10-08 from books/wip/conjecture-books-2026-10. In copyright,
+// published on Tinct with the publisher's permission (Logan Chipkin, 8 Oct 2026;
+// rights/permission.md in the package). Never label them public domain.
+// One edition each: the publisher's text as published. They are contemporary
+// English, so there is no Modern English edition and none may be offered
+// (noModernEdition). No narration yet (hasAudio absent). Acclaim is empty.
+// Publishers: Conjecture Institute (Bold Conjectures I per the book's own page;
+// its OPF says Brownstone Institute); Bold Conjectures II: Conjecture Press.
+export const THE_SOVEREIGN_CHILD: Book = {
+  id: 'the-sovereign-child',
+  title: 'The Sovereign Child',
+  author: 'Aaron Stupple with Logan Chipkin',
+  altTitles: ['The Sovereign Child: How a Forgotten Philosophy Can Liberate Kids and Their Parents'],
+  description: 'A physician and father of five makes the case for raising children with no rules, grounded in Karl Popper\'s theory of how knowledge grows.',
+  year: 2025,
+  wordCount: 55213,
+  coverColor: '#0099d3',
+  coverAccent: '#f4d03f',
+  noModernEdition: true,
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Stupple (Original)', year: 2025, aligned: false },
+  ],
+}
+
+export const LORDS_OF_THE_COSMOS: Book = {
+  id: 'lords-of-the-cosmos',
+  title: 'Lords of the Cosmos',
+  author: 'Arjun Khemani and Logan Chipkin',
+  altTitles: ['Lords of the Cosmos: From Stasis to Stars'],
+  description: 'The story of the universe and of human progress, from cosmic stagnation to the Enlightenment and beyond, told through David Deutsch\'s ideas about knowledge.',
+  year: 2025,
+  wordCount: 44090,
+  coverColor: '#392d4b',
+  coverAccent: '#e9c3b8',
+  noModernEdition: true,
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Khemani & Chipkin (Original)', year: 2025, aligned: false },
+  ],
+}
+
+export const BOLD_CONJECTURES_VOLUME_1: Book = {
+  id: 'bold-conjectures-volume-1',
+  title: 'Bold Conjectures, Volume I',
+  author: 'Logan Chipkin (ed.)',
+  altTitles: ['Bold Conjectures: Select Interviews of David Deutsch'],
+  description: 'Fourteen interviews with physicist and philosopher David Deutsch, from 2012 to 2024, on quantum theory, knowledge, AI, freedom and progress.',
+  year: 2025,
+  wordCount: 141161,
+  coverColor: '#f3eee3',
+  coverAccent: '#8b7b22',
+  noModernEdition: true,
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Chipkin, ed. (Original)', year: 2025, aligned: false },
+  ],
+}
+
+export const BOLD_CONJECTURES_VOLUME_2: Book = {
+  id: 'bold-conjectures-volume-2',
+  title: 'Bold Conjectures, Volume II',
+  author: 'Logan Chipkin (ed.)',
+  altTitles: ['Bold Conjectures: Essays Across Physics'],
+  description: 'Thirteen essays by physicists on gravity, time, locality, entropy, probability and the many-worlds view of quantum theory.',
+  year: 2026,
+  wordCount: 74611,
+  coverColor: '#0e2b4b',
+  coverAccent: '#f3e08a',
+  noModernEdition: true,
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Chipkin, ed. (Original)', year: 2026, aligned: false },
+  ],
+}
+
+export const THE_FARTHEST_REACHES: Book = {
+  id: 'the-farthest-reaches',
+  title: 'The Farthest Reaches',
+  author: 'Brett Hall',
+  altTitles: ['The Farthest Reaches: Why People Are the Most Important Entities in the Universe'],
+  description: 'An argument that people, as universal explainers, are the most important entities in the universe, applied to education, IQ, culture, mental illness and AI.',
+  year: 2026,
+  wordCount: 39924,
+  coverColor: '#f169ab',
+  coverAccent: '#6675d5',
+  noModernEdition: true,
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Hall (Original)', year: 2026, aligned: false },
+  ],
+}
+
+// Grimms' Fairy Tales and The Arabian Nights (Lang), integrated 2026-10-19 from the
+// content packages in books/wip/grimms-fairy-tales and books/wip/arabian-nights
+// (branch claude/inspiring-ritchie-zi00fu, 6f4ab42cf). Danish (modern-da) is an
+// offered edition (OFFERED_DANISH_EDITIONS, Anders 2026-10-19), narrated in Danish by streaming since 2026-11-06. No cast. Chapters
+// are numbered 1-65 and 1-35, one reading unit per tale (Lang's preface is 1).
+export const GRIMMS_FAIRY_TALES: Book = {
+  id: 'grimms-fairy-tales',
+  title: 'Grimms\' Fairy Tales',
+  author: 'Jacob and Wilhelm Grimm',
+  altTitles: ['Household Tales', 'Children\'s and Household Tales'],
+  description: 'Sixty-five tales of kings, tailors, stepmothers and talking animals, told in plain, repeated patterns.',
+  year: 1812,
+  wordCount: 100401,
+  coverColor: '#2c2219',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Taylor & Edwardes', translator: 'Edgar Taylor and Marian Edwardes', aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
+  ],
+}
+
+export const ARABIAN_NIGHTS: Book = {
+  id: 'arabian-nights',
+  title: 'The Arabian Nights Entertainments',
+  author: 'Andrew Lang',
+  altTitles: ['The Arabian Nights'],
+  description: 'A sultan\'s nightly story-bargain opens tales of genies, sailors, merchants and a magic lamp.',
+  year: 1898,
+  wordCount: 111099,
+  coverColor: '#1d2738',
+  coverAccent: '#d6b05a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Lang (1898)', year: 1898, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
+  ],
+}
+
+/** The five Conjecture books, in publication order (shelf Critical Rationalism). */
+export const CONJECTURE_BOOKS: Book[] = [THE_SOVEREIGN_CHILD, LORDS_OF_THE_COSMOS, BOLD_CONJECTURES_VOLUME_1, BOLD_CONJECTURES_VOLUME_2, THE_FARTHEST_REACHES]
+
+export const BOOKS: Book[] = [TO_THE_LIGHTHOUSE, ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, KANT_GROUNDWORK, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, HUME_ENQUIRY, SOCIAL_CONTRACT, WEALTH_OF_NATIONS, WERTHER, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, FREDERICK_DOUGLASS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE, IVAN_ILYICH, ALICE_IN_WONDERLAND, WUTHERING_HEIGHTS, MIDDLEMARCH, SENSE_AND_SENSIBILITY, THE_SOVEREIGN_CHILD, LORDS_OF_THE_COSMOS, BOLD_CONJECTURES_VOLUME_1, BOLD_CONJECTURES_VOLUME_2, THE_FARTHEST_REACHES, GRIMMS_FAIRY_TALES, ARABIAN_NIGHTS, MASTER_AND_MARGARITA, PINOCCHIO]
 
 export const ALL_BOOKS: Book[] = BOOKS
 

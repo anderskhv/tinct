@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 /**
  * Screenshots of the phone call surface, with the voice layer stubbed.
  *
@@ -142,10 +143,10 @@ const STUB = () => {
 
 async function main() {
   mkdirSync(OUT, { recursive: true })
-  const browser = await chromium.launch({
+  const browser = await markInternal(await chromium.launch({
     executablePath: EXECUTABLE,
     args: ['--ssl-version-max=tls1.2', '--no-sandbox', '--autoplay-policy=no-user-gesture-required'],
-  })
+  }))
 
   const shots = []
   for (const theme of ['light', 'dark']) {
@@ -183,7 +184,7 @@ async function main() {
       await page.evaluate(() => window.__voiceStub.openDataChannel())
       await page.evaluate(() => window.__voiceStub.attachAssistantTrack())
       await page.waitForFunction(
-        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Listening.',
+        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Listening',
         null,
         { timeout: 5000 },
       )
@@ -194,7 +195,7 @@ async function main() {
       await page.evaluate(() => window.__voiceStub.assistantLoud(true))
       await page.evaluate(() => window.__voiceStub.realtime({ type: 'output_audio_buffer.started' }))
       await page.waitForFunction(
-        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Speaking.',
+        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Speaking',
         null,
         { timeout: 5000 },
       )
@@ -210,7 +211,7 @@ async function main() {
       await page.evaluate(() => window.__voiceStub.assistantLoud(false))
       await page.evaluate(() => window.__voiceStub.realtime({ type: 'output_audio_buffer.stopped' }))
       await page.waitForFunction(
-        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Thinking.',
+        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Thinking',
         null,
         { timeout: 5000 },
       )

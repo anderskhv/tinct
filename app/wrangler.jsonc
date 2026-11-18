@@ -3,6 +3,9 @@
   "name": "tinct",
   "main": "src/workerEntry.ts",
   "compatibility_date": "2025-09-27",
+  // Staged releases (.github/workflows/deploy.yml) test each uploaded version on its preview URL before promoting it.
+  "workers_dev": true,
+  "preview_urls": true,
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1,
@@ -23,17 +26,72 @@
     "NARRATION_PILOT": "1",
     "NARRATION_PROVIDER": "grok",
     "NARRATION_DAILY_BYTES": "2000000",
-    "NARRATION_MONTHLY_BYTES": "10000000"
+    "NARRATION_MONTHLY_BYTES": "10000000",
+    // Read-aloud of readers' own books (src/worker/routes/ownBookNarration.ts), Premium only.
+    // Own ceilings, never the shared ones above: $20 per account and $100 for all
+    // own books per UTC month (OWN_BOOK_NARRATION_MONTHLY_USD / _GLOBAL_MONTHLY_USD).
+    "OWN_BOOK_NARRATION": "1",
+    // Recognising the text of scanned own PDFs (src/worker/lib/ownOcr.ts, xAI vision), Premium only.
+    // "1" turns it on, only after supabase/migrations/20261009_ai_usage_ocr.sql has run and
+    // privacy.html says so. Off: every /api/user-books/ocr/ route answers 404.
+    "OWN_PDF_OCR": "1",
+    // Pages one account may have recognised per UTC month; a trial account has the smaller ceiling.
+    "OWN_PDF_OCR_MONTHLY_PAGES": "1500",
+    "OWN_PDF_OCR_TRIAL_MONTHLY_PAGES": "300",
+    // Dollar backstops per UTC month: one account, and all accounts together.
+    "OWN_PDF_OCR_MONTHLY_USD": "6",
+    "OWN_PDF_OCR_GLOBAL_MONTHLY_USD": "75",
+    // The most pages one PDF may send for recognition.
+    "OCR_MAX_PAGES": "1000",
+    // Daily ceiling for signed-out AI, in whole US cents (see src/worker/lib/aiSpend.ts).
+    "GUEST_AI_DAILY_CENTS": "500",
+    // The /try page's own daily AI budget, apart from the guest ceiling, in whole US cents (aiSpend.ts; $3 default).
+    "TRY_AI_DAILY_CENTS": "300",
+    // Added public-domain books (src/worker/routes/publicBooks.ts). Approved by Anders 2026-10-07.
+    // Paid Modern English editions: offers checkout and runs xAI generation (prices are
+    // STRIPE_PRICE_MODERN_T1..T4 secrets). The client offers it to Premium readers (MODERN_EDITIONS_FOR_EVERYONE).
+    "PUBLIC_BOOK_MODERN_EDITIONS": "1",
+    // Dollars all Modern English generation may spend per UTC month (src/worker/lib/modernBudget.ts).
+    // Gates NEW purchases only (no offer, checkout refused before payment); paid books always finish.
+    "MODERN_EDITION_MONTHLY_USD": "100",
+    // Painted covers (xAI image, about $0.04 each, once per book). Paper cover until one exists.
+    "PUBLIC_BOOK_PAINTED_COVERS": "1",
+    // Reading time (social ship 1, src/worker/routes/readingTime.ts). On since 8 Oct 2026
+    // (Anders), after supabase/migrations/20261008_reading_time.sql ran. Absent = off.
+    "SOCIAL_READING_TIME": "1",
+    // Profiles (social ship 2, src/worker/routes/profiles.ts). "1" turns them on, only after
+    // supabase/migrations/20261008_profiles.sql has run. Off: no profile route, page or marker exists.
+    "SOCIAL_PROFILES": "1",
+    // Uploaded profile photos and backgrounds (POST /api/profile/image). On since 10 Oct 2026
+    // (Anders approved the privacy wording): each upload waits for review (/admin/social) before
+    // other readers see it. Anything but "1" refuses uploads with a 404; the editor offers none.
+    "SOCIAL_PHOTO_UPLOADS": "1",
+    // Social (ship 3, src/worker/routes/social.ts): follows, the Friends/Everyone leaderboard,
+    // tinct.app/@handle pages, Find, reports, the reading card and /admin/social. "1" turns it on
+    // only together with SOCIAL_PROFILES "1", and only after supabase/migrations/20261008_social.sql
+    // has run. Off: no route, page, marker or event exists.
+    "SOCIAL_FRIENDS": "1",
+    // Lifecycle emails (src/worker/lifecycle, docs/lifecycle-emails/README.md). "1" turns the
+    // engine on (welcome, keep-reading, next-book; replaces the 09:00 trial-day emails); only the
+    // tinct{n}@fastmail.com test aliases receive anything while isLifecycleTestRecipient gates.
+    // Needs the EMAIL_LINK_SECRET secret (optional LIFECYCLE_REPLY_TO) and migration 20261008_email_log.sql.
+    "LIFECYCLE_EMAILS": "0",
+    // trial-ending / trial-ended notices. Keep "0" until checkout is confirmed working.
+    "LIFECYCLE_TRIAL_NOTICES": "0"
   },
   "kv_namespaces": [
     { "binding": "RATE_LIMIT", "id": "a050ad22456246a7a2c2507ed8948e62" }
   ],
   "r2_buckets": [
-    { "binding": "AUDIO_BUCKET", "bucket_name": "tinct-audio" }
+    { "binding": "AUDIO_BUCKET", "bucket_name": "tinct-audio" },
+    // Readers' own PDF/EPUB files (src/worker/routes/userBooks.ts). Private: no public
+    // access or custom domain. Keys u/{userId}/{fileId}; purged by account deletion.
+    { "binding": "USER_BOOKS", "bucket_name": "tinct-user-books" }
   ],
-  "durable_objects": { "bindings": [{ "name": "READER_POSITION", "class_name": "ReaderPositionCoordinator" }, { "name": "NARRATION_COORDINATOR", "class_name": "NarrationCoordinator" }, { "name": "RECAP_PREPARATION", "class_name": "RecapPreparationCoordinator" }] },
-  "migrations": [{ "tag": "narration-coordinator-v1", "new_sqlite_classes": ["NarrationCoordinator"] }, { "tag": "recap-preparation-v1", "new_sqlite_classes": ["RecapPreparationCoordinator"] }, { "tag": "reader-position-v1", "new_sqlite_classes": ["ReaderPositionCoordinator"] }],
+  "durable_objects": { "bindings": [{ "name": "READER_POSITION", "class_name": "ReaderPositionCoordinator" }, { "name": "NARRATION_COORDINATOR", "class_name": "NarrationCoordinator" }, { "name": "RECAP_PREPARATION", "class_name": "RecapPreparationCoordinator" }, { "name": "USAGE_COORDINATOR", "class_name": "UsageCoordinator" }, { "name": "SHARE_STORE", "class_name": "ShareStore" }, { "name": "OWN_OCR", "class_name": "OwnOcrCoordinator" }] },
+  "migrations": [{ "tag": "narration-coordinator-v1", "new_sqlite_classes": ["NarrationCoordinator"] }, { "tag": "recap-preparation-v1", "new_sqlite_classes": ["RecapPreparationCoordinator"] }, { "tag": "reader-position-v1", "new_sqlite_classes": ["ReaderPositionCoordinator"] }, { "tag": "usage-coordinator-v1", "new_sqlite_classes": ["UsageCoordinator"] }, { "tag": "share-store-v1", "new_sqlite_classes": ["ShareStore"] }, { "tag": "own-ocr-v1", "new_sqlite_classes": ["OwnOcrCoordinator"] }],
   "triggers": {
-    "crons": ["0 9 * * *"]
+    // 09:00 lifecycle emails; 03:17 retention cleanup (src/worker/routes/retention.ts RETENTION_CRON).
+    "crons": ["0 9 * * *", "17 3 * * *", "*/10 * * * *"]
   }
 }

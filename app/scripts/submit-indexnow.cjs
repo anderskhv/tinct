@@ -12,6 +12,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { checkHeaders } = require('./lib/internalTraffic.cjs')
 
 const APP_DIR = path.resolve(__dirname, '..')
 const SITEMAP = path.join(APP_DIR, 'public/sitemap.xml')
@@ -107,8 +108,9 @@ function chunks(items, size) {
 }
 
 async function verifyKeyFile(key, keyLocation) {
+  // The key file is on Tinct; the submission itself goes to IndexNow and carries no Tinct header.
   const resp = await fetch(keyLocation, {
-    headers: { 'User-Agent': 'Tinct IndexNow submitter' },
+    headers: checkHeaders({ 'User-Agent': 'Tinct IndexNow submitter' }),
   })
   if (resp.status !== 200) {
     throw new Error(`IndexNow key file returned HTTP ${resp.status}: ${keyLocation}`)

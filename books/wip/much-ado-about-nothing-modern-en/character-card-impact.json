@@ -1,0 +1,769 @@
+{
+ "package": "app/public/data/characters/much-ado-about-nothing.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "3b92db2e6ffc9d6b06eb0e3e6b15edaba45f2ed3495ddb2cb999c5b10eddf1af",
+ "candidateSha256": "e93fb1e66e2c9dc2d7266357fe143cf44c4943847f81009b9b507425dd2859f1",
+ "pinMatchesServedLive": true,
+ "offsetUnit": "utf16",
+ "mentionsTotal": 1647,
+ "unchanged": 1597,
+ "moved": 50,
+ "needsRuling": 0,
+ "notes": [
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
+  "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "margaret",
+   "chapter": 15,
+   "paragraph": 1,
+   "oldStartOffset": 37,
+   "oldEndOffset": 45,
+   "oldText": "Margaret",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 33,
+    "endOffset": 41,
+    "text": "Margaret",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "beatrice",
+   "chapter": 15,
+   "paragraph": 1,
+   "oldStartOffset": 101,
+   "oldEndOffset": 109,
+   "oldText": "Beatrice",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 89,
+    "endOffset": 97,
+    "text": "Beatrice",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "margaret",
+   "chapter": 15,
+   "paragraph": 3,
+   "oldStartOffset": 30,
+   "oldEndOffset": 38,
+   "oldText": "Margaret",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 47,
+    "endOffset": 55,
+    "text": "Margaret",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "margaret",
+   "chapter": 15,
+   "paragraph": 7,
+   "oldStartOffset": 28,
+   "oldEndOffset": 36,
+   "oldText": "Margaret",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 41,
+    "endOffset": 49,
+    "text": "Margaret",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "beatrice",
+   "chapter": 15,
+   "paragraph": 7,
+   "oldStartOffset": 89,
+   "oldEndOffset": 97,
+   "oldText": "Beatrice",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 93,
+    "endOffset": 101,
+    "text": "Beatrice",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "beatrice",
+   "chapter": 15,
+   "paragraph": 10,
+   "oldStartOffset": 28,
+   "oldEndOffset": 36,
+   "oldText": "Beatrice",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 26,
+    "endOffset": 34,
+    "text": "Beatrice",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "troilus",
+   "chapter": 15,
+   "paragraph": 14,
+   "oldStartOffset": 61,
+   "oldEndOffset": 68,
+   "oldText": "Troilus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 62,
+    "endOffset": 69,
+    "text": "Troilus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 15,
+   "paragraph": 19,
+   "oldStartOffset": 156,
+   "oldEndOffset": 163,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 153,
+    "endOffset": 160,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 15,
+   "paragraph": 22,
+   "oldStartOffset": 117,
+   "oldEndOffset": 124,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 125,
+    "endOffset": 132,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "beatrice",
+   "chapter": 15,
+   "paragraph": 28,
+   "oldStartOffset": 35,
+   "oldEndOffset": 43,
+   "oldText": "Beatrice",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 37,
+    "endOffset": 45,
+    "text": "Beatrice",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hero",
+   "chapter": 15,
+   "paragraph": 36,
+   "oldStartOffset": 95,
+   "oldEndOffset": 99,
+   "oldText": "Hero",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 109,
+    "endOffset": 113,
+    "text": "Hero",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pedro",
+   "chapter": 15,
+   "paragraph": 36,
+   "oldStartOffset": 130,
+   "oldEndOffset": 136,
+   "oldText": "Prince",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 148,
+    "endOffset": 154,
+    "text": "Prince",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 15,
+   "paragraph": 36,
+   "oldStartOffset": 141,
+   "oldEndOffset": 148,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 159,
+    "endOffset": 166,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "john",
+   "chapter": 15,
+   "paragraph": 36,
+   "oldStartOffset": 170,
+   "oldEndOffset": 178,
+   "oldText": "Don John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 188,
+    "endOffset": 196,
+    "text": "Don John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "leonato",
+   "chapter": 16,
+   "paragraph": 1,
+   "oldStartOffset": 33,
+   "oldEndOffset": 40,
+   "oldText": "Leonato",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 24,
+    "text": "Leonato",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hero",
+   "chapter": 16,
+   "paragraph": 6,
+   "oldStartOffset": 44,
+   "oldEndOffset": 48,
+   "oldText": "Hero",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 37,
+    "endOffset": 41,
+    "text": "Hero",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "phoebus",
+   "chapter": 16,
+   "paragraph": 12,
+   "oldStartOffset": 126,
+   "oldEndOffset": 133,
+   "oldText": "Phoebus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 147,
+    "endOffset": 154,
+    "text": "Phoebus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "leonato",
+   "chapter": 16,
+   "paragraph": 14,
+   "oldStartOffset": 73,
+   "oldEndOffset": 80,
+   "oldText": "Leonato",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 83,
+    "endOffset": 90,
+    "text": "Leonato",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "margaret",
+   "chapter": 17,
+   "paragraph": 2,
+   "oldStartOffset": 99,
+   "oldEndOffset": 107,
+   "oldText": "Margaret",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 104,
+    "endOffset": 112,
+    "text": "Margaret",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 17,
+   "paragraph": 4,
+   "oldStartOffset": 64,
+   "oldEndOffset": 71,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 76,
+    "endOffset": 83,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pedro",
+   "chapter": 17,
+   "paragraph": 5,
+   "oldStartOffset": 136,
+   "oldEndOffset": 142,
+   "oldText": "Prince",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 127,
+    "endOffset": 133,
+    "text": "Prince",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 17,
+   "paragraph": 5,
+   "oldStartOffset": 147,
+   "oldEndOffset": 154,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 138,
+    "endOffset": 145,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 17,
+   "paragraph": 7,
+   "oldStartOffset": 100,
+   "oldEndOffset": 107,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 101,
+    "endOffset": 108,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "leonato",
+   "chapter": 17,
+   "paragraph": 11,
+   "oldStartOffset": 55,
+   "oldEndOffset": 62,
+   "oldText": "Leonato",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 61,
+    "endOffset": 68,
+    "text": "Leonato",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 17,
+   "paragraph": 14,
+   "oldStartOffset": 60,
+   "oldEndOffset": 67,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 50,
+    "endOffset": 57,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pedro",
+   "chapter": 17,
+   "paragraph": 14,
+   "oldStartOffset": 77,
+   "oldEndOffset": 83,
+   "oldText": "Prince",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 72,
+    "endOffset": 78,
+    "text": "Prince",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "friar",
+   "chapter": 17,
+   "paragraph": 15,
+   "oldStartOffset": 190,
+   "oldEndOffset": 195,
+   "oldText": "friar",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 146,
+    "endOffset": 151,
+    "text": "friar",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pedro",
+   "chapter": 17,
+   "paragraph": 17,
+   "oldStartOffset": 35,
+   "oldEndOffset": 41,
+   "oldText": "Prince",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 48,
+    "text": "Prince",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 17,
+   "paragraph": 17,
+   "oldStartOffset": 46,
+   "oldEndOffset": 53,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 53,
+    "endOffset": 60,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pedro",
+   "chapter": 17,
+   "paragraph": 20,
+   "oldStartOffset": 22,
+   "oldEndOffset": 28,
+   "oldText": "Prince",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 23,
+    "endOffset": 29,
+    "text": "Prince",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 17,
+   "paragraph": 20,
+   "oldStartOffset": 43,
+   "oldEndOffset": 50,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 45,
+    "endOffset": 52,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "friar",
+   "chapter": 17,
+   "paragraph": 22,
+   "oldStartOffset": 45,
+   "oldEndOffset": 50,
+   "oldText": "friar",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 41,
+    "text": "friar",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "benedick",
+   "chapter": 17,
+   "paragraph": 24,
+   "oldStartOffset": 24,
+   "oldEndOffset": 32,
+   "oldText": "Benedick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 25,
+    "endOffset": 33,
+    "text": "Benedick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "europa",
+   "chapter": 17,
+   "paragraph": 25,
+   "oldStartOffset": 147,
+   "oldEndOffset": 153,
+   "oldText": "Europa",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 157,
+    "endOffset": 163,
+    "text": "Europa",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jove",
+   "chapter": 17,
+   "paragraph": 25,
+   "oldStartOffset": 167,
+   "oldEndOffset": 171,
+   "oldText": "Jove",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 187,
+    "endOffset": 191,
+    "text": "Jove",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "friar",
+   "chapter": 17,
+   "paragraph": 32,
+   "oldStartOffset": 68,
+   "oldEndOffset": 73,
+   "oldText": "friar",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 64,
+    "endOffset": 69,
+    "text": "friar",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hero",
+   "chapter": 17,
+   "paragraph": 38,
+   "oldStartOffset": 28,
+   "oldEndOffset": 32,
+   "oldText": "Hero",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 36,
+    "text": "Hero",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hero",
+   "chapter": 17,
+   "paragraph": 40,
+   "oldStartOffset": 104,
+   "oldEndOffset": 108,
+   "oldText": "Hero",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 105,
+    "endOffset": 109,
+    "text": "Hero",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "friar",
+   "chapter": 17,
+   "paragraph": 41,
+   "oldStartOffset": 25,
+   "oldEndOffset": 30,
+   "oldText": "friar",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 18,
+    "endOffset": 23,
+    "text": "friar",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "beatrice",
+   "chapter": 17,
+   "paragraph": 41,
+   "oldStartOffset": 41,
+   "oldEndOffset": 49,
+   "oldText": "Beatrice",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 38,
+    "endOffset": 46,
+    "text": "Beatrice",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pedro",
+   "chapter": 17,
+   "paragraph": 46,
+   "oldStartOffset": 39,
+   "oldEndOffset": 45,
+   "oldText": "Prince",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 42,
+    "text": "Prince",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 17,
+   "paragraph": 46,
+   "oldStartOffset": 50,
+   "oldEndOffset": 57,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 47,
+    "endOffset": 54,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "margaret",
+   "chapter": 17,
+   "paragraph": 49,
+   "oldStartOffset": 31,
+   "oldEndOffset": 39,
+   "oldText": "Margaret",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 44,
+    "text": "Margaret",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "ursula",
+   "chapter": 17,
+   "paragraph": 49,
+   "oldStartOffset": 45,
+   "oldEndOffset": 51,
+   "oldText": "Ursula",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 49,
+    "endOffset": 55,
+    "text": "Ursula",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "beatrice",
+   "chapter": 17,
+   "paragraph": 55,
+   "oldStartOffset": 147,
+   "oldEndOffset": 155,
+   "oldText": "Beatrice",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 135,
+    "endOffset": 143,
+    "text": "Beatrice",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "benedick",
+   "chapter": 17,
+   "paragraph": 56,
+   "oldStartOffset": 111,
+   "oldEndOffset": 119,
+   "oldText": "Benedick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 110,
+    "endOffset": 118,
+    "text": "Benedick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "benedick",
+   "chapter": 17,
+   "paragraph": 60,
+   "oldStartOffset": 23,
+   "oldEndOffset": 31,
+   "oldText": "Benedick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 24,
+    "endOffset": 32,
+    "text": "Benedick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "claudio",
+   "chapter": 17,
+   "paragraph": 61,
+   "oldStartOffset": 471,
+   "oldEndOffset": 478,
+   "oldText": "Claudio",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 462,
+    "endOffset": 469,
+    "text": "Claudio",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "beatrice",
+   "chapter": 17,
+   "paragraph": 62,
+   "oldStartOffset": 48,
+   "oldEndOffset": 56,
+   "oldText": "Beatrice",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 40,
+    "text": "Beatrice",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pedro",
+   "chapter": 17,
+   "paragraph": 65,
+   "oldStartOffset": 52,
+   "oldEndOffset": 58,
+   "oldText": "Prince",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 49,
+    "endOffset": 55,
+    "text": "Prince",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  }
+ ]
+}

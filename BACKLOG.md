@@ -1,10 +1,8 @@
 # Tinct — Backlog
 
-**Last updated:** 2026-10-20 (cleaned up: April-era sprint notes removed; their history is in git and DECISIONS.md)
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
-Order of sections: what is being built now, what is approved and waiting its turn, concepts waiting for Anders, then later ideas. Live decisions are in DECISIONS.md; product positioning is in STRATEGY.md.
-
-> **Language:** English is the delivery strategy (STRATEGY.md, 21 Sep). Danish is offered book by book through `OFFERED_DANISH_EDITIONS` (6 books on 20 Oct). A full Danish plan is waiting for Anders (below).
+**Last updated:** 2026-10-20
 
 ---
 
@@ -24,30 +22,149 @@ In order. Decisions are in DECISIONS.md (20 Oct rows).
 
 ---
 
-## Next — approved or briefed, waiting their turn
+## What's Built
 
-1. **Margin answer quality** — the open items in `docs/margin/FIXES-2026-10-16.md` (lost superscripts in PDF text, table misreads, the search-outage message, leaked pipeline wording, Go to page mapping, fiction Counterpoint template, caption selection, phone Simplify outliers). Retest with `docs/margin/test-battery/` after each release train.
-2. **Invite a friend by email** — email, optional book suggestion and note; the friend joins from the email, both follow each other, and lands in the returning-reader library with the book on the table. New profiles default to Followers and the leaderboard on. Brief: `docs/social/INVITE-BY-EMAIL.md`; mockups claude.ai/artifact/WH78ShdjsqfYdxJGmr4uL6. Waiting for Anders's go on the mockups; needs a schema change (invites, opt-out list). Replaces "one-tap mutual invite link" in Later.
+| Feature | Status |
+|---|---|
+| 60 books in registry | Done |
+| Legacy multi-edition support (including existing Danish assets) | Historical implementation; Danish is not a current delivery requirement |
+| Side-by-side reading (paragraph-aligned) | Done |
+| AI chat (page-aware, self-aware about Tinct features) | Done |
+| Cast (character tracker, spoiler-aware) | Done |
+| Highlights (5 colors, cross-edition navigation) | Done |
+| Notes & Feed (freeform, from-chat, AI cleanup, timeline) | Done |
+| Reading journal (end-of-book AI summary) | Done |
+| Chapter reflection prompts | Done |
+| Audiobook player (R2-hosted, paragraph-sync, position restore) | Done |
+| Book Onboarding v1 (3-step: edition / angle / cast) | Done — being replaced |
+| **Feature Tour** (post-signup coachmark walkthrough, 10 steps) | Done (2026-04-29) |
+| Dark mode | Done |
+| Cross-device sync (Supabase real-time) | Done |
+| Auth (email + Google OAuth) | Done |
+| Mobile responsive (5-tab nav, tap-to-turn, chapter advance) | Done |
+| Stripe billing ($5/mo since 2026-10-05; $3/100 chat packs) | Done |
+| 30-day free trial + trial expiry banner + email reminder (Brevo) | Done |
+| Subscription management (cancel, resubscribe, message tracking) | Done |
+| Deployed to tinct.app | Done |
 
-## Concepts waiting for Anders
+---
 
-- **Groups** (parked 16 Oct, after Invite a friend) — a Groups row under Leaderboard, shown only when you are in a group; "Start a group" at the foot of the Leaderboard. A group is a name; anyone in it can invite by link or from people they follow, with an optional book suggestion and note. Invitees sign up, join automatically and land on the group page, which ranks members by this week's reading. With no group book, "Choose from the library"; the group book sits on every member's desk. No search, no public groups, no entry from books. Mockups claude.ai/artifact/4nkLtkTZXwCiTaZb4CYEhm. Open: who sets the group book, invites to existing readers as accept/decline.
-- **Danish** — plan and options in `docs/danish-plan-2026-10-19.md`: (1) editions only, (2) editions plus a companion that answers in Danish (recommended), (3) plus Danish public-domain books in search (2,520 Danish works are in the catalogue but filtered out: `IMPORT_LANGUAGES = ['en']`), (4) a Danish interface (no i18n system yet; several days of code). 95 books have old Danish on disk; 29 are stale against repaired Modern English, 9 withheld as defective, 15 missing. Needs Anders to reopen the scope in STRATEGY.md.
-- **Linked notes folder for Chat and Ask** (parked 20 Oct) — desktop Chrome/Edge, read only, a local Markdown folder with subfolders; the 2–3 most relevant passages go with a Chat or Ask question and are named under the answer. About two days, no schema change. `docs/notes-sync/LINKED-FOLDER.md`. The full two-way Obsidian plugin concept (`docs/notes-sync/CONCEPT.md`, mockups claude.ai/artifact/Q8SPLYDsXaY2oTQGL65xqs) is parked behind it.
+## Current Sprint — Book Onboarding v2 + Landing Page (April 2026)
 
-## Later
+### Book Onboarding v2 — SHIPPED 2026-04-29
 
-- **Apple sign-in** — Apple Developer Program and Supabase configuration.
-- **Android** — Play Store submission (listing drafted in `PLAY-STORE-LISTING.md`); e-ink and physical page-turn buttons.
-- **Reading angle iteration** — after picking an angle, a short conversation before reading (logged in CLAUDE.md as future).
-- **Flashcards and spaced repetition** from highlights and notes (Premium).
-- **Education** — teacher page, classroom pricing, a progress view for teachers.
-- **Reading statistics and streak reminders** — beyond This week and the leaderboard.
-- **Performance and hosting audit items** (CLAUDE.md "Open Audit Items"): private R2 bound to the Worker, WebP hero images, lazy-loaded panels, minified JSON.
+**Goal:** Replace v1's 3-step flow with a 6-step flow that leads with substance ("why this is worth your time today") before asking the user to commit to an edition.
 
-## Dropped
+**New flow:**
+1. About + Acclaim (verified primary-source endorsements)
+2. Why It Still Matters (3 items in calibrated voice)
+3. Pick edition (Compare defaults to inverse, not empty)
+4. Cast
+5. Reading angles (card-pick replaces AngleChat — simpler, free, no AI)
+6. Account *(anonymous only)* — Feature Tour fires post-signup
 
-- Book Onboarding v1/v2 sprint notes and the April landing-page update: they belonged to the legacy React reader, deleted on 30 Sep (DECISIONS.md).
-- Danish style guide, second-pass Danish proofreading and German as an expansion language: retired on 21 Sep; any language work comes back through the Danish plan above.
-- Bionic reading mode and 3+ translation comparison: no current demand.
-- "Export highlights/notes as Markdown": shipped as the margin reader's Notebook download (19 Oct); a library-wide export belongs to the notes concepts.
+**Status:** Live at https://tinct.app (commit f7b8eeb, version `d1a99346…`).
+- [x] Voice calibrated on Niels Lyhne + Notes from Underground
+- [x] JSON schema settled (`acclaim`, `whyItMatters`, drop `preReadingChat`)
+- [x] All 60 books updated with new schema
+- [x] BookOnboarding.tsx refactored — 6-step flow, Compare default = inverse, angle card-pick replaces AngleChat
+- [x] CSS for new sections (acclaim, why-matters, angle-skip)
+- [x] Build clean, 16/16 guard tests, 14/14 smoke tests
+- [x] Deployed to production
+- [ ] Acclaim follow-up: apply fact-checked quotes from research agent for the 46 books currently shipping with empty acclaim arrays. Agent was running at end of session.
+- [ ] Cleanup: delete dead AngleChat helper + unbuilt manifesto HTML.
+
+**Voice calibration (locked):**
+- Lead with what the book deals with (book-focused, descriptive verbs: deals with, asks, follows, traces, casts off)
+- ONE brief contemporary line per `whyItMatters` item
+- Avoid: first-person plural commentary, aphorisms, "Both. Neither." parallelism, steelman bothsidesing
+- Acclaim: primary-source quotes only, fact-checked against Wikipedia + original letters/essays
+
+### Landing page update (NEXT — 2026-04-30)
+
+Anders wants to bring the new onboarding feel to the landing page. Discussion topic for next session.
+
+- [ ] Decide what from book onboarding (acclaim quotes? why-it-matters? aesthetic?) translates to landing
+- [ ] Apply new design tokens (teal accent, Playfair / EB Garamond / IBM Plex Mono) if not already
+- [ ] Update book count to 60 (currently shows 33)
+- [ ] Update pricing references if any are stale
+
+---
+
+## Recently Completed
+
+### Feature Tour ✓ (2026-04-29)
+10-step coachmark walkthrough. Mobile + desktop orderings, conditional per tier, fires on first sign-up, replays from Settings.
+
+### Bible Empty-Page Bug ✓ (2026-04-29)
+`primaryData` cleared on bookId change so Reader shows spinner instead of stale paragraphs during book-switch.
+
+### Pricing Consolidation ✓ (2026-04-21)
+$5/mo references all updated to $3/mo across `TrialBanner.tsx`, `PricingModal.tsx`, `AccountDecision.tsx`, `UsageDashboard.tsx`, `worker.ts`.
+
+### Offline Mode ✓
+DownloadManager.tsx + service worker caching.
+
+### Content Expansion (ongoing)
+60 public books in `bookRegistry.ts`.
+
+### Android App (IN PROGRESS)
+- Capacitor build in `app/android/`
+- Play Store listing drafted
+- [ ] E-ink optimizations
+- [ ] Physical button support for page turning
+- [ ] Submit to Play Store
+
+---
+
+## Up Next (after Book Onboarding v2 ships)
+
+### Angle Iteration Chat (NEW — April 2026)
+After user picks a reading angle, AI responds with "here's what you might notice with this angle" and iterates over 2-3 turns before lock-in. Free tier gets this specific chat (capped at ~5 messages) as a taste of the AI companion — low cost, high conversion signal. In-book chat remains Premium.
+
+### Account Onboarding manifesto — RETIRED
+The unbuilt 6-step manifesto in `Design refs/Account Onboarding.html` is dropped. What we mean by "post-signup onboarding" is the Feature Tour. No further work needed here.
+
+### SEO & Public Launch
+- [ ] Meta tags, Open Graph, structured data on landing.html
+- [ ] Google Search Console setup
+- [ ] Content marketing (book summaries as SEO pages)
+
+### More Languages
+- Additional-language rollout deferred; no first expansion language selected. Keep current work localization-ready.
+- [ ] EPUB import ("Your book, your way")
+
+### Apple OAuth
+- [ ] Apple Developer Program + Supabase config
+- [ ] Wire Apple sign-in alongside Google
+
+---
+
+## Backlog (post-launch)
+
+### Flashcards & Spaced Repetition
+- [ ] AI-generated flashcards from highlights and notes
+- [ ] Spaced repetition scheduler (SM-2)
+- [ ] Review UI (card flip, confidence rating)
+- [ ] Premium-gated
+
+### Translation Quality
+- Retired from the active queue (2026-09-21): Danish translation style guide (5 structural patterns identified from FoR comparison). Future language work needs a new scope decision.
+- Retired from the active queue (2026-09-21): Second-pass proofreading prompt for Danish. Future language work needs a new scope decision.
+- Retired from the active queue (2026-09-21): German as expansion language. Future language work needs a new scope decision.
+
+### B2B / Education
+- [ ] Teacher landing page ("Assign The Odyssey on Tinct")
+- [ ] Classroom pricing (per-student)
+- [ ] Reading progress dashboard for teachers
+
+### Social & Community
+- [ ] Book clubs (shared reading, group highlights)
+- [ ] Export highlights/notes as Markdown or PDF
+- [ ] Reading statistics
+
+### Additional Features
+- [ ] Bionic reading mode
+- [ ] 3+ translation comparison
+- [ ] Email reminders for reading streaks
+- [x] Annual subscription option ($50/year) — checkout + account page, 2026-10-06

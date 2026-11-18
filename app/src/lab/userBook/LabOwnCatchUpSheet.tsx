@@ -1,0 +1,166 @@
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import { useReaderWindow } from '../useReaderWindow'
+import { LabBalanceEmptyLine } from '../LabAiUsageBar'
+import { CATCH_UP_COOLDOWN_MS, catchUpContextText, catchUpShouldCoolDown } from '../labCatchUp'
+import { RowIcon } from '../LabSuperMenu.tsx'
+import { BOOK_SUMMARY_TITLE, CATCH_UP_TITLE } from '../LabCatchUpSheet'
+import { buildOwnCatchUp, ownCatchUpFailureReason, ownCatchUpPlan } from './ownCatchUp'
+import type { UserBookChapter } from './userEdition'
+import '../labCatchUp.css'
+
+/** The one entry's title: everything read so far, in one recap. */
+export const OWN_CATCH_UP_ENTRY_TITLE = 'So far'
+/** The whole book's one entry. */
+export const OWN_BOOK_SUMMARY_ENTRY_TITLE = 'The whole book'
+
+export interface LabOwnCatchUpSheetProps {
+  bookHex: string
+  bookTitle?: string
+  /** The book's chapters with their text, from this device. */
+  chapters: readonly UserBookChapter[]
+  chapterNumber: number
+  paragraphIndex: number
+  completed: boolean
+  readToken: () => Promise<string | null>
+  onClose: () => void
+  /** Chat and Talk carry the recap shown (`catchUpContextText`), as Explain does. */
+  onChat: (text: string) => void
+  onTalk: (text: string) => void
+  onTopUp?: () => void
+  /** The last row on a phone: the follow-up field with mic, Talk and send, given what the sheet shows (LabCatchUpSheet). */
+  follow?: (shown: () => string) => ReactNode
+  /** The follow-ups asked from the sheet and their answers, under the timeline. */
+  thread?: ReactNode
+  embedded?: boolean
+  onReady?: (text: string) => void
+  /** The whole book's Summary (start actions, 9 Nov 2026): every chapter, recapped as one, ending at the book's end. */
+  wholeBook?: boolean
+}
+
+type State =
+  | { state: 'loading'; done: number; total: number }
+  | { state: 'ok'; recap: string }
+  | { state: 'error'; allowanceUsed?: true; status: number; reason: string | null }
+
+/**
+ * Catch me up on a reader's own book: the same sheet and timeline as the
+ * built-in one (LabCatchUpSheet), holding one cumulative recap of everything
+ * read so far above "You are here". The recap is built chapter by chapter
+ * (userBook/ownCatchUp.ts). Like the built-in sheet it reads the place once,
+ * at open, and never writes one.
+ */
+export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
+  const { bookHex, bookTitle, chapters, chapterNumber, paragraphIndex, completed, readToken, onClose, onChat, onTalk, onTopUp, follow, thread, embedded = false, onReady, wholeBook = false } = props
+  const [steps] = useState(() => {
+    const last = chapters[chapters.length - 1]
+    return wholeBook
+      ? (last ? ownCatchUpPlan({ chapters, chapterNumber: last.number, paragraphIndex: last.paragraphs.length - 1, completed: true }) : [])
+      : ownCatchUpPlan({ chapters, chapterNumber, paragraphIndex, completed })
+  })
+  const entryTitle = wholeBook ? OWN_BOOK_SUMMARY_ENTRY_TITLE : OWN_CATCH_UP_ENTRY_TITLE
+  const sheetTitle = wholeBook ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE
+  const [status, setStatus] = useState<State>({ state: 'loading', done: 0, total: steps.length })
+  const [attempt, setAttempt] = useState(0)
+  // A floating reader window only as a sheet of its own. Embedded in a margin card it is laid out by the card: as a
+  // window it was placed at the screen's left, over the overview rail and the text (Anders, 13 Nov 2026).
+  const windowRef = useReaderWindow<HTMLElement>('catchup', !embedded)
+  const mounted = useRef(true)
+  useEffect(() => {
+    mounted.current = true
+    return () => { mounted.current = false }
+  }, [])
+
+  useEffect(() => {
+    if (embedded) return
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      event.preventDefault()
+      onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose, embedded])
+
+  useEffect(() => {
+    let cancelled = false
+    setStatus({ state: 'loading', done: 0, total: steps.length })
+    void (async () => {
+      const token = await readToken().catch(() => null)
+      const result = await buildOwnCatchUp({
+        bookHex, bookTitle, steps, token,
+        cancelled: () => cancelled || !mounted.current,
+        onProgress: (done, total) => { if (!cancelled) setStatus({ state: 'loading', done, total }) },
+      })
+      if (cancelled || !mounted.current) return
+      setStatus(result.ok ? { state: 'ok', recap: result.recap } : {
+        state: 'error', status: result.status, reason: ownCatchUpFailureReason(result), ...(result.allowanceUsed ? { allowanceUsed: true as const } : {}),
+      })
+    })()
+    return () => { cancelled = true }
+  }, [attempt, bookHex, bookTitle, readToken, steps])
+
+  // A rate limit or a resting AI: ask again on our own after the built-in sheet's cooldown.
+  useEffect(() => {
+    if (status.state !== 'error' || !catchUpShouldCoolDown(status.status)) return
+    const timer = window.setTimeout(() => setAttempt(n => n + 1), CATCH_UP_COOLDOWN_MS)
+    return () => window.clearTimeout(timer)
+  }, [status])
+
+  const retry = useCallback(() => setAttempt(n => n + 1), [])
+  const shownText = () => catchUpContextText([{ title: entryTitle, summary: status.state === 'ok' ? status.recap : undefined }])
+
+  const readyRef = useRef(onReady); readyRef.current = onReady
+  const readyText = status.state === 'ok' ? shownText() : ''
+  useEffect(() => { if (readyText) readyRef.current?.(readyText) }, [readyText])
+  const timeline = (
+        <div className="lab-v2-sheet-body lab-catch-up-body" data-testid="lab-catch-up-body">
+          <ol className="lab-catch-up-timeline">
+            {/* Nothing read yet that has anything to summarise: no entry, only "You are here". */}
+            {!(status.state === 'ok' && !status.recap) && (
+              <li className="lab-catch-up-entry is-current" data-state={status.state} data-testid="lab-catch-up-entry">
+                <span className="lab-catch-up-dot" aria-hidden="true" />
+                <h3 className="lab-catch-up-title">{entryTitle}</h3>
+                {status.state === 'ok' ? (
+                  <p className="lab-catch-up-text">{status.recap}</p>
+                ) : status.state === 'error' ? (<>
+                  {status.allowanceUsed && <LabBalanceEmptyLine onTopUp={onTopUp} testId="lab-catch-up-balance" />}
+                  {status.reason && <p className="lab-catch-up-balance" role="status" data-testid="lab-catch-up-reason">{status.reason}</p>}
+                  <button type="button" className="lab-catch-up-retry" data-testid="lab-catch-up-retry" onClick={retry}>Retry</button>
+                </>) : (<>
+                  <span className="lab-catch-up-placeholder" aria-hidden="true"><i /><i /><i /></span>
+                  {status.total > 1 && (
+                    <p className="lab-catch-up-progress" data-testid="lab-catch-up-progress">
+                      Chapter {Math.min(status.done + 1, status.total)} of {status.total}
+                    </p>
+                  )}
+                </>)}
+              </li>
+            )}
+            {!wholeBook && <li className="lab-catch-up-here" data-testid="lab-catch-up-here">
+              <span className="lab-catch-up-dot" aria-hidden="true" />
+              You are here
+            </li>}
+          </ol>
+          {thread}
+        </div>
+  )
+  // Embedded (a margin card) the card is the window: the timeline and the follow-up only, as the built-in sheet does.
+  if (embedded) return <>{timeline}{follow?.(shownText)}</>
+  const content = (
+    <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
+      <button type="button" className="lab-super-scrim" data-testid="lab-catch-up-scrim" aria-label="Close" onClick={onClose} />
+      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-catch-up" data-layer="catchup" data-own-book="true" aria-label={sheetTitle}>
+        <div className="lab-v2-head is-titled" data-reader-window-handle>
+          <h2 className="lab-v2-title">{sheetTitle}</h2>
+          <button type="button" className="lab-v2-dismiss" data-testid="lab-catch-up-close" aria-label="Close" onClick={onClose}>×</button>
+        </div>
+        {timeline}
+        {follow ? <div className="lab-catch-up-foot is-follow">{follow(shownText)}</div> : <div className="lab-catch-up-foot lab-chapter-notes-foot">
+          <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-chat" aria-label="Chat" onClick={() => onChat(shownText())}><RowIcon id="chat" /></button>
+          <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-talk" aria-label="Talk" onClick={() => onTalk(shownText())}><RowIcon id="talk" /></button>
+        </div>}
+      </section>
+    </div>
+  )
+  return content
+}

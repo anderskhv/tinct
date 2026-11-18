@@ -1,0 +1,104 @@
+/**
+ * Client side of chapter notes (Summarize "so far", chapter-end summary,
+ * Primer) and of stored explanations. Both are kept on this device under the
+ * `tinct:` namespace (so sign-out wipes them) and never enter the chat feed;
+ * they are stored so other surfaces can reuse them.
+ */
+import { CHAPTER_NOTES_ROUTE, chapterNotesCacheKey, parseChapterNotesBeats, type ChapterNotesBeat, type ChapterNotesRequest } from '../chapterNotes'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
+import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
+import { allowanceAuthHeaders, isAllowanceUsedResponse } from './labAiAllowance'
+import { AI_RESTING_ERROR_TYPE, labChatErrorType } from './labCompanion'
+
+export const CHAPTER_NOTES_STORAGE_KEY = 'tinct:chapter-notes'
+export const EXPLANATIONS_STORAGE_KEY = 'tinct:explanations'
+const NOTES_MAX = 120
+const EXPLANATIONS_MAX = 200
+
+type FetchLike = (url: string, init: RequestInit) => Promise<{ ok: boolean; status: number; json(): Promise<unknown> }>
+
+function readMap<T>(key: string): Record<string, T> {
+  try { const value = JSON.parse(localStorage.getItem(key) || '{}'); return value && typeof value === 'object' ? value as Record<string, T> : {} } catch { return {} }
+}
+function writeMap<T extends { at: number }>(key: string, map: Record<string, T>, max: number): void {
+  const entries = Object.entries(map).sort((a, b) => b[1].at - a[1].at).slice(0, max)
+  try { localStorage.setItem(key, JSON.stringify(Object.fromEntries(entries))) } catch { /* full or private */ }
+}
+
+export function chapterNotesKey(request: ChapterNotesRequest): string {
+  return chapterNotesCacheKey({ ...request, through: request.kind === 'sofar' ? request.paragraphIndex ?? 0 : null })
+}
+
+export function storedChapterNotes(request: ChapterNotesRequest): ChapterNotesBeat[] | null {
+  const entry = readMap<{ beats: ChapterNotesBeat[]; at: number }>(CHAPTER_NOTES_STORAGE_KEY)[chapterNotesKey(request)]
+  return entry ? parseChapterNotesBeats(entry) : null
+}
+
+/**
+ * `allowanceUsed`: refused because the reader's AI allowance is at zero (only while the switch is on).
+ * `resting`: the daily AI ceiling or a provider limit (503 `ai_resting`); the card says so above Retry.
+ */
+export type ChapterNotesResult = { ok: true; beats: ChapterNotesBeat[] } | { ok: false; status: number; allowanceUsed?: true; resting?: true }
+
+export async function fetchChapterNotes(request: ChapterNotesRequest, options: { fetchImpl?: FetchLike; readToken?: () => Promise<string | null> } = {}): Promise<ChapterNotesResult> {
+  const stored = storedChapterNotes(request)
+  if (stored) return { ok: true, beats: stored }
+  const fetchImpl = options.fetchImpl ?? (typeof fetch === 'function' ? (url: string, init: RequestInit) => fetch(url, init) : null)
+  if (!fetchImpl) return { ok: false, status: 0 }
+  try {
+    // The session goes along only while the AI allowance is on (labAiAllowance.ts).
+    const token = AI_ALLOWANCE_ENFORCED && options.readToken ? await options.readToken().catch(() => null) : null
+    const response = await fetchImpl(CHAPTER_NOTES_ROUTE, { method: 'POST', headers: { 'Content-Type': 'application/json', ...allowanceAuthHeaders(token), ...internalTrafficHeaders() }, body: JSON.stringify(request) })
+    if (!response.ok) {
+      if (await isAllowanceUsedResponse(response)) return { ok: false, status: response.status, allowanceUsed: true }
+      if (response.status === 503 && await labChatErrorType(response) === AI_RESTING_ERROR_TYPE) return { ok: false, status: response.status, resting: true }
+      return { ok: false, status: response.status }
+    }
+    const beats = parseChapterNotesBeats(await response.json())
+    if (!beats) return { ok: false, status: response.status }
+    keepChapterNotes(request, beats)
+    return { ok: true, beats }
+  } catch {
+    return { ok: false, status: 0 }
+  }
+}
+
+/** Keep a chapter's notes on this device, so a reopen is instant (also an own book's: userBook/ownChapterNotes.ts). */
+export function keepChapterNotes(request: ChapterNotesRequest, beats: ChapterNotesBeat[]): void {
+  const map = readMap<{ beats: ChapterNotesBeat[]; at: number }>(CHAPTER_NOTES_STORAGE_KEY)
+  map[chapterNotesKey(request)] = { beats, at: Date.now() }
+  writeMap(CHAPTER_NOTES_STORAGE_KEY, map, NOTES_MAX)
+}
+
+export interface StoredExplanation { bookId: string; chapterNumber: number; paragraphIndex: number; passage: string; answer: string; at: number }
+
+/** Keep an explanation for reuse, outside the chat feed. Same passage → replaced. */
+export function saveExplanation(entry: Omit<StoredExplanation, 'at'>, now = Date.now()): void {
+  if (!entry.answer.trim() || !entry.passage.trim()) return
+  const map = readMap<StoredExplanation>(EXPLANATIONS_STORAGE_KEY)
+  map[`${entry.bookId}/${entry.chapterNumber}/${entry.paragraphIndex}/${entry.passage.slice(0, 120)}`] = { ...entry, at: now }
+  writeMap(EXPLANATIONS_STORAGE_KEY, map, EXPLANATIONS_MAX)
+}
+
+export function chapterNotesText(title: string, beats: ChapterNotesBeat[]): string {
+  return [title, ...beats.map(beat => `${beat.title}: ${beat.text}`)].join('\n')
+}
+
+/** The card as plain text for Copy: its title, then each beat's title and text, blocks separated by blank lines. */
+export function chapterNotesPlainText(title: string, beats: ChapterNotesBeat[]): string {
+  return [title, ...beats.map(beat => `${beat.title}\n${beat.text}`)].join('\n\n')
+}
+
+/**
+ * The chapter pill's Summary (the phone's ✧ Summary chip, the desktop margin's start card): a summary of that
+ * chapter, the whole of it, wherever the reader is in it (Anders, 11 Nov 2026). It is the chapter-end card's request
+ * (`end`) under the pill's own name; never the chapter "so far", and never Catch me up's "what came before".
+ */
+export const CHAPTER_SUMMARY_KIND = 'end' as const
+
+/** A chapter card's title: the page's own names for them (✧ Primer, ✧ Recap, ✧ Summary). */
+export function chapterNotesTitle(kind: 'primer' | 'end' | 'sofar', label: string, as?: 'summary'): string {
+  if (kind === 'primer') return `Primer · ${label}`
+  if (kind === 'end') return `${as === 'summary' ? 'Summary' : 'Recap'} · ${label}`
+  return `Summary · ${label} so far`
+}

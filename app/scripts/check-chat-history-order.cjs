@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Chat history: what the reader sees when the panel opens on a months-old
 // Bible thread, and when the account's history arrives after first paint.
 //
@@ -140,12 +141,8 @@ async function stub(page, now, timings) {
 }
 
 async function openPanel(page, phone) {
-  if (phone) {
-    await page.getByTestId('lab-super').click()
-    await page.getByTestId('lab-super-row-chat').click()
-  } else {
-    await page.getByTestId('lab-desktop-chat').click()
-  }
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-chat').click()
   await page.getByTestId('lab-ask-thread').waitFor()
 }
 
@@ -189,7 +186,7 @@ async function run(browser, { phone, viewport }) {
     }))
   }, [storedOnDevice(now), authSession(now), PROVERBS_18])
 
-  await page.goto(`${BASE}/${phone ? 'lab/phone?chrome=v2' : 'lab/desktop'}`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${BASE}/reader?layout=${phone ? 'phone' : 'desktop'}`, { waitUntil: 'domcontentloaded' })
   await page.getByTestId('lab-book').waitFor()
   await page.waitForTimeout(2000)
 
@@ -220,7 +217,7 @@ async function run(browser, { phone, viewport }) {
 
 async function main() {
   fs.mkdirSync(OUT, { recursive: true })
-  const browser = await chromium.launch({ executablePath: EXECUTABLE })
+  const browser = await markInternal(await chromium.launch({ executablePath: EXECUTABLE }))
   const results = []
   try {
     results.push(await run(browser, { phone: true, viewport: { width: 393, height: 852 } }))

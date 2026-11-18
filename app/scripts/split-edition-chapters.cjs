@@ -83,6 +83,10 @@ for (const id of uniqueTargets) {
         title: ch.title || `Chapter ${ch.number}`,
         ...(ch.section ? { section: ch.section } : {}),
         paragraphs: ch.paragraphs,
+        // Structure travels with its paragraphs (editionLoader chapterShardOf).
+        ...(Array.isArray(ch.kinds) ? { kinds: ch.kinds } : {}),
+        ...(Array.isArray(ch.links) ? { links: ch.links } : {}),
+        ...(Array.isArray(ch.figures) ? { figures: ch.figures } : {}),
       }
       fs.writeFileSync(path.join(outDir, file), `${JSON.stringify(chapter)}\n`)
       return {
@@ -91,6 +95,10 @@ for (const id of uniqueTargets) {
         ...(ch.section ? { section: ch.section } : {}),
         path: file,
         paragraphCount: Array.isArray(ch.paragraphs) ? ch.paragraphs.length : 0,
+        // The reader's book-page estimate weighs chapters by words; a chapter
+        // window loads only nearby text, so the manifest carries every count
+        // (counted as labSource counts a loaded chapter).
+        wordCount: Array.isArray(ch.paragraphs) ? ch.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length : 0,
       }
     }),
     ...(data.sections ? { sections: data.sections } : {}),

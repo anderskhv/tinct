@@ -2,9 +2,9 @@ import { describe, expect, it } from 'vitest'
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import manifest from './editionAvailability.json'
-import { editionHold, isBookTemporarilyHeld } from './editionAvailability'
+import { OFFERED_DANISH_EDITIONS, editionHold, isBookTemporarilyHeld, isEditionLanguageOffered, isOfferedDanishEdition } from './editionAvailability'
 import { BOOKS, getBook } from './bookRegistry'
-import { isBookDiscoverable, isEditionDiscoverable } from './audioAvailability'
+import { hasRecordedAudio, isBookDiscoverable, isEditionDiscoverable } from './audioAvailability'
 import { defaultPrimaryEditionKey, defaultCompareEditionKey } from './editionDefaults'
 import { migrateWithheldEdition } from './withheldEditions'
 import { selectableLabEditions, migrateLabPrefsEditions, readLabPrefs } from '../lab/labPrefs'
@@ -12,7 +12,9 @@ import { createReaderHandoffIntent, getEditionSelectionViewModel, searchPreReade
 
 describe('temporary edition holds preserve identities and recovery', () => {
   it('pins every held asset to the bytes independently fetched from production', () => {
-    expect(Object.keys(manifest.editions)).toHaveLength(16)
+    // 8 edition holds (Confessions repaired 2026-10-24), plus 11 English/French editions of the five books
+    // held whole on 2026-10-02 (rights holds).
+    expect(Object.keys(manifest.editions)).toHaveLength(19)
     for (const [key, evidence] of Object.entries(manifest.editions)) {
       const [bookId, editionKey] = key.split('/')
       expect(getBook(bookId)?.editions.some(e => e.key === editionKey), key).toBe(true)
@@ -42,19 +44,21 @@ describe('temporary edition holds preserve identities and recovery', () => {
     for (const book of BOOKS) {
       expect(isBookTemporarilyHeld(book.id)).toBe(book.editions.every(e => Boolean(editionHold(book.id, e.key))))
     }
-    expect(searchPreReaderBooks('Macbeth').some(book => book.id === 'macbeth')).toBe(false)
-    expect(searchPreReaderBooks('As You Like It').some(book => book.id === 'as-you-like-it')).toBe(false)
+    expect(searchPreReaderBooks('Macbeth').some(book => book.id === 'macbeth')).toBe(true)
+    expect(searchPreReaderBooks('As You Like It').some(book => book.id === 'as-you-like-it')).toBe(true)
     expect(isBookDiscoverable('jerusalem')).toBe(true)
     expect(isBookDiscoverable('faust-part-1')).toBe(true)
-    expect(defaultPrimaryEditionKey('jerusalem', getBook('jerusalem')!.editions)).toBe('original-en')
-    expect(defaultPrimaryEditionKey('faust-part-1', getBook('faust-part-1')!.editions)).toBe('original-de')
+    expect(defaultPrimaryEditionKey('jerusalem', getBook('jerusalem')!.editions)).toBe('modern-en')
+    expect(defaultPrimaryEditionKey('faust-part-1', getBook('faust-part-1')!.editions)).toBe('modern-en')
     expect(isEditionDiscoverable('faust-part-1', getBook('faust-part-1')!.editions[0])).toBe(true)
   })
 })
 
 it('withdraws every Danish edition without migrating or deleting its source identity', () => {
- const danish = BOOKS.flatMap(book => book.editions.filter(e=>e.language === 'da').map(edition=>({book,edition})))
- expect(danish.length).toBeGreaterThan(0)
+ // The one explicit exception (Anders, 2026-10-10) is covered by its own test below.
+ const danish = BOOKS.flatMap(book => book.editions.filter(e=>e.language === 'da' && !OFFERED_DANISH_EDITIONS.has(book.id + '/' + e.key)).map(edition=>({book,edition})))
+ expect(danish.length).toBeGreaterThan(30)
+ for (const key of ['jane-eyre/modern-da','odyssey/modern-da','macbeth/modern-da']) expect(danish.some(({book,edition})=>book.id+'/'+edition.key===key),key).toBe(true)
  for (const {book,edition} of danish) {
   expect(edition.key.endsWith('-da')).toBe(true)
   expect(editionHold(book.id,edition.key)?.reason).toContain('Danish editions')
@@ -66,4 +70,46 @@ it('withdraws every Danish edition without migrating or deleting its source iden
   expect(intent?.primaryEditionKey).toBe(edition.key)
   expect(intent?.savedPlace).toEqual(savedPlace)
  }
+})
+
+describe('The offered Danish editions (explicit allowlist)', () => {
+ const book = getBook('to-the-lighthouse')!
+ const edition = book.editions.find(e => e.key === 'modern-da')!
+ it('uses explicit identities, never inferred from the language', () => {
+  expect([...OFFERED_DANISH_EDITIONS].sort()).toEqual(['a-little-princess/modern-da', 'alice-in-wonderland/modern-da', 'apology/modern-da', 'arabian-nights/modern-da', 'aristotle-politics/modern-da', 'around-the-world-80-days/modern-da', 'bacchae/modern-da', 'communist-manifesto/modern-da', 'confessions/modern-da', 'crime-and-punishment/modern-da', 'crito/modern-da', 'descartes-meditations/modern-da', 'grimms-fairy-tales/modern-da', 'hume-enquiry/modern-da', 'ivan-ilyich/modern-da', 'jekyll-and-hyde/modern-da', 'jungle-book/modern-da', 'kant-groundwork/modern-da', 'magna-carta/modern-da', 'master-and-margarita/modern-da', 'medea/modern-da', 'meditations/modern-da', 'middlemarch/modern-da', 'moby-dick/modern-da', 'on-liberty/modern-da', 'phaedo/modern-da', 'phaedrus/modern-da', 'pinocchio/modern-da', 'poetics/modern-da', 'the-art-of-war/modern-da', 'the-manual/modern-da', 'the-prince/modern-da', 'to-the-lighthouse/modern-da', 'us-founding-documents/modern-da', 'utilitarianism/modern-da', 'werther/modern-da', 'wuthering-heights/modern-da'])
+  expect(edition).toMatchObject({ language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false })
+  expect(isOfferedDanishEdition('to-the-lighthouse', 'modern-da')).toBe(true)
+  // Same book, other Danish keys; same key, other books: still withdrawn.
+  expect(editionHold('to-the-lighthouse', 'original-da')?.reason).toContain('Danish editions')
+  expect(editionHold('to-the-lighthouse', 'kids-da')?.reason).toContain('Danish editions')
+  for (const id of ['jane-eyre', 'odyssey', 'ulysses', 'frankenstein']) {
+   expect(editionHold(id, 'modern-da')?.reason, id).toContain('Danish editions')
+   expect(isEditionLanguageOffered(id, { key: 'modern-da', language: 'da' }), id).toBe(false)
+   expect(isEditionDiscoverable(id, { key: 'modern-da', language: 'da' }), id).toBe(false)
+  }
+  expect(isEditionLanguageOffered('to-the-lighthouse', { key: 'modern-en', language: 'en' })).toBe(true)
+ })
+ it('is not held, is discoverable, selectable and comparable 1:1 with Modern English', () => {
+  expect(editionHold('to-the-lighthouse', 'modern-da')).toBeUndefined()
+  expect(isEditionDiscoverable('to-the-lighthouse', edition)).toBe(true)
+  expect(selectableLabEditions('to-the-lighthouse', book.editions).map(e => e.key)).toEqual(['original-en', 'modern-en', 'modern-da'])
+  const picker = getEditionSelectionViewModel('to-the-lighthouse', 'modern-da')!
+  expect(picker.selectedEditionKey).toBe('modern-da')
+  expect(picker.modernEditions.map(e => e.key)).toEqual(['modern-en', 'modern-da'])
+  expect(picker.compareOptions.map(e => e.key)).toEqual(['original-en', 'modern-en'])
+  expect(getEditionSelectionViewModel('to-the-lighthouse', 'modern-en')!.compareOptions.map(e => e.key)).toContain('modern-da')
+  const savedPlace = { bookId: 'to-the-lighthouse', chapterNumber: 17, paragraphIndex: 7, wordIndex: 3, page: 4 }
+  const intent = createReaderHandoffIntent({ bookId: 'to-the-lighthouse', primaryEditionKey: 'modern-da', compareEditionKey: 'modern-en', savedPlace })
+  expect(intent).toMatchObject({ primaryEditionKey: 'modern-da', compareEditionKey: 'modern-en', savedPlace })
+  const prefs = { ...readLabPrefs(), primaryEdition: 'modern-da', compareEdition: 'modern-en' }
+  expect(migrateLabPrefsEditions(prefs, 'to-the-lighthouse')).toBe(prefs)
+  expect(migrateWithheldEdition('to-the-lighthouse', 'modern-da')).toBe('modern-da')
+ })
+ it('never becomes a new-reader default, and has no audio of any kind', () => {
+  expect(defaultPrimaryEditionKey('to-the-lighthouse', book.editions)).toBe('modern-en')
+  expect(defaultCompareEditionKey('to-the-lighthouse', book.editions, 'modern-en', book.year)).toBe('original-en')
+  expect(hasRecordedAudio('to-the-lighthouse', 'modern-da')).toBe(false)
+  expect(hasRecordedAudio('to-the-lighthouse', 'modern-en')).toBe(false)
+  expect(searchPreReaderBooks('To the Lighthouse').some(b => b.id === 'to-the-lighthouse')).toBe(true)
+ })
 })

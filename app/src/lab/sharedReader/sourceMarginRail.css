@@ -1,0 +1,90 @@
+.continuous-reader, .pdf-original__scroll { position: relative; }
+.source-margin-rail { position:absolute; left:0; right:0; top:0; pointer-events:none; z-index:5; }
+.source-margin-room { position:absolute; top:0; pointer-events:auto; user-select:none; -webkit-user-select:none; }
+.source-margin-item { position:absolute; pointer-events:auto; box-sizing:border-box; border:0; border-left:1px solid var(--lab-border); padding:2px 0 8px 16px; background:transparent; color:var(--lab-ink); font:17px/1.45 'EB Garamond',Georgia,serif; }
+.source-margin-head { display:flex; align-items:center; gap:6px; min-height:30px; }
+.source-margin-item button { border:0; border-radius:0; background:transparent; color:inherit; cursor:pointer; font:inherit; }
+.source-margin-head > button { min-height:30px; min-width:30px; padding:0; color:var(--lab-ink-muted); }
+.source-margin-head .source-margin-label { flex:1; text-align:left; font-size:14px; font-style:italic; }
+/* Open and minimise share one control, always in the same place (tester, 9 Nov 2026). UI chrome: system face. */
+.source-margin-head > .source-margin-toggle { font:400 20px/1 system-ui,-apple-system,'Segoe UI',sans-serif; }
+.source-margin-head > .source-margin-toggle:hover { color:var(--lab-ink); }
+/* Folded (approved mockup, 3 Nov 2026): the Ask's question in italics, the answer's bottom line whole, then its follow-ups.
+   Each line has the open card's type and place (body padding, .lab-pcard-you, .lab-pcard-answer and its lead,
+   .lab-pcard-note), so opening a card reveals more without restyling or moving what was shown (tester, 9 Nov 2026). */
+.source-margin-preview { width:100%; display:block; text-align:left; font-size:17px!important; line-height:1.5!important; color:var(--lab-ink-muted)!important; padding:8px 0 0!important; }
+.source-margin-preview-question { display:block; margin:2px 0 0; font-size:16px; line-height:1.4; font-style:italic; }
+/* A folded card is passive and one line (Anders, 9 Nov 2026): regular weight in the muted ink, cut with an
+   ellipsis, just enough to recall what it was. Opening it may bold the answer's lead line; the words stay in place. */
+.source-margin-preview-lead { display:block; color:inherit; font-weight:400; }
+.source-margin-preview :is(.source-margin-preview-question,.source-margin-preview-lead) { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.source-margin-preview[data-preview="note"] { padding-top:12px!important; }
+.source-margin-content[hidden] { display:none; }
+.source-margin-content { overflow:visible; }
+.source-margin-content .lab-pcard-body { overflow:visible!important; max-height:none!important; padding:8px 0 10px!important; }
+.source-margin-content .lab-pcard-follow { padding:2px 0 4px!important; }
+.source-margin-content .lab-pcard-answer { font-size:17px; }
+.source-margin-leaders { position:absolute; left:0; top:0; overflow:visible; pointer-events:none; fill:var(--lab-ink-muted); stroke:var(--lab-ink-muted); stroke-width:.7; opacity:.4; }
+.source-margin-leaders path { fill:none; }
+.source-margin-leaders .is-folded { opacity:.5; }
+.source-margin-item :is(button,textarea):focus-visible { outline:1px solid var(--lab-accent,currentColor); outline-offset:2px; }
+.source-margin-content .lab-v2-sheet-body { height:auto; max-height:none; overflow:visible; padding:8px 0; }
+.source-margin-content .lab-catch-up-timeline { max-height:none; overflow:visible; }
+.source-margin-content .lab-catch-up-embedded :is(.lab-v2-sheet-layer,.lab-v2-sheet) { position:static!important; inset:auto!important; transform:none!important; width:auto!important; height:auto!important; min-height:0!important; max-height:none!important; border:0!important; border-radius:0!important; background:transparent!important; box-shadow:none!important; backdrop-filter:none!important; overflow:visible!important; }
+.source-margin-content .lab-catch-up-embedded :is(.lab-super-scrim,.lab-v2-head) { display:none; }
+
+/* Embedded cards do not retain a phone field's capsule chrome. */
+.lab.is-desktop .source-margin-content .lab-pcard-follow-box { min-height:36px; padding:6px 0 2px; border:0; border-bottom:1px solid var(--lab-border); border-radius:0; background:transparent; box-shadow:none; }
+.lab.is-desktop .source-margin-content .lab-pcard-follow-box:focus-within { border-bottom-color:var(--lab-accent,currentColor); }
+.lab.is-desktop .source-margin-content :is(.lab-pcard-mic,.lab-pcard-talkbtn,.lab-pcard-send) { border:0; border-radius:0!important; background:transparent!important; color:var(--lab-ink-muted)!important; box-shadow:none; }
+.source-margin-head svg { width:16px; height:16px; }
+
+/* A chapter's actions beside its heading (PdfOriginalReaderShell chapterEntries): quiet text buttons, as the heading pills were. */
+.source-margin-item.is-actions { padding-bottom:4px; }
+.source-margin-item.is-actions .source-margin-label { color:var(--lab-ink-muted); }
+.pdf-original__margin-actions { display:flex; flex-wrap:wrap; gap:4px 16px; font:16px/1.4 'EB Garamond',Georgia,serif; color:var(--lab-ink-muted); }
+.source-margin-item .pdf-original__margin-actions button { min-height:30px; padding:4px 0 2px; border-bottom:1px solid color-mix(in srgb,currentColor 30%,transparent); color:var(--lab-ink-muted); }
+.source-margin-item .pdf-original__margin-actions button:hover { color:var(--lab-ink); }
+
+/* The start actions (approved mockup, Anders 9 Nov 2026): "Before you start" beside the book's opening, and a greyed
+   (dashed, muted) card at each later chapter's start. Chrome in the UI face; the actions keep the ✧ of the companion. */
+/* The margin's own straight rule on the source side (no box: readerParityAssertions); a later chapter's is dashed. */
+.source-margin-item.is-start-later { border-left-style:dashed; color:var(--lab-ink-muted); }
+.source-margin-item.is-start .source-margin-label, .source-margin-item.is-start-later .source-margin-label { font:500 13px/1.3 system-ui,-apple-system,'Segoe UI',sans-serif; font-style:normal; }
+.lab-start-card { display:flex; flex-direction:column; gap:6px; }
+.lab-start-head { margin:6px 0 0; font:500 13px/1.3 system-ui,-apple-system,'Segoe UI',sans-serif; color:var(--lab-ink-muted); }
+.lab-start-acts { display:flex; flex-wrap:wrap; gap:2px 16px; font:16px/1.4 'EB Garamond',Georgia,serif; }
+.source-margin-item .lab-start-acts button { min-height:30px; padding:4px 0 2px; color:var(--lab-ink); border-bottom:1px solid color-mix(in srgb,currentColor 30%,transparent); }
+.source-margin-item .lab-start-acts button:hover { color:var(--lab-ink); }
+/* The start cards' reading angle: a row that opens AI settings' This book (Anders, 11 Nov 2026). */
+.source-margin-item .lab-start-angle-link { display:flex; align-items:baseline; gap:8px; width:100%; min-height:30px; padding:4px 0 6px; text-align:left; color:var(--lab-ink-muted); border-bottom:1px solid var(--lab-border); font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif; }
+.source-margin-item .lab-start-angle-link:hover { color:var(--lab-ink); }
+.source-margin-item .lab-start-angle-link:focus-visible { outline:2px solid var(--tui-accent,#1f6f78); outline-offset:2px; }
+.lab-start-angle-text { flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:1px; }
+.lab-start-angle-value { font:15px/1.35 'EB Garamond',Georgia,serif; color:var(--lab-ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lab-start-angle-chevron { flex:0 0 auto; }
+/* The first visit (Anders, 16 Nov 2026): one line on how to use the selection actions, in the UI face, and the
+   chapter's Primer as the start actions draw theirs. Shown until the reader first uses Ask, Explain or Simplify. */
+.lab-first-hint { display:flex; flex-direction:column; gap:12px; padding:2px 0 4px; }
+.lab-first-hint-text { margin:0; font:400 15px/1.45 system-ui,-apple-system,'Segoe UI',sans-serif; color:var(--lab-ink); text-wrap:balance; }
+/* "Before you start" folded: only its greyed label and a + (Anders, 10 Nov 2026). */
+.source-margin-item.is-collapsible.is-folded { padding-bottom:0; }
+.source-margin-item.is-collapsible .source-margin-label { background:none; border:0; padding:0; cursor:pointer; text-align:left; }
+.source-margin-item.is-collapsible.is-folded .source-margin-label, .source-margin-item.is-collapsible.is-folded .source-margin-toggle { color:var(--lab-ink-muted); opacity:.75; }
+
+/* A note's formatting folded (Anders, 13 Nov 2026): bullets, bold and italic, up to six lines, in the note field's
+   type and place, passive in the muted ink. */
+.source-margin-preview .source-margin-preview-note { font-size:17px; line-height:1.5; color:inherit; white-space:normal; }
+.source-margin-preview .source-margin-preview-note strong { color:color-mix(in srgb,var(--lab-ink) 88%,var(--lab-ink-muted)); }
+
+/* Moving a note (desktop only): a ⋮⋮ handle in the gutter on hover or focus drags the card to any height in the
+   margin; ⌥↑ / ⌥↓ nudge it. The card stays where it is dropped; neighbours are pushed as always. */
+.source-margin-grip { position:absolute; left:-22px; top:3px; width:18px; height:28px; display:grid; place-items:center; padding:0; border-radius:6px!important; color:var(--lab-ink-muted)!important; cursor:grab!important; opacity:0; touch-action:none; transition:opacity .12s; }
+.source-margin-grip svg { width:10px; height:16px; fill:currentColor; }
+.source-margin-item.is-movable:hover .source-margin-grip, .source-margin-item.is-movable:focus-within .source-margin-grip, .source-margin-item.is-lifted .source-margin-grip { opacity:1; }
+.source-margin-grip:hover, .source-margin-item.is-lifted .source-margin-grip { background:color-mix(in srgb,var(--lab-ink) 8%,transparent)!important; color:var(--lab-ink)!important; }
+.source-margin-item.is-lifted { z-index:10; cursor:grabbing; background:var(--lab-paper,var(--lab-bg,#fff)); box-shadow:0 0 0 1px var(--lab-border),0 18px 40px rgba(0,0,0,.25); border-radius:0 12px 12px 0; }
+.source-margin-item.is-lifted .source-margin-grip { cursor:grabbing!important; }
+@media (hover:none) { .source-margin-grip { opacity:.6; } }
+html[data-eink="true"] .source-margin-item.is-lifted { box-shadow:none; outline:1px solid #777; }
+html[data-eink="true"] .source-margin-grip { transition:none; }

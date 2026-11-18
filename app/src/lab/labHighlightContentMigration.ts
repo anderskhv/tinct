@@ -1,7 +1,9 @@
-import { currentContentRevision, loadCoordinateMigration, writtenBeforeRelease } from '../data/editionContentRevisions'
+import { coordinateEditionForRevision } from '../data/editionCoordinateMigration'
+import { editionHold } from '../data/editionAvailability'
+import { currentContentRevision, loadCoordinateMigration, sourceContentRevision, writtenBeforeRelease } from '../data/editionContentRevisions'
 import { loadChapterText } from '../readingMemory'
 import { migrateLabHighlight, type MigratableHighlight } from './labHighlightMigration'
-import { readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
+import { isLabChapterNote, readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
 
 /**
  * Highlights and notes across an accepted structural edition release
@@ -18,13 +20,19 @@ export function highlightWrittenAt(highlight: Pick<LabHighlight, 'id'>): number 
 }
 
 export function highlightNeedsMigration(highlight: MigratableHighlight): boolean {
+  // A chapter note has no passage whose coordinates a release could move.
+  if (isLabChapterNote(highlight)) return false
   if (highlight.contentMigrationStatus === 'unresolved' && highlight.contentRecovery) return false
+  // A held edition keeps every saved byte; its highlights move when the hold lifts.
+  if (editionHold(highlight.bookId, highlight.editionKey)) return false
   return writtenBeforeRelease(highlight.bookId, highlight.editionKey, highlight.contentRevision, highlightWrittenAt(highlight))
 }
 
 /** Not to be painted against the current text: awaiting its move, or unresolved. */
 export function highlightOffCurrentText(highlight: MigratableHighlight): boolean {
-  return highlight.contentMigrationStatus === 'unresolved' || highlightNeedsMigration(highlight)
+  if (isLabChapterNote(highlight)) return false
+  return highlight.contentMigrationStatus === 'unresolved'
+    || writtenBeforeRelease(highlight.bookId, highlight.editionKey, highlight.contentRevision, highlightWrittenAt(highlight))
 }
 
 type ChapterLoader = (request: { bookId: string; editionKey: string; chapterNumber: number; version?: string }) => Promise<{ paragraphs: string[] } | null>
@@ -52,7 +60,9 @@ export async function migrateStoredLabHighlights(loadChapter: ChapterLoader = lo
     // Verify the quote against its destination, never the old chapter's text.
     const chapters = new Map<number, Promise<{ paragraphs: string[] } | null>>()
     for (const highlight of group) {
-      const entry = migration.editions[editionKey]?.entries[chapterNumber + '.' + highlight.paragraphIndex]
+      const sourceRevision = sourceContentRevision(bookId, editionKey, highlight.contentRevision, highlightWrittenAt(highlight))
+      const source = coordinateEditionForRevision(migration, editionKey, sourceRevision)
+      const entry = source?.entries[chapterNumber + '.' + highlight.paragraphIndex]
       const targetChapter = entry?.chapter ?? chapterNumber
       if (!chapters.has(targetChapter)) chapters.set(targetChapter,
         loadChapter({ bookId, editionKey, chapterNumber: targetChapter, version: currentContentRevision(bookId, editionKey) }).catch(() => null))
@@ -64,11 +74,14 @@ export async function migrateStoredLabHighlights(loadChapter: ChapterLoader = lo
   }))
   if (!moved.size) return false
   // Re-read: nothing written meanwhile is lost.
+  const now = Date.now()
   writeLabHighlights(readLabHighlights().map(highlight => {
     const before = stored.find(item => item.id === highlight.id)
     // A note edited while the chapter was loading belongs to the reader.
     // Retry its projection later instead of replacing it with our snapshot.
-    return JSON.stringify(before) === JSON.stringify(highlight) ? moved.get(highlight.id) ?? highlight : highlight
+    const next = JSON.stringify(before) === JSON.stringify(highlight) ? moved.get(highlight.id) : undefined
+    // Stamped so the moved copy wins over a stale one from another device.
+    return next ? { ...next, updatedAt: now } : highlight
   }))
   return true
 }

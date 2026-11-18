@@ -2,9 +2,10 @@ import { webkit } from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 const live=process.env.TINCT_WARMUP_LIVE==='1'
 await fs.mkdir('artifacts/omarchy',{recursive:true})
-const browser=await webkit.launch({headless:true}), report=[]
+const browser=await markInternal(await webkit.launch({headless:true})), report=[]
 try {
  for(const routing of ['all','api']) for(let repeat=0;repeat<3;repeat++){
   const context=await browser.newContext({viewport:{width:1440,height:900},serviceWorkers:'block'})

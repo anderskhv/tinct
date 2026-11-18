@@ -152,6 +152,18 @@ export function writeLabLibraryBootSnapshot(snapshot: LabLibraryBootSnapshot, st
   }
 }
 
+/**
+ * The reader took this book off the library (the desk's ×, Read later, Remove from shelf): a
+ * snapshot that names it as the book just read must not lead the next desk with it
+ * (libraryTwoReading.ts withJustRead, boot.js), or the removed book stands there again until the
+ * account's table arrives (Anders, 6 Nov 2026). Reading it again writes a new snapshot.
+ */
+export function forgetLabLibraryBootBook(bookId: string, storage: StorageLike | null = browserStorage(), now = Date.now()): boolean {
+  if (!storage || readLabLibraryBootSnapshot(storage, now)?.hero?.bookId !== bookId) return false
+  clearLabLibraryBootSnapshot(storage)
+  return true
+}
+
 export function clearLabLibraryBootSnapshot(storage: StorageLike | null = browserStorage()): void {
   if (!storage) return
   try { storage.removeItem(LAB_LIBRARY_BOOT_KEY) } catch { /* private mode */ }

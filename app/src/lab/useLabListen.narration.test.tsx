@@ -2,9 +2,12 @@
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
-import { narrationLookAheadWidth, useLabListen, type LabNarrationOption } from './useLabListen'
+import { NARRATION_PREPARE_CEILING_MS, narrationLookAheadWidth, narrationSynthesisWidth, useLabListen, type LabNarrationOption } from './useLabListen'
 import { NarrationEnsureError, type NarrationParagraphResult, type NarrationParagraphState } from './labNarration'
 import { chunkNarrationText, narrationTextForParagraph, sha256Hex } from '../narration/narrationCore'
+
+const funnel = vi.hoisted(() => ({ track: vi.fn() }))
+vi.mock('../utils/funnel', () => ({ trackFunnel: funnel.track }))
 
 const LONG = 'Now Neptune had gone off to the Ethiopians, who are at the world’s end, and lie in two halves, the one looking West and the other East. '
   + 'He had gone there to accept a hecatomb of sheep and oxen, and was enjoying himself at his festival; but the other gods met in the house of Olympian Jove, and the sire of gods and men spoke first. '
@@ -165,7 +168,8 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     await act(async () => { await h.answer(h.calls[0], { 0: 1 }) })
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
     await act(async () => h.pending[0].resolve())
-    await waitFor(() => expect(h.calls.length).toBe(2))
+    // The look-ahead asks for paragraphs 1 and 2 side by side.
+    await waitFor(() => expect(h.calls.length).toBe(3))
     Object.assign(h.audio, { ended: true, currentTime: 4 })
     vi.mocked(h.audio.pause).mockClear()
     const previous = h.audio.src
@@ -226,10 +230,12 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     expect(chunkClips[1]).toMatchObject({ url: undefined, narration: { ready: false } })
     await act(async () => h.pending[0].resolve())
 
-    // The look-ahead keeps asking, one group per round, for paragraphs 2..4.
-    await waitFor(() => expect(h.calls.length).toBe(2))
-    expect(last(h).indexes).toEqual([2, 3])
-    await act(async () => { await h.answer(last(h), { 2: 2, 3: 0 }) })
+    // The look-ahead asks for the next two groups side by side, in playing order: the
+    // ordinary request (paragraphs 2..3 reported, group 2:1 made) and one naming group 2:2.
+    await waitFor(() => expect(h.calls.length).toBe(3))
+    expect(h.calls.slice(1).map(call => [call.indexes, call.fromChunks])).toEqual([[[2, 3], { 2: 1, 3: 0 }], [[2], { 2: 2 }]])
+    // The nearer one lands first and is adopted at once, without waiting for the other.
+    await act(async () => { await h.answer(h.calls[1], { 2: 2, 3: 0 }) })
     const second = h.result.current.clips.filter(clip => clip.kind === 'paragraph' && clip.index === 2)[1]
     expect(second).toMatchObject({ url: expect.stringContaining('hash-2-1'), chunk: { index: 1, wordFrom: layout[1].wordFrom } })
 
@@ -306,16 +312,19 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     expect(ahead.map(call => call.fromChunks)).not.toContainEqual({ 2: 2 })
   })
 
-  it('at normal speed keeps to one request at a time', async () => {
+  it('at normal speed asks for the next two groups at a time, never more (Anders, 20 Oct 2026: one at a time fell behind)', async () => {
+    expect([1, 1.25, 1.5, 1.75, 2, 3].map(narrationSynthesisWidth)).toEqual([2, 2, 3, 3, 3, 3])
     const h = harness()
     await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 2, wordIndex: 0 }) })
+    // Play itself waits on exactly one group at 1x.
     await waitFor(() => expect(h.calls.length).toBe(1))
     await act(async () => { await h.answer(h.calls[0], { 2: 1 }) })
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
     await act(async () => h.pending[0].resolve())
-    await waitFor(() => expect(h.calls.length).toBe(2))
+    await waitFor(() => expect(h.calls.length).toBe(3))
     await new Promise(resolve => setTimeout(resolve, 50))
-    expect(h.calls.length).toBe(2)
+    expect(h.calls.length).toBe(3)
+    expect(h.calls.slice(1).map(call => call.fromChunks)).toEqual([{ 2: 1, 3: 0 }, { 2: 2 }])
   })
 
   it('keeps the chapter clock moving forward across sentence-group boundaries', async () => {
@@ -325,8 +334,8 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     await act(async () => { await h.answer(h.calls[0], { 2: 1 }) })
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
     await act(async () => h.pending[0].resolve())
-    await waitFor(() => expect(h.calls.length).toBe(2))
-    await act(async () => { await h.answer(last(h), { 2: 2, 3: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(3))
+    await act(async () => { await h.answer(h.calls[1], { 2: 2, 3: 0 }) })
     h.audio.currentTime = 3
     act(() => h.audio.dispatchEvent(new Event('timeupdate')))
     const before = h.result.current.chapterTime
@@ -528,10 +537,10 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
     await act(async () => h.pending[0].resolve())
     act(() => h.result.current.pause())
-    await waitFor(() => expect(h.calls.length).toBe(2)) // look-ahead round
+    await waitFor(() => expect(h.calls.length).toBe(3)) // look-ahead round: two groups side by side
     act(() => { h.result.current.seek(30) })
     await act(async () => { await Promise.resolve() })
-    expect(h.calls.length).toBe(2) // Seeking while paused cannot synthesize.
+    expect(h.calls.length).toBe(3) // Seeking while paused cannot synthesize.
     expect(h.result.current.narration).toEqual({ status: 'idle' })
     expect(h.audio.play).toHaveBeenCalledTimes(1)
     expect(h.result.current.playing).toBe(false)
@@ -547,7 +556,7 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     await act(async () => h.pending[0].resolve())
     act(() => h.audio.dispatchEvent(new Event('playing')))
     expect(h.result.current.playing).toBe(true)
-    await waitFor(() => expect(h.calls.length).toBe(2)) // look-ahead [1, 2]
+    await waitFor(() => expect(h.calls.length).toBe(3)) // look-ahead: paragraphs 1 and 2, side by side
     const pauses = (h.audio.pause as ReturnType<typeof vi.fn>).mock.calls.length
 
     act(() => h.result.current.seekToPlace(3, 0))
@@ -561,10 +570,13 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     act(() => h.audio.dispatchEvent(new Event('ended')))
     expect(h.audio.play).toHaveBeenCalledTimes(1)
     // The look-ahead round answers first, then the target's own round.
-    await act(async () => { await h.answer(h.calls[1], { 1: 1, 2: 1 }) })
-    await waitFor(() => expect(h.calls.length).toBe(3))
-    expect(h.calls[2].indexes).toEqual([3])
-    await act(async () => { await h.answer(h.calls[2], { 3: 1 }) })
+    await act(async () => {
+      await h.answer(h.calls[1], { 1: 1 })
+      await h.answer(h.calls[2], { 2: 1 })
+    })
+    await waitFor(() => expect(h.calls.length).toBe(4))
+    expect(h.calls[3].indexes).toEqual([3])
+    await act(async () => { await h.answer(h.calls[3], { 3: 1 }) })
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(2))
     expect(h.audio.src).toContain('hash-3-0.mp3')
     expect(h.result.current.clipIndex).toBe(h.result.current.clips.findIndex(clip => clip.kind === 'paragraph' && clip.index === 3))
@@ -577,7 +589,7 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     await act(async () => { await h.answer(h.calls[0], { 0: 1 }) })
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
     await act(async () => h.pending[0].resolve())
-    await waitFor(() => expect(h.calls.length).toBe(2))
+    await waitFor(() => expect(h.calls.length).toBe(3))
     // Paragraph 1 is not ready yet; playback reaches it.
     act(() => h.audio.dispatchEvent(new Event('ended')))
     await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 }))
@@ -587,10 +599,10 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     expect(h.result.current.narration).toEqual({ status: 'idle' })
     // Play again: the shell sees a src and resumes; the hook prepares the target instead of replaying chunk 0.
     act(() => { h.result.current.resume() })
-    await waitFor(() => expect(h.calls.length).toBe(3))
+    await waitFor(() => expect(h.calls.length).toBe(4))
     await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 }))
     expect(h.audio.play).toHaveBeenCalledTimes(1)
-    await act(async () => { await h.answer(h.calls[2], { 1: 1, 2: 0 }) })
+    await act(async () => { await h.answer(h.calls[3], { 1: 1, 2: 0 }) })
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(2))
     expect(h.audio.src).toContain('hash-1-0.mp3')
   })
@@ -604,7 +616,7 @@ describe('useLabListen narration pilot (sentence groups)', () => {
       await act(async () => { h.calls[0].reject(new NarrationEnsureError('Too many', 'rate_limited', 429)) })
       await act(async () => { await vi.advanceTimersByTimeAsync(3100) })
       await waitFor(() => expect(h.calls.length).toBe(2))
-      expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 0 })
+      expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 0, waiting: true })
       await act(async () => { await h.answer(h.calls[1], { 0: 1 }) })
       await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
     } finally {
@@ -832,5 +844,110 @@ describe('spoken navigation stays outside reader text', () => {
     expect(h.result.current.playing).toBe(false)
     expect(h.result.current.clips).toHaveLength(0)
     h.unmount()
+  })
+})
+
+describe('cold chapter: narration still being made', () => {
+  /** Answer every call so far that is still open with "nothing ready yet, ask again in 1 s". */
+  const answerPending = async (h: ReturnType<typeof harness>, from: number) => {
+    for (const call of h.calls.slice(from)) call.resolve([{ ...(await state(0, 0)), retryAfterMs: 1000 }])
+    return h.calls.length
+  }
+
+  it('keeps waiting with back-off past the old three polls and starts once the first group lands', async () => {
+    funnel.track.mockClear()
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      const h = harness()
+      await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+      await waitFor(() => expect(h.calls.length).toBe(1))
+      let answered = 0
+      // ~20 s of "pending": six answers, well beyond the previous three-poll limit.
+      for (let poll = 0; poll < 6; poll += 1) {
+        await act(async () => { answered = await answerPending(h, answered) })
+        await act(async () => { await vi.advanceTimersByTimeAsync(5_100) })
+        await waitFor(() => expect(h.calls.length).toBe(answered + 1))
+        expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 0, waiting: true })
+      }
+      await act(async () => { await h.answer(last(h), { 0: 1 }) })
+      await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+      expect(h.result.current.narration).toEqual({ status: 'idle' })
+      expect(funnel.track).not.toHaveBeenCalledWith('audio_failed', expect.anything())
+      const slow = funnel.track.mock.calls.find(call => call[0] === 'audio_slow_start')
+      expect(slow?.[1]).toEqual({ seconds: expect.any(Number), outcome: 'started' })
+      expect(slow![1].seconds).toBeGreaterThanOrEqual(15)
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('keeps waiting through repeated rate limits', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      const h = harness()
+      await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+      for (let poll = 0; poll < 5; poll += 1) {
+        await waitFor(() => expect(h.calls.length).toBe(poll + 1))
+        await act(async () => { h.calls[poll].reject(new NarrationEnsureError('Too many', 'rate_limited', 429)) })
+        await act(async () => { await vi.advanceTimersByTimeAsync(5_100) })
+      }
+      await waitFor(() => expect(h.calls.length).toBe(6))
+      expect(h.result.current.narration.status).toBe('loading')
+      await act(async () => { await h.answer(h.calls[5], { 0: 1 }) })
+      await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('gives up with a retryable error only after the ceiling', async () => {
+    funnel.track.mockClear()
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      const h = harness()
+      await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+      await waitFor(() => expect(h.calls.length).toBe(1))
+      const started = Date.now()
+      let answered = 0
+      while (h.result.current.narration.status === 'loading' && Date.now() - started < 120_000) {
+        await act(async () => { answered = await answerPending(h, answered) })
+        await act(async () => { await vi.advanceTimersByTimeAsync(1_000) })
+      }
+      const waited = Date.now() - started
+      expect(h.result.current.narration).toMatchObject({ status: 'error', reason: 'pending' })
+      expect(waited).toBeGreaterThanOrEqual(NARRATION_PREPARE_CEILING_MS - 6_000)
+      expect(waited).toBeLessThanOrEqual(NARRATION_PREPARE_CEILING_MS + 2_000)
+      expect(h.result.current.pending).toBe(false)
+      expect(h.audio.play).not.toHaveBeenCalled()
+      expect(funnel.track).toHaveBeenCalledWith('audio_failed', expect.objectContaining({ reason: 'pending' }))
+      expect(funnel.track).toHaveBeenCalledWith('audio_slow_start', { seconds: expect.any(Number), outcome: 'failed' })
+      // Retry asks again.
+      const before = h.calls.length
+      act(() => h.result.current.retryNarration())
+      await waitFor(() => expect(h.calls.length).toBe(before + 1))
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('cancel while preparing stops polling and never starts late', async () => {
+    funnel.track.mockClear()
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      const h = harness()
+      await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+      await waitFor(() => expect(h.calls.length).toBe(1))
+      await act(async () => { await answerPending(h, 0) })
+      await waitFor(() => expect(h.result.current.narration).toMatchObject({ status: 'loading', waiting: true }))
+      act(() => h.result.current.pause())
+      expect(h.result.current.narration).toEqual({ status: 'idle' })
+      expect(h.result.current.pending).toBe(false)
+      await act(async () => { await vi.advanceTimersByTimeAsync(30_000) })
+      expect(h.calls.length).toBe(1)
+      expect(h.audio.play).not.toHaveBeenCalled()
+      expect(funnel.track).not.toHaveBeenCalledWith('audio_failed', expect.anything())
+    } finally {
+      vi.useRealTimers()
+    }
   })
 })

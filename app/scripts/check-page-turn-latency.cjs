@@ -1,10 +1,11 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Run from app/: TEST_ORIGIN=http://127.0.0.1:5191 node scripts/check-page-turn-latency.cjs
 const { chromium } = require('playwright')
 const assert = require('node:assert/strict')
 const fs = require('node:fs')
 
 async function main() {
-  const browser = await chromium.launch()
+  const browser = await markInternal(await chromium.launch())
   try {
     const page = await browser.newPage({serviceWorkers:'block', viewport: { width: 390, height: 664 } })
     await page.goto(`${process.env.TEST_ORIGIN || 'http://127.0.0.1:5191'}/lab/?book=the-republic&view=book-detail`, { waitUntil: 'networkidle' })

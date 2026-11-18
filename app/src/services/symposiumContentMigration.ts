@@ -1,9 +1,13 @@
 import type { StorageProvider } from './storage'
-import mapData from '../data/symposiumCoordinateMap.json'
-import { projectEditionCoordinate, projectExactEditionRange, type CoordinateMigration } from '../data/editionCoordinateMigration'
-import { CONTENT_RELEASES, writtenBeforeRelease } from '../data/editionContentRevisions'
+import { projectEditionCoordinate, projectExactEditionRange } from '../data/editionCoordinateMigration'
+import { CONTENT_RELEASES, loadCoordinateMigration, loadedCoordinateMigration, writtenBeforeRelease } from '../data/editionContentRevisions'
 
-const map = mapData as unknown as CoordinateMigration
+/** The map, once loaded (editionContentRevisions keeps it; it is its own bundle). */
+const loadedMap = () => loadedCoordinateMigration('positions', 'symposium')
+/** Load the map for the legacy keys; the read that asked runs again once it is in. */
+export function loadLegacySymposiumMap(): Promise<unknown> {
+  return loadCoordinateMigration('positions', 'symposium')
+}
 type RecordValue = Record<string, any>
 const isObject = (v: unknown): v is RecordValue => !!v && typeof v === 'object' && !Array.isArray(v)
 
@@ -13,6 +17,9 @@ const isObject = (v: unknown): v is RecordValue => !!v && typeof v === 'object' 
  */
 export function migrateSymposiumRecord(value: RecordValue, position = false): RecordValue {
   if (value.bookId !== 'symposium' || value.contentMigrationStatus === 'unresolved') return value
+  const map = loadedMap()
+  // Not loaded yet: the record is kept exactly as it is until it can move.
+  if (!map) return value
   const edition = value.editionKey || value.primaryEditionKey
   if (edition === 'modern-da') return value
   const written = position ? value.updatedAt : value.timestamp
@@ -61,6 +68,12 @@ let migrating = false
  */
 export function prepareLegacySymposiumRead(provider: StorageProvider, key: string): void {
   if (migrating || !/^(position|highlights|notes):symposium(?::|$)/.test(key)) return
+  const map = loadedMap()
+  if (!map) {
+    // Idempotent: the next read of these keys, once the map is in, moves them.
+    void loadLegacySymposiumMap()
+    return
+  }
   migrating = true
   try {
     const position = provider.get<RecordValue>('position:symposium')

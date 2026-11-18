@@ -77,24 +77,16 @@ describe('voice session route (Grok native speech-to-speech)', () => {
     expect(fetchMock).not.toHaveBeenCalled()
   })
 
-  it('mints a lab guest client secret without a session and does not charge', async () => {
-    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
-      if (String(input) === XAI_CLIENT_SECRETS_URL) return Response.json({ value: 'xai-realtime-guest', expires_at: 1_789_740_000 })
-      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
-    })
+  it('gives a signed-out caller no xAI secret: without the guest ceiling it refuses calmly and never contacts xAI', async () => {
+    // Since 16 Oct a guest may try Talk once a day through the relay
+    // (worker.voiceGuestTrial.test.ts); the guest route never mints a secret.
+    const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)
-    const rateLimit = vi.fn(async (key: string) => {
-      expect(key.startsWith('lab-voice:')).toBe(true)
-      return true
-    })
-    const { ctx, waitUntil } = makeExecutionContext()
-
-    const response = await handleLabVoiceSession(voiceRequest(), env, ctx, rateLimit)
-
-    expect(response.status).toBe(200)
-    expect(await response.json()).toEqual({ value: 'xai-realtime-guest', expires_at: 1_789_740_000, model: GROK_VOICE_MODEL })
-    expect(waitUntil).not.toHaveBeenCalled()
-    expect(fetchMock).toHaveBeenCalledTimes(1)
+    vi.spyOn(console, 'log').mockImplementation(() => {})
+    const response = await handleLabVoiceSession(voiceRequest(), { XAI_API_KEY: env.XAI_API_KEY }, async () => true, async () => null)
+    expect(response.status).toBe(503)
+    expect(await response.json()).toEqual({ error: 'AI is resting — try again later.', code: 'ai_resting' })
+    expect(fetchMock).not.toHaveBeenCalled()
   })
 
   it('mints a client secret for a signed-in reader and charges one message', async () => {
@@ -134,8 +126,7 @@ describe('voice session route (Grok native speech-to-speech)', () => {
     expect(await response.json()).toEqual({ value: 'xai-realtime-secret', expires_at: 1_789_740_000, model: GROK_VOICE_MODEL })
     expect(xaiBody).toEqual({ expires_after: { seconds: GROK_CLIENT_SECRET_TTL_SECONDS } })
     expect(xaiAuth).toBe('Bearer xai-test-key')
-    expect(waitUntil).toHaveBeenCalledTimes(1)
-    await Promise.all(pending)
+    await Promise.all(pending) // the message charge plus one ai_usage_events ledger row
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/rest/v1/rpc/use_message'))).toBe(true)
   })
 
@@ -149,17 +140,18 @@ describe('voice session route (Grok native speech-to-speech)', () => {
       return Response.json({ error: 'unexpected fetch' }, { status: 500 })
     }))
     const { ctx } = makeExecutionContext()
-    const response = await handleLabVoiceSession(
+    const response = await handleVoiceSession(
       voiceRequest(JSON.stringify({ model: 'grok-4', voiceTrial: 'full', session: { instructions: 'x' }, expires_after: { seconds: 999999 } })),
-      env,
+      { XAI_API_KEY: env.XAI_API_KEY },
       ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }),
       async () => true,
     )
     expect(response.status).toBe(200)
     expect(xaiBody).toEqual({ expires_after: { seconds: GROK_CLIENT_SECRET_TTL_SECONDS } })
   })
 
-  it('blocks readers without chat access before contacting xAI', async () => {
+  it('opens voice for signed-in readers whose legacy message allowance is spent', async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       if (String(input).includes('/rest/v1/profiles')) {
         return Response.json([{
@@ -170,7 +162,8 @@ describe('voice session route (Grok native speech-to-speech)', () => {
           created_at: '2025-01-01T12:00:00Z',
         }])
       }
-      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+      if (String(input) === XAI_CLIENT_SECRETS_URL) return Response.json({ value: 'client-secret', expires_at: 1 })
+      return Response.json({})
     })
     vi.stubGlobal('fetch', fetchMock)
     const { ctx } = makeExecutionContext()
@@ -181,26 +174,40 @@ describe('voice session route (Grok native speech-to-speech)', () => {
       async () => ({ id: userId, email: 'reader@example.com' }),
       async () => true,
     )
-    expect(response.status).toBe(402)
-    expect(fetchMock.mock.calls.some(call => String(call[0]) === XAI_CLIENT_SECRETS_URL)).toBe(false)
+    // AI_ALLOWANCE_ENFORCED is off while the credit model is designed.
+    expect(response.status).toBe(200)
+    expect(fetchMock.mock.calls.some(call => String(call[0]) === XAI_CLIENT_SECRETS_URL)).toBe(true)
   })
 
-  it('rate limits guests per minute', async () => {
+  it('rate limits signed-in readers per minute', async () => {
     const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)
+    vi.spyOn(console, 'log').mockImplementation(() => {})
     const { ctx } = makeExecutionContext()
-    const response = await handleLabVoiceSession(voiceRequest(), env, ctx, async () => false)
+    const response = await handleVoiceSession(voiceRequest(), { XAI_API_KEY: env.XAI_API_KEY }, ctx, async () => ({ id: userId, email: 'reader@example.com' }), async () => false)
     expect(response.status).toBe(429)
     expect(fetchMock).not.toHaveBeenCalled()
   })
 
-  it('surfaces a provider failure without leaking the key', async () => {
-    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ error: 'Insufficient credits' }, { status: 402 })))
+  it('answers a provider credit or rate limit with the calm resting state and never the key', async () => {
+    vi.spyOn(console, 'log').mockImplementation(() => {})
+    for (const status of [402, 429]) {
+      vi.stubGlobal('fetch', vi.fn(async () => Response.json({ error: 'Insufficient credits' }, { status })))
+      const { ctx } = makeExecutionContext()
+      const response = await handleVoiceSession(voiceRequest(), { XAI_API_KEY: env.XAI_API_KEY }, ctx, async () => ({ id: userId, email: 'reader@example.com' }), async () => true)
+      expect(response.status).toBe(503)
+      const body = await response.json() as { error: string; code: string }
+      expect(body).toEqual({ error: 'AI is resting — try again later.', code: 'ai_resting' })
+      expect(JSON.stringify(body)).not.toContain('xai-test-key')
+    }
+  })
+
+  it('surfaces other provider failures without leaking the key', async () => {
+    vi.spyOn(console, 'log').mockImplementation(() => {})
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ error: 'Bad gateway' }, { status: 502 })))
     const { ctx } = makeExecutionContext()
-    const response = await handleLabVoiceSession(voiceRequest(), env, ctx, async () => true)
-    expect(response.status).toBe(402)
-    const body = await response.json() as { error: string }
-    expect(body.error).toBe('Insufficient credits')
-    expect(JSON.stringify(body)).not.toContain('xai-test-key')
+    const response = await handleVoiceSession(voiceRequest(), { XAI_API_KEY: env.XAI_API_KEY }, ctx, async () => ({ id: userId, email: 'reader@example.com' }), async () => true)
+    expect(response.status).toBe(502)
+    expect(JSON.stringify(await response.json())).not.toContain('xai-test-key')
   })
 })

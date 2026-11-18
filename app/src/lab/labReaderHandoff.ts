@@ -1,16 +1,114 @@
 import { editionHold, isBookTemporarilyHeld } from '../data/editionAvailability'
 import { getBook } from '../data/bookRegistry'
-import { defaultCompareEditionKey } from '../data/editionDefaults'
-import { createReaderHandoffIntent, type ReaderHandoffIntent } from '../preReader/catalogue'
+import { defaultCompareEditionKey, defaultPrimaryEditionKey } from '../data/editionDefaults'
+import { createReaderHandoffIntent, PRE_READER_CATALOGUE, type ReaderHandoffIntent } from '../preReader/catalogue'
+import { clearPendingPurchase, markPendingPurchase, modernReturnFromParams, pendingPurchase, type ModernReturn } from './labModernEditionApi'
 import type { LabPrefs } from './labPrefs'
 import { syncLabAudioEdition } from './labPrefs'
-import type { LabBookPlace } from './labPosition'
+import { libraryResumePlace, resumePlace, type LabBookPlace, type LabPositionState } from './labPosition'
+import { readLabPositionLocal } from './labPositionStore'
 import type { LabSource } from './labSource'
+import { parseSceneHandoff, type SceneHandoff } from './labSceneHandoff'
 
 export const LAB_READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 
 let pageHandoffRead = false
 let pageHandoff: ReaderHandoffIntent | null = null
+let pageSharedLink: { id: string; ref: string } | null = null
+let pageModernReturn: ModernReturn | null = null
+
+let pageDeepLinkView: LabDeepLinkView | null = null
+
+/** A static scene page's hand-over (labSceneHandoff.ts): what to do once the deep-linked chapter is open. */
+export type PageSceneHandoff = SceneHandoff & { bookId: string; chapterNumber: number }
+let pageSceneHandoff: PageSceneHandoff | null = null
+
+/** The scene page hand-over this page was opened with, read with the deep link before the address is cleaned. */
+export function sceneHandoffForPage(): PageSceneHandoff | null {
+  return pageSceneHandoff
+}
+
+/**
+ * The desktop layout a deep link asks for (`view=margin|two-page|compare`): the margin preview's Layout choices
+ * (Anders, 2026-10-20) open the book reader at the same place in the requested layout. Read with the link, once.
+ */
+export type LabDeepLinkView = 'margin' | 'two-page' | 'compare'
+export function deepLinkView(params: URLSearchParams | null): LabDeepLinkView | null {
+  const view = params?.get('view')
+  return view === 'margin' || view === 'two-page' || view === 'compare' ? view : null
+}
+export function deepLinkViewForPage(): LabDeepLinkView | null {
+  return pageDeepLinkView
+}
+
+/** The Checkout return (`?book=…&modern=1|cancel`) this page was opened from, read before the URL is cleaned. */
+export function modernReturnForPage(): ModernReturn | null {
+  return pageModernReturn
+}
+
+/**
+ * The hand-off for a Checkout return: the named book at the reader's latest place in it,
+ * else its first chapter, in its default edition. Null when the book is not registered
+ * (an unknown id opens nothing).
+ */
+export function modernReturnHandoff(bookId: string): ReaderHandoffIntent | null {
+  const book = getBook(bookId)
+  if (!book) return null
+  const primaryEditionKey = defaultPrimaryEditionKey(bookId, book.editions) ?? 'original-en'
+  // The place this device saved in the book (the cloud record still reconciles it once
+  // signed in), like the library's own hand-off; else the first chapter. The Bible's
+  // places are kept per biblical book (genesis, psalms), never under `bible`.
+  const saved = localPlace(bookId)
+  if (saved) {
+    const place = { bookId, chapterNumber: saved.sequentialChapter, paragraphIndex: saved.paragraphIndex, wordIndex: saved.wordIndex, page: saved.pageIndex ?? 0 }
+    const edition = saved.primaryEditionKey && saved.primaryEditionKey !== primaryEditionKey
+      ? createReaderHandoffIntent({ bookId, primaryEditionKey: saved.primaryEditionKey, resumeLatest: true, savedPlace: place })
+      : null
+    return edition ?? createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace: place })
+  }
+  const entry = PRE_READER_CATALOGUE.booksById.get(bookId) as { readingStructure?: { chapters?: Array<{ number?: number }> } } | undefined
+  const first = entry?.readingStructure?.chapters?.[0]?.number
+  const chapterNumber = Number.isInteger(first) && (first as number) >= 1 ? first as number : 1
+  return createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace: { bookId, chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 } })
+}
+
+function localPlace(bookId: string): LabBookPlace | null {
+  try {
+    const place = resumePlaceForLibrary(readLabPositionLocal(), bookId)
+    return place && Number.isInteger(place.sequentialChapter) && place.sequentialChapter >= 1 ? place : null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Where a library book resumes, from a position record: its settled place when
+ * the reader last settled in it, else its newest one. For the Bible that is one
+ * of the per-biblical-book pins, never a stale chapter of another book.
+ */
+export function resumePlaceForLibrary(state: LabPositionState, libraryBookId?: string): LabBookPlace | null {
+  if (!libraryBookId) return resumePlace(state)
+  return libraryResumePlace(state, libraryBookId, bookId => getBook(bookId)?.id)
+}
+
+/**
+ * Where a Checkout return opens: this tab's own hand-off when it names the same book
+ * (it carries the place the reader left from), else the book the return names; a
+ * return that names no registered book leaves the tab's hand-off as it was.
+ * A paid return marks the purchase, so the reader switches to the edition once it is
+ * granted (labModernEdition polls briefly); a cancelled one clears the mark.
+ */
+export function handoffForModernReturn(modernReturn: ModernReturn, stored: ReaderHandoffIntent | null): ReaderHandoffIntent | null {
+  if (modernReturn.kind === 'paid') markPendingPurchase(modernReturn.bookId)
+  else if (pendingPurchase() === modernReturn.bookId) clearPendingPurchase()
+  if (stored?.bookId === modernReturn.bookId) return stored
+  return modernReturnHandoff(modernReturn.bookId) ?? stored
+}
+
+/** The `/q/{id}` link this page was opened from, read before the URL is cleaned. */
+export function sharedLinkForPage(): { id: string; ref: string } | null {
+  return pageSharedLink
+}
 
 type HandoffStorage = Pick<Storage, 'getItem' | 'removeItem'>
 
@@ -41,6 +139,54 @@ export function consumeLabReaderHandoff(storage?: HandoffStorage | null): Reader
   }
 }
 
+/**
+ * Public deep link: `/reader?book=<id>&edition=<key>&chapter=<n>`. The SEO book
+ * and chapter pages ("Start reading in Tinct") use it. A link that names a
+ * chapter opens exactly that chapter (paragraph 0) in that edition, even if
+ * the reader has a saved place in the same book. A link without a chapter
+ * (`/reader?book=<id>`, the lifecycle emails' "keep reading") opens that book
+ * at the reader's latest place in it, else its first chapter, so the reader's
+ * own saved position is never overridden; before, it opened whatever book was
+ * read last, or the Bible (QA 2026-10-09). For the Bible that place is one of
+ * its per-biblical-book pins (`resumePlaceForLibrary`); `book=bible` opened
+ * Genesis 1 at its start and wrote that over the reader's place (QA 2026-10-14). Book and edition are validated against the registry, and an
+ * unknown book yields null (the normal reader entry); an unavailable edition falls back to original-en.
+ * A link without an edition opens the new-reader default: the default edition
+ * with its default Compare edition beside it.
+ */
+export function readerHandoffFromUrlParams(params: URLSearchParams | null): ReaderHandoffIntent | null {
+  const bookId = params?.get('book')
+  const chapterText = params?.get('chapter')
+  if (!params || !bookId) return null
+  if (chapterText === null) return params.has('modern') ? null : modernReturnHandoff(bookId)
+  if (!/^\d{1,5}$/.test(chapterText)) return null
+  const chapterNumber = Number(chapterText)
+  if (chapterNumber < 1 || !getBook(bookId)) return null
+  // A shared highlight (/q/{id}) opens at its passage, not the chapter top.
+  const at = (key: string) => {
+    const text = params.get(key)
+    return text && /^\d{1,6}$/.test(text) ? Number(text) : 0
+  }
+  const savedPlace = { bookId, chapterNumber, paragraphIndex: at('paragraph'), wordIndex: at('word'), page: 0 }
+  // `compare` (the margin preview's Two-page and Compare, 2026-10-20): the reader's compare edition kept beside it.
+  const compareKey = params.get('compare')
+  const open = (primaryEditionKey: string) => (compareKey && compareKey !== primaryEditionKey
+    ? createReaderHandoffIntent({ bookId, primaryEditionKey, compareEditionKey: compareKey, savedPlace, startAtSavedPlace: true })
+    : null) ?? createReaderHandoffIntent({ bookId, primaryEditionKey, savedPlace, startAtSavedPlace: true })
+  const named = params.get('edition')
+  if (!named) {
+    const book = getBook(bookId)!
+    const primary = defaultPrimaryEditionKey(bookId, book.editions)
+    const compare = primary ? defaultCompareEditionKey(bookId, book.editions, primary, book.year) : undefined
+    const paired = primary && compare
+      ? createReaderHandoffIntent({ bookId, primaryEditionKey: primary, compareEditionKey: compare, savedPlace, startAtSavedPlace: true })
+      : null
+    return paired ?? (primary ? open(primary) : null) ?? open('original-en')
+  }
+  // An edition the book lacks or withholds keeps the chapter in the default edition.
+  return open(named) ?? (named === 'original-en' ? null : open('original-en'))
+}
+
 /** React StrictMode may evaluate component initializers twice; consume storage once per document. */
 export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
   if (!pageHandoffRead) {
@@ -52,18 +198,53 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
       const value = Number(params?.get(key))
       return Number.isSafeInteger(value) && value >= fallback ? value : fallback
     }
+    pageModernReturn = heldBook ? null : modernReturnFromParams(params)
     pageHandoff = heldBook && (isBookTemporarilyHeld(heldBook) || editionHold(heldBook, heldEdition))
       ? createReaderHandoffIntent({ bookId: heldBook, primaryEditionKey: heldEdition,
           savedPlace: { bookId: heldBook, chapterNumber: positive('chapter', 1), paragraphIndex: positive('paragraph', 0), wordIndex: positive('word', 0), page: 0 } })
-      : consumeLabReaderHandoff()
+      : pageModernReturn
+        ? handoffForModernReturn(pageModernReturn, consumeLabReaderHandoff())
+        : consumeLabReaderHandoff() ?? readerHandoffFromUrlParams(params)
+    if (pageModernReturn && params) forgetParams(params, ['book', 'modern', 'session_id'])
+    const shareId = params?.get('share')
+    if (pageHandoff && shareId && /^[a-hj-km-np-z2-9]{7}$/.test(shareId)) pageSharedLink = { id: shareId, ref: (params?.get('ref') || '').slice(0, 80) }
+    pageDeepLinkView = pageHandoff && params?.has('chapter') ? deepLinkView(params) : null
+    // A scene page's action rides on its deep link only: the hash names what to do, the link where.
+    const sceneHash = typeof window === 'undefined' ? null : parseSceneHandoff(window.location.hash)
+    pageSceneHandoff = sceneHash && !heldBook && pageHandoff && params?.has('chapter') && pageHandoff.bookId === params.get('book')
+      && pageHandoff.savedPlace?.chapterNumber === Number(params.get('chapter'))
+      ? { ...sceneHash, bookId: pageHandoff.bookId, chapterNumber: pageHandoff.savedPlace.chapterNumber }
+      : null
+    if (!heldBook && pageHandoff && params?.has('chapter') && readerHandoffFromUrlParams(params)) forgetDeepLinkParams(params)
   }
   return pageHandoff
+}
+
+/**
+ * A deep link opens its chapter once. Leaving `chapter` in the address made a
+ * later reload jump back to it and overwrite the reader's place (QA
+ * 2026-10-01), so the link's own parameters leave the URL once read.
+ */
+function forgetDeepLinkParams(params: URLSearchParams): void {
+  forgetParams(params, ['book', 'edition', 'chapter', 'paragraph', 'word', 'share', 'ref', 'compare', 'view'])
+}
+
+function forgetParams(params: URLSearchParams, keys: string[]): void {
+  try {
+    const rest = new URLSearchParams(params)
+    for (const key of keys) rest.delete(key)
+    const query = rest.toString()
+    // A scene page's hand-over (#scene=…) is read once with the link and leaves with it, so a reload never repeats it.
+    const hash = parseSceneHandoff(window.location.hash) ? '' : window.location.hash
+    window.history.replaceState(window.history.state, '', window.location.pathname + (query ? `?${query}` : '') + hash)
+  } catch { /* the place still opens; only a reload would differ */ }
 }
 
 export function releaseLabReaderHandoffForPage(handoff: ReaderHandoffIntent | null): void {
   if (pageHandoff === handoff) {
     pageHandoff = null
     pageHandoffRead = false
+    pageSceneHandoff = null
   }
 }
 
@@ -77,17 +258,24 @@ export function prefsFromLabReaderHandoff(current: LabPrefs, handoff: ReaderHand
     || savedOverride
     || (primary.hasAudio ? primary.key : book.editions.find(edition => edition.hasAudio)?.key)
     || primary.key
-  const compare = handoff.compareEditionKey
-    || defaultCompareEditionKey(book.id, book.editions, primary.key, book.year)
-    || primary.key
+  const pairedDefault = defaultCompareEditionKey(book.id, book.editions, primary.key, book.year)
+  const compare = handoff.compareEditionKey || pairedDefault || primary.key
+  // Compare is on by default for every entry point (Anders, 2026-10-06). An
+  // explicit pick in the handoff (an edition, or None) is the reader's new
+  // choice; otherwise a reader's earlier choice of None still holds.
+  const compareOpen = handoff.compareChosen
+    ? Boolean(handoff.compareEditionKey)
+    : current.compareChosen
+      ? current.compareOpen && compare !== primary.key
+      : compare !== primary.key
   return {
     ...current,
     primaryEdition: primary.key,
     compareEdition: compare,
     audioEdition: audio,
     audioFollowsPrimary: handoff.audioEditionKey ? handoff.audioEditionKey === primary.key : !savedOverride,
-    // A library entry can omit a pair without withdrawing the reader’s preference.
-    compareOpen: Boolean(handoff.compareEditionKey) || current.compareOpen,
+    compareOpen,
+    ...(handoff.compareChosen || current.compareChosen ? { compareChosen: true } : {}),
   }
 }
 
@@ -101,6 +289,17 @@ export function prefsFromLabResumePlace(current: LabPrefs, place: LabBookPlace |
   const compare = place.compareEditionKey
     ? book.editions.find(edition => edition.key === place.compareEditionKey && edition.key !== primary.key)
     : undefined
+  if (!current.compareChosen) {
+    // Compare is on by default (Anders, 2026-10-06): this book's pair, else
+    // its paired default. A book with one edition has nothing to compare.
+    const paired = compare?.key ?? defaultCompareEditionKey(book.id, book.editions, primary.key, book.year)
+    return syncLabAudioEdition({
+      ...current,
+      primaryEdition: primary.key,
+      compareEdition: paired ?? current.compareEdition,
+      compareOpen: Boolean(paired),
+    }, book.editions)
+  }
   return syncLabAudioEdition({
     ...current,
     primaryEdition: primary.key,

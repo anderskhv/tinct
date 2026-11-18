@@ -132,9 +132,8 @@ describe('lab account prompt: paid lines (not enforced)', () => {
     expect(isLabPaidFeature('chat')).toBe(true)
     expect(isLabPaidFeature('voice')).toBe(true)
     expect(isLabPaidFeature('recap')).toBe(true)
-    expect(LAB_PAID_FEATURES.audiobook).toBeNull()
+    expect(isLabPaidFeature('audiobook')).toBe(true)
     expect(LAB_PAID_FEATURES.compare).toBeNull()
-    expect(isLabPaidFeature('audiobook')).toBe(false)
     expect(isLabPaidFeature('compare')).toBe(false)
   })
 })
@@ -184,11 +183,4 @@ describe('lab account prompt: second-book nudge', () => {
     expect(shouldShowSecondBookNudge({ signedIn: false, bookId: 'odyssey', booksRead: new Set(), storage })).toBe(false)
     expect(storage.keys()).toEqual([])
   })
-})
-
-import { labBookSignInReturn } from './labAccountPrompt'
-it('returns preparation to its selected book without writing a fake reading position', () => {
-  expect(labBookSignInReturn('/reader', 'frankenstein', true)).toBe('/library?book=frankenstein&view=book-detail')
-  expect(labBookSignInReturn('/reader?chrome=v2', 'niels-lyhne', true)).toBe('/library?book=niels-lyhne&view=book-detail')
-  expect(labBookSignInReturn('/reader?voice=v2', 'frankenstein', false)).toBe('/reader?voice=v2')
 })

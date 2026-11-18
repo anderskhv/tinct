@@ -79,3 +79,38 @@ if (leaks.length) {
 }
 
 console.log(`✓ bundle ${bundle} contains all expected env vars and no leaked secrets`)
+
+// Every module a served /lab/*.js or /assets/*.js imports must be in dist, and
+// every cache tag on a built /lab entry must match its content (2026-10-15:
+// a stale /lab/library-add.js imported chunks the deploy had removed).
+const { checkDist } = require('./check-lab-bundle.cjs')
+const labProblems = checkDist(path.join(__dirname, '..', 'dist'), path.join(__dirname, '..', 'public'))
+if (labProblems.length) {
+  console.error('\n✗ LAB BUNDLE CHECK FAILED:')
+  for (const line of labProblems) console.error('  •', line)
+  console.error('\nRe-run `npm run build` (it stamps the /lab entry tags). Do NOT deploy.\n')
+  process.exit(1)
+}
+console.log('✓ lab bundle: every import exists and every entry tag matches its content')
+
+// Add a book's `?v=__TINCT_BUILD__` (public/lab/addbook) is replaced with the
+// build's bundle hash by scripts/stamp-lab-entry-tags.cjs; one left in dist
+// would be served as a tag that never changes, so the day cache would not bust.
+const { BUILD_PLACEHOLDER } = require('./stamp-lab-entry-tags.cjs')
+const distDir = path.join(__dirname, '..', 'dist')
+const unstamped = []
+const scan = rel => {
+  for (const entry of fs.readdirSync(path.join(distDir, rel), { withFileTypes: true })) {
+    const name = rel ? `${rel}/${entry.name}` : entry.name
+    if (entry.isDirectory()) scan(name)
+    else if (/\.(?:html|js|mjs|css)$/.test(name) && fs.readFileSync(path.join(distDir, name), 'utf8').includes(BUILD_PLACEHOLDER)) unstamped.push(name)
+  }
+}
+scan('')
+if (unstamped.length) {
+  console.error(`\n✗ BUILD STAMP MISSING: ${BUILD_PLACEHOLDER} left in ${unstamped.length} dist file(s):`)
+  for (const name of unstamped.slice(0, 20)) console.error('  •', name)
+  console.error('\nRe-run `npm run build` (scripts/stamp-lab-entry-tags.cjs stamps it). Do NOT deploy.\n')
+  process.exit(1)
+}
+console.log(`✓ build stamp: no ${BUILD_PLACEHOLDER} left in dist`)

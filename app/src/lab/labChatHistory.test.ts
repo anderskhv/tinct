@@ -4,6 +4,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { ChatConversation, ChatMessage } from '../types'
 import {
   appendLabChatTurn,
+  appendLabChatTurnTo,
   createLabChatCloudWriter,
   labChatHistoryKey,
   legacyLabBookToRegistryId,
@@ -77,6 +78,15 @@ function fakeCloud(initial: ChatConversation[] | null = null) {
 }
 
 describe('lab chat history: one row per book, shared with the classic reader', () => {
+  it('appends a private Talk turn to a caller-owned list without touching the global hash-only device key', () => {
+    const input: ChatConversation[] = []
+    const first = appendLabChatTurnTo(input, 'userbook-abcdef1234567890', message({ id: 'private-u', content: 'About this PDF page' }), 1)
+    const second = appendLabChatTurnTo(first, 'userbook-abcdef1234567890', message({ id: 'private-a', role: 'assistant', content: 'The page explains the figure.', timestamp: 1_777_300_000_001 }), 1)
+    expect(input).toEqual([])
+    expect(second[0].messages.map(turn => turn.id)).toEqual(['private-u', 'private-a'])
+    expect(second[0].messages.every(turn => turn.bookId === 'userbook-abcdef1234567890')).toBe(true)
+    expect(localStorage.length).toBe(0)
+  })
   it('writes and reads the classic key and shape', () => {
     appendLabChatTurn('odyssey', message({ id: 'u1' }), 3, 2)
     appendLabChatTurn('odyssey', message({ id: 'a1', role: 'assistant', content: 'Homer keeps Odysseus offstage for four books.', timestamp: 1_777_300_000_100 }), 3, 2)
@@ -403,5 +413,17 @@ describe('chat refresh races', () => {
     await pending
     expect(readLabBookChat('bible')).toEqual([])
     expect(cloud.commit).not.toHaveBeenCalled()
+  })
+})
+
+describe('shown explanation flag', () => {
+  afterEach(() => localStorage.clear())
+  it('is stored with the turn and read back; anything but true is dropped', () => {
+    appendLabChatTurn('bible', { id: 'e1', role: 'user', content: 'Explain this passage.', highlightedText: 'In the beginning', timestamp: 1_000, shownExplanation: true }, 1)
+    appendLabChatTurn('bible', { id: 'e2', role: 'assistant', content: 'A quick note.', timestamp: 1_001, shownExplanation: true }, 1)
+    appendLabChatTurn('bible', { id: 'q1', role: 'user', content: 'Why?', timestamp: 1_002, shownExplanation: 'yes' as unknown as boolean }, 1)
+    const stored = readLabBookChat('bible')
+    expect(stored.flatMap(conversation => conversation.messages).map(message => [message.id, message.shownExplanation])).toEqual([['e1', true], ['e2', true], ['q1', undefined]])
+    expect(turnsFromConversations(stored).map(turn => turn.shownExplanation)).toEqual([true, true, undefined])
   })
 })

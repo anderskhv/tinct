@@ -1,7 +1,7 @@
 // Reviewed prose handoff, 29 September 2026. Keep source wording exact.
 // Chapter-aware reader character stores remain separate from this library gallery.
 export const reviewedHooks = {
-  "frankenstein": "What happens when we create a new intelligence but refuse to recognise and honor its personhood?",
+  "frankenstein": "What do we owe to the intelligence we create?",
   "pride-and-prejudice": "What if you're wrong about the person you can't stand?",
   "odyssey": "Would you refuse to become a god?",
   "crime-and-punishment": "Can you circumvent the moral order?",
@@ -11,7 +11,7 @@ export const reviewedHooks = {
   "candide": "Do we live in the best possible world?",
   "julius-caesar": "Would you kill a friend to save your country?",
   "jane-eyre": "What would you refuse to give up, even for love?",
-  "bible": "The book of books. The stories behind the world you know.",
+  "bible": "The book of books.",
   "to-the-lighthouse": "What would you give to have one ordinary day back?",
   "ulysses": "What if your ordinary day were an epic?",
   "war-and-peace": "How much of your life is really yours to decide?",
@@ -101,12 +101,21 @@ export const reviewedHooks = {
   "hume-enquiry": "What makes you so sure tomorrow will resemble today?",
   "kant-groundwork": "Would your reasons still make sense if everyone acted on them?",
   "wealth-of-nations": "How much do you owe the strangers whose work keeps you alive?",
-  "frederick-douglass": "What does it take to reclaim a life someone else claims to own?"
+  "frederick-douglass": "What does it take to reclaim a life someone else claims to own?",
+  // Release packages accepted 2026-10-02 (books/wip/<id>/release/reviewedHooks-entry.txt).
+  "alice-in-wonderland": "How do you make sense of a world that keeps changing the rules?",
+  "wuthering-heights": "What does a family pass on besides its name?",
+  "middlemarch": "What happens when a good intention meets another person’s life?",
+  "sense-and-sensibility": "How much can you know about a feeling someone chooses not to show?",
+  // Content package accepted 2026-11-05 (books/wip/master-and-margarita/package/intro-data).
+  "master-and-margarita": "What would the devil find if he came to Moscow to see how people live?",
+  // Content package accepted 2026-11-10 (books/wip/pinocchio/package/intro-data).
+  "pinocchio": "What does it take for a puppet who keeps running away to find his way home?"
 };
 const pending = new Map();
 export async function loadReviewedIntroduction(book) {
   if (!Object.hasOwn(reviewedHooks, book.id)) return false;
-  if (!pending.has(book.id)) pending.set(book.id, fetch('/lab/library_2/intro-data/' + encodeURIComponent(book.id) + '.json?v=20260929complete')
+  if (!pending.has(book.id)) pending.set(book.id, fetch('/lab/library_2/intro-data/' + encodeURIComponent(book.id) + '.json?v=20261112onesentence')
     .then(response => { if (!response.ok) throw new Error('Introduction unavailable'); return response.json(); })
     .catch(error => { pending.delete(book.id); throw error; }));
   applyReviewedIntroduction(book, await pending.get(book.id));

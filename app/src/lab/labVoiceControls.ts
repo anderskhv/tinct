@@ -251,11 +251,9 @@ export interface LabVoiceViewSnapshot {
   view: VoiceTinctView
   phoneAskOpen: boolean
   desktopAskOpen: boolean
-  gearOpen: boolean
   tocOpen: boolean
   inTheBookOpen: boolean
   peekBook: boolean
-  settingsSection: 'reading' | 'layout'
 }
 
 export function labVoiceActionEntry(

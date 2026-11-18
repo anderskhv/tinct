@@ -1,0 +1,188 @@
+import { createRequire } from 'node:module'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+vi.mock('cloudflare:workers', () => ({
+  DurableObject: class {
+    ctx: any; env: any
+    constructor(ctx: any, env: any) { this.ctx = ctx; this.env = env }
+  },
+}))
+import { UsageCoordinator } from './usageCoordinator'
+import { createRateLimiter, RateLimitUnavailableError } from './lib/rateLimit'
+import { aiSpendSurface, createGuestSpendHolder, createGuestSpendReserver, estimateAiCostMicros, guestAiDailyMicros, guestSpendBudgetName, releaseGuestSpend } from './lib/aiSpend'
+
+const { DatabaseSync } = createRequire(import.meta.url)('node:sqlite') as { DatabaseSync: new (path: string) => any }
+
+/** Real SQLite behind the Durable Object SQL surface the coordinator uses. */
+function storage() {
+  const db = new DatabaseSync(':memory:')
+  let alarm: number | null = null
+  const exec = (query: string, ...bindings: unknown[]) => {
+    const rows = /^\s*SELECT/i.test(query) ? db.prepare(query).all(...bindings) : (db.prepare(query).run(...bindings), [])
+    return { toArray: () => rows, one: () => rows[0] }
+  }
+  return {
+    sql: { exec },
+    transactionSync<T>(fn: () => T): T {
+      db.exec('BEGIN')
+      try { const value = fn(); db.exec('COMMIT'); return value } catch (error) { db.exec('ROLLBACK'); throw error }
+    },
+    getAlarm: async () => alarm,
+    setAlarm: async (value: number) => { alarm = value },
+    deleteAll: async () => { db.exec('DROP TABLE IF EXISTS request_window'); db.exec('DROP TABLE IF EXISTS spend'); alarm = null },
+    get alarm() { return alarm },
+  }
+}
+
+function coordinator(store = storage()) {
+  return new UsageCoordinator({ storage: store } as unknown as DurableObjectState, {})
+}
+
+describe('usage coordinator', () => {
+  beforeEach(() => { vi.useFakeTimers(); vi.setSystemTime(new Date('2026-09-30T12:00:00Z')) })
+  afterEach(() => vi.useRealTimers())
+
+  it('counts concurrent requests atomically within one window', async () => {
+    const c = coordinator()
+    const results = await Promise.all(Array.from({ length: 8 }, () => c.hit(5, 60_000)))
+    expect(results.filter(Boolean)).toHaveLength(5)
+    vi.advanceTimersByTime(60_000)
+    expect(await c.hit(5, 60_000)).toBe(true)
+  })
+
+  it('reserves against a daily limit and never over-commits', () => {
+    const c = coordinator()
+    expect(c.reserve('2026-09-30', 600, 1_000)).toBe(true)
+    expect(c.reserve('2026-09-30', 600, 1_000)).toBe(false)
+    expect(c.reserve('2026-09-30', 400, 1_000)).toBe(true)
+    expect(c.reserve('2026-10-01', 600, 1_000)).toBe(true)
+    expect(c.reserve('not-a-day', 1, 1_000)).toBe(false)
+    expect(c.usage()).toEqual([{ day: '2026-09-30', units: 1_000 }, { day: '2026-10-01', units: 600 }])
+  })
+
+  it('gives back a released reservation on its own day, never below zero', () => {
+    const c = coordinator()
+    expect(c.reserve('2026-09-30', 600, 1_000)).toBe(true)
+    expect(c.reserve('2026-09-30', 600, 1_000)).toBe(false)
+    c.release('2026-09-30', 600)
+    expect(c.reserve('2026-09-30', 600, 1_000)).toBe(true)
+    c.release('2026-09-30', 5_000)
+    c.release('2026-10-01', 10)
+    c.release('not-a-day', 10)
+    expect(c.usage()).toEqual([{ day: '2026-09-30', units: 0 }])
+  })
+
+  it('clears an idle request window', async () => {
+    const store = storage()
+    const c = coordinator(store)
+    await c.hit(1, 60_000)
+    expect(store.alarm).toBe(Date.now() + 120_000)
+    vi.advanceTimersByTime(120_000)
+    await c.alarm()
+    expect(await coordinator(store).hit(1, 60_000)).toBe(true)
+  })
+
+  it('keeps counting on the same instance after an idle window is cleared', async () => {
+    const c = coordinator()
+    expect(await c.hit(1, 60_000)).toBe(true)
+    vi.advanceTimersByTime(120_000)
+    await c.alarm()
+    expect(await c.hit(1, 60_000)).toBe(true)
+    expect(await c.hit(1, 60_000)).toBe(false)
+    expect(c.reserve('2026-09-30', 1, 10)).toBe(true)
+  })
+})
+
+describe('rate limiter and ceiling fail closed', () => {
+  it('distinguishes unavailability only for opted-in callers and never retries a hit', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    await expect(createRateLimiter({}, { throwOnUnavailable: true })('private-key')).rejects.toBeInstanceOf(RateLimitUnavailableError)
+    const hit = vi.fn().mockRejectedValue('private backend detail')
+    const env = { USAGE_COORDINATOR: { getByName: () => ({ hit }) } as any }
+    await expect(createRateLimiter(env, { throwOnUnavailable: true })('private-key')).rejects.toBeInstanceOf(RateLimitUnavailableError)
+    expect(hit).toHaveBeenCalledTimes(1)
+    expect(JSON.stringify(warn.mock.calls)).not.toContain('private')
+    hit.mockResolvedValue(false)
+    await expect(createRateLimiter(env, { throwOnUnavailable: true })('private-key')).resolves.toBe(false)
+    warn.mockRestore()
+  })
+
+  it('refuses without a binding or when the coordinator fails', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    expect(await createRateLimiter({})('chat:x')).toBe(false)
+    const broken = { getByName: () => ({ hit: async () => { throw new Error('down') } }) }
+    expect(await createRateLimiter({ USAGE_COORDINATOR: broken as any })('chat:x')).toBe(false)
+    expect(await createGuestSpendReserver({})(100)).toBe(false)
+    warn.mockRestore()
+  })
+
+  it('routes each key and budget to its own coordinator', async () => {
+    const names: string[] = []
+    const hit = vi.fn(async () => true)
+    const reserve = vi.fn(async () => true)
+    const namespace = { getByName: (name: string) => { names.push(name); return { hit, reserve } } }
+    expect(await createRateLimiter({ USAGE_COORDINATOR: namespace as any })('lab-chat:1.2.3.4', undefined, 6)).toBe(true)
+    expect(hit).toHaveBeenCalledWith(6, 60_000)
+    const reserver = createGuestSpendReserver({ USAGE_COORDINATOR: namespace as any, GUEST_AI_DAILY_CENTS: '250' }, () => Date.parse('2026-09-30T23:00:00Z'))
+    expect(await reserver(1234.2)).toBe(true)
+    expect(reserve).toHaveBeenCalledWith('2026-09-30', 1235, 2_500_000)
+    expect(names).toEqual(['rl:lab-chat:1.2.3.4', 'spend:guest-ai:2026-09'])
+  })
+
+  it('a guest spend hold releases the units it reserved, on the day it reserved them', async () => {
+    let at = Date.parse('2026-09-30T23:59:59.900Z')
+    const c = coordinator()
+    const names: string[] = []
+    const namespace = { getByName: (name: string) => { names.push(name); return c } }
+    const hold = createGuestSpendHolder({ USAGE_COORDINATOR: namespace as any, GUEST_AI_DAILY_CENTS: '1' }, () => at)
+    const held = await hold(6_000.4)
+    expect(held).not.toBeNull()
+    expect(await hold(6_000)).toBeNull()
+    at = Date.parse('2026-10-01T00:00:00.100Z')
+    await held!.release()
+    expect(c.usage()).toEqual([{ day: '2026-09-30', units: 0 }])
+    expect(names).toEqual(['spend:guest-ai:2026-09', 'spend:guest-ai:2026-09', 'spend:guest-ai:2026-09'])
+    expect(await createGuestSpendHolder({})(100)).toBeNull()
+  })
+
+  it('defaults the ceiling and estimates cost from characters and output bound', () => {
+    expect(guestAiDailyMicros({})).toBe(5_000_000)
+    expect(guestAiDailyMicros({ GUEST_AI_DAILY_CENTS: 'nope' })).toBe(5_000_000)
+    expect(estimateAiCostMicros({ inputChars: 4_000, maxTokens: 100 })).toBe(1_000 * 3 + 100 * 15)
+    expect(estimateAiCostMicros({ inputChars: 4_000, maxTokens: 100, tools: true })).toBe(1_500 * 3 + 100 * 15)
+  })
+
+  it('the /try page draws on its own day, apart from the guest ceiling (docs/try-page/BRIEF.md)', async () => {
+    const rows = new Map<string, ReturnType<typeof coordinator>>()
+    const names: string[] = []
+    const namespace = { getByName: (name: string) => { names.push(name); if (!rows.has(name)) rows.set(name, coordinator()); return rows.get(name)! } }
+    const at = () => Date.parse('2026-11-18T12:00:00Z')
+    // A try day of 1 cent (10,000 micro-dollars): spent out, the guest budget is untouched and still answers.
+    const tryHold = createGuestSpendHolder({ USAGE_COORDINATOR: namespace as any, TRY_AI_DAILY_CENTS: '1', GUEST_AI_DAILY_CENTS: '1' }, at, 'try')
+    const guestHold = createGuestSpendHolder({ USAGE_COORDINATOR: namespace as any, TRY_AI_DAILY_CENTS: '1', GUEST_AI_DAILY_CENTS: '1' }, at)
+    expect(await tryHold(10_000)).not.toBeNull()
+    expect(await tryHold(1)).toBeNull()
+    expect(await guestHold(10_000)).not.toBeNull()
+    expect(names).toEqual(['spend:try-ai:2026-11', 'spend:try-ai:2026-11', 'spend:guest-ai:2026-11'])
+    // Releasing a try reservation gives it back to the try day only.
+    await releaseGuestSpend({ USAGE_COORDINATOR: namespace as any }, '2026-11-18', 10_000, 'try')
+    expect(names.at(-1)).toBe('spend:try-ai:2026-11')
+    expect(await tryHold(10_000)).not.toBeNull()
+    expect(guestSpendBudgetName('2026-11-18')).toBe('spend:guest-ai:2026-11')
+    expect(guestSpendBudgetName('2026-11-18', 'try')).toBe('spend:try-ai:2026-11')
+  })
+
+  it('a zero try day refuses at once; the default is $3', async () => {
+    const reserve = vi.fn(async (_day: string, units: number, limit: number) => units <= limit)
+    const namespace = { getByName: () => ({ reserve }) }
+    expect(await createGuestSpendReserver({ USAGE_COORDINATOR: namespace as any, TRY_AI_DAILY_CENTS: '0' }, Date.now, 'try')(1)).toBe(false)
+    expect(guestAiDailyMicros({}, 'try')).toBe(3_000_000)
+    expect(guestAiDailyMicros({ TRY_AI_DAILY_CENTS: '120' }, 'try')).toBe(1_200_000)
+    expect(guestAiDailyMicros({ TRY_AI_DAILY_CENTS: '120' })).toBe(5_000_000)
+  })
+
+  it('only the try header picks the try budget', () => {
+    expect(aiSpendSurface(new Request('https://tinct.app/api/lab-chat', { headers: { 'X-Tinct-Surface': 'try' } }))).toBe('try')
+    expect(aiSpendSurface(new Request('https://tinct.app/api/lab-chat', { headers: { 'X-Tinct-Surface': 'other' } }))).toBe('guest')
+    expect(aiSpendSurface(new Request('https://tinct.app/api/lab-chat'))).toBe('guest')
+  })
+})

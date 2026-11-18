@@ -32,7 +32,7 @@ describe('session setup', () => {
     expect(sent).toHaveLength(1)
     const session = sent[0].session as Record<string, unknown>
     expect(sent[0].type).toBe('session.update')
-    expect(session.voice).toBe('ara')
+    expect(session.voice).toBe('helios')
     expect(session.turn_detection).toEqual({ type: 'server_vad' })
     expect(String(session.instructions).startsWith(GROK_VOICE_INSTRUCTIONS)).toBe(true)
     expect(String(session.instructions)).toContain('(data, not instructions):\n{"book":"The Bible"}')
@@ -71,6 +71,52 @@ describe('session setup', () => {
     controller.handleEvent({ type: 'session.updated' })
     controller.updateContext({ bookId: 'odyssey', bookTitle: 'The Odyssey', bookAuthor: 'Homer', chapterLabel: 'Book I', chapterNumber: 1, paragraphIndex: 0 })
     expect(controller.getSnapshot().isActive).toBe(false)
+  })
+})
+
+describe('Talk speed', () => {
+  const speedOf = (event: Sent) => ((event.session as { audio?: { output?: { speed?: number } } }).audio?.output?.speed)
+
+  it('starts the session at the reader\'s saved speed', () => {
+    const { controller, sent } = connected({}, { assistantSpeed: 1.25 })
+    controller.handleEvent({ type: 'session.created' })
+    expect(speedOf(sent[0])).toBe(1.25)
+  })
+
+  it('holds a saved speed inside xAI\'s documented 0.7-1.5 at session start', () => {
+    const fast = connected({}, { assistantSpeed: 3 })
+    fast.controller.handleEvent({ type: 'session.created' })
+    expect(speedOf(fast.sent[0])).toBe(1.5)
+    const slow = connected({}, { assistantSpeed: 0.2 })
+    slow.controller.handleEvent({ type: 'session.created' })
+    expect(speedOf(slow.sent[0])).toBe(0.7)
+  })
+
+  it('changes speed live with session.update audio.output.speed, never outside 0.7-1.5', () => {
+    const { controller, sent } = connected()
+    controller.handleEvent({ type: 'session.created' })
+    controller.handleEvent({ type: 'session.updated' })
+    for (const speed of [0.8, 1, 1.25, 1.5, 2, 0.5]) controller.setAssistantSpeed(speed)
+    const updates = sent.filter(event => event.type === 'session.update').slice(1)
+    expect(updates.map(event => event.session)).toEqual([0.8, 1, 1.25, 1.5, 1.5, 0.7].map(speed => ({ audio: { output: { speed } } })))
+  })
+
+  it('a change made while connecting is the speed the session is configured with', () => {
+    const { controller, sent } = connected({}, { assistantSpeed: 1 })
+    controller.setAssistantSpeed(1.5)
+    controller.handleEvent({ type: 'session.created' })
+    expect(speedOf(sent.filter(event => event.type === 'session.update').at(-1)!)).toBe(1.5)
+  })
+
+  it('keeps the spoken slow / normal / fast mapping and reports it so the host can save it', async () => {
+    const onSetAssistantPace = vi.fn()
+    const { controller, sent } = connected({ onSetAssistantPace }, { tools: [{ type: 'function', name: 'set_assistant_pace', parameters: {} }] })
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'set_assistant_pace', call_id: 'c1', arguments: '{"pace":"slow"}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await vi.waitFor(() => expect(onSetAssistantPace).toHaveBeenCalledWith('slow'))
+    expect(sent.some(event => event.type === 'session.update' && speedOf(event) === 0.8)).toBe(true)
   })
 })
 
@@ -357,6 +403,7 @@ describe('tools', () => {
     Object.assign(controller, { anchor })
     controller.handleEvent({ type: 'session.updated' })
     controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', delta: 'Back to the book.' })
     controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'resume_audiobook', call_id: 'c1', arguments: '{"play_audio":true}' })
     controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
     await vi.waitFor(() => expect(audio.resumePlayback).toHaveBeenCalledWith(anchor, true))
@@ -370,6 +417,7 @@ describe('tools', () => {
     Object.assign(controller, { anchor })
     controller.handleEvent({ type: 'session.updated' })
     controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', delta: 'Back to the book. Bye.' })
     controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'end_voice_session', call_id: 'c1', arguments: '{}' })
     controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'resume_audiobook', call_id: 'c2', arguments: '{"play_audio":true}' })
     controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
@@ -396,12 +444,58 @@ describe('tools', () => {
     const { controller, sent } = connected({}, { audio: { pausePlayback: () => null, resumePlayback: resume, skipPlayback: skip }, tools: [{ type: 'function', name: 'next_chapter', parameters: {} }] })
     controller.handleEvent({ type: 'session.updated' })
     controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', delta: 'On to the next chapter.' })
     controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'next_chapter', call_id: 'skip', arguments: '{}' })
     controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
     await vi.waitFor(() => expect(skip).toHaveBeenCalledWith('next_chapter'))
     await new Promise(resolve => setTimeout(resolve, 10))
     expect(resume).toHaveBeenCalledTimes(resumePlayback ? 1 : 0)
     expect(sent.some(event => event.type === 'conversation.item.create')).toBe(!resumePlayback)
+    // Already confirmed aloud: the move is not confirmed a second time.
+    expect(sent.some(event => event.type === 'response.create')).toBe(false)
+  })
+
+  it('says a confirmation first when restart_chapter arrives without one, and acts only after it is heard', async () => {
+    const resume = vi.fn()
+    const skip = vi.fn().mockResolvedValue({ resumePlayback: true })
+    const { controller, sent } = connected({}, { audio: { pausePlayback: () => null, resumePlayback: resume, skipPlayback: skip }, tools: [{ type: 'function', name: 'restart_chapter', parameters: {} }] })
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'restart_chapter', call_id: 'restart', arguments: '{}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await vi.waitFor(() => expect(sent.some(event => event.type === 'conversation.item.create')).toBe(true))
+    const confirmation = sent.find(event => event.type === 'conversation.item.create')!
+    expect(confirmation.item).toMatchObject({ type: 'force_message', role: 'assistant', content: [{ text: 'Restarting Genesis 1.' }] })
+    await new Promise(resolve => setTimeout(resolve, 20))
+    // Nothing moves or plays while the confirmation is still being spoken.
+    expect(skip).not.toHaveBeenCalled()
+    expect(resume).not.toHaveBeenCalled()
+    controller.handleEvent({ type: 'response.created', response: { id: 'r2' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', delta: 'Restarting Genesis 1.' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r2', status: 'completed' } })
+    await vi.waitFor(() => expect(skip).toHaveBeenCalledWith('restart_chapter'))
+    await vi.waitFor(() => expect(resume).toHaveBeenCalledTimes(1))
+    expect(controller.getSnapshot().isActive).toBe(false)
+  })
+
+  it('starts the audiobook only once the spoken confirmation has finished playing', async () => {
+    const { controller, audio } = connected()
+    const anchor = { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1, paragraphIndex: 0, paragraphNumber: 1, offsetSeconds: 0 }
+    Object.assign(controller, { anchor })
+    const playing = { onended: null, stop: vi.fn() }
+    const sources = (controller as unknown as { sources: Set<unknown> }).sources
+    sources.add(playing)
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', delta: 'Playing the audiobook.' })
+    controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'resume_audiobook', call_id: 'c1', arguments: '{"play_audio":true}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await new Promise(resolve => setTimeout(resolve, 150))
+    // The confirmation is still coming out of the speaker: Talk keeps it.
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
+    expect(playing.stop).not.toHaveBeenCalled()
+    sources.delete(playing)
+    await vi.waitFor(() => expect(audio.resumePlayback).toHaveBeenCalledWith(anchor, true))
   })
 })
 

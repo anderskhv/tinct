@@ -31,19 +31,38 @@ export async function loadAuthorFlap(bookId) {
   const entry=manifest.books.find(book=>book.bookId===bookId);
   return (entry?.imageIds||[]).map(id=>manifest.images.find(image=>image.id===id)).filter(Boolean);
 }
-export function renderAuthorFlap(images, target, credit) {
-  target.replaceChildren();credit.replaceChildren();credit.hidden=!images.length;
-  if(!images.length)return;
-  const summary=document.createElement('summary');summary.textContent='Image credits';credit.append(summary);
+export function renderAuthorFlap(images, target) {
+  target.replaceChildren();
   images.forEach((image,index)=>{
-    const figure=document.createElement('figure'),portrait=document.createElement('img'),caption=document.createElement('figcaption');
+    const figure=document.createElement('figure'),portrait=document.createElement('img');
     figure.className='author-flap-figure';portrait.className='author-flap-image';if(index===0)portrait.id='slip-portrait';
     portrait.src=image.publicPath;portrait.alt=image.alt;portrait.decoding='async';
-    caption.textContent=image.caption;figure.append(portrait,caption);target.append(figure);
+    figure.append(portrait);target.append(figure);
+  });
+}
+/** Every author portrait's attribution, in one place (licences such as CC BY-SA require it). */
+export async function renderImageCredits(target, provided) {
+  if(!provided&&!authorManifest) await loadAuthorFlap('');
+  const manifest=provided||await authorManifest;
+  target.replaceChildren();
+  const list=document.createElement('div');list.className='image-credits';
+  for(const image of manifest?.images||[]){
     const record=document.createElement('p');record.append(document.createTextNode(image.authorName+' · '+image.creator+' · '));
-    for(const [label,href] of [[image.licence,image.licenceUrl],['Source',image.sourcePage]]) {
+    for(const [label,href] of [[image.licence,image.licenceUrl],['Source',image.sourcePage]]){
+      if(!href){record.append(document.createTextNode(label+' · '));continue;}
       const link=document.createElement('a');link.textContent=label;link.href=href;link.target='_blank';link.rel='noopener noreferrer';record.append(link,document.createTextNode(' · '));
     }
-    record.append(document.createTextNode(image.changes));credit.append(record);
-  });
+    record.append(document.createTextNode(image.changes));list.append(record);
+  }
+  target.append(list);
+}
+/** An author's portrait from the library's author images, by any of their names (`names`), or null. */
+export async function authorImageFor(names) {
+  const key = name => String(name || '').toLowerCase().normalize('NFKD').replace(/\p{M}/gu, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  const wanted = new Set((names || []).map(key).filter(Boolean));
+  if (!wanted.size) return null;
+  try { await loadAuthorFlap(''); } catch { return null; }
+  const manifest = await authorManifest;
+  const image = (manifest?.images || []).find(item => !item.bookOnly && wanted.has(key(item.authorName)));
+  return image ? { src: image.publicPath } : null;
 }

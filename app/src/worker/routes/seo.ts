@@ -3,6 +3,11 @@ import { TEMPORARY_EDITION_HOLDS, editionHold, isBookTemporarilyHeld, TEMPORARY_
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
 import { isLabPath, legacyLabPageRedirect } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
+import { isPublicBookId } from '../../../public/lab/public-books.js'
+import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage, type GeneratedBookPage } from '../lib/bookLibraryPage'
+import { withStaticCache } from '../lib/staticCache'
+import { isScenePage, scenePageForChapter } from '../lib/scenePages'
+import { CHAPTER_PACK_PREFIX, chapterPageEntry, chapterPageFromPack, hasChapterPages, shelfHubIndexable } from '../lib/chapterPages'
 
 export type SeoEnv = {
   INDEXNOW_KEY?: string
@@ -17,14 +22,16 @@ const INDEXNOW_KEY_RE = /^[A-Za-z0-9-]{8,128}$/
 // SPA in an iframe for the live product demo. Same-origin only — third-party
 // sites still can't frame us. CSP `frame-src` and `frame-ancestors` are
 // also relaxed to 'self' for the same reason.
+// `img-src blob:` draws the figures of a reader's own book from this device
+// (object URLs, app/src/lab/labFigures.ts); nothing is fetched for them.
 // Omarchy exposes only its read-only palette at this exact loopback port/path.
 // Keep browser local-network permission and the bridge's Host/Origin checks.
-const SECURITY_HEADERS: Record<string, string> = {
+export const SECURITY_HEADERS: Record<string, string> = {
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'SAMEORIGIN',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' http://127.0.0.1:47653/theme https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com wss://api.x.ai; img-src 'self' data:; media-src 'self' blob: mediastream:; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
+  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' http://127.0.0.1:47653/theme https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com wss://api.x.ai wss://tinct.app; img-src 'self' data: blob:; media-src 'self' blob: mediastream:; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
 }
 
 // ===== Bot UA Blocklist (KV-free first line of defence) =====
@@ -49,20 +56,12 @@ export function isBlockedBot(request: Request): boolean {
   return false
 }
 
-// Per-book SEO meta tags injected into the SPA shell at /read/{bookId} so that
-// crawlers see a book-specific title and description instead of the generic
-// SPA title. Only listed bookIds get this treatment; everything else falls
-// through to the SPA shell with its default title.
-const BOOK_META: Record<string, BookMetaEntry & { image?: string }> = {
-  odyssey: {
-    title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
-    description: "Read Homer's Odyssey free online. Authoritative English translation paragraph-aligned with a modern English version, modern Danish also available. Includes a context-aware AI companion, spoiler-aware character tracker, and synced audiobook. No account needed to start.",
-    bookName: 'The Odyssey',
-    author: 'Homer',
-  },
-}
+// Hand-written per-book meta, which wins over the generated entry (bookMetaGenerated.ts). Empty since
+// 16 Nov 2026: the Odyssey's stale entry ("…Modern Translation, AI Companion, Audiobook | Tinct") was
+// removed, so it is titled like every other book.
+const BOOK_META: Record<string, BookMetaEntry & { image?: string }> = {}
 
-const BRAND_IMAGE = 'https://tinct.app/brand/20260921/share-tinct-1200x630.jpg'
+const BRAND_IMAGE = 'https://tinct.app/brand/20261105/share-tinct-1200x630.jpg'
 const BRAND_INSTALL = "  <link rel=\"icon\" href=\"/brand/20260921/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"icon\" href=\"/brand/20260921/favicon.ico\" sizes=\"any\">\n  <link rel=\"apple-touch-icon\" href=\"/brand/20260921/apple-touch-icon.png\" sizes=\"180x180\">\n  <link rel=\"manifest\" href=\"/brand/manifest.webmanifest\">\n"
 /** Filter navigation cards only; the preserved reading text is never rewritten. */
 export function filterHeldDiscoveryCards(html: string): string {
@@ -78,9 +77,9 @@ export function filterHeldDiscoveryCards(html: string): string {
 function brandedHtml(html: string, bookId?: string, bookPage = false): string {
   const meta = bookId && PUBLIC_BOOK_IDS.has(bookId) ? BOOK_META[bookId] || GENERATED_BOOK_META[bookId] : undefined
   const image = meta ? `https://tinct.app/brand/20260921/books/${bookId}.jpg` : BRAND_IMAGE
-  const alt = meta ? `${meta.bookName} by ${meta.author} — read with Tinct` : 'Tinct — Fall in love with the books that matter.'
+  const alt = meta ? `${meta.bookName} by ${meta.author} — read with Tinct` : 'Tinct — No text is beyond you.'
   let next = filterHeldDiscoveryCards(html).replace(/<link\b[^>]*rel=["'](?:icon|shortcut icon|apple-touch-icon|manifest)["'][^>]*>\s*/gi, '')
-    .replace(/<meta\b[^>]*(?:property|name)=["'](?:og:image(?::[^"']*)?|twitter:image(?::[^"']*)?)["'][^>]*>\s*/gi, '')
+    .replace(/<meta\b[^>]*(?:property|name)=["'](?:og:image(?::[^"']*)?|twitter:image(?::[^"']*)?|twitter:card)["'][^>]*>\s*/gi, '')
   const tags = `<meta property="og:image" content="${image}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${htmlEscape(alt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${image}"><meta name="twitter:image:alt" content="${htmlEscape(alt)}">`
   if (meta && bookPage) next = next.replace(/<title>[^<]*<\/title>/, `<title>${htmlEscape(meta.title)}</title><meta property="og:title" content="${htmlEscape(meta.bookName)}"><meta property="og:description" content="${htmlEscape(meta.description)}">`)
   return next.replace('</head>', BRAND_INSTALL + tags + '</head>')
@@ -90,6 +89,10 @@ const PUBLIC_BOOK_IDS = new Set([...Object.keys(GENERATED_BOOK_META), ...Object.
 // Discovery metadata intentionally omits whole-book holds. Retained JSON must
 // still pass the asset allowlist so existing readers can recover their data.
 const CONTENT_BOOK_IDS = new Set([...PUBLIC_BOOK_IDS, ...Object.keys(TEMPORARY_EDITION_HOLDS).map(identity => identity.split('/')[0])])
+
+/** Static public pages (book pages, the hub, About, Credits, Privacy, Terms): short public cache. Per-user pages stay no-store. */
+const PUBLIC_PAGE_CACHE = 'public, max-age=300, stale-while-revalidate=86400'
+const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/credits', '/credits/', '/story', '/story/', '/privacy', '/privacy/', '/terms', '/terms/', '/byob', '/byob/', '/copyright', '/copyright/'])
 
 async function serveStaticHtml(
   requestMethod: string,
@@ -107,7 +110,8 @@ async function serveStaticHtml(
   const bookId = pathname.match(/^\/read\/([a-z0-9-]+)\//)?.[1]
   const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(await assetResp.text(), bookId), assetResp)
   for (const header of ['Content-Length','Content-Encoding','ETag']) newResp.headers.delete(header)
-  newResp.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
+  newResp.headers.set('Cache-Control', PUBLIC_PAGE_CACHE)
+  newResp.headers.set('Vary', 'Cookie')
   for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
     newResp.headers.set(key, value)
   }
@@ -129,6 +133,18 @@ const INLINE_NOT_FOUND_HTML = `<!doctype html><html lang="en"><head><meta charse
   + `a{color:#f4eddf}</style></head><body><main><p>Tinct.</p>`
   + `<h1>This page isn\u2019t on the shelf.</h1>`
   + `<p><a href="/library">Browse the library</a></p></main></body></html>`
+
+/** A request for a missing file (image, script, manifest) stays a plain 404. */
+function missingFileResponse(requestMethod: string): Response {
+  return new Response(requestMethod === 'HEAD' ? null : 'Not found', {
+    status: 404,
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'no-store',
+      'X-Robots-Tag': 'noindex, noarchive',
+    },
+  })
+}
 
 async function serveNotFound(
   requestMethod: string,
@@ -166,13 +182,23 @@ function isLabPathname(pathname: string): boolean {
 // Public page URL -> the static asset page that answers it. The address bar
 // keeps the public URL; the asset folder is never a navigation target.
 const LAB_PRE_READER_PATHS = new Map([
-  ['/featured', '/lab/featured/'],
-  ['/featured/', '/lab/featured/'],
   ['/library', LIBRARY_ENTRY_PATH],
   ['/library/', LIBRARY_ENTRY_PATH],
   ['/sign-in', '/lab/sign-in/'],
   ['/sign-in/', '/lab/sign-in/'],
 ])
+
+/**
+ * An HTML page under /lab (the design-system reference, a demo) answers with X-Robots-Tag: noindex. Its
+ * scripts and styles do not: robots.txt allows /lab/*.js and /lab/*.css so a crawler can render the book pages.
+ */
+function labPageNoindex(url: URL, response: Response): Response {
+  const html = /\.html?$/i.test(url.pathname) || (response.headers.get('Content-Type') || '').includes('text/html')
+  if (!html) return response
+  const result = new Response(response.body, response)
+  result.headers.set('X-Robots-Tag', 'noindex, noarchive')
+  return result
+}
 
 function isLabStaticAssetPath(pathname: string): boolean {
   return /^\/lab\/[^/]+\.[a-z0-9]+$/i.test(pathname)
@@ -194,7 +220,12 @@ async function serveLabPreReader(
   const labResp = await env.ASSETS.fetch(new Request(assetUrl.toString(), { method: requestMethod }))
   if (!labResp.ok) return null
 
-  const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(await labResp.text(), url.searchParams.get('book') || undefined, true), labResp)
+  // A book link puts that book in the library's hero from the first paint.
+  const bookId = url.searchParams.get('book') || undefined
+  let html = requestMethod === 'HEAD' ? '' : await labResp.text()
+  const linked = assetPath === LIBRARY_ENTRY_PATH && bookId && requestMethod !== 'HEAD' ? await loadGeneratedBookPage(url, env, bookId) : null
+  if (linked) html = prefillLibraryHero(html, linked.hero)
+  const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(html, bookId, true), labResp)
   for (const header of ['Content-Length','Content-Encoding','ETag']) newResp.headers.delete(header)
   newResp.headers.set('Cache-Control', 'no-store')
   newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
@@ -202,6 +233,47 @@ async function serveLabPreReader(
     newResp.headers.set(key, value)
   }
   return newResp
+}
+
+export function serveNotFoundPage(request: Request, env: SeoEnv): Promise<Response> {
+  return serveNotFound(request.method, new URL(request.url), env)
+}
+
+/** The generated book page's hero, search tags and text, when the book has one. */
+async function loadGeneratedBookPage(url: URL, env: SeoEnv, bookId: string): Promise<GeneratedBookPage | null> {
+  if (!/^[a-z0-9-]{1,80}$/.test(bookId) || !PUBLIC_BOOK_IDS.has(bookId)) return null
+  try {
+    const resp = await env.ASSETS.fetch(new Request(`${url.origin}/read/${bookId}/book`))
+    if (resp.status !== 200) return null
+    return readGeneratedBookPage(await resp.text(), bookId)
+  } catch {
+    return null
+  }
+}
+
+/**
+ * `/read/<id>`, the URL that is shared: the library with this book in the hero,
+ * as `/library?book=<id>` shows it, carrying the book page's title,
+ * description, canonical, preview tags and crawlable text. Null when either
+ * page is missing, so the static book page still answers.
+ */
+async function serveBookLibraryPage(requestMethod: string, url: URL, env: SeoEnv, bookId: string): Promise<Response | null> {
+  const book = await loadGeneratedBookPage(url, env, bookId)
+  if (!book) return null
+  const libraryUrl = new URL(url.toString())
+  libraryUrl.pathname = LIBRARY_ENTRY_PATH
+  libraryUrl.search = ''
+  const library = await env.ASSETS.fetch(new Request(libraryUrl.toString()))
+  if (!library.ok) return null
+  const html = brandedHtml(composeBookLibraryPage(await library.text(), book), bookId)
+  // Public page: a short cache. Signed-in readers are redirected instead (the
+  // tinct_auth cookie), so the cached copy varies by cookie.
+  const resp = new Response(requestMethod === 'HEAD' ? null : html, {
+    status: 200,
+    headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': PUBLIC_PAGE_CACHE, Vary: 'Cookie' },
+  })
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) resp.headers.set(key, value)
+  return resp
 }
 
 async function serveLabDemo(
@@ -213,9 +285,9 @@ async function serveLabDemo(
   if (!appResp.ok) return null
 
   const html = await appResp.text()
-  const withRobots = html.includes('name="robots"')
+  const withRobots = withTryDemo(url, html.includes('name="robots"')
     ? html
-    : html.replace(/<head([^>]*)>/i, '<head$1>\n  <meta name="robots" content="noindex, noarchive">')
+    : html.replace(/<head([^>]*)>/i, '<head$1>\n  <meta name="robots" content="noindex, noarchive">'))
   const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(withRobots, url.searchParams.get('book') || undefined, true), {
     status: 200,
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
@@ -229,6 +301,38 @@ async function serveLabDemo(
 }
 
 export const serveLabDemoForTest = serveLabDemo
+
+/**
+ * The /try page's reader (`/reader?demo=try`, docs/try-page/BRIEF.md): its demo-mode script runs first in the head,
+ * before the reader's boot script and bundle, so storage and writes are contained from the first line
+ * (public/lab/try/reader-demo.js; it does nothing unless /try frames it). Any other reader address is unchanged.
+ */
+export const TRY_DEMO_SCRIPT = '/lab/try/reader-demo.js'
+export function withTryDemo(url: URL, html: string): string {
+  if (url.searchParams.get('demo') !== 'try') return html
+  return html.replace(/<head([^>]*)>/i, `<head$1>\n  <script src="${TRY_DEMO_SCRIPT}"></script>`)
+}
+
+/**
+ * The Try page (future /about; Anders, 18 Nov 2026: build it, do not launch). Unlisted: noindex in the page and in
+ * this header, absent from the sitemap, linked from nowhere. Signed-in readers go to the app, as landing.html
+ * sends them (`/app`, the library), before anything renders; the page's own head script does the same for a session
+ * kept only in the browser.
+ */
+const TRY_PAGE_PATH = '/try'
+async function serveTryPage(request: Request, url: URL, env: SeoEnv): Promise<Response> {
+  if (url.pathname !== TRY_PAGE_PATH) {
+    return new Response(null, { status: 301, headers: { Location: TRY_PAGE_PATH + url.search, 'Cache-Control': 'public, max-age=3600' } })
+  }
+  const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
+  if (/(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)) {
+    return new Response(null, { status: 302, headers: { Location: '/app', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' } })
+  }
+  const page = await serveStaticHtml(request.method, request, url, TRY_PAGE_PATH, env)
+  if (!page) return serveNotFound(request.method, url, env)
+  page.headers.set('X-Robots-Tag', 'noindex, nofollow')
+  return page
+}
 export const isLabPathnameForTest = isLabPathname
 
 function editionBookIdFromPath(pathname: string): string | null {
@@ -265,7 +369,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
   // A temporary availability page preserves old links and content assets.
   // Run before static/cached SEO pages; raw data stays available for recovery.
   const publicBook = url.pathname.match(/^\/(?:read\/)?([a-z0-9-]+)(?:\/.*)?$/)?.[1]
-  const queryBook = ['/', '/library', '/app', '/read'].includes(url.pathname) ? url.searchParams.get('book') : null
+  const queryBook = ['/', '/library', '/app', '/read', '/reader'].includes(url.pathname) ? url.searchParams.get('book') : null
   const holdBook = queryBook || publicBook
   const germanBookLanding = /^\/(?:read\/)?faust-part-1\/?$/.test(url.pathname) && !url.search
   const holdKey = url.searchParams.get('edition') || (queryBook === 'faust-part-1' || germanBookLanding ? 'original-de' : 'original-en')
@@ -338,20 +442,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       // a 30-day immutable header (Anders, 2026-04-29 — old content was
       // served for hours after a deploy).
       const isOnboarding = url.pathname.startsWith('/data/onboarding/')
-      const cache = caches.default
-      const cacheKeyUrl = new URL(url.toString())
-      cacheKeyUrl.searchParams.set('__tinct_json_cache', '2')
-      const cacheKey = new Request(cacheKeyUrl.toString(), { method: 'GET' })
-      if (request.method === 'GET') {
-        const cached = await cache.match(cacheKey)
-        if (cached) {
-          const fixed = new Response(cached.body, cached)
-          fixed.headers.delete('Access-Control-Allow-Origin')
-          fixed.headers.set('X-Robots-Tag', 'noindex, noarchive')
-          return fixed
-        }
-      }
-
+      // No Cache API copy: its key never changed between deploys, so an edited
+      // edition (Apology's modern text, #703, 2 Nov 2026) was served stale for up
+      // to 30 days and failed the release's publication check. Static assets are
+      // already served from Cloudflare's own asset cache, which a deploy replaces.
       const assetResp = await env.ASSETS.fetch(request)
       const contentType = assetResp.headers.get('content-type') || ''
       if (assetResp.ok && contentType.includes('application/json')) {
@@ -367,7 +461,6 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
         }
         cacheable.headers.delete('Access-Control-Allow-Origin')
         cacheable.headers.set('X-Robots-Tag', 'noindex, noarchive')
-        if (request.method === 'GET') ctx.waitUntil(cache.put(cacheKey, cacheable.clone()))
         return cacheable
       }
       return new Response(request.method === 'HEAD' ? null : 'Not found', {
@@ -378,6 +471,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
           'X-Robots-Tag': 'noindex, noarchive',
         },
       })
+    }
+
+    if ((request.method === 'GET' || request.method === 'HEAD') && /^\/try(?:\.html|\/)?$/.test(url.pathname)) {
+      return serveTryPage(request, url, env)
     }
 
     // The privacy policy is one page at /privacy (public/privacy.html, served by
@@ -395,12 +492,15 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/' || url.pathname === '/index.html')) {
       const home = await serveLabPreReader(request.method, url, env, LIBRARY_ENTRY_PATH)
       if (home) {
-        const homeTitle = 'Tinct — A New Way to Read'
-        const homeDescription = 'Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading.'
+        const homeTitle = 'Tinct — No text is beyond you'
+        const homeDescription = "Read, listen and talk with the world&#39;s great books, or your own PDFs and articles. The original beside a modern edition, narration, and a companion you can ask anything."
         const html = request.method === 'HEAD' ? null : (await home.text())
           .replace(/<meta\s+name="robots"[^>]*>/i, '')
           .replace(/<title>[^<]*<\/title>/i, `<title>${homeTitle}</title>`)
-          .replace('</head>', `<meta name="description" content="${homeDescription}"><link rel="canonical" href="https://tinct.app/"><meta property="og:title" content="${homeTitle}"><meta property="og:description" content="${homeDescription}"><meta property="og:url" content="https://tinct.app/"><meta property="og:type" content="website"><meta property="og:site_name" content="Tinct"><meta property="og:image" content="https://tinct.app/brand/20260921/share-tinct-1200x630.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${homeTitle}"><meta name="twitter:description" content="${homeDescription}"><meta name="twitter:image" content="https://tinct.app/brand/20260921/share-tinct-1200x630.jpg"></head>`)
+          // One <h1>, about Tinct. The featured book's title is a section heading here.
+          .replace(/<h1 id="hero-title">([^<]*)<\/h1>/, '<h2 id="hero-title">$1</h2>')
+          .replace('<main id="library">', '<main id="library"><h1 class="sr-only">Tinct</h1>')
+          .replace('</head>', `<meta name="description" content="${homeDescription}"><link rel="canonical" href="https://tinct.app/"><meta property="og:title" content="${homeTitle}"><meta property="og:description" content="${homeDescription}"><meta property="og:url" content="https://tinct.app/"><meta property="og:type" content="website"><meta property="og:site_name" content="Tinct"><meta property="og:image" content="https://tinct.app/brand/20261105/share-tinct-1200x630.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${homeTitle}"><meta name="twitter:description" content="${homeDescription}"><meta name="twitter:image" content="https://tinct.app/brand/20261105/share-tinct-1200x630.jpg"></head>`)
         const response = new Response(html == null ? null : brandedHtml(html, url.searchParams.get('book') || undefined, true), home)
         response.headers.delete('X-Robots-Tag')
         response.headers.delete('Content-Length')
@@ -444,10 +544,11 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       if ((response.headers.get('Content-Type') || '').includes('text/html')) {
         result.headers.set('Cache-Control', 'no-store')
       }
-      return result
+      // Tagged scripts, styles and the paintings are kept by the browser (lib/staticCache.ts).
+      return withStaticCache(url, result)
     }
 
-    // The catalogue-backed library, sign-in and featured preview pages are
+    // The catalogue-backed library and sign-in pages are
     // static assets answered at their public URL. The reader SPA is /reader.
     if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
       const entryPath = LAB_PRE_READER_PATHS.get(url.pathname)!
@@ -462,7 +563,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       // Return the binding response as-is, including conditional 304s. Treating
       // a 304 as a miss makes a warm browser fall through to the Lab reader SPA,
       // caching HTML under a JavaScript URL and breaking every later navigation.
-      return env.ASSETS.fetch(request)
+      // A 200 for a tagged file gets the browser cache policy (lib/staticCache.ts); a 304 passes untouched.
+      // robots.txt lets crawlers fetch /lab scripts and styles (the book pages need them to render);
+      // a /lab HTML page itself stays out of the index.
+      return labPageNoindex(url, withStaticCache(url, await env.ASSETS.fetch(request)))
     }
 
     // Private reading-chrome demo. Always noindex, including /lab/*.
@@ -503,17 +607,88 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
     }
 
-    // SEO page clean-URL routing.
-    // Per-book pages live as static HTML at /read/{bookId}/(summary|chapters|cast|themes|chapter-N).html.
-    // We want clean URLs without .html for crawlers + sharing — but Cloudflare's
-    // static asset binding has not_found_handling: "none", so /read/odyssey/summary
-    // would 404 here and fall through to the SPA. Rewrite to the .html file before
-    // that happens. SEO_STRATEGY.md has the full routing table.
-    const seoMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(summary|chapters|cast|themes|chapter-\d+)\/?$/i)
-    if ((request.method === 'GET' || request.method === 'HEAD') && seoMatch) {
-      const seoResp = await serveStaticHtml(request.method, request, url, `/read/${seoMatch[1]}/${seoMatch[2]}.html`, env)
-      if (seoResp) return seoResp
-      // SEO file not found — fall through to SPA fallback below
+    // The chapter packs are read by the chapter route below, never fetched by a visitor.
+    if (url.pathname.startsWith(CHAPTER_PACK_PREFIX)) return missingFileResponse(request.method)
+
+    // Chapter pages (16 Nov 2026): /read/{bookId}/chapter-N, the whole chapter in
+    // Modern English beside its original (scripts/seo/build-chapter-pages.mjs),
+    // for every book with one. The same page for everyone; a chapter the book
+    // does not have is a 404. Only allowlisted books are indexable
+    // (src/data/seoIndexAllowlist.ts); the others answer `noindex, follow`.
+    const chapterMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/chapter-(\d{1,5})(\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && chapterMatch && hasChapterPages(chapterMatch[1].toLowerCase())) {
+      const bookId = chapterMatch[1].toLowerCase()
+      const chapter = Number(chapterMatch[2])
+      const entry = chapterPageEntry(bookId, chapter)
+      if (!entry) return serveNotFound(request.method, url, env)
+      const clean = `/read/${bookId}/chapter-${chapter}`
+      if (url.pathname !== clean) {
+        return new Response(null, { status: 301, headers: { Location: clean + url.search, 'Cache-Control': 'public, max-age=86400' } })
+      }
+      const packResp = await env.ASSETS.fetch(new Request(`${url.origin}${entry.pack}`))
+      const page = packResp.ok ? chapterPageFromPack(await packResp.text(), chapter) : null
+      if (!page) return serveNotFound(request.method, url, env)
+      const resp = new Response(request.method === 'HEAD' ? null : brandedHtml(page, bookId), {
+        status: 200,
+        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': PUBLIC_PAGE_CACHE, Vary: 'Cookie' },
+      })
+      for (const [key, value] of Object.entries(SECURITY_HEADERS)) resp.headers.set(key, value)
+      if (!entry.indexable) resp.headers.set('X-Robots-Tag', 'noindex, follow')
+      return resp
+    }
+
+    // Shelf hubs: /read/shelf/{shelf}, a library shelf's books (titles, covers,
+    // links). Indexable only when the shelf lists an allowlisted book.
+    const hubMatch = url.pathname.match(/^\/read\/shelf\/([a-z0-9-]+?)(\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && hubMatch) {
+      const shelfId = hubMatch[1].toLowerCase()
+      const indexable = shelfHubIndexable(shelfId)
+      if (indexable === null) return serveNotFound(request.method, url, env)
+      const clean = `/read/shelf/${shelfId}`
+      if (url.pathname !== clean) {
+        return new Response(null, { status: 301, headers: { Location: clean + url.search, 'Cache-Control': 'public, max-age=86400' } })
+      }
+      const hubResp = await serveStaticHtml(request.method, request, url, clean, env)
+      if (!hubResp) return serveNotFound(request.method, url, env)
+      if (!indexable) hubResp.headers.set('X-Robots-Tag', 'noindex, follow')
+      return hubResp
+    }
+
+    // Retired page types. The AI-written summary, themes, cast, chapters and
+    // chapter-N pages under /read/{bookId}/ were removed (2026-10-05); every
+    // such URL, with or without .html, answers with one permanent redirect to
+    // the book page. The bible-{book} summary folders point at the Bible.
+    // Since 13 Nov 2026 a play with scene pages sends its old chapter-N to the
+    // scene page of that chapter (the same scene, now its own text) instead.
+    // Since 16 Nov 2026 a book with chapter pages answers chapter-N above; the
+    // redirect remains for books without them (the other plays, the Bible).
+    const retiredMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(?:summary|chapters|cast|themes|chapter-(\d{1,5}))(?:\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && retiredMatch) {
+      const retiredBook = retiredMatch[1].toLowerCase()
+      const bookId = /^bible-[a-z0-9-]+$/.test(retiredBook) ? 'bible' : retiredBook
+      if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
+        const scene = retiredMatch[2] ? scenePageForChapter(bookId, Number(retiredMatch[2])) : null
+        return new Response(null, { status: 301, headers: { Location: scene ?? `/read/${bookId}`, 'Cache-Control': 'public, max-age=86400' } })
+      }
+      return serveNotFound(request.method, url, env)
+    }
+
+    // Scene pages (five plays, 13 Nov 2026): /read/{bookId}/{scene}, the
+    // static page of one scene in modern English (scripts/seo/build-scene-pages.mjs).
+    // The same page for everyone, signed in or not: it is static, reads no
+    // reading position and hands over to the reader only when asked. Its .html
+    // and trailing-slash forms, and capitals, redirect to the one address.
+    const sceneMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/([a-z0-9-]+?)(\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && sceneMatch && isScenePage(sceneMatch[1].toLowerCase(), sceneMatch[2].toLowerCase())) {
+      const bookId = sceneMatch[1].toLowerCase()
+      const slug = sceneMatch[2].toLowerCase()
+      const clean = `/read/${bookId}/${slug}`
+      if (url.pathname !== clean) {
+        return new Response(null, { status: 301, headers: { Location: clean + url.search, 'Cache-Control': 'public, max-age=86400' } })
+      }
+      const sceneResp = await serveStaticHtml(request.method, request, url, clean, env)
+      if (sceneResp) return sceneResp
+      return serveNotFound(request.method, url, env)
     }
 
     // Library route is in the sitemap, so serve the committed crawlable hub
@@ -532,19 +707,44 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       const bookId = bookMatch[1].toLowerCase()
       const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
       const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
-      // Bare `/read/{bookId}` is the public SEO book page. In-app opens add
-      // a query (`?from=app`) and signed-in readers carry `tinct_auth=1`;
-      // both skip the marketing page and open the library.
-      if (!url.search && !hasAuthCookie) {
-        const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
-        if (staticBookResp) return staticBookResp
+      const publicBook = !!(BOOK_META[bookId] || GENERATED_BOOK_META[bookId])
+      // A book readers added (pd-…) has no static page: its link opens it in the library
+      // (or the reader, with a chapter) like any book, never the 404 (QA 2026-10-09).
+      const addedBook = !publicBook && isPublicBookId(bookId)
+      // `/read/{bookId}` is the shared book link: the library with that book in
+      // the hero, nothing opened by itself, plus the book's search metadata and
+      // text. Share and campaign parameters (fbclid, utm_*) keep that page; the
+      // app's own parameters below keep their in-app meaning.
+      const inApp = ['chapter', 'edition', 'from', 'view'].some(key => url.searchParams.has(key))
+      if (!inApp) {
+        // Signed-in readers land on their library with this book in focus.
+        if (hasAuthCookie && (publicBook || addedBook)) {
+          return new Response(null, { status: 302, headers: { Location: `/library?book=${encodeURIComponent(bookId)}`, 'Cache-Control': 'no-store' } })
+        }
+        if (!hasAuthCookie && !addedBook) {
+          const bookPage = await serveBookLibraryPage(request.method, url, env, bookId)
+          if (bookPage) return bookPage
+          const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
+          if (staticBookResp) return staticBookResp
+        }
       }
-      // In-app opens (a query, or a signed-in reader) go to the book in the
-      // library, as does a book without a static SEO page.
-      if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
+      // In-app opens go to the book in the library, as does a book without a
+      // static SEO page.
+      if (publicBook || addedBook) {
+        // Older pages linked /read/{book}?chapter=N&edition=E. Open the live
+        // reader on that chapter and edition instead of the library detail.
+        const chapter = url.searchParams.get('chapter')
+        if (chapter && /^\d{1,5}$/.test(chapter) && Number(chapter) > 0) {
+          const reader = new URL('/reader', url.origin)
+          reader.searchParams.set('book', bookId)
+          const edition = url.searchParams.get('edition')
+          if (edition && /^[a-z0-9-]{1,40}$/.test(edition)) reader.searchParams.set('edition', edition)
+          reader.searchParams.set('chapter', String(Number(chapter)))
+          return new Response(null, { status: 302, headers: { Location: reader.pathname + reader.search, 'Cache-Control': 'no-store' } })
+        }
         const target = new URL('/library', url.origin)
         target.searchParams.set('book', bookId)
-        target.searchParams.set('view', 'book-detail')
+        if (inApp) target.searchParams.set('view', 'book-detail')
         return new Response(null, { status: 302, headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' } })
       }
       return serveNotFound(request.method, url, env)
@@ -566,15 +766,15 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // Bare /{bookId} URLs are legacy/shareable share links. They used to serve
     // the legacy React SPA shell, so an old link dropped the visitor into a
     // different product than the one /read/{bookId} and /library?book=... open.
-    // Send them to the same book in the current library instead; the canonical
-    // crawlable surface stays /read/{bookId}, which is what the sitemap lists.
+    // Send them to the same book in the current library instead, in the hero
+    // like any book link; the canonical crawlable surface stays /read/{bookId},
+    // which is what the sitemap lists.
     const bareBookMatch = url.pathname.match(/^\/([a-z0-9-]+)\/?$/i)
     if ((request.method === 'GET' || request.method === 'HEAD') && bareBookMatch) {
       const bookId = bareBookMatch[1].toLowerCase()
       if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
         const target = new URL('/library', url.origin)
         target.searchParams.set('book', bookId)
-        target.searchParams.set('view', 'book-detail')
         return new Response(null, {
           status: 302,
           headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' },
@@ -604,16 +804,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       // A request for a missing file (image, script, manifest) should stay a
       // plain 404; only navigations get the HTML page.
       const looksLikeFile = /\.[a-z0-9]{1,8}$/i.test(url.pathname)
-      if (looksLikeFile) {
-        return new Response(request.method === 'HEAD' ? null : 'Not found', {
-          status: 404,
-          headers: {
-            'Content-Type': 'text/plain; charset=utf-8',
-            'Cache-Control': 'no-store',
-            'X-Robots-Tag': 'noindex, noarchive',
-          },
-        })
-      }
+      if (looksLikeFile) return missingFileResponse(request.method)
       return serveNotFound(request.method, url, env)
     }
 
@@ -621,14 +812,18 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     if (contentType.includes('text/html')) {
       const newResponse = new Response(request.method === 'HEAD' ? null : brandedHtml(await response.text(), url.searchParams.get('book') || undefined, true), response)
   for (const header of ['Content-Length','Content-Encoding','ETag']) newResponse.headers.delete(header)
-      // HTML must never be edge-cached — see the SPA fallback comment above.
-      newResponse.headers.set('Cache-Control', 'no-store')
+      // Static public pages get a short public cache; other HTML is never
+      // edge-cached — see the SPA fallback comment above.
+      newResponse.headers.set('Cache-Control', PUBLIC_STATIC_PAGES.has(url.pathname) ? PUBLIC_PAGE_CACHE : 'no-store')
       for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
         newResponse.headers.set(key, value)
       }
+      // /lab demo pages (Add a book, the design system reference): served, never indexed.
+      if (url.pathname === '/lab' || url.pathname.startsWith('/lab/')) newResponse.headers.set('X-Robots-Tag', 'noindex, noarchive')
       return newResponse
     }
-    return response
+    // Content-hashed bundles and cover images are kept by the browser (lib/staticCache.ts).
+    return withStaticCache(url, response)
 
 }
 

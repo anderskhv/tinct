@@ -4,15 +4,22 @@ import {
   bibleFallbackSource,
   labHeaderLine,
   loadLabBookSource,
+  loadLabChapterList,
   loadLabSource,
   nextLabChapter,
   parseBibleChapterTitle,
   prevLabChapter,
   resetLabBibleManifestCache,
+  resetLabThreadsCache,
 } from './labSource'
+import { paragraphKind, resetParagraphStyles, wordLink } from './labParagraphStyle'
+import { figureFor, figureToken, resetFigures } from './labFigures'
+import figureFixture from './__fixtures__/figure-edition.json'
 
 afterEach(() => {
   resetLabBibleManifestCache()
+  resetParagraphStyles()
+  resetFigures()
   vi.unstubAllGlobals()
 })
 
@@ -105,6 +112,136 @@ describe('loadLabSource', () => {
     expect(requested.some(url => url.includes('path=odyssey%2Foriginal-en%2Fch2'))).toBe(true)
   })
 
+  it('on a cold open, fetches the Compare edition only after the main text and hands it over as compareLater', async () => {
+    vi.stubGlobal('__BUILD_VERSION__', 'dev')
+    const requested: string[] = []
+    let releaseCompare: () => void = () => {}
+    const compareGate = new Promise<void>(resolve => { releaseCompare = resolve })
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      requested.push(url)
+      if (url.includes('/api/edition-patches')) return new Response('[]', { status: 200 })
+      if (url.includes('the-awakening-modern-en.json')) {
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'Chapter 1', paragraphs: ['A green and yellow parrot hung in a cage.'] },
+        ] }), { status: 200 })
+      }
+      if (url.includes('the-awakening-original-en.json')) {
+        await compareGate
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'Chapter 1', paragraphs: ['A Compare Heading', 'A green and yellow parrot, which hung in a cage outside the door.'], kinds: ['heading', null] },
+        ] }), { status: 200 })
+      }
+      if (url.includes('-threads.json')) return new Response('{"characters":[]}', { status: 200 })
+      return new Response('{}', { status: 404 })
+    }))
+    const source = await loadLabBookSource({
+      bookId: 'the-awakening', primaryEditionKey: 'modern-en', compareEditionKey: 'original-en',
+      chapterNumber: 1, readingFirst: true, compareAfterFirstPage: true,
+    })
+    // The page can be laid out while the Compare edition is still on its way.
+    expect(source.paragraphs).toEqual(['A green and yellow parrot hung in a cage.'])
+    expect(source.compareParagraphs).toEqual([])
+    const main = requested.findIndex(url => url.includes('the-awakening-modern-en.json'))
+    const compare = requested.findIndex(url => url.includes('the-awakening-original-en.json'))
+    expect(main).toBeGreaterThanOrEqual(0)
+    expect(compare).toBeGreaterThan(main)
+    releaseCompare()
+    expect(await source.compareLater).toEqual(['A Compare Heading', 'A green and yellow parrot, which hung in a cage outside the door.'])
+    // Prepared like a paired load: the chapter's recorded structure is registered.
+    expect(paragraphKind('A Compare Heading')).toBe('heading')
+  })
+
+  it('registers the subheadings, list items and links a built-in chapter records, as for a reader’s own book', async () => {
+    vi.stubGlobal('__BUILD_VERSION__', 'dev')
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/api/edition-patches')) return new Response('[]', { status: 200 })
+      if (url.includes('candide-original-en.json')) {
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'Book 1', paragraphs: ['A Fixture Heading', 'A listed point.', 'See the full text online.'],
+            kinds: ['heading', 'item', null], links: [[2, 1, 4, 'https://example.org/candide'], [2, 0, 1, 'javascript:alert(1)']] },
+        ] }), { status: 200 })
+      }
+      if (url.includes('-threads.json')) return new Response('{"characters":[]}', { status: 200 })
+      return new Response('{}', { status: 404 })
+    }))
+    const source = await loadLabBookSource({ bookId: 'candide', primaryEditionKey: 'original-en', chapterNumber: 1, readingFirst: true })
+    expect(source.paragraphs).toEqual(['A Fixture Heading', 'A listed point.', 'See the full text online.'])
+    expect(paragraphKind('A Fixture Heading')).toBe('heading')
+    expect(paragraphKind('A listed point.')).toBe('item')
+    expect(wordLink('See the full text online.', 2, 'full')).toMatchObject({ href: 'https://example.org/candide' })
+    expect(wordLink('See the full text online.', 0, 'See')).toBeNull()
+  })
+
+  it('shows chapter titles in house style however the edition writes them, without rewriting the text', async () => {
+    vi.stubGlobal('__BUILD_VERSION__', 'dev')
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/api/edition-patches')) return new Response('[]', { status: 200 })
+      if (url.includes('the-art-of-war-original-en.json')) {
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'PRELIMINARY RECKONING', paragraphs: ['Sun Tzu said: The art of war is of vital importance to the State.'] },
+          { number: 2, title: 'CHAPTER II.—OPERATIONS OF WAR', paragraphs: ['In the operations of war.'] },
+        ], sections: [{ title: 'PART I', chapters: [1, 2] }] }), { status: 200 })
+      }
+      if (url.includes('-threads.json')) return new Response('{"characters":[]}', { status: 200 })
+      return new Response('{}', { status: 404 })
+    }))
+    const source = await loadLabBookSource({ bookId: 'the-art-of-war', primaryEditionKey: 'original-en', chapterNumber: 2, readingFirst: true })
+    expect(source.chapters.map(chapter => [chapter.number, chapter.title])).toEqual([[1, 'Preliminary Reckoning'], [2, 'Chapter 2 — Operations of War']])
+    expect([source.chapterTitle, source.chapterLabel, source.headerChapter]).toEqual(Array(3).fill('Chapter 2 — Operations of War'))
+    expect(source.sections).toEqual([{ title: 'Part 1', chapters: [1, 2] }])
+    expect(source.paragraphs).toEqual(['In the operations of war.'])
+    expect((await loadLabChapterList('the-art-of-war', 'original-en')).map(chapter => chapter.title)).toEqual(['Preliminary Reckoning', 'Chapter 2 — Operations of War'])
+  })
+
+  it('carries a built-in edition’s figures, as for a reader’s own book (fixture, never published)', async () => {
+    vi.stubGlobal('__BUILD_VERSION__', 'dev')
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/api/edition-patches')) return new Response('[]', { status: 200 })
+      if (url.includes('the-prince-original-en.json')) return new Response(JSON.stringify(figureFixture), { status: 200 })
+      if (url.includes('-threads.json')) return new Response('{"characters":[]}', { status: 200 })
+      return new Response('{}', { status: 404 })
+    }))
+    const source = await loadLabBookSource({ bookId: 'the-prince', primaryEditionKey: 'original-en', chapterNumber: 2, readingFirst: true })
+    expect(source.paragraphs[2]).toBe(figureToken('f2'))
+    expect(figureFor(source.paragraphs[2])).toMatchObject({ number: 2, large: true, src: '/data/figures/test-fixture/harbour.png' })
+    expect(source.figures?.map(figure => [figure.number, figure.chapterNumber, figure.paragraphIndex])).toEqual([[1, 1, 1], [2, 2, 2]])
+  })
+
+  it.each([
+    ['alice-in-wonderland', 'modern-en', 'original-en'],
+    ['confessions', 'modern-en', 'original-en'],
+  ])('asks for no Cast file or recorded manifest that %s does not have', async (bookId, primary, compare) => {
+    vi.stubGlobal('__BUILD_VERSION__', 'dev')
+    const requested: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      requested.push(url)
+      if (url.includes('/api/edition-patches')) return new Response('[]', { status: 200 })
+      if (url.includes(`${bookId}-${primary}.json`) || url.includes(`${bookId}-${compare}.json`)) {
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'Chapter 1', paragraphs: ['First words.'] },
+          { number: 2, title: 'Chapter 2', paragraphs: ['Second words.'] },
+        ] }), { status: 200 })
+      }
+      if (url.includes('-threads.json')) return new Response('{"characters":[]}', { status: 200 })
+      if (url.includes('audio-manifest')) return new Response('{"paragraphs":[]}', { status: 200 })
+      return new Response('{}', { status: 404 })
+    }))
+
+    const source = await loadLabBookSource({ bookId, primaryEditionKey: primary, compareEditionKey: compare, chapterNumber: 2 })
+
+    expect(source.paragraphs[0]).toBe('Second words.')
+    expect(source.cast).toEqual([])
+    const hasCast = bookId !== 'confessions'
+    expect(requested.some(url => url.includes(`${bookId}-threads.json`))).toBe(hasCast)
+    const recorded = bookId !== 'alice-in-wonderland'
+    expect(requested.some(url => url.includes('audio-manifest'))).toBe(recorded)
+  })
+
   it('loads production Bible Genesis 1 and the chapter list', async () => {
     const manifest = {
       chapters: [
@@ -136,7 +273,13 @@ describe('loadLabSource', () => {
     })
     vi.stubGlobal('fetch', fetchMock)
 
-    const source = await loadLabSource(1)
+    // The Berean Standard Bible streams its narration and has no recorded
+    // manifest, so it is never asked for; the KJV recording supplies follow data.
+    const streamed = await loadLabSource(1)
+    expect(streamed.followParagraphs[0]?.file).toBeUndefined()
+    expect(fetchMock.mock.calls.some(([input]) => String(input).includes('audio-manifest'))).toBe(false)
+    const source = await loadLabSource(1, { audio: 'kjv-en' })
+    expect(fetchMock.mock.calls.some(([input]) => String(input).includes('path=bible%2Fkjv-en%2Fch1%2Fmanifest.json'))).toBe(true)
     expect(source.bookTitle).toBe('The Bible')
     expect(source.headerBook).toBe('Genesis')
     expect(source.headerChapter).toBe('1')
@@ -179,7 +322,27 @@ it('makes reading available without waiting for audio or cast, and only loads Co
   expect(loaded.supplement).toBeDefined()
   expect(requested.some(url => url.includes('modern-en'))).toBe(false)
   release()
-  const extra = await loaded.supplement!
+  const extra = await loaded.supplement!()
   expect(extra.followParagraphs.length).toBe(1)
   expect(loaded.paragraphs).toEqual(['¹ Better is a dry morsel.'])
+})
+
+it('asks for audio timings and the cast only when the reader asks for them (after its first page)', async () => {
+  const requested: string[] = []
+  vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+    const url = String(input)
+    requested.push(url)
+    if (url.includes('threads')) return new Response('{"characters":[]}', { status: 200 })
+    if (url.includes('manifest.json')) return new Response(JSON.stringify({ chapters: [{ number: 645, title: 'Proverbs 17', path: 'ch0645.json' }] }))
+    if (url.includes('ch0645.json')) return new Response(JSON.stringify({ paragraphs: ['¹ Better is a dry morsel.'] }))
+    return new Response('{}', { status: 404 })
+  }))
+  resetLabThreadsCache()
+  const loaded = await loadLabBookSource({ bookId: 'bible', primaryEditionKey: 'kjv-en', chapterNumber: 645, readingFirst: true })
+  await new Promise(resolve => setTimeout(resolve, 0))
+  expect(requested.some(url => url.includes('threads') || url.includes('audio-manifest'))).toBe(false)
+  const first = loaded.supplement!()
+  expect(loaded.supplement!()).toBe(first)
+  await first
+  expect(requested.filter(url => url.includes('threads'))).toHaveLength(1)
 })

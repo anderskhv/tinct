@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
 const origin='https://tinct.app',built=process.env.READER_BUILT!=='0',out='artifacts/audio-spread';
 fs.mkdirSync(out,{recursive:true});
@@ -10,7 +11,7 @@ async function geometry(p){return p.evaluate(()=>[...document.querySelectorAll('
 (async()=>{
 const results=[];
 for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'chromium,webkit').split(',').includes(e.name()))){
- const browser=await engine.launch({args:engine===chromium?['--mute-audio']:[]});
+ const browser=await markInternal(await engine.launch({args:engine===chromium?['--mute-audio']:[]}));
  const context=await browser.newContext({viewport:{width:1450,height:813},serviceWorkers:'block'});
  const calls=[];
  await context.route('**/*',async r=>{
@@ -30,7 +31,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   }
   if(u.pathname==='/api/lab-chat'){
    const b=r.request().postDataJSON();
-   assert(b.messages.some(m=>m.content.includes('<word>Jehohanan</word>')),'Lookup uses selected name');
+   assert(b.companion?.intent==='define'&&b.companion.selection==='Jehohanan','Lookup uses selected name');
    return r.fulfill({json:{content:[{type:'text',text:JSON.stringify({kind:'person',name:'Jehohanan',importance:'minor',subtitle:'Test role at this passage',body:'Mocked contextual card for browser acceptance.'})}]}});
   }
   if(u.pathname.startsWith('/api/'))return r.fulfill({status:404,body:'{}'});
@@ -48,7 +49,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   }
   window.Audio=SilentAudio;
   HTMLMediaElement.prototype.play=async()=>{};
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:'web-en',fontFamily:'literata',fontSize:1.8,theme:'dark'}));
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:'web-en',fontFamily:'literata',fontSize:1.8,fontSizeExplicit:true,theme:'dark'}));
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:location.search.includes('character-test')?413:410,paragraphIndex:0,wordIndex:0,page:0}}));
  });
  const p=await context.newPage();p.setDefaultTimeout(30000);const errors=[];p.on('pageerror',e=>errors.push(e.message));
@@ -57,7 +58,8 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   // actual mixed spread, without assuming a fixed page count.
   for(const height of [813,879,940,740]){
    await p.setViewportSize({width:1450,height});
-   await p.goto(origin+'/reader');await ready(p);
+   // Spread assertions exercise Classic explicitly; the shared reader defaults to continuous Margin.
+   await p.goto(origin+'/reader?view=two-page');await ready(p);
    for(let i=0;i<30 && !await p.getByTestId('lab-next-chapter-opening').count();i++){
     if(await p.locator('.lab-page-wrap > .lab-passage .lab-chapter-end').count())break;
     await p.keyboard.press('ArrowRight');await ready(p);
@@ -86,7 +88,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   assert(!openingKeys.includes(after[0].p+':'+after[0].w),'Next spread starts beyond the heard opening');
   await p.keyboard.press('ArrowLeft');await ready(p);
   assert.deepEqual(await geometry(p),before,'Back returns to the same mixed spread');
-  await p.goto(origin+'/reader?character-test=1');await ready(p);
+  await p.goto(origin+'/reader?character-test=1&view=two-page');await ready(p);
   const name=p.locator('.lab-page-wrap > .lab-passage [data-testid="lab-word"]').filter({hasText:/^Jehohanan[,.;]?$/}).first();
   for(let i=0;i<20 && !await name.count();i++){await p.keyboard.press('ArrowRight');await ready(p);}
   assert.equal(await p.locator('.lab').getAttribute('data-chapter'),'413');

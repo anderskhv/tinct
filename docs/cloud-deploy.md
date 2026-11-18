@@ -36,7 +36,7 @@ Local `app/.env` is optional for CI; it is still used when present on a develope
 ## GitHub Actions
 
 - **Verify** (all PRs + `main` + `cursor/**`): `.github/workflows/verify.yml` — test, build, verify-bundle.
-- **Deploy** (`main` push + manual): `.github/workflows/deploy.yml` — tests then `npm run deploy` + `scripts/smoke-test.sh` against `https://tinct.app`.
+- **Deploy** (`main` push + manual): `.github/workflows/deploy.yml` — tests, then a staged release: `npm run release:upload` (version preview, no traffic), acceptance against the preview URL, `npm run release:promote`, production checks, automatic `npm run rollback` on post-promote failure. Details and the migrations fallback are in `AGENTS.md` (Deploy flow).
 
 ### One-time GitHub setup
 
@@ -87,11 +87,17 @@ npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
 npx wrangler secret put STRIPE_SECRET_KEY
 npx wrangler secret put STRIPE_WEBHOOK_SECRET
 npx wrangler secret put STRIPE_PRICE_PREMIUM
-npx wrangler secret put STRIPE_PRICE_CHAT_100
-npx wrangler secret put STRIPE_PRICE_CHAT_200
+npx wrangler secret put STRIPE_PRICE_PREMIUM_YEARLY   # optional; without it the yearly plan is hidden
+npx wrangler secret put STRIPE_PRICE_CHAT_100        # the $3 message pack, sold while the AI allowance is off
+npx wrangler secret put STRIPE_PRICE_CHAT_200        # the $5 pack: messages while off, AI top-up once on
+npx wrangler secret put STRIPE_PRICE_TOP_UP_10       # optional; the $10 AI top-up (allowance on), hidden without it; STRIPE_PRICE_TOPUP_10 also works
 npx wrangler secret put INDEXNOW_KEY
 npx wrangler secret put BREVO_API_KEY
+npx wrangler secret put GOOGLE_OAUTH_CLIENT_ID      # optional; with the secret below, Google sign-in runs on tinct.app (src/worker/routes/googleAuth.ts)
+npx wrangler secret put GOOGLE_OAUTH_CLIENT_SECRET  # optional; without both, Google sign-in uses Supabase's own redirect
 ```
+
+Both Google values can also be added without a terminal: Cloudflare dashboard → Workers & Pages → tinct → Settings → Variables and Secrets → Add, type Secret. Secrets survive deploys.
 
 ## R2 audio / words.json (separate from app deploy)
 

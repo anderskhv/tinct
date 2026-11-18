@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
-import { loadCharacters, comparePoint, releasedCard, resolveCharacter, verifyCharacters, wordSelectionOffsets, type CharacterAsset, type VerifiedCharacters } from './characterCards'
+import { characterReleases, loadCharacters, comparePoint, releasedCard, resolveCharacter, verifyCharacters, wordSelectionOffsets, type CharacterAsset, type VerifiedCharacters } from './characterCards'
 const asset: CharacterAsset = JSON.parse(readFileSync('public/data/characters/the-awakening.v1.json', 'utf8'))
 const verified: Record<string, VerifiedCharacters> = {}
 beforeAll(async () => {
@@ -80,10 +80,16 @@ it('maps punctuation and UTF16 word anchors without surname search', () => {
   expect(wordSelectionOffsets('Sylvano’s wife', 0, 2)).toEqual([0, 14])
 })
 
-it('requests the current content revision instead of an immutable old URL', async () => {
+it('requests the current package revision and the text at the reader\'s own versioned URL', async () => {
+  // The edition text is the reader's own request (editionWholeUrl with the
+  // build version), so the copy it downloaded is reused instead of fetched
+  // again under the package's tag (cold-open measurement, 14 Oct 2026). An
+  // unversioned URL could still serve an immutable old text, so the build tag
+  // is required.
+  vi.stubGlobal('__BUILD_VERSION__', 'build-7')
   const fetcher = vi.fn(async (url: string) => url.includes('/characters/')
     ? { ok: true, json: async () => asset }
-    : { ok: true, arrayBuffer: async () => url.endsWith(`?v=${asset.contentVersion}`)
+    : { ok: true, arrayBuffer: async () => url === '/data/editions/the-awakening-original-en.json?v=build-7'
       ? Uint8Array.from(readFileSync('public/data/editions/the-awakening-original-en.json')).buffer
       : new TextEncoder().encode('{}').buffer }) // an unversioned URL can still serve the immutable old text
   vi.stubGlobal('fetch', fetcher)
@@ -91,24 +97,45 @@ it('requests the current content revision instead of an immutable old URL', asyn
     expect(await loadCharacters('the-awakening', 'original-en')).not.toBeNull()
     const url = new URL(fetcher.mock.calls[0][0], 'https://tinct.app')
     expect(url.searchParams.get('v')).toBe(asset.contentVersion)
-    expect(fetcher.mock.calls.some(([url]) => url === `/data/editions/the-awakening-original-en.json?v=${asset.contentVersion}`)).toBe(true)
+    expect(fetcher.mock.calls.some(([url]) => url === '/data/editions/the-awakening-original-en.json?v=build-7')).toBe(true)
+    expect(fetcher.mock.calls.some(([url]) => url === `/data/editions/the-awakening-original-en.json?v=${asset.contentVersion}`)).toBe(false)
+    // The other edition shares the package: it is not requested again.
+    await loadCharacters('the-awakening', 'modern-en')
+    expect(fetcher.mock.calls.filter(([url]) => url.includes('/characters/'))).toHaveLength(1)
   } finally { vi.unstubAllGlobals() }
 })
 
-describe.each(['kjv-en', 'web-en'])('Bible Baruch %s', key => {
+it('checks a chapter-sharded edition against its whole file under the package revision, cached across app releases', async () => {
+  // The reader reads Moby-Dick and the Bible by chapter, so only this check
+  // downloads the whole file; a build tag would fetch it again every release.
+  vi.stubGlobal('__BUILD_VERSION__', 'build-7')
+  const fetcher = vi.fn(async (_url: string) => ({ ok: false }))
+  vi.stubGlobal('fetch', fetcher)
+  try {
+    await loadCharacters('moby-dick', 'original-en')
+    await loadCharacters('bible', 'kjv-en')
+    const urls = fetcher.mock.calls.map(([url]) => url)
+    expect(urls).toContain(`/data/editions/moby-dick-original-en.json?v=${characterReleases['moby-dick'].revision}`)
+    expect(urls).toContain(`/data/editions/bible-kjv-en.json?v=${characterReleases.bible.revision}`)
+    expect(urls.some(url => url.endsWith('?v=build-7'))).toBe(false)
+  } finally { vi.unstubAllGlobals() }
+})
+
+describe.each(['kjv-en', 'web-en', 'bsb-en', 'webc-en'])('Bible Baruch %s', key => {
   it('resolves Jeremiah 45, excludes other Baruchs and preserves explicit highlights', async () => {
-    const bible = JSON.parse(readFileSync('public/data/characters/bible.v1.json', 'utf8'))
+    const bible = JSON.parse(readFileSync(`public/data/characters/bible.v1.${key}.json`, 'utf8'))
     const raw = readFileSync(`public/data/editions/bible-${key}.json`)
     const data = (await verifyCharacters(bible, 'bible', key, Uint8Array.from(raw).buffer))!
     expect(data).not.toBeNull()
-    const mention = data.edition.mentions.find(m => m.chapterNumber === 790)!
+    const mention = data.edition.mentions.find(m => m.chapterNumber === 790 && m.characterId === 'baruch-neriah')!
     const text = data.paragraphs[790][mention.paragraphIndex]
     const args = [data, 790, mention.paragraphIndex, mention.startOffset, mention.endOffset, text] as const
     expect(resolveCharacter(...args)?.card.subtitle).toContain('Jeremiah’s scribe')
     expect(resolveCharacter(...args, true)).toBeNull()
     const baruchMentions = data.edition.mentions.filter(m => m.characterId === 'baruch-neriah')
     expect(baruchMentions.length).toBeGreaterThan(0)
-    expect(baruchMentions.every(m => m.chapterNumber >= 746 && m.chapterNumber <= 797)).toBe(true)
+    // WEB Catholic also carries the deuterocanonical Book of Baruch (chapter 1321).
+    expect(baruchMentions.every(m => (m.chapterNumber >= 746 && m.chapterNumber <= 797) || (key === 'webc-en' && m.chapterNumber === 1321))).toBe(true)
     for (const m of baruchMentions) expect(resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, data.paragraphs[m.chapterNumber][m.paragraphIndex])?.card.id).toBe('baruch-neriah')
   })
 })
@@ -160,7 +187,7 @@ describe.each(['original-en', 'modern-en'])('Macbeth runtime %s', key => {
   })
 })
 
-describe.each(['us-founding-documents', 'kant-groundwork', 'descartes-meditations', 'crito', 'apology', 'the-manual', 'the-art-of-war', 'measure-for-measure', 'henry-v', 'winters-tale', 'cymbeline', 'coriolanus', 'antony-and-cleopatra', 'richard-iii', 'henry-iv-part-2', 'merry-wives-of-windsor'])('complete reviewed package %s', bookId => {
+describe.each(['us-founding-documents', 'kant-groundwork', 'descartes-meditations', 'crito', 'apology', 'the-manual', 'measure-for-measure', 'henry-v', 'winters-tale', 'cymbeline', 'coriolanus', 'antony-and-cleopatra', 'richard-iii', 'henry-iv-part-2', 'merry-wives-of-windsor'])('complete reviewed package %s', bookId => {
   it.each(['original-en', 'modern-en'])('validates every paragraph and mention in %s, with release boundaries', async editionKey => {
     const asset: CharacterAsset = JSON.parse(readFileSync(`public/data/characters/${bookId}.v1.json`, 'utf8'))
     const raw = Uint8Array.from(readFileSync(`public/data/editions/${bookId}-${editionKey}.json`)).buffer

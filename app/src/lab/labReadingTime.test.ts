@@ -1,0 +1,265 @@
+// @vitest-environment jsdom
+import { act, renderHook } from '@testing-library/react'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { addPending, beatPayload, fetchReadingTime, flushPendingNow, nextFlush, pendingForBeat, pendingForFigures, pendingSeconds, readPending, readingTimeSwitch, resetLedgerSends, resetReadingTimeSwitch, sendFlush, withPending } from './labReadingTime'
+import { useLabReadingYear } from './useLabReadingYear'
+import { readLocalReadingYear, readingYearTotals } from './labReadingYear'
+import { BEAT_MAX_SECONDS, localDay } from '../readingTime/model'
+
+beforeEach(() => {
+  localStorage.clear()
+  resetReadingTimeSwitch()
+  resetLedgerSends()
+})
+
+afterEach(() => {
+  vi.useRealTimers()
+  vi.unstubAllGlobals()
+  vi.restoreAllMocks()
+  resetReadingTimeSwitch()
+})
+
+describe('the switch on the reader', () => {
+  it('reads as off when the Worker cannot be asked', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('offline') }))
+    expect(await readingTimeSwitch()).toBe(false)
+    resetReadingTimeSwitch()
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('Not found', { status: 404 })))
+    expect(await readingTimeSwitch()).toBe(false)
+    resetReadingTimeSwitch()
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ enabled: true })))
+    expect(await readingTimeSwitch()).toBe(true)
+  })
+})
+
+describe('the switch on a long-lived page', () => {
+  it('a failed question is asked again after a minute, and an answer once it is older than the caller allows', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    const fetchMock = vi.fn(async () => { throw new Error('offline') })
+    expect(await readingTimeSwitch(fetchMock as unknown as typeof fetch)).toBe(false)
+    expect(await readingTimeSwitch(fetchMock as unknown as typeof fetch)).toBe(false)
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    vi.setSystemTime(Date.now() + 61_000)
+    const on = vi.fn(async () => Response.json({ enabled: true }))
+    expect(await readingTimeSwitch(on as unknown as typeof fetch)).toBe(true)
+    // A good answer lasts for the page unless the caller asks for a fresher one.
+    vi.setSystemTime(Date.now() + 10 * 60_000)
+    const off = vi.fn(async () => Response.json({ enabled: false }))
+    expect(await readingTimeSwitch(off as unknown as typeof fetch)).toBe(true)
+    expect(await readingTimeSwitch(off as unknown as typeof fetch, { maxAgeMs: 5 * 60_000 })).toBe(false)
+  })
+})
+
+describe('the ledger summary', () => {
+  it('a request that never answers reads as unavailable after the timeout, so the sheet is never stuck loading', async () => {
+    const hanging = vi.fn(() => new Promise<Response>(() => {}))
+    expect(await fetchReadingTime('token', hanging as unknown as typeof fetch, { timeoutMs: 20 })).toBeNull()
+  })
+})
+
+describe('pending time on the device', () => {
+  it('keeps each day and book apart, and a beat carries at most BEAT_MAX_SECONDS (five minutes) of the current one', () => {
+    // Cap change (DB IO trim, 20 Oct 2026): a beat carried 60 s, now 300 s.
+    expect(BEAT_MAX_SECONDS).toBe(300)
+    addPending('u1', '2026-10-07', 'odyssey', { read: 150 })
+    addPending('u1', '2026-10-07', 'odyssey', { read: 150, listen: 0 })
+    addPending('u1', '2026-10-07', 'odyssey', { listen: 150 })
+    addPending('u1', '2026-10-06', 'bible', { read: 90 })
+    expect(readPending('u1')).toEqual({ '2026-10-07': { odyssey: { read: 300, listen: 150 } }, '2026-10-06': { bible: { read: 90, listen: 0 } } })
+    expect(beatPayload(readPending('u1'), '2026-10-07', 'odyssey', false)).toEqual({ day: '2026-10-07', bookId: 'odyssey', read: 150, listen: 150, playing: true })
+    expect(beatPayload(readPending('u1'), '2026-10-07', 'bible', false)).toBeNull()
+    expect(pendingSeconds(readPending('u1'))).toBe(540)
+    expect(readPending(null)).toEqual({})
+  })
+
+  it('flushes the signed-out tally on sign-in once, then clears it', async () => {
+    addPending(null, '2026-10-06', 'odyssey', { read: 600 })
+    const flush = nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'odyssey', guestEarlier: { year: 2026, seconds: 1200 } })
+    expect(flush).toMatchObject({ owner: null, entries: [{ day: '2026-10-06', bookId: 'odyssey', read: 600, listen: 0 }], earlier: 1200 })
+    // Unconfirmed: the same flush (same id) is offered again.
+    expect(nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'odyssey', guestEarlier: null })?.flushId).toBe(flush!.flushId)
+    const cleared: number[] = []
+    const fetchMock = vi.fn(async () => Response.json({ enabled: true, credited: 1800 }))
+    expect(await sendFlush('token', 'u1', flush!, year => cleared.push(year), fetchMock as unknown as typeof fetch)).toBe('credited')
+    expect(JSON.parse(String((fetchMock.mock.calls[0] as unknown as [string, RequestInit])[1].body))).toEqual({ flushId: flush!.flushId, entries: flush!.entries, earlier: 1200 })
+    expect(readPending(null)).toEqual({})
+    expect(cleared).toEqual([2026])
+    expect(nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'odyssey', guestEarlier: null })).toBeNull()
+  })
+
+  it('a flush that failed part-way keeps exactly what did not land, under a new id', async () => {
+    addPending('u1', '2026-10-05', 'odyssey', { read: 600 })
+    addPending('u1', '2026-10-06', 'odyssey', { read: 300 })
+    const flush = nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })!
+    expect(flush.entries).toHaveLength(2)
+    const fetchMock = vi.fn(async () => Response.json({ enabled: true, error: 'unavailable', applied: 1 }, { status: 503 }))
+    expect(await sendFlush('token', 'u1', flush, () => {}, fetchMock as unknown as typeof fetch)).toBe('unavailable')
+    const landed = flush.entries[0]
+    const left = flush.entries[1]
+    expect(readPending('u1')).toEqual({ [left.day]: { odyssey: { read: left.read, listen: 0 } } })
+    expect(landed.day).not.toBe(left.day)
+    // The next flush carries only what is left, under a new id (the old one is spent).
+    const next = nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })!
+    expect(next.flushId).not.toBe(flush.flushId)
+    expect(next.entries).toEqual([left])
+  })
+
+  it('a flush the ledger refused before it began (503 without applied) is resent as it was', async () => {
+    addPending('u1', '2026-10-05', 'odyssey', { read: 600 })
+    const flush = nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })!
+    const fetchMock = vi.fn(async () => Response.json({ enabled: true, error: 'unavailable' }, { status: 503 }))
+    expect(await sendFlush('token', 'u1', flush, () => {}, fetchMock as unknown as typeof fetch)).toBe('unavailable')
+    expect(nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })?.flushId).toBe(flush.flushId)
+    expect(pendingSeconds(readPending('u1'))).toBe(600)
+  })
+
+  it('leaves the current book’s time today to the heartbeat', () => {
+    addPending('u1', '2026-10-07', 'odyssey', { read: 600 })
+    addPending('u1', '2026-10-07', 'bible', { read: 60 })
+    expect(nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'odyssey', guestEarlier: null })?.entries).toEqual([{ day: '2026-10-07', bookId: 'bible', read: 60, listen: 0 }])
+  })
+})
+
+describe('flush on opening the You card or the Leaderboard (21 Oct 2026: You 16 m, board 12 m)', () => {
+  const USER = 'u1'
+  /** A Worker whose ledger takes flushes; `flushAnswer` overrides the flush reply. */
+  function worker(options: { flushAnswer?: () => Promise<Response> } = {}) {
+    const ledger: Array<{ day: string; bookId: string; read: number; listen: number }> = []
+    const calls: string[] = []
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      calls.push(url)
+      if (url.includes('/api/reading-time/status')) return Response.json({ enabled: true })
+      if (url.includes('/api/reading-time/flush')) {
+        if (options.flushAnswer) return options.flushAnswer()
+        const body = JSON.parse(String(init?.body)) as { entries: typeof ledger }
+        ledger.push(...body.entries)
+        return Response.json({ enabled: true, credited: body.entries.reduce((sum, entry) => sum + entry.read + entry.listen, 0) })
+      }
+      return Response.json({}, { status: 404 })
+    })
+    return { ledger, calls, fetchImpl: fetchMock as unknown as typeof fetch }
+  }
+  const total = (rows: Array<{ read: number; listen: number }>) => rows.reduce((sum, row) => sum + row.read + row.listen, 0)
+
+  it('sends everything pending, today’s current book too, and leaves nothing to add on top (no double count)', async () => {
+    const today = localDay()
+    addPending(USER, today, 'odyssey', { read: 240 })
+    addPending(USER, today, 'bible', { read: 60, listen: 30 })
+    const server = worker()
+    expect(await flushPendingNow('token', USER, { fetchImpl: server.fetchImpl })).toBe('flushed')
+    expect(server.calls.filter(url => url.includes('/flush'))).toHaveLength(1)
+    expect(total(server.ledger)).toBe(330)
+    // The board reads the ledger; the You card reads the ledger plus what is still pending: the same.
+    expect(readPending(USER)).toEqual({})
+    expect(total(withPending(server.ledger, pendingForFigures(USER)))).toBe(total(server.ledger))
+    // A second open with nothing new pending writes nothing.
+    expect(await flushPendingNow('token', USER, { fetchImpl: server.fetchImpl })).toBe('nothing')
+    expect(server.calls.filter(url => url.includes('/flush'))).toHaveLength(1)
+  })
+
+  it('nothing pending: asks nothing at all (no IO)', async () => {
+    const server = worker()
+    expect(await flushPendingNow('token', USER, { fetchImpl: server.fetchImpl })).toBe('nothing')
+    expect(await flushPendingNow('token', null, { fetchImpl: server.fetchImpl })).toBe('nothing')
+    expect(server.calls).toEqual([])
+  })
+
+  it('a failed flush keeps the time pending, so the You card still adds it; a heartbeat never resends the unconfirmed seconds', async () => {
+    const today = localDay()
+    addPending(USER, today, 'odyssey', { read: 240 })
+    const server = worker({ flushAnswer: async () => { throw new Error('offline') } })
+    expect(await flushPendingNow('token', USER, { fetchImpl: server.fetchImpl })).toBe('failed')
+    expect(pendingSeconds(pendingForFigures(USER))).toBe(240)
+    // The flush is resent under its id later; a beat carries only time read since.
+    expect(beatPayload(pendingForBeat(USER), today, 'odyssey', false)).toBeNull()
+    addPending(USER, today, 'odyssey', { read: 30 })
+    expect(beatPayload(pendingForBeat(USER), today, 'odyssey', false)).toMatchObject({ read: 30 })
+  })
+
+  it('waits at most the timeout; a send still on its way is left out of the figures until it settles', async () => {
+    const today = localDay()
+    addPending(USER, today, 'odyssey', { read: 240 })
+    let answer: (response: Response) => void = () => {}
+    const server = worker({ flushAnswer: () => new Promise<Response>(resolve => { answer = resolve }) })
+    const started = Date.now()
+    expect(await flushPendingNow('token', USER, { fetchImpl: server.fetchImpl, waitMs: 30 })).toBe('late')
+    expect(Date.now() - started).toBeLessThan(1000)
+    // On its way: neither counted twice (ledger + pending) nor stuck.
+    expect(pendingSeconds(pendingForFigures(USER))).toBe(0)
+    answer(Response.json({ enabled: true, credited: 240 }))
+    await new Promise(resolve => setTimeout(resolve, 0))
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(readPending(USER)).toEqual({})
+  })
+})
+
+/** Reading time is credited at page turns (10 Nov 2026): `turn()` turns the page. */
+function mountReader(userId: string | null) {
+  const listeningRef = { current: false }
+  const hook = renderHook(({ page }: { page: number }) => useLabReadingYear({ userId, bookId: 'odyssey', chapter: 1, page, onCover: false, paused: false, listeningRef }), { initialProps: { page: 0 } })
+  return { ...hook, turn: () => act(() => hook.rerender({ page: 1 })) }
+}
+
+describe('the reader’s tally with the switch', () => {
+  it('off: time goes to the yearly tally exactly as before, and nothing but the status question is sent', async () => {
+    vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
+    const fetchMock = vi.fn(async () => Response.json({ enabled: false }))
+    vi.stubGlobal('fetch', fetchMock)
+    const reader = mountReader(null)
+    await act(async () => { await Promise.resolve() })
+    await act(async () => { vi.advanceTimersByTime(30_000) })
+    reader.turn()
+    const year = new Date().getFullYear()
+    expect(readingYearTotals(readLocalReadingYear(year, null)).seconds).toBe(30)
+    expect(readPending(null)).toEqual({})
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(String((fetchMock.mock.calls[0] as unknown as [string])[0])).toContain('/api/reading-time/status')
+  })
+
+  it('on: the same time waits per day and book for the ledger instead, so it is never counted twice', async () => {
+    vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ enabled: true })))
+    const reader = mountReader(null)
+    await act(async () => { await Promise.resolve(); await Promise.resolve() })
+    await act(async () => { vi.advanceTimersByTime(30_000) })
+    reader.turn()
+    const year = new Date().getFullYear()
+    expect(readingYearTotals(readLocalReadingYear(year, null)).seconds).toBe(0)
+    expect(readPending(null)).toEqual({ [localDay()]: { odyssey: { read: 30, listen: 0 } } })
+  })
+})
+
+describe('a reader’s own book (private)', () => {
+  const OWN = 'userbook-0123456789abcdef01234567'
+  function mountOwnBook() {
+    const listeningRef = { current: false }
+    // As LabApp mounts it for an own book: no pages (onCover), the private flag.
+    const hook = renderHook(({ page }: { page: number }) => useLabReadingYear({ userId: null, bookId: OWN, chapter: 1, page, onCover: true, paused: false, listeningRef, privateBook: true }), { initialProps: { page: 0 } })
+    return { ...hook, turn: () => act(() => hook.rerender({ page: 1 })) }
+  }
+
+  it('off: counted nowhere, exactly as before (no yearly tally, nothing pending)', async () => {
+    vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ enabled: false })))
+    const reader = mountOwnBook()
+    await act(async () => { await Promise.resolve(); await Promise.resolve() })
+    await act(async () => { vi.advanceTimersByTime(60_000) })
+    reader.turn()
+    const year = new Date().getFullYear()
+    expect(readingYearTotals(readLocalReadingYear(year, null)).seconds).toBe(0)
+    expect(readPending(null)).toEqual({})
+  })
+
+  it('on: its time counts under the one private bucket, never the own book’s id', async () => {
+    vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ enabled: true })))
+    const reader = mountOwnBook()
+    await act(async () => { await Promise.resolve(); await Promise.resolve() })
+    await act(async () => { vi.advanceTimersByTime(30_000) })
+    reader.turn()
+    expect(readPending(null)).toEqual({ [localDay()]: { private: { read: 30, listen: 0 } } })
+    expect(JSON.stringify({ ...localStorage })).not.toContain('userbook-')
+    expect(beatPayload(readPending(null), localDay(), 'private', false)).toMatchObject({ bookId: 'private', read: 30 })
+  })
+})

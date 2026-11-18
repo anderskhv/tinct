@@ -1,6 +1,7 @@
 import { DurableObject } from 'cloudflare:workers'
 import { mergeLabPositionStatesByTime, parseLabPositionState, type LabPositionState } from '../lab/labPosition'
 import { isValidUUID } from './lib/security'
+import { appendPositionHistory, positionWriteEntries, readPositionHistory, type PositionHistoryEntry, type PositionWriteClient } from './lib/positionHistory'
 
 interface PositionEnv { RATE_LIMIT?: KVNamespace }
 
@@ -49,17 +50,58 @@ export class ReaderPositionCoordinator extends DurableObject<PositionEnv> {
     await this.prepare(owner)
     return this.stored()!
   }
-  async update(owner: string, incoming: LabPositionState): Promise<LabPositionState> {
+  async update(owner: string, incoming: LabPositionState, client: PositionWriteClient = {}): Promise<LabPositionState> {
     await this.prepare(owner)
     // No await separates read, merge and durable write. Both devices' pins and
     // finished lists survive; the newest acknowledged intentional resume wins.
-    const stored={...mergeLabPositionStatesByTime(this.stored()!,incoming,{requireSettleAcknowledgement:true}),owner}
+    const before=this.stored()!
+    const stored={...mergeLabPositionStatesByTime(before,incoming,{requireSettleAcknowledgement:true}),owner}
     this.save(stored)
+    this.recordHistory(before,incoming,stored,client)
     // Maintain the old key for recovery/rollback and old optional observers.
     // A coalesced alarm avoids KV's per-key write-rate limit.
     const alarm=await this.ctx.storage.getAlarm()
     if(alarm===null)await this.ctx.storage.setAlarm(Math.max(Date.now()+1500,this.cutoverAt()??0))
     return stored
+  }
+  /**
+   * Diagnostics only (lib/positionHistory.ts): row 5 holds the recent write
+   * history. Runs after the merged record is saved and can never fail, delay
+   * or change a save: any error here is swallowed.
+   */
+  private recordHistory(before: LabPositionState, incoming: LabPositionState, merged: LabPositionState, client: PositionWriteClient): void {
+    try {
+      const now=Date.now()
+      const entries=positionWriteEntries(before,incoming,merged,client,now)
+      if(!entries.length)return
+      const row=this.ctx.storage.sql.exec<{value:string}>('SELECT value FROM reader_position WHERE id=5').toArray()[0]
+      const history=appendPositionHistory(row ? JSON.parse(row.value) : [],entries,now)
+      this.ctx.storage.sql.exec('INSERT INTO reader_position VALUES (5,?) ON CONFLICT(id) DO UPDATE SET value=excluded.value',JSON.stringify(history))
+    }catch{/* diagnostics never block a save */}
+  }
+  /** Site-admin diagnostics: the account's recent position writes, oldest first. Never runs the legacy import. */
+  positionHistory(): PositionHistoryEntry[] {
+    const row=this.ctx.storage.sql.exec<{value:string}>('SELECT value FROM reader_position WHERE id=5').toArray()[0]
+    if(!row)return []
+    try{return readPositionHistory(JSON.parse(row.value),Date.now())}catch{return []}
+  }
+  /** Admin export: every stored row verbatim. Never runs the legacy import. */
+  exportState(): Record<string, unknown> {
+    const labels: Record<number,string>={1:'position',2:'legacyImport',3:'mirrorCutoverAt',4:'legacyFinal',5:'positionHistory'}
+    const out: Record<string, unknown>={}
+    for(const row of this.ctx.storage.sql.exec<{id:number;value:string}>('SELECT id, value FROM reader_position ORDER BY id').toArray()){
+      let value: unknown=row.value
+      try{value=JSON.parse(row.value)}catch{/* keep the raw text */}
+      out[labels[row.id]??`row${row.id}`]=value
+    }
+    return out
+  }
+  /** Admin account deletion: drop the alarm and all storage. Safe to repeat. */
+  async purge(): Promise<void> {
+    await this.ctx.storage.deleteAlarm()
+    await this.ctx.storage.deleteAll()
+    // An in-flight request may still query the table; leave it empty, not missing.
+    this.ctx.storage.sql.exec('CREATE TABLE IF NOT EXISTS reader_position (id INTEGER PRIMARY KEY, value TEXT NOT NULL)')
   }
   async alarm(): Promise<void> {
     let state=this.stored()

@@ -2,13 +2,16 @@
 //
 // Strategy:
 //   - App shell:
-//       Network-first for navigations with cached /app.html fallback. The
+//       Network-first for /reader navigations; the cached /reader page is used
+//       only when the network request itself fails (offline). Redirects,
+//       404s and 5xx responses always pass through. The
 //       deployed dist/sw.js is stamped after build with the exact current
 //       bundle/font URLs and a cache name derived from those URLs.
 //   - Editions (/data/editions/*.json and /data/editions-chapters/*.json):
 //       Stale-while-revalidate. Serve cached immediately for speed, but
 //       always fetch in the background and replace the cached copy. Means
 //       a corrupt or partial cached entry self-heals on the next load.
+//       Offline, a file cached under another build's ?v= answers too.
 //       A request that includes the `fresh=1` query param skips the cache
 //       entirely and forces a network fetch — used by the loader as an
 //       explicit retry when it sees malformed data.
@@ -24,8 +27,17 @@
 const CACHE_NAME = 'tinct-offline-v3'
 const APP_SHELL_CACHE_NAME = 'tinct-app-shell-dev'
 const APP_SHELL_PRECACHE_URLS = []
+// Bundles the reader imports only on demand (stamped like the list above).
+// Fetched at install after the list above, and again (any missing) whenever a
+// book is saved for offline reading (CACHE_APP_SHELL below).
+const APP_SHELL_LAZY_URLS = []
 
-const APP_SHELL_PRECACHE_SET = new Set(APP_SHELL_PRECACHE_URLS)
+const APP_SHELL_PRECACHE_SET = new Set([...APP_SHELL_PRECACHE_URLS, ...APP_SHELL_LAZY_URLS])
+// The page an offline /reader load is answered with. It is the reader page
+// itself, cached at install: /app.html is redirected by the Worker (to /app,
+// then the library), so a copy cached under that name was the library page and
+// carried redirected=true, which browsers refuse as a navigation response.
+const READER_SHELL_URL = '/reader'
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
@@ -37,7 +49,12 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  if (isSameOrigin && APP_SHELL_PRECACHE_SET.has(url.pathname)) {
+  if (isSameOrigin && isLibraryNavigation(event.request, url)) {
+    event.respondWith(handleLibraryNavigation(event.request))
+    return
+  }
+
+  if (isSameOrigin && APP_SHELL_PRECACHE_SET.has(url.pathname) && url.pathname !== READER_SHELL_URL) {
     event.respondWith(handlePrecachedAppAsset(event.request))
     return
   }
@@ -104,26 +121,76 @@ function isAppShellNavigation(request, url) {
   return false
 }
 
-async function handleAppShellNavigation(request) {
+// The library and the home page need the network. Offline, they send the
+// reader to the cached reader page, which opens the book last read at its
+// saved place. A library ?book= link is not carried over: /reader?book=bible
+// opens Genesis 1 until the cloud record answers, which it cannot offline.
+function isLibraryNavigation(request, url) {
+  if (request.mode !== 'navigate') return false
+  return url.pathname === '/' || url.pathname === '/index.html' || url.pathname === '/library' || url.pathname === '/library/'
+}
+
+async function handleLibraryNavigation(request) {
   try {
-    const response = await fetch(request)
-    if (response.ok) return response
+    return await fetch(request)
   } catch {
-    // Fall back below.
+    // Offline: fall back below.
+  }
+  const cache = await caches.open(APP_SHELL_CACHE_NAME)
+  if (!(await cache.match(READER_SHELL_URL))) {
+    return new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
+  }
+  const target = READER_SHELL_URL
+  return new Response(
+    '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+      + '<meta http-equiv="refresh" content="0;url=' + target + '"><script>location.replace(' + JSON.stringify(target) + ')</script>',
+    { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' } },
+  )
+}
+
+async function handleAppShellNavigation(request) {
+  // Any answer from the server is the answer: a redirect (navigations use
+  // redirect:'manual', so it arrives as an opaqueredirect with ok === false),
+  // a 404 or a 5xx must reach the browser untouched. Only a network failure
+  // (fetch throws) means the reader is genuinely offline and gets the shell.
+  try {
+    return await fetch(request)
+  } catch {
+    // Offline: fall back below.
   }
 
   const cache = await caches.open(APP_SHELL_CACHE_NAME)
-  const cached = await cache.match('/app.html')
-  if (cached) return cached
+  const cached = await cache.match(READER_SHELL_URL)
+  if (cached) return unredirected(cached)
   return new Response('Offline', {
     status: 503,
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },
   })
 }
 
+// A content-hashed file never changes, so the cached copy is always right.
+// A fixed-name module (/lab/native-books.js) changes with every build, and the
+// hashed bundles import it by minified export names: a cached copy from an
+// older build made those imports fail ("Your shelves could not load", a
+// reader that never starts). Fixed names are network-first; the cache is the
+// offline fallback.
+const CONTENT_HASHED = /-[A-Za-z0-9_-]{8,}\.(?:js|css|woff2)$/
+
 async function handlePrecachedAppAsset(request) {
   const cache = await caches.open(APP_SHELL_CACHE_NAME)
-  const cached = await cache.match(new URL(request.url).pathname)
+  const path = new URL(request.url).pathname
+  if (!CONTENT_HASHED.test(path) && path.endsWith('.js')) {
+    try {
+      const response = await fetch(request)
+      if (response.ok) await cache.put(path, response.clone())
+      return response
+    } catch {
+      const offline = await cache.match(path)
+      if (offline) return offline
+      throw new Error('offline')
+    }
+  }
+  const cached = await cache.match(path)
   if (cached) return cached
 
   const response = await fetch(request)
@@ -205,7 +272,7 @@ async function handleEdition(request, forceFresh) {
       if (fresh.ok) await cache.put(canonicalRequest, fresh.clone())
       return fresh
     } catch {
-      const cached = await cache.match(canonicalRequest)
+      const cached = await cache.match(canonicalRequest) || await cache.match(canonicalRequest, { ignoreSearch: true })
       if (cached) return cached
       return offlineFallback()
     }
@@ -214,7 +281,10 @@ async function handleEdition(request, forceFresh) {
   const cached = await cache.match(canonicalRequest)
   const networkPromise = fetch(canonicalRequest).then(response => {
     if (response.ok) {
-      cache.put(canonicalRequest, response.clone()).catch(() => {})
+      const stored = cache.put(canonicalRequest, response.clone())
+      // First request under this build's ?v=: the copies earlier builds left go.
+      const tidied = cached ? stored : stored.then(() => dropOtherVersions(cache, canonicalRequest))
+      tidied.catch(() => {})
     }
     return response
   }).catch(() => null)
@@ -226,7 +296,17 @@ async function handleEdition(request, forceFresh) {
 
   const network = await networkPromise
   if (network) return network
+  // Offline, and nothing under this ?v=: a deploy changed the build version
+  // since the book was saved (every build stamps a new one). The copy saved
+  // under the earlier version is the same file, almost always the same text.
+  const anyVersion = await cache.match(canonicalRequest, { ignoreSearch: true })
+  if (anyVersion) return anyVersion
   return offlineFallback()
+}
+
+async function dropOtherVersions(cache, request) {
+  const variants = await cache.keys(request, { ignoreSearch: true })
+  await Promise.all(variants.filter(variant => variant.url !== request.url).map(variant => cache.delete(variant)))
 }
 
 function offlineFallback() {
@@ -256,14 +336,54 @@ async function precacheAppShell() {
   const cache = await caches.open(APP_SHELL_CACHE_NAME)
   await Promise.allSettled(APP_SHELL_PRECACHE_URLS.map(async (url) => {
     const response = await fetch(url, { cache: 'no-store' })
-    if (response.ok) await cache.put(url, response)
+    if (response.ok) await cache.put(url, await unredirected(response))
   }))
+  // Every book a reader opens is saved for offline reading in the background
+  // (src/lab/labOfflineBook.ts), so the bundles it opens on demand (Contents,
+  // the sheets) are part of the shell too: a deploy must not leave a flight-mode
+  // reader with a reader page whose Contents cannot load. They are small.
+  await Promise.allSettled(APP_SHELL_LAZY_URLS.map(async (url) => {
+    const response = await fetch(url, { cache: 'no-store' })
+    if (response.ok) await cache.put(url, await unredirected(response))
+  }))
+}
+
+async function cacheWholeAppShell() {
+  const cache = await caches.open(APP_SHELL_CACHE_NAME)
+  const urls = [...APP_SHELL_PRECACHE_URLS, ...APP_SHELL_LAZY_URLS]
+  const results = await Promise.allSettled(urls.map(async (url) => {
+    // Hashed files never change; the page and fixed-name modules are refreshed.
+    if (url !== READER_SHELL_URL && CONTENT_HASHED.test(url) && await cache.match(url)) return
+    const response = await fetch(url, { cache: 'no-store' })
+    if (!response.ok) throw new Error(url)
+    await cache.put(url, await unredirected(response))
+  }))
+  if (!(await cache.match(READER_SHELL_URL))) return false
+  return results.every(result => result.status === 'fulfilled')
+}
+
+// A response that arrived through a redirect cannot answer a navigation
+// (browsers fail the load with ERR_FAILED). Same body and headers, no flag.
+async function unredirected(response) {
+  if (!response.redirected) return response
+  return new Response(await response.blob(), { status: response.status, statusText: response.statusText, headers: response.headers })
 }
 
 // Listen for download requests from the main thread
 self.addEventListener('message', (event) => {
   if (event.data?.type === 'SKIP_WAITING') {
     self.skipWaiting()
+    return
+  }
+
+  // "Make available offline": the reader page, every bundle (lazy ones too)
+  // and the fonts, answered on the message port once all are in the cache.
+  if (event.data?.type === 'CACHE_APP_SHELL') {
+    const port = event.ports && event.ports[0]
+    event.waitUntil(cacheWholeAppShell().then(
+      ok => port && port.postMessage({ ok }),
+      () => port && port.postMessage({ ok: false }),
+    ))
     return
   }
 

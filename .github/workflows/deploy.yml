@@ -1,29 +1,208 @@
 name: deploy
 
+# Staged release (see "Deploy flow" in AGENTS.md):
+#   test -> upload a Worker Version that serves no traffic -> smoke + acceptance
+#   against its preview URL -> promote to 100% -> production-only checks ->
+#   automatic rollback to the previous version if any post-promote step fails.
+# A change to the Durable Object "migrations" list cannot ride a version upload,
+# so that (and workflow_dispatch mode=direct) takes the classic deploy path.
+#
+# The acceptance checks are independent of each other, so they run side by side, one job per group (`checks`,
+# `production-checks`), each on the exact build the deploy job made (its dist/, handed over as an artifact).
+# Direct mode (the default): every group runs at once against production. Staged mode: the pre-promote groups
+# run against the preview, then promote, then the production groups. `rollback` returns production to the version
+# that served it before whenever the new build went live and any check did not pass.
+#
+# Auto-deploy (Anders, 13 Nov 2026): a merge to main releases itself. During the repair rollout a push releases as
+# an approved repair of exactly that commit (the accepted-reader pin and every guard still apply); the floor and
+# reader phases stay manual dispatches. `gate` decides first:
+#   - CI once: when a verify.yml run that passed tested this exact tree (artifact verified-tree-<tree>, written by
+#     its ci-summary), the deploy job skips its own `npm test`; it still builds, runs verify-bundle, deploys, and
+#     every acceptance group and the automatic rollback run as before.
+#   - Otherwise a push waits for verify.yml on this commit to pass (it never deploys a tree no CI passed) and then
+#     runs the full deploy job, `npm test` included. A manual dispatch runs the full deploy job at once, as before.
+#   - A push whose commit is no longer the head of main cancels its own run: the newer commit's run deploys.
+
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'staged = preview then promote (default); direct = classic deploy, acceptance after it is live'
+        type: choice
+        options:
+          - direct
+          - staged
+        default: direct
+      release_phase:
+        description: 'normal; floor (old UI); reader (pinned floor); repair (pinned accepted reader)'
+        type: choice
+        options:
+          - normal
+          - floor
+          - reader
+          - repair
+        default: normal
+      approved_reader_release:
+        description: 'Explicit release approval has been recorded for the selected floor or reader phase'
+        type: boolean
+        default: false
+      approved_repair_release:
+        description: 'Explicit approval for a reader-ON repair from the pinned accepted reader'
+        type: boolean
+        default: false
+      approved_source_sha:
+        description: 'Exact reviewed repair merge SHA; the dispatched checkout must match'
+        type: string
+        default: ''
 
 permissions:
   contents: read
+  # The last fully accepted release's version (artifact 'accepted-reader') is read before a repair release.
+  actions: read
 
+# One release at a time, and a run that has started is never cancelled (it may be live, checking, or rolling back).
+# GitHub keeps at most one run waiting in this group: a newer push or dispatch replaces the waiting one, so after a
+# burst of merges only the newest commit deploys. A dispatch made while a push waits replaces that push.
 concurrency:
   group: deploy-tinct-production
   cancel-in-progress: false
 
 jobs:
+  # Before anything is built: is this commit's tree already verified (CI once), and may a push deploy at all?
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    permissions:
+      contents: read
+      # actions: read for the verify runs and artifacts; write only to cancel this run when a newer main supersedes it.
+      actions: write
+    outputs:
+      ci_once: ${{ steps.decide.outputs.ci_once }}
+      tree: ${{ steps.decide.outputs.tree }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refuse a push the rollout does not release automatically
+        if: github.event_name == 'push'
+        run: |
+          test "$GITHUB_REF" = refs/heads/main
+          node app/scripts/release-tools.cjs push-release-phase
+      - name: Decide the release path (CI once, or wait for verify)
+        id: decide
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          tree=$(git rev-parse 'HEAD^{tree}')
+          echo "tree=$tree" >> "$GITHUB_OUTPUT"
+          echo "Commit $GITHUB_SHA ($EVENT_NAME), tree $tree"
+          # A verify.yml run of this repository that passed and recorded this exact tree (pull request or main).
+          verified_run() {
+            local ids id
+            ids=$(gh api "repos/$REPO/actions/artifacts?name=verified-tree-$tree&per_page=30" \
+              --jq '.artifacts[] | select(.expired | not) | .workflow_run.id') || return 0
+            for id in $ids; do
+              gh api "repos/$REPO/actions/runs/$id" 2>/dev/null | jq -r --arg repo "$REPO" \
+                'select(.status == "completed" and .conclusion == "success" and .path == ".github/workflows/verify.yml" and .head_repository.full_name == $repo) | "\(.html_url) (\(.event), head \(.head_sha))"' \
+                | head -1 | grep . && return 0
+            done
+            return 0
+          }
+          superseded() {
+            local head
+            head=$(gh api "repos/$REPO/git/ref/heads/main" --jq .object.sha) || return 1
+            [ "$head" != "$GITHUB_SHA" ] && echo "$head"
+          }
+          stand_down() {
+            echo "::notice::main moved on to $1; this run deploys nothing and cancels itself. The run for $1 deploys."
+            echo "Superseded by main $1: nothing deployed; the newer run releases." >> "$GITHUB_STEP_SUMMARY"
+            gh run cancel "$GITHUB_RUN_ID" -R "$REPO"
+            sleep 300
+            exit 1
+          }
+          ci_once() {
+            echo 'ci_once=true' >> "$GITHUB_OUTPUT"
+            echo "Path: CI once. verify passed on this exact tree: $1. The deploy job skips npm test; build, verify-bundle, acceptance and rollback run as always."
+            { echo "Release path: **CI once** (verify passed on tree \`$tree\`: $1)."; echo 'Pre-go-live npm test skipped; build, verify-bundle, every acceptance group and automatic rollback run.'; } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          }
+          if [ "$EVENT_NAME" = push ] && newer=$(superseded); then stand_down "$newer"; fi
+
+          evidence=$(verified_run)
+          if [ -n "$evidence" ]; then ci_once "$evidence"; fi
+          if [ "$EVENT_NAME" != push ]; then
+            echo 'ci_once=false' >> "$GITHUB_OUTPUT"
+            echo "Path: full. No passing verify run recorded tree $tree; the deploy job runs npm test before go-live, as before."
+            echo "Release path: **full** (manual dispatch; no passing verify run for tree \`$tree\`): npm test runs before go-live." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # A push no passing verify run covers (main moved after the pull request's CI, or a direct push): never deploy
+          # a tree no CI passed. Wait for verify.yml on this commit, then run the full deploy job (npm test included).
+          # A pull request run that was still finishing when the merge landed is picked up here too (CI once).
+          echo "Path: not yet known. No passing verify run recorded tree $tree; waiting for verify on $GITHUB_SHA."
+          for attempt in $(seq 1 90); do
+            sleep 30
+            if newer=$(superseded); then stand_down "$newer"; fi
+            run=$(gh api "repos/$REPO/actions/workflows/verify.yml/runs?head_sha=$GITHUB_SHA&event=push&per_page=10" \
+              --jq '[.workflow_runs[] | select(.head_sha == "'"$GITHUB_SHA"'")] | sort_by(.run_number) | last | select(. != null) | "\(.status) \(.conclusion) \(.html_url)"' || true)
+            case "$run" in
+              'completed success '*)
+                echo 'ci_once=false' >> "$GITHUB_OUTPUT"
+                echo "Path: full. verify passed on this commit: ${run#completed success }; the deploy job runs npm test before go-live."
+                echo "Release path: **full** (verify passed on main commit \`$GITHUB_SHA\`; no pull request run covered tree \`$tree\`): npm test runs before go-live." >> "$GITHUB_STEP_SUMMARY"
+                exit 0 ;;
+              completed*)
+                echo "::error::verify did not pass on $GITHUB_SHA ($run); not deploying. Fix forward, or dispatch deploy by hand."
+                exit 1 ;;
+            esac
+            evidence=$(verified_run)
+            if [ -n "$evidence" ]; then ci_once "$evidence"; fi
+            echo "waiting for verify on $GITHUB_SHA (${run:-not started}), attempt $attempt/90"
+          done
+          echo "::error::verify on $GITHUB_SHA did not finish within 45 minutes; not deploying. Dispatch deploy by hand once it passes."
+          exit 1
+
   deploy:
-    runs-on: ubuntu-latest
+    needs: gate
+    runs-on: ubuntu-24.04
+    # 30: the acceptance checks (and their browser installs) now run in their own jobs.
     timeout-minutes: 30
     env:
       CI: true
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      TINCT_RELEASE_PHASE: ${{ inputs.release_phase }}
+      TINCT_RELEASE_APPROVED: ${{ inputs.release_phase == 'repair' && inputs.approved_repair_release || inputs.approved_reader_release }}
+      TINCT_RELEASE_EXPECTED_SHA: ${{ inputs.approved_source_sha }}
+      VITE_SHARED_READER_DEFAULT: ${{ (inputs.release_phase == 'reader' || inputs.release_phase == 'repair') && '1' || '0' }}
+      # Origin the acceptance scripts hit. Points at the version preview URL until
+      # promotion, then at production. Scripts default to https://tinct.app.
+      TINCT_ORIGIN: https://tinct.app
+      TEST_ORIGIN: https://tinct.app
     defaults:
       run:
         working-directory: app
+    outputs:
+      # 'true' once the new build serves production (direct deploy): from then on a failure rolls back.
+      live: ${{ steps.deploy.outputs.live }}
+      deploy_attempted: ${{ steps.deploy.outputs.attempted }}
+      # staged = a preview to test before promotion; direct = acceptance runs on production.
+      staged: ${{ steps.plan.outputs.mode == 'staged' && steps.preview.outputs.fallback != 'true' }}
+      origin: ${{ steps.handoff.outputs.origin }}
+      bundle: ${{ steps.bundle.outputs.path }}
+      previous_version: ${{ steps.previous.outputs.version_id }}
+      version_id: ${{ steps.deploy.outputs.version_id || steps.upload.outputs.version_id }}
+      groups: ${{ steps.handoff.outputs.groups }}
+      release_phase: ${{ steps.release-phase.outputs.phase }}
+      accepted_reader: ${{ steps.accepted.outputs.version_id }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -33,13 +212,179 @@ jobs:
 
       - name: Set up cloud checkout
         run: bash ../scripts/cloud-setup.sh
-      - run: npm test
 
-      - name: Deploy to Cloudflare Workers
-        run: npm run deploy
+      - name: Check release phase before a Worker upload or deploy
+        id: release-phase
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          REQUESTED_PHASE: ${{ inputs.release_phase }}
+          APPROVED_READER_RELEASE: ${{ inputs.approved_reader_release }}
+          APPROVED_REPAIR_RELEASE: ${{ inputs.approved_repair_release }}
+          EXPECTED_REPAIR_SHA: ${{ inputs.approved_source_sha }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" = push ]; then
+            # A merge to main (auto-deploy, 13 Nov 2026). During the repair rollout it is the approved repair of exactly
+            # this commit, built reader-ON; the floor and reader phases refuse here and stay manual dispatches.
+            test "$GITHUB_REF" = refs/heads/main
+            phase=$(node scripts/release-tools.cjs push-release-phase | sed 's/^phase=//')
+            if [ "$phase" = repair ]; then
+              EXPECTED_REPAIR_SHA=$GITHUB_SHA
+              VITE_SHARED_READER_DEFAULT=1
+              { echo 'TINCT_RELEASE_PHASE=repair'; echo 'TINCT_RELEASE_APPROVED=true'
+                echo "TINCT_RELEASE_EXPECTED_SHA=$GITHUB_SHA"; echo 'VITE_SHARED_READER_DEFAULT=1'; } >> "$GITHUB_ENV"
+            fi
+          else
+            phase=${REQUESTED_PHASE:-normal}
+          fi
+          case "$phase" in
+            normal) node scripts/release-tools.cjs assert-normal-release ;;
+            floor)
+              test "$EVENT_NAME" = workflow_dispatch && test "$APPROVED_READER_RELEASE" = true
+              node scripts/release-tools.cjs assert-floor-source
+              # The old UI/backend floor must continue writing the legacy format.
+              npx vitest run src/worker.rollbackFloor.test.ts src/worker.userBooks.test.ts src/worker.adminAccounts.test.ts
+              ;;
+            reader)
+              test "$EVENT_NAME" = workflow_dispatch && test "$APPROVED_READER_RELEASE" = true
+              test "$VITE_SHARED_READER_DEFAULT" = 1
+              ;;
+            repair)
+              if [ "$EVENT_NAME" != push ]; then
+                test "$EVENT_NAME" = workflow_dispatch && test "$APPROVED_REPAIR_RELEASE" = true
+              fi
+              test "$VITE_SHARED_READER_DEFAULT" = 1
+              [[ "$EXPECTED_REPAIR_SHA" =~ ^[0-9a-f]{40}$ ]]
+              test "$GITHUB_SHA" = "$EXPECTED_REPAIR_SHA"
+              test "$(git rev-parse HEAD)" = "$EXPECTED_REPAIR_SHA"
+              ;;
+            *) echo "::error::unknown release phase $phase"; exit 1 ;;
+          esac
+          echo "phase=$phase" >> "$GITHUB_OUTPUT"
+          echo "Release phase: **$phase** ($EVENT_NAME)" >> "$GITHUB_STEP_SUMMARY"
+      # CI once: skipped only when a passing verify.yml run tested this exact tree (its app job ran npm test).
+      - name: npm test
+        if: needs.gate.outputs.ci_once != 'true'
+        run: npm test
+
+      - name: Choose release mode
+        id: plan
+        env:
+          REQUESTED_MODE: ${{ inputs.mode }}
+          BASE_SHA: ${{ github.event.before }}
+        run: |
+          # Direct is the default: Cloudflare gives no preview URL to a Worker
+          # with Durable Objects, so a staged release cannot test before promote.
+          # Direct deploys record the previous version and roll back
+          # automatically if any acceptance step fails afterwards.
+          mode=direct
+          reason='direct deploy with automatic rollback'
+          if [ "$REQUESTED_MODE" = staged ]; then
+            mode=staged
+            reason='staged release (requested)'
+            changed=$(node scripts/release-tools.cjs migrations-changed "$BASE_SHA" | sed 's/^changed=//')
+            if [ "$changed" != false ]; then
+              mode=direct
+              reason="Durable Object migrations changed or could not be compared (changed=$changed)"
+            elif ! git diff --quiet "$BASE_SHA" HEAD -- wrangler.jsonc; then
+              # Worker settings (routes, preview URLs, bindings) apply through a full deploy.
+              mode=direct
+              reason='wrangler.jsonc changed'
+            fi
+          fi
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "Release mode: $mode ($reason)"
+          echo "Release mode: **$mode** ($reason)" >> "$GITHUB_STEP_SUMMARY"
+
+      # ---- Stage 1: get the new build somewhere testable -------------------
+
+      - name: Record the version currently serving production
+        id: previous
+        run: node scripts/release-tools.cjs current-version >> "$GITHUB_OUTPUT"
+
+      - name: Require the actual compatible floor before reader release
+        if: steps.release-phase.outputs.phase == 'reader'
+        env:
+          PREVIOUS_VERSION: ${{ steps.previous.outputs.version_id }}
+        run: node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"
+
+      # Release-time pin (Anders, 3 Nov 2026): the version the last release that passed every acceptance group left
+      # live is accepted too, so a change no longer needs re-pinning after every release. The hand pin in
+      # release-tools.cjs still counts; with no record (expired, first run) only the hand pin does.
+      - name: Read the version the last fully accepted release left live
+        id: accepted
+        if: steps.release-phase.outputs.phase == 'repair'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          url=$(gh api "repos/${{ github.repository }}/actions/artifacts?name=accepted-reader&per_page=20" --jq '[.artifacts[] | select(.expired | not)] | sort_by(.created_at) | last | .archive_download_url // empty')
+          version=''
+          if [ -n "$url" ] && gh api "$url" > "$RUNNER_TEMP/accepted-reader.zip"; then
+            version=$(unzip -p "$RUNNER_TEMP/accepted-reader.zip" accepted-reader.txt | tr -d '[:space:]')
+          fi
+          if [ -n "$version" ] && node scripts/release-tools.cjs validate-version "$version" > /dev/null; then
+            echo "version_id=$version" >> "$GITHUB_OUTPUT"
+            echo "TINCT_ACCEPTED_READER=$version" >> "$GITHUB_ENV"
+            echo "Last fully accepted reader: $version"
+          else
+            echo "No recorded accepted reader; the hand pin in release-tools.cjs decides."
+          fi
+          exit 0
+
+      - name: Require the accepted reader before repair release
+        if: steps.release-phase.outputs.phase == 'repair'
+        env:
+          PREVIOUS_VERSION: ${{ steps.previous.outputs.version_id }}
+        run: node scripts/release-tools.cjs verify-repair-predecessor "$PREVIOUS_VERSION"
+
+      - name: Upload new Worker Version (serves no traffic)
+        if: steps.plan.outputs.mode == 'staged'
+        id: upload
+        env:
+          WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/wrangler-output.ndjson
+        run: |
+          npm run release:upload
+          node scripts/release-tools.cjs parse-upload "$WRANGLER_OUTPUT_FILE_PATH" >> "$GITHUB_OUTPUT"
+
+      - name: Point acceptance at the version preview URL
+        if: steps.plan.outputs.mode == 'staged'
+        id: preview
+        env:
+          PREVIEW_URL: ${{ steps.upload.outputs.preview_url }}
+        run: |
+          if [ -z "$PREVIEW_URL" ]; then
+            # Never stall releases: deploy directly (acceptance then runs on production, as before).
+            echo '::warning::wrangler returned no preview URL; falling back to a direct deploy. Check preview_urls in wrangler.jsonc and the Worker settings.'
+            echo 'fallback=true' >> "$GITHUB_OUTPUT"
+            echo 'Release mode: **direct (no preview URL)**' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "TINCT_ORIGIN=$PREVIEW_URL" >> "$GITHUB_ENV"
+          echo "TEST_ORIGIN=$PREVIEW_URL" >> "$GITHUB_ENV"
+          echo "Preview: $PREVIEW_URL (version ${{ steps.upload.outputs.version_id }})" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Deploy to Cloudflare Workers (direct mode)
+        if: steps.plan.outputs.mode == 'direct' || steps.preview.outputs.fallback == 'true'
+        id: deploy
+        env:
+          PREVIOUS_VERSION: ${{ steps.previous.outputs.version_id }}
+          RELEASE_PHASE: ${{ steps.release-phase.outputs.phase }}
+          WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/wrangler-direct-deploy.ndjson
+        run: |
+          # A staged upload that fell back has already built; the build rewrites
+          # generated files, which the clean-checkout guard would refuse.
+          if [ "${{ steps.preview.outputs.fallback }}" = true ]; then git checkout -- .; fi
+          if [ "$RELEASE_PHASE" = reader ]; then node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"; fi
+          if [ "$RELEASE_PHASE" = repair ]; then node scripts/release-tools.cjs verify-repair-predecessor "$PREVIOUS_VERSION"; fi
+          node scripts/release-tools.cjs assert-current-version "$PREVIOUS_VERSION"
+          echo 'attempted=true' >> "$GITHUB_OUTPUT"
+          status=0
+          npm run deploy || status=$?
+          if [ -f "$WRANGLER_OUTPUT_FILE_PATH" ]; then
+            node scripts/release-tools.cjs parse-deploy "$WRANGLER_OUTPUT_FILE_PATH" >> "$GITHUB_OUTPUT"
+          fi
+          test "$status" -eq 0
+          echo 'live=true' >> "$GITHUB_OUTPUT"
 
       - name: Record deployed bundle hash
         id: bundle
@@ -48,150 +393,447 @@ jobs:
           test -n "$bundle"
           echo "path=$bundle" >> "$GITHUB_OUTPUT"
 
-      # Confirm the exact build we deployed, not any previously served bundle.
+      - name: Verify approved reader build has public activation ON
+        if: steps.release-phase.outputs.phase == 'reader' || steps.release-phase.outputs.phase == 'repair'
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict'
+          import { readFileSync } from 'node:fs'
+          const source = readFileSync('dist/lab/shared-reader-activation.js')
+          const module = await import(`data:text/javascript;base64,${source.toString('base64')}`)
+          assert.equal(module.SHARED_READER_DEFAULT, true)
+          assert.equal(module.sharedReaderEnabled(''), true)
+          assert.equal(module.sharedReaderEnabled('?sharedReader=0'), false)
+          NODE
+
+      # Confirm the exact build we uploaded, not any previously served bundle.
       - name: Wait for the new bundle to be served
         run: |
           expected=$(grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' dist/app.html | head -1)
           test -n "$expected"
           for attempt in $(seq 1 30); do
-            bundle=$(curl -sf https://tinct.app/reader \
+            bundle=$(curl -sf "$TINCT_ORIGIN/reader" \
               | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
-            if [ "$bundle" = "$expected" ] && curl -sf "https://tinct.app$bundle" -o /tmp/tinct-live-bundle.js \
+            if [ "$bundle" = "$expected" ] && curl -sf "$TINCT_ORIGIN$bundle" -o /tmp/tinct-live-bundle.js \
                  && cmp -s "dist$expected" /tmp/tinct-live-bundle.js; then
-              echo "serving verified $bundle after ${attempt} attempt(s)"
+              echo "serving verified $bundle at $TINCT_ORIGIN after ${attempt} attempt(s)"
               exit 0
             fi
             sleep 5
           done
-          echo '::error::expected bundle was not verified after 150s'
+          echo "::error::expected bundle was not verified at $TINCT_ORIGIN after 150s"
           exit 1
 
-      - name: Smoke test production
+      # The checks run on the exact files that were deployed (some compare production with dist/).
+      - name: Hand the deployed build to the checks
+        id: handoff
         env:
-          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
-        run: bash scripts/smoke-test.sh https://tinct.app
+          STAGED: ${{ steps.plan.outputs.mode == 'staged' && steps.preview.outputs.fallback != 'true' }}
+        run: |
+          tar -I 'zstd -T0 -3' -cf "$RUNNER_TEMP/deployed-dist.tar.zst" dist
+          echo "origin=$TINCT_ORIGIN" >> "$GITHUB_OUTPUT"
+          # Direct: production is already live, so every group runs now. Staged: only the pre-promote groups.
+          if [ "$STAGED" = true ]; then
+            echo 'groups=["reader-panels","page-layout","layout-and-source","publication","audio-smoke"]' >> "$GITHUB_OUTPUT"
+          else
+            echo 'groups=["reader-panels","page-layout","layout-and-source","publication","audio-smoke","library","production"]' >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deployed-dist
+          path: ${{ runner.temp }}/deployed-dist.tar.zst
+          retention-days: 1
+          compression-level: 0
 
+  # ---- Stage 2: acceptance (pre-promote groups; in direct mode every group, on production) ----
+  checks:
+    needs: deploy
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        group: ${{ fromJSON(needs.deploy.outputs.groups) }}
+    name: checks (${{ matrix.group }})
+    env:
+      CI: true
+      TINCT_ORIGIN: ${{ needs.deploy.outputs.origin }}
+      TEST_ORIGIN: ${{ needs.deploy.outputs.origin }}
+      BUNDLE: ${{ needs.deploy.outputs.bundle }}
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
+        with:
+          build: 'false'
+          browsers: chromium webkit
+      - uses: actions/download-artifact@v4
+        with:
+          name: deployed-dist
+          path: ${{ runner.temp }}
+      - name: Unpack the deployed build
+        run: tar -I zstd -xf "$RUNNER_TEMP/deployed-dist.tar.zst"
+      # A re-run of this job alone after a rollback would test the previous version: refuse, and say what to do.
+      - name: Confirm the origin still serves this build
+        run: |
+          bundle=$(curl -sf "$TINCT_ORIGIN/reader" | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
+          if [ "$bundle" != "$BUNDLE" ]; then
+            echo "::error::$TINCT_ORIGIN serves ${bundle:-nothing}, not this run's $BUNDLE (rolled back?). Re-run all jobs to deploy and check again."
+            exit 1
+          fi
+
+      # -- audio-smoke
+      - name: Smoke test
+        if: ${{ matrix.group == 'audio-smoke' }}
+        env:
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: bash scripts/smoke-test.sh "$TINCT_ORIGIN"
       - name: Verify published Android book downloads
-        run: node scripts/android/check-publication.mjs https://tinct.app
+        if: ${{ !cancelled() && matrix.group == 'audio-smoke' }}
+        run: node scripts/android/check-publication.mjs "$TINCT_ORIGIN"
+      - name: Verify inline audio loading silently
+        if: ${{ !cancelled() && matrix.group == 'audio-smoke' }}
+        env:
+          READER_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: node scripts/check-inline-audio-loading.mjs
 
-      - name: Verify production brand metadata and assets
-        run: node scripts/check-brand.mjs
-
-      - name: Install silent production browser
-        id: browser
-        run: npx playwright install --with-deps chromium webkit
-      - name: Verify production Omarchy commands and themes
+      # -- publication
+      - name: Verify Omarchy commands and themes
+        if: ${{ matrix.group == 'publication' }}
         env:
           TINCT_DESKTOP_LIVE: '1'
           TINCT_DESKTOP_VISUAL: '1'
-          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
         run: node scripts/check-omarchy.mjs
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: omarchy-production-acceptance
-          path: app/artifacts/omarchy
-      - name: Verify production inline audio loading silently
+      - name: Verify Lighthouse publication
+        if: ${{ !cancelled() && matrix.group == 'publication' }}
+        env:
+          TEST_BOOK: to-the-lighthouse
+          READER_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+          ARTIFACT_DIR: artifacts/lighthouse-publication-live
+        run: |
+          node scripts/check-book-publication.cjs
+          node scripts/check-lighthouse-characters.cjs
+      # Symposium is held out of the library (2026-10-02 rights holds), so its
+      # publication check is replaced by the held-books check: every whole-book
+      # hold is absent from the hub, sitemap and shelves, and every held edition
+      # keeps its exact asset and recovery link. Restore the Symposium step when
+      # the book returns.
+      - name: Verify held books stay out of discovery
+        if: ${{ !cancelled() && matrix.group == 'publication' }}
+        env:
+          EXPECTED_BUILD_SHA: ${{ github.sha }}
+        run: node scripts/check-edition-holds-production.cjs
+
+      # -- reader-panels
+      - name: Verify reader panels and selection
+        if: ${{ matrix.group == 'reader-panels' }}
         env:
           READER_LIVE: '1'
-          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
-        run: node scripts/check-inline-audio-loading.mjs
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: inline-audio-loading
-          path: app/artifacts/inline-audio-loading
-      - name: Verify production reader panels and selection
-        env:
-          READER_LIVE: '1'
-          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
         run: node scripts/check-reader-panels.mjs
-      - name: Verify production reader feedback fixes
+      - name: Verify reader feedback fixes
+        if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
         env:
           READER_LIVE: '1'
         run: node scripts/check-reader-feedback.mjs
-      - name: Verify production sign-in completion without real accounts
-        run: AUTH_LIVE=1 node scripts/check-sign-in.mjs
-      - name: Save production sign-in acceptance
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: sign-in-acceptance
-          path: app/artifacts/sign-in
-      - name: Verify production spoken Bible book transition silently
+      - name: Verify the narration speed popover takes its own clicks (margin, two-page, phone)
+        if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
         env:
           READER_LIVE: '1'
-          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: node scripts/check-audio-speed-popover.mjs
+      - name: Verify a tint never moves the text (selection, Ask, card, highlight)
+        if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
+        env:
+          TINT_ENGINES: chromium,webkit
+        run: node scripts/check-tint-no-reflow.mjs
+      - name: Verify spoken Bible book transition silently
+        if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
+        env:
+          READER_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
         run: node scripts/check-book-transition.mjs
-      - name: Save reader acceptance screenshots
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: reader-panels-acceptance
-          path: |
-            app/artifacts/reader-panels
-            app/artifacts/reader-feedback-20260928
-            app/artifacts/book-transition
+      - name: Verify repaired live Aa, layout, and source position with mocked API
+        if: ${{ !cancelled() && matrix.group == 'reader-panels' && needs.deploy.outputs.release_phase == 'repair' }}
+        env:
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: |
+          node scripts/check-shared-reader-menu.mjs
+          node scripts/check-shared-reader-position.mjs
+
+      # -- page-layout (every Shakespeare edition, the emitted ON reader) and layout-and-source (Shakespeare layout,
+      # hyphenation, source-connected behaviour): one group took 16 min, so it runs as two side by side.
+      - name: Verify Shakespeare layout
+        if: ${{ matrix.group == 'layout-and-source' }}
+        env:
+          SHAKESPEARE_LIVE: '1'
+          SHAKESPEARE_NETLOG: '1'
+        run: node scripts/check-shakespeare-layout.mjs
+      - name: Verify hyphenation hardening
+        if: ${{ !cancelled() && matrix.group == 'layout-and-source' }}
+        env:
+          HYPHENATION_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: node scripts/check-hyphenation-hardening.mjs
+      - name: Verify every Shakespeare edition and reported passage
+        if: ${{ !cancelled() && matrix.group == 'page-layout' && (needs.deploy.outputs.release_phase == 'reader' || needs.deploy.outputs.release_phase == 'repair') }}
+        env:
+          SHAKESPEARE_LIVE: '1'
+          SHAKESPEARE_NETLOG: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: node scripts/check-shakespeare-speakers.mjs
+      - name: Verify repaired emitted ON reader and synthetic PDF Original
+        if: ${{ !cancelled() && matrix.group == 'page-layout' && needs.deploy.outputs.release_phase == 'repair' }}
+        env:
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+          PDF_ORIGINAL_DIST: dist
+          PDF_ORIGINAL_WEBKIT: '1'
+        run: |
+          node scripts/check-shared-reader-default-on.mjs
+          node scripts/check-shared-reader-pdf-original.mjs
+
+      - name: Verify restored source-connected reader behavior
+        if: ${{ !cancelled() && matrix.group == 'layout-and-source' && needs.deploy.outputs.release_phase == 'repair' }}
+        env:
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+          PDF_ORIGINAL_DIST: dist
+        run: |
+          node scripts/check-reader-source-parity.mjs
+          node scripts/check-reader-margin-refinements.mjs
+          node scripts/check-reader-selection-release.mjs
+          node scripts/check-reader-mobile-chat-cards.mjs
+          PDF_SOURCE_PARITY=1 node scripts/check-shared-reader-pdf-original.mjs
+
+      # -- production and library: what only production can prove (direct mode only here; staged: production-checks)
+      - name: Smoke test production
+        if: ${{ matrix.group == 'production' }}
+        env:
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: bash scripts/smoke-test.sh https://tinct.app
+      - name: Verify production brand metadata and assets
+        if: ${{ !cancelled() && matrix.group == 'production' }}
+        run: node scripts/check-brand.mjs
+      - name: Verify production sign-in completion without real accounts
+        if: ${{ !cancelled() && matrix.group == 'production' }}
+        run: AUTH_LIVE=1 node scripts/check-sign-in.mjs
       - name: Verify real Grok microphone recovery silently
-        if: ${{ !cancelled() && steps.bundle.outputs.path != '' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
+        if: ${{ !cancelled() && matrix.group == 'production' && needs.deploy.outputs.release_phase != 'repair' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y espeak-ng
           espeak-ng -s 175 -w /tmp/tinct-voice-source.wav "Why does the Underground Man call himself sick? What is behind that?"
           python3 scripts/make-voice-qa-wav.py /tmp/tinct-voice-source.wav /tmp/tinct-voice-qa.wav
           READER_LIVE=1 node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
-      - name: Verify production featured-book preview
-        run: LIBRARY_LIVE=1 node scripts/check-featured-preview.mjs
       - name: Verify public cinematic library
+        if: ${{ !cancelled() && matrix.group == 'library' }}
         run: LIBRARY_LIVE=1 node scripts/check-library-public.mjs
-      - name: Verify production Shakespeare layout
-        run: SHAKESPEARE_LIVE=1 node scripts/check-shakespeare-layout.mjs
-      - name: Verify production hyphenation hardening
-        env:
-          HYPHENATION_LIVE: '1'
-          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
-        run: node scripts/check-hyphenation-hardening.mjs
+      - name: Verify repaired own EPUB isolation on the handed-off build
+        if: ${{ !cancelled() && matrix.group == 'library' && needs.deploy.outputs.release_phase == 'repair' }}
+        run: node scripts/check-shared-reader-own-isolation.mjs
+
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
-          name: production-library-preparation
+          retention-days: 3
+          name: acceptance-${{ matrix.group }}
           path: |
-            app/artifacts/brand
-            app/artifacts/voice-capture
-            app/artifacts/featured-preview
-            app/artifacts/shakespeare-layout
-            app/artifacts/library-public
-            app/artifacts/hyphenation-hardening
+            app/artifacts
+            !app/artifacts/margin
 
-      - name: Verify Lighthouse publication on production
+  # ---- Stage 3 (staged mode): promote, then verify what only production can prove ----
+  promote:
+    needs: [deploy, checks]
+    if: ${{ needs.deploy.outputs.staged == 'true' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      TINCT_RELEASE_PHASE: ${{ needs.deploy.outputs.release_phase }}
+      TINCT_RELEASE_APPROVED: ${{ needs.deploy.outputs.release_phase == 'repair' && inputs.approved_repair_release || inputs.approved_reader_release }}
+      TINCT_RELEASE_EXPECTED_SHA: ${{ inputs.approved_source_sha }}
+      VITE_SHARED_READER_DEFAULT: ${{ (needs.deploy.outputs.release_phase == 'reader' || needs.deploy.outputs.release_phase == 'repair') && '1' || '0' }}
+    defaults:
+      run:
+        working-directory: app
+    outputs:
+      attempted: ${{ steps.promote-version.outputs.attempted }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
+        with:
+          build: 'false'
+          browsers: ''
+      - name: Promote the version to 100% of production traffic
+        id: promote-version
         env:
-          TEST_BOOK: to-the-lighthouse
-          TEST_ORIGIN: https://tinct.app
-          READER_LIVE: '1'
-          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
-          ARTIFACT_DIR: artifacts/lighthouse-publication-live
+          PREVIOUS_VERSION: ${{ needs.deploy.outputs.previous_version }}
+          RELEASE_PHASE: ${{ needs.deploy.outputs.release_phase }}
+          TINCT_ACCEPTED_READER: ${{ needs.deploy.outputs.accepted_reader }}
         run: |
-          node scripts/check-book-publication.cjs
-          node scripts/check-lighthouse-characters.cjs
+          if [ "$RELEASE_PHASE" = reader ]; then node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"; fi
+          if [ "$RELEASE_PHASE" = repair ]; then node scripts/release-tools.cjs verify-repair-predecessor "$PREVIOUS_VERSION"; fi
+          node scripts/release-tools.cjs assert-current-version "$PREVIOUS_VERSION"
+          echo 'attempted=true' >> "$GITHUB_OUTPUT"
+          npm run release:promote -- "${{ needs.deploy.outputs.version_id }}"
+
+  # Keep confirmation outside promote: if propagation fails after a successful
+  # promotion, promote stays successful and the rollback job knows it went live.
+  confirm-promote:
+    needs: [deploy, promote]
+    if: ${{ needs.deploy.outputs.staged == 'true' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Confirm production serves the new bundle
+        env:
+          EXPECTED: ${{ needs.deploy.outputs.bundle }}
+        run: |
+          for attempt in $(seq 1 30); do
+            bundle=$(curl -sf https://tinct.app/reader \
+              | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
+            if [ "$bundle" = "$EXPECTED" ]; then
+              echo "production serves $bundle after ${attempt} attempt(s)"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo '::error::production did not start serving the promoted bundle within 150s'
+          exit 1
+
+  production-checks:
+    needs: [deploy, confirm-promote]
+    if: ${{ needs.deploy.outputs.staged == 'true' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [library, production]
+    name: production-checks (${{ matrix.group }})
+    env:
+      CI: true
+      TINCT_ORIGIN: https://tinct.app
+      TEST_ORIGIN: https://tinct.app
+      BUNDLE: ${{ needs.deploy.outputs.bundle }}
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
+        with:
+          build: 'false'
+          browsers: chromium webkit
+      - uses: actions/download-artifact@v4
+        with:
+          name: deployed-dist
+          path: ${{ runner.temp }}
+      - name: Unpack the deployed build
+        run: tar -I zstd -xf "$RUNNER_TEMP/deployed-dist.tar.zst"
+      - name: Confirm production still serves this build
+        run: |
+          bundle=$(curl -sf "$TINCT_ORIGIN/reader" | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
+          if [ "$bundle" != "$BUNDLE" ]; then
+            echo "::error::$TINCT_ORIGIN serves ${bundle:-nothing}, not this run's $BUNDLE (rolled back?). Re-run all jobs to deploy and check again."
+            exit 1
+          fi
+      - name: Smoke test production
+        if: ${{ matrix.group == 'production' }}
+        env:
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: bash scripts/smoke-test.sh https://tinct.app
+      - name: Verify production brand metadata and assets
+        if: ${{ !cancelled() && matrix.group == 'production' }}
+        run: node scripts/check-brand.mjs
+      - name: Verify production sign-in completion without real accounts
+        if: ${{ !cancelled() && matrix.group == 'production' }}
+        run: AUTH_LIVE=1 node scripts/check-sign-in.mjs
+      - name: Verify real Grok microphone recovery silently
+        if: ${{ !cancelled() && matrix.group == 'production' && needs.deploy.outputs.release_phase != 'repair' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y espeak-ng
+          espeak-ng -s 175 -w /tmp/tinct-voice-source.wav "Why does the Underground Man call himself sick? What is behind that?"
+          python3 scripts/make-voice-qa-wav.py /tmp/tinct-voice-source.wav /tmp/tinct-voice-qa.wav
+          READER_LIVE=1 node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
+      - name: Verify public cinematic library
+        if: ${{ !cancelled() && matrix.group == 'library' }}
+        run: LIBRARY_LIVE=1 node scripts/check-library-public.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
-          name: lighthouse-publication-live
-          path: app/artifacts/lighthouse-publication-live
+          retention-days: 3
+          name: production-acceptance-${{ matrix.group }}
+          path: app/artifacts
 
-      - name: Verify Symposium completeness on production
-        env:
-          TEST_BOOK: symposium
-          TEST_ORIGIN: https://tinct.app
-          READER_LIVE: '1'
-          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
-          ARTIFACT_DIR: artifacts/symposium-publication-live
-        run: |
-          node scripts/check-book-publication.cjs
-          node scripts/check-symposium-characters.cjs
-      - uses: actions/upload-artifact@v4
-        if: always()
+  # ---- Automatic rollback ----------------------------------------------
+  # Reached when the new build went live (direct deploy, or a promotion) and a later job did not pass (a failed
+  # check, a check cut off by its time limit, or the deploy job failing after its deploy step). The run still
+  # ends red; this just stops users staying on a bad version.
+  rollback:
+    needs: [deploy, checks, promote, confirm-promote, production-checks]
+    if: ${{ always() && (needs.deploy.outputs.live == 'true' || needs.promote.result == 'success' || (needs.deploy.outputs.deploy_attempted == 'true' && needs.deploy.result == 'failure') || (needs.promote.outputs.attempted == 'true' && needs.promote.result == 'failure')) && (contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
         with:
-          name: symposium-publication-live
-          path: app/artifacts/symposium-publication-live
+          build: 'false'
+          browsers: ''
+      - name: Roll production back to the previous version
+        env:
+          PREVIOUS_VERSION: ${{ needs.deploy.outputs.previous_version }}
+          EXPECTED_NEW_VERSION: ${{ needs.deploy.outputs.version_id }}
+        run: |
+          if [ -z "$PREVIOUS_VERSION" ]; then
+            echo '::error::automatic rollback has no recorded version; refusing an implicit previous deployment'
+            exit 1
+          fi
+          node scripts/release-tools.cjs validate-version "$PREVIOUS_VERSION"
+          current=$(node scripts/release-tools.cjs current-version)
+          current=${current#version_id=}
+          decision=$(node scripts/release-tools.cjs rollback-decision "$PREVIOUS_VERSION" "$current" "$EXPECTED_NEW_VERSION")
+          if [ "$decision" = 'rollback=false' ]; then
+            echo 'Production still serves the recorded previous version; no rollback is needed.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          test "$decision" = 'rollback=true'
+          echo "::error::a check failed after the new version went live; rolling back to $PREVIOUS_VERSION"
+          npm run rollback -- "$PREVIOUS_VERSION"
+          echo "Rolled back to $PREVIOUS_VERSION. Fix forward, then push again." >> "$GITHUB_STEP_SUMMARY"
 
+  # A repair release that passed every acceptance group without rollback: its version is the accepted reader the
+  # next repair release may build on (read in the deploy job above).
+  record-accepted:
+    needs: [deploy, checks, production-checks, rollback]
+    if: ${{ always() && needs.deploy.result == 'success' && needs.deploy.outputs.release_phase == 'repair' && needs.deploy.outputs.live == 'true' && needs.checks.result == 'success' && needs.production-checks.result != 'failure' && needs.production-checks.result != 'cancelled' && needs.rollback.result == 'skipped' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Write the accepted version
+        env:
+          VERSION: ${{ needs.deploy.outputs.version_id }}
+        run: |
+          echo "$VERSION" | grep -Eq '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+          echo "$VERSION" > accepted-reader.txt
+          echo "Accepted reader recorded: $VERSION" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: accepted-reader
+          path: accepted-reader.txt
+          retention-days: 90

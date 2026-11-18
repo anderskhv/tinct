@@ -1,0 +1,193 @@
+{
+ "package": "app/public/data/characters/democracy-in-america.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "347cc8f0729f7fe0520163d153554a78e36d82e87b8c59777f4745a74e545662",
+ "candidateSha256": "3d9feeb1806b7c463ba243ffd575c9e4888d4f23c991d415cac8aee5fd79981b",
+ "offsetUnit": "utf16 (candidate has no astral characters, so Python offsets equal UTF-16)",
+ "mentionsTotal": 11,
+ "unchanged": 2,
+ "moved": 9,
+ "needsRuling": 0,
+ "notes": [
+  "All 11 mentions sit in changed paragraphs, so paragraphHashes for modern-en must be regenerated.",
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Terminology: the candidate uses \"Black people\" where the 1862 source says \"negroes\" (style note, race terms); anchors for enslaved-african-americans and native-american-peoples (ch2:15) follow the new wording.",
+  "The snapshots/roleVisibleAt/firstMention coordinates of the 10 characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "george-washington",
+   "chapter": 9,
+   "paragraph": 3,
+   "oldStartOffset": 3528,
+   "oldEndOffset": 3563,
+   "oldText": "George Washington was its President",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 3515,
+    "endOffset": 3550,
+    "text": "George Washington was its President",
+    "note": "proposed re-anchor; text equals candidate slice"
+   },
+   "sliceVerified": true
+  },
+  {
+   "characterId": "thomas-jefferson",
+   "chapter": 9,
+   "paragraph": 78,
+   "oldStartOffset": 321,
+   "oldEndOffset": 340,
+   "oldText": "President Jefferson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 317,
+    "endOffset": 336,
+    "text": "President Jefferson",
+    "note": "proposed re-anchor; text equals candidate slice"
+   },
+   "sliceVerified": true
+  },
+  {
+   "characterId": "thomas-jefferson",
+   "chapter": 14,
+   "paragraph": 30,
+   "oldStartOffset": 19,
+   "oldEndOffset": 40,
+   "oldText": "the greatest Democrat",
+   "proposed": {
+    "status": "UNCHANGED",
+    "startOffset": 19,
+    "endOffset": 40,
+    "text": "the greatest Democrat"
+   },
+   "sliceVerified": true
+  },
+  {
+   "characterId": "andrew-jackson",
+   "chapter": 18,
+   "paragraph": 7,
+   "oldStartOffset": 412,
+   "oldEndOffset": 466,
+   "oldText": "General Jackson, whom the Americans have twice elected",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 401,
+    "endOffset": 455,
+    "text": "General Jackson, whom the Americans have twice elected",
+    "note": "proposed re-anchor; text equals candidate slice"
+   },
+   "sliceVerified": true
+  },
+  {
+   "characterId": "alexander-hamilton",
+   "chapter": 9,
+   "paragraph": 174,
+   "oldStartOffset": 17,
+   "oldEndOffset": 74,
+   "oldText": "Alexander Hamilton, who was one of the principal founders",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 62,
+    "text": "Alexander Hamilton, one of the chief founders",
+    "note": "proposed re-anchor; text equals candidate slice; wording of the anchor phrase changed"
+   },
+   "sliceVerified": true
+  },
+  {
+   "characterId": "james-madison",
+   "chapter": 14,
+   "paragraph": 30,
+   "oldStartOffset": 159,
+   "oldEndOffset": 178,
+   "oldText": "a letter to Madison",
+   "proposed": {
+    "status": "UNCHANGED",
+    "startOffset": 159,
+    "endOffset": 178,
+    "text": "a letter to Madison"
+   },
+   "sliceVerified": true
+  },
+  {
+   "characterId": "the-puritans",
+   "chapter": 3,
+   "paragraph": 20,
+   "oldStartOffset": 142,
+   "oldEndOffset": 162,
+   "oldText": "the name of Puritans",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 104,
+    "endOffset": 124,
+    "text": "the name of Puritans",
+    "note": "proposed re-anchor; text equals candidate slice"
+   },
+   "sliceVerified": true
+  },
+  {
+   "characterId": "native-american-peoples",
+   "chapter": 2,
+   "paragraph": 15,
+   "oldStartOffset": 535,
+   "oldEndOffset": 561,
+   "oldText": "nor black like the negroes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 515,
+    "endOffset": 545,
+    "text": "nor black, as Black people are",
+    "note": "proposed re-anchor; text equals candidate slice; wording of the anchor phrase changed"
+   },
+   "sliceVerified": true
+  },
+  {
+   "characterId": "enslaved-african-americans",
+   "chapter": 19,
+   "paragraph": 100,
+   "oldStartOffset": 100,
+   "oldEndOffset": 141,
+   "oldText": "the Negroes is in some measure interwoven",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 100,
+    "endOffset": 141,
+    "text": "Black people is to some extent interwoven",
+    "note": "proposed re-anchor; text equals candidate slice; wording of the anchor phrase changed"
+   },
+   "sliceVerified": true
+  },
+  {
+   "characterId": "tyranny-of-the-majority",
+   "chapter": 13,
+   "paragraph": 14,
+   "oldStartOffset": 485,
+   "oldEndOffset": 508,
+   "oldText": "tyranny of the majority",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 470,
+    "endOffset": 493,
+    "text": "tyranny of the majority",
+    "note": "proposed re-anchor; text equals candidate slice"
+   },
+   "sliceVerified": true
+  },
+  {
+   "characterId": "individualism",
+   "chapter": 44,
+   "paragraph": 0,
+   "oldStartOffset": 183,
+   "oldEndOffset": 196,
+   "oldText": "Individualism",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 186,
+    "endOffset": 199,
+    "text": "Individualism",
+    "note": "proposed re-anchor; text equals candidate slice"
+   },
+   "sliceVerified": true
+  }
+ ]
+}

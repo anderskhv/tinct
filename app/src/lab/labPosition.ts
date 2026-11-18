@@ -27,6 +27,9 @@
  *   sequential chapter numbers) so they survive devices and reloads like the
  *   pin does. A finish is monotonic: merges union, never regress.
  */
+import { isPublicBookId } from '../../public/lab/public-books.js'
+import { USER_BOOK_PREFIX } from './userBook/userBookId'
+
 export const LAB_POSITION_STORAGE_KEY = 'tinct-lab-position'
 export const LAB_POSITION_DEVICE_KEY = 'tinct-lab-device-id'
 /** Set when a cloud PUT failed or was skipped offline; cleared once a PUT lands. */
@@ -402,6 +405,34 @@ export function resumePlace(state: LabPositionState): LabBookPlace | null {
 }
 
 /**
+ * The library book a saved place belongs to. `registeredId` answers for the
+ * reader's books (the registry in the app, catalogue.json in the Worker). Any
+ * other pin is a biblical book's (genesis, psalms), so the Bible, except an
+ * added book (`pd-…`) not registered yet or a reader's own book
+ * (`userbook-…`), which are never biblical pins.
+ */
+export function libraryBookIdForPlace(placeBookId: string, registeredId: (bookId: string) => string | null | undefined): string | null {
+  const registered = registeredId(placeBookId)
+  if (registered) return registered
+  if (placeBookId.startsWith(USER_BOOK_PREFIX) || isPublicBookId(placeBookId)) return null
+  return 'bible'
+}
+
+/**
+ * Where a library book resumes, from a position record: its settled place when
+ * the reader last settled in it, else its newest one. For the Bible that is one
+ * of the per-biblical-book pins, never a stale chapter of another book. Shared
+ * by the reader's book links (labReaderHandoff) and the lifecycle emails.
+ */
+export function libraryResumePlace(state: LabPositionState, libraryBookId: string, registeredId: (bookId: string) => string | null | undefined): LabBookPlace | null {
+  const settled = resumePlace(state)
+  if (settled && libraryBookIdForPlace(settled.bookId, registeredId) === libraryBookId) return settled
+  return Object.values(state.books)
+    .filter(place => libraryBookIdForPlace(place.bookId, registeredId) === libraryBookId)
+    .sort((a, b) => b.updatedAt - a.updatedAt || b.rev - a.rev)[0] ?? null
+}
+
+/**
  * Whether a pin names a chapter this client can open, given the library book
  * whose chapter list is loaded (`libraryBookId`: `bible` or a registry id).
  * A Bible manifest validates only Bible pins — a book of that manifest and a
@@ -634,6 +665,36 @@ export function accountLabPositionRecord(local: LabPositionState, cloud: LabPosi
   })
 }
 
+/**
+ * Stale reader instances (12 Nov 2026, iPhone/Brave, one device id).
+ *
+ * Several readers can live on one device at once: two tabs, or a tab kept
+ * frozen by iOS or in the back/forward cache. They share the device record.
+ * A reader that slept while another read on still shows, and still holds in
+ * memory, the place it last saw. Its next note (a tap on the page it is
+ * showing) is stamped with the current clock, so the older place became the
+ * newest record and won everywhere: The Master and Margarita ¶180 was lost to
+ * ¶158 + one page.
+ *
+ * This is the place the device record holds for `bookId` when it is newer
+ * than the one this reader knows and names a different spot: another reader
+ * on this device (or the library, from the account) put it there after this
+ * reader last wrote or adopted. Such a reader adopts it and moves there; it
+ * never writes a place derived from what it was showing. Null when this
+ * reader is current, or the record belongs to another account.
+ */
+export function newerStoredPlace(own: LabPositionState, stored: LabPositionState, bookId: string): LabBookPlace | null {
+  if ((stored.owner ?? null) !== (own.owner ?? null)) return null
+  const candidate = stored.books[bookId]
+  const known = own.books[bookId]
+  if (!candidate || candidate.bookId !== bookId || !known) return null
+  if (!isNewerPlace(candidate, known)) return null
+  const samePlace = candidate.sequentialChapter === known.sequentialChapter
+    && candidate.paragraphIndex === known.paragraphIndex
+    && candidate.wordIndex === known.wordIndex
+  return samePlace ? null : candidate
+}
+
 export function settleReason(reason: LabPlaceReason): boolean {
   return reason === 'open-book' || reason === 'page-turn' || reason === 'mode-change' || reason === 'play' || reason === 'dwell'
 }
@@ -661,6 +722,12 @@ export interface LabPositionController {
   applyCloud(cloud: LabPositionState, chapters: LabChapterRef[], libraryBookId?: string, options?: LabPositionMergeOptions): LabPositionState
   resume(): LabBookPlace | null
   flush(reason?: LabPlaceReason): LabPositionState
+  /**
+   * Write a still-debounced note now, exactly as its timer would have, and
+   * drop the timer. Nothing pending: no write. For a reader going away, so a
+   * dead reader's timer never writes its record later over a newer one.
+   */
+  flushPending(): LabPositionState
 }
 
 /**
@@ -687,6 +754,7 @@ export function createLabPositionController(opts: {
   /** Any note other than `hide` inside the visited book: a page turn, Play, a next chapter. */
   let visitActivity = false
   let cancelDebounce: (() => void) | null = null
+  let pendingReason: LabPlaceReason | null = null
   let cancelDwell: (() => void) | null = null
 
   const persist = (cause: LabPersistCause, reason?: LabPlaceReason) => {
@@ -700,8 +768,10 @@ export function createLabPositionController(opts: {
       return
     }
     persist('local', reason)
+    pendingReason = reason
     cancelDebounce = opts.schedule(() => {
       cancelDebounce = null
+      pendingReason = null
       persist('debounce', reason)
     }, debounceMs)
   }
@@ -819,7 +889,17 @@ export function createLabPositionController(opts: {
     flush(reason) {
       cancelDebounce?.()
       cancelDebounce = null
+      pendingReason = null
       persist('immediate', reason)
+      return state
+    },
+    flushPending() {
+      if (!cancelDebounce) return state
+      const reason = pendingReason ?? undefined
+      cancelDebounce()
+      cancelDebounce = null
+      pendingReason = null
+      persist('debounce', reason)
       return state
     },
   }

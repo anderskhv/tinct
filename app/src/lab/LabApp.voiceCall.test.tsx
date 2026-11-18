@@ -4,10 +4,14 @@
 // throughout: getUserMedia hangs, so the call never reaches a real Realtime
 // session and no network call is made.
 
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
+import { LEAVE_FADE_MS } from './labLeaveForLibrary'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
+import { LAB_PREFS_KEY, parseLabPrefs } from './labPrefs'
+import { TALK_SPEED_MAX, TALK_SPEED_MIN, TALK_SPEED_STEPS } from './labTalkSpeed'
+import { GrokVoiceSessionController } from '../voice/GrokVoiceSessionController'
 
 afterEach(() => {
   cleanup()
@@ -30,7 +34,7 @@ beforeEach(() => {
 
 function renderPhone(search: string) {
   return render(
-    <LabApp pathname="/lab/phone" search={search} source={fallbackLabSource()} authToken={null} />,
+    <LabApp pathname="/lab/phone" search={search} source={fallbackLabSource()} authToken="reader-token" />,
   )
 }
 
@@ -58,9 +62,32 @@ describe('Talk on the phone with Chrome V2', () => {
     expect(screen.queryByTestId('lab-voice-gate')).toBeNull()
   })
 
+  it('shows Mute, Speed and End as equal round controls with their words beneath (mockup B)', async () => {
+    await openCall()
+    const mute = screen.getByTestId('lab-call-mute')
+    const end = screen.getByTestId('lab-call-end')
+    expect(mute.querySelector('.lab-voice-control-word')?.textContent).toBe('Mute')
+    expect(end.querySelector('.lab-voice-control-word')?.textContent).toBe('End')
+    expect(mute.getAttribute('aria-label')).toBe('Mute')
+    expect(mute.getAttribute('title')).toBe('Mute')
+    expect(end.getAttribute('aria-label')).toBe('End conversation')
+    expect(end.getAttribute('title')).toBe('End conversation')
+    expect(screen.getByTestId('lab-call-speed').querySelector('.lab-voice-control-disc')?.textContent).toBe('1×')
+    expect(screen.getByTestId('lab-call-speed').querySelector('.lab-voice-control-word')?.textContent).toBe('Speed')
+    // Minimal Talk: orb, one status line, controls. The AI Act disclosure is
+    // the connecting status line itself; no separate AI line, hint or book line.
+    expect(screen.queryByTestId('lab-call-ai')).toBeNull()
+    expect(screen.queryByTestId('lab-call-book')).toBeNull()
+    expect(screen.queryByTestId('lab-call-connection')).toBeNull()
+    expect(screen.queryByTestId('lab-call-caption')).toBeNull()
+    expect(screen.getByTestId('lab-call').textContent).not.toContain("You're talking to an AI.")
+    expect(screen.getByTestId('lab-call').textContent).not.toContain('Ask about this page')
+  })
+
   it('never claims to be listening before a connection exists', async () => {
     await openCall()
-    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting.')
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting to AI…')
+    expect(screen.getByTestId('lab-call-status').getAttribute('aria-live')).toBe('polite')
     expect(screen.getByTestId('lab-call-circle').getAttribute('data-motion')).not.toBe('breathe')
   })
 
@@ -112,19 +139,19 @@ describe('Talk on the phone with Chrome V2', () => {
     renderPhone('?chrome=v2')
     tapTalk()
     await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
-    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting.')
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting to AI…')
     await vi.advanceTimersByTimeAsync(9000)
     await waitFor(() => {
       expect(screen.getByTestId('lab-call-status').textContent).toBe('Disconnected')
     })
     expect(screen.getByTestId('lab-call-reconnect')).toBeTruthy()
-    expect(screen.queryByText('Listening.')).toBeNull()
+    expect(screen.queryByText('Listening')).toBeNull()
   })
 })
 
 function renderDesktop(search = '?chrome=v2') {
   return render(
-    <LabApp pathname="/lab/desktop" search={search} source={fallbackLabSource()} authToken={null} />,
+    <LabApp pathname="/lab/desktop" search={search} source={fallbackLabSource()} authToken="reader-token" />,
   )
 }
 
@@ -146,14 +173,27 @@ describe('Talk on the desktop with Chrome V2', () => {
     const root = screen.getByTestId('lab-root')
     expect(root.getAttribute('data-desktop-panel')).toBe('talk')
     expect(screen.getByTestId('lab-voice-panel-orb')).toBeTruthy()
-    expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting.')
+    expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting to AI…')
+    expect(screen.getByTestId('lab-voice-panel-status').getAttribute('aria-live')).toBe('polite')
+    // One connecting line, not "Connecting." plus "◦ Connecting".
+    expect(screen.getByTestId('lab-voice-panel').textContent?.match(/Connecting/g)).toHaveLength(1)
     expect(screen.queryByTestId('lab-call')).toBeNull()
     expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
     expect(screen.queryByTestId('lab-voice-pill')).toBeNull()
-    // Mute and End are in the panel; the transcript is the panel body.
+    // Mute and End are in the panel; no transcript, AI line or hint is drawn.
     expect(screen.getByTestId('lab-voice-panel-mute')).toBeTruthy()
     expect(screen.getByTestId('lab-voice-panel-end')).toBeTruthy()
-    expect(screen.getByTestId('lab-voice-panel-thread')).toBeTruthy()
+    // Mockup B: words under the discs, names for screen readers and tooltips.
+    expect(screen.getByTestId('lab-voice-panel-mute').textContent).toBe('Mute')
+    expect(screen.getByTestId('lab-voice-panel-end').textContent).toBe('End')
+    // The line under the title names the book and the chapter the reader shows.
+    expect(screen.getByTestId('lab-voice-panel-context').textContent).toMatch(/ · /)
+    expect(screen.getByTestId('lab-voice-panel-mute').getAttribute('aria-label')).toBe('Mute')
+    expect(screen.getByTestId('lab-voice-panel-end').getAttribute('aria-label')).toBe('End conversation')
+    expect(screen.queryByTestId('lab-voice-panel-ai')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-panel-thread')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-panel-empty')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-panel-connection')).toBeNull()
   })
 
   it('opens the full desktop voice panel from Chat', async () => {
@@ -179,7 +219,7 @@ describe('Talk on the desktop with Chrome V2', () => {
       expect(screen.queryByTestId('lab-voice-panel')).toBeNull()
       const pill = screen.getByTestId('lab-voice-pill')
       expect(pill).toBeTruthy()
-      expect(screen.getByTestId('lab-voice-pill-status').textContent).toBe('Connecting.')
+      expect(screen.getByTestId('lab-voice-pill-status').textContent).toBe('Connecting to AI…')
       expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('pill')
       expect(screen.getByTestId('lab-root').getAttribute('data-chrome-state')).toBe('talking')
       // Still tinted while minimized.
@@ -240,7 +280,7 @@ describe('Talk on the desktop with Chrome V2', () => {
     })
     expect(screen.getByTestId('lab-voice-panel-reconnect')).toBeTruthy()
     expect(screen.queryByTestId('lab-voice-panel-mute')).toBeNull()
-    expect(screen.queryByText('Listening.')).toBeNull()
+    expect(screen.queryByText('Listening')).toBeNull()
   })
 
   it('hands over to Chat when the reader picks it during a call', async () => {
@@ -256,65 +296,19 @@ describe('Talk on the desktop with Chrome V2', () => {
   })
 })
 
-describe('Talk without the Chrome V2 flag', () => {
-  it('keeps the chat sheet the unflagged reader ships with', async () => {
-    renderPhone('')
-    fireEvent.click(screen.getByTestId('lab-phone-talk'))
-    await waitFor(() => expect(screen.getByTestId('lab-ask-pane')).toBeTruthy())
-    expect(screen.queryByTestId('lab-call')).toBeNull()
-    expect(screen.queryByTestId('lab-call-bar')).toBeNull()
-  })
-})
-
-it('opens the existing reader call from the preparation menu', async () => {
-  HTMLDialogElement.prototype.showModal = function () { this.open = true }
-  HTMLDialogElement.prototype.close = function () { this.open = false }
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken={null} />)
-  fireEvent.click(screen.getByTestId('lab-header-chapter'))
-  fireEvent.click(screen.getByRole('button', { name: 'Preface', exact: true }))
-  expect(screen.getByTestId('lab-book-preface')).toBeTruthy()
-  fireEvent.click(screen.getByRole('button', { name: 'Talk', exact: true }))
-  await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
-  expect((screen.getByTestId('lab-book-preface') as HTMLDialogElement).open).toBe(false)
-  expect(screen.getByTestId('lab-call-caption').textContent).toContain('Let’s prepare you for your reading of The Odyssey.')
-  fireEvent.click(screen.getByTestId('lab-call-end'))
-  await waitFor(() => expect((screen.getByTestId('lab-book-preface') as HTMLDialogElement).open).toBe(true))
-})
-
-it('routes Cover and Preface separately and returns Preface to the mounted cover', () => {
-  HTMLDialogElement.prototype.showModal = function () { this.open = true }
-  HTMLDialogElement.prototype.close = function () { this.open = false }
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken={null} />)
-  fireEvent.click(screen.getByTestId('lab-header-chapter'))
-  fireEvent.click(screen.getByRole('button', { name: 'Cover', exact: true }))
-  expect(screen.getByTestId('lab-chapter-cover')).toBeTruthy()
-  expect(screen.queryByTestId('lab-book-preface')).toBeNull()
-
-  fireEvent.keyDown(screen.getByTestId('lab-chapter-cover'), { key: 'ArrowRight' })
-  fireEvent.click(screen.getByTestId('lab-header-chapter'))
-  fireEvent.click(screen.getByRole('button', { name: 'Preface', exact: true }))
-  expect(screen.getByTestId('lab-chapter-cover')).toBeTruthy()
-  expect((screen.getByTestId('lab-book-preface') as HTMLDialogElement).open).toBe(true)
-  fireEvent.click(screen.getByRole('button', { name: 'Back to cover' }))
-  expect(screen.queryByTestId('lab-book-preface')).toBeNull()
-  expect(screen.getByTestId('lab-chapter-cover')).toBeTruthy()
-})
-
-it('returns from preparation Chat with its disclosures and reading place intact', async () => {
-  HTMLDialogElement.prototype.showModal = function () { this.open = true }
-  HTMLDialogElement.prototype.close = function () { this.open = false }
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken={null} />)
+it('opens the book introduction in the library from Contents, without a cover or preface in the reader', async () => {
+  vi.useFakeTimers({ shouldAdvanceTime: true })
+  render(<LabApp pathname="/lab/phone" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken="reader-token" />)
   const before = readerPlace()
   fireEvent.click(screen.getByTestId('lab-header-chapter'))
-  fireEvent.click(screen.getByRole('button', { name: 'Preface', exact: true }))
-  fireEvent.click(screen.getByRole('button', { name: 'Preface', exact: true }))
-  fireEvent.click(screen.getByRole('button', { name: 'Chat', exact: true }))
-  await waitFor(() => expect(screen.getByTestId('lab-ask-pane')).toBeTruthy())
-  expect((screen.getByTestId('lab-book-preface') as HTMLDialogElement).open).toBe(false)
-  fireEvent.keyDown(window, { key: 'Escape' })
-  await waitFor(() => expect((screen.getByTestId('lab-book-preface') as HTMLDialogElement).open).toBe(true))
-  expect(screen.getByRole('button', { name: 'Preface', exact: true }).getAttribute('aria-expanded')).toBe('true')
+  expect(screen.queryByRole('button', { name: 'Cover', exact: true })).toBeNull()
+  expect(screen.queryByRole('button', { name: 'Preface', exact: true })).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Introduction', exact: true }))
+  expect(screen.queryByTestId('lab-chapter-cover')).toBeNull()
   expect(readerPlace()).toBe(before)
+  // The library opens after the reader's fade; let it run inside this test.
+  await vi.advanceTimersByTimeAsync(LEAVE_FADE_MS + 20)
+  expect(screen.getByTestId('lab-leave-veil')).toBeTruthy()
 })
 
 it('keeps Reconnect available after cancelling a pending microphone and can end the next attempt', async () => {
@@ -325,8 +319,75 @@ it('keeps Reconnect available after cancelling a pending microphone and can end 
   await vi.advanceTimersByTimeAsync(9000)
   await waitFor(() => expect(screen.getByTestId('lab-voice-panel-reconnect')).toBeTruthy())
   fireEvent.click(screen.getByTestId('lab-voice-panel-reconnect'))
-  await waitFor(() => expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting.'))
+  await waitFor(() => expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting to AI…'))
   fireEvent.click(screen.getByTestId('lab-voice-panel-end'))
   await vi.advanceTimersByTimeAsync(35000)
   expect(screen.queryByTestId('lab-voice-panel')).toBeNull()
+})
+
+// Talk speed. The voice layer stays stubbed: the microphone request hangs, so
+// no xAI session ever opens. The controller methods are spied on, called
+// through, and with no socket their session.update goes nowhere.
+describe('Talk speed', () => {
+  const storedTalkSpeed = () => JSON.parse(localStorage.getItem(LAB_PREFS_KEY) || '{}')?.shared?.talkSpeed
+
+  for (const surface of [
+    { name: 'phone', prefix: 'lab-call', open: openCall },
+    { name: 'desktop', prefix: 'lab-voice-panel', open: openDesktopCall },
+  ] as const) {
+    it(`shows the speed control in the ${surface.name} Talk controls, at 1× by default`, async () => {
+      await surface.open()
+      const control = screen.getByTestId(`${surface.prefix}-speed`)
+      expect(control.textContent).toContain('1×')
+      expect(control.getAttribute('aria-label')).toBe('Playback speed 1 times. Open speed control')
+      fireEvent.click(control)
+      const steps = TALK_SPEED_STEPS.map(step => screen.getByTestId(`${surface.prefix}-speed-${step}`).textContent)
+      expect(steps).toEqual(['0.8×', '1×', '1.25×', '1.5×'])
+    })
+
+    it(`on the ${surface.name}, a new speed goes to the live session, is saved, and starts the next session`, async () => {
+      const setSpeed = vi.spyOn(GrokVoiceSessionController.prototype, 'setAssistantSpeed')
+      const start = vi.spyOn(GrokVoiceSessionController.prototype, 'start')
+      await surface.open()
+      expect(start.mock.calls.at(-1)?.[0].assistantSpeed).toBe(1)
+      fireEvent.click(screen.getByTestId(`${surface.prefix}-speed`))
+      fireEvent.click(screen.getByTestId(`${surface.prefix}-speed-1.25`))
+      expect(setSpeed).toHaveBeenLastCalledWith(1.25)
+      expect(screen.getByTestId(`${surface.prefix}-speed`).textContent).toContain('1.25×')
+      expect(screen.queryByTestId(`${surface.prefix}-speed-popover`)).toBeNull()
+      expect(storedTalkSpeed()).toBe(1.25)
+
+      fireEvent.click(screen.getByTestId(`${surface.prefix}-end`))
+      await waitFor(() => expect(screen.queryByTestId(surface.prefix)).toBeNull())
+      cleanup()
+      start.mockClear()
+      await surface.open()
+      await waitFor(() => expect(start).toHaveBeenCalled())
+      expect(start.mock.calls.at(-1)?.[0].assistantSpeed).toBe(1.25)
+      expect(screen.getByTestId(`${surface.prefix}-speed`).textContent).toContain('1.25×')
+    })
+  }
+
+  it('a spoken "talk slower" request updates the same saved speed', async () => {
+    const start = vi.spyOn(GrokVoiceSessionController.prototype, 'start')
+    await openCall()
+    await waitFor(() => expect(start).toHaveBeenCalled())
+    const controller = start.mock.contexts.at(-1) as unknown as { callbacks: { onSetAssistantPace?: (pace: 'slow' | 'normal' | 'fast') => void } }
+    act(() => controller.callbacks.onSetAssistantPace?.('slow'))
+    expect(storedTalkSpeed()).toBe(0.8)
+    expect(screen.getByTestId('lab-call-speed').textContent).toContain('0.8×')
+    act(() => controller.callbacks.onSetAssistantPace?.('fast'))
+    expect(storedTalkSpeed()).toBe(1.25)
+  })
+
+  it('reads a saved speed back inside xAI\'s 0.7-1.5, and leaves it unset until chosen', () => {
+    expect(parseLabPrefs({ version: 2, shared: { talkSpeed: 9 } }).talkSpeed).toBe(TALK_SPEED_MAX)
+    expect(parseLabPrefs({ version: 2, shared: { talkSpeed: 0.1 } }).talkSpeed).toBe(TALK_SPEED_MIN)
+    expect(parseLabPrefs({ version: 2, shared: { talkSpeed: 1.5 } }).talkSpeed).toBe(1.5)
+    expect(parseLabPrefs({ version: 2, shared: {} }).talkSpeed).toBeUndefined()
+    for (const step of TALK_SPEED_STEPS) {
+      expect(step).toBeGreaterThanOrEqual(TALK_SPEED_MIN)
+      expect(step).toBeLessThanOrEqual(TALK_SPEED_MAX)
+    }
+  })
 })

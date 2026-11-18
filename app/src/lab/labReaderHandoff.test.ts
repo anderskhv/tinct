@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoff, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoff, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, readerHandoffFromUrlParams } from './labReaderHandoff'
 import { DEFAULT_LAB_PREFS } from './labPrefs'
 
 function storageWith(value: unknown) {
@@ -62,7 +62,10 @@ describe('Lab reader handoff', () => {
     const prefs = prefsFromLabReaderHandoff(DEFAULT_LAB_PREFS, handoff)
     const pending = pendingLabSourceForHandoff(handoff)
     expect(prefs.primaryEdition).toBe('original-en')
-    expect(prefs.compareOpen).toBe(false)
+    // Compare is on by default, paired with the book's other edition.
+    expect(prefs).toMatchObject({ compareOpen: true, compareEdition: 'modern-en' })
+    // A reader who chose None keeps None.
+    expect(prefsFromLabReaderHandoff({ ...DEFAULT_LAB_PREFS, compareOpen: false, compareChosen: true }, handoff).compareOpen).toBe(false)
     expect(pending.bookId).toBe('ivan-ilyich')
     expect(pending.bookTitle).toBe('The Death of Ivan Ilyich')
     expect(pending.paragraphs).toEqual([])
@@ -96,7 +99,7 @@ describe('Lab reader handoff', () => {
     })
   })
   it('does not revive Compare from an old position after choosing None', () => {
-    const prefs = prefsFromLabResumePlace(DEFAULT_LAB_PREFS, {
+    const prefs = prefsFromLabResumePlace({ ...DEFAULT_LAB_PREFS, compareOpen: false, compareChosen: true }, {
       bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 2, sequentialChapter: 2,
       paragraphIndex: 4, wordIndex: 7, pageIndex: 3,
       primaryEditionKey: 'original-en', compareEditionKey: 'modern-en', readerMode: 'compare',
@@ -112,4 +115,83 @@ it('retains an explicit audiobook when returning to a saved book without a new a
   const prefs = prefsFromLabReaderHandoff({ ...DEFAULT_LAB_PREFS, audioEdition: 'original-en', audioFollowsPrimary: false }, handoff)
   expect(prefs).toMatchObject({ primaryEdition: 'modern-en', audioEdition: 'original-en', audioFollowsPrimary: false })
   expect(handoff?.savedPlace).toMatchObject({ chapterNumber: 2, paragraphIndex: 1 })
+})
+
+describe('Reader URL deep link (/reader?book=&edition=&chapter=)', () => {
+  const link = (query: string) => readerHandoffFromUrlParams(new URLSearchParams(query))
+
+  it('opens the named chapter and edition, starting at that chapter even over a saved place', () => {
+    expect(link('book=odyssey&edition=modern-en&chapter=3')).toMatchObject({
+      bookId: 'odyssey',
+      primaryEditionKey: 'modern-en',
+      startAtSavedPlace: true,
+      savedPlace: { bookId: 'odyssey', chapterNumber: 3, paragraphIndex: 0 },
+    })
+  })
+
+  it('a shared highlight link opens at its paragraph and word', () => {
+    expect(link('book=frankenstein&edition=original-en&chapter=9&paragraph=2&word=41&share=abcdefg')).toMatchObject({
+      bookId: 'frankenstein', primaryEditionKey: 'original-en', startAtSavedPlace: true,
+      savedPlace: { bookId: 'frankenstein', chapterNumber: 9, paragraphIndex: 2, wordIndex: 41 },
+    })
+    expect(link('book=frankenstein&edition=original-en&chapter=9&paragraph=-2&word=x')).toMatchObject({ savedPlace: { paragraphIndex: 0, wordIndex: 0 } })
+  })
+
+  it('without an edition opens the new-reader default: Modern English with the original in Compare', () => {
+    const handoff = link('book=werther&chapter=1')
+    expect(handoff).toMatchObject({ primaryEditionKey: 'modern-en', compareEditionKey: 'original-en' })
+    expect(prefsFromLabReaderHandoff({ ...DEFAULT_LAB_PREFS, compareOpen: false }, handoff)).toMatchObject({ primaryEdition: 'modern-en', compareEdition: 'original-en', compareOpen: true })
+  })
+
+  it('without a chapter opens that book at the reader\'s latest place, so saved positions are never overridden', () => {
+    const handoff = link('book=odyssey&edition=original-en')
+    expect(handoff).toMatchObject({ bookId: 'odyssey', resumeLatest: true })
+    expect(handoff?.startAtSavedPlace).toBeFalsy()
+    expect(link('book=nope')).toBeNull()
+  })
+
+  it('rejects unknown books, editions and malformed chapters', () => {
+    expect(link('book=nope&chapter=1')).toBeNull()
+    expect(link('book=odyssey&edition=nope&chapter=1')).toMatchObject({ primaryEditionKey: 'original-en', savedPlace: { chapterNumber: 1 } })
+    expect(link('book=odyssey&chapter=0')).toBeNull()
+    expect(link('book=odyssey&chapter=abc')).toBeNull()
+    expect(link('chapter=2')).toBeNull()
+    expect(readerHandoffFromUrlParams(null)).toBeNull()
+  })
+})
+
+describe('Compare on by default for every entry point (Anders, 2026-10-06)', () => {
+  const place = { bookId: 'frankenstein', chapterNumber: 6, paragraphIndex: 0, wordIndex: 0 }
+  const handoff = (extra: Record<string, unknown> = {}) => consumeLabReaderHandoff(storageWith({ kind: 'open-reader', bookId: 'frankenstein', primaryEditionKey: 'modern-en', savedPlace: place, ...extra }))!
+
+  it('a library entry without a pair opens AI text with the human edition in Compare', () => {
+    expect(prefsFromLabReaderHandoff(DEFAULT_LAB_PREFS, handoff())).toMatchObject({ primaryEdition: 'modern-en', compareEdition: 'original-en', compareOpen: true })
+  })
+
+  it('a default pair does not undo a reader’s earlier None', () => {
+    const none = { ...DEFAULT_LAB_PREFS, compareOpen: false, compareChosen: true }
+    expect(prefsFromLabReaderHandoff(none, handoff({ compareEditionKey: 'original-en' })).compareOpen).toBe(false)
+  })
+
+  it('an explicit pick in the introduction is the reader’s new choice: None, or an edition', () => {
+    const none = prefsFromLabReaderHandoff(DEFAULT_LAB_PREFS, handoff({ compareChosen: true }))
+    expect(none).toMatchObject({ compareOpen: false, compareChosen: true })
+    const on = prefsFromLabReaderHandoff({ ...DEFAULT_LAB_PREFS, compareOpen: false, compareChosen: true }, handoff({ compareEditionKey: 'original-en', compareChosen: true }))
+    expect(on).toMatchObject({ compareOpen: true, compareEdition: 'original-en', compareChosen: true })
+  })
+
+  it('a saved place without a pair resumes with the book’s default pair', () => {
+    const prefs = prefsFromLabResumePlace({ ...DEFAULT_LAB_PREFS, compareEdition: 'kjv-en' }, {
+      bookId: 'frankenstein', headerBook: 'Frankenstein', chapterNumber: 6, sequentialChapter: 6,
+      paragraphIndex: 0, wordIndex: 0, pageIndex: 0, primaryEditionKey: 'modern-en',
+      updatedAt: 100, deviceId: 'reader', rev: 2,
+    })
+    expect(prefs).toMatchObject({ primaryEdition: 'modern-en', compareEdition: 'original-en', compareOpen: true })
+  })
+
+  it('a book with no second edition to compare keeps Compare off', () => {
+    const fear = consumeLabReaderHandoff(storageWith({ kind: 'open-reader', bookId: 'fear-and-trembling', primaryEditionKey: 'modern-en' }))
+    expect(fear).not.toBeNull()
+    expect(prefsFromLabReaderHandoff(DEFAULT_LAB_PREFS, fear).compareOpen).toBe(false)
+  })
 })

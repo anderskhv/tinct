@@ -1,0 +1,104 @@
+.lab.is-desktop[data-continuous-reader="true"] .lab-page-wrap { min-height: 0; height: 100%; align-self: stretch; }
+.lab.is-desktop[data-continuous-reader="true"] .lab-body { min-height: 0; padding-bottom:0; }
+.lab[data-continuous-reader="true"] .continuous-reader {
+  height: 100%; overflow-y: auto; overscroll-behavior: contain; overflow-anchor: none;
+  padding-bottom: 3rem; box-sizing: border-box;
+}
+/* The source text occupies the Margin reading column, leaving a full card rail
+   beside it. Desktop Classic's full-spread height/overflow rules must not
+   turn each bounded source slice into a separate blank page. */
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper {
+  width: min(43rem, calc(100% - clamp(18rem, 38vw, 35rem)));
+  min-width: min(100%, 34rem);
+  margin-left: clamp(1.5rem, 12vw, 12rem);
+}
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader .lab-passage {
+  width: 100%; height: auto; max-width: none; min-height: 0;
+  margin: 0; padding: 1.5rem 0 0; overflow: visible;
+  background: transparent; border: 0; box-shadow: none;
+}
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window + .continuous-reader-window .lab-passage {
+  padding-top: 0;
+}
+.lab[data-continuous-reader="true"] .continuous-reader-window + .continuous-reader-window .lab-passage-header { display: none; }
+.lab[data-continuous-reader="true"] .continuous-reader-window + .continuous-reader-window .lab-hearing-line:first-child { margin-top: 0; }
+/* Fill each scrolling line before wrapping. Desktop's paragraph-wide `pretty`
+   balancing can move a short word to the next line and stretch the remaining
+   justified spaces, even though there is room for that word. */
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader .lab-hearing-line { text-wrap: wrap; }
+@media (max-width: 1100px) {
+  .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper {
+    width: min(43rem, calc(100% - 5rem)); min-width: 0; margin: 0 auto;
+  }
+}
+/* The 21 October paper edges: one continuous sheet; padding sits outside its reading measure. */
+.lab.is-desktop[data-continuous-reader="true"] { --continuous-paper-pad: clamp(28px, 3.4vw, 54px); }
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper {
+  width: min(calc(clamp(40rem, 50vw, 52rem) + 2 * var(--continuous-paper-pad)), calc(100% - clamp(20rem, 28vw, 26rem) - clamp(4rem, 7vw, 7rem)));
+  min-width: 0; box-sizing: border-box;
+  margin-left: clamp(4rem, 7vw, 7rem); background: var(--lab-paper);
+  box-shadow: -12px 0 16px -14px rgba(40,34,20,.34), 12px 0 16px -14px rgba(40,34,20,.34), inset 1px 0 0 rgba(40,34,20,.07), inset -1px 0 0 rgba(40,34,20,.07);
+}
+.lab.is-night[data-continuous-reader="true"] .continuous-reader-paper {
+  box-shadow: -12px 0 18px -14px rgba(0,0,0,.8), 12px 0 18px -14px rgba(0,0,0,.8), inset 1px 0 0 rgba(255,255,255,.05), inset -1px 0 0 rgba(255,255,255,.05);
+}
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window:last-child { padding-bottom: 3rem; }
+.lab .source-minimap {
+  position: fixed; left: 16px; top: 100px; width: 34px; height: calc(100dvh - 200px); z-index: 60;
+  overflow: visible; cursor: pointer; touch-action: none; color: var(--lab-ink-muted);
+}
+.lab .source-minimap-line { stroke: currentColor; stroke-width: .9; opacity: .6; }
+.lab .source-minimap-window { stroke: currentColor; stroke-width: .7; fill: currentColor; fill-opacity: .10; stroke-opacity: .7; }
+.lab .source-minimap-mark { fill: var(--lab-accent, #b69a5e); }
+.lab .source-minimap:focus-visible { outline: 1px solid currentColor; outline-offset: 5px; border-radius: 6px; }
+@media (max-width: 1100px) {
+  .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper { width: min(calc(38rem + 2 * var(--continuous-paper-pad)), calc(100% - 6rem)); margin-inline: auto; }
+}
+html[data-eink="true"] .lab[data-continuous-reader="true"] .continuous-reader-paper { box-shadow: inset 1px 0 0 #777, inset -1px 0 0 #777; }
+.lab.is-desktop[data-continuous-reader="true"] .lab-page-wrap { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+@media (max-width: 1100px) {
+  .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper { width:calc(100% - 340px); margin-left:64px; margin-right:0; }
+}
+.source-margin-undo { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); z-index:400; display:flex; align-items:center; gap:12px; padding:8px 10px 8px 16px; border:1px solid var(--lab-call-panel-border, var(--lab-border)); border-radius:999px; background:var(--lab-call-panel, var(--lab-surface, var(--lab-paper))); color:var(--lab-call-ink, var(--lab-ink)); box-shadow:var(--lab-call-panel-shadow, 0 6px 24px rgba(0,0,0,.18)); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); font:500 14px/1.2 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+.source-margin-undo button { appearance:none; border:0; border-radius:999px; padding:4px 10px; background:transparent; color:inherit; font:600 14px/1.2 system-ui, -apple-system, 'Segoe UI', sans-serif; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+.source-margin-undo button:hover, .source-margin-undo button:focus-visible { background:var(--lab-call-tint, rgba(127,127,127,.15)); }
+.lab .source-minimap-activity { cursor:pointer; color:#bd9350; }
+.lab .source-minimap-activity[data-color="rose"] { color:#be7188; }
+.lab .source-minimap-activity[data-color="sage"] { color:#78a080; }
+.lab .source-minimap-activity[data-color="sky"] { color:#6e9cbe; }
+.lab .source-minimap-activity[data-color="lavender"] { color:#9d84bd; }
+.lab .source-minimap-activity-ink { fill:currentColor; opacity:.85; pointer-events:none; }
+.lab .source-minimap-activity:hover .source-minimap-activity-ink,
+.lab .source-minimap-activity:focus-visible .source-minimap-activity-ink { opacity:1; }
+.lab .source-minimap-window { pointer-events:none; }
+.lab .source-minimap-card { color:#c57b59; cursor:pointer; }
+.lab .source-minimap-card:hover, .lab .source-minimap-card:focus-visible { color:#d18a68; }
+
+.lab .source-minimap-progress { fill:currentColor; font:10px system-ui,sans-serif; text-anchor:middle; }
+
+/* Paint the paper once around all bounded source slices. Per-slice shadows
+   bleed across their horizontal boundaries and look like separate sheets. */
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window {
+  width: 100%; box-sizing: border-box; padding-inline: var(--continuous-paper-pad);
+}
+
+/* An iPad held upright (Anders, 4 Nov 2026): the text takes the room. No chapter
+   map at the left edge (the header's chapter menu and the scroll do its work
+   here), a thin left gutter and a narrower card column, so the text reads at
+   55-65 characters a line instead of about 40 (labDesktopLayout.marginReaderRoom). */
+.lab.is-desktop[data-continuous-reader="true"][data-margin-room="tablet-portrait"] { --continuous-paper-pad: 20px; --tablet-card-column: clamp(196px, 25vw, 240px); }
+/* The narrower card keeps "Ask a follow-up" on one line beside its three buttons. */
+.lab.is-desktop[data-margin-room="tablet-portrait"] .source-margin-content .lab-pcard-follow-box { gap: 0; }
+.lab.is-desktop[data-margin-room="tablet-portrait"] .source-margin-content :is(.lab-pcard-mic, .lab-pcard-talkbtn, .lab-pcard-send) { width: 28px; }
+.lab.is-desktop[data-margin-room="tablet-portrait"] .source-margin-content .lab-pcard-follow-input::placeholder { font-size: 15px; }
+.lab[data-continuous-reader="true"][data-margin-room="tablet-portrait"] .source-minimap { display: none; }
+.lab.is-desktop[data-continuous-reader="true"][data-margin-room="tablet-portrait"] .lab-body { padding-left: 12px; padding-right: 12px; }
+/* The card column (SourceMarginRail) takes what the paper leaves, less its 18px either side. */
+.lab.is-desktop[data-continuous-reader="true"][data-margin-room="tablet-portrait"] .continuous-reader-paper {
+  width: min(calc(34rem + 2 * var(--continuous-paper-pad)), calc(100% - var(--tablet-card-column) - 36px));
+  margin-left: 0; margin-right: 0;
+}
+/* The left tracker shows the place and moves through the text, so the scroller's own bar is not drawn where the
+   tracker is (Anders, 10 Nov 2026). Rooms without the tracker (tablet portrait) keep the bar. */
+.lab[data-continuous-reader="true"]:not([data-margin-room="tablet-portrait"]) .source-minimap + .continuous-reader { scrollbar-width: none; }
+.lab[data-continuous-reader="true"]:not([data-margin-room="tablet-portrait"]) .source-minimap + .continuous-reader::-webkit-scrollbar { display: none; }

@@ -1,31 +1,28 @@
-import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { resolveCharacter, verifyCharacters, type CharacterAsset } from './characterCards'
-describe.each(['kjv-en', 'web-en'])('Revelation cleanup compatibility: %s', key => {
- it('preserves Bible resolution, including existing ambiguous names, and the final Jesus reference', async () => {
-  const asset: CharacterAsset = JSON.parse(readFileSync('public/data/characters/bible.v1.json', 'utf8'))
-  const data = (await verifyCharacters(asset, 'bible', key, Uint8Array.from(readFileSync(`public/data/editions/bible-${key}.json`)).buffer))!
-  expect(data).not.toBeNull()
-  // These five conflicting names already exist in pinned main c9ff3d7.
-  // Keep the resolver's safe null result; this trailer cleanup changes no identities.
-  const ambiguous = new Set((key === 'kjv-en'
-   ? [[975,3,39,43],[983,7,364,368],[1019,2,480,485],[1039,3,276,281],[931,0,64,69]]
-   : [[975,3,40,44],[983,7,355,359],[1019,2,481,486],[1039,3,246,251],[931,0,63,68]]
-  ).map(span => span.join('.')))
+import { resolveCharacter } from './characterCards'
+import { bibleEditions, loadBible, paragraphScoped } from './bibleTestSupport'
+
+describe.each(bibleEditions)('Bible character links resolve one-to-one: %s', key => {
+ it('resolves every mention to its own card, with no ambiguous or overlapping spans, and keeps the final Jesus reference', async () => {
+  const data = await loadBible(key)
+  const scoped = paragraphScoped(data)
   let ambiguousMentions = 0
   for (const m of data.edition.mentions) {
    const text = data.paragraphs[m.chapterNumber][m.paragraphIndex]
-   const result = resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, text)
-   if (ambiguous.has([m.chapterNumber,m.paragraphIndex,m.startOffset,m.endOffset].join('.'))) {
-    expect(result).toBeNull()
-    ambiguousMentions++
-   } else expect(result?.card.id, JSON.stringify(m)).toBe(m.characterId)
+   // Whole-Bible sweep: the resolver must return the mention's own card. Since the
+   // 2026-09-30 package no span is identical to another (the old five conflicting
+   // Luke/Acts/Matthew spans are single, correct cards), so nothing may resolve to null.
+   const result = resolveCharacter(scoped(m.chapterNumber, m.paragraphIndex), m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, text)
+   if (result?.card.id !== m.characterId) { ambiguousMentions++; expect(result?.card.id, JSON.stringify(m)).toBe(m.characterId) }
   }
-  expect(ambiguousMentions).toBe(10)
+  expect(ambiguousMentions).toBe(0)
   if (key === 'web-en') {
-   expect(data.paragraphs[1189]).toHaveLength(5)
    expect(data.paragraphs[1189][4]).toBe('²¹ The grace of the Lord Jesus Christ be with all the saints. Amen.')
-   expect(data.edition.mentions.filter(m => m.chapterNumber === 1189)).toHaveLength(4)
+   const last = data.edition.mentions.filter(m => m.chapterNumber === 1189)
+   expect(data.paragraphs[1189]).toHaveLength(5)
+   expect(last).toHaveLength(15)
+   expect(last.filter(m => m.characterId === 'god-the-lord')).toHaveLength(7)
+   expect(last.filter(m => m.paragraphIndex === 4).map(m => [m.characterId, m.text])).toEqual([['jesus', 'Jesus'], ['jesus', 'Christ']])
   }
- })
+ }, 300_000)
 })

@@ -1,8 +1,9 @@
 import { jsonResponse } from '../lib/responses'
-import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
+import { allowanceUsedBody, allowsAiFeature, createAllowanceGate, type AllowanceGate } from '../lib/aiAllowance'
 import { supabaseGet } from '../lib/supabase'
 import { isValidUUID } from '../lib/security'
 import type { VoiceEnv } from './voice'
+import { createAiMeter, ledgerGuestKey, type LedgerEnv, type OpenAiUsage } from '../lib/aiUsage'
 
 export type ReadingSourceResearch = {
   notes: string
@@ -25,7 +26,12 @@ function logSourceSearchFailure(input: Record<string, unknown>): void {
 }
 
 /** Shared bounded public-source lookup for voice and typed reading questions. */
-export async function searchReadingSources(apiKey: string, query: string): Promise<ReadingSourceResearch | null> {
+export async function searchReadingSources(
+  apiKey: string,
+  query: string,
+  /** Billing metadata only (token counts, search count), reported for every completed provider call. */
+  onUsage?: (report: { usage?: OpenAiUsage; searches: number }) => void,
+): Promise<ReadingSourceResearch | null> {
   try {
     const response = await fetch('https://api.openai.com/v1/responses', {
       method: 'POST',
@@ -48,7 +54,13 @@ export async function searchReadingSources(apiKey: string, query: string): Promi
       })
       return null
     }
-    const data = await response.json() as { status?: string; output?: Array<{ type?: string; content?: Array<{ text?: string; annotations?: Array<{ type?: string; url?: string; title?: string }> }> }> }
+    const data = await response.json() as { status?: string; usage?: OpenAiUsage; output?: Array<{ type?: string; content?: Array<{ text?: string; annotations?: Array<{ type?: string; url?: string; title?: string }> }> }> }
+    if (onUsage) {
+      try {
+        const searches = (data.output || []).filter(item => item.type === 'web_search_call').length
+        onUsage({ usage: data.usage, searches: searches || 1 })
+      } catch { /* the ledger never fails a search */ }
+    }
     const parts = (data.output || []).filter(item => item.type === 'message').flatMap(item => item.content || [])
     const sources = parts.flatMap(part => part.annotations || [])
       .filter(item => item.type === 'url_citation' && /^https?:\/\//i.test(item.url || ''))
@@ -72,16 +84,21 @@ export async function handleVoiceResearch(
   env: VoiceEnv,
   verifyUser: (env: VoiceEnv, request: Request) => Promise<{ id: string } | null>,
   checkRateLimit: (key: string, kv?: VoiceEnv['RATE_LIMIT'], max?: number) => Promise<boolean>,
+  ctx?: ExecutionContext,
+  allowanceGate: AllowanceGate = createAllowanceGate(env),
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   const user = await verifyUser(env, request)
   if (!user || !isValidUUID(user.id)) return jsonResponse({ error: 'Sign in to search sources.' }, 401, request)
   if (!env.OPENAI_API_KEY) return jsonResponse({ error: 'Search is unavailable.' }, 503, request)
   if (!await checkRateLimit(`voice-research:${user.id}`, env.RATE_LIMIT, 6)) return jsonResponse({ error: 'Please wait before searching again.' }, 429, request)
-  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
+  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=id`)
   if (!profileRes.ok) return jsonResponse({ error: 'Could not check account access.' }, 503, request)
-  const profile = ((await profileRes.json()) as ChatProfile[])[0]
-  if (!profile || !evaluateChatAccess(profile).allowed) return jsonResponse({ error: 'Your AI balance is empty.' }, 402, request)
+  const profile = ((await profileRes.json()) as Array<{ id: string }>)[0]
+  if (!profile) return jsonResponse({ error: 'Your AI balance is empty.' }, 402, request)
+  if (allowanceGate.enforced && !allowsAiFeature(true, 'source_search', await allowanceGate.load(user.id))) {
+    return jsonResponse(allowanceUsedBody(), 402, request)
+  }
   // Bound the request before parsing: only a public-topic search query is accepted.
   const reader = request.body?.getReader()
   if (!reader) return jsonResponse({ error: 'A question is required.' }, 400, request)
@@ -96,7 +113,8 @@ export async function handleVoiceResearch(
   let query: unknown
   try { query = JSON.parse(raw).query } catch { return jsonResponse({ error: 'Invalid question.' }, 400, request) }
   if (typeof query !== 'string' || !query.trim() || query.length > 1000) return jsonResponse({ error: 'Invalid question.' }, 400, request)
-  const result = await searchReadingSources(env.OPENAI_API_KEY, query.trim())
+  const meter = createAiMeter(env as LedgerEnv, ctx, { userId: user.id, guest: ledgerGuestKey(request) }, { feature: 'source_search', model: 'gpt-4.1' })
+  const result = await searchReadingSources(env.OPENAI_API_KEY, query.trim(), report => meter.sourceSearch(report.usage, report.searches))
   return result
     ? jsonResponse({ ok: true, ...result }, 200, request)
     : jsonResponse({ error: 'Source search could not finish. Try again.' }, 502, request)

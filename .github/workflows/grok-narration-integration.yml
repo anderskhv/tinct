@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   app:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     defaults:
       run:
@@ -26,11 +26,13 @@ jobs:
       - run: npm run build
       - run: npm run verify-bundle
       - run: node scripts/plan-grok-openings.mjs
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - run: node scripts/check-reader-fold.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: grok-reader-and-opening-plan
           path: |
             app/artifacts/reader-fold

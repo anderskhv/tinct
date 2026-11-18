@@ -15,7 +15,7 @@ interface LabAccountSheetProps {
 /**
  * The account sheet shown on an anonymous reader's eleventh AI action. The
  * held-back turn is never sent; closing the sheet returns to reading. Same
- * overlay pattern as LabSettingsSheet (bottom sheet on phones, popover on
+ * overlay pattern as the reader sheets (bottom sheet on phones, popover on
  * desktop), one title, one sentence, a cream pill and a text link.
  */
 export function LabAccountSheet({ open, action, returnTo, onClose, desktop = false }: LabAccountSheetProps) {
@@ -42,7 +42,7 @@ export function LabAccountSheet({ open, action, returnTo, onClose, desktop = fal
         aria-labelledby="lab-account-title"
         onClick={event => event.stopPropagation()}
       >
-        <span className="lab-ss-grabber" aria-hidden="true" />
+        <span className="lab-account-grabber" aria-hidden="true" />
         <button
           type="button"
           className="lab-account-close"
@@ -53,14 +53,14 @@ export function LabAccountSheet({ open, action, returnTo, onClose, desktop = fal
           ×
         </button>
         <p className="lab-account-eyebrow">{LAB_COPY.accountEyebrow}</p>
-        <h2 className="lab-account-title" id="lab-account-title">{action === 'audio' ? 'Sign in to listen' : LAB_COPY.accountTitle}</h2>
-        <p className="lab-account-body">{action === 'audio' ? 'Sign in or create an account to hear this chapter. Your reading place will be kept.' : LAB_COPY.accountBody}</p>
-        <a className="lab-account-primary" href={labSignInHref(action === 'audio' ? 'signin' : 'create', returnTo)} data-testid={action === 'audio' ? 'lab-account-sign-in' : 'lab-account-create'}>
-          {action === 'audio' ? 'Sign in' : LAB_COPY.accountCreate}
+        <h2 className="lab-account-title" id="lab-account-title">{action === 'audio' ? LAB_COPY.accountTitleAudio : action === 'voice' ? LAB_COPY.accountTitleTalk : LAB_COPY.accountTitle}</h2>
+        <p className="lab-account-body">{action === 'audio' ? LAB_COPY.accountBodyAudio : LAB_COPY.accountBody}</p>
+        <a className="lab-account-primary" href={labSignInHref('create', returnTo)} data-testid="lab-account-create">
+          {LAB_COPY.accountCreate}
         </a>
-        <button type="button" className="lab-account-secondary" onClick={onClose}>{action === 'audio' ? 'Keep reading' : 'Keep reading without AI'}</button>
-        <a className="lab-account-secondary" href={labSignInHref(action === 'audio' ? 'create' : 'signin', returnTo)} data-testid={action === 'audio' ? 'lab-account-create' : 'lab-account-sign-in'}>
-          {action === 'audio' ? 'Create account' : LAB_COPY.accountSignIn}
+        <button type="button" className="lab-account-secondary" data-testid="lab-account-keep-reading" onClick={onClose}>{LAB_COPY.accountKeepReading}</button>
+        <a className="lab-account-secondary" href={labSignInHref('signin', returnTo)} data-testid="lab-account-sign-in">
+          {LAB_COPY.accountSignIn}
         </a>
       </section>
     </div>

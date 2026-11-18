@@ -5,6 +5,7 @@ import { BOOKS } from '../data/bookRegistry'
 import { PRE_READER_CATALOGUE, LAB_COVER_ART_BOOK_IDS, type PreReaderBookViewModel, type SerializablePreReaderCatalogue } from '../preReader/catalogue'
 import type { Book } from '../types'
 import { isNativeCapacitor } from './nativePlatform'
+import { isEditionLanguageOffered } from '../data/editionAvailability'
 
 type Entry = { id: string; revision: string; bytes: number; shardedEditions?: string[]; book: Book; view: PreReaderBookViewModel }
 type Snapshot = { schema: 1; books: Entry[]; catalogue: SerializablePreReaderCatalogue; ready: string[]; readyEditions?: Record<string, string[]> }
@@ -25,7 +26,7 @@ export function applyNativeBookCatalogue(value: Snapshot): void {
   if (value.schema !== 1 || !Array.isArray(value.books) || !Array.isArray(value.catalogue?.books)) throw new Error('This library requires a newer app.')
   for (const entry of value.books) {
     if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(entry.id) || entry.book.id !== entry.id || entry.view.id !== entry.id
-      || !Array.isArray(entry.book.editions) || entry.book.editions.some(edition => edition.language === 'da')) throw new Error('Unsupported library entry.')
+      || !Array.isArray(entry.book.editions) || entry.book.editions.some(edition => !isEditionLanguageOffered(entry.id, edition))) throw new Error('Unsupported library entry.')
   }
   registerNativeChapterShards(value.books.flatMap(entry => entry.shardedEditions ?? []))
   const byId = PRE_READER_CATALOGUE.booksById as Map<string, PreReaderBookViewModel>

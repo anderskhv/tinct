@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const origin=process.env.TEST_ORIGIN||'https://tinct.app',built=process.env.READER_BUILT!=='0',out=process.env.ARTIFACT_DIR||'artifacts/reader-spread';
 fs.mkdirSync(out,{recursive:true});
@@ -15,12 +16,16 @@ async function turn(p,key){const before=await p.locator('.lab').evaluate(n=>n.da
 (async()=>{
 const results=[];let continuations=0,docked=0;
 for(const engine of [chromium,webkit].filter(engine=>(process.env.READER_ENGINES||'chromium,webkit').split(',').includes(engine.name()))){
-const browser=await engine.launch({args:engine===chromium?['--mute-audio']:[]});
+let psalmDocked=false;
+const browser=await markInternal(await engine.launch({args:engine===chromium?['--mute-audio']:[]}));
 for(const {fontSize,chapter,height} of [
  ...[1.3,1.8,2.2].flatMap(fontSize=>[917,918].map(chapter=>({fontSize,chapter,height:813}))),
- {fontSize:1.3,chapter:595,height:400}
+ // Psalm 117 docks its actions in the footer only where its leaf is just full; that depends on
+ // the engine's font metrics (macOS WebKit differs), so try heights from tallest down and stop at the first dock.
+ ...[400,388,376,364,352,340].map(height=>({fontSize:1.3,chapter:595,height}))
 ]){
- const name=engine.name()+'-'+chapter+'-'+fontSize,context=await browser.newContext({serviceWorkers:'block',viewport:{width:1450,height}});
+ if(chapter===595&&psalmDocked)continue;
+ const name=engine.name()+'-'+chapter+'-'+fontSize+(chapter===595?'-'+height:''),context=await browser.newContext({serviceWorkers:'block',viewport:{width:1450,height}});
  if(built)await context.route('**/*',r=>{
   const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();
   const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));
@@ -31,21 +36,22 @@ for(const {fontSize,chapter,height} of [
  const note=JSON.stringify([{id:'spread-note',bookId:'bible',editionKey:'web-en',chapterNumber:chapter,paragraphIndex:0,fromWord:1,endParagraphIndex:0,toWord:3,color:'blue',note:'Preserve exactly: æ — 123.',text:'fixture'}]);
  await context.addInitScript(({chapter,fontSize,note})=>{
   HTMLMediaElement.prototype.play=async()=>{};if(sessionStorage.getItem('spread-seeded'))return;sessionStorage.setItem('spread-seeded','1');
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize,theme:'dark',compareOpen:false}));
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize,fontSizeExplicit:true,theme:'dark',compareOpen:false}));
   localStorage.setItem('tinct-lab-highlights',note);
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:chapter,paragraphIndex:0,wordIndex:0,page:0}}));
  },{chapter,fontSize,note});
  const p=await context.newPage();p.setDefaultTimeout(30000);const states=[];
  try{
-  await p.goto(origin+'/reader');await ready(p);
+  // Select the paginated Classic contract rather than relying on the build's default layout.
+  await p.goto(origin+'/reader?view=two-page');await ready(p);
   const seen=[];let last;
   for(let i=0;i<40;i++){
    const s=await state(p);states.push(s);assert.equal(s.chapter,chapter);seen.push(...s.keys);
    for(const col of s.columns)for(const w of col.words)assert.ok(w.rect.bottom<=col.rect.bottom+2,'Prose clears its leaf: '+JSON.stringify(w));
    if(s.end){
     assert.ok(s.end.previousBottom<=s.end.rect.top+1,'Actions follow prose');
-    assert.ok(s.end.rect.bottom<=s.article.bottom-1,'Controls stay in page');
-    if(s.end.docked){docked++;if(chapter===595)assert.equal(states.length,1,'The compact Psalm retains its complete text on one leaf');}
+    assert.ok(s.end.rect.bottom<=s.article.bottom-1,'Controls stay in page: '+JSON.stringify({name,height,end:s.end,article:s.article}));
+    if(s.end.docked){docked++;if(chapter===595)psalmDocked=true;if(chapter===595)assert.equal(states.length,1,'The compact Psalm retains its complete text on one leaf');}
     last=s;break;
    }
    await turn(p,'ArrowRight');
@@ -79,8 +85,8 @@ for(const {fontSize,chapter,height} of [
  const context=await browser.newContext({serviceWorkers:'block',viewport:{width:1450,height:813}});
  if(built)await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));return f.startsWith(path.resolve('dist')+'/')&&fs.existsSync(f)&&fs.statSync(f).isFile()?r.fulfill({path:f}):r.fulfill({status:404,body:'{}'});});
  await context.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await context.route('**/*supabase.co/**',r=>r.abort());
- await context.addInitScript(()=>{HTMLMediaElement.prototype.play=async()=>{};localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,theme:'dark'}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'to-the-lighthouse',primaryEditionKey:'original-en',savedPlace:{bookId:'to-the-lighthouse',chapterNumber:1,paragraphIndex:3,wordIndex:145,page:0}}));});
- const p=await context.newPage();await p.goto(origin+'/reader');await ready(p);
+ await context.addInitScript(()=>{HTMLMediaElement.prototype.play=async()=>{};localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,fontSizeExplicit:true,theme:'dark'}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'to-the-lighthouse',primaryEditionKey:'original-en',savedPlace:{bookId:'to-the-lighthouse',chapterNumber:1,paragraphIndex:3,wordIndex:145,page:0}}));});
+ const p=await context.newPage();await p.goto(origin+'/reader?view=two-page');await ready(p);
  await p.screenshot({path:path.join(out,engine.name()+'-lighthouse.png')});
  const evidence=await p.evaluate(()=>{
   const root=document.querySelector('.lab'),paragraph=document.querySelector('.lab-passage .lab-hearing-line');

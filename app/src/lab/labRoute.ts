@@ -7,7 +7,6 @@ export const PAGE_HOME = '/'
 export const PAGE_LIBRARY = '/library'
 export const PAGE_READER = '/reader'
 export const PAGE_SIGN_IN = '/sign-in'
-export const PAGE_FEATURED = '/featured'
 
 /** The one path that mounts the reader SPA. */
 export function isLabPath(pathname: string): boolean {
@@ -48,9 +47,16 @@ export function legacyLabPageRedirect(pathname: string, search = ''): string | n
     case '/lab/sign-in':
       target = PAGE_SIGN_IN
       break
-    case '/lab/featured':
-      target = PAGE_FEATURED
-      break
+    case '/lab/addbook': {
+      // One own book's old address (?userBook=<hex>, or an older ?open=<pdf|epub>:<hex>): its one address now,
+      // the reader (Anders, 22 Oct 2026). Original pages' `page`, `frac` and `pages` go along; the place itself is
+      // kept on the device and in the account. Any other visit (an old ?handoff=1 link) is still the page.
+      const hex = params.get('userBook') || /^(?:pdf|epub):([0-9a-f]{8,64})$/.exec(params.get('open') || '')?.[1] || ''
+      if (!/^[0-9a-f]{8,64}$/.test(hex)) return null
+      const kept = new URLSearchParams({ userBook: hex })
+      for (const key of ['page', 'frac', 'pages']) { const value = params.get(key); if (value !== null) kept.set(key, value) }
+      return `${PAGE_READER}?${kept}`
+    }
     default:
       return null
   }
@@ -76,37 +82,3 @@ export function labLayoutOverride(pathname: string, search?: string): LabLayoutO
 }
 
 export type LabVoiceVersion = 'v1' | 'v2'
-
-/**
- * Voice V2 is an opt-in preview at `/reader?voice=v2` only. Every other
- * route (and every non-lab route) stays on Voice V1. When `search` is
- * omitted the query string is read from `pathname` itself.
- */
-export function labVoiceVersion(pathname: string, search?: string): LabVoiceVersion {
-  const [pathPart, inlineQuery = ''] = pathname.split('#')[0].split('?')
-  const path = pathPart.replace(/\/+$/, '')
-  if (path !== '/lab/reader' && path !== '/reader') return 'v1'
-  const query = search !== undefined ? search : inlineQuery
-  const params = new URLSearchParams(query.startsWith('?') ? query.slice(1) : query)
-  return params.get('voice')?.trim().toLowerCase() === 'v2' ? 'v2' : 'v1'
-}
-
-export type LabChromeVersion = 'v1' | 'v2'
-
-/** The three lab routes that mount the reader. Chrome V2 is offered on all of them. */
-const LAB_READER_PATHS = ['/lab/reader', '/lab/phone', '/lab/desktop']
-
-/**
- * Chrome V2 — the new reader shell — is an opt-in preview at `?chrome=v2` on a
- * lab reader route. Every other route, and a reader route without the flag,
- * keeps the chrome that ships today, untouched.
- */
-export function labChromeVersion(pathname: string, search?: string): LabChromeVersion {
-  const [pathPart, inlineQuery = ''] = pathname.split('#')[0].split('?')
-  const path = pathPart.replace(/\/+$/, '')
-  if (path === '/reader') return 'v2'
-  if (!LAB_READER_PATHS.includes(path)) return 'v1'
-  const query = search !== undefined ? search : inlineQuery
-  const params = new URLSearchParams(query.startsWith('?') ? query.slice(1) : query)
-  return params.get('chrome')?.trim().toLowerCase() === 'v2' ? 'v2' : 'v1'
-}

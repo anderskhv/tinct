@@ -8,6 +8,29 @@ type Edges = { n: boolean; s: boolean; e: boolean; w: boolean }
 /** How far inside a window's border its edges and corners resize it. */
 export const READER_WINDOW_EDGE = 8
 
+/** Chat and Talk open as a compact window at the book's lower right: about
+ * 312 x 390, 8px from the viewport's right edge, its foot level with the foot
+ * of the pages (Anders, 9 Oct 2026). A reader's own move or resize still wins. */
+export const READER_COMPANION_WINDOW = { width: 312, height: 390, right: 8 } as const
+/** Talk holds its title and book line, the orb, one status line and the
+ * controls with their words (mockup B, 4 Nov 2026), so it opens shorter than
+ * Chat at the same anchor; lab.css sizes it. */
+export const READER_TALK_WINDOW = { width: 312, height: 336, right: READER_COMPANION_WINDOW.right } as const
+const COMPANION_KEYS = new Set(['chat', 'talk'])
+/** The smallest a reader can make a window; Chat and Talk keep room for their controls. */
+export function readerWindowMinimum(key: string): { width: number; height: number } {
+  if (key === 'talk') return { width: 260, height: 220 }
+  return key === 'chat' ? { width: 280, height: 300 } : { width: 260, height: 160 }
+}
+
+/** Where a companion window opens: right edge inset, foot on the pages' foot. */
+export function readerCompanionPlacement(
+  box: { width: number; height: number }, viewport: { width: number; height: number }, pagesBottom: number | null,
+): { x: number; y: number } {
+  const bottom = pagesBottom != null && pagesBottom > 0 && pagesBottom <= viewport.height ? pagesBottom : viewport.height - 8
+  return { x: viewport.width - READER_COMPANION_WINDOW.right - box.width, y: bottom - box.height }
+}
+
 /** The edges under a point within `box`, or null in the window's interior. */
 export function readerWindowEdgesAt(box: Pick<DOMRect, 'left' | 'top' | 'right' | 'bottom'>, x: number, y: number, band = READER_WINDOW_EDGE): Edges | null {
   if (x < box.left || x > box.right || y < box.top || y > box.bottom) return null
@@ -42,6 +65,7 @@ export function useReaderWindow<T extends HTMLElement>(
       if (value && Number.isFinite(value.x) && Number.isFinite(value.y)) saved = value
     } catch { /* unavailable storage */ }
     node.dataset.readerWindow = 'true'
+    if (saved) node.dataset.readerWindowPositioned = 'true'
     const set = (property: string, value: string) => node.style.setProperty(property, value, 'important')
     const topInset = () => Math.max(8, (node.closest('.lab')?.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 0) + 8)
     const place = (x: number, y: number) => {
@@ -50,16 +74,28 @@ export function useReaderWindow<T extends HTMLElement>(
       set('left', point.x + 'px'); set('top', Math.max(topInset(), point.y) + 'px')
       set('right', 'auto'); set('bottom', 'auto'); set('transform', 'none')
     }
+    const minimum = readerWindowMinimum(key)
     const size = (width: number, height: number) => {
       // Explain / Define may grow only as wide as one reader leaf.
       const limit = key === 'explain' || key === 'define' ? innerWidth / 2 - 36 : innerWidth - 32
-      set('width', Math.max(260, Math.min(width, limit)) + 'px')
-      set('height', Math.max(160, Math.min(height, innerHeight - topInset() - 8)) + 'px')
+      const tallest = innerHeight - topInset() - 8
+      set('width', Math.max(minimum.width, Math.min(width, limit)) + 'px')
+      set('height', Math.max(Math.min(minimum.height, tallest), Math.min(height, tallest)) + 'px')
+    }
+    // Chat and Talk, until the reader moves or resizes them: anchored to the book's lower right.
+    const anchored = () => COMPANION_KEYS.has(key) && !collapsed && !saved
+    const anchor = () => {
+      const pages = node.closest('.lab')?.querySelector('.lab-page-wrap')?.getBoundingClientRect()
+      const box = node.getBoundingClientRect()
+      const point = readerCompanionPlacement(box, { width: innerWidth, height: innerHeight }, pages && pages.height > 0 ? pages.bottom : null)
+      set('left', Math.max(8, point.x) + 'px'); set('top', Math.max(topInset(), point.y) + 'px')
+      set('right', 'auto'); set('bottom', 'auto'); set('transform', 'none')
     }
     if (collapsed) { set('width', '240px'); set('height', '52px') }
     else if (saved && Number.isFinite(saved.width) && Number.isFinite(saved.height)) size(saved.width!, saved.height!)
     if (saved) place(saved.x, saved.y)
     const clamp = () => {
+      if (anchored()) { anchor(); return }
       const box = node.getBoundingClientRect()
       if (!collapsed && (box.width > innerWidth - 16 || box.height > innerHeight - topInset() - 8)) size(box.width, box.height)
       const current = node.getBoundingClientRect()
@@ -69,6 +105,7 @@ export function useReaderWindow<T extends HTMLElement>(
       const box = node.getBoundingClientRect()
       saved = { ...(saved ?? {}), x: box.left, y: box.top,
         ...(!collapsed && node.style.height ? { width: box.width, height: box.height } : {}) }
+      node.dataset.readerWindowPositioned = 'true'
       try { sessionStorage.setItem(storageKey, JSON.stringify(saved)) } catch { /* private mode */ }
     }
     let drag: { id: number; x: number; y: number; box: DOMRect; resize: Edges | null; moved: boolean } | null = null
@@ -77,13 +114,15 @@ export function useReaderWindow<T extends HTMLElement>(
       collapsed || event.pointerType === 'touch' ? null : readerWindowEdgesAt(node.getBoundingClientRect(), event.clientX, event.clientY))
     const hover = (event: PointerEvent) => {
       if (drag) return
-      const edges = edgesAt(event)
+      const edges = (event.target as Element | null)?.closest?.('[data-reader-window-control]') ? null : edgesAt(event)
       if (edges) node.dataset.readerWindowEdge = readerWindowEdgeName(edges)
       else delete node.dataset.readerWindowEdge
     }
     const leave = () => { if (!drag) delete node.dataset.readerWindowEdge }
     const down = (event: PointerEvent) => {
       const target = event.target as Element
+      // A control drawn over the window's edge (the chat's › collapse tab) is pressed, never a resize.
+      if (target.closest('[data-reader-window-control]')) return
       const corner = !!target.closest('[data-reader-window-resize]')
       if (event.button !== 0 || collapsed && corner) return
       const resize: Edges | null = corner ? { n: false, s: true, e: true, w: false } : edgesAt(event)
@@ -97,6 +136,9 @@ export function useReaderWindow<T extends HTMLElement>(
       const dx = event.clientX - drag.x, dy = event.clientY - drag.y
       if (!drag.moved && Math.max(Math.abs(dx), Math.abs(dy)) < 4) return
       drag.moved = true
+      // Source-anchored cards may remeasure while a reply streams. Ownership
+      // transfers at the first real movement, not only when the pointer lifts.
+      node.dataset.readerWindowPositioned = 'true'
       event.preventDefault()
       const { box, resize } = drag
       if (!resize) { place(box.left + dx, box.top + dy); return }
@@ -142,6 +184,7 @@ export function useReaderWindow<T extends HTMLElement>(
       window.removeEventListener('pointercancel', up)
       window.removeEventListener('resize', clamp)
       delete node.dataset.readerWindow
+      delete node.dataset.readerWindowPositioned
       delete node.dataset.readerWindowEdge
       for (const property of ['left', 'top', 'right', 'bottom', 'transform', 'width', 'height']) node.style.removeProperty(property)
     }

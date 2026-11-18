@@ -17,14 +17,14 @@ Use current remote main instructions or a newer explicitly assigned policy revis
 
 ## Content-only ownership
 
-Claude owns research, source acquisition, edition text, onboarding, character content, editorial QA and the release package. Codex owns parsers/tool changes, application integration, registry edits, generated runtime data, builds and publication.
+Claude owns research, source acquisition, edition text, onboarding, character content, editorial QA and the release package. **Since 8 October 2026 Claude also owns integration and publication** (Codex is retired): parsers/tool changes, application integration, registry edits, generated runtime data, builds and release. Integration is a separate, explicitly assigned step on its own branch; the content stage below stays content-only.
 
 Work on an isolated branch/checkout. Confirm active assignments and choose one owned staging folder under `books/wip/{assignment}/` (or an already assigned `books/staged-replacements/` folder). Put sources, edition candidates, proposed metadata/taxonomy, onboarding, character material, hashes, review records and integration notes there. Do not write another stream's folder or shared trackers.
 
 During this task:
 - Do not create or modify application code, scripts, tests, configuration, dependencies, CI, Worker code or shared pipeline tooling, including code placed inside a content folder.
 - Do not edit `app/**`, the live edition/onboarding paths, the registry, production character files or shared repository policy.
-- You may run existing read-only parsing/validation tools with outputs confined to your owned staging folder. If a tool needs code changes or writes to protected paths, document the needed change for Codex and continue independent content work.
+- You may run existing read-only parsing/validation tools with outputs confined to your owned staging folder. If a tool needs code changes or writes to protected paths, document the needed change for the integration step and continue independent content work.
 - Do not merge to main, deploy, publish assets, start narration generation or change production settings. Commit and push your owned content package only. “Push” here means pushing the content branch, never deploying.
 - Never stash, reset, clean, overwrite or cherry-pick another agent's work to unblock yourself.
 - An unrelated application failure is an integration note, not permission to fix code.
@@ -35,9 +35,15 @@ These restrictions override broader path lists, auto-documentation rules, “pus
 
 Complete the authorized content work and independent reviews. Supply source provenance, pinned baselines, accepted candidate hashes, changed paragraph lists, character identity decisions and structural mappings where relevant. Record remaining issues honestly.
 
+For third-party evidence (dealer listings, articles, reviews), record the URL, retrieval date and the exact passage you rely on. Never save whole third-party web pages into the repository: they are public once pushed and can carry tracking links and signed URLs that secret scanners flag.
+
 Before committing, inspect the diff: every changed file must be a content artifact in the owned staging folder, with no code or shared/runtime files. If unexpected changes exist, preserve them and exclude them from your commit; do not revert someone else's work.
 
-Push the package and give Codex the branch, exact commit, package path, acceptance status and integration requirements. “Content accepted / handed off” and “published” are distinct statuses. Codex performs integration, required app verification and serialized release.
+Push the package and record the branch, exact commit, package path, acceptance status and integration requirements for the integration step. “Content accepted / handed off” and “published” are distinct statuses. The integration step (Claude, when assigned) performs integration, required app verification and serialized release.
+
+## Every new book gets a painted cover
+
+A book is not ready to publish with the plain paper cover (Anders, 6 Nov 2026). At integration, make its cover in the series style with `app/scripts/make-book-cover.mjs` (xAI image model, `XAI_API_KEY`; about $0.04 per painting): describe one quiet symbolic scene from the book, generate three candidates, choose the one that sits best beside the shelf's painted covers, and copy it to `app/public/covers/v2/<id>.webp` (540×810). Show Anders the chosen cover with the release. The author flap needs the reviewed introduction's `author` block (name, years, occupation, biography); never ship a book whose flap would fall back to the book's description.
 
 ## Explicit coding assignments remain possible
 

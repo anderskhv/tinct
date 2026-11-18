@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   guard:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
@@ -62,6 +62,7 @@ jobs:
             --apply
 
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always() && hashFiles('guard-report.json') != ''
         with:
           name: gpu-guard-report

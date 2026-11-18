@@ -5,6 +5,7 @@ import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { LAB_ASK_LOAD_MORE_PX, LAB_ASK_MAX_COMPOSER_PX, LAB_ASK_WINDOW, labAskTurnUnanswered, LabAskPane } from './LabAskPane'
+import { QUESTION_PEEK } from '../../public/lab/chat-thread.js'
 import type { LabConversationState } from './labAsk'
 
 afterEach(() => {
@@ -41,7 +42,6 @@ describe('lab ask living circle', () => {
     expect(screen.getByTestId('lab-ask-voice').className).toContain('is-listening')
     expect(screen.getByTestId('lab-ask-voice-status').textContent).toBe('Listening')
     expect(screen.getByTestId('lab-ask-voice-status').getAttribute('data-voice-phase')).toBe('listening')
-    expect(document.querySelectorAll('.lab-ask-voice-status-glyph i')).toHaveLength(3)
     expect(screen.getByTestId('lab-ask-voice').textContent).not.toContain('Listening')
     expect(screen.getByTestId('lab-ask-mic').className).not.toMatch(/is-listening|is-speaking|is-connecting/)
 
@@ -70,7 +70,7 @@ describe('lab ask living circle', () => {
     rerender(pane('connecting', onMic, onVoiceMode))
     fireEvent.click(screen.getByTestId('lab-ask-voice'))
     expect(onMic).toHaveBeenCalledTimes(1)
-    expect(screen.getByTestId('lab-ask-voice').textContent).toContain('×')
+    expect(screen.getByTestId('lab-ask-voice').getAttribute('aria-label')).toBe('Stop talking')
   })
 })
 
@@ -82,7 +82,11 @@ describe('lab ask phone done', () => {
     rerender(pane('idle', vi.fn(), vi.fn(), onDone))
     fireEvent.click(screen.getByTestId('lab-ask-done'))
     expect(onDone).toHaveBeenCalledTimes(1)
-    expect(screen.getByText('Ask about this page.')).toBeTruthy()
+    // No header and no empty-state copy: an empty thread is the composer's caret.
+    expect(screen.queryByText('Ask about this page.')).toBeNull()
+    // "Back to book" (Anders, 10 Oct 2026), not a faint ×: the visible words are its name.
+    expect(screen.getByRole('button', { name: 'Back to book' })).toBe(screen.getByTestId('lab-ask-done'))
+    expect(screen.getByTestId('lab-ask-done').textContent).toBe('← Back to book')
   })
 })
 
@@ -104,19 +108,18 @@ describe('lab ask typed send', () => {
         phoneSheet
       />,
     )
-    expect(screen.getByTestId('lab-ask-send').textContent).toBe('Send')
+    expect(screen.getByTestId('lab-ask-send').getAttribute('aria-label')).toBe('Send')
     const send = screen.getByTestId('lab-ask-send')
     expect(fireEvent.pointerDown(send)).toBe(false)
     fireEvent.click(send)
     expect(onSubmit).toHaveBeenCalledWith('Who is Calypso?')
-    fireEvent.keyDown(screen.getByPlaceholderText('Ask'), { key: 'Enter' })
+    fireEvent.keyDown(screen.getByTestId('lab-ask-input'), { key: 'Enter', ctrlKey: true })
     expect(onSubmit).toHaveBeenCalledTimes(2)
   })
 
-  it('shows Send even when the box is empty', () => {
+  it('keeps Send hidden while the box is empty', () => {
     render(pane('idle'))
-    expect(screen.getByTestId('lab-ask-send')).toBeTruthy()
-    expect(screen.getByTestId('lab-ask-send').textContent).toBe('Send')
+    expect(screen.getByTestId('lab-ask-send').hasAttribute('hidden')).toBe(true)
   })
 })
 
@@ -125,7 +128,6 @@ describe('selected passage attachment', () => {
     const onRemoveAttachment = vi.fn()
     render(
       <LabAskPane
-        chromeV2
         conversationState="idle"
         voiceActive={false}
         typedLoading={false}
@@ -141,7 +143,7 @@ describe('selected passage attachment', () => {
     )
     const input = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
     expect(input.value).toBe('Why does Socrates say this?')
-    expect(input.placeholder).toBe('Ask about this passage…')
+    expect(input.placeholder).toBe('')
     fireEvent.click(screen.getByRole('button', { name: 'Remove' }))
     expect(onRemoveAttachment).toHaveBeenCalledTimes(1)
     expect(input.value).toBe('Why does Socrates say this?')
@@ -150,7 +152,6 @@ describe('selected passage attachment', () => {
   it('renders an attached passage separately from its question in history', () => {
     render(
       <LabAskPane
-        chromeV2
         conversationState="idle"
         voiceActive={false}
         typedLoading={false}
@@ -172,7 +173,7 @@ describe('lab ask phone listen', () => {
     render(pane('idle', vi.fn(), vi.fn(), vi.fn()))
     expect(screen.queryByTestId('lab-phone-listen')).toBeNull()
     expect(screen.getByTestId('lab-ask-composer')).toBeTruthy()
-    expect(screen.getByPlaceholderText('Ask')).toBeTruthy()
+    expect(screen.getByTestId('lab-ask-input')).toBeTruthy()
   })
 })
 
@@ -293,10 +294,8 @@ describe('lab ask thread above composer', () => {
       />,
     )
 
-    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toEqual([
-      'Genesis 1',
-      'Genesis 2',
-    ])
+    // A divider only where the chapter changes; the thread's first turn needs none.
+    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toEqual(['Genesis 2'])
   })
 
   it('hands the composer input to the host so a tap can focus it', () => {
@@ -352,7 +351,9 @@ describe('lab ask thread above composer', () => {
       { id: 'a1', role: 'assistant', content: 'Because this reply is still arriving.', source: 'typed' },
       { id: 'u2', role: 'user', content: 'What next?', source: 'typed' },
     ]} />)
-    expect(thread.scrollTop).toBe(900)
+    // The reader's next question is not dragged to the bottom: it is held near
+    // the top (here, with no layout, where it already is). See "calm answer".
+    expect(thread.scrollTop).not.toBe(900)
   })
 })
 
@@ -371,7 +372,7 @@ describe('lab ask thread opens at the newest message', () => {
       configurable: true,
       get(this: HTMLElement) {
         if (!isThread(this)) return 0
-        return metrics.perTurn > 0 ? this.querySelectorAll('.lab-ask-turn').length * metrics.perTurn : metrics.scrollHeight
+        return metrics.perTurn > 0 ? this.querySelectorAll('.tc-turn').length * metrics.perTurn : metrics.scrollHeight
       },
     })
     Object.defineProperty(HTMLElement.prototype, 'clientHeight', {
@@ -420,7 +421,7 @@ describe('lab ask thread opens at the newest message', () => {
     const { rerender } = render(<LabAskPane {...props} turns={turns} />)
     const thread = screen.getByTestId('lab-ask-thread')
     expect(LAB_ASK_WINDOW).toBe(40)
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(40)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(40)
     expect(screen.getAllByTestId('lab-ask-turn-user')[0].textContent).toContain('Turn 80 ')
     expect(thread.getAttribute('data-hidden-turns')).toBe('80')
     expect(screen.getByTestId('lab-ask-older').textContent).toBe('80 earlier messages')
@@ -430,26 +431,26 @@ describe('lab ask thread opens at the newest message', () => {
     // reader's line stays where it was (scrollTop grows by the added height).
     thread.scrollTop = LAB_ASK_LOAD_MORE_PX - 20
     fireEvent.scroll(thread)
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(80)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(80)
     expect(screen.getAllByTestId('lab-ask-turn-user')[0].textContent).toContain('Turn 40 ')
     expect(thread.getAttribute('data-hidden-turns')).toBe('40')
     expect(thread.scrollTop).toBe(LAB_ASK_LOAD_MORE_PX - 20 + 2000)
 
     // The button is the same reveal for readers who do not scroll.
     fireEvent.click(screen.getByTestId('lab-ask-older'))
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(120)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(120)
     expect(screen.queryByTestId('lab-ask-older')).toBeNull()
     expect(thread.getAttribute('data-hidden-turns')).toBe('0')
 
     // A new reply appends without re-hiding what was revealed.
     rerender(<LabAskPane {...props} turns={history(120, [{ id: 'a-new', role: 'assistant', content: 'A fresh reply.' }])} />)
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(121)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(121)
   })
 
   it('resets the window to the newest messages when a different history opens', () => {
     const { rerender } = render(<LabAskPane {...props} turns={history(120)} />)
     fireEvent.click(screen.getByTestId('lab-ask-older'))
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(80)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(80)
     // Ends on the reader's own question, so the thread pins to the bottom.
     const other = Array.from({ length: 91 }, (_, i) => ({
       id: `o${i}`,
@@ -458,15 +459,15 @@ describe('lab ask thread opens at the newest message', () => {
       source: 'typed' as const,
     }))
     rerender(<LabAskPane {...props} turns={other} />)
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(40)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(40)
     expect(screen.getByTestId('lab-ask-older').textContent).toBe('51 earlier messages')
     expect(screen.getByTestId('lab-ask-thread').scrollTop).toBe(2000)
   })
 
-  it('shows the chapter label for the first visible turn of a window', () => {
+  it('divides a window only where its chapter changes, judged against the turns before it', () => {
     const turns = history(120).map((turn, i) => ({ ...turn, chapterNumber: i < 100 ? 3 : 4 }))
     render(<LabAskPane {...props} turns={turns} chapterLabels={{ 3: 'Genesis 3', 4: 'Genesis 4' }} />)
-    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toEqual(['Genesis 3', 'Genesis 4'])
+    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toEqual(['Genesis 4'])
   })
 
   it('follows a new assistant message while the reader is at the bottom', () => {
@@ -495,43 +496,49 @@ describe('lab ask thread opens at the newest message', () => {
     metrics.scrollHeight = 2400
     rerender(<LabAskPane {...props} turns={history(40, [{ id: 'a-new', role: 'assistant', content: 'A message arriving while they read.' }])} />)
     expect(thread.scrollTop).toBe(120)
-    // Their own new question still brings them to it.
+    // Their own new question is brought near the top, not to the bottom (see "calm answer").
     metrics.scrollHeight = 2500
     rerender(<LabAskPane {...props} turns={history(40, [
       { id: 'a-new', role: 'assistant', content: 'A message arriving while they read.' },
       { id: 'u-new', role: 'user', content: 'And then?' },
     ])} />)
-    expect(thread.scrollTop).toBe(2500)
+    expect(thread.scrollTop).not.toBe(2500)
   })
 })
 
-describe('lab ask thread shows the answer begin', () => {
-  const metrics = { scrollHeight: 0, clientHeight: 300 }
+describe('calm answer: the question is brought near the top once, then nothing moves (Anders, 10 Oct 2026)', () => {
+  // A small layout model: each turn is 100px plus 30px per 40 characters,
+  // stacked from the top of the thread; the spacer adds its own height.
+  const CLIENT = 600
+  // The thread's height: the phone keyboard closing on send makes it taller.
+  let client = CLIENT
+  const heightOf = (node: Element) => 100 + Math.floor((node.textContent || '').length / 40) * 30
   const descriptors = {
     scrollHeight: Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight'),
     clientHeight: Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientHeight'),
     rect: HTMLElement.prototype.getBoundingClientRect,
   }
   const isThread = (node: HTMLElement) => node.getAttribute('data-testid') === 'lab-ask-thread'
-  const TURN_HEIGHT = 100
+  const rows = (thread: Element) => Array.from(thread.querySelectorAll('.tc-turn, .tc-pending'))
+  const spacerOf = (thread: Element) => parseFloat((thread.querySelector('.tc-spacer') as HTMLElement | null)?.style.height || '0') || 0
 
   beforeEach(() => {
-    metrics.scrollHeight = 4000
-    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', { configurable: true, get(this: HTMLElement) { return isThread(this) ? metrics.scrollHeight : 0 } })
-    Object.defineProperty(HTMLElement.prototype, 'clientHeight', { configurable: true, get(this: HTMLElement) { return isThread(this) ? metrics.clientHeight : 0 } })
-    // Each turn is TURN_HEIGHT tall, stacked from the top of the thread.
+    client = CLIENT
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', { configurable: true, get(this: HTMLElement) {
+      if (!isThread(this)) return 0
+      return rows(this).reduce((sum, row) => sum + heightOf(row), 0) + spacerOf(this)
+    } })
+    Object.defineProperty(HTMLElement.prototype, 'clientHeight', { configurable: true, get(this: HTMLElement) { return isThread(this) ? client : 0 } })
     HTMLElement.prototype.getBoundingClientRect = function (this: HTMLElement) {
       const thread = this.closest('[data-testid="lab-ask-thread"]') as HTMLElement | null
       let top = 0
-      if (isThread(this)) top = 0
-      else if (thread && this.classList.contains('lab-ask-turn')) {
-        const turnsBefore = Array.from(thread.querySelectorAll('.lab-ask-turn')).indexOf(this)
-        top = turnsBefore * TURN_HEIGHT - thread.scrollTop
+      if (thread && !isThread(this) && this.matches('.tc-turn, .tc-pending')) {
+        const all = rows(thread)
+        top = all.slice(0, all.indexOf(this)).reduce((sum, row) => sum + heightOf(row), 0) - thread.scrollTop
       }
-      return { top, bottom: top + TURN_HEIGHT, left: 0, right: 0, width: 0, height: TURN_HEIGHT, x: 0, y: top, toJSON: () => ({}) } as DOMRect
+      return { top, bottom: top + 100, left: 0, right: 0, width: 0, height: 100, x: 0, y: top, toJSON: () => ({}) } as DOMRect
     }
   })
-
   afterEach(() => {
     if (descriptors.scrollHeight) Object.defineProperty(HTMLElement.prototype, 'scrollHeight', descriptors.scrollHeight)
     if (descriptors.clientHeight) Object.defineProperty(HTMLElement.prototype, 'clientHeight', descriptors.clientHeight)
@@ -544,7 +551,6 @@ describe('lab ask thread shows the answer begin', () => {
     content: `Turn ${i}.`,
     source: 'typed' as const,
   }))
-
   const props = {
     conversationState: 'idle' as const,
     voiceActive: false,
@@ -556,69 +562,190 @@ describe('lab ask thread shows the answer begin', () => {
     phoneSheet: true,
     onDone: () => { /* unused */ },
   }
+  const ask = { id: 'u-ask', role: 'user' as const, content: 'Why does he mention Phinehas?', source: 'typed' as const }
+  const reply = (content: string) => ({ id: 'a-reply', role: 'assistant' as const, content, source: 'typed' as const })
+  // There is no Latest pill any more (Anders, 17 Nov 2026): never drawn counts as hidden.
+  const latest = () => ({ hidden: !document.querySelector('[data-testid="lab-ask-latest"], .tc-latest') })
 
-  it('scrolls the first line of a new reply near the top, then follows only while its end is within reach', () => {
-    const history = turnsOf(40)
+  it('holds a continued question near the top even in the phone card wrapper', () => {
+    const history = turnsOf(20)
+    render(<LabAskPane {...props} embeddedPhoneCard focusTurnId={ask.id} typedLoading={false} turns={[...history, ask, reply('Short answer.')]} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    expect(thread.scrollTop).toBe(20 * 100 - Math.min(QUESTION_PEEK, CLIENT * 0.2))
+    expect(spacerOf(thread)).toBeGreaterThan(0)
+  })
+
+  it('on send, the question sits near the top with a little of the previous answer above; the answer grows under it without moving the view', () => {
+    const history = turnsOf(20)
     const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} />)
     const thread = screen.getByTestId('lab-ask-thread')
-    expect(thread.scrollTop).toBe(4000)
-    // The reader asks; the thread follows their own question.
-    const asked = [...history, { id: 'u-ask', role: 'user' as const, content: 'How did Jeremiah get out of prison?', source: 'typed' as const }]
-    metrics.scrollHeight = 4100
-    rerender(<LabAskPane {...props} typedLoading turns={asked} />)
-    expect(thread.scrollTop).toBe(4100)
-    // The reply begins: its first line is pinned near the top of the viewport (turn index 41).
-    const replying = [...asked, { id: 'a-reply', role: 'assistant' as const, content: 'In chapter 32', source: 'typed' as const }]
-    metrics.scrollHeight = 4200
-    rerender(<LabAskPane {...props} typedLoading turns={replying} />)
-    expect(thread.scrollTop).toBe(41 * TURN_HEIGHT - 8)
-    // Room below the reply so its first line can hold the top of the viewport while it is short.
-    expect(screen.getByTestId('lab-ask-thread-spacer').style.height).toBe(`${300 - TURN_HEIGHT - 8}px`)
-    // Streaming continues under a held first line: the text fills downward, the top does not move.
-    metrics.scrollHeight = 4300
-    rerender(<LabAskPane {...props} typedLoading turns={[...asked, { ...replying[replying.length - 1], content: 'In chapter 32, Jeremiah bought a field while in the court of the prison.' }]} />)
-    expect(thread.scrollTop).toBe(41 * TURN_HEIGHT - 8)
-    // A long reply grows past the viewport: the reader keeps reading from where they are.
-    thread.scrollTop = 3500
+    // 20 turns of 100px; the question is the 21st.
+    const peek = Math.min(QUESTION_PEEK, CLIENT * 0.2)
+    const questionAt = 20 * 100 - peek
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask]} />)
+    expect(thread.scrollTop).toBe(questionAt)
+    // The room below lets the question sit there while nothing follows it.
+    expect(thread.scrollHeight - thread.clientHeight).toBe(questionAt)
+    expect(latest().hidden).toBe(true)
+
+    // Waiting, then the answer begins and grows: the view never moves.
+    for (const text of ['Phinehas', 'Phinehas is the model of zeal for the law.', 'Phinehas is the model of zeal for the law. '.repeat(4)]) {
+      rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, reply(text)]} />)
+      expect(thread.scrollTop).toBe(questionAt)
+    }
+    expect(latest().hidden).toBe(true)
+    // It grows past the foot of the window: still no jump, and no Latest pill
+    // over the answer being read (Anders, 12 Oct 2026: prompt and answer, not the pill).
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(20))]} />)
+    expect(thread.scrollTop).toBe(questionAt)
+    expect(spacerOf(thread)).toBe(0)
+    expect(latest().hidden).toBe(true)
+    // Finished: no jump either.
+    rerender(<LabAskPane {...props} typedLoading={false} turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(20))]} />)
+    expect(thread.scrollTop).toBe(questionAt)
+  })
+
+  it('the keyboard closing on send (the thread grows, WebKit clamps the view and reports the scroll first) keeps the question near the top, no pill (14 Oct 2026)', () => {
+    const history = turnsOf(20)
+    client = 300
+    const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask]} />)
+    const sentAt = thread.scrollTop
+    expect(thread.scrollHeight - thread.clientHeight).toBe(sentAt)
+    // The keyboard goes: the thread is twice as tall, its writing space is not
+    // yet refitted, and the browser pulls the view up to the new end.
+    client = 600
+    thread.scrollTop = thread.scrollHeight - thread.clientHeight
+    expect(thread.scrollTop).toBeLessThan(sentAt - 200)
     fireEvent.scroll(thread)
-    metrics.scrollHeight = 5000
-    rerender(<LabAskPane {...props} typedLoading turns={[...asked, { ...replying[replying.length - 1], content: 'A much longer reply. '.repeat(40) }]} />)
-    expect(thread.scrollTop).toBe(3500)
-    // The next question clears the room and follows the reader's own message again.
-    metrics.scrollHeight = 5100
-    rerender(<LabAskPane {...props} typedLoading turns={[...asked, replying[replying.length - 1], { id: 'u-next', role: 'user' as const, content: 'And then?', source: 'typed' as const }]} />)
-    expect(screen.getByTestId('lab-ask-thread-spacer').style.height).toBe('0px')
-    expect(thread.scrollTop).toBe(5100)
+    // Not the reader: the question goes back near the top of the taller window.
+    const questionAt = 20 * 100 - Math.min(QUESTION_PEEK, CLIENT * 0.2)
+    expect(thread.scrollTop).toBe(questionAt)
+    expect(thread.scrollHeight - thread.clientHeight).toBe(questionAt)
+    // The answer arrives and grows past the foot: no jump and no Latest pill over it.
+    for (const n of [1, 4, 20]) {
+      rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(n))]} />)
+      expect(thread.scrollTop).toBe(questionAt)
+      expect(latest().hidden).toBe(true)
+    }
+    // The reader scrolling up from there is still the reader: they stay where they are (and no pill, 17 Nov 2026).
+    thread.scrollTop = questionAt - 300
+    fireEvent.scroll(thread)
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(30))]} />)
+    expect(thread.scrollTop).toBe(questionAt - 300)
+    expect(latest().hidden).toBe(true)
+  })
+
+  it('a reader who scrolls while the answer arrives is never moved', () => {
+    const history = turnsOf(20)
+    const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask]} />)
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, reply('Phinehas')]} />)
+    thread.scrollTop = 900
+    fireEvent.scroll(thread)
+    for (const text of ['Phinehas is the model of zeal.', 'Phinehas is the model of zeal for the law. '.repeat(20)]) {
+      rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, reply(text)]} />)
+      expect(thread.scrollTop).toBe(900)
+    }
+    rerender(<LabAskPane {...props} typedLoading={false} turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(20))]} />)
+    expect(thread.scrollTop).toBe(900)
+  })
+
+  it('no Latest pill (17 Nov 2026): not when the reader scrolled up and more arrived below, nor while following the answer down', () => {
+    const history = turnsOf(20)
+    const long = (n: number) => reply('Phinehas is the model of zeal for the law. '.repeat(n))
+    const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask]} />)
+    const questionAt = thread.scrollTop
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, long(20)]} />)
+    expect(latest().hidden).toBe(true)
+    // Reading down into the answer as it arrives: no pill.
+    thread.scrollTop = questionAt + 200
+    fireEvent.scroll(thread)
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, long(30)]} />)
+    expect(thread.scrollTop).toBe(questionAt + 200)
+    expect(latest().hidden).toBe(true)
+    // Scrolled up, above where the question was put: nothing new yet, no pill.
+    thread.scrollTop = 900
+    fireEvent.scroll(thread)
+    expect(latest().hidden).toBe(true)
+    // More arrives below while they read up there: they stay put, and no pill (17 Nov 2026).
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, long(40)]} />)
+    expect(thread.scrollTop).toBe(900)
+    expect(latest().hidden).toBe(true)
+    // Back at the newest line: gone.
+    thread.scrollTop = thread.scrollHeight - thread.clientHeight
+    fireEvent.scroll(thread)
+    expect(latest().hidden).toBe(true)
+  })
+
+  it('the first question in an empty chat is held too: it stays in view above its answer, no pill', () => {
+    const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={[]} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    rerender(<LabAskPane {...props} typedLoading turns={[ask]} />)
+    const questionAt = thread.scrollTop
+    for (const n of [1, 10, 40]) {
+      rerender(<LabAskPane {...props} typedLoading turns={[ask, reply('Phinehas is the model of zeal for the law. '.repeat(n))]} />)
+      expect(thread.scrollTop).toBe(questionAt)
+      expect(latest().hidden).toBe(true)
+    }
+    // The question row is still on screen (it starts at the top of the thread).
+    expect(questionAt).toBe(0)
+  })
+
+  it('an Explain (question and answer together) holds the question too', () => {
+    const history = turnsOf(20)
+    const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    rerender(<LabAskPane {...props} typedLoading={false} turns={[...history, { ...ask, content: 'Explain this passage.' }, reply('It is about zeal.')]} />)
+    expect(thread.scrollTop).toBe(20 * 100 - Math.min(QUESTION_PEEK, CLIENT * 0.2))
+  })
+
+  it('a refresh after the chat opened (the tab coming back) leaves the view where it is', () => {
+    const history = turnsOf(20)
+    const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} historyStatus="loading" />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    rerender(<LabAskPane {...props} typedLoading={false} turns={history} historyStatus="ready" />)
+    thread.scrollTop = 700
+    fireEvent.scroll(thread)
+    rerender(<LabAskPane {...props} typedLoading={false} turns={history} historyStatus="loading" />)
+    rerender(<LabAskPane {...props} typedLoading={false} turns={history} historyStatus="ready" />)
+    expect(thread.scrollTop).toBe(700)
   })
 })
 
-it('shows stored dates in V2 and keeps older messages accessible', () => {
+it('keeps each message’s time in its hover/press row, not under it, and keeps older messages accessible', () => {
   const onDone = vi.fn()
   const turns = Array.from({ length: 45 }, (_, index) => ({ id: `dated-${index}`, role: 'user' as const, content: `Saved question ${index}`, source: 'typed' as const, timestamp: Date.UTC(2026, 8, 1, 9, index) }))
-  render(<LabAskPane chromeV2 conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} onDone={onDone} phoneSheet />)
+  render(<LabAskPane conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} onDone={onDone} phoneSheet />)
   const firstVisibleTime = document.querySelector('time')
   expect(firstVisibleTime?.getAttribute('datetime')).toBe(new Date(turns[5].timestamp).toISOString())
-  const footer = firstVisibleTime?.closest('.lab-ask-meta')
-  expect(footer).toBeTruthy()
-  expect(footer?.querySelector('[aria-label="Copy question"]')).toBeTruthy()
-  expect(firstVisibleTime?.compareDocumentPosition(firstVisibleTime.closest('.lab-ask-turn')!.querySelector('.lab-ask-user')!) & Node.DOCUMENT_POSITION_PRECEDING).toBeTruthy()
+  const row = firstVisibleTime?.closest('.tc-acts')
+  expect(row).toBeTruthy()
+  expect(row?.querySelector('[aria-label="Copy question"]')).toBeTruthy()
+  // The row is the hidden hover/press row: it is not the newest answer's kept copy mark.
+  expect(row?.classList.contains('is-kept')).toBe(false)
+  expect(firstVisibleTime?.compareDocumentPosition(firstVisibleTime.closest('.tc-turn')!.querySelector('.tc-bubble')!) & Node.DOCUMENT_POSITION_PRECEDING).toBeTruthy()
   fireEvent.click(screen.getByTestId('lab-ask-older'))
   expect(screen.getByText('Saved question 0')).toBeTruthy()
   expect(document.querySelectorAll('time')).toHaveLength(45)
-  fireEvent.click(screen.getByText('← Back to book'))
+  fireEvent.click(screen.getByTestId('lab-ask-done'))
   expect(onDone).toHaveBeenCalledOnce()
 })
 
 it('reveals the requested old conversation beyond the initial history window', () => {
   const turns = Array.from({ length: 60 }, (_, index) => ({ id: `selected-${index}`, role: 'user' as const, content: `History question ${index}`, source: 'typed' as const }))
-  render(<LabAskPane chromeV2 focusTurnId="selected-2" conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} phoneSheet />)
+  render(<LabAskPane focusTurnId="selected-2" conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} phoneSheet />)
   expect(screen.getByText('History question 2')).toBeTruthy()
   expect(document.querySelector('[data-turn-id="selected-2"]')).toBeTruthy()
 })
 
 describe('V2 multiline composer and copying', () => {
   const base = {
-    chromeV2: true, conversationState: 'idle' as const, voiceActive: false,
+    conversationState: 'idle' as const, voiceActive: false,
     typedLoading: false, turns: [], onDraftChange: vi.fn(), onSubmit: vi.fn(),
     onMic: vi.fn(), onVoiceMode: vi.fn(), phoneSheet: true,
   }
@@ -644,15 +771,35 @@ describe('V2 multiline composer and copying', () => {
     expect(onKeyboardOpenChange).toHaveBeenLastCalledWith(false)
     expect(onDone).toHaveBeenCalledOnce()
   })
+  it('does not let the press on Back to book blur the field, so one tap returns with the draft kept', () => {
+    const onDone = vi.fn(), onKeyboardOpenChange = vi.fn(), onDraftChange = vi.fn()
+    render(<LabAskPane {...base} draft="Half a question" onDraftChange={onDraftChange} onDone={onDone} onKeyboardOpenChange={onKeyboardOpenChange} />)
+    const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
+    field.focus()
+    onKeyboardOpenChange.mockClear()
+    const done = screen.getByTestId('lab-ask-done')
+    // A cancelled press is what keeps the keyboard (and the button) in place until the click.
+    expect(fireEvent.pointerDown(done)).toBe(false)
+    expect(fireEvent.mouseDown(done)).toBe(false)
+    expect(document.activeElement).toBe(field)
+    expect(onKeyboardOpenChange).not.toHaveBeenCalled()
+    expect(onDone).not.toHaveBeenCalled()
+    fireEvent.click(done)
+    expect(onDone).toHaveBeenCalledOnce()
+    expect(onKeyboardOpenChange).toHaveBeenLastCalledWith(false)
+    expect(document.activeElement).not.toBe(field)
+    expect(onDraftChange).not.toHaveBeenCalled()
+    expect(field.value).toBe('Half a question')
+  })
   it('grows the writing area, swaps voice for send, and uses Enter for a new line', () => {
     const onSubmit = vi.fn()
     const { rerender } = render(<LabAskPane {...base} draft="" onSubmit={onSubmit} />)
     const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
     expect(field.tagName).toBe('TEXTAREA')
     expect(screen.getByTestId('lab-ask-send').hidden).toBe(true)
-    Object.defineProperty(field, 'scrollHeight', { configurable: true, value: 120 })
+    Object.defineProperty(field, 'scrollHeight', { configurable: true, value: 45 })
     rerender(<LabAskPane {...base} draft={'First line\nSecond line'} onSubmit={onSubmit} />)
-    expect(field.style.height).toBe('120px')
+    expect(field.style.height).toBe('45px')
     expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
     expect(screen.getByTestId('lab-ask-send').hidden).toBe(false)
     expect(fireEvent.keyDown(field, { key: 'Enter' })).toBe(true)
@@ -661,7 +808,8 @@ describe('V2 multiline composer and copying', () => {
     expect(onSubmit).toHaveBeenCalledWith('First line\nSecond line')
     Object.defineProperty(field, 'scrollHeight', { configurable: true, value: 800 })
     rerender(<LabAskPane {...base} draft={'Long question\n'.repeat(30)} />)
-    expect(field.style.height).toBe('180px')
+    // Five lines, then it scrolls inside.
+    expect(field.style.height).toBe(`${LAB_ASK_MAX_COMPOSER_PX}px`)
   })
   it('copies the complete question and answer without speaker labels', async () => {
     const writeText = vi.fn().mockResolvedValue(undefined)
@@ -683,7 +831,7 @@ describe('chat dictation control', () => {
   it('shows a stop square while starting and listening, then restores the microphone', () => {
     const onMic = vi.fn()
     const props = {
-      chromeV2: true, conversationState: 'idle' as const, voiceActive: false,
+      conversationState: 'idle' as const, voiceActive: false,
       typedLoading: false, turns: [], draft: '', onDraftChange: vi.fn(),
       onSubmit: vi.fn(), onMic, onVoiceMode: vi.fn(),
     }
@@ -693,7 +841,7 @@ describe('chat dictation control', () => {
       rerender(<LabAskPane {...props} dictationState={dictationState} />)
       expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
       const stop = screen.getByRole('button', { name: 'Stop dictation' })
-      expect(stop.querySelector('rect')?.getAttribute('width')).toBe('12')
+      expect(stop.querySelector('rect')).toBeTruthy()
       expect(stop.querySelector('path')).toBeNull()
       fireEvent.click(stop)
     }
@@ -709,7 +857,6 @@ describe('chat dictation control', () => {
 describe('lab ask composer: Enter', () => {
   const base = (onSubmit: (text: string) => void, phoneSheet: boolean) => (
     <LabAskPane
-      chromeV2
       conversationState="idle"
       voiceActive={false}
       typedLoading={false}
@@ -768,7 +915,6 @@ describe('lab ask composer: Enter', () => {
 describe('lab ask composer: the growing field never flashes a scrollbar', () => {
   const pane = (draft: string) => (
     <LabAskPane
-      chromeV2
       conversationState="idle"
       voiceActive={false}
       typedLoading={false}
@@ -799,29 +945,29 @@ describe('lab ask composer: the growing field never flashes a scrollbar', () => 
   })
 
   it('keeps overflow hidden while the field still fits its text', () => {
-    stubScrollHeight(30)
+    stubScrollHeight(22)
     const { rerender } = render(pane('One line'))
     const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
     expect(field.style.overflowY).toBe('hidden')
-    expect(field.style.height).toBe('30px')
+    expect(field.style.height).toBe('22px')
 
     // Every added line grows the box and still shows no scrollbar — the
     // top-right artifact the measurement used to flash.
     for (const lines of [2, 3, 4, 5]) {
       rerender(pane(Array(lines).fill('Line').join('\n')))
       expect(field.style.overflowY).toBe('hidden')
-      expect(field.style.height).toBe(`${lines * 30}px`)
+      expect(field.style.height).toBe(`${lines * 22}px`)
     }
   })
 
-  it('gives the scrollbar back only once the field is capped and really clips', () => {
-    stubScrollHeight(30)
-    const { rerender } = render(pane(Array(6).fill('Line').join('\n')))
+  it('gives the scrollbar back only once the field is capped at five lines and really clips', () => {
+    stubScrollHeight(22)
+    const { rerender } = render(pane(Array(5).fill('Line').join('\n')))
     const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
-    expect(field.style.height).toBe(`${LAB_ASK_MAX_COMPOSER_PX}px`)
+    expect(field.style.height).toBe('110px')
     expect(field.style.overflowY).toBe('hidden')
 
-    rerender(pane(Array(7).fill('Line').join('\n')))
+    rerender(pane(Array(6).fill('Line').join('\n')))
     expect(field.style.height).toBe(`${LAB_ASK_MAX_COMPOSER_PX}px`)
     expect(field.style.overflowY).toBe('auto')
 
@@ -885,7 +1031,10 @@ describe('lab ask thread and the account history that arrives late', () => {
     // An empty device copy must not greet the reader as if they had no history.
     cleanup()
     render(<LabAskPane {...props} turns={[]} historyStatus="loading" />)
-    expect(screen.getByText('Loading your saved conversations…')).toBeTruthy()
+    // An empty thread is a caret, even while the account row is in flight: no greeting, no loading line.
+    expect(screen.queryByText('Loading your saved conversations…')).toBeNull()
+    expect(screen.queryByTestId('lab-ask-syncing')).toBeNull()
+    expect(screen.getByTestId('lab-ask-input')).toBeTruthy()
   })
 
   it('drops the notice and shows the newest turn once the account history lands', () => {
@@ -899,7 +1048,7 @@ describe('lab ask thread and the account history that arrives late', () => {
     expect(screen.queryByTestId('lab-ask-syncing')).toBeNull()
     // Not left parked in May: the thread ends on today's turn and is scrolled there.
     expect(thread.scrollTop).toBe(4000)
-    const turnNodes = Array.from(document.querySelectorAll('.lab-ask-turn'))
+    const turnNodes = Array.from(document.querySelectorAll('.tc-turn'))
     expect(turnNodes[turnNodes.length - 1].textContent).toContain('Cyrus of Persia')
   })
 
@@ -919,21 +1068,18 @@ describe('lab ask thread and the account history that arrives late', () => {
     expect(thread.getAttribute('data-hidden-turns')).toBe('160')
     // The first turn the reader sees is inside the newest window, and the last
     // turn in the DOM is the most recent one in the thread.
-    const turnNodes = Array.from(document.querySelectorAll('.lab-ask-turn'))
+    const turnNodes = Array.from(document.querySelectorAll('.tc-turn'))
     expect(turnNodes).toHaveLength(40)
     expect(turnNodes[0].textContent).toContain('Turn 160.')
     expect(turnNodes[turnNodes.length - 1].textContent).toContain('Turn 199.')
     expect(thread.scrollTop).toBe(metrics.scrollHeight)
   })
 
-  it('dates a chapter divider whose turns are not from today, and marks a question that got no answer', () => {
+  it('dates a divider with the day its turns are from, and marks a question that got no answer', () => {
     render(<LabAskPane {...props} turns={reconciled} chapterLabels={{ 930: 'Matthew 5', 774: 'Jeremiah 50' }} />)
     const dividers = screen.getAllByTestId('lab-ask-location').map(node => node.textContent)
-    // The date's own shape follows the reader's locale; what matters is that
-    // the divider carries the day the turns under it are from.
-    expect(dividers[0]).toMatch(/^Matthew 5 · .*25/)
-    expect(dividers[0]).toMatch(/May/)
-    expect(dividers[1]).toBe('Jeremiah 50')
+    // "{chapter} · {day}": one divider, where both the chapter and the day change.
+    expect(dividers).toEqual([`Jeremiah 50 · ${new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long' }).format(today)}`])
     expect(screen.queryByTestId('lab-ask-unanswered')).toBeNull()
 
     cleanup()
@@ -954,4 +1100,61 @@ it('does not label Live transcript fragments as failed questions', () => {
   ]
   expect(labAskTurnUnanswered(turns, 0, false)).toBe(false)
   expect(labAskTurnUnanswered(turns, 1, false)).toBe(false)
+})
+
+describe('lookup status in the pending row', () => {
+  const props = {
+    conversationState: 'idle' as const,
+    voiceActive: false,
+    draft: '',
+    onDraftChange: () => { /* unused */ },
+    onSubmit: () => { /* unused */ },
+    onMic: () => { /* unused */ },
+    onVoiceMode: () => { /* unused */ },
+  }
+  const question = { id: 'u1', role: 'user' as const, content: 'Why buy a field?', source: 'typed' as const }
+
+  it('shows bare dots until a lookup starts, then a quiet line saying what is read', () => {
+    const { rerender } = render(<LabAskPane {...props} typedLoading turns={[question]} />)
+    expect(screen.getByTestId('lab-ask-pending').querySelector('.tc-wait')).not.toBeNull()
+    expect(screen.queryByTestId('lab-ask-lookup')).toBeNull()
+    rerender(<LabAskPane {...props} typedLoading typedStatus="Reading Jeremiah 32…" turns={[question]} />)
+    expect(screen.getByTestId('lab-ask-lookup').textContent).toBe('Reading Jeremiah 32…')
+    expect(screen.getByTestId('lab-ask-pending').querySelector('.tc-wait')).not.toBeNull()
+  })
+
+  it('gives way to the answer once its text arrives', () => {
+    render(<LabAskPane {...props} typedLoading typedStatus="Reading Jeremiah 32…" turns={[
+      question, { id: 'a1', role: 'assistant', content: 'It is a pledge.', source: 'typed' },
+    ]} />)
+    expect(screen.queryByTestId('lab-ask-pending')).toBeNull()
+    expect(screen.queryByTestId('lab-ask-lookup')).toBeNull()
+  })
+
+  it('styles the line in the system UI font, small and muted, never mono', () => {
+    const css = readFileSync(resolve(__dirname, '../../public/lab/chat-thread.css'), 'utf8')
+    const rule = /\.tc \.tc-lookup \{([^}]*)\}/.exec(css)?.[1] ?? ''
+    expect(rule).toContain('var(--tc-sans)')
+    expect(rule).toContain('var(--tc-muted)')
+    expect(rule).toMatch(/13px/)
+    expect(rule).not.toMatch(/mono/i)
+  })
+})
+
+
+describe('Chat embedded in the mobile reader card', () => {
+  it('labels historical replies by their own chapter and shows the current composer context', () => {
+    render(<LabAskPane
+      conversationState="idle" voiceActive={false} typedLoading={false}
+      turns={[{ id: 'prior', role: 'assistant', content: 'Ben Sira describes friendship.', source: 'typed', chapterNumber: 1309 }]}
+      chapterLabels={{ 1309: 'Sirach 40', 652: 'Proverbs 24' }}
+      embeddedPhoneCard composerPlaceholder="Ask about Proverbs 24…"
+      draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()}
+    />)
+    expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-card-chat')
+    expect(screen.getByTestId('lab-ask-initial-location').textContent).toBe('Sirach 40')
+    expect(screen.getByPlaceholderText('Ask about Proverbs 24…')).toBe(screen.getByTestId('lab-ask-input'))
+    expect(screen.getByTestId('lab-ask-turn-assistant').textContent).toContain('Ben Sira')
+    expect(parseFloat(document.querySelector<HTMLElement>('.tc-spacer')?.style.height || '0')).toBe(screen.getByTestId('lab-ask-thread').clientHeight)
+  })
 })

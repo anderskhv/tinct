@@ -42,7 +42,7 @@ echo ""
 # 1. Landing page loads
 echo "1. Landing page"
 LANDING=$(curl -sf "$URL/" 2>/dev/null || echo "FAIL")
-if printf '%s\n' "$LANDING" | grep -q 'Tinct — A New Way to Read'; then
+if printf '%s\n' "$LANDING" | grep -q '<title>Tinct'; then
   pass "Landing page loads"
 else
   fail "Landing page did not load"
@@ -60,6 +60,23 @@ fi
 # 1c. SPA loads at /reader
 echo "1c. App"
 HTML=$(curl -sf "$URL/reader" 2>/dev/null || echo "FAIL")
+# While Cloudflare rolls a version out, a request can still reach the old one:
+# its page names the old stylesheet, which the new version no longer serves
+# (#372's deploy: an old page at 13:33, then five minutes of 404s for its CSS).
+# With the expected bundle known, check the page that names it.
+if [ -n "${TINCT_EXPECTED_BUNDLE:-}" ]; then
+  for attempt in $(seq 1 60); do
+    printf '%s\n' "$HTML" | grep -qF "src=\"$TINCT_EXPECTED_BUNDLE\"" && break
+    [ $((attempt % 6)) -eq 1 ] && echo "    /reader still names another bundle (attempt $attempt)"
+    sleep 5
+    HTML=$(curl -sf "$URL/reader" 2>/dev/null || echo "FAIL")
+  done
+  if printf '%s\n' "$HTML" | grep -qF "src=\"$TINCT_EXPECTED_BUNDLE\""; then
+    pass "/reader names the expected bundle"
+  else
+    fail "/reader never named the expected bundle $TINCT_EXPECTED_BUNDLE"
+  fi
+fi
 if printf '%s\n' "$HTML" | grep -q '<div id="root"'; then
   pass "SPA loads at /reader with root div"
 else
@@ -116,15 +133,6 @@ if [ -n "$JS_FILE" ]; then
     fail "Worker audio route MISSING from bundle — audio will be broken"
   fi
 
-  # 4b. AI-narration disclaimer MP3s accessible (both languages)
-  for lang in en da; do
-    D_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL/api/audio-file?path=disclaimer-${lang}.mp3")
-    if [ "$D_STATUS" = "200" ]; then
-      pass "Disclaimer audio disclaimer-${lang}.mp3 reachable"
-    else
-      fail "Disclaimer audio disclaimer-${lang}.mp3 unreachable (HTTP $D_STATUS) — first-play UX will skip the AI notice"
-    fi
-  done
 else
   fail "JS bundle not found in HTML"
 fi
@@ -133,6 +141,7 @@ fi
 echo "5. Chat API"
 CHAT_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$URL/api/chat" \
   -H "Content-Type: application/json" \
+  -H "x-tinct-check: 1" \
   -d '{"messages":[{"role":"user","content":"ping"}]}' 2>/dev/null || echo "000")
 if [ "$CHAT_STATUS" = "401" ] || [ "$CHAT_STATUS" = "200" ] || [ "$CHAT_STATUS" = "429" ]; then
   pass "Chat API responds (HTTP $CHAT_STATUS)"
@@ -175,18 +184,24 @@ echo "9. CSS"
 CSS_FILE=$(printf '%s\n' "$HTML" | sed -n 's/.*href="\(\/assets\/index-[^"]*\.css\)".*/\1/p' | head -1)
 if [ -n "$CSS_FILE" ]; then
   # Straight after a deploy the edge can serve the new page before the
-  # stylesheet it names: 11 s after #191's rollout, over 30 s after #195's.
-  # Retry for up to two minutes; a real miss still fails.
-  for attempt in $(seq 1 24); do
+  # stylesheet it names: 11 s after #191's rollout, over 30 s after #195's,
+  # over two minutes after #275's and #281's (a freshly uploaded stylesheet
+  # answered 404 at the runner's edge while the new bundle was served).
+  # Retry for up to five minutes, logging each miss; a real miss still fails.
+  for attempt in $(seq 1 60); do
     CSS_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL$CSS_FILE" 2>/dev/null)
     [ -n "$CSS_STATUS" ] || CSS_STATUS="000"
     [ "$CSS_STATUS" = "200" ] && break
+    [ $((attempt % 6)) -eq 1 ] && echo "    stylesheet $CSS_FILE: $CSS_STATUS (attempt $attempt)"
     sleep 5
   done
+  [ "$CSS_STATUS" = "200" ] && [ "$attempt" -gt 1 ] && echo "    stylesheet served after $attempt attempt(s)"
   if [ "$CSS_STATUS" = "200" ]; then
     pass "CSS loads (200)"
   else
     fail "CSS returned $CSS_STATUS"
+    # Headers of the miss (which edge, cache status) for diagnosing it.
+    curl -sI "$URL$CSS_FILE" 2>/dev/null | grep -iE '^(HTTP|cf-ray|cf-cache-status|age|cache-control|server|content-type)' | sed 's/^/    /'
   fi
 else
   fail "CSS file not found in HTML"

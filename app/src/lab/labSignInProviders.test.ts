@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  LAB_AUTH_CALLBACK_PATH,
   LAB_OAUTH_PROVIDERS,
   LAB_SIGN_IN_PROVIDERS,
   isLabOAuthProvider,
@@ -45,11 +46,15 @@ describe('lab sign-in providers', () => {
     expect(labOAuthErrorMessage('google', null)).toBe('Google sign-in didn’t work. Please try again.')
   })
 
+  it('uses the sign-in page itself as the auth callback path', () => {
+    expect(LAB_AUTH_CALLBACK_PATH).toBe('/sign-in')
+  })
+
   it('sends every provider back to the lab sign-in page with the reader\'s returnTo', () => {
     expect(labOAuthRedirectTo('https://tinct.app', '/lab/reader?voice=v2'))
-      .toBe('https://tinct.app/lab/sign-in?callback=oauth&returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
+      .toBe('https://tinct.app/sign-in?callback=oauth&returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
     expect(labOAuthRedirectTo('https://tinct.app', '/lab/library'))
-      .toBe('https://tinct.app/lab/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary')
+      .toBe('https://tinct.app/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary')
   })
 })
 
@@ -74,11 +79,11 @@ describe('the error GoTrue puts on the URL when it sends the reader back', () =>
   })
 
   it('strips the auth noise from the URL and keeps the reader\'s returnTo', () => {
-    expect(withoutOAuthReturnParams(`https://tinct.app/lab/sign-in?callback=oauth&returnTo=%2Flab%2Freader&error=server_error&error_description=${encodeURIComponent(notEnabled)}`))
-      .toBe('/lab/sign-in?callback=oauth&returnTo=%2Flab%2Freader')
-    expect(withoutOAuthReturnParams('https://tinct.app/lab/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary#error=server_error&error_code=validation_failed'))
-      .toBe('/lab/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary')
-    expect(withoutOAuthReturnParams('https://tinct.app/lab/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary'))
-      .toBe('/lab/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary')
+    expect(withoutOAuthReturnParams(`https://tinct.app/sign-in?callback=oauth&returnTo=%2Flab%2Freader&error=server_error&error_description=${encodeURIComponent(notEnabled)}`))
+      .toBe('/sign-in?callback=oauth&returnTo=%2Flab%2Freader')
+    expect(withoutOAuthReturnParams('https://tinct.app/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary#error=server_error&error_code=validation_failed'))
+      .toBe('/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary')
+    expect(withoutOAuthReturnParams('https://tinct.app/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary'))
+      .toBe('/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary')
   })
 })

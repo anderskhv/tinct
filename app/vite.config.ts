@@ -8,13 +8,16 @@ import path from 'path'
 import { serializePreReaderCatalogue } from './src/preReader/catalogue'
 import { addLibraryReadingStructures } from './src/preReader/libraryReadingStructure'
 import { legacyLabPageRedirect } from './src/lab/labRoute'
+import { accountPageRedirect } from './src/cards/cardRoutes'
+import { buildReaderBootScript } from './scripts/readerBootScript'
+import { buildSharedReaderActivation } from './scripts/build-shared-reader-activation.mjs'
 
 const serializedPreReaderCatalogue = JSON.stringify(addLibraryReadingStructures(
   serializePreReaderCatalogue(),
   path.resolve(process.cwd(), 'public'),
 ))
 
-// The entry uses the same exact approved text files as the reader registry.
+// The library introduction serves these exact approved text files.
 const entryPrefaces = new Map(JSON.parse(serializedPreReaderCatalogue).books.flatMap((book: { id: string }) => {
   const file = path.resolve(process.cwd(), 'src/data/prefaces', `${book.id}.txt`)
   return fs.existsSync(file) ? [[book.id, JSON.stringify({bookId:book.id, language:'en', paragraphs:fs.readFileSync(file,'utf8').trim().split(/\n\s*\n/)})]] : []
@@ -72,6 +75,9 @@ export default defineConfig(({ mode, command }) => {
     ? `${Date.now().toString(36)}`
     : 'dev'
 
+  let readerBootBuild: ReturnType<typeof buildReaderBootScript> | null = null
+  const readerBoot = () => (readerBootBuild ??= buildReaderBootScript(buildVersion))
+
   return {
   define: {
     __BUILD_VERSION__: JSON.stringify(buildVersion),
@@ -81,19 +87,24 @@ export default defineConfig(({ mode, command }) => {
     rollupOptions: {
       input: {
         index: path.resolve(process.cwd(), 'index.html'),
-        labFeaturedAccess: path.resolve(process.cwd(), 'src/labFeaturedAccess.ts'),
         labAuthStatus: path.resolve(process.cwd(), 'src/labAuthStatus.ts'),
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
         libraryTwoAssistant: path.resolve(process.cwd(), 'src/libraryTwoAssistant.tsx'),
         libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
+        libraryAdd: path.resolve(process.cwd(), 'src/libraryAdd.ts'),
         nativeBooks: path.resolve(process.cwd(), 'src/utils/nativeBooks.ts'),
+        // The account cards over the library (CARDS-BRIEF.md); the reader imports them itself.
+        libraryCards: path.resolve(process.cwd(), 'src/cards/libraryCards.ts'),
+        // Social (ship 3): a profile page's script and the admin view. Served only while SOCIAL_FRIENDS is on.
+        profilePage: path.resolve(process.cwd(), 'src/social/profilePage.ts'),
+        adminSocialPage: path.resolve(process.cwd(), 'src/social/adminSocialPage.ts'),
       },
       output: {
         // Reserve index-* for the real reader entry. Native plugin entrypoints
         // also use index.ts; their lazy chunks must not impersonate the app
         // in shell stamping, production checks or offline registration.
         chunkFileNames: chunk => chunk.name === 'index' ? 'assets/shared-index-[hash].js' : 'assets/[name]-[hash].js',
-        entryFileNames: chunk => chunk.name === 'labFeaturedAccess' ? 'lab/featured-access.js' : chunk.name === 'labAuthStatus'
+        entryFileNames: chunk => chunk.name === 'labAuthStatus'
           ? 'lab/auth-status.js'
           : chunk.name === 'labSignIn'
             ? 'lab/sign-in-runtime.js'
@@ -103,12 +114,97 @@ export default defineConfig(({ mode, command }) => {
                 ? 'lab/native-books.js'
               : chunk.name === 'libraryTwoReading'
                 ? 'lab/library-2-reading.js'
+              : chunk.name === 'libraryAdd'
+                ? 'lab/library-add.js'
+              : chunk.name === 'libraryCards'
+                ? 'lab/account-cards.js'
+              : chunk.name === 'profilePage'
+                ? 'lab/social-profile.js'
+              : chunk.name === 'adminSocialPage'
+                ? 'lab/admin-social-runtime.js'
               : 'assets/[name]-[hash].js',
       },
     },
   },
   plugins: [
     react(),
+    {
+      // The Library imports this fixed-name ES module outside Vite's graph.
+      // Vite's web build uses preserveEntrySignatures=false, which can erase
+      // named exports from an otherwise unused Rollup entry. Emit this one
+      // asset from the canonical React helper with its build default baked in.
+      name: 'shared-reader-activation',
+      apply: 'build',
+      async generateBundle() {
+        this.emitFile({ type: 'asset', fileName: 'lab/shared-reader-activation.js',
+          source: await buildSharedReaderActivation(env.VITE_SHARED_READER_DEFAULT === '1') })
+      },
+    },
+    {
+      // The reader's head script: starts the opening chapter's requests and
+      // paints the stored paper before the app bundle runs (src/lab/readerBoot.ts).
+      name: 'reader-boot',
+      apply: () => !isCapacitor,
+      configureServer(server) {
+        server.middlewares.use('/lab/reader-boot.js', (_req: IncomingMessage, res: ServerResponse) => {
+          res.writeHead(200, { 'Content-Type': 'text/javascript; charset=utf-8', 'Cache-Control': 'no-store' })
+          res.end(buildReaderBootScript(buildVersion).source)
+        })
+      },
+      transformIndexHtml: {
+        order: 'post',
+        handler(_html, ctx) {
+          if (path.resolve(ctx.filename) !== path.resolve(process.cwd(), 'index.html')) return
+          const src = command === 'build' ? `/${readerBoot().fileName}` : '/lab/reader-boot.js'
+          // English hyphenation is lazy-loaded, but the first page is measured
+          // with it (LabApp waits for it briefly); fetch it beside the bundle.
+          const hyphenation = Object.values(ctx.bundle ?? {}).filter(chunk => chunk.type === 'chunk'
+            && chunk.moduleIds.some(id => /[\\/]node_modules[\\/](?:hypher|hyphenation\.en-us)[\\/]/.test(id)))
+          // The /try page's reader (/reader?demo=try): on the dev server its demo script goes first, as the Worker
+          // adds it in production (worker/routes/seo.ts withTryDemo); the built app.html never carries it.
+          const tryDemo = command !== 'build' && /[?&]demo=try(?:&|$)/.test(ctx.originalUrl || '')
+          return [
+            ...(tryDemo ? [{ tag: 'script', attrs: { src: '/lab/try/reader-demo.js' }, injectTo: 'head-prepend' as const }] : []),
+            { tag: 'script', attrs: { src }, injectTo: 'head-prepend' },
+            ...hyphenation.map(chunk => ({ tag: 'link', attrs: { rel: 'modulepreload', crossorigin: true, href: `/${chunk.fileName}` }, injectTo: 'head' as const })),
+          ]
+        },
+      },
+      generateBundle() {
+        if (command !== 'build') return
+        const boot = readerBoot()
+        this.emitFile({ type: 'asset', fileName: boot.fileName, source: boot.source })
+      },
+    },
+    {
+      // The library search's catalogue parts on the dev server, as `npm run build` makes them
+      // (scripts/build-catalogue-shards.mjs): without them the search worker falls back to the
+      // whole 7.9 MB catalogue, whose parse took the dev page (and the browser tests) to ~1.9 GB.
+      name: 'lab-catalogue-shards',
+      configureServer(server) {
+        const whole = path.resolve(process.cwd(), 'public/lab/addbook/data/catalog.json.gz')
+        let parts: Promise<Record<string, Buffer>> | null = null, partsFor = 0
+        const build = async () => {
+          const { gunzipSync, gzipSync } = await import('zlib')
+          // Loaded by Node at run time (not bundled into this config): the build's own split.
+          const { pathToFileURL } = await import('url')
+          const { splitCatalogue } = await import(pathToFileURL(path.resolve(process.cwd(), 'scripts/build-catalogue-shards.mjs')).href)
+          const { english, more } = splitCatalogue(JSON.parse(gunzipSync(fs.readFileSync(whole)).toString('utf8')))
+          return { 'catalog-en.json.gz': gzipSync(Buffer.from(JSON.stringify(english))), 'catalog-more.json.gz': gzipSync(Buffer.from(JSON.stringify(more))) }
+        }
+        server.middlewares.use('/lab/addbook/data/', (req: IncomingMessage, res: ServerResponse, next: () => void) => {
+          const name = (req.url || '').split('?')[0].replace(/^\//, '')
+          if (name !== 'catalog-en.json.gz' && name !== 'catalog-more.json.gz') return next()
+          let stamp = 0
+          try { stamp = fs.statSync(whole).mtimeMs } catch { return next() }
+          if (!parts || partsFor !== stamp) { parts = build(); partsFor = stamp; parts.catch(() => { parts = null }) }
+          parts.then(files => {
+            res.writeHead(200, { 'Content-Type': 'application/gzip', 'Cache-Control': 'no-store' })
+            res.end(files[name])
+          }, () => next())
+        })
+      },
+    },
     {
       name: 'lab-pre-reader-catalogue',
       configureServer(server) {
@@ -144,11 +240,6 @@ export default defineConfig(({ mode, command }) => {
           const url = req.url || ''
           // Strip query string for the path comparison
           const pathOnly = url.split('?')[0]
-          if (pathOnly === '/lab/featured-access.js') {
-            req.url = `/src/labFeaturedAccess.ts${url.slice(pathOnly.length)}`
-            next()
-            return
-          }
           if (pathOnly === '/lab/auth-status.js') {
             req.url = `/src/labAuthStatus.ts${url.slice(pathOnly.length)}`
             next()
@@ -161,6 +252,32 @@ export default defineConfig(({ mode, command }) => {
           }
           if (pathOnly === '/lab/library-2-reading.js') {
             req.url = `/src/libraryTwoReading.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/account-cards.js') {
+            req.url = `/src/cards/libraryCards.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          // Old account pages open their card over the library or reader, as in the Worker.
+          const cardTarget = req.method === 'GET' || req.method === 'HEAD' ? accountPageRedirect(pathOnly, url.slice(pathOnly.length)) : null
+          if (cardTarget) {
+            res.writeHead(302, { Location: cardTarget })
+            res.end()
+            return
+          }
+          const socialRuntime: Record<string, string> = {
+            '/lab/social-profile.js': '/src/social/profilePage.ts',
+            '/lab/admin-social-runtime.js': '/src/social/adminSocialPage.ts',
+          }
+          if (socialRuntime[pathOnly]) {
+            req.url = `${socialRuntime[pathOnly]}${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/library-add.js') {
+            req.url = `/src/libraryAdd.ts${url.slice(pathOnly.length)}`
             next()
             return
           }
@@ -177,12 +294,17 @@ export default defineConfig(({ mode, command }) => {
           const pageAssets: Record<string, string> = {
             '/sign-in': '/lab/sign-in/index.html',
             '/sign-in/': '/lab/sign-in/index.html',
-            '/featured': '/lab/featured/index.html',
-            '/featured/': '/lab/featured/index.html',
             '/': '/lab/library_2/index.html',
             '/index.html': '/lab/library_2/index.html',
             '/library': '/lab/library_2/index.html',
             '/library/': '/lab/library_2/index.html',
+            // The unlisted Try page (the Worker's serveTryPage; its signed-in redirect is the page's head script here).
+            '/try': '/try.html',
+            // Social (ship 3): the Worker serves this only while SOCIAL_FRIENDS is on.
+            '/admin/social': '/lab/admin-social/index.html',
+            // The PDF reader's folder page, as the Worker's assets serve it (the margin preview frames it).
+            '/lab/addbook/': '/lab/addbook/index.html',
+            '/lab/addbook/book': '/lab/addbook/book.html',
           }
           if (pageAssets[pathOnly]) {
             req.url = `${pageAssets[pathOnly]}${url.slice(pathOnly.length)}`
@@ -203,6 +325,10 @@ export default defineConfig(({ mode, command }) => {
           if (m) {
             req.url = `/read/${m[1]}/${m[2]}.html${m[3] || ''}`
           }
+          // Scene pages (scripts/seo/build-scene-pages.mjs). In dev they lack the reader's built CSS, which the
+          // build stamps in; check their look on a build.
+          const scene = url.match(/^\/read\/([a-z0-9-]+)\/((?:act-\d{1,2}-scene-\d{1,2}|act-\d{1,2}-prologue|prologue))\/?(\?.*)?$/i)
+          if (scene) req.url = `/read/${scene[1]}/${scene[2]}.html${scene[3] || ''}`
           next()
         })
 

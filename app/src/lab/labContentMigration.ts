@@ -1,4 +1,5 @@
 import { loadCoordinateMigration, loadedCoordinateMigration, writtenBeforeRelease } from '../data/editionContentRevisions'
+import { editionHold } from '../data/editionAvailability'
 import { migrateLabBookPlace } from './labEditionMigration'
 import type { LabBookPlace, LabPositionState } from './labPosition'
 
@@ -11,6 +12,8 @@ import type { LabBookPlace, LabPositionState } from './labPosition'
  * keeps its clocks: it is a repair, not new reading.
  */
 export function placeNeedsMigration(place: LabBookPlace): boolean {
+  // A held edition keeps every saved byte; its places move when the hold lifts.
+  if (editionHold(place.bookId, place.primaryEditionKey)) return false
   return writtenBeforeRelease(place.bookId, place.primaryEditionKey, place.contentRevision, place.updatedAt)
 }
 

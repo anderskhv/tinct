@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Run from app/: node scripts/browser-reader-refresh.cjs [base URL] [artifact directory]
 // Isolated browser storage; recap requests are blocked to avoid development model calls.
 const { chromium } = require('playwright')
@@ -7,7 +8,7 @@ const [base = 'http://127.0.0.1:5175', out = '/tmp/tinct-reader-refresh'] = proc
 const assert = (value, message) => { if (!value) throw new Error(message) }
 fs.mkdirSync(out, { recursive: true })
 ;(async () => {
-  const browser = await chromium.launch({ headless: true })
+  const browser = await markInternal(await chromium.launch({ headless: true }))
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } })
   const errors = [], checks = []
   page.on('pageerror', error => errors.push(error.message))

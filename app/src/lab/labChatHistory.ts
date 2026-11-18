@@ -1,11 +1,12 @@
 import { parseChapterChatAction } from './labChapterChat'
-import type { ChatConversation, ChatMessage } from '../types'
+import type { ChatCard, ChatConversation, ChatMessage } from '../types'
 import { BOOKS } from '../data/bookRegistry'
-import { localStorageProvider } from '../services/storage'
+import { localStorageProvider, type StorageWriteFailure } from '../services/storage'
 import { supabase } from '../services/supabase'
-import { coerceRev, versionedWriteApplied, type VersionedStorageRow } from '../services/supabaseStorage.versioning'
+import { createShardedUserData, supabaseUserDataTransport, type ShardCodec } from './userDataShards'
 import { isStuckRepeatedLine, type LabAskTurn } from './labAsk'
 import { biblicalBookId } from './labPosition'
+import { isUserBookId } from './userBook/userBookId'
 import {
   clearLabChatHistoryLocal as clearLegacyLabChatHistoryLocal,
   readLabChatHistoryLocal as readLegacyLabChatHistoryLocal,
@@ -24,8 +25,9 @@ import {
  * sequential Bible chapter, so "Romans 8" and "Genesis 1" turns sit in one
  * thread under their chapter labels.
  *
- * Signed in, the row goes through the versioned `commit_user_data` RPC with an
- * expected rev; a conflict adopts the server row, merges, and retries once.
+ * Signed in, the account copy is one row per chapter (`chat-history:{bookId}:{chapter}`, since 14 Nov 2026;
+ * see createLabChatHistoryCloud), each through the versioned `commit_user_data` RPC with an expected rev; a
+ * conflict adopts the server row, merges, and retries once.
  */
 
 const CONVERSATION_GAP_MS = 5 * 60 * 1000
@@ -47,7 +49,7 @@ function isFiniteInt(value: unknown, min: number, max: number): value is number 
   return typeof value === 'number' && Number.isInteger(value) && value >= min && value <= max
 }
 
-function parseChatMessage(raw: unknown, bookId: string): ChatMessage | null {
+function parseChatMessage(raw: unknown, bookId: string, fallbackTimestamp: number): ChatMessage | null {
   if (!raw || typeof raw !== 'object') return null
   const src = raw as Record<string, unknown>
   if (typeof src.id !== 'string' || !src.id || src.id.length > 160) return null
@@ -62,7 +64,10 @@ function parseChatMessage(raw: unknown, bookId: string): ChatMessage | null {
   const content = src.content.trim()
   if (!content || content.length > MAX_CONTENT) return null
   if (typeof src.bookId === 'string' && src.bookId && src.bookId !== bookId) return null
-  const timestamp = isFiniteInt(src.timestamp, 1, 1e15) ? src.timestamp : Date.now()
+  // A message without a usable time keeps its neighbour's (or its
+  // conversation's), never "now": stamped with the time it was read, it would
+  // move to the end of the thread on every load.
+  const timestamp = isFiniteInt(src.timestamp, 1, 1e15) ? src.timestamp : fallbackTimestamp
   const source = src.source === 'voice' ? 'voice' : src.source === 'text' ? 'text' : undefined
   return {
     id: src.id,
@@ -76,7 +81,47 @@ function parseChatMessage(raw: unknown, bookId: string): ChatMessage | null {
     ...(typeof src.highlightedText === 'string' && src.highlightedText ? { highlightedText: src.highlightedText.slice(0, MAX_CONTENT) } : {}),
     ...(src.isComplete === false ? { isComplete: false } : src.isComplete === true ? { isComplete: true } : {}),
     ...(source ? { source } : {}),
+    ...(src.shownExplanation === true ? { shownExplanation: true } : {}),
   }
+}
+
+/** A margin card's data is kept only while it is small (each write rewrites its chapter's whole row). */
+export const LAB_CHAT_CARD_DATA_CHARS = 8_000
+const CARD_KIND = /^[a-z][a-z0-9-]{0,23}$/
+
+/** Sanitize a conversation's margin card (see ChatConversation.card). Never throws; a bad one reads as none. */
+export function parseChatCard(raw: unknown): ChatCard | undefined {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return undefined
+  const src = raw as Record<string, unknown>
+  if (typeof src.id !== 'string' || !src.id || src.id.length > 120) return undefined
+  if (typeof src.kind !== 'string' || !CARD_KIND.test(src.kind)) return undefined
+  if (!isFiniteInt(src.chapterNumber, 0, 5000) || !isFiniteInt(src.u, 1, 1e15)) return undefined
+  const at = isFiniteInt(src.at, 1, 1e15) ? src.at : src.u
+  if (src.gone === true) return { id: src.id, kind: src.kind, chapterNumber: src.chapterNumber, at, u: src.u, gone: true }
+  const a = src.anchor as Record<string, unknown> | undefined
+  const anchor = a && typeof a === 'object' && typeof a.editionKey === 'string' && a.editionKey && a.editionKey.length <= 80
+    && isFiniteInt(a.chapterNumber, 0, 5000) && ['paragraphIndex', 'fromWord', 'endParagraphIndex', 'toWord'].every(k => isFiniteInt(a[k], 0, 10_000_000))
+    ? { editionKey: a.editionKey, chapterNumber: a.chapterNumber as number, paragraphIndex: a.paragraphIndex as number, fromWord: a.fromWord as number, endParagraphIndex: a.endParagraphIndex as number, toWord: a.toWord as number }
+    : undefined
+  const rects = Array.isArray(src.rects)
+    ? src.rects.filter((r): r is number[] => Array.isArray(r) && r.length <= 5 && r.every(v => typeof v === 'number' && Number.isFinite(v))).slice(0, 24)
+    : undefined
+  let data: unknown
+  if (src.data !== undefined) {
+    try { const text = JSON.stringify(src.data); if (text && text.length <= LAB_CHAT_CARD_DATA_CHARS) data = JSON.parse(text) } catch { data = undefined }
+  }
+  return {
+    id: src.id, kind: src.kind, chapterNumber: src.chapterNumber, at, u: src.u,
+    ...(anchor ? { anchor } : {}),
+    ...(typeof src.text === 'string' && src.text ? { text: src.text.slice(0, 2000) } : {}),
+    ...(rects?.length ? { rects } : {}),
+    ...(data !== undefined ? { data } : {}),
+  }
+}
+
+/** A deleted margin card: it keeps only its card, with no messages. */
+export function isCardTombstone(conversation: Pick<ChatConversation, 'card'>): boolean {
+  return conversation.card?.gone === true
 }
 
 function parseConversation(raw: unknown, bookId: string): ChatConversation | null {
@@ -84,10 +129,17 @@ function parseConversation(raw: unknown, bookId: string): ChatConversation | nul
   const src = raw as Record<string, unknown>
   if (typeof src.id !== 'string' || !src.id || src.id.length > 160) return null
   if (typeof src.bookId === 'string' && src.bookId && src.bookId !== bookId) return null
+  const card = parseChatCard(src.card)
+  if (card?.gone) return { id: src.id, bookId, chapterNumber: Math.max(1, card.chapterNumber), startTimestamp: card.u, endTimestamp: card.u, messages: [], preview: '', card }
   if (!Array.isArray(src.messages)) return null
-  const messages = src.messages
-    .map(item => parseChatMessage(item, bookId))
-    .filter((item): item is ChatMessage => item !== null)
+  let fallback = isFiniteInt(src.startTimestamp, 1, 1e15) ? src.startTimestamp : isFiniteInt(src.endTimestamp, 1, 1e15) ? src.endTimestamp : 1
+  const messages: ChatMessage[] = []
+  for (const item of src.messages) {
+    const parsed = parseChatMessage(item, bookId, fallback)
+    if (!parsed) continue
+    messages.push(parsed)
+    fallback = parsed.timestamp
+  }
   if (messages.length === 0) return null
   return {
     id: src.id,
@@ -101,6 +153,7 @@ function parseConversation(raw: unknown, bookId: string): ChatConversation | nul
     ...(typeof src.summary === 'string' && src.summary ? { summary: src.summary } : {}),
     ...(typeof src.summaryPrompt === 'string' && src.summaryPrompt ? { summaryPrompt: src.summaryPrompt } : {}),
     ...(isFiniteInt(src.summaryCreatedAt, 1, 1e15) ? { summaryCreatedAt: src.summaryCreatedAt } : {}),
+    ...(card ? { card } : {}),
   }
 }
 
@@ -112,17 +165,29 @@ export function parseChatConversations(raw: unknown, bookId: string): ChatConver
     .filter((item): item is ChatConversation => item !== null)
 }
 
+/**
+ * Past the cap, the oldest *messages* go, by their own time: a conversation
+ * that began long ago but is still being added to (continued from Contents)
+ * keeps its new turns. Conversations left empty are dropped.
+ */
 function trimConversations(conversations: ChatConversation[]): ChatConversation[] {
-  let total = conversations.reduce((sum, item) => sum + item.messages.length, 0)
+  const total = conversations.reduce((sum, item) => sum + item.messages.length, 0)
   if (total <= LAB_CHAT_MAX_MESSAGES_PER_BOOK) return conversations
-  const next = [...conversations]
-  while (next.length > 1 && total > LAB_CHAT_MAX_MESSAGES_PER_BOOK) {
-    const removed = next.shift()
-    total -= removed?.messages.length ?? 0
-  }
-  if (total > LAB_CHAT_MAX_MESSAGES_PER_BOOK && next[0]) {
-    next[0] = { ...next[0], messages: next[0].messages.slice(-LAB_CHAT_MAX_MESSAGES_PER_BOOK) }
-  }
+  // A deleted card's tombstone has no messages to trim, and must stay so the card stays deleted.
+  const all = conversations.flatMap((conversation, c) => conversation.messages.map((message, m) => ({ c, m, at: message.timestamp })))
+  all.sort((x, y) => y.at - x.at || y.c - x.c || y.m - x.m)
+  const keep = new Set(all.slice(0, LAB_CHAT_MAX_MESSAGES_PER_BOOK).map(({ c, m }) => `${c}:${m}`))
+  const next: ChatConversation[] = []
+  conversations.forEach((conversation, c) => {
+    if (isCardTombstone(conversation)) { next.push(conversation); return }
+    const messages = conversation.messages.filter((_, m) => keep.has(`${c}:${m}`))
+    if (messages.length === 0) return
+    next.push(messages.length === conversation.messages.length ? conversation : {
+      ...conversation,
+      messages,
+      startTimestamp: Math.max(conversation.startTimestamp, Math.min(...messages.map(message => message.timestamp))),
+    })
+  })
   return next
 }
 
@@ -147,15 +212,24 @@ export function mergeChatConversations(a: ChatConversation[], b: ChatConversatio
       byId.set(conversation.id, { ...conversation, messages: [...conversation.messages] })
       continue
     }
+    const card = newerCard(existing.card, conversation.card)
+    // A card revision is the complete card (including its thread), not a
+    // collection of independent chat turns. A shorter corrected answer must
+    // replace an older longer one when its card.u is newer. Ordinary chats and
+    // same-revision cards still union turns by id as before.
+    const newerCardMessages = existing.card && conversation.card && existing.card.u !== conversation.card.u
+      ? (existing.card.u > conversation.card.u ? existing.messages : conversation.messages)
+      : null
     const messages = new Map<string, ChatMessage>()
-    for (const message of [...existing.messages, ...conversation.messages]) {
+    for (const message of newerCardMessages ?? [...existing.messages, ...conversation.messages]) {
       const current = messages.get(message.id)
       messages.set(message.id, current ? preferMessage(current, message) : message)
     }
-    const ordered = [...messages.values()].sort((x, y) => x.timestamp - y.timestamp)
+    const ordered = card?.gone ? [] : [...messages.values()].sort((x, y) => x.timestamp - y.timestamp)
     byId.set(conversation.id, {
       ...existing,
       ...conversation,
+      ...(card ? { card } : {}),
       summary: conversation.summary ?? existing.summary,
       summaryPrompt: conversation.summaryPrompt ?? existing.summaryPrompt,
       summaryCreatedAt: conversation.summaryCreatedAt ?? existing.summaryCreatedAt,
@@ -173,10 +247,18 @@ export function mergeChatConversations(a: ChatConversation[], b: ChatConversatio
       seen.add(message.id)
       return true
     })
-    if (messages.length === 0) continue
+    if (messages.length === 0 && !isCardTombstone(conversation)) continue
     result.push({ ...conversation, messages })
   }
   return trimConversations(result)
+}
+
+/** Two copies of one margin card: the newer edit wins; at the same moment a deletion wins. */
+function newerCard(a: ChatCard | undefined, b: ChatCard | undefined): ChatCard | undefined {
+  if (!a || !b) return a ?? b
+  if (a.u !== b.u) return a.u > b.u ? a : b
+  if (!!a.gone !== !!b.gone) return a.gone ? a : b
+  return b
 }
 
 export function sameChatConversations(a: ChatConversation[], b: ChatConversation[]): boolean {
@@ -197,22 +279,47 @@ export function sortConversationsByTime(conversations: ChatConversation[]): Chat
   return [...conversations].sort((x, y) => x.startTimestamp - y.startTimestamp || x.id.localeCompare(y.id))
 }
 
+/**
+ * The thread: every message, ordered by its own time, oldest first. Not
+ * conversation by conversation: a conversation that began days ago and was
+ * continued today would otherwise sit above one that began later and ended
+ * long ago, and the older exchange would read as the latest (Anders, 10 Oct
+ * 2026, 1 Maccabees 2 vs Matthew 14). Equal times keep conversation order.
+ */
 export function turnsFromConversations(conversations: ChatConversation[]): LabAskTurn[] {
-  return sortConversationsByTime(conversations).flatMap(conversation => [...conversation.messages]
-    .sort((x, y) => x.timestamp - y.timestamp)
-    .map(message => ({
-    id: message.id,
-    bookId: conversation.bookId,
-    chapterAction: message.chapterAction,
-    role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
-    content: message.content,
-    timestamp: message.timestamp,
-    source: message.source === 'voice' ? 'voice' as const : 'typed' as const,
-    chapterNumber: message.chapterNumber ?? conversation.chapterNumber,
-    paragraphIndex: message.paragraphIndex ?? conversation.paragraphIndex,
-    highlightedText: message.highlightedText,
-    cancelled: message.isComplete === false,
-  })))
+  return sortConversationsByTime(conversations)
+    .flatMap(conversation => conversation.messages.map(message => ({ conversation, message })))
+    .sort((x, y) => x.message.timestamp - y.message.timestamp)
+    .map(({ conversation, message }) => ({
+      id: message.id,
+      conversationId: conversation.id,
+      bookId: conversation.bookId,
+      chapterAction: message.chapterAction,
+      role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
+      content: message.content,
+      timestamp: message.timestamp,
+      source: message.source === 'voice' ? 'voice' as const : 'typed' as const,
+      chapterNumber: message.chapterNumber ?? conversation.chapterNumber,
+      paragraphIndex: message.paragraphIndex ?? conversation.paragraphIndex,
+      highlightedText: message.highlightedText,
+      cancelled: message.isComplete === false,
+      ...(message.shownExplanation ? { shownExplanation: true } : {}),
+    }))
+}
+
+/**
+ * The displayed thread after a re-read of the stored history: the stored turns
+ * plus every live turn the store does not have (yet): an answer still
+ * arriving, a turn whose save is in flight or failed. Ordered by time; a turn
+ * without one (an answer still arriving) stays at the end. A re-read can add
+ * turns but never drops or reorders the ones on screen.
+ */
+export function reconcileTurns(live: LabAskTurn[], stored: LabAskTurn[]): LabAskTurn[] {
+  const known = new Set(stored.map(turn => turn.id))
+  const pending = live.filter(turn => !known.has(turn.id))
+  if (pending.length === 0) return stored
+  const at = (turn: LabAskTurn) => (typeof turn.timestamp === 'number' && Number.isFinite(turn.timestamp) ? turn.timestamp : Infinity)
+  return [...stored, ...pending].sort((x, y) => at(x) - at(y))
 }
 
 // ---------------------------------------------------------------------------
@@ -224,10 +331,86 @@ export function readLabBookChat(bookId: string): ChatConversation[] {
   return parseChatConversations(localStorageProvider.get<unknown>(labChatHistoryKey(bookId)), bookId)
 }
 
-export function writeLabBookChat(bookId: string, conversations: ChatConversation[]): void {
-  if (!bookId) return
-  if (conversations.some(c => c.bookId !== bookId || c.messages.some(m => m.bookId && m.bookId !== bookId))) return
-  localStorageProvider.set(labChatHistoryKey(bookId), conversations)
+/**
+ * What the account row is known to hold, per book and conversation, as this page has seen it (a sync's read, an
+ * applied commit). A phone's storage for the site (about 5 MB) filled with long threads, and every new answer was
+ * then reported as not saved on this device although the account had it (iPhone, 31 Oct 2026). When a book's copy
+ * does not fit, the conversations the account holds as they are leave the device copy, oldest first: the reader is
+ * shown them from the account, and every commit merges what the row holds (createLabChatCloudWriter), so a slimmer
+ * device copy never removes anything from the account. A signed-out reader's copy is never slimmed.
+ */
+const heldInAccount = new Map<string, Map<string, string>>()
+/** Conversations a slimmed device copy keeps beyond those the account lacks: the most recent. */
+export const LAB_CHAT_DEVICE_RECENT = 30
+
+function conversationText(conversation: ChatConversation, bookId: string): string {
+  return JSON.stringify(parseChatConversations([conversation], bookId)[0] ?? null)
+}
+
+export function noteLabChatHeldInAccount(bookId: string, conversations: ChatConversation[]): void {
+  if (!bookId || isUserBookId(bookId)) return
+  let held = heldInAccount.get(bookId)
+  if (!held) heldInAccount.set(bookId, held = new Map())
+  for (const conversation of conversations) held.set(conversation.id, conversationText(conversation, bookId))
+}
+
+/** Tests: a new page. */
+export function forgetLabChatHeldInAccount(): void {
+  heldInAccount.clear()
+}
+
+/** The device copy without the older conversations the account holds as they are; null when none can go. */
+function slimmedForDevice(bookId: string, conversations: ChatConversation[], keepRecent: number): ChatConversation[] | null {
+  const held = heldInAccount.get(bookId)
+  if (!held?.size) return null
+  const recent = new Set([...conversations].sort((x, y) => y.endTimestamp - x.endTimestamp).slice(0, keepRecent).map(c => c.id))
+  const next = conversations.filter(c => recent.has(c.id) || isCardTombstone(c) || held.get(c.id) !== conversationText(c, bookId))
+  return next.length < conversations.length ? next : null
+}
+
+function writeSlimmed(bookId: string, conversations: ChatConversation[]): boolean {
+  for (const keep of [LAB_CHAT_DEVICE_RECENT, 0]) {
+    const slim = slimmedForDevice(bookId, conversations, keep)
+    if (slim && localStorageProvider.set(labChatHistoryKey(bookId), slim) === null) return true
+  }
+  return false
+}
+
+export function writeLabBookChat(bookId: string, conversations: ChatConversation[]): StorageWriteFailure | 'book-mismatch' | null {
+  if (!bookId || conversations.some(c => c.bookId !== bookId || c.messages.some(m => m.bookId && m.bookId !== bookId))) return 'book-mismatch'
+  const key = labChatHistoryKey(bookId)
+  const failure = localStorageProvider.set(key, conversations)
+  if (failure !== 'quota') return failure
+  if (writeSlimmed(bookId, conversations)) return null
+  // Still full: other books' copies give up what the account holds too, then this book tries again.
+  let freed = false
+  for (const other of heldInAccount.keys()) {
+    if (other === bookId) continue
+    const slim = slimmedForDevice(other, readLabBookChat(other), 0)
+    if (slim && localStorageProvider.set(labChatHistoryKey(other), slim) === null) freed = true
+  }
+  if (!freed) return failure
+  if (localStorageProvider.set(key, conversations) === null || writeSlimmed(bookId, conversations)) return null
+  return failure
+}
+
+/**
+ * Whether `conversations` are kept as they are: by this device's copy, or (a conversation a slimmed copy left out)
+ * by the account row. The readback a save is checked by.
+ */
+export function labBookChatStored(bookId: string, conversations: ChatConversation[]): boolean {
+  let raw: string | null
+  try { raw = localStorage.getItem(`tinct:${labChatHistoryKey(bookId)}`) } catch { return false }
+  if (raw === JSON.stringify(conversations)) return true
+  if (raw === null) return false
+  let local: ChatConversation[]
+  try { local = parseChatConversations(JSON.parse(raw), bookId) } catch { return false }
+  const there = new Map(local.map(c => [c.id, conversationText(c, bookId)]))
+  const held = heldInAccount.get(bookId)
+  return conversations.every(c => {
+    const text = conversationText(c, bookId)
+    return there.get(c.id) === text || held?.get(c.id) === text
+  })
 }
 
 /** Every book's conversations on this device, for the companion's cross-book memory. */
@@ -261,6 +444,8 @@ function appendTurnToConversations(
     last
     && last.bookId === bookId
     && last.chapterNumber === chapterNumber
+    // A margin card's conversation is the card's own: a chat turn never joins it.
+    && (!last.card || continued)
     && (continued || now - last.endTimestamp < CONVERSATION_GAP_MS)
   ) {
     if (last.messages.some(item => item.id === enriched.id)) return current
@@ -313,37 +498,63 @@ function appendTurnToConversations(
   }]
 }
 
+/** The device copy, plus anything `base` holds that it lacks (normally nothing: then the copy itself, in its stored order). */
+function withUnsaved(local: ChatConversation[], base: ChatConversation[] | undefined): ChatConversation[] {
+  if (!base || base.length === 0) return local
+  const saved = new Set(local.flatMap(conversation => conversation.messages.map(message => message.id)))
+  const missing = base.some(conversation => conversation.messages.some(message => !saved.has(message.id)))
+  return missing ? mergeChatConversations(base, local) : local
+}
+
 /**
- * Record a finalized Chat/Talk turn under the registry book and write the
- * local mirror. The message's `bookId` is set to the target book: a voice
- * session tags its transcripts with the session id (`lab`), never a book.
+ * Pure turn append for a caller-owned conversation list. The message's `bookId`
+ * is set to the target book: a voice session tags transcripts with `lab`.
+ * This path never reads or writes the device's global chat key.
  */
-export function appendLabChatTurn(
+export function appendLabChatTurnTo(
+  conversations: ChatConversation[],
   bookId: string,
   message: ChatMessage,
   chapterNumber = 1,
   paragraphIndex?: number,
   conversationId?: string,
+  startConversation = false,
 ): ChatConversation[] {
-  let current = readLabBookChat(bookId)
+  let current = conversations
   if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return current
   if (conversationId) {
-    const target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)
+    let target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)
+    if (!target && startConversation && message.role === 'user' && message.content?.trim() && !current.some(item => item.id === conversationId)) {
+      const at = message.timestamp || Date.now()
+      target = { id: conversationId, bookId, chapterNumber, paragraphIndex, startTimestamp: at, endTimestamp: at, messages: [], preview: makePreview(message.content) }
+    }
     if (!target) return current
     current = [...current.filter(item => item.id !== target.id), target]
   }
   const content = (message.content || '').trim()
   if (!content) return current
   const now = message.timestamp || Date.now()
-  const enriched: ChatMessage = {
-    ...message,
-    content,
-    bookId,
-    chapterNumber,
-    paragraphIndex,
-    timestamp: now,
-  }
-  const next = trimConversations(appendTurnToConversations(current, enriched, bookId, chapterNumber, paragraphIndex, Boolean(conversationId)))
+  const enriched: ChatMessage = { ...message, content, bookId, chapterNumber, paragraphIndex, timestamp: now }
+  return trimConversations(appendTurnToConversations(current, enriched, bookId, chapterNumber, paragraphIndex, Boolean(conversationId)))
+}
+
+/** The device-backed companion path; private owner adapters use appendLabChatTurnTo and their own store. */
+export function appendLabChatTurn(
+  bookId: string,
+  message: ChatMessage,
+  chapterNumber = 1,
+  paragraphIndex?: number,
+  conversationId?: string,
+  /**
+   * The thread as this page last knew it. Merged under the device copy so a
+   * turn whose local write failed (a full localStorage on a phone) is not
+   * missing from the value the next turn commits to the account row.
+   */
+  base?: ChatConversation[],
+  startConversation = false,
+): ChatConversation[] {
+  const current = withUnsaved(readLabBookChat(bookId), base)
+  const next = appendLabChatTurnTo(current, bookId, message, chapterNumber, paragraphIndex, conversationId, startConversation)
   if (next === current) return current
   writeLabBookChat(bookId, next)
   return next
@@ -413,6 +624,63 @@ function markLegacyCloudMigrated(userId: string): void {
 // ---------------------------------------------------------------------------
 // Cloud: the same versioned `user_data` row the classic reader writes.
 
+/**
+ * Longest a chat row read or commit may take before this device gives up on
+ * it. A request that never settles (an iPhone page suspended mid-request, a
+ * stalled auth refresh) otherwise holds the refresh guard and the writer's
+ * in-flight slot for the rest of the page's life: no later refresh runs and
+ * no later turn is uploaded. An abandoned commit that did land is harmless:
+ * the next one carries a stale rev, conflicts and merges.
+ */
+export const LAB_CHAT_CLOUD_TIMEOUT_MS = 15_000
+
+function withCloudTimeout<T>(run: (signal: AbortSignal | undefined) => PromiseLike<T>, label: string): Promise<T> {
+  const controller = typeof AbortController !== 'undefined' ? new AbortController() : null
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => {
+      controller?.abort()
+      reject(new Error(`${label} timed out`))
+    }, LAB_CHAT_CLOUD_TIMEOUT_MS)
+  })
+  return Promise.race([Promise.resolve(run(controller?.signal)), timeout]).finally(() => clearTimeout(timer))
+}
+
+/**
+ * Postgres JSONB refuses a string holding U+0000 or half of a UTF-16
+ * surrogate pair (a preview or passage cut through an emoji), and refuses it
+ * for the whole row: one such character made every later commit of that
+ * book's thread fail. Strip NUL and replace unpaired surrogates with U+FFFD
+ * in everything the row sends.
+ */
+export function cleanChatValueForCloud<T>(value: T): T {
+  if (typeof value === 'string') {
+    return value.replace(/\u0000/g, '').replace(/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/g, '\uFFFD') as T
+  }
+  if (Array.isArray(value)) return value.map(item => cleanChatValueForCloud(item)) as T
+  if (value && typeof value === 'object') {
+    const out: Record<string, unknown> = {}
+    for (const [key, item] of Object.entries(value as Record<string, unknown>)) out[key] = cleanChatValueForCloud(item)
+    return out as T
+  }
+  return value
+}
+
+/**
+ * Every cloud call the sync and the writer make, bounded in time and with the
+ * value cleaned for JSONB. Applies to any `LabChatHistoryCloud`, so a hung or
+ * poisoned call can never pin the refresh guard or the writer's queue.
+ */
+function guardedCloud(cloud: LabChatHistoryCloud): LabChatHistoryCloud {
+  return {
+    read: bookId => withCloudTimeout(() => cloud.read(bookId), 'chat history read'),
+    commit: (bookId, conversations, expectedRev) => withCloudTimeout(
+      () => cloud.commit(bookId, cleanChatValueForCloud(conversations), expectedRev),
+      'chat history commit',
+    ),
+  }
+}
+
 export interface LabChatCloudRow {
   conversations: ChatConversation[]
   rev: number
@@ -431,42 +699,44 @@ export interface LabChatHistoryCloud {
 
 type SupabaseLike = NonNullable<typeof supabase>
 
-function rowFromVersioned(row: VersionedStorageRow | null | undefined, bookId: string): LabChatCloudRow | null {
-  if (!row) return null
-  const rev = coerceRev(row.rev) ?? 0
-  if (row.value === null || row.value === undefined) return { conversations: [], rev }
-  return { conversations: parseChatConversations(row.value, bookId), rev }
+/**
+ * The book's thread in the account is one row per chapter, `chat-history:{bookId}:{chapter}` (since 14 Nov 2026,
+ * userDataShards.ts): each holds the conversations of that chapter (a conversation's chapter never changes), in
+ * the same `ChatConversation[]` shape as the old whole-book row `chat-history:{bookId}`, which is still read and
+ * merged (shards after it, so a shard's copy of a conversation's fields is kept) and never written. One new
+ * answer rewrites one chapter's conversations instead of the book's whole thread.
+ */
+export const labChatShardCodec: ShardCodec<ChatConversation[]> = {
+  parse: (raw, bookId) => (raw === null || raw === undefined ? [] : parseChatConversations(raw, bookId)),
+  merge: sets => sets.length === 0 ? [] : sets.length === 1 ? mergeChatConversations(sets[0], []) : mergeChatConversations(sets[0], sets.slice(1).flat()),
+  split(conversations) {
+    const parts = new Map<string, ChatConversation[]>()
+    for (const conversation of conversations) {
+      const shard = String(conversation.chapterNumber)
+      const list = parts.get(shard)
+      if (list) list.push(conversation)
+      else parts.set(shard, [conversation])
+    }
+    return parts
+  },
+  signature: (conversations, bookId) => JSON.stringify(parseChatConversations(conversations, bookId)),
+  value: conversations => cleanChatValueForCloud(conversations),
 }
 
 export function createLabChatHistoryCloud(userId: string, client: SupabaseLike | null = supabase): LabChatHistoryCloud | null {
   if (!client || !userId) return null
+  const shards = createShardedUserData({
+    codec: labChatShardCodec,
+    transport: supabaseUserDataTransport(userId, client as never, withCloudTimeout),
+    baseKey: labChatHistoryKey,
+    ids: conversations => conversations.map(conversation => conversation.id),
+  })
+  const toRow = (row: { set: ChatConversation[]; rev: number } | null): LabChatCloudRow | null => row ? { conversations: row.set, rev: row.rev } : null
   return {
-    async read(bookId) {
-      const { data, error } = await client
-        .from('user_data')
-        .select('key, value, rev')
-        .eq('user_id', userId)
-        .eq('key', labChatHistoryKey(bookId))
-        .maybeSingle()
-      if (error) throw new Error(error.message)
-      if (!data) return null
-      return rowFromVersioned(data as VersionedStorageRow, bookId)
-    },
-    async commit(bookId, conversations, expectedRev) {
-      const { data, error } = await client.rpc('commit_user_data', {
-        p_user_id: userId,
-        p_key: labChatHistoryKey(bookId),
-        p_value: conversations,
-        p_expected_rev: expectedRev ?? null,
-      })
-      if (error) throw new Error(error.message)
-      const row = (Array.isArray(data) ? data[0] : data) as VersionedStorageRow | undefined
-      const applied = versionedWriteApplied(row)
-      return {
-        applied,
-        conflict: !applied && row?.conflict === true,
-        row: rowFromVersioned(row, bookId),
-      }
+    read: async bookId => toRow(await shards.read(bookId)),
+    async commit(bookId, conversations) {
+      const result = await shards.commit(bookId, conversations)
+      return { applied: result.applied, conflict: result.conflict, row: toRow(result.row) }
     },
   }
 }
@@ -485,68 +755,168 @@ export async function syncLabBookChatWithCloud(input: {
   revs?: Map<string, number>
   onUnavailable?: () => void
   isCurrent?: () => boolean
+  /** Called with the thread the account row is known to hold after this sync. */
+  onCloudHolds?: (conversations: ChatConversation[]) => void
+  /** Includes this writer’s unsaved memory copy when device storage failed. */
+  readLocal?: () => ChatConversation[]
 }): Promise<ChatConversation[]> {
-  const { bookId, cloud } = input
-  const local = readLabBookChat(bookId)
+  const { bookId } = input
+  const cloud = guardedCloud(input.cloud)
+  const readLocal = input.readLocal ?? (() => readLabBookChat(bookId))
+  const local = readLocal()
   try {
     let row = await cloud.read(bookId)
     for (let attempt = 0; attempt < 2; attempt++) {
       if (input.isCurrent?.() === false) return local
-      const current = readLabBookChat(bookId)
+      if (row) noteLabChatHeldInAccount(bookId, row.conversations)
+      const current = readLocal()
       const merged = mergeChatConversations(row?.conversations ?? [], current)
       if (!sameChatConversations(current, merged)) writeLabBookChat(bookId, merged)
       if (row && sameChatConversations(row.conversations, merged)) {
         input.revs?.set(bookId, row.rev)
+        input.onCloudHolds?.(merged)
         return merged
       }
-      const result = await cloud.commit(bookId, merged, row?.rev ?? null)
+      // Nothing on either side: opening a book never creates an empty row.
+      if (!row && merged.length === 0) return merged
+      // No row yet: expect rev 0 (insert only). NULL would overwrite a row
+      // another device created meanwhile instead of conflicting.
+      const result = await cloud.commit(bookId, merged, row?.rev ?? 0)
       if (input.isCurrent?.() === false) return local
       if (result.applied) {
         if (result.row) input.revs?.set(bookId, result.row.rev)
-        return mergeChatConversations(merged, readLabBookChat(bookId))
+        noteLabChatHeldInAccount(bookId, merged)
+        input.onCloudHolds?.(merged)
+        return mergeChatConversations(merged, readLocal())
       }
       if (!result.conflict || !result.row) return merged
       row = result.row
     }
-    return readLabBookChat(bookId)
+    return readLocal()
   } catch {
     input.onUnavailable?.()
-    return local
+    if (input.isCurrent?.() === false) return local
+    // The merge may already be in the local mirror (only the commit failed):
+    // show that, not the copy from before the read.
+    return readLocal()
   }
 }
 
 /**
+ * How long the reader's chat waits before its turns go to the account row
+ * (Disk IO, 22 Oct 2026). Every commit rewrote the book's whole thread (up
+ * to 600 messages; since 14 Nov 2026 only the chapter's row), and a question
+ * and its answer used to be two commits;
+ * a Talk conversation one per spoken turn. Turns that arrive within the
+ * window share one commit. The device copy is written at once as before;
+ * hide, pagehide and unmount send what is waiting (`flush`), and a turn the
+ * device could not store is sent at once (`push(..., { now: true })`).
+ */
+export const LAB_CHAT_COMMIT_COALESCE_MS = 20_000
+
+/**
  * Serialized cloud writer for chat rows: one commit in flight per book, the
  * newest queued value wins, a conflict re-reads, merges and retries once.
- * Offline or failed writes stay in the local mirror and are folded in by the
- * next `syncLabBookChatWithCloud` on open or reconnect.
+ * Offline or failed writes stay in the local mirror when possible and in
+ * this account writer’s memory until acknowledged. Reconnect merges both,
+ * so a full device store cannot silently discard the only pending copy.
+ *
+ * With `coalesceMs` (the reader passes LAB_CHAT_COMMIT_COALESCE_MS) a push
+ * waits up to that long for later turns; the waiting value is then merged
+ * with the device copy (so a sync that ran meanwhile is never undone) and
+ * skipped when the row already holds exactly that. Without it every push
+ * commits straight away.
  */
-export function createLabChatCloudWriter(cloud: LabChatHistoryCloud, revs: Map<string, number> = new Map()) {
+export function createLabChatCloudWriter(
+  rawCloud: LabChatHistoryCloud,
+  revs: Map<string, number> = new Map(),
+  options: { coalesceMs?: number; onCloudHolds?: (bookId: string, conversations: ChatConversation[]) => void } = {},
+) {
+  const cloud = guardedCloud(rawCloud)
+  const coalesceMs = options.coalesceMs ?? 0
   const queued = new Map<string, ChatConversation[]>()
+  // A failed local write can leave this as the only copy. Keep it until an
+  // account acknowledgment includes it; never retry in a tight failure loop.
+  const unsaved = new Map<string, ChatConversation[]>()
+  /**
+   * The thread the account row was last seen to hold, per book. Every commit carries it: a device copy slimmed to
+   * fit the phone's storage (writeLabBookChat) lacks older conversations, and a commit of it alone would drop them
+   * from the account.
+   */
+  const heldRows = new Map<string, ChatConversation[]>()
+  const withHeld = (bookId: string, value: ChatConversation[]) => {
+    const held = heldRows.get(bookId)
+    return held?.length ? mergeChatConversations(held, value) : value
+  }
+  const acknowledge = (bookId: string, value: ChatConversation[]) => {
+    heldRows.set(bookId, value)
+    noteLabChatHeldInAccount(bookId, value)
+    const pending = unsaved.get(bookId)
+    if (pending && sameChatConversations(mergeChatConversations(value, pending), value)) unsaved.delete(bookId)
+    options.onCloudHolds?.(bookId, value)
+  }
   const inFlight = new Set<string>()
+  /** Pushes waiting for the coalescing window, per book. */
+  const waiting = new Map<string, ChatConversation[]>()
+  const timers = new Map<string, ReturnType<typeof setTimeout>>()
+  /** Serialized thread the account row is known to hold, per book. */
+  const known = new Map<string, string>()
   let dirty = false
 
-  const run = async (bookId: string) => {
+  const release = (bookId: string) => {
+    const timer = timers.get(bookId)
+    if (timer !== undefined) clearTimeout(timer)
+    timers.delete(bookId)
+    const value = waiting.get(bookId)
+    waiting.delete(bookId)
+    if (!value) return
+    const merged = withHeld(bookId, mergeChatConversations(readLabBookChat(bookId), value))
+    if (known.get(bookId) === JSON.stringify(merged)) return
+    queued.set(bookId, merged)
+    if (!inFlight.has(bookId)) void run(bookId)
+  }
+
+  /** Each book's commit loop while it runs, so a flush before sign-out can wait for it. */
+  const running = new Map<string, Promise<void>>()
+  const run = (bookId: string): Promise<void> => {
+    const loop = commitLoop(bookId)
+    running.set(bookId, loop)
+    void loop.finally(() => { if (running.get(bookId) === loop) running.delete(bookId) })
+    return loop
+  }
+  const commitLoop = async (bookId: string) => {
     inFlight.add(bookId)
     try {
       while (queued.has(bookId)) {
-        const value = queued.get(bookId) as ChatConversation[]
+        const value = withHeld(bookId, queued.get(bookId) as ChatConversation[])
         queued.delete(bookId)
         try {
-          const result = await cloud.commit(bookId, value, revs.get(bookId) ?? null)
+          // A rev this device has not seen yet is 0, never NULL: NULL makes
+          // commit_user_data overwrite the row, dropping turns another device
+          // committed (Invariant 9). 0 conflicts with any existing row and the
+          // conflict path below merges.
+          const result = await cloud.commit(bookId, value, revs.get(bookId) ?? 0)
           if (result.applied) {
             if (result.row) revs.set(bookId, result.row.rev)
-            dirty = false
+            known.set(bookId, JSON.stringify(value))
+            acknowledge(bookId, value)
+            dirty = unsaved.size > 0
             continue
           }
           if (result.conflict && result.row) {
-            const merged = mergeChatConversations(result.row.conversations, readLabBookChat(bookId))
+            heldRows.set(bookId, result.row.conversations)
+            noteLabChatHeldInAccount(bookId, result.row.conversations)
+            // The queued value too: when the local mirror could not be written
+            // (a full localStorage on a phone) it is the only copy of the turn.
+            const merged = mergeChatConversations(result.row.conversations, mergeChatConversations(readLabBookChat(bookId), value))
             writeLabBookChat(bookId, merged)
             revs.set(bookId, result.row.rev)
             const retry = await cloud.commit(bookId, merged, result.row.rev)
             if (retry.applied && retry.row) {
               revs.set(bookId, retry.row.rev)
-              dirty = false
+              known.set(bookId, JSON.stringify(merged))
+              acknowledge(bookId, merged)
+              dirty = unsaved.size > 0
               continue
             }
           }
@@ -562,13 +932,40 @@ export function createLabChatCloudWriter(cloud: LabChatHistoryCloud, revs: Map<s
   }
 
   return {
-    push(bookId: string, conversations: ChatConversation[]) {
-      queued.set(bookId, conversations)
-      if (!inFlight.has(bookId)) void run(bookId)
+    push(bookId: string, conversations: ChatConversation[], pushOptions: { now?: boolean } = {}) {
+      // A reader's own book keeps its chat on this device (lab/userBook).
+      if (isUserBookId(bookId)) return
+      conversations = mergeChatConversations(unsaved.get(bookId) ?? [], conversations)
+      unsaved.set(bookId, conversations)
+      if (coalesceMs <= 0) {
+        queued.set(bookId, conversations)
+        if (!inFlight.has(bookId)) void run(bookId)
+        return
+      }
+      const earlier = waiting.get(bookId)
+      waiting.set(bookId, earlier ? mergeChatConversations(earlier, conversations) : conversations)
+      if (pushOptions.now) { release(bookId); return }
+      if (!timers.has(bookId)) timers.set(bookId, setTimeout(() => release(bookId), coalesceMs))
     },
+    /** Send every waiting push now (hide, pagehide, unmount, before sign-out); resolves once sent or failed. */
+    flush(): Promise<void> {
+      for (const bookId of [...waiting.keys()]) release(bookId)
+      return Promise.all([...running.values()]).then(() => undefined)
+    },
+    /** Pushes still waiting for their window (tests and diagnostics). */
+    pending: () => [...waiting.keys()],
     /** Merge the cloud row for this book back in (open, sign-in, reconnect). */
     sync(bookId: string, onUnavailable?: () => void, isCurrent?: () => boolean) {
-      return syncLabBookChatWithCloud({ bookId, cloud, revs, onUnavailable, isCurrent })
+      if (isUserBookId(bookId)) return Promise.resolve(readLabBookChat(bookId))
+      return syncLabBookChatWithCloud({
+        bookId, cloud: rawCloud, revs, onUnavailable, isCurrent,
+        readLocal: () => mergeChatConversations(readLabBookChat(bookId), unsaved.get(bookId) ?? []),
+        onCloudHolds: conversations => {
+          known.set(bookId, JSON.stringify(conversations))
+          acknowledge(bookId, conversations)
+          dirty = unsaved.size > 0
+        },
+      })
     },
     isDirty: () => dirty,
     revs,

@@ -1,0 +1,218 @@
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { buildAnalyticsRows, handleEvents, recordServerEvent, FUNNEL_EVENT_NAMES, EVENTS_MAX_BATCH } from './worker/routes/events'
+import { handleCreateCheckout } from './worker/routes/billing'
+
+const userId = '11111111-1111-4111-8111-111111111111'
+const env = { SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'service-role' }
+const batch = (events: unknown[], extra: Record<string, unknown> = {}) => ({
+  deviceId: 'device-1234abcd', sessionId: 'session1234abcd', surface: 'reader', path: '/reader', referrer: 'https://example.org/', events, ...extra,
+})
+
+function context() {
+  const pending: Promise<unknown>[] = []
+  return { ctx: { waitUntil: (promise: Promise<unknown>) => { pending.push(Promise.resolve(promise)) } } as unknown as ExecutionContext, pending }
+}
+
+function stubAnalytics() {
+  const bodies: Array<Array<Record<string, unknown>>> = []
+  vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+    if (String(input).endsWith('/rest/v1/analytics_events')) { bodies.push(JSON.parse(String(init?.body))); return new Response(null, { status: 201 }) }
+    return new Response('unexpected', { status: 500 })
+  }))
+  return bodies
+}
+
+afterEach(() => vi.unstubAllGlobals())
+
+describe('funnel event rows', () => {
+  it('accepts exactly the funnel, pageview and duration events', () => {
+    expect([...FUNNEL_EVENT_NAMES].sort()).toEqual([
+      'ai_first_use', 'anon_limit_reached', 'audio_failed', 'audio_slow_start', 'book_intro_viewed', 'book_opened', 'cards_open_failed', 'cards_open_stuck', 'chapter_completed', 'checkout_completed', 'checkout_started',
+      'first_page_turn', 'landing_view', 'margin_card_failed', 'member_ai_use', 'page_duration', 'pageview',
+      'scene_handoff', 'share_completed', 'share_created', 'share_link_opened', 'share_link_signup', 'share_sheet_opened',
+      'signup_completed', 'signup_started', 'talk_failed',
+    ])
+  })
+
+  it('takes a scene page\'s pageview and hand-over under its own surface, with the action and scene only', () => {
+    const rows = buildAnalyticsRows({ deviceId: 'device-12345678', sessionId: 'session12345678', surface: 'scene', path: '/read/hamlet/act-3-scene-1?q=x',
+      events: [{ name: 'pageview', props: { book: 'hamlet', chapter: 8 } }, { name: 'scene_handoff', props: { action: 'explain', book: 'hamlet', chapter: 8 } }] }, 'ua', null)!
+    expect(rows.map(row => [row.event_type, row.path, row.payload.surface, row.payload.type ?? null])).toEqual([
+      ['pageview', '/read/hamlet/act-3-scene-1', 'scene', null], ['event', '/read/hamlet/act-3-scene-1', 'scene', 'scene_handoff']])
+    expect(rows[1].payload).toMatchObject({ action: 'explain', book: 'hamlet', chapter: 8 })
+  })
+
+  it('maps onto the existing analytics_events shape the dashboard already reads', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'pageview' },
+      { name: 'page_duration', props: { duration_ms: 12345 } },
+      { name: 'book_opened', props: { book_id: 'odyssey', signed_in: false } },
+    ], { attribution: { last_touch: { utm_source: 'newsletter', landing_path: '/library' }, first_touch: null } }), 'UA', null)!
+    expect(rows.map(row => row.event_type)).toEqual(['pageview', 'page_duration', 'event'])
+    expect(rows[1]).toMatchObject({ duration_ms: 12345, session_id: 'session1234abcd', path: '/reader', user_id: null })
+    expect(rows[2].payload).toMatchObject({ type: 'book_opened', device_id: 'device-1234abcd', surface: 'reader', book_id: 'odyssey', signed_in: false })
+    expect(rows[2].payload.attribution).toEqual({ last_touch: { utm_source: 'newsletter', landing_path: '/library' } })
+    expect(rows[0].payload.device_id).toBe('device-1234abcd')
+  })
+
+  it('keeps a margin card failure as a short, content-free row (reader.js reportCardError)', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'margin_card_failed', props: { intent: 'explain', phase: 'render', error: 'TypeError', message: "Cannot read properties of undefined (reading 'n')", where: 'citeTarget@margin.js:812:9 < cardHtml@margin.js:760:3' } },
+    ]), 'UA', userId)!
+    expect(rows).toHaveLength(1)
+    expect(rows[0].payload).toMatchObject({ type: 'margin_card_failed', intent: 'explain', phase: 'render', error: 'TypeError', surface: 'reader' })
+    expect(String(rows[0].payload.where).length).toBeLessThanOrEqual(120)
+  })
+
+  it('drops unknown events, short durations and non-primitive props, and caps the batch', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'evil_event' },
+      { name: 'page_duration', props: { duration_ms: 200 } },
+      { name: 'book_opened', props: { book_id: { nested: 'x' }, 'Bad Key': 1, note: 'y'.repeat(500) } },
+      ...Array.from({ length: 40 }, () => ({ name: 'first_page_turn' })),
+    ]), 'UA', userId)!
+    expect(rows.length).toBeLessThanOrEqual(EVENTS_MAX_BATCH)
+    expect(rows.some(row => row.payload.type === 'evil_event')).toBe(false)
+    expect(rows.filter(row => row.event_type === 'page_duration')).toHaveLength(0)
+    const opened = rows.find(row => row.payload.type === 'book_opened')!
+    expect(opened.payload.book_id).toBeUndefined()
+    expect(opened.payload['Bad Key']).toBeUndefined()
+    expect(String(opened.payload.note)).toHaveLength(120)
+    expect(rows.every(row => row.user_id === userId)).toBe(true)
+  })
+
+  it('rejects malformed bodies', () => {
+    expect(buildAnalyticsRows(null, 'UA', null)).toBeNull()
+    expect(buildAnalyticsRows(batch([]), 'UA', null)).toBeNull()
+    expect(buildAnalyticsRows(batch([{ name: 'pageview' }], { deviceId: 'x' }), 'UA', null)).toBeNull()
+    expect(buildAnalyticsRows(batch([{ name: 'nope' }]), 'UA', null)).toBeNull()
+  })
+})
+
+describe('POST /api/events', () => {
+  const request = (body: unknown, headers: Record<string, string> = {}) =>
+    new Request('https://tinct.app/api/events', { method: 'POST', body: typeof body === 'string' ? body : JSON.stringify(body), headers: { 'content-type': 'text/plain;charset=UTF-8', ...headers } })
+
+  it('answers 204 at once and writes in the background, attaching the account when a session is present', async () => {
+    const bodies = stubAnalytics()
+    const { ctx, pending } = context()
+    const verify = vi.fn(async () => ({ id: userId }))
+    const response = await handleEvents(request(batch([{ name: 'landing_view' }]), { authorization: 'Bearer t' }), env, ctx, verify, async () => true)
+    expect(response.status).toBe(204)
+    await Promise.all(pending)
+    expect(bodies).toHaveLength(1)
+    expect(bodies[0][0]).toMatchObject({ event_type: 'event', user_id: userId })
+  })
+
+  it('accepts a beacon sent as text/plain without an account', async () => {
+    const bodies = stubAnalytics()
+    const { ctx, pending } = context()
+    const verify = vi.fn(async () => null)
+    const response = await handleEvents(request(batch([{ name: 'pageview' }])), env, ctx, verify, async () => true)
+    expect(response.status).toBe(204)
+    await Promise.all(pending)
+    expect(verify).not.toHaveBeenCalled()
+    expect(bodies[0][0]).toMatchObject({ event_type: 'pageview', user_id: null })
+  })
+
+  it('refuses bad input before doing any work, and stays silent when rate limited', async () => {
+    const bodies = stubAnalytics()
+    const { ctx, pending } = context()
+    const verify = vi.fn(async () => null)
+    expect((await handleEvents(new Request('https://tinct.app/api/events'), env, ctx, verify, async () => true)).status).toBe(405)
+    expect((await handleEvents(request('{nope'), env, ctx, verify, async () => true)).status).toBe(400)
+    expect((await handleEvents(request({ hello: 1 }), env, ctx, verify, async () => true)).status).toBe(400)
+    expect((await handleEvents(request('x'.repeat(20_000)), env, ctx, verify, async () => true)).status).toBe(413)
+    expect((await handleEvents(request(batch([{ name: 'pageview' }])), env, ctx, verify, async () => false)).status).toBe(204)
+    await Promise.all(pending)
+    expect(bodies).toHaveLength(0)
+  })
+
+  it('never fails the beacon when the database is down', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('down') }))
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const { ctx, pending } = context()
+    const response = await handleEvents(request(batch([{ name: 'pageview' }])), env, ctx, async () => null, async () => true)
+    expect(response.status).toBe(204)
+    await expect(Promise.all(pending)).resolves.toBeDefined()
+  })
+})
+
+describe('internal traffic (Tinct\'s own testing) is marked, not dropped', () => {
+  const request = (body: unknown, headers: Record<string, string> = {}) =>
+    new Request('https://tinct.app/api/events', { method: 'POST', body: JSON.stringify(body), headers: { 'content-type': 'text/plain;charset=UTF-8', ...headers } })
+
+  it('keeps internal: true on pageviews, durations and events sent by a flagged client', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'pageview', props: { internal: true } },
+      { name: 'page_duration', props: { duration_ms: 5000, internal: true } },
+      { name: 'book_opened', props: { book_id: 'odyssey', internal: true } },
+    ]), 'UA', null)!
+    expect(rows).toHaveLength(3)
+    for (const row of rows) expect(row.payload.internal).toBe(true)
+    expect(rows[2].payload).toMatchObject({ type: 'book_opened', book_id: 'odyssey', device_id: 'device-1234abcd' })
+  })
+
+  it('leaves ordinary rows unmarked and never stores a non-true internal value', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'pageview' },
+      { name: 'book_opened', props: { book_id: 'odyssey', internal: false } },
+      { name: 'first_page_turn', props: { internal: 'yes' } },
+    ]), 'UA', null)!
+    for (const row of rows) expect(row.payload).not.toHaveProperty('internal')
+  })
+
+  it('marks every row internal when the caller says the request is a check', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'pageview' },
+      { name: 'page_duration', props: { duration_ms: 5000 } },
+      { name: 'landing_view' },
+    ]), 'UA', null, { internal: true })!
+    expect(rows.map(row => row.payload.internal)).toEqual([true, true, true])
+  })
+
+  it('stores rows from a request carrying x-tinct-check: 1 as internal', async () => {
+    const bodies = stubAnalytics()
+    const { ctx, pending } = context()
+    const response = await handleEvents(request(batch([{ name: 'pageview' }, { name: 'landing_view' }]), { 'x-tinct-check': '1' }), env, ctx, async () => null, async () => true)
+    expect(response.status).toBe(204)
+    await Promise.all(pending)
+    expect(bodies[0].map(row => (row.payload as Record<string, unknown>).internal)).toEqual([true, true])
+  })
+
+  it('does not mark rows for any other x-tinct-check value', async () => {
+    const bodies = stubAnalytics()
+    const { ctx, pending } = context()
+    await handleEvents(request(batch([{ name: 'pageview' }]), { 'x-tinct-check': '0' }), env, ctx, async () => null, async () => true)
+    await Promise.all(pending)
+    expect(bodies[0][0].payload).not.toHaveProperty('internal')
+  })
+})
+
+describe('server-side checkout events', () => {
+  it('records checkout_started when a checkout session is created', async () => {
+    const bodies = stubAnalytics()
+    const fetchMock = vi.mocked(fetch)
+    const base = fetchMock.getMockImplementation()!
+    fetchMock.mockImplementation(async (input, init) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) return Response.json([{ stripe_customer_id: 'cus_1' }])
+      if (url.startsWith('https://api.stripe.com/')) return Response.json({ url: 'https://checkout.stripe.test/s' })
+      return base(input, init)
+    })
+    const { ctx, pending } = context()
+    const response = await handleCreateCheckout(
+      new Request('https://tinct.app/api/create-checkout', { method: 'POST', body: JSON.stringify({ type: 'subscription' }), headers: { 'content-type': 'application/json' } }),
+      { ...env, STRIPE_SECRET_KEY: 'sk', STRIPE_PRICE_PREMIUM: 'price_1' }, async () => ({ id: userId, email: 'r@example.com' }), ctx,
+    )
+    expect(response.status).toBe(200)
+    await Promise.all(pending)
+    expect(bodies[0][0]).toMatchObject({ event_type: 'event', user_id: userId, payload: expect.objectContaining({ type: 'checkout_started', surface: 'server' }) })
+  })
+
+  it('recordServerEvent is harmless without a database', () => {
+    const { ctx } = context()
+    expect(() => recordServerEvent({}, ctx, { name: 'checkout_completed', userId })).not.toThrow()
+    expect(() => recordServerEvent(env, undefined, { name: 'checkout_completed', userId: null })).not.toThrow()
+  })
+})

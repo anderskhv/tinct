@@ -2,7 +2,7 @@
 import { useRef } from 'react'
 import { cleanup, render } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
-import { highlightRows, highlightSeams, useTextRangeHighlights } from './useTextRangeHighlights'
+import { generatedHyphenRects, highlightRows, highlightSeams, useTextRangeHighlights } from './useTextRangeHighlights'
 afterEach(() => { cleanup(); vi.unstubAllGlobals() })
 function Passage() {
   const ref = useRef<HTMLElement>(null)
@@ -19,12 +19,29 @@ it('paints one range including internal spaces but excluding outside spaces and 
   expect(range).toHaveLength(1)
   expect(range[0].toString()).toBe('If I')
   expect(first.container.textContent).toBe('before If I after')
+  // One named highlight per colour for the document: each passage contributes its ranges to it.
   const second = render(<Passage />)
-  expect(registry.size).toBe(10)
+  expect(registry.size).toBe(1)
+  expect([...registry.values()][0].ranges).toHaveLength(2)
   first.unmount()
-  expect(registry.size).toBe(5)
+  expect(registry.size).toBe(1)
+  expect([...registry.values()][0].ranges).toHaveLength(1)
+  expect([...registry.values()][0].ranges[0].toString()).toBe('If I')
   second.unmount()
   expect(registry.size).toBe(0)
+})
+
+it('installs one stylesheet for every passage and never removes it, so a passage mounting or leaving restyles nothing', () => {
+  vi.stubGlobal('CSS', { highlights: new Map() })
+  vi.stubGlobal('Highlight', class { ranges: Range[]; constructor(...ranges: Range[]) { this.ranges = ranges } })
+  const sheets = () => document.head.querySelectorAll('style[data-tinct-range-highlights]').length
+  const a = render(<Passage />)
+  const b = render(<Passage />)
+  expect(sheets()).toBe(1)
+  a.unmount(); b.unmount()
+  expect(sheets()).toBe(1)
+  render(<Passage />)
+  expect(sheets()).toBe(1)
 })
 
 it('bridges fractional row cracks only where both rows are highlighted', () => {
@@ -36,10 +53,10 @@ it('bridges fractional row cracks only where both rows are highlighted', () => {
  expect(highlightSeams([rect(0,200,0,33),rect(0,10,28,41),rect(0,100,33.4,66.4)],22,.5)).toHaveLength(1)
 })
 
-it('uses full row bounds for background paint without including raised verse glyphs', () => {
+it('uses full row bounds for background paint including raised verse glyphs horizontally only', () => {
  const rect=(left:number,right:number,top:number,bottom:number)=>({left,right,top,bottom,height:bottom-top})
  expect(highlightRows([rect(15,90,0,33),rect(90,140,0,33),rect(0,12,-8,10),rect(0,60,33.4,66.4)],22)).toEqual([
-  {left:15,right:140,top:0,bottom:33},{left:0,right:60,top:33.4,bottom:66.4}
+  {left:0,right:140,top:0,bottom:33},{left:0,right:60,top:33.4,bottom:66.4}
  ])
 })
 
@@ -87,6 +104,53 @@ it('installs its stylesheet once and keeps its class when React rewrites the pas
   expect(registry.size).toBe(0)
 })
 
+it('does not remeasure unchanged ranges on popup renders, but repaints changed marks and reflow', () => {
+  const registry = new Map<string, { ranges: Range[] }>()
+  vi.stubGlobal('CSS', { highlights: registry })
+  vi.stubGlobal('Highlight', class { ranges: Range[]; constructor(...ranges: Range[]) { this.ranges = ranges } })
+  const originalRects = Object.getOwnPropertyDescriptor(Range.prototype, 'getClientRects')
+  const measure = vi.fn(() => [{ left: 0, right: 35, top: 0, bottom: 24, height: 24 }] as unknown as DOMRectList)
+  Object.defineProperty(Range.prototype, 'getClientRects', { configurable: true, value: measure })
+  try {
+    function Painted({ popup, marked, layout }: { popup: boolean; marked: boolean; layout: string }) {
+      const ref = useRef<HTMLElement>(null)
+      useTextRangeHighlights(ref, layout)
+      return <article ref={ref} data-popup={popup}><p className="lab-hearing-line"><span data-testid="lab-word" data-paragraph-index="0" data-word-index="0" className="is-hl-sage">word</span><span data-testid="lab-word" data-paragraph-index="0" data-word-index="1" className={marked ? 'is-hl-sage' : ''}> next</span></p></article>
+    }
+    const view = render(<Painted popup={false} marked={false} layout="font-1" />)
+    expect(measure).toHaveBeenCalled()
+    const firstPaint = measure.mock.calls.length
+    view.rerender(<Painted popup marked={false} layout="font-1" />)
+    expect(measure).toHaveBeenCalledTimes(firstPaint)
+    view.rerender(<Painted popup marked layout="font-1" />)
+    expect(measure.mock.calls.length).toBeGreaterThan(firstPaint)
+    const changedMarkPaint = measure.mock.calls.length
+    view.rerender(<Painted popup marked layout="font-2" />)
+    expect(measure.mock.calls.length).toBeGreaterThan(changedMarkPaint)
+  } finally {
+    if (originalRects) Object.defineProperty(Range.prototype, 'getClientRects', originalRects)
+    else Reflect.deleteProperty(Range.prototype, 'getClientRects')
+  }
+})
+
+it('skips the text-node scan when only reader chrome rerenders a passage', () => {
+  vi.stubGlobal('CSS', { highlights: new Map() })
+  vi.stubGlobal('Highlight', class { constructor(..._ranges: Range[]) {} })
+  const source = ['a marked word']
+  function Painted({ popup, selection }: { popup: boolean; selection: number }) {
+    const ref = useRef<HTMLElement>(null)
+    useTextRangeHighlights(ref, 'layout-1', [source, selection])
+    return <article ref={ref} data-popup={popup}><p className="lab-hearing-line"><span data-testid="lab-word" data-paragraph-index="0" data-word-index="0" className="is-hl-sage">a</span></p></article>
+  }
+  const view = render(<Painted popup={false} selection={0} />)
+  const article = view.container.querySelector('article')!
+  const scan = vi.spyOn(article, 'querySelectorAll')
+  view.rerender(<Painted popup selection={0} />)
+  expect(scan).not.toHaveBeenCalled()
+  view.rerender(<Painted popup selection={1} />)
+  expect(scan).toHaveBeenCalled()
+})
+
 it('paints only the looked-up lexeme inside an unchanged audio token', () => {
   const registry = new Map<string, { ranges: Range[] }>()
   vi.stubGlobal('CSS', { highlights: registry })
@@ -101,4 +165,65 @@ it('paints only the looked-up lexeme inside an unchanged audio token', () => {
   view.rerender(<Lookup word="a" />)
   expect([...registry.values()].flatMap(h=>h.ranges).map(r=>r.toString())).toEqual(['a'])
   expect(view.container.textContent).toBe('Sherebiah—a')
+})
+
+it('paints the generated hyphen of a highlighted page-edge fragment or planned break, not of a word outside the range', () => {
+  // Owner report (8 Oct 2026): a highlight running over a page break stopped
+  // just before the "-" of "ratio-": the hyphen is ::after content, outside
+  // any Range's rects. The covered elements' own boxes include it.
+  document.body.innerHTML = '<p class="lab-hearing-line"><span id="a" class="is-hl-sage">the</span> <span id="b" class="is-hl-sage"><span class="lab-syl">ra</span>tio</span> <span id="f" class="lab-word-fragment is-hl-sage">ratio</span> <span id="c"><span class="lab-syl">out</span>side</span></p>'
+  const boxes = new Map<Element, DOMRect[]>()
+  for (const el of document.querySelectorAll('.lab-syl, .lab-word-fragment')) {
+    const rect = { left: 1, right: 2, top: 0, bottom: 30, width: 1, height: 30, x: 1, y: 0, toJSON: () => ({}) } as DOMRect
+    boxes.set(el, [rect])
+    ;(el as HTMLElement).getClientRects = () => boxes.get(el) as unknown as DOMRectList
+  }
+  const line = document.querySelector('.lab-hearing-line')!
+  const range = document.createRange()
+  range.setStart(document.getElementById('a')!, 0)
+  const fragment = document.getElementById('f')!
+  range.setEnd(fragment, fragment.childNodes.length)
+  const rects = generatedHyphenRects(line, range)
+  const covered = [document.querySelector('#b .lab-syl')!, fragment].flatMap(el => boxes.get(el)!)
+  expect(rects).toEqual(covered)
+  expect(rects).not.toContain(boxes.get(document.querySelector('#c .lab-syl')!)![0])
+  document.body.innerHTML = ''
+})
+
+it('paints the dictionary hyphen of a highlighted word split across two lines, not of one the range only enters', () => {
+  // Anders (14 Nov 2026, iPhone, Luke 15:7): the band stopped before the "-" of "re-|pentance".
+  document.body.innerHTML = '<p class="lab-hearing-line"><span id="a" class="lab-hearing-word">no</span> <span id="w" class="lab-hearing-word">repentance.</span> <span id="x" class="lab-hearing-word">ninety-nine</span></p>'
+  const box = (left: number, right: number, top: number) => ({ left, right, top, bottom: top + 30, width: right - left, height: 30, x: left, y: top, toJSON: () => ({}) }) as DOMRect
+  const split = [box(300, 340, 0), box(0, 100, 40)]
+  ;(document.getElementById('w') as HTMLElement).getClientRects = () => split as unknown as DOMRectList
+  ;(document.getElementById('x') as HTMLElement).getClientRects = () => [box(110, 200, 40), box(0, 50, 80)] as unknown as DOMRectList
+  ;(document.getElementById('a') as HTMLElement).getClientRects = () => [box(250, 290, 0)] as unknown as DOMRectList
+  const line = document.querySelector('.lab-hearing-line')!
+  const range = document.createRange()
+  range.setStart(document.getElementById('a')!.firstChild!, 0)
+  range.setEnd(document.getElementById('x')!.firstChild!, 3)
+  expect(generatedHyphenRects(line, range)).toEqual(split)
+  document.body.innerHTML = ''
+})
+
+it('reveals a committed mark color after applying it, while a fresh drag still previews warm', () => {
+  const registry = new Map<string, { ranges: Range[] }>()
+  vi.stubGlobal('CSS', { highlights: registry })
+  vi.stubGlobal('Highlight', class { ranges: Range[]; constructor(...ranges: Range[]) { this.ranges = ranges } })
+  function Selected({ applied }: { applied: boolean }) {
+    const ref = useRef<HTMLElement>(null)
+    useTextRangeHighlights(ref, '', undefined, applied)
+    return <article ref={ref}><p className="lab-hearing-line"><span data-testid="lab-word" className="is-selecting is-hl-lavender">Selected</span>{' '}<span data-testid="lab-word" className="is-selecting is-hl-lavender">words</span></p></article>
+  }
+  const view = render(<Selected applied={false} />)
+  // A colour no passage paints has no named highlight at all.
+  const paint = (color: string) => ([...registry].find(([key]) => key.endsWith(`-${color}`))?.[1].ranges ?? []).map(range => range.toString())
+  expect(paint('warm')).toEqual(['Selected words'])
+  expect(paint('lavender')).toEqual([])
+  view.rerender(<Selected applied />)
+  expect(paint('warm')).toEqual([])
+  expect(paint('lavender')).toEqual(['Selected words'])
+  view.rerender(<Selected applied={false} />)
+  expect(paint('warm')).toEqual(['Selected words'])
+  expect(paint('lavender')).toEqual([])
 })

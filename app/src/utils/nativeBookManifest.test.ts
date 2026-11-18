@@ -26,3 +26,19 @@ it('hashes exact published bytes and includes English sidecars, never a withdraw
  expect(pack.files.some((file:any)=>file.path==='/lab/prefaces/fixture.json')).toBe(true)
  expect(fs.readFileSync(path.join(root,'data/editions/fixture-original-en.json'),'utf8')).toBe(text)
 })
+it('keeps the offered To the Lighthouse Danish edition out of the native index, which installed APKs reject',()=>{
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'native-book-'));roots.push(root)
+ fs.mkdirSync(path.join(root,'data/editions-chapters/to-the-lighthouse-modern-da'),{recursive:true});fs.mkdirSync(path.join(root,'data/editions'),{recursive:true})
+ fs.writeFileSync(path.join(root,'data/editions/to-the-lighthouse-modern-en.json'),'{"chapters":[]}')
+ fs.writeFileSync(path.join(root,'data/editions/to-the-lighthouse-modern-da.json'),'{"chapters":[]}')
+ fs.writeFileSync(path.join(root,'data/editions-chapters/to-the-lighthouse-modern-da/manifest.json'),'{}')
+ const book:any={id:'to-the-lighthouse',title:'To the Lighthouse',editions:[{key:'modern-en',language:'en'},{key:'modern-da',language:'da'}]}
+ const view:any={id:'to-the-lighthouse',editions:book.editions.map((e:any)=>({...e,discoveryAvailable:true,availability:{chapterText:true}}))}
+ const result=buildNativeBooks(root,[book],{books:[view]},new Map())
+ const index=JSON.parse(result.index),entry=index.books[0],pack=JSON.parse(result.manifests[entry.manifest.slice(1)])
+ expect(entry.book.editions.map((e:any)=>e.key)).toEqual(['modern-en'])
+ expect(pack.files.some((file:any)=>file.path.includes('-da'))).toBe(false)
+ // The native library never offers an edition its download leaves out.
+ expect(index.catalogue.books[0].editions.find((e:any)=>e.key==='modern-da').discoveryAvailable).toBe(false)
+ expect(index.catalogue.books[0].editions.find((e:any)=>e.key==='modern-en').discoveryAvailable).toBe(true)
+})

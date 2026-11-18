@@ -158,6 +158,45 @@ export function sentenceStartWordIndex(words: Array<{ text: string }>, wordIndex
   return stop < 0 ? 0 : stop + 1
 }
 
+/** Abbreviations whose full stop does not end a sentence. */
+const LISTEN_ABBREVIATION_RE = /^(?:mr|mrs|ms|dr|st|mt|jr|sr|prof|rev|capt|col|gen|lt|sgt|messrs|mme|mlle|vol|ch|viz|cf|vs|i\.e|e\.g|[b-hj-z])\.$/i
+
+const LISTEN_CONTINUES_RE = /^[("'“‘«[_*]*\p{Ll}/u
+const LISTEN_QUOTED_EXCLAMATION_RE = /[!?…][)\]"'”’»]+$/
+
+/**
+ * True when `token` ends a sentence for listening purposes: `.`, `!`, `?` or
+ * an ellipsis, optionally followed by closing quotes or brackets
+ * (`"`, `'`, `”`, `’`, `»`, `)`, `]`), and not a common abbreviation.
+ */
+export function endsListeningSentence(token: string): boolean {
+  const text = stripUnderscoreEmphasis(token).text.trim()
+  if (!/[.!?…][)\]"'”’»_*]*$/.test(text)) return false
+  const bare = text.replace(/^[("'“‘«[_*]+/, '').replace(/[)\]"'”’»_*]+$/, '')
+  return !LISTEN_ABBREVIATION_RE.test(bare)
+}
+
+/**
+ * Where resumed audio should begin: the first word of the sentence that holds
+ * `wordIndex`, never earlier than the paragraph's start. Used whenever
+ * listening picks up again after an interruption (Play after pause, the end
+ * of Talk, the return from a sign-in or limit prompt), so audio never starts
+ * in the middle of a sentence. A tap on a word is a jump, not a resume, and
+ * starts at the tapped word instead.
+ */
+export function listeningSentenceStart(words: Array<{ text: string }>, wordIndex: number): number {
+  if (!Number.isFinite(wordIndex) || words.length === 0) return 0
+  const target = Math.max(0, Math.min(Math.floor(wordIndex), words.length - 1))
+  for (let index = target - 1; index >= 0; index -= 1) {
+    // `"Come here!" he said.` — after a quoted ! or ?, a lower-case word
+    // continues the same sentence (a dialogue tag); it is not a place to start.
+    const token = words[index].text
+    const dialogueTag = LISTEN_QUOTED_EXCLAMATION_RE.test(token) && LISTEN_CONTINUES_RE.test(words[index + 1]?.text || '')
+    if (endsListeningSentence(token) && !dialogueTag) return index + 1
+  }
+  return 0
+}
+
 function nextStrongStopAtOrAfter(words: Array<{ text: string }>, index: number): number {
   for (let i = Math.max(0, index); i < words.length; i++) {
     if (isStrongStop(words[i].text)) return i
@@ -417,6 +456,16 @@ export const LAB_VERSE_MARKER_RE = /^[\u00B9\u00B2\u00B3\u2070-\u2079\u2080-\u20
 export function isLabVerseMarker(text: string): boolean {
   return LAB_VERSE_MARKER_RE.test(text)
 }
+
+/**
+ * The space painted between a verse number and its first word: a narrow
+ * no-break space (U+202F). No-break, so the number never ends a line; and not
+ * a justification opportunity, so a justified line never stretches it. A plain
+ * no-break space stretched with every other space and set the number apart
+ * from its verse on a loose line ("¹     Even a young man", Anders, iPhone,
+ * 8 Oct 2026). Every renderer and measurer uses this one character.
+ */
+export const LAB_VERSE_SEPARATOR = '\u202f'
 
 const LAB_SUPERSCRIPT_DIGIT: Record<string, string> = {
   '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9',

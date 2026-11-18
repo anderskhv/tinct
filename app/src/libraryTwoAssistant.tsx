@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { LibraryAssistant, type LibraryAssistantControls, type LibraryAssistantHost } from './labLibraryAssistant'
 
 /** Isolate the production assistant's CSS from the illustrated library. */
-export async function mountLibraryTwoAssistant(element: HTMLElement, options: Pick<LibraryAssistantHost, 'onClose' | 'openBook' | 'returnTo' | 'getBookId'>): Promise<LibraryAssistantControls> {
+export async function mountLibraryTwoAssistant(element: HTMLElement, options: Pick<LibraryAssistantHost, 'onClose' | 'openBook' | 'returnTo' | 'getBookId' | 'getShelf'>): Promise<LibraryAssistantControls> {
   const shadow = element.shadowRoot ?? element.attachShadow({ mode: 'open' })
   const stylesheet = document.createElement('link')
   stylesheet.rel = 'stylesheet'

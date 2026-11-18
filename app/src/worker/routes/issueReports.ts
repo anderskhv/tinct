@@ -1,3 +1,5 @@
+import { estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
+import type { CheckRateLimit } from '../lib/rateLimit'
 import { jsonResponse } from '../lib/responses'
 import { htmlEscape } from '../lib/html'
 import { supabaseGet, supabaseInsert, supabaseUpdate, type SupabaseEnv } from '../lib/supabase'
@@ -9,6 +11,21 @@ export type IssueReportsEnv = SupabaseEnv & {
 
 type VerifyUser = (env: IssueReportsEnv, request: Request) => Promise<{ id: string; email: string } | null>
 type SendEmail = (env: IssueReportsEnv, to: string, subject: string, html: string) => Promise<boolean>
+
+export interface IssueReportGuards {
+  checkRateLimit?: CheckRateLimit
+  /** Daily ceiling for signed-out AI, used for anonymous reports' AI assessment. */
+  reserveGuestSpend?: ReserveGuestSpend
+}
+
+/** Reports per minute per caller. */
+export const REPORT_RATE_LIMIT_PER_MINUTE = 5
+
+function clientIp(request: Request): string {
+  return request.headers.get('cf-connecting-ip')
+    || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+    || 'unknown'
+}
 
 const CHAT_MODEL = 'claude-sonnet-4-6'
 
@@ -259,7 +276,7 @@ export function validateCorrectedParagraph(original: string, corrected: string):
   return null
 }
 
-async function evaluateAndPatch(env: IssueReportsEnv, report: IssueReport, sendEmail: SendEmail): Promise<void> {
+async function evaluateAndPatch(env: IssueReportsEnv, report: IssueReport, sendEmail: SendEmail, guards: IssueReportGuards): Promise<void> {
   if (!env.ANTHROPIC_API_KEY || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return
 
   try {
@@ -306,42 +323,44 @@ async function evaluateAndPatch(env: IssueReportsEnv, report: IssueReport, sendE
 	    return
 	  }
 
-  // 2a. Mechanical fix: word split by erroneous space (e.g., "beh ager" → "behager")
-  // Skip Claude entirely for these — just remove the space.
+  // 2a. Word split by an erroneous space (e.g., "beh ager" → "behager"). The
+  // merged paragraph is proposed without an AI call, and goes to review like
+  // every other fix.
   if (fullParagraph && report.selectedText.match(/^[a-zæøåàáâãäéèêëíìîïóòôõöúùûüý]+ [a-zæøåàáâãäéèêëíìîïóòôõöúùûüý]+$/i)) {
     const merged = report.selectedText.replace(' ', '')
     if (fullParagraph.includes(report.selectedText) && !fullParagraph.includes(merged)) {
-      // The split word exists in the paragraph, but the merged version doesn't — it's a word split error
       const corrected = fullParagraph.replace(report.selectedText, merged)
-      console.log(`[evaluateAndPatch] Mechanical fix: "${report.selectedText}" → "${merged}"`)
-
-      // Apply patch directly
-      await upsertEditionPatch(env, {
-        book_id: report.bookId,
-        edition_key: report.editionKey,
-        chapter_number: report.chapterNumber,
-        paragraph_index: report.paragraphIndex,
-        original_text: fullParagraph,
-        patched_text: corrected,
-        issue_report_id: report.reportId,
+      const token = crypto.randomUUID()
+      await supabaseUpdate(env, 'issue_reports', report.reportId, {
+        status: 'pending_review',
+        proposed_fix: corrected,
+        original_paragraph: fullParagraph,
+        review_token: token,
+        ai_explanation: `Word split: "${report.selectedText}" → "${merged}" (proposed without AI).`,
       })
-
-      await queueAudioRegen(env, {
-        book_id: report.bookId,
-        edition_key: report.editionKey,
-        chapter_number: report.chapterNumber,
-        paragraph_index: report.paragraphIndex,
-        patched_text: corrected,
-      })
-
-      await supabaseUpdate(env, 'issue_reports', report.reportId, { status: 'confirmed', rewarded: true })
+      const baseUrl = 'https://tinct.app'
       await sendEmail(env, 'contact@tinct.app',
-        `[Auto-fix: word split] ${report.bookId} ch${report.chapterNumber} p${report.paragraphIndex}`,
+        `[Review: word split] ${report.bookId} ch${report.chapterNumber} p${report.paragraphIndex}`,
         `<div style="font-family:sans-serif;max-width:600px">
-	          <p><strong>Mechanical fix (no AI):</strong> "${htmlEscape(report.selectedText)}" → "${htmlEscape(merged)}"</p>
+	          <p><strong>Proposed fix (no AI):</strong> "${htmlEscape(report.selectedText)}" → "${htmlEscape(merged)}"</p>
 	          <p><strong>User comment:</strong> ${htmlEscape(report.comment || 'none')}</p>
+	          <p style="margin-top:24px">
+	            <a href="${baseUrl}/api/approve-fix?id=${report.reportId}&action=approve&token=${token}" style="display:inline-block;padding:12px 28px;background:#4a9;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-right:12px">Approve fix</a>
+	            <a href="${baseUrl}/api/approve-fix?id=${report.reportId}&action=edit&token=${token}" style="display:inline-block;padding:12px 28px;background:#567;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-right:12px">Manual edit</a>
+	            <a href="${baseUrl}/api/approve-fix?id=${report.reportId}&action=reject&token=${token}" style="display:inline-block;padding:12px 28px;background:#c66;color:#fff;text-decoration:none;border-radius:8px;font-weight:600">Reject</a>
+	          </p>
         </div>`
       )
+      return
+    }
+  }
+
+  // Signed-out reports draw on the daily ceiling for signed-out AI. When it
+  // is spent the report waits for a person instead of an AI assessment.
+  if (!report.userId) {
+    const estimate = estimateAiCostMicros({ inputChars: 12_000, maxTokens: 2048 })
+    if (!guards.reserveGuestSpend || !await guards.reserveGuestSpend(estimate)) {
+      await supabaseUpdate(env, 'issue_reports', report.reportId, { status: 'needs_review' })
       return
     }
   }
@@ -481,15 +500,12 @@ JSON response shape (every field required):
     })
     .slice(0, 8)
 
-  // ── UNIFIED: Store AI assessment, determine action, always email ──
+  // ── Store the AI assessment and email the reviewer. Nothing is applied
+  // here: every fix, whatever its confidence, goes to review.
   const token = crypto.randomUUID()
-  const validCorrection = is_error && corrected_paragraph && corrected_paragraph.length > 0
-  const autoApply = validCorrection && confidence >= 0.80
 
-  // Store AI's assessment on every report
   await supabaseUpdate(env, 'issue_reports', report.reportId, {
-    status: autoApply ? 'confirmed' : 'pending_review',
-    rewarded: autoApply,
+    status: 'pending_review',
     proposed_fix: corrected_paragraph || null,
     original_paragraph: fullParagraph || null,
     review_token: token,
@@ -498,53 +514,6 @@ JSON response shape (every field required):
       ? `${explanation} Same-chapter related corrections proposed: ${relatedCorrections.map(c => `p${c.paragraph_index}`).join(', ')}.`
       : explanation,
   })
-
-  // Auto-apply high-confidence fixes
-  if (autoApply) {
-    await upsertEditionPatch(env, {
-      book_id: report.bookId, edition_key: report.editionKey,
-      chapter_number: report.chapterNumber, paragraph_index: report.paragraphIndex,
-      original_text: fullParagraph || report.selectedText,
-      patched_text: corrected_paragraph, issue_report_id: report.reportId,
-    })
-    await queueAudioRegen(env, {
-      book_id: report.bookId, edition_key: report.editionKey,
-      chapter_number: report.chapterNumber, paragraph_index: report.paragraphIndex,
-      patched_text: corrected_paragraph,
-    })
-
-    for (const related of relatedCorrections) {
-      await upsertEditionPatch(env, {
-        book_id: report.bookId,
-        edition_key: report.editionKey,
-        chapter_number: report.chapterNumber,
-        paragraph_index: related.paragraph_index,
-        original_text: context.chapterParagraphs[related.paragraph_index],
-        patched_text: related.corrected_paragraph,
-        issue_report_id: report.reportId,
-        applied_by: 'claude-auto-related',
-      })
-      await queueAudioRegen(env, {
-        book_id: report.bookId,
-        edition_key: report.editionKey,
-        chapter_number: report.chapterNumber,
-        paragraph_index: related.paragraph_index,
-        patched_text: related.corrected_paragraph,
-      })
-    }
-
-    // Reward user
-    if (report.userId) {
-      const countRes = await supabaseGet(env, `issue_reports?user_id=eq.${report.userId}&status=eq.confirmed&rewarded=eq.true&select=id`)
-      const confirmed = await countRes.json() as { id: string }[]
-      if (confirmed?.length > 0 && confirmed.length % 5 === 0) {
-        const profileRes = await supabaseGet(env, `profiles?id=eq.${report.userId}&select=subscription_period_end`)
-        const profiles = await profileRes.json() as { subscription_period_end: string | null }[]
-        const base = profiles?.[0]?.subscription_period_end ? new Date(profiles[0].subscription_period_end) : new Date()
-        await supabaseUpdate(env, 'profiles', report.userId, { subscription_period_end: new Date(base.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString() })
-      }
-    }
-  }
 
 	  // ── ALWAYS email Anders with approve/reject links ──
 	  const baseUrl = 'https://tinct.app'
@@ -556,17 +525,13 @@ JSON response shape (every field required):
   // concrete recommendation. Earlier copy left the reviewer guessing
   // ("Needs your approval — for what?"). Now: every email says exactly what
   // the AI thinks should happen.
-  const statusBadge = autoApply
-    ? '<span style="background:#4a9;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">Auto-applied</span>'
-    : proposedAction === 'apply'
+  const statusBadge = proposedAction === 'apply'
       ? '<span style="background:#e90;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">Approve to apply this fix</span>'
       : proposedAction === 'no_change'
         ? '<span style="background:#888;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">AI suggests: no change needed</span>'
         : '<span style="background:#5a8;color:#fff;padding:3px 10px;border-radius:4px;font-size:13px">Needs human judgment</span>'
 
-  const subject = autoApply
-    ? `[Auto-fix] ${report.tag} — ${report.bookId} ch${report.chapterNumber}`
-    : proposedAction === 'no_change'
+  const subject = proposedAction === 'no_change'
       ? `[No-change suggested] ${report.tag} — ${report.bookId} ch${report.chapterNumber}`
       : proposedAction === 'needs_human'
         ? `[Needs you] ${report.tag} — ${report.bookId} ch${report.chapterNumber}`
@@ -575,19 +540,15 @@ JSON response shape (every field required):
   // Both buttons always present. Labels reflect the recommended path so a
   // skim reads "do the obvious thing". Approve = accept AI's recommendation
   // (apply the fix, OR keep the text as-is). Reject = override.
-  const approveLabel = autoApply
-    ? 'Keep fix'
-    : proposedAction === 'apply'
+  const approveLabel = proposedAction === 'apply'
       ? 'Approve fix'
       : proposedAction === 'no_change'
         ? 'Confirm: no change'
         : 'Approve as-is'
-	  const rejectLabel = autoApply
-	    ? 'Revert'
-	    : proposedAction === 'no_change'
+	  const rejectLabel = proposedAction === 'no_change'
 	      ? 'Override — apply user fix'
 	      : 'Reject'
-	  const showApproveButton = autoApply || proposedAction === 'apply' || proposedAction === 'no_change'
+	  const showApproveButton = proposedAction === 'apply' || proposedAction === 'no_change'
 
   // Original block is hidden behind a "couldn't load" notice when fullParagraph
   // is empty, so the reviewer immediately sees that the AI was blind and
@@ -647,9 +608,15 @@ export async function handleReportIssue(
   ctx: ExecutionContext,
   verifyUser: VerifyUser,
   sendEmail: SendEmail,
+  guards: IssueReportGuards = {},
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return jsonResponse({ success: true }, 200, request)
+  // Fail closed: without a limiter no report is accepted.
+  const allowed = guards.checkRateLimit
+    ? await guards.checkRateLimit(`report-issue:${clientIp(request)}`, undefined, REPORT_RATE_LIMIT_PER_MINUTE)
+    : false
+  if (!allowed) return jsonResponse({ error: 'Too many reports. Try again in a minute.' }, 429, request)
 
   let body: { bookId?: string; editionKey?: string; chapterNumber?: number; paragraphIndex?: number; selectedText?: string; tag?: string; comment?: string }
   try {
@@ -723,7 +690,7 @@ export async function handleReportIssue(
       tag,
       comment,
       userId,
-    }, sendEmail))
+    }, sendEmail, guards))
   }
 
   return jsonResponse({ success: true, reportId }, 200, request)

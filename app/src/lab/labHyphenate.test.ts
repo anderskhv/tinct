@@ -8,6 +8,7 @@ import {
   hyphenatorReady,
   loadHyphenator,
   longestBreakWithin,
+  pageEdgeBreaks,
 } from './labHyphenate'
 
 /** Render a token with a break applied, the way a page edge shows it. */
@@ -91,6 +92,72 @@ describe('English breaks', () => {
 
   it('keeps an apostrophised word in one piece it can still break', () => {
     expect(hyphenationBreaks("heaven's", 'en').every(at => at > 0)).toBe(true)
+  })
+})
+
+describe('guessed breaks for words the patterns leave whole (phone reader)', () => {
+  beforeAll(async () => { await loadHyphenator('en') })
+
+  it('offers the dictionary syllable in promised without splitting its inflection', () => {
+    expect(hyphenationBreaks('promised', 'en', true)).toEqual([4])
+    expect(hyphenationBreaks('“Promised,”', 'en', true)).toEqual([5])
+    expect(pageEdgeBreaks('promised', 'en', true)).toEqual([4])
+    expect(hyphenationBreaks('PROMISED', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('promised', 'da', true)).toEqual([])
+  })
+
+  it('breaks the Nehemiah 12 names the dictionary leaves whole, only when asked to guess', () => {
+    for (const name of ['Amariah', 'Zechariah', 'Hilkiah']) {
+      expect(hyphenationBreaks(name, 'en')).toEqual([])
+    }
+    expect(hyphenationBreaks('Zechariah', 'en', true).map(at => split('Zechariah', at))).toEqual(['Zech-|ariah', 'Zecha-|riah'])
+    expect(hyphenationBreaks('Amariah,', 'en', true).map(at => split('Amariah,', at))).toEqual(['Ama-|riah,'])
+    expect(hyphenationBreaks('Hilkiah', 'en', true).map(at => split('Hilkiah', at))).toEqual(['Hil-|kiah'])
+    // The patterns already break a possessive ("Zechari-ah’s"), so the guess never touches it.
+    expect(hyphenationBreaks('Zechariah’s', 'en', true)).toEqual(hyphenationBreaks('Zechariah’s', 'en'))
+    // Desktop (no guess) and the page edge without it are unchanged.
+    expect(pageEdgeBreaks('Zechariah', 'en')).toEqual([])
+    expect(pageEdgeBreaks('Zechariah', 'en', true)).toEqual([4, 5])
+  })
+
+  it('never changes a word the dictionary breaks', () => {
+    for (const word of ['Shemaiah', 'Jeremiah', 'Zerubbabel', 'Nebuchadnezzar', 'multitudes', 'conspired', 'abundance', 'understanding', 'firmament', 'Israel', 'Jehohanan', 'Nehemiah', '“multitudes']) {
+      expect(hyphenationBreaks(word, 'en', true)).toEqual(hyphenationBreaks(word, 'en'))
+    }
+  })
+
+  it('never guesses for common English words the dictionary leaves whole on purpose', () => {
+    for (const word of ['whether', 'brother', 'started', 'thought', 'through', 'evening', 'changed', 'thereby', 'strength']) {
+      expect(hyphenationBreaks(word, 'en', true)).toEqual([])
+    }
+  })
+
+  it('breaks a capitalised common word as it breaks the lowercase one (Malachi, "Yahweh of Armies")', () => {
+    // The patterns leave "armies" whole; the phone reader's guess gives "Ar-mies".
+    expect(hyphenationBreaks('Armies,', 'en')).toEqual([])
+    expect(hyphenationBreaks('Armies,', 'en', true).map(at => split('Armies,', at))).toEqual(['Ar-|mies,'])
+    expect(hyphenationBreaks('armies', 'en', true)).toEqual([2])
+    // A capital is no bar to a dictionary break either.
+    expect(hyphenationBreaks('Behold', 'en')).toEqual(hyphenationBreaks('behold', 'en'))
+    expect(hyphenationBreaks('Commandment', 'en')).toEqual(hyphenationBreaks('commandment', 'en'))
+    expect(pageEdgeBreaks('Armies', 'en', true)).toEqual([2])
+  })
+
+  it('never breaks an all-caps word or a short capitalised name', () => {
+    expect(hyphenationBreaks('HOLINESS', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('ARMIES', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('Judah', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('“Judah,', 'en', true)).toEqual([])
+    // The same short word in lowercase, and a longer name, still break.
+    expect(hyphenationBreaks('Israel', 'en').map(at => split('Israel', at))).toEqual(['Is-|rael'])
+    expect(hyphenationBreaks('holiness', 'en').length).toBeGreaterThan(0)
+  })
+
+  it('never guesses in Danish, nor in an all-caps word, a hyphenated one or a verse number', () => {
+    expect(hyphenationBreaks('Zechariah', 'da', true)).toEqual([])
+    expect(hyphenationBreaks('ZECHARIAH', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('Zech-ariah', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('⁶', 'en', true)).toEqual([])
   })
 })
 
