@@ -493,9 +493,12 @@ addEventListener('pageshow',event=>{if(event.persisted){
  leaving=false;openingReader=false;document.body.classList.remove('leaving');
 }});
 function introCast(book){const selection={'frankenstein':[0,1],'jane-eyre':[0,1,4],'julius-caesar':[0,1,2],'odyssey':[0,1,2,3,4]};const list=(selection[book.id]||[0,1,2]).map(i=>({...book.characters[i]})).filter(c=>c.aliases);return list.map((c,i)=>({...c,introRole:['the-prince','meditations'].includes(book.id)?(i===0?'Author':'Key figure'):(i===0||(book.id==='frankenstein'&&i===1)||(book.id==='pride-and-prejudice'&&i===1)?'Protagonist':'Supporting character')}));}
-function scrollHint(){const b=$('intro-body');const more=b.scrollHeight-b.clientHeight-b.scrollTop>10;b.classList.toggle('more-below',more);$('intro-more').hidden=!more||!bookDestination().tour||document.querySelector('.intro-footer').parentElement===b;}
+function scrollHint(){slipHint();const b=$('intro-body');const more=b.scrollHeight-b.clientHeight-b.scrollTop>10;b.classList.toggle('more-below',more);$('intro-more').hidden=!more||!bookDestination().tour||document.querySelector('.intro-footer').parentElement===b;}
 $('intro-more').onclick=()=>{const b=$('intro-body');b.scrollBy({top:b.clientHeight*.8,behavior:reduced.matches?'auto':'smooth'});};
 $('intro-body').addEventListener('scroll',scrollHint,{passive:true});
+// The author flap scrolls inside a short page, Continue pinned at its foot: its last line fades while there is more below (the edition picker), as the introduction's does (QA 18 Nov 2026).
+function slipHint(){const s=$('slip-content');s.classList.toggle('more-below',s.scrollHeight-s.clientHeight-s.scrollTop>10);}
+$('slip-content').addEventListener('scroll',slipHint,{passive:true});new MutationObserver(()=>requestAnimationFrame(slipHint)).observe($('slip-content'),{childList:true,subtree:true});addEventListener('resize',slipHint);
 let readerTheme='book';try{readerTheme=localStorage.getItem('tinct-library-2-reader-theme')||'book';}catch{} 
 function applyReaderTheme(){ $('book-overlay').classList.toggle('reader-dark',readerTheme==='dark');[...$('reader-theme').options].forEach(o=>o.selected=o.value===readerTheme); }
 function renderReader(){const excerpt=activeBook.excerpts[choices().main]||activeBook.excerpts['original-en'];$('reader-title').textContent=activeBook.title;$('reader-author').textContent=activeBook.author;$('reader-chapter').textContent=excerpt.title;$('reader-text').replaceChildren();appendParagraphs($('reader-text'),excerpt.paragraphs);$('reader-content').scrollTop=0;}
@@ -1029,3 +1032,23 @@ const commandsButton=document.createElement('button');commandsButton.type='butto
 function openMyShelfFromHash(){if(location.hash!=='#my-shelf')return;try{history.replaceState(history.state,'',location.pathname+location.search);}catch{}if(collectionChoice!=='saved')selectCollection('saved');}
 openMyShelfFromHash();addEventListener('hashchange',openMyShelfFromHash);
 openOwnEntryFromParam();
+// A shelf row scrolls sideways with its scrollbar hidden: with a mouse, previous and next arrows show
+// on hover, each hidden at its row's end, and step about one screen of covers. Touch keeps its swipe
+// (the arrows exist only for a fine pointer that hovers). QA 18 Nov 2026.
+{const finePointer=matchMedia('(hover:hover) and (pointer:fine)');
+ const ends=(row,prev,next)=>{prev.hidden=row.scrollLeft<=2;next.hidden=row.scrollLeft+row.clientWidth>=row.scrollWidth-2;};
+ const centre=(section,row)=>{const cover=row.querySelector('.book-card');section.style.setProperty('--row-step-top',(row.offsetTop+(cover?cover.offsetHeight/2:row.clientHeight/2))+'px');};
+ const steps=row=>{
+  const section=row.parentElement;if(row.dataset.rowSteps||!section||!finePointer.matches)return;row.dataset.rowSteps='1';section.classList.add('has-row-steps');
+  const step=(direction,label,path)=>{const b=document.createElement('button');b.type='button';b.className='row-step '+(direction<0?'previous':'next');b.setAttribute('aria-label',label);b.tabIndex=-1;b.hidden=true;b.innerHTML=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${path}"/></svg>`;
+   b.onclick=()=>{const inset=parseFloat(getComputedStyle(row).paddingLeft)||0;row.scrollBy({left:direction*Math.max(120,row.clientWidth-2*inset-40),behavior:reduced.matches?'auto':'smooth'});};return b;};
+  const prev=step(-1,'Previous books','m15 5-7 7 7 7'),next=step(1,'More books','m9 5 7 7-7 7');
+  row.after(prev,next);
+  const update=()=>ends(row,prev,next);
+  row.addEventListener('scroll',update,{passive:true});section.addEventListener('pointerenter',()=>{centre(section,row);update();});
+  centre(section,row);update();
+ };
+ const scan=()=>document.querySelectorAll('.shelf>.book-row:not([data-row-steps])').forEach(steps);
+ const watch=new MutationObserver(()=>requestAnimationFrame(scan));
+ for(const id of ['shelves','collection-books'])if($(id))watch.observe($(id),{childList:true,subtree:true});
+ finePointer.addEventListener?.('change',scan);scan();}
