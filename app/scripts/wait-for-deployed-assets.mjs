@@ -6,6 +6,8 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
+import { createRequire } from 'node:module'
+const { checkHeaders } = createRequire(import.meta.url)('./lib/internalTraffic.cjs')
 
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const dist = path.resolve(process.argv[2] || 'dist')
@@ -20,7 +22,7 @@ const lastProblem = new Map()
 
 async function check(name) {
   try {
-    const response = await fetch(`${origin}/assets/${name}`, { headers: { 'User-Agent': 'Tinct-deploy-asset-wait' }, signal: AbortSignal.timeout(20_000) })
+    const response = await fetch(`${origin}/assets/${name}`, { headers: checkHeaders({ 'User-Agent': 'Tinct-deploy-asset-wait' }), signal: AbortSignal.timeout(20_000) })
     const body = Buffer.from(await response.arrayBuffer())
     if (response.status === 200 && sha(body) === expected.get(name)) { readyAt.set(name, Date.now() - started); return }
     lastProblem.set(name, `status ${response.status}${response.status === 200 ? ' (different bytes)' : ''} cache ${response.headers.get('cf-cache-status')} ray ${response.headers.get('cf-ray')}`)
