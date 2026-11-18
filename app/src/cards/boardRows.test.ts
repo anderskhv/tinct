@@ -11,6 +11,12 @@ const entry = (rank: number, minutes: number, me = false): BoardEntry => ({
 const ranks = (view: ReturnType<typeof boardRows>) => view.rows.map(item => item === 'gap' ? '···' : `${item.rank}${item.me ? ' You' : ''}`)
 
 describe('Leaderboard rows (17 Nov 2026): top 5, the viewer, Show all', () => {
+  it('leaves out readers under a minute: they read "0 m" (18 Nov 2026)', () => {
+    const seconds = (rank: number, s: number, me = false): BoardEntry => ({ ...entry(rank, 0, me), seconds: s })
+    const entries = [entry(1, 30), seconds(2, 59), seconds(3, 20), seconds(4, 40, true), seconds(5, 60)]
+    expect(ranks(boardRows(entries, true))).toEqual(['1', '4 You', '5'])
+  })
+
   it('leaves out readers with 0 m, folded and unfolded', () => {
     const entries = [entry(1, 30), entry(2, 20, true), entry(3, 10), entry(4, 0), entry(5, 0)]
     expect(ranks(boardRows(entries, false))).toEqual(['1', '2 You', '3'])
