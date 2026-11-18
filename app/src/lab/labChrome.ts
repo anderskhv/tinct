@@ -1055,6 +1055,20 @@ export function labUndoShortcut(event: Pick<KeyboardEvent, 'key' | 'code' | 'ctr
   return !labTextEntryFocused(active) && !active?.closest?.('[contenteditable]:not([contenteditable="false"]),[role="textbox"],select')
 }
 
+/**
+ * Ctrl+F (Cmd+F on a Mac) opens the book's own search (Contents, Search), which
+ * finds text in every chapter; the browser's Find only sees the pages on
+ * screen. Never while typing: a text field keeps the browser's Find. Matched by
+ * the key's position too, so a layout whose F key types another letter works.
+ */
+export function labFindShortcut(event: Pick<KeyboardEvent, 'key' | 'code' | 'ctrlKey' | 'metaKey' | 'altKey' | 'shiftKey' | 'isComposing' | 'defaultPrevented'>, active?: Element | null): boolean {
+  if (event.defaultPrevented || event.isComposing || event.altKey || event.shiftKey) return false
+  if (!(event.ctrlKey || event.metaKey) || (event.ctrlKey && event.metaKey)) return false
+  const key = event.key.toLowerCase()
+  if (key !== 'f' && !(event.code === 'KeyF' && !/^[a-z]$/.test(key))) return false
+  return !labTextEntryFocused(active) && !active?.closest?.('[contenteditable]:not([contenteditable="false"]),[role="textbox"],select')
+}
+
 /** Horizontal swipes turn one page only when horizontal intent is unambiguous. */
 export function labSwipePageDirection(
   deltaX: number,

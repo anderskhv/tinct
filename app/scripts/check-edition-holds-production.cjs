@@ -7,7 +7,7 @@ const { offeredDanish } = require('./lib/offeredDanish.cjs')
 const origin = 'https://tinct.app'
 const version = process.env.EXPECTED_BUILD_SHA
 assert.ok(version, 'Pin production evidence to the deployed commit')
-const get = async path => {
+const get = async (path, expectedStatus = 200) => {
   const started = Date.now()
   let response
   console.log('HOLD_FETCH_START', JSON.stringify({ path }))
@@ -20,7 +20,7 @@ const get = async path => {
     })
     console.log('HOLD_FETCH_HEADERS', JSON.stringify({ path, status: response.status,
       elapsedMs: Date.now() - started, ray: response.headers.get('cf-ray') }))
-    assert.equal(response.status, 200, path)
+    assert.equal(response.status, expectedStatus, path)
     const bytes = await response.arrayBuffer()
     console.log('HOLD_FETCH_DONE', JSON.stringify({ path, bytes: bytes.byteLength, elapsedMs: Date.now() - started }))
     return new Response(bytes, { status: response.status, headers: response.headers })
@@ -74,9 +74,19 @@ const get = async path => {
    assert.ok(html.includes('Temporarily unavailable')&&html.includes('heldEdition='+editionKey),identity+' still held')
    results.push({identity,discovery:false,held:true})
  }
+ // Books restricted in the runner's country (regionGate) are refused with 451 there:
+ // check the refusal instead of the served bytes, so the gate itself is verified.
+ const {restrictedBookIds}=await (await get('/api/restricted-books')).json()
+ assert.ok(Array.isArray(restrictedBookIds),'restricted-books answers a list')
  for(const bookId of offeredDanish.map(key=>key.split('/')[0])){
    const identity=bookId+'/modern-da',book=catalogue.books.find(b=>b.id===bookId)
    assert.equal(book.editions.find(e=>e.key==='modern-da')?.discoveryAvailable,true,identity+' offered')
+   if(restrictedBookIds.includes(bookId)){
+     await get('/read/'+bookId+'?edition=modern-da',451)
+     await get('/data/editions/'+bookId+'-modern-da.json?v='+version,451)
+     results.push({identity,restrictedHere:true})
+     continue
+   }
    assert.equal(book.defaultEditionKey,'modern-en',identity+' not a new-reader default')
    assert.notEqual(book.defaultCompareEditionKey,'modern-da',identity+' not a default compare')
    assert.ok(!(await (await get('/read/'+bookId+'?edition=modern-da')).text()).includes('<h2>Temporarily unavailable</h2>'),identity+' not held')

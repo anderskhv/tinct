@@ -16,6 +16,7 @@ import { createServer } from 'node:http'
 import { enforceReaderBundle, openFoldedCardInPlace } from './lib/readerParityAssertions.mjs'
 import { chromium, webkit, devices } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
+import { trackPending, probeStalled } from './lib/bootStallProbe.mjs'
 const dist = path.resolve(process.env.TINCT_DIST || 'dist')
 const server = createServer(async (req, res) => {
   const url = new URL(req.url || '/', 'http://127.0.0.1')
@@ -58,8 +59,14 @@ try {
       localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme, primaryEdition: 'original-en' }))
       Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: async () => { throw Error('Microphone disabled during isolated acceptance') } })
     }, theme)
-    await page.goto(`${origin}/reader?book=frankenstein&chapter=2&paragraph=3&word=4&sharedReader=1&layout=desktop&view=margin&bookScroll=0`)
-    await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true')
+    const boot = trackPending(page)
+    try {
+      await page.goto(`${origin}/reader?book=frankenstein&chapter=2&paragraph=3&word=4&sharedReader=1&layout=desktop&view=margin&bookScroll=0`)
+      await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true')
+    } catch (error) {
+      console.error('BOOT_STALL', JSON.stringify({ width, theme, url: page.url(), probes: await probeStalled(boot.pending) }))
+      throw error
+    } finally { boot.stop() }
     const host = page.getByTestId('continuous-reader')
     await host.waitFor()
     assert.equal(await page.locator('.lab-page-turn').count(), 0, 'desktop margin has no footer page-turn controls')

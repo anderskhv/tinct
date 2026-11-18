@@ -45,6 +45,8 @@ import { PdfNoteField } from './PdfNoteField'
 import { PdfRotateHint } from './PdfRotateHint'
 import { PdfSnipLayer } from './PdfSnipLayer'
 import { snipSource } from './pdfOriginalSnip'
+import { pdfRenderedWordsIn } from './pdfOriginalSelection'
+import { boxOnScreen, LISTEN_PILLS_SETTLE_MS } from '../../labListenFromHere'
 import { pdfCatchUpPages, pdfCompleteUnitPages, pdfDocumentUnit, pdfOriginalUnits, pdfPrimerPages, pdfUnitAt, type PdfOriginalScanOutline, type PdfOriginalUnit, type PdfOriginalUnitRules } from './pdfOriginalUnits'
 import { pdfUnitFrac } from './pdfOriginalUnits'
 import { pdfSectionDetector, usePdfDetectedSections, type PdfSectionDetector } from './usePdfDetectedSections'
@@ -95,6 +97,10 @@ export interface PdfOriginalReaderServices {
   saveUnitNote?: (source: { unit: PdfOriginalUnitSource['unit']; atPage: number; source: { from: number; to: number }; anchor?: { page: number; frac: number } }, note: string) => string | null
   setPdfPageText?: (page: number, text: string, pages: number) => void
   listen?: (page: number, text: string) => void
+  /** Listen from here on a selection: the voice starts at this rendered word of the page (null: the page's start). */
+  listenAt?: (page: number, word: number | null) => Promise<boolean>
+  /** Listen from here off the voice: the first sentence that begins among these on-screen rendered words, page by page. */
+  listenFromScreen?: (pages: Array<{ page: number; words: number[] }>) => Promise<boolean>
   TalkCard?: ComponentType<{ page: number; text: string; selectedText?: string; reference?: string; onClose: () => void }>
 }
 export interface PdfOriginalReaderShellProps extends Pick<PdfOriginalSurfaceProps, 'bytes' | 'initialPlace' | 'onVisiblePlace' | 'onDocument' | 'onSelection'> {
@@ -361,8 +367,104 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   const atUnitEnd = !!unit && unit.to === place.page && endPage === place.page
   const completeUnitPages = unit && atUnitEnd ? pdfCompleteUnitPages(unit) : []
   const pageSelection = (): PdfOriginalSelection => ({ page: place.page, text: currentText, rects: [] })
-  const jump = (page: number, frac = 0) => { cancelPending(); const next = { page: Math.max(1, Math.min(pages || 1, page)), frac: Math.max(0, Math.min(1, frac)) }; setEndPage(null); setRequestedPlace(next); setPlace(next); setPane(null); setSelection(null); setCard(current => current?.saved ? current : null) }
-  useEffect(() => { if (services?.audio?.playing && services.heardPage && services.heardPage !== place.page && services.heardPage <= pages) jump(services.heardPage) }, [services, services?.heardPage, services?.audio?.playing, place.page, pages])
+  const goTo = (page: number, frac = 0) => { cancelPending(); const next = { page: Math.max(1, Math.min(pages || 1, page)), frac: Math.max(0, Math.min(1, frac)) }; setEndPage(null); setRequestedPlace(next); setPlace(next); setPane(null); setSelection(null); setCard(current => current?.saved ? current : null) }
+  // A page the reader goes to while the voice is on is a move off the voice (as a scroll is, below).
+  const jump = (page: number, frac = 0) => { if (listening) browse(true); goTo(page, frac) }
+  /**
+   * Listen from here (Anders, 16 Nov 2026: parity with the text reader). The view goes with the voice when the voice
+   * turns the page, never back to it when the reader scrolls away (that was a snap-back). Once the reader moves off on
+   * their own (a wheel, a drag, the keys, a page turned or chosen), the voice's page turns leave the view where it is,
+   * and when the voice's word has been off screen for a moment two pills offer "Back to the voice" and "Listen from here".
+   */
+  const [browsing, setBrowsing] = useState(false)
+  const browsingRef = useRef(false)
+  const browse = (on: boolean) => { browsingRef.current = on; setBrowsing(on) }
+  const followedRef = useRef<number | null>(null)
+  useEffect(() => {
+    const heard = services?.audio?.playing ? services.heardPage ?? null : null
+    if (!heard) { followedRef.current = null; return }
+    if (heard === followedRef.current || heard > pages) return
+    followedRef.current = heard
+    if (!browsingRef.current && heard !== visiblePage.current) goTo(heard)
+  }, [services, services?.heardPage, services?.audio?.playing, pages])
+  useEffect(() => { if (!listening) browse(false) }, [listening])
+  useEffect(() => {
+    if (!scrollHost || !listening) return
+    const moved = () => { if (!browsingRef.current) browse(true) }
+    const key = (event: KeyboardEvent) => {
+      if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(event.key)
+        && !(event.target instanceof Element && event.target.closest('input, textarea, select, [contenteditable="true"]'))) moved()
+    }
+    // The scroll bar: a press on the scroller itself, not on a page.
+    const bar = (event: PointerEvent) => { if (event.target === scrollHost) moved() }
+    scrollHost.addEventListener('wheel', moved, { passive: true })
+    scrollHost.addEventListener('touchmove', moved, { passive: true })
+    scrollHost.addEventListener('pointerdown', bar)
+    window.addEventListener('keydown', key, true)
+    return () => { scrollHost.removeEventListener('wheel', moved); scrollHost.removeEventListener('touchmove', moved); scrollHost.removeEventListener('pointerdown', bar); window.removeEventListener('keydown', key, true) }
+  }, [scrollHost, listening])
+  const servicesRef = useRef(services)
+  servicesRef.current = services
+  /** What the reader sees of the pages: below the top bar, above the phone's page rail. */
+  const readerView = () => {
+    const box = scrollHost!.getBoundingClientRect()
+    const header = root.current?.querySelector('.lab-header')?.getBoundingClientRect()
+    const rail = root.current?.querySelector('.pdf-original-reader__footer')?.getBoundingClientRect()
+    return { top: Math.max(box.top, header && header.height > 0 && header.bottom < box.top + box.height / 2 ? header.bottom : box.top),
+      bottom: Math.min(box.bottom, rail && rail.height > 0 ? rail.top : box.bottom) }
+  }
+  /** The voice's word (or, while an inserted word like "Figure:" is heard, its page) is on screen. */
+  const voiceOnScreen = () => {
+    const page = servicesRef.current?.heardPage
+    if (!page || !scrollHost) return true
+    const sheet = scrollHost.querySelector(`.pdf-original__page[data-page="${page}"]`)
+    const box = (sheet?.querySelector('.pdf-original__follow') ?? sheet)?.getBoundingClientRect()
+    return !!box && boxOnScreen(box, readerView())
+  }
+  const [voicePills, setVoicePills] = useState(false)
+  useEffect(() => {
+    if (!browsing || !listening || !scrollHost) { setVoicePills(false); return }
+    let restingSince = performance.now(), lastView = ''
+    const tick = () => {
+      const now = performance.now(), view = `${Math.round(scrollHost.scrollTop)}`
+      // The view moved: the wait starts again once it rests.
+      if (view !== lastView) { lastView = view; restingSince = now }
+      if (voiceOnScreen()) { restingSince = now; setVoicePills(false); return }
+      if (now - restingSince >= LISTEN_PILLS_SETTLE_MS) setVoicePills(true)
+    }
+    tick()
+    const timer = window.setInterval(tick, 100)
+    return () => window.clearInterval(timer)
+  }, [browsing, listening, scrollHost])
+  /** Back to the voice: the view goes to the voice's word (its page when the word is not drawn). */
+  const backToVoice = () => {
+    const page = services?.heardPage
+    setVoicePills(false); browse(false)
+    if (!page) return
+    const sheet = scrollHost?.querySelector(`.pdf-original__page[data-page="${page}"]`), mark = sheet?.querySelector('.pdf-original__follow')
+    const sheetBox = sheet?.getBoundingClientRect(), markBox = mark?.getBoundingClientRect()
+    goTo(page, sheetBox && markBox && sheetBox.height > 0 ? Math.max(0, (markBox.top - sheetBox.top) / sheetBox.height - 0.08) : 0)
+  }
+  /** Listen from here: the voice moves to the first sentence that begins on screen; the reader's place stays. */
+  const listenFromHere = () => {
+    setVoicePills(false); browse(false)
+    if (!scrollHost || !services?.listenFromScreen) return
+    const view = readerView()
+    const onScreen = [...scrollHost.querySelectorAll<HTMLElement>('.pdf-original__page[data-page]')]
+      .filter(sheet => boxOnScreen(sheet.getBoundingClientRect(), view))
+      .map(sheet => ({ page: Number(sheet.dataset.page), words: pdfRenderedWordsIn(sheet.querySelector('.pdf-original__text') ?? sheet, view.top, view.bottom) }))
+      .sort((a, b) => a.page - b.page)
+    listenTried.current = true
+    void services.listenFromScreen(onScreen)
+  }
+  /** Listen from here on a selection: the voice starts at the selected word, playing or not. */
+  const listenSelection = services?.listenAt && services.audio?.available && !services.audio.unavailable ? () => {
+    const chosen = selection
+    if (!chosen) return
+    browse(false); setSelection(null); window.getSelection()?.removeAllRanges()
+    listenTried.current = true
+    void services.listenAt?.(chosen.page, chosen.word ?? null)
+  } : undefined
   const run = async (kind: string, source: PdfOriginalSelection, question?: string) => {
     if (!services || !source.text.trim()) { setStatus(source.text.trim() ? serviceStatus || 'This action is unavailable.' : 'There is no usable text on this page.'); return }
     if (kind === 'quiz') {
@@ -782,7 +884,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       <button type="button" onClick={dismissOffer}>Keep pages</button>
     </div>}
     <main className="lab-body"><div className="lab-page-wrap"><PdfContinuousSurface headingActionsInMargin={!phone} sections={units.flatMap(entry => entry.frac === undefined ? [] : [{ key: entry.key, title: entry.title, page: entry.start, frac: entry.frac }])} bytes={bytes} initialPlace={initialPlace} requestedPlace={requestedPlace} onScrollHost={setScrollHost} onRegionCapture={services?.setPdfRegionCapture} onFigureAction={(action, source) => { if (action === 'highlight') { services?.saveHighlight(source, 'gold'); setRevision(n => n + 1) } else if (services?.cards.some(item => item.kind === 'figure' && item.page === source.page && JSON.stringify(item.rects) === JSON.stringify(source.rects.map(rect => rect.map(n => Math.round(n * 10000) / 10000))))) { const existing = services.cards.find(item => item.kind === 'figure' && item.page === source.page && JSON.stringify(item.rects) === JSON.stringify(source.rects.map(rect => rect.map(n => Math.round(n * 10000) / 10000))))!; openSavedCard(existing) } else if (action === 'ask') { setSelection(null); setQuestion(''); setCard({ kind: 'ask-compose', selection: source, text: '' }) } else void run('explain', source) }} headingActions={headingActions} activeCardId={card?.id} onSourceActivate={source => { if (source.kind === 'card') { const item = services?.cards.find(item => item.id === source.id); if (item) openSavedCard(item) } else { const item = services?.marks.find(item => item.id === source.id); if (item) openSavedMark(item) } }} highlights={withCardSource(services?.marks, card ?? (askingSelection && selection ? { selection } : null))} cards={services?.cards} follow={services?.follow} phone={phone} initialZoom={surfaceZoom} requestedZoom={surfaceZoom} onZoom={value => { if (!marginLayout) chooseZoom(sideways ? value * PDF_CARDS_ZOOM : value) }} onZoomRequest={marginLayout ? chooseZoom : undefined} zoomBase={marginLayout ? pageZoom : undefined} onZoomLimit={setPageZoomLimit} onVisiblePlace={next => { if (visiblePage.current !== next.page) { setTurnPage(next.page); if (phone) cancelPending(); setEndPage(null); setSelection(null); setBarState('menu'); setCard(current => current?.kind === 'talk' ? null : phone && !current?.saved ? null : current) }; visiblePage.current = next.page; setPlace(next); onVisiblePlace(next) }} onDocument={count => { pageCount.current = count; setPages(count); onDocument?.(count) }} onOutline={setOutline} onPageEnd={(page, atEnd) => setEndPage(current => atEnd ? page : current === page ? null : current)} onPageText={(page, text) => { setPageText(current => current[page] === text ? current : { ...current, [page]: text }); services?.setPdfPageText?.(page, text, pageCount.current) }} onSelection={next => { const selected = window.getSelection(); const range = selected?.rangeCount ? selected.getRangeAt(0) : null; const rect = range && typeof range.getBoundingClientRect === 'function' ? range.getBoundingClientRect() : null; if (rect?.width) setSelectionPoint({ x: rect.left, y: rect.top }); setSelection(next); setBarState('menu'); onSelection?.(next); setStatus('') }} /></div></main>
-    {phone && unit && atUnitEnd && !selection && !card && <aside className="pdf-original-reader__unit-actions" aria-label={`After ${unit.title || 'these pages'}`}>
+    {phone && unit && atUnitEnd && !selection && !card && !voicePills && <aside className="pdf-original-reader__unit-actions" aria-label={`After ${unit.title || 'these pages'}`}>
       <strong>After {unit.title || `pages ${unit.from}–${unit.to}`}</strong>
       {currentText && completeUnitPages.length > 0 && services?.getPageText && services.askUnit && services.saveUnitCard && <button onClick={() => void runUnit('recap', completeUnitPages)}>Summary</button>}
       {currentText && completeUnitPages.length > 0 && services?.getPageText && services.askUnitQuiz && services.askUnitQuizCheck && services.saveUnitQuizCardWithId && <button onClick={() => void runUnitQuiz()}>Quiz me</button>}
@@ -793,13 +895,17 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       <button className="lab-chapter-progress is-interactive" onClick={() => setPane('contents')} aria-label={`Page ${place.page}${pages ? ` of ${pages}` : ''}. Contents`}><span className="lab-chapter-progress-info">Page {place.page}{pages ? ` of ${pages}` : ''}</span></button>
       <button className="lab-page-turn-btn" aria-label="Next PDF page" disabled={!pages || place.page >= pages} onClick={() => jump(place.page + 1)}>›</button>
     </nav>}
-    {selection && !handheld && !card && <SelectionDeskBar sharedReader onAskOpenChange={setAskingSelection} getAnchor={() => sourceAnchor(selection)} state={barState} color={highlightColor} marked={highlightedSelection === selection} noted={false} moreRows={[[ 'define', 'factcheck', 'counterpoint', ...(services?.askQuizCheck ? ['quiz' as const] : []) ], ['copy']]} fallback={selectionPoint} onAsk={() => { setQuestion(''); setCard({ kind: 'ask-compose', selection, text: '' }) }} onAskQuestion={question => void run('ask', selection, question)} onExplain={() => void run('explain', selection)} onSimplify={() => void run('simplify', selection)} onMore={more} onHighlight={() => { if (highlightedSelection === selection) setBarState('colors'); else highlight(highlightColor, true) }} onSwatch={highlight} onNote={() => { setNote(''); setCard({ kind: 'note', selection, text: '' }) }} onRemove={() => setSelection(null)} />}
+    {voicePills && <div className="pdf-original-reader__listen-pills"><div className="lab-listen-pills" data-testid="lab-listen-pills">
+      <button type="button" className="lab-listen-pill" data-testid="lab-back-to-voice" onClick={backToVoice}><span aria-hidden="true">↑</span> Back to the voice</button>
+      <button type="button" className="lab-listen-pill is-primary" data-testid="lab-listen-from-here" onClick={listenFromHere}><span aria-hidden="true">▶</span> Listen from here</button>
+    </div></div>}
+    {selection && !handheld && !card && <SelectionDeskBar sharedReader onListen={listenSelection} onAskOpenChange={setAskingSelection} getAnchor={() => sourceAnchor(selection)} state={barState} color={highlightColor} marked={highlightedSelection === selection} noted={false} moreRows={[[ 'define', 'factcheck', 'counterpoint', ...(services?.askQuizCheck ? ['quiz' as const] : []) ], ['copy']]} fallback={selectionPoint} onAsk={() => { setQuestion(''); setCard({ kind: 'ask-compose', selection, text: '' }) }} onAskQuestion={question => void run('ask', selection, question)} onExplain={() => void run('explain', selection)} onSimplify={() => void run('simplify', selection)} onMore={more} onHighlight={() => { if (highlightedSelection === selection) setBarState('colors'); else highlight(highlightColor, true) }} onSwatch={highlight} onNote={() => { setNote(''); setCard({ kind: 'note', selection, text: '' }) }} onRemove={() => setSelection(null)} />}
     {snipping && !pane && <PdfSnipLayer host={scrollHost} onCancel={() => setSnipping(false)} onPick={pick => {
       setSnipping(false)
       if (services?.captureRegion) void run('explain', snipSource(pick.page, pick.region, pick.caption, services.captureRegion))
     }} />}
-    {!selection && !card && !pane && !snipping && !conversionBar && <PdfRotateHint bookId={bookId} handheld={device.handheld} landscape={device.landscape} ready={pages > 0} />}
-    {selection && handheld && !card && <LabPhoneBar withDefine existingColor={highlightedSelection === selection ? highlightColor : undefined} text={selection.text} fallbackX={selectionPoint.x} fallbackY={selectionPoint.y}
+    {!selection && !card && !pane && !snipping && !conversionBar && !voicePills && <PdfRotateHint bookId={bookId} handheld={device.handheld} landscape={device.landscape} ready={pages > 0} />}
+    {selection && handheld && !card && <LabPhoneBar withDefine onListen={listenSelection} existingColor={highlightedSelection === selection ? highlightColor : undefined} text={selection.text} fallbackX={selectionPoint.x} fallbackY={selectionPoint.y}
       onAsk={() => { setQuestion(''); setCard({ kind: 'ask-compose', selection, text: '' }) }}
       onExplain={() => void run('explain', selection)} onSimplify={() => void run('simplify', selection)}
       onMore={more} onHighlight={color => highlight(color, highlightedSelection !== selection)}

@@ -34,7 +34,7 @@ import {
 import { handleAdminIssues } from './worker/routes/adminIssues'
 import { handleEvents, recordServerEvent } from './worker/routes/events'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
-import { handleAdminDeleteUser, handleAdminExportUser } from './worker/routes/adminAccounts'
+import { handleAdminDeleteUser, handleAdminExportUser, handleAdminPositionHistory } from './worker/routes/adminAccounts'
 import { ACCOUNT_DELETE_PATH, handleAccountDelete } from './worker/routes/accountDelete'
 import { handleChat, handleLabChat } from './worker/routes/chat'
 import { handleDictation } from './worker/routes/dictation'
@@ -92,6 +92,7 @@ import {
 import { handleReadingTime } from './worker/routes/readingTime'
 import { handleGoogleAuth, isGoogleAuthPath } from './worker/routes/googleAuth'
 import { BEAT_MIN_GAP_MS } from './readingTime/model'
+import { regionGate, regionResponse, shareRegion } from './worker/lib/regionGate'
 
 
 interface Env {
@@ -332,7 +333,7 @@ const worker = {
     if (url.pathname === '/api/share' || url.pathname.startsWith('/api/share/')) {
       return handleShareApi(request, env, ctx, { verifyUser: req => verifyUser(env, req), checkRateLimit })
     }
-    const sharePage = url.pathname.startsWith('/q/') ? await handleSharePage(request, env, ctx) : null
+    const sharePage = url.pathname.startsWith('/q/') ? await handleSharePage(request, env, ctx, shareRegion(request)) : null
     if (sharePage) return sharePage
 
     if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) {
@@ -471,6 +472,7 @@ const worker = {
       case '/api/admin/modern-diagnostics': return handleModernDiagnostics(request, env, verifySiteAdmin)
       case '/api/admin/export-user': return handleAdminExportUser(request, env, verifySiteAdmin)
       case '/api/admin/delete-user': return handleAdminDeleteUser(request, env, verifySiteAdmin)
+      case '/api/admin/position-history': return handleAdminPositionHistory(request, env, verifySiteAdmin)
       // The reader's own Delete account (Settings → Account): the same erasure, for the caller's own account.
       case ACCOUNT_DELETE_PATH: {
         const response = await handleAccountDelete(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit })
@@ -517,7 +519,10 @@ export default {
   ...worker,
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     try {
-      return await worker.fetch(request, env, ctx)
+      // Books not served in the request's country (lib/regionGate.ts): decided per request, never stored.
+      const gated = await regionGate(request, env)
+      if (gated instanceof Response) return gated
+      return await regionResponse(request, await worker.fetch(gated ?? request, env, ctx))
     } catch (error) {
       if (!(error instanceof AuthUnavailableError)) throw error
       console.warn(JSON.stringify({ event: 'auth_unavailable', reason: error.reason }))

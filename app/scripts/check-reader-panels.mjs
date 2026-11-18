@@ -1,5 +1,6 @@
 import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
+import { trackPending, probeStalled } from './lib/bootStallProbe.mjs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -114,20 +115,18 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   // These legacy spread/foot/Next regressions intentionally exercise the
   // shared reader's Classic layout after the public default moves to Margin.
   // Phone keeps its familiar paged Read/Compare surface.
-  const pending = new Set()
-  const started = request => pending.add(request)
-  const finished = request => pending.delete(request)
-  page.on('request', started); page.on('requestfinished', finished); page.on('requestfailed', finished)
+  const tracker = trackPending(page)
+  const pending = tracker.pending
   try {
   await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?view=two-page') + (fixture.sharedReader ? '&sharedReader=1' : ''), {waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   } catch(error) {
-    const diagnostic={bookId,edition,chapterNumber,phone,url:page.url(),pending:[...pending].map(request=>({url:request.url(),resourceType:request.resourceType()})),errors,networkFailures,warnings:warnings.slice(-8),ui:await visibleText(page,3500)}
+    const diagnostic={bookId,edition,chapterNumber,phone,url:page.url(),pending:[...pending.keys()].map(request=>({url:request.url(),resourceType:request.resourceType()})),probes:await probeStalled(pending),errors,networkFailures,warnings:warnings.slice(-8),ui:await visibleText(page,3500)}
     await page.screenshot({path:output+'/boot-failure-'+bookId+'-'+chapterNumber+'-'+Date.now()+'.png'}).catch(()=>{})
     await context.close()
     throw new Error('Reader boot failed: '+JSON.stringify(diagnostic),{cause:error})
   } finally {
-    page.off('request', started); page.off('requestfinished', finished); page.off('requestfailed', finished)
+    tracker.stop()
   }
   await page.evaluate(()=>document.fonts.ready)
   await page.waitForTimeout(700)
@@ -847,29 +846,6 @@ async function mobileChromeRegression(engine,name){
   }finally{await browser.close();results.push(result)}
 }
 
-async function designReference(){
-  if(live)return
-  const browser=await markInternal(await chromium.launch({headless:true,args:['--mute-audio']}))
-  try{
-    const state=await boot(browser,false)
-    const {page}=state
-    await page.goto('about:blank')
-    const original=await fs.readFile('../docs/verification/reader-design1-2026-09-21/chapter-picker-approved.html','utf8')
-    const icons={search:'m21 21-4.34-4.34M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
-      highlighter:'m9 11-6 6v3h9l3-3 M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4',
-      'chevron-right':'m9 18 6-6-6-6',x:'m18 6-12 12M6 6l12 12','message-circle':'M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z'}
-    // Supply the prototype's icon runtime and approved font from the same
-    // self-hosted files as production. Its illustrative records stay unchanged.
-    const prefix='<base href="https://tinct.app/"><link rel="stylesheet" href="/fonts/tinct-fonts.css"><style>body{margin:0;color-scheme:light}@font-face{font-family:Inter;font-weight:100 900;src:url(/fonts/inter-variable.woff2)}</style><script>window.lucide={createIcons(){const paths='+JSON.stringify(icons)+';document.querySelectorAll("[data-lucide]").forEach(n=>{const s=document.createElementNS("http://www.w3.org/2000/svg","svg");s.setAttribute("viewBox","0 0 24 24");s.setAttribute("fill","none");s.setAttribute("stroke","currentColor");s.setAttribute("stroke-linecap","round");s.setAttribute("stroke-linejoin","round");const p=document.createElementNS(s.namespaceURI,"path");p.setAttribute("d",paths[n.dataset.lucide]||"");s.append(p);n.replaceWith(s)})}}<\/script>'
-    for(const size of ['desktop','mobile']){
-      await page.setViewportSize(size==='mobile'?{width:390,height:844}:{width:1440,height:900})
-      await page.setContent(prefix+original.replace(/<link[^>]*>/,'').replace("size:'desktop'","size:'"+size+"'"))
-      await page.evaluate(()=>document.fonts.ready)
-      await page.waitForTimeout(150)
-      await page.locator('#chapter-review .menu').screenshot({path:output+'/design-reference-'+size+'.png'})
-    }
-  }finally{await browser.close()}
-}
 async function feedbackRegression(engine,name,phone) {
   const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   const result={engine:name,layout:phone?'phone-feedback':'desktop-feedback',live}
@@ -1167,7 +1143,6 @@ async function libraryContinueKeepsPage(engine,name,phone) {
 }
 
 if(process.env.READER_PAINT_PROBE==='1')await safariPaintProbe()
-if(process.env.READER_MENU_ONLY!=='1')await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await menuRedesign(engine,name,phone)

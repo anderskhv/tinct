@@ -175,6 +175,14 @@ export interface Book {
    * noModernEdition.test.ts.
    */
   noModernEdition?: boolean
+  /**
+   * ISO 3166-1 alpha-2 countries (upper case) where the work is probably still
+   * in copyright, so Tinct's editions, narration and other text derived from it
+   * are not served to a request whose country is known to be one of them
+   * (src/data/regionRestrictions.ts, src/worker/lib/regionGate.ts). An unknown
+   * country is allowed. Decided per request; the country is never stored.
+   */
+  restrictedCountries?: string[]
 }
 
 // === Chat ===

@@ -7,13 +7,14 @@ import type { NamesakeNotice } from '../../services/characters/characterCards'
 
 /** An unknown name is resolved in its passage before falling back to a lexical
  * definition. Late answers never replace a newer selection. */
-export function DefinitionFallback({ word, request, dictionaryDefinitions, onChat, onTalk, namesakes, onPartOfSpeech }: {
+export function DefinitionFallback({ word, request, dictionaryDefinitions, onChat, onTalk, namesakes, onHeadwordLabel }: {
   word: string
   /**
-   * The card's title shows the part of speech after the word ("tetrarch (noun)", Anders, 12 Nov 2026): called with
-   * the definition's part of speech, or '' when there is none to show. The body then leaves it out.
+   * The card's title carries what the word is after it: "sepulchre · Noun", "Joanna · Minor character",
+   * "Galilee · Place" (Anders, 17 Nov 2026). Called with that label, or '' when there is none to show; the body
+   * then leaves it out.
    */
-  onPartOfSpeech?: (pos: string) => void
+  onHeadwordLabel?: (label: string) => void
   /**
    * Conflicting reviewed links claim this exact tapped span: show only those
    * candidates. Unlinked names use the contextual request below.
@@ -48,17 +49,17 @@ export function DefinitionFallback({ word, request, dictionaryDefinitions, onCha
   // waits for the passage to say who or what it is.
   const dictionaryFirst = !!dictionaryDefinitions?.length && (!/^\p{Lu}/u.test(word.trim()) || (status === 'ready' && answer?.kind === 'definition'))
   const shown = answer?.kind === 'person' || answer?.kind === 'place' || dictionaryFirst || (status === 'ready' && answer?.kind === 'definition')
-  const pos = shown && !dictionaryFirst && answer?.kind === 'definition' && !shared ? splitDefinition(answer.definition).pos : ''
-  const posRef = useRef(onPartOfSpeech)
-  posRef.current = onPartOfSpeech
-  useEffect(() => { posRef.current?.(pos) }, [pos])
-  useEffect(() => () => posRef.current?.(''), [])
+  const label = shown && !shared ? headwordLabel(answer, dictionaryFirst) : ''
+  const labelRef = useRef(onHeadwordLabel)
+  labelRef.current = onHeadwordLabel
+  useEffect(() => { labelRef.current?.(label) }, [label])
+  useEffect(() => () => labelRef.current?.(''), [])
   if (shared) return <div className="popup-character popup-namesakes" data-testid="popup-namesakes">
     <p className="popup-character-subtitle">Several people are called {shared.name} in this book.</p>
     <ul className="popup-character-gallery popup-namesakes-list">{shared.candidates.map(card => <li key={card.id}><strong>{card.name}</strong>{card.subtitle && <span>{card.subtitle}</span>}</li>)}</ul>
   </div>
   if (shown)
-    return <ContextualLookupView answer={answer} ready={status === 'ready'} dictionaryDefinitions={dictionaryFirst ? dictionaryDefinitions : undefined} onChat={onChat} onTalk={onTalk} posInTitle={!!onPartOfSpeech} />
+    return <ContextualLookupView answer={answer} ready={status === 'ready'} dictionaryDefinitions={dictionaryFirst ? dictionaryDefinitions : undefined} onChat={onChat} onTalk={onTalk} labelInTitle={!!onHeadwordLabel} />
   if (status === 'resting') return <div className="popup-define-status">{LAB_COPY.aiResting}</div>
   if (status === 'error') return dictionaryDefinitions?.length
     ? <ContextualLookupView answer={null} dictionaryDefinitions={dictionaryDefinitions} />
@@ -66,33 +67,58 @@ export function DefinitionFallback({ word, request, dictionaryDefinitions, onCha
   return <div className="popup-define-status" role="status" aria-busy="true">Looking up…</div>
 }
 
-/** A card's headword over its definition, with the part of speech after the word: "tetrarch (noun)" (the phone card). */
+const ROLE_LABELS = { major: 'Major character', minor: 'Minor character', uncertain: 'Person in this passage' } as const
+
+/**
+ * What the looked-up word is, for its headword line: a person's role, "Place", or a definition's part of speech in
+ * sentence case ("Noun", "Verb (archaic)"). '' when there is nothing to say: dictionary senses carry no part of speech.
+ */
+export function headwordLabel(answer: PartialContextualLookup | null, dictionaryFirst = false): string {
+  if (answer?.kind === 'person') return answer.importance ? ROLE_LABELS[answer.importance] ?? '' : ''
+  if (answer?.kind === 'place') return 'Place'
+  if (answer?.kind !== 'definition' || dictionaryFirst) return ''
+  const { pos } = splitDefinition(answer.definition)
+  return pos ? pos.charAt(0).toUpperCase() + pos.slice(1) : ''
+}
+
+/**
+ * The label after a headword: " · Noun". The space before it lets the label wrap below the word; the separator and
+ * the label stay together as one unit (Anders, 17 Nov 2026). The label is its own element, so it reads as itself.
+ */
+export function HeadwordLabel({ label }: { label: string }) {
+  return label ? <> <span className="popup-define-pos"><span className="popup-define-sep" aria-hidden="true">·</span> <span>{label}</span></span></> : null
+}
+
+/** A card's headword over its definition, with what the word is after it: "sepulchre · Noun" (the phone and margin cards). */
 export function DefinitionWithHeadword({ headword, className, ...props }: Parameters<typeof DefinitionFallback>[0] & { headword?: string; className: string }) {
-  const [pos, setPos] = useState('')
+  const [label, setLabel] = useState('')
   return <>
-    {headword && <p className={className}>{headword}{pos && <span className="popup-define-pos"> ({pos})</span>}</p>}
-    <DefinitionFallback {...props} onPartOfSpeech={setPos} />
+    {headword && <p className={className}>{headword}<HeadwordLabel label={label} /></p>}
+    <DefinitionFallback {...props} onHeadwordLabel={setLabel} />
   </>
 }
 
 /** The same already-resolved contextual card in a passage popup or a saved original-page card. */
-export function ContextualLookupView({ answer, ready = true, dictionaryDefinitions, onChat, onTalk, posInTitle = false }: {
+export function ContextualLookupView({ answer, ready = true, dictionaryDefinitions, onChat, onTalk, labelInTitle = false }: {
   answer: PartialContextualLookup | null
   ready?: boolean
-  /** The title already shows the part of speech ("tetrarch (noun)"); a saved card without one shows it here. */
-  posInTitle?: boolean
+  /**
+   * The title already shows the role, "Place" or the part of speech ("sepulchre · Noun"); a saved card without a
+   * headword shows it in the body.
+   */
+  labelInTitle?: boolean
   dictionaryDefinitions?: string[]
   onChat?: (text: string) => void
   onTalk?: (text: string) => void
 }) {
   if (answer?.kind === 'person') return <div className="popup-character" data-testid="popup-contextual-character" aria-busy={!ready}>
-    <small>{answer.importance === 'major' ? 'Major character' : answer.importance === 'minor' ? 'Minor character' : answer.importance === 'uncertain' ? 'Person in this passage' : '\u00a0'}</small>
+    {!labelInTitle && <small>{headwordLabel(answer) || '\u00a0'}</small>}
     {answer.subtitle && <p className="popup-character-subtitle">{answer.subtitle}</p>}
     {answer.body && <p>{answer.body}</p>}
     {ready && actions(personText(answer as PersonCard), answer.name, onChat, onTalk)}
   </div>
   if (answer?.kind === 'place') return <div className="popup-character popup-place" data-testid="popup-contextual-place" aria-busy={!ready}>
-    <small>Place</small>
+    {!labelInTitle && <small>Place</small>}
     {answer.description && <p className="popup-character-subtitle">{answer.description}</p>}
     {ready && actions(`${answer.name}: ${answer.description}`, answer.name, onChat, onTalk)}
   </div>
@@ -103,7 +129,7 @@ export function ContextualLookupView({ answer, ready = true, dictionaryDefinitio
   const { label, sense, here } = splitDefinition(definitions[0])
   // A card without a headword (a saved one) keeps the part of speech where the answer wrote it.
   return <div className="popup-define-result" data-testid="popup-define-single">
-    <p className="popup-define-list popup-define-sense">{posInTitle ? sense : `${label}${sense}`}</p>
+    <p className="popup-define-list popup-define-sense">{labelInTitle ? sense : `${label}${sense}`}</p>
     {here && <p className="popup-define-list popup-define-here">{here}</p>}
   </div>
 }

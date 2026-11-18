@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { expect, it } from 'vitest'
-import { markPdfTextFurniture, pdfFurnitureIndexes, pdfSelectionLineRects } from './pdfOriginalSelection'
+import { markPdfTextFurniture, pdfFurnitureIndexes, pdfRenderedWord, pdfRenderedWordsIn, pdfSelectionLineRects } from './pdfOriginalSelection'
 import type { PdfOriginalPage } from './PdfOriginalSurface'
 const view = { width: 600, height: 800, transform: [1, 0, 0, -1, 0, 800] } as ReturnType<PdfOriginalPage['getViewport']>
 const item = (str: string, top: number, size = 12, shear = 0) => ({ str, transform: [size, 0, shear, size, 50, 800 - top], width: 100, height: size })
@@ -65,4 +65,20 @@ it('keeps whole words and honest per-page fragments across a native range while 
     if (prior) Object.defineProperty(Range.prototype, 'getClientRects', prior)
     else delete (Range.prototype as Partial<Range>).getClientRects
   }
+})
+
+it('finds the rendered word at a point in the text layer and the words on screen, counted as the voice counts them', () => {
+  const layer = document.createElement('div')
+  layer.className = 'pdf-original__text'
+  const items = [item('A heading', 60), item('', 70), item('First line of text', 100), item('second line', 115)]
+  for (const entry of items) { if (!entry.str) continue; const span = document.createElement('span'); span.textContent = entry.str; layer.append(span) }
+  markPdfTextFurniture(layer, items, view)
+  const spans = [...layer.querySelectorAll('span')]
+  const at = (span: number, offset: number) => pdfRenderedWord(spans[span].firstChild!, offset)
+  expect(at(0, 0)).toBe(0)
+  expect(at(1, 6)).toBe(3)
+  expect(at(1, 5)).toBe(3)
+  expect(at(2, 0)).toBe(6)
+  spans.forEach((span, i) => { span.getBoundingClientRect = () => ({ top: 100 + i * 20, bottom: 112 + i * 20, height: 12 } as DOMRect) })
+  expect(pdfRenderedWordsIn(layer, 115, 160)).toEqual([2, 3, 4, 5, 6, 7])
 })

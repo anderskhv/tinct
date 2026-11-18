@@ -10,8 +10,8 @@ import { LabMarkdown } from './LabMarkdown'
 // keys, press-and-hold and look live in public/lab/chat-thread.{js,css}, which
 // the PDF reader for a reader's own books loads too.
 import {
-  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, fitSpacer, ICONS, keptCopyIndex, lastQuestion, latestPill,
-  questionTop, scrollToLatest, threadRows, timeLabel, WAIT_HTML, BACK_TO_BOOK_HTML,
+  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, fitSpacer, ICONS, keptCopyIndex, lastQuestion,
+  questionTop, threadRows, timeLabel, WAIT_HTML, BACK_TO_BOOK_HTML,
 } from '../../public/lab/chat-thread.js'
 import '../../public/lab/chat-thread.css'
 
@@ -157,10 +157,8 @@ export function LabAskPane({
     const field = textareaRef.current
     if (field) fitComposer(field)
   }, [draft])
-  // The "Latest" pill: the reader scrolled up and something new arrived below (latestPill).
-  const [away, setAway] = useState(false)
-  const latestRef = useRef<ReturnType<typeof latestPill> | null>(null)
-  latestRef.current ??= latestPill()
+  // No "Latest" pill (Anders, 17 Nov 2026: "it just popped up in my face"): the sent question is held near the
+  // top, its answer grows under it, and the reader scrolls the thread on their own.
   const copyTurn = async (turn: LabAskTurn) => {
     try {
       await navigator.clipboard.writeText(turn.content)
@@ -242,16 +240,10 @@ export function LabAskPane({
     return Array.from(node.querySelectorAll<HTMLElement>('[data-turn-id]')).find(row => row.dataset.turnId === id) ?? null
   }
 
-  /** The Latest pill: never where the thread put the view (after a send, on open); only once the reader scrolled up and more arrived below. */
-  const measureAway = useCallback((node: HTMLDivElement) => {
-    setAway(latestRef.current!.shows(node, pinnedScrollTopRef.current === null))
-  }, [])
-
   const pinToBottom = useCallback((node: HTMLDivElement) => {
     node.scrollTop = node.scrollHeight
     pinnedScrollTopRef.current = node.scrollTop
     nearBottomRef.current = true
-    latestRef.current!.placed(node)
   }, [])
 
   /**
@@ -267,7 +259,6 @@ export function LabAskPane({
       node.scrollTop = top
       pinnedScrollTopRef.current = node.scrollTop
       nearBottomRef.current = false
-      latestRef.current!.placed(node)
     }
   }, [])
 
@@ -284,7 +275,6 @@ export function LabAskPane({
     const node = threadRef.current
     if (!node) return
     if (hidden > 0 && node.scrollTop <= LAB_ASK_LOAD_MORE_PX && revealAnchorRef.current === null) {
-      measureAway(node)
       revealOlder()
       return
     }
@@ -293,7 +283,7 @@ export function LabAskPane({
     // makes the thread taller than its writing space for a moment, and WebKit
     // reports that scroll before the resize observer refits the space. Put
     // the question back near the top (14 Oct 2026: it sat at the foot with
-    // the Latest pill over its answer).
+    // its answer out of view).
     const held = anchorRow(node)
     const pinned = pinnedScrollTopRef.current
     if (held && pinned !== null && node.scrollTop < pinned - 1 && node.scrollTop >= node.scrollHeight - node.clientHeight - 1) {
@@ -302,10 +292,9 @@ export function LabAskPane({
       pinnedScrollTopRef.current = null
       nearBottomRef.current = isNearBottom(node)
     }
-    measureAway(node)
     // anchorRow reads refs only.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hidden, holdQuestion, measureAway, revealOlder])
+  }, [hidden, holdQuestion, revealOlder])
 
   // Older turns were prepended: keep the reader's line still.
   useLayoutEffect(() => {
@@ -315,7 +304,6 @@ export function LabAskPane({
     revealAnchorRef.current = null
     const grown = node.scrollHeight - anchor.scrollHeight
     node.scrollTop = Math.max(0, anchor.scrollTop + grown)
-    latestRef.current!.shift(grown)
     pinnedScrollTopRef.current = null
     nearBottomRef.current = isNearBottom(node)
   }, [hidden])
@@ -377,11 +365,10 @@ export function LabAskPane({
       // follow only a reader who is already at the bottom.
       if ((newTurn && lastTurn.role === 'user') || !desktopCompanion && (pinnedScrollTopRef.current !== null || nearBottomRef.current)) pinToBottom(node)
     }
-    measureAway(node)
     didPositionThreadRef.current = true
     repinRef.current = false
     lastTurnIdRef.current = lastTurn?.id ?? null
-  }, [desktopCompanion, focusTurnId, hidden, holdQuestion, measureAway, pinToBottom, turns, typedLoading])
+  }, [desktopCompanion, focusTurnId, hidden, holdQuestion, pinToBottom, turns, typedLoading])
 
   const focusedTurnRef = useRef<string | null>(null)
   useLayoutEffect(() => {
@@ -419,7 +406,6 @@ export function LabAskPane({
         // The keyboard closing after send: the question stays where it was put,
         // unless the reader has scrolled since.
         holdQuestion(current, held, pinnedScrollTopRef.current !== null)
-        measureAway(current)
         return
       }
       const resizedClean = cleanOpenRef.current && (pinnedScrollTopRef.current !== null || nearBottomRef.current)
@@ -432,7 +418,7 @@ export function LabAskPane({
     return () => observer.disconnect()
     // anchorRow reads refs only.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [desktopCompanion, empty, holdQuestion, measureAway, pinToBottom])
+  }, [desktopCompanion, empty, holdQuestion, pinToBottom])
 
   const submit = () => {
     if (typedLoading) return
@@ -597,12 +583,6 @@ export function LabAskPane({
       </div>
     </form>
   )
-  const latestNode = (
-    <button type="button" className="tc-latest" data-testid="lab-ask-latest" hidden={!away} onClick={() => {
-      const node = threadRef.current
-      if (node) scrollToLatest(node)
-    }}><span dangerouslySetInnerHTML={{ __html: ICONS.down }} />Latest</button>
-  )
   return (
     <aside
       style={minimized && desktopCompanion ? { display: 'none' } : undefined}
@@ -693,7 +673,6 @@ export function LabAskPane({
           <div className="tc-spacer" data-testid="lab-ask-thread-spacer" ref={spacerRef} aria-hidden="true" />
         </div>
         {!empty && <div className="tc-fade" aria-hidden="true" />}
-        {latestNode}
       </div>
       {phoneSheet ? (
         <div className="lab-ask-chrome tc-chrome" data-testid="lab-ask-chrome">

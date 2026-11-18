@@ -1,6 +1,7 @@
 import type { ReaderPositionCoordinator } from '../readerPositionCoordinator'
 import { jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
+import { parsePositionWriteClient } from '../lib/positionHistory'
 import {
   mergeLabPositionStatesByTime,
   parseLabPositionState,
@@ -74,7 +75,9 @@ export async function handleLabPosition(
 
   const incoming = parseLabPositionState(parsed, user.id)
   if(coordinator){
-    try { return reply(await coordinator.update(user.id,incoming)) }
+    // `client` (tab, build, reason) only labels the write history; the merge never sees it.
+    const client = parsePositionWriteClient((parsed as { client?: unknown } | null)?.client)
+    try { return reply(await coordinator.update(user.id,incoming,client)) }
     catch { return jsonResponse({error:'Position sync temporarily unavailable'},503,request) }
   }
   const current = await readStored(env, user.id)

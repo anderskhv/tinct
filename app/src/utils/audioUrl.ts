@@ -21,8 +21,8 @@ function workerOrigin(): string {
 }
 
 /**
- * Resolve a relative audio path (e.g. "antigone/original-en/ch1/p001.mp3" or
- * "disclaimer-en.mp3") to a fetchable URL. Use this in BottomBar.tsx
+ * Resolve a relative audio path (e.g. "antigone/original-en/ch1/p001.mp3") to a
+ * fetchable URL. Use this in BottomBar.tsx
  * and other audio callers instead of building direct R2 URLs.
  *
  * `kind: 'file'` returns audio (audio/mpeg). `kind: 'manifest'` returns
