@@ -7563,8 +7563,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             onFollowBack={() => { void followBackFromMenu() }}
             onOpenRequests={openRequestsFromMenu}
           />}
-          // The reading angle's row (Anders, 16 Nov 2026), where the start actions held it until then.
-          readingAngle={sharedReader || marginPhone ? bookAngle : undefined}
+          // No Reading angle row: the angle is set in AI settings, This book (Anders, 18 Nov 2026).
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
