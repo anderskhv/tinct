@@ -131,3 +131,21 @@ Anders: Talk and follow-ups should be **fully open and live**. The more real it 
 - A signed-in visitor is redirected to the app.
 - `noindex` is set, the page is not in the sitemap, and nothing links to it.
 - `npm test` and `npm run build` pass, there's a PR with screenshots, and it is **not deployed**.
+
+## Decision status (18 Nov 2026)
+
+**Approved by Anders. Build these:**
+- Headline "No text is beyond you." with no subline; the five benefit-led steps above.
+- The margin reader on desktop; every action lands in the margin as cards (D1–D9). Use production tinct.app as the visual reference, not older local builds.
+- The follow-up continues inside the Explain card, not in a separate chat.
+- Meditations Book 2 as the opening passage.
+- Desktop: one step at a time on the left. Phone: a step card, then a row with the book picker and Original | Modern English, then the reader, all the same width (M1–M9).
+- Phone bottom strip: option D, text only above a hairline.
+- Live AI with this page's own budget, and the sign-up card when it runs out.
+- Unlisted `/try`, signed-in readers redirected, **not launched**. It becomes `/about` later.
+
+**Proposed. Wait for Anders's OK before building:**
+- **Where it lives:** rename to `/about` once tested. Link to it as "See how it works →" from the landing page, from first visits to `/read/{book}`, and from the footers.
+- **Launch video:** link to this page, using `?ref=launch` to count visits and sign-ups.
+- **Launch-day budget:** a higher daily budget for this page on launch day, around $50–100.
+- **Later:** test this page as the home page for signed-out visitors against the current landing page.
