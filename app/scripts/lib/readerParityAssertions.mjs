@@ -105,12 +105,27 @@ export async function assertBareDesktopHeader(page) {
   return controls
 }
 
+/**
+ * The runner's connection to production is occasionally reset mid-request (read ECONNRESET twice
+ * on 18 Nov 2026, before any assertion ran). Retry such transport errors; any HTTP answer is
+ * returned as is, so a wrong build still fails.
+ */
+async function fetchWithRetry(route, attempts = 3) {
+  for (let attempt = 1; ; attempt += 1) {
+    try { return await route.fetch() } catch (error) {
+      const transient = /ECONNRESET|ETIMEDOUT|ECONNREFUSED|socket hang up|EPIPE/i.test(String(error?.message))
+      if (!transient || attempt >= attempts) throw error
+      await new Promise(resolve => setTimeout(resolve, 1000 * attempt))
+    }
+  }
+}
+
 /** Refuse stale HTML or another emitted entry when acceptance names an exact build. */
 export async function enforceReaderBundle(route, expected) {
   if (!expected) return false
   const url = new URL(route.request().url())
   if (url.pathname === '/reader') {
-    const response = await route.fetch()
+    const response = await fetchWithRetry(route)
     const html = await response.text()
     const entries = [...html.matchAll(/\/assets\/index-[\w-]+\.js/g)].map(match => match[0])
     assert(response.status() === 200 && entries.length === 1 && entries[0] === expected,

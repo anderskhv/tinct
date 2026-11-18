@@ -4,6 +4,9 @@
 // the runner, so the evidence says whether the file was unavailable at the edge (status,
 // timing, cache headers) or only the browser's connection stalled. Diagnostic only: it never
 // changes a check's verdict.
+import { createRequire } from 'node:module'
+const { checkHeaders } = createRequire(import.meta.url)('./internalTraffic.cjs')
+
 export function trackPending(page) {
   const pending = new Map()
   const started = request => pending.set(request, Date.now())
@@ -24,7 +27,7 @@ export async function probeStalled(pending, { limit = 8, timeoutMs = 15_000 } = 
     const started = Date.now()
     const base = { url, resourceType: request.resourceType(), pendingMs: now - since }
     try {
-      const response = await fetch(url, { headers: { 'User-Agent': 'Tinct-boot-stall-probe' }, signal: AbortSignal.timeout(timeoutMs) })
+      const response = await fetch(url, { headers: checkHeaders({ 'User-Agent': 'Tinct-boot-stall-probe' }), signal: AbortSignal.timeout(timeoutMs) })
       const body = await response.arrayBuffer()
       const h = name => response.headers.get(name)
       return { ...base, status: response.status, ms: Date.now() - started, bytes: body.byteLength,

@@ -61,6 +61,37 @@ export function readLabDeviceId(): string {
   }
 }
 
+/** sessionStorage: one random id per tab, so the server's write history can tell tabs apart. */
+export const LAB_POSITION_TAB_KEY = 'tinct-lab-tab-id'
+const randomHex = (bytes: number) => createLabDeviceId().replace(/-/g, '').slice(0, bytes * 2)
+// A duplicated tab copies sessionStorage, so the id also carries this page load's own suffix.
+const PAGE_LOAD_ID = randomHex(2)
+let tabId: string | null = null
+
+/** `<tab>.<page load>`: diagnostics only, sent with each PUT (worker/lib/positionHistory.ts). */
+export function readLabTabId(): string {
+  if (!tabId) {
+    let id = ''
+    try {
+      if (typeof sessionStorage !== 'undefined') {
+        id = sessionStorage.getItem(LAB_POSITION_TAB_KEY) || ''
+        if (!/^[a-f0-9]{8}$/.test(id)) {
+          id = randomHex(4)
+          sessionStorage.setItem(LAB_POSITION_TAB_KEY, id)
+        }
+      }
+    } catch { /* storage blocked: an id for this page load only */ }
+    tabId = `${/^[a-f0-9]{8}$/.test(id) ? id : randomHex(4)}.${PAGE_LOAD_ID}`
+  }
+  return tabId
+}
+
+/** What the server's write history records about the writer; never part of the merge. */
+export function labPositionWriteClient(reason?: string): { tab: string; build: string; reason?: string } {
+  const build = typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : 'dev'
+  return { tab: readLabTabId(), build, ...(reason ? { reason } : {}) }
+}
+
 export function readLabPositionLocal(deviceId = readLabDeviceId()): LabPositionState {
   if (typeof localStorage === 'undefined') return emptyLabPositionState(deviceId)
   try {
@@ -256,6 +287,8 @@ export async function fetchLabPositionCloud(token: string | null | undefined): P
 export interface LabPositionPutOptions {
   /** Let the request outlive the page (hide / pagehide). */
   keepalive?: boolean
+  /** Why this write happened, for the server's write history only. */
+  reason?: string
 }
 
 export async function putLabPositionCloud(
@@ -271,7 +304,8 @@ export async function putLabPositionCloud(
         Authorization: `Bearer ${token}`,
         'content-type': 'application/json',
       },
-      body: JSON.stringify(state),
+      // `client` rides beside the record; the server's parser never reads it into the position.
+      body: JSON.stringify({ ...state, client: labPositionWriteClient(options.reason) }),
       ...(options.keepalive ? { keepalive: true } : {}),
     })
     return res.ok
@@ -354,7 +388,7 @@ export function createLabPositionSync(opts: {
       // A dirty record is one whose PUT failed or whose answer was never seen
       // (a keepalive as the page left): it goes out again, identical or not.
       if (!dirty && !readLabPositionDirty() && serialized(state) === written) return true
-      return send(state, {})
+      return send(state, { reason: 'retry' })
     },
     isDirty: () => dirty,
     canWriteCloud: () => Boolean(opts.token),

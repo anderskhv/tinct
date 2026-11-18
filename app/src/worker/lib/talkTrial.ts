@@ -80,6 +80,8 @@ export interface TalkTicket {
   t: string
   /** Tinct's own check: the ledger row is labelled `check`. */
   c: boolean
+  /** The budget the spend was reserved on: 'try' for the /try page's reader; absent = the guest budget. */
+  s?: 'try'
 }
 
 const encoder = new TextEncoder()
@@ -130,7 +132,7 @@ export async function verifyTalkTicket(env: TalkTrialEnv, token: string, now: nu
     if (typeof ticket.n !== 'string' || !/^[0-9a-f]{32}$/.test(ticket.n)) return null
     if (typeof ticket.d !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(ticket.d)) return null
     if (!Number.isSafeInteger(ticket.u) || ticket.u < 0 || typeof ticket.t !== 'string') return null
-    return { exp: ticket.exp, n: ticket.n, d: ticket.d, u: ticket.u, t: ticket.t, c: ticket.c === true }
+    return { exp: ticket.exp, n: ticket.n, d: ticket.d, u: ticket.u, t: ticket.t, c: ticket.c === true, ...(ticket.s === 'try' ? { s: 'try' as const } : {}) }
   } catch {
     return null
   }

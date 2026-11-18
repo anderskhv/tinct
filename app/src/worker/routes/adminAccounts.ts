@@ -432,6 +432,25 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
   }, 200, request)
 }
 
+/**
+ * One account's recent position writes (readerPositionCoordinator.positionHistory),
+ * for diagnosing a lost place without exporting the whole account. Same gate
+ * and account lookup as the export; read-only, never runs the legacy import.
+ */
+export async function handleAdminPositionHistory(request: Request, env: AdminAccountsEnv, verifySiteAdmin: VerifySiteAdmin): Promise<Response> {
+  const denied = await gate(request, env, verifySiteAdmin)
+  if (denied) return denied
+  if (!env.READER_POSITION) return reply({ error: 'READER_POSITION binding missing' }, 500, request)
+  const body = await readBody(request)
+  if (!body) return reply({ error: 'Invalid JSON' }, 400, request)
+  const resolved = await resolveAccount(env, body)
+  if ('error' in resolved) return reply({ error: resolved.error }, resolved.status, request)
+  const userId = resolved.account.userId
+  const history = await env.READER_POSITION.getByName(userId).positionHistory()
+  console.log(JSON.stringify({ event: 'admin_position_history', user: userId.slice(0, 8), entries: history.length }))
+  return reply({ userId, history }, 200, request)
+}
+
 // ===== Delete =====
 
 async function runStep(steps: DeletionStep[], step: string, run: () => Promise<string | void | { skipped: string }>): Promise<boolean> {
