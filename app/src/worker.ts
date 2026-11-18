@@ -9,7 +9,7 @@ import { handleVoiceResearch } from './worker/routes/voiceResearch'
 
 import { handleOptions, jsonResponse } from './worker/lib/responses'
 import { createRateLimiter } from './worker/lib/rateLimit'
-import { createGuestSpendHolder, createGuestSpendReserver } from './worker/lib/aiSpend'
+import { aiSpendSurface, createGuestSpendHolder, createGuestSpendReserver } from './worker/lib/aiSpend'
 import { createAllowanceGate, loadPremiumAccess, loadPremiumTier, requestAllowsAiFeature } from './worker/lib/aiAllowance'
 import { handleAiAllowance } from './worker/routes/aiAllowance'
 import type { UsageCoordinator } from './worker/usageCoordinator'
@@ -104,6 +104,8 @@ interface Env {
   SHARE_STORE?: DurableObjectNamespace<ShareStore>
   /** Whole US cents per UTC day for signed-out AI; see lib/aiSpend.ts. */
   GUEST_AI_DAILY_CENTS?: string
+  /** The /try page's own daily AI budget in whole US cents (lib/aiSpend.ts DEFAULT_TRY_AI_DAILY_CENTS when unset). */
+  TRY_AI_DAILY_CENTS?: string
   ANTHROPIC_API_KEY: string
   OPENAI_API_KEY?: string
   XAI_API_KEY?: string
@@ -318,8 +320,10 @@ const worker = {
 
     // Atomic and fail-closed (see lib/rateLimit.ts).
     const checkRateLimit = createRateLimiter(env)
-    const reserveGuestSpend = createGuestSpendReserver(env)
-    const holdGuestSpend = createGuestSpendHolder(env)
+    // Signed-out AI spend: the guest day, or the /try page's own day for its reader (X-Tinct-Surface: try).
+    const spendSurface = aiSpendSurface(request)
+    const reserveGuestSpend = createGuestSpendReserver(env, Date.now, spendSurface)
+    const holdGuestSpend = createGuestSpendHolder(env, Date.now, spendSurface)
     // The AI allowance (lib/aiAllowance.ts); with the switch off it reads nothing.
     const allowanceGate = createAllowanceGate(env)
     const allowsAi = (feature: 'recap' | 'chapter_notes' | 'catch_up') => (req: Request) => requestAllowsAiFeature(allowanceGate, ledgerUser(env), req, feature)

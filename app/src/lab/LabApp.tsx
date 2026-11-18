@@ -233,6 +233,7 @@ import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { ChatConversation, HighlightColor } from '../types'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
+import { TRY_DEMO, firstSentenceWords, tryDemoTell, useTryDemo, type TryDemoHandles } from './tryDemo/tryDemo'
 import { useLabHighlights } from './useLabHighlights'
 import { labHighlightUndoMessage } from './labHighlightUndo'
 import { useLabAsk } from './useLabAsk'
@@ -6689,6 +6690,73 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
   })
 
+  // The /try page's reader (tryDemo/tryDemo.ts): each step's Next runs here through the reader's own actions, as
+  // if the visitor had pressed them; what the visitor does by hand is reported back by useTryDemo below.
+  const tryDemoHandles = useRef<TryDemoHandles>(null as unknown as TryDemoHandles)
+  tryDemoHandles.current = {
+    explain: () => {
+      if (!readerReady || initialResolving || book.chaptersProvisional) return false
+      const words = firstSentenceWords(book.paragraphs[0] || '')
+      const range = words ? buildHighlightRange(book.paragraphs, { paragraphIndex: 0, wordIndex: words.fromWord }, { paragraphIndex: 0, wordIndex: words.toWord }) : null
+      if (!range) return false
+      const chapter = { chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel }
+      const passage: PhonePassage = { text: range.text, paragraphIndex: range.paragraphIndex, ...chapter, editionKey: readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: book.chapterNumber, range }] }
+      // The selection bar first (the page's "Select a passage"), then Explain from it.
+      const word = (marginHost ?? document).querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="${range.fromWord}"]`)
+      // Bring the passage near the top of the reader's own scroller (never scrollIntoView: it would scroll the page too).
+      if (word && marginHost && !showPhoneChrome) {
+        const top = marginHost.scrollTop + word.getBoundingClientRect().top - marginHost.getBoundingClientRect().top - 150
+        if (Math.abs(top - marginHost.scrollTop) > 40) marginHost.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+      }
+      window.setTimeout(() => {
+        const box = word?.getBoundingClientRect()
+        handleSelectRange(range, box ? box.left + box.width / 2 : window.innerWidth / 2, box ? box.top : window.innerHeight / 3)
+        window.setTimeout(() => { setDraft(''); openPhoneCard({ kind: 'explain', passage, openedAt: Date.now() }) }, 900)
+      }, word ? 350 : 0)
+      return true
+    },
+    followUp: text => {
+      const root = showPhoneChrome ? document : document.querySelector('.source-margin-item[data-open="true"]') ?? document.querySelector('.lab-desktop-card')
+      const field = root?.querySelector<HTMLTextAreaElement>('.lab-pcard-follow-input')
+      if (!phoneCardRef.current || !field) return false
+      setDraft(text)
+      field.focus({ preventScroll: true })
+      requestAnimationFrame(() => { try { field.setSelectionRange(field.value.length, field.value.length) } catch { /* not a text field */ } })
+      return true
+    },
+    edition: kind => {
+      const target = editionCommand(kind)
+      if (target && prefs.primaryEdition !== target.key) updatePrefs({ ...prefs, primaryEdition: target.key, compareOpen: prefs.compareOpen && prefs.compareEdition !== target.key })
+    },
+    listen: () => { if (!listen.playing && !listen.pending) handleBarListen() },
+    summary: () => chapterSummaryRef.current(),
+  }
+  useTryDemo(tryDemoHandles, {
+    ready: readerReady && !initialResolving,
+    phone: showPhoneChrome,
+    edition: readerEditionKey,
+    playing: listen.playing,
+    card: phoneCard?.kind ?? null,
+    selection: selectionPopup !== null,
+    chapterCard: chapterNotes ? (chapterNotes.as ?? chapterNotes.request.kind) : null,
+  })
+  // The page opens on Book 2's heading near the top of the frame (D1), with room below it for the margin's cards.
+  const tryDemoOpenedRef = useRef(false)
+  useEffect(() => {
+    if (!TRY_DEMO || tryDemoOpenedRef.current || !readerReady || initialResolving || showPhoneChrome || !marginHost) return
+    tryDemoOpenedRef.current = true
+    const word = marginHost.querySelector<HTMLElement>('[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="0"]')
+    if (!word) return
+    const top = marginHost.scrollTop + word.getBoundingClientRect().top - marginHost.getBoundingClientRect().top - 110
+    if (top > marginHost.scrollTop + 20) marginHost.scrollTo({ top })
+  }, [readerReady, initialResolving, showPhoneChrome, marginHost])
+  useEffect(() => {
+    if (!TRY_DEMO || !accountPrompt) return
+    // The page shows its own card ("Keep the conversation going"; for Listen, the reader's listening copy).
+    tryDemoTell({ type: 'account', action: accountPrompt.action })
+    setAccountPrompt(null)
+  }, [accountPrompt])
+
   const openNotebookConversation = (conversation: ChatConversation) => {
     if (conversation.bookId !== (book.bookId || 'bible')) return
     closePhoneCard()
@@ -7352,6 +7420,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen && !marginPhone ? ' has-phone-ask' : ''}${marginPhone ? ' is-margin-phone' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${resolvedTheme === 'white' ? ' is-white-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
       data-shared-reader={sharedReader ? 'true' : undefined}
+      data-try-demo={TRY_DEMO ? 'true' : undefined}
       data-reading-scroll={readingScrollActive ? 'true' : undefined}
       data-continuous-reader={continuousReader ? 'true' : undefined}
       data-margin-room={continuousReader ? marginRoom : undefined}
@@ -7458,7 +7527,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       >
         {/* Desktop: the way back to the library, icon only. The phone keeps
             Library in the t menu and has its own Back. */}
-        {!showPhoneChrome && (
+        {!showPhoneChrome && !TRY_DEMO && (
           <button
             type="button"
             className="lab-v2-library-back"
@@ -7483,7 +7552,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               aria-label={`Switch books, currently ${book.bookTitle}`}
               aria-expanded={bookSwitcherOpen}
               aria-haspopup="dialog"
-              onClick={openBookSwitcher}
+              onClick={TRY_DEMO ? undefined : openBookSwitcher}
             >
               <span>{book.bookTitle}</span>
             </button>
@@ -7499,6 +7568,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             <span className="lab-header-chapter-label">{paintedChapterLabel}</span>
             <span className="lab-header-chevron" aria-hidden="true">∨</span>
           </button>
+          {/* The /try page's Original | Modern switch, in the top bar on desktop (the phone has it above the reader,
+              on the page). Demo only: in the reader it stays in Book settings until Anders decides otherwise. */}
+          {TRY_DEMO && !showPhoneChrome && editionCommand('original') && editionCommand('modern') && (
+            <span className="lab-try-editions" role="group" aria-label="Edition" data-testid="lab-try-editions">
+              {(['original', 'modern'] as const).map(kind => (
+                <button key={kind} type="button" aria-pressed={readerEditionKey === `${kind}-en`}
+                  onClick={() => tryDemoHandles.current.edition(kind)}>{kind === 'original' ? 'Original' : 'Modern'}</button>
+              ))}
+            </span>
+          )}
         </div>
         <div className="lab-header-controls">
           {(!showPhoneChrome || phoneReaderControlsVisible) ? (
@@ -7520,14 +7599,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               {!showPhoneChrome && <button type="button" className="lab-v2-aa" data-testid="lab-header-aa"
                 aria-label="Reading appearance" title="Reading appearance"
                 onClick={() => { setSuperMenuOpen(false); setCompareFromLayout(false); setSuperSheet('reading') }}>Aa</button>}
-              <LabSuperButton
+{!TRY_DEMO && <LabSuperButton
                 open={superMenuOpen}
                 onToggle={handleSuperToggle}
                 firstView={superFirstView}
                 onFirstViewEnd={handleFirstViewEnd}
                 reducedMotion={reducedMotion}
                 dot={profileDot && !superMenuOpen}
-              />
+              />}
             </>
           ) : null}
         </div>
@@ -8396,7 +8475,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <button type="button" onClick={() => setAudioUnavailableNotice(false)} aria-label="Dismiss audio notice">×</button>
       </div>}
       <LabAccountSheet
-        open={accountPrompt !== null}
+        open={accountPrompt !== null && !TRY_DEMO}
         action={accountPrompt?.action ?? 'chat'}
         returnTo={signInReturnTo}
         onClose={closeAccountPrompt}
