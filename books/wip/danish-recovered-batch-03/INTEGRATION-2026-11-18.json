@@ -8920,6 +8920,30 @@
       "before": "Pierre Bezuhov",
       "after": "Pierre Bezukhov",
       "reason": "The package's one primer change (primer-da.json against its input), applied to main's newer primer (revision 5, structure titles naming the books), which the package predates; the package primers are otherwise not taken."
+    },
+    {
+      "book": "walden",
+      "file": "app/public/lab/library_2/primer-data/walden.da.json",
+      "field": "notice[1].passages[0].quote",
+      "before": "Nogle mener, den er bundløs.",
+      "after": "Nogle mener, at søen er bundløs.",
+      "reason": "The Danish primer follows the recovered Danish: its chapter titles (title-changes.json: \"Dyrene, mine naboer\", \"Varme i huset\") and the wording of the quoted line (9:6). check-primer-data passes."
+    },
+    {
+      "book": "walden",
+      "file": "app/public/lab/library_2/primer-data/walden.da.json",
+      "field": "structure[1].title (and primer-structure-ranges.json)",
+      "before": "Hvor jeg boede, og hvad jeg levede for – Dyriske naboer",
+      "after": "Hvor jeg boede, og hvad jeg levede for – Dyrene, mine naboer",
+      "reason": "The Danish primer follows the recovered Danish: its chapter titles (title-changes.json: \"Dyrene, mine naboer\", \"Varme i huset\") and the wording of the quoted line (9:6). check-primer-data passes."
+    },
+    {
+      "book": "walden",
+      "file": "app/public/lab/library_2/primer-data/walden.da.json",
+      "field": "structure[2].title (and primer-structure-ranges.json)",
+      "before": "Husvarme – Afslutning",
+      "after": "Varme i huset – Afslutning",
+      "reason": "The Danish primer follows the recovered Danish: its chapter titles (title-changes.json: \"Dyrene, mine naboer\", \"Varme i huset\") and the wording of the quoted line (9:6). check-primer-data passes."
     }
   ]
 }
