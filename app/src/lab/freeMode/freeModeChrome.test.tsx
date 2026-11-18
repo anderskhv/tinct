@@ -1,0 +1,62 @@
+// @vitest-environment jsdom
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+
+// The reader as free reading mode draws it (freeMode.ts): FREE_MODE is decided from the address, so it is set here.
+vi.mock('./freeMode', async (original) => ({ ...(await original<typeof import('./freeMode')>()), FREE_MODE: true }))
+
+import { LabChapterEnd } from '../LabChapterEnd'
+import { LabChapterHeading } from '../LabChapterHeading'
+import { MarginPhoneContext, type MarginPhonePills } from '../marginPhone/marginPhoneContext'
+import { FreeModeSourceContext } from './freeModeContext'
+import { LabFreeModeEditions, LabFreeModePhoneBand, freeModeFolio } from './LabFreeMode'
+
+afterEach(cleanup)
+
+const pills = {
+  layout: 'phone', summary: true, onSummary: () => {}, onQuiz: () => {}, onCatchUp: () => {},
+  angleOffer: { chapterTitle: 'Book 1', onOpen: () => {} },
+  book: { firstChapterTitle: 'Book 1', title: 'Meditations', author: 'Marcus Aurelius', primer: true, onPrimer: () => {}, onSummary: () => {} },
+} as unknown as MarginPhonePills
+const EDITIONS = [{ key: 'original-en' }, { key: 'modern-en' }]
+
+describe('free reading mode chrome', () => {
+  it('keeps only Next chapter at a chapter end: no Summary, Quiz me, angle, note or reading card', () => {
+    render(<MarginPhoneContext.Provider value={pills}>
+      <LabChapterEnd chapterTitle="Book 1" hasNext onContinue={() => {}} onDiscuss={() => {}} onNote={() => {}} />
+    </MarginPhoneContext.Provider>)
+    const labels = screen.getAllByRole('button').map(button => button.textContent?.trim())
+    expect(labels).toEqual(['Next chapter →'])
+  })
+
+  it('draws the bare heading and the source line, with no Primer, Summary or first-page hint', () => {
+    render(<FreeModeSourceContext.Provider value="Modern English made with AI from George Long’s 1862 translation">
+      <MarginPhoneContext.Provider value={pills}>
+        <LabChapterHeading title="Book 1" preview onPreview={() => {}} />
+      </MarginPhoneContext.Provider>
+    </FreeModeSourceContext.Provider>)
+    expect(screen.getByTestId('lab-passage-headline').textContent).toBe('Book 1')
+    expect(screen.getByTestId('lab-free-source').textContent).toBe('Modern English made with AI from George Long’s 1862 translation')
+    expect(screen.queryAllByRole('button')).toHaveLength(0)
+    expect(document.body.textContent).not.toMatch(/Primer|Summary|Quiz|explained/)
+  })
+
+  it('offers Original, Modern and Both on the desktop and no Both on the phone', () => {
+    const choose = vi.fn()
+    const { unmount } = render(<LabFreeModeEditions editions={EDITIONS} current="modern-en" both onChoose={choose} />)
+    expect(screen.getAllByRole('button').map(button => button.textContent)).toEqual(['Original', 'Modern', 'Both'])
+    fireEvent.click(screen.getByText('Both'))
+    expect(choose).toHaveBeenCalledWith('both')
+    unmount()
+    render(<LabFreeModePhoneBand editions={EDITIONS} current="original-en" progressLabel="40 / 266 of book" onChoose={choose} />)
+    expect(screen.getAllByRole('button').map(button => button.textContent)).toEqual(['Original', 'Modern'])
+    expect(screen.getByRole('button', { name: 'Original' }).getAttribute('aria-pressed')).toBe('true')
+    expect(screen.getByTestId('lab-free-folio').textContent).toBe('40')
+    expect(freeModeFolio('')).toBe('')
+  })
+
+  it('draws no switch for a book without both editions', () => {
+    render(<LabFreeModeEditions editions={[{ key: 'web-en' }]} current="web-en" both onChoose={() => {}} />)
+    expect(screen.queryByTestId('lab-free-editions')).toBeNull()
+  })
+})

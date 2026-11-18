@@ -1,3 +1,5 @@
+// Free reading mode (/reader?…&mode=free): its request guard goes in before any other module runs.
+import './lab/freeMode/installFreeMode'
 // First: applies and strips ?internal=1|0 before anything reads the address, and shows the badge.
 import './utils/internalTraffic'
 import { initializeNativeBooks } from './utils/nativeBooks'
@@ -28,6 +30,7 @@ import { loadDesktopExperience } from './desktopCommands'
 import { installStaleChunkRecovery } from './utils/staleChunkRecovery'
 import { startMarginPreviewFrame } from './lab/marginPreview/marginPreviewFrame'
 import { sharedReaderContinueSearch, sharedReaderDestination, sharedReaderEnabled } from './lab/sharedReader/sharedReaderFlag'
+import { FREE_MODE } from './lab/freeMode/freeMode'
 installStaleChunkRecovery()
 loadDesktopExperience()
 
@@ -90,7 +93,7 @@ function framedByMarginHost(): boolean {
 
 const render = (marginPhone = false) => ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} phone={phoneSurface()} sharedReader={sharedReader} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : sharedReader ? <LabApp sharedReader marginPhone={phoneSurface()} /> : <LabApp marginPhone={marginPhone || undefined} />}
+    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} phone={phoneSurface()} sharedReader={sharedReader} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : FREE_MODE ? <LabApp sharedReader marginPhone={phoneSurface()} authToken={null} /> : sharedReader ? <LabApp sharedReader marginPhone={phoneSurface()} /> :<LabApp marginPhone={marginPhone || undefined} />}
   </React.StrictMode>,
 )
 
@@ -126,7 +129,8 @@ async function begin() {
   // The private shared-reader entry must bypass the old preview before it can
   // consume a handoff, store a sticky margin preference or rewrite a deep link.
   // LabApp still owns the same layout and position writer in this first slice.
-  if (sharedReader && !userBookHex && Root === LabApp) {
+  // Free reading mode (lab/freeMode/freeMode.ts) is the shared reader as a guest, never the margin preview.
+  if ((sharedReader || FREE_MODE) && !userBookHex && Root === LabApp) {
     const contentMigrations = storedContentMigrations()
     if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
     render()

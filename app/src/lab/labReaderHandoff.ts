@@ -9,6 +9,7 @@ import { libraryResumePlace, resumePlace, type LabBookPlace, type LabPositionSta
 import { readLabPositionLocal } from './labPositionStore'
 import type { LabSource } from './labSource'
 import { parseSceneHandoff, type SceneHandoff } from './labSceneHandoff'
+import { FREE_MODE_PARAM, FREE_MODE_VALUE, freeModeEditionFor, otherFreeModeEdition } from './freeMode/freeMode'
 
 export const LAB_READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 
@@ -70,6 +71,27 @@ export function modernReturnHandoff(bookId: string): ReaderHandoffIntent | null 
   const first = entry?.readingStructure?.chapters?.[0]?.number
   const chapterNumber = Number.isInteger(first) && (first as number) >= 1 ? first as number : 1
   return createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace: { bookId, chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 } })
+}
+
+/**
+ * Free reading mode's hand-off (`/reader?book=…&mode=free`, lab/freeMode/freeMode.ts): the place this device saved
+ * in the book, else its first chapter, in Modern English (or the saved place's edition when it is the original),
+ * with the other of the two beside it for Both. Null when the book is not registered.
+ */
+export function freeModeHandoff(bookId: string): ReaderHandoffIntent | null {
+  const book = getBook(bookId)
+  if (!book) return null
+  const saved = localPlace(bookId)
+  const primaryEditionKey = freeModeEditionFor(book.editions, saved?.primaryEditionKey)
+  if (!primaryEditionKey) return modernReturnHandoff(bookId)
+  const entry = PRE_READER_CATALOGUE.booksById.get(bookId) as { readingStructure?: { chapters?: Array<{ number?: number }> } } | undefined
+  const first = entry?.readingStructure?.chapters?.[0]?.number
+  const savedPlace = saved
+    ? { bookId, chapterNumber: saved.sequentialChapter, paragraphIndex: saved.paragraphIndex, wordIndex: saved.wordIndex, page: saved.pageIndex ?? 0 }
+    : { bookId, chapterNumber: Number.isInteger(first) && (first as number) >= 1 ? first as number : 1, paragraphIndex: 0, wordIndex: 0, page: 0 }
+  const compareEditionKey = otherFreeModeEdition(primaryEditionKey)
+  return createReaderHandoffIntent({ bookId, primaryEditionKey, compareEditionKey, compareChosen: true, resumeLatest: true, savedPlace })
+    ?? createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace })
 }
 
 function localPlace(bookId: string): LabBookPlace | null {
@@ -158,7 +180,10 @@ export function readerHandoffFromUrlParams(params: URLSearchParams | null): Read
   const bookId = params?.get('book')
   const chapterText = params?.get('chapter')
   if (!params || !bookId) return null
-  if (chapterText === null) return params.has('modern') ? null : modernReturnHandoff(bookId)
+  if (chapterText === null) {
+    if (params.has('modern')) return null
+    return params.get(FREE_MODE_PARAM) === FREE_MODE_VALUE ? freeModeHandoff(bookId) : modernReturnHandoff(bookId)
+  }
   if (!/^\d{1,5}$/.test(chapterText)) return null
   const chapterNumber = Number(chapterText)
   if (chapterNumber < 1 || !getBook(bookId)) return null

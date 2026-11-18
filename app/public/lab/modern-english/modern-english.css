@@ -1,0 +1,110 @@
+/* The modern-English page (src/seo/modernEnglishPage.ts; docs/modern-english/BUILD-BRIEF.md and poc/).
+   The library's dark room: the Meditations scene blurred behind the opening, the shelves as sideways reels.
+   Playfair Display for headings, EB Garamond for book text, system UI for the chrome. */
+:root {
+  --me-room: #110f0c;
+  --me-room-2: #1a1713;
+  --me-text: #efe8db;
+  --me-dim: #b9b0a2;
+  --me-faint: #8c8478;
+  --me-rule: rgba(239, 232, 219, 0.14);
+  --me-display: 'Playfair Display', Georgia, serif;
+  --me-book: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --me-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --me-gutter: max(16px, env(safe-area-inset-left, 0px));
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body.me { margin: 0; background: var(--me-room); color: var(--me-text); font: 15px/1.5 var(--me-ui); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+.me a { color: inherit; text-decoration: none; }
+.me-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---- Opening: the headline, search and pills, the pile of covers ---- */
+/* Only the scene is clipped to the opening: the search results may drop over the shelves below it. */
+.me-opening { position: relative; }
+.me-scene { position: absolute; inset: 0; overflow: hidden; }
+.me-scene::before { content: ""; position: absolute; inset: -40px; background: url("/lab/library_2/assets/scene-meditations-phone.jpg") center / cover no-repeat; filter: blur(14px) brightness(0.8); }
+.me-opening::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10, 8, 6, 0.85), rgba(10, 8, 6, 0.35)); pointer-events: none; }
+.me-opening::after { content: ""; position: absolute; inset: auto 0 0; height: 120px; background: linear-gradient(transparent, var(--me-room)); pointer-events: none; }
+.me-top { position: relative; z-index: 1; display: grid; gap: 28px; align-items: center; max-width: 1240px; margin: 0 auto;
+  padding: 40px max(16px, env(safe-area-inset-right, 0px)) 48px var(--me-gutter); }
+.me-claim { min-width: 0; }
+.me h1 { font: 600 clamp(32px, 5vw, 54px)/1.06 var(--me-display); margin: 0; text-wrap: balance; max-width: 16ch; }
+.me-sub { font: clamp(18px, 1.35vw, 20px)/1.4 var(--me-book); color: var(--me-dim); margin: 10px 0 0; }
+
+.me-search { position: relative; margin-top: 22px; max-width: 480px; z-index: 3; }
+.me-search svg { position: absolute; left: 18px; top: 16px; color: var(--me-dim); z-index: 1; pointer-events: none; }
+.me-search input { width: 100%; height: 52px; border-radius: 26px; border: 0; padding: 0 20px 0 50px; font: 18px var(--me-book); color: var(--me-text);
+  background: rgba(20, 17, 13, 0.62); box-shadow: inset 0 0 0 1px rgba(239, 232, 219, 0.28); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); -webkit-appearance: none; appearance: none; }
+.me-search input::placeholder { color: var(--me-dim); }
+.me-search input:focus { outline: 2px solid var(--me-text); outline-offset: 2px; }
+.me-search input::-webkit-search-cancel-button { filter: invert(0.85); }
+.me-results { position: absolute; left: 0; right: 0; top: 60px; list-style: none; margin: 0; padding: 6px; border-radius: 16px; background: #1b1814;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6), inset 0 0 0 1px var(--me-rule); max-height: min(420px, 60vh); overflow-y: auto; }
+.me-results[hidden] { display: none; }
+.me-results a { display: flex; gap: 12px; align-items: center; padding: 7px 8px; border-radius: 10px; }
+.me-results a:hover, .me-results a[aria-selected="true"] { background: rgba(239, 232, 219, 0.08); }
+.me-results img { width: 36px; height: 54px; object-fit: cover; border-radius: 2px; flex: none; background: var(--me-room-2); }
+.me-results .me-result-title { font: 500 17px/1.2 var(--me-book); display: block; }
+.me-results .me-result-meta { font: italic 14px/1.3 var(--me-book); color: var(--me-faint); display: block; }
+.me-results .me-empty { padding: 10px; font: 16px var(--me-book); color: var(--me-dim); }
+
+.me-pills { display: flex; flex-wrap: nowrap; gap: 6px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.me-pills::-webkit-scrollbar { display: none; }
+.me-search + .me-pills { margin-top: 16px; }
+.me-pills button { flex: none; height: 30px; padding: 0 12px; border-radius: 15px; border: 0; background: rgba(20, 17, 13, 0.55); color: var(--me-dim);
+  font: 13px var(--me-ui); box-shadow: inset 0 0 0 1px rgba(239, 232, 219, 0.22); cursor: pointer; }
+.me-pills button:hover { color: var(--me-text); }
+.me-pills button[aria-pressed="true"] { background: var(--me-text); color: var(--me-room); box-shadow: none; }
+.me-pills button:focus-visible { outline: 2px solid var(--me-text); outline-offset: 2px; }
+
+/* The pile: a small sideways row on a phone, a loose fanned pile beside the headline on a wider screen. */
+.me-pile { list-style: none; margin: 0; padding: 0; display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; }
+.me-pile::-webkit-scrollbar { display: none; }
+.me-pile li { flex: none; }
+.me-pile a { display: block; }
+.me-pile img { display: block; width: 92px; height: auto; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 3px; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6); background: var(--me-room-2); }
+.me-pile a:focus-visible, .me-card a:focus-visible, .me-results a:focus-visible { outline: 2px solid var(--me-text); outline-offset: 3px; }
+
+@media (min-width: 900px) {
+  .me-scene::before { background-image: url("/lab/library_2/assets/scene-meditations-wide.jpg"); }
+  /* The headline column keeps its width; the pile takes what is left and its covers shrink with it (about 980px). */
+  .me-top { grid-template-columns: minmax(420px, 5fr) minmax(0, 6fr); padding-top: 80px; padding-bottom: 90px; }
+  .me-pile { overflow: visible; padding: 0 20px 0 12px; gap: 0; min-width: 0; }
+  .me-pile li { flex: 1 1 0; min-width: 0; margin-left: -4%; }
+  .me-pile li:first-child { margin-left: 0; }
+  .me-pile li:nth-child(odd) { transform: translateY(18px) rotate(-2deg); }
+  .me-pile li:nth-child(even) { transform: rotate(2deg); }
+  .me-pile img { width: 100%; max-width: 170px; }
+}
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .me-pile li { transition: transform 0.2s; }
+  .me-pile li:hover { transform: translateY(-8px); z-index: 2; position: relative; }
+}
+
+/* ---- Shelves ---- */
+.me-main { max-width: 1240px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-right, 0px)) 0 var(--me-gutter); }
+.me-shelves { padding: 8px 0 20px; scroll-margin-top: 16px; }
+.me-shelf { padding-top: 26px; }
+.me-shelf[hidden] { display: none; }
+.me-shelf h2 { font: 600 22px var(--me-display); margin: 0 0 12px; }
+.me-shelf h2 span { font: 400 14px var(--me-ui); color: var(--me-faint); font-variant-numeric: tabular-nums; }
+.me-reel { list-style: none; margin: 0; padding: 0 0 8px; display: grid; grid-auto-flow: column; grid-auto-columns: 124px; gap: 14px; overflow-x: auto;
+  scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: rgba(239, 232, 219, 0.2) transparent; }
+.me-card[hidden] { display: none; }
+.me-card a { display: flex; flex-direction: column; gap: 3px; scroll-snap-align: start; }
+.me-card img { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 3px; background: var(--me-room-2); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); margin-bottom: 6px; }
+.me-card-title { font: 500 16px/1.2 var(--me-book); }
+.me-card-source { font: italic 14px/1.3 var(--me-book); color: var(--me-faint); }
+.me-card a:hover .me-card-title { text-decoration: underline; text-underline-offset: 3px; }
+.me-none { font: 18px var(--me-book); color: var(--me-dim); padding-top: 20px; margin: 0; }
+@media (min-width: 900px) {
+  .me-reel { grid-auto-columns: 150px; gap: 18px; }
+}
+
+/* ---- The quiet line and the footer ---- */
+.me-note { font: 17px/1.5 var(--me-book); color: var(--me-faint); max-width: 60ch; border-top: 1px solid var(--me-rule); margin: 34px 0 0; padding: 22px 0 40px; }
+.me-footer { border-top: 1px solid var(--me-rule); padding: 22px max(16px, env(safe-area-inset-right, 0px)) max(32px, env(safe-area-inset-bottom, 0px)) var(--me-gutter); font: 14px var(--me-ui); color: var(--me-faint); }
+.me-footer nav { max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.me-footer a:hover { color: var(--me-text); }
