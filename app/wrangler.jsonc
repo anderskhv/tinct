@@ -45,6 +45,8 @@
     "OCR_MAX_PAGES": "1000",
     // Daily ceiling for signed-out AI, in whole US cents (see src/worker/lib/aiSpend.ts).
     "GUEST_AI_DAILY_CENTS": "500",
+    // The /try page's own daily AI budget, apart from the guest ceiling, in whole US cents (aiSpend.ts; $3 default).
+    "TRY_AI_DAILY_CENTS": "300",
     // Added public-domain books (src/worker/routes/publicBooks.ts). Approved by Anders 2026-10-07.
     // Paid Modern English editions: offers checkout and runs xAI generation (prices are
     // STRIPE_PRICE_MODERN_T1..T4 secrets). The client offers it to Premium readers (MODERN_EDITIONS_FOR_EVERYONE).
