@@ -1086,6 +1086,7 @@ export const FRANKENSTEIN: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1744,6 +1745,7 @@ export const NOTES_FROM_UNDERGROUND: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2294,7 +2296,7 @@ export const CANDIDE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2410,7 +2412,7 @@ export const GENEALOGY_OF_MORALS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2561,7 +2563,7 @@ export const OEDIPUS_REX: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2600,6 +2602,7 @@ export const OEDIPUS_AT_COLONUS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2638,7 +2641,7 @@ export const ANTIGONE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2970,7 +2973,7 @@ export const HEART_OF_DARKNESS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -3217,7 +3220,7 @@ export const FREDERICK_DOUGLASS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Douglass (1845)', year: 1845, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 

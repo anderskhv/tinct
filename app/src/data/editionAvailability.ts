@@ -46,6 +46,16 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'jekyll-and-hyde/modern-da',
   'aristotle-politics/modern-da',
   'hume-enquiry/modern-da',
+  // Recovered Danish batch 01, 18 Nov 2026 (books/wip/danish-recovered-batch-01).
+  'antigone/modern-da',
+  'candide/modern-da',
+  'frankenstein/modern-da',
+  'frederick-douglass/modern-da',
+  'genealogy-of-morals/modern-da',
+  'heart-of-darkness/modern-da',
+  'notes-from-underground/modern-da',
+  'oedipus-at-colonus/modern-da',
+  'oedipus-rex/modern-da',
 ])
 export const isOfferedDanishEdition = (bookId: string, editionKey: string | undefined): boolean =>
   Boolean(editionKey) && OFFERED_DANISH_EDITIONS.has(bookId + '/' + editionKey)

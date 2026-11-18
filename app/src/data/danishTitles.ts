@@ -34,6 +34,8 @@ export const DANISH_TITLES: Record<string, DanishTitle> = {
   'pinocchio': { titles: ['Pinocchios eventyr'], source: repo('pinocchio') },
   'the-art-of-war': { titles: ['Krigskunsten', 'Kunsten at føre krig'], source: repo('the-art-of-war'), checked: 'https://nextory.com/at-en/book/kunsten-at-fre-krig-den-vigtigste-bog-om-strategi-verden-endnu-har-set-339897' },
   'the-manual': { titles: ['Håndbogen'], source: repo('the-manual') },
+  'frederick-douglass': { titles: ['Beretning om Frederick Douglass’ liv', 'Beretning om Frederick Douglass liv'], source: repo('frederick-douglass') },
+  'oedipus-at-colonus': { titles: ['Ødipus i Kolonos'], source: repo('oedipus-at-colonus') },
   'us-founding-documents': { titles: ['USA\'s grundlæggende dokumenter', 'USA’s grundlæggende dokumenter'], source: repo('us-founding-documents') },
   // Named by the Danish introductions' own text.
   'crime-and-punishment': { titles: ['Forbrydelse og straf'], source: repo('crime-and-punishment') },
@@ -88,7 +90,7 @@ export const DANISH_TITLES: Record<string, DanishTitle> = {
   'heart-of-darkness': { titles: ['Mørkets hjerte'], source: 'established' },
   'to-the-lighthouse': { titles: ['Til fyret'], source: 'established' },
   'ivan-ilyich': { titles: ['Ivan Iljitjs død'], source: 'established' },
-  'notes-from-underground': { titles: ['Kældermennesket', 'Kældermennesket: optegnelser fra en undergrund'], source: 'established', checked: 'https://litteratursiden.dk/anmeldelser/kaeldermennesket-af-fjodor-m-dostojevskij' },
+  'notes-from-underground': { titles: ['Kældermennesket', 'Kældermennesket: optegnelser fra en undergrund', 'Optegnelser fra undergrunden'], source: 'established', checked: 'https://litteratursiden.dk/anmeldelser/kaeldermennesket-af-fjodor-m-dostojevskij' },
   'jekyll-and-hyde': { titles: ['Dr. Jekyll og Mr. Hyde'], source: 'established' },
   'communist-manifesto': { titles: ['Det kommunistiske manifest'], source: 'established' },
     'peloponnesian-war': { titles: ['Den peloponnesiske krig'], source: 'established', checked: 'https://www.igl.ku.dk/aigis/2016,1/AS-Thuk4.pdf' },

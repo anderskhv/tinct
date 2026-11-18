@@ -13,8 +13,9 @@ import { createReaderHandoffIntent, getEditionSelectionViewModel, searchPreReade
 describe('temporary edition holds preserve identities and recovery', () => {
   it('pins every held asset to the bytes independently fetched from production', () => {
     // 8 edition holds (Confessions repaired 2026-10-24), plus 11 English/French editions of the five books
-    // held whole on 2026-10-02 (rights holds).
-    expect(Object.keys(manifest.editions)).toHaveLength(19)
+    // held whole on 2026-10-02 (rights holds). 7 edition holds since Heart of Darkness's Danish was
+    // replaced by the recovered translation (2026-11-18).
+    expect(Object.keys(manifest.editions)).toHaveLength(18)
     for (const [key, evidence] of Object.entries(manifest.editions)) {
       const [bookId, editionKey] = key.split('/')
       expect(getBook(bookId)?.editions.some(e => e.key === editionKey), key).toBe(true)
@@ -76,13 +77,13 @@ describe('The offered Danish editions (explicit allowlist)', () => {
  const book = getBook('to-the-lighthouse')!
  const edition = book.editions.find(e => e.key === 'modern-da')!
  it('uses explicit identities, never inferred from the language', () => {
-  expect([...OFFERED_DANISH_EDITIONS].sort()).toEqual(['a-little-princess/modern-da', 'alice-in-wonderland/modern-da', 'apology/modern-da', 'arabian-nights/modern-da', 'aristotle-politics/modern-da', 'around-the-world-80-days/modern-da', 'bacchae/modern-da', 'communist-manifesto/modern-da', 'confessions/modern-da', 'crime-and-punishment/modern-da', 'crito/modern-da', 'descartes-meditations/modern-da', 'grimms-fairy-tales/modern-da', 'hume-enquiry/modern-da', 'ivan-ilyich/modern-da', 'jekyll-and-hyde/modern-da', 'jungle-book/modern-da', 'kant-groundwork/modern-da', 'magna-carta/modern-da', 'master-and-margarita/modern-da', 'medea/modern-da', 'meditations/modern-da', 'middlemarch/modern-da', 'moby-dick/modern-da', 'on-liberty/modern-da', 'phaedo/modern-da', 'phaedrus/modern-da', 'pinocchio/modern-da', 'poetics/modern-da', 'the-art-of-war/modern-da', 'the-manual/modern-da', 'the-prince/modern-da', 'to-the-lighthouse/modern-da', 'us-founding-documents/modern-da', 'utilitarianism/modern-da', 'werther/modern-da', 'wuthering-heights/modern-da'])
+  expect([...OFFERED_DANISH_EDITIONS].sort()).toEqual(['a-little-princess/modern-da', 'alice-in-wonderland/modern-da', 'antigone/modern-da', 'apology/modern-da', 'arabian-nights/modern-da', 'aristotle-politics/modern-da', 'around-the-world-80-days/modern-da', 'bacchae/modern-da', 'candide/modern-da', 'communist-manifesto/modern-da', 'confessions/modern-da', 'crime-and-punishment/modern-da', 'crito/modern-da', 'descartes-meditations/modern-da', 'frankenstein/modern-da', 'frederick-douglass/modern-da', 'genealogy-of-morals/modern-da', 'grimms-fairy-tales/modern-da', 'heart-of-darkness/modern-da', 'hume-enquiry/modern-da', 'ivan-ilyich/modern-da', 'jekyll-and-hyde/modern-da', 'jungle-book/modern-da', 'kant-groundwork/modern-da', 'magna-carta/modern-da', 'master-and-margarita/modern-da', 'medea/modern-da', 'meditations/modern-da', 'middlemarch/modern-da', 'moby-dick/modern-da', 'notes-from-underground/modern-da', 'oedipus-at-colonus/modern-da', 'oedipus-rex/modern-da', 'on-liberty/modern-da', 'phaedo/modern-da', 'phaedrus/modern-da', 'pinocchio/modern-da', 'poetics/modern-da', 'the-art-of-war/modern-da', 'the-manual/modern-da', 'the-prince/modern-da', 'to-the-lighthouse/modern-da', 'us-founding-documents/modern-da', 'utilitarianism/modern-da', 'werther/modern-da', 'wuthering-heights/modern-da'])
   expect(edition).toMatchObject({ language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false })
   expect(isOfferedDanishEdition('to-the-lighthouse', 'modern-da')).toBe(true)
   // Same book, other Danish keys; same key, other books: still withdrawn.
   expect(editionHold('to-the-lighthouse', 'original-da')?.reason).toContain('Danish editions')
   expect(editionHold('to-the-lighthouse', 'kids-da')?.reason).toContain('Danish editions')
-  for (const id of ['jane-eyre', 'odyssey', 'ulysses', 'frankenstein']) {
+  for (const id of ['jane-eyre', 'odyssey', 'ulysses', 'pride-and-prejudice']) {
    expect(editionHold(id, 'modern-da')?.reason, id).toContain('Danish editions')
    expect(isEditionLanguageOffered(id, { key: 'modern-da', language: 'da' }), id).toBe(false)
    expect(isEditionDiscoverable(id, { key: 'modern-da', language: 'da' }), id).toBe(false)
