@@ -46,6 +46,8 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'jekyll-and-hyde/modern-da',
   'aristotle-politics/modern-da',
   'hume-enquiry/modern-da',
+  // Published 2026-11-18 without a native-speaker read: Anders's explicit waiver (17 Nov 2026).
+  'gilgamesh/modern-da',
 ])
 export const isOfferedDanishEdition = (bookId: string, editionKey: string | undefined): boolean =>
   Boolean(editionKey) && OFFERED_DANISH_EDITIONS.has(bookId + '/' + editionKey)

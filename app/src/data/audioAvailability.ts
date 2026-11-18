@@ -61,5 +61,16 @@ export const STREAMED_ONLY_AUDIO_EDITIONS: ReadonlySet<string> = new Set([
  * to select, and narration is decided by `narrationLanguage` (narrationCore).
  */
 export const STREAMED_ONLY_DANISH_EDITIONS: ReadonlySet<string> = OFFERED_DANISH_EDITIONS
+/**
+ * Editions whose whole text was replaced after their recordings were made:
+ * the recordings on R2 speak the old text, keyed by paragraph index, so the
+ * reader must never ask for them (their timings and clips belong to other
+ * words). Narration streams from the new text. Gilgamesh moved to
+ * R. Campbell Thompson's 1928 translation on 2026-11-18.
+ */
+export const REPLACED_TEXT_RECORDINGS: ReadonlySet<string> = new Set([
+  'gilgamesh/original-en',
+  'gilgamesh/modern-en',
+])
 /** Whether an edition has recorded chapter audio (manifest, sidecar, MP3s) to ask for. */
-export const hasRecordedAudio = (bookId: string, editionKey: string): boolean => !STREAMED_ONLY_AUDIO_EDITIONS.has(`${bookId}/${editionKey}`) && !STREAMED_ONLY_DANISH_EDITIONS.has(`${bookId}/${editionKey}`)
+export const hasRecordedAudio = (bookId: string, editionKey: string): boolean => !STREAMED_ONLY_AUDIO_EDITIONS.has(`${bookId}/${editionKey}`) && !STREAMED_ONLY_DANISH_EDITIONS.has(`${bookId}/${editionKey}`) && !REPLACED_TEXT_RECORDINGS.has(`${bookId}/${editionKey}`)
