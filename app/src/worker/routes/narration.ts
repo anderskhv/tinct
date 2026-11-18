@@ -336,8 +336,6 @@ interface ChapterText {
  */
 async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId: string, editionKey: string, chapter: number, transitionTo?: number): Promise<ChapterText | null> {
   let entry: { paragraphs?: unknown } | null
-  // Reader-visible text corrections are fetched alongside the text, not after it.
-  const patches = transitionTo === undefined ? readEditionPatches(env, bookId, editionKey, chapter) : Promise.resolve(null)
   if (isPublicBookId(bookId)) {
     // Book transitions are biblical-book cues; an added book has none.
     if (transitionTo !== undefined) return null
@@ -360,26 +358,7 @@ async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId
   }
   if (!entry || !Array.isArray(entry.paragraphs)) return null
   const paragraphs = (entry.paragraphs as unknown[]).map(item => (typeof item === 'string' ? item : ''))
-  // Reader-visible text corrections are applied the same way editionLoader does
-  // (a patch shorter than half the paragraph is ignored as truncated).
-  for (const patch of await patches ?? []) {
-    const index = patch.paragraph_index
-    if (index >= 0 && index < paragraphs.length && typeof patch.patched_text === 'string'
-      && patch.patched_text.length >= paragraphs[index].length * 0.5) {
-      paragraphs[index] = patch.patched_text
-    }
-  }
   return { paragraphs }
-}
-
-async function readEditionPatches(env: NarrationEnv, bookId: string, editionKey: string, chapter: number): Promise<Array<{ paragraph_index: number; patched_text: string }> | null> {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
-  try {
-    const res = await supabaseGet(env, `edition_patches?book_id=eq.${encodeURIComponent(bookId)}&edition_key=eq.${encodeURIComponent(editionKey)}&chapter_number=eq.${chapter}&select=paragraph_index,patched_text`)
-    if (!res.ok) { await res.body?.cancel(); return null }
-    const rows = await res.json() as unknown
-    return Array.isArray(rows) ? rows as Array<{ paragraph_index: number; patched_text: string }> : null
-  } catch { return null /* patches are optional; unpatched text still hashes consistently with an unpatched reader */ }
 }
 
 /** A reader's own uploaded book: never sent to the speech provider (read-aloud for own books is not approved). */

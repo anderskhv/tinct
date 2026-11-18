@@ -424,6 +424,12 @@ jobs:
           echo "::error::expected bundle was not verified at $TINCT_ORIGIN after 150s"
           exit 1
 
+      # Every script and stylesheet the new build ships, not only index-*.js: live checks that opened a page in the
+      # first minutes found it stuck on its own /assets files (17-18 Nov 2026). Waits (up to 3 min) and logs which
+      # files the edge served late.
+      - name: Wait for every new asset to be served
+        run: node scripts/wait-for-deployed-assets.mjs dist
+
       # The checks run on the exact files that were deployed (some compare production with dist/).
       - name: Hand the deployed build to the checks
         id: handoff

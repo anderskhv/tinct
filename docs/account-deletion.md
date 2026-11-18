@@ -81,6 +81,14 @@ curl -sS -X POST https://tinct.app/api/admin/delete-user \
 The export response has `complete: true` when every store was read in full;
 otherwise `errors` and `truncated` say what is missing. Re-run in that case.
 
+`durableObjects.readerPosition` holds the account's position record and,
+under `positionHistory`, its recent position writes: the last 200 saves of
+at most 30 days (time, device and tab ids, app build, book, edition, chapter,
+paragraph, word, the write's reason and whether the merge accepted, ignored
+or overrode it; `app/src/worker/lib/positionHistory.ts`). Older entries are
+dropped at the account's next save. To read one account's history alone, for
+a lost place, post the same body to `/api/admin/position-history`.
+
 `supabase.reading_time` is the reading-time ledger (seconds read and listened
 per day and book; `app/supabase/migrations/20261008_reading_time.sql`). Until
 that migration has run the table does not exist; export and deletion then
@@ -147,7 +155,7 @@ objects in `NARRATION_COORDINATOR`. Deleting the book deletes
 Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
 
 1. **Durable Objects:** recap preparation, then reader position (alarm and all
-   storage). Recap goes first because its alarm reads the position object.
+   storage, which includes the position write history). Recap goes first because its alarm reads the position object.
 2. **KV:** `lab-chat-history:<id>` (Talk/chat history) and `lab-position:<id>`
    (legacy position record). The own-book narration spend object
    (`own-user:<id>`, purged). Each OCR job found under `u/<id>/ocr/` is
