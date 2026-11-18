@@ -5,7 +5,7 @@ import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseRpc, type SupabaseEnv } from '../lib/supabase'
 import { CHECK_GUEST_KEY, ledgerGuestKey, recordAiUsage, requestGuestKey, talkCostUsd, type LedgerEnv } from '../lib/aiUsage'
-import { AI_RESTING_MESSAGE, AI_RESTING_TYPE, releaseGuestSpend, type GuestAiSpendEnv, type GuestSpendHold, type HoldGuestSpend } from '../lib/aiSpend'
+import { AI_RESTING_MESSAGE, AI_RESTING_TYPE, aiSpendSurface, releaseGuestSpend, type GuestAiSpendEnv, type GuestSpendHold, type HoldGuestSpend } from '../lib/aiSpend'
 import {
   newTicketNonce, returnTalkTrial, signTalkTicket, takeTalkTrial, talkTrialSlot, utcDay, verifyTalkTicket,
   TALK_TICKET_PROTOCOL_PREFIX, TALK_TRIAL_CLOSE_CODE, TALK_TRIAL_CLOSE_REASON, TALK_TRIAL_RESERVE_MICROS,
@@ -74,7 +74,9 @@ export async function handleLabVoiceSession(
     return jsonResponse({ error: 'Create a free account to keep talking.', code: TALK_TRIAL_USED_CODE }, 429, request)
   }
   const exp = now() + TALK_TRIAL_TICKET_SECONDS * 1000
-  const ticket = await signTalkTicket(env, { exp, n: newTicketNonce(), d: day, u: TALK_TRIAL_RESERVE_MICROS, t: slot.name, c: check })
+  // The /try page's reader reserved on its own budget (holdGuestSpend was made for it); the ticket says so, so the relay gives back to the same day.
+  const surface = aiSpendSurface(request) === 'try' ? { s: 'try' as const } : {}
+  const ticket = await signTalkTicket(env, { exp, n: newTicketNonce(), d: day, u: TALK_TRIAL_RESERVE_MICROS, t: slot.name, c: check, ...surface })
   if (!ticket) {
     await Promise.all([hold.release(), returnTalkTrial(env, slot.name)])
     return jsonResponse({ error: VOICE_NOT_CONFIGURED_ERROR }, 503, request)
@@ -153,7 +155,7 @@ export async function handleLabVoiceRelay(
   const upstream = await (deps.connectUpstream ?? connectXaiUpstream)(env).catch(() => null)
   if (!upstream) {
     logVoiceStartFailure(502, 'relay_upstream', false)
-    await Promise.all([releaseGuestSpend(env, ticket.d, ticket.u), returnTalkTrial(env, ticket.t)])
+    await Promise.all([releaseGuestSpend(env, ticket.d, ticket.u, ticket.s === 'try' ? 'try' : 'guest'), returnTalkTrial(env, ticket.t)])
     return jsonResponse({ error: 'Could not start a voice session.' }, 502, request)
   }
   const [client, server] = (deps.createPair ?? (() => {
@@ -180,7 +182,7 @@ export async function handleLabVoiceRelay(
     recordAiUsage(env as LedgerEnv, ctx, { guest: ticket.c ? CHECK_GUEST_KEY : requestGuestKey(request) }, {
       feature: 'talk', provider: 'xai', model: GROK_VOICE_MODEL, seconds, cost_usd: cost,
     })
-    void releaseGuestSpend(env, ticket.d, ticket.u - Math.ceil(cost * 1_000_000)).finally(settle)
+    void releaseGuestSpend(env, ticket.d, ticket.u - Math.ceil(cost * 1_000_000), ticket.s === 'try' ? 'try' : 'guest').finally(settle)
   }
   const endTrial = () => finish(TALK_TRIAL_CLOSE_CODE, TALK_TRIAL_CLOSE_REASON)
   const timer = setTimer(endTrial, TALK_TRIAL_SECONDS * 1000)
