@@ -40,6 +40,9 @@
 
   function readerSrc() {
     var params = new URLSearchParams({ book: READER.book, chapter: String(READER.chapter), edition: 'original-en', demo: 'try', layout: wide ? 'desktop' : 'phone' })
+    // Always the Margin reader on the desktop: an iPad reads the frame (wider than tall) as an iPad held sideways and
+    // would open the two-page spread, where cards float over the text and the margin's Summary is gone.
+    if (wide) params.set('view', 'margin')
     return '/reader?' + params.toString()
   }
   function loadReader() {
@@ -126,6 +129,34 @@
     }
     return null
   }
+  /**
+   * What a box (page coordinates) would cover, from a few points across it: 10 for each that lands on a word of the
+   * book or a control on the page or in the reader, 100 for each on the text of an open card or sheet (the answer
+   * being read; the card's empty space and its follow-up field are fair).
+   * The hint itself takes no pointer events, so it is never what a point finds.
+   */
+  var CARD = '.source-margin-item[data-open="true"], .lab-pcard, .lab-phone-card'
+  var CARD_TEXT = 'p, li, blockquote, h2, h3, h4, b, strong, em'
+  var BUSY_IN_FRAME = '[data-testid="lab-word"], .selection-popup, .lab-pbar, button, a, input, textarea, select, [role="button"]'
+  var BUSY_ON_PAGE = 'button:not(.try-hint-close), a, select, input'
+  function covered(doc, box) {
+    var frameBox = frame.getBoundingClientRect()
+    var hits = 0
+    var xs = [box.left + 10, (box.left + box.right) / 2, box.right - 10]
+    var ys = [box.top + 8, box.bottom - 8]
+    for (var i = 0; i < xs.length; i++) {
+      for (var j = 0; j < ys.length; j++) {
+        var x = xs[i]
+        var y = ys[j]
+        var inFrame = x >= frameBox.left && x <= frameBox.right && y >= frameBox.top && y <= frameBox.bottom
+        var hit = inFrame ? doc.elementFromPoint(x - frameBox.left, y - frameBox.top) : document.elementFromPoint(x, y)
+        if (!hit || !hit.closest) continue
+        if (inFrame && hit.closest(CARD) && hit.closest(CARD_TEXT)) hits += 100
+        else if (hit.closest(inFrame ? BUSY_IN_FRAME : BUSY_ON_PAGE)) hits++
+      }
+    }
+    return hits
+  }
   function hideHint() { hint.hidden = true; hintKey = null }
   function placeHint() {
     var doc = frameDoc()
@@ -151,11 +182,22 @@
     var left = Math.max(minX + 4, Math.min(target - 34, maxX - w - 4))
     var above = anchor.top - h - 12
     var below = anchor.bottom + 12
-    var roomAbove = above >= Math.max(8, Math.min(bounds.top, anchor.top) + 4)
-    var roomBelow = below + h <= Math.min(window.innerHeight, bounds.bottom) - 4
-    // The Explain hint sits over the heading on the desktop (D1) and under the sentence's first line on the phone (M1).
-    var side = item.key === 'explain' && reader.phone ? 'below' : item.side
-    var top = side === 'above' ? (roomAbove || !roomBelow ? above : below) : (roomBelow || !roomAbove ? below : above)
+    // Each side is scored: it must fit in the window and stay off an open card (else no hint at all, never a clipped
+    // one or one over the answer); it should stay on the reader (for a control in the reader) and should not cover
+    // the text being read or another control. Ties go to the hint's own side: over the heading for Explain (D1, and now
+    // M1 too, so the sentence to select stays readable), under the control otherwise.
+    function cost(top) {
+      if (top < 8 || top + h > window.innerHeight - 4) return Infinity
+      var onFrame = anchor.top >= bounds.top && anchor.bottom <= bounds.bottom
+      var c = onFrame && (top < bounds.top + 4 || top + h > bounds.bottom - 4) ? 3 : 0
+      var hits = covered(doc, { left: left, right: left + w, top: top, bottom: top + h })
+      // Over an open card the hint would hide the answer the visitor is reading: no hint rather than that.
+      return hits >= 100 ? Infinity : c + 10 * hits
+    }
+    var costAbove = cost(above)
+    var costBelow = cost(below)
+    if (costAbove === Infinity && costBelow === Infinity) { hideHint(); return }
+    var top = item.side === 'above' ? (costAbove <= costBelow ? above : below) : (costBelow <= costAbove ? below : above)
     hint.style.left = Math.round(left) + 'px'
     hint.style.top = Math.round(top) + 'px'
     hint.setAttribute('data-side', top === below ? 'below' : 'above')

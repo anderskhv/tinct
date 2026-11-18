@@ -23,6 +23,8 @@
   position: absolute; inset: -60px; z-index: -1;
   background: linear-gradient(180deg, rgba(14, 11, 8, .55), rgba(14, 11, 8, .78)), url('/lab/library_2/assets/scene-odyssey-wide.jpg') center 30% / cover no-repeat;
   filter: blur(36px) saturate(.9) brightness(.62);
+  /* Its own layer: without it WebKit painted a white square over the logo where the blur meets the corner. */
+  transform: translateZ(0);
 }
 @media (max-width: 899px) {
   .try-backdrop { background-image: linear-gradient(180deg, rgba(14, 11, 8, .5), rgba(14, 11, 8, .8)), url('/lab/library_2/assets/scene-odyssey-phone.jpg'); }
@@ -200,6 +202,48 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-section, .try-peek, .try-footer { padding-left: 40px; padding-right: 40px; }
 }
 
+/* ---- Between phone and desktop (900–1239px: iPad upright, small laptops, phones sideways) ----
+   Beside a 270px checklist the desktop reader got 150–800px, so its text column shrank to a few words and its top
+   bar ran into itself. Here the checklist is the phone's chips in one row under the book picker, and the reader
+   has the full width (the margin keeps its card column). */
+@media (min-width: 900px) and (max-width: 1239px) {
+  .try-stage { display: block; padding: 0 22px; }
+  .try-panel { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; padding-top: 0; }
+  .try-todo { display: none; }
+  .try-chips-card { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; padding: 6px 8px 6px 16px; border: 1px solid var(--try-line-on-dark); border-radius: var(--tui-radius-pill); background: rgba(244, 239, 228, .06); }
+  .try-chips-title { margin: 0; font: 600 15px/1.3 var(--tui-font-ui); white-space: nowrap; }
+  .try-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; }
+  .try-chips li { display: inline-flex; align-items: center; gap: 3px; min-height: 30px; padding: 0 11px; border: 1px solid rgba(244, 239, 228, .26); border-radius: var(--tui-radius-pill); font-size: 13.5px; color: var(--try-cream-ink); }
+  .try-chips li.is-next { border-color: var(--try-cream-ink); }
+  .try-chips li.is-done { border-color: var(--try-cream-ink); background: var(--try-cream-ink); color: var(--tui-ink); }
+  .try-chips li.is-done::before { content: "✓"; font-size: 11px; }
+  .try-headline { padding: 0 24px; }
+  .try-nav { padding-left: 24px; padding-right: 24px; }
+  .try-sections { gap: 20px; }
+}
+
+/* ---- Short desktop windows (a 13" laptop, a phone sideways): the reader starts and ends on the first screen ----
+   At 1280×593 the 520px reader ran 110px under the fold, and the Explain bar of the first sentence opened there. */
+@media (min-width: 900px) and (max-height: 760px) {
+  .try { --try-reader-h: clamp(360px, calc(100svh - 150px), 760px); }
+  .try-nav { padding-top: 12px; }
+  .try-headline { margin: 14px 0 16px; font-size: clamp(36px, 3.6vw, 52px); }
+  .try-todo { margin-top: 18px; padding-top: 14px; }
+  .try-todo-title { font-size: 28px; }
+  .try-todo-sub { margin-bottom: 16px; }
+  .try-checks li { padding-bottom: 12px; }
+}
+@media (min-width: 900px) and (max-width: 1239px) and (max-height: 760px) {
+  .try { --try-reader-h: clamp(300px, calc(100svh - 200px), 760px); }
+}
+
+/* Touch screens: every control the visitor taps is at least 32px (the hint's ×, the edition switches). */
+@media (hover: none) and (pointer: coarse) {
+  .try-hint-close { top: 3px; right: 2px; width: 32px; height: 32px; }
+  .try-hint { padding-right: 38px; }
+  .try-logo { display: inline-flex; align-items: center; min-height: 32px; }
+}
+
 /* ---- Phone (M1–M10): the checklist chips, the book and edition row, the reader, a text strip ---- */
 @media (max-width: 899px) {
   .try { --try-reader-h: max(440px, calc(100svh - 375px)); }
@@ -225,7 +269,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-phone-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 12px 0 10px; }
   .try-phone-row .try-book select { min-height: 34px; font-size: 16px; }
   .try-editions { display: inline-flex; padding: 3px; border-radius: var(--tui-radius-pill); background: rgba(244, 239, 228, .08); border: 1px solid var(--try-line-on-dark); }
-  .try-editions button { min-height: 30px; padding: 0 12px; border: 0; border-radius: var(--tui-radius-pill); background: transparent; color: var(--try-cream-ink); font: 500 13.5px/1 var(--tui-font-ui); cursor: pointer; }
+  .try-editions button { min-height: 32px; padding: 0 12px; border: 0; border-radius: var(--tui-radius-pill); background: transparent; color: var(--try-cream-ink); font: 500 13.5px/1 var(--tui-font-ui); cursor: pointer; }
   .try-editions button[aria-pressed="true"] { background: var(--try-cream-ink); color: var(--tui-ink); }
   .try-reader { border-radius: 14px; }
   .try-limit { align-items: flex-end; justify-content: center; padding: 14px; }
