@@ -5,8 +5,11 @@ import { createBookshelf } from './bookshelf-view.js?v=20261112bios';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 import { bookCoverSrc } from '../book-cover.js?v=20261009owncover';
 import { deskWithLink, addressWithoutLink } from './desk-link.js?v=20261106deskgone';
+import { restrictedBookIdsNow } from '../restricted-books.js?v=20261117geo';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {
+ // A saved book not served in this visitor's country is not shown; the saved list itself is never changed.
+ const shownSaved=ids=>{const restricted=restrictedBookIdsNow();return Array.isArray(ids)&&restricted.size?ids.filter(id=>!restricted.has(id)):ids;};
  const params=new URLSearchParams(location.search),sample=params.get('demo')==='reading';
  const shelfStudy=params.get('view')==='shelf';
  const override=sample?'shelf':params.get('view')==='new'?'discovery':params.get('view')==='shelf'?'shelf':null;
@@ -45,7 +48,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
     // the desk's own state follows only once it is kept (a last book leaves the desk then). Should
     // the write fail, the account's table is read again (the book returns) and the error is shown.
     const reading=table.reading.filter(b=>b.bookId!==id);
-    if(reading.length&&view&&enabled())view.update({...table,reading,shelfReading:reading},saved,catalogue);
+    if(reading.length&&view&&enabled())view.update({...table,reading,shelfReading:reading},shownSaved(saved),catalogue);
     try{
      await resumeReady;
      await api.hideFromReadingNow(id);
@@ -55,7 +58,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
     present();
     ready=load(true);
    },
-   onRemove:id=>{if(sample){saved=saved.filter(book=>book!==id);view.update(desk(),saved);}else window.dispatchEvent(new CustomEvent('library2:remove-saved',{detail:id}));},
+   onRemove:id=>{if(sample){saved=saved.filter(book=>book!==id);view.update(desk(),shownSaved(saved));}else window.dispatchEvent(new CustomEvent('library2:remove-saved',{detail:id}));},
    onOpen:async(id,shelf,img)=>{
     // The tap is answered at once: the page fades to the reader's paper (body.leaving, as every way into
     // the reader does) while the account's places finish arriving and the hand-off is written. It waited
@@ -63,7 +66,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
     if(shelf==='reading'&&!sample){document.body.classList.add('leaving');addEventListener('pageshow',e=>{if(e.persisted)document.body.classList.remove('leaving');},{once:true});try{await resumeReady;const href=await api.readerDestination(id,null);if(href!=='/reader'&&!href.startsWith('/reader?userBook=')&&!(deskNow()&&href.startsWith('/lab/addbook/?userBook=')))throw new Error('Reader unavailable');rememberVisit({mode:'shelf'});location.assign(href);}catch(error){document.body.classList.remove('leaving');throw error;}}
     else await openBook(id,img);
    }});
-  else if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;
+  else if(enabled())view.update(desk(),shownSaved(saved),catalogue);else pendingUpdate=true;
   if(key)view.focus(key);
   settle();
  }
@@ -95,7 +98,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    freshShown=true;
    // A cloud shelf sync is independent of painting the books already on device.
    present();
-   const value=await savedReady;if(!sample){saved=value.ids;onSaved(saved);if(view){if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;}}
+   const value=await savedReady;if(!sample){saved=value.ids;onSaved(saved);if(view){if(enabled())view.update(desk(),shownSaved(saved),catalogue);else pendingUpdate=true;}}
    if(!sample)try{if(table.mode==='returning'||saved.length)localStorage.setItem('tinct-library-2-reading-table','{"mode":"returning"}');else localStorage.removeItem('tinct-library-2-reading-table');}catch{}
    // This device's note that the account's desk is empty (src/lab/libraryRoom.ts LIBRARY_EMPTY_KEY): the next visit then paints the discovery library at once.
    if(!sample)try{const owner=window.__library2Boot?.owner;if(owner){if(table.mode!=='returning'&&!saved.length&&!table.reading.length)localStorage.setItem('tinct:library-2-empty',JSON.stringify({v:1,owner}));else localStorage.removeItem('tinct:library-2-empty');}}catch{}
@@ -110,12 +113,12 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    else settle();
   }finally{loadingNow=false;}
  }
- addEventListener('library2:saved',e=>{if(sample)return;saved=e.detail;if(view){if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;}});
+ addEventListener('library2:saved',e=>{if(sample)return;saved=e.detail;if(view){if(enabled())view.update(desk(),shownSaved(saved),catalogue);else pendingUpdate=true;}});
  addEventListener('library2:shelf-removed',event=>{const id=event.detail;dropLink(id);table={...table,reading:table.reading.filter(book=>book.bookId!==id),finished:table.finished.filter(book=>book.bookId!==id),shelfReading:(table.shelfReading||table.reading).filter(book=>book.bookId!==id)};present();ready=load(true);});
  // A refresh that lands behind the menu, search, a book or My shelf is applied as
  // soon as the desk is visible again, so the desk and My shelf never disagree.
  // A change made elsewhere (My shelf) is simply there on return: no removal plays out on the desk.
- const flushPending=()=>{if(pendingUpdate&&view&&enabled()){pendingUpdate=false;view.update(desk(),saved,catalogue,{instant:true});}};
+ const flushPending=()=>{if(pendingUpdate&&view&&enabled()){pendingUpdate=false;view.update(desk(),shownSaved(saved),catalogue,{instant:true});}};
  addEventListener('library2:overlayclosed',flushPending);
  addEventListener('library2:interactive',flushPending);
  // Preserve the live scene in the back/forward cache while refreshing its data.

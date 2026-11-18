@@ -65,6 +65,8 @@ interface Props {
    * its filters (AI · Highlights · Notes · All). Closing it returns to the book.
    */
   notebook?: boolean
+  /** Open straight into Search (Ctrl+F / Cmd+F in the reader). */
+  search?: boolean
   /** Owner-gated legacy records, shown only in this book's Notebook without inventing a converted-text anchor. */
   legacyOwnEpubItems?: LegacyOwnEpubNotebookItem[]
   notebookRecovery?: ReactNode
@@ -174,12 +176,13 @@ export function LabContentsV2(props: Props) {
 
   useEffect(() => {
     if (!open) return
-    setExpanded(new Set(current?.parents.map(n => n.id))); setView(props.notebook ? 'notebook' : null); setChapterFilter(null)
+    setExpanded(new Set(current?.parents.map(n => n.id))); setView(props.notebook ? 'notebook' : props.search ? 'search' : null); setChapterFilter(null)
+    if (props.search && !props.notebook) { setQuery(''); setScope('all') }
     if (!props.sharedNotebook) setNotebookFilter('all')
     setCrumbs([]); reveal.current = true
     const settle = window.setTimeout(() => { reveal.current = false }, CONTENTS_REVEAL_MS)
     return () => window.clearTimeout(settle)
-  }, [open, bookId, currentChapter, props.chaptersReady, props.notebook])
+  }, [open, bookId, currentChapter, props.chaptersReady, props.notebook, props.search])
   useEffect(() => { if (open) { setHiddenNotebook(new Set()); setUndoNotebook(null); setNotebookFeedback('') } }, [open, bookId])
   useEffect(() => { setLoadedText(null); setLoadError(false); setView(open && props.notebook ? 'notebook' : null); setTab('chapters'); setNotebookFilter('all') }, [bookId, editionKey])
   useLayoutEffect(() => { if (open && view === 'notebook' && props.sharedNotebook && resultsRef.current) resultsRef.current.scrollTop = notebookScroll.current }, [open, view])

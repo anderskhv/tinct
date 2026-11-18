@@ -213,24 +213,91 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
     window.addEventListener('keydown', onKey)
     return () => { window.removeEventListener('pointerdown', outside, true); window.removeEventListener('keydown', onKey) }
   }, [])
-  // A drag down on the handle or the label closes it.
-  const drag = useRef<{ y: number; id: number } | null>(null)
+  // The card follows a pull down and closes past PHONE_CARD_SWIPE (or on a flick); otherwise it springs back.
+  const follow = (dy: number) => { if (ref.current) { ref.current.style.transition = 'none'; ref.current.style.transform = dy > 0 ? `translateY(${dy}px)` : '' } }
+  const release = (dy: number, velocity: number) => {
+    const el = ref.current
+    if (!el) return
+    const closes = phoneCardSwipeCloses(dy, velocity, el.offsetHeight)
+    el.style.transition = closes || dy <= 0 ? '' : 'transform .18s cubic-bezier(.2, .8, .2, 1)'
+    el.style.transform = ''
+    if (closes) closeRef.current()
+  }
+  // A drag down on the header row (the grip, the title and the empty space beside it) closes it.
+  const drag = useRef<{ y: number; id: number; track: SwipeTrack } | null>(null)
   const onPointerDown = (event: React.PointerEvent) => {
-    drag.current = { y: event.clientY, id: event.pointerId }
+    drag.current = { y: event.clientY, id: event.pointerId, track: swipeTrack(event.clientY) }
     try { (event.currentTarget as Element).setPointerCapture(event.pointerId) } catch { /* a synthetic pointer */ }
   }
   const onPointerMove = (event: React.PointerEvent) => {
     const start = drag.current
     if (!start || !ref.current) return
-    const dy = Math.max(0, event.clientY - start.y)
-    ref.current.style.transform = dy ? `translateY(${dy}px)` : ''
+    start.track.move(event.clientY)
+    follow(Math.max(0, event.clientY - start.y))
   }
   const onPointerEnd = (event: React.PointerEvent) => {
     const start = drag.current
     drag.current = null
-    if (ref.current) ref.current.style.transform = ''
-    if (start && event.clientY - start.y > 60) onClose()
+    if (!start) { follow(0); return }
+    start.track.move(event.clientY)
+    release(event.clientY - start.y, start.track.velocity())
   }
+  // A swipe down anywhere else on the card closes it as an iOS sheet does (Anders, 17 Nov 2026), but only while what
+  // is under the finger is scrolled to its top: further down the same swipe scrolls the content. Touch events, not
+  // pointer events: iOS takes a touch that pans the body for its own scroll (pointercancel) unless the first move is
+  // cancelled. A field (the follow-up, a note), a long press (a text selection) and an upward or sideways move are
+  // left to the browser.
+  const releaseRef = useRef(release)
+  releaseRef.current = release
+  const followRef = useRef(follow)
+  followRef.current = follow
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    let swipe: { x: number; y: number; at: number; scrolled: boolean; state: 'pending' | 'drag' | 'off'; track: SwipeTrack; dy: number } | null = null
+    const start = (event: TouchEvent) => {
+      swipe = null
+      const touch = event.touches[0]
+      const target = event.target as Element | null
+      if (event.touches.length !== 1 || !touch || !target?.closest) return
+      if (target.closest('.lab-pcard-drag, textarea, input, select, [contenteditable=""], [contenteditable="true"]')) return
+      const selection = typeof window.getSelection === 'function' ? window.getSelection() : null
+      if (selection && !selection.isCollapsed && selection.anchorNode && el.contains(selection.anchorNode)) return
+      swipe = { x: touch.clientX, y: touch.clientY, at: performance.now(), scrolled: scrolledFromTop(target, el), state: 'pending', track: swipeTrack(touch.clientY), dy: 0 }
+    }
+    const move = (event: TouchEvent) => {
+      const touch = event.touches[0]
+      if (!swipe || swipe.state === 'off' || !touch) return
+      const dx = touch.clientX - swipe.x, dy = touch.clientY - swipe.y
+      if (swipe.state === 'pending') {
+        if (Math.abs(dx) < SWIPE_SLOP_PX && Math.abs(dy) < SWIPE_SLOP_PX) return
+        const held = performance.now() - swipe.at > SWIPE_LONG_PRESS_MS
+        if (held || dy <= 0 || Math.abs(dx) > Math.abs(dy) || swipe.scrolled) { swipe.state = 'off'; return }
+        swipe.state = 'drag'
+      }
+      if (event.cancelable) event.preventDefault()
+      swipe.track.move(touch.clientY)
+      swipe.dy = dy
+      followRef.current(Math.max(0, dy))
+    }
+    const end = (event: TouchEvent) => {
+      const current = swipe
+      swipe = null
+      if (!current || current.state !== 'drag') return
+      const touch = event.changedTouches[0]
+      if (event.type === 'touchcancel' || !touch) { releaseRef.current(0, 0); return }
+      current.track.move(touch.clientY)
+      releaseRef.current(touch.clientY - current.y, current.track.velocity())
+    }
+    el.addEventListener('touchstart', start, { passive: true })
+    el.addEventListener('touchmove', move, { passive: false })
+    el.addEventListener('touchend', end)
+    el.addEventListener('touchcancel', end)
+    return () => {
+      el.removeEventListener('touchstart', start); el.removeEventListener('touchmove', move)
+      el.removeEventListener('touchend', end); el.removeEventListener('touchcancel', end)
+    }
+  }, [])
   return (<>
     {/* The page behind the card is dimmed, so none of its words read beside or under the card. */}
     <div className="lab-pcard-scrim" data-testid="lab-phone-card-scrim" aria-hidden="true" />
@@ -259,6 +326,40 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
     </section>
     </div>
   </>)
+}
+
+/** A move this small is still a tap. */
+const SWIPE_SLOP_PX = 6
+/** A finger held this long before it moves is selecting text, not pulling the card. */
+const SWIPE_LONG_PRESS_MS = 450
+
+/**
+ * Whether a pull down by `dy` px, leaving at `velocity` px/ms, closes a card `height` px tall: past a fifth of the
+ * card (at least 60px, at most 120px), or a flick down of at least 20px.
+ */
+export function phoneCardSwipeCloses(dy: number, velocity: number, height: number): boolean {
+  if (dy <= 0) return false
+  const distance = Math.min(120, Math.max(60, (height || 0) * 0.2))
+  return dy > distance || (velocity > 0.6 && dy >= 20)
+}
+
+interface SwipeTrack { move(y: number): void; velocity(): number }
+/** The finger's speed down the screen over its last ~100 ms (px/ms). */
+function swipeTrack(y: number): SwipeTrack {
+  const points: Array<{ y: number; t: number }> = [{ y, t: performance.now() }]
+  return {
+    move(next) { const t = performance.now(); points.push({ y: next, t }); while (points.length > 2 && t - points[0].t > 100) points.shift() },
+    velocity() { const a = points[0], b = points[points.length - 1]; return b.t > a.t ? (b.y - a.y) / (b.t - a.t) : 0 },
+  }
+}
+
+/** Whether anything that scrolls between the finger and the card (the body, Chat's thread) is scrolled down from its top. */
+function scrolledFromTop(target: Element, card: Element): boolean {
+  for (let node: Element | null = target; node && node !== card.parentElement; node = node.parentElement) {
+    if ((node as HTMLElement).scrollTop > 1) return true
+    if (node === card) break
+  }
+  return false
 }
 
 /** The card keeps its height, so a longer answer runs on below its foot: the body fades out there while it does. */
