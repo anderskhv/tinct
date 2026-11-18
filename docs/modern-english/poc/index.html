@@ -27,6 +27,7 @@ a { color: inherit; text-decoration: none }
 .top { display: grid; gap: 28px; padding-block: 40px 48px; align-items: center }
 h1 { font: 600 clamp(32px, 5vw, 54px)/1.06 var(--display); margin: 0; text-wrap: balance; max-width: 16ch }
 .sub { font: clamp(18px, 2vw, 21px)/1.4 var(--book); color: var(--dim); margin: 10px 0 0 }
+.claim { min-width: 0 }
 .sr { position: absolute; left: -9999px }
 .search { position: relative; margin-top: 22px; max-width: 480px; z-index: 3 }
 .search svg { position: absolute; left: 18px; top: 16px; color: var(--dim); z-index: 1; pointer-events: none }
@@ -40,8 +41,10 @@ h1 { font: 600 clamp(32px, 5vw, 54px)/1.06 var(--display); margin: 0; text-wrap:
 .results img { width: 36px; height: 54px; object-fit: cover; border-radius: 2px; flex: none }
 .results .rt { font: 500 17px/1.2 var(--book); display: block } .results .rs { font: italic 13px var(--book); color: var(--faint); display: block }
 .results .empty { padding: 10px; font: 16px var(--book); color: var(--dim) }
-.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; max-width: 560px }
-.pills button { height: 34px; padding: 0 14px; border-radius: 17px; border: 0; background: rgba(20,17,13,0.55); color: var(--dim); font: 14px var(--ui); box-shadow: inset 0 0 0 1px rgba(239,232,219,0.22); cursor: pointer }
+.pills { display: flex; flex-wrap: nowrap; gap: 6px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; max-width: 100% }
+.pills::-webkit-scrollbar { display: none }
+.search + .pills { margin-top: 16px }
+.pills button { flex: none; height: 30px; padding: 0 12px; border-radius: 15px; border: 0; background: rgba(20,17,13,0.55); color: var(--dim); font: 13px var(--ui); box-shadow: inset 0 0 0 1px rgba(239,232,219,0.22); cursor: pointer }
 .pills button:hover { color: var(--text) }
 .pills button[aria-pressed="true"] { background: var(--text); color: var(--room); box-shadow: none }
 .pills button:focus-visible { outline: 2px solid var(--text); outline-offset: 2px }
@@ -96,17 +99,18 @@ footer .inner { display: flex; flex-wrap: wrap; gap: 8px 20px }
   <div class="bg" aria-hidden="true"></div>
   <div class="pad"><div class="inner top">
     <div class="claim">
-      <h1>The classics, in plain modern English.</h1>
-      <p class="sub">Free. Made with AI. The original one tap away.</p>
+      <h1>103 classics in modern translation. Free.</h1>
+      <p class="sub">The original, or its classic human translation, is always one tap away.</p>
       <div class="search" role="search">
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <label for="q" class="sr">Search the books</label>
-        <input id="q" type="search" placeholder="Search 103 books" autocomplete="off" aria-controls="results" aria-expanded="false">
+        <input id="q" type="search" placeholder="Search by title or author" autocomplete="off" aria-controls="results" aria-expanded="false">
         <ul id="results" class="results" hidden></ul>
       </div>
-      <div class="pills" role="group" aria-label="Filter the shelves">
+      <div class="pills" role="group" aria-label="Category">
         <button type="button" data-k="house" data-v="philosophy">Philosophy</button><button type="button" data-k="house" data-v="drama">Drama</button><button type="button" data-k="house" data-v="novel">Fiction</button><button type="button" data-k="house" data-v="epic">Poetry</button><button type="button" data-k="house" data-v="politics">Politics</button>
-        <span class="sep" aria-hidden="true"></span>
+      </div>
+      <div class="pills" role="group" aria-label="Period">
         <button type="button" data-k="era" data-v="ancient">Ancient</button><button type="button" data-k="era" data-v="medieval">Medieval</button><button type="button" data-k="era" data-v="early">1500s–1600s</button><button type="button" data-k="era" data-v="1700s">1700s</button><button type="button" data-k="era" data-v="1800s">1800s</button><button type="button" data-k="era" data-v="1900s">1900s</button>
       </div>
     </div>
