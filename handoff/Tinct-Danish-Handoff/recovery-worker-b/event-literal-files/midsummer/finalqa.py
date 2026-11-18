@@ -1,0 +1,21 @@
+from prep import *
+D=rd('modern-da.json');E=rd('source-modern-en.json')
+def rep(B,c,i,a,b):
+ v=B['chapters'][c-1]['paragraphs'];assert a in v[i-1],(c,i,a);v[i-1]=v[i-1].replace(a,b)
+def d(c,i,a,b):rep(D,c,i,a,b)
+def e(c,i,a,b):rep(E,c,i,a,b)
+d(1,3,'nys spændt','lige spændt');d(1,37,'fra Athen –','fra Athen');d(2,40,'sid fast i det hele','lær jeres roller til punkt og prikke');d(3,3,'alfedronningens ærind','alfedronningens ærinder');d(3,49,'Jeres tjener klarer det','Det skal din tjener nok klare');d(4,12,'Presser blomsten mod Titanias øjenlåg','Presser saften fra blomsten ud på Titanias øjenlåg');d(6,93,'dit lille miniatur','din lille miniature');d(6,112,'med draget sværd','med sværdet trukket');d(7,19,'Sådan snor hunvedbend','Sådan slynger vedbenden som en kvinde');d(9,53,'din elskers ynde er jeg','jeg er din elskers pryd');d(9,126,'slår gabet op på vidt gab','åbner sit gab på vidt klem');d(9,133,'Døm, I kære folk, ej strengt\ndet spinkle spil vi her har tænkt.','Døm ikke vores spinkle spil\nfor hårdt, I kære folk.')
+for c in D['chapters']:c['title']=re.sub(r'Akt (\d), Scene (\d+) —',r'\1. akt, \2. scene —',c['title']).replace("Theseus'","Theseus’").replace('Et rum','Et værelse').replace('Samme sted. Et værelse i et hus','Athen. Et værelse i en hytte')
+e(1,37,'about a mile outside of town','about three miles outside of town');e(1,41,'Hello, Helena!','Hello, beautiful Helena!');e(1,52,'the moon reflects','Phoebe, the moon goddess, sees')
+e(2,13,'Hercules','Ercles');e(2,13,"the sun god's chariot","Phibbus's chariot");e(2,34,"I'll modify my voice","I'll aggravate my voice");e(2,40,'freely and boldly','most obscenely and courageously')
+e(3,6,'crying "Ow, my backside!"','crying "Tailor!"');e(3,29,'Lysander and Hermia?','Lysander and beautiful Hermia?')
+e(5,23,"he's there to represent the moon","he's there to disfigure, or represent, the person of Moonshine");e(5,38,'most lovely soul','most lovely Jew')
+e(7,18,'a powerful urge to sleep coming over me','an exposition of sleep coming over me');e(7,67,'My next line','My next cue')
+e(8,7,"an absolute dream when it comes to a sweet voice","a real paramour when it comes to a sweet voice")
+e(9,53,'Leander','Limander')
+for i in [55,56]:
+ v=E['chapters'][8]['paragraphs'][i-1];print(i,v); e(9,i,'Cephalus','Shafalus');e(9,i,'Procris','Procrus')
+e(9,89,"Ninus's","Ninny's")
+e(9,103,'has destroyed my darling? She was — no, no — she was','has deflowered my darling? She is — no, no — she was')
+e(9,105,'as in a dice','as in one of a pair of dice');e(9,122,'Here a dance of Clowns','The tradesmen dance');e(9,133,'If we actors','If we shadows')
+wr('modern-da.json',D);wr('modern-en.json',E)

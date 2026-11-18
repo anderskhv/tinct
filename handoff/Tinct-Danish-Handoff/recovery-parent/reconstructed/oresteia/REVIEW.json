@@ -1,0 +1,22 @@
+{
+  "bookId": "oresteia",
+  "status": "editorial pass complete; native read and display review pending",
+  "coverage": "All 771 Danish passages read against Morshead and rewritten. English received targeted meaning, speaker and omitted stage-matter corrections, not an exhaustive new translation.",
+  "sources": [
+    "https://www.gutenberg.org/files/8604/8604-h/8604-h.htm",
+    "https://classics.mit.edu/Aeschylus/agamemnon.html",
+    "https://www.uh.edu/~cldue/texts/agamemnon.html",
+    "https://adfonteslibrary.org/work-aeschylus-libation-bearers"
+  ],
+  "reviewPriorities": [
+    "Read choral rhythm aloud; parts use prose while opening and repeated refrain use line breaks.",
+    "Source editorial square brackets sometimes surround spoken words, including 17:17 and 23:4. They are retained; check reader styling does not imply silent action.",
+    "Independent native review of mythological names, ritual language and rhetorical voices.",
+    "English emphasis has received targeted repairs; no full typographic equivalence claim."
+  ],
+  "integration": [
+    "Keep 26 chapter and 771 paragraph coordinates. Restored cast/setting matter is within opening passages.",
+    "Use onboarding-da.json and onboarding-en.json alongside their matching body drafts.",
+    "Verify pinned input versions before integration. Claude owns publication."
+  ]
+}

@@ -1,0 +1,15 @@
+# coding: utf-8
+from review_helpers import *
+fixes('da',48,16,[('din tapperhed og din lykke på din hests','din tapperhed og din skæbne i din hests hænder'),('hvis han har en hård mund eller nægter sporen','hvis den ikke reagerer på biddet eller sporen')])
+fixes('da',48,18,[('hverken de eller de','hverken de ene eller de andre')])
+fixes('da',48,19,[('vildt flugt','vild flugt')])
+fixes('da',48,22,[('dem, hvis brug vi bedst kan stå til regnskab for','dem, vi selv har bedst kontrol over')]);fixes('en',48,22,[('the ones whose use we can best account for','the ones we can best control ourselves')])
+setslot('da',48,24,'[»Og overlade sårene til vindene, at føre dem hvorhen de vil! Sværdet har kraft, og ethvert folk af mænd fører krig med sværd.« — Lukan, viii. 384.]')
+setslot('en',48,24,'["And leave the wounds to the winds, to carry them wherever they please! The sword has strength, and every nation of men wages war with swords." — Lucan, viii. 384.]')
+fixes('da',48,25,[('med ild og med slynge','med ild'),('en bevæbnet mand','en mand i rustning'),('en lejr plantet med disse flammende køller ville være en almindelig plage for hele forsamlingen','en slagmark strøet med disse brændende stykker træ ville være til gene for begge sider i nærkampen')])
+fixes('en',48,25,[('with fire and with the sling','with fire'),('an armed man','a man in armour'),('a camp planted with these flaming clubs would be a common nuisance to the whole crowd','a battlefield strewn with these burning shafts would be a hindrance to both sides in the melee')])
+fixes('da',48,27,[('et højt brusende lyd','en høj, brusende lyd')])
+fixes('da',48,28,[('to bevæbnede mænd','to mænd i rustning'),('deres slyngers virke','deres slyngers træfsikkerhed')]);fixes('en',48,28,[('two armed men','two men in armour')])
+fixes('da',48,30,[('havde ikke alene virkningen, men også torden, fra vores kanoner','havde ikke alene samme virkning som vores kanoner, men også samme torden')])
+ledger();wr('chapter48-source-check-batch02.json',{'chapter':48,'slots':[13,32],'witness':'https://fr.wikisource.org/w/index.php?title=Essais/Livre_I/Chapitre_48&oldid=1875817','notes':['13–32fullcomparison.22 controlnotaccountability.24 corrupted Lucan gloss reconstructed from quotedLatin.25 French champ battlefield not camp; flaming shafts not clubs; thrownfireweapon not slingweapon; armournotmerelyarmed.28samearmour.17 Caedebant/Frenchcedebant variant leftpendingclassicalwitness.29 onlyEnglishglossretained rather thanLatin, document. Historical claims Ottoman horse ban/gun efficacy are author-era claims.']})
+d=rd('review-progress.json');d.update(reviewedSlots=1247,throughChapter=48,throughSlot=32,nextChapter=48,nextSlot=33,englishAuditCheckpoint={'chapter':48,'throughSlot':32},danishChangedSlots=len(rd('working-da-changes.json')),englishChangedSlots=len(rd('working-en-changes.json')));wr('review-progress.json',d)

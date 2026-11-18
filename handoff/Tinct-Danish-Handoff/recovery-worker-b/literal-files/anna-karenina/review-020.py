@@ -1,0 +1,18 @@
+# coding: utf-8
+import pathlib,json,re
+p=pathlib.Path(__file__).parent
+DA={1:[('hos Oblonskijs','hos familien Oblonskij')],2:[('Oblonskij spiste virkelig middag hjemme; samtalen var almindelig, og hans kone tiltalte ham, da hun talte til ham, som »Stiva«, hvad hun ikke havde gjort før.','Oblonskij spiste middag hjemme. Alle deltog i samtalen, og hans kone talte med ham og sagde du til ham, hvad hun ikke havde gjort før.'),('Den samme fremmedhed','Den samme afstand')],3:[('alle talte så højt om','alle roste så meget'),('i Annas magt','under Annas indflydelse'),('I bevægelsernes elasticitet, den friskhed og uudslukkede iver, der dvælede i hendes ansigt og brød frem i smilet og blikket','Med sine smidige bevægelser og den friskhed og vedvarende livlighed, der lå over hendes ansigt og brød frem i smilet eller blikket'),('som slog Kitty og drog hende ind','som gjorde indtryk på Kitty og tiltrak hende'),('helt enkel','helt ligefrem')],7:[('volanten på hendes nederdel','flæsen på hendes kjole')],13:[('men der gør','men det gør der'),('Hos Bobristjevs','Hos familien Bobrisjtjev'),('hos Nikitins','hos familien Nikitin'),('hos Mezjkovs','hos familien Mezjkov')],14:[('den hemmelige verden','den særlige verden')],20:[('hvilken forskel ville det så gøre for mig','hvad skulle jeg så bruge det til')],29:[('sikken en lykkelig tid, du er i','hvor er det en dejlig alder, De har'),('træde ind i balsalen, hvor lys og pragtfuld den end er','træde ind i denne række af rum, hvor lyse og smukke de end er')],30:[('Alexej Alexandrovitjs','Aleksej Aleksandrovitjs')],31:[('Jeg kunne så godt lide ham','Jeg synes meget godt om ham')],37:[('og jeg tager gerne hen til hende i morgen','og jeg glæder mig til at se den gamle dame. Jeg tager derhen i morgen')],39:[('omfavnede og svingede hele flokken af myldrende børn','omfavnede og væltede hele flokken af tumlende børn')]}
+EN={2:[('his wife, in speaking to him, addressed him as "Stiva," as she had not done before','his wife spoke to him using the familiar form of address, which she had not done before')],15:[('be dull','be bored')],16:[('be dull','be bored')],20:[('what difference would it make to me','what use would that be to me')],29:[('step into the ballroom, bright and splendid though it is','enter this succession of rooms, bright and beautiful though they are')],31:[('I liked him so much','I like him very much')],37:[("and I'll be glad to go to her tomorrow","and I will be glad to see the old lady. I will visit her tomorrow")],39:[('embraced and swung around','embraced and tumbled over')]}
+pack=[]
+for lang,changes in [('da',DA),('en',EN)]:
+ f=p/f'candidate-anna-karenina-modern-{lang}.json';d=json.loads(f.read_text());rf=p/('DANISH-REPAIRS.json' if lang=='da' else 'ENGLISH-REPAIRS.json');r=json.loads(rf.read_text());c=d['chapters'][19]
+ for sn,pairs in changes.items():
+  for a,b in pairs:
+   t=c['paragraphs'][sn-1];assert a in t,(lang,sn,a);c['paragraphs'][sn-1]=t.replace(a,b);r.append(dict(chapter=20,paragraph=sn,before=a,after=b,reason='Russian XX full comparison: Dolly familiar address not added name, enfilade metaphor not ballroom, children tumble not swing, modern Danish and voices.'))
+ if lang=='da':
+  for sn in [13,15,18,21,23,24,25,27,28,31,32,34,35]:
+   t=c['paragraphs'][sn-1];new=t
+   for a,b in [('du','De'),('Du','De'),('dig','Dem')]:new=re.sub(r'\b'+a+r'\b',b,new)
+   if new!=t:c['paragraphs'][sn-1]=new;r.append(dict(chapter=20,paragraph=sn,before=t,after=new,reason='Anna and Kitty address each other formally in Russian XX; preserve De/Dem.'))
+ pack.append((f,d,rf,r))
+for f,d,rf,r in pack:f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');rf.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')

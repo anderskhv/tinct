@@ -1,0 +1,30 @@
+{
+  "bookId": "wealth-of-nations",
+  "status": "complete local candidate; native Danish final read pending",
+  "scope": {
+    "books": 5,
+    "readerChapters": 32,
+    "paragraphSlots": 2173,
+    "originalWords": 379438,
+    "abridged": false,
+    "sourceIntroductionRestoredParagraphs": 9,
+    "tableBlocks": 10,
+    "tableAuditSlots": 39
+  },
+  "review": [
+    "All Danish prose rewritten against original; final unchanged-slot scan found and completed the Book II introduction formerly overreported as rewritten.",
+    "Full original continuous-body comparison with Gutenberg3300 and38194; Cannan1904 facsimiles adjudicated numerical/corrupt readings.",
+    "All candidate JSON parses, chapter/paragraph alignment remains exact; no placeholder/empty/short-ratio flags.",
+    "Danish and English onboarding reviewed; unsupported English claim that the question had never previously been explained removed.",
+    "English content corrections and editorial notes recorded in complete before/after ledgers.",
+    "Final targeted Danish prose smoothing completed for bank-money metaphor, legal deliberation, and metal-extraction process."
+  ],
+  "limitations": [
+    "Native Danish final read not performed; user will arrange.",
+    "No application or rendering test, code change, repository write, PR, merge or release performed.",
+    "Historical claims and prejudices are Smith’s; this is a translation, not a comprehensive modern historical fact-check.",
+    "Author historical claims at11.254(1487/fourth regnal year),11.258(stockings),11.259(mills), and approximate arithmetic11.256–257 remain attributed to original; discuss optional explanatory annotations in editorial review.",
+    "Tables use explicit newline-separated, pipe-separated rows within existing text slots, not new application markup. Claude should verify line breaks survive presentation.",
+    "1784/1786 author notices supplied separately; no production target assigned for optional supplement."
+  ]
+}

@@ -1,0 +1,17 @@
+import pathlib,json
+p=pathlib.Path(__file__).parent
+DA={1:[('barnet, barnepigen','barnet, ammen')],2:[('spurgte i enrum til hende','spurgte selv til hende'),('betragtede han hende lige så meget som sin kone som andens','betragtede han hende som sin kone på lige fod med enhver anden hustru')],5:[('henvendte Vronskij sig til Anna med en vis formalitet og behandlede hende som en meget nær veninde','sagde Vronskij De til Anna og behandlede hende som en nær bekendt')],6:[('havde vage forestillinger flydt op i hans hoved','var der opstået vage forestillinger hos ham'),('benene krydset','benene trukket op under sig'),('benene begynder at trække og rive mod, hvor han end ville flytte dem hen','benene begynder at spjætte og presse sig hen, hvor han gerne vil strække dem ud')],12:[('jeg er parat til at kaste min kyse over møllen','jeg har kastet min kyse over møllen')],13:[('gå lige og enkelt for at besøge Anna','uden omsvøb og med beslutsomhed besøge Anna')],15:[('Jeg gør det ikke, jeg kan ikke gå ind på det','Jeg går ikke ind i detaljerne, og det kan jeg heller ikke')],16:[('du modtager','I modtager'),('endnu mere mørk','endnu mere dystert')],18:[('stadig mørk','stadig dystert')],20:[('bliver ved med at fange den på enhver genstand','hele tiden støder den mod alting')]}
+EN={1:[('the baby, the nurse','the baby, the wet nurse')],2:[('as much his wife as anyone else\'s','his wife on the same footing as any other wife')],5:[('addressed Anna with a certain formality, treating her like a very close friend','used the formal form of address with Anna, treating her like a close acquaintance')],6:[('your legs crossed','your legs tucked under you'),('his legs crossed','his legs tucked under him')],12:[("I'm ready to throw my cap over the windmill","I've thrown my cap over the windmill")],13:[('go straight and simply to see Anna','go openly and decisively to see Anna')],15:[("I don't, I can't go into that","I do not go into the details, and cannot do so")]}
+pack=[]
+for lang,changes in [('da',DA),('en',EN)]:
+ f=p/f'candidate-anna-karenina-modern-{lang}.json';d=json.loads(f.read_text());rf=p/('DANISH-REPAIRS.json' if lang=='da' else 'ENGLISH-REPAIRS.json');r=json.loads(rf.read_text());c=d['chapters'][151]
+ if lang=='da':
+  for sn in range(1,len(c['paragraphs'])+1):
+   if 'Alexej' in c['paragraphs'][sn-1]:changes.setdefault(sn,[]).append(('Alexej','Aleksej'))
+   if 'Alexandrovitj' in c['paragraphs'][sn-1]:changes.setdefault(sn,[]).append(('Alexandrovitj','Aleksandrovitj'))
+ for sn,pairs in changes.items():
+  for a,b in pairs:
+   t=c['paragraphs'][sn-1];assert a in t,(lang,sn,a);c['paragraphs'][sn-1]=t.replace(a,b);r.append(dict(chapter=152,paragraph=sn,before=a,after=b,reason='Russian V.XXVIII: wetnurse, formalDe/close acquaintance, wife comparison corrected, tuckedlegs notcrossed, completed cap-over-mill, Varja details, pluralhouseholdyou; Danish names/fluency.'))
+ pack.append((f,d,rf,r))
+for f,d,rf,r in pack:f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');rf.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
+(p/'SOURCE-NOTES-152.txt').write_text('Full V.XXVIII Russian DA/EN read.152.16вы construed plural household you/DAI: Varja usesintimatedu, statement references women their household receives. Could formaladdressswitch be intended? native/source nuance pending.152.12cap-over-windmill Frenchidiom retained literal image; guideexplain abandonmentofconventions.152.5formalDe explicit; closeacquaintance notveryclosefriend.152.1wetnurse. Source time analepsis14dayafterarrival retained. Nativepending.\n')

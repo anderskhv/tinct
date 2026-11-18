@@ -1,0 +1,38 @@
+{
+  "status": "full first source and language review complete; independent and native review pending",
+  "release_ready": false,
+  "checks": {
+    "da": {
+      "chapters": 96,
+      "slots": 5836,
+      "nonempty": true,
+      "per_chapter_slot_parity": true,
+      "repair_ledger_replay_exact_chapter_match": true,
+      "section_membership_complete_ordered": true,
+      "nine_note_references_and_notes_present": true,
+      "guide_opening_matches": true,
+      "words_approx": 351039
+    },
+    "en": {
+      "chapters": 96,
+      "slots": 5836,
+      "nonempty": true,
+      "per_chapter_slot_parity": true,
+      "repair_ledger_replay_exact_chapter_match": true,
+      "section_membership_complete_ordered": true,
+      "nine_note_references_and_notes_present": true,
+      "guide_opening_matches": true,
+      "words_approx": 344759
+    },
+    "russian_witness_pages_saved": 0,
+    "danish_section_labels": true
+  },
+  "sha256": {
+    "candidate-additional-frontmatter-da.json": "23a18c2b625b4348319cefe8ddebc18ae9ea48569d0da6736057b31eb20f361a",
+    "candidate-additional-frontmatter-en.json": "a78c007dc3166f8a930c3cb51838085e6decc7f471cf6172aa73bb459b623e32",
+    "candidate-brothers-karamazov-modern-da.json": "f661a97175be8faae5b5451656ce5388263e543b08cb71818f96819e3610e03f",
+    "candidate-brothers-karamazov-modern-en.json": "0c10499fcfff13388e4d27ac01ef5d1bd248c1eac12ec0c9edafe191ff2b2083",
+    "candidate-brothers-karamazov.da.json": "6285f886739187a6803723a68f332816b26e9d3a575c279694f18b726fbf21ca",
+    "candidate-brothers-karamazov.json": "2359ed4ac3c868bca8360eff6be43e864cf59527ced85e7b0a23a55c3ef0804e"
+  }
+}

@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('qa.py');s=p.read_text().replace("  if s.startswith('LORDER.')","  s=s.replace('. thanen af','. Thanen af')\n  if s.startswith('LORDER.')");s=s.replace("wr('modern-da.json',D);","E['chapters'][17]['paragraphs'][4]='FIRST WITCH. Circle the cauldron. Throw the poisoned entrails in. Toad that slept beneath a cold stone for thirty-one days and nights, sweating venom: boil first in our enchanted pot!'\nwr('modern-da.json',D);");p.write_text(s)

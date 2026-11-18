@@ -1,0 +1,23 @@
+{
+  "book": "macbeth",
+  "scenes": 28,
+  "paragraph_positions": 840,
+  "danish_changed_or_restored_positions": 250,
+  "danish_new_positions": 34,
+  "english_changed_positions": 16,
+  "shape_matches_original": true,
+  "historical_final_counts_match": true,
+  "guides_recovered": true,
+  "sha256": {
+    "modern-da.json": "67d05cccb8faba75226f98fb10d0bded6f05937a8ee84a1123ea08b15a7e74a8",
+    "modern-en.json": "a0bed09cc6ca3badb64af254cdc3510fb9537bcfbd5edd8d12e65568f1ba84b5",
+    "onboarding-da.json": "e7388c0018afe66ed773052f20cefe5fee683623c4acd2067c22715b2678924e",
+    "onboarding-en.json": "d05c4ce5f281412a3dbcd8ea244692f4a36205fa2afe15c66181aabcd9e4f017"
+  },
+  "limitations": [
+    "Recovery and structural checks do not constitute a new complete literary review.",
+    "Native Danish sign-off remains pending.",
+    "Historical final file hashes were not available; matching counts corroborate reconstruction but are not byte-identity proof."
+  ],
+  "publication_notes": "The Danish reconstruction restores 34 missing positions and aligns the retained text. Its 250 changed/restored positions include these 34. The historical audit passed content assertions but stopped at final packaging because a secondary witness file was unavailable. Preserve alignment.json for bookmark migration."
+}

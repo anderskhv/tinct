@@ -1,0 +1,7 @@
+import pathlib,json
+p=pathlib.Path(__file__).parent;f=p/'candidate-brothers-karamazov-modern-en.json';d=json.loads(f.read_text());r=json.loads((p/'ENGLISH-REPAIRS.json').read_text());c=d['chapters'][78]
+changes={20:[('a yard long','an arshin long'),('_C’est à ne pas mettre un chien dehors._','_C’est à ne pas mettre un chien dehors_—You wouldn’t put a dog out in this weather.')],22:[('I’m afraid of Katya tomorrow. I’m more afraid of her than of anything else, because of the future.','I’m afraid for Katya tomorrow. That frightens me more than anything else. For the future.'),('Is it love of life?','It’s the thirst to live!')],34:[('sent to Siberia','sent to penal servitude'),('(‘Do you hear?’ he laughed at that point)','(do you hear—he laughed at that point!)')],36:[('_Le mot de l’énigme_ is','_Le mot de l’énigme_—the answer to the riddle—is'),('rot in Siberia','rot in penal servitude')],38:[('A serious conscience!','A deep conscience!'),('mastery over his heart','mastery over Ivan’s heart'),('rise into the light of truth','rise again in the light of truth')]}
+for n,items in changes.items():
+ for a,b in items:
+  t=c['paragraphs'][n-1];assert a in t,(n,a);c['paragraphs'][n-1]=t.replace(a,b);r.append(dict(chapter=79,paragraph=n,before=a,after=b,reason='Russian XI X page80: fear for Katya, assertion of thirst to live, historical units, penal labor and narrator attribution.'))
+f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');(p/'ENGLISH-REPAIRS.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')

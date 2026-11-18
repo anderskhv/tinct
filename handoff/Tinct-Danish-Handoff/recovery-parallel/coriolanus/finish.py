@@ -1,0 +1,28 @@
+from prep import *
+D=rd('modern-da.json'); E=rd('source-modern-en.json')
+def change(book,c,i,old,new):
+ a=book['chapters'][c-1]['paragraphs'];assert old in a[i-1],(c,i,old);a[i-1]=a[i-1].replace(old,new)
+def d(c,i,x,y):change(D,c,i,x,y)
+d(1,13,'Han behandler jævne folk som en bidsk hund gør.','Han farer som en bidsk hund på os almindelige mennesker.')
+d(1,15,'gav sig selv rigeligt igen i form af hovmod','tog sig betalt med sit hovmod')
+d(1,43,'helt til hjertet ved hoffet','helt til hjertet, kroppens hof,')
+d(11,26,'knastørt fyrsvamp','knastør fyrsvamp')
+d(15,22,'Det kan man næppe kalde\nfor ædelt, undtagen når nøden tvinger.','Ellers kan man ikke blive for ædel\npå det punkt, men nu kræver nøden noget andet.')
+d(15,28,'Så læger du både den fare der truer nu,\nog genvinder','Så kan du afværge den fare der truer nu,\nog også genvinde')
+d(16,28,'Giv lyd! Nej, stilhed','Hør efter! Stilhed')
+d(18,4,'Sig, at deres store fjende er borte, og at de står i deres gamle styrke.','Sig at deres store fjende er væk, og at de har deres gamle magt i behold.')
+d(18,6,'Æditen går ud','Ædilen går')
+d(21,59,'det sværdambolt du har været for mig','den ambolt mit sværd har hamret imod')
+for i,s in [(19,'MENENIUS. Hvis din kaptajn vidste jeg var her, min ven, ville han vise mig stor agtelse.'),(20,'ANDEN VAGT. Min kaptajn kender Dem da ikke.'),(22,'FØRSTE VAGT. Min general er da ligeglad med Dem. Tilbage, siger jeg, ellers tapper jeg den sølle kvart liter blod De har i kroppen. Tilbage! Det er alt hvad De får her. Tilbage!')]:D['chapters'][24]['paragraphs'][i-1]=s
+d(26,8,'Hvad er det nej værd?','Hvad betyder det lille kniks?')
+d(26,37,'træde på det liv','træde på det skød')
+d(29,27,'som svar\npå vores udgifter blot give os udgifterne tilbage','kun kvittere\nfor vores udlæg ved at vise os regningen')
+for x in D['chapters']:
+ x['title']=re.sub(r'Akt (\d), Scene (\d+) —', r'\1. akt, \2. scene —',x['title']).replace("Et gemak i Martius' hus","Et værelse i Marcius’ hus").replace("Corioli's porte","Coriolis porte").replace('Capitol','Kapitol').replace("s' ","s’ ")
+def e(c,i,x,y):change(E,c,i,x,y)
+e(1,72,"You've fought together.","You've faced each other in battle.")
+e(15,38,'my unbarbered head','my bare head')
+e(24,2,'You hear what he has said to one who was once his general, who loved him most dearly.','You heard what his former general told you. He loved Martius dearly.')
+e(24,15,'what your love for Rome can do toward Martius','what your love can do for Rome when you appeal to Martius')
+e(29,51,'draw, and kill Martius, who falls. Aufidius stands on him','draw their swords and kill Martius. He falls. Aufidius stands on his body')
+wr('modern-en.json',E);wr('modern-da.json',D)

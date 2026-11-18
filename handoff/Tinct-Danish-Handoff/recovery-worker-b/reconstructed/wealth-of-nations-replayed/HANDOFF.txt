@@ -1,0 +1,17 @@
+THE WEALTH OF NATIONS — LOCAL CONTENT HANDOFF
+
+Complete candidate: all five books, 32 reader chapters, 2,173 paragraph slots. The original body contains 379,438 whitespace-counted words. All Danish prose is rewritten into modern Danish; six unchanged slots are short headings. The nine-paragraph Introduction and Plan omitted from the corpus is restored inside slot 1.1, preserving alignment. The Book II introduction at 11.291–298 is included; final verification caught and replaced retained prose there.
+
+Use manifest.json for the four candidate files and their intended paths. These files are the deliverables; chapter-*-da.txt files are recovery stages and may predate later edits. Source copies are immutable review baselines. Do not rebuild the candidate by concatenating stage files.
+
+Danish body: 2,167 changed slots. English body: 88 changed slots, including source repairs, table restorations and separately labelled editorial notes. Both guides are included; Danish guide is new. Full slot-level before/after ledgers, navigation changes, guide changes, source pins, source-gap audit and source adjudications accompany the packet.
+
+Ten table blocks across 39 audited slots retain rows, units and fractions in both languages. All 39 table snapshots match the final candidate in each language. Table rows are newline-separated and use pipes for columns inside existing paragraph strings. No code or rendering changes were made; verify presentation before release.
+
+Important source corrections include the omitted introduction; wheat and herring schedules; East India Company capital increase £608,000; extra/ordinary aid; £167,800 export bounties; £2,595,853 total duties; woolled skins; silver/gold metal vs rental/mints readings; and understocked versus overstocked in 11.203. See cannan-confirmed-variants.json and table-audit.json. Author arithmetic retained with clearly separated notes where needed, rather than silently rewriting historical claims.
+
+Source coverage: full continuous-text comparison with Gutenberg 3300, secondary Gutenberg 38194, and critical Cannan 1904 volumes. The 1784/1786 author notices are translated in author-edition-notices-supplement.json as an optional separate supplement, not silently inserted or assigned a production target. Historical views and dated factual claims remain those of the original author; the packet is not a comprehensive historical fact-check. REVIEW.json names specific remaining historical annotation questions.
+
+Validation: four deliverables parse as JSON; body shape is exactly 32 chapters / 2,173 non-empty aligned slots in both languages; no placeholder flags; no paragraph under the conservative Danish/original length screening threshold; no unchanged retained Danish prose; source-driven prose review and final targeted smoothing complete. Native Danish final read is still pending and will be arranged by the user. No claim of native approval is made.
+
+Release boundary: this packet is local preparation only. No repository, code, configuration, PR, merge, release or Claude workflow was touched. Claude must compare current repository source versions with source-pins.json before applying the exact four candidates, inspect rendering and reconcile any intervening content changes. The user's separate release workflow remains authoritative. Do not enable or deploy this packet automatically.

@@ -1,0 +1,6 @@
+import pathlib,json
+p=pathlib.Path(__file__).parent
+f=p/'candidate-brothers-karamazov-modern-en.json';d=json.loads(f.read_text());r=json.loads((p/'ENGLISH-REPAIRS.json').read_text());changes=[(1,'the evening before','during the night from Saturday to Sunday'),(2,'the bereaved “kiddies,”','the “kiddies,” left on their own,'),(2,'a picture-book','a children’s book'),(6,'old women find babies','midwives find babies'),(6,'the old woman couldn’t','the midwife couldn’t'),(16,'You’re terrible people','You’re dangerous people'),(40,'round off the sentence','make it sound fine'),(46,'She held the bag up in her left hand','She let the bag hang from her left hand'),(52,'you frivolous young person','you frivolous old woman')]
+for n,a,b in changes:
+ t=d['chapters'][63]['paragraphs'][n-1];assert a in t,(n,a);d['chapters'][63]['paragraphs'][n-1]=t.replace(a,b);r.append(dict(chapter=64,paragraph=n,before=a,after=b,reason='Russian X II source details: birth timing, absent rather than dead parent, midwife, mock-dangerous children, fine style, bag posture and old not young woman.'))
+f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');(p/'ENGLISH-REPAIRS.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')

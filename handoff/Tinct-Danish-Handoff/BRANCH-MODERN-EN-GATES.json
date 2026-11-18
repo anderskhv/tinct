@@ -1,0 +1,227 @@
+[
+  {
+    "bookId": "a-little-princess",
+    "exitCode": 0,
+    "output": "a-little-princess original-en -> modern-en  (19 chapters)\n  weighted similarity : 0.601   (gate: <= 0.75)\n  light+mechanical    : 0/19 = 0.0%   (gate: <= 5%)\n  identical long paras: 7/1224 = 0.6%   (gate: <= 5%)\n  buckets: REAL-HEAVY 10  REAL 9  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "alice-in-wonderland",
+    "exitCode": 1,
+    "output": "alice-in-wonderland original-en -> modern-en  (12 chapters)\n  weighted similarity : 0.532   (gate: <= 0.75)\n  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)\n  identical long paras: 31/546 = 5.7%   (gate: <= 5%)\n  buckets: REAL-HEAVY 3  REAL 9  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE FAIL\n"
+  },
+  {
+    "bookId": "antigone",
+    "exitCode": 0,
+    "output": "antigone original-en -> modern-en  (11 chapters)\n  weighted similarity : 0.593   (gate: <= 0.75)\n  light+mechanical    : 0/11 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/145 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 11  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "apology",
+    "exitCode": 0,
+    "output": "apology original-en -> modern-en  (3 chapters)\n  weighted similarity : 0.461   (gate: <= 0.75)\n  light+mechanical    : 0/3 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/73 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 3  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "aristotle-politics",
+    "exitCode": 0,
+    "output": "aristotle-politics original-en -> modern-en  (8 chapters)\n  weighted similarity : 0.369   (gate: <= 0.75)\n  light+mechanical    : 0/8 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/473 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 7  REAL 1  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "around-the-world-80-days",
+    "exitCode": 0,
+    "output": "around-the-world-80-days original-en -> modern-en  (37 chapters)\n  weighted similarity : 0.612   (gate: <= 0.75)\n  light+mechanical    : 0/37 = 0.0%   (gate: <= 5%)\n  identical long paras: 11/1006 = 1.1%   (gate: <= 5%)\n  buckets: REAL-HEAVY 20  REAL 17  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "bacchae",
+    "exitCode": 0,
+    "output": "bacchae original-en -> modern-en  (11 chapters)\n  weighted similarity : 0.256   (gate: <= 0.75)\n  light+mechanical    : 0/11 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/123 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 11  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "candide",
+    "exitCode": 0,
+    "output": "candide original-en -> modern-en  (30 chapters)\n  weighted similarity : 0.732   (gate: <= 0.75)\n  light+mechanical    : 0/30 = 0.0%   (gate: <= 5%)\n  identical long paras: 5/537 = 0.9%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 30  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "communist-manifesto",
+    "exitCode": 0,
+    "output": "communist-manifesto original-en -> modern-en  (5 chapters)\n  weighted similarity : 0.490   (gate: <= 0.75)\n  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)\n  identical long paras: 2/194 = 1.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 2  REAL 3  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "crito",
+    "exitCode": 0,
+    "output": "crito original-en -> modern-en  (3 chapters)\n  weighted similarity : 0.550   (gate: <= 0.75)\n  light+mechanical    : 0/3 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/46 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 1  REAL 2  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "descartes-meditations",
+    "exitCode": 1,
+    "output": "descartes-meditations original-en -> modern-en  (9 chapters)\n  weighted similarity : 0.792   (gate: <= 0.75)\n  light+mechanical    : 0/9 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/144 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 9  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE FAIL\n"
+  },
+  {
+    "bookId": "discourse-on-inequality",
+    "exitCode": 1,
+    "output": "discourse-on-inequality original-en -> modern-en  (4 chapters)\n  weighted similarity : 0.793   (gate: <= 0.75)\n  light+mechanical    : 1/4 = 25.0%   (gate: <= 5%)\n  identical long paras: 0/166 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 3  LIGHT 1  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE FAIL\n"
+  },
+  {
+    "bookId": "frankenstein",
+    "exitCode": 0,
+    "output": "frankenstein original-en -> modern-en  (28 chapters)\n  weighted similarity : 0.555   (gate: <= 0.75)\n  light+mechanical    : 0/28 = 0.0%   (gate: <= 5%)\n  identical long paras: 1/708 = 0.1%   (gate: <= 5%)\n  buckets: REAL-HEAVY 1  REAL 27  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "frederick-douglass",
+    "exitCode": 0,
+    "output": "frederick-douglass original-en -> modern-en  (12 chapters)\n  weighted similarity : 0.659   (gate: <= 0.75)\n  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)\n  identical long paras: 3/153 = 2.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 12  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "genealogy-of-morals",
+    "exitCode": 0,
+    "output": "genealogy-of-morals original-en -> modern-en  (4 chapters)\n  weighted similarity : 0.727   (gate: <= 0.75)\n  light+mechanical    : 0/4 = 0.0%   (gate: <= 5%)\n  identical long paras: 2/118 = 1.7%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 4  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "grimms-fairy-tales",
+    "exitCode": 0,
+    "output": "grimms-fairy-tales original-en -> modern-en  (65 chapters)\n  weighted similarity : 0.597   (gate: <= 0.75)\n  light+mechanical    : 0/65 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/785 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 3  REAL 62  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "heart-of-darkness",
+    "exitCode": 0,
+    "output": "heart-of-darkness original-en -> modern-en  (3 chapters)\n  weighted similarity : 0.358   (gate: <= 0.75)\n  light+mechanical    : 0/3 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/183 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 3  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "hume-enquiry",
+    "exitCode": 0,
+    "output": "hume-enquiry original-en -> modern-en  (19 chapters)\n  weighted similarity : 0.608   (gate: <= 0.75)\n  light+mechanical    : 0/19 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/304 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 8  REAL 11  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "ivan-ilyich",
+    "exitCode": 0,
+    "output": "ivan-ilyich original-en -> modern-en  (12 chapters)\n  weighted similarity : 0.641   (gate: <= 0.75)\n  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/228 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 12  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "jekyll-and-hyde",
+    "exitCode": 0,
+    "output": "jekyll-and-hyde original-en -> modern-en  (10 chapters)\n  weighted similarity : 0.701   (gate: <= 0.75)\n  light+mechanical    : 0/10 = 0.0%   (gate: <= 5%)\n  identical long paras: 1/256 = 0.4%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 10  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "jungle-book",
+    "exitCode": 0,
+    "output": "jungle-book original-en -> modern-en  (7 chapters)\n  weighted similarity : 0.434   (gate: <= 0.75)\n  light+mechanical    : 0/7 = 0.0%   (gate: <= 5%)\n  identical long paras: 3/812 = 0.4%   (gate: <= 5%)\n  buckets: REAL-HEAVY 7  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "kant-groundwork",
+    "exitCode": 0,
+    "output": "kant-groundwork original-en -> modern-en  (4 chapters)\n  weighted similarity : 0.546   (gate: <= 0.75)\n  light+mechanical    : 0/4 = 0.0%   (gate: <= 5%)\n  identical long paras: 1/180 = 0.6%   (gate: <= 5%)\n  buckets: REAL-HEAVY 2  REAL 2  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "magna-carta",
+    "exitCode": 0,
+    "output": "magna-carta original-en -> modern-en  (1 chapters)\n  weighted similarity : 0.264   (gate: <= 0.75)\n  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/65 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 1  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "medea",
+    "exitCode": 0,
+    "output": "medea original-en -> modern-en  (7 chapters)\n  weighted similarity : 0.214   (gate: <= 0.75)\n  light+mechanical    : 0/7 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/117 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 7  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "meditations",
+    "exitCode": 0,
+    "output": "meditations original-en -> modern-en  (12 chapters)\n  weighted similarity : 0.515   (gate: <= 0.75)\n  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/471 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 3  REAL 9  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "nicomachean-ethics",
+    "exitCode": 0,
+    "output": "nicomachean-ethics original-en -> modern-en  (10 chapters)\n  weighted similarity : 0.633   (gate: <= 0.75)\n  light+mechanical    : 0/10 = 0.0%   (gate: <= 5%)\n  identical long paras: 1/1138 = 0.1%   (gate: <= 5%)\n  buckets: REAL-HEAVY 1  REAL 9  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "notes-from-underground",
+    "exitCode": 0,
+    "output": "notes-from-underground original-en -> modern-en  (21 chapters)\n  weighted similarity : 0.512   (gate: <= 0.75)\n  light+mechanical    : 0/21 = 0.0%   (gate: <= 5%)\n  identical long paras: 1/334 = 0.3%   (gate: <= 5%)\n  buckets: REAL-HEAVY 13  REAL 8  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "oedipus-at-colonus",
+    "exitCode": 0,
+    "output": "oedipus-at-colonus original-en -> modern-en  (11 chapters)\n  weighted similarity : 0.499   (gate: <= 0.75)\n  light+mechanical    : 0/11 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/192 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 6  REAL 5  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "oedipus-rex",
+    "exitCode": 0,
+    "output": "oedipus-rex original-en -> modern-en  (11 chapters)\n  weighted similarity : 0.570   (gate: <= 0.75)\n  light+mechanical    : 0/11 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/212 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 2  REAL 9  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "on-liberty",
+    "exitCode": 0,
+    "output": "on-liberty original-en -> modern-en  (5 chapters)\n  weighted similarity : 0.401   (gate: <= 0.75)\n  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)\n  identical long paras: 1/126 = 0.8%   (gate: <= 5%)\n  buckets: REAL-HEAVY 5  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "oresteia",
+    "exitCode": 0,
+    "output": "oresteia original-en -> modern-en  (26 chapters)\n  weighted similarity : 0.614   (gate: <= 0.75)\n  light+mechanical    : 0/26 = 0.0%   (gate: <= 5%)\n  identical long paras: 10/450 = 2.2%   (gate: <= 5%)\n  buckets: REAL-HEAVY 4  REAL 22  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "phaedo",
+    "exitCode": 1,
+    "output": "phaedo original-en -> modern-en  (9 chapters)\n  weighted similarity : 0.773   (gate: <= 0.75)\n  light+mechanical    : 1/9 = 11.1%   (gate: <= 5%)\n  identical long paras: 13/331 = 3.9%   (gate: <= 5%)\n  buckets: REAL-HEAVY 2  REAL 6  LIGHT 1  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE FAIL\n"
+  },
+  {
+    "bookId": "phaedrus",
+    "exitCode": 0,
+    "output": "phaedrus original-en -> modern-en  (6 chapters)\n  weighted similarity : 0.707   (gate: <= 0.75)\n  light+mechanical    : 0/6 = 0.0%   (gate: <= 5%)\n  identical long paras: 4/249 = 1.6%   (gate: <= 5%)\n  buckets: REAL-HEAVY 1  REAL 5  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "poetics",
+    "exitCode": 0,
+    "output": "poetics original-en -> modern-en  (26 chapters)\n  weighted similarity : 0.623   (gate: <= 0.75)\n  light+mechanical    : 0/26 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/126 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 1  REAL 25  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "second-treatise",
+    "exitCode": 0,
+    "output": "second-treatise original-en -> modern-en  (19 chapters)\n  weighted similarity : 0.688   (gate: <= 0.75)\n  light+mechanical    : 0/19 = 0.0%   (gate: <= 5%)\n  identical long paras: 1/291 = 0.3%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 19  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "social-contract",
+    "exitCode": 1,
+    "output": "social-contract original-en -> modern-en  (48 chapters)\n  weighted similarity : 0.837   (gate: <= 0.75)\n  light+mechanical    : 13/48 = 27.1%   (gate: <= 5%)\n  identical long paras: 5/483 = 1.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 35  LIGHT 13  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE FAIL\n"
+  },
+  {
+    "bookId": "symposium",
+    "exitCode": 1,
+    "output": "symposium original-en -> modern-en  (8 chapters)\n  weighted similarity : 0.865   (gate: <= 0.75)\n  light+mechanical    : 6/8 = 75.0%   (gate: <= 5%)\n  identical long paras: 3/170 = 1.8%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 2  LIGHT 6  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE FAIL\n"
+  },
+  {
+    "bookId": "the-art-of-war",
+    "exitCode": 0,
+    "output": "the-art-of-war original-en -> modern-en  (13 chapters)\n  weighted similarity : 0.241   (gate: <= 0.75)\n  light+mechanical    : 0/13 = 0.0%   (gate: <= 5%)\n  identical long paras: 1/254 = 0.4%   (gate: <= 5%)\n  buckets: REAL-HEAVY 13  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "the-awakening",
+    "exitCode": 1,
+    "output": "the-awakening original-en -> modern-en  (39 chapters)\n  weighted similarity : 0.867   (gate: <= 0.75)\n  light+mechanical    : 23/39 = 59.0%   (gate: <= 5%)\n  identical long paras: 304/837 = 36.3%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 16  LIGHT 11  MECHANICAL 12\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE FAIL\n"
+  },
+  {
+    "bookId": "the-manual",
+    "exitCode": 0,
+    "output": "the-manual original-en -> modern-en  (52 chapters)\n  weighted similarity : 0.350   (gate: <= 0.75)\n  light+mechanical    : 0/52 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/66 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 45  REAL 7  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "the-prince",
+    "exitCode": 0,
+    "output": "the-prince original-en -> modern-en  (27 chapters)\n  weighted similarity : 0.716   (gate: <= 0.75)\n  light+mechanical    : 0/27 = 0.0%   (gate: <= 5%)\n  identical long paras: 2/231 = 0.9%   (gate: <= 5%)\n  buckets: REAL-HEAVY 4  REAL 23  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "us-founding-documents",
+    "exitCode": 0,
+    "output": "us-founding-documents original-en -> modern-en  (4 chapters)\n  weighted similarity : 0.396   (gate: <= 0.75)\n  light+mechanical    : 0/4 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/133 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 3  REAL 1  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "utilitarianism",
+    "exitCode": 0,
+    "output": "utilitarianism original-en -> modern-en  (5 chapters)\n  weighted similarity : 0.721   (gate: <= 0.75)\n  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/94 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 5  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "vindication-rights-of-woman",
+    "exitCode": 0,
+    "output": "vindication-rights-of-woman original-en -> modern-en  (15 chapters)\n  weighted similarity : 0.698   (gate: <= 0.75)\n  light+mechanical    : 0/15 = 0.0%   (gate: <= 5%)\n  identical long paras: 1/747 = 0.1%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 15  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  },
+  {
+    "bookId": "werther",
+    "exitCode": 0,
+    "output": "werther original-en -> modern-en  (84 chapters)\n  weighted similarity : 0.369   (gate: <= 0.75)\n  light+mechanical    : 0/84 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/343 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 74  REAL 10  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+  }
+]

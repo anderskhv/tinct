@@ -1,0 +1,9 @@
+python3 - <<'PY'
+import sys
+sys.path.insert(0,'/tmp/tinct-da-prep-20261104/ulysses');from edithelpers import *
+fix('da',14,57,[('en grumme fæhoved','et grumme fæhoved'),('hendes tagmigtilhvile og hendes anker rom','hendes givmigtrøstbryster og hendes romtøndebagdel')])
+fix('da',14,65,[('femogtipennys skodshow','femogticents skodshow')])
+x=rd('review-progress.json');x['currentPolishCheckpoint']={'episode':14,'readThroughSlot':65,'next':'Verse/song and wordplay queue; targeted Circe consistency and remaining lexical checks.'};wr('review-progress.json',x)
+x=rd('remaining-editorial-work.json');x['resolved'] += ['Episode14 complete second cadence read. Repairs include was ware clause, anger pronoun grammar, sludrechatol gender, historic militia, inherited English buck, envy semantic reversal and nickel/dime currency. Formal opening and medical-list punctuation improved.','14/57 Cockney rhyming body slang now givmigtrøstbryster/romtøndebagdel, a semantic/image adaptation still requiring native literary review.','14/62 begravlese deliberately retained to mirror original runefal, not a typo.'];x['priority'][0]={'task':'Native cadence read of historical pastiches and Circe','reason':'Episode14 second read complete; technical/Latinate parody remains intentionally syntactically elaborate, with scoped punctuation improved. Selected Circe passages need further voice polish.'};wr('remaining-editorial-work.json',x)
+PY
+python3 /tmp/tinct-da-prep-20261104/ulysses/work.py

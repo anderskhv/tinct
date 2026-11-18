@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-18",
+  "book": "brothers-karamazov",
+  "base_commit": "1552302481ddae3f37b6b3450ff0023ae36cfd1b",
+  "baseline_retrieved_from_exact_historical_commit": true,
+  "chapters": 96,
+  "slots": 5836,
+  "danish_operations": 7048,
+  "english_operations": 798,
+  "both_ledgers_replay_exactly": true,
+  "historical_counts_match": true,
+  "paired_guides_recovered": true,
+  "nine_note_references_verified": true,
+  "frontmatter_files": [
+    "candidate-additional-frontmatter-da.json",
+    "candidate-additional-frontmatter-en.json"
+  ],
+  "native_review": "pending",
+  "new_independent_linguistic_review": false,
+  "original_candidate_sha256_not_printed": true,
+  "remaining": [
+    "Independent review priorities remain in REVIEW-PRIORITIES.json.",
+    "Nine-slot proposed front matter requires integration; not inserted into existing paragraph structure.",
+    "Historical Russian witness pages and raw coverage audit missing; historical SOURCES claims are retained as recovery records, not a new audit.",
+    "Parent chat had two suggested changes not integrated; do not treat them as accepted edits without adjudication."
+  ],
+  "release": "none"
+}

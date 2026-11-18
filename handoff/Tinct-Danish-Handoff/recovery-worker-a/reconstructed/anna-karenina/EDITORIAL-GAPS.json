@@ -1,0 +1,41 @@
+{
+  "status": "editorial proposals, no corpus slot changes applied",
+  "items": [
+    {
+      "location": "before chapter1",
+      "issue": "Biblical epigraph omitted by retained PG/corpus",
+      "files": [
+        "candidate-additional-epigraph-da.json",
+        "candidate-additional-epigraph-en.json"
+      ],
+      "action": "Insert via supported epigraph placement, do not silently shift all paragraph IDs."
+    },
+    {
+      "location": "all parts",
+      "issue": "Eight part labels currently occur as tail paragraph slots in preceding parts; no structured section fields",
+      "file": "PROPOSED-PART-BOUNDARIES.json",
+      "action": "Choose supported section handling; remove/move old tail labels only with alignment-aware migration."
+    },
+    {
+      "location": "chapter144 (V.XX)",
+      "issue": "Russian chapter subtitle Смерть absent retained title",
+      "proposed_da": "Døden",
+      "proposed_en": "Death",
+      "action": "Review adding subtitle; candidate title unchanged."
+    },
+    {
+      "location": "chapter232 (VIII.XII)",
+      "issue": "Documented historical separate-edition variants in order and wording",
+      "file": "PROPOSED-232-SOURCE-ORDER.json",
+      "action": "Choose uniform source policy and order. Current candidate follows PSS wording for changed passages but stable retained/Garnett slot order. This is an editorial gate, not unreviewed missing chapter."
+    },
+    {
+      "location": "end chapter239",
+      "issue": "Russian terminal Конец absent retained body",
+      "proposed_da": "Slut",
+      "proposed_en": "The End",
+      "action": "Optional presentation marker, not missing narrative."
+    }
+  ],
+  "omissions_restored": "Within stable slots, all omissions noticed during full comparison have been restored and recorded in per-chapter repair ledgers/notes. No exhaustive mechanically verified Russian sentence bijection claimed."
+}

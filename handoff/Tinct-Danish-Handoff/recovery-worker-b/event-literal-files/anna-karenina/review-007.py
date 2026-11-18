@@ -1,0 +1,12 @@
+import json,pathlib
+p=pathlib.Path(__file__).parent
+DA={1:[('ned i sin brors','ind i sin brors'),('et hidsigt korstog','en heftig polemik'),('fulgt korstoget','fulgt polemikken'),('få diskussionen ud af verden','nå til enighed'),('psykologiske og fysiologiske','psykiske og fysiologiske')],3:[('En lille mand med briller, med en smal pande','En lille mand med gullig ansigtsfarve, briller og smal pande')],4:[('magasinartikler','tidsskriftartikler'),('livets og dødens mening','livets og dødens betydning for ham selv')],5:[('disse åndelige spørgsmål','de spørgsmål, der lå ham på sinde'),('kvalificeringer','forbehold')],6:[('den ydre verden er udledt af sansninger','den ydre verden udspringer af indtryk'),('bibragt mig','formidlet til mig')],7:[('Wurt','Wurst'),('din bevidsthed','Deres bevidsthed'),('dine sansninger','Deres sansninger')],11:[('regelret åndelig smerte','ligefrem tankemæssig smerte'),('en pramskipper','en pramdrager'),('havde sind nok','havde overskud nok')],13:[('hvis sansningen, som Pripasov direkte hævder, er grundlaget for perceptionen','hvis sansningen, som Pripasov direkte hævder, bygger på indtrykket')]}
+EN={1:[("went down to his brother's study","went into his brother's study"),('psychological and physiological','mental and physiological')],3:[('A small man in spectacles, with a narrow forehead','A small, sallow-faced man in spectacles, with a narrow forehead')],4:[('the meaning of life and death','what life and death meant for him personally')],6:[('derived from perceptions','derived from impressions')],7:[('Wurt','Wurst')],11:[('a bargeman','a barge-hauler')],13:[('perception is based on sensation','sensation is based on impressions')]}
+pack=[]
+for lang,changes in [('da',DA),('en',EN)]:
+ f=p/f'candidate-anna-karenina-modern-{lang}.json';d=json.loads(f.read_text());rf=p/('DANISH-REPAIRS.json' if lang=='da' else 'ENGLISH-REPAIRS.json');r=json.loads(rf.read_text());c=d['chapters'][6]
+ for sn,pairs in changes.items():
+  for a,b in pairs:
+   t=c['paragraphs'][sn-1];assert a in t,(lang,sn,a);c['paragraphs'][sn-1]=t.replace(a,b);r.append(dict(chapter=7,paragraph=sn,before=a,after=b,reason='Russian chapterVII: preserve distinction sensation/ощущение vs impression/впечатление and direction of dependence, physical portrait, formal address and existential viewpoint.'))
+ pack.append((f,d,rf,r))
+for f,d,rf,r in pack:f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');rf.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')

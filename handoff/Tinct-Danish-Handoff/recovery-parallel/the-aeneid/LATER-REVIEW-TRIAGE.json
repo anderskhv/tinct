@@ -1,0 +1,58 @@
+[
+  {
+    "slot": "6.26",
+    "classification": "fix before release",
+    "finding": "Speech becomes recollection; Latin 6.699 in saved source output confirms sic memorans in the ongoing speech.",
+    "current": "Sådan mindedes han alt, og vædede sit ansigt med rigelig gråd.",
+    "proposed": "Sådan talte han, mens tårerne strømmede ned over hans ansigt."
+  },
+  {
+    "slot": "6.29",
+    "classification": "fix before release",
+    "finding": "Unintelligible Danish syntax; Latin 6.754–755 in saved output supports seeing/identifying approaching faces.",
+    "current": "læse hvad den lange række vistes frem i, ansigt for ansigt, mens de kom imod ham.",
+    "proposed": "se dem alle i den lange række og genkende deres ansigter, mens de kom imod ham."
+  },
+  {
+    "slot": "6.30",
+    "classification": "fix before release",
+    "finding": "Blødere misconstrues artistic lifelikeness as softer breathing; saved Latin 6.847–848 confirms bronze and lifelike marble faces.",
+    "current": "Andre skal forme bronze så den ånder blødere, det tror jeg gerne,",
+    "proposed": "Andre skal forme bronze til endnu mere livagtige skikkelser, det tror jeg gerne,"
+  },
+  {
+    "slot": "7.38",
+    "classification": "fix before release",
+    "finding": "Swans are returning from feeding, not feeding among clouds; saved Latin7.699–701 confirms direction and setting.",
+    "current": "som når snehvide svaner søger efter føde mellem regnvåde skyer,\nkommer hjem og strækker de klangfulde stemmer ud gennem deres lange halse;",
+    "proposed": "som når snehvide svaner flyver hjem fra deres fødesteder mellem de klare skyer\nog lader sangen strømme gennem deres lange halse;"
+  },
+  {
+    "slot": "7.38",
+    "classification": "minor accuracy fix",
+    "finding": "Bare left/shod right is explicit in saved Latin7.689–690. Current generalization loses detail; rawhide need not specify ox.",
+    "current": "De sætter nøgne fodsåler\npå jorden med den ene fod; den anden har de i en krigsstøvle af råt okseskind.",
+    "proposed": "De træder på jorden med venstre fod bar;\nhøjre fod er dækket af en støvle af råhud."
+  },
+  {
+    "slot": "3.22",
+    "classification": "fix before release",
+    "finding": "Current negative can reverse the advice. Both archived original and modern English explicitly say not to regard waiting as lost time.",
+    "current": "For dig må ingen tid gå til spilde ved at blive dér lidt længere,",
+    "proposed": "Lad ikke den tid, du må vente dér, holde dig tilbage,"
+  },
+  {
+    "slot": "4.19",
+    "classification": "fix before release",
+    "finding": "Hastigt folk has no support; saved Latin4.229–231 describes Italy pregnant with dominion and turbulent with war.",
+    "current": "men for at han skulle herske over Italien, et hastigt folk med krigen i blodet,",
+    "proposed": "men for at han skulle herske over Italien, fuldt af kommende riger og sitrende af krigslyst,"
+  },
+  {
+    "slot": "5.12",
+    "classification": "minor accuracy fix",
+    "finding": "Invented halfway distance in an entrant list. Saved Latin5.294–300 says next/following; no distance.",
+    "current": "På halv afstand til dem følger Diores,",
+    "proposed": "Efter dem følger Diores,"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "book": "don-quixote",
+  "slot": "70:32 (global chapter; PartII chapter18)",
+  "test": "ModernEnglish ellipsis/truncation heuristic",
+  "classification": "false positive: source-authorized punctuation; no omitted verse line",
+  "evidence": {
+    "spanish": "¡Si mi fue tornase a es,\nsin esperar más será,\no viniese el tiempo ya\nde lo que será después...!",
+    "historical_source": "ProjectGutenberg2000 Spanish, preserved in historical CommandExecution output, hobbes log call1878",
+    "recovered_english": "If only my ‘was’ turned back to ‘is’,\nwithout waiting for another ‘will be’,\nor the time already came\nfor what will happen afterwards …"
+  },
+  "reason": "Four Spanish lines map to four English lines. Spanish ends después...!; English retains ellipsis. Ormsby intermediary replaces original Spanish punctuation with a dash and renders the stanza more freely. The newer English restoration follows the Spanish tense wordplay; shorter length is not truncation.",
+  "change": "none",
+  "review_date": "2026-11-18"
+}

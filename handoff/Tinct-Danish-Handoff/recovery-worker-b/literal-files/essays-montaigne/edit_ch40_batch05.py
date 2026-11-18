@@ -1,0 +1,15 @@
+# coding: utf-8
+from review_helpers import *
+for lang in ['da','en']:fixes(lang,40,49,[('Vallere','Vellere')])
+fixes('da',40,50,[('og forny deres ansigter','og fornyer deres ansigter')])
+fixes('da',40,51,[('pinsler af snøring og lacering','pinsler med stram snøring og spændte remme'),('revner ind i siderne lige til kødet','dybe furer i siderne helt ind til det levende kød')])
+fixes('da',40,52,[('som bevis på deres tro','som bevis på, at de står ved deres ord'),('hvad han har set i Polen og selv gjort','hvad han har set i Polen, også rettet mod ham selv'),('blandt hans natudstyr','i en æske')])
+fixes('en',40,52,[('as proof of their faith','as proof of their word'),('what he has seen in Poland and done to himself','what he has seen in Poland, including acts directed toward himself'),('among his bedtime equipment','in a box')])
+fixes('da',40,53,[('bar hertugdømmet ind i husene Frankrig og England','bragte hertugdømmet til de franske og engelske kongehuse'),('mens han var konsul, M. Cato sin, mens han var udvalgt prætor','som havde været konsul, M. Cato sin søn, som var udpeget til prætor'),('sådanne uhyrlige humører','sådanne ekstreme sindstilstande'),('børn på ammen','børn, mens de var hos en amme')])
+fixes('en',40,53,[('Q. Maximus buried his son when he was consul, M. Cato his when praetor-elect','Q. Maximus buried his son, a former consul, and M. Cato his son, a praetor-elect')])
+fixes('da',40,55,[('i meningen','i vores opfattelse')])
+fixes('da',40,56,[('Meningen er et mægtigt parti, dristigt og umådeholdent','Vores opfattelse er en mægtig kraft, dristig og uden mådehold')])
+fixes('da',40,58,[('uden krig','uden våben')]);fixes('en',40,58,[('without war','without arms')])
+fixes('da',40,59,[('har omfavnet idéen ja næsten gjort den til en pose','har fundet så stor glæde i det, at de ligefrem har gjort et nummer ud af det')])
+ledger();wr('chapter40-source-check-batch05.json',{'chapter':40,'slots':[47,59],'witness':'https://fr.wikisource.org/wiki/Essais/Livre_I/Chapitre_14','notes':['49 Vellere not Vallere.','52 word fidelity not necessarily religious faith. King witnessed acts directed toward himself, did not himself inflict them. Iron chains in box not bedtime equipment.','53 son consul/former-consul and son praetor-elect, not fathers status.','58 arms not war.59 affectation not Danish pose bag/odd anglicism.','Cotton52 expanded Blois/Picardy anecdote retained as edition variant; French shorter. Porter la croix vs literal self-crucifixion remains substantive Cotton-source question, flag for final apparatus rather than conflate.','Religious self-injury examples preserved only as historical text; no added procedural detail.']})
+d=rd('review-progress.json');d.update(reviewedSlots=1039,throughSlot=59,nextSlot=60,englishAuditCheckpoint={'chapter':40,'throughSlot':59},danishChangedSlots=len(rd('working-da-changes.json')),englishChangedSlots=len(rd('working-en-changes.json')));wr('review-progress.json',d)

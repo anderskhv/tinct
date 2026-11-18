@@ -1,0 +1,5 @@
+# Recovery — 18 November 2026
+
+59 chapters / 3,835 paragraph positions. Final 3,428 Danish changed positions versus pinned, including 268 versus retained WIP; 50 English changes. All final totals match historical records. Entire original paragraph sequence checked against the pinned Git raw Project Gutenberg1400 text; no freshly downloaded independent witness was available. Reading-copy HTML, guides, primers, checkpoints and bookmark map are included.
+
+Recovered from literal historical editorial scripts, which were reviewed and run only in this durable recovery folder. Source commit a1ee0ffda8de113b06814e2986802f90e24eccff; Middlemarch body source blobs also equal prior225979e36743d21502ebbace6c253fbc5ce09bfa. No new prose was generated to stand in for missing drafts. Historical candidate hashes not available; present hashes independently calculated. Native Danish sign-off remains pending. This is recovery and verification of recorded changes, not a new full literary review. Reconcile with current main before release; Claude is release owner.

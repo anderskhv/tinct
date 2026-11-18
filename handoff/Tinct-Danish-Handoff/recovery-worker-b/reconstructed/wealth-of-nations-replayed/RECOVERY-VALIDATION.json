@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-18",
+  "book": "wealth-of-nations",
+  "checks": {
+    "da": {
+      "chapters": 32,
+      "slots": 2173,
+      "body_changes": 2167,
+      "chapter_fields_replay_exact": true
+    },
+    "en": {
+      "chapters": 32,
+      "slots": 2173,
+      "body_changes": 88,
+      "chapter_fields_replay_exact": true
+    }
+  },
+  "source_git_pins_match": true,
+  "historical_counts_match": true,
+  "table_snapshots_match_both_candidates": 39,
+  "unchanged_danish_slots": "6 short headings only",
+  "both_guides_recovered": true,
+  "author_edition_notice_supplement_recovered": true,
+  "native_review": "pending",
+  "new_independent_linguistic_review": false,
+  "original_candidate_sha256_not_available": true,
+  "limits": [
+    "Primary table witness re-fetched from GITenberg mirror of PG38194 after gutenberg.org returned503; all historical correction commands replayed and39finaltable snapshots perlanguage match candidates. Historical fullSHAmanifestwasnotprinted, so original-file hash identity not claimed.",
+    "Full continuous-body coverage audit and Cannan facsimile witnesses not recovered; historical audit claims remain historical.",
+    "Table/newline rendering must be checked at integration."
+  ],
+  "mirror_sources": [
+    "https://github.com/GITenberg/An-Inquiry-Into-the-Nature-and-Causes-of-the-Wealth-of-Nations_38194",
+    "https://github.com/GITenberg/An-Inquiry-into-the-Nature-and-Causes-of-the-Wealth-of-Nations_3300"
+  ],
+  "release": "none"
+}

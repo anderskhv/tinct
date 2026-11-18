@@ -1,0 +1,213 @@
+{
+  "bookId": "candide",
+  "status": "separate editorial supplement; native Danish review pending; not integrated",
+  "source": "https://www.gutenberg.org/files/19942/19942-h/19942-h.htm",
+  "sourceScope": "35 historical editor's footnotes in same public-domain English edition; not Voltaire narrative paragraphs.",
+  "integrationInstructions": [
+    "Do not overwrite original-en or insert note bodies into narrative paragraphs.",
+    "Retain 709 narrative paragraph slots. These notes are a separately reviewable supplement; no reader notes schema/path is assumed.",
+    "If existing renderer supports notes, map exact [n] markers after inspecting its actual schema. Otherwise provide a distinct editorial appendix only after choosing an explicit supported format.",
+    "Note34 belongs to primary chapter26 heading; repository title omits its marker. Add only if note rendering is implemented.",
+    "Historical claims in these old notes are not certified as current scholarship. Note29 source typo HenryVI is corrected to HenryIV and recorded separately. Note22 page215, note34dates and note35name need historical editorial review before publication."
+  ],
+  "historicalCorrections": [
+    {
+      "note": 29,
+      "source": "Henry VI",
+      "draft": "Henrik IV",
+      "type": "Historical factual correction, not translator error",
+      "evidence": "https://catalogue.bnf.fr/ark%3A/12148/cb41060735f"
+    }
+  ],
+  "unresolvedHistoricalReview": [
+    {
+      "note": 22,
+      "issue": "Printed cross-reference page215 does not fit this edition; retained as historical text, check intended page."
+    },
+    {
+      "note": 34,
+      "issue": "Dates and summary include likely inaccuracies; validate all six monarch biographies before presenting as reliable editorial facts."
+    },
+    {
+      "note": 35,
+      "issue": "Name François Leopold Ragotsky should be historically checked; do not confuse inherited editorial statement with manuscript translation."
+    }
+  ],
+  "notes": [
+    {
+      "number": 1,
+      "sourceText": "[1] P. 2. The name Pangloss is derived from two Greek words\r\nsignifying \"all\" and \"language.\"",
+      "text": "Navnet Pangloss er dannet af to græske ord, der betyder »alt« og »sprog«."
+    },
+    {
+      "number": 2,
+      "sourceText": "[2] P. 8. The Abares were a tribe of Tartars settled on the\r\nshores of the Danube, who later dwelt in part of Circassia.",
+      "text": "Abarerne var en tatarisk stamme, som slog sig ned ved Donau og senere boede i en del af Tjerkessien."
+    },
+    {
+      "number": 3,
+      "sourceText": "[3] P. 15. Venereal disease was said to have been first brought\r\nfrom Hispaniola, in the West Indies, by some followers of Columbus who\r\nwere later employed in the siege of Naples. From this latter\r\ncircumstance it was at one time known as the Neapolitan disease.",
+      "text": "Man mente, at kønssygdommen først blev bragt fra Hispaniola i Vestindien af nogle af Columbus' ledsagere, som senere deltog i belejringen af Napoli. Af den sidste grund blev den en overgang kaldt den napolitanske sygdom."
+    },
+    {
+      "number": 4,
+      "sourceText": "[4] P. 19. The great earthquake of Lisbon happened on the first\r\nof November, 1755.",
+      "text": "Det store jordskælv i Lissabon fandt sted den 1. november 1755."
+    },
+    {
+      "number": 5,
+      "sourceText": "[5] P. 20. Such was the aversion of the Japanese to the\r\nChristian faith that they compelled Europeans trading with their islands\r\nto trample on the cross, renounce all marks of Christianity, and swear\r\nthat it was not their religion. See chap. xi. of the voyage to Laputa in\r\nSwift's Gulliver's Travels .",
+      "text": "Japanernes modvilje mod kristendommen var så stærk, at de tvang europæere, som handlede med deres øer, til at trampe på korset, afsværge alle tegn på kristendom og sværge, at det ikke var deres religion. Se kapitel XI af rejsen til Laputa i Swifts _Gullivers rejser_."
+    },
+    {
+      "number": 6,
+      "sourceText": "[6] P. 23. This auto-da-fé actually took place, some months\r\nafter the earthquake, on June 20, 1756.",
+      "text": "Denne auto-da-fe fandt faktisk sted nogle måneder efter jordskælvet, den 20. juni 1756."
+    },
+    {
+      "number": 7,
+      "sourceText": "[7] P. 23. The rejection of bacon convicting them, of course,\r\nof being Jews, and therefore fitting victims for an auto-da-fé .",
+      "text": "At de afviste flæsk, afslørede dem naturligvis som jøder og gjorde dem dermed til egnede ofre for en auto-da-fe."
+    },
+    {
+      "number": 8,
+      "sourceText": "[8] P. 24. The San-benito was a kind of loose over-garment\r\npainted with flames, figures of devils, the victim's own portrait, etc.,\r\nworn by persons condemned to death by the Inquisition when going to the\r\nstake on the occasion of an auto-da-fé . Those who expressed repentance\r\nfor their errors wore a garment of the same kind covered with flames\r\ndirected downwards, while that worn by Jews, sorcerers, and renegades\r\nbore a St. Andrew's cross before and behind.",
+      "text": "En san-benito var en slags løstsiddende overklædning med malede flammer, djævlefigurer, offerets eget portræt og lignende. Den blev båret af personer, der var dømt til døden af inkvisitionen, når de gik til bålet ved en auto-da-fe. De, der angrede deres vildfarelser, bar en lignende dragt med nedadvendte flammer. Jøders, troldmænds og frafaldnes dragter havde derimod et andreaskors foran og bagpå."
+    },
+    {
+      "number": 9,
+      "sourceText": "[9] P. 26. \"This Notre-Dame is of wood; every year she weeps on\r\nthe day of her fête , and the people weep also. One day the preacher,\r\nseeing a carpenter with dry eyes, asked him how it was that he did not\r\ndissolve in tears when the Holy Virgin wept. 'Ah, my reverend father,'\r\nreplied he, 'it is I who refastened her in her niche yesterday. I drove\r\nthree great nails through her behind; it is then she would have wept if\r\nshe had been able.'\"—Voltaire, Mélanges .",
+      "text": "»Denne Notre-Dame er af træ. Hvert år græder hun på sin festdag, og folket græder med. En dag så prædikanten en tømrer med tørre øjne og spurgte, hvorfor han ikke brast i gråd, når den hellige jomfru græd. 'Åh, ærværdige fader,' svarede han, 'det var mig, der satte hende fast i hendes niche igen i går. Jeg slog tre store søm gennem hendes bagdel. Hvis hun kunne græde, ville hun have gjort det dér.'« — Voltaire, _Mélanges_."
+    },
+    {
+      "number": 10,
+      "sourceText": "[10] P. 42. The following posthumous note of Voltaire's was\r\nfirst added to M. Beuchot's edition of his works issued in 1829; \"See\r\nthe extreme discretion of the author; there has not been up to the\r\npresent any Pope named Urban X.; he feared to give a bastard to a known\r\nPope. What circumspection! What delicacy of conscience!\" The last Pope\r\nUrban was the eighth, and he died in 1644.",
+      "text": "Følgende note af Voltaire blev først tilføjet efter hans død i Beuchots udgave af værkerne fra 1829: »Se forfatterens store diskretion: Der har endnu aldrig været en pave ved navn Urban X. Han var bange for at give en kendt pave et uægte barn. Hvilken omtanke! Hvilken samvittighedsfuldhed!« Den sidste pave Urban var den ottende; han døde i 1644."
+    },
+    {
+      "number": 11,
+      "sourceText": "[11] P. 45. Muley-Ismael was Emperor of Morocco from 1672 to\r\n1727, and was a notoriously cruel tyrant.",
+      "text": "Muley-Ismael var kejser af Marokko fra 1672 til 1727 og en berygtet grusom tyran."
+    },
+    {
+      "number": 12,
+      "sourceText": "[12] P. 47. \"Oh, what a misfortune to be an eunuch!\"",
+      "text": "»Åh, hvilken ulykke at være eunuk!«"
+    },
+    {
+      "number": 13,
+      "sourceText": "[13] P. 48. Carlo Broschi, called Farinelli, an Italian singer,\r\nborn at Naples in 1705, without being exactly Minister, governed Spain\r\nunder Ferdinand VI.; he died in 1782. He has been made one of the chief\r\npersons in one of the comic operas of MM. Auber and Scribe.",
+      "text": "Carlo Broschi, kaldet Farinelli, var en italiensk sanger, født i Napoli i 1705. Uden egentlig at være minister styrede han Spanien under Ferdinand VI. Han døde i 1782. Han er blevet en af hovedpersonerne i en komisk opera af Auber og Scribe."
+    },
+    {
+      "number": 14,
+      "sourceText": "[14] P. 53. Jean Robeck, a Swede, who was born in 1672, will be\r\nfound mentioned in Rousseau's Nouvelle Héloïse . He drowned himself in\r\nthe Weser at Bremen in 1729, and was the author of a Latin treatise on\r\nvoluntary death, first printed in 1735.",
+      "text": "Svenskeren Jean Robeck, født i 1672, omtales i Rousseaus _Nouvelle Héloïse_. Han druknede sig i Weser ved Bremen i 1729 og skrev en latinsk afhandling om frivillig død, der første gang blev trykt i 1735."
+    },
+    {
+      "number": 15,
+      "sourceText": "[15] P. 60. A spontoon was a kind of half-pike, a military\r\nweapon carried by officers of infantry and used as a medium for\r\nsignalling orders to the regiment.",
+      "text": "En sponton var en slags kort pike, et våben, som infanteriofficerer bar og brugte til at signalere ordrer til regimentet."
+    },
+    {
+      "number": 16,
+      "sourceText": "[16] P. 64. Later Voltaire substituted the name of the Father\r\nCroust for that of Didrie. Of Croust he said in the Dictionnaire\r\nPhilosophique that he was \"the most brutal of the Society.\"",
+      "text": "Voltaire erstattede senere navnet fader Didrie med fader Croust. I _Dictionnaire philosophique_ kaldte han Croust »den mest brutale i ordenen«."
+    },
+    {
+      "number": 17,
+      "sourceText": "[17] P. 68. By the Journal of Trevoux Voltaire meant a\r\ncritical periodical printed by the Jesuits at Trevoux under the title of Mémoires pour servir à l'Historie des Sciences et des Beaux-Arts . It\r\nexisted from 1701 until 1767, during which period its title underwent\r\nmany changes.",
+      "text": "Med _Journal de Trévoux_ mente Voltaire et kritisk tidsskrift, som jesuitterne trykte i Trévoux under titlen _Mémoires pour servir à l'Histoire des Sciences et des Beaux-Arts_. Det udkom fra 1701 til 1767 og skiftede titel flere gange i den periode."
+    },
+    {
+      "number": 18,
+      "sourceText": "[18] P. 76. It has been suggested that Voltaire, in speaking of\r\nred sheep, referred to the llama, a South American ruminant allied to\r\nthe camel. These animals are sometimes of a reddish colour, and were\r\nnotable as pack-carriers and for their fleetness.",
+      "text": "Det er blevet foreslået, at Voltaire med de røde får mente lamaen, en sydamerikansk drøvtygger i familie med kamelen. Disse dyr kan have en rødlig farve og var kendt som hurtige lastdyr."
+    },
+    {
+      "number": 19,
+      "sourceText": "[19] P. 78. The first English translator curiously gives \"a\r\ntourene of bouilli that weighed two hundred pounds,\" as the equivalent\r\nof \" un contour bouilli qui pesait deux cent livres .\" The French editor\r\nof the 1869 reprint points out that the South American vulture, or\r\ncondor, is meant; the name of this bird, it may be added, is taken from\r\n\" cuntur ,\" that given it by the aborigines.",
+      "text": "Den første engelske oversætter gengiver mærkeligt nok »un contour bouilli qui pesait deux cent livres« som »en terrin kogt kød, der vejede to hundrede pund«. Den franske redaktør af genoptrykket fra 1869 bemærker, at der menes den sydamerikanske grib, kondoren. Fuglens navn stammer desuden fra »cuntur«, som den oprindelige befolkning kaldte den."
+    },
+    {
+      "number": 20,
+      "sourceText": "[20] P. 90. Spanish half-crowns.",
+      "text": "Spanske halvkroner."
+    },
+    {
+      "number": 21,
+      "sourceText": "[21] P. 99. Socinians ; followers of the teaching of Lalius\r\nand Faustus Socinus (16th century), which denied the doctrine of the\r\nTrinity, the deity of Christ, the personality of the devil, the native\r\nand total depravity of man, the vicarious atonement and eternal\r\npunishment. The Socinians are now represented by the Unitarians. Manicheans ; followers of Manes or Manichæus (3rd century), a Persian\r\nwho maintained that there are two principles, the one good and the other\r\nevil, each equally powerful in the government of the world.",
+      "text": "Socinianere: Tilhængere af Lalius og Faustus Socinus' lære fra 1500-tallet. De afviste treenigheden, Kristi guddommelighed, djævelen som person, menneskets medfødte og fuldstændige fordærv, stedfortrædende soning og evig straf. Socinianerne repræsenteres i dag af unitarerne. Manikæere: Tilhængere af perseren Manes eller Manikæus fra 200-tallet. Han lærte, at der findes to principper, et godt og et ondt, som er lige mægtige i verdens styrelse."
+    },
+    {
+      "number": 22,
+      "sourceText": "[22] P. 107. In the 1759 editions, in place of the long passage\r\nin brackets from here to page 215, there was only the following: \"'Sir,'\r\nsaid the Perigordian Abbé to him, 'have you noticed that young person\r\nwho has so roguish a face and so fine a figure? You may have her for ten\r\nthousand francs a month, and fifty thousand crowns in diamonds.' 'I have\r\nonly a day or two to give her,' answered Candide, 'because I have a\r\nrendezvous at Venice.' In the evening after supper the insinuating\r\nPerigordian redoubled his politeness and attentions.\"",
+      "text": "I udgaverne fra 1759 stod der i stedet for den lange passage i parentes fra dette sted til side 215 kun følgende: »'Min herre,' sagde abbéen fra Périgord til ham, 'har De lagt mærke til den unge kvinde med det frække ansigt og den smukke skikkelse? De kan få hende for ti tusind francs om måneden og halvtreds tusind kroner i diamanter.' 'Jeg har kun en dag eller to at give hende,' svarede Candide, 'for jeg har en aftale i Venedig.' Om aftenen efter måltidet fordoblede den indsmigrende mand fra Périgord sin høflighed og opmærksomhed.«"
+    },
+    {
+      "number": 23,
+      "sourceText": "[23] P. 108. The play referred to is supposed to be \"Le Comte\r\nd'Essex,\" by Thomas Corneille.",
+      "text": "Stykket menes at være _Le Comte d'Essex_ af Thomas Corneille."
+    },
+    {
+      "number": 24,
+      "sourceText": "[24] P. 108. In France actors were at one time looked upon as\r\nexcommunicated persons, not worthy of burial in holy ground or with\r\nChristian rites. In 1730 the \"honours of sepulture\" were refused to\r\nMademoiselle Lecouvreur (doubtless the Miss Monime of this passage).\r\nVoltaire's miscellaneous works contain a paper on the matter.",
+      "text": "I Frankrig blev skuespillere engang betragtet som bandlyste og uværdige til at blive begravet i indviet jord eller med kristne ritualer. I 1730 blev mademoiselle Lecouvreur nægtet »begravelsens æresbevisninger«; hun er uden tvivl passagens frøken Monime. Voltaires blandede skrifter indeholder en tekst om sagen."
+    },
+    {
+      "number": 25,
+      "sourceText": "[25] P. 109. Élie-Catherine Fréron was a French critic\r\n(1719-1776) who incurred the enmity of Voltaire. In 1752 Fréron, in Lettres sur quelques écrits du temps , wrote pointedly of Voltaire as\r\none who chose to be all things to all men, and Voltaire retaliated by\r\nreferences such as these in Candide .",
+      "text": "Élie-Catherine Fréron var en fransk kritiker (1719–1776), som pådrog sig Voltaires fjendskab. I _Lettres sur quelques écrits du temps_ skrev Fréron i 1752 spidst om Voltaire som en mand, der ville være alt for alle. Voltaire gengældte det med hentydninger som disse i _Candide_."
+    },
+    {
+      "number": 26,
+      "sourceText": "[26] P. 111. Gabriel Gauchat (1709-1779), French ecclesiastical\r\nwriter, was author of a number of works on religious subjects.",
+      "text": "Gabriel Gauchat (1709–1779), fransk kirkelig forfatter, skrev en række værker om religiøse emner."
+    },
+    {
+      "number": 27,
+      "sourceText": "[27] P. 112. Nicholas Charles Joseph Trublet (1697-1770) was a\r\nFrench writer whose criticism of Voltaire was revenged in passages such\r\nas this one in Candide , and one in the Pauvre Diable beginning: L'abbé Trublet avait alors le rage D'être à Paris un petit personage.",
+      "text": "Nicholas Charles Joseph Trublet (1697–1770) var en fransk forfatter. Voltaire hævnede sig på hans kritik med passager som denne i _Candide_ og med en passage i _Le Pauvre Diable_, der begynder: »Abbé Trublet havde dengang den lidenskab / at være en lille størrelse i Paris.«"
+    },
+    {
+      "number": 28,
+      "sourceText": "[28] P. 120. Damiens, who attempted the life of Louis XV. in\r\n1757, was born at Arras, capital of Artois (Atrébatie).",
+      "text": "Damiens, der forsøgte at myrde Ludvig XV i 1757, var født i Arras, hovedbyen i Artois (Atrebatien)."
+    },
+    {
+      "number": 29,
+      "sourceText": "[29] P. 120. On May 14, 1610, Ravaillac assassinated Henry VI.",
+      "text": "Den 14. maj 1610 myrdede Ravaillac Henrik IV."
+    },
+    {
+      "number": 30,
+      "sourceText": "[30] P. 120. On December 27, 1594, Jean Châtel attempted to\r\nassassinate Henry IV.",
+      "text": "Den 27. december 1594 forsøgte Jean Châtel at myrde Henrik IV."
+    },
+    {
+      "number": 31,
+      "sourceText": "[31] P. 122. This same curiously inept criticism of the war\r\nwhich cost France her American provinces occurs in Voltaire's Memoirs ,\r\nwherein he says, \"In 1756 England made a piratical war upon France for\r\nsome acres of snow.\" See also his Précis du Siècle de Louis XV.",
+      "text": "Den samme mærkeligt forfejlede kritik af den krig, der kostede Frankrig dets amerikanske provinser, findes i Voltaires _Memoirer_, hvor han siger: »I 1756 førte England en sørøverkrig mod Frankrig om nogle acres sne.« Se også hans _Précis du Siècle de Louis XV_."
+    },
+    {
+      "number": 32,
+      "sourceText": "[32] P. 123. Admiral Byng was shot on March 14, 1757.",
+      "text": "Admiral Byng blev skudt den 14. marts 1757."
+    },
+    {
+      "number": 33,
+      "sourceText": "[33] P. 129. Commenting upon this passage, M. Sarcey says\r\nadmirably: \"All is there! In those ten lines Voltaire has gathered all\r\nthe griefs and all the terrors of these creatures; the picture is\r\nadmirable for its truth and power! But do you not feel the pity and\r\nsympathy of the painter? Here irony becomes sad, and in a way an\r\navenger. Voltaire cries out with horror against the society which throws\r\nsome of its members into such an abyss. He has his 'Bartholomew' fever;\r\nwe tremble with him through contagion.\"",
+      "text": "Om denne passage siger Sarcey rammende: »Alt er der! På disse ti linjer har Voltaire samlet alle disse menneskers sorger og rædsler. Billedet er beundringsværdigt i sin sandhed og kraft! Men mærker De ikke malerens medlidenhed og medfølelse? Her bliver ironien sørgmodig og på en måde hævnende. Voltaire råber af rædsel over det samfund, der styrter nogle af sine medlemmer i sådan en afgrund. Han har sin 'Bartholomæusfeber'; vi smittes og skælver med ham.«"
+    },
+    {
+      "number": 34,
+      "sourceText": "[34] P. 142. The following particulars of the six monarchs may\r\nprove not uninteresting. Achmet III. ( b. 1673, d. 1739) was\r\ndethroned in 1730. Ivan VI. ( b. 1740, d. 1762) was dethroned in\r\n1741. Charles Edward Stuart, the Pretender ( b. 1720, d. 1788).\r\nAuguste III. ( b. 1696, d. 1763). Stanislaus ( b. 1682, d. 1766).\r\nTheodore ( b. 1690, d. 1755). It will be observed that, although\r\nquite impossible for the six kings ever to have met, five of them might\r\nhave been made to do so without any anachronism.",
+      "text": "Disse oplysninger om de seks monarker kan være af interesse. Achmet III (født 1673, død 1739) blev afsat i 1730. Ivan VI (født 1740, død 1762) blev afsat i 1741. Charles Edward Stuart, tronprætendenten (født 1720, død 1788). August III (født 1696, død 1763). Stanislaus (født 1682, død 1766). Theodore (født 1690, død 1755). Selv om det var umuligt, at alle seks konger nogensinde kunne have mødt hinanden, kunne fem af dem have gjort det uden nogen anakronisme."
+    },
+    {
+      "number": 35,
+      "sourceText": "[35] P. 149. François Leopold Ragotsky (1676-1735).",
+      "text": "François Leopold Ragotsky (1676–1735)."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "status": "in progress; not release ready",
+  "primary_chapter_coverage": "126/126 exact normalized token match against PG996 after stripping image-reference lines; includes PartII preliminaries incorrectly grouped into corpus chapter52",
+  "missing_author_front_matter": [
+    "PartI author preface",
+    "PartI commendatory verse sequence",
+    "PartI dedication"
+  ],
+  "translator_front_matter": "Ormsby introduction and prefatory essays absent; separate editorial material, scope decision to document explicitly. TOCs and publisher/PG packaging not narrative omissions.",
+  "partII_structure": "Dedication and author preface are present within final slots of PartI chapter52. Preserve slots or supply explicit bookmark map if split for integration.",
+  "illustrations": "366 .jpg references in PG996 inventoried; corpus lacks them. Source combines Ormsby text with Doré illustrations from another edition. No image assets integrated.",
+  "semantic_checks": [
+    {
+      "slot": "I.1.7",
+      "item": "cuartos horse-hoof/money pun",
+      "decision": "Danish expands to hoof cracks versus small coins; Spanish text retained for comparison. Native review should test joke."
+    },
+    {
+      "slot": "I.2.5",
+      "item": "girls of the district / mozas del partido",
+      "decision": "Retain implication of sex work, not ordinary local girls; final Danish phrase should remain intelligible."
+    },
+    {
+      "slot": "I.4.5",
+      "item": "Miente delante de mí",
+      "decision": "Spanish confirms Don Quixote objects to farmer calling boy a liar in his presence; Danish made explicit."
+    },
+    {
+      "slot": "I.4.24",
+      "item": "two miles / dos millas",
+      "decision": "Historical distance unit retained pending a consistent unit policy; do not silently assume modern Danish mil."
+    }
+  ],
+  "completed": "I.1–4,64slots",
+  "next": "I.5.1",
+  "review": "Sequential source read plus rewritten Danish, not native-approved. English body still retained unchanged; audit upcoming."
+}

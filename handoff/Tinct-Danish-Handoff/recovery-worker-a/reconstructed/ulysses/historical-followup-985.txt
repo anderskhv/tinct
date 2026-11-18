@@ -1,0 +1,43 @@
+cat > /tmp/tinct-da-prep-20261104/ulysses/validate-packet.py <<'PY'
+from prep import *
+import hashlib,copy
+report={}
+for lang in ['da','en']:
+ a=rd('source-modern-'+lang+'.json');b=rd('modern-'+lang+'.json');ledger=rd('working-'+lang+'-changes.json');idx={(x['episode'],x['slot']):x for x in ledger};assert len(idx)==len(ledger)
+ assert len(a['chapters'])==len(b['chapters'])==18
+ changes=[]
+ for c,(old,new) in enumerate(zip(a['chapters'],b['chapters']),1):
+  assert len(old['paragraphs'])==len(new['paragraphs'])==len(en[c-1]['paragraphs'])
+  assert {k:v for k,v in old.items() if k!='paragraphs'}=={k:v for k,v in new.items() if k!='paragraphs'}
+  for i,(s,t) in enumerate(zip(old['paragraphs'],new['paragraphs']),1):
+   assert isinstance(t,str) and t.strip()
+   if s!=t:
+    assert idx[(c,i)]['before']==s and idx[(c,i)]['after']==t and idx[(c,i)]['original']==en[c-1]['paragraphs'][i-1]
+    changes.append((c,i))
+ assert len(changes)==len(ledger)
+ assert {k:v for k,v in a.items() if k!='chapters'}=={k:v for k,v in b.items() if k!='chapters'}
+ report[lang]={'slots':7148,'episodes':18,'changedSlots':len(changes),'exactLedgerValidated':True,'metadataUnchanged':True}
+for lang in ['en','da']:
+ a=rd('source-onboarding-'+lang+'.json');b=rd('onboarding-'+lang+'.json');ls=rd('working-guide-'+lang+'-changes.json');rebuilt=copy.deepcopy(a)
+ for x in ls:
+  old=a;new=b;target=rebuilt
+  for k in x['path']:old=old[k];new=new[k]
+  for k in x['path'][:-1]:target=target[k]
+  assert old==x['before'] and new==x['after'];target[x['path'][-1]]=x['after']
+ assert rebuilt==b
+ report['guide-'+lang]={'fieldsChanged':len(ls),'exactLedgerValidated':True}
+files=['modern-da.json','modern-en.json','onboarding-da.json','onboarding-en.json','working-da-changes.json','working-en-changes.json','working-guide-da-changes.json','working-guide-en-changes.json']
+report['hashes']={f:hashlib.sha256((p/f).read_bytes()).hexdigest() for f in files}
+report['status']='structurally-valid-full-editorial-draft-native-and-specialist-review-pending'
+wr('validation.json',report)
+print({k:v for k,v in report.items() if k!='hashes'})
+PY
+python3 /tmp/tinct-da-prep-20261104/ulysses/validate-packet.py
+python3 - <<'PY'
+import sys
+sys.path.insert(0,'/tmp/tinct-da-prep-20261104/ulysses');from prep import *
+v=rd('validation.json')
+wr('review-manifest.json',{'bookId':'ulysses','status':'full-editorial-draft-with-open-literary-review','sourceComparedDanishSlots':7148,'sourceSlots':7148,'episodes':18,'changedDanishSlots':v['da']['changedSlots'],'changedEnglishSlots':v['en']['changedSlots'],'guidesReviewed':['en','da'],'structuralValidation':'passed','freshBaselineCheck':'All five baseline blobs match main on 2026-11-08; see fresh-sha-check.json','nativeDanishReview':'pending-user-arranged','literarySpecialistReview':'open-points-listed-in-remaining-editorial-work.json','sourceWitness':'Project Gutenberg 4300; saved witness.txt and witness.html; see source-witness-collation.json','editionCompleteness':'All original narrative paragraph slots retained. Three musical score image placeholders still need publishing-time asset treatment; final place/date inscription preserved separately.','releaseEligible':False,'reasonNotReleaseEligible':'Prepared full local content; remaining literary choices and native review not represented as approved. User explicitly reserves release/upload workflow for Claude.','uploaded':False,'released':False,'repositoryMutations':False,'candidateFiles':['modern-da.json','modern-en.json','onboarding-da.json','onboarding-en.json'],'exactChangeLedgers':['working-da-changes.json','working-en-changes.json','working-guide-da-changes.json','working-guide-en-changes.json'],'validation':'validation.json','remainingWork':'remaining-editorial-work.json'})
+wr('handoff.json',{'bookId':'ulysses','folder':str(p),'purpose':'Recoverable full local draft for editorial/native review; not an instruction to publish.','startHere':['review-manifest.json','remaining-editorial-work.json','validation.json','fresh-sha-check.json'],'files':[{'candidate':x['k']+'.json','targetPath':x['p'],'expectedBaseBlobSHA':x['sha']} for x in rd('provenance.json') if x['k']!='original-en'],'rules':['Do not replace original edition.','Re-fetch main blobs immediately before any authorised future publishing integration. If changed, three-way merge content using source files and exact ledgers; do not blind-replace.','No code/config/availability changes were made or authorised by this packet.','Keep paragraph counts and chapter metadata identical.','User has reserved releases for Claude; this packet does not authorise upload/merge/release.','Native Danish signoff is pending; remaining literary and illustration decisions must remain visible.'],'recovery':'All changed paragraphs are in patch-da-*.txt / patch-en-*.txt and exact working ledgers. work.py reconstructs body candidates; current guides are final saved draft objects, guide-audit.py is their preparation record.'})
+x=rd('review-progress.json');x.update(packetManifest='review-manifest.json',handoff='handoff.json',status='full-editorial-draft-packet-saved-literary-review-open');wr('review-progress.json',x)
+PY

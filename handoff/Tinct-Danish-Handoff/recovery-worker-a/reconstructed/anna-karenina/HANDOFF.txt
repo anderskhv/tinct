@@ -1,0 +1,31 @@
+ANNA KARENINA — LOCAL CONTENT PREPARATION PACKET
+
+Status: full body and both guides prepared; NOT a native-approved or release-ready quality claim.
+239 chapters / 7442 corpus paragraph slots reviewed against the Russian author text. Candidate files keep original chapter numbers/titles and per-chapter slot counts. No application/repository changes or uploads/releases were made.
+
+DELIVERABLES
+candidate-anna-karenina-modern-da.json — modern Danish body.
+candidate-anna-karenina-modern-en.json — clear English repairs identified during source comparison.
+candidate-anna-karenina.da.json and candidate-anna-karenina.json — rewritten Danish/English reading guides.
+DANISH-REPAIRS.json / ENGLISH-REPAIRS.json — exact sequential before/after replacement ledgers, 7192 / 3370 entries covering3706 /2199 distinct slots respectively.
+GUIDE-REPAIRS-da.json / GUIDE-REPAIRS-en.json — exact whole-field guide ledgers.
+REPLAY-QA-FINAL.json — source-to-candidate exact replay passed for both bodies and both guides;239/7442 nonempty and stable slots; titles/numbers unchanged; opening quotations match body.
+SOURCE-COVERAGE-RAW.json — retained original7442slots match saved PG1399 sequentially after formatting normalization.
+SOURCES.json / SOURCE-COMMIT.txt / SOURCE-TOLSTOY-19-IDENTITY.json — provenance and pinned retained files.
+EDITORIAL-GAPS.json / PROPOSED-PART-BOUNDARIES.json / candidate-additional-epigraph-*.json — structural proposals only.
+REVIEW-REMAINING.json — prioritized honest follow-up list, including native language and specialist terms.
+
+SOURCE POLICY
+Full comparison used Russian239pages from the1996Lexika eight-volume edition at ilibrary.ru. Historical English witness is Constance Garnett, PG1399; original1901translation attribution does not identify PG’s precise print copy. PSS1935volume19 and RVB were checked at targeted passages, NOT collated independently line-by-line for the entire novel.
+
+IMPORTANT EDITORIAL GATE
+Chapter232(VIII.XII) differs in paragraph order and some wording between the retained Garnett/early separate edition and the PSS main text. PSS19 apparatus printed468–469 explicitly records those as historical edition variants; do not call them hallucinations or translator inventions. Current candidate follows PSS wording in repaired passages but retains corpus/Garnett slot order. PROPOSED-232-SOURCE-ORDER.json documents the alternative order. Resolve a uniform edition policy before publishing this chapter. Additional proposals: initial biblical epigraph, Part boundaries, chapter144Death subtitle, optional finalTheEnd marker. Do not silently shift paragraph IDs.
+
+GUIDES
+Removed unsupported superlatives, unverified praise quotations and false claims that Tolstoy never wrote another novel, that serialization lasted four years, that Anna’s final station was her first-meeting station, and that Levin’s story is literal autobiography. Correct publication chronology and distinguish the final Serbian-volunteer dispute from Russian state war. Added Dolly and practical names/voices aid. The acclaim array is empty intentionally; confirm reader presentation, without inventing endorsements.
+
+REVIEW REQUEST
+Obtain an independent source/Danish pass on chapter232 and the flagged impact sentence220.22, architecture179.36, harness234.5, then native fluency and address consistency. Technical historical terms remain open in REVIEW-REMAINING.json. No app rendering test has been performed. Automated replay/parity is not proof of literary quality or complete Russian sentence-by-sentence bijection.
+
+INTEGRATION ONLY WHEN USER/CLAUDE READY
+Read pinned source commit and compare current live files before applying; another session may have changed them. Apply reviewed content separately from structural proposals. Refresh checksums after accepted review edits. Do not replay per-chapter mutation scripts on already repaired candidates: each is already applied; verify-final.py is read-only for candidates and regenerates QA. Native signoff remains pending under user’s arrangement. Nothing here authorizes interfering with Claude’s releases.

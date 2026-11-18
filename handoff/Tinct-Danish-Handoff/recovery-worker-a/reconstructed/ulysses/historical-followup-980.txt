@@ -1,0 +1,9 @@
+python3 - <<'PY'
+import sys
+sys.path.insert(0,'/tmp/tinct-da-prep-20261104/ulysses');from edithelpers import *
+setslot('da',17,102,'En lyst til at se mine vers på tryk\nmed et skævende blik\nfår mig til at håbe, De finder dem rum.\nVil De mig den ære gøre,\nså lad slutningen anføre:\nDeres hengivne, L. Bloom.')
+fix('da',17,624,[('buttede bløde gule dugule meloner','buttede bløde gule duftgule meloner')])
+x=rd('review-progress.json');x['currentPolishCheckpoint']={'episode':17,'selectedPoetryReviewed':[102,108,227,232,233,234,235,624,650],'next':'Remaining literary wordplay and targeted Circe notes; native poetic review pending.'};wr('review-progress.json',x)
+x=rd('remaining-editorial-work.json');x['resolved'].append('17/102 doggerel now restores paired end-rhyme tryk/blik and gøre/anføre, consistent formal De; original name and six lines retained.');wr('remaining-editorial-work.json',x)
+PY
+python3 /tmp/tinct-da-prep-20261104/ulysses/work.py

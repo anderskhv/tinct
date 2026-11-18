@@ -1,0 +1,304 @@
+from pathlib import Path
+import json,re
+root=Path('/tmp/tinct-da-prep-20261104/twelfth-night')
+def load(k): return json.loads((root/f'source-{k}.json').read_text())
+da=load('modern-da');en=load('modern-en')
+def change(pos,t,obj=da):
+ c,i=map(int,pos.split('.')); obj['chapters'][c-1]['paragraphs'][i-1]=t
+def edits(lines,obj=da):
+ for line in lines.strip().splitlines():
+  pos,t=line.split(' ',1);change(pos,t,obj)
+edits("""
+1.2 DUKE. Hvis musik er kærlighedens føde, så spil videre. Giv mig så meget, at jeg får nok, og lysten sygner hen og dør. Den melodi igen! Hør, hvordan den klinger ud. Den strøg så blidt forbi mit øre som et pust hen over en skråning fuld af violer, der tager duften med sig og giver den fra sig igen. Nok. Ikke mere. Nu er den ikke nær så sød som før. Kærlighed, hvor er du levende og lunefuld! Du kan rumme lige så meget som havet, men selv det dyrebareste, du tager ind, mister sin værdi på et øjeblik. Forelskelsen tager så mange skikkelser, at ingen fantasi kan måle sig med den.
+1.6 DUKE. Det gør jeg jo allerede. Det er mit eget hjerte, jeg jager. Da jeg første gang så Olivia, var det, som om hun rensede luften for pest. I det øjeblik blev jeg selv til en hjort, og lige siden har mit begær jagtet mig som et kobbel glubske hunde. Nå? Hvad nyt fra hende?
+1.9 DUKE. Har hun så fint et hjerte, at hun kan vise en bror så stor kærlighed, hvordan vil hun så elske, når Amors gyldne pil har dræbt alt andet, hun holder af? Når én og samme konge sidder på alle hendes troner, i lever, hjerne og hjerte, og råder over alt det skønne i hende! Gå i forvejen til de duftende blomsterbede. Kærlighedstanker hviler bedst under løvets tag.
+2.5 CAPTAIN. Det var jo et tilfælde, at I selv blev reddet.
+2.18 VIOLA. Gid jeg kunne tjene den dame og holde min herkomst skjult, til jeg selv finder det rette øjeblik til at træde frem.
+2.19 CAPTAIN. Det bliver svært. Hun vil slet ikke høre på nogen, der beder hende om noget, selv når det er hertugen.
+3.3 MARIA. Helt ærligt, Sir Toby, I må komme tidligere hjem om aftenen. Min frue, jeres niece, tager jeres nattesviren meget tungt.
+3.4 SIR TOBY. Så lad hende tage det let, før det tynger hende.
+3.5 MARIA. Ja, men I må se at holde jer i skindet og opføre jer ordentligt.
+3.6 SIR TOBY. Holde mig i skindet? Jeg holder mig i det tøj, jeg har på. Det er godt nok at drikke i, og det er støvlerne også. Ellers kan de hænge sig i deres egne stropper.
+3.24 SIR TOBY. Gåpå, Sir Andrew, gåpå!
+3.27 SIR ANDREW. Frøken Gåpå, hvor er det en fornøjelse at gøre Deres bekendtskab.
+3.29 SIR ANDREW. Kære frøken Mary Gåpå –
+3.30 SIR TOBY. I misforstår mig, ridder. »Gå på« vil sige gå hende i møde, entr hende, gør kur til hende, gå til angreb.
+3.31 SIR ANDREW. Helt ærligt, jeg går da ikke til angreb på hende her for alles øjne. Er det det, »gå på« betyder?
+3.62 SIR ANDREW. Jeg kan slå et kaperspring.
+3.63 SIR TOBY. Og jeg kan skære lammestegen for til de kapers.
+3.64 SIR ANDREW. Og jeg sparker lige så højt bagud som nogen mand i Illyrien.
+4.16 VIOLA. Jeg skal gøre mit bedste for at vinde hende for jer. [Afsides.] Hvilken knude jeg sidder i! Jeg skal fri for ham, og selv vil jeg være hans kone.
+5.13 CLOWN. Tja, tøvende er jeg, men jeg har da to snore at holde mig til.
+5.14 MARIA. Ja, springer den ene, så holder den anden. Springer de begge, taber I bukserne.
+5.61 OLIVIA. Kære Toby, hvorfor er I allerede så døsig på den her tid af dagen?
+5.62 SIR TOBY. Løsagtig? Jeg skal give jer løsagtig! Der står en ved porten.
+5.74 MALVOLIO. Det har jeg sagt til ham. Han siger, at så kan han stå som en pæl ved jeres dør og være ben under en bænk. Han vil tale med jer.
+5.80 MALVOLIO. For ung til at være mand, for gammel til at være dreng. Som en spæd ærtebælg, der endnu ikke er fyldt ud, eller et æble lige før det er modent. Han står, hvor vandene skifter, mellem dreng og mand. Køn er han, og rap i munden. Man skulle tro, han endnu havde modermælken på læberne.
+5.96 OLIVIA. Kom til sagen. Lovtalen må I gerne springe over.
+5.115 OLIVIA. Har jeres herre givet jer fuldmagt til at forhandle med mit ansigt? Nu går I ud over teksten. Men vi kan da trække forhænget til side og vise jer billedet. [Løfter sløret.] Se, sådan så jeg ud i dette øjeblik. Er det ikke godt malet?
+5.126 VIOLA. Bygge mig en hytte af pilegrene ved jeres port og kalde på min sjæl derinde. Skrive sange om trofast kærlighed, der bliver afvist, og synge dem højt midt om natten. Råbe jeres navn mod bakkerne, til ekkoet svarer, og få luften til at sladre: »Olivia!« Mellem himmel og jord skulle I ikke få ro, før I fik medlidenhed med mig.
+5.128 VIOLA. Jeg er bedre født, end mine kår lader ane. Min herkomst er god. Jeg er adelsmand.
+6.5 SEBASTIAN. Jeg har intet bestemt mål. Jeg flakker bare om. Men I er for hensynsfuld til at presse mig til at fortælle noget, jeg helst holder for mig selv, og netop derfor skylder jeg jer et ærligt svar. Antonio, jeg hedder Sebastian. Jeg sagde, jeg hed Roderigo. Min far var den Sebastian fra Messalin, som I sikkert har hørt om. Han efterlod sig mig og min søster. Vi kom til verden i samme time. Havde himlen været os nådig, var vi også døde i samme time. Men det forhindrede I. En times tid før I reddede mig fra brændingen, var min søster druknet.
+7.1 [Viola og Malvolio kommer ind ad hver sin dør.]
+""")
+edits("""
+2.5 CAPTAIN. It was chance that saved you, too.
+5.80 MALVOLIO. Not old enough to be a man, or young enough to be a boy. Like a young pea pod before it fills out, or an apple just short of ripe. He is in the slack water between boy and man. Very good-looking and very cheeky. You would think the milk was scarcely dry on his lips.
+""",en)
+edits("""
+5.91 VIOLA. Jeg kan knap nok sige mere end det, jeg har lært udenad, og det spørgsmål står ikke i min rolle. Vil I være så venlig bare at sige, om I er fruen her, så jeg kan komme videre?
+8.12 CLOWN. Jeg indlommererede skam jeres gratiali. Malvolios næse er jo intet piskeskaft. Min frue har en hvid hånd, og myrmidonerne er ingen ølstuer.
+8.16 CLOWN. Vil I have en kærlighedsvise eller en vise om det gode og dydige liv?
+8.18 SIR ANDREW. Ja, ja, en kærlighedsvise. Det dydige liv er ikke noget for mig.
+8.19 CLOWN. [Synger.] Min elskede, hvor går du hen? / Bliv her og hør din trofaste ven, / der synger både højt og dybt. / Tøv ikke mere, min hjertenskær. / Hvor kærester mødes, ender en færd. / Det ved hver klog mands søn.
+8.22 CLOWN. Hvad er kærlighed? Den er jo nu. / Nu ler vi sammen, jeg og du. / Hvem ved, hvad i morgen vil bringe? / Hvad vinder vi ved at vente, min ven? / Kom, kys mig én gang og tyve igen. / Så kort er den tid, vi er unge.
+8.27 SIR ANDREW. Hvis I holder af mig, så lad os! Jeg er en hund efter at falde ind i en kanon.
+8.28 CLOWN. Ja, ved Vor Frue, der findes hunde, som falder ganske godt ind med deres gøen.
+8.38 [Synger.] Vi er tre glade mænd! Er jeg måske ikke i familie med hende?
+8.39 Har vi ikke samme blod i årerne? Pyt! »Frue«! Der boede en mand i Babylon, frue, frue!
+9.9 VIOLA. Det er, som om den giver genlyd der, hvor kærligheden selv sidder på sin trone.
+9.18 DUKE. Elsk da en, der er yngre end dig selv, ellers holder din kærlighed ikke spændingen. Kvinder er som roser. Knap står de i fuldt flor, før de drysser.
+9.21 DUKE. Kom, min ven, syng den fra i går aftes. Lyt, Cesario. Det er en gammel, enkel sang. Kvinder synger den, mens de spinder og strikker i solen, og pigerne, mens de knipler med pinde af ben. Der er en ligefrem sandhed i den. Den leger uskyldigt med kærligheden, som man gjorde i gamle dage.
+9.25 [Narren synger.]
+9.26 Kom, død, kom og tag mig bort. / Læg mig til hvile i sorgens cypres. / Flyv, ånde, flyv bort. / En skøn, grusom pige har dræbt mig. / Mit ligklæde, hvidt og stukket med taks, / åh, gør det rede. / Ingen, der elskede trofast som jeg, / fik min lod i døden.
+9.27 Ingen blomst, ingen duftende blomst / skal strøs på min kulsorte kiste. / Ingen ven, nej, ingen ven / skal hilse mit lig, hvor mine knogler kastes hen. / Spar dem de tusind gange tusind suk. / Læg mig, åh, hvor / ingen trofast elsker i sorg finder min grav / og græder dér.
+9.44 VIOLA. Kun alt for godt, hvordan kvinder kan elske mænd. De er lige så trofaste som vi. Min far havde en datter, som elskede en mand, sådan som jeg måske ville elske jer, min herre, hvis jeg var kvinde.
+10.25 MALVOLIO. Så sidder jeg dér i min højstol, efter tre måneders ægteskab med hende –
+10.27 MALVOLIO. Jeg kalder mine folk til mig. Jeg har den mønstrede fløjlskåbe på og har lige rejst mig fra divanen, hvor Olivia stadig sover.
+10.30 MALVOLIO. Så sætter jeg en fornem mine op, lader blikket glide behersket rundt og minder dem om, at jeg kender min plads og venter, at de kender deres. Så spørger jeg efter min slægtning Toby.
+10.40 MALVOLIO. »Du må se at få styr på dit drikkeri.«
+10.54 [Læser.] »Til min ukendte elskede sender jeg dette og mine bedste ønsker.« Netop
+10.55 sådan udtrykker hun sig! Med forlov, kære voks. Vent! Aftrykket er hendes Lukretia. Den plejer hun at forsegle med. Det er fra min frue. Hvem kan det være til?
+10.70 FABIAN. Den hund skal nok give hals alligevel, også hvis sporet stinker af ræv.
+10.79 [Læser.] »Falder dette brev i din hånd, så tænk over det. Stjernerne har sat mig højere end
+10.92 SIR TOBY. Skal jeg sætte min frihed på spil i terninger og blive jeres træl?
+10.99 SIR ANDREW. Jeg følger også med.
+11.1 [Viola og narren kommer ind. Narren bærer en lille tromme.]
+11.2 VIOLA. Gud bevare jer og jeres musik, min ven. Er det trommen, der holder jer i live?
+11.3 CLOWN. Nej, sir. Det er kirken, jeg holder til ved.
+11.4 VIOLA. Hører I da til ved kirken?
+11.5 CLOWN. Bestemt, sir. Jeg holder til ved kirken, for jeg bor i mit hus, og mit hus ligger lige op ad kirken.
+11.38 SIR TOBY. Smag lidt på benene, sir. Sæt dem i bevægelse.
+11.39 VIOLA. Mine ben står bedre under mig, sir, end jeg forstår, hvad I mener med at bede mig smage på dem.
+11.41 VIOLA. Så vil jeg svare ved at gå indenfor. Men dér kom nogen os i forkøbet.
+11.45 VIOLA. Mit ærinde får kun stemme for jeres eget lydhøre og nådige øre, frue.
+11.46 SIR ANDREW. »Dufte«, »lydhøre«, »nådige«. De tre ord skal jeg gemme.
+12.21 FABIAN. Ham har I kær, Sir Toby. Han lader sig trække rundt i snor.
+12.22 SIR TOBY. Og jeg har været ham dyr, knægt. En to tusind stykker har jeg vel kostet ham.
+13.3 ANTONIO. Jeg kunne ikke blive tilbage. Min længsel drev mig af sted som en skarpsleben spore. Og så gerne jeg ville se jer – gerne nok til at rejse endnu længere – var det også frygten for, hvad der kunne ske jer. I er fremmed her. Uden vejviser og venner kan man blive hårdt modtaget. Jeg fulgte jer af kærlighed, og frygten fik mig til at skynde mig endnu mere.
+13.13 ANTONIO. Måske får I øje på en lille ting, I gerne vil købe. Jeg tror næppe, I selv har råd til den slags fornøjelser.
+14.27 OLIVIA. Himlen give jer forstanden tilbage!
+14.46 MALVOLIO. Væk med jer. Jeg vil have mig frabedt jeres selskab. Lad mig nu være alene. Ud!
+14.60 SIR TOBY. Ja, min lille fugl, kom med mig. En værdig mand som du skulle da ikke sidde og knipse kirsebærsten med Satan! Pokker stå i den beskidte sodsvend!
+14.62 MALVOLIO. Mine bønner, din tøjte?
+14.139 FABIAN. Vig tilbage, hvis han går vildt til angreb.
+14.146 ANTONIO. Stik sværdet i skeden. Har den unge herre gjort noget galt, tager jeg skylden. Men vil I ham til livs, så må I slås med mig.
+14.152 [Trækker sin kårde.] Nå, vil I blande jer? Så er jeg klar.
+14.158 [Til Sir Andrew.] Vær så venlig at stikke sværdet i skeden, sir.
+14.172 ANTONIO. Lad mig sige et ord. Den unge mand, I ser her, rev jeg ud af dødens gab, da han allerede var halvt opslugt. Jeg hjalp ham med en kærlighed, der var mig hellig. Jeg så på ham og syntes, han lignede et menneske, der fortjente al ære. Sådan tilbad jeg ham.
+14.185 SIR TOBY. Gør det. Giv ham et ordentligt par på kassen, men lad sværdet blive i skeden.
+15.5 SEBASTIAN. Gå et andet sted hen og luft dine narrestreger. Du kender mig ikke.
+15.6 CLOWN. »Lufte mine narrestreger«! Det ord har han hørt hos en fin mand, og nu prøver han det af på en nar. »Lufte mine narrestreger«! Den store klods af en verden ender vel som en forkælet bydreng. Læg nu de fremmede manerer af og sig mig, hvad jeg skal lufte for min frue. Skal jeg lufte den tanke, at I kommer?
+15.20 SIR TOBY. Nej, sir, jeg slipper jer ikke. Så, min unge soldat, stik jernet i skeden. I slipper denne gang. Kom nu.
+15.31 SEBASTIAN. Hvad sker der? Hvor fører strømmen mig hen? Enten er jeg gal, eller også drømmer jeg. Lad fantasien drukne mine sanser i glemslens flod. Er det her en drøm, så lad mig sove videre!
+16.11 [Malvolio taler indefra.]
+16.50 MALVOLIO. De bruger mig som en rekvisit. De holder mig i mørke, sender præster til mig, de æsler, og gør alt for at få mig til at tro, at jeg har mistet forstanden.
+16.54 [Som Sir Topas.] Tal ikke med ham, min gode mand.
+16.55 [Med sin egen stemme.] Hvem, jeg, sir? Nej, sir. Gud være med jer, gode Sir Topas. [Som Sir Topas.] Amen. [Med sin egen stemme.] Ja, sir. Det skal jeg, sir.
+16.67 Nu går jeg min vej, sir, / snart er jeg hos jer, sir, / så rap som den gamle Last / der kommer til hjælp i en hast. / Med sværdet af træ / i arrigskab brøler han »Ha!« / til Djævlen, den stakkel, / som en tosset krabat: / »Klip kløerne, far! / Farvel, hr. Djævel!«
+17.4 OLIVIA. Tilgiv, at jeg skynder på jer. Mener I det godt med mig, så kom med denne præst og mig ind i kapellet her ved siden af. Giv mig jeres troskabsløfte for hans ansigt under det indviede tag, så jeg kan få fred for min skinsyge og tvivl. Han holder det hemmeligt, så længe I ønsker. Når vi begge vil stå åbent frem, fejrer vi brylluppet, som det sømmer sig for min stand. Hvad siger I?
+17.5 SEBASTIAN. Jeg følger gerne den gode mand og går med jer. Og når jeg har svoret jer troskab, holder jeg mit ord.
+18.32 DUKE. Din berygtede sørøver, din saltvandstyv! Hvorfra fik du det vanvittige mod til at give dig i hænderne på folk, du har gjort til dine fjender med så store tab af liv og ejendom?
+18.48 OLIVIA. Hvad I vil, min herre, hvis I ellers kan være det bekendt.
+18.59 OLIVIA. Hvorhen, min herre? Cesario! Min mand, bliv her!
+18.60 DUKE. Din mand?
+18.97 ANTONIO. Hvordan har I delt jer i to? Selv to halvdele af ét æble ligner ikke hinanden mere, end I to gør. Hvem af jer er Sebastian?
+18.109 Men naturen trak alligevel i sin egen retning. I ville have fæstet jer til en jomfru. Og dér, det sværger jeg, er I heller ikke blevet snydt: Den, I er trolovet med, er både mand og jomfru.
+18.115 VIOLA. Mine kvindeklæder ligger hos kaptajnen, der bragte mig i land. Han sidder nu fængslet i en sag, som Malvolio, en af fruens betroede mænd, har anlagt mod ham.
+18.139 skønt det var så fremmed for dit køn og så langt under den fine og blide opdragelse, du har fået. Du har kaldt mig herre så længe. Her er min hånd. Fra nu af skal du være din herres herskerinde.
+18.148 FABIAN. Gode frue, hør mig. Lad ingen strid, hverken nu eller senere, skæmme alt det underfulde, vi lige har oplevet. Derfor tilstår jeg frit: Toby og jeg lagde fælden for Malvolio. Vi syntes, han havde behandlet os hovent og uhøfligt. Maria skrev brevet på Sir Tobys indtrængende bøn. Som tak har han giftet sig med hende. Hvis man vejer, hvad vi hver især har gjort hinanden, håber jeg, at vores ondskabsfulde spøg kan vække mere latter end hævnlyst.
+18.153 OLIVIA. De har behandlet ham skammeligt.
+18.154 DUKE. Skynd jer efter ham, og bed ham om at slutte fred. Vi mangler også at høre, hvor kaptajnen er. Når vi ved det, og tiden er inde, skal vi højtideligt knytte vore sjæle sammen. Indtil da, kære søster, bliver vi her. Kom, Cesario. Sådan skal du hedde, så længe du går klædt som mand. Men når du kommer i dit andet tøj, er du Orsinos elskede og dronning i hans drømme.
+18.156 [Narren synger.]
+18.157 Dengang jeg var en lille dreng, / hej hå, hvor det blæser og regner! / Da var en narrestreg bare en leg, / for regnen, den regner hver dag.
+18.158 Men da jeg blev en voksen mand, / hej hå, hvor det blæser og regner! / Folk stængte porten for tyv og skarn, / for regnen, den regner hver dag.
+18.159 Og da jeg, ak, så tog mig en viv, / hej hå, hvor det blæser og regner! / Med pral kom jeg ingen vegne, / for regnen, den regner hver dag.
+18.160 Og da jeg omsider gik til sengs, / hej hå, hvor det blæser og regner! / lå vi svirebrødre dér, stadig fulde, / for regnen, den regner hver dag.
+18.161 For længe siden blev verden til, / hej hå, hvor det blæser og regner! / Men hvad så? Nu ender vort spil. / Gid vi kan glæde jer hver dag.
+""")
+edits("""
+8.27 SIR ANDREW. If you love me, let’s sing. I’m a regular hound at a catch!
+8.28 CLOWN. By Our Lady, sir, some hounds can catch very well.
+9.21 DUKE. Come, fellow, the song from last night. Listen, Cesario. It’s old and simple. Women sing it as they spin and knit in the sun, and girls as they make lace with bone bobbins. It tells a simple truth and plays with the innocence of love, as in the old days.
+11.38 SIR TOBY. Taste your legs, sir. Put them in motion.
+12.22 SIR TOBY. And I’ve cost him dear, lad. About two thousand, give or take.
+13.13 ANTONIO. You may see some little thing you want to buy, and I doubt you have money to spare for shopping.
+14.172 ANTONIO. Let me speak a moment. This young man you see here was halfway down the jaws of death when I pulled him out. I cared for him with a love that was sacred to me. I looked at him and saw such promise of worth that I worshipped him.
+15.6 CLOWN. ‘Vent my folly’! He picked up that word from some great man and now tries it on a fool. ‘Vent my folly’! This great lout of a world will turn out to be a pampered city boy, I fear. Now put off those strange manners and tell me what I should vent to my lady. Shall I vent the news that you are coming?
+18.48 OLIVIA. Whatever pleases you, my lord, so long as it becomes you.
+""",en)
+edits("""
+1.8 VALENTINE. De ville ikke lukke mig ind, min herre, men hendes kammerpige gav mig svar. I syv somre skal selv himlen ikke få hendes ansigt at se. Hun vil gå med slør som en nonne og hver dag væde sit kammer med tårer så salte, at de svier i øjnene. Sådan vil hun salte kærligheden til sin døde bror ned, så den holder sig frisk i hendes sorg.
+3.7 MARIA. Alt det drikkeri tager livet af jer. Jeg hørte min frue tale om det i går. Hun talte også om den tåbelige ridder, I en aften slæbte med herhen som bejler til hende.
+3.13 MARIA. Ja, og om et år har han brugt hver eneste dukat. Han er både en tåbe og en ødeland.
+3.15 MARIA. Ja, han er nærmest født idiot. Ud over at være en tåbe elsker han at komme op at skændes. Havde han ikke også fået fejhedens gave til at holde sin stridslyst i ave, siger kloge folk, at hans næste gave snart blev en grav.
+3.24 SIR TOBY. Gå på, Sir Andrew, gå på!
+5.2 MARIA. Enten fortæller I mig, hvor I har været, eller også åbner jeg ikke munden en hårsbred for at undskylde jer. Min frue lader jer hænge, når I bliver væk på den måde.
+5.5 CLOWN. Den hængte får jo aldrig en fjende at se igen.
+5.6 MARIA. Det var et magert svar, lige til fasten. Jeg kan sige jer, hvor det udtryk med ikke at frygte fjendens faner stammer fra.
+5.37 MALVOLIO. Jo, og det vil han blive ved med, til dødskampen ryster ham. Svækkelse tager på en klog mands forstand, men en nar bliver bare bedre til sit fag.
+5.40 MALVOLIO. Det undrer mig, at I morer jer over sådan en fantasiløs slyngel. Forleden blev han sat til vægs af en almindelig tosse med lige så lidt hjerne som en sten. Se nu, han har allerede paraderne nede. Hvis I ikke ler og giver ham noget at spille på, sidder han med mundkurv på. De kloge hoveder, som galer af fryd over betalte narre, er efter min mening selv bare narrenes narre.
+5.100 VIOLA. Nej, kære dæksdreng, jeg bliver liggende og driver lidt endnu. Kan I ikke lige dæmpe jeres kæmpe, kære frue? Sig mig, hvad I ønsker. Jeg er her som sendebud.
+5.132 OLIVIA. »Hvad er jeres herkomst?« »Jeg er bedre født, end mine kår lader ane. Min herkomst er god. Jeg er adelsmand.« Ja, det tør jeg sværge på. Din stemme, dit ansigt, din krop, dine bevægelser og dit væsen – fem våbenmærker, der røber din adel. Ikke så hurtigt. Rolig nu! Var herren dog bare sin tjener. Hvad nu? Kan man fange pesten så hurtigt? Jeg mærker næsten, hvordan alt det skønne ved ham lister sig ind gennem mine øjne. Så lad det ske. Malvolio!
+8.2 SIR TOBY. Kom her, Sir Andrew. Er man ikke i seng efter midnat, så er man jo tidligt oppe. Og diluculo surgere – I kender ordsproget.
+8.3 SIR ANDREW. Nej, det gør jeg nu ikke. Men jeg ved da, at er man sent oppe, så er man sent oppe.
+8.71 MALVOLIO. Frøken Mary, hvis min frues velvilje betød det mindste for jer, ville I ikke hjælpe dem med at holde sådan et spektakel. Det får hun at høre, det sværger jeg på.
+8.82 MARIA. Puritaner, min bare! Det eneste, han holder fast ved, er at tækkes dem, der har magten. Et krukket æsel er han. Han lærer fine manerer udenad og strør om sig med dem i tide og utide. Han er så indtaget i sig selv, så fuld af alle mulige fortrin, tror han, at det er en trossætning for ham, at alle, der ser ham, elsker ham. Netop dér kan jeg få ram på ham.
+8.84 MARIA. Jeg lader nogle gådefulde kærlighedsbreve ligge, hvor han kommer forbi. Skæggets farve, benets form, hans gang, hans blik, hans pande, hans teint – han vil tro, at de handler om ham ned til mindste detalje. Jeg kan efterligne jeres nieces skrift så godt, at selv vi to knap kan se forskel, når vi finder noget, vi har glemt, hvem af os skrev.
+9.2 DUKE. Lad mig høre musik. Godmorgen, venner. Kære Cesario, jeg vil bare høre den gamle vise fra i går aftes. Den lindrer min længsel bedre end alle de lette melodier og lånte fraser, der er sådan en jagt efter nu om dage. Kom, bare ét vers.
+9.48 VIOLA. Jeg er alle døtrene i min fars hus, og alle sønnerne med. Og dog, jeg ved det ikke. Skal jeg gå til hende, min herre?
+10.13 MALVOLIO. Det er lykken. Alt er lykken. Maria fortalte mig engang, at min frue holdt af mig. Og jeg har selv hørt fruen sige så meget som, at skulle hun falde for nogen, skulle han være af min slags. Hun behandler mig også med langt større agtelse end nogen anden i sin tjeneste. Hvad skal jeg tro?
+11.59 OLIVIA. Lad mig nu tale, jeg beder jer. Sidst I var her, fortryllede I mig sådan, at jeg sendte en ring efter jer. Jeg snød både mig selv og min tjener og vel også jer. I har god grund til at dømme mig hårdt. Med et skammeligt kneb tvang jeg jer til at tage noget, I vidste ikke var jeres. Hvad må I ikke have tænkt? Har I bundet min ære til en pæl og pudset alle de vilde tanker på den, som et hårdt hjerte kan finde på? I ser klart nok, I har set nok. Kun et tyndt slør dækker mit hjerte. Lad mig nu høre jeres svar.
+14.32 MALVOLIO. »Kom nu, din lykke er gjort, hvis du vil.«
+14.33 OLIVIA. Min lykke gjort?
+14.83 FABIAN. Meget kort og ualmindelig mening… sløst.
+14.114 VIOLA. Jeg går tilbage og beder fruen om nogen, der kan følge mig. Jeg slås ikke. Jeg har hørt om mænd, der finder på en fornærmelse bare for at prøve en andens mod. Mon han er sådan en?
+15.30 Kære ven, jeg beder dig, lad din gode forstand råde frem for vreden over, at man så råt og uretfærdigt har forstyrret din fred. Kom med mig hjem. Når du hører om alle den slyngels mislykkede løjer, kan du måske også le ad det her. Du må komme. Sig nu ja. Den slyngel skulle skamme sig. Det var mit stakkels hjerte, der fór sammen i dig.
+16.4 CLOWN. Så tager jeg kåben på og lader, som om jeg er en anden. Bare jeg var den første, der nogen sinde forstillede sig i sådan en kåbe! Jeg er ikke høj nok til at fylde embedet ud, eller mager nok til at ligne en flittig student. Men »retskaffen mand med et gæstfrit hus« klinger vel lige så godt som »samvittighedsfuld mand og stor lærd«. Der kommer de medsammensvorne.
+16.37 Hej, Robin, glade Robin, / sig, hvordan har din kære det?
+16.39 CLOWN. Min kære er mig kold, ved Gud.
+16.43 CLOWN. Hun elsker en anden – Hvem kalder?
+17.2 SEBASTIAN. Her er luften. Dér er den herlige sol. Perlen, hun gav mig, kan jeg både se og mærke. Alt undrer mig, men jeg er ved min forstand. Hvor er Antonio? På Elefanten fandt jeg ham ikke. Han havde været der, og de fortalte mig, at han ledte efter mig rundt om i byen. Hans råd ville være guld værd nu. Min forstand og mine sanser kan godt enes om, at jeg tager fejl af noget uden at være gal. Men det, der sker, al den lykke på én gang, er så helt uden sidestykke, at jeg er ved at tvivle på mine egne øjne. Min fornuft kan sige, hvad den vil. Enten er jeg gal, eller også er fruen det. Men hvordan skulle hun så kunne styre sit hus, lede sine folk og tage stilling til hver eneste sag med den ro og omtanke, jeg selv har set? Noget er anderledes, end det ser ud til. Dér kommer hun.
+18.30 FIRST OFFICER. Orsino, det er Antonio, ham der tog skibet Phoenix og dets last fra Kreta. Det var ham, der entrede Tiger, da jeres unge nevø Titus mistede sit ben. Vi greb ham her på gaden midt i et slagsmål, hvor han satte både sit gode navn og sin stilling over styr.
+18.33 ANTONIO. Ædle Orsino, lad mig ryste de navne af mig. Antonio har aldrig været tyv eller sørøver. Jeres fjende har jeg været, det indrømmer jeg, og med god grund. Trolddom drog mig hertil. Den utaknemmelige dreng ved jeres side trak jeg ud af det frådende havs gab. Alt håb var ude for ham. Jeg gav ham livet tilbage og gav ham hele min kærlighed oveni, uden at holde det mindste igen. Alene for hans skyld vovede jeg mig ind i denne fjendtlige by. Da de gik løs på ham, trak jeg min kårde til hans forsvar. Men da de greb mig, var han for snu til at dele faren. Han så mig lige i øjnene og lod, som om vi aldrig havde mødt hinanden. På et øjeblik var det, som om tyve år havde skilt os. Han ville ikke engang give mig min egen pung, som jeg havde givet ham at bruge for mindre end en halv time siden.
+18.44 OLIVIA. Hvis I vil synge den gamle sang igen, min herre, skurrer det lige så grimt i mine ører som hundehyl, når musikken netop er forstummet.
+18.67 PRIEST. I gav hinanden løfte om evig kærlighed. I bekræftede løftet ved at tage hinanden i hånden, beseglede det med et helligt kys og styrkede det ved at bytte ringe. Som præst og vidne satte jeg mit segl på hele pagten. Siden da er jeg, efter mit ur at dømme, vandret netop to timer nærmere min grav.
+18.74 SIR ANDREW. Han har slået hul i hovedet på mig, og Sir Toby har også fået en blodig hanekam. Hjælp os, for Guds skyld! Jeg gav gerne fyrre pund for at være hjemme.
+18.81 SIR ANDREW. Hvis en blodig hanekam er en skade, så har I skadet mig. En blodig hanekam er vel ingenting i jeres øjne? Her kommer Sir Toby haltende. Nu skal I bare høre. Men havde han været ædru, skulle han nok have kildet jer på en helt anden måde.
+18.88 SIR TOBY. Dig, hjælpe mig? Dit æselhoved, din hanekam, din smalansigtede slyngel, din nar!
+18.147 OLIVIA. Ak, Malvolio, det er ikke min skrift, selv om den ligner. Det er uden tvivl Marias. Nu husker jeg også, at det var hende, der først sagde, at du var blevet gal. Så kom du smilende ind og gjorde lige præcis, hvad der stod i brevet. Prøv at falde til ro. Nogen har sat en udspekuleret fælde for dig. Når vi ved, hvem der står bag og hvorfor, får du selv lov at være både anklager og dommer i din sag.
+""")
+edits("""
+5.40 MALVOLIO. I’m amazed that you enjoy such a witless rascal. The other day a common fool with no more brains than a stone got the better of him. Look, his guard is down already. Unless you laugh and give him an opening, he’s gagged. As for the wise men who crow over professional fools like these, I think they’re just the fools’ own clowns.
+10.13 MALVOLIO. It’s fortune. Everything is fortune. Maria once told me my lady was fond of me. And I’ve heard my lady herself come close to saying that if she took a fancy to anyone, it would be someone of my complexion. Besides, she treats me with much more respect than anyone else in her service. What am I to think?
+""",en)
+def repl(pos,old,new,obj=da):
+ c,i=map(int,pos.split('.'));v=obj['chapters'][c-1]['paragraphs'][i-1];assert old in v,(pos,old);change(pos,v.replace(old,new),obj)
+repl('3.46','en stor okseædende','frygtelig glad for oksekød')
+repl('4.13','fra en sendebuds mere alvorlige fremtoning','fra et mere alvorligt sendebud')
+repl('5.46','og vel ledsaget','og han har fornemt følge')
+repl('5.72','Det er han blevet sagt','Det har jeg sagt til ham') if False else None
+repl('5.78','Af særdeles dårlig manér.','En mand med særdeles dårlige manerer.')
+repl('5.135','den lunefulde sendebud','det lunefulde sendebud')
+repl('5.138','Jeg gør, hvad jeg ikke véd,','Jeg ved ikke selv, hvad jeg gør,')
+repl('8.13','den bedste narrespil','det bedste narrespil')
+repl('8.87','de breve I dropper','de breve, du lader ligge')
+repl('8.98','mere penge','flere penge')
+repl('9.26','i sorgens cypres','svøbt i sorgens cypres')
+repl('10.4','den gniende, skurkagtige fårebider møde en bemærkelsesværdig skam','den nærige, luskede køter blive gjort til grin for alvor')
+repl('10.5','ville jubel','ville juble')
+repl('10.80','du er gjort, hvis du ønsker at blive det','din lykke er gjort, hvis du vil')
+repl('10.81','Dagslys over en åben slette afslører ikke mere!','Det kunne ikke være tydeligere ved højlys dag på åben mark!')
+repl('11.7','en ged-skindshandske for en skarp vid','en gedeskindshandske i hænderne på et kvikt hoved')
+repl('11.64','Måtte nåde og godt sind ledsage jeres herredom!','Måtte nåde og godt humør følge jer, frue!')
+repl('12.17','lige meget','det gør ikke noget') if False else None
+repl('14.90','som en bumbailiff','som en foged, der lurer på en skyldner')
+repl('14.115','hans harme','hans harme') if False else None
+repl('14.115','helt kompetent krænkelse','ganske reel fornærmelse')
+repl('14.115','træk jeres sværd skinbarnaken','træk blank')
+repl('14.167','jeg vil dele mit nuværende med jer','jeg vil dele det, jeg har, med jer')
+repl('16.17','i frygtelig mørke','i et forfærdeligt mørke')
+repl('16.22','der er ingen mørke uden uvidenhed','det eneste mørke er uvidenhed')
+repl('16.25','vor bedstemors sjæl kunne tilfældigt bebo en fugl','vores bedstemors sjæl måske har taget bolig i en fugl')
+repl('18.102','en modermærke på sin pande','et modermærke på panden')
+repl('18.150','sådan en goldt skarn','sådan en fantasiløs slyngel')
+edits("""
+2.9 CAPTAIN. Ja, frue, jeg kender det godt. Jeg er født og opvokset mindre end tre timers rejse herfra.
+3.43 MARIA. Ja, sir, jeg har dem på fingerspidserne. Se, nu slipper jeg jeres hånd, og straks er det slut med vittighederne.
+5.51 Gå derud, Malvolio. Hvis greven frier igen, så er jeg syg, eller jeg er ikke hjemme. Sig, hvad I vil, bare få ham afvist.
+5.101 OLIVIA. Det må være et skrækkeligt budskab, siden I bruger så skrækkelig en høflighed til at indlede med. Hvad er jeres ærinde?
+7.3 VIOLA. Jo, sir. Jeg er gået stille og roligt, så længere end hertil er jeg ikke nået.
+8.37 SIR TOBY. Min frue er en gavtyv, vi er snedige statsmænd, Malvolio er en Peg-a-Ramsey, og –
+9.46 VIOLA. En tom side, min herre. Hun fortalte aldrig om sin kærlighed. Som en orm, der gnaver i en blomsterknop, lod hun sin tavshed tære på kindernes roser. Hun sygnede hen af længsel, grøn og gul af tungsind. Dér sad hun som Tålmodigheden på et gravmæle og smilede til sorgen. Var det ikke kærlighed? Vi mænd siger måske mere, vi sværger mere, men vi viser os mere frem, end vi mener det. Vi er store i vores løfter og små i vores kærlighed.
+10.46 SIR ANDREW. Jeg vidste, det var mig. Der er mange, der kalder mig en nar.
+10.77 FABIAN. Ja, havde du bare øjne i nakken, ville du se mere spot bag din ryg end lykke forude.
+11.38 SIR TOBY. Smag på benene, sir. Sæt dem i bevægelse.
+12.17 SIR TOBY. Skriv med en rigtig krigerhånd. Hvast og kort. Det gør ikke noget, hvor vittigt det er, når bare det er veltalende og opfindsomt. Hån ham så frit, som blækket tillader. Sig »du« til ham en tre gange, det skader ikke. Og beskyld ham for at lyve, så mange gange det kan stå på arket, selv om det var så stort som den berømte seng i Ware i England. Sæt i gang! Kom rigeligt med galde i blækket. Om du så skriver med en gåsefjer, gør det ikke noget. Af sted!
+12.29 SIR TOBY. Og strømpebåndene på kryds?
+14.31 OLIVIA. Strømpebåndene på kryds?
+14.156 [Til Antonio.] Dig tager jeg mig af om lidt.
+16.28 CLOWN. Farvel. Bliv du bare i mørket. Før jeg kalder dig tilregnelig igen, må du tro det samme som Pythagoras og ikke turde slå en sneppe ihjel af frygt for at jage din bedstemors sjæl ud af den. Farvel.
+18.31 VIOLA. Han hjalp mig, min herre. Han trak sin kårde for at forsvare mig. Men bagefter sagde han nogle mærkelige ting. Jeg fik ingen mening i dem, han virkede helt ude af sig selv.
+18.49 DUKE. Hvorfor skulle jeg ikke, hvis jeg havde hjerte til det, gøre som den egyptiske røver og i dødens stund dræbe den, jeg elsker? Vild skinsyge kan have en smag af ædelmod. Men hør nu: Du spotter min troskab, og jeg aner, hvem der lirker mig ud af den plads i dit hjerte, der tilkommer mig. Så lev du videre, tyran med bryst af marmor. Men din yndling her, som jeg ved, du elsker, og som jeg ved himlen selv holder inderligt af, ham river jeg ud af dit grusomme blik, hvor han sidder kronet til trods for sin herre. Kom med mig, dreng. Nu er jeg klar til en grusom handling. Jeg vil ofre det lam, jeg elsker, for at ramme ravnehjertet i en due.
+18.50 VIOLA. Og jeg ville glad, rede og villig dø tusind gange for at give jer fred.
+18.52 VIOLA. Jeg følger ham, jeg elsker højere end mine øjne, højere end mit liv, ja, ved alt det, der er mere værd, højere end jeg nogensinde vil elske en hustru. Er det forstillelse, så straf mig på livet, I deroppe, for at have vanæret min kærlighed.
+18.68 DUKE. Din falske hvalp! Hvad bliver du ikke til, når pelsen engang gråner? Eller vokser din list så stærkt, at du snart selv snubler i dine kneb? Farvel, tag hende bare. Men gå, hvor du vil, så længe du og jeg aldrig mere skal mødes.
+18.101 SEBASTIAN. En ånd er jeg vel, men jeg har også den krop, der fulgte med mig ud af mors liv. Var du en kvinde – for alt andet stemmer – så lod jeg mine tårer falde på din kind og sagde: Tre gange velkommen, druknede Viola!
+18.118 Mit eget vanvid optog mig så helt, at jeg rent glemte hans. Hvordan har han det?
+""")
+edits("""
+1.8 VALENTINE. My lord, they wouldn’t let me in, but her maid gave me this answer. For seven summers even the sky won’t see her face unveiled. She’ll walk veiled like a nun and water her chamber every day with tears that sting her eyes. With all that salt she means to preserve her love for her dead brother and keep it fresh in her grieving memory.
+5.2 MARIA. Either tell me where you’ve been or I won’t open my lips so much as a hair’s breadth to make excuses for you. My lady will have you hanged for staying away.
+8.16 CLOWN. Would you like a love song or a song about leading a virtuous life?
+8.18 SIR ANDREW. Yes, yes, a love song. I don’t care for the virtuous life.
+12.17 SIR TOBY. Go, write it in a warlike hand. Be sharp and brief. Never mind how witty it is, so long as it’s eloquent and inventive. Give him all the insults your ink will allow. Call him ‘thou’ three times for good measure. Accuse him of lying as many times as you can fit on the sheet, even if it’s as big as the great bed of Ware in England. Get to it. Put plenty of gall in your ink, even if you do write with a goose quill. Off you go.
+16.50 MALVOLIO. They use me as a prop. They keep me in the dark, send clergymen to me, the asses, and do everything they can to make me think I’ve lost my mind.
+18.30 FIRST OFFICER. Orsino, this is the Antonio who captured the Phoenix and her cargo from Crete. He boarded the Tiger when your young nephew Titus lost his leg. We caught him brawling in the streets here, heedless of his reputation or his position.
+18.68 DUKE. You deceitful cub! What will you be when your fur turns gray? Or will your cunning grow so fast that your own tricks trip you up? Farewell, take her. But go where you and I will never meet again.
+""",en)
+edits("""
+3.45 SIR TOBY. Ridder, I trænger til et glas kanarievin. Hvornår har jeg set jer så slået ud?
+3.46 SIR ANDREW. Aldrig i jeres liv, tror jeg, medmindre I har set kanarievinen slå mig ud. Sommetider tror jeg knap nok, jeg har mere forstand end en kristen eller et andet almindeligt menneske. Men jeg spiser en frygtelig masse oksekød, og det tror jeg sløver forstanden.
+6.7 SEBASTIAN. Folk sagde, hun lignede mig meget, og alligevel syntes mange, at hun var smuk. Den beundring gør det lidt svært for mig at fæste ubetinget lid til deres ord. Men ét tør jeg sige om hende: Hun havde et sind så smukt, at selv misundelsen måtte indrømme det. Havets saltvand har allerede druknet hende, og her står jeg og drukner hendes minde i mine egne salte tårer.
+6.11 SEBASTIAN. Vil I ikke gøre jeres egen gerning ugjort og slå den mand ihjel, som I har reddet, så bed mig ikke om det. Lad os tage afsked nu. Mit hjerte er så fuldt af ømhed. Jeg ligner stadig min mor nok til, at mine øjne vil røbe mig, hvis I siger et ord til. Jeg tager til grev Orsinos hof. Farvel.
+8.39 Har vi ikke samme blod i årerne? Pyt! »Frue«! [Synger.] Der boede en mand i Babylon, frue, frue!
+10.80 dig, men frygt ikke storheden. Nogle er født store, nogle opnår storhed, og nogle får storhed kastet over sig. Skæbnen åbner sin hånd for dig. Tag imod med liv og sjæl. Øv dig på at blive den, du har udsigt til at blive. Kast din ydmyghed af dig. Vis dig i ny skikkelse. Sæt en slægtning på plads, vriss ad tjenerne, tal om statens anliggender, og tillæg dig en helt egen stil. Det råder hun dig til, som sukker efter dig. Husk, hvem der roste dine gule strømper og ønskede altid at se dig med strømpebåndene på kryds. Husk det, siger jeg. Kom nu, din lykke er gjort, hvis du vil. Ellers får jeg dig vel igen at se som hushovmester på lige fod med tjenerne, uværdig til at røre selv Lykkens fingerspidser. Farvel fra hende, som gerne byttede plads med dig. Den lykkelige ulykkelige.«
+14.30 MALVOLIO. »Og ønskede altid at se dig med strømpebåndene på kryds.«
+14.42 MALVOLIO. Åhå! Begynder I nu at nærme jer mig? Ingen ringere end Sir Toby skal tage sig af mig! Det passer nøjagtigt med brevet. Hun sender ham med vilje, så jeg kan sætte mig op imod ham. Det opfordrer hun mig jo til i brevet. »Kast din ydmyghed af dig«, siger hun. »Sæt en slægtning på plads, vriss ad tjenerne, tal om statens anliggender, og tillæg dig en helt egen stil.« Og så beskriver hun hvordan. En alvorlig mine, en værdig holdning, en sindig tunge og tøj som en mand af stand. Og så videre. Nu har jeg hende. Men det er Jupiters værk. Måtte Jupiter gøre mig taknemmelig! Og lige da hun gik, sagde hun: »Tag jer af den fyr.« Fyr! Ikke »Malvolio«, heller ikke min titel, men »fyr«. Alt passer. Ikke skyggen af en skygge af tvivl. Ingen hindring, ingen grund til mistro eller usikkerhed. Hvad kan der indvendes? Intet kan komme mellem mig og mine lysende udsigter. Det var Jupiter, der gjorde det, og ham vil jeg takke.
+14.80 SIR TOBY. »Du skal ikke undre dig eller tænke over, hvorfor jeg kalder dig det, for jeg vil ikke give dig nogen grund.«
+14.99 VIOLA. Min herre bærer sin sorg på samme måde, som I bærer jeres lidenskab.
+14.113 SIR TOBY. Han fik ridderslaget med en ubrugt kårde, på tæppet ved hoffet, men i et privat slagsmål er han en djævel. Han har allerede skilt tre sjæle fra deres kroppe. Lige nu er han så rasende, at kun død og begravelse kan give ham oprejsning. Slå eller bliv slået, det er hans motto.
+14.137 [Afsides.] Gud hjælpe mig! Der skal ikke meget til, før jeg fortæller dem,
+14.138 hvad jeg mangler for at være en mand.
+14.142 [Trækker sin kårde.] Gud give, at han holder sit ord!
+18.130 det. I satte mig i mørke og gav jeres fordrukne slægtning magt over mig, men min forstand er lige så god som jeres, frue. Jeg har stadig brevet fra jeres egen hånd, som fik mig til at klæde mig og opføre mig sådan. Med det kan jeg skaffe mig oprejsning eller bringe stor skam over jer. Mén om mig, hvad I vil. For en gangs skyld tilsidesætter jeg min pligt og taler som den, I har gjort uret. Malvolio, som I behandlede som en gal.«
+""")
+def subtext(p):
+ labels={'DUKE':'HERTUGEN','CLOWN':'NARREN','CAPTAIN':'KAPTAJNEN','FIRST OFFICER':'FØRSTE BETJENT','SECOND OFFICER':'ANDEN BETJENT','PRIEST':'PRÆSTEN','SERVANT':'TJENEREN','AGUECHEEK':'SIR ANDREW'}
+ key,sep,r=p.partition('.')
+ if key in labels:p=labels[key]+sep+r
+ replacements={'[Til siden.]':'[Afsides.]','[Trækker.]':'[Trækker sin kårde.]','[Kanon synges.]':'[De synger kanon.]','Klovnen':'Narren','og Narren':'og narren','med Narren':'med narren','af Narren':'af narren','Mistress Mary':'frøken Mary','Mistress Malls':'frøken Malls','Master Parson':'hr. pastor','Master Malvolio':'hr. Malvolio','Master Fabian':'hr. Fabian','Master Cesario':'hr. Cesario',' véd':' ved',' Véd':' Ved',' fyrretyve':' fyrre','Grevens':'Grevens','spisekammerets bardisk':'vinskænken','Canarie-vin':'kanarievin','for at underholde':'for at underholde'}
+ for a,b in replacements.items():p=p.replace(a,b)
+ for a,b in {'fader':'far','faders':'fars','broder':'bror','broders':'brors','moders':'mors','hushovmester':'hovmester'}.items():p=re.sub(r'\b'+a+r'\b',b,p)
+ return p.replace(' / ','\n')
+for c in da['chapters']:
+ c['paragraphs']=[subtext(p) for p in c['paragraphs']]
+ c['title']=c['title'].replace(', Scene',', scene')
+ c['section']=c['section'].replace('Act','Akt')
+def wr(f,data):(root/f).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+wr('modern-da.json',da);wr('modern-en.json',en)
+change('14.40','Kære Maria, tag jer af den fyr. Hvor er min slægtning Toby? Sæt nogle af mine folk til at passe godt på ham. Jeg gav gerne det halve af min medgift, hvis jeg dermed kunne spare ham for at komme til skade.')
+change('18.80','[Narren støtter den fulde Sir Toby ind.]')
+change('3.24','SIR TOBY. Gå på, Sir Andrew, gå på!')
+change('3.27','SIR ANDREW. Kære frøken Gåpå, jeg ville gerne lære jer bedre at kende.')
+change('10.25','MALVOLIO. Vi har været gift i tre måneder. Jeg sidder i mit højsæde –')
+change('14.27','OLIVIA. Himlen give jer forstanden tilbage!')
+wr('modern-da.json',da)
+edits("""
+7.8 VIOLA. Jeg efterlod ingen ring hos hende. Hvad mener hun med det? Bare det nu ikke er mit ydre, der har forhekset hende! Hun så længe på mig. Så længe, at hendes blik nærmest tog ordene fra hende. Hun talte i ryk, helt fra sig selv. Hun elsker mig! Det må være det. Nu lokker hun mig listigt tilbage med det gnavne sendebud. Vil hun ikke have min herres ring? Han sendte hende jo ingen! Det er mig, der er manden. Hvis det er sådan, og det er det, så kunne den stakkels dame lige så godt forelske sig i en drøm. Forklædning, du er et farligt onde. Djævlen ved nok at bruge dig. Hvor har smukke bedragere let ved at sætte deres segl i kvinders voksbløde hjerter! Ak, det er vores skrøbelighed, der bærer skylden. Vi er, som vi er skabt. Hvordan skal det gå? Min herre elsker hende højt, og jeg, stakkels misfoster, elsker ham lige så højt. Og hun tager fejl og sværmer, ser det ud til, for mig. Hvad skal der blive af os? Så længe jeg er mand, kan jeg ikke vinde min herres kærlighed. Og er jeg kvinde, så sukker stakkels Olivia forgæves. Tid, du må rede det ud. Den knude er for stram for mig!
+8.14 SIR TOBY. Her har I en sekspencemønt. Lad os få en sang.
+8.15 SIR ANDREW. Og en sekspence fra mig. Når én ridder giver en –
+8.29 SIR ANDREW. Så sandt. Lad os tage den kanon, der hedder »Din slyngel«.
+8.30 NARREN. »Hold mund, din slyngel«, hr. ridder? Så bliver jeg jo nødt til at kalde jer en slyngel.
+8.31 SIR ANDREW. Det er ikke første gang, jeg har fået nogen til at kalde mig en slyngel. Begynd, nar. Den begynder med »Hold mund«.
+14.35 OLIVIA. Det her er jo ren midsommergalskab.
+14.47 MARIA. Hør, hvor hult djævlen taler inde fra ham! Hvad sagde jeg? Sir Toby, min frue beder jer tage jer af ham.
+14.57 FABIAN. Kun med det gode. Blidt, blidt! Djævlen er hård, men han tåler ikke selv hård behandling.
+16.15 NARREN. Ud, din overvældige djævel! Hvor du plager den mand! Har du intet andet i hovedet end damer?
+""")
+wr('modern-da.json',da)
+edits("""
+16.54 [As Sir Topas.] Don’t speak to him, good fellow.
+16.55 [As himself.] Who, me, sir? No, sir. God be with you, good Sir Topas. [As Sir Topas.] Indeed, amen. [As himself.] I will, sir, I will.
+""",en)
+wr('modern-en.json',en)

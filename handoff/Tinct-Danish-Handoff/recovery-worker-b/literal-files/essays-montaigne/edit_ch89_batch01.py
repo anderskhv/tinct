@@ -1,0 +1,10 @@
+from review_helpers import *
+d=rd('modern-da.json');d['chapters'][88]['title']='Forsvar for Seneca og Plutark';wr('modern-da.json',d)
+fixes('da',89,1,[('min alder','min alderdom')])
+fixes('en',89,1,[('my age','my old age')])
+fixes('da',89,3,[('blødagtig','fej')])
+fixes('en',89,3,[('ambitious, soft, sensual','ambitious, cowardly, sensual')])
+fixes('da',89,4,[('i et sted i hans _Method of History_','i et afsnit af hans _Metode til studiet af historien_'),('fra issen til halen','fra issen og helt ned'),('I det eksempel finder jeg intet stort mirakel, og jeg accepterer ikke den undskyldning, Plutark giver ved at tilføje','I Bodins eksempel med rævehvalpen finder jeg ikke noget stort mirakel, og jeg accepterer heller ikke hans undskyldning for Plutark: at denne har tilføjet'),('sjeldnere','sjældnere')])
+fixes('en',89,4,[('In that example I find no great miracle, and I do not accept the excuse Plutarch makes by adding','In Bodin’s example of the fox-cub I find no great miracle, and I do not accept his excuse for Plutarch, that the latter adds')])
+ledger();q=rd('review-progress.json');q.update(reviewedSlots=3094,throughChapter=89,throughSlot=6,nextChapter=89,nextSlot=7,englishAuditCheckpoint={'chapter':89,'throughSlot':6},danishChangedSlots=len(rd('working-da-changes.json')),englishChangedSlots=len(rd('working-en-changes.json')));wr('review-progress.json',q)
+wr('review-notes-ch89-partial.json',{'chapter':89,'throughSlot':6,'status':'partial','source':'https://bribes.org/trismegiste/es2ch32.htm','changes':['Title translated;1 oldage notgenericage;3 cowardly notsoft','4 DanishBodintitle,tail mistranslation,clarified example returns to foxcub notPyrrhus;Bodin offers excuse for Plutarch notPlutarch excuses himself'],'limits':['4 Spartan endurance historicalreports notfactualmodernphysiology,guidecontext','3 author preference Romanhistorians/Diohistoricalclaim retained']})

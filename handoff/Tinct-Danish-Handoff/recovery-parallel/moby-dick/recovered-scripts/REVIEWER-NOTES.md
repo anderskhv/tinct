@@ -1,0 +1,9 @@
+# Til den danske læser
+
+Denne arbejdskopi følger den amerikanske rækkefølge. Læs tilegnelsen, hjælpelærerens etymologi og under-underbibliotekarens 80 uddrag før »Kald mig Ishmael«. De særegne stavemåder og sprognavne i etymologien er hjælpelærerens. Hans danskform HVALT er bevaret som et citat. Uddragenes titler og ophavsangivelser følger Melvilles egen sære samling, også når han selv kun skriver »et eller andet sted«.
+
+**Steder at læse højt.** Prøv overgangen fra hjælpelærerens lommetørklæde til de lærde ordbøger, fra prædiken til salme i kapitel 9 og fra matros til matros på bakken i kapitel 40. I kapitel 94 er det samme ord for hvalrav og sæd selve forudsætningen for joken med hænderne. I kapitel 132 skal man kunne høre, hvornår det er Starbuck, der tager ordet fra Ahab. Ved slutningen af kapitel 135 insisterer Ahab på, at hvalen kan knuse ham, men aldrig få hans underkastelse. I epilogen skal »forældreløst barn« klinge sammen med Rachels søgen efter sine børn.
+
+**Ord og stemmer.** Se især på sømændenes kommandoer, forskellen mellem styrmand, stævnmand og bådsmand og de indforståede ord for spæk, hvalrav, redskaber og råer. Det engelske navn »Ishmael« bruges også i guiden. Bibelens Jonas har fået sit danske navn. Ældre folke- og artsbetegnelser kommer fra fortælleren og fra de kilder, bibliotekaren citerer. De udtalelser, som falder i Tincts egen læseguide, er tydeligt adskilt fra dem. Læg også mærke til forskellen på pegepinden i den pseudo-videnskabelige klassifikation og Ishmaels sårbare jegstemme.
+
+**Grundlag for godkendelsen.** Alle kapitler er kollationeret på engelsk. Den danske gennemgang omfatter fuldstændighed og afsnitsplacering, gennemgående ordbrug, stavefejl, kapitelåbninger og udvalgte højrisikopassager. Den samlede bog på omtrent 214.000 ord foreligger til din gennemlæsning. Endelig dansk sproglig godkendelse er åben.

@@ -1,0 +1,49 @@
+{
+  "book_id": "confessions",
+  "title": "Confessions / Bekendelser",
+  "status": "prepared locally; native Danish review pending; no release",
+  "files": [
+    {
+      "file": "confessions-modern-da.json",
+      "destination": "app/public/data/editions/confessions-modern-da.json",
+      "base_git_blob_sha": "4ef84d5c67864078d18c99346e3eca5db119e37d",
+      "sha256": "29796459edae1fb8b43820cbdc0fb02d51af745703e30cec6106448dc4cd2d40",
+      "bytes": 612243
+    },
+    {
+      "file": "confessions-modern-en.json",
+      "destination": "app/public/data/editions/confessions-modern-en.json",
+      "base_git_blob_sha": "fc56f89da20c8dd06d183dce2c94bb193a7cb209",
+      "sha256": "3c87df8707457b72407c0f21b5a6669e73b7116fc7a60621bf9d8a2025d7c196",
+      "bytes": 632035
+    },
+    {
+      "file": "confessions.json",
+      "destination": "app/public/data/onboarding/confessions.json",
+      "base_git_blob_sha": "63bccc6f8443e3bc01169f6da19ce061107bf1bd",
+      "sha256": "ffb42a1d46f0bc54928718e59f54b2614dbdb2668c61cb1b0cf50cfdc0ab5b8a",
+      "bytes": 6601
+    },
+    {
+      "file": "confessions.da.json",
+      "destination": "app/public/data/onboarding/confessions.da.json",
+      "base_git_blob_sha": "b2c0d6d2ac2999df9dedf7e9c2fe438ba900b65b",
+      "sha256": "be0b24d4d7895bc7fdeaee9f09f3fc34759582ef15ecf520021b4d032ac2f5b2",
+      "bytes": 6498
+    }
+  ],
+  "source_snapshots": {
+    "confessions-original-en.json": "3a99e7987132094c90d49bffd3eedae6d0819027",
+    "confessions-modern-en.json": "fc56f89da20c8dd06d183dce2c94bb193a7cb209",
+    "confessions-modern-da.json": "4ef84d5c67864078d18c99346e3eca5db119e37d",
+    "confessions.json": "63bccc6f8443e3bc01169f6da19ce061107bf1bd",
+    "confessions.da.json": "b2c0d6d2ac2999df9dedf7e9c2fe438ba900b65b"
+  },
+  "sources": {
+    "primary-pusey.txt": "https://www.gutenberg.org/cache/epub/3296/pg3296.txt",
+    "primary-latin.txt": "https://www.gutenberg.org/cache/epub/33849/pg33849.txt"
+  },
+  "source_policy": "Complete 13-book Pusey text supplies corpus alignment; public-domain Latin resolves textual and meaning ambiguities. Danish is a fresh modern rendering, retaining philosophical and theological detail. Bible quotations freshly rendered from supplied historical sources, not copied from modern Danish Bible translations.",
+  "release_instructions": "Only Claude should integrate when user asks. Re-fetch destination blobs; compare against base pins before applying; do not overwrite concurrent changes. No language visibility/config change has been prepared.",
+  "review_limit": "No native Danish final read or independent full Latin collation claimed."
+}

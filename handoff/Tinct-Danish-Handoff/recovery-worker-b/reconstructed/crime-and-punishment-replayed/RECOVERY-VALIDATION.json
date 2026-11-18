@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-18",
+  "book": "crime-and-punishment",
+  "chapters": 41,
+  "slots": 3904,
+  "danish_matches_historical_sha256": true,
+  "historical_sha256": "183828a48d9de813cc92969bfd03ba39333e70c3a87341a0a7c230b4dfb613c0",
+  "checks": {
+    "da": {
+      "ledger_exact": true,
+      "changed_slots": 1012
+    },
+    "en": {
+      "ledger_exact": true,
+      "changed_slots": 304
+    }
+  },
+  "paired_guides_recovered": true,
+  "paired_preface_paragraphs": 11,
+  "baseline_source_git_pins": "Recovered exact git blobs per provenance.json",
+  "limits": [
+    "No new native or complete independent Russian review.",
+    "Original coverage/source witness artifacts not recovered; do not confuse historical coverage assertions in HANDOFF with a new audit."
+  ],
+  "release": "none"
+}

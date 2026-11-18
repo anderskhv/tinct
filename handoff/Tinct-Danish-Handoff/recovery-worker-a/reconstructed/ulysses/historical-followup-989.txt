@@ -1,0 +1,15 @@
+python3 - <<'PY'
+import sys,re
+sys.path.insert(0,'/tmp/tinct-da-prep-20261104/ulysses');from edithelpers import *
+d=rd('modern-da.json')['chapters'][14]['paragraphs']
+labels={'DEN VILDE KVINDE':'DEN SKRAPPE KVINDE','ARBEJDEREN':'ARBEJDSMANDEN','FØRSTE VAGT':'FØRSTE BETJENT','ANDEN VAGT':'ANDEN BETJENT','VAGTERNE':'BETJENTENE','GASDYSEN':'GASBLUSSET','EN BYDENDE':'EN BYDER','DR MADDEN':'DR. MADDEN'}
+changes=[]
+for i,s in enumerate(d,1):
+ k=s.split(':',1)[0]
+ if k in labels:
+  setslot('da',15,i,labels[k]+s[len(k):]);changes.append({'slot':i,'beforeLabel':k,'afterLabel':labels[k],'sourceLabel':en[14]['paragraphs'][i-1].split(':',1)[0]})
+wr('circe-speaker-consistency.json',{'review':'All 231 unique candidate heading forms inspected; equivalent source roles harmonised.','changes':changes})
+x=rd('remaining-editorial-work.json');x['resolved'].append('All Circe speaker headings checked; same source roles now consistent as betjent, arbejdsmand, skrap kvinde and gasblus. Auction bidder is byder. Exact mappings saved in circe-speaker-consistency.json.');wr('remaining-editorial-work.json',x)
+PY
+python3 /tmp/tinct-da-prep-20261104/ulysses/work.py
+python3 /tmp/tinct-da-prep-20261104/ulysses/validate-packet.py

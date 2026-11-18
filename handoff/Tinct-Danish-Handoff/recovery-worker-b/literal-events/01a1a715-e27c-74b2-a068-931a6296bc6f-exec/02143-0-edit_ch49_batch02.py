@@ -1,0 +1,10 @@
+# coding: utf-8
+from review_helpers import *
+for lang,gloss in [('da',' [»Men dig vil jeg ikke gøre noget; men min pik, vasket med uld, …« — Martial, xi. 58, 11; citeret brudstykke.]'),('en',' ["But I will do you no harm; but my cock, washed with wool, …" — Martial, xi. 58, 11; quoted fragment.]')]:
+ d=rd('modern-'+lang+'.json');d['chapters'][48]['paragraphs'][19]+=gloss;wr('modern-'+lang+'.json',d)
+fixes('da',49,37,[('Kvinder lå plejet at ligge','Kvinder plejede at ligge')])
+fixes('da',49,40,[('De holdt vejret i drikningen','De holdt pauser for at trække vejret, når de drak')])
+for lang in ['da','en']:fixes(lang,49,42,[('ii. z, 18','ii. 11, 18')]);fixes(lang,49,44,[('imitari est','imitata est')])
+fixes('en',49,44,[('quern nulls','quem nulla')])
+ledger();wr('chapter49-source-check-batch02.json',{'chapter':49,'slots':[35,46],'witness':'https://fr.wikisource.org/w/index.php?title=Essais/Livre_I/Chapitre_49&oldid=1875818','additionalWitnesses':['https://www.espace-horace.org/qhf/odes2.htm','https://www.monumenta.ch/latein/text.php?domain=&hide_apparatus=1&inframe=1&lang=0&level=4&links=1&rumpfid=Martialis,+Epigrammata,++11,++58&tabelle=Martialis'],'notes':['35–46 compared.40 critical breath opposite correctedDA.42 corruptcitationii.z→ii.11.18 verifiedHoraceprimary.44Latinimitata/quemnulla.20previousunglossedLatin now inline fragmenttranslation preservesexactslot; primaryMartialXI58line11 is intentionallyincompletesentence, explicitlyellipsisandfragmentlabel rather than inventingmeaningor quietly translatingunquotednextline.37ruelle sidebetweenbedandwall retainedwallside.']})
+d=rd('review-progress.json');d.update(reviewedSlots=1320,throughChapter=49,throughSlot=46,nextChapter=50,nextSlot=1,englishAuditCheckpoint={'chapter':49,'throughSlot':46},englishChaptersReviewed=list(range(1,50)),danishChangedSlots=len(rd('working-da-changes.json')),englishChangedSlots=len(rd('working-en-changes.json')));d['remaining'][0]='chapters50–107';d['remaining'][1]='chaptertitles50–107';wr('review-progress.json',d)

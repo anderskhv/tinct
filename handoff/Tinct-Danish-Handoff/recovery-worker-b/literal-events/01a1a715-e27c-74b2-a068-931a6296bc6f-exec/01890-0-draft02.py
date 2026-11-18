@@ -1,0 +1,37 @@
+from save_chapter import save
+v=[
+'Derfor har du ingen undskyldning, du menneske, som dømmer andre, hvem du end er. Når du dømmer en anden, fordømmer du nemlig dig selv, for du, som dømmer, gør det samme.',
+'Vi ved, at Guds dom over dem, der gør den slags, bygger på sandheden.',
+'Du menneske, som dømmer dem, der gør den slags, og selv gør det samme: Tror du, at du vil slippe for Guds dom?',
+'Eller foragter du hans overvældende godhed, overbærenhed og tålmodighed uden at forstå, at Guds godhed vil føre dig til omvendelse?',
+'Med dit hårde hjerte, som ikke vil omvende sig, samler du vrede over dig selv til vredens dag, hvor Guds retfærdige dom bliver åbenbaret.',
+'Han »vil gengælde enhver efter deres gerninger«:',
+'evigt liv til dem, der holder ud i at gøre godt og søger herlighed, ære og uforgængelighed,',
+'men vrede og harme til dem, der søger deres eget og ikke adlyder sandheden, men uretfærdigheden.',
+'Nød og angst vil ramme ethvert menneske, der gør det onde, først jøden og også grækeren.',
+'Men herlighed, ære og fred vil tilfalde enhver, der gør det gode, først jøden og også grækeren.',
+'For Gud gør ikke forskel på mennesker.',
+'Alle, som har syndet uden loven, vil også gå fortabt uden loven, og alle, som har syndet under loven, vil blive dømt efter loven.',
+'Det er nemlig ikke dem, der hører loven, som er retfærdige over for Gud; dem, der følger loven, vil blive erklæret retfærdige',
+'(når mennesker fra de andre folkeslag, som ikke har loven, af natur gør det, loven kræver, er de nemlig deres egen lov, selv om de ikke har loven.',
+'De viser, at det, loven kræver, står skrevet i deres hjerter. Deres samvittighed vidner sammen med dem, og deres tanker anklager eller forsvarer dem indbyrdes)',
+'på den dag, hvor Gud gennem Jesus Kristus vil dømme det skjulte i mennesker, sådan som mit evangelium siger.',
+'Du kalder dig jo jøde, støtter dig til loven og er stolt af Gud.',
+'Du kender hans vilje og kan vurdere, hvad der er bedst, fordi du bliver undervist i loven.',
+'Du er overbevist om, at du er en vejleder for blinde og et lys for dem, der er i mørke,',
+'en opdrager for uforstandige og en lærer for umodne, fordi du i loven har kundskabens og sandhedens udtryk.',
+'Du, der underviser andre, underviser du så ikke dig selv? Du, der prædiker, at man ikke må stjæle, stjæler du selv?',
+'Du, der siger, at man ikke må bryde ægteskabet, bryder du det selv? Du, der afskyr afguder, plyndrer du templer?',
+'Du, der er stolt af loven, vanærer du Gud ved at overtræde den?',
+'For »på grund af jer bliver Guds navn hånet blandt folkeslagene«, som der står skrevet.',
+'Omskærelsen gavner dig, hvis du følger loven. Men bryder du loven, er din omskærelse blevet til uomskårethed.',
+'Hvis den uomskårne holder lovens bestemmelser, vil hans uomskårethed så ikke blive regnet for omskærelse?',
+'Og vil den, der er uomskåret fra fødslen, men opfylder loven, ikke dømme dig, som bryder loven, selv om du har dens bogstav og er omskåret?',
+'For man er ikke jøde ved blot at være det udadtil, og omskærelse er ikke blot det ydre indgreb i kroppen.',
+'Jøde er man i det indre, og omskærelsen er hjertets omskærelse, i ånd, ikke i bogstav. Den, der er det, får sin ros fra Gud, ikke fra mennesker.'
+]
+save(2,v,{
+'sources':['source-web-romans.json','witness-sblgnt-romans.txt','https://brugbibelen.dk/Rom2','https://www.biblen.info/Ressourcer/romd.htm#2'],
+'variants':[{'verse':17,'choice':'WEB assertion retained: Du kalder dig jo; SBLGNT Ei de and DFB/1907 conditional if/when not silently substituted.'},{'verse':16,'choice':'Jesus Kristus follows pinned WEB; SBLGNT Christ Jesus order recorded.'}],
+'translationDecisions':[{'verses':[13,14,15,16],'decision':'WEB parenthesis and long syntactic connection retained across same paragraph slots; juridical declared righteous distinguished from righteous adjective.'},{'verses':[9,10,14,24],'decision':'Greek preserved in Jew/Greek pairing; Gentiles rendered other peoples/peoples rather than modern pejorative hedninger.'},{'verses':[20],'decision':'nepioi rendered umodne, metaphorical infants, not literal babies.'},{'verses':[21,22,23],'decision':'Rhetorical questions retain WEB/SBL punctuation rather than DFB/1907 assertions.'},{'verses':[29],'decision':'in spirit lower-case follows WEB and leaves spirit/Spirit identification for note; DFB capitalizes Ånden. Praise rendered ros, not DFB stolthed.'}],
+'pendingSpecialist':['2:14 by nature attachment and scope','2:15 thoughts accusing/defending one another: pronoun scope','2:29 human spirit/Holy Spirit reading; not settled in body']})

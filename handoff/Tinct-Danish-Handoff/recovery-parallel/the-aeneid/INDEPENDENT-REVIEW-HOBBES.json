@@ -1,0 +1,111 @@
+{
+  "status": "partial independent review; VIII read completely, VII catalogue read completely, I–VI targeted screening ongoing",
+  "sourcePolicy": "Latin-based Danish aligned to Dryden slots; Greenough XML checked directly",
+  "suggestions": [
+    {
+      "slot": "8.5",
+      "category": "meaning",
+      "current": "Hvilken sø der end holder dit udspring i sig\nog har medlidenhed med vores modgang, hvor end du viser dit underskønne løb frem,",
+      "suggested": "Du, som har medlidenhed med vores nød: hvilken sø der end rummer dit udspring,\nog hvor end dit smukke løb kommer frem,",
+      "reason": "Latin8.74–76 miserantem modifies Tiber addressed as te, not lacus. Current Danish gives the lake compassion."
+    },
+    {
+      "slot": "8.9",
+      "category": "meaning",
+      "current": "I kappestrid bringer de unge udvalgte stykker af indvoldene fra altrene\npå præsten og mændenes bud, stabler Ceresbrødene i kurve, deler vin ud.",
+      "suggested": "De udvalgte unge mænd og præsten ved alteret kappes om at bringe\nde stegte indvolde fra tyrene frem, fylder kurvene med brød, Ceres’ gaver, og skænker vin.",
+      "reason": "Latin8.179–181 lecti modifies iuvenes; iuvenes and sacerdos are subjects. No order from priest/men; roast bull entrails are explicit."
+    },
+    {
+      "slot": "8.16",
+      "category": "meaning",
+      "current": "med dem hidser han mændene op, med dem sætter han byer i brand.",
+      "suggested": "med dem hidser han mændene og byerne op til krig.",
+      "reason": "Latin8.433–434 excitat viros/urbes means rouses, no burning towns here."
+    },
+    {
+      "slot": "8.17",
+      "category": "meaning",
+      "current": "andre dypper den hvæsende bronze i søen.",
+      "suggested": "andre dypper den hvæsende bronze i vandkarret.",
+      "reason": "Latin8.450–451 lacu is smithing water basin/trough in context, not lake."
+    },
+    {
+      "slot": "8.24",
+      "category": "grammar",
+      "current": "hjelmen med den frygtindgydende hjelmprydelse\nog spyr flammer,",
+      "suggested": "hjelmen med den frygtindgydende hjelmprydelse,\nsom spyr flammer,",
+      "reason": "Broken Danish coordination: helmet noun phrase followed by finite verb without relative."
+    },
+    {
+      "slot": "8.6",
+      "category": "fluency",
+      "current": "Over bølgerne flyder den tjærede fyr.",
+      "suggested": "Over bølgerne glider skibene af tjæret fyrretræ.",
+      "reason": "Latin uncta abies is metonymic ship; bare Danish fyr reads as man or tree and is not natural modern imagery."
+    },
+    {
+      "slot": "8.8",
+      "category": "fluency",
+      "current": "besætter både det hav der rører ovenfra\nog det der skyller neden om det.",
+      "suggested": "hersker over havet både på den ene og på den anden side af landet.",
+      "reason": "Latin8.149 upper/lower sea surrounds Hesperia. Current wording lacks intelligible geographical referent."
+    },
+    {
+      "slot": "8.25",
+      "category": "clarity",
+      "current": "italerne i slaget med fædrene og folket, husguderne og de store guder.",
+      "suggested": "italerne i slaget med senatet og folket, husguderne og de store guder.",
+      "reason": "Latin8.679 patres = senate, not fathers; makes public institutions intelligible."
+    },
+    {
+      "slot": "7.36",
+      "category": "meaning",
+      "current": "sine palmekransede heste frem på græsset og sin vogn som han har sejret med.",
+      "suggested": "sin palmesmykkede vogn og sine sejrende heste frem over græsset.",
+      "reason": "Latin7.655–657 insignem palma currum and victores equos: palm belongs to chariot, victory epithet horses."
+    },
+    {
+      "slot": "7.36",
+      "category": "unsupported-word",
+      "current": "de grusomme sagatiske daggertspyd",
+      "suggested": "de frygtelige doloner, lange dolke",
+      "reason": "Latin7.664 saevosque dolones contains no sagatic tribe/adjective. Remove invented sagatiske; dolones can be glossed long daggers."
+    },
+    {
+      "slot": "7.39",
+      "category": "place-name",
+      "current": "byen Nomentum og Velinus' dugvåde marker",
+      "suggested": "byen Nomentum og Roseas marker ved Velinus",
+      "reason": "Latin7.712 Rosea rura Velini: Rosea is a place, not dewy/roscidus. Preserve gazetteer coverage."
+    },
+    {
+      "slot": "7.41",
+      "category": "meaning",
+      "current": "og ser ned på det æblerige Abellas mure.",
+      "suggested": "og dem som det æblerige Abellas mure hæver sig over.",
+      "reason": "Latin7.740 quos ... despectant moenia Abellae: walls look down on people, not converse."
+    },
+    {
+      "slot": "7.33",
+      "category": "clarity",
+      "current": "Når den sikre beslutning om kamp står fast hos fædrene,",
+      "suggested": "Når senatet har truffet sin faste beslutning om krig,",
+      "reason": "Latin patres institutional senate as in8.25."
+    },
+    {
+      "slot": "4.26",
+      "category": "fluency",
+      "current": "flygter, syg for lyset,",
+      "suggested": "flygter, ude af stand til at tåle dagens lys,",
+      "reason": "Latin aegra fugit lucem; syg for lyset is unnatural/unclear Danish."
+    },
+    {
+      "slot": "1.15",
+      "category": "fluency",
+      "current": "det sejlbestrøgne hav",
+      "suggested": "havet med dets sejl",
+      "reason": "Sejlbestrøgne is opaque invented/archaic compound; simple imagery retains Latin velivolum."
+    }
+  ]
+}

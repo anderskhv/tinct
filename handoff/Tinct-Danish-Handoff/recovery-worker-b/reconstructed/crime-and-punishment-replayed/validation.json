@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "checks": {
+    "da": {
+      "chapters": 41,
+      "slots": 3904,
+      "metadataPreserved": true,
+      "noEmptySlots": true,
+      "exactLedgerMatches": true,
+      "changedSlots": 1012
+    },
+    "en": {
+      "chapters": 41,
+      "slots": 3904,
+      "metadataPreserved": true,
+      "noEmptySlots": true,
+      "exactLedgerMatches": true,
+      "changedSlots": 304
+    }
+  },
+  "guides": "Exact recursive before-after ledgers regenerated from immutable snapshots",
+  "optionalPrefaceBlocks": 11,
+  "targetedObsoleteLexicon": "No flagged archaic terms remain; formal De and valid literary for/fór distinction retained",
+  "sourceCollation": "All41novelchapters contextually adjudicated",
+  "nativeReview": "pending-user-arranged",
+  "sha256": {
+    "modern-da.json": "183828a48d9de813cc92969bfd03ba39333e70c3a87341a0a7c230b4dfb613c0",
+    "modern-en.json": "4c0b65f68eb2d4f239e7142e285fb24c57567ef0b8225cd48dde179d732b11cc",
+    "onboarding-da.json": "0a830d05489016c3cba9c297d4dff6f242f7a316ce70bb21c796dcfd794765a7",
+    "onboarding-en.json": "c5417f29200394c48a1659b02959b79f2908ae07dd2ab2d5d26f644f499bad17",
+    "working-da-changes.json": "6378d104fa89c36c28b5b881a532d0c4604e5c92db5135e006c4674268a18742",
+    "working-en-changes.json": "d6b1dd568b6f660e558c29fb307e17c8af674949424c3e17eece3a75801faf75",
+    "onboarding-da-changes.json": "4c16341989beacc8d8c1db6bc8d87c938e49ff693998554a2460422643a70dac",
+    "onboarding-en-changes.json": "30fe8f3ac7c7ec2fc70c9f24f434a9b2d60b11ee26ab162e8dfcec30c6954770",
+    "preface-modern-da.json": "7b5172630a7d78357b79e51ab537ee064ec5f1e6ac2dbbca8cf1e4115f16c96e",
+    "preface-modern-en.json": "e7620f2fe9db5b69c4e837169cfa3962444937e91028fa6c0f9fcff13249c973",
+    "preface-changes.json": "fd2091b3a4c014ba125bfa849958cdd772cbba9e631d5cb841afdb38e85c6fe6"
+  }
+}

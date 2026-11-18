@@ -1,0 +1,9 @@
+python3 - <<'PY'
+import sys
+sys.path.insert(0,'/tmp/tinct-da-prep-20261104/ulysses');from edithelpers import *
+fix('da',14,17,[('hjalp til mens','hjalp til, mens'),('lidt i venskabelighed for han','lidt i venskabelighed, for han'),('sin nabos glas og naboen','sin nabos glas, og naboen')])
+x=rd('lexical-research-notes.json');x['references'].append({'url':'https://wehd.com/20/Coracle.html','conclusion':'Historical dictionary attests curricle as variant of coracle. Source nautical-list reading is a skin/wicker boat, now skindbåd, not a carriage.'});wr('lexical-research-notes.json',x)
+x=rd('remaining-editorial-work.json');x['resolved'].extend(['17/468 curricle resolved by historical dictionary boat variant, now skindbåd.','14/4–7 and14–17 cadence punctuation pass saved; 14/18 first-pass broken was ware clause corrected.']);wr('remaining-editorial-work.json',x)
+x=rd('review-progress.json');x['currentPolishCheckpoint']={'episode':14,'openingCadenceThroughSlot':18,'next':'Continue episode14/19–65 cadence and listed wordplay checks; slots8–13 reviewed for cadence, no mutation.'};wr('review-progress.json',x)
+PY
+python3 /tmp/tinct-da-prep-20261104/ulysses/work.py

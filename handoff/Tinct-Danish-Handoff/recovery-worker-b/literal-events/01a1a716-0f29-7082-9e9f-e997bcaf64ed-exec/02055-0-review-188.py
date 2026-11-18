@@ -1,0 +1,18 @@
+import json,pathlib
+p=pathlib.Path(__file__).parent
+DA={2:[('hans omdømme, byhuset i hovedstaden','hans fornemme slægt, den smukke bolig i byen'),('der havde en stilling i finansministeriet og var direktør for','der arbejdede med finansielle forretninger og havde grundlagt'),('en blomstrende bank','en blomstrende bank'),('sin kandidats fremgang','sin kandidats sejr')],3:[('en general af høj rang','en general i kejserens følge'),('ærefrygt hos mange','underdanighed hos nogle'),('Vronskij kunne mærke, at han var genert og forsøgte at _mettre à son aise_','Vronskij kunne mærke, at guvernøren var forlegen over for ham, og prøvede at _mettre à son aise_ — få ham til at føle sig hjemme')],5:[('Valgsagen var en udmærket anledning til en førsteklasses middag.','Under den fortrinlige middag gennemgik man begivenhederne under valget.')],8:[('Efter middagen','Under middagen'),('tyve stemmer','tolv stemmers flertal'),('Darja Alexandrovna','Darja Aleksandrovna'),('en sag efter middagen','noget, der foregik ved slutningen af middagen'),('en svaghed efter et godt måltid','en svaghed ved slutningen af gode middage')],12:[('De kommer','du kommer')],18:[('men besindede mig','men ombestemte mig')]}
+DA[2]=[(a,b)for a,b in DA[2] if a!=b]
+EN={2:[('his reputation, the capital town house','his noble birth, the fine town residence'),('who held a post in the department of finances and was director of','who worked in finance and had founded'),('district council election','zemstvo election')],3:[('a general of high rank','a general in the imperial suite'),('awe in many','servility in some'),('Vronsky could tell he was shy and tried to _mettre à son aise_','Vronsky could see the governor felt shy before him, and tried to _mettre à son aise_ — put him at his ease')],5:[('The election affair made an excellent occasion for a first-rate dinner.','Over the excellent dinner they went over the episodes of the elections.')],8:[('After dinner','During dinner'),('by twenty votes','by a majority of twelve votes'),('an after-dinner affair','an end-of-dinner affair'),('a weakness after dining','a weakness at the end of a good dinner')]}
+pack=[]
+for lang,changes in [('da',DA),('en',EN)]:
+ f=p/f'candidate-anna-karenina-modern-{lang}.json';d=json.load(open(f));rf=p/('DANISH-REPAIRS.json' if lang=='da' else 'ENGLISH-REPAIRS.json');r=json.load(open(rf));c=d['chapters'][187]
+ if lang=='da':
+  for sn,t in enumerate(c['paragraphs'],1):
+   if 'Sviazjskij' in t:changes.setdefault(sn,[]).insert(0,('Sviazjskij','Svijazjskij'))
+ for sn,pairs in changes.items():
+  for a,b in pairs:
+   assert a in c['paragraphs'][sn-1],(lang,sn,a)
+   c['paragraphs'][sn-1]=c['paragraphs'][sn-1].replace(a,b);r.append(dict(chapter=188,paragraph=sn,before=a,after=b,reason='Russian VI.XXXI: bank founder not ministry/director, local town not capital, twelve not twenty, dinner chronology, governor awkwardness and imperial suite.'))
+ pack.append((f,d,rf,r))
+for f,d,rf,r in pack:f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');rf.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
+(p/'SOURCE-NOTES-188.txt').write_text('Full Russian VI.XXXI DA EN read.188.2 capital misread English adjective: fine town accommodation not capitalcity; financier founded bank, not ministry official/director asserted.188.8 twelve votes not twenty confirmed official1935vol19 line10016; during/end dinner chronology restored.188.3 governor shy toward Vronsky, Vronsky puts him at ease; embedded brief French gloss avoids broken objectless phrase.188.11 братии brethren original general; inherited Serbian explanation retained provisionally pending guide historical scope, not a new exact-source assertion.188.18 unspecified inflammation retained, no invented diagnosis. Native pending.\n')

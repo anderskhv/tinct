@@ -1,0 +1,27 @@
+{
+  "recovered": true,
+  "recovery_date": "2026-11-18",
+  "chapters": 126,
+  "slots": 3939,
+  "danish_words": 359235,
+  "danish_changed_slots": 3905,
+  "english_change_operations": 104,
+  "english_changed_slots": 103,
+  "all_source_git_blob_pins_match": true,
+  "both_change_ledgers_replay_exactly": true,
+  "guide_openings_match": true,
+  "preliminary_preface_paragraphs": 18,
+  "preliminary_poems": 11,
+  "preliminary_lines": 202,
+  "historical_validation_counts_match": true,
+  "original_candidate_sha256_available": false,
+  "new_independent_linguistic_review": false,
+  "native_review": "pending",
+  "release": "none",
+  "remaining_recovery_limits": [
+    "Original candidate SHA256 manifest was not printed in preserved logs; exact baseline pins, sequential edit replay and historical metrics verify reconstruction without claiming original-manifest equality.",
+    "Gutenberg witness downloads and full original-to-Ormsby audit file not recovered; historical successful validation is preserved separately.",
+    "Illustration inventory and source body audit missing; do not claim newly rechecked source audit.",
+    "Recovered HANDOFF describes old paths and historical validation; this RECOVERY-VALIDATION.json controls recovery assertions."
+  ]
+}

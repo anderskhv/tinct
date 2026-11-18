@@ -1,0 +1,40 @@
+DON QUIXOTE — LOCAL EDITORIAL HANDOFF
+
+Status: complete local candidate, NOT released, NOT native-reviewed, NOT independently approved. No repository, app code, configuration, upload, merge or release was changed. Claude is to integrate only when the user directs.
+
+DELIVERABLES
+The Danish main text contains both parts: 52 + 74 = 126 chapters, 3,939 paragraph slots, 359,235 words. 3,905 slots differ from the retained Danish file. All chapters were rewritten sequentially; targeted Spanish comparison accompanies the Ormsby-based corpus. The modern English candidate has 104 correction operations across 103 distinct slots. Its full before/after ledger replays exactly from the pinned baseline. Both reader guides are included. Native-Danish final review remains pending; the user has arranged a reviewer.
+
+Main candidates: don-quixote-modern-da.json and don-quixote-modern-en.json.
+Guides: don-quixote-onboarding-da.json and don-quixote-onboarding-en.json.
+Audit records: DANISH-CHANGES.json, ENGLISH-CHANGES.json, FINAL-POLISH.json, PRELIMINARY-REVIEW.json, VALIDATION.json, REVIEW-STATUS.json and MANIFEST.json.
+
+SOURCE AND SCOPE
+Original corpus SHA 5d6527b5e68b879a8f63ff4be2957d87c1406e47.
+Modern English baseline 783dcddfa25d8f0b793b6933328e77cff703e7dc.
+Retained Danish baseline babcb09c88e68ec527a09db48a7ab49f0a09b0b8.
+English guide baseline c4f2c9e6e75c4c86222f003bc0827bf3513c61fc; Danish guide was absent (404).
+Exact paths and fetched sizes are in source-pins.json. These are preparation baselines, not a claim about the current remote head. Reconcile later changes before integration.
+
+Sources saved locally: Project Gutenberg 996 (John Ormsby English) and 2000 (Spanish). Every one of the 126 original corpus chapter blocks matches the normalized Ormsby source block; see source-coverage-preliminary.json. This verifies the corpus transcription, not every translation choice. Spanish was consulted throughout for meaning, omitted text, verse, names, puns, contradictions and disputed allusions, with chapter checkpoint notes. Selected final interpretations were checked against Instituto Cervantes's annotated text; URLs are recorded in review ledgers. This is not a claim of independent, sentence-by-sentence Spanish collation.
+https://www.gutenberg.org/ebooks/996
+https://www.gutenberg.org/ebooks/2000
+https://cvc.cervantes.es/literatura/clasicos/quijote/
+
+PRELIMINARIES AND COVERAGE RESTORATIONS
+The retained corpus lacked Part I dedication, author preface and commendatory poems. These are now supplied as separate paired EN/DA files, named supplement-dedication-part1-*, supplement-preface-part1-* and supplement-verses-part1-*. Insert before chapter 1, in that order, without changing main paragraph identities; see SUPPLEMENT-PLACEMENT.json. The preface has 18 paragraphs. The verse supplement has 11 poems / 202 lines; Urganda has the complete Spanish 70 lines, including 14 absent from Ormsby's 56-line version. Deliberately clipped Spanish line endings are not reproduced: readable full-word, unrhymed verse was chosen. All preliminary JSON files are authoritative; matching text files are reading copies.
+
+Part II dedication/preface are ALREADY present at the end of global chapter 52, slots 48–62. Do not duplicate them. Part II begins at global chapter 53. Ormsby's paragraph order is retained, including his different judgment sequence in II.45. Restored narrative and verse material is mapped into existing slots, including the page's dispatch in II.46 and the final epitaph. Authorial inconsistencies, unreliable claims and historically prejudiced character speech are preserved rather than silently repaired. Retained donkey-theft/recovery interpolations follow this source edition.
+
+This is a complete two-part main narrative candidate with the specified author preliminaries; it is not an illustrated critical edition. The 366 image references are inventoried but no images were downloaded or packaged. Spanish early-print approval, price and errata apparatus, Ormsby's translator introduction and later publisher material are outside this packet's scope.
+
+GUIDES
+Replace the existing English guide and add the Danish guide using the established onboarding paths from source-pins.json. Opening excerpts match the candidate texts exactly. The old unsupported claim that Rocinante dies, invented real-world meeting with Aldonza and overbroad literary-history claims were removed. Unverified outside acclaim quotations were removed; acclaim is an empty array. The final edition section assumes the preliminary supplements are actually integrated. If they are not, adjust that section before making the guide public. Confirm empty acclaim handling and Danish routing during integration.
+
+VALIDATION AND REVIEW LIMITS
+Both candidates preserve the exact 126-chapter/3,939-slot shape and all main Danish slots are nonempty. Guide excerpts match; supplement poem line vectors match across languages; English ledger replay succeeds. These checks passed and are saved in VALIDATION.json. No application build, UI or publication test was run because the work is local content only.
+
+REVIEW-STATUS.json records remaining native and independent spot-review priorities: heraldry/catalogues, comic puns and proverbs, nautical terms, historical measures, and Sancho's ambiguous sagitario expression in II.54. FINAL-REVIEW-NOTES-COLLECTED.json preserves 567 historical checkpoint notes, many describing work already completed; it is not a claim of 567 defects or of completed triage. Read the focused REVIEW-STATUS list first. Native reading, particularly dialogue register, comic vulgarity, verse and idiom, remains required for final quality sign-off. The candidate must not be represented as independently reviewed or fully publication-tested.
+
+RECOVERY
+All sequential chapter drafts and checkpoints remain alongside the candidates. After final polish, candidate JSON and final ledgers take precedence over chapter draft text and *.partial.json. MANIFEST.json identifies exact delivery-file SHA-256 hashes. Do not run old edit scripts again: some are one-time transformations. Nothing here authorizes release or changes to Claude's working branch.

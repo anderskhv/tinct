@@ -1,0 +1,58 @@
+{
+  "book": "Moby-Dick; or, The Whale",
+  "author": "Herman Melville",
+  "edition": "1851 American version, Harper & Brothers, New York. Danish translations newly prepared here for the missing preliminary matter. No later Danish translator used.",
+  "accessed": "2026-11-18",
+  "retained_public_da_copy_matches_wip_bytes": true,
+  "sources": [
+    {
+      "file": "source/gutenberg-15.html",
+      "url_or_local_origin": "https://mirrors.xmission.com/gutenberg/1/15/15-h/15-h.htm",
+      "role": "US-edition-shaped control; preliminary matter, poetry, chapter headings, dedication and epilogue. Credited to Eugene F. Irey; text updated 2026-06-10.",
+      "sha256": "30f0b415eec485bb05a99ac11f429a5b2de122fefd4b4a1f39c22e298fefb064"
+    },
+    {
+      "file": "source/gutenberg-2701.html",
+      "url_or_local_origin": "https://mirrors.xmission.com/gutenberg/2/7/0/2701/2701-h/2701-h.htm",
+      "role": "Independent control for every body section and epilogue. Daniel Lazarus, Jonesey, David Widger; text updated 2026-10-11.",
+      "sha256": "ba5e71ad217eb989d230ab87c8b25cec4d2e80c2bed149fc4cc28d8632781489"
+    },
+    {
+      "file": "source/moby-dick-modern-en.json",
+      "url_or_local_origin": "/Users/andershvelplund/Developer/Tinct/app/public/data/editions/moby-dick-modern-en.json",
+      "role": "Retained input, copied read-only.",
+      "sha256": "1a3f31bbe6bb4bea415a29b509c81f303074bc858854c7bc00a49e8b68ffd52c"
+    },
+    {
+      "file": "source/moby-dick-original-en.json",
+      "url_or_local_origin": "/Users/andershvelplund/Developer/Tinct/app/public/data/editions/moby-dick-original-en.json",
+      "role": "Retained input, copied read-only.",
+      "sha256": "30974242d9ee3eae074671da0b424c0ef5d8b00258acf43cf27d92905136c952"
+    },
+    {
+      "file": "source/moby-dick-modern-da.json",
+      "url_or_local_origin": "/Users/andershvelplund/Developer/Tinct/books/wip/moby-dick/editions/moby-dick-modern-da.json",
+      "role": "Retained input, copied read-only.",
+      "sha256": "26dfb6cbf36ded8e95700be94e51586a99a0ab8c7daabc48d7fba51942464789"
+    },
+    {
+      "file": "source/moby-dick.da.json",
+      "url_or_local_origin": "/Users/andershvelplund/Developer/Tinct/app/public/data/onboarding/moby-dick.da.json",
+      "role": "Retained input, copied read-only.",
+      "sha256": "29bbc55103a4a5ef207c5124ca71df71e6a2f94965da9be02339b9a6fb3fd7bf"
+    },
+    {
+      "file": "source/moby-dick.json",
+      "url_or_local_origin": "/Users/andershvelplund/Developer/Tinct/app/public/data/onboarding/moby-dick.json",
+      "role": "Retained input, copied read-only.",
+      "sha256": "5cc3a930501951dac5a8c2f371fa2797f4bebfeefb9a4bb95051d05dde47be2c"
+    }
+  ],
+  "edition_history": "https://melville.electroniclibrary.org/moby-dick-side-by-side",
+  "guide_quote_source": "https://www.gutenberg.org/ebooks/60547",
+  "terminology_checks": [
+    "https://lex.dk/rethvaler",
+    "https://www.ordnet.dk/ods/ordbog/Harpuner"
+  ],
+  "scope": "First-edition title page, publisher address, copyright entry, duplicate half title, printer information, contents table and Gutenberg wrapper are bibliographic or navigation matter; those are retained in the source witness and excluded from the reading sequence."
+}

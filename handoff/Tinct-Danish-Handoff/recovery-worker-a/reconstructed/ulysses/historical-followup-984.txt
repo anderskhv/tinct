@@ -1,0 +1,12 @@
+python3 - <<'PY'
+import sys
+sys.path.insert(0,'/tmp/tinct-da-prep-20261104/ulysses');from edithelpers import *
+setslot('da',9,38,'Af sted, min lille bog, i spring\n    til kolde læsere rundt omkring.\n    Det var vist ikke ønsket, da jeg skrev,\n    at magert, uskønt engelsk sproget blev.')
+fix('da',11,188,[('hin unge trubadur','den unge trubadur')])
+fix('da',11,521,[('C blank t hvilket husdyr? T streg r den modigste sømand.','K blank T hvilket husdyr? M streg TROS den modigste sømand.')])
+fix('da',15,945,[('Hun trækker en dolk og støder mod hans lænder, klædt i en udvalgt ridder af de nis tætsluttende brynje.','Hun trækker en dolk og støder mod hans lænder, iført den tætsluttende brynje, der bæres af en udvalgt ridder af de ni.')])
+fix('da',16,290,[('Og slår bro over alle skibe.','Og alle skibe slår bro.')])
+x=rd('lexical-research-notes.json');x['references'] += [{'url':'https://www.jjon.org/joyce-s-allusions/jeep','conclusion':'German ending is an established Joyce crux, not to be silently corrected to Jeep song. German retained; Danish literal gloss corrected subject/object to all ships bridge.'},{'url':'https://therestisnoise.com/what-stephen-sings/','conclusion':'Musicologist identifies original Jeep song and Stephen mangled ending; supports retaining textual oddity.'}];wr('lexical-research-notes.json',x)
+x=rd('remaining-editorial-work.json');x['resolved'] += ['9/38 booklet stanza revised with complete two-pair rhymes while retaining ambiguity of author wish.','11/188 removed unmotivated archaic hin;11/521 adapted letter rebuses to Danish kat/matros, preserving missing-a puzzle.','15/945 genitive tangle clarified while retaining Masonic title.','16/290 source odd German remains; literal gloss subject/object repaired, now Og alle skibe slår bro. Published textual crux documented.'];wr('remaining-editorial-work.json',x)
+PY
+python3 /tmp/tinct-da-prep-20261104/ulysses/work.py

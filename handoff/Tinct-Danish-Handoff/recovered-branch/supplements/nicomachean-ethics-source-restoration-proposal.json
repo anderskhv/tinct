@@ -1,0 +1,59 @@
+{
+  "bookId": "nicomachean-ethics",
+  "status": "prepare_only_no_repository_mutations",
+  "mainTextAudit": {
+    "source": "https://www.gutenberg.org/files/8438/8438-h/8438-h.htm",
+    "result": "No omitted main-text prose found across all ten books after normalized token comparison.",
+    "normalization": "Exclude headings and footnote reference numbers; normalize Greek, typography, and Markdown. Repository appendix labels accounted for separately.",
+    "sourceDefect": "Book II Gutenberg repeats the indignation paragraph body; repository correctly retains one instance."
+  },
+  "textualCorrections": [
+    {
+      "chapter": 1,
+      "paragraph": 49,
+      "note": "Original-en says right line; retained DA and modern EN correctly read right angle. Corroborated against public-domain Ross and Rackham translations at 1098a. Preserve angle, do not propagate source defect.",
+      "sources": [
+        "https://en.wikisource.org/wiki/Page:Works_of_Aristotle_v9_(ed._Ross).djvu/32",
+        "https://beta.perseus.tufts.edu/urn:cts:greekLit:tlg0086.tlg010.perseus-eng2/"
+      ]
+    },
+    {
+      "chapter": 5,
+      "paragraph": 49,
+      "status": "source_asset_recovered_pending_integration",
+      "note": "Original-en, modern-en and retained modern-da contain only [Illustration]. Preserved paragraph marker; parent must obtain and render the missing source diagram before claiming fully available.",
+      "resolution": {
+        "asset": "source-figure-v49.jpg",
+        "source": "https://www.gutenberg.org/files/8438/8438-h/images/fig01.jpg",
+        "altDa": "Diagram med bygmester øverst til venstre, skomager øverst til højre, hus nederst til venstre og sko nederst til højre. Hjørnerne er forbundet langs siderne og med krydsende diagonaler: bygmesteren modtager sko, og skomageren modtager huset.",
+        "altEn": "Diagram with Builder upper left, Shoemaker upper right, House lower left and Shoes lower right. A rectangle connects the corners, with crossing diagonals showing the builder receiving shoes and the shoemaker receiving the house.",
+        "integration": "Use existing edition image support if available, retaining paragraph 49. Source jpg is English; use localized diagram plus alt text for Danish. Until integration, leave marker visible in prep draft and do not call book publication-ready."
+      }
+    },
+    {
+      "chapter": 5,
+      "paragraph": 53,
+      "status": "resolved_in_modern_drafts",
+      "note": "Chase's formula and referents conflict with the verbal inverse-goods ratio. Resolved in both modern drafts against Ross V.5, 1133b: A:B::D:C; before exchange; D equalized with C. Original-en remains unchanged.",
+      "resolution": {
+        "source": "https://classics.mit.edu/Aristotle/nicomachaen.5.v.html",
+        "location": "V.5 1133b",
+        "details": "Ross confirms before exchange, D equalized with C and verbal inverse goods ratio. Modern drafts corrected; original immutable."
+      }
+    }
+  ],
+  "apparatus": {
+    "sourceArtifact": "source-editorial-notes.json",
+    "anchoredNotes": 230,
+    "paragraphBlocks": 247,
+    "continuationBlocks": 17,
+    "approximateSourceWords": 12335,
+    "status": "All 247 blocks translated and editorially reviewed; native Danish review and note-reference integration pending.",
+    "scope": "Separate Chase editorial NOTES appendix and its reference markers are absent from all repository editions. These are editorial apparatus, not missing Aristotle main-text prose.",
+    "integrationProposal": "Preserve existing 1195 narrative paragraphs. Use sequence, id and parentAnchor to reconstruct notes; retain all 247 source blocks including 13 poem/formula blocks and starred note fn-7.151. Map source fnref anchors separately; do not insert unaligned narrative slots.",
+    "sourceImmutable": true,
+    "translatedArtifact": "editorial-notes.da.json",
+    "reviewArtifact": "editorial-notes.review.json"
+  },
+  "releaseReadiness": "Main-text and full recovered-notes Danish editorial passes complete; native review, figure localization/rendering and note-reference integration pending."
+}

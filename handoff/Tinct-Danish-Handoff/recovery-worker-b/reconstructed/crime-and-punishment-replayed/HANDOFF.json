@@ -1,0 +1,31 @@
+{
+  "bookId": "crime-and-punishment",
+  "ready": "Local content package ready for parent review and later Claude handoff; no release action performed or authorized here",
+  "coverage": "All3904alignedparagraphsin41chapters reviewed in Danish and modern English; both guides revised",
+  "changes": {
+    "da": 1012,
+    "en": 304
+  },
+  "keyRepairs": [
+    "Meaning and action corrections, omitted detail, natural contemporary Danish, consistent formal/informal address",
+    "Russian checks resolve Sonia/Raskolnikov register shifts, lottery securities, deputies/witnesses, name day, storm chronology, sign misspelling",
+    "Independent witness catches copied source errors including bashful/boastful, deceive/receive, thought/shouted and omitted timing",
+    "Danish floor numbering follows ground-plus-sal convention while documented source inconsistencies remain",
+    "Historical translator preface translated separately, with period-document notice and words/swords repair"
+  ],
+  "importFiles": [
+    "modern-da.json",
+    "modern-en.json",
+    "onboarding-da.json",
+    "onboarding-en.json"
+  ],
+  "importRules": [
+    "Re-read live repository SHAs before applying; do not overwrite intervening content edits",
+    "Use full exact before/after ledgers to review/rebase",
+    "Keep optional historical preface separate from the 3,904-slot novel structure; it is translator paratext, not missing novel prose.",
+    "Native Danish reviewer still pending; parent/user determines later availability and release with Claude"
+  ],
+  "releases": "None; local temp files only",
+  "validation": "validation.json",
+  "manifest": "review-manifest.json"
+}

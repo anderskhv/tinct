@@ -1,0 +1,32 @@
+{
+  "status": "resolved-with-documented-contextual-inference",
+  "source": "https://ru.wikisource.org/wiki/Преступление_и_наказание_(Достоевский)/Часть_II/Глава_V",
+  "additionalSource": "https://ru.wikisource.org/wiki/Преступление_и_наказание_(Достоевский)/Часть_II/Глава_VI",
+  "lexicalWitness": "https://ruslang.ru/doc/anikin/Anikin-RES-III.pdf",
+  "decisions": [
+    {
+      "slots": [
+        "12/75",
+        "12/79"
+      ],
+      "sourceText": "билетов последнего займа с лотереей",
+      "decision": "Explicit loan with lottery: lottery bonds / præmieobligationer, not ordinary lottery tickets. Follow-up lecturer counterfeits the same bonds."
+    },
+    {
+      "slots": [
+        "12/70",
+        "13/88"
+      ],
+      "sourceText": "кроме билетов / Подделывали билеты",
+      "decision": "Broader securities / værdipapirer used, preserving unspecified instrument. Context distinguishes cash and securities; later redemption scene distinguishes forged instrument from banknotes received. This is contextual inference, not proof of specific instrument denomination."
+    },
+    {
+      "slots": [
+        "13/91",
+        "13/94",
+        "13/96"
+      ],
+      "decision": "Maintain distinction between counterfeit securities redeemed and banknotes received. Both modern drafts had also reversed direction of payment: man RECEIVED 5000 rubles, did not arrive with 5000. Corrected both languages from Russian II/VI and Garnett."
+    }
+  ]
+}

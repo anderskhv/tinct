@@ -1,0 +1,13 @@
+from pathlib import Path
+f=Path('../midsummer/audit.py').read_text().replace("==9","==15").replace("assert set(a[l:h]+b[ll:hh])<={'theseus','lysander','helena','oberon','puck','bottom','pyramus'}","assert tag=='insert'").replace("'speakerLabelVariants'","'missingStageDirections'").replace("['paragraphs'][1]","['paragraphs'][0]").replace("'totalScenes':9","'totalScenes':15");f=f[:f.index("wr('manifest.json'")]+"""from qa import cues
+variants=rd('source-witness-variants.json')
+assert len(variants)==37==sum(len(x['missingStageDirections']) for x in st)
+for n in range(1,16):assert [' '.join(op['witnessTokens']) for op in st[n-1]['missingStageDirections']]==[x['missingWitnessTokens'] for x in variants if x['scene']==n]
+for x in variants:
+ for j,b in enumerate([D,E]):
+  assert '['+cues[x['missingWitnessTokens']][j]+'.]' in b['chapters'][x['scene']-1]['paragraphs'][x['slot']-1]
+assert len(dl)==1391
+v['stageDirectionsRestoredInBothEditions']=37;wr('validation.json',v)
+wr('manifest.json',{'bookId':'othello','status':'complete editorial candidate, native Danish review pending','inputs':sources,'candidateFiles':[{'file':x['k']+'.json','target':x['p'],'sha256':sha(x['k']+'.json')} for x in sources if x['k']!='original-en'],'reviewFiles':{f:sha(f) for f in ['validation.json','modern-da-ledger.json','modern-en-ledger.json','onboarding-ledger.json','source-witness-variants.json']},'witnesses':[{'file':f,'url':'https://www.gutenberg.org/ebooks/'+item,'sha256':sha(f)} for f,item in [('witness.txt','1531'),('witness-hazlitt.txt','55932'),('witness-coleridge.txt','8533')]],'editorialNotes':['The public-domain Gutenberg Othello was collated across all fifteen scenes ignoring punctuation, case and whitespace. The repository original lacks 37 stage cues; both modern editions restore them. Exact source differences are in source-witness-variants.json. The downloaded edition retains front matter and notices.','The Danish retains racist and sexual insults in the dialogue and distinguishes Iago’s slurs from other characters’ speech. Desdemona’s Willow song and Emilia’s dying echo are linked. Historical references and the Judean reading of Othello’s final speech follow the selected source. The two different accounts of the handkerchief’s origins are retained. The Danish recreates wordplay without imposing a uniform verse meter.','Both reader guides were checked together. Hazlitt and Coleridge quotations checked against the two independent witnesses. Review the songs, wordplay, slurs and shifts in address during the native read.','Only local candidates prepared; recheck main input blob IDs before integration.'],'validation':'validation.json'})
+print({k:x for k,x in v.items() if k!='scenes'})
+""";Path('audit.py').write_text(f)

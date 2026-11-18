@@ -1,0 +1,13 @@
+from review_helpers import *
+fixes('da',74,31,[('Sallusts korte, afrundede perioder','Sallusts bratte brud og rytmer'),('Både i handling og tale','Både når jeg tier, og når jeg taler'),('der lægger livligt fra sig','der gestikulerer livligt'),('dragt, sted','dragt, kropsstilling')])
+fixes('en',74,31,[('the short, rounded periods of Sallust','the abrupt breaks and cadences of Sallust'),('In both doing and speaking','In silence as in speech'),('robe, place','robe, posture')])
+fixes('da',74,32,[('højtysk','tysk'),('et fattigt, slæbende, sjusket tungemål','et grødet, slæbende og udflydende tungemål')])
+fixes('en',74,32,[('High Dutch','German')])
+fixes('da',74,33,[('mistet evnen til at tale den og faktisk også til at skrive den','mistet letheden ved at tale det og faktisk også ved at skrive det')])
+fixes('da',74,34,[('det skal modtage hel afstraffelse eller belønning','hele mennesket skal modtage straf eller belønning'),('ved ikke tilstrækkeligt at anvende sig på denne blanding','ved ikke at tage tilstrækkeligt hensyn til denne forening')])
+fixes('en',74,34,[('he receive entire chastisement or reward','the whole person receive punishment or reward')])
+fixes('da',74,37,[('om middelmådigheden skulle hælde under eller over den almindelige målestok','om højden skulle ligge under eller over gennemsnittet')])
+fixes('da',74,43,[('monsieur','herren i huset'),('en kastaniehylster','en kastanjeskal'),('min hudfarve er mellem jovial og melankolsk','mit temperament ligger mellem det muntre og det melankolske')])
+fixes('en',74,43,[('my complexion is between jovial and melancholic','my temperament is between jovial and melancholic')])
+ledger();q=rd('review-progress.json');q.update(reviewedSlots=2730,throughSlot=45,nextSlot=46,englishAuditCheckpoint={'chapter':74,'throughSlot':45},danishChangedSlots=len(rd('working-da-changes.json')),englishChangedSlots=len(rd('working-en-changes.json')));wr('review-progress.json',q)
+n=rd('review-notes-ch74-partial.json');n['throughSlot']=45;n['changes']+=['31 silence not action, Sallust breaks/cadence not rounded periods,posture not place','32 German not archaic High Dutch;33 loss of LATIN fluency not complete ability','34 WHOLE PERSON receives reward not complete reward;43 temperament not facial complexion'];n['limits']+=['37 ancient six-foot recruitment/beauty hierarchy historical claims retained;42 Psalm44:3Vulgate numbering retain,modern numbering crossreference later','33 maistre Jean idiom source mildly flattened existing reputation preserved pending stylistic audit'];wr('review-notes-ch74-partial.json',n)

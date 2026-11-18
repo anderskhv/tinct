@@ -1,0 +1,7 @@
+# Moby-Dick recovery — 18 November 2026
+
+Complete candidates recovered: both languages, 139 units and 2,532 positions, including dedication, etymology, 80 extracts, chapters1–135 and epilogue. Both reading guides and bookmark map included. Final268Danish/20English changed body paragraphs and23/4changed titles match historical final results. All literal substitutions apply; no unmatched edits. Three heading-continuation slots move into titles, and three preliminary units shift chapter addresses.
+
+Recovered from surviving local retained sources and original literal transformations, including inline correction steps. Every original body section was re-collated against Project Gutenberg2701 obtained through the XMission Gutenberg mirror after official Gutenberg returned503. The American-edition-shaped Gutenberg15 witness supplied full preliminary material and lineation. Newly fetched witnesses and hashes are saved locally. This recovery did not rerun the historical semantic model or conduct a new full literary read. Historical semantic score artifacts remain missing; manifest correctly records0recovered semantic-screen files. Native Danish review remains pending.
+
+The reconstructed files are candidates for reconciliation with current main, not an authorization to overwrite newer changes. No publication occurred; Claude owns releases. Historical explanatory handoff and reviewer notes remain under recovered-scripts.

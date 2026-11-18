@@ -1,0 +1,15 @@
+# coding: utf-8
+from review_helpers import *
+fixes('da',48,34,[('jo større og dybere såret, desto mere ærefuld anser de kampen','når såret er bredere end dybt, anser de endda kampen for mere ærefuld')]);fixes('en',48,34,[('the bigger and deeper the wound, the more glorious do they esteem the combat','when the wound is broader than it is deep, they even consider the combat more glorious')])
+fixes('da',48,35,[('En smuk beskrivelse','En rammende beskrivelse'),('et skud fra en muskét','et skud fra en arkebuse'),('kunne du kaste den tilbage som et spyd og gennembore både skjold og bevæbnet mand','kunne du kaste den tilbage som et spyd. Pilene kunne gennembore både et skjold og en mand i rustning')])
+fixes('en',48,35,[('A pretty description','An apt description'),('a musket-shot','an arquebus-shot'),('you could throw it back like a javelin and pierce through both shield and armed man','you could throw it back like a javelin. The arrows could pierce both a shield and a man in armour')])
+fixes('da',48,36,[('rideri','ridning')])
+fixes('da',48,37,[('håndteret gennem alle sine gangarter blot med en pisk','styret gennem alle sine gangarter blot med en tynd kæp')]);fixes('da',48,39,[('en simpel kæp','en tynd kæp')])
+setslot('da',48,41,'[»Og de tøjleløse numidiere omringer os.« — Aeneiden, iv. 41.]')
+setslot('en',48,41,'["And the bridleless Numidians surround us." — Aeneid, iv. 41.]')
+setslot('da',48,43,'[»Hestene har intet bidsel, og selve deres løb er uskønt, når de løber med stiv hals og hovedet strakt frem.« — Livius, xxxv. II.]')
+fixes('da',48,44,[('Ordenen af Båndet eller Tørklædet','Bånd- eller Skærfordenen'),('et muldyr eller mulet','et hun- eller hanmuldyr'),('et mark sølv','en mark sølv'),('en gentleman','en adelsmand')])
+fixes('en',48,44,[('a mule or a mulet','a female or male mule')])
+fixes('da',48,45,[('spænde dem for','lægge seletøjet på dem'),('hestebrug','hestekunst')])
+ledger();wr('chapter48-source-check-batch03.json',{'chapter':48,'slots':[33,46],'witness':'https://fr.wikisource.org/w/index.php?title=Essais/Livre_I/Chapitre_48&oldid=1875817','notes':['33–46 compared.34 explicit Latin latiorquamaltior broadnotdeep mistranslated as biganddeep correctedboth.35 separates arrows possible returnthrow from penetration claim; arquebus source.41 cingunt surround notguide (quotedLatin).43 career=gait notcourseevents.44 mule/mulet sexdistinction clarified not nonexistent Danishmulet.45 harness notnecessarilyhitchtotraction.']})
+d=rd('review-progress.json');d.update(reviewedSlots=1261,throughChapter=48,throughSlot=46,nextChapter=48,nextSlot=47,englishAuditCheckpoint={'chapter':48,'throughSlot':46},danishChangedSlots=len(rd('working-da-changes.json')),englishChangedSlots=len(rd('working-en-changes.json')));wr('review-progress.json',d)

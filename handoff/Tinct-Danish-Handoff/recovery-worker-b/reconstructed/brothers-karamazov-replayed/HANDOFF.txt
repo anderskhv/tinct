@@ -1,0 +1,15 @@
+BROTHERS KARAMAZOV — LOCAL CONTENT HANDOFF
+Status: full first source/language review complete; independent follow-up and native Danish final read pending. NOT a release instruction or native-quality certification.
+
+Base repository snapshot: 1552302481ddae3f37b6b3450ff0023ae36cfd1b.
+96 chapters, 5836 paragraph slots, 12 books + epilogue. 7048 Danish repair entries and 798 clear English repair entries. Entries are edit operations, not distinct paragraphs. Exact ledger replay reproduces all candidate chapter objects from retained source. Per-chapter slot parity and nonempty checks pass.
+
+Content payloads:
+- candidate-brothers-karamazov-modern-da.json: complete reviewed Danish body.
+- candidate-brothers-karamazov-modern-en.json: targeted corrected English body.
+- candidate-brothers-karamazov.da.json / candidate-brothers-karamazov.json: Danish/English onboarding guides; opening excerpts synchronized.
+- candidate-additional-frontmatter-da.json / candidate-additional-frontmatter-en.json: proposed separate restoration of dedication, biblical epigraph and author preface, nine slots each. NOT inserted into 96-chapter body. Requires integration decision to make full Russian-edition coverage claim.
+
+Use SOURCES.json, COVERAGE-FINAL.json, REVIEW-PRIORITIES.json and source-note files. All nine inherited note references and corresponding endnotes present. Danish section labels and recurring surnames aligned. Historical character beliefs and intentionally fallacious arguments remain character speech.
+
+Raw source/ledger files and review scripts are audit materials, not application assets. Compare current repository before applying: this snapshot can be stale, and Claude owns release coordination. No branch, repository, upload or release changed by this task. Do not overwrite other sessions' edits. Refresh manifest after any further accepted changes with finalize-packet.py.

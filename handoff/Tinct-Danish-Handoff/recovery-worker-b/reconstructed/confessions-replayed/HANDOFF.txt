@@ -1,0 +1,29 @@
+CONFESSIONS / BEKENDELSER — LOCAL CONTENT PREPARATION
+Prepared 2026-11-09. No repository code, language settings, branches, PRs, deployments, or releases changed.
+
+DELIVERABLES
+- confessions-modern-da.json: all 13 books, 462 aligned paragraphs, 108,880 Danish words. Every retained Danish paragraph rewritten in modern prose. Danish navigation titles Bog 1–13.
+- confessions-modern-en.json: retained modern English with one verified correction at VI.2: cakes -> porridge, following Latin pultes.
+- confessions.json and confessions.da.json: both reading guides rewritten. Clear errors removed: garden child wrongly asserted to be male (VIII explicitly does not know boy/girl); memory wrongly placed in final three books (it is Book X); every sentence/only audience claim (Augustine also addresses human readers); Ambrose portrayed as influencing only by example rather than interpretation. Unsupported sweeping invention-of-introspection and reception claims removed. Danish names, idiom and opening passage aligned.
+- MANIFEST.json: destination paths, saved source Git blob pins, candidate SHA-256 hashes.
+- DANISH-CHANGES.json, ENGLISH-CHANGES.json, GUIDE-CHANGES.json: complete before/after evidence.
+- DANISH-POLISH.json: final small fluency adjustments.
+- SOURCE-ADJUDICATIONS.json, source-coverage.json, primary-sources.json: source evidence.
+- QA.json and progress.json: structural validation and complete checkpoint.
+
+SOURCE COVERAGE
+Complete Pusey Confessions, Project Gutenberg 3296, checked against all 13 corpus books using normalized alphanumeric tokens. No body omission found. Counts remain 38,18,21,31,25,27,27,31,38,70,41,42,53. Original whitespace word count 111,775; normalized token count differs, as shown in source-coverage.json.
+Latin Project Gutenberg 33849 consulted for disputed meanings, source corruptions, and hymn wording. This is targeted Latin adjudication, not an independent full critical-edition collation. No tables or added source supplements required. Final GRATIAS TIBI DOMINE colophon remains in its original last slot, translated into Danish.
+Bible passages are freshly rendered from the supplied historical sources. Historical citation variants are retained where Augustine's argument relies on them, rather than silently replaced by a modern Bible. No modern Danish Bible translation was copied.
+
+EDITORIAL POLICY
+Modern idiom and sentence structure, lowercase divine pronouns, full arguments and prayer repetition preserved. Philosophical and theological vocabulary remains where needed. Historical claims, doctrinal assumptions, and descriptions of gender, slavery, or domestic authority remain Augustine's views; the guide identifies their historical setting. This is not an abridgment or secularized paraphrase.
+The original Pusey text contains several corruptions already corrected in retained modern English. Danish follows the checked readings, including X.19 counted quantities/abstract numbers, X.43 corruptible body, X.46 missing John, XI.18 ten days, XII.18 changeable will, XII.32 Word rather than world, XIII.22 reordered unduplicated gifts and greater light. Details are in the adjudication ledger.
+
+REVIEW STATUS
+Full source reading and Danish drafting completed, with sequential passage rereads and targeted final checks. Automated checks establish structure and ledger coverage, not translation quality. Native Danish final read remains pending; user will arrange reviewer. No claim of independent native approval. English review targeted clear errors discovered during source work, not a full separate English stylistic audit.
+Recommended reviewer focus: natural Danish in Books X–XIII; memory/time terminology and long Genesis arguments; the poetic prayer X.38 and Ambrose hymn IX.33; whether formal religious terms remain understandable. Check opening pilot I.1, conversion VIII, Monika IX, time XI and closing XIII.
+Older book-*.txt and *.partial.json files are recovery checkpoints only. The four candidate JSON files and final named ledgers are authoritative.
+
+CLAUDE HANDOFF
+User has reserved integration/release for Claude. Re-fetch all four target blobs and compare with MANIFEST source pins before applying. Reconcile any concurrent changes, especially English, rather than overwriting. Candidate English has exactly one new body edit, VI.2, so it is straightforward to apply that correction separately. No enable/hide configuration changes are included. Local prep is complete; nothing uploaded, merged, or released.

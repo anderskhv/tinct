@@ -1,0 +1,15 @@
+from review_helpers import *
+for lang in ['da','en']:
+ fixes(lang,103,211,[('ommum','omnium'),('afliuentibus','affluentibus'),('excedat a vita','excedat e vita')]);fixes(lang,103,217,[('Qua pane','Qua parte'),('Qua nebula,','Qua nebulae,')]);fixes(lang,103,220,[('Qua to nunc','Quae te nunc')])
+fixes('da',103,216,[('den største del af mit liv til hest','mit liv med rumpen i sadlen')])
+fixes('en',103,216,[('the greatest part of my life on horseback','my life with my backside in the saddle')])
+setslot('da',103,218,'[»Ivrig efter at se de egne, hvor ildene raser, hvor tågerne og den våde regn er.« — Horats, _Oder_, iii. 3, 54–56.] ')
+setslot('en',103,218,'["Eager to see the regions where fires rage, where mists and rainy dew prevail." — Horace, _Odes_, iii. 3, 54–56.] ')
+fixes('da',103,219,[('en sød og sund luft','en behagelig og sund egn'),('flere under din familie i beskeden velstand, end der er over den i ophøjet stilling','flere husstande, der står under din i god orden, end der står over den i rang')])
+fixes('en',103,219,[('more below your family in modest comfort than there are above it in eminence','more households below yours in good management than above it in rank')])
+fixes('da',103,225,[('med en så retfærdig anledning','med så god grund til tilfredshed'),('Reformér blot dig selv','Ret blot på dig selv')])
+fixes('da',103,228,[('Den beslutning ligger ud over visdommen; det er hendes præcise værk og produkt','En sådan ro forudsætter visdom; den er netop visdommens værk og resultat'),('en stakkels svindende patient','en stakkels hensygnende patient'),('et sundt forskrift','en sund forskrift'),('vore styrende','vores styrende'),('fordi jeg er afvist eller mishaget af det andet parti','fordi jeg er uacceptabel og uønsket hos ethvert andet parti'),('ville have mig i halsen','ville gribe mig om struben')])
+fixes('en',103,228,[('That resolution is beyond wisdom; it is her precise work and product','Such composure presupposes wisdom; it is wisdom’s work and product'),('for being rejected or disliked by the other party','because every other party finds me unacceptable and unwelcome')])
+ledger();p=rd('review-progress.json');p.update(reviewedSlots=4260,throughChapter=103,throughSlot=228,nextChapter=103,nextSlot=229,englishAuditCheckpoint={'chapter':103,'throughSlot':228},danishChangedSlots=len(rd('working-da-changes.json')),englishChangedSlots=len(rd('working-en-changes.json')));wr('review-progress.json',p)
+wr('review-notes-ch103-part13.json',{'slots':'211–228','source':'FrenchIII09through106500;retainedLatin','changes':['Latinomnium/affluentibus/parte/nebulae/Quaete.','Authorbacksideinsaddlevigourrestored, no inventedmostpart.','Horacenofrost; fires/mist/rain.','Householdorder notmodestwealth.','Outrelasagesse contextualpresupposeswisdom becauseitsproduct; recordinterpretiverendering.','ALLotherpartiesrejecthim notonlyoneotherparty.'],'pending':['228outrelasagesse specialistcouldcompareotherFrencheditionsforprecisenote; interpretationexplicit.','Horace3.3.54–56 exactverify.']})
+print(p['reviewedSlots'])

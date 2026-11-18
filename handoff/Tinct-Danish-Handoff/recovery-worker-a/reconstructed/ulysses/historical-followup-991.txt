@@ -1,0 +1,7 @@
+python3 - <<'PY'
+import sys
+sys.path.insert(0,'/tmp/tinct-da-prep-20261104/ulysses');from prep import *
+x=rd('review-progress.json');x.update(status='full-source-compared-review-packet-literary-signoff-pending',danishChangedSlots=3195,englishChangedSlots=182,currentPolishCheckpoint={'episode':15,'review':'Long chase passage and all speaker heading forms reviewed; targeted verse/rebus updates saved.','next':'Native/literary choices documented in remaining-editorial-work.json.'});wr('review-progress.json',x)
+x=rd('review-manifest.json');x.update(changedDanishSlots=3195,changedEnglishSlots=182,lastAdditionalReview=['Episode14 second read and scoped cadence repair','Circe long chase stage direction and all heading consistency','Selected verse rhyme, letter rebuses, specialist German song crux']);wr('review-manifest.json',x)
+x=rd('guide-review-notes.json');x['changes'].append('Molly is32 during action and turns33 in September, as her monologue states; both guides corrected. Full intercourse lapse is more than10 years, avoiding false exact dating to Rudy death.');x['references'].append('https://etheses.whiterose.ac.uk/5213/1/THESIS%20FINAL.pdf');x['outstanding']=['Native final read pending; retained Eliot quote corroborated by scholarship quoting the 1923 essay.'];wr('guide-review-notes.json',x)
+PY

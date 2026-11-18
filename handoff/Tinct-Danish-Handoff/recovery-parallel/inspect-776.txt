@@ -1,0 +1,8 @@
+python3 - <<'PY'
+from pathlib import Path
+import json
+p=Path('.'); review=json.loads((p/'INDEPENDENT-REVIEW-HOBBES.json').read_text());log=json.loads((p/'DANISH-POLISH.json').read_text());out=[]
+for x in review['suggestions']:
+ b,n=map(int,x['slot'].split('.'));f=p/f'{b:02}.draft';s=f.read_text();a=x['current'];z=x['suggested'];assert a in s,(x['slot'],a);s=s.replace(a,z);f.write_text(s);log.append(dict(book=b,paragraph=n,before=a,after=z,reason=x['reason'],reviewer='hobbes',integration='verified and accepted'));out.append(x['slot']+': '+x['category'])
+(p/'DANISH-POLISH.json').write_text(json.dumps(log,ensure_ascii=False,indent=2)+'\n');(p/'INDEPENDENT-REVIEW-INTEGRATED.json').write_text(json.dumps(out,indent=2)+'\n');print(len(out),'accepted')
+PY

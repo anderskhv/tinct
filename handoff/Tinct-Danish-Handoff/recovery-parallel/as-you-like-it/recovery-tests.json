@@ -1,0 +1,23 @@
+{
+  "book": "as-you-like-it",
+  "scenes": 23,
+  "paragraph_positions": 931,
+  "danish_changed_or_restored_positions": 819,
+  "danish_new_positions": 47,
+  "english_changed_positions": 5,
+  "shape_matches_original": true,
+  "historical_final_counts_match": true,
+  "guides_recovered": true,
+  "sha256": {
+    "modern-da.json": "8332a4b8902e19ecd1176ff0b7e767feddf470a213189379878049c295c1f2b8",
+    "modern-en.json": "5fc9419d76fbf55a150147389a08c10fadff7591b92db9760a8c9b86ae79c171",
+    "onboarding-da.json": "84883c6a33c77cdf602474d051d338123febaafdac6b638344171a12c72e2e57",
+    "onboarding-en.json": "2176b1e7357a6ce81180798379d58ee9bcfed7af166325916ab96b309d25f03d"
+  },
+  "limitations": [
+    "Recovery and structural checks do not constitute a new complete literary review.",
+    "Native Danish sign-off remains pending.",
+    "Historical final file hashes were not available; matching counts corroborate reconstruction but are not byte-identity proof."
+  ],
+  "publication_notes": "Restores the missing 47-position opening scene and realigns 17 retained units to 23 scenes. Preserve realignment.json for bookmark migration. The historical World Library source rights notice needs resolution before publication. The historical validator passed initial structure/ledger assertions but could not complete without its independent witness file."
+}

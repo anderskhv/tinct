@@ -1,0 +1,19 @@
+# coding: utf-8
+import pathlib,json
+p=pathlib.Path(__file__).parent
+DA={1:[('synet rædselsslog ham','han blev rædselsslagen'),('vidnesbyrdet om hendes utroskab','visheden om hendes utroskab'),('sin nylige fortid — sin ømhed','sin nylige tilgivelse, sin bevægelse')],2:[('opretholde et udseende af fatning','bevare et roligt ydre')],3:[('hvis De henviser os til at henvende os','hvis De beder os henvende os')],5:[('den foragt og irritation','den foragt og forbitrelse')],7:[('Godset var lille','Formuen var lille')],8:[('politiske ambitioner','sine ambitioner i embedskarrieren')],9:[('havde Annas tante — en velhavende provinsdame — kastet ham sammen med sin niece','havde Annas tante, en velhavende provinsdame, ført ham sammen med sin niece'),('overvejede det ikke længe','tøvede længe'),('måtte erklære sig','måtte fri')],10:[('hvis sympati han kunne påkalde sig i en offentlig sag, han bekymrede sig om','hvis støtte han kunne bede om i en sag, der interesserede ham'),('andre menneskers anliggender eller statslige forhold','andre menneskers og regeringens handlinger'),('blevet nærmere på','knyttet tættere til'),('havde en stilling i Undervisningsministeriets afdeling i en fjern del af Rusland','var leder af et fjerntliggende undervisningsdistrikt'),('de mest nærtstående og mest sandsynlige','hans nærmeste og mest oplagte fortrolige')],11:[('vidste, at han havde det godt med ham personligt','mærkede, at han personligt var ham venligt stemt')],12:[('Har De hørt om mine besværligheder?','Har De hørt om min sorg?'),('Så De gør det her klar for mig?','Så gør De det her klar til mig.')],13:[('oversvømmede af arbejde','overbebyrdede med arbejde')],14:[('i spidsen af listen','som den nærmeste')]} 
+EN={1:[('his recent past — his tenderness','his recent forgiveness, his tenderness')],5:[('contempt and irritation','contempt and bitterness')],7:[('The estate was a small one.','Their fortune was small.')],8:[('political ambition','ambition in his official career')],9:[('did not deliberate long','hesitated for a long time')],10:[('other people\'s business or affairs of state','the actions of other people and of the government'),('held a post in the Department of Education in a remote part of Russia','was superintendent of a distant educational district')],12:[('my trouble?','my grief?'),("So you'll get this ready for me?","So you'll get this ready for me.")]}
+pack=[]
+for lang,changes in [('da',DA),('en',EN)]:
+ f=p/f'candidate-anna-karenina-modern-{lang}.json';d=json.loads(f.read_text());rf=p/('DANISH-REPAIRS.json' if lang=='da' else 'ENGLISH-REPAIRS.json');r=json.loads(rf.read_text());c=d['chapters'][144]
+ if lang=='da':
+  for sn in range(1,len(c['paragraphs'])+1):
+   changes.setdefault(sn,[])
+   for a,b in [('Alexej Alexandrovitj','Aleksej Aleksandrovitj'),('Vasilievitj','Vasiljevitj')]:
+    if a in c['paragraphs'][sn-1]:changes[sn].append((a,b))
+ for sn,pairs in changes.items():
+  for a,b in pairs:
+   t=c['paragraphs'][sn-1];assert a in t,(lang,sn,a);c['paragraphs'][sn-1]=t.replace(a,b);r.append(dict(chapter=145,paragraph=sn,before=a,after=b,reason='Russian V.XXI: critical long hesitation not no hesitation; forgiveness not past, fortune not estate, official career not political ambition, educational district superintendent, grief; Danish names/fluency.'))
+ pack.append((f,d,rf,r))
+for f,d,rf,r in pack:f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');rf.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
+(p/'SOURCE-NOTES-145.txt').write_text('Full V.XXI Russian compared DA/EN. Critical reversed proposition145.9: долго колебался = hesitated long, whereas both said not long.145.1recent прощение forgiveness not прошедшее past; restore distinct concept.145.7состояние fortune not landed estate. Official career ambition, not necessarily political ambition; superintendent of educational district specific post. Native review pending.\n')

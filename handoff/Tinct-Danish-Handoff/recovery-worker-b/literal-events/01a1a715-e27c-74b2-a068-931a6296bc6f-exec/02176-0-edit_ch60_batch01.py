@@ -1,0 +1,8 @@
+fixes('da',60,8,[('hentærende liv','udmarvende liv')])
+fixes('da',60,9,[('Men dette går ikke forbi uden diskussion','Men dette synspunkt er omstridt'),('har en sag for manddrab mod os','kan holde os ansvarlige for drab'),('tager handlingen i øjesyn','tager sig af handlingen')])
+for l in ['da','en']:fixes(l,60,13,[('damma, percmdes','damna, per caedes')])
+setslot('da',60,14,'[»Som en steneg på Algidus, frodig af mørkt løv og beskåret med hårde tveæggede økser, henter kraft og mod gennem tab og hug fra selve jernet.« — Horats, Od., iv. 4, 57–60.]')
+setslot('en',60,14,'["Like a holm oak on Algidus, rich in dark foliage and pruned with hard two-edged axes, it draws strength and spirit through loss and blows from the very iron." — Horace, Od., iv. 4, 57–60.]')
+ledger()
+p=rd('review-progress.json');p.update(reviewedSlots=1542,throughChapter=60,throughSlot=18,nextChapter=60,nextSlot=19,englishAuditCheckpoint={'chapter':60,'throughSlot':18},danishChangedSlots=len(rd('working-da-changes.json')),englishChangedSlots=len(rd('working-en-changes.json')));wr('review-progress.json',p)
+wr('review-notes-ch60-partial.json',{'chapter':60,'throughSlot':18,'frenchWitness':'https://bribes.org/trismegiste/es2ch03.htm','mapping':'II.3','changes':['Modern Danish sense and idiom; master of disputation not meeting chair, reputation not rumour, broken skein metaphor restored.','Latin OCR damna/per caedes and full oak gloss restored both languages.'],'pending':['Opening editorial Cos/Kos identifies wrong island: verify independent geographical primary before repair.','Historical arguments for and against voluntary death preserved as author arguments; remaining chapter balances the opening.']})

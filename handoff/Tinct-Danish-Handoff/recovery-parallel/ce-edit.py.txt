@@ -1,0 +1,27 @@
+exec(open('/tmp/ce-view.py').read().split("if __name__")[0])
+from collections import Counter
+labels={'DUKE':'HERTUGEN','MERCHANT':'KØBMANDEN','OFFICER':'BETJENTEN','COURTESAN':'KURTISANEN','ABBESS':'ABBEDISSEN','JAILER':'FANGEVOGTEREN','MESSENGER':'BUDET'}
+def run():
+ for lang,base in [('da',a),('en',e)]:
+  ledger=[]
+  changes={}
+  for l in Path('/tmp/ce-'+lang+'.txt').read_text().splitlines():
+   if l:
+    idx,txt=l.split(' ',1);changes[tuple(map(int,idx.split('.')))]=txt
+  for k,ch in enumerate(base,1):
+   if lang=='da':
+    ch['section']=ch['section'].replace('Act ','Akt ');ch['title']=ch['title'].replace('Scene ','scene ')
+   for i,old in enumerate(ch['paragraphs'],1):
+    m=re.match(r'^([A-Z ]+)\.(?: |$)',old);prefix=m[1] if m else '';v=old[m.end():] if m else old
+    if (k,i) in changes:v=changes.pop((k,i))
+    if lang=='da':
+     prefix=labels.get(prefix,prefix.replace(' OF SYRACUSE',' FRA SYRAKUS').replace(' OF EPHESUS',' FRA EFESOS'))
+     v=v.replace(' af Efesos',' fra Efesos').replace('en tovende','en rebende').replace('en tovets','en rebets').replace('Master Antipholus','Hr. Antipholus').replace('Mistress Satan','fru Satan').replace("Pinch's",'Pinchs').replace('Signior','signor').replace('signior','signor').replace('stikker ud','sejler').replace('Sir, ','Herre, ').replace('Gode sir','Gode herre').replace('gode sir','gode herre').replace('sir','herre') if 'sirene' not in v and 'sirener' not in v else v
+     v=re.sub(r'\bJer(es)?\b',lambda m:m[0].lower(),v);v=re.sub(r'(?<=[.!?] )jer(es)?\b',lambda m:m[0].capitalize(),v);v=re.sub(r'^jer(es)?\b',lambda m:m[0].capitalize(),v)
+    new=prefix+'.'+(' '+v if v else '') if prefix else v
+    ch['paragraphs'][i-1]=new
+    if new!=old:ledger.append({'chapter':k,'paragraph':i,'before':old,'after':new})
+  assert not changes,changes
+  for f,data in [('modern-'+lang+'.json',{'chapters':base}),('edits-'+lang+'.json',ledger)]:
+   (d/f).write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n')
+if __name__=='__main__':run()

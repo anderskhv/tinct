@@ -1,0 +1,13 @@
+from review_helpers import *
+d=rd('modern-da.json');d['chapters'][78]['title']='Om at rejse med skifteheste';wr('modern-da.json',d)
+fixes('da',79,1,[('denne sport','denne form for ridning'),('det ryster os for meget at holde ved længe','det slider for meget på os til, at vi kan blive ved længe')])
+fixes('en',79,1,[('it shakes us up too much','it taxes us too much')])
+fixes('da',79,2,[('hundrede mil om dagen','hundrede romerske mil om dagen'),('to hundrede mil på','to hundrede romerske mil på'),('Tiberius Nero dækkede','Tiberius Nero tilbagelagde')])
+fixes('da',79,4,[('skifte-heste','skifteheste'),('på tre dage','på tredjedagen')])
+fixes('en',79,4,[('in three days','on the third day')])
+fixes('da',79,7,[('bar fædre duer i barmen','bar husstandenes overhoveder duer på brystet under tøjet')])
+fixes('en',79,7,[('fathers carried pigeons','heads of households carried pigeons')])
+fixes('da',79,9,[('Storherrens kurérer','sultanens kurérer'),('afsætte den første, de møder på vejen, og give vedkommende deres egne udmattede heste','lade den første rytter, de møder på vejen, stige af og tage vedkommendes hest i bytte for deres egen udmattede'),('stramt om livet','stramt om livet, som også mange andre gør')])
+fixes('en',79,9,[('the Grand Signior\'s couriers','the sultan’s couriers'),('dismount the first person they meet on the road and give him their own worn-out horses','make the first rider they meet on the road dismount and take that person’s horse in exchange for their own exhausted one'),('around their waists','around their waists, as many others also do')])
+ledger();q=rd('review-progress.json');q.update(reviewedSlots=2925,throughChapter=79,throughSlot=9,nextChapter=80,nextSlot=1,englishAuditCheckpoint={'chapter':79,'throughSlot':9},danishChangedSlots=len(rd('working-da-changes.json')),englishChangedSlots=len(rd('working-en-changes.json')));q['englishChaptersReviewed']=list(range(1,80));q['remaining'][0]='chapters80–107';q['remaining'][1]='chaptertitles80–107';wr('review-progress.json',q)
+wr('review-notes-ch79.json',{'chapter':79,'slots':9,'status':'main-review-complete-apparatus-pending','source':'https://bribes.org/trismegiste/es2ch22.htm','changes':['Title relay travel;1 riding not sport,taxing not literal shaking','2 Roman miles disambiguated without changing source amounts;4 third day not three full days','7 heads of households not fathers;9 forced horse exchange not afsætte/dismiss,omitted others use sash restored'],'limits':['9 Valachi interpreted as Wallachians in Cotton may be corruption of Ottoman ulak;check before altering','2 three coaches/source mileage historical claim retained;8 Peru carried couriers claim retained as source account']})

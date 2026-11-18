@@ -1,0 +1,11 @@
+from review_helpers import *
+fixes('da',73,41,[('lav afvisning','nedværdigende afvisning'),('efter folkebrisens blotte indfald','efter folkestemningens lunefulde vind')])
+fixes('da',73,44,[('ærlighedens egen ære','det moralsk rettes egen skønhed')])
+fixes('en',73,44,[('the honour of honesty itself','the beauty of moral goodness itself')])
+fixes('da',73,46,[('en ager jord','et stykke jord')])
+fixes('da',73,55,[('Ingen kunst, ingen øvelse af vid','Ingen kunst, ingen åndelig smidighed'),('den offentlige billigelse','den offentlige anerkendelse'),('ved regnskabets slutning','når alt kommer til alt')])
+fixes('da',73,58,[('føjelige, halvråddent dannede, tvetydige mænd','smidige, snedige og tvetydige mænd')])
+fixes('en',73,58,[('pliant, half-bred, ambiguous men','pliant, cunning, ambiguous men')])
+for l in ['da','en']:fixes(l,73,59,[('successus','successu')])
+ledger();q=rd('review-progress.json');q.update(reviewedSlots=2644,throughSlot=60,nextSlot=61,englishAuditCheckpoint={'chapter':73,'throughSlot':60},danishChangedSlots=len(rd('working-da-changes.json')),englishChangedSlots=len(rd('working-en-changes.json')));wr('review-progress.json',q)
+n=rd('review-notes-ch73-partial.json');n['throughSlot']=60;n['changes']+=['44 moral goodness not honesty narrow sense;55 Danish idioms','58 metis contextual cunning not half-bred or Danish rotten-educated corruption','59 successu ablative OCR restored French'];wr('review-notes-ch73-partial.json',n)

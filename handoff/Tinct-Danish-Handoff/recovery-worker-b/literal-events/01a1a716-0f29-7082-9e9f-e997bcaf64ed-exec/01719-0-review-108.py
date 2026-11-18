@@ -1,0 +1,17 @@
+# coding: utf-8
+import pathlib,json
+p=pathlib.Path(__file__).parent
+DA={1:[('Det Store Teater','Bolsjojteatret'),('han netop havde taget under sin beskyttelse','der netop havde fået en plads i kompagniet gennem hans forbindelser'),('Okhotnyj Rjad','Okhotnyj Rjad'),('ved middagstid','klokken tolv')],2:[('frisk aborre','aborrer, der var købt levende'),('_la pièce de resistance_ —','_la pièce de résistance_, hovedretten —'),('_la pièce de resistance_ blandt gæsterne','_la pièce de résistance_, hovedretten blandt gæsterne'),('stikke til dem og sætte dem i gang','ophidse dem og hidse dem op mod hinanden')],3:[('Den anden afdrag','Det andet afdrag'),('fra alle vinkler','på alle måder')],4:[('mod​satte','mod​satte'),('meget affabel','meget venlig'),('besøg i civil','besøg i frakke')],5:[('Vis mig op','Vis mig derhen')],8:[('målte et frisk bjørneskind op','målte et frisk bjørneskind med en arsjinmålestok')],9:[('Arkhip','Arkhip')],16:[('arbejderspørgsmålet findes dér også','det spørgsmål findes også i udlandet')],19:[('støv og aske','sandkorn')],20:[('gammelt som bjergene','gammelt som verden')],21:[('det dér med bjørnejagten','at opspore denne hunbjørn')],23:[('Vær ikke så streng mod os, du moralist!','\nVær ikke, moralist, så streng!..')],33:[('og ingen aftenpåklædning','og i frakke')],34:[('så klokken var fire, da','så klokken var over tre, da')]}
+DA[1]=[x for x in DA[1] if x[0]!=x[1]];DA[4]=[x for x in DA[4] if x[0]!=x[1]];DA.pop(9)
+EN={1:[('the Grand Theater','the Bolshoi Theater'),('he had just taken under his protection','who had just joined the company through his patronage'),('by noon','at twelve o\'clock')],2:[('fresh perch','perch bought live'),('_la pièce de resistance_ —','_la pièce de résistance_, the main dish —'),('_la pièce de resistance_ among the guests','_la pièce de résistance_, the main dish among the guests'),('needle them and set them off','provoke them and set them against each other')],4:[('in plain clothes','in a frock coat')],5:[('Take me up','Show me there')],8:[('measuring out a fresh bearskin','measuring a fresh bearskin with an arshin ruler')],16:[('the labor question exists there too','that question exists abroad too')],19:[('dust and ashes','grains of sand')],20:[('old as the hills','old as the world')],21:[('that bear-killing business','tracking down this she-bear')],23:[("Don't be so hard on us, O moralist!","\nBe not so strict, O moralist!..")],33:[('no evening dress','a frock coat')],34:[('it was four o\'clock','it was after three')]} 
+pack=[]
+for lang,changes in [('da',DA),('en',EN)]:
+ f=p/f'candidate-anna-karenina-modern-{lang}.json';d=json.loads(f.read_text());rf=p/('DANISH-REPAIRS.json' if lang=='da' else 'ENGLISH-REPAIRS.json');r=json.loads(rf.read_text());c=d['chapters'][107]
+ if lang=='da':
+  for sn,t in enumerate(c['paragraphs'],1):
+   if 'Alexej Alexandrovitj' in t:changes.setdefault(sn,[]).append(('Alexej Alexandrovitj','Aleksej Aleksandrovitj'))
+ for sn,pairs in changes.items():
+  for a,b in pairs:
+   t=c['paragraphs'][sn-1];assert a in t,(lang,sn,a);c['paragraphs'][sn-1]=t.replace(a,b);r.append(dict(chapter=108,paragraph=sn,before=a,after=b,reason='Russian IV.VII full comparison: dancer hired through patronage, live perch, own French gloss, set guests against each other, ruler, same land question abroad, sand not ashes, verse line, fourth hour=after3 not4.'))
+ pack.append((f,d,rf,r))
+for f,d,rf,r in pack:f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');rf.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')

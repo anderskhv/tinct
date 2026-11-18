@@ -1,0 +1,43 @@
+{
+  "bookId": "ulysses",
+  "status": "full-editorial-draft-feasible-targeted-review-complete",
+  "sourceComparedDanishSlots": 7148,
+  "sourceSlots": 7148,
+  "episodes": 18,
+  "changedDanishSlots": 3195,
+  "changedEnglishSlots": 183,
+  "guidesReviewed": [
+    "en",
+    "da"
+  ],
+  "structuralValidation": "passed",
+  "freshBaselineCheck": "All five baseline blobs match main on 2026-11-08; see fresh-sha-check.json",
+  "nativeDanishReview": "pending-user-arranged",
+  "literarySpecialistReview": "inconclusive-interpretations-and-native-tradeoffs-explicitly-listed",
+  "sourceWitness": "Project Gutenberg 4300; saved witness.txt and witness.html; see source-witness-collation.json",
+  "editionCompleteness": "All original narrative paragraph slots retained. Three musical score image placeholders still need publishing-time asset treatment; final place/date inscription preserved separately.",
+  "releaseEligible": false,
+  "reasonNotReleaseEligible": "Prepared full local content; remaining literary choices and native review not represented as approved. User explicitly reserves release/upload workflow for Claude.",
+  "uploaded": false,
+  "released": false,
+  "repositoryMutations": false,
+  "candidateFiles": [
+    "modern-da.json",
+    "modern-en.json",
+    "onboarding-da.json",
+    "onboarding-en.json"
+  ],
+  "exactChangeLedgers": [
+    "working-da-changes.json",
+    "working-en-changes.json",
+    "working-guide-da-changes.json",
+    "working-guide-en-changes.json"
+  ],
+  "validation": "validation.json",
+  "remainingWork": "remaining-editorial-work.json",
+  "lastAdditionalReview": [
+    "2026-11-09 targeted literary queue checked; see literary-resolution-pass.json",
+    "Corrected Molly guide age against explicit birth date, Rudy elapsed years",
+    "Independent1922 duplicate-question repair and English budget layout restored"
+  ]
+}

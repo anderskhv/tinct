@@ -1,0 +1,42 @@
+{
+  "book": "fear-and-trembling",
+  "recovery_date": "2026-11-18",
+  "native_signoff": false,
+  "new_full_semantic_review": false,
+  "targets": [
+    {
+      "file": "fear-and-trembling-modern-da.json",
+      "target": "app/public/data/editions/fear-and-trembling-modern-da.json",
+      "sha256": "6b6655c14e8bc48b909c8437560afb50a98abe0e0600e0216cb25dfabb941be4",
+      "current_main_equals_candidate": false,
+      "chapters": 8,
+      "slots": 232,
+      "paragraph_ledger_replay": true,
+      "changed_slots": 232,
+      "current_main_equals_source": true
+    },
+    {
+      "file": "fear-and-trembling-modern-en.json",
+      "target": "app/public/data/editions/fear-and-trembling-modern-en.json",
+      "sha256": "34c6bade3a64b8409e43ea6acf8e43bb94e54d5ff7cf0631a8595bdc6b1cd2fa",
+      "current_main_equals_candidate": false,
+      "chapters": 8,
+      "slots": 184,
+      "paragraph_ledger_replay": true,
+      "changed_slots": 9,
+      "current_main_equals_source": true
+    },
+    {
+      "file": "fear-and-trembling.da.json",
+      "target": "app/public/data/onboarding/fear-and-trembling.da.json",
+      "sha256": "01f181db1862e850a5daa763982f5d7ca9f73f550db31e9479d444ec7ff5995a",
+      "current_main_equals_candidate": false
+    },
+    {
+      "file": "fear-and-trembling.json",
+      "target": "app/public/data/onboarding/fear-and-trembling.json",
+      "sha256": "49eac14c90cb3ac14cab48dff28792163e40c3a813a0281866d5b6a84ccdb7dd",
+      "current_main_equals_candidate": false
+    }
+  ]
+}

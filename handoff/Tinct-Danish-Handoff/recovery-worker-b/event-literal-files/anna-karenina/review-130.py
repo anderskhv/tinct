@@ -1,0 +1,13 @@
+# coding: utf-8
+import pathlib,json
+p=pathlib.Path(__file__).parent
+DA={1:[('ceremonien med troskabsløftet','trolovelsesceremonien'),('skammelbæreren','kirketjeneren'),('lektoriet','læsepulten'),('et stykke lyserødt silke','et stykke lyserød silke'),('talemåden','varslet')],2:[('flommede hendes sjæl','fyldte hendes sjæl')],3:[('Skænk dem afhold og frugtbarhed, og lad det ske, at deres hjerter må fryde sig ved synet af deres sønner og døtre','Lad dem få kyskhed og børn til deres gavn, og lad dem glædes ved synet af sønner og døtre')],7:[('og rullet i overdiakonens stemme','og overdiakonens rungende stemme'),('den lavvandede kalk med varmt udblandet rødvin','den flade skål med varm rødvin blandet med vand'),('sin stola','sin præstekåbe'),('lektoriet','læsepulten'),('basstemmer','en basstemme'),('Ære være Gud','Glæd dig, Esajas')],8:[('var snart efterladt og snart trådende på brudeparret','sakkede snart bagud og stødte snart ind i brudeparret')],9:[('Kys din kone, og du, kys din mand','Kys Deres hustru, og De, kys Deres mand')],11:[('samme aften','samme nat')]}
+EN={1:[('ceremony of plighting troth','betrothal ceremony'),('the beadle','a church attendant'),('the saying','the omen')],3:[('Endow them with continence and fruitfulness, and vouchsafe that their hearts may rejoice looking upon their sons and daughters','Grant them chastity and children for their good, and let them rejoice at the sight of sons and daughters'),('and for this cause a man shall leave father and mother, and cleave unto his wife, and they two shall be one flesh','and for this reason a man will leave his father and mother and be joined to his wife, and the two will be one flesh')],7:[('his stole','his vestment'),('bass voices chanting "Glory to God."','a bass voice chanting "Rejoice, Isaiah."')],8:[('stepping on the bridal pair','bumping into the bridal pair')]}
+pack=[]
+for lang,changes in [('da',DA),('en',EN)]:
+ f=p/f'candidate-anna-karenina-modern-{lang}.json';d=json.loads(f.read_text());rf=p/('DANISH-REPAIRS.json' if lang=='da' else 'ENGLISH-REPAIRS.json');r=json.loads(rf.read_text());c=d['chapters'][129]
+ for sn,pairs in changes.items():
+  for a,b in pairs:
+   t=c['paragraphs'][sn-1];assert a in t,(lang,sn,a);c['paragraphs'][sn-1]=t.replace(a,b);r.append(dict(chapter=130,paragraph=sn,before=a,after=b,reason='Russian V.VI full comparison: church attendant not stoolbearer, lectern, chastity and beneficial offspring not abstinence, Rejoice Isaiah not Glory to God, vestment not stole, bumping not stepping on couple, formal address and Danish grammar.'))
+ pack.append((f,d,rf,r))
+for f,d,rf,r in pack:f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');rf.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')

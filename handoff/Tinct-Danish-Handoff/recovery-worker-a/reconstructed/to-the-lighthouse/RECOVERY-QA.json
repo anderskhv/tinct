@@ -1,0 +1,42 @@
+{
+  "book": "to-the-lighthouse",
+  "recovery_date": "2026-11-18",
+  "native_signoff": false,
+  "new_full_semantic_review": false,
+  "targets": [
+    {
+      "file": "modern-da.json",
+      "target": "app/public/data/editions/to-the-lighthouse-modern-da.json",
+      "sha256": "bca23dafaff4276d77f479008f6cd10761022066d32c55b64fad1cd743db14cc",
+      "current_main_equals_candidate": false,
+      "chapters": 42,
+      "slots": 495,
+      "paragraph_ledger_replay": true,
+      "changed_slots": 411,
+      "current_main_equals_source": true
+    },
+    {
+      "file": "modern-en.json",
+      "target": "app/public/data/editions/to-the-lighthouse-modern-en.json",
+      "sha256": "55a2cccdb31fab3f19a42b66698283587de48868c7ed06467beec39823340936",
+      "current_main_equals_candidate": false,
+      "chapters": 42,
+      "slots": 495,
+      "paragraph_ledger_replay": true,
+      "changed_slots": 13,
+      "current_main_equals_source": true
+    },
+    {
+      "file": "onboarding-da.json",
+      "target": "app/public/data/onboarding/to-the-lighthouse.da.json",
+      "sha256": "6e10e8b7c80fd83f580998ed1d3c6e7b36cffcd7d03777a08213686d24dbd38e",
+      "current_main_equals_candidate": false
+    },
+    {
+      "file": "onboarding-en.json",
+      "target": "app/public/data/onboarding/to-the-lighthouse.json",
+      "sha256": "f234bca0aed66c9cc80141410cb5db869bd5156ddbb56bdc247b4b8e0f9dba9b",
+      "current_main_equals_candidate": false
+    }
+  ]
+}

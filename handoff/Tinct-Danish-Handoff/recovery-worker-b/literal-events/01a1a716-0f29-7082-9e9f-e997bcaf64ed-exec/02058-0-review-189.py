@@ -1,0 +1,14 @@
+import json,pathlib
+p=pathlib.Path(__file__).parent
+DA={1:[('holde sig sammen','beherske sig')],4:[('de fem dage, han var ved valgene, uden ham','de fem dage uden ham, som hans fravær skulle vare')],5:[('især nu, da han vidste','især når han fik at vide')],6:[('ikke hjulene, men','ikke blot hjulene, men også'),('sin egen dobbeltspil','sit eget bedrag'),('de sidste to dage havde været helt rask igen','nu på anden dag var helt rask igen'),('Så tænkte hun på ham — at han var her, hele han, hans hænder, hans øjne.','Så tænkte hun på ham — at han var her, helt og fuldt, med sine øjne og sine hænder.')],8:[('varme galocher','varme støvler')],11:[('sit liv','sin talje')],25:[('Jeg er kun ærgerlig over, det er sandt, at du','Det er rigtigt, at jeg kun er ærgerlig over, at du')],30:[('sådan som mænd nu engang gør','sådan som man gør')],35:[('Vi må have skilsmisse.','Vi må have skilsmisse?')],40:[('som ville til Petersborg','som skulle til Petersborg'),('Alexej Alexandrovitj','Aleksej Aleksandrovitj')]}
+EN={4:[('the five days he was at the elections without him','the five days without him that his absence was meant to last')],5:[('especially now that he knew','especially when he learned')],6:[('not the wheels but','not only the wheels but also'),('for the last two days her child had been completely well again','her child was now completely well again for the second day')],8:[('warm overshoes','warm boots')],30:[('the way men do','as people do')],35:[('We have to get a divorce.','We have to get a divorce?')],40:[('who wanted to go to Petersburg','who had to go to Petersburg')]}
+pack=[]
+for lang,changes in [('da',DA),('en',EN)]:
+ f=p/f'candidate-anna-karenina-modern-{lang}.json';d=json.load(open(f));rf=p/('DANISH-REPAIRS.json' if lang=='da' else 'ENGLISH-REPAIRS.json');r=json.load(open(rf));c=d['chapters'][188]
+ for sn,pairs in changes.items():
+  for a,b in pairs:
+   assert a in c['paragraphs'][sn-1],(lang,sn,a)
+   c['paragraphs'][sn-1]=c['paragraphs'][sn-1].replace(a,b);r.append(dict(chapter=189,paragraph=sn,before=a,after=b,reason='Russian VI.XXXII: future discovery not already knows, not-only wheels, second day, boots not overshoes, unfinished generic simile and question, modern fluency.'))
+ pack.append((f,d,rf,r))
+for f,d,rf,r in pack:f.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');rf.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
+(p/'SOURCE-NOTES-189.txt').write_text('Full Russian VI.XXXII DA EN read.189.5 Vronsky WILL discover daughter not dangerous, not already knows.189.6 NOTONLYwheels but shout, restores heard wheels; second day rather than full two days.189.30 original unfinished какпоступают lacks men, broad unfinished phrase restored.189.35 question divorce? restored.189.41 PARTSEVEN retained existing slot; proposed part-boundaries remains separate.189.6 Taine volume unspecified, do not invent title. Native pending.\n')
