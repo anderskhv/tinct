@@ -32,6 +32,8 @@
   var done = STEPS.map(function () { return false })
   var reader = { ready: false, edition: 'original-en', phone: false }
   var queued = []
+  // Listen waits for the original edition: its narration is recorded, so a guest hears it from the cache (D7/M7).
+  var listenAfterOriginal = false
   var wide = window.matchMedia(WIDE).matches
 
   function readerSrc() {
@@ -81,6 +83,12 @@
     done[index] = true
     var command = STEPS[index].command
     if (command.cmd === 'edition') command = { cmd: 'edition', kind: reader.edition === 'modern-en' ? 'original' : 'modern' }
+    if (command.cmd === 'listen' && reader.edition !== 'original-en') {
+      listenAfterOriginal = true
+      send({ cmd: 'edition', kind: 'original' })
+      render()
+      return
+    }
     send(command)
     render()
   }
@@ -161,6 +169,7 @@
         reader.edition = data.edition
         paintEdition()
       }
+      if (listenAfterOriginal && reader.ready && reader.edition === 'original-en') { listenAfterOriginal = false; setTimeout(function () { send({ cmd: 'listen' }) }, 600) }
       if (data.selection || data.card === 'explain') did(0)
       if (data.playing) did(3)
       if (data.chapterCard === 'summary') did(4)

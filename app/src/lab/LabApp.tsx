@@ -233,7 +233,7 @@ import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { ChatConversation, HighlightColor } from '../types'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
-import { TRY_DEMO, firstSentenceWords, tryDemoTell, useTryDemo, type TryDemoHandles } from './tryDemo/tryDemo'
+import { TRY_DEMO, TRY_DEMO_DESKTOP_FONT_SIZE, firstSentenceWords, tryDemoTell, useTryDemo, useTryDemoRevealOpenCard, type TryDemoHandles } from './tryDemo/tryDemo'
 import { useLabHighlights } from './useLabHighlights'
 import { labHighlightUndoMessage } from './labHighlightUndo'
 import { useLabAsk } from './useLabAsk'
@@ -691,7 +691,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // A reader who never set a size reads at the size for their window on the
   // desktop (labDesktopDefaultFontSize) and at the phone default on a phone;
   // a size they chose is kept exactly (labReadingFontSize).
-  const [desktopDefaultFontSize, setDesktopDefaultFontSize] = useState(() => labDesktopDefaultFontSize(typeof window === 'undefined' ? 0 : window.innerWidth))
+  // The /try page's reader (tryDemo.ts TRY_DEMO_DESKTOP_FONT_SIZE) reads a step smaller, so a card and its follow-up fit beside the passage.
+  const [desktopDefaultFontSize, setDesktopDefaultFontSize] = useState(() => TRY_DEMO ? TRY_DEMO_DESKTOP_FONT_SIZE : labDesktopDefaultFontSize(typeof window === 'undefined' ? 0 : window.innerWidth))
   const readingFontSize = labReadingFontSize(prefs, appearanceProfile, desktopDefaultFontSize)
   const displayPrefs = { ...prefs, alignment: readingAlignment, fontSize: readingFontSize }
   const readingFont = labReadingFont(prefs.fontFamily)
@@ -2468,7 +2469,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       setMarginRoom(marginReaderRoom(device, handheld))
       setIsPhone(phone)
       setShowPhoneChrome(nextPhoneChrome)
-      setDesktopDefaultFontSize(labDesktopDefaultFontSize(window.innerWidth))
+      setDesktopDefaultFontSize(TRY_DEMO ? TRY_DEMO_DESKTOP_FONT_SIZE : labDesktopDefaultFontSize(window.innerWidth))
     }
     surfaceSyncRef.current = sync
     sync()
@@ -6726,6 +6727,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     },
     edition: kind => {
       const target = editionCommand(kind)
+      // On the phone the Explain sheet would cover the page that changes (M6): close it; the note stays in the margin.
+      if (showPhoneChrome && phoneCardRef.current) closePhoneCard()
       if (target && prefs.primaryEdition !== target.key) updatePrefs({ ...prefs, primaryEdition: target.key, compareOpen: prefs.compareOpen && prefs.compareEdition !== target.key })
     },
     listen: () => { if (!listen.playing && !listen.pending) handleBarListen() },
@@ -6740,6 +6743,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     selection: selectionPopup !== null,
     chapterCard: chapterNotes ? (chapterNotes.as ?? chapterNotes.request.kind) : null,
   })
+  useTryDemoRevealOpenCard(marginHost, showPhoneChrome)
   // The page opens on Book 2's heading near the top of the frame (D1), with room below it for the margin's cards.
   const tryDemoOpenedRef = useRef(false)
   useEffect(() => {
