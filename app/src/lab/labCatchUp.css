@@ -1,0 +1,285 @@
+/* "Catch me up": a V2 sheet (same surface as the other super-menu layers)
+   holding a vertical timeline. Playfair titles, EB Garamond recaps, system UI
+   chrome. The timeline mirrors the menu icon: small filled dots for what has
+   been read, an open ring for "You are here". */
+
+/* As tall as what it holds, up to the sheet height (iPhone feedback, 21 Oct 2026: no empty band above the last row). */
+.lab[data-chrome-version="v2"] .lab-v2-sheet.lab-catch-up { height: auto; max-height: var(--lab-v2-sheet-height); }
+
+.lab[data-chrome-version="v2"] .lab-catch-up .lab-catch-up-body {
+  padding: 4px 16px 8px;
+  overscroll-behavior: contain;
+  overflow-anchor: auto;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-timeline {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 6px 0 4px;
+}
+
+/* The line the dots sit on. */
+.lab[data-chrome-version="v2"] .lab-catch-up-timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  bottom: 14px;
+  width: 1px;
+  background: currentColor;
+  opacity: 0.18;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-here { position: relative; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-entry {
+  position: relative;
+  /* Long timelines: entries off screen are neither laid out nor painted. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 92px;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-entry { padding: 0 0 16px 22px; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-dot {
+  position: absolute;
+  /* Inside the entry's own box: content-visibility clips anything outside it. */
+  left: 2px;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-entry.is-current .lab-catch-up-dot { opacity: 0.85; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-title {
+  margin: 0 0 3px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-text {
+  margin: 0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.42;
+  color: inherit;
+}
+
+/* An earlier part: one line until tapped. The title is the toggle and keeps
+   the title's look; a small chevron says it opens. */
+.lab[data-chrome-version="v2"] .lab-catch-up-fold {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-fold::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 5px;
+  height: 5px;
+  border-right: 1.4px solid currentColor;
+  border-bottom: 1.4px solid currentColor;
+  opacity: 0.5;
+  transform: translateY(-2px) rotate(45deg);
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-fold[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
+.lab[data-chrome-version="v2"] .lab-catch-up-fold:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-items { display: grid; gap: 4px; padding: 0; list-style: none; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-text.is-line {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-entry.is-folded { contain-intrinsic-size: auto 48px; }
+.lab[data-chrome-version="v2"] .lab-catch-up-entry.is-folded[data-expanded="false"] .lab-catch-up-placeholder i:nth-child(n+2) { display: none; }
+
+/* Quiet placeholders: three faint lines where the recap will be. */
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder {
+  display: grid;
+  gap: 7px;
+  padding: 5px 0 2px;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder i {
+  display: block;
+  height: 9px;
+  border-radius: 5px;
+  background: currentColor;
+  opacity: 0.08;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder i:nth-child(2) { width: 92%; }
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder i:nth-child(3) { width: 58%; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-retry {
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--lab-v2-quiet);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-here {
+  padding: 0 0 2px 22px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 20px;
+  color: var(--lab-v2-quiet);
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-here .lab-catch-up-dot {
+  left: 0;
+  top: 5px;
+  width: 9px;
+  height: 9px;
+  background: transparent;
+  border: 1.6px solid currentColor;
+  opacity: 1;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-foot {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid rgba(127, 116, 99, 0.18);
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-discuss {
+  min-width: 132px;
+  height: 36px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+/* Catch me up's placeholder holds the room its entry can take: invisible stand-in text in the entry's own type
+   (catchUpReserveText, as many words as the entry's limit), with one faint bar per line drawn over it. */
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder.is-reserved {
+  position: relative;
+  display: block;
+  padding: 0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder.is-reserved .lab-catch-up-reserve { display: block; visibility: hidden; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder.is-reserved::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 0.44em, currentColor 0.44em 1em, transparent 1em 1.42em);
+  opacity: 0.08;
+}
+
+/* A folded part shows one line, so its placeholder is one line too. */
+.lab[data-chrome-version="v2"] .lab-catch-up-entry.is-folded[data-expanded="false"] .lab-catch-up-reserve {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lab[data-chrome-version="v2"] .lab-catch-up-entry[data-state="loading"] .lab-catch-up-placeholder i,
+  .lab[data-chrome-version="v2"] .lab-catch-up-entry[data-state="loading"] .lab-catch-up-placeholder.is-reserved::before {
+    animation: lab-catch-up-breathe 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes lab-catch-up-breathe {
+  50% { opacity: 0.14; }
+}
+
+/* Chapter notes: the same sheet, with Chat and Talk as round icon buttons
+   (the explanation card's tools) instead of a labelled button. */
+.lab[data-chrome-version="v2"] .lab-chapter-notes-foot { gap: 12px; }
+.lab[data-chrome-version="v2"] .lab-chapter-notes-tool {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(127, 116, 99, 0.35);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.lab[data-chrome-version="v2"] .lab-chapter-notes-tool svg { width: 18px; height: 18px; }
+.lab[data-chrome-version="v2"] .lab-chapter-notes-tool:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+/* AI allowance at zero: the balance line above the quiet Retry; a link to the
+   account sheet's top-ups when the reader offers them. */
+.lab[data-chrome-version="v2"] .lab-catch-up-balance {
+  display: block;
+  margin: 0 0 2px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.42;
+  text-align: left;
+}
+.lab[data-chrome-version="v2"] .lab-catch-up-balance.is-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.lab[data-chrome-version="v2"] .lab-catch-up-balance.is-link:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+/* An own book's recap is built a chapter at a time: a quiet count under the placeholder. */
+.lab[data-chrome-version="v2"] .lab-catch-up-progress {
+  margin: 6px 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--lab-v2-quiet);
+}
+
+/* The whole book's Primer (start actions, 9 Nov 2026): the library's introduction for the book, in the book face. */
+.lab-book-primer { font-family: 'EB Garamond', Georgia, serif; }
+.lab-book-primer-opening { margin: 0 0 14px; font-size: 17px; line-height: 1.45; }
+.lab-book-primer-parts { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 12px; }
+.lab-book-primer-parts h3, .lab-book-primer-head { margin: 0 0 3px; font: 600 14px/1.35 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+.lab-book-primer-parts p { margin: 0; font-size: 16px; line-height: 1.42; }
+.lab-book-primer-people { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 16px; line-height: 1.35; }
+.lab-book-primer-people strong { font-weight: 600; }
+.lab-book-primer-none { margin: 0; font: 15px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; opacity: .75; }

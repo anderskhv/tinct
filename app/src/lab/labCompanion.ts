@@ -1,11 +1,18 @@
 import { COMPANION_EFFORT_VOICE, COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
 import { nearbyParagraphWindow } from '../voice/context'
+import { authorshipNote, bookByline, type Authorship } from '../companion/authorship'
+import { LAB_COPY } from './labCopy'
 import type { LabReadingTrailEntry } from './labReadingTrail'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
+import { aiPrefsPromptLines } from '../aiSettings'
+import { aiPrefsFor } from './labAiPrefs'
 
 export interface LabTalkContext {
   bookTitle: string
   bookAuthor: string
+  /** An essay collection or anthology: who wrote the current chapter (companion/authorship.ts). */
+  authorship?: Authorship
   chapterLabel: string
   chapterNumber?: number
   editionLabel?: string
@@ -170,11 +177,15 @@ export function buildLabTalkInstructions(input: LabTalkContext): string {
     `If they want the book back, call resume_audiobook. One short goodbye is fine.`,
     `Speak in complete sentences. Warm, literary, and calm. Do not use the formula "it's not X, it's Y." Almost never use em dashes.`,
     `[Current state]`,
-    `Right now reading: ${input.bookTitle} by ${input.bookAuthor} — ${input.chapterLabel} (${edition}).`,
+    `Right now reading: ${bookByline(input.bookTitle, input.bookAuthor, input.authorship)} — ${input.chapterLabel} (${edition}).`,
     `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}. Treat later chapters as unknown.`,
   ]
+  const authorship = authorshipNote(input.bookAuthor, input.authorship)
+  if (authorship) lines.push(authorship)
 
   if (input.readingAngle) lines.push(`Reading angle: ${input.readingAngle}`)
+  // The reader's own instructions (AI settings), after the angle; Talk keeps its spoken length.
+  lines.push(...aiPrefsPromptLines(aiPrefsFor(null), { length: false }))
   if (current) lines.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
   if (nearby.length > 0) {
     lines.push(`Nearby paragraphs:\n${nearby.map(text => `- "${text}"`).join('\n')}`)
@@ -189,7 +200,8 @@ export function buildCompanionHopUserContent(input: LabTalkContext & { question:
   const nearby = nearbyParagraphWindow(input.paragraphs, idx)
   return [
     input.question,
-    `Book: ${input.bookTitle} by ${input.bookAuthor}`,
+    `Book: ${bookByline(input.bookTitle, input.bookAuthor, input.authorship)}`,
+    authorshipNote(input.bookAuthor, input.authorship),
     `Chapter: ${input.chapterLabel}`,
     `How far read: paragraph ${idx + 1} of ${input.paragraphs.length}`,
     nearby.length ? `Nearby text:\n${nearby.map(text => `- ${text}`).join('\n')}` : '',
@@ -284,8 +296,12 @@ export type AnthropicStreamResult = {
 /** A reader-facing failure, without raw provider messages or request contents. */
 export class LabChatError extends Error {
   constructor(public readonly type = 'interrupted') {
-    super(type === 'rate_limit_error'
-      ? 'Ask is busy. Please try again in a minute.'
+    super(type === 'allowance_used' || type === 'insufficient_balance'
+      ? 'Not enough AI credits for this request. Top up to continue.'
+      : type === AI_RESTING_ERROR_TYPE
+      ? LAB_COPY.aiResting
+      : type === 'rate_limit_error'
+      ? 'Chat is busy. Please try again in a minute.'
       : type === 'overloaded_error'
         ? 'The answer service is busy. Please try again shortly.'
         : type === 'authentication_error' || type === 'permission_error'
@@ -293,6 +309,21 @@ export class LabChatError extends Error {
           : 'The answer was interrupted. Please try again.')
     this.name = 'LabChatError'
   }
+}
+
+/** A daily ceiling or a provider limit: the calm "AI is resting" state. */
+export const AI_RESTING_ERROR_TYPE = 'ai_resting'
+
+export function isAiRestingError(error: unknown): boolean {
+  return error instanceof LabChatError && error.type === AI_RESTING_ERROR_TYPE
+}
+
+/** The structured error type of a failed companion response, else `http_<status>`. */
+export async function labChatErrorType(response: { status: number; json?: () => Promise<unknown> }): Promise<string> {
+  const data = await response.json?.().catch(() => null) as { error?: { type?: unknown } | string } | null
+  if (response.status === 402 && (data?.error === 'allowance_used' || (typeof data?.error === 'object' && data.error?.type === 'insufficient_balance'))) return 'allowance_used'
+  const type = data && typeof data.error === 'object' && data.error ? data.error.type : null
+  return type === AI_RESTING_ERROR_TYPE ? AI_RESTING_ERROR_TYPE : `http_${response.status}`
 }
 
 export function extractAnthropicSseDelta(line: string): string {
@@ -309,9 +340,20 @@ export function extractAnthropicSseDelta(line: string): string {
   return ''
 }
 
+/** The Worker's `tinct_status` SSE event: what the companion is looking up ("Reading Jeremiah 32…"). */
+export const TINCT_STATUS_EVENT = 'tinct_status'
+
+export interface AnthropicStreamOptions {
+  /** A lookup started; the text is a short reader-facing status line. Readers without it ignore the event. */
+  onStatus?: (text: string) => void
+  /** Saving a reader card requires an end turn; a token ceiling leaves a visible but incomplete draft. */
+  requireComplete?: boolean
+}
+
 export async function readAnthropicStream(
   response: { ok?: boolean; body?: ReadableStream<Uint8Array> | null; headers?: { get?: (name: string) => string | null }; json?: () => Promise<unknown> },
   onDelta?: (text: string) => void,
+  options: AnthropicStreamOptions = {},
 ): Promise<AnthropicStreamResult> {
   const contentType = response.headers?.get?.('content-type') || ''
   const body = response.body
@@ -333,9 +375,10 @@ export async function readAnthropicStream(
         const payload = line.trim().slice(5).trim()
         if (payload === '[DONE]') { finished = true; sawStop = true }
         else {
-          let event: { type?: string; error?: { type?: string } } | undefined
+          let event: { type?: string; error?: { type?: string }; text?: unknown } | undefined
           try { event = JSON.parse(payload) } catch { /* Ignore non-JSON SSE data. */ }
           if (event?.type === 'message_stop') { finished = true; sawStop = true }
+          if (event?.type === TINCT_STATUS_EVENT && typeof event.text === 'string' && event.text.trim()) options.onStatus?.(event.text.trim())
           if (event?.type === 'error') throw new LabChatError(event.error?.type)
         }
       }
@@ -370,9 +413,12 @@ export async function readAnthropicStream(
 export async function readAnthropicResponse(
   response: { ok?: boolean; body?: ReadableStream<Uint8Array> | null; headers?: { get?: (name: string) => string | null }; json?: () => Promise<unknown> },
   onDelta?: (text: string) => void,
+  options: AnthropicStreamOptions = {},
 ): Promise<string> {
-  const result = await readAnthropicStream(response, onDelta)
-  if (result.stopReason === 'error' || !result.sawStop || !result.text.trim()) throw result.error ?? new LabChatError()
+  const result = await readAnthropicStream(response, onDelta, options)
+  if (result.stopReason === 'error' || !result.sawStop || !result.text.trim()
+    || (options.requireComplete && result.stopReason != null && result.stopReason !== 'end_turn' && result.stopReason !== 'stop_sequence'))
+    throw result.error ?? new LabChatError()
   return result.text
 }
 
@@ -384,6 +430,7 @@ async function fetchLabCompanionHop(input: {
 }): Promise<{ ok?: boolean; body?: ReadableStream<Uint8Array> | null; headers?: { get?: (name: string) => string | null }; json?: () => Promise<unknown> }> {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
+    ...internalTrafficHeaders(),
   }
   if (input.authToken) headers.Authorization = `Bearer ${input.authToken}`
   return fetch(apiUrl(input.authToken ? '/api/chat' : '/api/lab-chat'), {

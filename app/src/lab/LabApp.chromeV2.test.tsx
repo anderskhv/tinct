@@ -3,11 +3,14 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { beforeAll, afterEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
+import { DEFAULT_LAB_PREFS, writeLabPrefs } from './labPrefs'
 import { LAB_TEE_CROSS, LAB_TEE_MORPH_FRAMES, LAB_TEE_REST } from './labSuperGlyph'
 import { labSuperMenuRows } from './labSuperMenu'
+const accountCards = vi.hoisted(() => ({ open: vi.fn(async (_options: { start?: string }) => true) }))
+vi.mock('../cards/openCards', async importOriginal => ({ ...await importOriginal<typeof import('../cards/openCards')>(), openAccountCards: accountCards.open }))
 
 // Transport geometry uses a synthetic Bible fixture; availability has its own regression.
 vi.mock('../data/audioAvailability', async importOriginal => ({ ...await importOriginal<typeof import('../data/audioAvailability')>(), isAudioHeld: () => false }))
@@ -19,6 +22,13 @@ vi.mock('./labNarration', async importOriginal => ({
   initialNarrationPilotInfo: () => ({ enabled:false, provider:'google', voices:[] }),
   fetchNarrationPilotInfo: async () => ({ enabled:false, provider:'google', voices:[] }),
 }))
+
+// Talk's session code and the account cards load on demand in the reader
+// (first use). Loaded here up front so a busy machine's first transform of
+// those modules is not counted against a waitFor below.
+beforeAll(async () => {
+  await import('../cards/openCards')
+})
 
 afterEach(() => {
   cleanup()
@@ -65,6 +75,9 @@ class FakeAudio {
 }
 
 function stubAudio() {
+  // The default Bible text (Berean Standard Bible) streams its narration and
+  // has no recording; the recorded-audio transport is exercised with the KJV recording.
+  writeLabPrefs({ ...DEFAULT_LAB_PREFS, audioEdition: 'kjv-en', audioFollowsPrimary: false }, 'phone')
   const audio = new FakeAudio()
   vi.stubGlobal('Audio', class { constructor() { return audio } })
   vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
@@ -98,20 +111,8 @@ describe('the chrome V2 flag', () => {
     expect(screen.getByTestId('lab-super')).toBeTruthy()
     unmount()
 
-    render(<LabApp pathname="/lab/reader" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/reader" source={fallbackLabSource()} authToken={null} />)
     expect(root().getAttribute('data-chrome-version')).toBe('v2')
-  })
-
-  it('leaves the reader on today’s chrome without the flag', () => {
-    renderPhone('')
-    expect(root().getAttribute('data-chrome-version')).toBeNull()
-    expect(root().getAttribute('data-transport')).toBeNull()
-    expect(root().getAttribute('data-super-menu')).toBeNull()
-    expect(screen.queryByTestId('lab-super')).toBeNull()
-    expect(screen.queryByTestId('lab-v2-play')).toBeNull()
-    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
-    // The gear is still the phone's only top-right control.
-    expect(screen.getByTestId('lab-gear')).toBeTruthy()
   })
 
   it('uses the tested voice experience by default with the new chrome', () => {
@@ -259,31 +260,57 @@ describe('the super-menu', () => {
     await waitFor(() => expect(screen.queryByTestId('lab-super-menu')).toBeNull())
   })
 
-  it('lists Chat, Talk, Library, Reading settings and Account — and no Play row', () => {
+  it('lists Chat · Talk, Catch me up, Notebook, Aa, Book settings, Audio settings, Library and Profile — and no Play row', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
-    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Book editions', 'Settings', 'Library', 'Account'])
+    // The fixture is the book's first chapter: Catch me up stays available.
+    expect(labels).toEqual(['Chat', 'Talk', 'Catch me up', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'AI settings', 'Library', 'Profile'])
+    expect(labels).not.toContain('Librarian')
+    // Chat and Talk are one row, each half a button with its own icon and name.
+    const pair = screen.getByTestId('lab-super-menu').querySelector('[data-row="conversation"]')!
+    expect([...pair.querySelectorAll('button')].map(button => button.getAttribute('data-testid'))).toEqual(['lab-super-row-chat', 'lab-super-row-talk'])
+    expect(screen.getByTestId('lab-super-row-chat').querySelector('svg[data-icon="chat"]')).toBeTruthy()
+    // Aa wears a small and a large A, so the row reads "Aa" once.
+    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-icon svg[data-icon="text-size"]')).toBeTruthy()
+    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-label')?.textContent).toBe('Appearance')
+    // Audio settings wears a speaker, not Talk's bars.
+    expect(screen.getByTestId('lab-super-row-audio').querySelector('.lab-super-row-icon svg path')).toBeTruthy()
+    // Talk wears the audio bar's "ılı" bars (TalkIcon), not a microphone.
+    const talkGlyph = screen.getByTestId('lab-super-row-talk').querySelector('svg')!
+    expect(talkGlyph.querySelectorAll('rect')).toHaveLength(3)
+    expect(talkGlyph.querySelector('path')).toBeNull()
     expect(labels).not.toContain('Play')
     // No section headers and no sub-labels: a row is an icon and a word.
     expect(screen.getByTestId('lab-super-menu').querySelectorAll('h1, h2, h3, h4')).toHaveLength(0)
   })
 
+  it('AI settings is a settings row with a chevron, and opens the AI settings dialog over the reader (11 Nov 2026)', async () => {
+    renderPhone()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    const row = screen.getByTestId('lab-super-row-ai')
+    expect(row.querySelector('svg[data-icon="ai-settings"]')).toBeTruthy()
+    fireEvent.click(row)
+    await waitFor(() => expect(document.querySelector('[data-testid="ai-settings-host"]')).toBeTruthy())
+    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+    fireEvent.keyDown(window, { key: 'Escape' })
+  })
+
   it('has no Compare row, with or without a compare edition', () => {
     expect(labSuperMenuRows({ phone: true }).map(row => row.id))
-      .toEqual(['chat', 'talk', 'summarize', 'editions', 'settings', 'library', 'account'])
+      .toEqual(['conversation', 'catchup', 'notebook', 'text', 'editions', 'audio', 'ai', 'library', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
   })
 
-  it('keeps Compare out of the menu once a second version is picked; the switch is in Reading settings', () => {
+  it('keeps Compare off the phone even with a stored compare choice: no row, no switch', () => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
     render(<LabApp
       pathname="/lab/phone"
-      search="?chrome=v2"
+     
       authToken={null}
       source={{
         ...fallbackLabSource(),
@@ -294,22 +321,159 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
-    expect(screen.getByTestId('lab-v2-show-compare').getAttribute('aria-checked')).toBe('false')
+    expect(screen.queryByTestId('lab-v2-show-compare')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
   })
 
-  it('opens the reading settings sheet from its row', () => {
+  it('opens Aa (themes, size, Advanced), Book settings (editions) and Audio settings (voice, speed) from their rows', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
-    expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
+    const sheet = screen.getByTestId('lab-v2-sheet')
+    expect(sheet.getAttribute('data-layer')).toBe('reading')
+    expect(sheet.getAttribute('aria-label')).toBe('Appearance')
+    expect(screen.getByTestId('lab-v2-themes')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-size')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-advanced')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-advanced'))
+    expect(screen.getByTestId('lab-v2-sheet-back').textContent).toBe('‹ Appearance')
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-confirm'))
+
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+    const book = screen.getByTestId('lab-v2-sheet')
+    expect(book.getAttribute('data-layer')).toBe('editions')
+    expect(book.getAttribute('aria-label')).toBe('Book settings')
+    expect(screen.getByTestId('lab-v2-main-edition')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-audio'))
+    const audio = screen.getByTestId('lab-v2-sheet')
+    expect(audio.getAttribute('data-layer')).toBe('audio')
+    expect(audio.getAttribute('aria-label')).toBe('Audio settings')
+    expect(screen.getByTestId('lab-v2-audio-edition')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-narration-voice')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-audio-speed')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
   })
 
-  it('opens Account on the same sheet rather than leaving the book', () => {
+  it('the desktop Notebook uses an accessible icon and opens notes without moving the passage', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    const notebook = screen.getByTestId('lab-header-notebook')
+    expect(notebook.getAttribute('aria-label')).toBe('Notebook')
+    expect(notebook.textContent).toBe('')
+    expect(notebook.querySelector('svg')).toBeTruthy()
+    fireEvent.click(notebook)
+    expect(screen.getByTestId('contents-notebook-all')).toBeTruthy()
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+  })
+
+  it('the phone’s Notebook opens the Contents’ Notebook list (cards, highlights and notes); its close goes straight back to the book', () => {
     renderPhone()
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-notebook'))
+    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+    expect(screen.getByTestId('lab-toc')).toBeTruthy()
+    expect(screen.getByLabelText('Notebook')).toBeTruthy()
+    expect(screen.getByTestId('contents-notebook-all').getAttribute('aria-pressed')).toBe('true')
+    fireEvent.click(screen.getByLabelText('Close overlay'))
+    expect(screen.queryByTestId('lab-toc')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+    // The chapter's own way into Contents still opens the tree, not the notebook.
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    expect(screen.getByTestId('lab-toc')).toBeTruthy()
+    expect(screen.queryByLabelText('Notebook')).toBeNull()
+  })
+
+  it('the desktop opens the same three groups, with the same names and contents, from its t menu', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const open = (row: string) => {
+      fireEvent.click(screen.getByTestId('lab-super'))
+      fireEvent.click(screen.getByTestId(`lab-super-row-${row}`))
+      const sheet = screen.getByTestId('lab-v2-sheet')
+      return { layer: sheet.getAttribute('data-layer'), label: sheet.getAttribute('aria-label'), themes: !!screen.queryByTestId('lab-v2-themes'), main: !!screen.queryByTestId('lab-v2-main-edition'), voice: !!screen.queryByTestId('lab-v2-narration-voice') }
+    }
+    expect(open('text')).toEqual({ layer: 'reading', label: 'Appearance', themes: true, main: false, voice: false })
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+    expect(open('editions')).toEqual({ layer: 'editions', label: 'Book settings', themes: false, main: true, voice: false })
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+    expect(open('audio')).toEqual({ layer: 'audio', label: 'Audio settings', themes: false, main: false, voice: true })
+  })
+
+  it('keeps Catch me up on a book\u2019s first chapter on the phone; the desktop menu is unchanged', () => {
+    renderPhone()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    expect(screen.getByTestId('lab-super-row-catchup')).toBeTruthy()
+    // No Summarize (Anders, 10 Nov 2026): the start and chapter pills hold Summary.
+    expect(screen.queryByTestId('lab-super-row-summarize')).toBeNull()
+    cleanup()
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    expect([...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')].map(node => node.textContent))
+      .toEqual(['Chat', 'Talk', 'Catch me up', 'Appearance', 'Book settings', 'Audio settings', 'AI settings', 'Profile'])
+  })
+
+  it('puts Catch me up right under Chat · Talk, with its timeline icon', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    const rows = [...screen.getByTestId('lab-super-menu').querySelectorAll('[data-row]')].map(node => node.getAttribute('data-row'))
+    expect(rows.indexOf('catchup')).toBe(rows.indexOf('conversation') + 1)
+    const icon = screen.getByTestId('lab-super-row-catchup').querySelector('svg')!
+    expect(icon.getAttribute('viewBox')).toBe('0 0 24 24')
+    expect(icon.getAttribute('stroke-width')).toBe('1.6')
+    expect(icon.querySelectorAll('circle')).toHaveLength(3)
+    expect(icon.querySelector('circle[r="2.2"]')).toBeTruthy()
+    expect(screen.getByTestId('lab-super-row-catchup').textContent).toBe('Catch me up')
+  })
+
+  it('opens Catch me up as its own sheet; a failing AI shows a quiet retry and closing leaves the page where it was', async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/api/lab-recap') || url.includes('/api/lab-catch-up')) return { ok: false, status: 502, json: async () => ({ error: 'x' }) }
+      return { ok: false, status: 404, json: async () => ({}) }
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    // The phone hides Catch me up on a book's first chapter; the sheet is the same on the desktop.
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const before = { chapter: root().getAttribute('data-chapter'), header: screen.getByTestId('lab-super').closest('.lab')?.querySelector('.lab-header')?.textContent }
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-catchup'))
+    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+    expect(screen.getByTestId('lab-catch-up')).toBeTruthy()
+    expect(root().getAttribute('data-super-sheet')).toBe('catchup')
+    // The settings sheet does not draw over it.
+    expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
+    expect(screen.getByTestId('lab-catch-up-here').textContent).toBe('You are here')
+    // The fixture opens on the first chapter: nothing before it, and the current chapter is never recapped.
+    await new Promise(resolve => setTimeout(resolve, 50))
+    expect(screen.queryAllByTestId('lab-catch-up-entry')).toHaveLength(0)
+    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-recap') || String(call[0]).includes('/api/lab-catch-up'))).toBe(false)
+    fireEvent.click(screen.getByTestId('lab-catch-up-close'))
+    expect(screen.queryByTestId('lab-catch-up')).toBeNull()
+    expect(root().getAttribute('data-super-sheet')).toBe('closed')
+    expect(root().getAttribute('data-chapter')).toBe(before.chapter)
+    expect(screen.getByTestId('lab-super').closest('.lab')?.querySelector('.lab-header')?.textContent).toBe(before.header)
+  })
+
+  it('opens the account cards over the book (Profile) rather than leaving it', async () => {
+    renderPhone()
+    accountCards.open.mockClear()
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-account'))
-    expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('account')
+    expect(screen.getByTestId('lab-root').getAttribute('data-super-sheet')).toBe('account')
+    await waitFor(() => expect(accountCards.open).toHaveBeenCalledTimes(1))
+    expect(accountCards.open.mock.calls[0][0]).toMatchObject({ start: 'you' })
+    expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
   })
 })
 
@@ -330,15 +494,10 @@ describe('the foot', () => {
     expect(screen.getByTestId('lab-chapter-progress')).toBeTruthy()
   })
 
-  it('keeps the bar without the flag', () => {
-    renderPhone('')
-    expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
-    expect(screen.getByTestId('lab-phone-chat')).toBeTruthy()
-  })
 })
 
 describe('Escape on the phone', () => {
-  it('closes the Chat sheet, leaves the menu shut, and keeps the draft', () => {
+  it('closes the Chat sheet, leaves the menu shut, and discards the draft', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-chat'))
@@ -352,16 +511,16 @@ describe('Escape on the phone', () => {
     expect(root().getAttribute('data-super-menu')).toBe('closed')
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
 
-    // The half-typed line is still there when Chat is opened again.
+    // Leaving Chat discards an unsent line.
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-chat'))
-    expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('half a thought')
+    expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
   })
 })
 
 describe('the desktop', () => {
   it('gets the same two controls, and the same menu and sheet behind them', () => {
-    render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     expect(root().getAttribute('data-chrome-version')).toBe('v2')
     expect(screen.getByTestId('lab-v2-play')).toBeTruthy()
     expect(screen.getByTestId('lab-super')).toBeTruthy()
@@ -373,25 +532,31 @@ describe('the desktop', () => {
 
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.getByTestId('lab-super-menu')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
   })
 
+  it('goes back to the library from an icon-only arrow; the menu has no Library row', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const back = screen.getByTestId('lab-library-back')
+    expect(back.getAttribute('aria-label')).toBe('Back to library')
+    expect(back.textContent).toBe('')
+    fireEvent.click(screen.getByTestId('lab-super'))
+    expect(screen.queryByTestId('lab-super-row-library')).toBeNull()
+  })
+
+  it('keeps Library in the phone menu and draws no arrow there', () => {
+    renderPhone()
+    expect(screen.queryByTestId('lab-library-back')).toBeNull()
+  })
+
   it('closes the Chat panel on Escape, like the menu and the sheet', () => {
-    render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-chat'))
     expect(root().getAttribute('data-desktop-panel')).toBe('chat')
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(root().getAttribute('data-desktop-panel')).toBe('none')
-  })
-
-  it('keeps today\u2019s desktop chrome without the flag', () => {
-    render(<LabApp pathname="/lab/desktop" search="" source={fallbackLabSource()} authToken={null} />)
-    expect(root().getAttribute('data-chrome-version')).toBeNull()
-    expect(screen.getByTestId('lab-gear')).toBeTruthy()
-    expect(screen.getByTestId('lab-desktop-action-rail')).toBeTruthy()
-    expect(screen.queryByTestId('lab-super')).toBeNull()
   })
 })
 
@@ -503,7 +668,7 @@ describe('the first view', () => {
     )
     // Auth resolving late used to flip the one-shot identity from device to
     // account and replay the spin. The latch is per mount now.
-    view.rerender(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken="late-token" />)
+    view.rerender(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken="late-token" />)
     await new Promise(done => setTimeout(done, 700))
     expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(false)
   })
@@ -537,6 +702,15 @@ describe('the first view', () => {
 describe('the V2 surface', () => {
   const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
 
+  it('gives iOS a solid top-edge header without taking it out of reader flow', () => {
+    const header = css.match(/\.lab\[data-chrome-version="v2"\]:is\(\.is-phone, \.has-phone-chrome\) \.lab-header\s*\{([^}]+)\}/)?.[1]
+    expect(header).toBeDefined()
+    expect(header).toMatch(/position:\s*sticky/)
+    expect(header).toMatch(/top:\s*0/)
+    expect(header).toMatch(/background:\s*var\(--lab-paper\)/)
+    expect(header).not.toMatch(/(?:height|padding|filter):/)
+  })
+
   it('blurs in the panel and only dims the page', () => {
     expect(css).toContain('--lab-v2-panel-blur: 16px')
     expect(css).toContain('--lab-v2-panel-fill: 0.86')
@@ -549,7 +723,7 @@ describe('the V2 surface', () => {
     expect(css).not.toMatch(/lab-page-wrap[^{]*\{[^}]*backdrop-filter/)
   })
 
-  it('keeps every V2 rule behind the flag', () => {
+  it('keeps every chrome rule scoped to the chrome attribute', () => {
     const v2 = css.slice(css.indexOf('Reader chrome V2'))
     const selectors = v2
       .split('\n')
@@ -577,12 +751,12 @@ describe('the Margins preference on the desktop leaves', () => {
 
   function openAdvanced() {
     fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     fireEvent.click(screen.getByTestId('lab-v2-advanced'))
   }
 
   it('carries the margins choice to the desktop leaves as a scale, not only as a rem figure', () => {
-    render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     openAdvanced()
     // The rem figure the phone reads, and the scale the desktop leaves read.
     for (const [rem, scale] of [['1.085rem', '0.7'], ['2.2475rem', '1.45'], ['1.55rem', '1']] as const) {
@@ -601,4 +775,37 @@ describe('the Margins preference on the desktop leaves', () => {
     expect(css).toMatch(/lab-page-wrap > \.lab-passage \{\s*padding: var\(--desktop-pad-top\) var\(--desktop-pad-x\)/)
     expect(css).toMatch(/lab-desktop-measure \{\s*\n?\s*position: absolute; inset: var\(--desktop-pad-top\) var\(--desktop-pad-x\)/)
   })
+})
+
+it('opens desktop menu Chat in the existing focused companion and discards its draft', async () => {
+  vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false, json: async () => ({}) })))
+  render(<LabApp pathname="/reader" search="?sharedReader=1&view=margin" source={fallbackLabSource()} authToken={null} sharedReader />)
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  const field = await screen.findByTestId('lab-ask-input')
+  expect(field.closest('.lab-ask')).toBeTruthy()
+  expect(document.activeElement).toBe(field)
+  expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('chat')
+  fireEvent.change(field, { target: { value: 'An unsent current-position question.' } })
+  fireEvent.keyDown(field, { key: 'Escape' })
+  fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
+})
+
+
+it('uses the compact Explain card surface for mobile Chat and discards its draft when closed', () => {
+  renderPhone('?chrome=v2', { marginPhone: true, sharedReader: true })
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  const card = document.querySelector('.lab-pcard[data-kind="chat"]')!
+  expect(card).toBeTruthy()
+  expect(card.className).not.toContain('is-tall')
+  expect(card.querySelector('.lab-pcard-label')?.textContent).toBe('Chat')
+  expect(screen.getByTestId('lab-ask-input').getAttribute('placeholder')).toMatch(/^Ask about /)
+  fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'My unfinished question' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Close chat' }))
+  expect(document.querySelector('.lab-pcard[data-kind="chat"]')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
 })

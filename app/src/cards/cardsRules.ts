@@ -1,0 +1,136 @@
+/**
+ * The account cards' rules, on the existing friends system (Anders,
+ * 9 October 2026). Pure.
+ *
+ * - Settings: the Leaderboard switch is disabled while "Who can see you" is
+ *   Only me or "Show my reading time" is off (the board shows time), and the
+ *   reader is taken off the board when either happens.
+ * - Follow buttons: Friends / Requested (a state, outlined) and Follow back /
+ *   Follow (an action, black). A one-way follow is a request until it is
+ *   followed back (Anders, 19 Oct 2026; it said Following before).
+ * - A reader's profile shows what the server sends: a Friends-only profile
+ *   seen by a non-friend (`limited`) is the header only (name and picture).
+ */
+import type { BoardEntry, OwnProfile, ProfilePageData } from './cardsApi'
+import type { Relation } from '../social/profileRules'
+import { CARDS_COPY } from './cardsCopy'
+import { durationShort } from './cardsFormat'
+
+export type PrivacyFields = Pick<OwnProfile, 'visibility' | 'showReading' | 'showTime' | 'onLeaderboard'>
+
+export function leaderboardAllowed(profile: Pick<OwnProfile, 'visibility' | 'showTime'>): boolean {
+  return profile.visibility !== 'only_me' && profile.showTime
+}
+
+/**
+ * The line under the leaderboard when friends cannot see the reader there
+ * (19 Oct 2026), with the reason and where to fix it; null otherwise. Only the
+ * reader's own settings give a reason: anything else that keeps them off a
+ * board (the Everyone board's own rules) shows no line.
+ */
+export function boardHiddenLine(meShown: boolean | undefined, profile: Pick<OwnProfile, 'visibility' | 'showTime' | 'onLeaderboard'> | null | undefined): string | null {
+  if (meShown !== false || !profile) return null
+  if (profile.visibility === 'only_me') return CARDS_COPY.hiddenOnlyMe
+  if (!profile.showTime) return CARDS_COPY.hiddenTime
+  if (!profile.onLeaderboard) return CARDS_COPY.hiddenLeaderboard
+  return null
+}
+
+/** The settings after one change, and the patch to post at once (POST /api/profile). */
+export function privacyChange(current: PrivacyFields, change: Partial<PrivacyFields>): { next: PrivacyFields; patch: Partial<PrivacyFields> } {
+  const merged = { ...current, ...change }
+  // The switch is disabled: turning it on posts nothing.
+  if (change.onLeaderboard && !leaderboardAllowed(merged)) return { next: current, patch: {} }
+  const patch: Partial<PrivacyFields> = { ...change }
+  if (!leaderboardAllowed(merged) && merged.onLeaderboard) {
+    patch.onLeaderboard = false
+    merged.onLeaderboard = false
+  }
+  return { next: merged, patch }
+}
+
+export type FollowButton = { label: string; style: 'fill' | 'line'; action: 'follow' | 'unfollow' | null }
+
+/** The Friends page's follow words (friendsPage.ts followLabel, profilePageView followButtonHtml). */
+export function followButton(relation: Relation | null): FollowButton | null {
+  if (relation === 'self' || relation === 'blocked') return null
+  if (relation === 'friend') return { label: 'Friends', style: 'line', action: 'unfollow' }
+  // A one-way follow is a request until they follow back (Anders, 19 Oct 2026).
+  if (relation === 'follower') return { label: 'Requested', style: 'line', action: 'unfollow' }
+  if (relation === 'followed') return { label: 'Follow back', style: 'fill', action: 'follow' }
+  return { label: 'Follow', style: 'fill', action: 'follow' }
+}
+
+/** The relation after a follow (true) or unfollow (false), shown while the answer is on its way. */
+export function relationAfter(relation: Relation | null, follow: boolean): Relation {
+  const followsYou = relation === 'friend' || relation === 'followed'
+  if (follow) return followsYou ? 'friend' : 'follower'
+  return followsYou ? 'followed' : 'stranger'
+}
+
+/**
+ * Following you's rows: readers who follow you (a request, or a friend). The Worker already leaves out blocked
+ * readers and removed followers; a row that still says otherwise (a stale answer) is never listed (16 Nov 2026).
+ */
+export function followingYouRows<T extends { relation: Relation }>(rows: readonly T[] | null | undefined): T[] {
+  return (rows ?? []).filter(row => row.relation === 'followed' || row.relation === 'friend')
+}
+
+/** The Find readers badge: readers who follow you whom you do not follow back. */
+export function followBackCount(rows: Array<{ relation: Relation }>): number {
+  return rows.filter(row => row.relation === 'followed').length
+}
+
+/** "Ch. 9 of 26" -> 9/26; null when the text carries no chapter progress. */
+export function chapterFraction(progress: string | null | undefined): number | null {
+  const match = /Ch\.\s*(\d+)\s+of\s+(\d+)/.exec(String(progress || ''))
+  if (!match) return null
+  const of = Number(match[2])
+  return of > 0 ? Math.min(1, Number(match[1]) / of) : null
+}
+
+export interface ReaderCardView {
+  /** Header only: picture, name and the button. */
+  limited: boolean
+  facts: Array<{ value: string; label: string }>
+  readingNow: ProfilePageData['readingNow']
+  finished: ProfilePageData['finished']
+}
+
+/** What a reader's profile card shows, from the server's view of it. */
+export function readerCardView(data: ProfilePageData): ReaderCardView {
+  if (data.limited) return { limited: true, facts: [], readingNow: null, finished: null }
+  const facts: ReaderCardView['facts'] = []
+  // Written as the Leaderboard writes the same reader's row ("12 h 34"), when the Worker sends the seconds.
+  const time = (seconds: number | undefined, text: string) => (typeof seconds === 'number' && Number.isFinite(seconds) ? durationShort(seconds) : text)
+  if (data.time) facts.push({ value: time(data.time.last7Seconds, data.time.last7), label: 'last 7 days' }, { value: time(data.time.yearSeconds, data.time.year), label: 'this year' })
+  if (data.finished) facts.push({ value: String(data.finished.length), label: 'finished' })
+  return {
+    limited: false,
+    facts,
+    readingNow: data.readingNow?.length ? data.readingNow : null,
+    finished: data.finished?.length ? data.finished : null,
+  }
+}
+
+/** A folded Leaderboard shows this many rows first. */
+export const BOARD_TOP = 5
+
+/**
+ * The Leaderboard's rows (Anders, 17 Nov 2026): readers with no time in the window are left out, except the viewer,
+ * whose own row always shows. Folded (each time the board opens): the top five, then, when the viewer ranks lower and
+ * readers between are hidden, a gap ("···") and the viewer's row at their real rank. `toggle` is the row under the
+ * list: Show all while rows are hidden, Show top 5 when unfolded, none when every row already shows.
+ */
+export function boardRows(entries: BoardEntry[], expanded: boolean): { rows: Array<BoardEntry | 'gap'>; toggle: 'expand' | 'collapse' | null } {
+  const shown = entries.filter(entry => entry.me || entry.seconds > 0)
+  const mine = shown.findIndex(entry => entry.me)
+  const folded: Array<BoardEntry | 'gap'> = shown.slice(0, BOARD_TOP)
+  if (mine >= BOARD_TOP) {
+    if (mine > BOARD_TOP) folded.push('gap')
+    folded.push(shown[mine])
+  }
+  const hidden = shown.length - folded.filter(item => item !== 'gap').length
+  if (!hidden) return { rows: shown, toggle: null }
+  return expanded ? { rows: shown, toggle: 'collapse' } : { rows: folded, toggle: 'expand' }
+}

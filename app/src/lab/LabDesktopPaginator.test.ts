@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { comparisonSegment, measuredDesktopPages } from './LabDesktopPaginator'
+import { comparisonSegment, measuredDesktopPages, measuredDesktopPageSteps } from './LabDesktopPaginator'
 import { chapterPageSegments } from './labHearing'
 
 describe('measured desktop leaves', () => {
@@ -15,5 +15,54 @@ describe('measured desktop leaves', () => {
     expect(segments.map(s => comparisonSegment(s, primary, target))).toEqual([
       { paragraphIndex: 0, from: 0, to: 4 }, { paragraphIndex: 0, from: 4, to: 9 }, { paragraphIndex: 0, from: 9, to: 12 },
     ])
+  })
+})
+
+describe('stray last lines', () => {
+  it('never opens a page with only the last word or two of a paragraph', () => {
+    const text = Array.from({ length: 30 }, (_, i) => `w${i}`).join(' ')
+    const fits = (segments: { from: number; to: number }[]) => segments.reduce((n, s) => n + s.to - s.from, 0) <= 28
+    const pages = measuredDesktopPages([30], fits, undefined, Infinity, [text])
+    expect(pages.map(p => chapterPageSegments(p).map(s => [s.from, s.to]))).toEqual([[[0, 26]], [[26, 30]]])
+  })
+})
+
+describe('stray last lines carry their sentence', () => {
+  it('moves the break back to the start of the closing sentence when it is near', () => {
+    // "... him. And Tobiah sent letters to intimidate me." — 30 words, the last sentence 7.
+    const words = Array.from({ length: 23 }, (_, i) => `w${i}`)
+    words[22] = 'him.'
+    const text = [...words, 'And', 'Tobiah', 'sent', 'letters', 'to', 'intimidate', 'me.'].join(' ')
+    const fits = (segments: { from: number; to: number }[]) => segments.reduce((n, s) => n + s.to - s.from, 0) <= 27
+    const pages = measuredDesktopPages([30], fits, undefined, Infinity, [text])
+    expect(pages.map(p => chapterPageSegments(p).map(s => [s.from, s.to]))).toEqual([[[0, 23]], [[23, 30]]])
+  })
+})
+
+describe('measuring a chapter a page at a time', () => {
+  const lengths = [13, 70, 4, 16]
+  const fits = (segments: { from: number; to: number }[], first: boolean) => segments.reduce((n, s) => n + s.to - s.from, 0) <= (first ? 20 : 30)
+
+  it('pauses after each page it closes and returns the same map as measuring in one go', () => {
+    const steps = measuredDesktopPageSteps(lengths, fits)
+    const closed: number[] = []
+    let step = steps.next()
+    while (!step.done) { closed.push(step.value); step = steps.next() }
+    expect(step.value).toEqual(measuredDesktopPages(lengths, fits))
+    // One pause per closed page, in order: a caller can stop between any two.
+    expect(closed).toEqual([1, 2, 3])
+    expect(step.value).toHaveLength(4)
+  })
+
+  it('keeps the page limit and a mid-chapter start', () => {
+    const drain = (generator: ReturnType<typeof measuredDesktopPageSteps>) => {
+      let step = generator.next()
+      while (!step.done) step = generator.next()
+      return step.value
+    }
+    expect(drain(measuredDesktopPageSteps(lengths, fits, undefined, 2))).toEqual(measuredDesktopPages(lengths, fits, undefined, 2))
+    const start = { paragraphIndex: 1, wordIndex: 40 }
+    expect(drain(measuredDesktopPageSteps(lengths, fits, undefined, Infinity, undefined, start)))
+      .toEqual(measuredDesktopPages(lengths, fits, undefined, Infinity, undefined, start))
   })
 })

@@ -1,0 +1,69 @@
+{
+  "bundle": "/tmp/tinct-reader-D2cdKeLS",
+  "entryBundle": "index-D2cdKeLS.js",
+  "origin": "loopback",
+  "paint": "next rAF after visible DOM",
+  "cache": "HTML no-store; hashed assets immutable; tagged scripts one day; other files revalidate via ETag; text gzip >1 KiB; cold first navigation, warmed static cache second navigation in same fresh context",
+  "ownSource": "byte-identical owner-bound IndexedDB record seeded before cold navigation",
+  "fixtures": {
+    "own-epub": {
+      "sizeBytes": 13952,
+      "sha256": "71312f0154037ed86156da246ea317070286f819f2498f29928a124b80c16121",
+      "description": "one synthetic chapter, 60 paragraphs"
+    },
+    "own-pdf": {
+      "sizeBytes": 9429,
+      "sha256": "8b8dce895b1acbda42c7ff6410ca691283bd1dd24b0b29edebead274ed7eabf4",
+      "description": "week3_notes_final-v2.pdf original page and text layer"
+    }
+  },
+  "profiles": {
+    "desktop": "1440x900",
+    "slow": "390x844, Chromium 4x CPU, 60ms RTT, 9Mbps down"
+  },
+  "targets": {
+    "desktopFirstText": 1500,
+    "slowFirstText": 3000,
+    "selection": 100,
+    "card": 150
+  },
+  "results": [
+    {
+      "bookId": "own-pdf",
+      "profile": "desktop",
+      "index": 0,
+      "coldFirstText": 303,
+      "coldFileDownloads": 0,
+      "warmFileDownloads": 0,
+      "firstText": 145,
+      "selection": 35,
+      "card": 31,
+      "format": "original-pdf"
+    },
+    {
+      "bookId": "own-pdf",
+      "profile": "desktop",
+      "index": 1,
+      "coldFirstText": 220,
+      "coldFileDownloads": 0,
+      "warmFileDownloads": 0,
+      "firstText": 144,
+      "selection": 36,
+      "card": 32,
+      "format": "original-pdf"
+    },
+    {
+      "bookId": "own-pdf",
+      "profile": "desktop",
+      "index": 2,
+      "coldFirstText": 202,
+      "coldFileDownloads": 0,
+      "warmFileDownloads": 0,
+      "firstText": 143,
+      "selection": 34,
+      "card": 32,
+      "format": "original-pdf"
+    }
+  ],
+  "failures": []
+}

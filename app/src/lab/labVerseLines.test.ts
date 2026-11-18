@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
 import {
+  registerNewlineVerseLines,
   registerVerseLines,
   resetVerseLines,
   verseLineRanges,
@@ -142,5 +143,39 @@ describe('Hamlet prose', () => {
     expect(sidecar.chapters[String(chapter.number)]?.[String(index)]).toBeUndefined()
     registerVerseLines(chapter.paragraphs, sidecar.chapters[String(chapter.number)])
     expect(verseLineStarts(text)).toBeUndefined()
+  })
+})
+
+describe('verse editions lineated by their own newlines', () => {
+  afterEach(() => resetVerseLines())
+
+  it('starts a line at the word after each newline, without touching the text', () => {
+    const text = 'The man for wisdom’s various arts renown’d,\nLong exercised in woes, O Muse! resound;\nWho, when his arms'
+    registerNewlineVerseLines([text])
+    expect([...verseLineStarts(text)!]).toEqual([7, 14])
+    expect(verseLineRanges(text, 0, 18)).toEqual([[0, 7], [7, 14], [14, 18]])
+    expect(tokenizeHearingWords(text)).toHaveLength(18)
+  })
+
+  it('leaves a paragraph without newlines as prose', () => {
+    const text = 'Telemachus in the assembly of the lords of Ithaca.'
+    registerNewlineVerseLines([text])
+    expect(verseLineStarts(text)).toBeUndefined()
+  })
+
+  it('keeps a long-lined prose argument flowing', () => {
+    const text = `${'Telemachus with Pisistratus arriving at Sparta, is hospitably received by Menelaus. '.repeat(3)}\nIn the meantime the suitors consult to destroy Telemachus.`
+    registerNewlineVerseLines([text])
+    expect(verseLineStarts(text)).toBeUndefined()
+  })
+
+  it('lineates every Pope verse paragraph line for line', () => {
+    const chapter = JSON.parse(readFileSync(resolve(__dirname, '../../public/data/editions-chapters/odyssey-verse-en/ch0001.json'), 'utf8')) as { paragraphs: string[] }
+    registerNewlineVerseLines(chapter.paragraphs)
+    expect(verseLineStarts(chapter.paragraphs[0])).toBeUndefined()
+    for (const text of chapter.paragraphs.slice(1).filter(p => p.includes('\n'))) {
+      const lines = text.split('\n').filter(line => line.trim()).length
+      expect(verseLineStarts(text)!.size + 1).toBe(lines)
+    }
   })
 })

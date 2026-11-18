@@ -4,11 +4,13 @@
 // transport is stubbed: getUserMedia hangs or the token route fails, so no
 // provider session is ever opened here.
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { afterEach, expect, it, vi } from 'vitest'
+import { beforeAll, afterEach, expect, it, vi } from 'vitest'
 import type { useVoiceSession } from '../hooks/useVoiceSession'
 import { GROK_VOICE_INSTRUCTIONS } from '../voice/grokConfig'
 import { LabApp } from './LabApp'
 import { fallbackLabSource } from './labSource'
+const accountCards = vi.hoisted(() => ({ open: vi.fn(async (_options: { start?: string }) => true) }))
+vi.mock('../cards/openCards', async importOriginal => ({ ...await importOriginal<typeof import('../cards/openCards')>(), openAccountCards: accountCards.open }))
 
 const captured = vi.hoisted(() => ({ options: null as Parameters<typeof useVoiceSession>[0] | null }))
 vi.mock('../hooks/useVoiceSession', async importOriginal => {
@@ -19,6 +21,14 @@ vi.mock('../hooks/useVoiceSession', async importOriginal => {
   } }
 })
 
+// Talk's session code and the account cards load on demand in the reader
+// (first use). Loaded here up front so a busy machine's first transform of
+// those modules is not counted against a waitFor below.
+beforeAll(async () => {
+  await import('../voice/GrokVoiceSessionController')
+  await import('../cards/openCards')
+})
+
 afterEach(() => {
   cleanup()
   vi.unstubAllGlobals()
@@ -26,7 +36,7 @@ afterEach(() => {
 })
 
 function openTalk(authToken: string | null = null) {
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken={authToken} />)
+  render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={authToken} />)
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-talk'))
 }
@@ -34,7 +44,7 @@ function openTalk(authToken: string | null = null) {
 it('lets a direct voice resume command finish before closing the call successfully', async () => {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('{}', { status: 404 })))
   vi.stubGlobal('navigator', { ...navigator, mediaDevices: { getUserMedia: () => new Promise(() => {}) } })
-  openTalk()
+  openTalk('reader-token')
   await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
 
   // A transcript is evidence of what was said, not a second command handler.
@@ -66,8 +76,8 @@ it('keeps an account rejection visible after the call closes, without an audio b
   expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
   expect(stop).toHaveBeenCalled()
   fireEvent.click(screen.getByRole('button', { name: 'View account' }))
-  expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('account')
-  fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+  expect(screen.getByTestId('lab-root').getAttribute('data-super-sheet')).toBe('account')
+  await waitFor(() => expect(accountCards.open).toHaveBeenCalled())
   fireEvent.click(screen.getByRole('button', { name: 'Dismiss message' }))
   expect(screen.queryByTestId('lab-voice-notice')).toBeNull()
 })
@@ -89,7 +99,7 @@ it('persists research sources as clickable links beside the voice answer', async
   vi.stubGlobal('fetch', vi.fn(async input => String(input).includes('/voice-research')
     ? Response.json({ ok: true, notes: 'A sourced note.', sources: [{ title: 'Sermon archive', url: 'https://gospelinlife.com/example' }] })
     : new Response('{}', { status: 404 })))
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken="test-token" />)
+  render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken="test-token" />)
   act(() => captured.options?.appendLocalMessage({ id: 'question', role: 'user', content: 'Has Keller commented?', timestamp: Date.now(), bookId: 'bible', source: 'voice' }))
   await act(async () => { const result = await captured.options?.onApplicationTool?.('search_reading_sources', { query: 'Tim Keller Genesis 1' }, 'research'); expect(result?.responseInstructions).toContain('Do not announce the lookup or the added links') })
   const answer = { id: 'answer', role: 'assistant' as const, content: 'Keller discusses creation.', timestamp: Date.now(), bookId: 'bible', source: 'voice' as const }
@@ -115,7 +125,7 @@ it('also closes voice without starting audio when the model uses the open-reader
 
 it('gives Talk the Grok contract: reference data apart from the prompt, and the research, passage and reader controls', () => {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('{}', { status: 404 })))
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+  render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
   const options = captured.options!
   // The reader never replaces the Tinct prompt; it supplies reference data only.
   expect(options.instructions).toBeUndefined()
@@ -130,13 +140,14 @@ it('gives Talk the Grok contract: reference data apart from the prompt, and the 
   expect(names).not.toContain('ask_companion')
   const resume = (options.tools as Array<{ name: string; parameters: { required?: string[] } }>).find(tool => tool.name === 'resume_audiobook')!
   expect(resume.parameters.required).toEqual(['play_audio'])
+  // Signed out, Talk is the guest trial (one a day, two minutes, through the relay).
   expect(options.labGuest).toBe(true)
 })
 
 it('carries the Explain quote and its explanation into Talk as reference data', async () => {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('{}', { status: 404 })))
   vi.stubGlobal('navigator', { ...navigator, mediaDevices: { getUserMedia: () => new Promise(() => {}) } })
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+  render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
   const explanation = { id: 'explain-answer', role: 'assistant' as const, content: 'The deep is the primordial abyss.', timestamp: Date.now(), bookId: 'bible', source: 'text' as const }
   act(() => {
     captured.options?.appendLocalMessage({ id: 'explain-question', role: 'user', content: 'Explain this passage.', timestamp: Date.now() - 1, bookId: 'bible', source: 'text' })

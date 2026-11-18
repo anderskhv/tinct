@@ -16,6 +16,7 @@
  */
 
 import { stripUnderscoreEmphasis } from '../lab/labEmphasis'
+import { isOfferedDanishEdition } from '../data/editionAvailability'
 
 /** Bump when the cache layout or validation rules change incompatibly. */
 export const NARRATION_CACHE_VERSION = 2
@@ -49,7 +50,23 @@ export const NARRATION_SCOPE_BOOK_IDS: readonly string[] = [
 export const NARRATION_PILOT_SCOPE = {
   bookIds: ['*'],
   editionKeyPattern: '^[a-z0-9-]+-en$',
+  /** Danish narration (Anders, 2026-11-06): the offered Danish editions only (OFFERED_DANISH_EDITIONS). */
+  danishEditions: 'offered',
 } as const
+
+/**
+ * The language an edition is narrated in. English editions (`*-en`) are
+ * English; an offered Danish edition (OFFERED_DANISH_EDITIONS, Anders
+ * 2026-11-06 after a Grok sample) is Danish; anything else is not narrated.
+ * Derived from the edition's identity on the server's own allowlist, never
+ * from a language a client sends.
+ */
+export type NarrationLanguage = 'en' | 'da'
+export function narrationLanguage(bookId: string, editionKey: string): NarrationLanguage | null {
+  if (/^[a-z0-9-]+-en$/.test(editionKey)) return 'en'
+  if (isOfferedDanishEdition(bookId, editionKey)) return 'da'
+  return null
+}
 
 /** Sentence groups handed to the provider are at most this long (Fish's own chunk ceiling). */
 export const NARRATION_CHUNK_MAX_CHARS = 300
@@ -89,11 +106,29 @@ export interface NarrationIdentityInput {
   voiceId: string
   text: string
   settings: NarrationSynthesisSettings
+  /**
+   * Spoken language. English is left out of the identity document, so every
+   * English recording keeps the address it was made under; Danish is part of
+   * it, so Danish and English audio never share a recording, even for the
+   * same characters (a name, a number).
+   */
+  language?: NarrationLanguage
+}
+
+/**
+ * Grok voices a signed-out reader may hear: Ara ('f') and Helios ('m') are
+ * the only voices with recorded openings, and guests are served cache-only.
+ * Orion and Eve need an account (Anders, 2026-10-17).
+ */
+export const GUEST_NARRATION_VOICE_KEYS: readonly string[] = Object.freeze(['f', 'm'])
+
+export function isGuestNarrationVoice(key: string): boolean {
+  return GUEST_NARRATION_VOICE_KEYS.includes(key)
 }
 
 export function isPilotScope(bookId: string, editionKey: string, chapter: number): boolean {
   return /^[a-z0-9-]{1,64}$/.test(bookId)
-    && /^[a-z0-9-]+-en$/.test(editionKey)
+    && narrationLanguage(bookId, editionKey) !== null
     && Number.isInteger(chapter) && chapter >= 1
 }
 
@@ -125,15 +160,87 @@ export function isSilentNarrationToken(token: string): boolean {
   return /^[⁰¹²³⁴⁵⁶⁷⁸⁹]+$/.test(token)
 }
 
-/** The spoken words of a token range: what the provider is sent. */
+// Figure dash, en dash, em dash, horizontal bar, two- and three-em dashes.
+const DASH_CHARS = '‒–—―⸺⸻'
+/** A numeric range: `1914–1918`, `1860-65`, `pp. 90–105`, `8:11–12`. Read "1914 to 1918". */
+const NUMBER_RANGE = /(\d)(?:\s*[‒–]\s*|-)(?=\d)/g
 /**
- * What the narrator is asked to read. Silent tokens (verse numbers) are
- * dropped. Square brackets are removed: Fish treats `[...]` as a
- * paralinguistic tag rather than words, and Hamlet's "[Enter Ghost]" came
- * back as 0.8–12 s of audio with no spoken words. Display tokens keep their
- * brackets; the aligner ignores punctuation when it maps timings back.
+ * A run of dashes as punctuation: any run containing a real dash, two or more
+ * hyphens (`--`, the elided `R-----`), or a hyphen standing alone between
+ * spaces. A single hyphen inside a word (`well-known`) is never matched.
  */
-export function spokenText(tokens: string[], from = 0, to = tokens.length): string {
+const DASH_RUN = new RegExp(`\\s*(?:-*[${DASH_CHARS}][${DASH_CHARS}-]*|-{2,}|(?<=\\s)-(?=\\s))\\s*`, 'g')
+const CLOSING_AFTER = /^(?:[.,;:!?…)\]}]|["'”’»](?![\p{L}\p{N}]))/u
+const OPENING_BEFORE = /(?:^|[([{“‘«]|(?:^|\s)["'])$/u
+const PAUSE_BEFORE = /[.,;:!?…][)\]}"'”’»]*$/u
+
+/** Private-use marker: remove the character before it (a doubled mark left by a dropped dash). */
+const DROP_PREVIOUS = '\uE000'
+
+/** The word a numeric range is read with: "1914 to 1918", Danish "1914 til 1918". */
+const RANGE_WORD: Record<NarrationLanguage, string> = { en: 'to', da: 'til' }
+
+function readRanges(text: string, joiner: string, language: NarrationLanguage = 'en'): string {
+  return text.replace(NUMBER_RANGE, `$1${joiner}${RANGE_WORD[language]}${joiner}`)
+}
+
+/**
+ * Text as the narrator should read it: dashes are never spoken.
+ *
+ *  - A numeric range reads as "to": `1914–1918` → `1914 to 1918`.
+ *  - Every other dash run (em/en dash, `--`, a spaced hyphen, an elided year
+ *    `17—`, a blank name `Mr. ——`, `D——`, `R-----`) becomes a pause, never a
+ *    word: it is dropped where punctuation already follows (`17—.` → `17.`,
+ *    `D——,` → `D,`) or where it opens a phrase (`“—and` → `“and`), becomes a
+ *    space after punctuation (`no!—not` → `no! not`), and a comma between
+ *    words (`St. Petersburgh—the` → `St. Petersburgh, the`, `K----- Boulevard`
+ *    → `K, Boulevard`). A blank name is read as a short pause rather than the
+ *    word "blank": the pause adds no word without a painted token, so the
+ *    highlight stays aligned.
+ *  - A hyphen inside a word (`well-known`, `twenty-one`) is untouched.
+ */
+export function speakableText(text: string, language: NarrationLanguage = 'en'): string {
+  const ranged = readRanges(text, ' ', language)
+  return ranged
+    .replace(DASH_RUN, (_match, offset: number, whole: string) => {
+      const before = whole.slice(0, offset)
+      const after = whole.slice(offset + _match.length)
+      if (after.length === 0 || CLOSING_AFTER.test(after)) {
+        // `Mr. ——.` reads `Mr.`, not `Mr..`: the sentence keeps its own mark.
+        return /[.,;:!?]$/.test(before) && !/\.\.$/.test(before) && before[before.length - 1] === after[0] ? DROP_PREVIOUS : ''
+      }
+      if (OPENING_BEFORE.test(before)) return ''
+      if (PAUSE_BEFORE.test(before)) return ' '
+      return ', '
+    })
+    .replace(new RegExp(`.${DROP_PREVIOUS}`, 'gu'), '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+/**
+ * What the narrator is asked to read for a token range. Silent tokens (verse
+ * numbers) are dropped. Square brackets are removed: Fish treats `[...]` as a
+ * paralinguistic tag rather than words, and Hamlet's "[Enter Ghost]" came
+ * back as 0.8–12 s of audio with no spoken words. Dashes are rewritten by
+ * `speakableText` ("17—." was read "seventeen dash"). Display tokens keep
+ * their brackets and dashes; the aligner ignores punctuation when it maps
+ * timings back.
+ */
+export function spokenText(tokens: string[], from = 0, to = tokens.length, language: NarrationLanguage = 'en'): string {
+  return speakableText(legacySpokenText(tokens, from, to), language)
+}
+
+/**
+ * The spoken text of a token range as it was before the dash rules
+ * (`speakableText`, 2026-10-06): the same display words with only verse
+ * numbers and brackets removed. Every recording made before the rules was
+ * made from, and is addressed by, this text. It is derived from the very same
+ * tokens as `spokenText`, so it can only ever name the same words with their
+ * dashes left in: the fallback in `narrationChunkTextCandidates` never reaches
+ * audio for different words.
+ */
+export function legacySpokenText(tokens: string[], from = 0, to = tokens.length): string {
   return tokens.slice(from, to)
     .filter(token => !isSilentNarrationToken(token))
     .map(token => token.replace(/[[\]]/g, ''))
@@ -180,9 +287,46 @@ export async function narrationCacheIdentity(input: NarrationIdentityInput): Pro
     voiceId: input.voiceId,
     text: input.text,
     settings: input.settings,
+    language: input.language && input.language !== 'en' ? input.language : undefined,
   })
   const [hash, textHash] = await Promise.all([sha256Hex(document), sha256Hex(input.text)])
   return { hash, textHash, document }
+}
+
+/**
+ * One way a chunk may have been recorded: the spoken text and the blob
+ * identity that addresses its recording.
+ */
+export interface NarrationChunkCandidate {
+  hash: string
+  text: string
+  /** True for the recording made before the dash rules (see `legacySpokenText`). */
+  legacy: boolean
+}
+
+/**
+ * The recordings that may stand for one chunk, in order of preference: the
+ * chunk as it is spoken today, then — only when the dash rules changed its
+ * spoken text — the recording made before them. This is the single place the
+ * pre-dash-rules fallback lives; the Worker matches map entries, validates
+ * blob metadata and probes R2 with these candidates, so a reader keeps the
+ * existing recording instead of losing it (guests play cached audio only)
+ * or paying to record it again.
+ *
+ * Safe by construction: both texts come from the same display tokens of the
+ * same chunk (`wordFrom`..`wordTo`) of a paragraph whose text hash already
+ * matched, so the fallback differs from today's text only by the dash rules.
+ * A genuinely edited paragraph changes its tokens, its text hash and both
+ * candidates, and matches neither.
+ */
+export async function narrationChunkTextCandidates(
+  chunk: NarrationChunk,
+  input: Omit<NarrationIdentityInput, 'text'>,
+): Promise<NarrationChunkCandidate[]> {
+  const texts = chunk.legacyText !== undefined && chunk.legacyText !== chunk.text
+    ? [{ text: chunk.text, legacy: false }, { text: chunk.legacyText, legacy: true }]
+    : [{ text: chunk.text, legacy: false }]
+  return Promise.all(texts.map(async item => ({ ...item, hash: (await narrationCacheIdentity({ ...input, text: item.text })).hash })))
 }
 
 /** R2 object keys for a cached recording and its explicit edition mapping. */
@@ -241,9 +385,13 @@ export interface TokenAlignment {
   alignment: TokenAlignmentStats
 }
 
-/** Letters and digits only, case-folded: `can’t` and `cant` compare equal. */
-export function alignmentKey(text: string): string {
-  return text.normalize('NFKC').toLocaleLowerCase().replace(/[^\p{L}\p{N}]/gu, '')
+/**
+ * Letters and digits only, case-folded: `can’t` and `cant` compare equal.
+ * A numeric range keys as it is read (`1914–1918` → `1914to1918`), so the
+ * painted token matches the three words the narrator speaks for it.
+ */
+export function alignmentKey(text: string, language: NarrationLanguage = 'en'): string {
+  return readRanges(text.normalize('NFKC'), '', language).toLocaleLowerCase().replace(/[^\p{L}\p{N}]/gu, '')
 }
 
 const MAX_GLUE = 4
@@ -667,9 +815,38 @@ export interface NarrationChunk {
   wordTo: number
   /** Spoken text of the range — silent markers dropped — as sent to the provider and hashed. */
   text: string
+  /**
+   * The range's spoken text before the dash rules, present only when it
+   * differs from `text`: what a recording made before them was made from
+   * (see `narrationChunkTextCandidates`).
+   */
+  legacyText?: string
 }
 
 const ABBREVIATIONS = new Set(['mr', 'mrs', 'ms', 'dr', 'st', 'mt', 'no', 'vs', 'etc', 'ie', 'eg', 'jr', 'sr', 'prof', 'rev', 'gen', 'col', 'capt', 'lt', 'sgt', 'hon', 'messrs', 'esq', 'viz', 'cf', 'ch', 'vol', 'pp', 'op', 'bk'])
+
+/**
+ * Danish abbreviations that end in a full stop but not a sentence (`hr.
+ * Berlioz`, `f.eks.`, `bl.a.`), compared without dots like ABBREVIATIONS.
+ */
+const DANISH_ABBREVIATIONS = new Set(['hr', 'fr', 'frk', 'pr', 'nr', 'kl', 'ca', 'jf', 'dvs', 'feks', 'bla', 'evt', 'mht', 'pga', 'iflg', 'ifm', 'sml', 'osv', 'mfl', 'ang', 'vedr', 'dr', 'st', 'mr', 'mrs', 'kap', 'bd', 'sp', 'fx'])
+
+/**
+ * Danish sentence ends: dialogue is quoted »…« and ›…‹ (closing `«`/`‹`),
+ * and a sentence may begin with Æ, Ø or Å. English keeps its own rules
+ * untouched (`endsSentence`): its chunk boundaries address its recordings.
+ */
+function endsDanishSentence(token: string, next: string | undefined): boolean {
+  if (isSilentNarrationToken(token)) return false
+  const end = /[.!?…][\u0022\u0027\u2019\u201d«‹»›)\]]*$/u
+  if (next !== undefined && isSilentNarrationToken(next)) return end.test(token)
+  if (!end.test(token)) return false
+  const bare = token.replace(/[^\p{L}\p{N}]/gu, '').toLocaleLowerCase('da')
+  if (DANISH_ABBREVIATIONS.has(bare)) return false
+  if (/^\p{Lu}$/u.test(token.replace(/[^\p{L}]/gu, '')) && next && /^\p{Lu}/u.test(next.replace(/^[\u0022\u0027\u2018\u201c\u201e»«›‹(\[]+/u, ''))) return false // an initial: "H. C. Andersen"
+  if (!next) return true
+  return /^[\u0022\u0027\u2018\u201c\u201e»«›‹(\[–—-]*[\p{Lu}\p{N}]/u.test(next)
+}
 
 function endsSentence(token: string, next: string | undefined): boolean {
   if (isSilentNarrationToken(token)) return false
@@ -684,6 +861,10 @@ function endsSentence(token: string, next: string | undefined): boolean {
 
 function endsClause(token: string): boolean {
   return /[;:,—–][\u0022\u0027\u2019\u201d)\]]*$/.test(token)
+}
+
+function endsDanishClause(token: string): boolean {
+  return /[;:,—–][\u0022\u0027\u2019\u201d«‹»›)\]]*$/u.test(token)
 }
 
 function joinedLength(tokens: string[]): number {
@@ -737,16 +918,20 @@ function packTokens(tokens: string[], max: number): string[][] {
  * token lands in exactly one chunk, in order, so chunk `[wordFrom, wordTo)`
  * ranges tile the paragraph.
  */
-export function chunkNarrationTokens(tokens: string[], max = NARRATION_CHUNK_MAX_CHARS): NarrationChunk[] {
-  if (tokens.length === 0 || tokens.every(isSilentNarrationToken)) return []
-  let groups = packRuns(tokens, endsSentence, max, sentence => packRuns(sentence, endsClause, max, clause => packTokens(clause, max)))
-  // A group of only silent markers has nothing to say: it joins the next group.
+export function chunkNarrationTokens(tokens: string[], max = NARRATION_CHUNK_MAX_CHARS, language: NarrationLanguage = 'en'): NarrationChunk[] {
+  // Nothing to say: only verse markers, or only dashes (a `———————` rule).
+  const silent = (group: string[]) => spokenText(group).length === 0
+  if (tokens.length === 0 || silent(tokens)) return []
+  const sentenceEnd = language === 'da' ? endsDanishSentence : endsSentence
+  const clauseEnd = language === 'da' ? endsDanishClause : endsClause
+  let groups = packRuns(tokens, sentenceEnd, max, sentence => packRuns(sentence, clauseEnd, max, clause => packTokens(clause, max)))
+  // A group with nothing to say joins the next group.
   const merged: string[][] = []
   for (const group of groups) {
-    if (merged.length > 0 && merged[merged.length - 1].every(isSilentNarrationToken)) merged[merged.length - 1] = merged[merged.length - 1].concat(group)
+    if (merged.length > 0 && silent(merged[merged.length - 1])) merged[merged.length - 1] = merged[merged.length - 1].concat(group)
     else merged.push(group)
   }
-  if (merged.length > 1 && merged[merged.length - 1].every(isSilentNarrationToken)) {
+  if (merged.length > 1 && silent(merged[merged.length - 1])) {
     const tail = merged.pop() as string[]
     merged[merged.length - 1] = merged[merged.length - 1].concat(tail)
   }
@@ -761,14 +946,17 @@ export function chunkNarrationTokens(tokens: string[], max = NARRATION_CHUNK_MAX
   const chunks: NarrationChunk[] = []
   let cursor = 0
   groups.forEach((group, index) => {
-    chunks.push({ index, wordFrom: cursor, wordTo: cursor + group.length, text: spokenText(group) })
+    const text = spokenText(group, 0, group.length, language)
+    // The pre-dash-rules fallback addresses English recordings made before 2026-10-06; Danish has none.
+    const legacyText = language === 'en' ? legacySpokenText(group) : text
+    chunks.push(legacyText === text ? { index, wordFrom: cursor, wordTo: cursor + group.length, text } : { index, wordFrom: cursor, wordTo: cursor + group.length, text, legacyText })
     cursor += group.length
   })
   return chunks
 }
 
-export function chunkNarrationText(paragraph: string, max = NARRATION_CHUNK_MAX_CHARS): NarrationChunk[] {
-  return chunkNarrationTokens(narrationTokens(paragraph), max)
+export function chunkNarrationText(paragraph: string, max = NARRATION_CHUNK_MAX_CHARS, language: NarrationLanguage = 'en'): NarrationChunk[] {
+  return chunkNarrationTokens(narrationTokens(paragraph), max, language)
 }
 
 /** Absolute paragraph words from ready chunk words in order (chunk-local times shifted by earlier durations). */
@@ -792,6 +980,8 @@ export interface NarrationBlobMeta {
   voiceId: string
   voiceKey: string
   settings: NarrationSynthesisSettings
+  /** Spoken language when not English (part of the identity, see NarrationIdentityInput). */
+  language?: NarrationLanguage
   hash: string
   /** Hash of the whole paragraph's narration text the chunk belongs to. */
   textHash: string

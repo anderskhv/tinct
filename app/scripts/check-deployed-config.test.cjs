@@ -1,6 +1,7 @@
 const {test} = require('node:test')
 const assert = require('node:assert/strict')
 const {readGraph} = require('./check-deployed-config.cjs')
+const {checkFetch} = require('./lib/internalTraffic.cjs')
 
 test('finds configuration across shared lab modules and cyclic asset imports', async () => {
   const files = new Map([
@@ -31,7 +32,7 @@ for (const target of ['https://outside.invalid/assets/config.js', '/api/config.j
 }
 
 test('reads configuration from the currently published reader graph', {skip:process.env.TINCT_CONFIG_LIVE!=='1',timeout:90000}, async () => {
-  const page = await fetch('https://tinct.app/reader')
+  const page = await checkFetch('https://tinct.app/reader')
   assert.equal(page.status, 200)
   const html = await page.text()
   const entry = html.match(/src="(\/assets\/index-[A-Za-z0-9_-]+\.js)"/)?.[1]

@@ -1,0 +1,32 @@
+{
+  "sourceRef": "0026402e1be1564971caa6d14286edfc6b43ec24",
+  "revision": "text-2026-10-21.2",
+  "scope": "Accepted Jekyll and Hyde modern-en repair (6 Oct package, restored in 0026402e1b on claude/modern-en-integrate-1b). Supersedes the 2026-09-24 Jekyll acceptance; approved by Anders on 2026-10-21. Exact accepted candidate; original-en unchanged; card prose unchanged; mentions re-anchored by exact projection with the reviewed rulings below. Record: books/wip/modern-en-release-20261021/RELEASE-2.md.",
+  "approval": {"by": "Anders", "date": "2026-10-21", "question": "Jekyll stays on the current text, or move the pin so the repaired text ships?", "answer": "why not? is the new not better?"},
+  "books": [
+    {
+      "id": "jekyll-and-hyde",
+      "before": "7bcc0ee81b68635f017b8324fab9dc2e4cc3fc0febb827e0431ce876a2d0ac6b",
+      "accepted": "640dc4ea5d7d56f4b015b000404b5275c5cf9223b9979ed6bfb3765155c4883d",
+      "chapters": 10,
+      "paragraphs": 339,
+      "changed": 236,
+      "mentions": 504,
+      "sourceDirectory": "books/wip/jekyll-and-hyde-modern-en",
+      "baselineFile": "baseline-live-modern-en.json",
+      "paragraphHashesFile": "accepted-paragraph-hashes.tsv",
+      "changesFile": "changed-paragraphs.json",
+      "cardRulings": [
+        {"ruling": "girl-doctor 1:7: 'according to the doctor' is now 'according to the Sawbones'; Sawbones is a reviewed spelling for this figure (release-2-mention-mappings.json).",
+         "mention": {"characterId": "girl-doctor", "chapterNumber": 1, "paragraphIndex": 7, "startOffset": 1516, "endOffset": 1524, "text": "Sawbones"}},
+        {"ruling": "locksmith 9:9: the exact projection keeps 887 ('the locksmith was close to despair'), the sentence the old mention marked, not the package's proposed 927 (a new 'locksmith' replacing 'this last').",
+         "mention": {"characterId": "locksmith", "chapterNumber": 9, "paragraphIndex": 9, "startOffset": 887, "endOffset": 896, "text": "locksmith"},
+         "notMention": {"characterId": "locksmith", "chapterNumber": 9, "paragraphIndex": 9, "startOffset": 927}},
+        {"ruling": "girl-doctor 1:7 (old 1972): 'I saw that doctor turn sick' is now 'I saw that Sawbones turn sick'; the projection keeps that sentence (1995), not the package's proposed 1743 (an earlier 'doctor').",
+         "mention": {"characterId": "girl-doctor", "chapterNumber": 1, "paragraphIndex": 7, "startOffset": 1995, "endOffset": 2003, "text": "Sawbones"}},
+        {"ruling": "jekyll 2:49 (old 1279, 'Harry's bedside'): the projection keeps 1260, the same occurrence, not the package's proposed 1282, which is the next mention ('Poor Harry', old 1301).",
+         "mention": {"characterId": "jekyll", "chapterNumber": 2, "paragraphIndex": 49, "startOffset": 1260, "endOffset": 1265, "text": "Harry"}}
+      ]
+    }
+  ]
+}

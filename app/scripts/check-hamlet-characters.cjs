@@ -1,10 +1,11 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Real production reader and reviewed assets; no model calls or account writes.
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),assert=require('node:assert/strict')
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5195',dir=process.env.ARTIFACT_DIR||'/tmp/tinct-hamlet';fs.mkdirSync(dir,{recursive:true})
 const book=process.env.TEST_BOOK||'hamlet'
 const asset=JSON.parse(fs.readFileSync(`public/data/characters/${book}.v1.json`,'utf8'))
 const cases=book==='macbeth'?[['stage',1,'witches',0],['speaker',1,'first-witch',1],['cawdor',3,'cawdor',29],['new-cawdor',3,'macbeth',29],['english-doctor',20,'english-doctor',23],['scottish-doctor',21,'scottish-doctor',0]]:[['stage',1,'francisco',0],['speaker',1,'barnardo',1],['father',1,'king-hamlet',52],['performed-role',9,'player-king'],['late',20,'horatio']]
-;(async()=>{const results=[];for(const [device,engine] of [['phone',webkit],['desktop',chromium]]){const b=await engine.launch();try{for(const edition of ['original-en','modern-en']){const source=JSON.parse(fs.readFileSync(`public/data/editions/${book}-${edition}.json`,'utf8'));for(const [label,ch,id,pi] of cases){
+;(async()=>{const results=[];for(const [device,engine] of [['phone',webkit],['desktop',chromium]]){const b=await markInternal(await engine.launch());try{for(const edition of ['original-en','modern-en']){const source=JSON.parse(fs.readFileSync(`public/data/editions/${book}-${edition}.json`,'utf8'));for(const [label,ch,id,pi] of cases){
 if(process.env.TEST_CASE&&`${device}-${edition}-${label}`!==process.env.TEST_CASE)continue
 
 const e=asset.editions[edition],mention=e.mentions.find(m=>m.chapterNumber===ch&&m.characterId===id&&(label!=='new-cawdor'||m.resolution==='reviewed-title-transfer')&&(pi===undefined||m.paragraphIndex===pi));assert.ok(mention,label)

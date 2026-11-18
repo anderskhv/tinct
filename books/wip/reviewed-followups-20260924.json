@@ -14,7 +14,9 @@
       "sourceDirectory": "books/wip/review-codex-content-followup/reviewed/the-prince",
       "baselineFile": "baseline.json",
       "paragraphHashesFile": "candidate-paragraph-hashes.tsv",
-      "changesFile": "changes.json"
+      "changesFile": "changes.json",
+      "supersededBy": "books/wip/modern-da-train-20261113/release-the-prince.json",
+      "supersededNote": "2026-11-13: Anders approved publishing the Danish updates (\"let's publish the Danish updates too so we have a fuller Danish library\"); The Prince's modern-en meaning repairs ship with them (PR #817). This entry stays as the record of the 2026-09-24 acceptance; the 13 Nov config starts from exactly the text accepted here."
     },
     {
       "id": "julius-caesar",
@@ -39,7 +41,9 @@
       "baselineFile": "baseline.json",
       "paragraphHashesFile": "candidate-paragraph-hashes.tsv",
       "changesFile": "changes.json",
-      "evidenceBaselineRef": "1ed77f4ca1c1399edb056a29e9a8cc7d295e5565"
+      "evidenceBaselineRef": "1ed77f4ca1c1399edb056a29e9a8cc7d295e5565",
+      "supersededBy": "books/wip/modern-en-release-20261021/release-2-jekyll-and-hyde.json",
+      "supersededNote": "2026-10-21: Anders approved shipping the accepted modern-en repair (\"why not? is the new not better?\"). This entry stays as the record of the 2026-09-24 acceptance; the 21 Oct config verifies the served text and starts from exactly the hash accepted here."
     }
   ]
 }

@@ -1,14 +1,25 @@
-import { registerLineatedChapter } from './labPoetry'
+import { registerLoadedChapter } from './labPoetry'
+import { leadingPreface, noteChapterEdition } from './labEditionSwitch'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
+import { ensurePublicBook, isPublicBookId } from '../utils/publicBooks'
+import { loadPublicModernEdition, modernChapterPending, modernChapterWritten, MODERN_EDITION_KEY } from './labModernEdition'
 import { getBook } from '../data/bookRegistry'
 import { migrateWithheldEdition } from '../data/withheldEditions'
 import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
+import { editionShardManifestUrl, editionShardPath, editionShardUrl } from '../data/editionUrls'
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
 import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
+import { hasRecordedAudio } from '../data/audioAvailability'
+import { bookHasThreads } from '../data/threadsAvailability'
 import { LAB_COPY } from './labCopy'
-import { loadVerseLines, registerVerseLines, registerShakespeareSpeakers } from './labVerseLines'
+import { loadVerseLines, registerVerseLines, registerNewlineVerseLines, registerShakespeareSpeakers } from './labVerseLines'
+import { registerChapterStructure, registerArgument } from './labParagraphStyle'
+import { bookFigures, type LabFigure } from './labFigures'
+import { isUserBookId } from './userBook/userBookId'
+import { loadUserBookSource } from './userBook/userBookSource'
+import { houseStyleChapters, houseStyleSource } from './labChapterTitles'
 
 export const LAB_BOOK_ID = 'bible'
 // New Bible readers start in the Berean Standard Bible; saved places keep their own edition.
@@ -36,6 +47,8 @@ export interface LabChapter {
   /** Bible chapters ship a paragraph count but no word count: 1,189 chapters
    * are never all loaded, so the book-page estimate weights them by this. */
   paragraphCount?: number
+  /** The chapter's own writer in an essay collection (Chapter.author). */
+  author?: string
 }
 
 export interface LabSource {
@@ -44,6 +57,12 @@ export interface LabSource {
   editions?: Edition[]
   bookTitle: string
   bookAuthor: string
+  /**
+   * An essay collection or anthology (EditionData.collection): each chapter's
+   * writer is its `chapters[].author`, and the AI features name it, or "the
+   * author", instead of the book's credit (companion/authorship.ts). Absent for one author's book.
+   */
+  collection?: true
   editionLabel: string
   chapterLabel: string
   chapterTitle: string
@@ -63,8 +82,29 @@ export interface LabSource {
   chaptersProvisional?: boolean
   sections?: Section[]
   cast: LabCastMember[]
-  /** Supporting data may arrive after reading text; paragraph identity stays unchanged. */
-  supplement?: Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
+  /** The book's figures, in reading order (those of the chapters loaded, for a windowed edition). */
+  figures?: LabFigure[]
+  /**
+   * An added book's Modern English chapter that is not all written yet: its
+   * unwritten paragraphs are served in the original text (labModernEdition.ts).
+   * The paragraphs match one to one.
+   */
+  modernPending?: boolean
+  /** With modernPending: the paragraphs that are Modern English, as [start, end) runs. Nothing else is shown. */
+  modernWritten?: Array<[number, number]>
+  /**
+   * Supporting data (audio follow timings, the chapter's cast) after the
+   * reading text; paragraph identity stays unchanged. Requested only when
+   * first called: the reader calls it once its first page is on screen, so
+   * these files never share the network with the opening page.
+   */
+  supplement?: () => Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
+  /**
+   * With `compareAfterFirstPage`: the Compare edition's paragraphs for this
+   * chapter, still on their way (`compareParagraphs` is empty until then).
+   * Resolves to an empty list when that edition cannot be read.
+   */
+  compareLater?: Promise<string[]>
 }
 
 const ODYSSEY_PARAGRAPHS = [
@@ -250,6 +290,8 @@ async function loadBookThreadsJson(bookId: string): Promise<{ characters?: Threa
   if (bookId === LAB_BOOK_ID) return loadThreadsJson()
   const cached = bookThreadsJsonCache.get(bookId)
   if (cached) return cached
+  // A book without a Cast file would only log a 404; nothing to ask for.
+  if (!bookHasThreads(bookId)) return { characters: [] }
   const response = await fetch(`/data/editions/${bookId}-threads.json?v=${encodeURIComponent(labBuildVersion())}`).catch(() => null)
   let data: { characters?: ThreadCharacter[] } = { characters: [] }
   if (response?.ok) {
@@ -271,6 +313,8 @@ async function loadAudioFollowMetadata(
   editionKey = LAB_EDITION_KEY,
   bookId = LAB_BOOK_ID,
 ): Promise<{ followParagraphs: FollowParagraph[]; audioTitle?: LabAudioTitleClip }> {
+  // Streamed-only editions have no recorded manifest; asking is a certain 404.
+  if (!hasRecordedAudio(bookId, editionKey)) return { followParagraphs: paragraphs.map((text, index) => ({ index, text })) }
   try {
     const manifestRes = await fetch(labAudioManifestUrl(chapterNumber, editionKey, bookId))
     if (!manifestRes.ok) {
@@ -327,7 +371,7 @@ function labBuildVersion(): string {
 async function loadBibleManifest(editionKey = LAB_EDITION_KEY): Promise<BibleManifest> {
   const cached = bibleManifestCache.get(editionKey)
   if (cached) return cached
-  const url = `/data/editions-chapters/${LAB_BOOK_ID}-${editionKey}/manifest.json?v=${encodeURIComponent(labBuildVersion())}`
+  const url = editionShardManifestUrl(LAB_BOOK_ID, editionKey, labBuildVersion())
   const res = await fetch(url)
   if (!res.ok) throw new Error(`bible manifest HTTP ${res.status}`)
   const data = await res.json() as { chapters?: BibleManifest['chapters']; sections?: Section[] }
@@ -340,20 +384,20 @@ async function loadBibleManifest(editionKey = LAB_EDITION_KEY): Promise<BibleMan
 }
 
 function chapterPath(entry: { number: number; path?: string }): string {
-  return entry.path || `ch${String(entry.number).padStart(4, '0')}.json`
+  return entry.path || editionShardPath(entry.number)
 }
 
 async function loadBibleChapterText(editionKey: string, entry: { number: number; path?: string }): Promise<string[]> {
   const cacheKey = chapterTextCacheKey(editionKey, entry.number)
   const cached = chapterTextCache.get(cacheKey)
   if (cached) return cached
-  const url = `/data/editions-chapters/${LAB_BOOK_ID}-${editionKey}/${chapterPath(entry)}?v=${encodeURIComponent(labBuildVersion())}`
+  const url = editionShardUrl(LAB_BOOK_ID, editionKey, chapterPath(entry), labBuildVersion())
   const res = await fetch(url)
   if (!res.ok) return []
   const data = await res.json() as { paragraphs?: string[] }
   const paragraphs = Array.isArray(data.paragraphs) ? data.paragraphs : []
   // BSB stores poetry one line per paragraph; the reader sets it as prose.
-  if (/^bsb-/.test(editionKey)) registerLineatedChapter(paragraphs)
+  registerLoadedChapter(editionKey, paragraphs)
   if (paragraphs.length > 0) chapterTextCache.set(cacheKey, paragraphs)
   return paragraphs
 }
@@ -386,6 +430,12 @@ export function prefetchLabChapterTexts(
       /* ignore prefetch errors */
     }
   })()
+}
+
+/** The work, started on the first call; later calls share its promise. */
+function onceCalled<T>(start: () => Promise<T>): () => Promise<T> {
+  let started: Promise<T> | null = null
+  return () => (started ??= start())
 }
 
 export async function loadLabSource(
@@ -421,11 +471,11 @@ export async function loadLabSource(
       paragraphCount: item.paragraphCount,
     }))
 
-    const supplement = Promise.all([loadAudioFollowMetadata(paragraphs, entry.number, audio), threadsPromise ?? loadThreadsJson().catch(() => ({ characters: [] }))])
-      .then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) }))
+    const supplement = onceCalled(() => Promise.all([loadAudioFollowMetadata(paragraphs, entry.number, audio), threadsPromise ?? loadThreadsJson().catch(() => ({ characters: [] }))])
+      .then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) })))
     const supporting = editions?.readingFirst
       ? { followParagraphs: paragraphs.map((text, index) => ({ index, text })), cast: [] }
-      : await supplement
+      : await supplement()
     return { ...sourceFromChapter({
       chapterNumber: entry.number,
       chapterTitle: entry.title,
@@ -450,6 +500,15 @@ export interface LabBookSourceSelection {
   audioEditionKey?: string
   chapterNumber?: number
   readingFirst?: boolean
+  /**
+   * A cold open whose Compare view is not on screen: the main edition is
+   * fetched alone and the Compare edition after it, so the first page does
+   * not share the network with a second whole book (cold-open measurement,
+   * 14 Oct 2026). Its paragraphs arrive as `compareLater`. Only the plain
+   * registry path takes it; plays, verse-lined books and a reader's or an
+   * added book load both editions together as before.
+   */
+  compareAfterFirstPage?: boolean
 }
 
 /**
@@ -495,7 +554,15 @@ async function applyVerseLines(
 }
 
 export async function loadLabBookSource(input: LabBookSourceSelection): Promise<LabSource> {
+  // A reader's own book is read from this device only (userBook/userBookSource.ts).
+  // Chapter titles are shown in house style whatever the text writes (labChapterTitles.ts).
+  if (isUserBookId(input.bookId)) {
+    const source = await loadUserBookSource(input)
+    return houseStyleSource(source, source.editions?.[0]?.language)
+  }
   await ensureNativeBook(input.bookId, [input.primaryEditionKey, input.compareEditionKey].filter((key): key is string => !!key))
+  // A public book readers added (pd-…) is registered from the server first.
+  await ensurePublicBook(input.bookId)
   // One migration for every caller, before the book id is even dispatched on:
   // no reader of this function can aim it at a withdrawn edition.
   const selection: LabBookSourceSelection = {
@@ -541,10 +608,18 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   // Started before the text request so it costs no wall time of its own.
   const linesPromise = verseLineSidecar(registryBook.id, registryBook.editions)
   const threadsPromise = selection.readingFirst ? undefined : loadBookThreadsJson(registryBook.id)
+  // An added book's paid Modern English edition is read fresh while it is still being written.
+  const loadText = (key: string) => isPublicBookId(registryBook.id) && key === MODERN_EDITION_KEY
+    ? loadPublicModernEdition(registryBook.id)
+    : loadEditionWindow(registryBook.id, key, requestedChapter)
+  const compareLater = !!(selection.compareAfterFirstPage && compareEdition
+    && registryBook.author !== 'William Shakespeare'
+    && !registryBook.editions.some(edition => edition.hasVerseLines)
+    && !isPublicBookId(registryBook.id))
   const [primaryData, compareData] = await Promise.all([
-    loadEditionWindow(registryBook.id, primaryEdition.key, requestedChapter),
-    compareEdition
-      ? loadEditionWindow(registryBook.id, compareEdition.key, requestedChapter).catch(() => null)
+    loadText(primaryEdition.key),
+    compareEdition && !compareLater
+      ? loadText(compareEdition.key).catch(() => null)
       : Promise.resolve(null),
   ])
   const entry = primaryData.chapters.find(chapter => chapter.number === requestedChapter)
@@ -552,8 +627,27 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   if (!entry?.paragraphs.length) {
     throw new Error(`Edition ${registryBook.id}-${primaryEdition.key} has no readable chapter ${requestedChapter}`)
   }
-  const compareParagraphs = compareData?.chapters.find(chapter => chapter.number === entry.number)?.paragraphs ?? []
-  if (registryBook.author === 'William Shakespeare') {
+  const compareChapter = compareData?.chapters.find(chapter => chapter.number === entry.number)
+  const compareParagraphs = compareChapter?.paragraphs ?? []
+  // Requested once the main edition's text is in, with the same window and
+  // the same per-chapter preparation the paired load gives it below.
+  const pendingCompare = compareLater && compareEdition
+    ? loadText(compareEdition.key).catch(() => null).then((later) => {
+      const chapter = later?.chapters.find(item => item.number === entry.number)
+      const paragraphs = chapter?.paragraphs ?? []
+      registerChapterStructure(chapter)
+      if (primaryData.speakers || later?.speakers) {
+        registerShakespeareSpeakers(entry.paragraphs)
+        registerShakespeareSpeakers(paragraphs)
+      }
+      return paragraphs
+    })
+    : undefined
+  // Subheadings, list items and links travel beside the text, as in a reader's own book.
+  registerChapterStructure(entry)
+  registerChapterStructure(compareChapter)
+  // A play set with its speakers in its speeches (Shakespeare, or a play a reader added: EditionData.speakers).
+  if (registryBook.author === 'William Shakespeare' || primaryData.speakers || compareData?.speakers) {
     registerShakespeareSpeakers(entry.paragraphs)
     registerShakespeareSpeakers(compareParagraphs)
   }
@@ -561,21 +655,27 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     [primaryEdition.key, entry.paragraphs],
     ...(compareEdition ? [[compareEdition.key, compareParagraphs] as const] : []),
   ])
-  const supplement = Promise.all([
+  // A verse edition ends each verse line with a newline in its own text.
+  if (primaryEdition.style === 'verse') registerNewlineVerseLines(entry.paragraphs)
+  if (compareEdition?.style === 'verse') registerNewlineVerseLines(compareParagraphs)
+  // ... and opens each book with a prose argument, set apart from the verse (labParagraphStyle registerArgument).
+  if (primaryEdition.style === 'verse' && leadingPreface(entry.paragraphs)) registerArgument(entry.paragraphs[0])
+  const supplement = onceCalled(() => Promise.all([
     audioEdition
       ? loadAudioFollowMetadata(entry.paragraphs, entry.number, audioEdition.key, registryBook.id)
       : Promise.resolve({ followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })) }),
     threadsPromise ?? loadBookThreadsJson(registryBook.id),
-  ]).then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) }))
+  ]).then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) })))
   const supporting: Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'> = selection.readingFirst
     ? { followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })), cast: [] }
-    : await supplement
+    : await supplement()
 
-  return {
+  const loaded = houseStyleSource({
     bookId: registryBook.id,
     editions: registryBook.editions,
     bookTitle: registryBook.title,
     bookAuthor: registryBook.author,
+    ...(primaryData.collection || primaryData.chapters.some(chapter => chapter.author) ? { collection: true as const } : {}),
     editionLabel: primaryEdition.label,
     chapterLabel: entry.title,
     chapterTitle: entry.title,
@@ -584,26 +684,46 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     headerChapter: entry.title,
     paragraphs: entry.paragraphs,
     compareParagraphs,
+    ...(primaryData.chapters.some(chapter => chapter.figures?.length) ? { figures: bookFigures(primaryData.chapters) } : {}),
     followParagraphs: supporting.followParagraphs,
     audioTitle: 'audioTitle' in supporting ? supporting.audioTitle : undefined,
     chapters: primaryData.chapters.map(chapter => ({
       number: chapter.number,
       title: chapter.title,
+      // A chapter outside the loaded window counts as its manifest records it.
       wordCount: chapter.paragraphs.length
         ? chapter.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length
-        : undefined,
+        : chapter.wordCount,
       paragraphCount: chapter.paragraphCount ?? chapter.paragraphs.length,
+      ...(chapter.author ? { author: chapter.author } : {}),
     })),
     sections: primaryData.sections,
     cast: supporting.cast,
+    ...(modernChapterPending(primaryData, entry.number) ? { modernPending: true, modernWritten: modernChapterWritten(primaryData, entry.number) } : {}),
     ...(selection.readingFirst ? { supplement } : {}),
-  }
+    ...(pendingCompare ? { compareLater: pendingCompare } : {}),
+  }, primaryEdition.language)
+  // An edition switch carries the place from the text on screen: which edition that text is (labEditionSwitch.ts).
+  noteChapterEdition(loaded.paragraphs, primaryEdition.key)
+  return loaded
+}
+
+/** Bible chapter titles and biblical-book sections, for reading-history summaries. */
+export async function loadLabBibleOutline(editionKey = LAB_EDITION_KEY): Promise<{ chapters: LabChapter[]; sections?: Section[] }> {
+  const manifest = await loadBibleManifest(migrateWithheldEdition('bible', editionKey))
+  return { chapters: manifest.chapters, sections: manifest.sections }
 }
 
 /** Validate resume against the actual edition without waiting for audio/cast or chapter text. */
 export async function loadLabChapterList(bookId: string, requestedEditionKey: string): Promise<LabChapter[]> {
+  if (isUserBookId(bookId)) {
+    const source = await loadUserBookSource({ bookId })
+    return houseStyleChapters(source.chapters, source.editions?.[0]?.language)
+  }
   await ensureNativeBook(bookId, [requestedEditionKey])
+  await ensurePublicBook(bookId)
   const editionKey = migrateWithheldEdition(bookId, requestedEditionKey)
   if (bookId === 'bible') return (await loadBibleManifest(editionKey)).chapters
-  return loadEditionChapterList(bookId, editionKey)
+  const language = getBook(bookId)?.editions.find(edition => edition.key === editionKey)?.language
+  return houseStyleChapters(await loadEditionChapterList(bookId, editionKey), language)
 }

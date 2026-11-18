@@ -3,7 +3,27 @@ import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { useLabHighlights } from './useLabHighlights'
 import { readLabHighlights } from './labHighlights'
+import { startOwnTextMarksSync } from './userBook/ownTextMarksSync'
+import { userBookId } from './userBook/userBookId'
+import type { UserBookEdition } from './userBook/userEdition'
 afterEach(() => { cleanup(); localStorage.clear() })
+it('hides an owned mark immediately when the signed-in account changes on the mounted reader', () => {
+  const hex = 'ab'.repeat(12), owner = 'owner-a', bookId = userBookId(hex)
+  localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: owner } }))
+  const edition: UserBookEdition = { format: 'tinct-user-edition-v1', converter: 7, title: 'Own', author: '', language: 'en', droppedImages: 0,
+    chapters: [{ number: 1, title: 'One', paragraphs: ['These words are here.'] }] }
+  const controller = startOwnTextMarksSync(hex, owner, edition, 'a'.repeat(32))
+  const mark = { id: 'hl-1000-owned', bookId, editionKey: 'own-en', chapterNumber: 1, paragraphIndex: 0, fromWord: 0,
+    endParagraphIndex: 0, toWord: 2, text: 'These words', color: 'gold' as const, updatedAt: 1000 }
+  expect(controller.importMarks([mark])).toBe(true)
+  const hook = renderHook(() => useLabHighlights(1, { bookId, editionKey: 'own-en', paragraphs: edition.chapters[0].paragraphs }))
+  expect(hook.result.current.allHighlights).toContainEqual(mark)
+  localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-b' } }))
+  hook.rerender()
+  expect(hook.result.current.allHighlights).toEqual([])
+  expect(hook.result.current.chapterHighlights).toEqual([])
+  controller.dispose()
+})
 it('records book and edition, never reuses another book’s identical word range', () => {
   const range = { paragraphIndex: 0, endParagraphIndex: 0, fromWord: 0, toWord: 3, text: 'a saved passage' }
   const { result, rerender } = renderHook(({ bookId }) => useLabHighlights(1, { bookId, editionKey: 'original-en' }), { initialProps: { bookId: 'odyssey' } })

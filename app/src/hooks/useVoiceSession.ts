@@ -1,10 +1,29 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
-import { GrokVoiceSessionController } from '../voice/GrokVoiceSessionController'
+import type { GrokVoiceSessionController } from '../voice/GrokVoiceSessionController'
 import { IDLE_VOICE_SNAPSHOT, type VoiceAudioEngine, type VoiceUiSnapshot } from '../voice/session'
 import type { AssistantPace } from '../lab/labAsk'
 import { nearbyParagraphWindow } from '../voice/context'
+import { holdScreenWakeLock } from '../lab/wakeLock'
+import { trackFunnel } from '../utils/funnel'
+import { requestTalkMicrophone, VOICE_MICROPHONE_TIMEOUT_MS, type PendingMicrophone } from '../voice/microphoneRequest'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
+
+type VoiceControllerModule = typeof import('../voice/GrokVoiceSessionController')
+let controllerModule: Promise<VoiceControllerModule> | null = null
+
+/**
+ * The Talk session code (the Grok realtime controller), fetched on first use
+ * rather than with the reader: a reader who never talks never downloads it.
+ * The reader warms it once its first page is up (the `warm` option).
+ */
+export function loadVoiceSessionController(): Promise<VoiceControllerModule> {
+  controllerModule ??= import('../voice/GrokVoiceSessionController').catch((error) => {
+    controllerModule = null
+    throw error
+  })
+  return controllerModule
+}
 
 let voiceMessageId = 0
 function nextVoiceMessageId() {
@@ -19,6 +38,8 @@ export interface UseVoiceSessionOptions {
   bookId: string
   bookTitle: string
   bookAuthor: string
+  /** An essay collection or anthology: who wrote the current chapter (companion/authorship.ts). */
+  authorship?: VoiceReaderContext['authorship']
   editionKey?: string
   editionLabel?: string
   chapterNumber: number
@@ -39,6 +60,8 @@ export interface UseVoiceSessionOptions {
   onInsufficientBalance: () => void
   onUsage?: () => void
   onBeforeUserTurn?: () => boolean
+  /** A signed-out guest's Talk trial (VoiceSessionCallbacks.onGuestTrial). */
+  onGuestTrial?: (event: 'started' | 'ended' | 'refused') => void
   onEndConversation?: () => void
   mode?: VoiceSessionMode
   /** Replaces the whole Tinct prompt (the library assistant). The reader leaves this unset. */
@@ -55,8 +78,15 @@ export interface UseVoiceSessionOptions {
   setPlaybackSpeed?: (rate: number) => void
   skipPlayback?: VoiceAudioEngine['skipPlayback']
   assistantPace?: AssistantPace
+  /** Talk's saved speaking speed, applied when the session starts. */
+  assistantSpeed?: number
   onSetAssistantPace?: (pace: AssistantPace) => void
   voicePersona?: 'female' | 'male'
+  /**
+   * Load the session code now (default). The reader passes false until its
+   * first page is on screen; Start loads it on demand either way.
+   */
+  warm?: boolean
 }
 
 export function useVoiceSession(options: UseVoiceSessionOptions) {
@@ -66,8 +96,17 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
   optionsRef.current = options
   const controllerRef = useRef<GrokVoiceSessionController | null>(null)
 
-  useEffect(() => {
-    const controller = new GrokVoiceSessionController({
+  // An AudioContext made in a tap that came before the session code loaded.
+  const earlyContextRef = useRef<AudioContext | null>(null)
+  // The microphone asked for in the reader's tap, waiting for `start` to take it.
+  // Bumped by stop(): a start still loading Talk's code then does not go on.
+  const startRequestRef = useRef(0)
+  const primedMicrophoneRef = useRef<{ microphone: PendingMicrophone; timer: ReturnType<typeof setTimeout> } | null>(null)
+  const disposedRef = useRef(false)
+  const buildContextRef = useRef<() => VoiceReaderContext>(() => { throw new Error('unreachable') })
+
+  const createController = useCallback((Controller: VoiceControllerModule['GrokVoiceSessionController']) => {
+    const controller = new Controller({
       onSnapshot: setUi,
       onBeforeUserTurn: () => optionsRef.current.onBeforeUserTurn?.() ?? true,
       onTurn: (role, text, meta) => {
@@ -87,6 +126,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
         opts.recordMessage(message, opts.chapterNumber, opts.paragraphIndex)
       },
       onNeedAuth: () => optionsRef.current.onNeedAuth(),
+      onGuestTrial: (event) => optionsRef.current.onGuestTrial?.(event),
       onInsufficientBalance: () => optionsRef.current.onInsufficientBalance(),
       onUsage: () => optionsRef.current.onUsage?.(),
       onEndRequested: () => optionsRef.current.onEndConversation?.(),
@@ -115,14 +155,54 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       },
     })
     controllerRef.current = controller
+    if (earlyContextRef.current) {
+      controller.adoptLabAudioContext(earlyContextRef.current)
+      earlyContextRef.current = null
+    }
+    const opts = optionsRef.current
+    controller.updateContext(buildContextRef.current(), opts.reference, opts.instructions)
     const debugHost = window as Window & { __tinctVoiceCapture?: () => unknown }
     debugHost.__tinctVoiceCapture = () => controller.getCaptureDiagnostics()
+    return controller
+  }, [])
+
+  /** The session controller, loading its code first when this is its first use. */
+  const ensureController = useCallback(async (): Promise<GrokVoiceSessionController | null> => {
+    if (controllerRef.current) return controllerRef.current
+    const { GrokVoiceSessionController: Controller } = await loadVoiceSessionController()
+    if (disposedRef.current) return null
+    return controllerRef.current ?? createController(Controller)
+  }, [createController])
+
+  const warm = options.warm !== false
+  useEffect(() => {
+    if (!warm || controllerRef.current) return
+    void ensureController().catch(() => {})
+  }, [warm, ensureController])
+
+  useEffect(() => {
+    disposedRef.current = false
     return () => {
+      disposedRef.current = true
+      const debugHost = window as Window & { __tinctVoiceCapture?: () => unknown }
       delete debugHost.__tinctVoiceCapture
-      controller.dispose()
+      controllerRef.current?.dispose()
       controllerRef.current = null
+      void earlyContextRef.current?.close().catch(() => {})
+      earlyContextRef.current = null
+      const primed = primedMicrophoneRef.current
+      primedMicrophoneRef.current = null
+      if (primed) { clearTimeout(primed.timer); primed.microphone.cancel() }
     }
   }, [])
+
+  // The phone must not auto-lock during Talk: iOS stops a web page's microphone
+  // while locked. Held for exactly as long as the session is active.
+  useEffect(() => {
+    if (!ui.isActive) return
+    const hold = holdScreenWakeLock()
+    return () => hold.release()
+  }, [ui.isActive])
 
   const buildContext = useCallback((): VoiceReaderContext => {
     const opts = optionsRef.current
@@ -131,6 +211,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       bookId: opts.bookId,
       bookTitle: opts.bookTitle,
       bookAuthor: opts.bookAuthor,
+      ...(opts.authorship ? { authorship: opts.authorship } : {}),
       editionKey: opts.editionKey,
       editionLabel: opts.editionLabel,
       chapterNumber: opts.chapterNumber,
@@ -145,6 +226,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       readerProfile: opts.readerProfile,
     }
   }, [])
+  buildContextRef.current = buildContext
 
   useEffect(() => {
     controllerRef.current?.updateContext(buildContext(), options.reference, options.instructions)
@@ -166,16 +248,80 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     options.readerProfile,
   ])
 
+  // Must run inside the reader's tap (iOS unlocks audio only there). Before
+  // the session code has loaded, the context is made here and handed over.
   const unlockAudio = useCallback(() => {
-    controllerRef.current?.unlockLabAudioContext()
+    if (controllerRef.current) {
+      controllerRef.current.unlockLabAudioContext()
+      return
+    }
+    if (typeof AudioContext === 'undefined') return
+    try {
+      if (!earlyContextRef.current || earlyContextRef.current.state === 'closed') earlyContextRef.current = new AudioContext()
+      if (earlyContextRef.current.state !== 'running') void earlyContextRef.current.resume().catch(() => {})
+    } catch { /* The controller makes its own on start. */ }
   }, [])
+
+  const takePrimedMicrophone = useCallback((): PendingMicrophone | null => {
+    const primed = primedMicrophoneRef.current
+    primedMicrophoneRef.current = null
+    if (!primed) return null
+    clearTimeout(primed.timer)
+    return primed.microphone
+  }, [])
+
+  /**
+   * A tap that asked for the microphone and then did not start Talk lets it
+   * go. `closed`: the reader ended Talk with the prompt still unanswered,
+   * counted like the session's own cancellation (fixed codes only).
+   */
+  const releasePrimed = useCallback((closed = false) => {
+    const microphone = takePrimedMicrophone()
+    if (!microphone) return
+    if (closed && !microphone.settled) trackFunnel('talk_failed', { stage: 'setup_mic', reason: 'cancelled' })
+    microphone.cancel()
+  }, [takePrimedMicrophone])
+
+  /**
+   * Must run inside the reader's tap, before any await: asks for the
+   * microphone (WebKit grants a prompt-free retry and a reused permission only
+   * to a request made in the gesture) and unlocks audio. `start` takes the
+   * request; one nobody takes is let go when the request would have timed out.
+   */
+  const prime = useCallback(() => {
+    if (controllerRef.current?.getSnapshot().isActive) return
+    if (!primedMicrophoneRef.current) {
+      const microphone = requestTalkMicrophone()
+      const timer = setTimeout(() => {
+        if (primedMicrophoneRef.current?.microphone !== microphone) return
+        primedMicrophoneRef.current = null
+        microphone.cancel()
+      }, VOICE_MICROPHONE_TIMEOUT_MS)
+      primedMicrophoneRef.current = { microphone, timer }
+    }
+    // After the audio session is play-and-record, so the context is made in it.
+    unlockAudio()
+  }, [unlockAudio])
 
   const start = useCallback(async (overrides?: { authToken?: string | null; greeting?: string }) => {
     const opts = optionsRef.current
     opts.onSessionStart?.()
     const authToken = overrides?.authToken !== undefined ? overrides.authToken : opts.authToken
-    controllerRef.current?.unlockLabAudioContext()
-    await controllerRef.current?.start({
+    // Synchronous: a tap that calls start asks for the microphone in the tap
+    // itself, before Talk's code (a separate chunk on a first tap) loads.
+    prime()
+    const microphone = takePrimedMicrophone()
+    const startRequest = ++startRequestRef.current
+    const controller = await ensureController().catch(() => null)
+    // Stopped while Talk's code was loading: the reader closed Talk, so the
+    // microphone is let go and no session starts.
+    if (startRequest !== startRequestRef.current) {
+      if (microphone && !microphone.settled) trackFunnel('talk_failed', { stage: 'setup_mic', reason: 'cancelled' })
+      microphone?.cancel()
+      return controller?.getSnapshot() ?? IDLE_VOICE_SNAPSHOT
+    }
+    if (!controller) { microphone?.cancel(); return IDLE_VOICE_SNAPSHOT }
+    await controller.start({
       authToken,
       greeting: overrides?.greeting,
       isAnonymous: !authToken,
@@ -194,19 +340,21 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       tools: opts.tools,
       applicationTools: opts.applicationTools,
       assistantPace: opts.assistantPace,
+      assistantSpeed: opts.assistantSpeed,
       voicePersona: opts.voicePersona,
+      ...(microphone ? { microphone } : {}),
     })
-    return controllerRef.current?.getSnapshot() ?? IDLE_VOICE_SNAPSHOT
-  }, [buildContext])
+    return controller.getSnapshot()
+  }, [buildContext, ensureController, prime, takePrimedMicrophone])
 
   const stop = useCallback(() => {
+    startRequestRef.current++
     controllerRef.current?.stop()
   }, [])
 
   const handleVoiceButton = useCallback(() => {
     const controller = controllerRef.current
-    if (!controller) return
-    if (!controller.getSnapshot().isActive) {
+    if (!controller || !controller.getSnapshot().isActive) {
       start()
       return
     }
@@ -252,11 +400,16 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     statusLabel,
     start,
     unlockAudio,
+    prime,
+    releasePrimed,
     stop,
     handleVoiceButton,
     explicitResume,
     setAssistantPace: (pace: AssistantPace) => {
       controllerRef.current?.setAssistantPace(pace)
+    },
+    setAssistantSpeed: (speed: number) => {
+      controllerRef.current?.setAssistantSpeed(speed)
     },
   }
 }

@@ -1,0 +1,232 @@
+[
+  {
+    "chapter": 10,
+    "paragraph": 84,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Sentence-initial lower case »de« is a typography/grammar break; the translator used it to mark Koroviev's deferential third-person plural («Они»), but a lower-case sentence start reads as an error, and »De« would mean 'you'. «Herskabet» renders the honorific plural and echoes 12:15 «herskabets assistent» for «ихний помощник».",
+    "russian": "Они заняты",
+    "old": "»de er optaget,«",
+    "new": "»Herskabet er optaget,«"
+  },
+  {
+    "chapter": 10,
+    "paragraph": 131,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "«Очень, очень приятно» as a greeting: «fornøjeligt» means 'amusing/enjoyable' and is odd as a pleased-to-meet-you formula. The README sample fix fixed «Очень приятно» as «Det glæder mig», which 15:98 also uses.",
+    "russian": "Очень, очень приятно",
+    "old": "»Meget, meget fornøjeligt,«",
+    "new": "»Det glæder mig meget, meget,«"
+  },
+  {
+    "chapter": 11,
+    "paragraph": 8,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Addition: «lige på og hårdt» adds 'hard' (it is also a set phrase meaning 'bluntly'). The Russian has only «сразу».",
+    "russian": "начать сразу с чего-то очень сильного",
+    "old": "begynde lige på og hårdt med noget meget stærkt",
+    "new": "begynde direkte med noget meget stærkt"
+  },
+  {
+    "chapter": 12,
+    "paragraph": 84,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "«прохрипела» means croaked/wheezed, not hissed. The same slip occurs at 10:133 («прохрипел» → «hvæsede»). 14:2 («прошипел») is correct.",
+    "russian": "прохрипела голова",
+    "old": "hvæsede hovedet",
+    "new": "sagde hovedet hæst"
+  },
+  {
+    "chapter": 12,
+    "paragraph": 107,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Register: «наплевать» ('couldn't care less', literally 'spit on it') is colloquial but not vulgar; «sked på det» is cruder than the Russian.",
+    "russian": "в общем наплевать",
+    "old": "i det hele taget sked på det",
+    "new": "i det hele taget gav pokker i det"
+  },
+  {
+    "chapter": 13,
+    "paragraph": 33,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Sense: «попросил свет оставить» means he asked for the light to be left on (it was already on). «få lyset tændt» says he asked for it to be switched on.",
+    "russian": "Иван попросил свет оставить",
+    "old": "bad om at få lyset tændt",
+    "new": "bad om at lade lyset være tændt"
+  },
+  {
+    "chapter": 13,
+    "paragraph": 45,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Glossary break: GLOSSARY.md fixes гривенник = «tikopekmønt». «tiøren» is a Danish coin.",
+    "russian": "с гривенником возле усов",
+    "old": "tiøren",
+    "new": "tikopekmønten"
+  },
+  {
+    "chapter": 13,
+    "paragraph": 70,
+    "lang": "da",
+    "severity": "major",
+    "issue": "Sense inverted: «А что натворит, это уж будьте благонадежны» means 'and as for him making mischief, you can count on it'. «så kan De være helt rolig» reads as 'don't worry (he won't)'.",
+    "russian": "А что натворит, это уж будьте благонадежны",
+    "old": "Og hvad det angår, at han laver noget, så kan De være helt rolig.",
+    "new": "Og at han nok skal lave noget, det kan De være helt sikker på."
+  },
+  {
+    "chapter": 13,
+    "paragraph": 151,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Danish grammar: «nederlaget … var ligesom at tage en del af min sjæl ud» is not grammatical (the subject is not the one doing the taking). The Russian has «как бы вынула у меня часть души».",
+    "russian": "чудовищная неудача с этим романом как бы вынула у меня часть души",
+    "old": "var ligesom at tage en del af min sjæl ud",
+    "new": "tog ligesom en del af min sjæl ud af mig"
+  },
+  {
+    "chapter": 14,
+    "paragraph": 58,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Consistency: тир is «skydebane(n)» in 10:2 and 10:126 (the same garden). «skydeteltet» adds a tent.",
+    "russian": "из того низкого здания за тиром",
+    "old": "bag skydeteltet",
+    "new": "bag skydebanen"
+  },
+  {
+    "chapter": 15,
+    "paragraph": 16,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "«промычал» means mumbled or lowed (inarticulate and low), not roared. The roar comes later, at 15:18 («рев»).",
+    "russian": "промычал он",
+    "old": "»Vil De have,« brølede han,",
+    "new": "»Vil De have,« mumlede han,"
+  },
+  {
+    "chapter": 15,
+    "paragraph": 111,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Gloss added: «из-под Эйнема» is just 'an (empty) Einem box'. «chokoladefabrikken» explains the brand, which the brief forbids.",
+    "russian": "в коробке из-под Эйнема",
+    "old": "i en æske fra Einem-chokoladefabrikken",
+    "new": "i en Einem-æske"
+  },
+  {
+    "chapter": 15,
+    "paragraph": 141,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "«развившиеся волосы» means hair that has come loose or uncurled; «udredne» (combed out) is wrong and breaks the echo of 13:178 («развившуюся прядь» = «en løs hårlok»).",
+    "russian": "развившиеся волосы",
+    "old": "de udredne lokker",
+    "new": "de løse lokker"
+  },
+  {
+    "chapter": 16,
+    "paragraph": 24,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Register (Yershalaim chapters): the vocative «О» is «O» in the glossary motifs («O guder, guder»). The colloquial «Åh» undercuts Levi's solemn lament.",
+    "russian": "О, я глупец!",
+    "old": "»Åh, jeg tåbe!«",
+    "new": "»O, jeg tåbe!«"
+  },
+  {
+    "chapter": 16,
+    "paragraph": 34,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Addition: «провалялся на ней» means 'lay on it (sick)'. «vred sig» (writhed) is not in the Russian.",
+    "russian": "провалялся на ней до рассвета пятницы",
+    "old": "lå og vred sig på det",
+    "new": "blev liggende på det"
+  },
+  {
+    "chapter": 16,
+    "paragraph": 43,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Register: an invocation of God in the solemn chapters. «Åh, Gud» is a casual exclamation. Use the vocative «O», as in the glossary motifs.",
+    "russian": "О Бог...",
+    "old": "»Åh, Gud...«",
+    "new": "»O Gud...«"
+  },
+  {
+    "chapter": 16,
+    "paragraph": 62,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Spelling: the indefinite singular is «bøddel». «bødl» appears only in the inflected forms (bødlen, bødler).",
+    "russian": "Первый из палачей",
+    "old": "Den første bødl",
+    "new": "Den første bøddel"
+  },
+  {
+    "chapter": 17,
+    "paragraph": 12,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Sense: «хоть убей» here means 'for the life of me / kill me if you like (there's not one left)'. «ikke for alverden» means 'not for anything in the world' (a refusal).",
+    "russian": "и теперь ни одной нет, хоть убей!",
+    "old": "ikke for alverden!",
+    "new": "om man så slog én ihjel!"
+  },
+  {
+    "chapter": 17,
+    "paragraph": 18,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Spelling: «billetkassereskeren» is missing an r (kassererske → kassererskeren).",
+    "russian": "билетная кассирша",
+    "old": "billetkassereskeren",
+    "new": "billetkassererskeren"
+  },
+  {
+    "chapter": 18,
+    "paragraph": 13,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Unidiomatic calque: «i den midaldrende alder» is not Danish. The Russian «средних лет небритый человек» is plain.",
+    "russian": "средних лет небритый человек",
+    "old": "en ubarberet mand i den midaldrende alder",
+    "new": "en midaldrende, ubarberet mand"
+  },
+  {
+    "chapter": 18,
+    "paragraph": 87,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Spelling/consistency: Danish uses «hr.» (as in 9:26, 12:17, 12:26, 33:13). «Herr» is German.",
+    "russian": "Господин артист",
+    "old": "Herr kunstneren",
+    "new": "Hr. kunstneren"
+  },
+  {
+    "chapter": 18,
+    "paragraph": 111,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Spelling/consistency: «hr.», as at 18:87.",
+    "russian": "господину заведующему буфетом",
+    "old": "herr buffetbestyreren",
+    "new": "hr. buffetbestyreren"
+  },
+  {
+    "chapter": 18,
+    "paragraph": 190,
+    "lang": "da",
+    "severity": "minor",
+    "issue": "Sense: «Верьте ему!» means 'Believe him!'. «Tro på ham» means 'believe in him' (faith).",
+    "russian": "Верьте ему!",
+    "old": "»Tro på ham!«",
+    "new": "»Tro ham!«"
+  }
+]

@@ -2,10 +2,11 @@ import {chromium} from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 const output=process.env.EINK_OUTPUT||'artifacts/eink-browser',origin='https://tinct.app',live=process.env.EINK_LIVE==='1'
 const readerShell=await fs.access('dist/app.html').then(()=>'/app.html',()=>'/index.html')
 await fs.mkdir(output,{recursive:true})
-const browser=await chromium.launch({headless:true,args:['--mute-audio']})
+const browser=await markInternal(await chromium.launch({headless:true,args:['--mute-audio']}))
 try{
  for(const width of [600,1200]){
   const context=await browser.newContext({viewport:{width,height:1000},serviceWorkers:'block'})
@@ -26,8 +27,15 @@ try{
    window.requestAnimationFrame=cb=>raf(t=>{window.__frames++;cb(t)})
    HTMLMediaElement.prototype.play=async function(){this.muted=true}
   })
+  const failed=[],logs=[]
+  page.on('requestfailed',r=>failed.push(r.url()))
+  page.on('console',m=>{if(m.type()==='error'||m.type()==='warning')logs.push(m.text())})
   await page.goto(origin+'/library?eink=1',{waitUntil:'domcontentloaded'})
-  await page.locator('#hero-book').waitFor()
+  try{await page.locator('#hero-book').waitFor()}catch(error){
+   console.error('EINK_LIBRARY_DIAGNOSTIC',JSON.stringify({width,live,errors,logs,failed:[...new Set(failed)].slice(0,40),...await page.evaluate(()=>({hour:new Date().getHours(),classes:document.documentElement.className,bodyClasses:document.body?.className,hero:(()=>{const n=document.getElementById('hero-book');if(!n)return null;const r=n.getBoundingClientRect(),c=getComputedStyle(n);return{w:r.width,h:r.height,display:c.display,visibility:c.visibility,opacity:c.opacity,hidden:n.hidden}})()}))}))
+   await page.screenshot({path:output+'/eink-library-failure-'+width+'.png'})
+   throw error
+  }
   await page.waitForTimeout(2000)
   const frames=await page.evaluate(()=>window.__frames)
   await page.waitForTimeout(600)
@@ -53,8 +61,12 @@ try{
   const readerMenu=await page.locator('.lab-super-panel').evaluate(n=>({paper:getComputedStyle(n).backgroundColor,blur:getComputedStyle(n).backdropFilter}))
   assert.deepEqual(readerMenu,{paper:'rgb(255, 255, 255)',blur:'none'},'reader main menu stays opaque')
   await page.screenshot({path:output+'/eink-reader-menu-'+width+'.png'})
-  await page.keyboard.press('Escape')
-  await page.keyboard.press('s')
+  // Settings opens from the reader menu, the way a reader reaches it. Letter
+  // shortcuts are for opted-in desktops only (#321), so `s` does nothing here.
+  await page.getByTestId('lab-super-menu').waitFor()
+  // Aa holds the themes, size and Advanced settings, on the phone and the desktop (22 Oct 2026). The PR
+  // run also checks today's production, whose desktop t menu still says Settings, until this is live.
+  await page.getByTestId((await page.getByTestId('lab-super-row-text').count() ? 'lab-super-row-text' : 'lab-super-row-settings')).click()
   await page.getByTestId('lab-v2-theme-eink').waitFor()
   assert.equal(await page.getByTestId('lab-v2-theme-eink').getAttribute('aria-pressed'),'true')
   await page.getByTestId('lab-v2-theme-book').click()

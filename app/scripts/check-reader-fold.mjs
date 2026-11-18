@@ -2,6 +2,7 @@ import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.READER_LIVE === '1'
 const expected = process.env.TINCT_EXPECTED_BUNDLE || ''
@@ -30,7 +31,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     }
     if (/\/api\/(lab-chat|chat)$/.test(url.pathname)) {
       const body = req.postDataJSON(); requests.push(body)
-      return route.fulfill({ contentType:'text/event-stream', body:sse(JSON.stringify(body.messages).includes('<word>') ? definition : explanation) })
+      return route.fulfill({ contentType:'text/event-stream', body:sse((body.companion?.intent==='define'||JSON.stringify(body.messages??[]).includes('<word>')) ? definition : explanation) })
     }
     // Exercise the shared missing-entry UI without paying for inference.
     if (/\/data\/dict\//.test(url.pathname)) return route.fulfill({contentType:'application/json',body:'{}'})
@@ -45,7 +46,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     return route.continue()
   })
   await page.addInitScript(({bookId,edition,chapterNumber,fixture}) => {
-    localStorage.setItem('tinct-lab-prefs', JSON.stringify({theme: fixture.theme, fontSize:fixture.fontSize, primaryEdition:edition}))
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({theme: fixture.theme, fontSize:fixture.fontSize, fontSizeExplicit:true, primaryEdition:edition}))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:fixture.paragraphIndex||0,wordIndex:0,page:0}}))
     if(fixture.highlights && !localStorage.getItem('tinct-lab-highlights')) localStorage.setItem('tinct-lab-highlights',JSON.stringify(fixture.highlights))
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable:true, value:async()=>{throw Error('Microphone disabled during reader acceptance')} })
@@ -53,7 +54,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     window.__copied = []
     Object.defineProperty(navigator, 'clipboard', {configurable:true,value:{writeText:async text=>{window.__copied.push(text)}}})
   },{bookId,edition,chapterNumber,fixture})
-  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?chrome=v2'), {waitUntil:'domcontentloaded'})
+  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader'), {waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   await page.evaluate(()=>document.fonts.ready)
   await page.waitForTimeout(700)
@@ -61,7 +62,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
 }
 
 for (const [engine, name] of [[chromium,'chromium'],[webkit,'webkit']]) {
-  const browser = await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser = await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   try {
     for (const phone of [false,true]) for (const fontSize of [1.3,2.2]) {
       let reference

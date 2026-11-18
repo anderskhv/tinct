@@ -1,0 +1,219 @@
+[
+ {
+  "op": "drop-chapter",
+  "title": "Index",
+  "paragraphs": 750,
+  "reason": "Print back-of-book index: page-number locators that do not exist in the reader (Tinct has search). Not reading text.",
+  "firstParagraph": "A"
+ },
+ {
+  "op": "merge-into-next",
+  "title": "Dedication",
+  "into": "Preface",
+  "paragraphs": 5,
+  "reason": "Dedication and supporter acknowledgement open the book (same treatment the converter gives untitled front matter in the other EPUBs)."
+ },
+ {
+  "op": "section",
+  "section": "Robert Lawrence Kuhn: Closer To Truth",
+  "chapters": [
+   "Robert Lawrence Kuhn: Closer To Truth",
+   "What Does Quantum Theory Mean?",
+   "What is Ultimate Reality?",
+   "Many Worlds of Quantum Theory",
+   "Can Science Provide Ultimate Answers?",
+   "Why is the Quantum so Strange?",
+   "What is Truth?",
+   "Is the Cosmos a Computer?",
+   "Which Laws of Nature are Fundamental?",
+   "Do General Principles Govern All Science?"
+  ]
+ },
+ {
+  "op": "insert-label",
+  "chapter": "What Does Quantum Theory Mean?",
+  "before": "https://youtu.be/0CwPa0tScf8"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "What is Ultimate Reality?",
+  "before": "http://www.youtube.com/watch?v=GBc6vj5-wko"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Many Worlds of Quantum Theory",
+  "before": "https://youtu.be/Kj2lxDf9R3Y"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Can Science Provide Ultimate Answers?",
+  "before": "http://www.youtube.com/watch?v=j65pZMkQv48"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Why is the Quantum so Strange?",
+  "before": "http://www.youtube.com/watch?v=mNP5w4n9sFU"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "What is Truth?",
+  "before": "http://www.youtube.com/watch?v=3eEffbjzNwE"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Is the Cosmos a Computer?",
+  "before": "http://www.youtube.com/watch?v=UohR3OXzXA8"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Which Laws of Nature are Fundamental?",
+  "before": "http://www.youtube.com/watch?v=2BLo2SdmjLI"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Do General Principles Govern All Science?",
+  "before": "http://www.youtube.com/watch?v=YD-capWJMyc"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Micah Redding: Humanity’s Infinite Reach",
+  "before": "http://www.christiantranshumanism.org/podcast/35/"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "John Horgan: A Plan to Dye One’s Whiskers Green",
+  "before": "https://www.youtube.com/watch?v=y3Afrwe-Yyg"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Logan Chipkin: Constructor Theory’s application to information theory and beyond",
+  "before": "https://www.youtube.com/watch?v=P8bCBypqrEw"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Bruce Nielson: Theory of Anything (with Sadia Naeem)",
+  "before": "https://www.youtube.com/watch?v=Q_Cs5iNazB8"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Sam Kuypers: Musing about Statements, Propositions, and Truth (with Liberty Fitz-Claridge)",
+  "before": "https://www.youtube.com/watch?v=DZ-opI-jghs"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Tyler Cowen: Multiple Worlds and Our Place in Them",
+  "before": "https://www.youtube.com/watch?v=b_6vYwCkIpc&t=2s"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Naval Ravikant: Part 1 – Knowledge Creation and The Human Race",
+  "before": "https://www.youtube.com/watch?v=YyxepLfH1ZU"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Naval Ravikant: Part 2 – Knowledge Creation and The Human Race (with Brett Hall)",
+  "before": "https://www.youtube.com/watch?v=aQfeYBa1MTk"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Allison Duettmann: On Beauty, Knowledge, and Progress (with Beatrice Erkers)",
+  "before": "https://www.youtube.com/watch?v=vYNLahd6fds"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Charles Bédard: The Nature of Computation, Incompleteness, and Mathematics",
+  "before": "https://www.youtube.com/watch?v=CluVy2jICgs"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Sean Carroll: Science, Complexity, and Explanation",
+  "before": "https://www.youtube.com/watch?v=ldgK7EhEnto"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Arjun Khemani: Free-Will, Taking Children Seriously, and Anarcho-Capitalism",
+  "before": "https://www.youtube.com/watch?v=Hh9xOB2oDHk"
+ },
+ {
+  "op": "insert-label",
+  "chapter": "Peter Boghossian: Fermi Paradox, Ideological Contagion, and More (with Reid Nicewonder)",
+  "before": "https://www.youtube.com/watch?v=qPvTbftn-xY"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "What is Ultimate Reality?",
+  "href": "http://www.youtube.com/watch?v=GBc6vj5-wko",
+  "printed": "https://www.youtube.com/watch?v=GBc6vj5-wko",
+  "why": "book prints a full URL"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "Can Science Provide Ultimate Answers?",
+  "href": "http://www.youtube.com/watch?v=j65pZMkQv48",
+  "printed": "https://www.youtube.com/watch?v=j65pZMkQv48",
+  "why": "book prints a full URL"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "Why is the Quantum so Strange?",
+  "href": "http://www.youtube.com/watch?v=mNP5w4n9sFU",
+  "printed": "https://www.youtube.com/watch?v=mNP5w4n9sFU",
+  "why": "book prints a full URL"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "What is Truth?",
+  "href": "http://www.youtube.com/watch?v=3eEffbjzNwE",
+  "printed": "https://www.youtube.com/watch?v=3eEffbjzNwE",
+  "why": "book prints a full URL"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "Is the Cosmos a Computer?",
+  "href": "http://www.youtube.com/watch?v=UohR3OXzXA8",
+  "printed": "https://www.youtube.com/watch?v=UohR3OXzXA8",
+  "why": "book prints a full URL"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "Which Laws of Nature are Fundamental?",
+  "href": "http://www.youtube.com/watch?v=2BLo2SdmjLI",
+  "printed": "https://www.youtube.com/watch?v=2BLo2SdmjLI",
+  "why": "book prints a full URL"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "Do General Principles Govern All Science?",
+  "href": "http://www.youtube.com/watch?v=YD-capWJMyc",
+  "printed": "https://www.youtube.com/watch?v=YD-capWJMyc",
+  "why": "book prints a full URL"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "Micah Redding: Humanity’s Infinite Reach",
+  "href": "http://www.christiantranshumanism.org/",
+  "printed": "https://www.christiantranshumanism.org/",
+  "why": "book prints a full URL"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "Micah Redding: Humanity’s Infinite Reach",
+  "href": "http://www.christiantranshumanism.org/podcast/35/",
+  "printed": "https://www.christiantranshumanism.org/podcast/35/",
+  "why": "book prints a full URL"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "Sam Kuypers: Musing about Statements, Propositions, and Truth (with Liberty Fitz-Claridge)",
+  "href": "http://www.meetup.com/popper-deutsch-reading-group/",
+  "printed": "www.meetup.com/popper-deutsch-reading-group/",
+  "why": "book prints the address without scheme"
+ },
+ {
+  "op": "restore-printed-address",
+  "chapter": "Acknowledgments",
+  "href": "https://www.focusonfoundations.org",
+  "printed": "www.focusonfoundations.org",
+  "why": "book prints the address without scheme"
+ }
+]

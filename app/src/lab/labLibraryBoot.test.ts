@@ -3,6 +3,7 @@
 import { afterEach, describe, expect, it } from 'vitest'
 import {
   LAB_LIBRARY_BOOT_KEY,
+  forgetLabLibraryBootBook,
   labSignedInHint,
   libraryViewRequested,
   parseLabLibraryBootSnapshot,
@@ -54,6 +55,18 @@ describe('boot snapshot', () => {
     expect(parseLabLibraryBootSnapshot('nope', NOW)).toBeNull()
     localStorage.setItem(LAB_LIBRARY_BOOT_KEY, '{not json')
     expect(readLabLibraryBootSnapshot(localStorage, NOW)).toBeNull()
+  })
+
+  it('forgets the book just read once the reader takes that book off the library, and only that book', () => {
+    // Anders, 6 Nov 2026: a book removed from the desk stood there again on the next visit while the
+    // account's table loaded, led by this snapshot (libraryTwoReading.ts withJustRead).
+    writeLabLibraryBootSnapshot(snapshot())
+    expect(forgetLabLibraryBootBook('odyssey', localStorage, NOW)).toBe(false)
+    expect(readLabLibraryBootSnapshot(localStorage, NOW)).toEqual(snapshot())
+    expect(forgetLabLibraryBootBook('bible', localStorage, NOW)).toBe(true)
+    expect(localStorage.getItem(LAB_LIBRARY_BOOT_KEY)).toBeNull()
+    expect(forgetLabLibraryBootBook('bible', localStorage, NOW)).toBe(false)
+    expect(forgetLabLibraryBootBook('bible', null, NOW)).toBe(false)
   })
 
   it('only lets a cover source through that an <img> may load from this page', () => {

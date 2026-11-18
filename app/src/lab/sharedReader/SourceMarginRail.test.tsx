@@ -1,0 +1,366 @@
+// @vitest-environment jsdom
+import { useEffect } from 'react'
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { afterEach, expect, it, vi } from 'vitest'
+import { SourceMarginRail, SOURCE_MARGIN_NOTE_HOLD_MS, uniqueMarginEntries, sourceMarginBlankNoteGesture, sourceMarginDismissConsumes, sourceMarginLayout, sourceMarginLeaderPath, type SourceMarginEntry } from './SourceMarginRail'
+afterEach(() => { cleanup(); vi.restoreAllMocks(); document.querySelectorAll('[data-fixture-host]').forEach(host => host.remove()) })
+it('sorts by source order and pushes long answers down without constraining their height', () => {
+  const layout = sourceMarginLayout([{ id: 'later', y: 140, height: 200, order: 2 }, { id: 'first', y: 100, height: 1800, order: 1 }])
+  expect(layout.map(item => item.id)).toEqual(['first', 'later'])
+  expect(layout[0]).toMatchObject({ top: 100, height: 1800 })
+  expect(layout[1].top).toBe(1918)
+})
+it('portals a natural-height ordered layer into the source scroller and folds without unmounting its answer', async () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 1400, top: 60, bottom: 860, width: 1400, height: 800 } as DOMRect)
+  const column = document.createElement('div'); column.className = 'continuous-reader-window'; host.append(column)
+  vi.spyOn(column, 'getBoundingClientRect').mockReturnValue({ right: 850 } as DOMRect)
+  const mounted = vi.fn(), unmounted = vi.fn(), toggle = vi.fn(), remove = vi.fn()
+  function Answer() { useEffect(() => { mounted(); return unmounted }, []); return <p>An answer at its source</p> }
+  const entry: SourceMarginEntry = { id: 'a1', label: 'Explain', source: () => ({ left: 200, right: 400, top: 300, bottom: 320 }), order: 1, open: true, content: <Answer />, onToggle: toggle, onDelete: remove }
+  const { rerender } = render(<SourceMarginRail host={host} entries={[entry]} />)
+  expect(screen.getByTestId('source-margin-rail').parentElement).toBe(host)
+  expect(Number.parseFloat(screen.getByTestId('source-margin-item').style.left)).toBe(868)
+  expect(screen.getByTestId('source-margin-leaders').querySelector('path')).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Minimise' })); expect(toggle).toHaveBeenCalledOnce()
+  rerender(<SourceMarginRail host={host} entries={[{ ...entry, open: false }]} />)
+  expect(mounted).toHaveBeenCalledOnce(); expect(unmounted).not.toHaveBeenCalled()
+  expect(screen.getByTestId('source-margin-item').dataset.open).toBe('false')
+  fireEvent.click(screen.getByTestId('source-margin-open')); expect(toggle).toHaveBeenCalledTimes(2)
+  rerender(<SourceMarginRail host={host} entries={[entry]} />)
+  fireEvent.keyDown(window, { key: 'Escape' }); expect(toggle).toHaveBeenCalledTimes(3); expect(remove).not.toHaveBeenCalled()
+  host.scrollTop = 100
+  // Viewport movement and scrolling cancel: the item retains its document coordinate.
+  entry.source = () => ({ left: 200, right: 400, top: 200, bottom: 220 })
+  await act(async () => { fireEvent.scroll(host); await new Promise(resolve => requestAnimationFrame(resolve)) })
+  expect(Number.parseFloat(screen.getByTestId('source-margin-item').style.top)).toBe(240)
+})
+
+it('keeps stacked and offscreen leader height changes outside the reading column', () => {
+  const columnRight=850, railLeft=columnRight+18
+  for (const [sourceY,headerY] of [[-800,100],[300,2400],[2400,300]]) {
+    const path=sourceMarginLeaderPath(columnRight,sourceY,railLeft,headerY)
+    expect(path).toBe(`M850 ${sourceY}H856V${headerY}H862`)
+    // Its only vertical segment is six pixels beyond source column's right edge.
+    expect(Number(path.match(/H([\d.]+)V/)?.[1])).toBeGreaterThan(columnRight)
+    expect(path).not.toContain('L')
+    const xs = [Number(path.match(/^M([\d.]+)/)?.[1]), ...[...path.matchAll(/H([\d.]+)/g)].map(match => Number(match[1]))]
+    expect(xs.every(x => x >= columnRight)).toBe(true)
+  }
+})
+
+it('collapses on Escape from a focused editor and outside clicks, preserving inner actions and nested overlays', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  const toggle = vi.fn(), editorKey = vi.fn(), inner = vi.fn()
+  const entry: SourceMarginEntry = { id: 'long-note', label: 'Note', source: () => ({ left: 10, right: 100, top: 100, bottom: 120 }), order: 1, open: true, content: <><textarea aria-label="Draft" defaultValue="Unsent words" onKeyDown={event => { editorKey(); event.preventDefault(); event.stopPropagation() }} /><button onPointerDown={inner}>Inside action</button></>, onToggle: toggle }
+  render(<SourceMarginRail host={host} entries={[entry]} />)
+  const editor = screen.getByRole('textbox', { name: 'Draft' })
+  fireEvent.keyDown(editor, { key: 'Escape' })
+  expect(toggle).toHaveBeenCalledOnce(); expect(editorKey).not.toHaveBeenCalled()
+  expect((editor as HTMLTextAreaElement).value).toBe('Unsent words')
+  const editorDown = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0 })
+  editor.dispatchEvent(editorDown)
+  expect(editorDown.defaultPrevented).toBe(false)
+  fireEvent.pointerDown(screen.getByText('Inside action'))
+  expect(toggle).toHaveBeenCalledOnce(); expect(inner).toHaveBeenCalledOnce()
+  fireEvent.pointerDown(document.body)
+  expect(toggle).toHaveBeenCalledTimes(2)
+  fireEvent.keyDown(editor, { key: 'Escape', isComposing: true })
+  expect(toggle).toHaveBeenCalledTimes(2)
+  const dialog = document.createElement('div'); dialog.setAttribute('aria-modal', 'true'); document.body.append(dialog)
+  fireEvent.keyDown(dialog, { key: 'Escape' }); fireEvent.pointerDown(dialog)
+  expect(toggle).toHaveBeenCalledTimes(2)
+  dialog.remove()
+})
+
+it('leaves source and minimap gestures to their existing handlers without an extra collapse', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  const toggle = vi.fn(), sourceGesture = vi.fn()
+  const entry: SourceMarginEntry = { id: 'card-a', label: 'Explain', source: () => ({ left: 10, right: 100, top: 100, bottom: 120 }), order: 1, open: true, content: <p>Answer</p>, onToggle: toggle }
+  const source = document.createElement('span'); source.dataset.sourceCardId = 'card-a'; host.append(source)
+  source.addEventListener('pointerdown', sourceGesture)
+  const minimap = document.createElement('div'); minimap.className = 'pdf-original__minimap'; host.append(minimap)
+  const pdfSource = document.createElement('span'); host.append(pdfSource)
+  render(<SourceMarginRail host={host} entries={[entry]} ownsSourcePointer={event => event.target === pdfSource} />)
+  fireEvent.pointerDown(source); fireEvent.pointerDown(minimap); fireEvent.pointerDown(pdfSource)
+  expect(toggle).not.toHaveBeenCalled(); expect(sourceGesture).toHaveBeenCalledOnce()
+  fireEvent.pointerDown(host)
+  expect(toggle).toHaveBeenCalledOnce()
+})
+
+it('starts each leader at its own PDF page border, including mixed sheet widths and horizontal scroll', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1500 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  host.scrollLeft = 40; host.scrollTop = 120
+  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 50, right: 1550, top: 60, bottom: 860 } as DOMRect)
+  for (const box of [{ left: 100, right: 950, top: -200, bottom: 200 }, { left: 100, right: 800, top: 220, bottom: 1000 }]) {
+    const page = document.createElement('div'); page.className = 'pdf-original__page'; host.append(page)
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue(box as DOMRect)
+  }
+  const entries = [{ id: 'wide', source: { left: 200, right: 410, top: 100, bottom: 125 }, border: 940 }, { id: 'narrow', source: { left: 200, right: 390, top: 320, bottom: 345 }, border: 790 }]
+  render(<SourceMarginRail host={host} entries={entries.map((entry, index) => ({ id: entry.id, label: 'Explain', source: () => entry.source, order: index, open: true, content: <p>Response</p>, onToggle: vi.fn() }))} />)
+  const leaders = screen.getByTestId('source-margin-leaders')
+  expect(leaders.querySelector('circle')).toBeNull()
+  for (const entry of entries) {
+    const path = leaders.querySelector(`[data-card-id="${entry.id}"] path`)!.getAttribute('d')!
+    expect(Number(path.match(/^M([\d.]+)/)?.[1])).toBe(entry.border)
+    expect(Number(path.match(/^M[\d.]+ ([\d.]+)/)?.[1])).toBe(entry.source.top - 60 + 120)
+    const xs = [Number(path.match(/^M([\d.]+)/)?.[1]), ...[...path.matchAll(/H([\d.]+)/g)].map(match => Number(match[1]))]
+    expect(xs.every(x => x >= entry.border)).toBe(true)
+  }
+})
+
+it('covers the full reading document with the blank note hit surface at top, middle and end without growing on scroll', async () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, top: 60, right: 1400, bottom: 860 } as DOMRect)
+  let contentHeight = 3200
+  const page = document.createElement('div'); page.className = 'continuous-reader-window'; host.append(page)
+  vi.spyOn(page, 'getBoundingClientRect').mockImplementation(() => ({ left: 100, right: 850, top: 60 - host.scrollTop, bottom: 60 - host.scrollTop + contentHeight } as DOMRect))
+  const blank = vi.fn()
+  render(<SourceMarginRail host={host} entries={[]} onBlankNote={blank} />)
+  const room = host.querySelector<HTMLElement>('.source-margin-room')!
+  expect(room.style.left).toBe('850px')
+  for (const top of [0, 1200, 2400]) {
+    host.scrollTop = top
+    await act(async () => { fireEvent.scroll(host); await new Promise(resolve => requestAnimationFrame(resolve)) })
+    expect(room.style.height).toBe('3200px')
+    const down = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0, clientY: 700 })
+    act(() => { room.dispatchEvent(down) })
+    expect(down.defaultPrevented).toBe(true)
+    expect(blank).toHaveBeenLastCalledWith({ clientY: 700, sourceY: 700 - 60 + top })
+  }
+  expect(blank).toHaveBeenCalledTimes(3)
+  // A virtualised source replacement may become shorter; the overlay must
+  // release that old height rather than feeding its own scrollHeight back.
+  contentHeight = 1600; host.scrollTop = 0
+  await act(async () => { fireEvent.scroll(host); await new Promise(resolve => requestAnimationFrame(resolve)) })
+  expect(room.style.height).toBe('1600px')
+  const readingDown = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0 })
+  page.dispatchEvent(readingDown)
+  expect(readingDown.defaultPrevented).toBe(false)
+})
+
+// Surface Duo, 6 Nov 2026: a note on every touch in the margin. A mouse press
+// starts a note at once; a finger or pen must hold still (Anders: "you need to
+// long press to create a note with touch"). A touch that moves is a scroll.
+it('starts a blank-margin note on a mouse press, and on touch only after a still hold', () => {
+  expect(sourceMarginBlankNoteGesture('mouse', 0)).toBe('press')
+  expect(sourceMarginBlankNoteGesture(undefined, 0)).toBe('press')
+  expect(sourceMarginBlankNoteGesture('mouse', 2)).toBeNull()
+  expect(sourceMarginBlankNoteGesture('touch', 0)).toBe('long-press')
+  expect(sourceMarginBlankNoteGesture('pen', 0)).toBe('long-press')
+  vi.useFakeTimers()
+  try {
+    const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+    Object.defineProperty(host, 'clientWidth', { value: 1100 }); Object.defineProperty(host, 'clientHeight', { value: 700 })
+    vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, top: 0, right: 1100, bottom: 700 } as DOMRect)
+    const page = document.createElement('div'); page.className = 'continuous-reader-window'; host.append(page)
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({ left: 60, right: 760, top: 0, bottom: 3000 } as DOMRect)
+    const blank = vi.fn()
+    render(<SourceMarginRail host={host} entries={[]} onBlankNote={blank} />)
+    const room = host.querySelector<HTMLElement>('.source-margin-room')!
+    // A quick touch: not cancelled (the browser keeps the scroll) and no note.
+    expect(fireEvent.pointerDown(room, { pointerId: 1, pointerType: 'touch', button: 0, clientX: 900, clientY: 400 })).toBe(true)
+    fireEvent.pointerUp(room, { pointerId: 1, pointerType: 'touch' })
+    act(() => { vi.advanceTimersByTime(SOURCE_MARGIN_NOTE_HOLD_MS + 50) })
+    expect(blank).not.toHaveBeenCalled()
+    // A finger that moves is scrolling: no note.
+    fireEvent.pointerDown(room, { pointerId: 2, pointerType: 'touch', button: 0, clientX: 900, clientY: 400 })
+    fireEvent.pointerMove(room, { pointerId: 2, pointerType: 'touch', clientX: 900, clientY: 360 })
+    act(() => { vi.advanceTimersByTime(SOURCE_MARGIN_NOTE_HOLD_MS + 50) })
+    expect(blank).not.toHaveBeenCalled()
+    // A scroll of the book cancels a hold too.
+    fireEvent.pointerDown(room, { pointerId: 3, pointerType: 'pen', button: 0, clientX: 900, clientY: 400 })
+    fireEvent.scroll(host)
+    act(() => { vi.advanceTimersByTime(SOURCE_MARGIN_NOTE_HOLD_MS + 50) })
+    expect(blank).not.toHaveBeenCalled()
+    // A finger held still (a small wobble allowed) starts a note where it rests.
+    fireEvent.pointerDown(room, { pointerId: 4, pointerType: 'touch', button: 0, clientX: 900, clientY: 400 })
+    fireEvent.pointerMove(room, { pointerId: 4, pointerType: 'touch', clientX: 904, clientY: 403 })
+    act(() => { vi.advanceTimersByTime(SOURCE_MARGIN_NOTE_HOLD_MS - 50) })
+    expect(blank).not.toHaveBeenCalled()
+    act(() => { vi.advanceTimersByTime(100) })
+    expect(blank).toHaveBeenCalledOnce()
+    expect(blank).toHaveBeenCalledWith({ clientY: 400, sourceY: 400 })
+    // Lifting that finger taps whatever the new note put under it: swallowed,
+    // once, so the card it opened is not folded straight away.
+    const under = vi.fn()
+    document.body.addEventListener('click', under)
+    fireEvent.pointerUp(room, { pointerId: 4, pointerType: 'touch' })
+    expect(fireEvent.click(document.body)).toBe(false)
+    expect(under).not.toHaveBeenCalled()
+    fireEvent.click(document.body)
+    expect(under).toHaveBeenCalledOnce()
+    document.body.removeEventListener('click', under)
+    // The mouse still starts one at once.
+    expect(fireEvent.pointerDown(room, { pointerType: 'mouse', button: 0, clientY: 400 })).toBe(false)
+    expect(blank).toHaveBeenCalledTimes(2)
+  } finally { vi.useRealTimers() }
+})
+
+it('uses the complete PDF source container height when only nearby page canvases are mounted', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, top: 0 } as DOMRect)
+  const pages = document.createElement('div'); pages.className = 'pdf-original__pages'; host.append(pages)
+  vi.spyOn(pages, 'getBoundingClientRect').mockReturnValue({ bottom: 40000 } as DOMRect)
+  const page = document.createElement('div'); page.className = 'pdf-original__page'; pages.append(page)
+  vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({ left: 100, right: 850, top: 0, bottom: 1000 } as DOMRect)
+  render(<SourceMarginRail host={host} entries={[]} onBlankNote={vi.fn()} />)
+  expect(host.querySelector<HTMLElement>('.source-margin-room')!.style.height).toBe('40000px')
+})
+
+it('focuses an editor synchronously once its measured card is visible, without stealing focus on later layout', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  const other = document.createElement('input'); host.append(other)
+  const entry: SourceMarginEntry = { id: 'new-note', label: 'Note', source: () => ({ left: 0, right: 100, top: 100, bottom: 120 }),
+    order: 1, open: true, focusEditor: true, content: <textarea className="lab-pcard-note" aria-label="New note" />, onToggle: vi.fn() }
+  const { rerender } = render(<SourceMarginRail host={host} entries={[entry]} />)
+  const field = screen.getByRole('textbox', { name: 'New note' })
+  expect(field.closest('section')?.style.visibility).not.toBe('hidden')
+  expect(document.activeElement).toBe(field)
+  other.focus()
+  rerender(<SourceMarginRail host={host} entries={[{ ...entry }]} />)
+  expect(document.activeElement).toBe(other)
+})
+
+it('places an entry once its page is marked ready, even when that mark is the last change (CI rollback, 3 Nov 2026)', async () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 1400, top: 0, bottom: 800, width: 1400, height: 800 } as DOMRect)
+  const page = document.createElement('div'); page.className = 'pdf-original__page'; host.append(page)
+  vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({ left: 100, right: 850, top: 0, bottom: 800 } as DOMRect)
+  // A chapter's actions are found only on a drawn page (PdfOriginalReaderShell headingSelection).
+  const entry: SourceMarginEntry = { id: 'unit:outline-1', label: '2 Consequences', actions: true, open: true, onToggle: () => {}, order: 1, content: <button type="button">Catch me up</button>,
+    source: () => page.dataset.ready === 'true' ? { left: 200, right: 400, top: 300, bottom: 320 } : null }
+  render(<SourceMarginRail host={host} entries={[entry]} />)
+  await act(async () => { await new Promise(resolve => requestAnimationFrame(resolve)) })
+  expect(screen.queryByRole('button', { name: 'Catch me up' })).toBeNull()
+  // The page finishes drawing: only its ready attribute changes, no node is added.
+  await act(async () => { page.dataset.ready = 'true'; await new Promise(resolve => setTimeout(resolve, 0)); await new Promise(resolve => requestAnimationFrame(resolve)) })
+  expect(screen.getByRole('button', { name: 'Catch me up' })).toBeTruthy()
+})
+
+/** Tester, 9 Nov 2026: the open click sat below the header while the minimise sat at its right. */
+it('opens and minimises a card from one header control in one place, and folds its line in the open card\'s type', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  const toggle = vi.fn()
+  const entry: SourceMarginEntry = { id: 'e1', label: 'Explain', source: () => ({ left: 10, right: 100, top: 100, bottom: 120 }), order: 1, open: false, content: <p>Whole answer</p>, preview: 'One sentence only.', previewStyle: 'whole', onToggle: toggle, onDelete: vi.fn() }
+  const { rerender } = render(<SourceMarginRail host={host} entries={[entry]} />)
+  const head = () => screen.getByTestId('source-margin-item').querySelector('.source-margin-head')!
+  const folded = screen.getByTestId('source-margin-expand')
+  expect(folded).toHaveProperty('textContent', '+')
+  expect(folded.getAttribute('aria-label')).toBe('Open')
+  expect(folded.getAttribute('aria-expanded')).toBe('false')
+  expect(screen.queryByTestId('source-margin-minimise')).toBeNull()
+  expect(screen.getByTestId('source-margin-item').querySelector('.source-margin-preview')?.getAttribute('data-preview')).toBe('whole')
+  const order = () => [...head().children].map(node => node.getAttribute('data-testid') || node.getAttribute('aria-label'))
+  expect(order()).toEqual(['source-margin-open', 'source-margin-expand', 'Delete Explain'])
+  fireEvent.click(folded); expect(toggle).toHaveBeenCalledOnce()
+  rerender(<SourceMarginRail host={host} entries={[{ ...entry, open: true }]} />)
+  const open = screen.getByTestId('source-margin-minimise')
+  // The same element in the same slot: React keeps the node, so it cannot move.
+  expect(open).toBe(folded)
+  expect(open.textContent).toBe('−'); expect(open.getAttribute('aria-label')).toBe('Minimise'); expect(open.getAttribute('aria-expanded')).toBe('true')
+  expect(order()).toEqual(['source-margin-open', 'source-margin-minimise', 'Delete Explain'])
+  fireEvent.click(open); expect(toggle).toHaveBeenCalledTimes(2)
+})
+
+it('gives a chapter\'s actions no open or minimise control', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  const entry: SourceMarginEntry = { id: 'u1', label: 'Chapter 1', actions: true, source: () => ({ left: 10, right: 100, top: 100, bottom: 120 }), order: 1, open: true, content: <button>Primer</button>, onToggle: vi.fn() }
+  render(<SourceMarginRail host={host} entries={[entry]} />)
+  expect(screen.getByRole('button', { name: 'Primer' })).toBeTruthy()
+  expect(document.querySelector('.source-margin-toggle')).toBeNull()
+})
+
+it('leaves Escape and outside presses alone for a chapter\'s always-shown actions (start actions, 9 Nov 2026)', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 1400, top: 60, bottom: 860, width: 1400, height: 800 } as DOMRect)
+  const toggle = vi.fn()
+  const actions: SourceMarginEntry = { id: 'start:2', label: 'Chapter 2', actions: true, variant: 'start-later', source: () => ({ left: 200, right: 400, top: 300, bottom: 320 }), order: -10, open: true, content: <button type="button">Primer</button>, onToggle: toggle }
+  render(<SourceMarginRail host={host} entries={[actions]} />)
+  expect(screen.getByTestId('source-margin-item').className).toContain('is-start-later')
+  const escape = new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true })
+  window.dispatchEvent(escape)
+  fireEvent.pointerDown(document.body)
+  expect(escape.defaultPrevented).toBe(false)
+  expect(toggle).not.toHaveBeenCalled()
+})
+
+// Anders, 11 Nov 2026: clicking the page to fold an open margin card also opened the clicked word's definition.
+it('a mouse click that folds an open card does nothing else: the page under it gets no pointerup and no click', async () => {
+  const host = document.createElement('div'); document.body.append(host)
+  const word = document.createElement('span'); word.textContent = 'merchant'; host.append(word)
+  const toggle = vi.fn(), wordUp = vi.fn(), wordClick = vi.fn(), wordCancel = vi.fn()
+  word.addEventListener('pointerup', wordUp); word.addEventListener('click', wordClick); word.addEventListener('pointercancel', wordCancel)
+  const entry: SourceMarginEntry = { id: 'c1', label: 'Summary', source: () => ({ left: 10, right: 100, top: 100, bottom: 120 }), order: 1, open: true, content: <p>Answer</p>, onToggle: toggle, onDelete: () => {} }
+  const press = (x: number, y: number) => {
+    const down = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0, clientX: x, clientY: y })
+    Object.defineProperty(down, 'pointerType', { value: 'mouse' })
+    word.dispatchEvent(down)
+    return down
+  }
+  const view = render(<SourceMarginRail host={host} entries={[entry]} />)
+  const down = press(200, 300)
+  expect(toggle).toHaveBeenCalledTimes(1)
+  // The press itself is the page's (a drag may start on it); only its click is taken.
+  expect(down.defaultPrevented).toBe(false)
+  fireEvent.pointerUp(word, { clientX: 201, clientY: 300 }); fireEvent.click(word, { clientX: 201, clientY: 300 })
+  expect(wordUp).not.toHaveBeenCalled(); expect(wordClick).not.toHaveBeenCalled()
+  // The page is told the gesture ended, so its own drag state is not left waiting for a release.
+  expect(wordCancel).toHaveBeenCalledTimes(1)
+  // The next click is the reader's own again (a definition, a selection): nothing is held back.
+  view.rerender(<SourceMarginRail host={host} entries={[{ ...entry, open: false }]} />)
+  await Promise.resolve()
+  press(200, 300)
+  fireEvent.pointerUp(word, { clientX: 200, clientY: 300 }); fireEvent.click(word, { clientX: 200, clientY: 300 })
+  expect(wordUp).toHaveBeenCalledTimes(1); expect(wordClick).toHaveBeenCalledTimes(1)
+  expect(toggle).toHaveBeenCalledTimes(1)
+  host.remove()
+})
+
+it('a press that folds an open card and becomes a drag still selects: its release reaches the page', () => {
+  const host = document.createElement('div'); document.body.append(host)
+  const word = document.createElement('span'); host.append(word)
+  const toggle = vi.fn(), wordUp = vi.fn(), wordCancel = vi.fn()
+  word.addEventListener('pointerup', wordUp); word.addEventListener('pointercancel', wordCancel)
+  const entry: SourceMarginEntry = { id: 'c2', label: 'Explain', source: () => ({ left: 10, right: 100, top: 100, bottom: 120 }), order: 1, open: true, content: <p>Answer</p>, onToggle: toggle, onDelete: () => {} }
+  render(<SourceMarginRail host={host} entries={[entry]} />)
+  const down = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0, clientX: 200, clientY: 300 })
+  Object.defineProperty(down, 'pointerType', { value: 'mouse' })
+  word.dispatchEvent(down)
+  expect(toggle).toHaveBeenCalledTimes(1)
+  fireEvent.pointerMove(word, { clientX: 320, clientY: 340 })
+  fireEvent.pointerUp(word, { clientX: 320, clientY: 340 })
+  expect(wordUp).toHaveBeenCalledTimes(1); expect(wordCancel).not.toHaveBeenCalled()
+  host.remove()
+})
+
+it('only a mouse click on the page is consumed: a control still acts, and a finger still scrolls', () => {
+  const page = document.createElement('p'), button = document.createElement('button'), header = document.createElement('div')
+  header.className = 'lab-header'; const title = document.createElement('span'); header.append(title)
+  expect(sourceMarginDismissConsumes('mouse', 0, page)).toBe(true)
+  expect(sourceMarginDismissConsumes('mouse', 0, button)).toBe(false)
+  expect(sourceMarginDismissConsumes('mouse', 0, title)).toBe(false)
+  expect(sourceMarginDismissConsumes('mouse', 2, page)).toBe(false)
+  expect(sourceMarginDismissConsumes('touch', 0, page)).toBe(false)
+  expect(sourceMarginDismissConsumes('pen', 0, page)).toBe(false)
+})
+
+it('paints one section per card id, the first entry kept (a book-scroll chapter swap listed one card twice)', () => {
+  expect(uniqueMarginEntries([{ id: 'a', n: 1 }, { id: 'b', n: 2 }, { id: 'a', n: 3 }])).toEqual([{ id: 'a', n: 1 }, { id: 'b', n: 2 }])
+  const unique = [{ id: 'a' }, { id: 'b' }]
+  expect(uniqueMarginEntries(unique)).toBe(unique)
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  const card = (open: boolean, preview: string): SourceMarginEntry => ({ id: 'mc_1', label: 'Explain', source: () => ({ left: 0, right: 10, top: 100, bottom: 120 }), order: 1, open, preview, content: <p>The open card</p>, onToggle: () => {} })
+  const { rerender } = render(<SourceMarginRail host={host} entries={[card(true, 'Lead'), card(false, 'Folded copy')]} />)
+  expect(screen.getAllByTestId('source-margin-item')).toHaveLength(1)
+  rerender(<SourceMarginRail host={host} entries={[card(false, 'Lead')]} />)
+  expect(screen.getAllByTestId('source-margin-item')).toHaveLength(1)
+  expect(screen.queryByText('Folded copy')).toBeNull()
+})

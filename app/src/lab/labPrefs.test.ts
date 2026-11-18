@@ -2,13 +2,14 @@
 
 import { afterEach, describe, expect, it } from 'vitest'
 import {
-  labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance,
+  labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance, labDesktopDefaultFontSize, labReadingFontSize, LAB_PHONE_DEFAULT_FONT_SIZE, LAB_FONT_SIZES,
   labCompactFootProgress,
+  readStoredWordsPerPage,
+  storeWordsPerPage,
   DEFAULT_LAB_PREFS,
-  LAB_ACCOUNT_URL,
   LAB_LIBRARY_URL,
   LAB_SIGN_IN_URL,
-  labAccountUrl,
+  labLibraryIntroductionUrl,
   labSignInUrl,
   LAB_MAX_FONT_SIZE,
   LAB_MIN_FONT_SIZE,
@@ -16,8 +17,7 @@ import {
   LAB_ACCESSIBILITY_FONTS,
   LAB_FONT_LABELS,
   LAB_READING_FONTS,
-  LAB_V1_DEFAULT_FONT,
-  LAB_V2_DEFAULT_FONT,
+  LAB_DEFAULT_FONT,
   labFontFamilyCss,
   labReadingFont,
   labFootProgress,
@@ -31,6 +31,8 @@ import {
   readLabPrefs,
   syncLabAudioEdition,
   writeLabPrefs,
+  markLabSeenOnce,
+  labStoredTheme,
 } from './labPrefs'
 
 afterEach(() => {
@@ -74,6 +76,34 @@ describe('lab prefs', () => {
     expect(labReaderProgressLabel({ ...shared, mode: 'chapter' })).toBe('4 / 10 of chapter · 18%')
   })
 
+  it('gives a word share, not a page count, when no full page has been measured', () => {
+    // To the Lighthouse opened straight onto The Window 2 (two paragraphs):
+    // its 45 words are not a page's capacity.
+    expect(labReaderProgressLabel({
+      mode: 'book',
+      currentPage: 1,
+      totalPages: 1,
+      chapterPercent: 100,
+      chapterNumber: 2,
+      chapterWordCounts: [
+        { number: 1, wordCount: 3_933 },
+        { number: 2, wordCount: 45 },
+        { number: 3, wordCount: 66_022 },
+      ],
+      wordsPerPage: null,
+    })).toBe('6% of book')
+  })
+
+  it('remembers words per page for one layout and window only', () => {
+    localStorage.clear()
+    expect(readStoredWordsPerPage('a|390x844')).toBeNull()
+    storeWordsPerPage('a|390x844', 72)
+    expect(readStoredWordsPerPage('a|390x844')).toBe(72)
+    expect(readStoredWordsPerPage('a|844x390')).toBeNull()
+    localStorage.setItem('tinct:reader-words-per-page', '{broken')
+    expect(readStoredWordsPerPage('a|390x844')).toBeNull()
+  })
+
   it('adds thousands separators to reader page totals', () => {
     expect(labReaderProgressLabel({
       mode: 'book',
@@ -114,6 +144,21 @@ describe('lab prefs', () => {
     expect(mid.percent).toBe(Math.round((mid.page / mid.totalPages) * 100))
     expect(mid.totalPages).toBe(60)
     expect(mid.honest).toBe(true)
+  })
+
+  it('holds the book’s page count once shown: a chapter change does not move it (Constructor Theory, 16 Oct 2026)', () => {
+    const chapterWeights = [{ number: 1, wordCount: 200 }, { number: 2, wordCount: 4_000 }, { number: 3, wordCount: 4_000 }]
+    // Chapter one counted at 3 pages; chapter two (20 estimated) counts at 14 when it is in front of the reader.
+    const first = labBookPageEstimate({ currentPage: 2, totalPages: 3, chapterNumber: 1, chapterWeights, wordsPerPage: 200 })
+    const unheld = labBookPageEstimate({ currentPage: 1, totalPages: 14, chapterNumber: 2, chapterWeights, wordsPerPage: 200 })
+    expect(unheld.totalPages).not.toBe(first.totalPages)
+    const held = labBookPageEstimate({ currentPage: 1, totalPages: 14, chapterNumber: 2, chapterWeights, wordsPerPage: 200, heldTotalPages: first.totalPages })
+    expect(held.totalPages).toBe(first.totalPages)
+    expect(held.page).toBe(unheld.page)
+    expect(held.percent).toBe(Math.round((held.page / held.totalPages) * 100))
+    // Never past the last page.
+    expect(labBookPageEstimate({ currentPage: 14, totalPages: 14, chapterNumber: 3, chapterWeights, wordsPerPage: 200, heldTotalPages: 30 }).page).toBe(30)
+    expect(labReaderProgressLabel({ mode: 'book', currentPage: 1, totalPages: 14, chapterPercent: 0, chapterNumber: 2, chapterWordCounts: chapterWeights, wordsPerPage: 200, heldTotalPages: first.totalPages })).toBe(`2 / ${first.totalPages} of book · ${Math.round((2 / first.totalPages) * 100)}%`)
   })
 
   it('weights Bible chapters by paragraph count when no per-chapter words ship', () => {
@@ -169,6 +214,14 @@ describe('lab prefs', () => {
     expect(LAB_LIBRARY_URL).not.toBe('/read?view=library')
   })
 
+  // view=book-detail: the library opens the 3D book on its introduction, not only the hero (Anders, 6 Nov 2026).
+  it('links a book introduction to the library book overlay for the reader edition', () => {
+    expect(labLibraryIntroductionUrl('to-the-lighthouse', 'original-en')).toBe('/library?book=to-the-lighthouse&view=book-detail&edition=original-en')
+    expect(labLibraryIntroductionUrl('bible', '')).toBe('/library?book=bible&view=book-detail')
+    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?voiceTrial=mini')).toBe('/library?book=crito&view=book-detail&edition=modern-en&voiceTrial=mini')
+    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?book=bible')).toBe('/library?book=crito&view=book-detail&edition=modern-en')
+  })
+
   it('defaults to page of chapter and persists every knob', () => {
     expect(DEFAULT_LAB_PREFS.progressDisplay).toEqual({ metric: 'page', scope: 'chapter' })
     const next = parseLabPrefs({
@@ -213,7 +266,8 @@ describe('lab prefs', () => {
       audioEdition: 'web-en',
       audioSpeed: 1.75,
       compareOpen: true,
-      voicePersona: 'female',
+      // The stored Ara was never marked as chosen: it was the old default.
+      voicePersona: 'male',
     })
     expect(migrated.phone).toEqual(migrated.desktop)
     expect(migrated.phone).toMatchObject({
@@ -266,6 +320,51 @@ describe('lab prefs', () => {
     expect(desktop.audioEdition).toBe('web-en')
     expect(phone.audioSpeed).toBe(2)
     expect(desktop.audioSpeed).toBe(2)
+  })
+
+  it('sizes desktop text for the window until the reader sets a size (about 68 characters a line)', () => {
+    expect(labDesktopDefaultFontSize(1280)).toBe(1)
+    expect(labDesktopDefaultFontSize(1440)).toBe(1.1)
+    expect(labDesktopDefaultFontSize(1512)).toBe(1.2)
+    expect(labDesktopDefaultFontSize(1728)).toBe(1.3)
+    expect(labDesktopDefaultFontSize(2560)).toBe(1.4)
+    expect(labDesktopDefaultFontSize(1024)).toBe(1)
+    expect(labDesktopDefaultFontSize(0)).toBe(DEFAULT_LAB_PREFS.fontSize)
+    // Never chosen: a new reader, and an old record that stored the old default on every write.
+    expect(DEFAULT_LAB_PREFS.fontSizeExplicit).toBe(false)
+    expect(parseLabPrefs(null, 'desktop').fontSizeExplicit).toBe(false)
+    expect(parseLabPrefs({ fontSize: 1.3 }, 'desktop').fontSizeExplicit).toBe(false)
+    // A size the reader chose stays theirs, old record or new.
+    expect(parseLabPrefs({ fontSize: 1.6 }, 'desktop')).toMatchObject({ fontSize: 1.6, fontSizeExplicit: true })
+    writeLabPrefs({ ...parseLabPrefs(null, 'desktop'), fontSize: 1.3, fontSizeExplicit: true }, 'desktop')
+    expect(readLabPrefs('desktop')).toMatchObject({ fontSize: 1.3, fontSizeExplicit: true })
+    // Another change written with the window's size does not make it a choice.
+    writeLabPrefs({ ...readLabPrefs('desktop'), fontSize: 1.1, fontSizeExplicit: false, theme: 'dark' }, 'desktop')
+    expect(readLabPrefs('desktop')).toMatchObject({ fontSizeExplicit: false, theme: 'dark' })
+    expect(restoreLabAppearance({ ...DEFAULT_LAB_PREFS, fontSize: 1.8, fontSizeExplicit: true }).fontSizeExplicit).toBe(false)
+  })
+
+  it('reads the phone at 1.0 until the reader sets a size (Anders, 14 Oct 2026)', () => {
+    expect(LAB_PHONE_DEFAULT_FONT_SIZE).toBe(1)
+    expect(DEFAULT_LAB_PREFS.fontSize).toBe(1)
+    expect(LAB_FONT_SIZES).toContain(LAB_PHONE_DEFAULT_FONT_SIZE)
+    // A new phone reader.
+    expect(labReadingFontSize(parseLabPrefs(null, 'phone'), 'phone', 1.2)).toBe(1)
+    // A phone reader whose record stored the old default without choosing it.
+    const legacy = parseLabPrefs({ fontSize: 1.3 }, 'phone')
+    expect(legacy.fontSizeExplicit).toBe(false)
+    expect(labReadingFontSize(legacy, 'phone', 1.2)).toBe(1)
+    expect(labReadingFontSize({ fontSize: 1.3, fontSizeExplicit: false }, 'phone', 1.2)).toBe(1)
+    // Sizes the reader chose are kept, including the old default and 1.0 itself.
+    expect(labReadingFontSize({ fontSize: 1.3, fontSizeExplicit: true }, 'phone', 1.2)).toBe(1.3)
+    expect(labReadingFontSize(parseLabPrefs({ fontSize: 1.5 }, 'phone'), 'phone', 1.2)).toBe(1.5)
+    expect(parseLabPrefs({ fontSize: 1 }, 'phone').fontSizeExplicit).toBe(true)
+    // The desktop keeps its window size.
+    expect(labReadingFontSize(parseLabPrefs(null, 'desktop'), 'desktop', 1.2)).toBe(1.2)
+    expect(labReadingFontSize({ fontSize: 1.8, fontSizeExplicit: true }, 'desktop', 1.2)).toBe(1.8)
+    // A write without the flag at either default is not a choice.
+    writeLabPrefs({ ...parseLabPrefs(null, 'phone'), fontSize: 1, fontSizeExplicit: undefined }, 'phone')
+    expect(readLabPrefs('phone').fontSizeExplicit).toBe(false)
   })
 
   it('offers a genuinely smaller size and clamps imported preferences', () => {
@@ -338,12 +437,53 @@ describe('lab prefs', () => {
   })
 })
 
+describe('the White theme (9 Nov 2026)', () => {
+  const stored = () => JSON.parse(localStorage.getItem(LAB_PREFS_KEY) || 'null')
+
+  it('round-trips through the store, stored as Light on white paper', () => {
+    writeLabPrefs({ ...readLabPrefs('desktop'), theme: 'white' }, 'desktop')
+    expect(readLabPrefs('desktop')).toMatchObject({ theme: 'white', darkMode: false })
+    expect(readLabPrefs('phone').theme).toBe('system')
+    expect(stored().desktop).toMatchObject({ theme: 'light', paper: 'white' })
+    expect(stored().phone.paper).toBeUndefined()
+    // Another write of either profile keeps it; a one-shot mark too.
+    writeLabPrefs({ ...readLabPrefs('phone'), theme: 'dark' }, 'phone')
+    markLabSeenOnce('intro', null)
+    expect(stored().desktop).toMatchObject({ theme: 'light', paper: 'white' })
+    expect(readLabPrefs('desktop').theme).toBe('white')
+    // Leaving White drops the paper.
+    writeLabPrefs({ ...readLabPrefs('desktop'), theme: 'light' }, 'desktop')
+    expect(stored().desktop.paper).toBeUndefined()
+    expect(readLabPrefs('desktop').theme).toBe('light')
+  })
+
+  it('reads as Light to a client that predates it, and only Light on white paper reads as White', () => {
+    expect(labStoredTheme('white')).toEqual({ theme: 'light', paper: 'white' })
+    expect(labStoredTheme('book')).toEqual({ theme: 'book' })
+    // What an older client checks: the stored theme alone, one of the four it knows.
+    writeLabPrefs({ ...readLabPrefs('phone'), theme: 'white' }, 'phone')
+    expect(['system', 'light', 'dark', 'book']).toContain(stored().phone.theme)
+    expect(stored().phone.theme).toBe('light')
+    // An older client's write drops the paper: the reader is back on Light, not on something unknown.
+    const older = { version: 2, shared: {}, phone: { theme: 'light' }, desktop: { theme: 'light' } }
+    expect(parseLabPrefs(older, 'phone').theme).toBe('light')
+    expect(parseLabPrefs({ version: 2, shared: {}, phone: { theme: 'dark', paper: 'white' }, desktop: {} }, 'phone').theme).toBe('dark')
+    expect(parseLabPrefs({ version: 2, shared: {}, phone: { theme: 'light', paper: 'cream' }, desktop: {} }, 'phone').theme).toBe('light')
+    // A raw 'white' (never written by Tinct) still reads, and version 1's flat shape too.
+    expect(parseLabPrefs({ version: 2, shared: {}, phone: { theme: 'white' }, desktop: {} }, 'phone').theme).toBe('white')
+    expect(parseLabPrefs({ theme: 'light', paper: 'white' }, 'desktop').theme).toBe('white')
+    expect(parseLabStoredPrefs({ theme: 'sepia', darkMode: false }).phone.theme).toBe('light')
+  })
+
+  it('restoring the appearance leaves White for the default', () => {
+    expect(restoreLabAppearance({ ...DEFAULT_LAB_PREFS, theme: 'white' }).theme).toBe(DEFAULT_LAB_PREFS.theme)
+  })
+})
+
 describe('lab sign-in URLs', () => {
   it('return to the reader path they were given and default to the library', () => {
     expect(labSignInUrl('/reader?voice=v2')).toBe('/sign-in?returnTo=%2Freader%3Fvoice%3Dv2')
-    expect(labAccountUrl('/reader')).toBe('/sign-in?mode=account&returnTo=%2Freader')
     expect(labSignInUrl()).toBe(LAB_SIGN_IN_URL)
-    expect(labAccountUrl('')).toBe(LAB_ACCOUNT_URL)
     expect(LAB_SIGN_IN_URL).toBe(`/sign-in?returnTo=${encodeURIComponent(LAB_LIBRARY_URL)}`)
   })
 })
@@ -366,16 +506,11 @@ describe('the reading faces', () => {
     }
   })
 
-  it('moves the default in V2 only, and never moves a face a reader picked', () => {
-    // Never chosen: the new reader gets the new default, today's reader does not.
-    expect(labReadingFont(null, true)).toBe(LAB_V2_DEFAULT_FONT)
-    expect(labReadingFont(null, false)).toBe(LAB_V1_DEFAULT_FONT)
-    expect(LAB_V2_DEFAULT_FONT).toBe('literata')
-    expect(LAB_V1_DEFAULT_FONT).toBe('garamond')
-    // Chosen: the choice holds in both chromes, including the old three.
+  it('defaults to Literata, and never moves a face a reader picked', () => {
+    expect(labReadingFont(null)).toBe(LAB_DEFAULT_FONT)
+    expect(LAB_DEFAULT_FONT).toBe('literata')
     for (const family of ['garamond', 'baskerville', 'sourceserif', 'literata', 'atkinson'] as const) {
-      expect(labReadingFont(family, true)).toBe(family)
-      expect(labReadingFont(family, false)).toBe(family)
+      expect(labReadingFont(family)).toBe(family)
     }
   })
 
@@ -457,5 +592,102 @@ describe('whole-book progress with only nearby chapters loaded', () => {
   it('preserves list order for nonsequential chapter numbering', () => {
     const chapters = [{ number: 50, wordCount: 100, paragraphCount: 1 }, { number: 1190, paragraphCount: 2 }, { number: 51, wordCount: 100, paragraphCount: 1 }]
     expect(labBookPageEstimate({ currentPage: 1, totalPages: 2, chapterNumber: 1190, chapterWeights: chapters, wordsPerPage: 100, bookWordCount: 400 })).toMatchObject({ page: 2, totalPages: 4, percent: 50 })
+  })
+
+  it('makes Helios the default and keeps only a voice the reader chose (2026-10-01)', () => {
+    expect(DEFAULT_LAB_PREFS.voicePersona).toBe('male')
+    // An account from before the change: Ara stored, never chosen.
+    expect(parseLabStoredPrefs({ version: 2, shared: { voicePersona: 'female' } }).shared.voicePersona).toBe('male')
+    // A reader who picked Ara keeps her, through a write and a read.
+    const chosen = parseLabStoredPrefs({ version: 2, shared: { voicePersona: 'female', voicePersonaChosen: true } }).shared
+    expect(chosen).toMatchObject({ voicePersona: 'female', voicePersonaChosen: true })
+    writeLabPrefs({ ...DEFAULT_LAB_PREFS, voicePersona: 'female', voicePersonaChosen: true }, 'desktop')
+    expect(readLabPrefs('desktop')).toMatchObject({ voicePersona: 'female', voicePersonaChosen: true })
+  })
+})
+
+describe('reader progress mode', () => {
+  it('long books default to chapter progress, everything else to book progress', async () => {
+    const { defaultReaderProgressMode } = await import('./labPrefs')
+    expect(defaultReaderProgressMode(783000)).toBe('chapter')
+    expect(defaultReaderProgressMode(210000)).toBe('chapter')
+    expect(defaultReaderProgressMode(10000)).toBe('book')
+    expect(defaultReaderProgressMode(undefined)).toBe('book')
+  })
+
+  it('remembers the reader\'s choice per book', async () => {
+    const { readStoredReaderProgressMode, storeReaderProgressMode } = await import('./labPrefs')
+    localStorage.clear()
+    expect(readStoredReaderProgressMode('bible')).toBeNull()
+    storeReaderProgressMode('bible', 'book')
+    storeReaderProgressMode('the-manual', 'chapter')
+    expect(readStoredReaderProgressMode('bible')).toBe('book')
+    expect(readStoredReaderProgressMode('the-manual')).toBe('chapter')
+  })
+})
+
+describe('Compare on by default (Anders, 2026-10-06)', () => {
+  afterEach(() => { try { localStorage.clear() } catch { /* jsdom */ } })
+
+  it('opens Compare for a new reader and for an old stored default that was never chosen', () => {
+    expect(DEFAULT_LAB_PREFS.compareOpen).toBe(true)
+    expect(parseLabStoredPrefs({ version: 2, shared: { compareOpen: false } }).shared.compareOpen).toBe(true)
+  })
+
+  it('keeps a reader’s own None, and persists it', () => {
+    const chosen = parseLabStoredPrefs({ version: 2, shared: { compareOpen: false, compareChosen: true } }).shared
+    expect(chosen).toMatchObject({ compareOpen: false, compareChosen: true })
+    writeLabPrefs({ ...readLabPrefs('phone'), compareOpen: false, compareChosen: true }, 'phone')
+    expect(readLabPrefs('desktop')).toMatchObject({ compareOpen: false, compareChosen: true })
+    writeLabPrefs({ ...readLabPrefs('phone'), compareOpen: true, compareChosen: true }, 'phone')
+    expect(readLabPrefs('phone').compareOpen).toBe(true)
+  })
+})
+
+describe('librarian tab prefs, removed 2026-10-08', () => {
+  afterEach(() => { try { localStorage.clear() } catch { /* jsdom */ } })
+
+  it('the prefs carry no librarian-tab keys', () => {
+    for (const key of ['librarianTab', 'librarianTabOpens', 'librarianTabLongPress', 'librarianTabDock']) {
+      expect(DEFAULT_LAB_PREFS).not.toHaveProperty(key)
+      expect(readLabPrefs('phone')).not.toHaveProperty(key)
+    }
+  })
+
+  it('stored tab values are ignored on read and dropped on the next write', () => {
+    const old = {
+      version: 2,
+      shared: { primaryEdition: 'web-en', voicePersona: 'male', librarianTab: false, librarianTabOpens: 'talk', librarianTabLongPress: true },
+      phone: { margins: 'wide', librarianTabDock: { side: 'left', y: 0.3 } },
+      desktop: { librarianTabDock: { side: 'right', y: 0.5 } },
+    }
+    const parsed = parseLabPrefs(old)
+    expect(parsed.margins).toBe('wide')
+    for (const key of ['librarianTab', 'librarianTabOpens', 'librarianTabLongPress', 'librarianTabDock']) expect(parsed).not.toHaveProperty(key)
+    expect(parseLabPrefs({ darkMode: true, librarianTab: false }, 'phone')).not.toHaveProperty('librarianTab')
+    localStorage.setItem(LAB_PREFS_KEY, JSON.stringify(old))
+    writeLabPrefs(readLabPrefs('phone'), 'phone')
+    const stored = JSON.parse(localStorage.getItem(LAB_PREFS_KEY)!)
+    expect(stored.shared).not.toHaveProperty('librarianTab')
+    expect(stored.shared).not.toHaveProperty('librarianTabOpens')
+    expect(stored.shared).not.toHaveProperty('librarianTabLongPress')
+    expect(stored.phone).not.toHaveProperty('librarianTabDock')
+    expect(stored.desktop).not.toHaveProperty('librarianTabDock')
+    expect(stored.phone.margins).toBe('wide')
+  })
+})
+
+describe('words per page is measured on prose only', async () => {
+  const { proseChapter, readStoredWordsPerPage, storeWordsPerPage, MIN_WORDS_PER_PAGE } = await import('./labPrefs')
+  it('a printed contents or a list of dates is not prose (Memoirs of Victor Hugo read 25,134 pages)', () => {
+    expect(proseChapter(['By Victor Hugo', 'October 8, 1844.', '1845.', 'AN ELECTION SESSION.', 'March 16, 1847.'])).toBe(false)
+    expect(proseChapter(['It was at Rheims that I heard the name of Shakespeare for the first time, spoken by Charles Nodier.'])).toBe(true)
+    expect(proseChapter([])).toBe(false)
+  })
+  it('a stored figure below the floor is not read back', () => {
+    storeWordsPerPage('layout-a', 3)
+    expect(readStoredWordsPerPage('layout-a')).toBeNull()
+    storeWordsPerPage('layout-a', MIN_WORDS_PER_PAGE + 100)
+    expect(readStoredWordsPerPage('layout-a')).toBe(MIN_WORDS_PER_PAGE + 100)
   })
 })

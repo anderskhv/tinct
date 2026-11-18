@@ -16,3 +16,13 @@ audio/
 public/audio/
 public-audio-backup/
 src/data/editions/
+# Scene pages and their scripts, generated in prebuild by scripts/seo/build-scene-pages.mjs
+public/read/*/act-*-scene-*.html
+public/read/*/act-*-prologue.html
+public/read/*/prologue.html
+public/read/scene-page.js
+public/read/scene-layout.js
+# Chapter pages (in packs), their stylesheet and the shelf hubs, generated in prebuild by scripts/seo/build-chapter-pages.mjs
+public/seo/chapter-packs/
+public/read/chapter-page.css
+public/read/shelf/

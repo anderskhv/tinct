@@ -1,0 +1,199 @@
+{
+  "bookId": "middlemarch",
+  "status": "proposal; requires integration and edition-bound anchor review",
+  "source": "editions/middlemarch-original-en.json",
+  "chapterNumbering": "Prelude=0; numbered chapters=1–86; Finale=87. Preserve these source numbers; never renumber a session slice.",
+  "entities": [
+    {
+      "id": "dorothea-brooke",
+      "name": "Dorothea Brooke",
+      "role": "An idealistic young woman",
+      "description": "Eager to devote her life to something worthwhile, Dorothea looks for a purpose larger than the comfortable future expected of her.",
+      "aliases": [
+        "Dorothea",
+        "Miss Brooke",
+        "Mrs. Casaubon",
+        "Dodo"
+      ]
+    },
+    {
+      "id": "celia-brooke",
+      "name": "Celia Brooke",
+      "role": "Dorothea’s sister",
+      "description": "Practical and attentive to ordinary pleasures, Celia often sees what her sister’s ideals obscure.",
+      "aliases": [
+        "Celia",
+        "Lady Chettam"
+      ]
+    },
+    {
+      "id": "edward-casaubon",
+      "name": "Edward Casaubon",
+      "role": "A scholar at Lowick",
+      "description": "A clergyman absorbed in an ambitious scholarly project, Casaubon hopes to give his work lasting authority.",
+      "aliases": [
+        "Edward Casaubon",
+        "Mr. Casaubon",
+        "Casaubon"
+      ]
+    },
+    {
+      "id": "tertius-lydgate",
+      "name": "Tertius Lydgate",
+      "role": "A doctor new to Middlemarch",
+      "description": "Lydgate brings scientific ambitions and plans for medical reform into a town where patronage and reputation shape professional life.",
+      "aliases": [
+        "Tertius Lydgate",
+        "Mr. Lydgate",
+        "Lydgate",
+        "Tertius"
+      ]
+    },
+    {
+      "id": "rosamond-vincy",
+      "name": "Rosamond Vincy",
+      "role": "A manufacturer’s daughter",
+      "description": "Accomplished and socially ambitious, Rosamond imagines a future of refinement beyond the limits of her familiar circle.",
+      "aliases": [
+        "Rosamond",
+        "Mrs. Lydgate"
+      ]
+    },
+    {
+      "id": "fred-vincy",
+      "name": "Fred Vincy",
+      "role": "Rosamond’s brother",
+      "description": "Affectionate but unreliable, Fred hopes luck and inheritance will spare him difficult decisions about work.",
+      "aliases": [
+        "Fred Vincy",
+        "Fred"
+      ]
+    },
+    {
+      "id": "mary-garth",
+      "name": "Mary Garth",
+      "role": "A clear-sighted young woman",
+      "description": "Mary’s wit and self-respect make her unwilling to confuse affection with excuses for bad conduct.",
+      "aliases": [
+        "Mary Garth"
+      ]
+    },
+    {
+      "id": "caleb-garth",
+      "name": "Caleb Garth",
+      "role": "An estate manager",
+      "description": "Caleb values skilled work and honest dealings. His devotion to useful labor offers a different measure of success from money or status.",
+      "aliases": [
+        "Caleb Garth",
+        "Caleb",
+        "Mr. Garth"
+      ]
+    },
+    {
+      "id": "will-ladislaw",
+      "name": "Will Ladislaw",
+      "role": "Casaubon’s young relative",
+      "description": "Independent in outlook and uncertain of his vocation, Will resists the paths other people prescribe for him.",
+      "aliases": [
+        "Will Ladislaw",
+        "Ladislaw"
+      ]
+    },
+    {
+      "id": "nicholas-bulstrode",
+      "name": "Nicholas Bulstrode",
+      "role": "A banker and religious patron",
+      "description": "Bulstrode’s wealth supports local institutions, giving his religious convictions considerable public influence.",
+      "aliases": [
+        "Nicholas Bulstrode",
+        "Mr. Bulstrode",
+        "Bulstrode"
+      ]
+    },
+    {
+      "id": "harriet-bulstrode",
+      "name": "Harriet Bulstrode",
+      "role": "Bulstrode’s wife",
+      "description": "Born into the Vincy family, Harriet combines social pride with warmth and loyalty.",
+      "aliases": [
+        "Mrs. Bulstrode",
+        "Harriet"
+      ]
+    },
+    {
+      "id": "camden-farebrother",
+      "name": "Camden Farebrother",
+      "role": "A clergyman",
+      "description": "Humane and alert to his own weaknesses, Farebrother offers friendship without demanding that people be flawless.",
+      "aliases": [
+        "Camden Farebrother",
+        "Mr. Farebrother",
+        "Farebrother"
+      ]
+    },
+    {
+      "id": "sir-james-chettam",
+      "name": "Sir James Chettam",
+      "role": "A neighboring landowner",
+      "description": "Well-meaning and attentive to practical improvements, Sir James takes an active interest in the Brooke sisters.",
+      "aliases": [
+        "Sir James Chettam",
+        "Sir James",
+        "Chettam"
+      ]
+    }
+  ],
+  "additionalEntities": [
+    {
+      "id": "john-raffles",
+      "name": "John Raffles",
+      "aliases": [
+        "John Raffles",
+        "Raffles"
+      ],
+      "description": "A man with connections to Bulstrode’s earlier life. Reveal further detail only after the reader reaches the relevant disclosures."
+    },
+    {
+      "id": "peter-featherstone",
+      "name": "Peter Featherstone",
+      "aliases": [
+        "Peter Featherstone",
+        "Mr. Featherstone"
+      ],
+      "description": "An elderly property owner whose relations and dependents watch his intentions closely."
+    },
+    {
+      "id": "arthur-brooke",
+      "name": "Mr. Brooke",
+      "aliases": [
+        "Mr. Brooke"
+      ],
+      "description": "Dorothea and Celia’s uncle, a landowner with wide interests and uncertain follow-through."
+    },
+    {
+      "id": "susan-garth",
+      "name": "Susan Garth",
+      "aliases": [
+        "Susan Garth",
+        "Mrs. Garth"
+      ],
+      "description": "Caleb’s wife, whose practical judgment supports their household."
+    }
+  ],
+  "identityDecisions": [
+    "Dorothea Brooke and Mrs. Casaubon are one person; Edward Casaubon is a separate entity. Do not let surname-only matches swallow the wife’s married name.",
+    "Celia Brooke and Lady Chettam are one person; Sir James Chettam is separate. Married aliases require source-position review before exposing relationships.",
+    "Rosamond Vincy and Mrs. Lydgate are one person; Tertius Lydgate is separate.",
+    "Nicholas and Harriet Bulstrode require separate records. The plural Bulstrodes denotes the household, not a single person.",
+    "Fred, Rosamond, Mr. Vincy, and Mrs. Vincy must not be merged by surname.",
+    "Caleb, Susan, Mary, and the other Garth children must remain distinct. Do not use Garth alone as a universal alias.",
+    "Raffles and Joshua Rigg are distinct; reveal their family connection only at the appropriate reading position.",
+    "Use context-sensitive matching for Will, Mary, and generic titles such as the Vicar; no unqualified global matches."
+  ],
+  "integrationRequirements": [
+    "Generate production character data only after all session parts are assembled and accepted.",
+    "Derive paragraph hashes and occurrence anchors from the exact accepted edition; this proposal makes no claim to runtime compatibility.",
+    "Keep introductory cards free of later outcomes. Unlock relationships and event summaries using verified source positions.",
+    "Review all aliases against the complete original and assembled modern edition, including characters introduced outside session mm-f."
+  ]
+}

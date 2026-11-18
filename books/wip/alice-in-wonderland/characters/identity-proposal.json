@@ -1,0 +1,449 @@
+{
+  "bookId": "alice-in-wonderland",
+  "status": "proposal-only",
+  "coordinateBase": "chapter and paragraph both one-based; aligned in both editions",
+  "characters": [
+    {
+      "id": "alice",
+      "name": "Alice",
+      "aliases": [
+        "Alice"
+      ],
+      "firstMention": {
+        "chapter": 1,
+        "paragraph": 1
+      },
+      "identityNotes": "Do not register Mary Ann, Mabel or Ada as Alice aliases. Mary Ann is a mistaken address; Ada and Mabel are other children she speculates about."
+    },
+    {
+      "id": "sister",
+      "name": "Alice’s sister",
+      "aliases": [
+        "her sister",
+        "my sister"
+      ],
+      "firstMention": {
+        "chapter": 1,
+        "paragraph": 1
+      },
+      "identityNotes": "Unnamed frame-story person. Resolve contextual mentions only; do not import a biographical name."
+    },
+    {
+      "id": "white-rabbit",
+      "name": "The White Rabbit",
+      "aliases": [
+        "White Rabbit",
+        "the Rabbit",
+        "W. RABBIT"
+      ],
+      "firstMention": {
+        "chapter": 1,
+        "paragraph": 2
+      },
+      "identityNotes": "Rabbit and herald are contextual roles of this individual. Do not resolve every lowercase rabbit mention automatically."
+    },
+    {
+      "id": "dinah",
+      "name": "Dinah",
+      "aliases": [
+        "Dinah"
+      ],
+      "firstMention": {
+        "chapter": 1,
+        "paragraph": 10
+      },
+      "identityNotes": "Alice’s cat at home; distinct from the Cheshire Cat. Referred to in dialogue, not physically present in Wonderland."
+    },
+    {
+      "id": "mouse",
+      "name": "The Mouse",
+      "aliases": [
+        "the Mouse",
+        "O Mouse"
+      ],
+      "firstMention": {
+        "chapter": 2,
+        "paragraph": 18
+      },
+      "identityNotes": "The pool companion. Distinct from Dormouse and from the mouse in its inset Fury poem."
+    },
+    {
+      "id": "dodo",
+      "name": "The Dodo",
+      "aliases": [
+        "Dodo"
+      ],
+      "firstMention": {
+        "chapter": 2,
+        "paragraph": 26
+      },
+      "identityNotes": "Caucus-race organiser. Do not replace identity with a biographical Carroll identification."
+    },
+    {
+      "id": "duck",
+      "name": "The Duck",
+      "aliases": [
+        "Duck"
+      ],
+      "firstMention": {
+        "chapter": 2,
+        "paragraph": 26
+      },
+      "identityNotes": "Separate pool companion."
+    },
+    {
+      "id": "lory",
+      "name": "The Lory",
+      "aliases": [
+        "Lory"
+      ],
+      "firstMention": {
+        "chapter": 2,
+        "paragraph": 26
+      },
+      "identityNotes": "Separate pool companion; not the Eaglet."
+    },
+    {
+      "id": "eaglet",
+      "name": "The Eaglet",
+      "aliases": [
+        "Eaglet"
+      ],
+      "firstMention": {
+        "chapter": 2,
+        "paragraph": 26
+      },
+      "identityNotes": "Separate pool companion."
+    },
+    {
+      "id": "pat",
+      "name": "Pat",
+      "aliases": [
+        "Pat"
+      ],
+      "firstMention": {
+        "chapter": 4,
+        "paragraph": 16
+      },
+      "identityNotes": "Rabbit’s helper; preserve dialect. Species is not specified by the reading text."
+    },
+    {
+      "id": "bill",
+      "name": "Bill the Lizard",
+      "aliases": [
+        "Bill",
+        "the Lizard"
+      ],
+      "firstMention": {
+        "chapter": 4,
+        "paragraph": 24
+      },
+      "identityNotes": "Bill is heard before the species identification at 4:34. Do not reveal Lizard in a position-gated first card before 4:34. Same juror in chapters 11–12."
+    },
+    {
+      "id": "caterpillar",
+      "name": "The Caterpillar",
+      "aliases": [
+        "Caterpillar",
+        "blue caterpillar"
+      ],
+      "firstMention": {
+        "chapter": 4,
+        "paragraph": 42
+      },
+      "identityNotes": "First visible at the end of chapter 4; not first introduced in chapter 5."
+    },
+    {
+      "id": "pigeon",
+      "name": "The Pigeon",
+      "aliases": [
+        "Pigeon"
+      ],
+      "firstMention": {
+        "chapter": 5,
+        "paragraph": 56
+      },
+      "identityNotes": "Nesting bird that mistakes Alice for a serpent. Serpent is an accusation, not a canonical Alice alias."
+    },
+    {
+      "id": "fish-footman",
+      "name": "The Fish-Footman",
+      "aliases": [
+        "Fish-Footman"
+      ],
+      "firstMention": {
+        "chapter": 6,
+        "paragraph": 1
+      },
+      "identityNotes": "Messenger distinct from the Frog-Footman; both appear in the same first paragraph."
+    },
+    {
+      "id": "frog-footman",
+      "name": "The Frog-Footman",
+      "aliases": [
+        "Frog-Footman",
+        "the Footman"
+      ],
+      "firstMention": {
+        "chapter": 6,
+        "paragraph": 1
+      },
+      "identityNotes": "Door attendant; unqualified Footman is contextual after Fish-Footman leaves."
+    },
+    {
+      "id": "duchess",
+      "name": "The Duchess",
+      "aliases": [
+        "Duchess"
+      ],
+      "firstMention": {
+        "chapter": 2,
+        "paragraph": 8
+      },
+      "identityNotes": "First mentioned by Rabbit in 2:8; first physically seen in 6:19. Keep a mention-only initial card until then."
+    },
+    {
+      "id": "cook",
+      "name": "The Duchess’s cook",
+      "aliases": [
+        "the cook"
+      ],
+      "firstMention": {
+        "chapter": 6,
+        "paragraph": 19
+      },
+      "identityNotes": "Pepper-box witness is the same cook. First body appearance is 6:19; generic cook references must be context checked."
+    },
+    {
+      "id": "baby",
+      "name": "The Duchess’s baby",
+      "aliases": [
+        "the baby",
+        "the child"
+      ],
+      "firstMention": {
+        "chapter": 6,
+        "paragraph": 19
+      },
+      "identityNotes": "Baby/pig continuity is a delayed reveal. Add pig alias only after 6:48; do not expose transformation in pre-reading cast."
+    },
+    {
+      "id": "cheshire-cat",
+      "name": "The Cheshire Cat",
+      "aliases": [
+        "Cheshire Cat",
+        "Cheshire cat",
+        "Cheshire Puss",
+        "the Cat"
+      ],
+      "firstMention": {
+        "chapter": 6,
+        "paragraph": 21
+      },
+      "identityNotes": "Initially an unnamed grinning cat; Cheshire name supplied at 6:23. Not Dinah."
+    },
+    {
+      "id": "hatter",
+      "name": "The Hatter",
+      "aliases": [
+        "Hatter"
+      ],
+      "firstMention": {
+        "chapter": 6,
+        "paragraph": 58
+      },
+      "identityNotes": "First mentioned by Cat; first seen at 7:1. Mad Hatter is a familiar external label, not the source name; do not add as text alias."
+    },
+    {
+      "id": "march-hare",
+      "name": "The March Hare",
+      "aliases": [
+        "March Hare"
+      ],
+      "firstMention": {
+        "chapter": 6,
+        "paragraph": 58
+      },
+      "identityNotes": "First mentioned by Cat; seen at 7:1. Separate from White Rabbit."
+    },
+    {
+      "id": "dormouse",
+      "name": "The Dormouse",
+      "aliases": [
+        "Dormouse"
+      ],
+      "firstMention": {
+        "chapter": 7,
+        "paragraph": 1
+      },
+      "identityNotes": "Distinct from pool Mouse; alternating pronouns do not create multiple entities."
+    },
+    {
+      "id": "two",
+      "name": "Two",
+      "aliases": [
+        "Two"
+      ],
+      "firstMention": {
+        "chapter": 8,
+        "paragraph": 6
+      },
+      "identityNotes": "First unnamed speaker at 8:1; name revealed at 8:6. Gardener; name matching must be case/context aware."
+    },
+    {
+      "id": "five",
+      "name": "Five",
+      "aliases": [
+        "Five"
+      ],
+      "firstMention": {
+        "chapter": 8,
+        "paragraph": 1
+      },
+      "identityNotes": "Rose-painting gardener. Do not match the number five outside gardener dialogue."
+    },
+    {
+      "id": "seven",
+      "name": "Seven",
+      "aliases": [
+        "Seven"
+      ],
+      "firstMention": {
+        "chapter": 8,
+        "paragraph": 2
+      },
+      "identityNotes": "Rose-painting gardener. Do not match the number seven without context."
+    },
+    {
+      "id": "queen-of-hearts",
+      "name": "The Queen of Hearts",
+      "aliases": [
+        "Queen of Hearts",
+        "the Queen"
+      ],
+      "firstMention": {
+        "chapter": 6,
+        "paragraph": 2
+      },
+      "identityNotes": "First mentioned in invitation; seen at 8:11. This is NOT the Red Queen from Through the Looking-Glass."
+    },
+    {
+      "id": "king-of-hearts",
+      "name": "The King of Hearts",
+      "aliases": [
+        "King of Hearts",
+        "the King",
+        "the judge"
+      ],
+      "firstMention": {
+        "chapter": 8,
+        "paragraph": 11
+      },
+      "identityNotes": "Specific monarch distinct from generic guest Kings. Judge alias applies from chapter 11 only."
+    },
+    {
+      "id": "knave-of-hearts",
+      "name": "The Knave of Hearts",
+      "aliases": [
+        "Knave of Hearts",
+        "the Knave",
+        "the prisoner"
+      ],
+      "firstMention": {
+        "chapter": 8,
+        "paragraph": 11
+      },
+      "identityNotes": "Crown-bearer, later defendant. Prisoner alias applies at trial; accusation is not established guilt."
+    },
+    {
+      "id": "gryphon",
+      "name": "The Gryphon",
+      "aliases": [
+        "Gryphon"
+      ],
+      "firstMention": {
+        "chapter": 9,
+        "paragraph": 43
+      },
+      "identityNotes": "Retain source spelling. Do not introduce a separate Griffin entity."
+    },
+    {
+      "id": "mock-turtle",
+      "name": "The Mock Turtle",
+      "aliases": [
+        "Mock Turtle"
+      ],
+      "firstMention": {
+        "chapter": 9,
+        "paragraph": 37
+      },
+      "identityNotes": "First mentioned by Queen; seen at 9:48. Distinct from remembered schoolmaster Tortoise."
+    },
+    {
+      "id": "tortoise",
+      "name": "Tortoise",
+      "aliases": [
+        "Tortoise"
+      ],
+      "firstMention": {
+        "chapter": 9,
+        "paragraph": 55
+      },
+      "identityNotes": "Remembered schoolmaster, an old Turtle. Tortoise/taught us pun is not a biological correction."
+    }
+  ],
+  "insetFigures": [
+    {
+      "names": [
+        "Father William",
+        "his son"
+      ],
+      "scope": "recited poem, chapter 5 paragraphs 27–34",
+      "decision": "Separate inset figures; never identify Father William with William the Conqueror."
+    },
+    {
+      "names": [
+        "Fury",
+        "the mouse in the tale"
+      ],
+      "scope": "Mouse’s poem, chapter 3 paragraph 34",
+      "decision": "Treat as inset story roles; do not automatically merge its mouse with the narrator Mouse."
+    },
+    {
+      "names": [
+        "Elsie",
+        "Lacie",
+        "Tillie"
+      ],
+      "scope": "Dormouse’s story, chapter 7 paragraph 70 onward",
+      "decision": "Three distinct fictional sisters within an inset story; no biographical aliases."
+    },
+    {
+      "names": [
+        "Owl",
+        "Panther",
+        "whiting",
+        "snail",
+        "porpoise",
+        "Lobster",
+        "Shark"
+      ],
+      "scope": "songs and recitations, chapter 10",
+      "decision": "Keep within poem contexts; generic sea creatures are not globally unique people."
+    },
+    {
+      "names": [
+        "William the Conqueror",
+        "Edwin",
+        "Morcar",
+        "Stigand",
+        "Edgar Atheling",
+        "Shakespeare"
+      ],
+      "scope": "historical quotation and narrator comparison, chapters 2–3",
+      "decision": "Optional reference entries only, not active Wonderland cast."
+    }
+  ],
+  "otherMinorFigures": "Ada, Mabel, Mary Ann, Alice’s brother and nurse, Crab and daughter, Magpie, Canary and children, puppy, guinea-pigs, executioner, royal children and soldiers may receive position-gated supporting cards if needed. Do not invent proper names or merge species groups with individuals.",
+  "integration": "Proposal is not a runtime character file. Derive mentions against the exact final edition hashes and validate spoiler timing. No mention offsets or generated production cards are supplied."
+}

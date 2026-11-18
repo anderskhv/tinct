@@ -12,6 +12,7 @@ import { readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { join, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const publicDir = fileURLToPath(new URL('../public/', import.meta.url));
 const assets = join(publicDir, 'assets/about-v20/assets');
@@ -154,7 +155,7 @@ function norm(x, y) { const l = Math.hypot(x, y) || 1; return [x / l, y / l]; }
 const types = { html: 'text/html', css: 'text/css', js: 'text/javascript', webp: 'image/webp', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', svg: 'image/svg+xml', woff2: 'font/woff2', woff: 'font/woff', ttf: 'font/ttf' };
 
 // CHROMIUM_PATH points at a Chromium binary when Playwright's own download is not available.
-const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
+const browser = await markInternal(await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}));
 const context = await browser.newContext({ viewport: { width: 1600, height: 1100 }, deviceScaleFactor: 1 });
 await context.route('**/*', route => {
   const p = new URL(route.request().url()).pathname;

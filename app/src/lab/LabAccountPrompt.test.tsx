@@ -4,12 +4,13 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt.tsx'
 import { LabApp } from './LabApp'
-import { LAB_AI_ACTIONS_KEY, LAB_FREE_AI_ACTIONS, LAB_SECOND_BOOK_NUDGE_KEY } from './labAccountPrompt'
+import { LAB_AI_ACTIONS_KEY, LAB_FREE_AI_ACTIONS, LAB_SECOND_BOOK_NUDGE_KEY, LAB_TALK_TRIAL_KEY } from './labAccountPrompt'
 import { LAB_COPY } from './labCopy'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 
 const DEVICE_KEYS = [
   LAB_AI_ACTIONS_KEY,
+  LAB_TALK_TRIAL_KEY,
   LAB_SECOND_BOOK_NUDGE_KEY,
   'tinct-lab-prefs',
   'tinct-lab-position',
@@ -50,12 +51,29 @@ function chatCalls(fetchMock: ReturnType<typeof chatFetch>) {
   return fetchMock.mock.calls.filter(call => CHAT_ENDPOINT.test(String(call[0])))
 }
 
+/** Today's guest Talk trial already used on this device. */
+function markTodaysTalkTrialUsed() {
+  localStorage.setItem(LAB_TALK_TRIAL_KEY, new Date().toISOString().slice(0, 10))
+}
+
+/** A microphone that opens at once (jsdom has none). */
+function stubMicrophone() {
+  const track = { stop: () => {}, enabled: true, onended: null }
+  vi.stubGlobal('navigator', { ...navigator, mediaDevices: { getUserMedia: async () => ({ getTracks: () => [track], getAudioTracks: () => [track] }) } })
+}
+
+/** A row of the reader's menu, opened first when it is not open. */
+function menuRow(id: string) {
+  if (!screen.queryByTestId('lab-super-menu')) fireEvent.click(screen.getByTestId('lab-super'))
+  return screen.getByTestId(`lab-super-row-${id}`)
+}
+
 function openDesktopChat() {
-  fireEvent.click(screen.getByTestId('lab-desktop-chat'))
+  fireEvent.click(menuRow('chat'))
 }
 
 function sendTyped(text: string) {
-  fireEvent.change(screen.getByPlaceholderText('Ask'), { target: { value: text } })
+  fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: text } })
   fireEvent.click(screen.getByTestId('lab-ask-send'))
 }
 
@@ -67,8 +85,9 @@ describe('LabAccountSheet', () => {
     expect(sheet.getAttribute('data-action')).toBe('chat')
     expect(screen.getByRole('dialog').getAttribute('aria-labelledby')).toBe('lab-account-title')
     expect(screen.getByText(LAB_COPY.accountEyebrow)).toBeTruthy()
-    expect(screen.getByText(LAB_COPY.accountTitle)).toBeTruthy()
+    expect(screen.getByRole('heading', {name: 'Create a free account to keep using AI'})).toBeTruthy()
     expect(screen.getByText(LAB_COPY.accountBody)).toBeTruthy()
+    expect(sheet.textContent).not.toMatch(/\d+ free AI/)
     expect(screen.getByTestId('lab-account-create').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader%3Fvoice%3Dv2')
     expect(screen.getByTestId('lab-account-create').textContent).toBe(LAB_COPY.accountCreate)
     expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/sign-in?returnTo=%2Freader%3Fvoice%3Dv2')
@@ -92,14 +111,29 @@ describe('LabAccountSheet', () => {
   })
 })
 
-it('offers narration sign-in without a retry error or an exhausted chat allowance message', () => {
+it('shares one prompt between listening and AI: same eyebrow, body tail and buttons in the same order', () => {
   const onClose = vi.fn()
-  render(<LabAccountSheet open action="audio" returnTo="/reader" onClose={onClose} desktop />)
-  expect(screen.getByRole('heading', {name:'Sign in to listen'})).toBeTruthy()
-  expect(screen.getByTestId('lab-account-sign-in').className).toBe('lab-account-primary')
-  expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toContain('returnTo=%2Freader')
-  expect(screen.queryByText(LAB_COPY.accountBody)).toBeNull()
-  fireEvent.click(screen.getByRole('button', {name:'Keep reading'}))
+  const { rerender } = render(<LabAccountSheet open action="audio" returnTo="/reader" onClose={onClose} desktop />)
+  const audio = screen.getByTestId('lab-account-sheet')
+  expect(screen.getByText('Free account')).toBeTruthy()
+  expect(screen.getByRole('heading', {name: 'Create a free account to keep listening'})).toBeTruthy()
+  expect(audio.textContent).toContain('Listen on, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.')
+  expect(audio.textContent).not.toMatch(/\d+ free AI/)
+  const order = (root: HTMLElement) => Array.from(root.querySelectorAll('a.lab-account-primary, .lab-account-secondary')).map(node => node.textContent)
+  expect(order(audio)).toEqual(['Create free account', 'Keep reading', 'Sign in'])
+  expect(screen.getByTestId('lab-account-create').className).toBe('lab-account-primary')
+  expect(screen.getByTestId('lab-account-create').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader')
+  expect(screen.getByTestId('lab-account-sign-in').className).toBe('lab-account-secondary')
+  // The quiet text button carries the same class as the Sign in link.
+  expect(screen.getByRole('button', {name: 'Keep reading'}).className).toBe('lab-account-secondary')
+  rerender(<LabAccountSheet open action="chat" returnTo="/reader" onClose={onClose} desktop />)
+  expect(order(screen.getByTestId('lab-account-sheet'))).toEqual(['Create free account', 'Keep reading', 'Sign in'])
+})
+
+it('closes on a single tap of Keep reading', () => {
+  const onClose = vi.fn()
+  render(<LabAccountSheet open action="audio" returnTo="/reader" onClose={onClose} />)
+  fireEvent.click(screen.getByRole('button', {name: 'Keep reading'}))
   expect(onClose).toHaveBeenCalledOnce()
 })
 
@@ -148,7 +182,7 @@ describe('lab account prompt in the reader', () => {
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
     // The reader keeps the chat pane and the unsent question.
     expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
-    expect((screen.getByPlaceholderText('Ask') as HTMLInputElement).value).toBe('One more?')
+    expect((screen.getByTestId('lab-ask-input') as HTMLInputElement).value).toBe('One more?')
     expect(chatCalls(fetchMock)).toHaveLength(LAB_FREE_AI_ACTIONS)
 
     // Trying again is still held: the dismissed sheet spent nothing.
@@ -157,12 +191,13 @@ describe('lab account prompt in the reader', () => {
     expect(chatCalls(fetchMock)).toHaveLength(LAB_FREE_AI_ACTIONS)
   })
 
-  it('counts chat and voice against one allowance, so both can be tried first', async () => {
-    // Two chats already spent on this device. A chat takes the third, and the
-    // voice turn after it — the fourth action overall — is the one held.
+  it('keeps the ten free actions apart from the guest Talk trial: with them spent, Talk still asks for its trial and counts nothing', async () => {
+    // Since 16 Oct a guest may try Talk once a day (two minutes); that trial
+    // is its own allowance, so a spent chat allowance does not hold it.
     localStorage.setItem(LAB_AI_ACTIONS_KEY, String(LAB_FREE_AI_ACTIONS - 1))
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
+    stubMicrophone()
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
 
     openDesktopChat()
@@ -171,9 +206,9 @@ describe('lab account prompt in the reader', () => {
     expect(chatCalls(fetchMock)).toHaveLength(1)
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
 
-    fireEvent.click(screen.getByTestId('lab-desktop-talk'))
-    expect((await screen.findByTestId('lab-account-sheet')).getAttribute('data-action')).toBe('voice')
-    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('voice-session'))).toBe(false)
+    fireEvent.click(menuRow('talk'))
+    await waitFor(() => expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-voice-session'))).toBe(true))
+    expect(fetchMock.mock.calls.some(call => String(call[0]).endsWith('/api/voice-session'))).toBe(false)
     expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS))
   })
 
@@ -220,14 +255,16 @@ describe('lab account prompt in the reader', () => {
     expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBeNull()
   })
 
-  it('holds an anonymous voice question once the allowance is spent, before any mic session, and returns to reading on dismiss', async () => {
+  it("holds Talk once today's guest trial is used on this device, before any mic session, and returns to reading on dismiss", async () => {
     localStorage.setItem(LAB_AI_ACTIONS_KEY, String(LAB_FREE_AI_ACTIONS))
+    markTodaysTalkTrialUsed()
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
-    fireEvent.click(screen.getByTestId('lab-desktop-talk'))
+    fireEvent.click(menuRow('talk'))
     const sheet = await screen.findByTestId('lab-account-sheet')
     expect(sheet.getAttribute('data-action')).toBe('voice')
+    expect(screen.getByText(LAB_COPY.accountTitleTalk)).toBeTruthy()
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('voice-session'))).toBe(false)
     expect(screen.queryByTestId('lab-voice-gate')).toBeNull()
     expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS))
@@ -240,11 +277,11 @@ describe('lab account prompt in the reader', () => {
   })
 
   it('holds the phone Talk button the same way', async () => {
-    localStorage.setItem(LAB_AI_ACTIONS_KEY, String(LAB_FREE_AI_ACTIONS))
+    markTodaysTalkTrialUsed()
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} online authToken={null} />)
-    fireEvent.click(screen.getByTestId('lab-phone-talk'))
+    fireEvent.click(menuRow('talk'))
     expect((await screen.findByTestId('lab-account-sheet')).getAttribute('data-action')).toBe('voice')
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('voice-session'))).toBe(false)
     fireEvent.click(screen.getByTestId('lab-account-dismiss'))
@@ -254,12 +291,15 @@ describe('lab account prompt in the reader', () => {
     expect(screen.getByTestId('lab-page-wrap')).toBeTruthy()
   })
 
-  it('lets the first voice question through for an anonymous reader', async () => {
-    vi.stubGlobal('fetch', vi.fn(() => new Promise(() => { /* hang the guest voice token */ })))
+  it("starts a signed-out reader's first Talk of the day as the guest trial, not the account sheet", async () => {
+    const fetchMock = vi.fn(() => new Promise(() => { /* never answered */ }))
+    vi.stubGlobal('fetch', fetchMock)
+    stubMicrophone()
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
-    fireEvent.click(screen.getByTestId('lab-desktop-talk'))
-    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBeNull()
+    fireEvent.click(menuRow('talk'))
+    await waitFor(() => expect((fetchMock.mock.calls as unknown[][]).some(call => String(call[0]).includes('/api/lab-voice-session'))).toBe(true))
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
+    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBeNull()
   })
 
   it('never nudges when another book is opened', () => {

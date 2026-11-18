@@ -24,6 +24,7 @@ import {
   type LabBookPlace,
   type LabChapterRef,
   type LabPositionState,
+  newerStoredPlace,
 } from './labPosition'
 
 const DEVICE = 'device-a'
@@ -522,6 +523,37 @@ describe('finished chapters in the position record', () => {
   })
 })
 
+describe('flushPending', () => {
+  it('writes a debounced note now, as its timer would, cancels the timer, and is a no-op with nothing pending', () => {
+    const writes: { cause: string; reason?: string }[] = []
+    let timer: (() => void) | null = null
+    let cancelled = 0
+    const controller = createLabPositionController({
+      deviceId: DEVICE,
+      persist: (_state, cause, reason) => { writes.push({ cause, reason }) },
+      schedule: (fn) => { timer = fn; return () => { cancelled += 1; timer = null } },
+    })
+    controller.replace({
+      ...emptyLabPositionState(DEVICE),
+      books: { romans: romans() },
+      lastSettledBookId: 'romans',
+      lastSettledAt: 5_000,
+      updatedAt: 5_000,
+    })
+    expect(controller.flushPending()).toBe(controller.state())
+    expect(writes).toEqual([])
+    controller.note({ place: genesis({ paragraphIndex: 2, wordIndex: 1 }), reason: 'page-turn', now: 20_000 })
+    expect(writes).toEqual([{ cause: 'local', reason: 'page-turn' }])
+    const pendingTimer = timer
+    expect(pendingTimer).toBeTruthy()
+    controller.flushPending()
+    expect(writes).toEqual([{ cause: 'local', reason: 'page-turn' }, { cause: 'debounce', reason: 'page-turn' }])
+    expect(cancelled).toBeGreaterThan(0)
+    controller.flushPending()
+    expect(writes).toHaveLength(2)
+  })
+})
+
 describe('taking a book off the Reading-now list', () => {
   const readAt = (at: number) => ({
     ...emptyLabPositionState(DEVICE),
@@ -641,5 +673,31 @@ describe('reading after a bookmark from a faster device clock', () => {
     })
     controller.note({place: romans({chapterNumber: 7, sequentialChapter: 1053, paragraphIndex: 0, wordIndex: 0}), reason: 'chapter-jump', now: 9_500})
     expect(resumePlace(controller.state())).toMatchObject({chapterNumber: 7, sequentialChapter: 1053, updatedAt: 10_001})
+  })
+})
+
+describe('newerStoredPlace (a stale reader on the same device, 12 Nov 2026)', () => {
+  const at = (paragraphIndex: number, updatedAt: number, rev = 1) => ({
+    bookId: 'master-and-margarita', headerBook: 'Mesteren og Margarita', chapterNumber: 2, sequentialChapter: 2,
+    paragraphIndex, wordIndex: 0, updatedAt, deviceId: 'phone', rev,
+  })
+  const record = (place: ReturnType<typeof at>, owner: string | null = 'reader') => ({
+    ...emptyLabPositionState('phone', owner), books: { [place.bookId]: place },
+    lastSettledBookId: place.bookId, lastSettledAt: place.updatedAt, updatedAt: place.updatedAt,
+  })
+
+  it('names the newer place another tab stored after this reader last saw the record', () => {
+    expect(newerStoredPlace(record(at(158, 1_000)), record(at(180, 2_000)), 'master-and-margarita')).toMatchObject({ paragraphIndex: 180 })
+  })
+
+  it('is null for a current reader: its own place, or an older stored one', () => {
+    expect(newerStoredPlace(record(at(180, 2_000)), record(at(180, 2_000)), 'master-and-margarita')).toBeNull()
+    expect(newerStoredPlace(record(at(181, 3_000)), record(at(180, 2_000)), 'master-and-margarita')).toBeNull()
+  })
+
+  it('is null for a re-stamp of the same spot, another book, or another account\'s record', () => {
+    expect(newerStoredPlace(record(at(180, 2_000)), record(at(180, 9_000, 4)), 'master-and-margarita')).toBeNull()
+    expect(newerStoredPlace(record(at(158, 1_000)), record(at(180, 2_000)), 'frankenstein')).toBeNull()
+    expect(newerStoredPlace(record(at(158, 1_000)), record(at(180, 2_000), 'someone-else'), 'master-and-margarita')).toBeNull()
   })
 })

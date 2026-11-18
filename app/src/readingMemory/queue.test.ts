@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { chapterFixtures, sessionFor } from './fixtures.test-helpers'
-import { createReadingMemoryQueue, drainReadingMemoryQueue, type CloudCommitResult, type ReadingMemoryCloud, type VersionedCloudRow } from './queue'
-import { applyReadingMemoryEvents, emptyReadingMemory, eventFromSession } from './sessions'
+import { createReadingMemoryQueue, drainReadingMemoryQueue, sameReadingMemory, type CloudCommitResult, type ReadingMemoryCloud, type VersionedCloudRow } from './queue'
+import { READING_MEMORY_MAX_SESSIONS, applyReadingMemoryEvents, emptyReadingMemory, eventFromSession } from './sessions'
 import type { ReadingMemoryState } from './types'
 
 const T0 = Date.UTC(2026, 8, 3, 8, 0)
@@ -113,6 +113,31 @@ describe('reading memory queue', () => {
     const { cloud } = fakeCloud()
     expect((await drainReadingMemoryQueue(queue, cloud)).status).toBe('applied')
     expect(queue.pending()).toHaveLength(0)
+  })
+
+  it('skips the cloud write when the queued events would not change the cloud copy', async () => {
+    const fixture = chapterFixtures()[0]
+    // The cloud already holds the maximum number of newer sessions; an older
+    // queued session is pruned away, so the merged copy equals the cloud's.
+    const newer = Array.from({ length: READING_MEMORY_MAX_SESSIONS }, (_, i) => sessionFor(fixture, { id: `n${i}`, state: 'started', startedAt: T0 + 60_000 + i }))
+    const base = applyReadingMemoryEvents(emptyReadingMemory(), newer.map(eventFromSession))
+    const { cloud, commits } = fakeCloud({ state: base, rev: 4 })
+    const queue = memoryQueue()
+    queue.push(eventFromSession(sessionFor(fixture, { id: 'old', state: 'started', startedAt: T0 })))
+    const result = await drainReadingMemoryQueue(queue, cloud)
+    expect(result.status).toBe('applied')
+    expect(commits).toEqual([])
+    expect(queue.pending()).toEqual([])
+  })
+
+  it('sameReadingMemory compares sessions, not the object or updatedAt', () => {
+    const fixture = chapterFixtures()[0]
+    const session = sessionFor(fixture, { id: 'a', state: 'started', startedAt: T0 })
+    const a = applyReadingMemoryEvents(emptyReadingMemory(), [eventFromSession(session)])
+    const b = { ...applyReadingMemoryEvents(emptyReadingMemory(), [eventFromSession(session)]), updatedAt: a.updatedAt + 5 }
+    expect(sameReadingMemory(a, b)).toBe(true)
+    const progressed = applyReadingMemoryEvents(a, [eventFromSession({ ...session, seq: 2, lastActiveAt: T0 + 1 })])
+    expect(sameReadingMemory(a, progressed)).toBe(false)
   })
 
   it('does nothing with an empty queue', async () => {

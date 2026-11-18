@@ -1,11 +1,15 @@
 import { apiUrl } from '../utils/apiUrl'
-import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
-import { ASSISTANT_PACE_SPEED, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace } from '../lab/labAsk'
+import { microphoneFailureReason, requestTalkMicrophone, VOICE_MICROPHONE_TIMEOUT_MS, type MicrophoneFailureReason } from './microphoneRequest'
+import { ASSISTANT_PACE_SPEED, clampTalkSpeed, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace } from '../lab/labAsk'
+import { LAB_COPY } from '../lab/labCopy'
 import { VOICE_TOOLS } from './context'
 import { GROK_AUDIO_RATE, GROK_REALTIME_URL, GROK_VOICE_MODEL, buildGrokReaderReference, buildGrokVoiceInstructions, grokVoiceFor } from './grokConfig'
 import { IDLE_VOICE_SNAPSHOT, type StartVoiceSessionInput, type VoiceSessionCallbacks, type VoiceUiSnapshot } from './session'
-import { LAB_AUDIO_CONSTRAINTS, type AudioPlaybackAnchor, type VoiceReaderContext } from './types'
+import { type AudioPlaybackAnchor, type VoiceReaderContext } from './types'
 import { isBenignRealtimeError } from './v2/voiceV2'
+import { reportTalkSeconds } from '../utils/usageReport'
+import { trackFunnel } from '../utils/funnel'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 export type GrokEvent = {
   type: string
@@ -37,13 +41,41 @@ const PLAYBACK_LEAD_SECONDS = 0.05
 const CONTEXT_UPDATE_DEBOUNCE_MS = 400
 const CONNECT_TIMEOUT_MS = 15_000
 export const VOICE_REQUEST_TIMEOUT_MS = 12_000
-export const VOICE_MICROPHONE_TIMEOUT_MS = 30_000
+export { VOICE_MICROPHONE_TIMEOUT_MS }
 /** A dropped connection while setting up (a car's mobile network) is tried again once, with a fresh secret. */
 export const VOICE_CONNECT_ATTEMPTS = 2
 const VOICE_CONNECT_RETRY_DELAY_MS = 1_000
 
+/** `/api/voice-session`, or a guest's `/api/lab-voice-session` (a relay ticket and its limit). */
+type VoiceSessionReply = { value?: string; model?: string; error?: string; code?: string; relay?: string; max_seconds?: number }
+
 /** A setup failure worth one more try: the network or the provider, not the reader's account. */
 class RetryableVoiceSetupError extends Error {}
+/** Today's guest Talk trial is used: the host shows the account sheet, not an error. */
+class GuestTrialRefusedError extends Error {}
+
+/** The Worker's refusal code for a used guest trial (worker/lib/talkTrial.ts). */
+export const TALK_TRIAL_USED_CODE = 'talk_trial_used'
+/** The close code the Worker's relay sends when a guest trial's time is up. */
+export const TALK_TRIAL_CLOSE_CODE = 4000
+
+/** `wss://` for a same-origin (or API_BASE) path. */
+function relaySocketUrl(path: string, model: string): string {
+  const base = apiUrl(path)
+  const origin = typeof location !== 'undefined' ? location.href : 'https://tinct.app/'
+  const url = new URL(base, origin)
+  url.protocol = url.protocol === 'http:' ? 'ws:' : 'wss:'
+  url.searchParams.set('model', model)
+  return url.toString()
+}
+
+/**
+ * The setup step a Talk start failed in, counted as `talk_failed.stage`:
+ * microphone permission/stream, the Web Audio graph, the single-use session
+ * token from Tinct, or the provider socket until the session is ready.
+ */
+export type VoiceSetupStage = 'setup_mic' | 'setup_audio_context' | 'setup_token' | 'setup_socket'
+export type VoiceFailStage = 'sign_in' | 'microphone' | 'connection' | 'request' | VoiceSetupStage
 export const LOOKUP_ACKNOWLEDGEMENT_DELAY_MS = 1_500
 /**
  * What the app has Grok say while a lookup runs long. Short and plain, taken in
@@ -55,6 +87,32 @@ const LOOKUP_ACKNOWLEDGEMENT_TIMEOUT_MS = 5_000
 /** Grok has fanned out up to 999 parallel lookups in one turn; run only this many per tool. */
 export const MAX_CALLS_PER_TOOL_PER_TURN = 8
 const ACKNOWLEDGED_LOOKUP_TOOLS = new Set(['search_reading_sources', 'search_personal_reading_history', 'get_book_passage'])
+/** How long the app waits for a spoken playback confirmation before acting anyway. */
+export const PLAYBACK_CONFIRMATION_TIMEOUT_MS = 4_000
+/** How long the app lets Talk's own speech finish before starting the audiobook anyway. */
+export const PLAYBACK_DRAIN_TIMEOUT_MS = 10_000
+
+/** Tools that move or start the audiobook: said aloud first, then done. */
+export function isPlaybackControlTool(name: string): boolean {
+  return name === 'resume_audiobook' || isLabPlaybackSkip(name)
+}
+
+/**
+ * The one line the app has Grok say when it called a playback tool without
+ * saying anything first. Short and literal, so the reader knows what is about
+ * to happen before the audiobook takes the speaker.
+ */
+export function playbackConfirmationFor(name: string, chapterLabel?: string): string {
+  const chapter = (chapterLabel || '').trim()
+  switch (name) {
+    case 'restart_chapter': return chapter ? `Restarting ${chapter}.` : 'Restarting the chapter.'
+    case 'next_chapter': return 'On to the next chapter.'
+    case 'previous_chapter': return 'Back to the previous chapter.'
+    case 'next_paragraph': return 'Skipping ahead a paragraph.'
+    case 'previous_paragraph': return 'Going back a paragraph.'
+    default: return 'Back to the book.'
+  }
+}
 const EARLY_CAPTURE_MAX_SECONDS = 15
 
 const CAPTURE_WORKLET = `class TinctPcmCapture extends AudioWorkletProcessor {
@@ -120,6 +178,8 @@ export class GrokVoiceSessionController {
   private socket: GrokSocket | null = null
   private setupAbort: AbortController | null = null
   private cancelMicrophone: (() => void) | null = null
+  /** fail() is ending the session: its own event is the record, not a cancellation. */
+  private failing = false
   private stream: MediaStream | null = null
   private context: AudioContext | null = null
   private captureNode: AudioWorkletNode | ScriptProcessorNode | null = null
@@ -138,6 +198,9 @@ export class GrokVoiceSessionController {
   private generation = 0
   private ready = false
   private stopping = false
+  /** When the provider session became ready: the start of billable connected time. */
+  private connectedAt: number | null = null
+  private readonly handlePageHide = () => this.reportConnected()
   private anchor: AudioPlaybackAnchor | null = null
   private instructions = ''
   private contextTimer: ReturnType<typeof setTimeout> | null = null
@@ -152,8 +215,12 @@ export class GrokVoiceSessionController {
   private visibilityListening = false
   private releaseAudioSession: (() => void) | null = null
   private lookupAcknowledgement: { resolve: () => void } | null = null
+  /** A forced playback confirmation that has been sent and not yet fully generated. */
+  private playbackConfirmation: { resolve: () => void } | null = null
   /** The socket opened for setup closed or errored before the session was ready. */
   private setupSocketFailed = false
+  /** The setup step in progress, reported as the failure stage when a start fails. */
+  private setupStage: VoiceSetupStage = 'setup_mic'
   private acknowledgementsSaid = 0
   /** Tool rounds still running: the answer to the reader's turn has not come yet. */
   private toolRoundsInFlight = 0
@@ -161,6 +228,9 @@ export class GrokVoiceSessionController {
   private followUpPending = false
   /** Between the provider's speech_started and speech_stopped: the reader has the floor. */
   private readerSpeaking = false
+  /** A guest trial's length in seconds (the Worker's relay enforces it too); null signed in. */
+  private trialSeconds: number | null = null
+  private trialTimer: ReturnType<typeof setTimeout> | null = null
 
   private readonly handleVisibilityChange = () => {
     if (typeof document === 'undefined' || document.visibilityState !== 'visible' || !this.ui.isActive) return
@@ -207,6 +277,22 @@ export class GrokVoiceSessionController {
     if (this.context.state !== 'running' && this.context.state !== 'closed') void this.context.resume().catch(() => {})
   }
 
+  /**
+   * An AudioContext the hook created and resumed in the reader's tap before
+   * this controller's code had loaded (useVoiceSession loads it lazily). It
+   * takes the place `unlockLabAudioContext` would have made in that tap.
+   */
+  adoptLabAudioContext(context: AudioContext): void {
+    if (this.context && this.context.state !== 'closed') {
+      if (context !== this.context) void context.close().catch(() => {})
+      return
+    }
+    this.captureModule = null
+    this.outputGain = null
+    this.analyser = null
+    this.context = context
+  }
+
   getAssistantLevel(): number | null {
     if (!this.analyser) return null
     const data = new Uint8Array(this.analyser.fftSize)
@@ -224,7 +310,13 @@ export class GrokVoiceSessionController {
   }
 
   setAssistantPace(pace: AssistantPace): void {
-    this.send({ type: 'session.update', session: { audio: { output: { speed: ASSISTANT_PACE_SPEED[pace] } } } })
+    this.setAssistantSpeed(ASSISTANT_PACE_SPEED[pace])
+  }
+
+  /** Talk's speaking speed, live: always inside xAI's documented 0.7-1.5. */
+  setAssistantSpeed(speed: number): void {
+    if (this.input) this.input.assistantSpeed = clampTalkSpeed(speed)
+    this.send({ type: 'session.update', session: { audio: { output: { speed: clampTalkSpeed(speed) } } } })
   }
 
   /** Reader movement refreshes the prompt in place; the conversation is kept. */
@@ -250,41 +342,52 @@ export class GrokVoiceSessionController {
     this.send({ type: 'session.update', session: { instructions: next } })
   }
 
-  private fail(message: string) {
-    this.stop()
+  /**
+   * `stage` and `reason` (the microphone step's browser error name or
+   * timeout, setup_mic only) are fixed codes counted in the funnel; the
+   * message never leaves the device.
+   */
+  private fail(message: string, stage: VoiceFailStage, reason?: MicrophoneFailureReason) {
+    trackFunnel('talk_failed', reason ? { stage, reason } : { stage })
+    this.failing = true
+    try { this.stop() } finally { this.failing = false }
     this.emit({ error: message, connection: 'disconnected' })
   }
 
   async start(input: StartVoiceSessionInput): Promise<void> {
-    if (this.ui.isActive) return
+    // A microphone asked for in the reader's tap belongs to this start from here on.
+    if (this.ui.isActive) { input.microphone?.cancel(); return }
     this.stop()
     const generation = this.generation
     this.startedAt = Date.now()
-    this.input = { ...input }
+    const { microphone: earlyMicrophone, ...rest } = input
+    this.input = { ...rest }
+    if (earlyMicrophone) {
+      this.cancelMicrophone = earlyMicrophone.cancel
+      this.releaseAudioSession = earlyMicrophone.releaseAudioSession
+    }
     this.anchor = input.audio.pausePlayback()?.anchor ?? null
     this.emit({ isActive: true, state: 'reading', activity: 'connecting', connection: 'connecting', mode: input.mode ?? 'conversation', error: null })
     if (!input.labGuest && !input.authToken) {
-      this.fail('Sign in to ask by voice.')
+      this.fail('Sign in to ask by voice.', 'sign_in')
       this.callbacks.onNeedAuth?.()
       return
     }
     const current = () => generation === this.generation
+    this.setupStage = 'setup_mic'
     try {
-      if (typeof navigator === 'undefined' || !navigator.mediaDevices?.getUserMedia) {
-        throw new Error("Couldn't start voice. Microphone access is unavailable. Type a question instead.")
-      }
       // Do not mint a billable single-use provider session until microphone
       // permission has actually succeeded.
-      this.releaseAudioSession = acquireBrowserAudioSession('play-and-record')
-      const stream = await this.requestMicrophone()
+      const stream = await this.requestMicrophone(earlyMicrophone)
       if (!current()) { stream.getTracks().forEach(track => track.stop()); return }
       this.stream = stream
       for (const track of stream.getAudioTracks()) track.onended = () => {
-        if (current() && this.ui.isActive) this.fail('Microphone disconnected. Reconnect to continue.')
+        if (current() && this.ui.isActive) this.fail('Microphone disconnected. Reconnect to continue.', 'microphone')
       }
       // Capture immediately after permission succeeds. Until session.updated,
       // flushCapture retains a bounded local buffer; this preserves a first
       // statement spoken while the ephemeral token and socket are connecting.
+      this.setupStage = 'setup_audio_context'
       if (typeof AudioContext !== 'undefined') this.startCapture()
       for (let attempt = 1; ; attempt += 1) {
         try {
@@ -302,37 +405,39 @@ export class GrokVoiceSessionController {
       this.callbacks.onUsage?.()
       this.callbacks.onLatency?.({ kind: 'session_setup', at: Date.now(), sessionSetupMs: Date.now() - this.startedAt, model: GROK_VOICE_MODEL })
     } catch (error) {
-      if (current()) this.fail(error instanceof Error ? error.message : 'Could not start voice.')
+      if (!current()) return
+      if (error instanceof GuestTrialRefusedError) {
+        this.stop()
+        this.callbacks.onGuestTrial?.('refused')
+        return
+      }
+      const stage = this.setupStage
+      this.fail(error instanceof Error ? error.message : 'Could not start voice.', stage, stage === 'setup_mic' ? microphoneFailureReason(error) : undefined)
     }
   }
 
-  /** Permission can outlive a cancelled start; release any late microphone. */
-  private requestMicrophone(): Promise<MediaStream> {
-    return new Promise((resolve, reject) => {
-      let settled = false
-      const finish = (error?: Error, stream?: MediaStream) => {
-        if (settled) { stream?.getTracks().forEach(track => track.stop()); return }
-        settled = true
-        clearTimeout(timer)
-        if (this.cancelMicrophone === cancel) this.cancelMicrophone = null
-        if (error) reject(error)
-        else resolve(stream!)
-      }
-      const cancel = () => finish(new Error('Voice setup cancelled.'))
-      const timer = setTimeout(() => finish(new Error('Microphone did not become ready. Close voice and try again.')), VOICE_MICROPHONE_TIMEOUT_MS)
-      this.cancelMicrophone = cancel
-      // Begin on this gesture; do not defer the browser permission request.
-      try {
-        navigator.mediaDevices.getUserMedia({ audio: { ...LAB_AUDIO_CONSTRAINTS } })
-          .then(stream => finish(undefined, stream), error => finish(error instanceof Error ? error : new Error('Microphone could not start.')))
-      } catch (error) {
-        finish(error instanceof Error ? error : new Error('Microphone could not start.'))
-      }
-    })
+  /** The guest trial's two minutes are up: end the call like a normal end, then tell the host. */
+  private endGuestTrial(generation: number): void {
+    if (generation !== this.generation || !this.ui.isActive) return
+    this.stop()
+    this.callbacks.onGuestTrial?.('ended')
+  }
+
+  /**
+   * The microphone asked for in the reader's tap, or (a start outside a tap:
+   * Reconnect, tests) asked for now. Permission can outlive a cancelled start;
+   * the request stops any late stream itself.
+   */
+  private requestMicrophone(early?: StartVoiceSessionInput['microphone']): Promise<MediaStream> {
+    const microphone = early ?? requestTalkMicrophone()
+    this.cancelMicrophone = microphone.cancel
+    this.releaseAudioSession = microphone.releaseAudioSession
+    const settled = () => { if (this.cancelMicrophone === microphone.cancel) this.cancelMicrophone = null }
+    return microphone.stream.then(stream => { settled(); return stream }, error => { settled(); throw error })
   }
 
   /** Bound both the HTTP request and its body, before the socket timeout starts. */
-  private async requestSession(input: StartVoiceSessionInput): Promise<{ response: Response; data: { value?: string; model?: string; error?: string } }> {
+  private async requestSession(input: StartVoiceSessionInput): Promise<{ response: Response; data: VoiceSessionReply }> {
     const abort = new AbortController()
     this.setupAbort = abort
     let timedOut = false
@@ -347,11 +452,11 @@ export class GrokVoiceSessionController {
       const request = (async () => {
         const response = await fetch(apiUrl(input.labGuest && !input.authToken ? '/api/lab-voice-session' : '/api/voice-session'), {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
+          headers: { 'Content-Type': 'application/json', ...internalTrafficHeaders(), ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
           body: '{}',
           signal: abort.signal,
         })
-        const data = await response.json().catch(() => ({})) as { value?: string; model?: string; error?: string }
+        const data = await response.json().catch(() => ({})) as VoiceSessionReply
         return { response, data }
       })()
       return await Promise.race([request, cancelled])
@@ -368,17 +473,26 @@ export class GrokVoiceSessionController {
 
   /** One setup attempt: mint a single-use secret, open the socket, wait for the session. */
   private async connect(input: StartVoiceSessionInput, generation: number): Promise<void> {
+    this.setupStage = 'setup_token'
     const { response, data } = await this.requestSession(input)
     if (generation !== this.generation) return
     if (!response.ok || !data.value) {
+      if (data.code === TALK_TRIAL_USED_CODE) throw new GuestTrialRefusedError(data.error || 'Talk trial used')
       if (response.status === 401) this.callbacks.onNeedAuth?.()
       if (response.status === 402) this.callbacks.onInsufficientBalance?.()
+      // A daily ceiling or provider limit: calm and final for this attempt.
+      if (data.code === 'ai_resting') throw new Error(LAB_COPY.aiResting)
       const message = data.error || 'Voice could not start. Please try again.'
       // The account's own limits are final; the provider or the network may recover.
       throw response.status >= 500 || response.status === 408 ? new RetryableVoiceSetupError(message) : new Error(message)
     }
     this.setupSocketFailed = false
-    const socket = this.openSocket(data.value, data.model || GROK_VOICE_MODEL)
+    this.setupStage = 'setup_socket'
+    // A guest's trial: the session runs through Tinct's relay, which ends it at max_seconds.
+    const relay = typeof data.relay === 'string' && data.relay.startsWith('/api/') ? data.relay : null
+    if (relay && this.trialSeconds === null) this.callbacks.onGuestTrial?.('started')
+    this.trialSeconds = relay && typeof data.max_seconds === 'number' && data.max_seconds > 0 ? data.max_seconds : null
+    const socket = this.openSocket(data.value, data.model || GROK_VOICE_MODEL, relay)
     this.socket = socket
     await this.awaitReady(generation)
   }
@@ -391,18 +505,22 @@ export class GrokVoiceSessionController {
     try { socket?.close() } catch { /* already closed */ }
   }
 
-  private openSocket(secret: string, model: string): WebSocket {
+  private openSocket(secret: string, model: string, relay: string | null = null): WebSocket {
     const generation = this.generation
-    const socket = new WebSocket(`${GROK_REALTIME_URL}?model=${encodeURIComponent(model)}`, [`xai-client-secret.${secret}`])
+    const socket = relay
+      ? new WebSocket(relaySocketUrl(relay, model), [`tinct-ticket.${secret}`])
+      : new WebSocket(`${GROK_REALTIME_URL}?model=${encodeURIComponent(model)}`, [`xai-client-secret.${secret}`])
     socket.addEventListener('message', event => {
       if (generation !== this.generation) return
       try { this.handleEvent(JSON.parse(String(event.data)) as GrokEvent) } catch { /* Ignore malformed frames. */ }
     })
-    const lost = () => {
+    const lost = (event?: Event) => {
       if (generation !== this.generation || !this.ui.isActive || this.stopping || socket !== this.socket) return
+      // The relay closed a guest trial at its limit: a graceful end, not a lost connection.
+      if (relay && (event as CloseEvent | undefined)?.code === TALK_TRIAL_CLOSE_CODE) { this.endGuestTrial(generation); return }
       // Before the session is ready this is a setup failure the start loop may retry.
       if (!this.ready) { this.setupSocketFailed = true; return }
-      this.fail('Voice connection lost. Reconnect to continue.')
+      this.fail('Voice connection lost. Reconnect to continue.', 'connection')
     }
     socket.addEventListener('close', lost)
     socket.addEventListener('error', lost)
@@ -439,13 +557,13 @@ export class GrokVoiceSessionController {
         this.send({
           type: 'session.update',
           session: {
-            voice: grokVoiceFor(input.voicePersona ?? 'female'),
+            voice: grokVoiceFor(input.voicePersona ?? 'male'),
             instructions: this.instructions,
             turn_detection: { type: 'server_vad' },
             tools: this.sessionTools(input),
             audio: {
               input: { format: { type: 'audio/pcm', rate: GROK_AUDIO_RATE } },
-              output: { format: { type: 'audio/pcm', rate: GROK_AUDIO_RATE }, ...(input.assistantPace ? { speed: ASSISTANT_PACE_SPEED[input.assistantPace] } : {}) },
+              output: { format: { type: 'audio/pcm', rate: GROK_AUDIO_RATE }, ...(input.assistantSpeed != null ? { speed: clampTalkSpeed(input.assistantSpeed) } : input.assistantPace ? { speed: ASSISTANT_PACE_SPEED[input.assistantPace] } : {}) },
             },
           },
         })
@@ -454,8 +572,14 @@ export class GrokVoiceSessionController {
       case 'session.updated': {
         if (this.ready) return
         this.ready = true
+        this.connectedAt = Date.now()
+        if (this.trialSeconds !== null) {
+          const generation = this.generation
+          this.trialTimer = setTimeout(() => this.endGuestTrial(generation), this.trialSeconds * 1000)
+        }
+        if (typeof window !== 'undefined') window.addEventListener('pagehide', this.handlePageHide)
         try { if (!this.captureSource) this.startCapture() }
-        catch (error) { this.fail(error instanceof Error ? error.message : 'Microphone capture could not start. Reconnect to continue.'); return }
+        catch (error) { this.fail(error instanceof Error ? error.message : 'Microphone capture could not start. Reconnect to continue.', 'microphone'); return }
         this.emit({ connection: 'connected', activity: 'listening', state: 'listening' })
         if (input.greeting) {
           this.send({ type: 'response.create', response: { instructions: `The reader opened this conversation to prepare for the book. Say this opening line now, once: ${JSON.stringify(input.greeting)} Then wait for the reader. Keep the introduction spoiler-free unless asked otherwise.` } })
@@ -524,8 +648,13 @@ export class GrokVoiceSessionController {
         const spoken = /[\p{L}\p{N}]/u.test(text)
         if (spoken && (cancelled || this.sources.size === 0)) this.callbacks.onTurn('assistant', text, cancelled ? { cancelled: true } : undefined)
         else if (spoken) this.spoken = { text }
-        if (!cancelled && response.calls.length) this.runToolCalls(response.calls)
+        if (!cancelled && response.calls.length) this.runToolCalls(response.calls, spoken || response.audioStarted)
         this.response = null
+        if (this.playbackConfirmation) {
+          const confirmation = this.playbackConfirmation
+          this.playbackConfirmation = null
+          confirmation.resolve()
+        }
         if (this.lookupAcknowledgement) {
           const acknowledgement = this.lookupAcknowledgement
           this.lookupAcknowledgement = null
@@ -536,7 +665,7 @@ export class GrokVoiceSessionController {
       }
       case 'error': {
         if (isBenignRealtimeError(event.error?.message)) return
-        this.fail(event.error?.message || 'Voice could not complete that request. Reconnect to continue.')
+        this.fail(event.error?.message || 'Voice could not complete that request. Reconnect to continue.', 'request')
         return
       }
       default:
@@ -569,7 +698,43 @@ export class GrokVoiceSessionController {
     }
   }
 
-  private runToolCalls(calls: ToolCall[]): void {
+  /**
+   * Before a playback tool acts, the reader hears what is about to happen and
+   * the companion finishes speaking. Without this the audiobook either started
+   * with no word of warning (a bare tool call) or cut the confirmation off
+   * mid-word, because the tool ran when the answer finished *generating*, not
+   * when it finished *playing*, and starting playback stops Talk's audio.
+   */
+  private async confirmPlaybackControl(call: ToolCall, spoken: boolean, generation: number): Promise<void> {
+    if (!spoken && generation === this.generation && this.ui.isActive) {
+      const heard = new Promise<void>(resolve => { this.playbackConfirmation = { resolve } })
+      this.send({ type: 'conversation.item.create', item: {
+        type: 'force_message', role: 'assistant', interruptible: true,
+        content: [{ type: 'output_text', text: playbackConfirmationFor(call.name, this.input?.context.chapterLabel) }],
+      } })
+      let timer: ReturnType<typeof setTimeout> | undefined
+      await Promise.race([heard, new Promise<void>(resolve => { timer = setTimeout(resolve, PLAYBACK_CONFIRMATION_TIMEOUT_MS) })])
+      clearTimeout(timer)
+      this.playbackConfirmation = null
+    }
+    await this.untilSpeechDrained(generation)
+  }
+
+  /** Resolves once nothing of Talk's is generating or still playing (bounded). */
+  private untilSpeechDrained(generation: number): Promise<void> {
+    const started = Date.now()
+    return new Promise(resolve => {
+      const poll = () => {
+        if (generation !== this.generation) { resolve(); return }
+        const generating = Boolean(this.response && !this.response.done)
+        if ((!generating && this.sources.size === 0) || Date.now() - started > PLAYBACK_DRAIN_TIMEOUT_MS) { resolve(); return }
+        setTimeout(poll, 50)
+      }
+      poll()
+    })
+  }
+
+  private runToolCalls(calls: ToolCall[], spokeFirst = false): void {
     const generation = this.generation
     // "Take me back to the book" often arrives with a goodbye too. The resume carries the
     // reader's place, so it must run before anything that ends the session.
@@ -577,6 +742,7 @@ export class GrokVoiceSessionController {
     this.toolRoundsInFlight++
     this.toolQueue = this.toolQueue.then(async () => {
       let hasOutput = false
+      let confirmed = false
       const guidance: string[] = []
       const perTool = new Map<string, number>()
       for (const call of ordered) {
@@ -589,6 +755,11 @@ export class GrokVoiceSessionController {
           hasOutput = true
           this.send({ type: 'conversation.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify({ ok: false, reason: 'skipped_too_many_parallel_calls' }) } })
           continue
+        }
+        if (isPlaybackControlTool(call.name) && !confirmed) {
+          confirmed = true
+          await this.confirmPlaybackControl(call, spokeFirst, generation)
+          if (generation !== this.generation) return
         }
         let acknowledgementWait: Promise<void> | null = null
         const acknowledgementTimer = ACKNOWLEDGED_LOOKUP_TOOLS.has(call.name) ? setTimeout(() => {
@@ -612,6 +783,8 @@ export class GrokVoiceSessionController {
         if (generation !== this.generation) return
         if (result.output === undefined) continue
         this.send({ type: 'conversation.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify(result.output) } })
+        // A move already confirmed aloud needs no second spoken answer: keep listening.
+        if (confirmed && isLabPlaybackSkip(call.name)) continue
         hasOutput = true
         if (result.responseInstructions) guidance.push(result.responseInstructions)
       }
@@ -727,7 +900,7 @@ export class GrokVoiceSessionController {
     const fallback = () => {
       if (!current()) return
       try { this.startScriptCapture(context, source, sink, onChunk) }
-      catch { this.fail('Microphone capture could not start. Reconnect to continue.') }
+      catch { this.fail('Microphone capture could not start. Reconnect to continue.', 'microphone') }
     }
     if (typeof AudioWorkletNode !== 'undefined' && context.audioWorklet && typeof Blob !== 'undefined' && typeof URL !== 'undefined') {
       if (!this.captureModule) {
@@ -738,7 +911,7 @@ export class GrokVoiceSessionController {
         if (!current()) return
         const node = new AudioWorkletNode(context, 'tinct-pcm-capture', { numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [1], channelCount: 1 })
         node.port.onmessage = message => onChunk(message.data as Float32Array)
-        node.onprocessorerror = () => { if (current()) this.fail('Microphone capture stopped. Reconnect to continue.') }
+        node.onprocessorerror = () => { if (current()) this.fail('Microphone capture stopped. Reconnect to continue.', 'microphone') }
         source.connect(node)
         node.connect(sink)
         this.captureNode = node
@@ -752,7 +925,7 @@ export class GrokVoiceSessionController {
       const visible = typeof document === 'undefined' || document.visibilityState !== 'hidden'
       if (visible && context.state !== 'running') void context.resume().catch(() => {})
       if (visible && Date.now() - this.lastCaptureAt > 5000) {
-        this.fail('Microphone audio stopped reaching the conversation. Reconnect to continue.')
+        this.fail('Microphone audio stopped reaching the conversation. Reconnect to continue.', 'microphone')
         return
       }
       this.flushCapture()
@@ -849,7 +1022,20 @@ export class GrokVoiceSessionController {
     if (this.ui.isActive && this.ui.activity === 'speaking') this.emit({ activity: 'listening', state: 'listening' })
   }
 
+  /** Report connected seconds once (session end or page hide) for the cost ledger. */
+  private reportConnected(): void {
+    if (this.connectedAt === null) return
+    const seconds = (Date.now() - this.connectedAt) / 1000
+    this.connectedAt = null
+    if (typeof window !== 'undefined') window.removeEventListener('pagehide', this.handlePageHide)
+    reportTalkSeconds({ seconds, authToken: this.input?.authToken, bookId: this.input?.context?.bookId })
+  }
+
   stop(): void {
+    // Closed while the microphone prompt was still unanswered: counted, so a
+    // start that ends silently is visible next to the failures.
+    if (this.cancelMicrophone && this.ui.isActive && !this.failing) trackFunnel('talk_failed', { stage: 'setup_mic', reason: 'cancelled' })
+    this.reportConnected()
     this.stopping = true
     this.generation++
     this.setupAbort?.abort()
@@ -858,6 +1044,8 @@ export class GrokVoiceSessionController {
     this.cancelMicrophone = null
     this.ready = false
     if (this.contextTimer) { clearTimeout(this.contextTimer); this.contextTimer = null }
+    if (this.trialTimer) { clearTimeout(this.trialTimer); this.trialTimer = null }
+    this.trialSeconds = null
     if (this.sendTimer) { clearInterval(this.sendTimer); this.sendTimer = null }
     if (typeof document !== 'undefined' && this.visibilityListening) {
       document.removeEventListener('visibilitychange', this.handleVisibilityChange)
@@ -892,6 +1080,10 @@ export class GrokVoiceSessionController {
     if (this.lookupAcknowledgement) {
       this.lookupAcknowledgement.resolve()
       this.lookupAcknowledgement = null
+    }
+    if (this.playbackConfirmation) {
+      this.playbackConfirmation.resolve()
+      this.playbackConfirmation = null
     }
     this.toolQueue = Promise.resolve()
     this.setupSocketFailed = false

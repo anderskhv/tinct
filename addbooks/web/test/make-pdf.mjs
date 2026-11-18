@@ -1,0 +1,723 @@
+// Writes small PDFs for tests, with no dependencies: text in the standard fonts (WinAnsi),
+// optional document info (Title, Author), an outline (bookmarks) and grey raster images.
+//   makePdf({ info, pages: [{ size, lines: [{ x, y, size, font, text }], images: [{ x, y, w, h, pw?, ph?, data? }], draw }], outline })
+// `draw`: raw PDF content operators for vector figures (see figurePaper).
+// Fonts: Helvetica, Helvetica-Bold, Helvetica-Oblique, Times-Roman, Times-Bold, Times-Italic,
+// and Symbol (its own encoding: '\xe5' is ∑, '\xf2' ∫, '\xb6' ∂), added only to a PDF that uses it.
+// Outline items: { title, page (1-based), children? }.
+// The fixtures the PDF scan, its default edition and the Tinct text are tested on (pdfFixtures) are built here too.
+
+import { deflateSync } from 'node:zlib';
+
+const FONTS = ['Helvetica', 'Helvetica-Bold', 'Helvetica-Oblique', 'Times-Roman', 'Times-Bold', 'Times-Italic'];
+// The few non-ASCII characters the fixtures use, as WinAnsi bytes.
+const WIN = { '—': 0x97, '–': 0x96, '“': 0x93, '”': 0x94, '‘': 0x91, '’': 0x92, '…': 0x85, 'é': 0xe9, 'ü': 0xfc, '\u00ad': 0xad };
+const textBytes = s => {
+  let out = '';
+  for (const ch of s) {
+    const code = WIN[ch] ?? ch.charCodeAt(0);
+    const c = String.fromCharCode(code > 255 ? 63 : code);
+    out += c === '(' || c === ')' || c === '\\' ? '\\' + c : c;
+  }
+  return '(' + out + ')';
+};
+// Document strings (info, outline titles) as UTF-16BE hex with a byte-order mark.
+const utf16 = s => '<FEFF' + [...s].map(ch => { const c = ch.codePointAt(0); return c > 0xffff ? '003F' : c.toString(16).padStart(4, '0').toUpperCase() }).join('') + '>';
+
+export function makePdf({ info = {}, pages = [], outline = [] } = {}) {
+  const objs = []; // [index] = body (string or Buffer), objects numbered from 1
+  const add = body => { objs.push(body); return objs.length };
+  const reserve = () => add(null);
+  const catalogId = reserve(), pagesId = reserve();
+  // Symbol only when a line is set in it, so every other PDF is written exactly as before.
+  const fonts = pages.some(pg => (pg.lines || []).some(l => l.font === 'Symbol')) ? [...FONTS, 'Symbol'] : FONTS;
+  const fontIds = Object.fromEntries(fonts.map(f => [f, add(f === 'Symbol' ? '<< /Type /Font /Subtype /Type1 /BaseFont /Symbol >>' : `<< /Type /Font /Subtype /Type1 /BaseFont /${f} /Encoding /WinAnsiEncoding >>`)]));
+  const fontRes = fonts.map((f, i) => `/F${i + 1} ${fontIds[f]} 0 R`).join(' ');
+  const pageIds = [];
+  for (const pg of pages) {
+    const [w, h] = pg.size || [612, 792];
+    const xobjs = [];
+    let ops = '';
+    (pg.images || []).forEach((im, i) => {
+      const iw = im.pw || 48, ih = im.ph || 48;
+      // `data`: the image's own grey pixels (a page drawn as a scan), kept deflated; else a grey pattern.
+      let px = im.data ? Buffer.from(im.data) : Buffer.alloc(iw * ih);
+      // `noise`: pseudo-random grey (seeded), so a large file stays large (the long book's 73 MB stand-in).
+      if (im.data) { /* the scan's own pixels */ }
+      else if (im.noise) { let r = im.noise >>> 0 || 1; for (let k = 0; k < px.length; k++) { r = (Math.imul(r, 1664525) + 1013904223) >>> 0; px[k] = 60 + (r >>> 25) } }
+      else for (let y = 0; y < ih; y++) for (let x = 0; x < iw; x++) px[y * iw + x] = 90 + ((x * 7 + y * 13) % 120);
+      const filter = im.data ? ' /Filter /FlateDecode' : '';
+      if (im.data) px = deflateSync(px);
+      const id = add(Buffer.concat([Buffer.from(`<< /Type /XObject /Subtype /Image /Width ${iw} /Height ${ih} /ColorSpace /DeviceGray /BitsPerComponent 8${filter} /Length ${px.length} >>\nstream\n`, 'latin1'), px, Buffer.from('\nendstream', 'latin1')]));
+      xobjs.push(`/Im${i + 1} ${id} 0 R`);
+      ops += `q ${im.w} 0 0 ${im.h} ${im.x} ${im.y} cm /Im${i + 1} Do Q\n`;
+    });
+    // Vector drawing (`draw`: raw content operators, such as lines, boxes and circles), under the text.
+    if (pg.draw) ops += pg.draw + '\n';
+    for (const l of pg.lines || []) {
+      const f = fonts.indexOf(l.font || 'Times-Roman') + 1;
+      if (f < 1) throw new Error('unknown font ' + l.font);
+      // `rotate: 90`: set upwards (a table's row label, read bottom to top).
+      ops += l.rotate === 90 ? `BT /F${f} ${l.size || 11} Tf 0 1 -1 0 ${l.x ?? 72} ${l.y} Tm ${textBytes(l.text)} Tj ET\n` : l.mcid != null ? `/Span <</MCID ${l.mcid}>> BDC BT /F${f} ${l.size || 11} Tf 1 0 0 1 ${l.x ?? 72} ${l.y} Tm ${textBytes(l.text)} Tj ET EMC\n` : `BT /F${f} ${l.size || 11} Tf ${l.x ?? 72} ${l.y} Td ${textBytes(l.text)} Tj ET\n`;
+    }
+    const content = Buffer.from(ops, 'latin1');
+    const contentId = add(Buffer.concat([Buffer.from(`<< /Length ${content.length} >>\nstream\n`, 'latin1'), content, Buffer.from('\nendstream', 'latin1')]));
+    pageIds.push(add(`<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${w} ${h}] /Resources << /Font << ${fontRes} >>${xobjs.length ? ` /XObject << ${xobjs.join(' ')} >>` : ''} >> /Contents ${contentId} 0 R >>`));
+  }
+  objs[pagesId - 1] = `<< /Type /Pages /Kids [${pageIds.map(id => id + ' 0 R').join(' ')}] /Count ${pageIds.length} >>`;
+  let outlinesRef = '';
+  if (outline.length) {
+    const outlinesId = reserve();
+    const build = (items, parentId) => {
+      const ids = items.map(() => reserve());
+      let count = 0;
+      items.forEach((it, i) => {
+        const kids = it.children?.length ? build(it.children, ids[i]) : null;
+        const page = pageIds[(it.page || 1) - 1];
+        objs[ids[i] - 1] = `<< /Title ${utf16(it.title)} /Parent ${parentId} 0 R${i ? ` /Prev ${ids[i - 1]} 0 R` : ''}${i < ids.length - 1 ? ` /Next ${ids[i + 1]} 0 R` : ''} /Dest [${page} 0 R /XYZ 0 ${(pages[(it.page || 1) - 1]?.size || [612, 792])[1]} 0]${kids ? ` /First ${kids.first} 0 R /Last ${kids.last} 0 R /Count ${kids.count}` : ''} >>`;
+        count += 1 + (kids ? kids.count : 0);
+      });
+      return { first: ids[0], last: ids.at(-1), count };
+    };
+    const top = build(outline, outlinesId);
+    objs[outlinesId - 1] = `<< /Type /Outlines /First ${top.first} 0 R /Last ${top.last} 0 R /Count ${top.count} >>`;
+    outlinesRef = ` /Outlines ${outlinesId} 0 R /PageMode /UseOutlines`;
+  }
+  objs[catalogId - 1] = `<< /Type /Catalog /Pages ${pagesId} 0 R${outlinesRef} >>`;
+  const infoKeys = Object.entries(info).filter(([, v]) => v != null);
+  const infoId = infoKeys.length ? add(`<< ${infoKeys.map(([k, v]) => `/${k} ${utf16(String(v))}`).join(' ')} >>`) : 0;
+
+  const chunks = [Buffer.from('%PDF-1.4\n%\xe2\xe3\xcf\xd3\n', 'latin1')];
+  let offset = chunks[0].length;
+  const offsets = [];
+  objs.forEach((body, i) => {
+    const b = Buffer.concat([Buffer.from(`${i + 1} 0 obj\n`, 'latin1'), Buffer.isBuffer(body) ? body : Buffer.from(body, 'latin1'), Buffer.from('\nendobj\n', 'latin1')]);
+    offsets.push(offset); offset += b.length; chunks.push(b);
+  });
+  const xref = `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n${offsets.map(o => String(o).padStart(10, '0') + ' 00000 n \n').join('')}trailer\n<< /Size ${objs.length + 1} /Root ${catalogId} 0 R${infoId ? ` /Info ${infoId} 0 R` : ''} >>\nstartxref\n${offset}\n%%EOF\n`;
+  chunks.push(Buffer.from(xref, 'latin1'));
+  return Buffer.concat(chunks);
+}
+
+// Body text: wrapped lines of public-domain prose (Hume, An Enquiry Concerning Human
+// Understanding, 1748), set from the top of the text block down.
+const PROSE = 'All the objects of human reason or enquiry may naturally be divided into two kinds, to wit, Relations of Ideas, and Matters of Fact. Of the first kind are the sciences of Geometry, Algebra, and Arithmetic; and in short, every affirmation which is either intuitively or demonstratively certain. That the square of the hypothenuse is equal to the square of the two sides, is a proposition which expresses a relation between these figures. Propositions of this kind are discoverable by the mere operation of thought, without dependence on what is anywhere existent in the universe. Matters of fact, which are the second objects of human reason, are not ascertained in the same manner; nor is our evidence of their truth, however great, of a like nature with the foregoing.';
+export function prose(top, count, { x = 72, size = 11, font = 'Times-Roman', width = 84, from = 0 } = {}) {
+  const words = PROSE.split(' ');
+  const lines = [];
+  let i = from % words.length, y = top;
+  for (let n = 0; n < count; n++) {
+    let line = '';
+    while ((line + ' ' + words[i]).trim().length < width) { line = (line + ' ' + words[i]).trim(); i = (i + 1) % words.length }
+    lines.push({ x, y, size, font, text: line }); y -= size * 1.35;
+  }
+  return lines;
+}
+
+// Words of public-domain prose (Hume, 1748, as above) for longer fixtures: paragraph i of a
+// book, deterministic, ending in a full stop. "self-evident" stands in some of them. The words
+// are taken in a stride that changes from paragraph to paragraph, so no two lines are the same
+// (a line printed on several pages is taken for a running head).
+const BOOK_WORDS = (PROSE + ' It is self-evident that the understanding demonstratively perceives the relations which are discoverable among ideas, and that experience alone instructs us concerning matters of fact and existence.').split(' ');
+function paragraphText(i, words) {
+  const out = [];
+  const stride = [1, 3, 7, 11, 13][i % 5];
+  for (let k = 0; k < words; k++) out.push(BOOK_WORDS[(i * 53 + k * stride + Math.floor(k / 17)) % BOOK_WORDS.length]);
+  const text = out.join(' ').replace(/[.,;:]+$/, '') + '.';
+  return text[0].toUpperCase() + text.slice(1);
+}
+// A paragraph set in lines of at most `width` characters (the first indented by `indent`
+// points and `indentChars` shorter). A long word that does not fit is broken with a hyphen
+// (every fifth break a soft hyphen, U+00AD, as some typesetters leave them), a hyphenated
+// word at its own hyphen.
+let breaks = 0;
+function setParagraph(text, { x = 72, indent = 18, width = 86, indentChars = 4, size = 11, font = 'Times-Roman' } = {}) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '', first = true;
+  const limit = () => first ? width - indentChars : width;
+  const push = () => { lines.push({ x: first ? x + indent : x, size, font, text: line }); line = ''; first = false };
+  for (const w of words) {
+    const next = line ? line + ' ' + w : w;
+    if (next.length <= limit()) { line = next; continue }
+    const room = limit() - line.length - 2;
+    const dash = w.indexOf('-');
+    if (dash > 0 && dash + 1 <= room) { line += ' ' + w.slice(0, dash + 1); push(); line = w.slice(dash + 1); continue }
+    const letters = /^[A-Za-z]+[,.;:]?$/.test(w) ? w.replace(/[,.;:]$/, '').length : 0;
+    if (line && letters >= 8 && room >= 4 && letters - room >= 3) {
+      const mark = ++breaks % 5 === 2 ? '­' : '-';
+      line += ' ' + w.slice(0, room) + mark; push(); line = w.slice(room); continue;
+    }
+    push(); line = w;
+  }
+  if (line) push();
+  return lines;
+}
+
+// 5. A book of prose: a title page, five chapters (each on a new page, in the outline), first
+//    lines indented, running heads and page numbers, words broken at line ends, paragraphs
+//    running over page breaks, and a footnote at the foot of chapter 2's first page.
+//    proseBook({ text: true }) also returns each chapter's paragraphs as written; `paragraphs`
+//    sets chapter 1's length (each later chapter has two more), so a longer book can be made.
+export function proseBook({ text = false, paragraphs = 18 } = {}) {
+  breaks = 0;
+  const written = [];
+  const titles = ['Chapter 1. Of Ideas', 'Chapter 2. Of Impressions', 'Chapter 3. Of Custom', 'Chapter 4. Of Belief', 'Chapter 5. Of Necessity'];
+  const pages = [{ lines: [
+    { x: 150, y: 560, size: 24, font: 'Times-Bold', text: 'A Treatise of Small Things' },
+    { x: 250, y: 520, size: 14, font: 'Times-Roman', text: 'Ann Example' },
+  ] }];
+  const outline = [];
+  let para = 0;
+  const TOP = 700, FOOT = 90, PITCH = 15;
+  titles.forEach((title, c) => {
+    outline.push({ title, page: pages.length + 1 });
+    let page = { lines: [{ x: 72, y: 680, size: 16, font: 'Times-Bold', text: title }] };
+    let y = 640;
+    const opening = () => page.lines[0]?.text === title;
+    written.push({ title, paragraphs: [] });
+    for (let k = 0; k < paragraphs + c * 2; k++) {
+      const words = paragraphText(para, 45 + ((para * 37) % 70));
+      written.at(-1).paragraphs.push(words);
+      for (const l of setParagraph(words)) {
+        if (y < (c === 1 && opening() ? 150 : FOOT)) {
+          if (c === 1 && opening()) page.lines.push(
+            { x: 72, y: 110, size: 8, font: 'Times-Roman', text: '1 Hume first printed this argument in 1748, and he revised it for the edition' },
+            { x: 72, y: 100, size: 8, font: 'Times-Roman', text: 'that appeared after his death.' });
+          pages.push(page); page = { lines: [] }; y = TOP;
+        }
+        page.lines.push({ ...l, y }); y -= PITCH;
+      }
+      para++;
+    }
+    pages.push(page);
+  });
+  // Running heads (the book's title on even pages, the chapter's on odd) and page numbers.
+  pages.forEach((pg, i) => {
+    if (i === 0) return;
+    const chapter = titles[outline.filter(o => o.page <= i + 1).length - 1];
+    pg.lines.push({ x: 72, y: 750, size: 9, font: 'Helvetica', text: (i % 2 ? chapter : 'A Treatise of Small Things').toUpperCase() });
+    pg.lines.push({ x: 300, y: 50, size: 9, font: 'Helvetica', text: String(i + 1) });
+  });
+  const bytes = makePdf({ info: { Title: 'A Treatise of Small Things', Author: 'Ann Example' }, outline, pages });
+  return text ? { bytes, chapters: written } : bytes;
+}
+
+// 6. A two-column paper: title, authors, abstract and a DOI across the page, then two
+//    columns; figures across both columns with captions, display equations in Symbol,
+//    tables, numbered section headings and a references list on the last page.
+export function twoColumnPaper() {
+  breaks = 0;
+  const col = (x, top, bottom, from) => {
+    const lines = [];
+    let y = top, i = from;
+    while (y > bottom) {
+      for (const l of setParagraph(paragraphText(i, 40 + ((i * 29) % 50)), { x, indent: 10, width: 54, indentChars: 2, size: 9.5 })) {
+        if (y <= bottom) break;
+        lines.push({ ...l, y }); y -= 12.5;
+      }
+      i++;
+    }
+    return lines;
+  };
+  // Each equation its own (a line printed the same on several pages is a running head).
+  const equation = (x, y, n) => ({ x: x + 60, y, size: 10, font: 'Symbol', text: `\xe5 r(t) = \xf2 a(t) dt + ${n}` });
+  const table = (x, y) => [['Chapter', 'Words', 'Return', 'Rate'], ['1', '4,210', '0.81', '62%'], ['2', '6,980', '0.74', '55%'], ['3', '3,115', '0.88', '71%'], ['4', '9,402', '0.52', '38%'], ['5', '5,560', '0.79', '60%']]
+    .flatMap((row, r) => row.map((cell, k) => ({ x: x + k * 62, y: y - r * 13, size: 9, font: 'Times-Roman', text: cell })));
+  const pages = [{ lines: [
+    { x: 95, y: 720, size: 17, font: 'Times-Bold', text: 'Attention and Return in Long-Form Reading' },
+    { x: 235, y: 698, size: 10, font: 'Times-Roman', text: 'A. Researcher and B. Scholar' },
+    { x: 48, y: 672, size: 10, font: 'Times-Bold', text: 'Abstract' },
+    ...setParagraph(paragraphText(900, 90), { x: 48, indent: 0, width: 118, indentChars: 0, size: 9.5 }).map((l, i) => ({ ...l, y: 658 - i * 12 })),
+    { x: 48, y: 586, size: 9, font: 'Times-Roman', text: 'doi:10.5555/tinct.2026.001' },
+    { x: 48, y: 562, size: 11, font: 'Times-Bold', text: '1 Introduction' },
+    ...col(48, 545, 80, 0), ...col(315, 562, 80, 30),
+  ] }];
+  for (let n = 2; n <= 7; n++) {
+    const lines = [];
+    const images = [];
+    let top = 720;
+    // A figure across both columns, with its caption, on every other page.
+    if (n % 2 === 0) {
+      images.push({ x: 56, y: 470, w: 500, h: 250, pw: 50, ph: 25 });
+      lines.push({ x: 56, y: 455, size: 8, font: 'Times-Italic', text: `Figure ${n / 2}. Return rates across chapters of different lengths, by week of reading.` });
+      top = 435;
+    }
+    let left = col(48, top, 80, n * 40), right = col(315, top, 80, n * 40 + 20);
+    // A table in the left column, an equation in each column.
+    if (n === 3 || n === 5) left = [...left.filter(l => l.y > 400 || l.y < 300), ...table(48, 390)];
+    left = left.filter(l => Math.abs(l.y - 270) > 12); right = right.filter(l => Math.abs(l.y - 220) > 12);
+    if (n === 4) { left = left.filter(l => l.y < top - 20); left.unshift({ x: 48, y: top, size: 11, font: 'Times-Bold', text: '2 Method' }) }
+    lines.push(...left, equation(48, 270, n), ...right, equation(315, 220, n + 10));
+    pages.push({ lines, images });
+  }
+  pages.push({ lines: [
+    { x: 48, y: 720, size: 11, font: 'Times-Bold', text: 'References' },
+    ...Array.from({ length: 12 }, (_, i) => ({ x: 48, y: 700 - i * 22, size: 8.5, font: 'Times-Roman', text: `[${i + 1}] A. Author. On reading at length, part ${i + 1}. Journal of Reading ${10 + i}, ${2000 + i}.` })),
+  ] });
+  pages.forEach((pg, i) => pg.lines.push({ x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(i + 1) }));
+  return makePdf({ info: { Title: 'Attention and Return in Long-Form Reading' }, pages });
+}
+
+// 7. A paper of figures (FIXES-2026-10-15 items 4–7), for the margin's figure checks:
+//    p. 1 a network diagram of three rows of small circles joined only by their labels (TD-Gammon's
+//    Figure 16.1: no row is a figure by itself), its caption below; p. 2 a block diagram at the page's
+//    left edge with labels inside its boxes and body text beside it (ResNet's Figure 2); p. 3 a table
+//    of bare cells under its caption; p. 4 a figure larger than half the page, under running text.
+const circle = (x, y, r) => { const k = r * 0.5523; return `${x + r} ${y} m ${x + r} ${y + k} ${x + k} ${y + r} ${x} ${y + r} c ${x - k} ${y + r} ${x - r} ${y + k} ${x - r} ${y} c ${x - r} ${y - k} ${x - k} ${y - r} ${x} ${y - r} c ${x + k} ${y - r} ${x + r} ${y - k} ${x + r} ${y} c S` };
+export function figurePaper() {
+  breaks = 0;
+  const label = (x, y, text) => ({ x, y, size: 8, font: 'Helvetica', text });
+  const row = (n, y, x0, x1) => Array.from({ length: n }, (_, i) => circle(Math.round(x0 + (n > 1 ? (i * (x1 - x0)) / (n - 1) : (x1 - x0) / 2)), y, 5)).join(' ');
+  const pages = [
+    { draw: `0.8 w ${row(3, 545, 286, 326)} ${row(8, 509, 236, 376)} ${row(14, 473, 206, 406)}`, lines: [
+      { x: 72, y: 720, size: 15, font: 'Times-Bold', text: 'Figures in the Margin' },
+      ...prose(690, 6, { from: 3 }),
+      label(246, 527, 'predicted probability of winning'), label(262, 491, 'hidden units (40-80)'), label(230, 455, 'backgammon position (198 input units)'),
+      { x: 160, y: 425, size: 9, font: 'Times-Italic', text: 'Figure 1. A network of three layers of units that rates a position.' },
+      ...prose(395, 22, { from: 40 }),
+    ] },
+    { draw: '0.9 w 12 600 110 20 re S 12 548 110 20 re S 67 640 m 67 620 l S 67 600 m 67 568 l S 67 548 m 67 520 l S ' + circle(67, 512, 7) + ' 67 505 m 67 482 l S 122 610 m 145 610 l 145 512 l 74 512 l S', lines: [
+      ...prose(720, 5, { from: 11 }),
+      label(36, 606, 'weight layer'), label(36, 554, 'weight layer'), label(72, 580, 'relu'), label(72, 488, 'relu'), label(130, 560, 'x'), label(100, 530, 'F(x) + x'),
+      ...prose(640, 14, { x: 178, width: 62, from: 60 }),
+      { x: 12, y: 466, size: 8, font: 'Times-Italic', text: 'Figure 2. Residual learning:' },
+      { x: 12, y: 456, size: 8, font: 'Times-Italic', text: 'a building block.' },
+      ...prose(430, 24, { from: 90 }),
+    ] },
+    { lines: [
+      ...prose(720, 8, { from: 120 }),
+      { x: 72, y: 600, size: 9, font: 'Times-Italic', text: 'Table 1. Error rates on the test set, by depth of the network.' },
+      ...[['Depth', 'Plain', 'Residual'], ['18', '27.94', '27.88'], ['34', '28.54', '25.03'], ['50', '-', '22.85'], ['101', '-', '21.75'], ['152', '-', '21.43']]
+        .flatMap((r, i) => r.map((cell, k) => ({ x: 190 + k * 90, y: 580 - i * 16, size: 9, font: 'Times-Roman', text: cell }))),
+      ...prose(470, 24, { from: 150 }),
+    ] },
+    { images: [{ x: 60, y: 170, w: 492, h: 520, pw: 60, ph: 64 }], lines: [
+      ...prose(730, 2, { from: 180 }),
+      { x: 60, y: 150, size: 9, font: 'Times-Italic', text: 'Figure 3. Training on ImageNet: thin curves are training error, bold curves validation error.' },
+      ...prose(125, 3, { from: 200 }),
+    ] },
+  ];
+  pages.forEach((pg, i) => pg.lines.push({ x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(i + 1) }));
+  return makePdf({ info: { Title: 'Figures in the Margin' }, pages });
+}
+
+// 7b. Margin figures, as MacKay sets them (Anders, 15 Oct; retest of 15 Oct): a text column with captions in a
+//     wide right margin. A small plot in the margin with its caption under it (MacKay's Figure 1.1, which got
+//     no chip), a drawing in the text column with its caption well to its right in the margin (Figure 1.5's
+//     layout), and a table of digits with its caption level with its top (Figure 1.10). Text beside the plot
+//     stands where a displayed formula would (a formula's card took Figure 1.1's caption).
+export function marginPaper() {
+  breaks = 0;
+  const cap = (y, a, b) => [{ x: 430, y, size: 8, font: 'Helvetica', text: a }, { x: 430, y: y - 10, size: 8, font: 'Times-Roman', text: b }];
+  const bars = [0, 1, 2, 3, 4, 5, 6, 7].map(i => `${450 + i * 10} 560 m ${450 + i * 10} ${560 + [4, 12, 22, 30, 26, 16, 8, 3][i]} l S`).join(' ');
+  const digits = ['s 0 0 1 0 1 1 0', 't 000 000 111 000 111 111 000', 'n 000 001 000 000 101 000 000', 'r 000 001 111 000 010 111 000'];
+  const pages = [
+    { draw: `0.8 w 440 555 m 540 555 l S 440 555 m 440 605 l S ${bars} 1 w 120 330 210 90 re S 140 350 m 310 400 l S 140 400 m 310 350 l S ${circle(225, 375, 18)} 150 255 m 330 255 l S`, lines: [
+      { x: 72, y: 720, size: 15, font: 'Times-Bold', text: 'About Chapter 1' },
+      ...prose(690, 6, { width: 62, from: 3 }),
+      { x: 120, y: 585, size: 11, font: 'Times-Italic', text: 'The mean of r is the sum of the probabilities' },
+      { x: 120, y: 570, size: 11, font: 'Times-Italic', text: 'of each count of heads, weighted by the count.' },
+      { x: 446, y: 545, size: 6, font: 'Helvetica', text: '0 1 2 3 4 5 6 7' },
+      ...cap(530, 'Figure 1.1. The binomial', 'distribution, f = 0.3, N = 10.'),
+      ...prose(520, 6, { width: 62, from: 40 }),
+      ...cap(420, 'Figure 1.2. A binary data', 'sequence of length 10 000.'),
+      ...prose(310, 3, { width: 62, from: 90 }),
+      ...digits.map((t, i) => ({ x: 160, y: 262 - i * 14, size: 10, font: 'Times-Roman', text: t })),
+      ...cap(262, 'Figure 1.3. Decoding the', 'received vector.'),
+      ...prose(190, 6, { width: 62, from: 120 }),
+    ] },
+  ];
+  pages.forEach((pg, i) => pg.lines.push({ x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(i + 1) }));
+  return makePdf({ info: { Title: 'Margin Figures' }, pages });
+}
+
+// 7c. Justified text as LaTeX sets it (Constructor Theory, 16 Oct 2026): each line stretched to the measure,
+//     and written in pieces, so pdf.js gives a line as several text items: a long one from the left edge to
+//     mid-line, then the rest, one word itself in two pieces ("fie" | "lds"). The pieces are split by a font
+//     size 0.01 pt apart (invisible). justifiedPaper({ meta: true }) also returns each paragraph's text.
+// Times-Roman's advance widths (its AFM), WinAnsi 32-126, for setting a line to the measure.
+const TIMES_W = ('250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 278 500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 444 '
+  + '921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 722 556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 500 '
+  + '333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 500 500 500 333 389 278 500 500 722 500 500 444 480 200 480 541').split(' ').map(Number);
+const timesWidth = (text, size) => [...text].reduce((w, ch) => w + (TIMES_W[ch.charCodeAt(0) - 32] ?? 500), 0) * size / 1000;
+export function justifiedPaper({ meta = false } = {}) {
+  const size = 11, x = 72, measure = 468, lead = size * 1.4;
+  const esc = s => textBytes(s);
+  // Hume's paragraph (PROSE), in order, as three paragraphs of whole sentences.
+  const sentences = PROSE.match(/[^.]+\.\s*/g).map(t => t.trim());
+  const paragraphs = [sentences.slice(0, 2), sentences.slice(2, 4), sentences.slice(4)].map(list => list.join(' '));
+  let y = 680, draw = '';
+  for (const text of paragraphs) {
+    const words = text.split(' '), lines = [];
+    let line = [];
+    for (const w of words) { if (line.length && timesWidth([...line, w].join(' '), size) > measure - (lines.length ? 0 : 18)) { lines.push(line); line = [] } line.push(w) }
+    if (line.length) lines.push(line);
+    lines.forEach((ws, k) => {
+      const left = x + (k ? 0 : 18), width = measure - (k ? 0 : 18), last = k === lines.length - 1;
+      const natural = timesWidth(ws.join(' '), size), gaps = ws.length - 1;
+      const tw = !last && gaps ? (width - natural) / gaps : 0;
+      // The pieces: about half the words, then one word in two pieces, then the rest.
+      const half = Math.max(1, Math.ceil(ws.length / 2)), cut = ws[half] || '', at = Math.max(1, Math.floor(cut.length / 2));
+      const pieces = [ws.slice(0, half).join(' ') + (cut ? ' ' : ''), cut.slice(0, at), cut.slice(at) + (half + 1 < ws.length ? ' ' : ''), ws.slice(half + 1).join(' ')].filter(Boolean);
+      draw += `BT ${tw.toFixed(3)} Tw ${left} ${y.toFixed(2)} Td ` + pieces.map((piece, n) => `/F4 ${n % 2 ? size + 0.01 : size} Tf ${esc(piece)} Tj`).join(' ') + ' ET\n';
+      y -= lead;
+    });
+    y -= lead * 0.6;
+  }
+  const bytes = makePdf({ info: { Title: 'Justified Lines' }, pages: [{ draw, lines: [{ x: 72, y: 720, size: 15, font: 'Times-Bold', text: 'Of Relations and Matters of Fact' }, { x: 300, y: 40, size: 9, font: 'Times-Roman', text: '1' }] }] });
+  return meta ? { bytes, meta: { paragraphs } } : bytes;
+}
+
+// 8. A long book, the stand-in for Sutton and Barto's "Reinforcement Learning" (docs/margin/gloss-test/
+//    edge.html): about 590 pages with an outline of parts, chapters and sections (as that book's: the
+//    top-level entries are the front matter, chapter 1, three parts and the back matter); front matter
+//    (title, Contents, Preface, Summary of Notation) numbered in roman; chapters printed from 1 at file
+//    page 23, so the printed number is the file page less 22; running heads that carry the printed
+//    number at the top, and the number at the foot of each chapter's first page; no page labels.
+//    Chapter 6 introduces Sarsa (section 6.4; later chapters name it again), chapter 16 has the
+//    TD-Gammon figure with text wrapped beside it (labels inside, a caption); then References and an
+//    Index. longBook({ meta: true }) also returns where things are; `bigImages` adds that many
+//    one-megabyte pictures (70 make a file of about 73 MB, as the test's book) for the reopen timing.
+//    `bookmarks: false` leaves the outline out, as MacKay's 640-page book has none: only its printed Contents.
+export const LONG_BOOK_OFFSET = 22
+export function longBook({ bigImages = 0, meta = false, bookmarks = true } = {}) {
+  breaks = 0;
+  const TOP = 700, FOOT = 90, PITCH = 15;
+  const parts = [
+    { title: null, chapters: ['Introduction'] },
+    { title: 'I Tabular Solution Methods', chapters: ['Multi-armed Bandits', 'Finite Markov Decision Processes', 'Dynamic Programming', 'Monte Carlo Methods', 'Temporal-Difference Learning', 'n-step Bootstrapping', 'Planning and Learning with Tabular Methods'] },
+    { title: 'II Approximate Solution Methods', chapters: ['On-policy Prediction with Approximation', 'On-policy Control with Approximation', 'Off-policy Methods with Approximation', 'Eligibility Traces', 'Policy Gradient Methods'] },
+    { title: 'III Looking Deeper', chapters: ['Psychology', 'Neuroscience', 'Applications and Case Studies', 'Frontiers'] },
+  ];
+  const SPECIAL = { '6.4': 'Sarsa: On-policy TD Control', '6.5': 'Q-learning: Off-policy TD Control', '10.1': 'Episodic Semi-gradient Control', '12.7': 'Sarsa(lambda)', '16.1': 'TD-Gammon' };
+  const TOPIC = { '6.4': 'We turn now to the use of TD prediction methods for the control problem. The first step is to learn an action-value function rather than a state-value function. Each transition is from one state-action pair to the next, and the update uses every element of the quintuple of events, state, action, reward, next state, next action, that make up a transition. This quintuple gives rise to the name Sarsa for the algorithm, which we introduce here.',
+    '10.1': 'The extension of the semi-gradient prediction methods to action values is straightforward. The example of episodic semi-gradient Sarsa on the mountain car task shows the control version of the method introduced in the tabular case.',
+    '12.7': 'How can eligibility traces be used not just for prediction but for control? The answer is Sarsa(lambda), the action-value form of the TD(lambda) method, which reuses the Sarsa update of the tabular chapters with a trace on each pair.',
+    '16.1': 'One of the most impressive applications of reinforcement learning is the backgammon program TD-Gammon. It learned to play the game at the level of the best human players from self-play alone, and TD-Gammon 0.0 matched the best earlier programs.' };
+  const pages = [];
+  const page = () => { const pg = { lines: [], images: [], head: null, foot: null }; pages.push(pg); return pg };
+  // Front matter: title page (file 1), a blank (2), Contents (3-6), Preface (7-14), Notation (15-18), blanks to 22.
+  page().lines.push({ x: 150, y: 560, size: 24, font: 'Times-Bold', text: 'Learning from Reward' }, { x: 220, y: 520, size: 14, font: 'Times-Roman', text: 'Ann Example and Bo Sample' });
+  page();
+  const roman = n => ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii'][n - 1];
+  const frontPage = (title, from) => { const pg = page(); pg.foot = roman(pages.length); if (title) pg.lines.push({ x: 72, y: 680, size: 18, font: 'Times-Bold', text: title }); let y = title ? 640 : TOP, k = from; while (y > FOOT) { for (const l of setParagraph(paragraphText(k++, 60))) { if (y <= FOOT) break; pg.lines.push({ ...l, y }); y -= PITCH } } return pg };
+  const contentsPages = [page(), page(), page(), page()];
+  contentsPages.forEach(pg => { pg.foot = roman(pages.indexOf(pg) + 1) });
+  for (let i = 0; i < 8; i++) frontPage(i ? null : 'Preface', 5000 + i * 30);
+  for (let i = 0; i < 4; i++) frontPage(i ? null : 'Summary of Notation', 6000 + i * 30);
+  while (pages.length < LONG_BOOK_OFFSET) page();
+  const outline = [{ title: 'Contents', page: 3 }, { title: 'Preface', page: 7 }, { title: 'Summary of Notation', page: 15 }];
+  const chapters = [];
+  let para = 0, number = 0, sarsaPage = 0, figurePage = 0;
+  const body = (pg, y, k) => { for (const l of setParagraph(paragraphText(k, 50 + ((k * 37) % 60)))) { if (y <= FOOT) return { y, done: false }; pg.lines.push({ ...l, y }); y -= PITCH } return { y, done: true } };
+  const fill = (pg, y, lead = null, width = 86) => {
+    if (lead) for (const l of setParagraph(lead, { width })) { pg.lines.push({ ...l, y }); y -= PITCH }
+    while (y > FOOT + PITCH) { const r = body(pg, y, para++); y = r.y - 4 }
+  };
+  for (const part of parts) {
+    const entry = part.title ? { title: part.title, page: pages.length + 1, children: [] } : null;
+    if (entry) outline.push(entry);
+    for (const name of part.chapters) {
+      number++;
+      const title = `${number} ${name}`;
+      const opener = page(); opener.foot = String(pages.length - LONG_BOOK_OFFSET); opener.chapter = number;
+      opener.lines.push({ x: 72, y: 660, size: 11, font: 'Times-Roman', text: `Chapter ${number}` }, { x: 72, y: 630, size: 20, font: 'Times-Bold', text: name });
+      fill(opener, 590, `This chapter takes up ${name.toLowerCase()}, the subject of the sections that follow.`);
+      const ch = { title, page: pages.indexOf(opener) + 1, children: [] };
+      (entry ? entry.children : outline).push(ch);
+      for (let k = 1; k <= 5; k++) {
+        const id = `${number}.${k}`, sec = `${id} ${SPECIAL[id] || `${name}, part ${k}`}`;
+        for (let n = 0; n < 6; n++) {
+          const pg = page(); pg.chapter = number; pg.section = sec;
+          if (n === 0) { ch.children.push({ title: sec, page: pages.length }); pg.lines.push({ x: 72, y: 690, size: 13, font: 'Times-Bold', text: sec }) }
+          if (id === '6.4' && n === 0) sarsaPage = pages.length;
+          if (id === '16.1' && n === 1) {
+            // Text wrapped beside a figure: narrow body lines on the left, the figure's labels and caption on the right.
+            figurePage = pages.length;
+            pg.images.push({ x: 360, y: 430, w: 180, h: 230, pw: 36, ph: 46 });
+            let y = TOP;
+            const wrapped = 'The network has a total of 198 input units that encode the backgammon position, a layer of hidden units, and one output unit that estimates the probability of winning from that position. The weights were set to small random values at the start, and each move was chosen by evaluating every possible next position with the network and taking the best one. TD-Gammon learned by playing against itself, updating the weights after every move by the TD error between successive predictions.';
+            for (const l of setParagraph(wrapped, { width: 48, indent: 0, indentChars: 0 })) { pg.lines.push({ ...l, y }); y -= PITCH }
+            while (y > 400) { for (const l of setParagraph(paragraphText(para++, 40), { width: 48, indent: 0, indentChars: 0 })) { if (y <= 400) break; pg.lines.push({ ...l, y }); y -= PITCH } }
+            pg.lines.push(
+              { x: 380, y: 650, size: 8, font: 'Helvetica', text: 'predicted probability' }, { x: 398, y: 640, size: 8, font: 'Helvetica', text: 'of winning' },
+              { x: 470, y: 600, size: 8, font: 'Helvetica', text: 'TD error' },
+              { x: 372, y: 560, size: 8, font: 'Helvetica', text: 'hidden units (40-80)' },
+              { x: 380, y: 470, size: 8, font: 'Helvetica', text: 'backgammon position' }, { x: 384, y: 460, size: 8, font: 'Helvetica', text: '(198 input units)' },
+              { x: 360, y: 412, size: 8, font: 'Times-Italic', text: 'Figure 16.1: The TD-Gammon neural' }, { x: 360, y: 402, size: 8, font: 'Times-Italic', text: 'network.' });
+            fill(pg, 380);
+            // In the order a typesetter's figure often lands in the content stream: the labels between the body lines.
+            pg.lines.sort((a, b) => b.y - a.y);
+            continue;
+          }
+          fill(pg, n === 0 ? 660 : TOP, n === 0 ? (TOPIC[id] || `This section takes up ${(SPECIAL[id] || name).toLowerCase()} in more detail.`) : null);
+        }
+      }
+      chapters.push({ title, from: ch.page, to: pages.length });
+    }
+  }
+  const refsFrom = pages.length + 1;
+  outline.push({ title: 'References', page: refsFrom });
+  for (let i = 0; i < 20; i++) {
+    const pg = page(); pg.section = 'REFERENCES'; let y = i ? TOP : 660;
+    if (!i) pg.lines.push({ x: 72, y: 690, size: 18, font: 'Times-Bold', text: 'References' });
+    for (let r = 0; y > FOOT; r++, y -= 26) {
+      const k = i * 24 + r;
+      pg.lines.push({ x: 72, y, size: 9, font: 'Times-Roman', text: `${['Barto', 'Sutton', 'Watkins', 'Tesauro', 'Samuel', 'Bellman', 'Howard', 'Minsky', 'Klopf', 'Dayan'][k % 10]}, A. B., Writer, C. (${1950 + (k % 70)}). On learning from reward, study ${k + 1}. Journal of Learning, ${k % 40}:${10 + k}-${20 + k}.` });
+    }
+  }
+  const indexFrom = pages.length + 1;
+  outline.push({ title: 'Index', page: indexFrom });
+  const TERMS = ['action-value function', 'actor-critic', 'backgammon', 'bandit problem', 'Bellman equation', 'bootstrapping', 'discounting', 'dynamic programming', 'eligibility trace', 'exploration', 'function approximation', 'greedy policy', 'Markov property', 'Monte Carlo', 'policy gradient', 'Q-learning', 'reward signal', 'Sarsa', 'semi-gradient', 'TD error', 'TD-Gammon', 'value function'];
+  for (let i = 0; i < 16; i++) {
+    const pg = page(); pg.section = 'INDEX'; let y = i ? TOP : 660;
+    if (!i) pg.lines.push({ x: 72, y: 690, size: 18, font: 'Times-Bold', text: 'Index' });
+    for (let r = 0; y > FOOT; r++, y -= 13) { const k = i * 46 + r; pg.lines.push({ x: 72, y, size: 9, font: 'Times-Roman', text: `${TERMS[k % TERMS.length]}${k >= TERMS.length ? `, case ${Math.floor(k / TERMS.length)}` : ''}, ${(k * 7) % 500 + 1}, ${(k * 11) % 500 + 3}` }) }
+  }
+  // The Contents pages: every chapter with its printed page.
+  const rows = outline.flatMap(e => e.children ? [{ title: e.title, page: e.page }, ...e.children] : [e]).filter(e => e.page > LONG_BOOK_OFFSET)
+    // Without bookmarks, a contents of parts and chapters only, as MacKay's is.
+    .filter(e => bookmarks || !/^\d+\.\d/.test(e.title));
+  rows.forEach((e, i) => { const pg = contentsPages[Math.floor(i / 6)] || contentsPages[3]; const y = 680 - (i % 6) * 40; pg.lines.push({ x: 72, y, size: 11, font: 'Times-Roman', text: `${e.title} . . . . . . . . ${e.page - LONG_BOOK_OFFSET}` }) });
+  contentsPages[0].lines.push({ x: 72, y: 720, size: 18, font: 'Times-Bold', text: 'Contents' });
+  // Running heads with the printed number (even pages: number left; odd: right), the foot's number on openers and front matter.
+  pages.forEach((pg, i) => {
+    const file = i + 1, printed = file - LONG_BOOK_OFFSET;
+    if (pg.foot) pg.lines.push({ x: 300, y: 50, size: 9, font: 'Times-Roman', text: pg.foot });
+    else if (printed >= 1 && (pg.chapter || pg.section)) {
+      const head = pg.section && !pg.chapter ? pg.section : file % 2 ? (pg.section || '').toUpperCase() : `CHAPTER ${pg.chapter}. ${parts.flatMap(p => p.chapters)[pg.chapter - 1].toUpperCase()}`;
+      if (file % 2) pg.lines.push({ x: 300, y: 750, size: 9, font: 'Times-Roman', text: head }, { x: 520, y: 750, size: 9, font: 'Times-Roman', text: String(printed) });
+      else pg.lines.push({ x: 72, y: 750, size: 9, font: 'Times-Roman', text: String(printed) }, { x: 110, y: 750, size: 9, font: 'Times-Roman', text: head });
+    }
+  });
+  // Large pictures for a large file, spread over the chapters' pages (drawn under their text).
+  const spots = pages.map((pg, i) => i).filter(i => pages[i].chapter && i + 1 !== figurePage);
+  for (let k = 0; k < bigImages; k++) pages[spots[Math.floor(k * spots.length / bigImages)]].images.push({ x: 72, y: 100, w: 468, h: 60, pw: 1024, ph: 1024, noise: k + 1 });
+  const bytes = makePdf({ info: { Title: 'Learning from Reward', Author: 'Ann Example and Bo Sample' }, outline: bookmarks ? outline : [], pages: pages.map(pg => ({ lines: pg.lines, images: pg.images })) });
+  return meta ? { bytes, meta: { offset: LONG_BOOK_OFFSET, pages: pages.length, sarsaPage, figurePage, chapters, refsFrom, indexFrom } } : bytes;
+}
+
+// 9. A paper of numbered sections (Anders, 19 Oct 2026, night: the unit marks), Constructor Theory's shape: 20 pages,
+//    sections that start mid-page (1, 1.1, 2, 2.1 …) in a flat outline, short ones joined into their neighbour by
+//    TinctMargin.sizeUnits, a page number at each foot. Page 14 has its table boxed in rules, the row label set upwards
+//    and its caption in pieces set close ("Table", "1", ": A c", "lassification of constructions"), as the PDF does.
+export const SECTION_HEADS = [
+  ['1 Introduction', 1, 700], ['1.1 Constructors', 2, 520], ['2 Motivations', 4, 430], ['2.1 Catalysis', 5, 600],
+  ['2.2 Substrates', 7, 360], ['3 Information', 9, 470], ['3.1 Media', 11, 640], ['4 Superinformation', 15, 700],
+  ['5 Conclusion', 18, 400], ['References', 19, 700],
+];
+export function sectionPaper() {
+  breaks = 0;
+  const pages = Array.from({ length: 20 }, (_, i) => ({ lines: [], draw: '' }));
+  for (let n = 1; n <= 20; n++) {
+    const pg = pages[n - 1], heads = SECTION_HEADS.filter(h => h[1] === n).map(h => h[2]);
+    let y = 720;
+    if (n === 1) { pg.lines.push({ x: 160, y: 740, size: 18, font: 'Times-Bold', text: 'A Theory of Constructions' }); y = 720 }
+    const stop = n === 14 ? [[560, 315]] : [];
+    for (let line = 0; y > 90; line++) {
+      const h = heads.find(v => v <= y + 2 && v > y - 15);
+      if (h) { const t = SECTION_HEADS.find(x => x[1] === n && x[2] === h)[0]; pg.lines.push({ x: 72, y: h, size: /^\d+\.\d/.test(t) ? 11 : 13, font: 'Times-Bold', text: t }); y = h - 24; continue }
+      const gap = stop.find(([a, b]) => y <= a && y > b);
+      if (gap) { y = gap[1]; continue }
+      pg.lines.push(...prose(y, 1, { from: n * 53 + line * 11 })); y -= 15;
+    }
+    pg.lines.push({ x: 300, y: 50, size: 9, font: 'Times-Roman', text: String(n) });
+  }
+  // Page 14: Table 1, a box of 2 x 2 cells with its headers, the row label upwards at its left, the caption under it.
+  const t = pages[13];
+  // Header "Output" above the box and "Input" left of it, outside its rules, as in the PDF.
+  t.draw = '0.6 w 190 350 250 190 re S 240 350 m 240 540 l S 190 500 m 440 500 l S 340 350 m 340 520 l S 240 425 m 440 425 l S';
+  t.lines.push(
+    { x: 365, y: 545, size: 9, font: 'Times-Roman', text: 'Output' },
+    { x: 262, y: 505, size: 9, font: 'Times-Roman', text: 'Abstract' }, { x: 362, y: 505, size: 9, font: 'Times-Roman', text: 'Physical' },
+    { x: 184, y: 405, size: 9, font: 'Times-Roman', text: 'Input', rotate: 90 },
+    { x: 246, y: 470, size: 9, font: 'Times-Roman', text: 'Abstract' }, { x: 246, y: 390, size: 9, font: 'Times-Roman', text: 'Physical' },
+    { x: 262, y: 460, size: 11, font: 'Times-Roman', text: 'Computation' }, { x: 356, y: 460, size: 11, font: 'Times-Roman', text: 'Preparation' },
+    { x: 260, y: 385, size: 11, font: 'Times-Roman', text: 'Measurement' }, { x: 352, y: 385, size: 11, font: 'Times-Roman', text: 'Other construction' },
+  );
+  // The caption in the PDF's own pieces, each set where the one before ends (no space glyph between them but after "Table").
+  let cx = 214;
+  for (const piece of ['Table', ' ', '1', ': A c', 'lassification of constructions']) {
+    if (piece !== ' ') t.lines.push({ x: +cx.toFixed(2), y: 338, size: 9, font: 'Times-Roman', text: piece, mcid: t.lines.length });
+    cx += timesWidth(piece, 9);
+  }
+  const outline = SECTION_HEADS.map(([title, page]) => ({ title, page }));
+  return makePdf({ info: { Title: 'A Theory of Constructions' }, pages, outline });
+}
+
+// 10. A research paper without bookmarks (tester feedback, 9 Nov 2026: "create chapters to skip more easily"): a title,
+//     authors, affiliations and e-mails, an Abstract, numbered sections and subsections that start mid-page in either
+//     column, figure and table captions (a bold chart title and a bold table header among them), a running head and page
+//     numbers, Acknowledgments, References and an appendix. `columns`: 1 or 2. `numbered: false` sets the headings
+//     without numbers. `caps: true` sets IEEE-style headings: "I. INTRODUCTION" in the body's own face and size.
+//     researchPaper({ meta: true }) also returns where each heading was set: { text, page, y, level }.
+export const RESEARCH_SECTIONS = [
+  ['1', 'Introduction', 9], ['2', 'Related Work', 7], ['3', 'Method', 2], ['3.1', 'Problem Setup', 6, 'figure'],
+  ['3.2', 'Training Objective', 7], ['4', 'Experiments', 3, 'table'], ['4.1', 'Datasets', 5], ['4.2', 'Baselines', 4],
+  ['5', 'Results', 8, 'figure'], ['6', 'Discussion', 5], ['7', 'Conclusion', 3],
+];
+export function researchPaper({ columns = 2, numbered = true, caps = false, meta = false } = {}) {
+  breaks = 0;
+  const W = 612, H = 792, top = 720, bottom = 72, body = 10, lead = 12.4;
+  const cols = columns === 2 ? [54, 318] : [72];
+  const chars = columns === 2 ? 52 : 92;
+  const pages = [];
+  const heads = [];
+  let page = null, col = 0, y = 0, para = 0, figures = 0, tables = 0;
+  const roman = n => ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'][n - 1];
+  const newPage = () => {
+    page = { lines: [], images: [], draw: '' }; pages.push(page); col = 0; y = top;
+    const n = pages.length;
+    if (n > 1) page.lines.push({ x: 72, y: 752, size: 8, font: 'Times-Italic', text: 'Preprint. Under review.' });
+    page.lines.push({ x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(n) });
+  };
+  const room = need => { if (y - need >= bottom) return; if (col + 1 < cols.length) { col++; y = pageTop } else { newPage(); pageTop = top } };
+  let pageTop = top;
+  newPage();
+  // The title block across the page.
+  const centre = (text, size) => Math.round((W - text.length * size * 0.46) / 2);
+  const title = 'Sparse Attention for Long-Document Reading';
+  page.lines.push({ x: centre(title, 17), y: 724, size: 17, font: 'Times-Bold', text: title });
+  page.lines.push({ x: centre('Ann Example 1 and Bo Sample 2', 11), y: 700, size: 11, font: 'Times-Roman', text: 'Ann Example 1 and Bo Sample 2' });
+  page.lines.push({ x: centre('1 University of Somewhere, 2 Institute of Elsewhere', 9), y: 686, size: 9, font: 'Times-Italic', text: '1 University of Somewhere, 2 Institute of Elsewhere' });
+  page.lines.push({ x: centre('ann@example.org, bo@example.org', 9), y: 674, size: 9, font: 'Times-Roman', text: 'ann@example.org, bo@example.org' });
+  const abstractHead = caps ? 'ABSTRACT' : 'Abstract';
+  page.lines.push({ x: centre(abstractHead, 11), y: 648, size: 11, font: 'Times-Bold', text: abstractHead });
+  heads.push({ text: abstractHead, page: 1, y: 648, column: 0, level: 1 });
+  let ay = 632;
+  for (const l of setParagraph(paragraphText(700, 120), { x: 90, indent: 0, width: 96, indentChars: 0, size: 9 })) { page.lines.push({ ...l, y: ay }); ay -= 11 }
+  pageTop = y = ay - 18;
+  const heading = (num, name, level) => {
+    const text = caps ? (level === 1 ? `${roman(Number(num))}. ${name.toUpperCase()}` : `${String.fromCharCode(64 + Number(num.split('.')[1]))}. ${name}`) : numbered ? `${num} ${name}` : name;
+    const size = caps ? body : level === 1 ? 12 : body;
+    const font = caps ? (level === 1 ? 'Times-Roman' : 'Times-Italic') : 'Times-Bold';
+    room(size * 2 + lead * 3);
+    y -= level === 1 ? 8 : 4;
+    page.lines.push({ x: cols[col], y, size, font, text });
+    heads.push({ text, page: pages.length, y: Math.round(y * 10) / 10, column: col, level });
+    y -= size * 1.7;
+  };
+  // Paragraph lines are set at the column they were made for; a column break mid-paragraph moves the rest.
+  const paragraphIn = n => {
+    const lines = setParagraph(paragraphText(para++, n * 8), { x: 0, indent: 10, width: chars, indentChars: 2, size: body });
+    for (const l of lines) { room(lead); page.lines.push({ ...l, x: cols[col] + l.x, y }); y -= lead }
+    y -= 2;
+  };
+  const figure = () => {
+    const w = columns === 2 ? 230 : 380, h = 120;
+    room(h + 50);
+    const x = cols[col] + 6;
+    page.images.push({ x, y: y - h, w, h, pw: 46, ph: 24 });
+    // A bold chart title inside the figure, and a caption sentence under it.
+    page.lines.push({ x: x + 20, y: y - 14, size: 9, font: 'Helvetica-Bold', text: 'Accuracy by Document Length' });
+    y -= h + 14;
+    figures++;
+    page.lines.push({ x: cols[col], y, size: 9, font: 'Times-Roman', text: `Figure ${figures}: Accuracy of each model on documents of growing length.` });
+    y -= 22;
+  };
+  const table = () => {
+    room(110);
+    tables++;
+    page.lines.push({ x: cols[col], y, size: 9, font: 'Times-Roman', text: `Table ${tables}: Results on the long-document benchmark.` });
+    y -= 16;
+    const rows = [['Model', 'Accuracy', 'Recall'], ['Dense', '71.2', '64.0'], ['Local', '73.9', '66.1'], ['Sparse (ours)', '78.4', '70.3']];
+    rows.forEach((row, r) => { row.forEach((cell, k) => page.lines.push({ x: cols[col] + k * 70, y, size: 9, font: r === 0 ? 'Times-Bold' : 'Times-Roman', text: cell })); y -= 12 });
+    y -= 10;
+  };
+  for (const [num, name, paras, extra] of RESEARCH_SECTIONS) {
+    heading(num, name, num.includes('.') ? 2 : 1);
+    for (let k = 0; k < paras; k++) { paragraphIn(5 + ((para * 3) % 5)); if (k === 1 && extra === 'figure') figure(); if (k === 0 && extra === 'table') table() }
+  }
+  // Acknowledgments, References and an appendix.
+  const plain = (text, level = 1) => {
+    room(body * 2 + lead * 3);
+    y -= 8;
+    const shown = caps ? text.toUpperCase() : text;
+    page.lines.push({ x: cols[col], y, size: caps ? body : 12, font: caps ? 'Times-Roman' : 'Times-Bold', text: shown });
+    heads.push({ text: shown, page: pages.length, y: Math.round(y * 10) / 10, column: col, level });
+    y -= 20;
+  };
+  plain('Acknowledgments'); paragraphIn(3);
+  plain('References');
+  for (let i = 1; i <= 18; i++) {
+    for (const l of setParagraph(`[${i}] A. Author and B. Writer. On reading long documents, part ${i}. In Proceedings of the Conference on Reading ${2000 + i}, pages ${i * 10}–${i * 10 + 9}.`, { x: 0, indent: 0, width: chars + 6, indentChars: 0, size: 8.5 })) {
+      room(10); page.lines.push({ ...l, x: cols[col] + l.x, y }); y -= 10;
+    }
+    y -= 2;
+  }
+  if (numbered || caps) {
+    // The appendix starts a page of its own.
+    newPage(); pageTop = top;
+    const a = caps ? 'APPENDIX A. PROOFS' : 'A Additional Proofs';
+    page.lines.push({ x: cols[0], y, size: caps ? body : 12, font: caps ? 'Times-Roman' : 'Times-Bold', text: a });
+    heads.push({ text: a, page: pages.length, y, column: 0, level: 1 });
+    y -= 22;
+    for (let k = 0; k < 6; k++) paragraphIn(6);
+  }
+  const bytes = makePdf({ pages });
+  return meta ? { bytes, heads, pages: pages.length } : bytes;
+}
+
+export function pdfFixtures() {
+  // 1. A report with document info and bookmarks, under an unhelpful file name; a picture on page 4.
+  const report = makePdf({
+    info: { Title: 'Notes on Natural Philosophy', Author: 'Mary Somerville', Creator: 'Tinct tests' },
+    outline: [
+      { title: 'Preface', page: 1 },
+      { title: 'Part One: Motion', page: 2, children: [{ title: 'Chapter 1. Of Force', page: 2 }, { title: 'Chapter 2. Of Gravity', page: 3 }] },
+      { title: 'Part Two: Light', page: 4, children: [{ title: 'Chapter 3. Of Refraction', page: 4 }] },
+    ],
+    pages: [1, 2, 3, 4].map(n => ({ images: n === 4 ? [{ x: 206, y: 70, w: 200, h: 180, pw: 40, ph: 36 }] : [], lines: [
+      ...(n === 1 ? [{ y: 700, size: 22, font: 'Times-Bold', text: 'Notes on Natural Philosophy' }] : []),
+      ...prose(n === 1 ? 660 : 720, 30, { from: n * 17 }),
+      { x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(n) },
+    ] })),
+  });
+  // 2. A short essay from a collection: no info, no bookmarks; a title, its author, an
+  //    epigraph with an attribution, running heads and page numbers, two real sections.
+  const head = n => [
+    { x: 72, y: 750, size: 9, font: 'Helvetica', text: 'POSSIBLE MINDS' },
+    { x: 470, y: 750, size: 9, font: 'Helvetica', text: 'DAVID DEUTSCH' },
+    { x: 300, y: 36, size: 9, font: 'Helvetica', text: String(n + 40) },
+  ];
+  const essay = makePdf({
+    pages: [
+      { lines: [
+        ...head(1).slice(2),
+        { y: 690, size: 20, font: 'Times-Bold', text: 'Beyond Reward and Punishment' },
+        { y: 662, size: 13, font: 'Times-Roman', text: 'David Deutsch' },
+        { x: 150, y: 618, size: 11, font: 'Times-Italic', text: '“Tomorrow, and tomorrow, and tomorrow,' },
+        { x: 150, y: 603, size: 11, font: 'Times-Italic', text: 'Creeps in this petty pace from day to day.”' },
+        { x: 250, y: 584, size: 14, font: 'Times-Roman', text: '— William Shakespeare, Macbeth' },
+        ...prose(550, 28, { from: 3 }),
+      ] },
+      { lines: [...head(2), ...prose(720, 31, { from: 40 })] },
+      { lines: [...head(3), ...prose(720, 12, { from: 80 }), { y: 520, size: 14, font: 'Times-Bold', text: 'Misconceptions of Thinking' }, ...prose(495, 17, { from: 9 })] },
+      { lines: [...head(4), ...prose(720, 31, { from: 22 })] },
+      { lines: [...head(5), ...prose(720, 6, { from: 61 }), { y: 615, size: 14, font: 'Times-Bold', text: 'What It Means to Think' }, ...prose(590, 24, { from: 30 })] },
+    ],
+  });
+  // 3. Two scanned pages: a page-sized picture each, no text at all.
+  const scan = makePdf({ pages: [1, 2].map(() => ({ images: [{ x: 0, y: 0, w: 612, h: 792, pw: 64, ph: 82 }] })) });
+  // 4. A short note with neither headings nor info: page navigation only.
+  const note = makePdf({ pages: [1, 2].map(n => ({ lines: [{ x: 72, y: 750, size: 9, font: 'Helvetica', text: 'Lecture notes, week 3' }, ...prose(720, 31, { from: n * 11 }), { x: 300, y: 36, size: 9, font: 'Helvetica', text: `Page ${n} of 2` }] })) });
+  return {
+    'scan_0042.pdf': report,
+    'PossibleMinds Deutsch (1).pdf': essay,
+    'IMG_20240512_scan.pdf': scan,
+    'week3_notes_final-v2.pdf': note,
+    // 5 and 6 (above): the default edition is the Tinct text for the book, the pages for the paper.
+    'prose_book.pdf': proseBook(),
+    'two_column_paper.pdf': twoColumnPaper(),
+  };
+}
+
+// node addbooks/web/test/make-pdf.mjs <dir>: writes the fixtures there.
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const { writeFileSync, mkdirSync } = await import('node:fs');
+  const { join } = await import('node:path');
+  const dir = process.argv[2] || 'addbooks/web/test/pdf-fixtures';
+  mkdirSync(dir, { recursive: true });
+  for (const [name, bytes] of Object.entries(pdfFixtures())) { writeFileSync(join(dir, name), bytes); console.log(join(dir, name), bytes.length) }
+}

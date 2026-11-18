@@ -85,9 +85,10 @@ describe('WEB Catholic (webc-en)', () => {
     }
     const prefs = { ...DEFAULT_LAB_PREFS, primaryEdition: 'bsb-en', compareEdition: 'kjv-en', compareOpen: false }
     expect(remoteResumeSelection(tobit, { libraryBookId: 'bible', prefs })).toMatchObject({ bookId: 'bible', primaryEditionKey: 'webc-en' })
-    // A shared chapter keeps the reader's current version.
+    // A shared chapter also opens in the version it was saved in (14 Nov 2026, Anders: reverses the 25 Sep rule
+    // "a shared chapter keeps the current version", which opened every second device's KJV place in the BSB).
     const psalm = { ...tobit, bookId: 'psalms', headerBook: 'Psalms', chapterNumber: 23, sequentialChapter: 501 }
-    expect(remoteResumeSelection(psalm, { libraryBookId: 'bible', prefs })).toMatchObject({ primaryEditionKey: 'bsb-en' })
+    expect(remoteResumeSelection(psalm, { libraryBookId: 'bible', prefs })).toMatchObject({ primaryEditionKey: 'webc-en' })
   })
 })
 

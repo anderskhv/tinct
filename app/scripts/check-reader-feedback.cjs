@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // TEST_ORIGIN=http://127.0.0.1:5192 node scripts/check-reader-feedback.cjs
 const { webkit, chromium } = require('playwright')
 const assert = require('node:assert/strict')
@@ -31,7 +32,7 @@ async function inspect(page) {
 async function main() {
   const results = []
   for (const desktop of [false, true]) {
-    const browser = await (desktop ? chromium : webkit).launch()
+    const browser = await markInternal(await (desktop ? chromium : webkit).launch())
     try {
       const page = await browser.newPage({serviceWorkers:'block', viewport: desktop ? { width: 1440, height: 950 } : { width: 390, height: 650 }, isMobile: !desktop, hasTouch: !desktop })
       // Layout tests never invoke paid chat, audio, or account endpoints.
@@ -39,7 +40,7 @@ async function main() {
       await page.addInitScript(() => {
         if (localStorage.getItem('feedback-fixture')) return
         localStorage.setItem('feedback-fixture', '1')
-        localStorage.setItem('tinct-lab-prefs', JSON.stringify({ fontFamily: 'garamond', fontSize: 1.3, theme: 'dark', compareOpen: true }))
+        localStorage.setItem('tinct-lab-prefs', JSON.stringify({ fontFamily: 'garamond', fontSize: 1.3, fontSizeExplicit: true, theme: 'dark', compareOpen: true }))
         sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'the-republic', primaryEditionKey: 'original-en', savedPlace: { bookId: 'the-republic', chapterNumber: 1, paragraphIndex: 0, page: 0 } }))
       })
       await page.goto(origin + '/reader')

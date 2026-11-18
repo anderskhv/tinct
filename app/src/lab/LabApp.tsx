@@ -1,28 +1,41 @@
+import { readingChatTurns, readingChatFocusTurn } from './readingChatTurns'
+import { useReadingScrollActivity } from './sharedReader/useReadingScrollActivity'
+import { ReaderNotebookIcon } from './ReaderNotebookIcon'
 import { bibleBookTransition } from '../narration/bookTransition'
+import { highlightMenuBoxes, highlightMenuHasKeyboard, selectionMenuScrollGone, watchHighlightMenuLeave } from './labHighlightMenuLeave'
 import { consumeDismissGesture } from '../utils/consumeDismissGesture'
 import { useRecapPreparation } from './useRecapPreparation'
 import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
 import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
 import { useDesktopCommands, useDesktopAppearance } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
+import { registerLoadedChapter } from './labPoetry'
+import { useBackCloses } from './useBackCloses'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
-import { readCoverTransition } from '../../public/lab/cover-transition.js'
-import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon } from './LabReaderIcons'
-import { isAudioHeld, isEditionDiscoverable } from '../data/audioAvailability'
+import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon, LibraryBackIcon } from './LabReaderIcons'
+import { useDesktopDockPlacement } from './labAudioDock'
+import { isAudioHeld } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
-import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
-import { LabBookPreface } from './LabBookPreface'
+import { useLabAutoOffline } from './useLabAutoOffline'
+import { offlineEditionKeys } from './labOfflineBook'
+import { useChapterFootnotes, type PlacedFootnote } from './labFootnotes'
+import { LabFootnote, type OpenFootnote } from './LabFootnote'
+import { namesakesAt, resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
 import { LabBookSwitcher } from './LabBookSwitcher'
-import { getBookPreface } from '../data/bookPrefaces'
+import { LabWait } from './LabWait'
 import { LabChapterEnd } from './LabChapterEnd'
-import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
+import { LabChapterNoteEditor } from './LabChapterNoteEditor'
+import { useFinishedCard } from '../social/useFinishedCard'
+import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest, recapHighlightPassages } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MutableRefObject, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
+import { sourceAuthorship, withAuthorship } from '../companion/authorship'
 import {
   applyNarrationPilotFlag,
   ensureNarration,
+  ensureOwnNarration,
   fetchNarrationPilotInfo,
   initialNarrationPilotInfo,
   narrationPilotApplies,
@@ -31,11 +44,38 @@ import {
   type NarrationPilotInfo,
   type NarrationParagraphResult,
 } from './labNarration'
+import { narrationLanguage } from '../narration/narrationCore'
 import { readSupabaseAccessToken } from './labAuth'
+import { useLabFunnel } from './useLabFunnel'
+import { useLabListenReport } from './useLabListenReport'
+import { trackFunnel, trackFunnelOnce } from '../utils/funnel'
+import { apiUrl } from '../utils/apiUrl'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { useVoicePersonaSync } from './useVoicePersonaSync'
+import { useAiSettingsAccountSync } from './labAiAccount'
+import { useSelectionActions } from './labSelectionActions'
+import { setAiSettingsBook } from './labAiPrefs'
+import { useSwipeDownClose } from './useSwipeDownClose'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
+import { sharedReaderDestination } from './sharedReader/sharedReaderFlag'
+import { ContinuousReader } from './sharedReader/ContinuousReader'
+import { BookScrollReader, type BookScrollControl } from './sharedReader/BookScrollReader'
+import { BOOK_SCROLL_DEVICE_KEY, bookScrollSwitch, bookScrollUnit } from './sharedReader/bookScroll'
+import { refreshSiteAdmin } from './labSiteAdmin'
+import { useBookScrollChapters } from './sharedReader/useBookScrollChapters'
+import { useCrossEditionMarks } from './sharedReader/crossEditionMarks'
+import { answerLead, foldedPreview } from './sharedReader/cardPreview'
+import { pdfReaderViewUrl } from './userBook/pdfReaderHandoff'
+import { marginChapterBoundary, marginSourceWord, type MarginSourceAnchor } from './sharedReader/marginSource'
+import { withConvertedNote, askCardSource, isSourcePoint } from './sharedReader/sharedReaderCards'
+import { SourceMarginRail, type SourceMarginEntry } from './sharedReader/SourceMarginRail'
+import { noteYFromPlace, notePlaceFromY, orderOfPlace, placeApplies } from './notes/notePlace'
+import { LabFigurePreview } from './LabFigurePreview'
+import { LabInlineMarkdown } from './LabMarkdown'
+import { LabDesktopCard } from './sharedReader/LabDesktopCard'
+import { acceptContinuousReaderPlace, type ContinuousReaderEpoch } from './sharedReader/continuousReaderEpoch'
+import { leaveForLibrary } from './labLeaveForLibrary'
 import { LAB_COPY } from './labCopy'
 import {
   LAB_DESKTOP_PANES,
@@ -61,43 +101,76 @@ import {
   measurePaintedOverflow,
   labPaginationPaintRoot,
   stabilizeLabPageMetrics,
-  nextLabVoiceGate,
   labKeyboardPageDirection,
+  labUndoShortcut,
+  labFindShortcut,
   nextPaintShrinkTo,
   type LabPageAdjust,
   type LabPageMetrics,
   type LabChromeState,
   type LabReturnTo,
-  type LabVoiceGatePhase,
   LAB_PHONE_QUERY,
   labPageTurnAffordance,
   labPageTurnSurfaceEnabled,
+  labNeedsGestureAudioUnlock,
+  labPhoneSurfaceInput,
 } from './labChrome'
-import { LabPhoneBibleTree } from './LabPhoneBibleTree'
-import { LabContentsV2 } from './LabContentsV2'
+import { LabContentsV2, type LegacyOwnEpubNotebookItem } from './LabContentsV2'
+import type { OwnTextCardsSync } from './userBook/ownTextCardsSync'
+import { userBookEditionKey as ownSourceEditionKey } from './userBook/userBookSource'
 import type { ContentsPlace } from './labContents'
 import { readLabBookChat } from './labChatHistory'
-import { labChapterStatuses, labFinishedChapterSet } from './labChapterStatus'
+import { answerSaveDetails } from './labSaveDiagnostics'
+import { labChapterStatuses } from './labChapterStatus'
 import { loadChapterText, readDeviceReadingMemory } from '../readingMemory'
 import { useAuth } from '../hooks/useAuth'
-import { LabSettingsSheet } from './LabSettingsSheet'
+import { useLabReadingYear } from './useLabReadingYear'
 import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
-import { LAB_V2_VERSION_PILL_MS, type LabV2SheetLayer } from './labV2Sheet'
+import { PhoneIcon } from './marginPhone/LabPhoneCard'
+import { BOOK_SUMMARY_TITLE, CATCH_UP_TITLE, LabCatchUpSheet } from './LabCatchUpSheet'
+import { BOOK_PRIMER_TITLE, LabBookPrimerSheet, useBookPrimerAvailable } from './LabBookPrimerSheet'
+import { LabOwnCatchUpSheet } from './userBook/LabOwnCatchUpSheet'
+import { getLibraryMeta } from '../data/libraryTaxonomy'
+import { LabFigureCard } from './LabFigure'
+import { figureReadingText, type LabFigure } from './labFigures'
+import { figureImageBlock } from './labFigureImage'
+import { LabShareSheet, type LabShareTarget } from './LabShareSheet'
+import type { OwnChapterNotesSource } from './userBook/ownChapterNotes'
+import { LabChapterNotesSheet } from './LabChapterNotesSheet'
+import { CHAPTER_SUMMARY_KIND, chapterNotesText, chapterNotesTitle, saveExplanation } from './labChapterNotes'
+import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
+import { LAB_V2_VERSION_PILL_MS, labPrefsForMainEdition, type LabV2SheetLayer } from './labV2Sheet'
+import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, MODERN_PREMIUM_REQUIRED, startModernCheckout, useLabModernEdition, type ModernVisible } from './labModernEdition'
+import { LabModernReadyNotice, LabModernWait, MODERN_WAIT_COPY } from './LabModernWait'
+import { cancelModernCheckout } from './labModernEditionApi'
+import { isPublicBookId, modernEditionsEnabled } from '../../public/lab/public-books.js'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
 import {
   labLineHeight, labMarginScale, labParagraphGap,
   LAB_LIBRARY_URL,
-  labAccountUrl,
+  labLibraryIntroductionUrl,
   bibleEditions,
   labFontFamilyCss,
   labReadingFont,
+  labDesktopDefaultFontSize,
+  labReadingFontSize,
   labFootProgress,
   labBookPageEstimate,
   labPageFolio,
   labReaderProgressLabel,
+  readStoredWordsPerPage,
+  proseChapter,
+  MIN_WORDS_PER_PAGE,
+  storeWordsPerPage,
+  defaultReaderProgressMode,
+  readStoredReaderProgressMode,
+  storeReaderProgressMode,
+  initialLabCompareView,
+  readStoredCompareView,
+  storeCompareView,
   LAB_PROGRESS_HOLD_MS,
   editionLabelFor,
   readLabPrefs,
@@ -109,43 +182,66 @@ import {
   type LabPrefs,
   type LabAppearanceProfile,
   type LabReaderProgressMode,
+  labSignInUrl,
 } from './labPrefs'
+import { consumeCardParam } from '../cards/cardsBoot'
+import { useFollowRequests } from '../social/useFollowRequestDot'
+import { markRequestsSeen, menuRequest, readSeenRequests, type MenuRequest } from '../social/followRequests'
+import { socialAction, type FindRow } from '../social/friendsClient'
+import { LabMenuRequest, type MenuFollowBack } from './LabMenuRequest'
+import type { CardName } from '../cards/cardRoutes'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
-import { labChromeVersion, labLayoutOverride, labVoiceVersion } from './labRoute'
+import { labLayoutOverride } from './labRoute'
+import { chapterAnchorMap, loadEditionAnchors, mapPlaceThroughAnchors } from './labEditionAnchors'
+import { chapterEditionKey, chapterWordFraction, editionSwitchReturn, leadingPreface, mapPlaceByWords, rememberEditionSwitch } from './labEditionSwitch'
+import { nextOpeningCacheKey } from './labNextOpening'
+import { holdPlaceWrite, labRestoreChapterKey, restoreLanded, restoreRetryIndex, restoreTargetFor, restoreTargetIn, type LabRestoreView, type LabRestoreWatch } from './labRestoreTarget'
 import { useLabDictation } from './useLabDictation'
+import { cardInMargin, cardShownMessages } from './marginPreview/marginPreviewCards'
+import { buildDictationKeyterms } from './labDictationKeyterms'
 import { LabAskPane } from './LabAskPane'
-import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
 import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePaginator'
 import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
 import { LabVoiceCall } from './LabVoiceCall.tsx'
+import { LabAudioSpeedPopover } from './LabAudioSpeedPopover.tsx'
 import { LabVoiceDesktopPanel, LabVoicePill } from './LabVoiceDesktop.tsx'
-import { labCallRestore, labCallUtterance, labCallView, type LabCallAnchor } from './labVoiceCall'
+import { labCallRestore, labCallView, type LabCallAnchor } from './labVoiceCall'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { readerEditionLabel } from './editionDifficulty'
 import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bibleEditionChapters'
+import { withTextRetries } from './labTextRetry'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { LAB_THEME_PAPER } from './readerBoot'
+import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage, sceneHandoffForPage, type PageSceneHandoff } from './labReaderHandoff'
+import { SCENE_HANDOFF_EDITION } from './labSceneHandoff'
+import { chosenDesktopReaderLayout, defaultDesktopReaderLayout, desktopLayoutDevice, initialDesktopReaderLayout, marginReaderRoom, readsMarginOnHandheld, storeDesktopReaderLayout, type DesktopLayoutDevice, type DesktopReaderLayout } from './labDesktopLayout'
+import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
+import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
+import { LabParagraphListen, LISTEN_OFFER_MS } from './LabParagraphListen'
+import { boxOnScreen, firstSentenceStartOnPage, firstSentenceStartOnScreen, sentenceStartTest, type ScreenWord, type SentenceStartTest } from './labListenFromHere'
+import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, listeningSentenceStart, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { ChatConversation, HighlightColor } from '../types'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { useLabHighlights } from './useLabHighlights'
+import { labHighlightUndoMessage } from './labHighlightUndo'
 import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet } from './LabAccountPrompt.tsx'
-import { clearLabAiActionCount, labCurrentPath, labBookSignInReturn, type LabAccountPromptRequest } from './labAccountPrompt'
-import { useLabListen } from './useLabListen'
-import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, splitLabPagesAtAnchor, type LabCompareAnchor } from './labCompare'
+import { clearLabAiActionCount, labCurrentPath, type LabAccountPromptRequest } from './labAccountPrompt'
+import { narrationBridgeUrls, useLabListen, type NextChapterAudio } from './useLabListen'
+import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, type LabCompareAnchor } from './labCompare'
 import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
 import {
   createLabVoiceToolAdapter,
@@ -159,8 +255,32 @@ import type { VoiceTinctView } from '../voice/tinctTools'
 import { isShakespearePhone } from './labShakespeare'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
+import { isUserBookId, ownBookOpenUrl, USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
+import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
+import { userBookLangAttribute } from './userBook/userBookLanguage'
+import { readUserBookPlace, writeUserBookPlace } from './userBook/userBookPlace'
+import { flushOwnPlaces, noteOwnPlace, notePdfPlace } from './userBook/ownSync'
+import { choosePdfPageAt, PDF_PAGES_EDITION_KEY, showPdfPageAt } from './userBook/pdfEditions'
+import { chooseEpubMargin, EPUB_MARGIN_EDITION_KEY } from './userBook/epubView'
+import type { LoadedUserBook } from './userBook/userBookStore'
+import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
-import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
+import { ownQuickBookRows, quickBookCompletedIds, quickBookPositions, quickBookRows, withOwnBookRows, type QuickAddedBooks, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
+import { ownReadingNow, readOwnShelf } from './userBook/ownShelf'
+import { ownReadingNowWithAccount } from './userBook/ownSync'
+import { loadShelfMembership, readShelfMembership } from '../libraryTwoSaved'
+import { resolveBookCover } from '../../public/lab/book-cover.js'
+import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, registeredPublicEntries } from '../utils/publicBooks'
+import { useReadingAngle } from './labReadingAngle'
+import { MarginPhoneContext, catchUpAvailable, unitName, type MarginPhonePills } from './marginPhone/marginPhoneContext'
+import { LabPhoneBar, lastHighlightColor, type PhoneMoreId } from './marginPhone/LabPhoneBar'
+import { LabPhoneCard, PhoneAnswer } from './marginPhone/LabPhoneCard'
+import { flashNotebookPassage } from './marginPhone/flashNotebookPassage'
+import { markPhoneCardPassage, onlyFieldEdits, type PhoneCardRange } from './marginPhone/phoneCardPassage'
+import { createDraftStore, WithDraft } from './labDraftStore'
+import { liveCardFollowupTurns, PHONE_CARD_NAMES, PhoneCharacterBody, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
+import { contextualLookupPreview, parseContextualLookup } from '../components/reader/contextualLookup'
+import { ContextualLookupView, DefinitionWithHeadword } from '../components/reader/DefinitionFallback'
 import './lab.css'
 
 const PHONE_QUERY = LAB_PHONE_QUERY
@@ -175,20 +295,38 @@ type LabFullscreenElement = HTMLElement & {
 }
 
 function phoneSurfaceInput(layoutOverride: ReturnType<typeof labLayoutOverride>) {
-  if (typeof window === 'undefined') {
-    return { override: layoutOverride }
-  }
-  const matchMediaPhone = typeof window.matchMedia === 'function'
-    ? window.matchMedia(PHONE_QUERY).matches
-    : false
-  return {
-    override: layoutOverride,
-    matchMediaPhone,
-    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
-    innerWidth: window.innerWidth,
-    maxTouchPoints: typeof navigator !== 'undefined' ? navigator.maxTouchPoints : 0,
-    screenWidth: window.screen?.width,
-  }
+  return labPhoneSurfaceInput(layoutOverride)
+}
+
+/** How long the first page's fade-in class stays; the animation itself is shorter (lab.css). */
+const LAB_FIRST_REVEAL_MS = 400
+/** Listen from here's pills wait for the view to rest this long off the voice (no settle delay before them). */
+const LISTEN_PILLS_SETTLE_MS = 500
+/** Longest a page turn waits for the rest of a head-first chapter map before using the one it has. */
+const LAB_HEAD_FIRST_HOLD_MS = 3000
+/** Whether the map on screen is a head-first map whose rest is still being laid out (LabNativePaginator `headFirst`). */
+function headFirstPending(since: number): boolean {
+  return since > 0 && performance.now() - since < LAB_HEAD_FIRST_HOLD_MS
+}
+/** Longest the first text waits for hyphenation patterns before paging without them. */
+const LAB_HYPHENATION_WAIT_MS = 300
+/** How long "Deleted. Undo" stays after a margin card or note is deleted. */
+const MARGIN_UNDO_MS = 6000
+/** How long the line saying what Ctrl+Z undid stays. */
+const HIGHLIGHT_UNDO_NOTICE_MS = 2500
+
+/** The account cards' code (views, styles), fetched the first time a card opens. */
+let accountCardsModule: Promise<typeof import('../cards/openCards')> | null = null
+function loadAccountCards(): Promise<typeof import('../cards/openCards')> {
+  accountCardsModule ??= import('../cards/openCards').catch((error) => {
+    accountCardsModule = null
+    throw error
+  })
+  return accountCardsModule
+}
+/** Close the cards if they were ever opened in this page (never loads them to close). */
+function closeLoadedAccountCards(): void {
+  void accountCardsModule?.then(cards => cards.closeAccountCards(), () => {})
 }
 
 function readPhoneSurface(layoutOverride: ReturnType<typeof labLayoutOverride>): boolean {
@@ -228,6 +366,20 @@ function readPageTurnAffordance(layoutOverride: ReturnType<typeof labLayoutOverr
     finePointer: matches(POINTER_QUERIES[0]),
     hover: matches(POINTER_QUERIES[1]),
     coarsePointer: matches(POINTER_QUERIES[2]),
+    primaryCoarse: matches(POINTER_QUERIES[3]),
+    primaryHoverNone: matches(POINTER_QUERIES[4]),
+  })
+}
+
+/** The device needs the narration element unlocked inside a companion-opening tap (labNeedsGestureAudioUnlock). */
+function readNeedsGestureAudioUnlock(): boolean {
+  if (typeof window === 'undefined') return false
+  const matches = (query: string) => {
+    try { return typeof window.matchMedia === 'function' && window.matchMedia(query).matches } catch { return false }
+  }
+  return labNeedsGestureAudioUnlock({
+    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+    maxTouchPoints: typeof navigator !== 'undefined' ? navigator.maxTouchPoints : 0,
     primaryCoarse: matches(POINTER_QUERIES[3]),
     primaryHoverNone: matches(POINTER_QUERIES[4]),
   })
@@ -299,25 +451,6 @@ function SkipIcon({ direction, seconds = 15 }: { direction: 'back' | 'forward'; 
   )
 }
 
-function GearIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="3" />
-      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-    </svg>
-  )
-}
-
-function TuneIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
-      <path d="M4 7h7M15 7h5M4 17h5M13 17h7" />
-      <circle cx="13" cy="7" r="2" />
-      <circle cx="11" cy="17" r="2" />
-    </svg>
-  )
-}
-
 function FullscreenIcon({ on }: { on?: boolean }) {
   return (
     <svg data-icon={on ? 'close' : 'fullscreen'} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -335,16 +468,6 @@ function FullscreenIcon({ on }: { on?: boolean }) {
 }
 
 
-function CompareIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="2.75" y="4.25" width="8" height="15.5" rx="1.65" />
-      <rect x="13.25" y="4.25" width="8" height="15.5" rx="1.65" />
-      <path d="M5.25 8h3M5.25 11h3M15.75 8h3M15.75 11h3" />
-    </svg>
-  )
-}
-
 export interface LabAppProps {
   pathname?: string
   /** Query string. Only `?voice=v2` on `/reader` selects the Voice V2 preview. */
@@ -352,6 +475,25 @@ export interface LabAppProps {
   online?: boolean
   source?: LabSource
   authToken?: string | null
+  /**
+   * A reader's own EPUB (`/reader?userBook=…`, see userBook/). Its text,
+   * place, highlights and chat stay on this device; registry-only features
+   * (Cast, narration, Compare, editions, Talk, library progress) are hidden.
+   */
+  userBook?: LoadedUserBook
+  /**
+   * The phone's margin mode (`/reader?book=<id>&margin=1` on a phone,
+   * marginPreview/marginPreviewMount.ts): this reader as it is, with the dark
+   * selection bar, bottom cards in place of every pop-up, and the chapter pills.
+   */
+  marginPhone?: boolean
+  /** URL-only shared-reader entry; the initial slice retains this reader's layout and single position owner. */
+  sharedReader?: boolean
+  /** Owner-gated, unresolved original EPUB page marks, read-only in Notebook. */
+  legacyOwnEpubItems?: LegacyOwnEpubNotebookItem[]
+  ownNotebookRecovery?: ReactNode
+  /** Preopened, owner-gated private text cards and Talk history. */
+  ownCardController?: OwnTextCardsSync | null
 }
 
 function readOnline(override?: boolean): boolean {
@@ -360,11 +502,13 @@ function readOnline(override?: boolean): boolean {
   return navigator.onLine
 }
 
+/** Built-in books only: added books (`pd-…`) have no `/covers/v2` art and come with their own entries (registeredPublicEntries). */
 function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
   const currentBookId = current.bookId || 'bible'
-  return BOOKS.map(book => ({
+  return BOOKS.filter(book => !isPublicBookId(book.id)).map(book => ({
     id: book.id,
     title: book.title,
+    author: book.author,
     art: { src: `/covers/v2/${book.id}.webp` },
     readingStructure: book.id === currentBookId
       ? { chapters: current.chapters.map(chapter => ({ number: chapter.number, title: chapter.title })) }
@@ -372,19 +516,104 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
   }))
 }
 
-export function LabApp({ pathname, search, online, source, authToken }: LabAppProps) {
+/**
+ * The switcher's cover for the book open now, by the library's rule (book-cover.js):
+ * its painting, else its catalogue art, else an own book's kept picture (or the account's copy of it).
+ */
+function currentSwitcherCover(bookId: string, ownBook: { cover?: string | null; storedCover?: string | null } | null | undefined): { coverSrc: string; coverSrcSet: string | null } {
+  const cover = ownBook
+    ? resolveBookCover({ bookId, ownCover: ownBook.cover ?? null, storedCover: ownBook.storedCover ?? null })
+    : resolveBookCover({ bookId, art: isPublicBookId(bookId) ? registeredPublicCover(bookId) : `/covers/v2/${bookId}.webp` })
+  return { coverSrc: cover?.src ?? '', coverSrcSet: cover?.srcSet ?? null }
+}
+
+/** Desktop commands that do not apply to a user book: one edition; Listen only when own-book narration is on. */
+const USER_BOOK_HIDDEN_COMMANDS = new Set(['listen', 'editions', 'original', 'modern', 'compare'])
+
+/** The view (Read or Compare) this device's latest place in the book was left in; null when it keeps none. */
+function labBookSavedReaderMode(bookId: string): 'read' | 'compare' | null {
+  const latest = Object.values(readLabPositionLocal().books)
+    .filter(place => bookId === 'bible'
+      ? place.bookId === 'bible' || (!getBook(place.bookId) && !isUserBookId(place.bookId))
+      : place.bookId === bookId)
+    .sort((a, b) => b.updatedAt - a.updatedAt)[0]
+  return latest ? latest.readerMode ?? 'read' : null
+}
+
+/** A user book reads in its one edition; the reader's edition choices for other books are left as they are. */
+function userBookPrefs(prefs: LabPrefs, editionKey: string): LabPrefs {
+  if (prefs.primaryEdition === editionKey && prefs.compareEdition === editionKey && prefs.audioEdition === editionKey && !prefs.compareOpen) return prefs
+  return { ...prefs, primaryEdition: editionKey, compareEdition: editionKey, audioEdition: editionKey, audioFollowsPrimary: true, compareOpen: false }
+}
+
+function privateLibraryDestination(destination: string, enabled: boolean): string {
+  if (!enabled || !destination.startsWith('/') || destination.startsWith('//')) return destination
+  const url = new URL(destination, 'https://tinct.app')
+  if (url.pathname !== '/library') return destination
+  url.searchParams.set('sharedReader', '1')
+  return `${url.pathname}${url.search}${url.hash}`
+}
+
+/** How far the reader scrolls on before the highlight menu goes (LabApp's selection menu). */
+
+export function LabApp({ pathname, search, online, source, authToken, userBook, marginPhone: marginPhoneRequested = false, sharedReader = false, legacyOwnEpubItems, ownNotebookRecovery, ownCardController }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/reader')
   const layoutOverride = labLayoutOverride(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
-  const chromeV2 = labChromeVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : '')) === 'v2'
-  const voiceVersion = chromeV2 ? 'v2' : labVoiceVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
-  // The face on the page. A reader who has never picked one reads V2's new
-  // default in V2 and the face today's reader has always set in V1.
-  const [isPhone, setIsPhone] = useState(() => readPhoneSurface(layoutOverride))
-  const [showPhoneChrome, setShowPhoneChrome] = useState(() => {
-    const phone = readPhoneSurface(layoutOverride)
-    return readPhoneFooter(layoutOverride, phone)
-  })
+  const voiceVersion = 'v2'
   const [pageTurnAffordance, setPageTurnAffordance] = useState(() => readPageTurnAffordance(layoutOverride))
+  const [readerHandoff] = useState(() => source || userBook ? null : consumeLabReaderHandoffForPage())
+  // A static scene page's hand-over (labSceneHandoff.ts), run once the deep-linked chapter is open (runSceneHandoff below).
+  const sceneHandoffRef = useRef(readerHandoff ? sceneHandoffForPage() : null)
+  // Back from Checkout without paying: the buyer's own session is ended at once, so the
+  // book is not held from other buyers until it lapses (the Worker checks it is theirs).
+  useEffect(() => {
+    const back = modernReturnForPage()
+    if (back?.kind !== 'cancel') return
+    void readSupabaseAccessToken().then(token => token ? cancelModernCheckout(back.bookId, token) : false).catch(() => false)
+  }, [])
+  const { user: authUser, likelyAuthenticated } = useAuth()
+  const privateBook = Boolean(userBook)
+  // A reader's own PDF read as its Tinct text: Book editions also offers its Original pages.
+  const ownPdf = userBook?.kind === 'pdf'
+  // A user book opens at its own saved place (userBookStore.ts), never the
+  // reader's registry place; it is registered so chapter loads find it.
+  const [userBookBoot] = useState(() => {
+    if (!userBook) return null
+    registerUserBook(userBook.bookId, userBook.edition)
+    const place = userBook.place
+    return {
+      book: userBookLabSource(userBook.bookId, userBook.edition, place?.chapterNumber ?? 1),
+      place: place ? { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex } : { paragraphIndex: 0, wordIndex: 0 },
+      resume: null,
+    }
+  })
+  const boot = userBookBoot ?? bootLabReading(source)
+  const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
+  const userBookEditionKey = userBookBoot ? userBookBoot.book.editions![0].key : null
+  // A phone held sideways and an iPad held upright read a Tinct book in the
+  // Margin reader (the desktop surface) when Margin is the book's layout
+  // (Anders, 4 Nov 2026; labDesktopLayout.readsMarginOnHandheld). Read at
+  // mount from the same inputs as the layout below, then on every resize.
+  const handheldMarginFor = (device: DesktopLayoutDevice, layout: DesktopReaderLayout, phoneCompare: boolean) =>
+    sharedReader && !userBook && layoutOverride === null && readsMarginOnHandheld(device, layout, phoneCompare)
+  const [initialHandheldMargin] = useState(() => {
+    if (typeof window === 'undefined' || !sharedReader || userBook || layoutOverride !== null) return false
+    const bookId = book.bookId || 'bible'
+    const savedMode = labBookSavedReaderMode(bookId)
+    const linked = readerHandoff ? deepLinkViewForPage() : null
+    const device = desktopLayoutDevice()
+    const layout = initialDesktopReaderLayout({ bookId, search: linked ? `?view=${linked}` : (search ?? window.location.search), savedMode, device })
+    const phoneCompare = initialLabCompareView({ profile: 'phone', stored: readStoredCompareView('phone', bookId), savedMode })
+    return handheldMarginFor(device, layout, phoneCompare)
+  })
+  const [handheldMargin, setHandheldMargin] = useState(initialHandheldMargin)
+  const [marginRoom, setMarginRoom] = useState(() => typeof window === 'undefined' ? undefined : marginReaderRoom(desktopLayoutDevice(), initialHandheldMargin))
+  const surfaceOverride = (handheld: boolean): ReturnType<typeof labLayoutOverride> => handheld ? 'desktop' : layoutOverride
+  const [isPhone, setIsPhone] = useState(() => readPhoneSurface(surfaceOverride(initialHandheldMargin)))
+  const [showPhoneChrome, setShowPhoneChrome] = useState(() => {
+    const phone = readPhoneSurface(surfaceOverride(initialHandheldMargin))
+    return readPhoneFooter(surfaceOverride(initialHandheldMargin), phone)
+  })
   const appearanceProfile: LabAppearanceProfile = showPhoneChrome ? 'phone' : 'desktop'
   // The full-screen call interface is Chrome V2, phone only. Every other
   // surface keeps the conversation overlay it ships with, untouched.
@@ -392,14 +621,23 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // `callOpen` intent, an anchor for their place, and one `LabCallView`. The
   // phone draws it full screen; the desktop draws it in the companion panel
   // (or, minimized, as a pill) — see the 2026-09-11 voice surface brief.
-  const voiceCallSurface = chromeV2
-  const voiceCallSurfaceRef = useRef(voiceCallSurface)
-  voiceCallSurfaceRef.current = voiceCallSurface
-  const voicePanelSurface = chromeV2 && !showPhoneChrome
-  const [readerHandoff] = useState(() => source ? null : consumeLabReaderHandoffForPage())
-  const { user: authUser, likelyAuthenticated } = useAuth()
-  const boot = bootLabReading(source)
-  const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
+  const voicePanelSurface = !showPhoneChrome
+  // The phone's margin mode on the phone reader: a registered book, and a reader's own book as Tinct's books (22 Oct 2026).
+  const marginPhone = (sharedReader || marginPhoneRequested) && showPhoneChrome
+  // Stored prefs keep the reader's own edition choices: a user book writes appearance only.
+  const persistPrefs = useCallback((next: LabPrefs, profile: LabAppearanceProfile) => {
+    if (!userBookEditionKey) { writeLabPrefs(next, profile); return }
+    const stored = readLabPrefs(profile)
+    writeLabPrefs({
+      ...next,
+      primaryEdition: stored.primaryEdition,
+      compareEdition: stored.compareEdition,
+      audioEdition: stored.audioEdition,
+      audioFollowsPrimary: stored.audioFollowsPrimary,
+      compareOpen: stored.compareOpen,
+      ...(stored.compareChosen ? { compareChosen: stored.compareChosen } : {}),
+    }, profile)
+  }, [userBookEditionKey])
   const [readerLoadError, setReaderLoadError] = useState('')
   /** A way out of a load error: a Bible chapter another version has. */
   const [readerLoadAction, setReaderLoadAction] = useState<{ label: string; primaryEdition: string } | null>(null)
@@ -414,10 +652,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Fish narration pilot opt-in/out from the URL, applied before the first
     // render so every write of these prefs already carries it.
     const flagged = applyNarrationPilotFlag(migrated, narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : '')))
-    return syncLabAudioEdition(flagged, book.editions?.length ? book.editions : bibleEditions())
+    const synced = syncLabAudioEdition(flagged, book.editions?.length ? book.editions : bibleEditions())
+    if (userBookEditionKey) return userBookPrefs(synced, userBookEditionKey)
+    // Compare chosen in the margin preview's Layout: its compare edition is shown, even after an earlier None.
+    return readerHandoff && deepLinkViewForPage() === 'compare' && !synced.compareOpen && synced.compareEdition !== synced.primaryEdition
+      ? { ...synced, compareOpen: true }
+      : synced
   })
   const allBookEditions = book.editions?.length ? book.editions : bibleEditions()
   const bookEditions = selectableLabEditions(book.bookId || 'bible', allBookEditions)
+  // An own EPUB on the desktop has two editions too: its text here, and Margin view (Add a book's margin reader; epubView.ts).
+  const ownEpubMargin = !!userBook && userBook.kind !== 'pdf' && bookEditions.some(edition => edition.key === EPUB_MARGIN_EDITION_KEY)
+  const ownEditions = ownPdf || ownEpubMargin
   const heldPrimary = editionHold(book.bookId || 'bible', prefs.primaryEdition)
   const heldCompare = prefs.compareOpen ? editionHold(book.bookId || 'bible', prefs.compareEdition) : undefined
   const temporaryHold = heldPrimary || heldCompare
@@ -425,24 +671,104 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const holdIdentity = (book.bookId || 'bible') + '/' + heldEditionKey
   const [recoveredHold, setRecoveredHold] = useState<string | null>(null)
   const holdRecovery = recoveredHold === holdIdentity
-  // The face on the page. A reader who has never picked one reads V2's new
-  // default in V2 and the face today's reader has always set in V1.
   const isShakespeare = getBook(book.bookId || 'bible')?.author === 'William Shakespeare'
+  // Long books read by chapter; a reader's own tap is remembered per book.
+  const progressBookId = book.bookId || 'bible'
+  const progressModeFor = (bookId: string) => readStoredReaderProgressMode(bookId) ?? defaultReaderProgressMode(getBook(bookId)?.wordCount)
+  const [readerProgressMode, setReaderProgressMode] = useState<LabReaderProgressMode>(() => progressModeFor(progressBookId))
+  useEffect(() => { setReaderProgressMode(progressModeFor(progressBookId)) }, [progressBookId])
+  const toggleReaderProgressMode = useCallback(() => setReaderProgressMode(mode => {
+    const next = mode === 'book' ? 'chapter' : 'book'
+    storeReaderProgressMode(progressBookId, next)
+    return next
+  }), [progressBookId])
   // Tablet reader chrome can look like a phone. Flowing verse is a physical
   // phone preference, independent of that responsive chrome breakpoint.
   const phoneShakespeare = isPhone && isShakespeare && isShakespearePhone()
   const flowingShakespeare = phoneShakespeare && prefs.shakespeareLayout === 'flowing'
   const readingAlignment = prefs.alignmentExplicit === false ? (isShakespeare ? 'left' : 'justify') : prefs.alignment
-  const displayPrefs = { ...prefs, alignment: readingAlignment }
-  const readingFont = labReadingFont(prefs.fontFamily, chromeV2)
+  // A reader who never set a size reads at the size for their window on the
+  // desktop (labDesktopDefaultFontSize) and at the phone default on a phone;
+  // a size they chose is kept exactly (labReadingFontSize).
+  const [desktopDefaultFontSize, setDesktopDefaultFontSize] = useState(() => labDesktopDefaultFontSize(typeof window === 'undefined' ? 0 : window.innerWidth))
+  const readingFontSize = labReadingFontSize(prefs, appearanceProfile, desktopDefaultFontSize)
+  const displayPrefs = { ...prefs, alignment: readingAlignment, fontSize: readingFontSize }
+  const readingFont = labReadingFont(prefs.fontFamily)
   const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)
   const desktopAppearance = useDesktopAppearance()
   const resolvedDarkMode = desktopAppearance?.dark ?? (prefs.theme === 'dark' || (prefs.theme === 'system' && systemDark))
   const resolvedTheme = desktopAppearance ? (desktopAppearance.dark ? 'dark' : 'light') : prefs.theme === 'system' ? (systemDark ? 'dark' : 'light') : prefs.theme
-  const resumeInCompare = !readerHandoff && boot.resume?.readerMode === 'compare'
-  const [mobileCompareActive, setMobileCompareActive] = useState(resumeInCompare)
-  const [desktopCompareActive, setDesktopCompareActive] = useState(resumeInCompare)
+  const compareViewBookId = book.bookId || 'bible'
+  const [compareViewSavedMode] = useState(() => userBook ? null : labBookSavedReaderMode(compareViewBookId))
+  const initialCompareView = (profile: LabAppearanceProfile) => !userBook && initialLabCompareView({
+    profile,
+    stored: readStoredCompareView(profile, compareViewBookId),
+    savedMode: compareViewSavedMode,
+  })
+  const [mobileCompareActive, setMobileCompareActive] = useState(() => initialCompareView('phone'))
+  // Two-page or Compare chosen in the margin preview's Layout (`view`, a deep link's): that layout, kept for the book.
+  const [deepLinkDesktopView] = useState(() => readerHandoff && !userBook ? deepLinkViewForPage() : null)
+  const desktopLayoutBookId = compareViewBookId
+  const desktopLayoutSearch = search ?? (typeof window !== 'undefined' ? window.location.search : '')
+  const initialDesktopLayout = () => initialDesktopReaderLayout({
+    bookId: desktopLayoutBookId, search: deepLinkDesktopView ? `?view=${deepLinkDesktopView}` : desktopLayoutSearch, kind: userBook?.kind, hex: userBook?.hex,
+    savedMode: labBookSavedReaderMode(desktopLayoutBookId),
+  })
+  const [desktopCompareActive, setDesktopCompareActive] = useState(() => sharedReader ? initialDesktopLayout() === 'compare' : deepLinkDesktopView ? deepLinkDesktopView === 'compare' : initialCompareView('desktop'))
+  const [privateDesktopClassic, setPrivateDesktopClassic] = useState(() => sharedReader ? initialDesktopLayout() === 'two-page' : new URLSearchParams(desktopLayoutSearch).get('view') === 'two-page')
+  const desktopLayoutBookRef = useRef(desktopLayoutBookId)
+  useLayoutEffect(() => {
+    if (!sharedReader || desktopLayoutBookRef.current === desktopLayoutBookId) return
+    desktopLayoutBookRef.current = desktopLayoutBookId
+    // An in-page book switch must derive that book's layout, never inherit the outgoing one.
+    const layout = initialDesktopReaderLayout({ bookId: desktopLayoutBookId, kind: userBook?.kind, hex: userBook?.hex, savedMode: labBookSavedReaderMode(desktopLayoutBookId) })
+    setDesktopCompareActive(layout === 'compare')
+    setPrivateDesktopClassic(layout === 'two-page')
+  }, [desktopLayoutBookId, sharedReader, userBook?.hex, userBook?.kind])
+  const desktopLayoutNow: DesktopReaderLayout = desktopCompareActive ? 'compare' : privateDesktopClassic ? 'two-page' : 'margin'
+  // The layout this device reads the book in now: the reader's choice for the
+  // book, else the device's default (an iPad turned sideways reads Two-page,
+  // turned upright Margin). The default is applied by `applyDeviceLayoutRef`;
+  // a choice decides only whether a handheld reads the Margin reader (the phone
+  // reader clears desktop Compare from state, so the choice is read from storage).
+  const deviceLayoutFor = (device: DesktopLayoutDevice): { layout: DesktopReaderLayout; chosen: boolean } => {
+    if (!sharedReader) return { layout: desktopLayoutNow, chosen: true }
+    const search = deepLinkDesktopView ? `?view=${deepLinkDesktopView}` : (typeof window !== 'undefined' ? window.location.search : '')
+    const chosen = chosenDesktopReaderLayout({ bookId: desktopLayoutBookId, search, kind: userBook?.kind, hex: userBook?.hex, savedMode: labBookSavedReaderMode(desktopLayoutBookId) })
+    return chosen ? { layout: chosen, chosen: true } : { layout: defaultDesktopReaderLayout(device), chosen: false }
+  }
+  useEffect(() => {
+    if (deepLinkDesktopView) storeCompareView('desktop', compareViewBookId, deepLinkDesktopView === 'compare')
+    const linked = deepLinkDesktopView ?? new URLSearchParams(desktopLayoutSearch).get('view')
+    if (sharedReader && !showPhoneChrome && (linked === 'margin' || linked === 'two-page' || linked === 'compare')) storeDesktopReaderLayout(desktopLayoutBookId, linked)
+  // Once, for the link this page opened with.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  /** The reader's own Compare toggle: remembered for this book in this layout. */
+  const rememberCompareView = useCallback((on: boolean) => {
+    if (!userBook) storeCompareView(appearanceProfile, compareViewBookId, on)
+  }, [appearanceProfile, compareViewBookId, userBook])
+  // Read by the text load (not one of its triggers): until the first page is
+  // up, a Compare view that is not on screen gets its edition after it.
+  const firstPageShownRef = useRef(false)
+  // Set once the first page is on screen. Work the opening page does not
+  // need (character cards, neighbouring chapters, Talk's session code) waits
+  // for it rather than sharing the network and main thread with the reader's
+  // first text.
+  const [firstPageShown, setFirstPageShown] = useState(false)
+  const compareOnScreenRef = useRef(mobileCompareActive || desktopCompareActive)
+  compareOnScreenRef.current = mobileCompareActive || desktopCompareActive
   const [speedPopoverOpen, setSpeedPopoverOpen] = useState(false)
+  const speedButtonRef = useRef<HTMLButtonElement | null>(null)
+  // Closing the speed popover (Escape, a tap outside, the button again) hands focus back to its button.
+  const speedPopoverWasOpenRef = useRef(false)
+  useEffect(() => {
+    if (speedPopoverWasOpenRef.current && !speedPopoverOpen) {
+      const active = document.activeElement
+      if (!active || active === document.body || active === speedButtonRef.current) speedButtonRef.current?.focus({ preventScroll: true })
+    }
+    speedPopoverWasOpenRef.current = speedPopoverOpen
+  }, [speedPopoverOpen])
   const [bookSwitcherOpen, setBookSwitcherOpen] = useState(false)
   const [bookSwitcherRows, setBookSwitcherRows] = useState<QuickBookRow[]>([])
   const [bookSwitcherLoading, setBookSwitcherLoading] = useState(false)
@@ -488,17 +814,37 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const updatePrefs = useCallback((next: LabPrefs) => {
     const synced = syncLabAudioEdition(migrateLabPrefsEditions(next, book.bookId || 'bible'), allBookEditions)
     setPrefs(synced)
-    writeLabPrefs(synced, appearanceProfile)
-  }, [appearanceProfile, book.bookId, allBookEditions])
-  const applyRemoteVoicePersona = useCallback((voicePersona: 'female' | 'male') => {
+    persistPrefs(synced, appearanceProfile)
+  }, [appearanceProfile, book.bookId, allBookEditions, persistPrefs])
+  // Talk's speaking speed is saved with the reader's other shared prefs, as
+  // narration speed is; a functional update so a voice request mid-render
+  // never writes over a newer choice.
+  const applyTalkSpeed = useCallback((talkSpeed: number) => {
     setPrefs(current => {
-      if (current.voicePersona === voicePersona) return current
-      const next = { ...current, voicePersona }
-      writeLabPrefs(next, appearanceProfile)
+      if (current.talkSpeed === talkSpeed) return current
+      const next = { ...current, talkSpeed }
+      persistPrefs(next, appearanceProfile)
       return next
     })
-  }, [appearanceProfile])
-  useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, onRemote: applyRemoteVoicePersona })
+  }, [appearanceProfile, persistPrefs])
+  const applyRemoteVoicePersona = useCallback((voicePersona: 'female' | 'male') => {
+    setPrefs(current => {
+      if (current.voicePersona === voicePersona && current.voicePersonaChosen) return current
+      const next = { ...current, voicePersona, voicePersonaChosen: true }
+      persistPrefs(next, appearanceProfile)
+      return next
+    })
+  }, [appearanceProfile, persistPrefs])
+  useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, chosen: prefs.voicePersonaChosen === true, onRemote: applyRemoteVoicePersona })
+  // AI settings and the books' reading angles follow the reader's account (labAiAccount.ts).
+  useAiSettingsAccountSync(authUser?.id ?? null)
+  // The simple first page (Anders, 16 Nov 2026): until the reader has used Ask, Explain or Simplify once, the reader
+  // shows one line on how to use them instead of the start actions (labSelectionActions.ts). 'unknown' while a
+  // signed-in reader's account is read: then neither the hint nor anything that could flash.
+  const selectionActions = useSelectionActions(authUser?.id ?? null, !authUser && likelyAuthenticated)
+  const firstVisit = selectionActions === 'new'
+  // Refresh the cached site-admin answer for the next visit.
+  useEffect(() => { if (authUser?.id) void refreshSiteAdmin(authUser.id) }, [authUser?.id])
   // English narration is available across the published catalogue. Female
   // original editions on the verified retention list stay on Bella; all
   // other tuples resolve to the exact on-demand voice returned by the Worker.
@@ -507,25 +853,35 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Once the pilot has been on during this page load the Settings row stays,
   // so "Off" is reversible without the URL flag.
   useEffect(() => {
+    // A user book asks only once the reader is signed in (below).
+    if (privateBook) return
     let cancelled = false
     void fetchNarrationPilotInfo().then((info) => { if (!cancelled) setNarrationInfo(info) })
     return () => { cancelled = true }
-  }, [])
-  const narrationVoice = narrationInfo ? resolveNarrationVoice(prefs, narrationInfo.voices) : null
+  }, [privateBook])
+  // Ten shared anonymous AI interactions; opening or reading books never prompts.
+  const signedIn = authToken !== undefined ? Boolean(authToken) : (Boolean(authUser) || likelyAuthenticated)
+  // Signed out, Orion and Eve play as Ara or Helios (cache-only openings); the stored choice stays.
+  const narrationVoice = narrationInfo ? resolveNarrationVoice(prefs, narrationInfo.voices, { signedIn }) : null
   // Narration follows the text on the page: the primary edition, not the
   // Kokoro audio edition, so painted words and spoken words are one text.
-  const narrationApplies = narrationInfo?.enabled === true
+  const narrationApplies = !privateBook && narrationInfo?.enabled === true
     && narrationVoice != null
     && narrationPilotApplies(prefs, book.bookId || 'bible', prefs.primaryEdition, book.chapterNumber, narrationInfo.provider)
   const retainedBella = narrationInfo?.provider !== 'grok' && usesRetainedBella(book.bookId || 'bible', prefs.primaryEdition, prefs.voicePersona)
+  // The edition's narrated language: English editions, and the offered Danish
+  // editions since 2026-11-06 (Anders, after a Grok sample). Null: not narrated.
+  const editionNarrationLanguage = privateBook ? null : narrationLanguage(book.bookId || 'bible', prefs.primaryEdition)
+  const streamedNarrationEdition = editionNarrationLanguage !== null
   const prefsProfileRef = useRef(appearanceProfile)
   useLayoutEffect(() => {
     if (prefsProfileRef.current === appearanceProfile) return
     prefsProfileRef.current = appearanceProfile
-    setPrefs(syncLabAudioEdition(
+    const next = syncLabAudioEdition(
       migrateLabPrefsEditions(readLabPrefs(appearanceProfile), book.bookId || 'bible'),
       allBookEditions,
-    ))
+    )
+    setPrefs(userBookEditionKey ? userBookPrefs(next, userBookEditionKey) : next)
   }, [appearanceProfile, book.bookId, bookEditions])
   // The book on screen is not known until its source loads (a handoff mounts a
   // placeholder first), so a withdrawn edition is corrected the moment we know
@@ -539,18 +895,72 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     releaseLabReaderHandoffForPage(readerHandoff)
     if (readerHandoff) writeLabPrefs(prefs, appearanceProfile)
     // The narration flag was folded into the initial prefs; remember it.
-    else if (narrationFlag) writeLabPrefs(prefs, appearanceProfile)
+    else if (narrationFlag) persistPrefs(prefs, appearanceProfile)
     // This effect only releases the StrictMode bridge after the committed mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const [tocOpen, setTocOpen] = useState(false)
+  // The phone's Notebook row (t menu, 22 Oct 2026): the Contents opened at its Highlights & notes, closed back to the book.
+  const [contentsNotebook, setContentsNotebook] = useState(false)
+  const [contentsSearch, setContentsSearch] = useState(false)
+  useEffect(() => { if (!tocOpen) { setContentsNotebook(false); setContentsSearch(false) } }, [tocOpen])
+  const desktopUnitPositionsRef = useRef(new Map<string, number>())
+  const desktopUnitAnchorsRef = useRef(new Map<string, MarginSourceAnchor>())
+  const desktopDraftsRef = useRef<Record<string, string>>({})
+  const desktopNoteConversionRef = useRef(new Map<number, { highlightId?: string; created?: boolean; chapterNumber?: number; text: string }>())
+  const [desktopOpenId, setDesktopOpenId] = useState<string | null>(null)
+  const [desktopContinuationId, setDesktopContinuationId] = useState<string | null>(null)
+  const menuMarginChatRef = useRef<() => void>(() => {})
+  const [marginHost, setMarginHost] = useState<HTMLElement | null>(null)
+  const readingScrollActive = useReadingScrollActivity(marginHost)
+  const [marginUndo, setMarginUndo] = useState<(() => void) | null>(null)
+  // "Deleted. Undo" leaves on its own after a few seconds, as an undo notice does; it held the screen until Undo (Anders, 2 Nov 2026).
+  useEffect(() => {
+    if (!marginUndo) return
+    const timer = window.setTimeout(() => setMarginUndo(null), MARGIN_UNDO_MS)
+    return () => window.clearTimeout(timer)
+  }, [marginUndo])
+  const [highlightUndoNotice, setHighlightUndoNotice] = useState<{ text: string; at: number } | null>(null)
+  useEffect(() => {
+    if (!highlightUndoNotice) return
+    const timer = window.setTimeout(() => setHighlightUndoNotice(null), HIGHLIGHT_UNDO_NOTICE_MS)
+    return () => window.clearTimeout(timer)
+  }, [highlightUndoNotice])
+  const [notebookCard, setNotebookCard] = useState<ChatConversation | null>(null)
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
-  const [contentsTarget, setContentsTarget] = useState<(ContentsPlace & { bookId: string; navigation: number; chapterOnly?: boolean; chat?: ChatConversation }) | null>(null)
+  // "Back to reading" after a Notebook jump: an offer made right after the jump.
+  // It leaves when tapped, when the reader goes somewhere else on purpose
+  // (Contents, search, another chapter) or once they read on at the destination
+  // (a page turn or a scroll of their own). The landing itself is none of these.
+  const [notebookReturn, setNotebookReturn] = useState<(ContentsPlace & { bookId: string; editionKey: string }) | null>(null)
+  const [contentsTarget, setContentsTarget] = useState<(ContentsPlace & { bookId: string; navigation: number; chapterOnly?: boolean; chat?: ChatConversation; flash?: PhoneCardRange['range'] }) | null>(null)
   const [fullscreen, setFullscreen] = useState(false)
   const [readerControlsVisible, setReaderControlsVisible] = useState(true)
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
   const [superSheet, setSuperSheet] = useState<LabV2SheetLayer | null>(null)
+  const [compareFromLayout, setCompareFromLayout] = useState(false)
+  // The book's reading angle (labReadingAngle.ts), set in AI settings' This book tab: from the t menu's Reading angle
+  // row and the first chapter's end (Anders, 16 Nov 2026: offered once the reader has started, never before the first page).
+  const [bookAngle, setBookAngle] = useReadingAngle(book.bookId || 'bible')
+  // The book's "Before you start" card opens folded (Anders, 10 Nov 2026); the reader opens it with its +.
+  const [startCardOpen, setStartCardOpen] = useState(false)
+  // AI settings' This book reads the open book here (its own lengths ride on this book's requests: labAiPrefs.ts).
+  useEffect(() => { setAiSettingsBook(book.bookId || 'bible'); return () => setAiSettingsBook(null) }, [book.bookId])
+  // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
+  const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string; own?: OwnChapterNotesSource; railAnchor?: MarginSourceAnchor; /** The chapter pill's Summary: the chapter-end request under the pill's name, at the chapter's start. */ as?: 'summary'; /** Summary opened from the chapter's end (11 Nov 2026): the same card, beside the chapter end. */ atEnd?: boolean } | null>(null)
+  const [desktopChapterCards, setDesktopChapterCards] = useState<Array<NonNullable<typeof chapterNotes>>>([])
+  const [desktopCatchup, setDesktopCatchup] = useState(false)
+  // The whole book's Primer or Summary, from the book's start actions (approved mockup, Anders 9 Nov 2026).
+  const [bookAction, setBookAction] = useState<{ kind: 'primer' | 'summary'; openedAt: number } | null>(null)
+  // The desktop Margin reader: the whole book's Primer and Summary as margin cards beside the book's opening.
+  const [desktopBookCards, setDesktopBookCards] = useState<Array<'primer' | 'summary'>>([])
+  const [desktopBookPreviews, setDesktopBookPreviews] = useState<{ primer?: string; summary?: string }>({})
+  const [desktopCatchupAsSummary, setDesktopCatchupAsSummary] = useState(false)
+  useEffect(() => { setDesktopBookCards([]); setDesktopBookPreviews({}) }, [book.bookId])
+  // Catch me up opened as a chapter's Summary: its card is named for the pill.
+  const [catchUpAsSummary, setCatchUpAsSummary] = useState(false)
+  useEffect(() => { if (superSheet !== 'catchup') setCatchUpAsSummary(false) }, [superSheet])
   const [superFirstView, setSuperFirstView] = useState(false)
   const superFirstViewRef = useRef(false)
   const revealOnlyRef = useRef(false)
@@ -576,6 +986,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     for (const query of queries) query?.addEventListener?.('change', onChange)
     return () => { for (const query of queries) query?.removeEventListener?.('change', onChange) }
   }, [layoutOverride])
+  // The chapter the reader last entered by reading on from the one before it.
+  const enteredForwardRef = useRef<number | null>(null)
+  // The chapter whose last page the reader reached by reading forward. Leaving
+  // it from there for another chapter (Contents, a highlight, a chat) finishes
+  // it, the same as turning past that page.
+  const readToEndRef = useRef<number | null>(null)
   const [pageTurn, setPageTurn] = useState<{
     direction: 'next' | 'previous'
     nonce: number
@@ -588,25 +1004,80 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }, 220)
     return () => window.clearTimeout(timer)
   }, [pageTurn])
-  const [readerProgressMode, setReaderProgressMode] = useState<LabReaderProgressMode>('book')
-  const [settingsSection, setSettingsSection] = useState<'reading' | 'layout'>('reading')
   const [voiceLabView, setVoiceLabView] = useState<VoiceTinctView>('read')
-  const [voiceHistoryFixture, setVoiceHistoryFixture] = useState(!chromeV2)
+  const [voiceHistoryFixture, setVoiceHistoryFixture] = useState(false)
   const [voiceActions, setVoiceActions] = useState<LabVoiceActionEntry[]>([])
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
   const [peekBook, setPeekBook] = useState(false)
+  // Back (phone back gesture, browser Back) closes the panel in front instead
+  // of leaving the reader.
+  useBackCloses(tocOpen, () => setTocOpen(false))
+  useBackCloses(superMenuOpen, () => setSuperMenuOpen(false))
+  useBackCloses(superSheet !== null, () => setSuperSheet(null))
+  // The account cards (src/cards, CARDS-BRIEF.md) open over the reader while the
+  // layer is 'account', so every overlay guard above applies to them; the
+  // reader never unloads. An old account link arrives as ?card=<name>.
+  const accountCardRef = useRef<CardName | null>(null)
+  useEffect(() => {
+    const card = consumeCardParam()
+    if (!card) return
+    accountCardRef.current = card
+    setSuperSheet('account')
+  }, [])
+  const accountCardsWanted = superSheet === 'account'
+  // The menu's Profile row shows a dot while someone asks to be friends (social/followRequests.ts).
+  const requestDotUser = signedIn && !privateBook ? (authUser?.id ?? (authToken === undefined ? readCachedSupabaseUser()?.id ?? null : null)) : null
+  const readRequestToken = useCallback(async () => authToken ?? await readSupabaseAccessToken(), [authToken])
+  const followRequests = useFollowRequests(requestDotUser, readRequestToken)
+  // The same dot on the t button (Anders, 16 Nov 2026), and the menu's request row: shown for the one open of the
+  // menu that found a request due (that open marks them seen, as Following you does), so Follow back can be used.
+  const profileDot = followRequests.due
+  const settleFollowRequest = followRequests.settle
+  const [menuRequestShown, setMenuRequestShown] = useState<{ request: MenuRequest<FindRow>; followBack: MenuFollowBack } | null>(null)
+  useEffect(() => {
+    if (!accountCardsWanted) { closeLoadedAccountCards(); return }
+    const start = accountCardRef.current ?? 'you'
+    accountCardRef.current = null
+    let live = true
+    void loadAccountCards().then(cards => cards.openAccountCards({
+      start,
+      dark: resolvedDarkMode,
+      deskTop: 76,
+      onClose: () => setSuperSheet(layer => (layer === 'account' ? null : layer)),
+    })).then(opened => {
+      if (opened || !live) return
+      // Signed out: the account lives behind sign-in.
+      setSuperSheet(null)
+      window.location.assign(labSignInUrl(labCurrentPath()))
+    }, () => {
+      // The cards' code could not load (offline before first use): nothing opened.
+      if (live) setSuperSheet(layer => (layer === 'account' ? null : layer))
+    })
+    return () => { live = false }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- opened once per 'account'; the theme is read at open
+  }, [accountCardsWanted])
+  useEffect(() => () => closeLoadedAccountCards(), [])
+  useBackCloses(bookSwitcherOpen, () => setBookSwitcherOpen(false))
+  useBackCloses(chapterNotes !== null, () => setChapterNotes(null))
+  useBackCloses(bookAction !== null, () => setBookAction(null))
+  useBackCloses(inTheBookOpen, () => { setInTheBookOpen(false); setPeekBook(false) })
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
   const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
   const askInputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
   /** Rendered page for the companion's reading trail; written once chapter progress is known. */
   const askPageRef = useRef<{ pageNumber: number; totalPages: number } | null>(null)
   /** Words per page held for one leaf geometry, with the leaf it was measured at. */
-  const wordsPerPageRef = useRef<{ wordsPerPage: number; leafHeight: number } | null>(null)
+  const wordsPerPageRef = useRef<{ wordsPerPage: number; leafHeight: number; stored?: boolean } | null>(null)
+  const storedCapacityRef = useRef('')
+  const progressTotalRef = useRef<{ key: string; total: number } | null>(null)
   /** Words one desktop leaf holds, measured from the layout by the paginator. */
   const [desktopLeafCapacity, setDesktopLeafCapacity] = useState<LabLeafCapacity | null>(null)
   const playbackInterruptedRef = useRef<() => boolean>(() => false)
-  const [gearOpen, setGearOpen] = useState(false)
   const [desktopAskOpen, setDesktopAskOpen] = useState(false)
+  // Desktop Chat minimized: hidden, with no orb or tab standing in for it
+  // (chat pill removed 2026-10-08). The menu's Librarian row restores it.
+  const [desktopChatMinimized, setDesktopChatMinimized] = useState(false)
+  useEffect(() => { if (!desktopAskOpen) setDesktopChatMinimized(false) }, [desktopAskOpen])
   const [marks, setMarks] = useState<LabMark[]>([])
   const [focusParagraph, setFocusParagraph] = useState<number | null>(null)
   const [chrome, setChrome] = useState<LabChromeState>('reading')
@@ -628,8 +1099,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     && !bibleEditionHasChapter(prefs.compareEdition, book.chapterNumber)
   const compareNumberingDiffers = (book.bookId || 'bible') === 'bible' && prefs.compareOpen
     && !bibleVerseNumbersCorrespond(prefs.primaryEdition, prefs.compareEdition, book.chapterNumber)
-  const mobileCompareEnabled = showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !unalignedCompare && !compareNumberingDiffers
-  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !unalignedCompare && !compareNumberingDiffers
+  // Compare is a desktop view (Anders, 10 Nov 2026): the phone reads one edition, chosen as Main version in Book settings.
+  const mobileCompareEnabled = false
+  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && prefs.primaryEdition !== prefs.compareEdition
+    && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !unalignedCompare && !compareNumberingDiffers
+  // Aa can offer Compare before a second edition has been chosen. Choosing it
+  // then opens the existing version picker instead of comparing the main text
+  // with itself or mounting an unavailable pair.
+  const desktopCompareChoiceAvailable = !showPhoneChrome && !privateBook && bookEditions.some(edition =>
+    edition.key !== prefs.primaryEdition && edition.aligned !== false
+    && allBookEditions.find(main => main.key === prefs.primaryEdition)?.aligned !== false
+    && ((book.bookId || 'bible') !== 'bible' || bibleEditionHasChapter(edition.key, book.chapterNumber)
+      && bibleVerseNumbersCorrespond(prefs.primaryEdition, edition.key, book.chapterNumber)))
   const readerParagraphs = mobileCompareActive && mobileCompareEnabled
     ? book.compareParagraphs
     : book.paragraphs
@@ -647,17 +1128,43 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     : prefs.compareEdition
   const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, allBookEditions)
   const compareEditionLabel = editionLabelFor(prefs.compareEdition, allBookEditions)
-  const desktopPaging = chromeV2 && !showPhoneChrome && browserHasNativePaging()
+  const continuousReader = sharedReader && !showPhoneChrome && !desktopCompareActive && !privateDesktopClassic
+  // Book scroll (Anders, 11 Nov 2026): the desktop Margin reader scrolls a whole scroll unit (a biblical book, a
+  // titled division, else the whole book). Library books and, since 13 Nov 2026, a reader's own EPUBs, pasted texts
+  // (no gap between their sections) and PDFs read as Tinct text; phone, two-page and Compare as before. A PDF's
+  // original pages are read in their own viewer and never reach this reader.
+  // On for every reader (Anders, 13 Nov 2026; an admin try-out from 11 Nov). Decided once, at first paint, so the
+  // surface never changes mid-read; `?bookScroll=0` switches it off for the session, Appearance on this device.
+  const [bookScrollOn] = useState(() => typeof window !== 'undefined' && bookScrollSwitch(search ?? window.location.search,
+    (() => { try { return window.sessionStorage } catch { return null } })(), (() => { try { return window.localStorage } catch { return null } })()))
+  const bookScroll = bookScrollOn && continuousReader && !book.chaptersProvisional
+  const pastedSections = userBook?.pasted === true
+  const bookScrollUnitNow = useMemo(() => bookScroll ? bookScrollUnit(book.bookId || 'bible', book.chapters, book.chapterNumber, { sections: pastedSections }) : null,
+    [bookScroll, book.bookId, book.chapters, book.chapterNumber, pastedSections])
+  const bookScrollTexts = useBookScrollChapters(bookScroll, book.bookId || 'bible', prefs.primaryEdition)
+  /** The chapters book scroll paints now, the reader's own included: their start actions and margin cards are shown. */
+  const [bookScrollPainted, setBookScrollPainted] = useState<readonly number[]>([])
+  const bookScrollControl = useRef<BookScrollControl | null>(null)
+  /** An action on a neighbouring chapter, waiting for that chapter to become the reader's own (actOnChapter). */
+  const pendingChapterAction = useRef<{ chapter: number; run: () => void; at: number } | null>(null)
+  const toggleMarginRef = useRef<(id: string) => void>(() => {})
+  const openNoteRef = useRef<(markId: string) => void>(() => {})
+  /** The next chapter handoff is the reader's own act (a pill, a selection, a card), not the reading line moving. */
+  const explicitAdoption = useRef(false)
+  const desktopPaging = !continuousReader && !showPhoneChrome && browserHasNativePaging()
   const desktopSpread = desktopPaging && !desktopCompareActive
-  const measuredPaging = (showPhoneChrome || desktopPaging) && browserHasNativePaging()
+  const measuredPaging = !continuousReader && (showPhoneChrome || desktopPaging) && browserHasNativePaging()
   const [desktopMeasuredKey, setDesktopMeasuredKey] = useState('')
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
-  const [draft, setDraft] = useState('')
-  const [askAttachment, setAskAttachment] = useState<{ bookId: string; text: string } | null>(null)
+  // The composer draft lives outside this component's state, so a keystroke renders only the field (labDraftStore).
+  const [draftStore] = useState(() => createDraftStore())
+  const setDraft = draftStore.set
+  const [askAttachment, setAskAttachment] = useState<{ bookId: string; text: string; figure?: LabFigure; sourceLocation?: { chapterNumber: number; chapterLabel: string; paragraphIndex: number } } | null>(null)
+  // The figure card over the page (LabFigure.tsx); an overlay only, it never moves the reader.
+  const [figureCard, setFigureCard] = useState<LabFigure | null>(null)
   useEffect(() => {
     setAskAttachment(current => current?.bookId === book.bookId ? current : null)
   }, [book.bookId])
-  const [voiceGate, setVoiceGate] = useState<LabVoiceGatePhase>('off')
   // The phone call surface. `callOpen` is the reader's own intent: it stays
   // true through a dropped connection, so a call that lost its transport can
   // say so and offer to reconnect instead of vanishing.
@@ -666,6 +1173,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   callOpenRef.current = callOpen
   const callAnchorRef = useRef<LabCallAnchor | null>(null)
   const endCallRef = useRef<() => void>(() => {})
+  const talkTrialEndedRef = useRef<() => void>(() => {})
   // Desktop only: the panel collapsed to the corner pill. Rendering state; it
   // never touches the session or the reader's place.
   const [callMinimized, setCallMinimized] = useState(false)
@@ -675,8 +1183,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // its first transport fact. It is the only place "no report yet" is read as
   // connecting; after that, no session means no connection.
   const [callAwaitingConnection, setCallAwaitingConnection] = useState(false)
-  // Ten shared anonymous AI interactions; opening or reading books never prompts.
-  const signedIn = authToken !== undefined ? Boolean(authToken) : (Boolean(authUser) || likelyAuthenticated)
+  // A user book is read aloud only for its signed-in owner, and only when the
+  // server says own-book narration is on; the voices request names no book.
+  useEffect(() => {
+    if (!privateBook || !signedIn) return
+    let cancelled = false
+    void fetchNarrationPilotInfo().then((info) => { if (!cancelled) setNarrationInfo(info) })
+    return () => { cancelled = true }
+  }, [privateBook, signedIn])
+  const ownNarration = privateBook && signedIn && narrationInfo?.enabled === true && narrationInfo.ownBooks === true
+    && narrationInfo.provider === 'grok' && narrationVoice != null && prefs.primaryEdition === 'own-en'
   const [accountPrompt, setAccountPrompt] = useState<LabAccountPromptRequest | null>(null)
   useEffect(() => {
     if (signedIn) {
@@ -687,69 +1203,110 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
   }, [signedIn])
   const signInReturnTo = labCurrentPath()
+  // Paid Modern English editions of added public-domain books (labModernEdition.ts).
+  const modernBookId = book.bookId || 'bible'
+  const modernPrefsRef = useRef(prefs)
+  modernPrefsRef.current = prefs
+  const modernEnabled = !privateBook && isPublicBookId(modernBookId) && modernEditionsEnabled()
+  // The paragraphs on the page in view (set below, once the pages are known): a
+  // page with any paragraph not yet in Modern English is covered, never shown.
+  const [modernVisible, setModernVisible] = useState<ModernVisible | null>(null)
+  const modern = useLabModernEdition({
+    enabled: modernEnabled,
+    bookId: modernBookId,
+    editionKey: prefs.primaryEdition,
+    chapterNumber: book.chapterNumber,
+    pending: !!book.modernPending,
+    written: book.modernWritten,
+    visible: modernVisible,
+    paragraphCount: book.paragraphs.length,
+    // Signed in, the status carries an offer only for Premium (trial included).
+    readToken: signedIn ? readSupabaseAccessToken : undefined,
+    // Back from a completed purchase: read the edition just bought.
+    onPurchased: () => {
+      const registered = getBook(modernBookId)
+      if (!registered?.editions.some(edition => edition.key === MODERN_EDITION_KEY)) return
+      updatePrefs(labPrefsForMainEdition(modernPrefsRef.current, MODERN_EDITION_KEY, modernBookId, registered.editions, registered.year))
+    },
+  })
+  const modernBlocksNextRef = useRef(false)
+  modernBlocksNextRef.current = modern.wait !== null
+  const [modernNoteDismissed, setModernNoteDismissed] = useState<string | null>(null)
+  const [modernCheckoutBusy, setModernCheckoutBusy] = useState(false)
+  const buyModernEdition = useCallback(async () => {
+    const token = await readSupabaseAccessToken()
+    if (!token) return
+    setModernCheckoutBusy(true)
+    try {
+      const url = await startModernCheckout(modernBookId, book.chapterNumber, token)
+      markPendingPurchase(modernBookId)
+      window.location.assign(url)
+    } catch (error) {
+      setModernCheckoutBusy(false)
+      // Premium only (trial included): the account sheet, with its Premium offer, says the rest.
+      if (error instanceof Error && error.message === MODERN_PREMIUM_REQUIRED) setSuperSheet('account')
+    }
+  }, [modernBookId, book.chapterNumber])
   const [readingPageIndex, setReadingPageIndex] = useState(
     readerHandoff?.savedPlace?.page ?? boot.resume?.pageIndex ?? 0,
   )
   const [nativePagesRevision, setNativePagesRevision] = useState(0)
   const [nativeMeasuredContent, setNativeMeasuredContent] = useState<string[] | null>(null)
-  useLayoutEffect(() => { setNativeMeasuredContent(null) }, [desktopPaging])
+  // A head-first map (LabNativePaginator `headFirst`): its opening page is
+  // laid out, the rest of the chapter follows a moment later. The page is
+  // shown; nothing turns onto, counts or verifies the rest until it is in.
+  const [nativeHeadContent, setNativeHeadContent] = useState<string[] | null>(null)
+  // When the head-first map on screen arrived (0: none). Page turns wait for
+  // the full map, never for long (LAB_HEAD_FIRST_HOLD_MS).
+  const nativeHeadOnlyRef = useRef(0)
+  // A forward turn asked for while that map was on screen, taken once the
+  // full map arrives or the existing provisional-map deadline expires.
+  const headFirstTurnRef = useRef(false)
+  const headFirstTurnTimerRef = useRef<number | null>(null)
+  const cancelHeadFirstTurn = useCallback(() => {
+    headFirstTurnRef.current = false
+    if (headFirstTurnTimerRef.current !== null) window.clearTimeout(headFirstTurnTimerRef.current)
+    headFirstTurnTimerRef.current = null
+  }, [])
+  useLayoutEffect(() => cancelHeadFirstTurn, [book.bookId, book.chapterNumber, readerEditionKey, desktopPaging, cancelHeadFirstTurn])
+  useLayoutEffect(() => { setNativeMeasuredContent(null); setNativeHeadContent(null); nativeHeadOnlyRef.current = 0 }, [desktopPaging])
   const nativeContentRef = useRef(readerParagraphs)
   nativeContentRef.current = readerParagraphs
+  // The edition a saved place is numbered in. A switch between editions whose paragraphs do not line up changes the
+  // preference first and the text a moment later; until that text is on screen the place still counts the outgoing
+  // edition's paragraphs, and is saved as that edition's (a coherent tuple), never as the incoming one's.
+  const shownEditionKey = chapterEditionKey(book.paragraphs)
+  const placeEditionKey = shownEditionKey && shownEditionKey !== prefs.primaryEdition && (book.bookId || 'bible') !== 'bible'
+    && [shownEditionKey, prefs.primaryEdition].some(key => allBookEditions.find(edition => edition.key === key)?.aligned === false)
+    ? shownEditionKey
+    : prefs.primaryEdition
+  const placeEditionKeyRef = useRef(placeEditionKey)
+  placeEditionKeyRef.current = placeEditionKey
   const readerStateRef = useRef<LabReaderStateSnapshot>({
     pageIndex: readingPageIndex,
-    primaryEditionKey: prefs.primaryEdition,
+    primaryEditionKey: placeEditionKey,
     compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition ? prefs.compareEdition : undefined,
-    readerMode: resumeInCompare ? 'compare' : 'read',
+    readerMode: (showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'compare' : 'read',
   })
   readerStateRef.current = {
     pageIndex: readingPageIndex,
-    primaryEditionKey: prefs.primaryEdition,
+    primaryEditionKey: placeEditionKey,
     compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition ? prefs.compareEdition : undefined,
     readerMode: (showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'compare' : 'read',
   }
-  const countedPageRef = useRef<string | null>(null)
-  const initialFrontispieceRef = useRef(Boolean(readerHandoff && (!readerHandoff.savedPlace || readerHandoff.startAtSavedPlace)))
-  const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(() => (
-    readerHandoff && (!readerHandoff.savedPlace || readerHandoff.startAtSavedPlace) ? book.bookTitle : null
-  ))
-  const explicitStartAnchor = useMemo(() => (
-    readerHandoff?.startAtSavedPlace
-      && readerHandoff.savedPlace?.chapterNumber === book.chapterNumber
-      ? {
-          paragraphIndex: readerHandoff.savedPlace.paragraphIndex ?? 0,
-          wordIndex: readerHandoff.savedPlace.wordIndex ?? 0,
-        }
-      : null
-  ), [book.chapterNumber, readerHandoff])
-  const [preparationChat, setPreparationChat] = useState(false)
-  const [prefaceCoverBook, setPrefaceCoverBook] = useState<string | null>(() => readerHandoff && readCoverTransition(readerHandoff.bookId) ? readerHandoff.bookId : null)
-  const [preparationCompanion, setPreparationCompanion] = useState(false)
-  const preparationReturnRef = useRef<string | null>(null)
-  const returnToPreparation = useCallback(() => {
-    const origin = preparationReturnRef.current
-    preparationReturnRef.current = null
-    setPreparationCompanion(false)
-    if (origin !== book.bookId) return false
-    setPrefaceCoverBook(origin)
-    setPreparationChat(false)
-    return true
-  }, [book.bookId])
-  useEffect(() => {
-    if (preparationReturnRef.current && preparationReturnRef.current !== book.bookId) {
-      preparationReturnRef.current = null
-      setPreparationCompanion(false)
-      setPreparationChat(false)
-    }
-  }, [book.bookId])
-  const approvedPreface = chromeV2 ? getBookPreface(book.bookId || 'bible') : undefined
-  const prefaceVisible = Boolean(approvedPreface && prefaceCoverBook === book.bookId && !preparationCompanion)
+  // Only a Bible book opening (Genesis, Exodus, ...) shows a cover page.
+  const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(null)
+  // A deep link to a word (a shared highlight, `paragraph=&word=`) opens the
+  // page that holds it as the chapter naturally lays out — the page the
+  // sharer was reading — through the same saved-place restore as Continue
+  // (`restorePlaceRef`). It used to cut the map so a page began AT the word:
+  // that page was built from a word-count estimate instead of the measured
+  // layout, so it showed the highlight's few lines and then blank paper, and
+  // on desktop both leaves stopped half-way (nightly QA, /q/fv7btyc, Oct 2026).
   const pendingMapHighlightRef = useRef<LabHighlight | null>(null)
   const [openAtEnd, setOpenAtEnd] = useState(false)
   const [pageMetrics, setPageMetrics] = useState<LabPageMetrics | null>(null)
-  const [readingPages, setReadingPages] = useState<ChapterHearingPage[]>(() => {
-    const pages = chapterHearingPages(readerParagraphs, null)
-    return explicitStartAnchor ? splitLabPagesAtAnchor(pages, explicitStartAnchor) : pages
-  })
+  const [readingPages, setReadingPages] = useState<ChapterHearingPage[]>(() => chapterHearingPages(readerParagraphs, null))
   const [draftPages, setDraftPages] = useState<ChapterHearingPage[]>(readingPages)
   const [settleIndex, setSettleIndex] = useState<number | null>(0)
   const labRootRef = useRef<HTMLDivElement | null>(null)
@@ -784,7 +1341,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
    * page) so re-measuring cannot undo the cut.
    */
   const comparePassageRef = useRef<{ paragraphs: string[]; start: LabCompareAnchor; end: LabCompareAnchor; entryPlace: LabCompareAnchor } | null>(null)
-  const [comparePageEnd, setComparePageEnd] = useState<{ paragraphs: string[]; at: LabCompareAnchor } | null>(null)
   const withComparePassage = useCallback((pages: ChapterHearingPage[], paragraphs: string[]) => {
     const passage = comparePassageRef.current
     return passage && passage.paragraphs === paragraphs ? labComparePassagePages(pages, passage.start, passage.end).pages : pages
@@ -795,32 +1351,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // async chapter response from replacing the tuple after the user turned back.
   const chapterNavigationRef = useRef(0)
 
-  useEffect(() => {
-    const identity = `${book.chapterNumber}:${readingPageIndex}:${chapterCoverTitle ? 'cover' : 'text'}`
-    if (countedPageRef.current == null) { countedPageRef.current = identity; return }
-    if (countedPageRef.current === identity) return
-    countedPageRef.current = identity
-    try {
-      const current = Math.max(0, Number(localStorage.getItem('tinct-lab-page-turns') || 0))
-      localStorage.setItem('tinct-lab-page-turns', String(current + 1))
-    } catch { /* private mode */ }
-  }, [book.chapterNumber, chapterCoverTitle, readingPageIndex])
-
-  useEffect(() => {
-    let last = Date.now()
-    const timer = window.setInterval(() => {
-      const now = Date.now()
-      if (document.visibilityState === 'visible' && !gearOpen && !tocOpen) {
-        try {
-          const elapsed = Math.min(60, Math.max(0, Math.round((now - last) / 1000)))
-          const current = Math.max(0, Number(localStorage.getItem('tinct-lab-reading-seconds') || 0))
-          localStorage.setItem('tinct-lab-reading-seconds', String(current + elapsed))
-        } catch { /* private mode */ }
-      }
-      last = now
-    }, 30_000)
-    return () => window.clearInterval(timer)
-  }, [gearOpen, tocOpen])
 
   useEffect(() => {
     if (!mobileCompareEnabled && book.paragraphs.length > 0) setMobileCompareActive(false)
@@ -830,7 +1360,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   useEffect(() => {
     if (mobileCompareActive) return
     comparePassageRef.current = null
-    setComparePageEnd(null)
   }, [mobileCompareActive])
 
   useEffect(() => {
@@ -838,7 +1367,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [book.paragraphs.length, desktopCompareEnabled])
 
   const toggleFullscreen = useCallback(async () => {
-    setGearOpen(false)
     setTocOpen(false)
     setPhoneAskOpen(false)
     if (typeof document === 'undefined') {
@@ -912,11 +1440,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     : null
   const initialPlace = handoffPlace ?? boot.place
   const placeRef = useRef(initialPlace)
+  const [continuousAnchor, setContinuousAnchor] = useState(initialPlace)
   const restorePlaceRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(
     handoffPlace
       ? (handoffPlace.paragraphIndex || handoffPlace.wordIndex ? handoffPlace : null)
       : (boot.place.paragraphIndex || boot.place.wordIndex ? boot.place : null),
   )
+  // The book on screen, for the edition switch (below): the place is carried from its text.
+  const shownBookRef = useRef(book)
+  shownBookRef.current = book
+  // An edition whose paragraphs do not line up with the one on screen: the place as the incoming text numbers it
+  // (labEditionSwitch.ts), applied in the commit that shows that text and never before it.
+  const editionSwitchPlaceRef = useRef<{ content: string[]; place: { paragraphIndex: number; wordIndex: number } } | null>(null)
   const restorePageRef = useRef<number | null>(
     readerHandoff
       ? (readerHandoff.savedPlace?.paragraphIndex === undefined ? (readerHandoff.savedPlace?.page ?? null) : null)
@@ -936,38 +1471,34 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const skipRef = useRef<(kind: LabPlaybackSkip) => void | LabPlaybackNavigationOutcome | Promise<void | LabPlaybackNavigationOutcome>>(() => {})
 
   const openLabVoiceView = useCallback((view: VoiceTinctView) => {
-    if (chromeV2 && view === 'read') {
+    if (view === 'read') {
       endCallRef.current()
       return
     }
     setVoiceLabView(view)
     setTocOpen(false)
-    if (view !== 'settings') setGearOpen(false)
     if (view !== 'cast') setInTheBookOpen(false)
     if (view !== 'chat') setPhoneAskOpen(false)
     if (view !== 'chat') setDesktopAskOpen(false)
     setPeekBook(false)
 
     if (view === 'settings') {
-      setSettingsSection('layout')
-      setGearOpen(true)
+      setSuperSheet('reading')
     } else if (view === 'chat') {
       setPhoneAskOpen(showPhoneChrome)
       setDesktopAskOpen(!showPhoneChrome)
     } else if (view === 'cast') {
       setInTheBookOpen(true)
     }
-  }, [chromeV2, showPhoneChrome])
+  }, [showPhoneChrome])
 
   const restoreLabVoiceView = useCallback((snapshot: LabVoiceViewSnapshot) => {
     setVoiceLabView(snapshot.view)
     setPhoneAskOpen(snapshot.phoneAskOpen)
     setDesktopAskOpen(snapshot.desktopAskOpen)
-    setGearOpen(snapshot.gearOpen)
     setTocOpen(snapshot.tocOpen)
     setInTheBookOpen(snapshot.inTheBookOpen)
     setPeekBook(snapshot.peekBook)
-    setSettingsSection(snapshot.settingsSection)
   }, [])
 
   const voiceToolAdapter = createLabVoiceToolAdapter<LabVoiceViewSnapshot>({
@@ -975,18 +1506,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       view: voiceLabView,
       phoneAskOpen,
       desktopAskOpen,
-      gearOpen,
       tocOpen,
       inTheBookOpen,
       peekBook,
-      settingsSection,
     }),
     openView: openLabVoiceView,
     restoreView: restoreLabVoiceView,
     getTheme: () => resolvedDarkMode ? 'dark' : 'light',
     setTheme: theme => updatePrefs({ ...prefs, theme, darkMode: theme === 'dark' }),
-    getFontSize: () => prefs.fontSize,
-    setFontSize: fontSize => updatePrefs({ ...prefs, fontSize }),
+    getFontSize: () => readingFontSize,
+    setFontSize: fontSize => updatePrefs({ ...prefs, fontSize, fontSizeExplicit: true }),
     getAudioSpeed: () => listenSpeedRef.current,
     setAudioSpeed: speed => {
       listenSpeedRef.current = speed
@@ -1013,41 +1542,60 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [browseWhileListening, setBrowseWhileListening] = useState(false)
   const [audioChapterTransitioning, setAudioChapterTransitioning] = useState(false)
   const audioChapterCompleteRef = useRef<() => boolean>(() => false)
+  /** The next chapter's warmed narration opening, played straight from `ended` on a locked phone. */
+  const nextChapterAudioRef = useRef<() => NextChapterAudio | null>(() => null)
   const browseWhileListeningRef = useRef(false)
+  /** A word the reader tapped while audio was paused: the place Play resumes from. */
+  const pausedJumpRef = useRef<{ bookId: string; chapterNumber: number; paragraphIndex: number; wordIndex: number } | null>(null)
   const listenPlayingRef = useRef(false)
 
   const lockPaginationRef = useRef(false)
 
+  useLabFunnel({ bookId: book.bookId || 'bible', ready: book.paragraphs.length > 0, signedIn, authToken })
+
+  // An essay collection's chapters are by their own writers (companion/authorship.ts).
+  const authorshipOf = useMemo(() => book.collection
+    ? (chapterNumber: number | undefined) => sourceAuthorship(book, chapterNumber)
+    : undefined, [book])
   const ask = useLabAsk({
+    voiceWarm: firstPageShown,
     bookTitle: book.bookTitle,
     bookAuthor: book.bookAuthor,
+    authorshipOf,
     headerBook: book.headerBook,
     chapterLabel: book.chapterLabel,
     chapterNumber: book.chapterNumber,
     editionLabel: book.editionLabel,
     paragraphs: book.paragraphs,
-    paragraphIndex: focusParagraph ?? 0,
+    // A user book sends only a window around this paragraph: the page on screen when nothing is in focus.
+    paragraphIndex: focusParagraph ?? (privateBook ? readingPages[readingPageIndex]?.paragraphIndex ?? 0 : 0),
     authToken,
     signedIn,
+    onTalkTrialEnded: () => talkTrialEndedRef.current(),
     onAccountPrompt: (request) => {
       setAccountPrompt(request)
       // Keep the unsent question in the composer; a held-back Talk never connects.
       if (request.text) setDraft(request.text)
-      if (request.action === 'voice') setVoiceGate('off')
     },
     bookId: book.bookId || 'bible',
     editionKey: readerEditionKey,
-    conversationId: chromeV2 && contentsConversation?.bookId === (book.bookId || 'bible') && contentsConversation.chapterNumber === book.chapterNumber ? contentsConversation.id : undefined,
+    conversationId: (sharedReader && !showPhoneChrome && desktopContinuationId) || (contentsConversation?.bookId === (book.bookId || 'bible') ? contentsConversation.id : undefined),
     chapterCount: book.chapters.length,
     getPage: () => askPageRef.current,
     playbackInterrupted: () => playbackInterruptedRef.current(),
     onResumeListen: forceAudio => resumeListenRef.current(forceAudio),
     onSetPlaybackSpeed: (rate) => setSpeedRef.current(rate),
     onPlaybackSkip: (kind) => skipRef.current(kind),
-    userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
+    // A user book's chat stays on this device: no account row to sync with.
+    userId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
+    ownCardController: sharedReader && userBook ? ownCardController : null,
+    privateChatGuard: sharedReader && !!userBook,
+    sharedReader,
     voiceToolAdapter,
     voiceVersion,
     voicePersona: prefs.voicePersona,
+    talkSpeed: prefs.talkSpeed ?? 1,
+    onTalkSpeedChange: applyTalkSpeed,
     onVoiceToolAction: (entry) => {
       setVoiceActions(current => {
         const next = [...current, entry].slice(-20)
@@ -1075,12 +1623,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     JSON.stringify([bookId, edition, chapter, voice])
   const narrationPrepared = useCallback(() => {
     const c = narrationContextRef.current
+    if (privateBook) return []
     return [...readNarrationReplay(c), ...(warmedNarrationRef.current.get(warmedNarrationKey(c.bookId, c.editionKey, c.chapter, c.voice)) ?? [])]
-  }, [])
+  }, [privateBook])
   const narrationEnsure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all', fromChunks?: Record<number, number>) => {
     const context = narrationContextRef.current
     if (!context.voice) return []
     const token = authToken ?? await readSupabaseAccessToken()
+    if (privateBook) {
+      // An own book: its text goes to the own-book route only, nothing is kept in the replay cache.
+      const bookHex = userBookHex(context.bookId)
+      if (!bookHex) return []
+      return ensureOwnNarration({
+        bookHex,
+        voice: context.voice,
+        paragraphs: indexes
+          .filter(index => index >= 0 && index < context.paragraphs.length)
+          .map(index => ({ index, text: context.paragraphs[index], fromChunk: fromChunks?.[index] })),
+        mode: mode ?? 'next',
+      }, { signal, authToken: token })
+    }
     const results = await ensureNarration({
       bookId: context.bookId,
       editionKey: context.editionKey,
@@ -1093,10 +1655,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }, { signal, authToken: token })
     if (!signal.aborted) storeNarrationReplay(context, results)
     return results
-  }, [authToken])
-  const bookTransition = useMemo(() => narrationInfo?.provider === 'grok'
+  }, [authToken, privateBook])
+  /** The session for an own book's Catch me up (signed-in only, like its narration). */
+  const ownCatchUpToken = useCallback(async () => authToken !== undefined ? authToken : await readSupabaseAccessToken(), [authToken])
+  const bookTransition = useMemo(() => narrationInfo?.provider === 'grok' && !privateBook
     ? bibleBookTransition(listenSource.bookId, listenSource.chapters, listenSource.chapterNumber) : null,
-  [narrationInfo?.provider, listenSource.bookId, listenSource.chapters, listenSource.chapterNumber])
+  [narrationInfo?.provider, privateBook, listenSource.bookId, listenSource.chapters, listenSource.chapterNumber])
   const narrationEndingEnsure = useCallback(async (signal: AbortSignal, mode?: 'next' | 'all', fromChunk?: number) => {
     if (!bookTransition || !narrationVoice) return []
     const token = authToken ?? await readSupabaseAccessToken()
@@ -1109,19 +1673,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }, { signal, authToken: token })
   }, [bookTransition, narrationVoice, authToken, listenSource.bookId, listenSource.chapterNumber, prefs.primaryEdition])
   const narrationOption = useMemo(
-    () => (narrationApplies && narrationVoice ? {
+    () => ((narrationApplies || ownNarration) && narrationVoice ? {
       voice: narrationVoice, ensure: narrationEnsure, prepared: narrationPrepared,
+      // Own books are cut as the own-book route cuts them (English rules).
+      language: editionNarrationLanguage ?? 'en',
       endingCue: bookTransition ? { text: bookTransition.text, ensure: narrationEndingEnsure } : undefined,
     } : null),
-    [narrationApplies, narrationVoice, narrationEnsure, narrationPrepared, bookTransition, narrationEndingEnsure],
+    [narrationApplies, ownNarration, narrationVoice, narrationEnsure, narrationPrepared, bookTransition, narrationEndingEnsure, editionNarrationLanguage],
   )
+  /** Nothing can be heard here: the player refuses to start, and Listen from here's gutter ▶ is never offered. */
+  const listenPlaybackUnavailable = (privateBook && !ownNarration) || Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && streamedNarrationEdition ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable)
   const listen = useLabListen({
-    guardPlaybackRequests: chromeV2,
-    playbackUnavailable: Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
+    guardPlaybackRequests: true,
+    playbackUnavailable: listenPlaybackUnavailable,
     bookId: listenSource.bookId,
     bookTitle: book.bookTitle,
     chapterTitle: book.chapterLabel,
-    coverSrc: `/covers/v2/${book.bookId || 'bible'}.webp`,
+    // An own book has no cover on the server; asking for one would name it.
+    coverSrc: privateBook ? undefined : `/covers/v2/${book.bookId || 'bible'}.webp`,
     paragraphs: listenSource.paragraphs,
     followParagraphs: listenSource.followParagraphs,
     chapterNumber: listenSource.chapterNumber,
@@ -1131,28 +1700,51 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     onPlaybackSpeedChange: (audioSpeed) => updatePrefs({ ...prefs, audioSpeed }),
     titleClip: listenSource.audioTitle,
     onChapterComplete: () => audioChapterCompleteRef.current(),
+    nextChapterAudio: () => nextChapterAudioRef.current(),
   })
   listenSpeedRef.current = listen.speed
   listenPlayingRef.current = listen.playing
-  // Warm narration ahead of the reader: the chapter's opening on arrival, the
-  // next chapter's opening when the reader nears the end of this one.
+  // Listening to an own book is not reported: the report would carry its id.
+  useLabListenReport(listen.playing && !privateBook, listenSource.bookId || book.bookId || 'bible')
+  /** The Margin reader's newest paragraph in view at the foot: its page turns for reading time. */
+  const [continuousTailParagraph, setContinuousTailParagraph] = useState<number | undefined>(undefined)
+  useLabReadingYear({
+    userId: authUser?.id ?? null,
+    bookId: book.bookId || 'bible',
+    chapter: book.chapterNumber,
+    page: readingPageIndex,
+    // A user book is not counted in the reading year (no pages, no device
+    // time); with the reading-time ledger on, its time counts under the one
+    // private bucket, never its id.
+    onCover: privateBook || Boolean(chapterCoverTitle),
+    paused: tocOpen,
+    listeningRef: listenPlayingRef,
+    privateBook,
+    // Margin keeps no pages: a new paragraph scrolled into view at the foot is its page turn (10 Nov 2026).
+    turn: continuousReader ? continuousTailParagraph : undefined,
+  })
+  // Warm narration ahead of the listener: the next chapter's opening when the
+  // chapter being heard nears its end. It follows the chapter playing
+  // (listenSource), not the page shown, so browsing elsewhere while listening
+  // does not stop the next chapter from being prepared.
   const narrationCurrentParagraph = listen.playing && listen.follow.kind !== 'none'
     ? listen.follow.paragraphIndex
-    : (readingPages[readingPageIndex]?.paragraphIndex ?? 0)
+    : listenSource.chapterNumber === book.chapterNumber ? (readingPages[readingPageIndex]?.paragraphIndex ?? 0) : 0
   useNarrationPrefetch({
-    active: !temporaryHold && Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
+    // Never for an own book: it is narrated on demand only, nothing ahead.
+    active: !privateBook && !temporaryHold && Boolean(narrationOption) && listen.playing,
     voice: narrationVoice,
-    bookId: book.bookId || 'bible',
+    bookId: listenSource.bookId,
     editionKey: prefs.primaryEdition,
-    chapter: book.chapterNumber,
-    nextChapter: nextLabChapter(book.chapters, book.chapterNumber),
-    paragraphCount: book.paragraphs.length,
+    chapter: listenSource.chapterNumber,
+    nextChapter: nextLabChapter(listenSource.chapters, listenSource.chapterNumber),
+    paragraphCount: listenSource.paragraphs.length,
     currentParagraph: narrationCurrentParagraph,
     remainingSeconds: listen.chapterDuration > 0 ? Math.max(0, listen.chapterDuration - listen.chapterTime) / listen.speed : undefined,
     onPrepared: (target, results) => {
-      storeNarrationReplay({ bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, chapter: target, identity: narrationCacheIdentity }, results)
+      storeNarrationReplay({ bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: target, identity: narrationCacheIdentity }, results)
       const cache = warmedNarrationRef.current
-      const key = warmedNarrationKey(book.bookId || 'bible', prefs.primaryEdition, target, narrationVoice)
+      const key = warmedNarrationKey(listenSource.bookId, prefs.primaryEdition, target, narrationVoice)
       cache.delete(key)
       cache.set(key, results)
       while (cache.size > 4) cache.delete(cache.keys().next().value!)
@@ -1184,28 +1776,52 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Set by the first tap, key or wheel on the reader; a cloud record that
   // lands after that never moves the page.
   const interactionRef = useRef(false)
-  const { notePlace, initialPositionResolved, biblicalBook, finishedChapters, markChapterFinished, readPositionState } = useLabPositionSync({
+  // Every tap, key, wheel or touch anywhere in the document: a reader action
+  // after a saved-place restore was set owns the place from then on.
+  const interactionCountRef = useRef(0)
+  // The account's place being restored (labRestoreTarget.ts): no place is
+  // written until the settled page on screen holds it or the reader acts.
+  const restoreWatchRef = useRef<LabRestoreWatch | null>(null)
+  // The chapter whose page map is on screen, as restore targets are keyed.
+  const shownChapterKeyRef = useRef(labRestoreChapterKey(book.bookId, book.chapterNumber))
+  const restoreViewNow = (): LabRestoreView => ({
+    chapterKey: shownChapterKeyRef.current,
+    settled: pagesStableRef.current && !headFirstPending(nativeHeadOnlyRef.current),
+    pages: readingPagesRef.current,
+    pageIndex: readingPageIndexRef.current,
+  })
+  const watchRestore = (place: { paragraphIndex: number; wordIndex: number }, chapterKey: string) => {
+    restoreWatchRef.current = { ...place, chapterKey, interactions: interactionCountRef.current, retries: 0 }
+  }
+  const placeWritesSuspended = Boolean(temporaryHold) || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || tocOpen
+  const positionSync = useLabPositionSync({
     book,
     placeRef,
     readerStateRef,
-    sourceLocked: Boolean(source || (readerHandoff && !readerHandoff.resumeLatest)),
+    sourceLocked: Boolean(source || userBook || (readerHandoff && !readerHandoff.resumeLatest)),
     resumeLibraryBookId: readerHandoff?.resumeLatest ? readerHandoff.bookId : undefined,
-    resolveBeforePaint: chromeV2,
-    writesSuspended: Boolean(temporaryHold) || prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
-    authToken,
+    resolveBeforePaint: true,
+    writesSuspended: placeWritesSuspended,
+    // A user book never reads or writes the account's position record: as a
+    // signed-out reader it has no cloud to wait for, and its own place is
+    // kept on this device below (userBookPlace).
+    authToken: userBook ? null : authToken,
     // Same shape the reading-memory hook takes: an explicit token means an
     // explicit identity, so the position record is reconciled against the
     // same account the memory is.
-    ownerId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
+    ownerId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     interactedRef: interactionRef,
     onResolvedPlace: (place) => {
       restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
+      watchRestore(restorePlaceRef.current, labRestoreChapterKey(book.bookId, book.chapterNumber))
       placeRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
+      setContinuousAnchor(placeRef.current)
       restorePageRef.current = null
-      if (pagesStableRef.current && readingPagesRef.current.length > 0) {
+      // On a head-first map the full map restores it (applyNativePages).
+      if (pagesStableRef.current && readingPagesRef.current.length > 0 && !headFirstPending(nativeHeadOnlyRef.current)) {
         const idx = pageIndexForPlace(readingPagesRef.current, place.paragraphIndex, place.wordIndex)
         restorePlaceRef.current = null
-        pageAnchorRef.current = chromeV2 ? { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex } : pageAnchorOf(readingPagesRef.current[idx])
+        pageAnchorRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
         readingPageIndexRef.current = idx
         setReadingPageIndex(idx)
       }
@@ -1223,7 +1839,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const navigation = ++chapterNavigationRef.current
       setRemoteResumePending(true)
       void loadLabBookSource({
-        readingFirst: chromeV2,
+        readingFirst: true,
         bookId: selection.bookId,
         chapterNumber: place.sequentialChapter,
         primaryEditionKey: selection.primaryEditionKey,
@@ -1238,8 +1854,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         // measurement must never consume the incoming chapter's saved word.
         const paragraphIndex = Math.min(place.paragraphIndex, loaded.paragraphs.length - 1)
         const wordIndex = Math.min(place.wordIndex, Math.max(0, tokenizeHearingWords(loaded.paragraphs[paragraphIndex]).length - 1))
-        restorePlaceRef.current = { paragraphIndex, wordIndex }
-        placeRef.current = restorePlaceRef.current
+        // Bound to the incoming chapter: the outgoing chapter's paginator can
+        // still finish a measurement before this chapter commits, and must
+        // not take this place as its own (labRestoreTarget.ts).
+        const loadedKey = labRestoreChapterKey(loaded.bookId, loaded.chapterNumber)
+        restorePlaceRef.current = restoreTargetIn({ paragraphIndex, wordIndex }, loadedKey)
+        watchRestore(restorePlaceRef.current, loadedKey)
+        placeRef.current = { paragraphIndex, wordIndex }
+        setContinuousAnchor(placeRef.current)
         restorePageRef.current = null
         setReaderLoadError('')
         if (selection.prefs !== prefs) updatePrefs(selection.prefs)
@@ -1251,23 +1873,198 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       })
     },
   })
+  const { initialPositionResolved, biblicalBook, readPositionState } = positionSync
+  // A user book's place: the same tuple, kept on this device under the same
+  // suspensions, and saved a moment later to the reader's private copy in
+  // their account (userBook/ownSync.ts: never the shared position stores),
+  // so it opens there on their other devices. 'hide' sends what is waiting.
+  const userPlaceBookRef = useRef(book)
+  userPlaceBookRef.current = book
+  const notePlace = useCallback<typeof positionSync.notePlace>((reason, at) => {
+    // A restore that has not landed is retried, never saved as the page on screen.
+    const watch = restoreWatchRef.current
+    if (watch && holdPlaceWrite({ watch, reason, interactions: interactionCountRef.current, landed: restoreLanded(watch, restoreViewNow()) })) return
+    if (!userBook) { positionSync.notePlace(reason, at); return }
+    if (reason === 'hide') { flushOwnPlaces(); return }
+    if (placeWritesSuspended) return
+    const current = userPlaceBookRef.current
+    if (current.bookId !== userBook.bookId || current.paragraphs.length === 0) return
+    writeUserBookPlace(userBook.hex, {
+      chapterNumber: at?.sequentialChapter ?? current.chapterNumber,
+      paragraphIndex: at?.paragraphIndex ?? placeRef.current.paragraphIndex,
+      wordIndex: at?.wordIndex ?? placeRef.current.wordIndex,
+      updatedAt: Date.now(),
+      // The rules of the conversion this place is in: converted again, the book keeps its words where they were.
+      converter: userBook.edition.converter,
+    })
+    // A PDF's place is the one it shares with its Original pages (userBook/pdfEditions.ts).
+    if (userBook.kind === 'pdf') noteOwnPlace(userBook.hex, userBook.edition.chapters, { pdf: { pages: userBook.pdfPages } })
+    else noteOwnPlace(userBook.hex, userBook.edition.chapters)
+  // positionSync.notePlace is the stable callback the hook returns.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userBook, placeWritesSuspended, positionSync.notePlace])
+  /** Shows another desktop layout at the reader's place: the incoming view opens at the word the outgoing one was at. */
+  const switchDesktopLayoutAtPlace = (layout: DesktopReaderLayout) => {
+    const classic = layout === 'two-page'
+    const compare = layout === 'compare'
+    const anchor = { ...placeRef.current }
+    chapterNavigationRef.current += 1
+    readerStateRef.current = { ...readerStateRef.current, readerMode: compare ? 'compare' : 'read' }
+    setDesktopCompareActive(compare)
+    setPrivateDesktopClassic(classic)
+    if (!classic && !compare) setContinuousAnchor(anchor)
+    else {
+      pageAnchorRef.current = anchor
+      restorePlaceRef.current = restoreTargetIn(anchor, labRestoreChapterKey(book.bookId, book.chapterNumber))
+    }
+    return anchor
+  }
+  // A reader who has chosen no layout reads the device's default as the device
+  // turns (deviceLayoutFor). Called from the surface sync in the same batch that
+  // sets the surface: when the desktop surface stays on screen (an iPad turned
+  // between Two-page and Margin), the incoming layout opens at the reader's
+  // place; when the desktop surface appears, it mounts in that layout.
+  const applyDeviceLayoutRef = useRef((_device: { layout: DesktopReaderLayout; chosen: boolean }, _desktopStays: boolean, _fromPhone: boolean) => {})
+  applyDeviceLayoutRef.current = ({ layout: deviceLayout, chosen }, desktopStays, fromPhone) => {
+    if (!sharedReader) return
+    const layout = chosen ? desktopLayoutNow : deviceLayout
+    // The Margin reader mounting as the phone reader goes (a phone turned
+    // sideways) opens at the phone's place, not the place the page opened at.
+    if (fromPhone && layout === 'margin') setContinuousAnchor({ ...placeRef.current })
+    if (layout === desktopLayoutNow) return
+    if (desktopStays) { switchDesktopLayoutAtPlace(layout); return }
+    setDesktopCompareActive(layout === 'compare')
+    setPrivateDesktopClassic(layout === 'two-page')
+  }
+  // The phone reader taking over from the Margin reader (a phone turned
+  // upright again) pages to the word the Margin reader was at: its own page
+  // anchor is still the one it had before the Margin reader scrolled on.
+  const phoneFromMarginRef = useRef(() => {})
+  phoneFromMarginRef.current = () => {
+    if (!sharedReader || desktopLayoutNow !== 'margin') return
+    const anchor = { ...placeRef.current }
+    pageAnchorRef.current = anchor
+    restorePlaceRef.current = restoreTargetIn(anchor, labRestoreChapterKey(book.bookId, book.chapterNumber))
+  }
+  const deviceLayoutRef = useRef(deviceLayoutFor)
+  deviceLayoutRef.current = deviceLayoutFor
+  const phoneCompareRef = useRef(mobileCompareActive)
+  phoneCompareRef.current = mobileCompareActive
+  const surfaceSyncRef = useRef(() => {})
+  const chooseSharedDesktopLayout = (layout: 'margin' | 'two-page' | 'compare') => {
+    if (layout === 'compare' && !desktopCompareEnabled) {
+      if (desktopCompareChoiceAvailable) { setCompareFromLayout(true); setSuperSheet('compareEdition') }
+      return
+    }
+    const classic = layout === 'two-page'
+    const compare = layout === 'compare'
+    storeDesktopReaderLayout(compareViewBookId, layout)
+    if (privateDesktopClassic === classic && desktopCompareActive === compare) { setSuperSheet(null); return }
+    rememberCompareView(compare)
+    const anchor = switchDesktopLayoutAtPlace(layout)
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href)
+      if (classic) url.searchParams.set('view', 'two-page')
+      else if (compare) url.searchParams.set('view', 'compare')
+      else url.searchParams.delete('view')
+      window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
+    }
+    notePlace('mode-change', anchor)
+    setSuperSheet(null)
+  }
+  // Leaving or hiding the page sends the own book's place still waiting (keepalive).
+  useEffect(() => {
+    if (!userBook) return
+    const onVisibility = () => { if (document.visibilityState === 'hidden') flushOwnPlaces() }
+    window.addEventListener('pagehide', flushOwnPlaces)
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => {
+      window.removeEventListener('pagehide', flushOwnPlaces)
+      document.removeEventListener('visibilitychange', onVisibility)
+    }
+  }, [userBook])
+  // An own book opened without a saved place is being read from its start: it
+  // joins Currently reading as a Tinct book does when it is opened. The mark
+  // carries no reading time (updatedAt 0), so it is never sent to the account
+  // and never outranks a place read on another device.
+  const userBookOpenNotedRef = useRef(false)
+  useEffect(() => {
+    if (!userBook || userBook.place || userBookOpenNotedRef.current || placeWritesSuspended) return
+    userBookOpenNotedRef.current = true
+    if (readUserBookPlace(userBook.hex, userBook.edition)) return
+    writeUserBookPlace(userBook.hex, { chapterNumber: userBookBoot?.book.chapterNumber ?? 1, paragraphIndex: 0, wordIndex: 0, updatedAt: 0 })
+  }, [userBook, userBookBoot, placeWritesSuspended])
+  const [userBookFinished, setUserBookFinished] = useState<Set<number>>(() => new Set())
+  const finishedChapters = userBook ? userBookFinished : positionSync.finishedChapters
+  const markChapterFinished = useCallback((chapterNumber: number) => {
+    if (!userBook) { positionSync.markChapterFinished(chapterNumber); return }
+    setUserBookFinished(current => current.has(chapterNumber) ? current : new Set([...current, chapterNumber]))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userBook, positionSync.markChapterFinished])
   const initialResolving = !initialPositionResolved || remoteResumePending
-  const positionWritesSuspended = Boolean(temporaryHold) || prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
+  const positionWritesSuspended = Boolean(temporaryHold) || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
+  const continuousEpoch: ContinuousReaderEpoch = {
+    bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition,
+    chapterNumber: book.chapterNumber, navigation: chapterNavigationRef.current,
+  }
+  const continuousEpochRef = useRef(continuousEpoch)
+  continuousEpochRef.current = continuousEpoch
+  const continuousVisibleRef = useRef(continuousAnchor)
+  const currentContinuousEpoch = (): ContinuousReaderEpoch => ({ ...continuousEpochRef.current, navigation: chapterNavigationRef.current })
+  const continuousReady = book.paragraphs.length > 0 && !initialResolving && !handoffWritesSuspended
+  const onContinuousLanded = (reported: ContinuousReaderEpoch, anchor: { paragraphIndex: number; wordIndex: number }) => {
+    if (!acceptContinuousReaderPlace(reported, currentContinuousEpoch(), continuousReady, placeWritesSuspended, anchor, book.paragraphs)) return
+    continuousVisibleRef.current = anchor
+    const watch = restoreWatchRef.current
+    if (watch?.chapterKey === labRestoreChapterKey(book.bookId, book.chapterNumber)
+      && watch.paragraphIndex === anchor.paragraphIndex && watch.wordIndex === anchor.wordIndex) restoreWatchRef.current = null
+  }
+  // Margin keeps no page list: the chapter's share read is the last word in
+  // view (the page tail Two-page uses), and scrolling the chapter's last line
+  // into view finishes it (Anders, 5 Nov 2026: 2 Maccabees 11 read to its end
+  // showed 0% in Contents). Neither touches the saved place.
+  const [continuousTail, setContinuousTail] = useState<{ key: string; paragraphIndex: number; wordIndex: number } | null>(null)
+  const continuousContentKey = `${continuousEpoch.bookId}/${continuousEpoch.editionKey}/${continuousEpoch.chapterNumber}`
+  const continuousPercent = continuousTail?.key === continuousContentKey
+    ? labChapterProgress({ paragraphs: book.paragraphs, pages: [], pageIndex: 0, paragraphIndex: continuousTail.paragraphIndex, wordIndex: continuousTail.wordIndex + 1 }).percent
+    : undefined
+  const onContinuousTail = (reported: ContinuousReaderEpoch, anchor: { paragraphIndex: number; wordIndex: number }) => {
+    if (!acceptContinuousReaderPlace(reported, currentContinuousEpoch(), continuousReady, false, anchor, book.paragraphs)) return
+    const key = `${reported.bookId}/${reported.editionKey}/${reported.chapterNumber}`
+    setContinuousTailParagraph(anchor.paragraphIndex)
+    setContinuousTail(previous => previous?.key === key && previous.paragraphIndex === anchor.paragraphIndex && previous.wordIndex === anchor.wordIndex ? previous : { key, ...anchor })
+  }
+  const onContinuousReadToEnd = (reported: ContinuousReaderEpoch, anchor: { paragraphIndex: number; wordIndex: number }) => {
+    if (finishedChapters.has(book.chapterNumber)) return
+    if (!acceptContinuousReaderPlace(reported, currentContinuousEpoch(), continuousReady, placeWritesSuspended, anchor, book.paragraphs)) return
+    markChapterFinished(book.chapterNumber)
+  }
+  const onContinuousVisible = (reported: ContinuousReaderEpoch, anchor: { paragraphIndex: number; wordIndex: number }) => {
+    if (!acceptContinuousReaderPlace(reported, currentContinuousEpoch(), continuousReady, placeWritesSuspended, anchor, book.paragraphs)) return
+    continuousVisibleRef.current = anchor
+    // A human scroll while audio plays belongs to the visible reader place;
+    // the spoken cursor remains in listen.follow until they choose to follow.
+    if (listen.playing && !browseWhileListeningRef.current) return
+    placeRef.current = anchor
+    notePlace('page-turn', anchor)
+  }
   // The library's first paint comes from a snapshot (labLibraryBoot.ts). The
   // reader knows the account and the place: hand them over when leaving for
   // the library and whenever the page is hidden, so the library never has to
   // wait for the network to show "Reading now".
   const rememberLibraryPlace = useCallback(() => {
-    if (positionWritesSuspended || readerLoadError || book.paragraphs.length === 0) return
+    // On the desktop an own book read here leads the library's first paint too, so its
+    // Continue opens what was read last (continueLatest.ts). This device only; phones unchanged.
+    if ((userBook && isPhone) || positionWritesSuspended || readerLoadError || book.paragraphs.length === 0) return
     const userId = authUser?.id ?? (authToken === undefined ? readCachedSupabaseUser()?.id ?? null : null)
     writeLabLibraryBootSnapshot(snapshotWithReaderPlace(readLabLibraryBootSnapshot(), {
       userId,
-      bookId: book.bookId || 'bible',
+      bookId: userBook ? userBook.bookId : book.bookId || 'bible',
       title: book.bookTitle,
       chapterLabel: book.chapterLabel,
       now: Date.now(),
     }))
-  }, [authToken, authUser?.id, book.bookId, book.bookTitle, book.chapterLabel, book.paragraphs.length, positionWritesSuspended, readerLoadError])
+  }, [authToken, authUser?.id, book.bookId, book.bookTitle, book.chapterLabel, book.paragraphs.length, isPhone, positionWritesSuspended, readerLoadError, userBook])
   const rememberLibraryPlaceRef = useRef(rememberLibraryPlace)
   rememberLibraryPlaceRef.current = rememberLibraryPlace
   useEffect(() => {
@@ -1281,7 +2078,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
   }, [])
 
-  const rowsForQuickCatalogue = useCallback((catalogue: QuickBookCatalogueEntry[]) => {
+  const rowsForQuickCatalogue = useCallback((catalogue: QuickBookCatalogueEntry[], added: QuickAddedBooks) => {
     try {
       const viewer = authToken !== undefined
         ? (authToken ? (authUser?.id ?? null) : null)
@@ -1294,6 +2091,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         memory: readDeviceReadingMemory(),
         viewer,
         completedBookIds: quickBookCompletedIds(localStorage),
+        added,
+        // My shelf's removals, as the library last synced them here (readingNow.ts).
+        membership: readShelfMembership(viewer),
       })
     } catch {
       return []
@@ -1305,7 +2105,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setReaderControlsVisible(true)
       return
     }
-    setGearOpen(false)
     setTocOpen(false)
     setSuperMenuOpen(false)
     setSuperSheet(null)
@@ -1313,20 +2112,58 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setBookSwitcherError('')
     setBookSwitcherOpen(true)
     const fallback = quickCatalogueFallback(book)
-    setBookSwitcherRows(rowsForQuickCatalogue(fallback))
+    // The built catalogue never lists books added from the public catalogue
+    // (`pd-…`): their titles, painted covers and chapters come from the books
+    // registered on this page and, when the reading history names an added
+    // book, the public-books index (the library merges the same index).
+    const registered: QuickAddedBooks = { entries: registeredPublicEntries(), complete: false }
+    let historyNamesAddedBook = false
+    try { historyNamesAddedBook = mentionsPublicBook(localStorage.getItem('tinct-lab-position'), JSON.stringify(readDeviceReadingMemory())) } catch { /* registered books still apply */ }
+    const addedReady: Promise<QuickAddedBooks> = historyNamesAddedBook
+      ? fetchPublicBooksIndex().then(index => index
+        ? { entries: [...registered.entries, ...index], complete: true }
+        : registered)
+      : Promise.resolve(registered)
+    // The reader's own books being read join the list exactly like Tinct's books
+    // (userBook/ownShelf.ts: this account's records on this device; nothing is sent).
+    let tinctRows = rowsForQuickCatalogue(fallback, registered)
+    let ownRows: QuickBookRow[] = []
+    const paint = () => setBookSwitcherRows(withOwnBookRows(tinctRows, ownRows))
+    paint()
     setBookSwitcherLoading(true)
+    const owner = signedIn ? (authUser?.id ?? readCachedSupabaseUser()?.id ?? null) : null
+    // This device's own books paint at once; the account's (a book added or read on
+    // another device) follow, exactly as the library lists them (ownSync.ts).
+    let ownSettled = false
+    void readOwnShelf(owner)
+      .then(books => { if (!ownSettled) { ownRows = ownQuickBookRows(ownReadingNow(books)); paint() } }, () => {})
+    // Refresh removals even when this browser enters the reader directly,
+    // without first visiting the Library that normally syncs membership.
+    const membershipReady = loadShelfMembership().catch(() => null)
+    const ownReady = ownReadingNowWithAccount(owner, { token: authToken ?? undefined })
+      .then(books => { ownSettled = true; ownRows = ownQuickBookRows(books); paint() }, () => {})
     void fetch('/lab/catalogue.json')
       .then(async response => {
         if (!response.ok) throw new Error(String(response.status))
         const payload = await response.json() as { books?: QuickBookCatalogueEntry[] }
         if (!Array.isArray(payload.books)) throw new Error('Invalid catalogue')
-        setBookSwitcherRows(rowsForQuickCatalogue(payload.books))
+        const [added] = await Promise.all([addedReady, membershipReady])
+        tinctRows = rowsForQuickCatalogue(payload.books, added)
+        paint()
       })
       .catch(() => setBookSwitcherError('Showing books saved on this device.'))
-      .finally(() => setBookSwitcherLoading(false))
-  }, [book, readerControlsVisible, rowsForQuickCatalogue, showPhoneChrome, tocOpen])
+      .finally(() => { void ownReady.finally(() => setBookSwitcherLoading(false)) })
+  }, [authToken, authUser?.id, book, readerControlsVisible, rowsForQuickCatalogue, showPhoneChrome, signedIn, tocOpen])
 
   const switchQuickBook = useCallback((row: QuickBookRow) => {
+    if (row.href) {
+      // A reader's own book opens at its own URL, at the place kept on this device.
+      notePlace('hide')
+      rememberLibraryPlace()
+      setBookSwitcherOpen(false)
+      window.location.assign(sharedReader ? sharedReaderDestination(row.href) : row.href)
+      return
+    }
     const intent = continueHandoff(row.target)
     if (!intent) {
       setBookSwitcherError('That saved place is temporarily unavailable.')
@@ -1341,8 +2178,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       return
     }
     setBookSwitcherOpen(false)
-    window.location.assign(`/reader${readerPreviewSearch(window.location.search)}`)
-  }, [notePlace, rememberLibraryPlace])
+    const destination = `/reader${readerPreviewSearch(window.location.search)}`
+    window.location.assign(sharedReader ? sharedReaderDestination(destination) : destination)
+  }, [notePlace, rememberLibraryPlace, sharedReader])
 
   useEffect(() => {
     const root = labRootRef.current
@@ -1360,6 +2198,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       root.removeEventListener('touchstart', mark, options)
     }
   }, [])
+  useEffect(() => {
+    const count = () => { interactionCountRef.current += 1 }
+    const options: AddEventListenerOptions = { capture: true, passive: true }
+    const events = ['pointerdown', 'keydown', 'wheel', 'touchstart'] as const
+    for (const name of events) document.addEventListener(name, count, options)
+    return () => { for (const name of events) document.removeEventListener(name, count, options) }
+  }, [])
 
   const editionTupleRef = useRef(`${prefs.primaryEdition}\u0000${prefs.compareEdition}\u0000${prefs.compareOpen}`)
   useEffect(() => {
@@ -1368,13 +2213,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     editionTupleRef.current = next
     readerStateRef.current = {
       ...readerStateRef.current,
-      primaryEditionKey: prefs.primaryEdition,
+      primaryEditionKey: placeEditionKeyRef.current,
       compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition
         ? prefs.compareEdition
         : undefined,
     }
     notePlace('mode-change')
   }, [notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition])
+  // The carried place of an edition switch between unaligned editions, saved once its text is on screen.
+  const editionSwitchNoteRef = useRef(false)
+  useEffect(() => {
+    if (!editionSwitchNoteRef.current) return
+    editionSwitchNoteRef.current = false
+    notePlace('mode-change')
+  }, [notePlace, book.paragraphs])
 
   useLayoutEffect(() => {
     if (!readerHandoff || positionWritesSuspended || handoffActivatedRef.current) return
@@ -1387,7 +2239,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [book.chapterNumber, notePlace, positionWritesSuspended, readerHandoff])
 
   useEffect(() => {
-    document.title = LAB_COPY.documentTitle
+    document.title = userBook ? `${userBook.edition.title} · ${LAB_COPY.documentTitle}` : LAB_COPY.documentTitle
     const existing = document.querySelector('meta[name="robots"]')
     if (existing) {
       existing.setAttribute('content', 'noindex, noarchive')
@@ -1422,7 +2274,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     root.setAttribute('data-theme', resolvedTheme)
     root.style.colorScheme = resolvedDarkMode ? 'dark' : 'light'
-    themeColor.content = resolvedTheme === 'dark' ? '#171411' : resolvedTheme === 'book' ? '#e7dcc7' : '#f2eee4'
+    themeColor.content = LAB_THEME_PAPER[resolvedTheme]
     root.style.backgroundColor = themeColor.content
     document.body.style.backgroundColor = themeColor.content
     return () => {
@@ -1442,6 +2294,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       chapterNavigationRef.current += 1
       setChapterCoverTitle(null)
       setBook(source)
+      return
+    }
+    // A user book mounts with its chapter in hand and has one edition; its
+    // chapter loads go through the navigation handlers.
+    if (userBook) {
+      markReaderLoadTrace('required_text_ready', { outcome: 'success' })
       return
     }
     let cancelled = false
@@ -1473,29 +2331,81 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? prefs.compareEdition
       : undefined
     markReaderLoadTrace('required_text_start', { startOf: 'required_text' })
-    loadLabBookSource({
-        readingFirst: chromeV2,
+    // The paginators measure a chapter once with dictionary breaks instead of
+    // once without and again when the patterns land. They are small and
+    // preloaded with the page, so waiting (bounded) costs the text nothing.
+    const hyphenLang = hyphenLangForEdition(primaryEditionKey)
+    const hyphensSettled = hyphenLang
+      ? Promise.race([loadHyphenator(hyphenLang), new Promise<void>(resolve => window.setTimeout(resolve, LAB_HYPHENATION_WAIT_MS))])
+      : null
+    withTextRetries(() => loadLabBookSource({
+        readingFirst: true,
       bookId: activeBookId,
       chapterNumber: wanted,
       primaryEditionKey,
       compareEditionKey,
+      compareAfterFirstPage: !firstPageShownRef.current && !compareOnScreenRef.current,
       audioEditionKey: bookEditions.some(edition => edition.key === audioEditionKey && edition.hasAudio) ? audioEditionKey : undefined,
-    }).then((loaded) => {
+    }), () => !cancelled && navigation === chapterNavigationRef.current).then(loaded => hyphensSettled ? hyphensSettled.then(() => loaded) : loaded)
+    // The book's edition anchors, for a switch between editions whose paragraphs do not line up (cached per book).
+    .then(loaded => (activeBookId === 'bible' ? [loaded, null] as const : loadEditionAnchors(activeBookId).then(anchors => [loaded, anchors] as const, () => [loaded, null] as const)))
+    .then(([loaded, anchorFile]) => {
       if (cancelled || navigation !== chapterNavigationRef.current) return
       // Bible's legacy loader has a Genesis fallback for network failures;
       // never let that replace a requested Bible chapter. Generic books may
       // safely normalize an invalid saved chapter to their own first chapter.
       if (activeBookId === 'bible' && loaded.chapterNumber !== wanted && wanted !== 1) return
-      if (restorePlaceRef.current) {
-        const paragraphIndex = restorePlaceRef.current.paragraphIndex
+      const loadedTarget = restoreTargetFor(restorePlaceRef.current, labRestoreChapterKey(loaded.bookId, loaded.chapterNumber))
+      if (loadedTarget) {
+        const paragraphIndex = loadedTarget.paragraphIndex
         if (paragraphIndex >= loaded.paragraphs.length) {
           restorePlaceRef.current = { paragraphIndex: 0, wordIndex: 0 }
           placeRef.current = restorePlaceRef.current
         }
       }
+      // Editions whose paragraphs do not line up share only the chapter: the place is carried as how far into the
+      // chapter the reader is, by words (Anders, 11 Nov 2026). Going straight back restores the place left, exactly.
+      editionSwitchPlaceRef.current = null
+      const shown = shownBookRef.current
+      const fromEdition = chapterEditionKey(shown.paragraphs)
+      const toEdition = chapterEditionKey(loaded.paragraphs)
+      const paragraphsAlign = (key: string) => (getBook(activeBookId)?.editions || bookEditions).find(edition => edition.key === key)?.aligned !== false
+      // A saved place still being restored into this chapter owns the place. The Margin reader keeps its opening
+      // target for the visit (nothing paginates to consume it), so there only a watched restore counts.
+      const restoring = continuousReader
+        ? restoreWatchRef.current?.chapterKey === labRestoreChapterKey(loaded.bookId, loaded.chapterNumber)
+        : Boolean(loadedTarget)
+      if (activeBookId !== 'bible' && !restoring && fromEdition && toEdition && fromEdition !== toEdition
+        && shown.bookId === loaded.bookId && shown.chapterNumber === loaded.chapterNumber
+        && shown.paragraphs.length > 0 && loaded.paragraphs.length > 0
+        && !(paragraphsAlign(fromEdition) && paragraphsAlign(toEdition))) {
+        const left = { paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex }
+        const count = (text: string) => tokenizeHearingWords(text).length
+        const sourceCounts = shown.paragraphs.map(count)
+        const pages = readingPagesRef.current
+        const back = editionSwitchReturn({ bookId: activeBookId, chapterNumber: loaded.chapterNumber, editionKey: fromEdition, targetEditionKey: toEdition, place: left }, {
+          // Still on the page the switch landed on: the reader has not moved.
+          samePlace: (landed, current) => (landed.paragraphIndex === current.paragraphIndex && landed.wordIndex === current.wordIndex)
+            || (pages.length > 0 && pageIndexForPlace(pages, landed.paragraphIndex, landed.wordIndex) === pageIndexForPlace(pages, current.paragraphIndex, current.wordIndex)),
+        })
+        const inText = back && back.paragraphIndex < loaded.paragraphs.length ? back : null
+        const preface = { source: leadingPreface(shown.paragraphs), target: leadingPreface(loaded.paragraphs) }
+        const targetCounts = loaded.paragraphs.map(count)
+        const anchors = inText ? null : chapterAnchorMap(anchorFile, {
+          bookId: activeBookId, chapterNumber: loaded.chapterNumber,
+          from: { edition: fromEdition, counts: sourceCounts }, to: { edition: toEdition, counts: targetCounts },
+          aligned: paragraphsAlign,
+        })
+        const place = inText ?? (anchors
+          ? mapPlaceThroughAnchors(anchors, sourceCounts, targetCounts, left)
+          : mapPlaceByWords(sourceCounts, targetCounts, left, preface))
+        editionSwitchPlaceRef.current = { content: loaded.paragraphs, place }
+        rememberEditionSwitch(inText ? null : {
+          bookId: activeBookId, chapterNumber: loaded.chapterNumber, fraction: chapterWordFraction(sourceCounts, left, preface.source),
+          from: { editionKey: fromEdition, ...left }, to: { editionKey: toEdition, ...place },
+        })
+      }
       setReaderLoadError('')
-      setChapterCoverTitle(current => initialFrontispieceRef.current ? loaded.bookTitle : current)
-      initialFrontispieceRef.current = false
       setBook(loaded)
       markReaderLoadTrace('required_text_ready', { endOf: 'required_text', outcome: 'success' })
     }).catch((error) => {
@@ -1506,7 +2416,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       }
     })
     return () => { cancelled = true }
-  }, [source, book.bookId, bookEditions, prefs.primaryEdition, prefs.compareEdition, prefs.compareOpen, audioEditionKey])
+    // modern.refresh: a Modern English chapter shown in its original text is now written; reload it in place.
+  }, [source, userBook, book.bookId, bookEditions, prefs.primaryEdition, prefs.compareEdition, prefs.compareOpen, audioEditionKey, modern.refresh])
 
   useEffect(() => {
     markReaderLoadTrace('fonts_start', { startOf: 'fonts' })
@@ -1518,13 +2429,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [])
 
   useEffect(() => {
-    if (!book.supplement) return
+    const pending = book.supplement
+    // Audio timings and the cast are not on the opening page: they are asked
+    // for once it is on screen.
+    if (!pending || !firstPageShown) return
     let cancelled = false
-    void book.supplement.then(supporting => {
-      if (!cancelled) setBook(current => current === book ? { ...current, ...supporting, supplement: undefined } : current)
+    // Keyed by the load's own request, not the book object: the Compare
+    // edition (below) may land first and replace the object, same load.
+    void pending().then(supporting => {
+      if (!cancelled) setBook(current => current.supplement === pending ? { ...current, ...supporting, supplement: undefined } : current)
     }).catch(() => {})
     return () => { cancelled = true }
-  }, [book])
+  }, [book, firstPageShown])
 
   const openAtEndRef = useRef(false)
 
@@ -1536,11 +2452,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   useEffect(() => {
     if (typeof window === 'undefined') return
+    let phoneChrome: boolean | null = null
     const sync = () => {
-      const phone = readPhoneSurface(layoutOverride)
+      const device = desktopLayoutDevice()
+      const deviceLayout = deviceLayoutRef.current(device)
+      const handheld = handheldMarginFor(device, deviceLayout.layout, phoneCompareRef.current)
+      const override = surfaceOverride(handheld)
+      const phone = readPhoneSurface(override)
+      const nextPhoneChrome = readPhoneFooter(override, phone)
+      if (!nextPhoneChrome) applyDeviceLayoutRef.current(deviceLayout, phoneChrome === false, phoneChrome === true)
+      else if (phoneChrome === false) phoneFromMarginRef.current()
+      phoneChrome = nextPhoneChrome
+      setHandheldMargin(handheld)
+      setMarginRoom(marginReaderRoom(device, handheld))
       setIsPhone(phone)
-      setShowPhoneChrome(readPhoneFooter(layoutOverride, phone))
+      setShowPhoneChrome(nextPhoneChrome)
+      setDesktopDefaultFontSize(labDesktopDefaultFontSize(window.innerWidth))
     }
+    surfaceSyncRef.current = sync
     sync()
     const mq = typeof window.matchMedia === 'function' ? window.matchMedia(PHONE_QUERY) : null
     mq?.addEventListener('change', sync)
@@ -1550,8 +2479,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       mq?.removeEventListener('change', sync)
       window.removeEventListener('resize', sync)
       window.removeEventListener('orientationchange', sync)
+      surfaceSyncRef.current = () => {}
     }
+  // handheldMarginFor and surfaceOverride read only props fixed for the page.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layoutOverride])
+  // A book switch, or Compare turned on or off on the phone, can move a
+  // handheld between the phone reader and the Margin reader.
+  useLayoutEffect(() => { surfaceSyncRef.current() }, [desktopLayoutNow, mobileCompareActive])
 
   const didBudgetPageRef = useRef(false)
   // Edition titles may differ for the same chapter. Treat only book/chapter
@@ -1559,12 +2494,48 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const chapterKey = `${book.bookId}:${book.chapterNumber}`
   const chapterKeyRef = useRef(chapterKey)
   const chapterContentRef = useRef(readerParagraphs)
+  const chapterPagingRef = useRef(measuredPaging)
 
   useLayoutEffect(() => {
+    // An edition switch between unaligned editions: its place takes effect with its text, in this commit.
+    const switched = editionSwitchPlaceRef.current?.content === book.paragraphs ? editionSwitchPlaceRef.current.place : null
+    if (switched) {
+      editionSwitchPlaceRef.current = null
+      placeRef.current = { ...switched }
+      pageAnchorRef.current = { ...switched }
+      restorePageRef.current = null
+      // The opening target belonged to the edition left: it must not be read against this text.
+      restorePlaceRef.current = null
+      editionSwitchNoteRef.current = true
+    }
+    if (continuousReader) {
+      shownChapterKeyRef.current = labRestoreChapterKey(book.bookId, book.chapterNumber)
+      if (chapterKeyRef.current !== chapterKey || chapterContentRef.current !== readerParagraphs) {
+        chapterKeyRef.current = chapterKey
+        chapterContentRef.current = readerParagraphs
+        const incoming = chapterLandingRef.current === 'end' && landingChapterRef.current === book.chapterNumber
+          ? { paragraphIndex: Math.max(0, book.paragraphs.length - 1), wordIndex: Math.max(0, tokenizeHearingWords(book.paragraphs[book.paragraphs.length - 1] || '').length - 1) }
+          : { ...placeRef.current }
+        placeRef.current = incoming
+        setContinuousAnchor(incoming)
+        chapterLandingRef.current = null
+        landingChapterRef.current = null
+      }
+      return
+    }
     const chapterChanged = chapterKeyRef.current !== chapterKey
     const contentChanged = chapterContentRef.current !== readerParagraphs
+    const pagingChanged = chapterPagingRef.current !== measuredPaging
     chapterKeyRef.current = chapterKey
+    shownChapterKeyRef.current = labRestoreChapterKey(book.bookId, book.chapterNumber)
     chapterContentRef.current = readerParagraphs
+    chapterPagingRef.current = measuredPaging
+    // Same chapter, same text, same paging: nothing this effect lays out has
+    // changed (on the desktop, a resumed phone-Compare flag clearing itself
+    // after load). Re-estimating here replaced the measured map with a draft
+    // one under the same page index, so a reload at the chapter's last page
+    // showed the page before it (check-chapter-preview, desktop Compare).
+    if (!chapterChanged && !contentChanged && !pagingChanged && pagesStableRef.current && readingPagesRef.current.length > 0) return
     if (chapterChanged || contentChanged) {
       pagesStableRef.current = false
       didBudgetPageRef.current = false
@@ -1586,7 +2557,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const naturalNext = settledPrimaryPages
       ?? swapped
       ?? chapterHearingPages(readerParagraphs, canUseLabPageBudget(budget) ? budget : null)
-    const next = withComparePassage(explicitStartAnchor ? splitLabPagesAtAnchor(naturalNext, explicitStartAnchor) : naturalNext, readerParagraphs)
+    const next = withComparePassage(naturalNext, readerParagraphs)
     swapCommittedRef.current = null
     if (settledPrimaryPages || swapped) {
       if (settledPrimaryPages) mobilePrimaryPagesRef.current = null
@@ -1607,15 +2578,21 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (page) placeRef.current = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
       readingPageIndexRef.current = last
       setReadingPageIndex(last)
+    } else if (switched && !chapterChanged) {
+      // The draft map's page for the carried place; the measured map keeps it by the same anchor.
+      const idx = pageIndexForPlace(next, switched.paragraphIndex, switched.wordIndex)
+      readingPageIndexRef.current = idx
+      setReadingPageIndex(idx)
     } else if (chapterChanged) {
-      if (restorePlaceRef.current) {
-        const place = restorePlaceRef.current
+      const target = restoreTargetFor(restorePlaceRef.current, shownChapterKeyRef.current)
+      if (target) {
+        const place = target
         restorePlaceRef.current = null
         placeRef.current = place
         const idx = pageIndexForPlace(next, place.paragraphIndex, place.wordIndex)
         // A draft page boundary is not the saved reading place. Carry the
         // exact word through to the font-settled paginator on refresh.
-        pageAnchorRef.current = chromeV2 ? place : pageAnchorOf(next[idx])
+        pageAnchorRef.current = place
         readingPageIndexRef.current = idx
         setReadingPageIndex(idx)
       } else if (!measuredPaging && restorePageRef.current != null) {
@@ -1635,13 +2612,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         setReadingPageIndex(0)
       }
     }
-  }, [book.chapterNumber, book.bookId, chapterKey, mobileCompareActive, readerParagraphs, measuredPaging])
+  }, [book.chapterNumber, book.bookId, chapterKey, mobileCompareActive, readerParagraphs, measuredPaging, continuousReader])
 
   useEffect(() => {
     mobilePrimaryPagesRef.current = null
-  }, [book.bookId, book.chapterNumber, readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
+  }, [book.bookId, book.chapterNumber, readingFont, readingFontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
 
   useLayoutEffect(() => {
+    if (continuousReader) return
     if (measuredPaging) return
     if (!pageMetrics || didBudgetPageRef.current || pagesStableRef.current) return
     if (readerParagraphs.length === 0) return
@@ -1649,7 +2627,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!canUseLabPageBudget(budget)) return
     didBudgetPageRef.current = true
     const naturalNext = chapterHearingPages(readerParagraphs, budget)
-    const next = withComparePassage(explicitStartAnchor ? splitLabPagesAtAnchor(naturalNext, explicitStartAnchor) : naturalNext, readerParagraphs)
+    const next = withComparePassage(naturalNext, readerParagraphs)
     const keep = pageAnchorRef.current
     const landing = chapterLandingRef.current
     readingPagesRef.current = next
@@ -1671,31 +2649,150 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     pagesStableRef.current = false
     setSettleIndex(0)
     settleIndexRef.current = 0
-  }, [pageMetrics, readerParagraphs, measuredPaging])
+  }, [pageMetrics, readerParagraphs, measuredPaging, continuousReader])
 
   useLayoutEffect(() => {
+    if (continuousReader) return
     didBudgetPageRef.current = false
     pagesStableRef.current = false
     unmeasuredTriesRef.current = 0
     setSettleIndex(measuredPaging ? null : 0)
     settleIndexRef.current = measuredPaging ? null : 0
-  }, [readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, measuredPaging])
+  }, [readingFont, readingFontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, measuredPaging, continuousReader])
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
   const lastAdjustRef = useRef<LabPageAdjust>(null)
   const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
-  const highlightsApi = useLabHighlights(book.chapterNumber, chromeV2 ? { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs } : undefined)
-  const primaryCharacters = useCharacterCards(book.bookId, prefs.primaryEdition)
+  // A shared highlight link (/q/{id} → /reader?…&share=id): its passage is
+  // painted for this visit only, never saved to the visitor's highlights.
+  const [sharedHighlight, setSharedHighlight] = useState<LabHighlight | null>(null)
+  useEffect(() => {
+    const link = sharedLinkForPage()
+    if (!link) return
+    trackFunnel('share_link_opened', { share_id: link.id, referrer_domain: link.ref || null })
+    let active = true
+    fetch(apiUrl(`/api/share/${link.id}`)).then(response => response.ok ? response.json() : null).then((record: { bookId?: string; editionKey?: string; chapterNumber?: number; paragraphIndex?: number; fromWord?: number; endParagraphIndex?: number; toWord?: number } | null) => {
+      if (!active || !record?.bookId || !record.editionKey || typeof record.chapterNumber !== 'number') return
+      setSharedHighlight({
+        id: `shared-${link.id}`, bookId: record.bookId, editionKey: record.editionKey, chapterNumber: record.chapterNumber,
+        paragraphIndex: record.paragraphIndex ?? 0, fromWord: record.fromWord ?? 0, endParagraphIndex: record.endParagraphIndex ?? 0, toWord: record.toWord ?? 0,
+        color: 'gold',
+      })
+    }).catch(() => {})
+    return () => { active = false }
+  }, [])
+  const [shareTarget, setShareTarget] = useState<LabShareTarget | null>(null)
+  const highlightsApi = useLabHighlights(book.chapterNumber, { shared: sharedHighlight, bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs, userId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : (authUser?.id ?? null) })
+  // Cards and highlights made in another edition, at their passage in this one (crossEditionMarks.ts; Anders, 13 Nov
+  // 2026: Luke 2 and 3 cards made in the World English Bible were missing from the King James margin and overview).
+  // The Margin reader's own chapter, and in book scroll every chapter of the unit.
+  const crossEditionTarget = useCallback((chapterNumber: number) => chapterNumber === book.chapterNumber ? readerParagraphs : bookScrollTexts.texts.get(chapterNumber)?.paragraphs,
+    [book.chapterNumber, readerParagraphs, bookScrollTexts.texts])
+  const crossEdition = useCrossEditionMarks({
+    enabled: continuousReader, bookId: book.bookId || 'bible', editionKey: readerEditionKey, editions: allBookEditions,
+    chapters: bookScroll && bookScrollUnitNow ? bookScrollUnitNow.chapters.map(chapter => chapter.number) : [book.chapterNumber],
+    conversations: ask.conversations, highlights: highlightsApi.allHighlights, target: crossEditionTarget, targetKey: crossEditionTarget,
+  })
+  /** A conversation as the margin shows it: a card of another edition with its anchor in this one. */
+  const inReaderEdition = (item: ChatConversation) => crossEdition.cards.get(item.id) ?? item
+  // Book scroll (try-out): a neighbouring chapter paints its own highlights.
+  const bookScrollHighlights = useMemo(() => bookScroll
+    ? [...highlightsApi.allHighlights.filter(mark => mark.bookId === (book.bookId || 'bible') && mark.editionKey === prefs.primaryEdition), ...crossEdition.highlights]
+    : undefined, [bookScroll, highlightsApi.allHighlights, book.bookId, prefs.primaryEdition, crossEdition.highlights])
+  // Book scroll: the cards of the unit's other chapters, for the overview (the reader's own chapter's come with `cards`).
+  const bookScrollCards = useMemo(() => {
+    if (!bookScrollUnitNow) return undefined
+    const unit = new Set(bookScrollUnitNow.chapters.map(chapter => chapter.number))
+    return ask.conversations.map(item => crossEdition.cards.get(item.id) ?? item).flatMap(item => item.bookId === (book.bookId || 'bible') && item.chapterNumber !== book.chapterNumber && unit.has(item.chapterNumber)
+      && item.card?.anchor && !item.card.gone && item.card.anchor.editionKey === readerEditionKey && cardInMargin(item.card.kind, item.messages)
+      ? [{ id: item.id, chapterNumber: item.chapterNumber, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
+        label: `${item.card.kind.charAt(0).toUpperCase() + item.card.kind.slice(1)} · ${item.card.text || ''}` }] : [])
+  }, [bookScrollUnitNow, ask.conversations, crossEdition.cards, book.bookId, book.chapterNumber, readerEditionKey])
+  // The Compare edition of a cold open, once the first page is up. Only the
+  // load that asked for it receives it; a newer load has its own.
+  useEffect(() => {
+    const pending = book.compareLater
+    if (!pending || !firstPageShown) return
+    let cancelled = false
+    void pending.then(paragraphs => {
+      if (!cancelled) setBook(current => current.compareLater === pending ? { ...current, compareParagraphs: paragraphs, compareLater: undefined } : current)
+    })
+    return () => { cancelled = true }
+  }, [book.compareLater, firstPageShown])
+  const primaryCharacters = useCharacterCards(firstPageShown && !privateBook ? book.bookId : undefined, prefs.primaryEdition)
   // Verifying cards downloads their complete source edition. Do not fetch an
   // unused second book alongside the chapter when Compare is disabled.
-  const compareCharacters = useCharacterCards(prefs.compareOpen ? book.bookId : undefined, prefs.compareEdition)
+  const compareCharacters = useCharacterCards(firstPageShown && prefs.compareOpen && !privateBook ? book.bookId : undefined, prefs.compareEdition)
+  // The whole book, readable offline with no tap: main edition plus compare,
+  // saved in the background once the first page is up (useLabAutoOffline.ts).
+  // A reader's own books are already on this device; an added book's paid
+  // Modern English edition is written on the server and read fresh.
+  const offlineBookId = book.bookId || 'bible'
+  const autoOfflineEditions = offlineEditionKeys(prefs.primaryEdition, prefs.compareOpen ? prefs.compareEdition : null)
+    .filter(key => bookEditions.some(edition => edition.key === key) && !editionHold(offlineBookId, key)
+      && !(isPublicBookId(offlineBookId) && key === MODERN_EDITION_KEY))
+  useLabAutoOffline({
+    bookId: offlineBookId,
+    editionKeys: autoOfflineEditions,
+    hasVerseLines: bookEditions.some(edition => edition.hasVerseLines),
+    enabled: firstPageShown && !privateBook && !ownPdf && !isUserBookId(offlineBookId),
+  })
+  // Author footnotes, for the edition actually on the page; other editions never request any.
+  const chapterFootnotes = useChapterFootnotes(firstPageShown && !privateBook ? book.bookId : undefined, readerEditionKey, book.chapterNumber, readerParagraphs)
+  const [openFootnote, setOpenFootnote] = useState<OpenFootnote | null>(null)
+  const showFootnote = useCallback((note: PlacedFootnote, marker: HTMLElement) => {
+    const rect = marker.getBoundingClientRect()
+    const showBelow = window.innerHeight - rect.bottom > rect.top
+    setOpenFootnote({ note, x: Math.max(24, Math.min(window.innerWidth - 24, rect.left + rect.width / 2)), y: showBelow ? rect.bottom + 8 : rect.top - 8, showBelow })
+  }, [])
   const define = useDefine()
   const [crossSelecting, setCrossSelecting] = useState<ChapterSelectionPart[] | null>(null)
-  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { chapterRanges?: ChapterSelectionPart[]; range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) | null>(null)
+  /** The chapter-end Note pill's editor: a private note on the whole chapter. */
+  const [chapterNoteEditor, setChapterNoteEditor] = useState<{ bookId: string; chapterNumber: number; left: number; top: number; bottom: number } | null>(null)
+  const openChapterNoteRef = useRef<(chapterNumber: number, pill: DOMRect) => void>(() => {})
+  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { chapterRanges?: ChapterSelectionPart[]; range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[]; openedAt?: number }) | null>(null)
+  const selectionPopupRef = useRef(selectionPopup)
+  selectionPopupRef.current = selectionPopup
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
+  const popupModeRef = useRef(popupMode)
+  popupModeRef.current = popupMode
   const [noteInput, setNoteInput] = useState('')
   const popupRef = useRef<HTMLDivElement | null>(null)
+  // The phone's margin mode: the one bottom card open (marginPhone/), the text in its field, and its answer once whole.
+  const [phoneCard, setPhoneCard] = useState<PhoneCard | null>(null)
+  const [desktopLiveCards, setDesktopLiveCards] = useState<PhoneCard[]>([])
+  useLayoutEffect(() => {
+    const host = continuousReader ? pageWrapRef.current?.querySelector<HTMLElement>('[data-testid="continuous-reader"]') ?? null : null
+    // Do not enqueue a layout update on every commit, even with a same-value
+    // updater. Pending page updates can prevent React's eager bailout and
+    // keep the synchronous commit loop alive on the paged reader.
+    if (marginHost !== host) setMarginHost(host)
+  })
+  const [sharedCardSaveError, setSharedCardSaveError] = useState(false)
+  const [saveDetailsCopied, setSaveDetailsCopied] = useState(false)
+  useEffect(() => { setSaveDetailsCopied(false) }, [sharedCardSaveError])
+  // A card the device could not store goes to the account at once. The reader is told only when that copy is not
+  // confirmed either, after a few seconds: an answer kept in the account is safe, and a notice about this device's
+  // storage read as a broken app (iPhone, 31 Oct 2026).
+  const [saveWarningDue, setSaveWarningDue] = useState(false)
+  useEffect(() => {
+    setSaveWarningDue(false)
+    if (!sharedCardSaveError) return
+    const timer = setTimeout(() => setSaveWarningDue(true), 6000)
+    return () => clearTimeout(timer)
+  }, [sharedCardSaveError])
+  const cardSaveWarning = sharedCardSaveError && saveWarningDue && !ask.cardAccountSaved
+  const desktopCardRequestRef = useRef<{ key: string; id: string; at: number; savedAnswer?: string } | null>(null)
+  const [phoneNote, setPhoneNote] = useState('')
+  const phoneFieldRef = useRef<HTMLTextAreaElement | null>(null)
+  const phoneAnswerRef = useRef<{ card: PhoneCard; answer: string; kept: boolean } | null>(null)
+  const quizChapterRef = useRef<(anchor?: DOMRect, atStart?: boolean) => void>(() => {})
+  const desktopQuizAnchorRef = useRef<DOMRect | null>(null)
+  /** The chapter's quiz was started from its start card (desktop Margin): its card sits at the chapter's start. */
+  const desktopQuizAtStartRef = useRef(false)
+  /** The phone's margin mode: the chapter's Note pill opens its card (true), not the editor beside the pill. */
+  const marginPhoneNoteRef = useRef<(chapterNumber: number) => boolean>(() => false)
   const pageMetricsRef = useRef<LabPageMetrics | null>(pageMetrics)
   pageMetricsRef.current = pageMetrics
   const pageMetricGeometryRef = useRef<{ width: number; height: number } | null>(null)
@@ -1715,35 +2812,45 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const listenStartRef = useRef(listen.start)
   listenStartRef.current = listen.start
 
-  const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[]) => {
+  const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[], partial = false) => {
     if (measuredContent && measuredContent !== nativeContentRef.current) return
-    // A native column can place the final words of the author's note and the
-    // opening words on one leaf. Cutting that leaf at the explicit start would
-    // leave an eight-word page. Rebuild only this share-link session from the
-    // measured page budget so the requested paragraph begins a normally filled
-    // page; ordinary reader sessions continue to adopt the native map verbatim.
-    const explicitBudget = pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null
-    const explicitPages = explicitStartAnchor
-      ? chapterHearingPages(nativeContentRef.current, canUseLabPageBudget(explicitBudget) ? explicitBudget : null)
-      : null
-    const next = withComparePassage(explicitStartAnchor && explicitPages
-      ? splitLabPagesAtAnchor(explicitPages, explicitStartAnchor)
-      : incoming, nativeContentRef.current)
+    // Every session, a deep link's included, adopts the measured map verbatim.
+    const next = withComparePassage(incoming, nativeContentRef.current)
     // Audio chrome temporarily changes the available box. Keep the reading
     // page map as the single authority instead of repaginating mid-playback.
-    // V1's bar never changes height, so a page map that arrives mid-playback
-    // is noise and is dropped. V2's transport opens and closes over the page,
-    // and the column changes height with it: the new map is taken, anchored
-    // on the word being spoken, so the reader stays on their paragraph and
-    // follow resolves the right page of the new map on its next tick.
+    // The transport opens and closes over the page, and the column changes
+    // height with it: the new map is taken, anchored on the word being
+    // spoken, so the reader stays on their paragraph and follow resolves the
+    // right page of the new map on its next tick.
     const playing = listenPlayingRef.current
     if (
       !measuredPaging
-      || (playing && !chromeV2)
-      || (browseWhileListeningRef.current && !chromeV2)
       || next.length === 0
     ) return
-    setNativeMeasuredContent(measuredContent ?? nativeContentRef.current)
+    if (partial) {
+      // A head-first map shows its opening page only. Any other place to
+      // land on (a saved word, a page, the chapter's end, the word being
+      // spoken) waits for the full map, so the reader never lands on a
+      // stand-in page and never moves when the rest arrives.
+      const wanted = restoreTargetFor(restorePlaceRef.current, shownChapterKeyRef.current) ?? (playing ? placeRef.current : null) ?? mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current
+      const atOpening = !wanted || pageIndexForPlace(next, wanted.paragraphIndex, wanted.wordIndex) === 0
+      if (!atOpening || (restorePageRef.current ?? 0) > 0 || chapterLandingRef.current === 'end' || openAtEndRef.current) return
+    }
+    nativeHeadOnlyRef.current = partial ? performance.now() : 0
+    if (partial) setNativeHeadContent(measuredContent ?? nativeContentRef.current)
+    else {
+      setNativeMeasuredContent(measuredContent ?? nativeContentRef.current)
+      setNativeHeadContent(null)
+      if (headFirstTurnRef.current) {
+        if (headFirstTurnTimerRef.current !== null) window.clearTimeout(headFirstTurnTimerRef.current)
+        headFirstTurnTimerRef.current = window.setTimeout(() => {
+          headFirstTurnTimerRef.current = null
+          if (!headFirstTurnRef.current) return
+          headFirstTurnRef.current = false
+          goNextRef.current()
+        }, 0)
+      }
+    }
     mapTransportOpenRef.current = transportOpenRef.current
     if (new URLSearchParams(location.search).has('qaLayoutTrace')) console.log('NATIVE_MAP', JSON.stringify({layout: readerStateRef.current, incoming: incoming.slice(0,5), next: next.slice(0,5), current:readingPagesRef.current.slice(0,5), keep:pageAnchorRef.current}))
     const current = readingPagesRef.current
@@ -1751,9 +2858,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
     // The first native map replaces an estimated map. Restore from the saved
     // word itself, never from the estimated page that happened to contain it.
-    const restoring = chromeV2 && restorePlaceRef.current
-      && next.some(page => chapterPageSegments(page).some(segment => segment.paragraphIndex === restorePlaceRef.current!.paragraphIndex))
-      ? restorePlaceRef.current : null
+    // Only a target for the chapter this map lays out: the outgoing chapter's
+    // last measurement can land after the next chapter's place was set.
+    const target = restoreTargetFor(restorePlaceRef.current, shownChapterKeyRef.current)
+    const restoring = target
+      && next.some(page => chapterPageSegments(page).some(segment => segment.paragraphIndex === target.paragraphIndex))
+      ? target : null
     if (restoring) {
       pageAnchorRef.current = restoring
       restorePlaceRef.current = null
@@ -1806,7 +2916,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // rendered-page verification now that the font-settled preflight is the
     // authority; refs alone do not trigger that verification effect.
     setNativePagesRevision(revision => revision + 1)
-  }, [chromeV2, explicitStartAnchor, measuredPaging, withComparePassage])
+  }, [measuredPaging, withComparePassage])
 
   /**
    * The standby map, off the critical path entirely: a ref write, no state,
@@ -1817,15 +2927,30 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     standbyPagesRef.current = { key: standbyKeyRef.current, pages }
   }, [])
 
+  /**
+   * A tap on a word while the transport is up (playing or paused). It is a
+   * jump: audio moves to exactly that word. Playing, it carries on from there;
+   * paused, it stays paused and Play later resumes from the start of that
+   * word's sentence (see resumeListeningPlace).
+   */
   const seekAudioToWord = useCallback(async (paragraphIndex: number, wordIndex: number) => {
     browseWhileListeningRef.current = false
     setBrowseWhileListening(false)
-    const timed = book.followParagraphs.find(item => item.index === paragraphIndex)
-    const snapped = timed?.words
-      ? sentenceStartWordIndex(timed.words, wordIndex)
-      : wordIndex
+    const snapped = wordIndex
     const place = { paragraphIndex, wordIndex: snapped }
     placeRef.current = place
+    const playingNow = listen.playing || listen.isPending()
+    if (!playingNow) {
+      const sameChapter = listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber
+      // The player's own cursor moves too, so every later resume path (Play,
+      // the lock screen, the end of Talk) starts from the word chosen here.
+      if (sameChapter && listen.src) listen.seekToPlace(paragraphIndex, snapped)
+      pausedJumpRef.current = { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber, ...place }
+      setReadingPageIndex(pageIndexForPlace(readingPagesRef.current, paragraphIndex, snapped))
+      notePlace('pause', place)
+      return
+    }
+    pausedJumpRef.current = null
     const nextSource = {
       bookId: book.bookId || 'bible',
       chapterNumber: book.chapterNumber,
@@ -1844,13 +2969,35 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setChrome('hearing')
     setReadingPageIndex(pageIndexForPlace(readingPagesRef.current, paragraphIndex, snapped))
     notePlace('play', place)
-    if (!chapterChanged && listen.src) {
+    if (!chapterChanged && listen.src && listen.playing) {
       listen.seekToPlace(paragraphIndex, snapped)
-      if (!listen.playing) listen.resume()
       return
     }
+    // Still loading (or nothing loaded yet): this tap supersedes that start.
     await listen.startAtPlace(place)
-  }, [book, listen, listenSource.chapterNumber, notePlace])
+  }, [book, listen, listenSource.bookId, listenSource.chapterNumber, notePlace])
+
+  /** The first word of the sentence holding `place`, in the chapter audio is on. */
+  const sentenceStartPlace = useCallback((place: { paragraphIndex: number; wordIndex: number }) => {
+    const sameChapter = listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber
+    const paragraphs = sameChapter ? book.paragraphs : listenSource.paragraphs
+    const words = tokenizeHearingWords(paragraphs[place.paragraphIndex] || '')
+    return { paragraphIndex: place.paragraphIndex, wordIndex: listeningSentenceStart(words, place.wordIndex) }
+  }, [book.bookId, book.chapterNumber, book.paragraphs, listenSource.bookId, listenSource.chapterNumber, listenSource.paragraphs])
+
+  /**
+   * Where paused listening picks up on this chapter: the word the reader
+   * tapped since pausing, else the word last heard — always from the start
+   * of its sentence, so audio never resumes mid-sentence.
+   */
+  const resumeListeningPlace = useCallback((): { paragraphIndex: number; wordIndex: number } | null => {
+    const jump = pausedJumpRef.current
+    if (jump && jump.bookId === (book.bookId || 'bible') && jump.chapterNumber === book.chapterNumber) return sentenceStartPlace(jump)
+    const follow = listen.follow
+    if (follow.kind === 'word') return sentenceStartPlace(follow)
+    if (follow.kind === 'paragraph') return { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
+    return null
+  }, [book.bookId, book.chapterNumber, listen.follow, sentenceStartPlace])
 
   useLayoutEffect(() => {
     lastVvRef.current = 0
@@ -1864,6 +3011,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [book.chapterTitle, measuredPaging])
 
   useLayoutEffect(() => {
+    if (continuousReader) return
     if (measuredPaging) return
     const wrap = pageWrapRef.current
     const chromeEl = bottomChromeRef.current
@@ -1915,9 +3063,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     const finishSettle = () => {
       const keep = pageAnchorRef.current
-      let pages = workingPagesRef.current
-      if (keep && !chromeV2) pages = ensurePageIdentity(pages, keep)
-      workingPagesRef.current = pages
+      const pages = workingPagesRef.current
       setDraftPages(pages)
       const fixed = fixVisiblePagePaint(pages)
       if (!sameChapterPages(fixed, pages)) {
@@ -2181,6 +3327,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         // resize (including device emulation/orientation) must invalidate them.
         pagesStableRef.current = false
         settledPageGeometryRef.current = null
+        // The words-per-page figure was measured in the old box; the new
+        // pages set it afresh (a page that came back short after a Stripe
+        // round trip kept the short figure, 10 Oct 2026).
+        wordsPerPageRef.current = null
         didBudgetPageRef.current = false
         unmeasuredTriesRef.current = 0
         workingPagesRef.current = readingPagesRef.current
@@ -2223,9 +3373,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ro?.disconnect()
       viewport?.removeEventListener('resize', apply)
     }
-  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, gearOpen, readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, measuredPaging])
+  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, readingFont, readingFontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, measuredPaging])
 
   useLayoutEffect(() => {
+    if (continuousReader) return
     if (
       (measuredPaging ? nativePagesRevision === 0 : !pagesStableRef.current)
       || phoneAskOpen
@@ -2278,9 +3429,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDraftPages(readingPagesRef.current)
     settleIndexRef.current = pageIdx
     setSettleIndex(pageIdx)
-  }, [readingPageIndex, readingPages, nativePagesRevision, nativeMeasuredContent, phoneAskOpen, listen.playing, browseWhileListening, measuredPaging, readerControlsVisible, gearOpen, chrome, readerParagraphs, book.chapterNumber])
+  }, [readingPageIndex, readingPages, nativePagesRevision, nativeMeasuredContent, phoneAskOpen, listen.playing, browseWhileListening, measuredPaging, readerControlsVisible, chrome, readerParagraphs, book.chapterNumber, continuousReader])
 
   useEffect(() => {
+    if (continuousReader) return
     // A queued effect may still hold the provisional map after measurement
     // has committed a newer one. It must not rewrite the exact saved anchor.
     if (measuredPaging && readingPages !== readingPagesRef.current) return
@@ -2336,7 +3488,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       readingPageIndexRef.current = next
       return next === current ? current : next
     })
-  }, [readingPages, openAtEnd, book.chapterNumber, measuredPaging])
+  }, [readingPages, openAtEnd, book.chapterNumber, measuredPaging, continuousReader])
 
   const chromeRef = useRef(chrome)
   chromeRef.current = chrome
@@ -2352,12 +3504,23 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const askNoticeRef = useRef(ask.notice)
   askNoticeRef.current = ask.notice
 
-  const interruptHearForAsk = useCallback(() => {
-    const hearingNow = listen.playing
+  const interruptHearForAsk = useCallback((options?: { alwaysUnlock?: boolean }) => {
+    // Captured as the companion opens: only audio that was actually playing
+    // (or starting) then comes back when it closes. Paused audio stays paused.
+    const hearingNow = listen.playing || listen.isPending()
+    // This tap may be the last gesture before the companion starts audio
+    // ("play the audiobook"), which then runs outside any gesture. Only
+    // iOS/touch devices need that unlock; on a desktop it starts audio output
+    // and can take shared headphones from the reader's phone (stopping its
+    // music), so it is skipped there. Talk and Listen unlock on their own taps.
+    if (options?.alwaysUnlock || readNeedsGestureAudioUnlock()) listen.unlockPlayback()
     // Opening a companion pauses audio once. Follow-up actions inside that
-    // companion must not overwrite the original return mode after the audio
-    // element is already paused.
-    if (!hearingNow && pausedForAskRef.current) return
+    // same companion must not overwrite the original return mode after the
+    // audio element is already paused. A companion opened afresh always
+    // captures anew: a flag left over from an earlier session (Talk handed
+    // to Chat, a call surface) must not resume audio the reader paused.
+    const companionOpen = phoneAskOpenRef.current || desktopAskOpenRef.current || callOpenRef.current || chromeRef.current === 'talking'
+    if (!hearingNow && pausedForAskRef.current && companionOpen) return
     const returnMode: LabReturnTo = hearingNow ? 'hearing' : 'reading'
     pausedForAskRef.current = hearingNow
     setReturnTo(returnMode)
@@ -2366,28 +3529,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [listen])
 
   const resumeListenAfterAsk = useCallback((forceHearing = false) => {
-    if (chromeV2 && callOpen) {
+    if (callOpen) {
       // An explicit resume command ends the call successfully. Leaving the
       // surface mounted would mislabel that intentional stop as a disconnect.
       setCallOpen(false)
     }
     ask.stopVoice()
-    if (chromeV2) ask.dismissNotice()
-    if (!forceHearing && preparationReturnRef.current === book.bookId) {
-      stayInAskRef.current = false
-      pausedForAskRef.current = false
-      setVoiceGate('off')
-      setPhoneAskOpen(false)
-      setDesktopAskOpen(false)
-      setPeekBook(false)
-      setChrome('reading')
-      returnToPreparation()
-      return
-    }
-    if (forceHearing) { preparationReturnRef.current = null; setPreparationCompanion(false); setPrefaceCoverBook(null) }
+    ask.dismissNotice()
     if (stayInAskRef.current) {
       stayInAskRef.current = false
-      setVoiceGate('off')
       setPhoneAskOpen(true)
       setChrome(current => (current === 'talking' ? (pausedForAskRef.current || returnToRef.current === 'hearing' ? 'hearing' : 'reading') : current))
       return
@@ -2395,32 +3545,36 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setPhoneAskOpen(false)
     setDesktopAskOpen(false)
     setPeekBook(false)
-    // Closing Talk returns to the mode it interrupted. The explicit voice
-    // command "resume the audiobook" is different: it must begin audio even
-    // when Talk was opened from ordinary reading.
-    const interruptedAudio = pausedForAskRef.current || returnToRef.current === 'hearing'
+    // Closing Talk returns to the mode it interrupted: audio resumes only if
+    // it was playing when Talk opened (captured then, in pausedForAskRef).
+    // The explicit voice command "resume the audiobook" is different: it
+    // must begin audio even when Talk was opened from ordinary reading.
+    const interruptedAudio = pausedForAskRef.current
     const shouldHear = forceHearing || interruptedAudio
     pausedForAskRef.current = false
     if (!shouldHear) {
       setChrome('reading')
       return
     }
-    if (chromeV2 && forceHearing && !interruptedAudio) {
+    if (forceHearing && !interruptedAudio) {
       startHearingRef.current()
       return
     }
     setReturnTo('hearing')
     returnToRef.current = 'hearing'
     setChrome('hearing')
-    if (chromeV2) {
-      // A voice return uses the same source/follow boundary as pressing Play.
-      browseWhileListeningRef.current = false
-      setBrowseWhileListening(false)
-      setInTheBookOpen(false)
-    }
+    // A voice return uses the same source/follow boundary as pressing Play.
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
+    setInTheBookOpen(false)
+    // A return from Talk, Chat or a prompt starts at the sentence's first word.
     if (listen.src) listen.resume(true)
-    else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [ask, listen, chromeV2, callOpen, book.bookId, returnToPreparation])
+    else {
+      const place = sentenceStartPlace(placeRef.current)
+      placeRef.current = place
+      void listen.startAtPlace(place)
+    }
+  }, [ask, listen, callOpen, sentenceStartPlace])
   resumeListenRef.current = (forceAudio = true) => resumeListenAfterAsk(forceAudio)
   const closeAccountPrompt = useCallback(() => {
     const request = accountPrompt
@@ -2428,11 +3582,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // A held-back Talk leaves the talking chrome the way a closed Talk does.
     if (request?.action === 'voice') resumeListenAfterAsk()
   }, [accountPrompt, resumeListenAfterAsk])
+  // A speed change alone never decides whether audio resumes after Talk:
+  // that is fixed by whether audio was playing when Talk opened.
   setSpeedRef.current = (rate) => {
     listen.setSpeed(rate)
-    pausedForAskRef.current = true
-    setReturnTo('hearing')
-    returnToRef.current = 'hearing'
   }
 
   useEffect(() => {
@@ -2447,14 +3600,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setChrome('talking')
       setPeekBook(false)
       // A V2 call draws its own desktop panel; the chat pane stays closed.
-      if (!(voiceCallSurfaceRef.current && callOpenRef.current)) setDesktopAskOpen(true)
+      if (!callOpenRef.current) setDesktopAskOpen(true)
       return
     }
     if (!wasTalking) return
     // The call surface owns its own ending. A dropped connection leaves it
     // standing so it can say "Disconnected" and offer to reconnect; only End
     // conversation (or Reconnect failing) takes it down.
-    if (voiceCallSurfaceRef.current && callOpenRef.current) {
+    if (callOpenRef.current) {
       return
     }
     if (phoneAskOpenRef.current) {
@@ -2464,7 +3617,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       })
       return
     }
-    if (pausedForAskRef.current || returnToRef.current === 'hearing') {
+    if (pausedForAskRef.current) {
       resumeListenAfterAsk()
     } else {
       // Voice that ended with a notice (mic refused, token missing, timed
@@ -2477,33 +3630,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
   }, [ask.voiceActive, ask.voiceConnection, resumeListenAfterAsk])
 
-  useEffect(() => {
-    setVoiceGate(current => nextLabVoiceGate(
-      current,
-      ask.conversationState,
-      ask.voiceActive,
-      ask.notice,
-      ask.userSpeechStarted,
-    ))
-  }, [ask.conversationState, ask.voiceActive, ask.notice, ask.userSpeechStarted])
-
-  useEffect(() => {
-    if (voiceGate !== 'connecting') return
-    const timer = window.setTimeout(() => {
-      if (ask.conversationState !== 'connecting') return
-      ask.failStart()
-      setVoiceGate('off')
-    }, LAB_CONNECTING_FAIL_MS)
-    return () => window.clearTimeout(timer)
-  }, [ask.conversationState, ask.failStart, voiceGate])
-
   const typedLoadingRef = useRef(false)
   useEffect(() => {
     const wasLoading = typedLoadingRef.current
     typedLoadingRef.current = ask.typedLoading
     if (!wasLoading || ask.typedLoading || ask.voiceActive) return
     if (phoneAskOpenRef.current || desktopAskOpenRef.current) return
-    if (!pausedForAskRef.current && returnToRef.current !== 'hearing') return
+    if (!pausedForAskRef.current) return
     if (chromeRef.current === 'talking') return
     resumeListenAfterAsk()
   }, [ask.typedLoading, ask.voiceActive, resumeListenAfterAsk])
@@ -2523,12 +3656,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     book.chapterNumber,
     editionKey,
     readingFont,
-    prefs.fontSize,
+    readingFontSize,
     readingAlignment, flowingShakespeare,
     prefs.lineSpacing,
     prefs.margins,
     prefs.paragraphSpacing,
     fullscreen ? 'fullscreen' : 'windowed',
+    // What the chapter heading and end draw (the simple first page, 16 Nov 2026): the first visit's line and pills, and
+    // the first chapter's "Read with an angle". A change lays the chapter out again, anchored on the reader's word,
+    // as a type change is, so the place never moves.
+    marginPhone || sharedReader ? `${firstVisit ? 'first' : 'used'}/${!bookAngle.trim() && book.chapters[0]?.number === book.chapterNumber ? 'angle' : ''}` : '',
   ].join(':')
   const desktopLayoutKey = `${layoutKeyFor(readerEditionKey)}:${desktopCompareActive}:${book.bookId}`
   const [desktopEndInFooter, setDesktopEndInFooter] = useState(false)
@@ -2540,19 +3677,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDesktopLeafCapacity(capacity)
   }, [applyNativePages])
   const standbyKey = layoutKeyFor(standbyEditionKey)
-  // Marked only where the passage runs on: a page that ends exactly there needs no mark.
-  const comparePageEndMarker = showPhoneChrome && mobileCompareActive && comparePageEnd?.paragraphs === readerParagraphs
-    && !readingPages.some(page => {
-      const head = pageAnchorOf(page)
-      return head?.paragraphIndex === comparePageEnd.at.paragraphIndex && head.wordIndex === comparePageEnd.at.wordIndex
-    })
-    ? comparePageEnd.at
-    : null
   const standbyKeyRef = useRef(standbyKey)
   standbyKeyRef.current = standbyKey
   const readerLayoutKey = [
     readingFont,
-    prefs.fontSize,
+    readingFontSize,
     readingAlignment, flowingShakespeare,
     prefs.lineSpacing,
     prefs.margins,
@@ -2567,16 +3696,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // not the local guess a cloud record may replace, not the placeholder label
   // of a handoff whose chapter is still loading. A signed-out boot from the
   // device record is final and paints at once.
-  const paintedChapterLabel = initialResolving || handoffWritesSuspended ? '' : book.chapterLabel
-  const voiceOverlayOpen = showPhoneChrome && !voiceCallSurface && chrome === 'talking' && !phoneAskOpen
+  // Book scroll: the top bar names the chapter at the reading line at once, before it becomes the reader's own.
+  const [bookScrollLineChapter, setBookScrollLineChapter] = useState<number | null>(null)
+  const lineChapterTitle = bookScrollLineChapter != null && bookScrollLineChapter !== book.chapterNumber
+    ? book.chapters.find(chapter => chapter.number === bookScrollLineChapter)?.title : undefined
+  const paintedChapterLabel = initialResolving || handoffWritesSuspended ? '' : lineChapterTitle || book.chapterLabel
   // The full-screen call, and what is left of it while the transcript is open.
-  const callFullScreen = voiceCallSurface && showPhoneChrome && callOpen && !phoneAskOpen
+  const callFullScreen = showPhoneChrome && callOpen && !phoneAskOpen
   // The desktop conversation: the companion panel, or the pill while minimized.
   const desktopVoiceOpen = voicePanelSurface && callOpen
-  const [callStartedAt, setCallStartedAt] = useState(0)
-  const callTurns = ask.turns.filter(turn => turn.source === 'voice' && (turn.timestamp ?? 0) >= callStartedAt)
-  const callUtterance = labCallUtterance(callTurns)
-  const callBookLine = `${book.bookTitle}, ${book.chapterLabel}`
   const callConnection = callAwaitingConnection && ask.voiceConnection === 'idle'
     ? ('connecting' as const)
     : ask.voiceConnection
@@ -2591,7 +3719,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (ask.voiceConnection === 'idle') return
     setCallAwaitingConnection(false)
   }, [ask.voiceConnection])
-  // A connect that never lands is a failed call, not a permanent "Connecting."
+  // A connect that never lands is a failed call, not a permanent "Connecting to AI…"
   useEffect(() => {
     if (!callOpen || callConnection !== 'connecting') return
     const timer = window.setTimeout(() => {
@@ -2611,20 +3739,32 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   const [pausedTransportVisible, setPausedTransportVisible] = useState(false)
   useEffect(() => {
-    if (!chromeV2) return
     // Desktop errors use a separate inline Retry row. Release the unused
     // playback reserve; the phone error remains above its transport bar.
     if (!showPhoneChrome && listen.narration.status === 'error') setPausedTransportVisible(false)
     else if (listen.playing || listen.pending) setPausedTransportVisible(true)
-  }, [chromeV2, showPhoneChrome, listen.playing, listen.pending, listen.narration.status])
+  }, [showPhoneChrome, listen.playing, listen.pending, listen.narration.status])
   useEffect(() => { setPausedTransportVisible(false) }, [book.bookId, book.chapterNumber])
   const audioBarActive = showPhoneChrome
     && phoneBarPossible
     && !phoneAsk
     && !mobileCompareActive
-    && (listen.pending || listen.playing || audioChapterTransitioning || (chromeV2 && pausedTransportVisible))
-  const desktopAudioBarActive = !showPhoneChrome && (listen.pending || listen.playing || (chromeV2 && pausedTransportVisible))
-  const phoneTransportOpen = chromeV2 && showPhoneChrome && audioBarActive
+    && (listen.pending || listen.playing || audioChapterTransitioning || pausedTransportVisible)
+  const desktopAudioBarActive = !showPhoneChrome && (listen.pending || listen.playing || pausedTransportVisible)
+  // Desktop: from Play until 4 s into the voice, a faint ▶ beside each paragraph on screen offers another start
+  // (Anders, 16 Nov 2026: the narration's load time is a chance to choose where to start).
+  const [listenOffer, setListenOffer] = useState(false)
+  useEffect(() => {
+    if (showPhoneChrome) { setListenOffer(false); return }
+    if (listen.pending) { setListenOffer(true); return }
+    if (!listen.playing) { setListenOffer(false); return }
+    const timer = window.setTimeout(() => setListenOffer(false), LISTEN_OFFER_MS)
+    return () => window.clearTimeout(timer)
+  }, [showPhoneChrome, listen.pending, listen.playing])
+  // The dock rides over the leaf's foot, never over its text (labAudioDock).
+  const desktopDockRef = useRef<HTMLElement | null>(null)
+  useDesktopDockPlacement(desktopDockRef, desktopAudioBarActive && desktopPaging)
+  const phoneTransportOpen = showPhoneChrome && audioBarActive
   transportOpenRef.current = phoneTransportOpen
   const lastPhoneTransportRef = useRef(phoneTransportOpen)
   // The page that was on screen as of the previous commit. A page turn can
@@ -2639,9 +3779,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (previous === phoneTransportOpen) return
     const pages = readingPagesRef.current
     if (
-      !measuredPaging || desktopPaging || !chromeV2
+      !measuredPaging || desktopPaging
       || nativeMeasuredContent !== readerParagraphs || pages.length === 0
-      || explicitStartAnchor || comparePassageRef.current?.paragraphs === readerParagraphs
+      || comparePassageRef.current?.paragraphs === readerParagraphs
     ) {
       setPageFreeze(null)
       return
@@ -2649,31 +3789,62 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Keep the page on screen, and every page before it, exactly as laid
     // out. The paginator lays out only what follows at the new foot, from
     // the word after the kept page — so a page reached in this same commit
-    // still begins on the same word.
+    // still begins on the same word (Play never moves a word on screen:
+    // scripts/check-inline-audio-loading.mjs).
     const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
     const index = Math.min(current, Math.max(0, shownIndex))
     setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, index + 1) })
   // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on the foot changing only; tracks the shown page every commit
   })
+  // Phone Chat takes the page surface's place: the page and its paginator are
+  // unmounted while Chat is open and lay the chapter out again on the way
+  // back. A fresh layout is not the map the reader turned through (the visible
+  // page check may have peeled those pages), so the saved page start can fall
+  // inside an earlier page of it. Keep the page the reader left, and every
+  // page before it, exactly as it was on screen; only what follows is laid
+  // out afresh. Declared after the foot freeze so that it wins in the commit
+  // Chat opens in.
+  const phoneAskShownRef = useRef(phoneAsk)
+  useLayoutEffect(() => {
+    const wasOpen = phoneAskShownRef.current
+    phoneAskShownRef.current = phoneAsk
+    if (!phoneAsk || wasOpen) return
+    const pages = readingPagesRef.current
+    if (!measuredPaging || desktopPaging || nativeMeasuredContent !== readerParagraphs || pages.length === 0) return
+    const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
+    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, current + 1) })
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on Chat opening only; reads the page map as it is then
+  }, [phoneAsk])
+  // Chat on screen: warm the companion's reading trail (read-only) so the
+  // first question is not held back loading earlier chapters' opening lines.
+  const askPaneShown = (!showPhoneChrome && desktopAskOpen && !desktopVoiceOpen) || phoneAsk
+  const warmAskTrail = ask.warmTrail
+  useEffect(() => {
+    if (askPaneShown) warmAskTrail()
+  }, [askPaneShown, warmAskTrail, book.bookId, book.chapterNumber, readerEditionKey])
   // A new chapter, edition or typography lays the whole chapter out afresh.
   const nativeLayoutKey = layoutKeyFor(readerEditionKey)
   useEffect(() => { setPageFreeze(null) }, [readerParagraphs, nativeLayoutKey])
-  // V2 has no reading bar. Play is in the top bar and Chat, Talk and Compare
+  // There is no reading bar. Play is in the top bar and Chat, Talk and Compare
   // are in the menu; what the foot holds is the progress line, and the
   // transport for as long as audio plays. The space the bar took goes to the
-  // page. V1 keeps the bar it ships with.
-  const showPhoneBar = phoneBarPossible && (!chromeV2 || audioBarActive)
+  // page.
+  const showPhoneBar = phoneBarPossible && audioBarActive
+  // The paused phone player puts itself away from its grab handle or a swipe
+  // down; while audio plays it stays.
+  const phonePausedCloseAllowed = audioBarActive && !listen.playing && !listen.pending && listen.narration.status !== 'error' && !phoneAsk
+  const closePausedTransport = useCallback(() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }, [])
+  const phoneBarSwipe = useSwipeDownClose<HTMLElement>(phonePausedCloseAllowed, reducedMotion, closePausedTransport)
   useEffect(() => {
     if (showPhoneChrome ? !audioBarActive : !desktopAudioBarActive) setSpeedPopoverOpen(false)
   }, [audioBarActive, desktopAudioBarActive, showPhoneChrome])
-  // V2 lets the chrome hide while audio plays — the transport is what stays
+  // The chrome may hide while audio plays — the transport is what stays
   // on screen, at full opacity, so playback can always be seen and stopped.
   const phoneReaderControlsVisible = readerControlsVisible
-    || (!chromeV2 && listen.playing)
     || phoneAsk
     || chrome === 'talking'
-    || gearOpen
-    || (chromeV2 && (superMenuOpen || superSheet !== null))
+    || superMenuOpen
+    || superSheet !== null
   const canPrevChapter = prevLabChapter(book.chapters, book.chapterNumber) != null
   const canNextChapter = nextLabChapter(book.chapters, book.chapterNumber) != null
   const currentOpeningTitle = book.bookTitle === LAB_COPY.bookTitle
@@ -2686,9 +3857,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const nextChapterNumber = nextLabChapter(book.chapters, book.chapterNumber)
   const nextChapterTitle = nextChapterNumber != null ? book.chapters.find(chapter => chapter.number === nextChapterNumber)?.title ?? null : null
   const nextOpensBibleBook = book.bookTitle === LAB_COPY.bookTitle && nextChapterNumber != null && bibleBookOpeningTitle(book.chapters, nextChapterNumber) != null
-  const nextOpeningKey = chromeV2 && desktopSpread && nextChapterNumber != null && nextChapterTitle && !nextOpensBibleBook && !book.chaptersProvisional
-    ? `${book.bookId || 'bible'}:${readerEditionKey}:${nextChapterNumber}`
-    : null
+  const nextOpeningKey = nextOpeningCacheKey({
+    desktopSpread, bookId: book.bookId || 'bible', readerEditionKey, shownEditionKey,
+    nextChapterNumber, nextChapterTitle, nextOpensBibleBook, chaptersProvisional: book.chaptersProvisional,
+  })
   const [nextOpening, setNextOpening] = useState<{ key: string; title: string; paragraphs: string[] } | null>(null)
   const [nextOpeningPage, setNextOpeningPage] = useState<{ key: string; paragraphs: string[]; page: ChapterHearingPage; continuation: { paragraphIndex: number; wordIndex: number } | null } | null>(null)
   useEffect(() => {
@@ -2699,6 +3871,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       version: typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : undefined,
     }).then(chapter => {
       if (!live || !chapter?.paragraphs.length) return
+      registerLoadedChapter(readerEditionKey, chapter.paragraphs)
       // Use the same complete source as the destination paginator. A truncated
       // sample can mistake its last paragraph for the real chapter ending.
       setNextOpening({ key: nextOpeningKey, title: nextChapterTitle, paragraphs: chapter.paragraphs })
@@ -2712,13 +3885,25 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [carriedEnding, setCarriedEnding] = useState<{
     bookId: string; editionKey: string; targetChapter: number; layoutKey: string; width: number; height: number;
     title: string; chapterNumber: number; paragraphs: string[]; page: ChapterHearingPage; previousAnchor: {paragraphIndex:number;wordIndex:number} | null;
-    folio: number; chapterEnd: ReactNode; onPrimer: () => void;
+    folio: number; chapterEnd: ReactNode; onPrimer?: () => void;
   } | null>(null)
   const carriedEndingCurrent = desktopSpread && carriedEnding?.bookId === (book.bookId || 'bible')
     && carriedEnding.editionKey === readerEditionKey && carriedEnding.targetChapter === book.chapterNumber
     && carriedEnding.layoutKey === `${readerLayoutKey}:${fullscreen}` && carriedEnding.width === window.innerWidth && carriedEnding.height === window.innerHeight
     ? carriedEnding : null
   const openingOnRight = Boolean(carriedEndingCurrent && readingPageIndex === 0)
+  // The paragraphs on the page (or spread) in view, for an added book's Modern
+  // English edition still being written (labModernEdition.ts).
+  const modernSpreadPage = desktopSpread && !openingOnRight ? readingPages[readingPageIndex + 1] : undefined
+  // Before paint: a page turned onto unwritten paragraphs is covered in the same frame, never shown first.
+  useLayoutEffect(() => {
+    if (!modernEnabled) return
+    const pages = [readingPage, modernSpreadPage].filter((page): page is ChapterHearingPage => !!page)
+    const indexes = pages.flatMap(page => [page.paragraphIndex, ...(page.segments ?? []).map(segment => segment.paragraphIndex)])
+    const place = placeRef.current.paragraphIndex
+    const next = indexes.length ? { first: Math.min(...indexes), last: Math.max(...indexes) } : { first: place, last: place }
+    setModernVisible(prev => prev && prev.first === next.first && prev.last === next.last ? prev : next)
+  }, [modernEnabled, readingPage, modernSpreadPage])
   const nextOpeningCurrent = nextOpening && nextOpening.key === nextOpeningKey ? nextOpening : null
   const nextOpeningLayoutKey = `${desktopLayoutKey}:next:${nextOpeningKey ?? ''}`
   const nextChapterOpening = nextOpeningCurrent && nextOpeningPage?.key === nextOpeningLayoutKey && nextOpeningPage.paragraphs === nextOpeningCurrent.paragraphs
@@ -2744,6 +3929,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   const chapterProgress = clampedChapterProgress(rawChapterProgress)
   askPageRef.current = { pageNumber: chapterProgress.currentPage, totalPages: chapterProgress.totalPages }
+  // Talk on the lock screen: the book's cover and title while a call is open,
+  // then back to the chapter details narration shows.
+  useEffect(() => {
+    if (!callOpen) return
+    const session = readerMediaSession()
+    if (!session) return
+    const title = book.bookTitle || 'Tinct'
+    // A reader's own book has no cover: its id never goes into an artwork URL.
+    const artwork = privateBook ? [] : [{ src: new URL(`/covers/v2/${book.bookId || 'bible'}.webp`, window.location.href).href, sizes: '540x810', type: 'image/webp' }]
+    try {
+      session.metadata = readerMediaMetadata({ title: `Talking about ${title}`, artist: 'Tinct', album: title, artwork })
+      session.playbackState = 'playing'
+    } catch { /* unsupported */ }
+    return () => {
+      try {
+        session.metadata = readerMediaMetadata({ title: book.chapterTitle || title, artist: `${title} · ${LAB_COPY.aiNarration}`, album: title, artwork })
+        session.playbackState = 'paused'
+      } catch { /* unsupported */ }
+    }
+  }, [callOpen, book.bookId, book.bookTitle, book.chapterTitle, privateBook])
   // Durable reading memory: a read-only observer of the rendered tuple. It
   // records sessions for the library recap and never touches position logic.
   useLabReadingMemory({
@@ -2755,14 +3960,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     pageIndex: readingPageIndex,
     pages: readingPages,
     pagesSettled: measuredPaging ? nativePagesRevision > 0 : settleIndex === null,
-    ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && (!chromeV2 || !tocOpen),
+    // A user book is not recorded in the reading memory (it syncs to the account).
+    ready: !privateBook && !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && !tocOpen,
     pageTurnDirection: pageTurn?.direction ?? null,
     finishedChapters,
   })
   useRecapPreparation({
     playing: listen.playing,
     userId: authUser?.id ?? null,
-    ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && initialPositionResolved,
+    ready: !privateBook && !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && initialPositionResolved,
     request: {
       bookId: book.bookId || 'bible', editionKey: readerEditionKey,
       chapterNumber: book.chapterNumber, paragraphIndex: Math.max(0, placeRef.current.paragraphIndex),
@@ -2783,9 +3989,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       memory: readDeviceReadingMemory(),
       position: readPositionState(),
       viewer: authUser?.id ?? null,
-      conversations: readLabBookChat(book.bookId || 'bible'),
+      conversations: sharedReader && userBook ? ownCardController?.read() ?? [] : readLabBookChat(book.bookId || 'bible'),
     })
-  }, [authUser?.id, book.bookId, book.chapters, finishedChapters, readPositionState, tocOpen])
+  }, [authUser?.id, book.bookId, book.chapters, finishedChapters, readPositionState, tocOpen, sharedReader, userBook, ownCardController])
   const footProgress = labFootProgress({
     chapterNumber: book.chapterNumber,
     chapterLabel: book.chapterLabel,
@@ -2803,8 +4009,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? (returnTo === 'hearing' ? LAB_COPY.play : LAB_COPY.read)
       : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)
   lockPaginationRef.current = showHearing && listen.playing && !browseWhileListening
+  // Only pages before the last two are full: the last is short by nature, and
+  // reserving the chapter actions can split it, leaving a short page before it
+  // too. To the Lighthouse opened on The Window 2 (two paragraphs) measured
+  // that 34-word page and read 2,029 pages instead of about 960.
+  // Nor is the first: it carries the chapter's title. Constructor Theory's first chapter (its
+  // abstract, three pages) measured its title page and set the book at 192 pages, then 177 a page
+  // later (Anders, 16 Oct 2026).
   const fullPageWordCounts = readingPages
-    .slice(0, Math.max(1, readingPages.length - 1))
+    .slice(1, Math.max(1, readingPages.length - 2))
     .map(page => chapterPageSegments(page).reduce((total, segment) => total + Math.max(0, segment.to - segment.from), 0))
     .filter(count => count > 0)
     .sort((a, b) => a - b)
@@ -2815,17 +4028,36 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // the figure and every later chapter reuses it, until the type size or the
   // window changes and it is measured afresh. (A one-page Psalm has no full
   // page of its own to measure, which is the other reason not to ask it.)
+  // Only a chapter of prose measures it (proseChapter): a printed contents or a list of dates
+  // holds a few words a page.
+  // A head-first map's pages after its first are stand-ins: words per page waits for the full map.
+  const headFirstOnScreen = measuredPaging && nativeHeadContent === readerParagraphs && nativeMeasuredContent !== readerParagraphs
+  const phoneMedian = fullPageWordCounts.length > 0 && proseChapter(book.paragraphs) && !headFirstOnScreen ? fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)] : 0
   const freshCapacity: { wordsPerPage: number; leafHeight: number } | null = desktopPaging && desktopLeafCapacity !== null
     ? desktopLeafCapacity
-    : fullPageWordCounts.length > 0
-      ? { wordsPerPage: fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)], leafHeight: 0 }
+    : phoneMedian >= MIN_WORDS_PER_PAGE
+      ? { wordsPerPage: phoneMedian, leafHeight: 0 }
       : null
   const held = wordsPerPageRef.current
-  if (freshCapacity !== null && (held === null || held.leafHeight !== freshCapacity.leafHeight)) {
-    wordsPerPageRef.current = freshCapacity
+  const capacityKey = `${readerLayoutKey}|${typeof window !== 'undefined' ? `${window.innerWidth}x${window.innerHeight}` : ''}`
+  if (freshCapacity !== null && (held === null || held.leafHeight !== freshCapacity.leafHeight || (held.stored && !desktopPaging))) {
+    // A figure kept from an earlier visit in this layout, once shown, stays for this visit: the
+    // page count never moves under the reader. The new measurement is kept for the next visit.
+    // (Constructor Theory read "2 / 266 of book", then "3 / 161" a chapter later: 16 Oct 2026.)
+    if (!desktopPaging && storedCapacityRef.current !== `${capacityKey}=${freshCapacity.wordsPerPage}`) {
+      storedCapacityRef.current = `${capacityKey}=${freshCapacity.wordsPerPage}`
+      storeWordsPerPage(capacityKey, freshCapacity.wordsPerPage)
+    }
+    if (!held?.stored || desktopPaging) wordsPerPageRef.current = freshCapacity
   }
-  const measuredWordsPerPage = wordsPerPageRef.current?.wordsPerPage
+  if (wordsPerPageRef.current === null && freshCapacity === null && !desktopPaging) {
+    const stored = readStoredWordsPerPage(capacityKey)
+    if (stored !== null) wordsPerPageRef.current = { wordsPerPage: stored, leafHeight: 0, stored: true }
+  }
+  const phoneWordsPerPage = wordsPerPageRef.current?.wordsPerPage
     ?? freshCapacity?.wordsPerPage
+    ?? null
+  const measuredWordsPerPage = phoneWordsPerPage
     ?? Math.max(1, Math.round(chapterProgress.wordsTotal / Math.max(1, chapterProgress.totalPages)))
   const bookWordCount = getBook(book.bookId || 'bible')?.wordCount
   const progressInput = {
@@ -2836,8 +4068,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     chapterNumber: book.chapterNumber,
     chapterWordsRead: chapterProgress.wordsRead,
     chapterWordCounts: book.chapters,
-    wordsPerPage: measuredWordsPerPage,
+    wordsPerPage: desktopPaging ? measuredWordsPerPage : phoneWordsPerPage,
     bookWordCount,
+    heldTotalPages: null as number | null,
   }
   // Printed books, Bibles included, number continuously through the volume.
   // The desktop spread therefore shows the book page, not the chapter page,
@@ -2865,6 +4098,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // it. The desktop leaf folios need no hold; they are already painted only
   // on a measured map.
   const progressMeasured = !measuredPaging || nativeMeasuredContent === readerParagraphs
+  // The book's page count on the phone, held from the first one shown in this layout: the pages
+  // of the chapter in front of the reader are counted and the rest estimated, so a chapter change
+  // would otherwise move it (Constructor Theory: "2 / 266 of book", then "3 / 161"; 16 Oct 2026).
+  const progressTotalKey = !desktopPaging && progressInput.wordsPerPage != null && !book.chaptersProvisional && !initialResolving && !headFirstOnScreen && progressMeasured
+    ? `${book.bookId}|${capacityKey}|${progressInput.wordsPerPage}|${bookWordCount ?? ''}|${book.chapters.length}`
+    : null
+  if (progressTotalKey !== null && progressTotalRef.current?.key !== progressTotalKey) {
+    progressTotalRef.current = { key: progressTotalKey, total: labBookPageEstimate({ currentPage: chapterProgress.currentPage, totalPages: chapterProgress.totalPages, chapterNumber: book.chapterNumber, chapterWeights: book.chapters, wordsPerPage: progressInput.wordsPerPage as number, bookWordCount }).totalPages }
+  }
+  if (!desktopPaging && progressTotalRef.current && progressTotalRef.current.key.startsWith(`${book.bookId}|${capacityKey}|${progressInput.wordsPerPage}|`)) progressInput.heldTotalPages = progressTotalRef.current.total
   const [progressHoldReleased, setProgressHoldReleased] = useState(false)
   useEffect(() => {
     if (progressMeasured) { setProgressHoldReleased(false); return }
@@ -2884,15 +4127,40 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const desktopProgressLabel = shownProgressLabels.book
   // No figure until the chapter list is real and the place is resolved: the
   // boot list has two chapters and would read "1 / 2 of book" for a moment.
+  // Nor while a head-first map's rest is still being laid out: its page count is a stand-in.
   const footProgressLabel = initialResolving || (book.chaptersProvisional && book.paragraphs.length === 0)
+    || headFirstOnScreen
     ? ''
     : showPhoneChrome
       ? phoneProgressLabel
-      : chromeV2 ? desktopProgressLabel : desktopPaging ? desktopProgressLabel : `${chapterProgress.currentPage} of ${chapterProgress.totalPages}`
+      : desktopProgressLabel
+  // Reading the original while Modern English is written: the folio names it, like the compare mark.
+  const readingFootLabel = modern.originalNote && footProgressLabel ? `${MODERN_WAIT_COPY.originalLabel} · ${footProgressLabel}` : footProgressLabel
 
   useEffect(() => {
     if (!showHearing || listen.pending) return
     const follow = listen.follow
+    if (continuousReader) {
+      if (browseWhileListeningRef.current) return
+      if (follow.kind === 'word') {
+        const place = { paragraphIndex: follow.paragraphIndex, wordIndex: follow.wordIndex }
+        placeRef.current = place
+        // The mounted scroll surface follows spoken words itself. Re-anchor
+        // only when narration leaves its bounded source window; otherwise
+        // replacing the destination for every token repaints/recenters three
+        // windows and can displace an exact saved location.
+        const host = pageWrapRef.current?.querySelector('[data-testid="continuous-reader"]')
+        if (!host?.querySelector(`[data-testid="lab-word"][data-paragraph-index="${place.paragraphIndex}"][data-word-index="${place.wordIndex}"]`))
+          setContinuousAnchor(current => current.paragraphIndex === place.paragraphIndex && current.wordIndex === place.wordIndex ? current : place)
+      } else if (follow.kind === 'paragraph') {
+        const place = { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
+        placeRef.current = place
+        const host = pageWrapRef.current?.querySelector('[data-testid="continuous-reader"]')
+        if (!host?.querySelector(`[data-testid="lab-word"][data-paragraph-index="${place.paragraphIndex}"]`))
+          setContinuousAnchor(current => current.paragraphIndex === place.paragraphIndex ? current : place)
+      }
+      return
+    }
     const pageIdx = Math.max(0, Math.min(readingPageIndex, Math.max(0, readingPages.length - 1)))
     if (browseWhileListeningRef.current) {
       if (followOnReadingPage(follow, readingPages, pageIdx)) return
@@ -2924,7 +4192,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const page = readingPages[readingPageIndex]
       const midBook = !!page && page.paragraphIndex > 0
       if (follow.paragraphIndex === 0 && midBook && !(listen.clipIndex === 0 && listen.currentTime < 15)) return
-      placeRef.current = { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
+      // A paragraph-level follow names no word. When the open page already
+      // begins inside that paragraph, its first word is the place: moving
+      // the place back to the paragraph's start (on the leaf before) let the
+      // next map adoption, e.g. when the transport opens, turn the reader
+      // back a leaf on Play (check-audio-spread).
+      placeRef.current = page && page.paragraphIndex === follow.paragraphIndex
+        ? { paragraphIndex: follow.paragraphIndex, wordIndex: page.from }
+        : { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
       const followAlreadyVisible = showPhoneChrome
         ? !!page && page.paragraphIndex === follow.paragraphIndex
         : (followOnReadingPage(follow, readingPages, readingPageIndex) || desktopSpread && !openingOnRight && followOnReadingPage(follow, readingPages, readingPageIndex + 1))
@@ -2939,7 +4214,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         return next === current ? current : next
       })
     }
-  }, [listen.follow, listen.pending, readingPages, readingPageIndex, showHearing, showPhoneChrome, desktopSpread, openingOnRight, listen.clipIndex, listen.currentTime])
+  }, [listen.follow, listen.pending, readingPages, readingPageIndex, showHearing, showPhoneChrome, desktopSpread, openingOnRight, listen.clipIndex, listen.currentTime, continuousReader])
 
   useEffect(() => {
     if (!showHearing || listen.pending || !listen.playing || browseWhileListeningRef.current) return
@@ -2958,14 +4233,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [readingPages, showHearing, showPhoneChrome, desktopSpread, openingOnRight, listen.pending, listen.playing, listen.follow])
 
   useEffect(() => {
-    if ((book.bookId || 'bible') !== 'bible') return
+    if ((book.bookId || 'bible') !== 'bible' || !firstPageShown) return
     const editions = {
       primary: prefs.primaryEdition,
       compare: prefs.compareEdition,
       audio: audioEditionKey,
     }
     prefetchLabChapterTexts(book.chapterNumber, editions, 3)
-  }, [book.bookId, book.chapterNumber, book.chapters, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
+  }, [book.bookId, book.chapterNumber, book.chapters, prefs.primaryEdition, prefs.compareEdition, audioEditionKey, firstPageShown])
 
   const warmChapterTexts = useCallback((number: number) => {
     if ((book.bookId || 'bible') !== 'bible') return
@@ -3012,9 +4287,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return () => observer.disconnect()
   }, [selectionPopup?.x, selectionPopup?.y, selectionPopup?.showBelow, popupMode, noteInput])
 
-  // Explain is fetched on speculation the moment a selection settles under
-  // the finger, so the opener is usually there before Explain is tapped. It
-  // is never charged; the tap is. A dismissed popup drops the fetch.
+  // Explain is fetched on speculation once a selection has settled under the
+  // finger for a moment, so the opener is usually there before Explain is
+  // tapped. The Worker meters it as explain_speculative, outside every
+  // allowance (11 Oct 2026); a dismissed popup drops the fetch.
   const speculateExplanation = useCallback((text: string, paragraphIndex: number, comparison: boolean, context?: { chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) => {
     if (text.trim().split(/\s+/).length < 2) return
     const editionKey = comparison ? prefs.compareEdition : prefs.primaryEdition
@@ -3033,18 +4309,25 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     selectingTimerRef.current = window.setTimeout(() => {
       selectingTimerRef.current = null
       speculateExplanation(range.text, range.paragraphIndex, mobileCompareActive)
-    }, 400)
+    }, 700)
   }, [mobileCompareActive, phoneAskOpen, speculateExplanation])
   useEffect(() => () => { if (selectingTimerRef.current) window.clearTimeout(selectingTimerRef.current) }, [])
   useEffect(() => {
     // Desktop native selection never reports in progress; the popup opening is its settle.
     if (!selectionPopup || selectionPopup.existingHighlightId) return
     const editionKey = selectionPopup.editionKey || readerEditionKey
-    const timer = window.setTimeout(() => speculateExplanation(selectionPopup.text, selectionPopup.paragraphIndex, editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition, selectionPopup), 180)
+    const timer = window.setTimeout(() => speculateExplanation(selectionPopup.text, selectionPopup.paragraphIndex, editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition, selectionPopup), 500)
     return () => window.clearTimeout(timer)
   }, [selectionPopup, readerEditionKey, prefs.compareEdition, prefs.primaryEdition, speculateExplanation])
 
   const dismissSelectionPopup = useCallback(() => {
+    // An explicit new selection may ask the same question again. Keep the
+    // in-flight request object in its promise closures, but never reuse its
+    // Notebook identity for a later popup.
+    desktopCardRequestRef.current = null
+    selectionPopupRef.current = null
+    phoneAnswerRef.current = null
+    setSharedCardSaveError(false)
     setSelectionPopup(null)
     setPopupMode('colors')
     setNoteInput('')
@@ -3052,9 +4335,79 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ask.discardSpeculativeExplanation()
   }, [ask.discardSpeculativeExplanation, define])
 
+  // The selection menu stays while the reader is still and goes once they scroll on: a fresh selection's after more
+  // than a few lines (Anders, 2 Nov 2026); a saved highlight's (its colours, waiting for a change) at once, and on
+  // the desktop also when the mouse leaves it (Anders, 11 Nov 2026; labHighlightMenuLeave.ts). Never on a scroll made
+  // while a finger or the mouse is still down (dragging a selection's handle scrolls the page too). An answer the
+  // menu opened into stays.
+  const scrollDismissRef = useRef(dismissSelectionPopup)
+  scrollDismissRef.current = dismissSelectionPopup
+  const selectionMenuOpen = !!selectionPopup && (popupMode === 'main' || popupMode === 'colors')
+  const highlightMenuOpen = selectionMenuOpen && !!selectionPopup?.existingHighlightId
+  useEffect(() => {
+    if (!highlightMenuOpen || showPhoneChrome) return
+    if (typeof window.matchMedia === 'function' && !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+    return watchHighlightMenuLeave({ boxes: () => highlightMenuBoxes(), keyboardInside: () => highlightMenuHasKeyboard(), onLeave: () => scrollDismissRef.current() })
+  }, [highlightMenuOpen, showPhoneChrome])
+  useEffect(() => {
+    if (!selectionMenuOpen) return
+    const start = new Map<EventTarget, number>()
+    let down = false
+    // The page itself (the window or the document) or a scrolling element.
+    const offset = (target: EventTarget) => target instanceof Element ? target.scrollTop : window.scrollY || document.scrollingElement?.scrollTop || 0
+    const onDown = () => { down = true }
+    const onUp = () => { down = false; start.clear() }
+    const onScroll = (event: Event) => {
+      const target = event.target ?? document
+      if (target instanceof Element && target.closest('[role="toolbar"], .selection-popup, [data-testid="lab-phone-bar"]')) return
+      if (!start.has(target)) { start.set(target, offset(target)); return }
+      if (!down && selectionMenuScrollGone(offset(target) - (start.get(target) ?? 0), highlightMenuOpen)) scrollDismissRef.current()
+    }
+    // A turn of the wheel over the page is the reader scrolling on: a saved highlight's menu goes with it at once,
+    // before the page has moved two frames.
+    const onWheel = (event: WheelEvent) => {
+      if (!highlightMenuOpen || down || !(event.deltaY || event.deltaX)) return
+      if (event.target instanceof Element && event.target.closest('[role="toolbar"], .selection-popup, [data-testid="lab-phone-bar"]')) return
+      scrollDismissRef.current()
+    }
+    window.addEventListener('wheel', onWheel, { capture: true, passive: true })
+    window.addEventListener('pointerdown', onDown, true)
+    window.addEventListener('pointerup', onUp, true)
+    window.addEventListener('pointercancel', onUp, true)
+    window.addEventListener('scroll', onScroll, { capture: true, passive: true })
+    return () => {
+      window.removeEventListener('pointerdown', onDown, true)
+      window.removeEventListener('pointerup', onUp, true)
+      window.removeEventListener('pointercancel', onUp, true)
+      window.removeEventListener('scroll', onScroll, true)
+      window.removeEventListener('wheel', onWheel, true)
+    }
+  }, [selectionMenuOpen, highlightMenuOpen])
+
+  // Rendered inside the pill's tap (flushSync), so the editor's field takes
+  // focus within the gesture and iOS raises the keyboard.
+  openChapterNoteRef.current = (chapterNumber: number, pill: DOMRect) => {
+    if (initialResolving) return
+    dismissSelectionPopup()
+    if (marginPhoneNoteRef.current(chapterNumber)) return
+    flushSync(() => setChapterNoteEditor({ bookId: book.bookId || 'bible', chapterNumber, left: pill.left, top: pill.top, bottom: pill.bottom }))
+  }
+  useLayoutEffect(() => { setChapterNoteEditor(current => (current && current.bookId !== (book.bookId || 'bible') ? null : current)) }, [book.bookId])
+
 
   // A new passage/view invalidates a frozen card, including while edition data loads.
-  useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
+  useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
+  // New Compare text invalidates a selection too, except a cold open's Compare edition landing after the first page
+  // (compareLater): it replaces no text, so nothing on screen could have been selected in it, and the reader's
+  // selection of the main text stays (16 Nov 2026: it closed the bar under the reader's finger).
+  const selectionCompareRef = useRef(book.compareParagraphs)
+  useLayoutEffect(() => {
+    const before = selectionCompareRef.current
+    selectionCompareRef.current = book.compareParagraphs
+    if (before !== book.compareParagraphs && before.length > 0) setSelectionPopup(null)
+  }, [book.compareParagraphs])
+  // A new passage or view invalidates an open note, as it does a selection card.
+  useLayoutEffect(() => { setOpenFootnote(null) }, [book.bookId, book.chapterNumber, readerParagraphs, readerEditionKey, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
 
   const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare', intent?: 'lookup', highlightId?: string, context?: { chapterNumber: number; chapterLabel: string; paragraphs: string[] }) => {
     if (initialResolving || frontispieceVisible || phoneAskOpen) return
@@ -3070,7 +4423,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const painted = intent === 'lookup' && highlightId
       ? (comparison ? highlightsApi.compareHighlights : highlightsApi.highlights).find(mark => mark.id === highlightId && mark.chapterNumber === selectedChapter)
       : undefined
-    const existing = painted ?? highlightsApi.findRange(range, editionKey, selectedChapter) ?? highlightsApi.findContainingRange(range, editionKey, selectedChapter)
+    const existing = painted ?? highlightsApi.findRange(range, editionKey, selectedChapter)
+      ?? (intent === 'lookup' ? highlightsApi.findContainingRange(range, editionKey, selectedChapter) : undefined)
     const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, selectedChapter, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === selectedChapter && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
     const highlight = existing
     // A click inside an existing highlight is about the thing the reader
@@ -3080,12 +4434,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // meaningless. A fresh drag has just expressed a different intent, so it
     // always keeps what was dragged even where it overlaps a highlight.
     const pickedOneWord = range.paragraphIndex === range.endParagraphIndex && range.toWord - range.fromWord <= 1
+    // A shared name that no reviewed mention claims is named as shared, not guessed at.
+    const namesakes = offsets && !character && !existing && pickedOneWord ? namesakesAt(comparison ? compareCharacters : primaryCharacters, selectedChapter, range.paragraphIndex, ...offsets, paragraph) : null
     const clickedWordText = pickedOneWord ? lookupWordAtPoint(range.text, range.paragraphIndex, range.fromWord, clientX, clientY, side === 'compare', Boolean(context)) : range.text
     const widerHighlight = highlight && (highlight.paragraphIndex !== range.paragraphIndex
       || highlight.endParagraphIndex !== range.endParagraphIndex
       || highlight.fromWord !== range.fromWord
       || highlight.toWord !== range.toWord)
-    const subject = ((intent === 'lookup' || pickedOneWord) && highlight && widerHighlight
+    const subject = (intent === 'lookup' && highlight && widerHighlight
       ? buildHighlightRange(
           paragraphs,
           { paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord },
@@ -3113,10 +4469,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const floatingY = anchorY - estimatedHeight - 12
     const hasRoomAboveSelection = floatingY >= safeTop
     const shouldFloatAbove = mobile && anchorY > bottomSheetTop - bottomInset && hasRoomAboveSelection
-    setSelectionPopup({
+    desktopCardRequestRef.current = null
+    phoneAnswerRef.current = null
+    setSharedCardSaveError(false)
+    const nextSelection: NonNullable<typeof selectionPopup> = {
       x: Math.max(24, Math.min(window.innerWidth - 24, clientX)),
       y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
-      text: highlight?.groupText || subject.text,
+      text: intent === 'lookup' ? highlight?.groupText || subject.text : subject.text,
       paragraphIndex: subject.paragraphIndex,
       startOffset: subject.fromWord,
       endOffset: subject.toWord,
@@ -3127,20 +4486,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       existingNote: highlight?.note,
       homeMode: character ? 'main' : defaultPopupMode(subject.text, existing?.id),
       character: character ?? undefined,
+      namesakes: namesakes ?? undefined,
       editionKey,
       side,
       range: subject,
       chapterNumber: selectedChapter,
       chapterLabel: context?.chapterLabel ?? book.chapterLabel,
       paragraphs,
-    })
+      openedAt: Date.now(),
+    }
+    selectionPopupRef.current = nextSelection
+    setSelectionPopup(nextSelection)
   }, [define, highlightsApi, primaryCharacters, compareCharacters, book, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, initialResolving, frontispieceVisible, phoneAskOpen])
 
   const selectAcrossChapters = (parts: ChapterSelectionPart[], x: number, y: number) => {
     if(parts.length<2)return
     const first=parts[0]
     handleSelectRange(first.range,x,y,undefined,undefined,undefined,first)
-    setSelectionPopup(current=>current?{...current,chapterRanges:parts,text:parts.map(p=>p.range.text).join(' '),existingHighlightId:undefined,existingNote:undefined,character:undefined,homeMode:'main'}:current)
+    setSelectionPopup(current=>current?{...current,chapterRanges:parts,text:parts.map(p=>p.range.text).join(' '),existingHighlightId:undefined,existingNote:undefined,character:undefined,namesakes:undefined,homeMode:'main'}:current)
     setPopupMode('main')
     setCrossSelecting(null)
   }
@@ -3154,14 +4517,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   useEffect(() => {
     if (!phoneAskOpen) setPhoneKeyboardOpen(false)
   }, [phoneAskOpen])
-
-  const leaveTalking = useCallback(() => {
-    if (voiceCallSurfaceRef.current && callOpenRef.current) {
-      endCallRef.current()
-      return
-    }
-    resumeListenAfterAsk()
-  }, [resumeListenAfterAsk])
 
   const commitUnsettledNav = useCallback((pages: ChapterHearingPage[]) => {
     if (pagesStableRef.current) return
@@ -3191,6 +4546,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [book.paragraphs, mobileCompareActive, readerParagraphs, showPhoneChrome])
 
   const goToPage = useCallback((index: number) => {
+    cancelHeadFirstTurn()
     setRecentChapterReturn(null)
     mobileCompareReturnPlaceRef.current = null
     chapterNavigationRef.current += 1
@@ -3228,7 +4584,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       placeRef.current = primaryAnchor
       notePlace('page-turn', primaryAnchor)
     }
-  }, [chromeV2, commitUnsettledNav, listen, mobileCompareActive, notePlace, primaryAnchorFor])
+  }, [cancelHeadFirstTurn, commitUnsettledNav, listen, mobileCompareActive, notePlace, primaryAnchorFor])
 
   const handleMobileCompare = useCallback(() => {
     if (!mobileCompareEnabled) return
@@ -3242,10 +4598,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const sourceAnchor = nextActive ? { ...placeRef.current } : visiblePageAnchor
     if (nextActive) mobilePrimaryPagesRef.current = current
     const targetParagraphs = nextActive ? book.compareParagraphs : book.paragraphs
-    // V2's compare page is anchored on the primary page's FIRST WORD, carried
+    // The compare page is anchored on the primary page's FIRST WORD, carried
     // to the same aligned paragraph — the persisted place is a separate thing
-    // and is left exactly where it is. V1 keeps mapping the place itself.
-    const compareHead = nextActive && chromeV2
+    // and is left exactly where it is.
+    const compareHead = nextActive
       ? mapLabCompareAnchor(readerParagraphs, targetParagraphs, visiblePageAnchor)
       : null
     const mapped = compareHead
@@ -3263,8 +4619,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ?? (measured?.length ? measured : chapterHearingPages(targetParagraphs, canUseLabPageBudget(budget) ? budget : null))
     // The whole main page, not just its first word: its end is carried over
     // too, and the compare page is cut to exactly that passage when it fits
-    // one page. When it does not, pagination stays as it is and the end is
-    // marked. Nothing here writes a place; the font is the reader's own.
+    // one page. When it does not, pagination stays as it is. Nothing here
+    // writes a place; the font is the reader's own.
     const mainTail = compareHead ? chapterPageTail(current[currentIndex]) : null
     const compareEnd = mainTail
       ? mapLabCompareEnd(readerParagraphs, targetParagraphs, { paragraphIndex: mainTail.paragraphIndex, wordIndex: mainTail.to })
@@ -3272,20 +4628,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     comparePassageRef.current = compareHead && compareEnd
       ? { paragraphs: targetParagraphs, start: compareHead, end: compareEnd, entryPlace: { ...sourceAnchor } }
       : null
-    setComparePageEnd(compareEnd ? { paragraphs: targetParagraphs, at: compareEnd } : null)
     const nextPages = withComparePassage(naturalPages, targetParagraphs)
     // Find the natural page containing the mapped verse. Splitting at the
     // anchor creates a short leftover page without reflowing the chapter.
-    if (chromeV2) swapCommittedRef.current = { paragraphs: targetParagraphs, pages: nextPages }
+    swapCommittedRef.current = { paragraphs: targetParagraphs, pages: nextPages }
     const nextIndex = compareHead
       ? restorePageIndexForAnchor(nextPages, compareHead)
       : pageIndexForPlace(nextPages, mapped.paragraphIndex, mapped.wordIndex)
-    if (chromeV2) {
-      setVersionPill(pill => ({
-        label: nextActive ? compareEditionLabel : primaryEditionLabel,
-        nonce: (pill?.nonce ?? 0) + 1,
-      }))
-    }
+    setVersionPill(pill => ({
+      label: nextActive ? compareEditionLabel : primaryEditionLabel,
+      nonce: (pill?.nonce ?? 0) + 1,
+    }))
 
     // Entering Compare interrupts playback, but returning to Read is a pure
     // reader-mode transition. The Read action must not mutate the audio tuple.
@@ -3314,7 +4667,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDraftPages(nextPages)
     setReadingPageIndex(nextIndex)
     setMobileCompareActive(nextActive)
-  }, [book.compareParagraphs, book.paragraphs, chromeV2, compareEditionLabel, listen, mobileCompareActive, mobileCompareEnabled, notePlace, primaryEditionLabel, readerParagraphs, standbyKey, withComparePassage])
+  }, [book.compareParagraphs, book.paragraphs, compareEditionLabel, listen, mobileCompareActive, mobileCompareEnabled, notePlace, primaryEditionLabel, readerParagraphs, standbyKey, withComparePassage])
 
   const handleDesktopCompare = useCallback(() => {
     if (!desktopCompareEnabled) return
@@ -3327,9 +4680,30 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDesktopCompareActive(nextActive)
     notePlace('mode-change')
   }, [desktopCompareActive, desktopCompareEnabled, notePlace])
+  // The reader's own toggles (the Show compare switch, the swipe, the bar,
+  // the commands) are remembered for the book; a jump that leaves Compare is not.
+  const toggleMobileCompareByReader = useCallback(() => {
+    if (!mobileCompareEnabled) return
+    rememberCompareView(!mobileCompareActive)
+    handleMobileCompare()
+  }, [handleMobileCompare, mobileCompareActive, mobileCompareEnabled, rememberCompareView])
+  const toggleDesktopCompareByReader = useCallback(() => {
+    if (!desktopCompareEnabled) return
+    rememberCompareView(!desktopCompareActive)
+    if (sharedReader) {
+      const layout = !desktopCompareActive ? 'compare' : privateDesktopClassic ? 'two-page' : 'margin'
+      storeDesktopReaderLayout(compareViewBookId, layout)
+      const url = new URL(window.location.href)
+      if (layout === 'margin') url.searchParams.delete('view')
+      else url.searchParams.set('view', layout)
+      window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
+    }
+    handleDesktopCompare()
+  }, [compareViewBookId, desktopCompareActive, desktopCompareEnabled, handleDesktopCompare, privateDesktopClassic, rememberCompareView, sharedReader])
 
   const browseToChapter = useCallback(async (number: number, landing: 'start' | 'end', continuation?: { paragraphIndex: number; wordIndex: number }) => {
     setRecentChapterReturn(null)
+    setNotebookReturn(null)
     const navigation = ++chapterNavigationRef.current
     if (listen.playing) {
       browseWhileListeningRef.current = true
@@ -3343,6 +4717,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     pageAnchorRef.current = null
     restorePlaceRef.current = null
+    restoreWatchRef.current = null
     chapterLandingRef.current = landing
     landingChapterRef.current = number
     openAtEndRef.current = landing === 'end'
@@ -3361,7 +4736,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     let loaded: LabSource
     try {
       loaded = await loadLabBookSource({
-        readingFirst: chromeV2,
+        readingFirst: true,
         bookId: book.bookId || 'bible',
         chapterNumber: number,
         primaryEditionKey: prefs.primaryEdition,
@@ -3386,7 +4761,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? { bookId: loaded.bookId || 'bible', editionKey: prefs.primaryEdition, chapterNumber: number, anchor: continuation }
       : null
     if (continuation) {
-      restorePlaceRef.current = continuation
+      restorePlaceRef.current = restoreTargetIn(continuation, labRestoreChapterKey(loaded.bookId, loaded.chapterNumber))
       pageAnchorRef.current = continuation
       placeRef.current = continuation
       // This page turn has already consumed the opening on the right leaf.
@@ -3397,8 +4772,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setOpenAtEnd(landing === 'end')
   }, [book.bookId, bookEditions, listen.playing, notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition, audioEditionKey])
 
-  const goToChapter = useCallback(async (number: number, landing: 'start' | 'end', preserveAudioSession = false, continuation?: { paragraphIndex: number; wordIndex: number }) => {
+  const goToChapter = useCallback(async (number: number, landing: 'start' | 'end', preserveAudioSession = false, continuation?: { paragraphIndex: number; wordIndex: number }, scrolledInto = false) => {
     setRecentChapterReturn(null)
+    // A chapter adopted from the book scroll's reading line is not a choice;
+    // the scroll that reached it already dismissed the offer (onUserBrowse).
+    if (!scrolledInto) setNotebookReturn(null)
     const navigation = ++chapterNavigationRef.current
     browseWhileListeningRef.current = false
     setBrowseWhileListening(false)
@@ -3414,6 +4792,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     else listen.stop()
     pageAnchorRef.current = null
     restorePlaceRef.current = null
+    restoreWatchRef.current = null
     chapterLandingRef.current = landing
     landingChapterRef.current = number
     openAtEndRef.current = landing === 'end'
@@ -3434,7 +4813,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     let loaded: LabSource
     try {
       loaded = await loadLabBookSource({
-        readingFirst: chromeV2,
+        readingFirst: true,
         bookId: book.bookId || 'bible',
         chapterNumber: number,
         primaryEditionKey: prefs.primaryEdition,
@@ -3463,7 +4842,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     setReaderLoadError('')
     setChapterCoverTitle(
-      !preserveAudioSession && landing === 'start' && loaded.bookTitle === LAB_COPY.bookTitle
+      // Book scroll (try-out): a chapter scrolled into is already on the page; no opening page covers it.
+      !preserveAudioSession && !scrolledInto && landing === 'start' && loaded.bookTitle === LAB_COPY.bookTitle
         ? bibleBookOpeningTitle(loaded.chapters, number)
         : null,
     )
@@ -3479,7 +4859,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? { bookId: loaded.bookId || 'bible', editionKey: prefs.primaryEdition, chapterNumber: number, anchor: continuation }
       : null
     if (continuation) {
-      restorePlaceRef.current = continuation
+      restorePlaceRef.current = restoreTargetIn(continuation, labRestoreChapterKey(loaded.bookId, loaded.chapterNumber))
       pageAnchorRef.current = continuation
       placeRef.current = continuation
       // This page turn has already consumed the opening on the right leaf.
@@ -3490,6 +4870,22 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setOpenAtEnd(landing === 'end')
   }, [book.bookId, bookEditions, listen, notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition, audioEditionKey])
 
+  nextChapterAudioRef.current = () => {
+    // Only where the chapter-complete handler below continues: the chapter
+    // heard is the chapter shown, warmed narration, never an own book.
+    if (privateBook || !narrationOption || !narrationVoice) return null
+    if (listenSource.bookId !== (book.bookId || 'bible') || listenSource.chapterNumber !== book.chapterNumber) return null
+    const next = nextLabChapter(book.chapters, book.chapterNumber)
+    if (next == null) return null
+    const scope = { ...narrationContextRef.current, chapter: next }
+    const results = [
+      ...readNarrationReplay(scope),
+      ...(warmedNarrationRef.current.get(warmedNarrationKey(scope.bookId, scope.editionKey, next, scope.voice)) ?? []),
+    ]
+    const urls = narrationBridgeUrls(results)
+    return urls.length > 0 ? { chapterNumber: next, urls } : null
+  }
+
   audioChapterCompleteRef.current = () => {
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     // Hearing a chapter out is finishing it, same as turning past the last
@@ -3497,14 +4893,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!temporaryHold) markChapterFinished(book.chapterNumber)
     if (next == null) return false
     if (nextChapterOpening?.chapterNumber === next && readingPage) {
+      const endedChapter = book.chapterNumber
       setCarriedEnding({
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, targetChapter: next,
         layoutKey: `${readerLayoutKey}:${fullscreen}`, width: window.innerWidth, height: window.innerHeight,
         title: book.chapterTitle, chapterNumber: book.chapterNumber, paragraphs: readerParagraphs, page: readingPage,
         previousAnchor: readingPageIndex > 0 ? pageAnchorOf(readingPages[Math.max(0, readingPageIndex - 2)]) : null,
-        folio: bookPageEstimate.page, onPrimer: () => handleChapterChat('preview'),
-        chapterEnd: <LabChapterEnd docked={desktopEndInFooter} hasNext
-          onContinue={() => goNextRef.current()} busy={false} onDiscuss={() => handleChapterChat('discuss')} />,
+        folio: bookPageEstimate.page, onPrimer: privateBook ? undefined : () => openChapterNotes('primer', endedChapter),
+        chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle} docked={desktopEndInFooter} hasNext recap={!privateBook}
+          onContinue={() => goNextRef.current()} busy={false} onDiscuss={privateBook ? undefined : () => openChapterNotes(CHAPTER_SUMMARY_KIND, endedChapter, 'pill', 'summary', 'end')}
+          onNote={pill => openChapterNoteRef.current(endedChapter, pill)} />,
       })
     } else setCarriedEnding(null)
     void goToChapter(next, 'start', true)
@@ -3539,9 +4937,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       return
     }
     placeRef.current = { paragraphIndex: next, wordIndex: 0 }
+    if (continuousReader) setContinuousAnchor(placeRef.current)
     notePlace('page-turn', { paragraphIndex: next, wordIndex: 0 })
     if (opts?.seekAudio && listen.src) listen.seekToPlace(next, 0)
-  }, [book.paragraphs.length, listen, notePlace, readingPages])
+  }, [book.paragraphs.length, continuousReader, listen, notePlace, readingPages])
 
   useEffect(() => {
     const highlight = pendingMapHighlightRef.current
@@ -3554,8 +4953,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // A companion-initiated move opens the reader at the new place. It only
     // brings the audiobook back when this companion session paused it; a move
     // from ordinary reading (or one made to look something up) stays silent.
+    // "Restart the chapter" asks to hear it from the top: it plays after the
+    // confirmation whatever the audio was doing when the companion opened.
     const outcome: LabPlaybackNavigationOutcome = {
-      resumePlayback: shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: pausedForAskRef.current }),
+      resumePlayback: kind === 'restart_chapter' || shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: pausedForAskRef.current }),
     }
     const resolved = resolveLabPlaybackSkip({
       kind,
@@ -3585,6 +4986,29 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [desktopPaging, listen.playing])
 
   const goNext = useCallback(() => {
+    // A page still being written in Modern English is covered: the reader waits there, never turning on into text they cannot see.
+    if (modernBlocksNextRef.current) return
+    setNotebookReturn(null)
+    if (continuousReader && !chapterCoverTitle) {
+      const next = nextLabChapter(book.chapters, book.chapterNumber)
+      if (!temporaryHold) markChapterFinished(book.chapterNumber)
+      if (next != null) void goToChapter(next, 'start')
+      return
+    }
+    // Briefly prefer the full measured map, then use the existing provisional
+    // map (which covers every source word). A queued tap also needs this timer.
+    if (headFirstPending(nativeHeadOnlyRef.current)) {
+      headFirstTurnRef.current = true
+      if (headFirstTurnTimerRef.current === null) {
+        headFirstTurnTimerRef.current = window.setTimeout(() => {
+          headFirstTurnTimerRef.current = null
+          if (!headFirstTurnRef.current) return
+          headFirstTurnRef.current = false
+          goNextRef.current()
+        }, Math.max(0, LAB_HEAD_FIRST_HOLD_MS - (performance.now() - nativeHeadOnlyRef.current)))
+      }
+      return
+    }
     quietDesktopAfterTurn()
     if (chapterCoverTitle) {
       if (book.paragraphs.length === 0) return
@@ -3594,18 +5018,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       landingChapterRef.current = null
       openAtEndRef.current = false
       setOpenAtEnd(false)
-      const exactStartIndex = explicitStartAnchor
-        ? readingPagesRef.current.findIndex(page => {
-            const anchor = pageAnchorOf(page)
-            return anchor?.paragraphIndex === explicitStartAnchor.paragraphIndex && anchor.wordIndex === explicitStartAnchor.wordIndex
-          })
-        : -1
-      const startIndex = exactStartIndex >= 0 ? exactStartIndex : 0
-      const first = readingPagesRef.current[startIndex]
-      pageAnchorRef.current = explicitStartAnchor ?? pageAnchorOf(first)
-      if (explicitStartAnchor) placeRef.current = explicitStartAnchor
-      readingPageIndexRef.current = startIndex
-      setReadingPageIndex(startIndex)
+      const first = readingPagesRef.current[0]
+      pageAnchorRef.current = pageAnchorOf(first)
+      readingPageIndexRef.current = 0
+      setReadingPageIndex(0)
       return
     }
     const reading = readingPagesRef.current
@@ -3614,9 +5030,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
     const nextPage = desktopSpread ? (index + (openingOnRight ? 1 : 2) < pages.length ? index + (openingOnRight ? 1 : 2) : null) : adjacentPageIndex(pages.length, index, 1)
     if (nextPage != null) {
+      trackFunnelOnce('first_page_turn', { book_id: book.bookId || 'bible' }, book.bookId || 'bible')
       goToPage(nextPage)
       return
     }
+    trackFunnelOnce('first_page_turn', { book_id: book.bookId || 'bible' }, book.bookId || 'bible')
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     // Turning past the last page finishes the chapter — on the book's final
     // chapter too, so the library can show the book as finished without
@@ -3630,15 +5048,23 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const afterOpening = opening && !continuation ? nextLabChapter(book.chapters, next) : null
       if (afterOpening != null && !temporaryHold) markChapterFinished(next)
       const target = afterOpening ?? next
+      enteredForwardRef.current = target
       if (listen.playing) void browseToChapter(target, 'start', continuation)
       else void goToChapter(target, 'start', false, continuation)
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, temporaryHold, desktopSpread, quietDesktopAfterTurn, nextChapterOpening, nextOpeningPage, openingOnRight])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, markChapterFinished, temporaryHold, desktopSpread, quietDesktopAfterTurn, nextChapterOpening, nextOpeningPage, openingOnRight, continuousReader])
 
   goNextRef.current = goNext
 
   const goPrev = useCallback(() => {
+    cancelHeadFirstTurn()
+    setNotebookReturn(null)
     quietDesktopAfterTurn()
+    if (continuousReader && !chapterCoverTitle) {
+      const previous = prevLabChapter(book.chapters, book.chapterNumber)
+      if (previous != null) void goToChapter(previous, 'end')
+      return
+    }
     if (chapterCoverTitle) {
       chapterNavigationRef.current += 1
       const previousChapter = prevLabChapter(book.chapters, book.chapterNumber)
@@ -3652,9 +5078,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const working = workingPagesRef.current
     const pages = labNavPageList(pagesStableRef.current, working, reading)
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
+    // Only the Bible has opening pages (one per biblical book). Other books
+    // have no cover in the reader: their introduction lives in the library.
     const openingTitle = book.bookTitle === LAB_COPY.bookTitle
       ? bibleBookOpeningTitle(book.chapters, book.chapterNumber)
-      : (book.chapterNumber === book.chapters[0]?.number ? book.bookTitle : null)
+      : null
     if (index === 0 && openingTitle && !listen.playing) {
       setChapterCoverTitle(openingTitle)
       return
@@ -3685,14 +5113,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(prev, 'end')
       else void goToChapter(prev, 'end')
     }
-  }, [book.bookId, book.chapterNumber, book.chapters, readerEditionKey, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn, openingOnRight, carriedEndingCurrent])
+  }, [book.bookId, book.chapterNumber, book.chapters, readerEditionKey, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn, openingOnRight, carriedEndingCurrent, continuousReader, cancelHeadFirstTurn])
 
   // Keyboard page turns, matching the classic Reader: ArrowRight / PageDown /
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
   // overlays keep their keys; the chapter cover handles its own arrows and
   // marks the event handled, so it never double-turns here.
-  const keyboardPageTurnsBlocked = (Boolean(temporaryHold) && !holdRecovery) || prefaceVisible || gearOpen || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null
+  const keyboardPageTurnsBlocked = (Boolean(temporaryHold) && !holdRecovery) || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null || chapterNoteEditor != null
+  useLayoutEffect(() => {
+    if (continuousReader || keyboardPageTurnsBlocked || desktopAskOpen || callOpen || bookSwitcherOpen || superMenuOpen || superSheet !== null || accountPrompt !== null) cancelHeadFirstTurn()
+  }, [continuousReader, keyboardPageTurnsBlocked, desktopAskOpen, callOpen, bookSwitcherOpen, superMenuOpen, superSheet, accountPrompt, cancelHeadFirstTurn])
   useEffect(() => {
+    if (continuousReader) return
     if (keyboardPageTurnsBlocked || desktopAskOpen || callOpen || bookSwitcherOpen || superMenuOpen || superSheet !== null || accountPrompt !== null) return
     const onKey = (event: KeyboardEvent) => {
       if (event.defaultPrevented || event.isComposing || event.altKey || event.ctrlKey || event.metaKey || document.documentElement.dataset.tinctCommandsOpen === 'true') return
@@ -3711,17 +5143,88 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return () => window.removeEventListener('keydown', onKey)
   }, [goNext, goPrev, keyboardPageTurnsBlocked, desktopAskOpen, callOpen, bookSwitcherOpen, superMenuOpen, superSheet, accountPrompt])
 
+  // Ctrl+Z / Cmd+Z undoes the reader's last highlight or note action in this
+  // book (useLabHighlights undo). A focused field keeps its native undo. The
+  // page stays where it is: an undo never moves the reader.
+  const highlightUndoRef = useRef<() => boolean>(() => false)
+  highlightUndoRef.current = () => {
+    const undone = highlightsApi.undo()
+    if (!undone) return false
+    if (selectionPopup) dismissSelectionPopup()
+    if (undone.kind === 'delete') setMarginUndo(null)
+    setHighlightUndoNotice({ text: labHighlightUndoMessage(undone), at: Date.now() })
+    return true
+  }
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (document.documentElement.dataset.tinctCommandsOpen === 'true') return
+      if (!labUndoShortcut(event, document.activeElement)) return
+      if (highlightUndoRef.current()) event.preventDefault()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  // Ctrl+F / Cmd+F opens the book's own search, which finds text in every chapter; the browser's Find
+  // only sees the pages on screen (Anders, 17 Nov 2026). A reader's own PDF keeps the browser's Find:
+  // its pages are the text, and Contents has no search over them.
+  const findShortcutRef = useRef<(event: KeyboardEvent) => void>(() => {})
+  findShortcutRef.current = event => {
+    if (ownPdf || document.documentElement.dataset.tinctCommandsOpen === 'true') return
+    if (!labFindShortcut(event, document.activeElement)) return
+    event.preventDefault()
+    setReaderControlsVisible(true)
+    setContentsNotebook(false)
+    setContentsSearch(true)
+    setTocOpen(true)
+    // Pressed again while the search is open: back to its field.
+    requestAnimationFrame(() => document.querySelector<HTMLInputElement>('.overlay input[type=search]')?.focus())
+  }
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => findShortcutRef.current(event)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  const audioAccountRequiredRef = useRef(false)
+  // An own book read aloud needs Premium (trial included): the account sheet, with its Premium offer, says the rest.
+  const ownNarrationPremiumRequired = listen.narration.status === 'error' && listen.narration.reason === 'own_book_premium'
+  useEffect(() => {
+    if (!ownNarrationPremiumRequired) return
+    listen.dismissNarration()
+    listen.pause()
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
+    setChrome('reading')
+    setReturnTo('reading')
+    setSuperSheet('account')
+  }, [ownNarrationPremiumRequired, listen.dismissNarration, listen.pause])
   const narrationAccountRequired = listen.narration.status === 'error' && listen.narration.reason === 'unauthenticated'
   useEffect(() => {
     if (!narrationAccountRequired) return
-    setAccountPrompt({ action: 'audio' })
+    // Signed-out readers cannot listen. Stop the request, leave the listening
+    // chrome (its transport bar would replay the previous audio) and remember
+    // it, so the next Play asks again instead of starting anything.
+    audioAccountRequiredRef.current = true
     listen.dismissNarration()
-  }, [narrationAccountRequired, listen.dismissNarration])
+    listen.pause()
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
+    setChrome('reading')
+    setReturnTo('reading')
+    setPeekBook(false)
+    setAccountPrompt({ action: 'audio' })
+  }, [narrationAccountRequired, listen.dismissNarration, listen.pause])
+  useEffect(() => { if (signedIn) audioAccountRequiredRef.current = false }, [signedIn])
 
-  const startHearing = useCallback((opts?: { force?: boolean }) => {
-    if (temporaryHold) return
+  const startHearing = useCallback((opts?: { force?: boolean; at?: { paragraphIndex: number; wordIndex: number } }) => {
+    if (temporaryHold || narrationInfo?.loading) return
+    // An edition with no audio at all (To the Lighthouse in Danish) says so,
+    // rather than asking a signed-out reader to sign in for audio.
+    if (audioUnavailable && !narrationOption && !retainedBella && !streamedNarrationEdition && !listen.isPending()) { setAudioUnavailableNotice(true); return }
+    if (audioAccountRequiredRef.current && !signedIn) { setAccountPrompt({ action: 'audio' }); return }
     if (listen.isPending()) { listen.pause(); return }
-    if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') && !narrationOption)) { setAudioUnavailableNotice(true); return }
+    if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && streamedNarrationEdition && !narrationOption)) { setAudioUnavailableNotice(true); return }
     setAudioUnavailableNotice(false)
     mobileCompareReturnPlaceRef.current = null
     setChapterCoverTitle(null)
@@ -3730,8 +5233,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // is only meaningful on the page when both are the same chapter; applied
     // to another chapter it would resume, and persist, the wrong words.
     const listeningHere = listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber
-    if (chrome === 'hearing' && !opts?.force && (!chromeV2 || listen.playing)) {
+    if (chrome === 'hearing' && !opts?.force && listen.playing) {
       listen.pause()
+      if (continuousReader) {
+        const follow = listeningHere ? listen.follow : { kind: 'none' as const }
+        const place = browseWhileListeningRef.current ? continuousVisibleRef.current
+          : follow.kind === 'word' ? { paragraphIndex: follow.paragraphIndex, wordIndex: follow.wordIndex }
+          : follow.kind === 'paragraph' ? { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
+          : continuousVisibleRef.current
+        placeRef.current = place
+        setContinuousAnchor(place)
+        browseWhileListeningRef.current = false
+        setBrowseWhileListening(false)
+        setChrome('reading')
+        setReturnTo('reading')
+        setPeekBook(false)
+        notePlace('pause', place)
+        return
+      }
       browseWhileListeningRef.current = false
       setBrowseWhileListening(false)
       const follow = listeningHere ? listen.follow : { kind: 'none' as const }
@@ -3766,15 +5285,22 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const visiblePlace = Number.isInteger(visibleParagraphIndex) && Number.isInteger(visibleWordIndex)
       ? { paragraphIndex: visibleParagraphIndex, wordIndex: visibleWordIndex }
       : null
-    const place = ((!showPhoneChrome || chromeV2) ? visiblePlace : null) ?? (page
+    // Paused with the transport still up on this chapter (a page turn puts it
+    // away): Play resumes the listening place — the word last heard, or the
+    // word the reader tapped since — from the start of its sentence.
+    // A place the reader chose (Listen from here's gutter ▶) is where Play starts, paused cursor or not.
+    const resumePlace = opts?.at ?? (listeningHere && pausedTransportVisible ? resumeListeningPlace() : null)
+    const place = continuousReader ? (resumePlace ?? continuousVisibleRef.current) : resumePlace ?? visiblePlace ?? (page
       ? { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
       : placeRef.current)
-    // Reader Play starts the visible page. A saved audio cursor can belong
-    // to an earlier page (or a later word on this page), so never resume it here.
+    // Otherwise Reader Play starts the visible page. A saved audio cursor can
+    // belong to an earlier page (or a later word on this page), so never resume it here.
+    pausedJumpRef.current = null
     placeRef.current = place
-    if (chromeV2) {
-      const head = pageAnchorOf(page)
-      pageAnchorRef.current = head
+    if (continuousReader) setContinuousAnchor(place)
+    else {
+      if (resumePlace) setReadingPageIndex(pageIndexForPlace(readingPages, resumePlace.paragraphIndex, resumePlace.wordIndex))
+      pageAnchorRef.current = pageAnchorOf(page)
     }
     flushSync(() => setListenSource({
       bookId: book.bookId || 'bible',
@@ -3791,8 +5317,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setPeekBook(false)
     setInTheBookOpen(false)
     notePlace('play')
-    void (chromeV2 ? listen.startAtPlace(place) : listen.start(place))
-  }, [temporaryHold, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+    void listen.startAtPlace(place)
+  }, [temporaryHold, signedIn, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, streamedNarrationEdition, book, chrome, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, pausedTransportVisible, readingPageIndex, readingPages, resumeListeningPlace, showPhoneChrome, continuousReader])
 
   startHearingRef.current = () => startHearing({ force: true })
 
@@ -3806,31 +5332,176 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     startHearing()
   }, [chrome, listen, peekBook, startHearing])
 
-  const dictation = useLabDictation(book.bookId || 'bible', setDraft)
+  /**
+   * Listen from here (Anders approved the mockups, 16 Nov 2026). While audio plays (or waits paused) and the reader
+   * has moved away from the voice — "Back to audio"'s own trigger, browseWhileListening, which the reader's scrolling
+   * and page turns set and the voice's own follow turns never do — and the voice's word is off screen, two pills offer
+   * "Back to the voice" and "Listen from here". They come once the view has rested off the voice for 500 ms and go
+   * when the voice's word is back on screen, when either is tapped (both end the browse) and when audio stops.
+   */
+  const voicePillsBase = browseWhileListening && (listen.playing || pausedTransportVisible) && !phoneAsk
+    && listen.follow.kind !== 'none' && !mobileCompareActive
+  const [voicePills, setVoicePills] = useState(false)
+  /** The scrolling reader's view: below the top bar, above the audio player. */
+  const continuousView = useCallback((host: HTMLElement) => {
+    const box = host.getBoundingClientRect()
+    const header = document.querySelector<HTMLElement>('.lab-header')?.getBoundingClientRect()
+    const dock = document.querySelector<HTMLElement>('[data-testid="lab-desktop-audio-dock"]')?.getBoundingClientRect()
+    return {
+      top: Math.max(box.top, header && header.height > 0 && header.bottom < box.top + box.height / 2 ? header.bottom : box.top),
+      bottom: Math.min(box.bottom, dock && dock.height > 0 ? dock.top : box.bottom),
+    }
+  }, [])
+  const voiceOnScreenRef = useRef<() => { onScreen: boolean; view: string }>(() => ({ onScreen: true, view: '' }))
+  voiceOnScreenRef.current = () => {
+    const follow = listen.follow
+    if (follow.kind === 'none') return { onScreen: true, view: '' }
+    const sameBook = listenSource.bookId === (book.bookId || 'bible')
+    const wordIndex = follow.kind === 'word' ? follow.wordIndex : 0
+    if (continuousReader) {
+      const host = document.querySelector<HTMLElement>('[data-testid="continuous-reader"]')
+      if (!host) return { onScreen: true, view: '' }
+      const view = `${Math.round(host.scrollTop)}`
+      if (!sameBook) return { onScreen: false, view }
+      const scope = host.querySelector<HTMLElement>(`[data-book-scroll-chapter="${listenSource.chapterNumber}"]`)
+        ?? (listenSource.chapterNumber === book.chapterNumber && !host.dataset.bookScroll ? host : null)
+      const word = scope?.querySelector<HTMLElement>(`[data-paragraph-index="${follow.paragraphIndex}"][data-word-index="${wordIndex}"]:is([data-testid="lab-word"],[data-testid="lab-opening-word"])`)
+      return { onScreen: !!word && boxOnScreen(word.getBoundingClientRect(), continuousView(host)), view }
+    }
+    const view = `${book.chapterNumber}:${readingPageIndex}`
+    if (!sameBook || listenSource.chapterNumber !== book.chapterNumber || chapterCoverTitle) return { onScreen: false, view }
+    return {
+      onScreen: followOnReadingPage(follow, readingPages, readingPageIndex)
+        || (desktopSpread && !openingOnRight && followOnReadingPage(follow, readingPages, readingPageIndex + 1)),
+      view,
+    }
+  }
+  useEffect(() => {
+    if (!voicePillsBase) { setVoicePills(false); return }
+    let restingSince = performance.now()
+    let lastView: string | null = null
+    const tick = () => {
+      const { onScreen, view } = voiceOnScreenRef.current()
+      const now = performance.now()
+      // The view moved: the 500 ms count starts again once it rests.
+      if (view !== lastView) { lastView = view; restingSince = now }
+      if (onScreen) { restingSince = now; setVoicePills(false); return }
+      if (now - restingSince >= LISTEN_PILLS_SETTLE_MS) setVoicePills(true)
+    }
+    tick()
+    const timer = window.setInterval(tick, 100)
+    return () => window.clearInterval(timer)
+  }, [voicePillsBase])
+  const showVoicePills = voicePillsBase && voicePills
 
-  const handleMic = useCallback(() => {
-    if (chromeV2) { dictation.toggle(draft); return }
-    if (ask.voiceActive) {
-      if (showPhoneChrome) {
-        ask.stopVoice()
-        return
-      }
-      resumeListenAfterAsk()
+  /** Back to the voice: what "Back to audio" did. */
+  const backToVoice = useCallback(() => {
+    const follow = listen.follow
+    if (follow.kind === 'none') return
+    const wordIndex = follow.kind === 'word' ? follow.wordIndex : 0
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
+    setVoicePills(false)
+    setChapterCoverTitle(null)
+    setReadingPageIndex(pageIndexForPlace(readingPages, follow.paragraphIndex, wordIndex))
+  }, [listen.follow, readingPages])
+
+  /**
+   * Listen from here: the voice moves to the first sentence that begins on screen (on the phone, on this page), by
+   * the path a tap on a word takes — playing it carries on there, paused it stays paused with its cursor moved — and
+   * the reading place becomes that spot.
+   */
+  const listenFromHere = useCallback(() => {
+    setVoicePills(false)
+    if (!continuousReader) {
+      const place = firstSentenceStartOnPage(readingPages[readingPageIndex], sentenceStartTest(book.paragraphs))
+      if (place) void seekAudioToWord(place.paragraphIndex, place.wordIndex)
       return
     }
-    interruptHearForAsk()
-    setDesktopAskOpen(true)
-    void ask.toggleInChatVoice()
-  }, [ask, chromeV2, dictation, draft, interruptHearForAsk, resumeListenAfterAsk, showPhoneChrome])
+    const host = document.querySelector<HTMLElement>('[data-testid="continuous-reader"]')
+    if (!host) return
+    const view = continuousView(host)
+    // Book scroll paints the neighbouring chapters too: the first sentence on screen may be in one of them.
+    const blocks = host.dataset.bookScroll ? Array.from(host.querySelectorAll<HTMLElement>('[data-book-scroll-chapter]')) : [host]
+    const texts = new Map<number, SentenceStartTest>()
+    const startsIn = (chapter: number) => {
+      let test = texts.get(chapter)
+      if (!test) {
+        test = sentenceStartTest(chapter === book.chapterNumber ? book.paragraphs : bookScrollTexts.texts.get(chapter)?.paragraphs ?? [])
+        texts.set(chapter, test)
+      }
+      return test
+    }
+    const words: ScreenWord[] = []
+    for (const block of blocks) {
+      const chapterNumber = block === host ? book.chapterNumber : Number(block.dataset.bookScrollChapter)
+      const box = block.getBoundingClientRect()
+      if (!Number.isFinite(chapterNumber) || box.bottom <= view.top || box.top >= view.bottom) continue
+      for (const line of block.querySelectorAll<HTMLElement>('p.lab-hearing-line')) {
+        const lineBox = line.getBoundingClientRect()
+        if (lineBox.bottom <= view.top || lineBox.top >= view.bottom) continue
+        for (const word of line.querySelectorAll<HTMLElement>(':is([data-testid="lab-word"],[data-testid="lab-opening-word"])[data-paragraph-index][data-word-index]')) {
+          const rect = word.getBoundingClientRect()
+          words.push({ chapterNumber, paragraphIndex: Number(word.dataset.paragraphIndex), wordIndex: Number(word.dataset.wordIndex), top: rect.top, bottom: rect.bottom })
+        }
+      }
+    }
+    const place = firstSentenceStartOnScreen(words, view, (paragraphIndex, wordIndex, chapter) => startsIn(chapter ?? book.chapterNumber)(paragraphIndex, wordIndex))
+      ?? { ...continuousVisibleRef.current, chapterNumber: book.chapterNumber }
+    const chapter = place.chapterNumber ?? book.chapterNumber
+    // A neighbour becomes the reader's own where it stands first, as a tap on its words does; then the voice moves.
+    actOnChapterRef.current(chapter, () => { void seekAudioToWordRef.current(place.paragraphIndex, place.wordIndex) })
+  }, [book.chapterNumber, book.paragraphs, bookScrollTexts.texts, continuousReader, continuousView, readingPageIndex, readingPages, seekAudioToWord])
 
-  const handleVoiceMode = useCallback(() => {
-    interruptHearForAsk()
-    setDesktopAskOpen(true)
-    void ask.startVoice()
-  }, [ask, interruptHearForAsk])
+  /** The gutter ▶ beside a paragraph: the voice starts at its first word, playing (from a stop it starts there). */
+  const listenFromParagraph = useCallback((chapter: number, paragraphIndex: number) => {
+    actOnChapterRef.current(chapter, () => {
+      if (listenPlayingRef.current || listenRef.current.isPending()) { void seekAudioToWordRef.current(paragraphIndex, 0); return }
+      startHearingAtRef.current({ paragraphIndex, wordIndex: 0 })
+    })
+  }, [])
+  const seekAudioToWordRef = useRef(seekAudioToWord)
+  seekAudioToWordRef.current = seekAudioToWord
+  const listenRef = useRef(listen)
+  listenRef.current = listen
+  const startHearingAtRef = useRef((at: { paragraphIndex: number; wordIndex: number }) => startHearing({ force: true, at }))
+  startHearingAtRef.current = at => startHearing({ force: true, at })
+  /** Book scroll's act-on-a-neighbour (set where it is defined, below). */
+  const actOnChapterRef = useRef<(chapter: number, run: () => void) => void>((_chapter, run) => run())
+
+  // Vocabulary hints are read when a clip is sent, so they follow the open
+  // chapter. A reader's own file sends none: its names stay on the device.
+  const dictationBookRef = useRef(book)
+  dictationBookRef.current = book
+  // Dictation writes to the chat and card composer, or, started from the desktop bar's Ask field, to that field.
+  const deskDictationRef = useRef<((text: string) => void) | null>(null)
+  const dictation = useLabDictation(book.bookId || 'bible', text => { const desk = deskDictationRef.current; if (desk) desk(text); else setDraft(text) }, {
+    signedIn,
+    getAuthToken: () => authToken ?? readSupabaseAccessToken(),
+    getKeyterms: () => {
+      const current = dictationBookRef.current
+      return privateBook ? [] : buildDictationKeyterms({
+        bookId: current.bookId || 'bible',
+        chapters: current.chapters,
+        paragraphs: current.paragraphs,
+        cast: current.cast,
+        chapterTitle: current.chapterTitle,
+      })
+    },
+    language: allBookEditions.find(edition => edition.key === prefs.primaryEdition)?.language || 'en',
+  })
+
+  const handleMic = useCallback(() => {
+    deskDictationRef.current = null
+    dictation.toggle(draftStore.get())
+  }, [dictation, draftStore])
+  const dictateDeskAsk = useCallback((current: string, onText: (text: string) => void) => {
+    if (dictation.state !== 'idle' && deskDictationRef.current) { dictation.stop(); deskDictationRef.current = null; return }
+    deskDictationRef.current = onText
+    dictation.toggle(current)
+  }, [dictation])
 
   const openPhoneAsk = useCallback(() => {
-    setGearOpen(false)
     interruptHearForAsk()
     setPhoneAskOpen(true)
     setInTheBookOpen(false)
@@ -3875,56 +5546,40 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // goToChapter clears both refs on the way in, so they are set right after
     // its synchronous prefix has run.
     const pending = goToChapter(restore.chapterNumber, 'start')
-    restorePlaceRef.current = place
+    restorePlaceRef.current = restoreTargetIn(place, labRestoreChapterKey(book.bookId, restore.chapterNumber))
     restorePageRef.current = restore.pageIndex
     placeRef.current = place
     void pending
   }, [book.bookId, book.chapterNumber, goToChapter, notePlace])
 
   const startCallVoice = useCallback(() => {
-    const greeting = preparationReturnRef.current === book.bookId ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined
-    void ask.startVoice(greeting).then((started) => {
+    void ask.startVoice().then((started) => {
       // A cancelled older attempt must not close Reconnect or a newer call.
       // A start the account policy or the microphone refused leaves nothing to
       // show a call for; the notice already says why.
-      if (started === false) { setCallOpen(false); returnToPreparation() }
+      if (started === false) setCallOpen(false)
     })
-  }, [ask, book.bookId, book.bookTitle, returnToPreparation])
+  }, [ask])
 
   const handleTalk = useCallback(() => {
-    setCallStartedAt(Date.now())
+    // A reader's own book too (2026-10-08): the session hears the passage on
+    // screen and the recent conversation, never the chapter (useLabAsk).
     dictation.stop()
-    setGearOpen(false)
     setTocOpen(false)
-    interruptHearForAsk()
-    if (voiceCallSurface) {
-      captureCallAnchor()
-      setCallAwaitingConnection(true)
-      setChrome('talking')
-      setPhoneAskOpen(false)
-      setDesktopAskOpen(false)
-      setInTheBookOpen(false)
-      setPeekBook(false)
-      setCallMinimized(false)
-      setCallParagraph(focusParagraph ?? placeRef.current.paragraphIndex)
-      setCallOpen(true)
-      startCallVoice()
-      return
-    }
-    setVoiceGate('connecting')
+    // Talk is an explicit audio start: it keeps unlocking narration on every device.
+    interruptHearForAsk({ alwaysUnlock: true })
+    captureCallAnchor()
+    setCallAwaitingConnection(true)
     setChrome('talking')
-    if (!showPhoneChrome) {
-      setDesktopAskOpen(true)
-      void ask.startVoice().then((started) => {
-        if (started === false) setVoiceGate('off')
-      })
-      return
-    }
-    openPhoneAsk()
-    void ask.startVoice().then((started) => {
-      if (started === false) setVoiceGate('off')
-    })
-  }, [ask, captureCallAnchor, dictation.stop, focusParagraph, interruptHearForAsk, openPhoneAsk, showPhoneChrome, startCallVoice, voiceCallSurface])
+    setPhoneAskOpen(false)
+    setDesktopAskOpen(false)
+    setInTheBookOpen(false)
+    setPeekBook(false)
+    setCallMinimized(false)
+    setCallParagraph(focusParagraph ?? placeRef.current.paragraphIndex)
+    setCallOpen(true)
+    startCallVoice()
+  }, [captureCallAnchor, dictation.stop, focusParagraph, interruptHearForAsk, startCallVoice])
 
   // A move the conversation makes (a jump to a paragraph) moves the tint.
   useEffect(() => {
@@ -3944,6 +5599,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   endCallRef.current = endCall
 
+  // A guest's two-minute Talk trial ran out: the call closes (its place given
+  // back) and the account sheet opens; closing the sheet returns to reading
+  // the way a held-back Talk does (closeAccountPrompt).
+  talkTrialEndedRef.current = () => {
+    setCallOpen(false)
+    setCallMinimized(false)
+    ask.setMicMuted(false)
+    restoreCallAnchor()
+    setAccountPrompt({ action: 'voice' })
+  }
+
   const reconnectCall = useCallback(() => {
     ask.stopVoice()
     setCallAwaitingConnection(true)
@@ -3955,16 +5621,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [ask])
 
   const handleChat = useCallback(() => {
-    if (chromeV2) setContentsConversation(null)
-    setGearOpen(false)
+    setContentsConversation(null)
     setTocOpen(false)
-    setVoiceGate('off')
     if (!showPhoneChrome) {
       if (desktopAskOpen && chrome !== 'talking') {
+        // A minimized chat is restored, not replaced.
+        if (desktopChatMinimized) { setDesktopChatMinimized(false); return }
         resumeListenAfterAsk()
         return
       }
-      if (chromeV2 && callOpen) {
+      if (callOpen) {
         // Chat chosen during a desktop call: the call ends here (its place
         // given back), and the companion opens as Chat in its stead. Audio
         // the call interrupted stays paused for Chat and resumes on close.
@@ -3988,20 +5654,62 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     openPhoneAsk()
     if (ask.voiceActive) ask.stopVoice()
     else stayInAskRef.current = false
-  }, [ask, callOpen, chrome, chromeV2, desktopAskOpen, interruptHearForAsk, openPhoneAsk, restoreCallAnchor, resumeListenAfterAsk, showPhoneChrome])
+  }, [ask, callOpen, chrome, desktopAskOpen, desktopChatMinimized, interruptHearForAsk, openPhoneAsk, restoreCallAnchor, resumeListenAfterAsk, showPhoneChrome])
 
-  const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false) => {
+  /** The chat, open (never toggled shut), for a figure the reader asks about. */
+  const openChatForFigure = useCallback(() => {
+    setFigureCard(null)
+    setContentsConversation(null)
+    setTocOpen(false)
+    if (!showPhoneChrome) {
+      interruptHearForAsk()
+      setDesktopAskOpen(true)
+      if (ask.voiceActive) ask.stopVoice()
+      return
+    }
+    openPhoneAsk()
+  }, [ask, interruptHearForAsk, openPhoneAsk, showPhoneChrome])
+  const explainFigure = useCallback((figure: LabFigure) => {
+    openChatForFigure()
+    void ask.sendTyped('Explain this figure.', undefined, undefined, {
+      highlightedText: figureReadingText(figure),
+      image: () => figureImageBlock(figure),
+    })
+  }, [ask, openChatForFigure])
+  const askAboutFigure = useCallback((figure: LabFigure) => {
+    openChatForFigure()
+    setAskAttachment({ bookId: book.bookId || 'bible', text: figureReadingText(figure), figure })
+    setDraft('')
+  }, [book.bookId, openChatForFigure])
+
+  useEffect(() => { setNotebookReturn(null) }, [book.bookId, prefs.primaryEdition])
+  // A Notebook jump offers "Back to reading" to the place it left. The origin
+  // is taken before the jump moves the reader, and set again after it: the
+  // jump itself goes through openContentsPassage, which dismisses the offer for
+  // every other Contents or search choice. A second Notebook jump keeps the
+  // first origin.
+  const openFromNotebook = (place: ContentsPlace, flash?: PhoneCardRange['range']) => {
+    const origin = notebookReturn ?? {
+      bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition,
+      chapterNumber: book.chapterNumber, ...placeRef.current,
+    }
+    openContentsPassage(place, undefined, false, flash)
+    setNotebookReturn(origin)
+  }
+  const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false, flash?: PhoneCardRange['range']) => {
     const bookId = book.bookId || 'bible'
     if (!book.chapters.some(ch => ch.number === place.chapterNumber) || (chat && chat.bookId !== bookId)) return
     const chapter = book.chapters.find(ch => ch.number === place.chapterNumber)!
     const remembered = chapterOnly ? recentChapterPlace(readPositionState(), bookId, chapter, prefs.primaryEdition) : null
+    setNotebookReturn(null)
+    if (place.chapterNumber !== book.chapterNumber && readToEndRef.current === book.chapterNumber && !temporaryHold) markChapterFinished(book.chapterNumber)
     setTocOpen(false)
     setPhoneAskOpen(false)
     setDesktopAskOpen(false)
     setContentsConversation(chat || null)
     if (chat) interruptHearForAsk()
     if (mobileCompareActive) handleMobileCompare()
-    setContentsTarget({ ...place, bookId, navigation: chapterNavigationRef.current + (place.chapterNumber !== book.chapterNumber ? 1 : 0), chapterOnly, chat })
+    setContentsTarget({ ...place, bookId, navigation: chapterNavigationRef.current + (place.chapterNumber !== book.chapterNumber ? 1 : 0), chapterOnly, chat, flash })
     if (place.chapterNumber !== book.chapterNumber) {
       if (listen.playing && !chat) void browseToChapter(place.chapterNumber, 'start')
       else {
@@ -4011,19 +5719,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       }
     }
     setRecentChapterReturn(remembered ? { ...remembered, libraryBookId: bookId } : null)
-  }, [book.bookId, book.chapterNumber, book.chapters, browseToChapter, goToChapter, handleMobileCompare, interruptHearForAsk, listen.playing, mobileCompareActive, readPositionState, prefs.primaryEdition])
+  }, [book.bookId, book.chapterNumber, book.chapters, browseToChapter, goToChapter, handleMobileCompare, interruptHearForAsk, listen.playing, markChapterFinished, mobileCompareActive, readPositionState, prefs.primaryEdition, temporaryHold])
 
   useEffect(() => {
     if (!contentsTarget || tocOpen || initialResolving) return
     if (contentsTarget.navigation !== chapterNavigationRef.current || contentsTarget.bookId !== (book.bookId || 'bible')) { setContentsTarget(null); return }
     if (contentsTarget.chapterNumber !== book.chapterNumber || mobileCompareActive) return
     if (chapterCoverTitle && !contentsTarget.chapterOnly) { setChapterCoverTitle(null); return }
-    if (!chapterCoverTitle && !pagesStableRef.current) return
+    if (!continuousReader && !chapterCoverTitle && !pagesStableRef.current) return
     const paragraphIndex = Math.max(0, Math.min(book.paragraphs.length - 1, contentsTarget.paragraphIndex))
     const wordIndex = Math.max(0, Math.min(Math.max(0, (book.paragraphs[paragraphIndex] || '').split(/\s+/).length - 1), contentsTarget.wordIndex))
     const place = { paragraphIndex, wordIndex }
     const pageIndex = contentsTarget.chapterOnly ? 0 : pageIndexForPlace(readingPages, paragraphIndex, wordIndex)
     placeRef.current = place
+    if (continuousReader) setContinuousAnchor(place)
     pageAnchorRef.current = place
     readingPageIndexRef.current = pageIndex
     readerStateRef.current = { ...readerStateRef.current, pageIndex }
@@ -4036,8 +5745,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setPhoneAskOpen(showPhoneChrome)
       setDesktopAskOpen(!showPhoneChrome)
     }
+    if (contentsTarget.flash) setNotebookFlash({ chapterNumber: contentsTarget.chapterNumber, range: contentsTarget.flash })
     setContentsTarget(null)
-  }, [book.bookId, book.chapterNumber, book.paragraphs, chapterCoverTitle, contentsTarget, initialResolving, mobileCompareActive, nativePagesRevision, notePlace, readingPages, settleIndex, showPhoneChrome, tocOpen])
+  }, [book.bookId, book.chapterNumber, book.paragraphs, chapterCoverTitle, contentsTarget, initialResolving, mobileCompareActive, nativePagesRevision, notePlace, readingPages, settleIndex, showPhoneChrome, tocOpen, continuousReader])
+
+  const [notebookFlash, setNotebookFlash] = useState<{ chapterNumber: number; range: PhoneCardRange['range'] } | null>(null)
+  useEffect(() => {
+    if (!notebookFlash || notebookFlash.chapterNumber !== book.chapterNumber) return
+    const clear = flashNotebookPassage(document.querySelector('[data-testid="lab-root"]'), notebookFlash, book.chapterNumber)
+    const timer = window.setTimeout(() => setNotebookFlash(null), 1800)
+    return () => { window.clearTimeout(timer); clear() }
+  }, [notebookFlash, book.chapterNumber, book.bookId])
 
   const returnToContents = useCallback(() => {
     setPhoneAskOpen(false)
@@ -4068,13 +5786,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const handleBarListen = useCallback(() => {
     if (listen.isPending()) { listen.pause(); return }
-    setGearOpen(false)
     if (phoneAskOpen || chrome === 'talking') {
       resumeListenAfterAsk()
       return
     }
     if (mobileCompareActive) {
-      handleMobileCompare()
+      toggleMobileCompareByReader()
       return
     }
     if (chrome === 'hearing') {
@@ -4085,23 +5802,43 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         startHearing()
         return
       }
-      if (listen.src && !chromeV2) {
-        listen.resume()
-        return
-      }
       startHearing({ force: true })
       return
     }
     startHearing()
-  }, [chrome, chromeV2, handleMobileCompare, listen, mobileCompareActive, phoneAskOpen, resumeListenAfterAsk, startHearing])
+  }, [chrome, listen, mobileCompareActive, phoneAskOpen, resumeListenAfterAsk, startHearing, toggleMobileCompareByReader])
 
   // ── Chrome V2 ────────────────────────────────────────────────────────
   const accountId = authUser?.id ?? null
 
   const openSuperMenu = useCallback(() => {
     setTocOpen(false)
-    setGearOpen(false)
+    // A request due: its row leads the menu for this open, and the requests count as seen (the dot goes).
+    const request = followRequests.due && requestDotUser ? menuRequest(followRequests.rows, readSeenRequests(requestDotUser)) : null
+    setMenuRequestShown(request ? { request, followBack: 'idle' } : null)
+    if (request) markRequestsSeen(requestDotUser, followRequests.rows)
     setSuperMenuOpen(true)
+  }, [followRequests.due, followRequests.rows, requestDotUser])
+  useEffect(() => { if (!superMenuOpen) setMenuRequestShown(null) }, [superMenuOpen])
+  // Follow back from the menu: the call Following you makes (POST /api/social/follow), answered in place.
+  const followBackFromMenu = useCallback(async () => {
+    const shown = menuRequestShown
+    if (!shown || shown.request.others > 0 || shown.followBack === 'pending' || shown.followBack === 'done') return
+    const handle = shown.request.first.handle
+    const mark = (followBack: MenuFollowBack) => setMenuRequestShown(current => current && current.request.first.handle === handle ? { ...current, followBack } : current)
+    mark('pending')
+    const token = await readRequestToken().catch(() => null)
+    const result = token ? await socialAction(token, 'follow', handle) : { ok: false as const, relation: undefined }
+    if (result.ok) {
+      settleFollowRequest(handle, result.relation ?? 'friend')
+      mark('done')
+    } else mark('failed')
+  }, [menuRequestShown, readRequestToken, settleFollowRequest])
+  // Several requests: Find readers, where Following you lists them (the account cards over the reader).
+  const openRequestsFromMenu = useCallback(() => {
+    setSuperMenuOpen(false)
+    accountCardRef.current = 'find'
+    setSuperSheet('account')
   }, [])
 
   const handleSuperToggle = useCallback(() => {
@@ -4120,8 +5857,38 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // sign-in meant it replayed at the wrong moments and then never again.)
   const readerLaidOut = book.paragraphs.length > 0 && !initialResolving
   const readerReady = readerLaidOut
-    && (!measuredPaging || nativeMeasuredContent === readerParagraphs)
+    && (continuousReader || !measuredPaging || nativeMeasuredContent === readerParagraphs || nativeHeadContent === readerParagraphs)
     && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey)
+  // The account's place, once its chapter is on screen and settled: landed,
+  // the watch ends; on another page (a stale map, a reflow), restore it again.
+  // The reader acting first ends the watch: their page is the place.
+  useEffect(() => {
+    if (continuousReader) return
+    const watch = restoreWatchRef.current
+    if (!watch) return
+    if (interactionCountRef.current > watch.interactions) { restoreWatchRef.current = null; return }
+    if (!readerReady) return
+    const view = restoreViewNow()
+    if (restoreLanded(watch, view)) { restoreWatchRef.current = null; return }
+    const index = restoreRetryIndex(watch, view, interactionCountRef.current)
+    if (index === null) return
+    watch.retries += 1
+    const place = { paragraphIndex: watch.paragraphIndex, wordIndex: watch.wordIndex }
+    pageAnchorRef.current = place
+    placeRef.current = place
+    readingPageIndexRef.current = index
+    setReadingPageIndex(index)
+  })
+  // The first page fades in once, in the render that makes it visible.
+  const [firstRevealDone, setFirstRevealDone] = useState(false)
+  const firstReveal = readerReady && !firstRevealDone
+  useEffect(() => {
+    if (!readerReady) return
+    firstPageShownRef.current = true
+    setFirstPageShown(true)
+    const timer = window.setTimeout(() => setFirstRevealDone(true), LAB_FIRST_REVEAL_MS)
+    return () => window.clearTimeout(timer)
+  }, [readerReady])
   useEffect(() => {
     if (!readerReady) return
     markReaderLoadTrace('pagination_ready', { outcome: 'success' })
@@ -4132,7 +5899,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     })
   }, [readerReady])
   useEffect(() => {
-    if (!chromeV2 || !readerLaidOut) return
+    if (!readerLaidOut) return
     if (superFirstViewRef.current) return
     const timer = window.setTimeout(() => {
       if (superFirstViewRef.current || listenPlayingRef.current) return
@@ -4140,7 +5907,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setSuperFirstView(true)
     }, LAB_SUPER_FIRST_VIEW_DELAY_MS)
     return () => window.clearTimeout(timer)
-  }, [chromeV2, readerLaidOut])
+  }, [readerLaidOut])
 
   // The version pill leaves on a clock, not on animationend: a clock still
   // runs when the animation was cut short, and it is the same clock in both
@@ -4158,6 +5925,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [])
 
   const closePhoneAsk = useCallback(() => {
+    setDraft('')
+    setAskAttachment(null)
     if (callOpen) endCall()
     else resumeListenAfterAsk()
   }, [callOpen, endCall, resumeListenAfterAsk])
@@ -4168,12 +5937,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // the contents, a card, a prompt or a call already answer Escape for
   // themselves and are left to it: while one of them is in front, this stays
   // out of the way and the layer on top closes first. The composer's own
-  // draft is not cleared — it is held in `draft` above the panel, so the same
-  // half-typed line is there when Chat opens again.
-  const chatPanelEscapes = chromeV2 && chrome !== 'talking'
+  // unsent draft is discarded when the discussion surface is left.
+  const chatPanelEscapes = chrome !== 'talking'
     && (showPhoneChrome ? phoneAskOpen : desktopAskOpen)
     && !superMenuOpen && superSheet === null && !tocOpen && !inTheBookOpen && !callOpen && selectionPopup == null
-    && !gearOpen && !speedPopoverOpen && accountPrompt == null && !prefaceVisible
+    && !speedPopoverOpen && accountPrompt == null
   useEffect(() => {
     if (!chatPanelEscapes) return
     const onKey = (event: KeyboardEvent) => {
@@ -4186,14 +5954,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return () => window.removeEventListener('keydown', onKey)
   }, [chatPanelEscapes, closePhoneAsk, dictation])
 
-  const handleOrb = useCallback(() => {
-    if (ask.voiceActive) {
-      leaveTalking()
-      return
-    }
-    void ask.startVoice()
-  }, [ask, leaveTalking])
-
   const handleAsk = useCallback((value: string) => {
     if (isResumeListenCommand(value)) {
       setDraft('')
@@ -4203,8 +5963,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     interruptHearForAsk()
     setDesktopAskOpen(true)
     const attachment = askAttachment?.bookId === book.bookId ? askAttachment : null
+    const figure = attachment?.figure
     void ask.sendTyped(value, undefined, undefined, {
-      highlightedText: attachment?.text,
+      highlightedText: attachment?.text, sourceLocation: attachment?.sourceLocation,
+      ...(figure ? { image: () => figureImageBlock(figure) } : {}),
       onAccepted: () => {
         setDraft('')
         setAskAttachment(null)
@@ -4214,9 +5976,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const handleChapterChat = useCallback((kind: 'discuss' | 'prepare' | 'preview') => {
     if (ask.typedLoading || initialResolving || book.chaptersProvisional) return
+    if (privateBook) {
+      // A user book's chapter actions are ordinary questions about the
+      // chapter on screen: its text goes with them, nothing is looked up.
+      dictation.stop()
+      interruptHearForAsk()
+      setDesktopAskOpen(true)
+      if (showPhoneChrome) setPhoneAskOpen(true)
+      void ask.askAboutChapter(CHAPTER_CHAT_MESSAGES[kind])
+      return
+    }
     // Capture one coherent tuple before opening Chat or awaiting a chapter fetch.
     const request = createChapterChatRequest(kind, {
       bookId: book.bookId || 'bible', bookTitle: book.bookTitle, bookAuthor: book.bookAuthor,
+      ...withAuthorship(authorshipOf?.(book.chapterNumber)),
       editionKey: readerEditionKey, editionLabel: editionLabelFor(readerEditionKey, allBookEditions),
       chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel,
       paragraphs: readerParagraphs, paragraphIndex: placeRef.current.paragraphIndex,
@@ -4225,34 +5998,189 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!request) return
     if (kind === 'discuss') request.activity = {
       questions: ask.turns.filter(turn => turn.role === 'user' && turn.chapterNumber === book.chapterNumber && (!turn.bookId || turn.bookId === book.bookId) && !turn.chapterAction).map(turn => turn.content).slice(-3),
-      highlights: highlightsApi.allHighlights.filter(mark => mark.bookId === book.bookId && mark.chapterNumber === book.chapterNumber && mark.editionKey === readerEditionKey).slice(-3).flatMap(mark => {
-        const range = buildHighlightRange(readerParagraphs, { paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord }, { paragraphIndex: mark.endParagraphIndex, wordIndex: mark.toWord - 1 })
-        return range ? [range.text] : []
-      }),
+      highlights: recapHighlightPassages(highlightsApi.allHighlights, { bookId: book.bookId, chapterNumber: book.chapterNumber, editionKey: readerEditionKey, paragraphs: readerParagraphs }),
     }
     dictation.stop()
     interruptHearForAsk()
     setDesktopAskOpen(true)
     if (showPhoneChrome) setPhoneAskOpen(true)
     void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
-  }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights])
+  }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights, privateBook])
 
+  const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber, from: 'pill' | 'menu' = 'menu', as?: 'summary', at?: 'end') => {
+    if (initialResolving || book.chaptersProvisional) return
+    const chapter = book.chapters.find(item => item.number === chapterNumber)
+    // A reader's own book: Primer and Recap are made from this device's text of the chapter (userBook/ownChapterNotes.ts),
+    // as the margin reader's own-book pills are; Tinct's chapter notes are made and cached on the server from its own
+    // editions. The pills only: Summarize in the t menu stays a recap in the chat (One Tinct, 22 Oct 2026).
+    const ownParagraphs = privateBook && chapterNumber === book.chapterNumber ? book.paragraphs : null
+    if (privateBook && (kind === 'sofar' || (kind === 'end' && from !== 'pill') || !ownParagraphs?.length)) {
+      setSuperMenuOpen(false)
+      if (kind !== 'primer' && chapterNumber === book.chapterNumber) handleChapterChat('discuss')
+      return
+    }
+    const label = (chapter?.title || `Chapter ${chapterNumber}`).split(/\s+[—–:]\s+/)[0]
+    // The sheets carry the names the page uses for them: the heading's ✧ Primer, the chapter end's ✧ Recap (Anders, 10 Oct 2026).
+    // 'sofar' is the chapter pill's Summary (start actions, 9 Nov 2026).
+    // The chapter pill's Summary is the whole chapter, the chapter end's Recap under the pill's own name (Anders, 11 Nov 2026).
+    const title = chapterNotesTitle(kind, label, as)
+    dictation.stop()
+    setSuperMenuOpen(false)
+    setChapterNotes({
+      ...(continuousReader ? {railAnchor: from === 'pill' ? marginChapterBoundary(readerParagraphs, kind === 'end' && (as !== 'summary' || at === 'end')) ?? undefined : {paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0}} : {}),
+      title,
+      ...(as ? { as } : {}),
+      ...(at === 'end' ? { atEnd: true } : {}),
+      request: {
+        bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
+        ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
+      },
+      ...(privateBook && ownParagraphs ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber, chapterTitle: chapter?.title || book.chapterLabel || label, paragraphs: ownParagraphs, chapters: book.chapters.map(item => ({ number: item.number, title: item.title })) } } : {}),
+    })
+  }, [book, dictation, initialResolving, readerEditionKey, privateBook, handleChapterChat, continuousReader, readerParagraphs])
+
+  // Chat and Talk carry the card into the conversation the reader chose.
+  const continueChapterNotes = useCallback((mode: 'chat' | 'talk', title: string, beats: ChapterNotesBeat[] | null) => {
+    const notes = chapterNotes
+    setChapterNotes(null)
+    if (notes && beats) ask.keepExplanation(title, chapterNotesText(title, beats), Math.max(0, placeRef.current.paragraphIndex), { bookId: notes.request.bookId, chapterNumber: notes.request.chapterNumber })
+    if (mode === 'chat') handleChat()
+    else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
+  }, [ask, chapterNotes, handleChat, handleTalk])
+
+  // Catch me up hands what it showed to Chat or Talk the way Explain and
+  // chapter notes do: kept as a shown explanation, then the companion opens.
+  // The sheet never moved the reader, so the place is the one it opened at.
+  const continueCatchUp = useCallback((mode: 'chat' | 'talk', text: string) => {
+    setSuperSheet(null)
+    if (text) ask.keepExplanation(CATCH_UP_TITLE, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber })
+    if (mode === 'chat') handleChat()
+    else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
+  }, [ask, book.bookId, book.chapterNumber, handleChat, handleTalk])
+
+  // AI settings: its own dialog (openAiSettingsLayer), from the t menu's row and the desktop command alike.
+  // `angle`: a "Set reading angle" entry opens on This book with the caret in the reading angle (Anders, 11 Nov 2026).
+  const openAiSettings = useCallback((angle = false) => {
+    void import('./openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({
+      dark: resolvedDarkMode, phone: showPhoneChrome, userId: authUser?.id ?? null,
+      book: { id: book.bookId || 'bible', title: book.bookTitle || '' },
+      ...(angle ? { tab: 'book' as const, focusAngle: true } : {}),
+      dictation: { signedIn, getAuthToken: () => authToken ?? readSupabaseAccessToken() },
+    }))
+  }, [resolvedDarkMode, showPhoneChrome, authUser?.id, book.bookId, book.bookTitle, signedIn, authToken])
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
     setSuperMenuOpen(false)
-    if (id === 'chat') { handleChat(); return }
+    if (id === 'ai') { openAiSettings(); return }
+    // Reading angle: AI settings' This book with the caret in the angle, the existing flow (16 Nov 2026).
+    if (id === 'angle') { openReadingAngleRef.current(); return }
+    // The Librarian row's body sends its mode; a bare 'librarian' never leaves the reader.
+    if (id === 'chat' || id === 'librarian') { if (continuousReader) menuMarginChatRef.current(); else handleChat(); return }
+    // Notebook: the existing Contents list of highlights and notes (no position write: Contents suspends them).
+    if (id === 'notebook') { setReaderControlsVisible(true); setContentsNotebook(true); setTocOpen(true); return }
+    if (privateBook) {
+      // Back to Add a book's Your books; one edition (a PDF two), so no editions layer but a PDF's.
+      // Catch me up builds its recap from this device's text, signed in only.
+      if (id === 'talk') handleTalk()
+      else if (id === 'catchup') { if (signedIn) setSuperSheet('catchup'); else setAccountPrompt({ action: 'chat' }) }
+      else if (id === 'summarize') openChapterNotes('end')
+      // Aa and Audio settings as for any book; Book settings only for a PDF (its Tinct text and Original pages).
+      else if (id === 'text') setSuperSheet('reading')
+      else if (id === 'audio') setSuperSheet('audio')
+      else if (id === 'account') setSuperSheet('account')
+      else if (id === 'editions' && ownEditions) setSuperSheet('editions')
+      // Back from an own book is to My shelf, where the reader's own books are (tester, 9 Nov 2026: the reading table
+      // read as "the main page with all the books"; this replaces Anders's 2026-10-12 reading-table rule).
+      else if (id === 'library' && typeof window !== 'undefined') leaveForLibrary(privateLibraryDestination(USER_BOOKS_SHELF_URL, sharedReader))
+      return
+    }
     if (id === 'talk') { handleTalk(); return }
-    if (id === 'summarize') { handleChapterChat('discuss'); return }
+    // Summarize is the whole current chapter (Anders, 2026-10-02); the reading
+    // so far is Catch me up's job.
+    if (id === 'summarize') { openChapterNotes('end'); return }
+    if (id === 'catchup') { setSuperSheet('catchup'); return }
+    // The settings groups (22 Oct 2026), the same on the phone and the desktop: Aa, Book settings, Audio settings.
+    if (id === 'text') { setSuperSheet('reading'); return }
     if (id === 'editions') { setSuperSheet('editions'); return }
-    if (id === 'settings') { setSuperSheet('reading'); return }
+    if (id === 'audio') { setSuperSheet('audio'); return }
     if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
-    window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}` : LAB_LIBRARY_URL)
-  }, [chromeV2, handleChat, handleTalk, handleChapterChat, rememberLibraryPlace])
+    leaveForLibrary(privateLibraryDestination(`${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}`, sharedReader))
+  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, ownEditions, openChapterNotes, signedIn, sharedReader, continuousReader, openAiSettings])
 
-  const showChapterEnd = chromeV2 && !initialResolving && !book.chaptersProvisional
+  // A PDF's Original pages, picked in Book editions: the same spot, kept as the
+  // place it shares with its Tinct text and sent at once, opens in Add a book's viewer.
+  // "Show page" (a selection's, a figure's): a look at that paragraph's page (&frac=: how far down it), the
+  // book still read as Tinct text (&pages: the viewer does not send it back), so Back or the viewer's
+  // "Tinct text" returns to the same paragraph.
+  const openPdfPages = useCallback((at?: { chapterNumber: number; paragraphIndex: number; wordIndex: number }) => {
+    if (!userBook || userBook.kind !== 'pdf') return
+    const current = userPlaceBookRef.current
+    const spot = at ?? { chapterNumber: current.chapterNumber, paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex }
+    const place = { ...spot, updatedAt: Date.now(), converter: userBook.edition.converter }
+    const { page, frac } = at
+      ? showPdfPageAt(userBook.hex, userBook.edition.chapters, place, userBook.pdfPages)
+      : choosePdfPageAt(userBook.hex, userBook.edition.chapters, place, userBook.pdfPages)
+    if (!at) { notePdfPlace(userBook.hex, { now: true }); flushOwnPlaces() }
+    setSuperSheet(null)
+    window.location.assign(sharedReader ? pdfReaderViewUrl(userBook.hex,'pages',{page,frac},window.location.search) : `${ownBookOpenUrl(userBook.hex)}&page=${page}${at ? `&frac=${frac}&pages` : ''}`)
+  }, [userBook,sharedReader])
+  // An EPUB's Margin view, picked in Book editions: this device reads it in Add a book's margin reader from now
+  // on, at the same words (epubView.ts chooseEpubMargin; the place is also sent as the reader's own first).
+  const openEpubMargin = useCallback(() => {
+    if (!userBook || userBook.kind === 'pdf') return
+    chooseEpubMargin(userBook.hex, userBook.edition, { chapterNumber: userPlaceBookRef.current.chapterNumber, paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex })
+    flushOwnPlaces()
+    setSuperSheet(null)
+    window.location.assign(ownBookOpenUrl(userBook.hex))
+  }, [userBook])
+  const sheetPrefs = useCallback((next: LabPrefs) => {
+    if (ownPdf && next.primaryEdition === PDF_PAGES_EDITION_KEY) { openPdfPages(); return }
+    if (ownEpubMargin && next.primaryEdition === EPUB_MARGIN_EDITION_KEY) { openEpubMargin(); return }
+    updatePrefs(next)
+  }, [ownPdf, openPdfPages, ownEpubMargin, openEpubMargin, updatePrefs])
+
+  // Contents -> Introduction opens the book's introduction in the library.
+  // The navigation waits for the commit that closes Contents: writes are
+  // suspended while Contents is open, and the place must be flushed (the
+  // 'hide' flush uses keepalive) before the reader document is left.
+  const [introductionRequested, setIntroductionRequested] = useState(false)
+  const openIntroduction = useCallback(() => {
+    if (privateBook) return
+    listen.pause()
+    setTocOpen(false)
+    setIntroductionRequested(true)
+  }, [listen, privateBook])
+  useEffect(() => {
+    if (!introductionRequested || tocOpen) return
+    setIntroductionRequested(false)
+    notePlace('hide')
+    rememberLibraryPlace()
+    leaveForLibrary(privateLibraryDestination(labLibraryIntroductionUrl(book.bookId || 'bible', prefs.primaryEdition, readerPreviewSearch(window.location.search)), sharedReader))
+  }, [book.bookId, introductionRequested, notePlace, prefs.primaryEdition, rememberLibraryPlace, tocOpen, sharedReader])
+
+  const showChapterEnd = !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
     && readingPageIndex + (desktopSpread && !openingOnRight ? 1 : 0) >= readingPages.length - 1
+
+  // Reading on to the book's last page finishes it: there is no page to turn
+  // past, and readers stop here. Browsing to the end (Contents, a search) does not.
+  const finalPageReached = showChapterEnd && nextLabChapter(book.chapters, book.chapterNumber) == null
+    && (pageTurn?.direction === 'next' || enteredForwardRef.current === book.chapterNumber)
+  useEffect(() => {
+    if (finalPageReached && !temporaryHold && !finishedChapters.has(book.chapterNumber)) markChapterFinished(book.chapterNumber)
+  }, [finalPageReached, temporaryHold, finishedChapters, book.chapterNumber, markChapterFinished])
+  // Reaching a chapter's last page by reading on arms readToEndRef; turning
+  // back off it, or arriving anywhere else, disarms it. Browsing to the end
+  // (Contents, a search) never arms it.
+  const onLastPage = !initialResolving && !book.chaptersProvisional && progressMeasured && readingPages.length > 0
+    && readingPageIndex + (desktopSpread && !openingOnRight ? 1 : 0) >= readingPages.length - 1
+  useEffect(() => {
+    if (onLastPage && (pageTurn?.direction === 'next' || (enteredForwardRef.current === book.chapterNumber && readingPageIndex === 0))) readToEndRef.current = book.chapterNumber
+    else if (readToEndRef.current !== book.chapterNumber || (!onLastPage && pageTurn?.direction === 'previous')) readToEndRef.current = null
+  }, [onLastPage, pageTurn, book.chapterNumber, readingPageIndex])
+  // Social ship 3: the "Finished {book}" reading card at the end of a book (nothing while SOCIAL_FRIENDS is off).
+  const finishedCard = useFinishedCard({ bookId: book.bookId || 'bible', title: book.bookTitle || 'the book', signedIn, privateBook })
 
   const handleAskAbout = useCallback((name: string) => {
     const question = `Who is ${name} on this page?`
@@ -4290,35 +6218,1121 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   // The command menu invokes the same actions as the visible controls. No alternate
   // navigation, audio or account path: their existing saved-place guards still apply.
-  const commandOverlay = gearOpen || tocOpen || inTheBookOpen || speedPopoverOpen
+  // ── The phone's margin mode (marginPhone/): the bar, the one bottom card, the chapter pills ──
+  // Every card is fixed over the page: opening or closing one never turns a page or writes a place.
+  const phoneChapterName = unitName(paintedChapterLabel || book.chapterLabel || book.chapterTitle || '')
+  // Talk's line under its title: the book and the chapter as the reader names it.
+  const talkContext = [book.bookTitle, phoneChapterName].filter(Boolean).join(' · ')
+  const phoneCardLabel = (name: string, chapterLabel?: string) => {
+    const chapter = unitName(chapterLabel || '') || phoneChapterName
+    return chapter ? `${name} · ${chapter}` : name
+  }
+  /** The selection as a card's passage, with the same edition and chapter the popup's Explain used. */
+  const phonePassageOf = (selection: NonNullable<typeof selectionPopup>): PhonePassage => {
+    const editionKey = selection.editionKey || readerEditionKey
+    const compare = editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition
+    return {
+      text: selection.text, paragraphIndex: selection.paragraphIndex,
+      chapterNumber: selection.chapterNumber ?? book.chapterNumber, chapterLabel: selection.chapterLabel ?? book.chapterLabel,
+      editionKey, paragraphs: selection.paragraphs ?? (compare ? book.compareParagraphs : book.paragraphs),
+      ranges: selection.chapterRanges?.length
+        ? selection.chapterRanges.map(part => ({ chapterNumber: part.chapterNumber, range: part.range }))
+        : selection.range ? [{ chapterNumber: selection.chapterNumber ?? book.chapterNumber, range: selection.range }] : [],
+      compare: selection.side === 'compare',
+    }
+  }
+  /** One of the companion's actions on a passage, on the routes Explain uses (useLabAsk.explainSelection). */
+  const phoneCompanion = (passage: PhonePassage, intent: 'define' | 'simplify' | 'factcheck' | 'counterpoint' | 'quiz' | 'quiz_check' | undefined, onDelta: (text: string) => void, quiz?: { question: string; expected: string; why?: string; answer: string; turns?: import('../companion/companionRequest').QuizTurn[] }) => ask.explainSelection({
+    text: passage.text, intent, quiz,
+    editionKey: passage.editionKey, editionLabel: editionLabelFor(passage.editionKey, allBookEditions),
+    paragraphs: passage.paragraphs, chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel,
+    paragraphIndex: passage.paragraphIndex,
+  }, onDelta)
+  /** The whole chapter on screen as a passage without words: Quiz me from the chapter's end. */
+  const phoneChapterPassage = (): PhonePassage => ({
+    text: '', paragraphIndex: Math.max(0, placeRef.current.paragraphIndex), chapterNumber: book.chapterNumber,
+    chapterLabel: book.chapterLabel, editionKey: readerEditionKey, paragraphs: readerParagraphs,
+  })
+  /** Close the open card. A note is kept as typed; a highlight made only for an empty note goes again. */
+  const phoneCardRef = useRef(phoneCard)
+  phoneCardRef.current = phoneCard
+  const phoneNoteRef = useRef(phoneNote)
+  phoneNoteRef.current = phoneNote
+  const closePhoneCard = useCallback(() => {
+    const current = phoneCardRef.current
+    phoneCardRef.current = null
+    if (current?.kind === 'note') {
+      const note = phoneNoteRef.current.trim()
+      const mark = highlightsApi.allHighlights.find(item => item.id === current.highlightId)
+      if (current.created && !note) { highlightsApi.remove(current.highlightId, { undoable: false }); setDesktopLiveCards(cards => cards.filter(card => !(card.kind === 'note' && card.highlightId === current.highlightId))) }
+      else if (mark && note !== (mark.note || '').trim()) highlightsApi.setNote(current.highlightId, note)
+    }
+    if (current?.kind === 'chapter-note') {
+      const note = phoneNoteRef.current.trim()
+      const saved = highlightsApi.chapterNotes.find(item => item.chapterNumber === current.chapterNumber)?.note ?? ''
+      if (note !== saved.trim()) highlightsApi.setChapterNote(current.chapterNumber, note)
+    }
+    setPhoneCard(null)
+    setDraft('')
+    phoneAnswerRef.current = null
+    dictation.stop()
+  }, [dictation, highlightsApi])
+  // A rail card belongs to Margin. Leaving that layout folds its presentation;
+  // the retained source entry, conversation and per-card draft remain available.
+  const previousMarginLayout = useRef(continuousReader)
+  useLayoutEffect(() => {
+    const leaving = previousMarginLayout.current && !continuousReader
+    previousMarginLayout.current = continuousReader
+    if (!leaving) return
+    if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
+    closePhoneCard()
+    setNotebookCard(null)
+    setDesktopOpenId(null)
+    setDesktopContinuationId(null)
+    setChapterNotes(null)
+    setDraft('')
+  }, [continuousReader, desktopOpenId, closePhoneCard])
+  useEffect(() => {
+    if (!continuousReader || !phoneCard || !['note','chapter-note'].includes(phoneCard.kind)) return
+    const timer = window.setTimeout(() => {
+      const text = phoneNote.trim()
+      if (phoneCard.kind === 'note') {
+        const mark = highlightsApi.allHighlights.find(mark => mark.id === phoneCard.highlightId)
+        if (mark && text !== (mark.note || '').trim()) highlightsApi.setNote(phoneCard.highlightId, text)
+      } else if (phoneCard.kind === 'chapter-note') {
+        const saved = highlightsApi.chapterNotes.find(note => note.chapterNumber === phoneCard.chapterNumber)?.note || ''
+        if (saved.trim() !== text) highlightsApi.setChapterNote(phoneCard.chapterNumber, text)
+      }
+    }, 500)
+    return () => window.clearTimeout(timer)
+  // Only editing a desktop note schedules a write; persistence changes do not restart it.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [continuousReader, phoneCard, phoneNote])
+  /** The bin: a note's words go (and a highlight made only for it); any other card is put away. */
+  const deletePhoneCard = (current = phoneCardRef.current) => {
+    if (current?.kind === 'note') {
+      if (current.created) highlightsApi.remove(current.highlightId)
+      else highlightsApi.setNote(current.highlightId, '')
+    }
+    if (current?.kind === 'chapter-note') highlightsApi.setChapterNote(current.chapterNumber, '')
+    if (current) setDesktopLiveCards(cards => cards.filter(card => desktopCardId(card) !== desktopCardId(current)))
+    setDesktopOpenId(null)
+    phoneNoteRef.current = ''
+    setPhoneNote('')
+    phoneCardRef.current = null
+    setPhoneCard(null)
+    phoneAnswerRef.current = null
+    dictation.stop()
+  }
+  /** One card at a time: anything else that pops up closes first. */
+  const desktopCardId = (card: PhoneCard) => card.kind === 'note' ? `highlight:${card.highlightId}` : card.kind === 'chapter-note' ? `chapter-note:${card.chapterNumber}` : `mc_react_${card.kind === 'quiz' ? 'quiz_' : ''}${card.openedAt}`
+  const openPhoneCard = (card: PhoneCard) => {
+    setDesktopAskOpen(false)
+    setDraft('')
+    setNotebookCard(null)
+    if (continuousReader) {
+      if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
+      const id = desktopCardId(card)
+      setDesktopOpenId(id); setDesktopContinuationId(id.startsWith('mc_') ? id : null)
+      setDesktopLiveCards(current => [...current.filter(item => desktopCardId(item) !== id), card])
+    }
+    if (phoneCardRef.current) closePhoneCard()
+    setChapterNotes(null)
+    setSuperSheet(current => (current === 'catchup' ? null : current))
+    if (phoneAskOpen) { dictation.stop(); closePhoneAsk() }
+    if (callOpen) endCall()
+    setSelectionPopup(null)
+    phoneAnswerRef.current = null
+    setSharedCardSaveError(false)
+    setPhoneCard(card)
+  }
+  useLayoutEffect(() => {
+    if (showPhoneChrome || !phoneCard || !['note', 'chapter-note', 'ask'].includes(phoneCard.kind)) return
+    const root = continuousReader ? document.querySelector(`.source-margin-item[data-card-id="${desktopCardId(phoneCard)}"]`) : document.querySelector('.lab-desktop-card')
+    const field = root?.querySelector<HTMLTextAreaElement>('.lab-pcard-note, .lab-pcard-follow-input')
+    field?.focus({ preventScroll: true })
+    // A new rail entry is hidden until its source geometry is measured.
+    const frame = requestAnimationFrame(() => { if (phoneCardRef.current === phoneCard && field && document.activeElement !== field) field.focus({ preventScroll: true }) })
+    return () => cancelAnimationFrame(frame)
+  }, [phoneCard, showPhoneChrome, continuousReader])
+  menuMarginChatRef.current = () => {
+    closePhoneCard()
+    setNotebookCard(null)
+    setDesktopOpenId(null)
+    setDesktopContinuationId(null)
+    setContentsConversation(null)
+    setTocOpen(false)
+    setSuperSheet(null)
+    setAskAttachment(null)
+    setDraft('')
+    setPhoneAskOpen(showPhoneChrome)
+    setDesktopAskOpen(!showPhoneChrome)
+  }
+  useLayoutEffect(() => {
+    if (!(phoneAskOpen || desktopAskOpen)) return
+    setNotebookCard(null)
+    setPhoneCard(null)
+    setDesktopOpenId(null)
+  }, [phoneAskOpen, desktopAskOpen])
+  // Chat, Talk, Primer, Recap and Catch me up are cards too: opening one closes the card that was open.
+  useEffect(() => {
+    if (!marginPhone) return
+    if (phoneAskOpen || callOpen || chapterNotes || superSheet === 'catchup') setPhoneCard(null)
+  }, [marginPhone, phoneAskOpen, callOpen, chapterNotes, superSheet])
+  useEffect(() => {
+    if (!marginPhone || !(chapterNotes || superSheet === 'catchup')) return
+    if (phoneAskOpen) { dictation.stop(); closePhoneAsk() }
+    else if (callOpen) endCall()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [marginPhone, chapterNotes, superSheet])
+  // A new book or chapter closes the card, as it does a selection.
+  useLayoutEffect(() => {
+    desktopDraftsRef.current = {}; desktopNoteConversionRef.current.clear(); desktopUnitAnchorsRef.current.clear(); desktopUnitPositionsRef.current.clear()
+    setMarginUndo(null); setNotebookCard(null); setNotebookFlash(null); setDraft(''); setPhoneNote(''); setPhoneCard(null); setDesktopLiveCards([]); setDesktopOpenId(null); setDesktopContinuationId(null); setDesktopChapterCards([]); setDesktopCatchup(false); setChapterNotes(null)
+  }, [book.bookId, book.chapterNumber, authUser?.id, signedIn, authUser?.id ? undefined : authToken])
+  // The card's passage stays underlined on the page while the card is open (the card does not quote it).
+  const phoneCardPassage = phoneCard && 'passage' in phoneCard ? phoneCard.passage : null
+  useLayoutEffect(() => {
+    if (!(marginPhone || sharedReader) || !phoneCardPassage?.ranges?.length) return
+    return markPhoneCardPassage(document.querySelector('[data-testid="lab-root"]'), phoneCardPassage.ranges, book.chapterNumber, !!phoneCardPassage.compare)
+  }, [marginPhone, sharedReader, phoneCardPassage, book.chapterNumber])
+  /** A follow-up from a card: the chat's own question, with the passage attached and the card's answer as what the reader was shown. */
+  const sendPhoneFollow = (passage: PhonePassage | null, question: string) => {
+    const card = phoneCardRef.current
+    const conversationId = card && 'openedAt' in card ? desktopCardId(card) : desktopContinuationId ?? undefined
+    const saved = conversationId ? ask.revealConversation(conversationId) : null
+    const shown = phoneAnswerRef.current
+    if (!saved && passage && shown && !shown.kept && shown.answer) {
+      ask.keepExplanation(passage.text, shown.answer, passage.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: passage.chapterNumber })
+      shown.kept = true
+    }
+    dictation.stop()
+    void ask.sendTyped(question, undefined, undefined, {
+      highlightedText: passage?.text || undefined, conversationId,
+      onAccepted: () => {
+        // The margin and the phone keep the card: its follow-ups answer in it until it is closed (iPhone, 29 Oct 2026).
+        if (continuousReader || showPhoneChrome) {
+          setDraft('')
+          return
+        }
+        closePhoneCard()
+        setDesktopOpenId(null)
+        setSelectionPopup(null)
+        setDesktopContinuationId(conversationId ?? null)
+        setContentsConversation(saved)
+        setDraft('')
+        setPhoneAskOpen(showPhoneChrome)
+        setDesktopAskOpen(!showPhoneChrome)
+      },
+    })
+  }
+  const discussSavedCard = (id: string, question: string, text?: string) => {
+    const saved = ask.revealConversation(id)
+    dictation.stop()
+    void ask.sendTyped(question, undefined, undefined, { conversationId: id, highlightedText: text,
+      onAccepted: () => {
+        if (continuousReader) {
+          setDraft('')
+          return
+        }
+        closePhoneCard(); setNotebookCard(null); setDesktopOpenId(null)
+        setChapterNotes(null); setSuperSheet(null); setSelectionPopup(null)
+        setDesktopContinuationId(id); setContentsConversation(saved); setDraft('')
+        setPhoneAskOpen(showPhoneChrome); setDesktopAskOpen(!showPhoneChrome)
+      } })
+  }
+  const phoneCardTurns = (openedAt: number) => ask.turns.filter(turn => !turn.shownExplanation && (continuousReader ? turn.conversationId === `mc_react_${openedAt}` || turn.conversationId === `mc_react_quiz_${openedAt}` : (turn.timestamp ?? 0) >= openedAt))
+  const phoneBarHighlight = (color: HighlightColor) => {
+    const selection = selectionPopup
+    if (!selection) return
+    if (selection.existingHighlightId) { highlightsApi.setColor(selection.existingHighlightId, color); return }
+    if (!selection.range) return
+    const created = selection.chapterRanges ? highlightsApi.addGroup(selection.chapterRanges, color, selection.editionKey)[0] : highlightsApi.addOrReuse(selection.range, color, selection.editionKey, selection.chapterNumber)
+    setSelectionPopup(current => current ? { ...current, existingHighlightId: created.id, existingNote: created.note } : current)
+  }
+  const phoneBarNote = () => {
+    const selection = selectionPopup
+    if (!selection) return
+    let id = selection.existingHighlightId
+    let created = false
+    if (!id && selection.range) {
+      const mark = selection.chapterRanges ? highlightsApi.addGroup(selection.chapterRanges, lastHighlightColor(), selection.editionKey)[0] : highlightsApi.addOrReuse(selection.range, lastHighlightColor(), selection.editionKey, selection.chapterNumber)
+      id = mark.id
+      created = !mark.note
+    }
+    if (!id) return
+    const note = highlightsApi.allHighlights.find(item => item.id === id)?.note ?? selection.existingNote ?? ''
+    // The field is not focused: the keyboard comes up only when the reader taps it (iPhone feedback, 20 Oct 2026).
+    setPhoneNote(note)
+    openPhoneCard({ kind: 'note', passage: phonePassageOf(selection), highlightId: id!, created })
+  }
+  const phoneBarAsk = (initialQuestion?: string) => {
+    const selection = selectionPopup
+    if (!selection) return
+    const passage = phonePassageOf(selection)
+    if (continuousReader) {
+      openPhoneCard({ kind: 'ask', passage, openedAt: Date.now() })
+      setDraft(initialQuestion ?? '')
+      return
+    }
+    closePhoneCard()
+    setDesktopOpenId(null)
+    setContentsConversation(null)
+    setDesktopContinuationId(null)
+    setAskAttachment({ bookId: book.bookId || 'bible', text: passage.text, sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex } })
+    setSelectionPopup(null)
+    setDraft(initialQuestion ?? '')
+    setPhoneAskOpen(showPhoneChrome)
+    setDesktopAskOpen(!showPhoneChrome)
+  }
+  const phoneBarAction = (kind: 'explain' | 'simplify' | PhoneMoreId) => {
+    const selection = selectionPopup
+    if (!selection) return
+    if (kind === 'copy') {
+      const text = selection.text
+      const done = () => dismissSelectionPopup()
+      if (navigator.clipboard?.writeText) void navigator.clipboard.writeText(text).then(done, done)
+      else done()
+      return
+    }
+    const passage = phonePassageOf(selection)
+    setDraft('')
+    if (kind === 'define') {
+      const word = selection.defineText || selection.text
+      define.begin(word)
+      openPhoneCard({ kind: 'define', passage, word, namesakes: selection.namesakes, openedAt: Date.now() })
+      return
+    }
+    if (kind === 'quiz') { openPhoneCard({ kind: 'quiz', passage, chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, openedAt: Date.now() }); return }
+    openPhoneCard({ kind, passage, openedAt: Date.now() })
+  }
+  const marginCatchUp = catchUpAvailable(book.chapters, book.chapterNumber)
+  // The start actions (approved mockup, Anders 9 Nov 2026). The whole book: Primer (a Tinct book's introduction),
+  // Summary (every chapter, through the catch-up timeline). The reading angle (AI settings, the field focused) is the
+  // t menu's Reading angle and the first chapter's end since 16 Nov 2026.
+  const openBookAction = (kind: 'primer' | 'summary') => {
+    if (initialResolving || book.chaptersProvisional) return
+    closePhoneCard(); setChapterNotes(null); setSuperSheet(null); setSuperMenuOpen(false)
+    setBookAction({ kind, openedAt: Date.now() })
+  }
+  const openBookActionRef = useRef(openBookAction)
+  openBookActionRef.current = openBookAction
+  const openDesktopBookCard = (kind: 'primer' | 'summary') => {
+    if (initialResolving || book.chaptersProvisional) return
+    setDesktopBookCards(current => current.includes(kind) ? current : [...current, kind])
+    const id = `mc_book_${kind}_${book.bookId || 'bible'}`
+    setDesktopOpenId(id); setDesktopContinuationId(id)
+  }
+  const openReadingAngle = () => { closePhoneCard(); setChapterNotes(null); setBookAction(null); setSuperSheet(null); openAiSettings(true) }
+  const openReadingAngleRef = useRef(openReadingAngle)
+  openReadingAngleRef.current = openReadingAngle
+  // A chapter's Summary is a summary of that chapter, the whole of it, wherever the reader is in it (Anders,
+  // 11 Nov 2026: it had been the chapter so far, and at a chapter's start Catch me up's "what came before"). What
+  // came before stays Catch me up's own job, in the t menu. A reader's own book: the chapter from this device's text.
+  const chapterSummaryRef = useRef<() => void>(() => {})
+  chapterSummaryRef.current = () => {
+    if (initialResolving || book.chaptersProvisional) return
+    closePhoneCard(); setBookAction(null)
+    openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary')
+  }
+  // A static scene page (/read/{bookId}/{scene}) handed over to do one thing here, in the chapter it linked to: what
+  // its margin, its selection bar, its ask field or its top bar asked for, run through the reader's own actions, as
+  // if the reader had pressed them. A passage is words by index in the scene page's edition (modern-en); anything
+  // that does not fit this chapter's text is dropped, never guessed at. Nothing here writes the reading place: the
+  // deep link already opened the chapter.
+  const runSceneHandoffRef = useRef<(intent: PageSceneHandoff) => void>(() => {})
+  runSceneHandoffRef.current = intent => {
+    const chapter = { chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel }
+    const passageAt = (range: LabHighlightRange): PhonePassage => ({ text: range.text, paragraphIndex: range.paragraphIndex, ...chapter,
+      editionKey: readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: book.chapterNumber, range }] })
+    const selected = () => {
+      const s = intent.selection
+      if (!s || readerEditionKey !== SCENE_HANDOFF_EDITION) return null
+      const words = (index: number) => (book.paragraphs[index] || '').split(/\s+/).filter(Boolean).length
+      if (s.endParagraphIndex >= book.paragraphs.length || s.wordIndex >= words(s.paragraphIndex) || s.endWordIndex >= words(s.endParagraphIndex)) return null
+      return buildHighlightRange(book.paragraphs, { paragraphIndex: s.paragraphIndex, wordIndex: s.wordIndex }, { paragraphIndex: s.endParagraphIndex, wordIndex: s.endWordIndex })
+    }
+    switch (intent.action) {
+      case 'explain': case 'simplify': case 'ask': case 'more': {
+        if (intent.question) {
+          // A question about the scene: an Ask card at the scene's opening, answered in the margin.
+          const openedAt = Date.now()
+          const point: LabHighlightRange = { paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 0, text: '' }
+          openPhoneCard({ kind: 'ask', passage: { ...passageAt(point), text: '' }, openedAt })
+          dictation.stop()
+          void ask.sendTyped(intent.question, undefined, undefined, {
+            conversationId: `mc_react_${openedAt}`, sourceLocation: { ...chapter, paragraphIndex: 0 },
+          })
+          return
+        }
+        const range = selected()
+        if (!range) return
+        if (intent.action === 'more') {
+          // The reader's own selection bar over the passage, with its full menu.
+          const word = marginHost?.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${range.paragraphIndex}"][data-word-index="${range.fromWord}"]`)
+            ?? document.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${range.paragraphIndex}"][data-word-index="${range.fromWord}"]`)
+          const box = word?.getBoundingClientRect()
+          handleSelectRange(range, box ? box.left + box.width / 2 : window.innerWidth / 2, box ? box.top : window.innerHeight / 3)
+          return
+        }
+        openPhoneCard({ kind: intent.action, passage: passageAt(range), openedAt: Date.now() })
+        return
+      }
+      case 'primer': openChapterNotes('primer', book.chapterNumber, 'pill'); return
+      case 'summary': chapterSummaryRef.current(); return
+      case 'recap': openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary', 'end'); return
+      case 'quiz': quizChapterRef.current(undefined, true); return
+      case 'contents': setReaderControlsVisible(true); setTocOpen(true); return
+      case 'notebook': handleSuperMenuSelect('notebook'); return
+      case 'appearance': setSuperMenuOpen(false); setCompareFromLayout(false); setSuperSheet('reading'); return
+      case 'menu': openSuperMenu(); return
+    }
+  }
+  useEffect(() => {
+    const intent = sceneHandoffRef.current
+    if (!intent || !readerReady || initialResolving || book.chaptersProvisional) return
+    // Once, and only in the chapter the scene page linked to.
+    sceneHandoffRef.current = null
+    if ((book.bookId || 'bible') !== intent.bookId || book.chapterNumber !== intent.chapterNumber) return
+    runSceneHandoffRef.current(intent)
+  }, [readerReady, initialResolving, book.chaptersProvisional, book.bookId, book.chapterNumber])
+  // Book scroll: an action on a neighbouring chapter (its pills, a selection in it, one of its margin cards) first makes
+  // that chapter the reader's own where it stands (nothing on the page moves), then runs as in any chapter. The action
+  // reads the reader's state through refs, so it sees the adopted chapter, not the one it was asked from.
+  const bookScrollActs = useRef({ handleSelectRange, openChapterNotes })
+  bookScrollActs.current.handleSelectRange = handleSelectRange
+  bookScrollActs.current.openChapterNotes = openChapterNotes
+  const actOnChapter = (chapter: number, run: () => void, where: 'start' | 'end' = 'start') => {
+    if (chapter === book.chapterNumber) { run(); return }
+    pendingChapterAction.current = { chapter, run, at: Date.now() }
+    explicitAdoption.current = true
+    const adopted = bookScrollControl.current?.adopt(chapter, where) ?? false
+    explicitAdoption.current = false
+    if (!adopted) pendingChapterAction.current = null
+  }
+  actOnChapterRef.current = (chapter, run) => actOnChapter(chapter, run)
+  useEffect(() => {
+    const pending = pendingChapterAction.current
+    if (!pending) return
+    // A handoff the reader refused (an overlay, a restore) is dropped rather than run later, somewhere else.
+    if (Date.now() - pending.at > 8000) { pendingChapterAction.current = null; return }
+    if (pending.chapter !== book.chapterNumber || !continuousReady) return
+    pendingChapterAction.current = null
+    // After the adopted chapter's words are painted as the reader's own.
+    const frame = requestAnimationFrame(() => pending.run())
+    return () => cancelAnimationFrame(frame)
+  }, [book.chapterNumber, continuousReady, book.paragraphs])
+  const marginCatchUpRef = useRef<() => void>(() => {})
+  const bookPrimer = useBookPrimerAvailable(privateBook ? null : book.bookId || null)
+  const firstChapterTitle = book.chapters[0]?.title ?? ''
+  const angleOfferOn = !!firstChapterTitle && !bookAngle.trim()
+  const marginPills: MarginPhonePills | null = useMemo(() => (marginPhone || sharedReader) ? {
+    ...(marginPhone ? {
+      layout: 'phone' as const,
+      onSummary: () => chapterSummaryRef.current(),
+      // Every chapter has its Summary, the first included (Anders, 10 Nov 2026).
+      summary: true,
+      book: firstChapterTitle ? {
+        firstChapterTitle, title: book.bookTitle, author: book.bookAuthor || undefined, primer: bookPrimer,
+        onPrimer: () => openBookActionRef.current('primer'), onSummary: () => openBookActionRef.current('summary'),
+      } : null,
+      // The simple first page (16 Nov 2026): until the reader first uses Ask, Explain or Simplify.
+      firstVisit,
+    } : continuousReader ? { layout: 'desktop' as const } : {}),
+    catchUp: marginCatchUp,
+    onCatchUp: () => { if (!initialResolving && !book.chaptersProvisional) { if (continuousReader) { if (phoneCardRef.current?.kind === 'note' || phoneCardRef.current?.kind === 'chapter-note') closePhoneCard(); desktopUnitAnchorsRef.current.set(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`, {paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0}); setDesktopCatchup(true); setDesktopOpenId(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`); setDesktopContinuationId(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`) } else setSuperSheet('catchup') } },
+    onQuiz: anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor) },
+    // The reading angle is offered at the end of the book's first chapter while the book has none (16 Nov 2026).
+    angleOffer: angleOfferOn ? { chapterTitle: firstChapterTitle, onOpen: () => openReadingAngleRef.current() } : null,
+  } : null, [marginPhone, sharedReader, marginCatchUp, initialResolving, book.chaptersProvisional, continuousReader, book.chapterNumber, readerEditionKey, privateBook, firstChapterTitle, book.bookTitle, book.bookAuthor, bookPrimer, firstVisit, angleOfferOn])
+  marginCatchUpRef.current = () => marginPills?.onCatchUp?.()
+  marginPhoneNoteRef.current = (chapterNumber: number) => {
+    if (!(marginPhone || sharedReader)) return false
+    const chapter = book.chapters.find(item => item.number === chapterNumber)
+    setPhoneNote(highlightsApi.chapterNotes.find(note => note.chapterNumber === chapterNumber)?.note ?? '')
+    openPhoneCard({ kind: 'chapter-note', chapterNumber, chapterLabel: chapter?.title || book.chapterLabel })
+    return true
+  }
+  quizChapterRef.current = (anchor, atStart = false) => { desktopQuizAnchorRef.current = anchor ?? null; desktopQuizAtStartRef.current = atStart; setDraft(''); openPhoneCard({ kind: 'quiz', passage: null, chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel, openedAt: Date.now() }) }
+
+  const commandOverlay = tocOpen || inTheBookOpen || speedPopoverOpen || phoneCard !== null
     || selectionPopup !== null || superMenuOpen || superSheet !== null || bookSwitcherOpen || accountPrompt !== null
   const canReadCommand = () => !initialResolving && !frontispieceVisible && !temporaryHold
-  const canTurnCommand = () => !initialResolving && !temporaryHold && !prefaceVisible && !phoneAskOpen && !desktopAskOpen && !callOpen
+
+  const canTurnCommand = () => !initialResolving && !temporaryHold && !phoneAskOpen && !desktopAskOpen && !callOpen
   const editionCommand = (kind: string) => bookEditions.find(e => e.key === `${kind}-en`)
   useDesktopCommands({
-    blocked: () => commandOverlay || prefaceVisible || initialResolving || Boolean(temporaryHold),
-    prepare: () => { setGearOpen(false); setTocOpen(false); setSuperMenuOpen(false); setSuperSheet(null); setBookSwitcherOpen(false); setSpeedPopoverOpen(false); setSelectionPopup(null); setInTheBookOpen(false); setAccountPrompt(null) },
+    blocked: () => commandOverlay || initialResolving || Boolean(temporaryHold),
+    prepare: () => { setTocOpen(false); setSuperMenuOpen(false); setSuperSheet(null); setBookSwitcherOpen(false); setSpeedPopoverOpen(false); setSelectionPopup(null); setInTheBookOpen(false); setAccountPrompt(null) },
     commands: [
       { id: 'chat', label: 'Chat about this book', key: 'c', enabled: canReadCommand, run: () => { handleChat(); requestAnimationFrame(() => askInputRef.current?.focus({ preventScroll: true })) } },
       { id: 'talk', label: callOpen || ask.voiceActive ? 'End voice conversation' : 'Talk about this book', key: 't', enabled: canReadCommand, run: () => { if (callOpen) endCall(); else if (ask.voiceActive) closePhoneAsk(); else handleTalk() } },
       { id: 'listen', label: listen.playing ? 'Pause narration' : 'Listen to this page', key: 'p', enabled: () => canReadCommand() && !callOpen && !ask.voiceActive, run: handleBarListen },
-      { id: 'read', label: 'Return to reading', key: 'r', run: () => { if(callOpen || phoneAskOpen || desktopAskOpen) closePhoneAsk(); else if(showPhoneChrome ? mobileCompareActive : desktopCompareActive) (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() } },
+      { id: 'read', label: 'Return to reading', key: 'r', run: () => { if(callOpen || phoneAskOpen || desktopAskOpen) closePhoneAsk(); else if(showPhoneChrome ? mobileCompareActive : desktopCompareActive) (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() } },
       { id: 'next', label: 'Next page', key: 'j', enabled: canTurnCommand, run: goNext },
       { id: 'previous', label: 'Previous page', key: 'k', enabled: canTurnCommand, run: goPrev },
       { id: 'next-chapter', label: 'Next chapter', key: ']', enabled: () => canTurnCommand() && nextLabChapter(book.chapters, book.chapterNumber) != null, run: () => { const n=nextLabChapter(book.chapters,book.chapterNumber); if(n!=null)void (listen.playing?browseToChapter(n,'start'):goToChapter(n,'start')) } },
       { id: 'previous-chapter', label: 'Previous chapter', key: '[', enabled: () => canTurnCommand() && prevLabChapter(book.chapters, book.chapterNumber) != null, run: () => { const n=prevLabChapter(book.chapters,book.chapterNumber); if(n!=null)void (listen.playing?browseToChapter(n,'start'):goToChapter(n,'start')) } },
-      { id: 'contents', label: 'Contents, highlights and notes', key: 'i', enabled: canReadCommand, run: () => { setGearOpen(false); setReaderControlsVisible(true); setTocOpen(true) } },
-      { id: 'editions', label: 'Book editions', key: 'e', enabled: canReadCommand, run: () => handleSuperMenuSelect('editions') },
+      { id: 'contents', label: 'Contents, highlights and notes', key: 'i', enabled: canReadCommand, run: () => { setReaderControlsVisible(true); setTocOpen(true) } },
+      { id: 'editions', label: 'Book settings', key: 'e', enabled: canReadCommand, run: () => handleSuperMenuSelect('editions') },
       { id: 'original', label: 'Read original English', key: 'o', enabled: () => canReadCommand() && !!editionCommand('original'), run: () => { const e=editionCommand('original');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
       { id: 'modern', label: 'Read modern English', key: 'm', enabled: () => canReadCommand() && !!editionCommand('modern'), run: () => { const e=editionCommand('modern');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
-      { id: 'compare', label: 'Compare editions', key: 'x', enabled: () => canReadCommand() && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled), run: () => (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() },
+      { id: 'compare', label: 'Compare editions', key: 'x', enabled: () => canReadCommand() && !handheldMargin && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled), run: () => (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() },
       { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
       { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
-      { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
-      { id: 'account', label: 'Account and credits', key: 'a', run: () => handleSuperMenuSelect('account') },
+      { id: 'settings', label: 'Aa', key: 's', run: () => handleSuperMenuSelect('text') },
+      { id: 'audio', label: 'Audio settings', key: 'v', run: () => handleSuperMenuSelect('audio') },
+      { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
+      { id: 'ai-settings', label: 'AI settings', run: () => openAiSettings() },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
-    ],
+      { id: 'undo-highlight', label: 'Undo last highlight or note change', enabled: highlightsApi.canUndo, run: () => { highlightUndoRef.current() } },
+    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
   })
+
+  const openNotebookConversation = (conversation: ChatConversation) => {
+    if (conversation.bookId !== (book.bookId || 'bible')) return
+    closePhoneCard()
+    setDesktopOpenId(null)
+    setTocOpen(false)
+    setSelectionPopup(null)
+    setDraft('')
+    setAskAttachment(null)
+    const firstAnswer = conversation.messages.findIndex(message => message.role === 'assistant')
+    const discussed = !conversation.card || conversation.card.kind === 'ask'
+      || conversation.messages.slice(firstAnswer + 1).some(message => message.role === 'user')
+    if (discussed && conversation.card?.kind !== 'quiz') {
+      ask.revealConversation(conversation.id)
+      setNotebookCard(null)
+      setContentsConversation(conversation)
+      setDesktopContinuationId(conversation.id)
+      setPhoneAskOpen(showPhoneChrome)
+      setDesktopAskOpen(!showPhoneChrome)
+    } else {
+      setNotebookCard(conversation)
+      setContentsConversation(null)
+      setDesktopContinuationId(null)
+      setPhoneAskOpen(false)
+      setDesktopAskOpen(false)
+    }
+  }
+
+  // The chat's thread and composer: the desktop panel, the phone's Chat sheet, or (margin mode) the Chat card.
+  const askPaneElement = (
+          <WithDraft store={draftStore}>{draft => <LabAskPane
+            focusTurnId={readingChatFocusTurn(ask.turns, contentsConversation)}
+            onBackToContents={contentsConversation ? returnToContents : undefined}
+            dictationState={dictation.state}
+            onStopVoice={callOpen ? endCall : ask.stopVoice}
+            conversationState={ask.conversationState}
+            voiceActive={ask.voiceActive}
+            typedLoading={ask.typedLoading}
+            typedStatus={ask.typedStatus}
+            turns={readingChatTurns(ask.turns, ask.conversations)}
+            historyStatus={ask.historyStatus}
+            draft={draft}
+            attachment={askAttachment && askAttachment.bookId === book.bookId ? { text: askAttachment.text, kind: askAttachment.figure ? 'figure' : 'highlight' } : null}
+            onRemoveAttachment={() => setAskAttachment(null)}
+            onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
+            onSubmit={(text) => { dictation.stop(); handleAsk(text) }}
+            onMic={handleMic}
+            onVoiceMode={() => {
+              dictation.stop()
+              handleTalk()
+            }}
+            onRetry={ask.retryTyped}
+            notice={dictation.notice || ask.notice}
+            onDone={marginPhone ? undefined : () => { dictation.stop(); closePhoneAsk() }}
+            phoneSheet={!!phoneAsk}
+            embeddedPhoneCard={!!(marginPhone && phoneAsk)}
+            composerPlaceholder={marginPhone && phoneAsk ? `Ask about ${paintedChapterLabel || book.chapterLabel || book.bookTitle}…` : undefined}
+            desktopCompanion={!showPhoneChrome ? (chrome === 'talking' ? 'talk' : 'chat') : undefined}
+            onKeyboardOpenChange={marginPhone ? undefined : setPhoneKeyboardOpen}
+            inputRef={askInputRef}
+            chapterLabels={Object.fromEntries(book.chapters.map(chapter => [chapter.number, chapter.title]))}
+            minimized={!showPhoneChrome ? desktopChatMinimized : undefined}
+            onMinimizedChange={!showPhoneChrome ? setDesktopChatMinimized : undefined}
+
+          />}</WithDraft>
+  )
+
+
+  /** The open card's body: the passage, what the action shows, and the follow-up line. */
+  const leaveSelectionInfo = (showActions = false) => {
+    dictation.stop()
+    phoneAnswerRef.current = null
+    setSharedCardSaveError(false)
+    if (showActions) setPopupMode('main')
+    else dismissSelectionPopup()
+  }
+  const renderPhoneCard = (card: PhoneCard, fromSelection = false) => {
+    const ResponseCard = sharedReader && !showPhoneChrome ? LabDesktopCard : LabPhoneCard
+    // Talk about the card: what it showed is kept first (as a follow-up keeps it), then the voice conversation opens.
+    const talkAbout = (passage: PhonePassage | null) => () => {
+      const shown = phoneAnswerRef.current
+      if (passage && shown && !shown.kept && shown.answer) {
+        ask.keepExplanation(passage.text, shown.answer, passage.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: passage.chapterNumber })
+        shown.kept = true
+      }
+      dictation.stop()
+      ask.primeVoice()
+      requestAnimationFrame(() => handleTalk())
+    }
+    const follow = (passage: PhonePassage | null, placeholder?: string) => (
+      <><PhoneFollowField draft={draftStore} onChange={text => { dictation.stop(); setDraft(text) }} onSend={text => sendPhoneFollow(passage, text)}
+        onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(passage)} inputRef={phoneFieldRef} placeholder={placeholder} disabled={ask.typedLoading} /></>
+    )
+    const name = PHONE_CARD_NAMES[card.kind]
+    if (card.kind === 'note' || card.kind === 'chapter-note') {
+      return (
+        <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.kind === 'note' ? card.passage.chapterLabel : card.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={() => deletePhoneCard(card)} deleteLabel={card.kind === 'note' ? 'Delete note' : 'Delete chapter note'} foot={continuousReader ? <PhoneFollowField draft={draftStore} onChange={setDraft} placeholder="Ask about this note" onSend={question => {
+          const text = phoneNoteRef.current.trim()
+          if (!text) return
+          const openedAt = Date.now()
+          const passage = card.kind === 'note' ? { ...card.passage, text } : { ...phoneChapterPassage(), text }
+          desktopNoteConversionRef.current.set(openedAt, { ...(card.kind === 'note' ? {highlightId:card.highlightId, created:card.created} : {chapterNumber:card.chapterNumber}), text })
+          closePhoneCard()
+          openPhoneCard({kind:'ask', passage, openedAt})
+          setDraft('')
+          void ask.sendTyped(question, undefined, undefined, {highlightedText:text, conversationId:`mc_react_${openedAt}`})
+        }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(card.kind === 'note' ? card.passage : null)} disabled={ask.typedLoading} /> : undefined}>
+          <PhoneNoteBody value={phoneNote} onChange={text => { setPhoneNote(text); if (continuousReader) { if (card.kind === 'note') highlightsApi.setNote(card.highlightId, text); else highlightsApi.setChapterNote(card.chapterNumber, text) } }} inputRef={phoneFieldRef as unknown as MutableRefObject<HTMLElement | null>} chapter={card.kind === 'chapter-note'} phone={showPhoneChrome} />
+        </ResponseCard>
+      )
+    }
+    if (card.kind === 'quiz') {
+      const passage = card.passage ?? phoneChapterPassage()
+      return (
+        <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} {...(sharedReader && !showPhoneChrome && !card.passage && desktopQuizAnchorRef.current ? { getAnchor: () => desktopQuizAnchorRef.current } : {})} label={phoneCardLabel(name, card.chapterLabel)} kind="quiz" onClose={closePhoneCard} onDelete={closePhoneCard}>
+          <WithDraft store={draftStore}>{draft => <PhoneQuizBody
+            request={onDelta => phoneCompanion(passage, 'quiz', onDelta)}
+            mark={(question, answer, turns) => phoneCompanion({ ...passage, text: '' }, 'quiz_check', () => {}, { question: question.q, expected: question.answer, why: question.why, answer, turns })}
+            onComplete={summary => {
+              if (!sharedReader) return
+              const range = passage.ranges?.find(part => part.chapterNumber === passage.chapterNumber)?.range
+              const saved = ask.saveCard({
+                source: userBook
+                  ? { kind: 'own-text', bookId: userBook.bookId, ownHex: userBook.hex, converter: userBook.edition.converter, editionKey: ownSourceEditionKey(userBook.edition) as 'own' | 'own-en' | 'own-da' }
+                  : { kind: 'catalogue', bookId: book.bookId || 'bible' },
+                id: `react_quiz_${card.openedAt}`, kind: 'quiz', chapterNumber: passage.chapterNumber,
+                ...(range ? { anchor: { editionKey: passage.editionKey, chapterNumber: passage.chapterNumber,
+                  paragraphIndex: range.paragraphIndex, fromWord: range.fromWord,
+                  endParagraphIndex: range.endParagraphIndex, toWord: range.toWord } } : {}),
+                text: passage.text, turns: [{ role: 'assistant', content: summary }],
+                at: card.openedAt, u: Date.now(),
+              })
+              setSharedCardSaveError(!saved)
+            }}
+            draft={draft} setDraft={setDraft} onMic={handleMic} micOn={dictation.state !== 'idle'} inputRef={phoneFieldRef}
+            follow={summary => {
+              const key = `quiz:${card.openedAt}`
+              const keep = () => { ask.keepExplanation(phoneCardLabel(name, card.chapterLabel), summary, passage.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: card.chapterNumber }); return true }
+              return pillCardFollow(key, keep, () => {
+                if (pillCardKeptRef.current !== key && keep()) pillCardKeptRef.current = key
+                ask.primeVoice()
+                requestAnimationFrame(() => handleTalk())
+              })
+            }}
+            thread={pillCardThread(card.openedAt)} />}</WithDraft>
+          {sharedReader && cardSaveWarning && <p role="status">This quiz is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
+        </ResponseCard>
+      )
+    }
+    const cardTurns = phoneCardTurns(card.openedAt)
+    const turns = card.kind === 'ask' ? cardTurns : liveCardFollowupTurns(cardTurns, card.openedAt)
+    const pending = ask.typedLoading && turns.length > 0
+    const keep = (answer: string) => {
+      if (fromSelection && (selectionPopupRef.current !== selectionPopup || popupModeRef.current !== 'define')) return
+      if (!continuousReader || phoneCardRef.current === card) phoneAnswerRef.current = { card, answer, kept: false }
+      // Shared cards already persist the answer in the book's chat history.
+      // Do not spend local quota on a second, unread legacy explanation copy.
+      if (!sharedReader && card.kind === 'explain') saveExplanation({ bookId: book.bookId || 'bible', chapterNumber: card.passage.chapterNumber, paragraphIndex: card.passage.paragraphIndex, passage: card.passage.text, answer })
+      if (sharedReader && card.kind !== 'ask' && answer.trim()) {
+        const range = card.passage.ranges?.find(part => part.chapterNumber === card.passage.chapterNumber)?.range
+        const at = card.openedAt
+        const saved = ask.saveCard({
+          source: userBook
+            ? { kind: 'own-text', bookId: userBook.bookId, ownHex: userBook.hex, converter: userBook.edition.converter, editionKey: ownSourceEditionKey(userBook.edition) as 'own' | 'own-en' | 'own-da' }
+            : { kind: 'catalogue', bookId: book.bookId || 'bible' }, id: `react_${card.openedAt}`,
+          kind: card.kind, chapterNumber: card.passage.chapterNumber,
+          ...(range ? { anchor: { editionKey: card.passage.editionKey, chapterNumber: card.passage.chapterNumber,
+            paragraphIndex: range.paragraphIndex, fromWord: range.fromWord,
+            endParagraphIndex: range.endParagraphIndex, toWord: range.toWord } } : {}),
+          text: card.passage.text, turns: [{ role: 'assistant', content: answer }], at, u: Date.now(),
+        })
+        setSharedCardSaveError(!saved)
+      }
+    }
+    const lead = card.kind === 'ask' ? null
+      : card.kind === 'define' ? (
+        <div className="lab-pcard-define" data-testid="lab-phone-define">
+          <DefinitionWithHeadword key={card.word} className="lab-pcard-headword popup-define-word" headword={!/\s/.test(card.word.trim()) ? define.result?.word || card.word : undefined} word={card.word} namesakes={card.namesakes}
+            request={(onDelta, word) => phoneCompanion({ ...card.passage, text: word }, 'define', onDelta).then(answer => { keep(answer); return answer })}
+            dictionaryDefinitions={define.loading ? undefined : define.result?.definitions} />
+        </div>
+      )
+      : <PhoneStreamAnswer key={`${card.kind}:${card.openedAt}`} request={onDelta => phoneCompanion(card.passage, card.kind === 'explain' ? undefined : card.kind, onDelta)} onReady={keep} plain={card.kind === 'simplify'} />
+    return (
+      <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.passage.chapterLabel)} kind={card.kind} onClose={fromSelection ? () => leaveSelectionInfo() : closePhoneCard} onDelete={fromSelection ? () => leaveSelectionInfo() : closePhoneCard}
+        foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
+        {desktopNoteConversionRef.current.get(card.openedAt) && turns[0]?.content !== desktopNoteConversionRef.current.get(card.openedAt)!.text && <div className="lab-pcard-you"><LabInlineMarkdown>{desktopNoteConversionRef.current.get(card.openedAt)!.text}</LabInlineMarkdown></div>}
+        <PhonePassageBody lead={lead} turns={turns} pending={pending} />
+        {/* A follow-up that failed stays in the card with Chat's notice and its Try again (29 Oct 2026). */}
+        {turns.length > 0 && ask.notice && !ask.typedLoading && <p className="lab-pcard-status" role="status" data-testid="lab-phone-card-notice">{ask.notice}{ask.retryTyped && <> <button type="button" className="lab-pcard-link" onPointerDown={event => { event.preventDefault(); event.stopPropagation() }} onClick={ask.retryTyped}>Try again</button></>}</p>}
+        {sharedReader && cardSaveWarning && <p role="status">
+          {<>{ask.cardSaveFailure === 'quota' ? 'Tinct’s storage on this device is full. This answer could not be saved.' : ask.cardSaveFailure === 'access' ? 'This device is blocking storage. This answer could not be saved.' : 'This answer could not be saved.'} Copy the answer before leaving the reader.</>}{' '}
+          <button type="button" onClick={() => { const retained = phoneAnswerRef.current; if (retained?.card.openedAt === card.openedAt) keep(retained.answer) }}>Retry saving</button>{' '}
+          <button type="button" onClick={() => { void navigator.clipboard?.writeText(answerSaveDetails(ask.cardSaveFailure, ask.cardAccountSaved)).then(() => setSaveDetailsCopied(true), () => setSaveDetailsCopied(false)) }}>{saveDetailsCopied ? 'Save details copied' : 'Copy save details'}</button>
+        </p>}
+      </ResponseCard>
+    )
+  }
+
+  // Primer, Recap, Summarize and Catch me up end with the follow-up field too (iPhone feedback, 21 Oct 2026), as a
+  // margin card or as the phone's sheet: a follow-up joins the chat's conversation with what the card showed kept
+  // first (as Chat from the card did); Talk starts the voice conversation about it.
+  const pillCardKeptRef = useRef<string | null>(null)
+  const pillCardFollow = (key: string, keep: () => boolean, talk: () => void) => (
+    <PhoneFollowField draft={draftStore} onChange={text => { dictation.stop(); setDraft(text) }}
+      onSend={question => {
+        if (pillCardKeptRef.current !== key && keep()) pillCardKeptRef.current = key
+        dictation.stop()
+        void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') })
+      }}
+      onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { dictation.stop(); talk() }} inputRef={phoneFieldRef} disabled={ask.typedLoading} />
+  )
+  const pillCardThread = (openedAt: number) => {
+    const turns = phoneCardTurns(openedAt)
+    return turns.length ? <div className="lab-pcard-thread" data-testid="lab-pill-card-thread"><PhonePassageBody turns={turns} pending={ask.typedLoading} /></div> : null
+  }
+
+  const unitRailId = (notes: NonNullable<typeof chapterNotes>) => `mc_unit_${notes.as === 'summary' ? 'summary' : notes.request.kind === 'end' ? 'recap' : notes.request.kind}_${notes.request.chapterNumber}_${notes.request.editionKey}`
+  useEffect(() => {
+    if (!continuousReader || !chapterNotes) return
+    const id = unitRailId(chapterNotes)
+    if (chapterNotes.railAnchor) desktopUnitAnchorsRef.current.set(id, chapterNotes.railAnchor)
+    if (phoneCardRef.current?.kind === 'note' || phoneCardRef.current?.kind === 'chapter-note') closePhoneCard()
+    // One card per chapter Summary: opened again from the other end of the chapter, it moves there (never a second card).
+    setDesktopChapterCards(current => current.some(item => unitRailId(item) === id) ? current.map(item => unitRailId(item) === id && !!item.atEnd !== !!chapterNotes.atEnd ? chapterNotes : item) : [...current, chapterNotes])
+    setDesktopOpenId(current => current === id ? null : id)
+    setDesktopContinuationId(id)
+  // A deliberate pill activation opens or minimises its retained unit card.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [continuousReader, chapterNotes])
+  // Ask starts without an AI answer. Promote it into the same source-card store
+  // only when a complete response exists, retaining its source and full thread.
+  useEffect(() => {
+    if (!continuousReader || ask.typedLoading) return
+    for (const card of desktopLiveCards) {
+      if (card.kind !== 'ask') continue
+      const turns = ask.turns.filter(turn => !turn.shownExplanation && !turn.cancelled && turn.conversationId === `mc_react_${card.openedAt}`)
+      if (!turns.some(turn => turn.role === 'assistant' && turn.content.trim())) continue
+      const id = `mc_react_${card.openedAt}`
+      const existing = ask.conversations.find(item => item.id === id)
+      const convertedNote = desktopNoteConversionRef.current.get(card.openedAt)
+      const savedTurns = withConvertedNote(turns.map(turn => ({id:turn.id,role:turn.role,content:turn.content,at:turn.timestamp})), convertedNote ? {text:convertedNote.text,at:card.openedAt} : undefined)
+      if (existing?.card && existing.messages.map(message => message.content).join('\n') === savedTurns.map(turn => turn.content).join('\n')) continue
+      const range = card.passage.ranges?.find(part => part.chapterNumber === card.passage.chapterNumber)?.range
+      const saved = ask.saveCard({ source: userBook ? { kind:'own-text', bookId:userBook.bookId, ownHex:userBook.hex, converter:userBook.edition.converter, editionKey:ownSourceEditionKey(userBook.edition) as 'own'|'own-en'|'own-da' } : { kind:'catalogue', bookId:book.bookId || 'bible' },
+        id:`react_${card.openedAt}`, kind:'ask', chapterNumber:card.passage.chapterNumber, text:card.passage.text,
+        ...askCardSource(range, card.passage.editionKey, card.passage.chapterNumber),
+        turns:savedTurns, at:card.openedAt, u:Date.now() })
+      if (saved && convertedNote) { if (convertedNote.highlightId) { if (convertedNote.created) highlightsApi.remove(convertedNote.highlightId, { undoable: false }); else highlightsApi.setNote(convertedNote.highlightId, '', { undoable: false }); setDesktopLiveCards(cards => cards.filter(item => !(item.kind === 'note' && item.highlightId === convertedNote.highlightId))) }; if (convertedNote.chapterNumber != null) { highlightsApi.setChapterNote(convertedNote.chapterNumber, '', { undoable: false }); setDesktopLiveCards(cards => cards.filter(item => !(item.kind === 'chapter-note' && item.chapterNumber === convertedNote.chapterNumber))) } }
+    }
+  // The store mutation is guarded by completed content equality.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [continuousReader, desktopLiveCards, ask.turns, ask.typedLoading])
+  const chapterBoundaryAnchors = useMemo(() => ({start:marginChapterBoundary(readerParagraphs),end:marginChapterBoundary(readerParagraphs,true)}), [readerParagraphs])
+  const sourceForFreeUnit = (id:string) => () => {
+    const y=desktopUnitPositionsRef.current.get(id)
+    if (!marginHost || y == null) return null
+    const frame=marginHost.getBoundingClientRect()
+    return {left:frame.left,right:frame.right,top:frame.top+y-marginHost.scrollTop,bottom:frame.top+y-marginHost.scrollTop+1}
+  }
+  useEffect(() => {
+    if (!continuousReader || superSheet !== 'catchup') return
+    if (phoneCardRef.current?.kind === 'note' || phoneCardRef.current?.kind === 'chapter-note') closePhoneCard()
+    const id=`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
+    desktopUnitAnchorsRef.current.set(id,{paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0})
+    if (marginHost) desktopUnitPositionsRef.current.set(id,marginHost.scrollTop+Math.min(140,marginHost.clientHeight*.24))
+    setDesktopCatchup(true); setDesktopCatchupAsSummary(false); setDesktopOpenId(id); setDesktopContinuationId(id); setSuperSheet(null)
+  // A menu activation is a free unit companion at this reading position, even if a boundary is virtualised away.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [continuousReader,superSheet])
+  const marginConversations = ask.conversations.map(inReaderEdition).filter(item => item.bookId === (book.bookId || 'bible') && item.card && !item.card.gone && item.chapterNumber === book.chapterNumber && (!item.card.anchor || item.card.anchor.editionKey === readerEditionKey))
+  // A Catch me up card sorts by the place it was opened at, like every card by its passage (Anders, 10 Nov 2026:
+  // ordered first, it pushed every earlier passage's card below it into one stack).
+  const catchUpOrder = (id: string) => { const at = desktopUnitAnchorsRef.current.get(id); return at ? at.paragraphIndex * 100000 + at.fromWord : -1 }
+  const sourceForMargin = (anchor?: { paragraphIndex: number; fromWord: number }, atEnd = false) => () => {
+    const host = marginHost
+    if (!host) return null
+    const sourceAnchor = anchor ?? (atEnd ? chapterBoundaryAnchors.end : chapterBoundaryAnchors.start)
+    const word = sourceAnchor ? marginSourceWord(host, sourceAnchor) : null
+    if (!word) return null
+    const rect = word.getBoundingClientRect()
+    if (!rect.height) return null
+    return { left: rect.left, right: rect.right, top: rect.top + rect.height * .75, bottom: rect.bottom }
+  }
+  /**
+   * A note's card moved in the desktop margin (Anders, 13 Nov 2026): its kept place (labHighlights cardPlace, in this
+   * edition's paragraphs), where that is now, its sort key, and the drop that moves it (notes/notePlace.ts).
+   */
+  const notePlacing = (mark: LabHighlight | undefined): Pick<SourceMarginEntry, 'placeTop' | 'placeKey' | 'onMove'> & { order?: number } => {
+    if (!mark || showPhoneChrome) return {}
+    const place = placeApplies(mark.cardPlace, readerEditionKey) ? mark.cardPlace : undefined
+    const onMove = (top: number) => {
+      const host = marginHost
+      const next = host ? notePlaceFromY(host, top, readerEditionKey) : null
+      if (next) highlightsApi.setCardPlace(mark.id, next)
+    }
+    if (!place) return { onMove }
+    const words = String(book.paragraphs[place.paragraphIndex] ?? '').split(/\s+/).filter(Boolean).length
+    return { onMove, placeKey: `${place.paragraphIndex}:${place.fraction}`, order: orderOfPlace(place, words),
+      placeTop: () => marginHost ? noteYFromPlace(marginHost, place) : null }
+  }
+  const toggleMargin = (id: string, live?: PhoneCard) => {
+    if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
+    if (desktopOpenId === id) { setDraft(''); if (live?.kind === 'note' || live?.kind === 'chapter-note') closePhoneCard(); setPhoneCard(null); setDesktopOpenId(null); setDesktopContinuationId(null); return }
+    if (phoneCardRef.current?.kind === 'note' || phoneCardRef.current?.kind === 'chapter-note') closePhoneCard()
+    setNotebookCard(null); setPhoneAskOpen(false); setDesktopAskOpen(false)
+    setSelectionPopup(null); setDraft(''); setDesktopOpenId(id); setDesktopContinuationId(id.startsWith('mc_') ? id : null)
+    if (live) {
+      setPhoneCard(live)
+      if (live.kind === 'note') setPhoneNote(highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note ?? '')
+      if (live.kind === 'chapter-note') setPhoneNote(highlightsApi.chapterNotes.find(note => note.chapterNumber === live.chapterNumber)?.note ?? '')
+    } else setPhoneCard(null)
+  }
+  toggleMarginRef.current = toggleMargin
+  const deleteMarginConversation = (item: ChatConversation) => {
+    const undo = ask.deleteCard(item.id)
+    if (undo) { setMarginUndo(() => () => { undo() }); setDesktopLiveCards(current => current.filter(card => desktopCardId(card) !== item.id)); if (desktopOpenId === item.id) { setDesktopOpenId(null); setPhoneCard(null) } }
+  }
+  const liveIds = new Set([...desktopLiveCards.map(desktopCardId), ...desktopChapterCards.map(unitRailId), ...(desktopCatchup ? [`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`] : [])])
+  // A folded card's line (cardPreview.ts): a definition's own line, a structured answer as saved, else the bottom line.
+  const marginAnswerPreview = (kind: string, raw: string) => kind === 'define' ? contextualLookupPreview(raw) : /^\s*[{[]/.test(raw) ? raw : answerLead(raw)
+  const marginActionLabel = (kind: string) => ({ catchup: CATCH_UP_TITLE, primer: 'Primer', recap: 'Recap', ...PHONE_CARD_NAMES } as Record<string, string>)[kind] || kind.charAt(0).toUpperCase() + kind.slice(1)
+  const desktopMarginEntries: SourceMarginEntry[] = continuousReader ? marginConversations.filter(item => !liveIds.has(item.id) && cardInMargin(item.card!.kind, item.messages)).map(item => ({
+    id: item.id, label: marginActionLabel(item.card!.kind),
+    source: sourceForMargin(item.card!.anchor || (item.card!.data as {freeAnchor?: MarginSourceAnchor; unitAnchor?:MarginSourceAnchor} | undefined)?.freeAnchor || (item.card!.data as {unitAnchor?:MarginSourceAnchor} | undefined)?.unitAnchor, item.card!.kind === 'recap'), order: item.card!.kind === 'recap' ? 1e12 - 2 : item.card!.kind === 'primer' ? -2 : (item.card!.anchor?.paragraphIndex ?? (item.card!.data as {freeAnchor?: {paragraphIndex:number}} | undefined)?.freeAnchor?.paragraphIndex ?? 0) * 100000 + (item.card!.anchor?.fromWord ?? (item.card!.data as {freeAnchor?: {fromWord:number}} | undefined)?.freeAnchor?.fromWord ?? 0) + item.startTimestamp / 1e16,
+    free: !item.card!.anchor, open: desktopOpenId === item.id, ...foldedPreview(item.card!.kind, item.messages, raw => marginAnswerPreview(item.card!.kind, raw)), sourceText: item.card!.text,
+    onToggle: () => toggleMargin(item.id), onDelete: () => deleteMarginConversation(item),
+    content: <LabDesktopCard embedded label={item.card!.kind} kind={item.card!.kind} onClose={() => setDesktopOpenId(null)}>
+      {cardShownMessages(item.card!.kind, item.messages).map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : message.role === 'assistant' ? <PhoneAnswer text={message.content} plain={item.card!.kind === 'simplify'} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
+      {desktopOpenId === item.id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === item.id && (turn.timestamp ?? 0) > item.endTimestamp)} pending={ask.typedLoading} />}
+      <PhoneFollowField draft={draftStore} active={desktopOpenId === item.id} onChange={setDraft} onSend={question => discussSavedCard(item.id, question, item.card!.text)} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }} disabled={ask.typedLoading} />
+    </LabDesktopCard>,
+  })) : []
+  if (continuousReader) for (const live of desktopLiveCards) {
+    const id = desktopCardId(live)
+    const passage = 'passage' in live ? live.passage : null
+    const range = passage?.ranges?.find(part => part.chapterNumber === book.chapterNumber)?.range
+    const saved = marginConversations.find(item => item.id === id)
+    // A chapter's Quiz me from its start card sits at the chapter's start; from its end, at its end.
+    const quizAtStart = live.kind === 'quiz' && !passage && desktopQuizAtStartRef.current
+    desktopMarginEntries.push({ id, label: PHONE_CARD_NAMES[live.kind], source: sourceForMargin(range, !quizAtStart && (live.kind === 'chapter-note' || live.kind === 'quiz' && !passage)),
+      order: quizAtStart ? -3 : live.kind === 'chapter-note' || live.kind === 'quiz' && !passage ? 1e12 : (range?.paragraphIndex ?? 0) * 100000 + (range?.fromWord ?? 0),
+      open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', ...(saved ? foldedPreview(live.kind, saved.messages, raw => marginAnswerPreview(live.kind, raw)) : {}), ...(!saved?.messages.some(message => message.role === 'assistant') && live.kind === 'note' ? { preview: highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note, previewStyle: 'note' as const, previewNote: true } : {}),
+      sourceText: passage?.text, free: live.kind === 'chapter-note' || (live.kind === 'note' || live.kind === 'ask') && isSourcePoint(range),
+      ...(live.kind === 'note' ? notePlacing(highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)) : live.kind === 'chapter-note' ? notePlacing(highlightsApi.chapterNotes.find(note => note.chapterNumber === live.chapterNumber)) : {}),
+      onToggle: () => toggleMargin(id, live), onDelete: () => {
+        if (saved) deleteMarginConversation(saved)
+        else if (live.kind === 'note') { const marks = highlightsApi.allHighlights.filter(mark => mark.id === live.highlightId); highlightsApi.remove(live.highlightId); setMarginUndo(() => () => { highlightsApi.restore(marks) }); setDesktopLiveCards(current => current.filter(card => desktopCardId(card) !== id)); setDesktopOpenId(null); setPhoneCard(null) }
+        else { if (live.kind === 'chapter-note') { const note = highlightsApi.chapterNotes.find(note => note.chapterNumber === live.chapterNumber)?.note || ''; highlightsApi.setChapterNote(live.chapterNumber, ''); setMarginUndo(() => () => { highlightsApi.setChapterNote(live.chapterNumber, note) }) }; setDesktopLiveCards(current => current.filter(card => desktopCardId(card) !== id)); setDesktopOpenId(null); setPhoneCard(null) }
+      }, content: renderPhoneCard(live),
+    })
+  }
+  if (continuousReader) for (const mark of [...highlightsApi.allHighlights, ...crossEdition.highlights].filter(mark => mark.bookId === (book.bookId || 'bible') && mark.chapterNumber === book.chapterNumber && (!mark.editionKey || mark.editionKey === readerEditionKey || crossEdition.highlights.includes(mark)) && !!mark.note && mark.kind !== 'chapter')) {
+    const id = `highlight:${mark.id}`
+    if (liveIds.has(id)) continue
+    const passage: PhonePassage = { text: mark.text || '', paragraphIndex: mark.paragraphIndex, chapterNumber: mark.chapterNumber, chapterLabel: book.chapterLabel, editionKey: mark.editionKey || readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: mark.chapterNumber, range: mark }] }
+    const live: PhoneCard = { kind: 'note', passage, highlightId: mark.id, created: false }
+    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(mark), order: mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, previewStyle: 'note', previewNote: true, free: isSourcePoint(mark), ...notePlacing(highlightsApi.allHighlights.find(item => item.id === mark.id) ?? mark),
+      onToggle: () => { setPhoneNote(mark.note || ''); openPhoneCard(live) }, onDelete: () => { highlightsApi.remove(mark.id); setMarginUndo(() => () => { highlightsApi.restore([mark]) }) }, content: null })
+  }
+  // A note's card in the reader's own chapter, opened by its highlight id (book scroll: after its chapter was adopted).
+  openNoteRef.current = (markId: string) => {
+    const mark = crossEdition.highlights.find(item => item.id === markId && item.chapterNumber === book.chapterNumber)
+      ?? highlightsApi.allHighlights.find(item => item.id === markId && item.chapterNumber === book.chapterNumber)
+    if (!mark) return
+    const passage: PhonePassage = { text: mark.text || '', paragraphIndex: mark.paragraphIndex, chapterNumber: mark.chapterNumber, chapterLabel: book.chapterLabel, editionKey: mark.editionKey || readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: mark.chapterNumber, range: mark }] }
+    setPhoneNote(mark.note || ''); openPhoneCard({ kind: 'note', passage, highlightId: mark.id, created: false })
+  }
+  const saveUnitRailAnswer = (id: string, kind: 'primer' | 'recap' | 'catchup', text: string, chapterNumber = book.chapterNumber) => {
+    const existing = ask.conversations.find(item => item.id === id)
+    if (!text.trim() || existing?.messages.find(message => message.role === 'assistant')?.content === text) return
+    const at = existing?.card?.at ?? Date.now()
+    ask.saveCard({ source: userBook ? { kind: 'own-text', bookId: userBook.bookId, ownHex: userBook.hex, converter: userBook.edition.converter, editionKey: ownSourceEditionKey(userBook.edition) as 'own' | 'own-en' | 'own-da' } : { kind: 'catalogue', bookId: book.bookId || 'bible' },
+      id: id.replace(/^mc_/, ''), kind, chapterNumber, ...(desktopUnitAnchorsRef.current.has(id) ? {data:{unitAnchor:desktopUnitAnchorsRef.current.get(id)}} : {}), text: '', turns: [{ role: 'assistant', content: text }], at, u: Date.now() })
+  }
+  const unitRailThread = (id: string) => {
+    const saved = marginConversations.find(item => item.id === id)
+    return <>
+      {saved?.messages.slice(2).map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{message.role === 'assistant' ? <PhoneAnswer text={message.content} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
+      {desktopOpenId === id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === id && (turn.timestamp ?? 0) > (saved?.endTimestamp ?? Infinity))} pending={ask.typedLoading} />}
+    </>
+  }
+  // The desktop Margin reader's start actions (approved mockup, Anders 9 Nov 2026): beside the book's opening, one
+  // "Before you start" card (the whole book's Primer and Summary, then the first chapter's Primer, Summary and Quiz
+  // me); at every later chapter's start, the same chapter actions in a greyed card. Nothing is asked for until an
+  // action is chosen; it then becomes an ordinary margin card there. The reading angle is no longer here (Anders,
+  // 16 Nov 2026): it is the t menu's Reading angle and the first chapter's end.
+  // A reader who has never used Ask, Explain or Simplify sees only how to, and the chapter's Primer (the simple first
+  // page, 16 Nov 2026); while a signed-in reader's account is read, nothing.
+  if (continuousReader && !book.chaptersProvisional && !initialResolving && selectionActions !== 'unknown') {
+    const first = book.chapters[0]?.number === book.chapterNumber
+    // "Before you start" sits at the very top of the book, level with the opening heading (Anders, 10 Nov 2026),
+    // not at the first line of text below it.
+    const startCardSource = () => {
+      const head = marginHost?.querySelector<HTMLElement>('[data-testid="lab-passage-headline"]')
+      const rect = head?.getBoundingClientRect()
+      return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : sourceForMargin(undefined)()
+    }
+    const chapterTitle = unitName(book.chapterLabel || '') || book.chapterLabel || 'This chapter'
+    const act = (label: string, testId: string, run: (anchor: DOMRect) => void) => <button type="button" data-testid={testId}
+      onClick={event => run(event.currentTarget.getBoundingClientRect())}><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>{label}</button>
+    const chapterActs = <div className="lab-start-acts" role="group" aria-label={`${chapterTitle} actions`}>
+      {act('Primer', 'margin-start-primer', () => openChapterNotes('primer', book.chapterNumber, 'pill'))}
+      {act('Summary', 'margin-start-summary', () => chapterSummaryRef.current())}
+      {act('Quiz me', 'margin-start-quiz', anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor, true) })}
+    </div>
+    // Book scroll: level with the chapter's heading, where they stood while the chapter was a neighbour; anchored to
+    // the first line of text they dropped by the heading's height at every chapter swap (Anders, 12 Nov 2026).
+    const ownHeadingSource = () => {
+      const head = marginHost?.querySelector<HTMLElement>(`[data-book-scroll-chapter="${book.chapterNumber}"][data-book-scroll-painted="true"] .lab-passage-headline:not([hidden])`)
+      const rect = head?.getBoundingClientRect()
+      return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : sourceForMargin(undefined)()
+    }
+    if (firstVisit) desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: chapterTitle, actions: true, variant: 'hint',
+      source: first ? startCardSource : bookScroll ? ownHeadingSource : sourceForMargin(undefined), order: -10, free: true, open: true, onToggle: () => {},
+      content: <div className="lab-first-hint" data-testid="margin-first-hint">
+        <p className="lab-first-hint-text">Highlight any passage to have it explained, simplified, or to ask about it.</p>
+        <div className="lab-start-acts">{act(`Primer for ${chapterTitle}`, 'margin-hint-primer', () => openChapterNotes('primer', book.chapterNumber, 'pill'))}</div>
+      </div> })
+    else desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: first ? 'Before you start' : chapterTitle, actions: true, variant: first ? 'start' : 'start-later',
+      source: first ? startCardSource : bookScroll ? ownHeadingSource : sourceForMargin(undefined), order: -10, free: true,
+      // "Before you start" opens folded to its greyed label and a + (Anders, 10 Nov 2026); later chapters' actions stay open.
+      ...(first ? { collapsible: true, open: startCardOpen, onToggle: () => setStartCardOpen(open => !open) } : { open: true, onToggle: () => {} }),
+      content: first ? <div className="lab-start-card" data-testid="margin-start-card">
+        <p className="lab-start-head">The whole book</p>
+        <div className="lab-start-acts" role="group" aria-label="The whole book">
+          {bookPrimer && act('Primer', 'margin-book-primer', () => openDesktopBookCard('primer'))}
+          {act('Summary', 'margin-book-summary', () => openDesktopBookCard('summary'))}
+        </div>
+        <p className="lab-start-head">{chapterTitle}</p>
+        {chapterActs}
+      </div> : <div className="lab-start-card is-later" data-testid="margin-start-card">{chapterActs}</div> })
+  }
+  // The first-visit hint steps aside whenever a card is open in the margin (the simple first page, 16 Nov 2026).
+  const withFirstHint = (entries: SourceMarginEntry[]) => entries.some(entry => entry.open && !entry.actions) ? entries.filter(entry => entry.variant !== 'hint') : entries
+  // Book scroll: a painted neighbour's start actions beside its heading and its saved cards and notes folded beside their
+  // passages, as they will be when it is the reader's own. Acting on one makes the chapter the reader's own first.
+  if (bookScroll && bookScrollUnitNow && !book.chaptersProvisional && !initialResolving) {
+    // The simple first page: a reader who has never used the selection actions sees no neighbour's start actions either.
+    const neighbourStarts = selectionActions === 'used'
+    const unitChapters = bookScrollUnitNow.chapters
+    const ownIndex = unitChapters.findIndex(chapter => chapter.number === book.chapterNumber)
+    const neighbourSource = (number: number, place?: { paragraphIndex: number; fromWord: number } | null, atEnd = false) => () => {
+      const block = marginHost?.querySelector<HTMLElement>(`[data-book-scroll-chapter="${number}"][data-book-scroll-painted="true"]`)
+      if (!block) return null
+      const node = place
+        ? block.querySelector<HTMLElement>(`[data-testid="lab-opening-word"][data-paragraph-index="${place.paragraphIndex}"][data-word-index="${place.fromWord}"]`)
+        : atEnd ? [...block.querySelectorAll<HTMLElement>('[data-testid="lab-opening-word"]')].pop() ?? null
+          : block.querySelector<HTMLElement>('.lab-passage-headline:not([hidden])') ?? block.querySelector<HTMLElement>('[data-testid="lab-opening-word"]')
+      const rect = node?.getBoundingClientRect()
+      if (!rect?.height) return null
+      return place || atEnd ? { left: rect.left, right: rect.right, top: rect.top + rect.height * .75, bottom: rect.bottom } : { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom }
+    }
+    const neighbourAct = (label: string, testId: string, run: (anchor: DOMRect) => void) => <button type="button" data-testid={testId}
+      onClick={event => run(event.currentTarget.getBoundingClientRect())}><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>{label}</button>
+    // A card already in the margin is not added again as a neighbour's folded entry (one id, one section).
+    const placed = new Set(desktopMarginEntries.map(entry => entry.id))
+    for (const number of bookScrollPainted) {
+      const index = unitChapters.findIndex(chapter => chapter.number === number)
+      if (number === book.chapterNumber || index < 0 || ownIndex < 0) continue
+      // Above the reader's chapter, then the reader's chapter (orders -10 … 1e12), then below it.
+      const base = index < ownIndex ? -1e16 + index * 1e13 : 1e15 + index * 1e13
+      const chapter = unitChapters[index]
+      const title = unitName(chapter.title || '') || chapter.title || 'This chapter'
+      if (neighbourStarts) desktopMarginEntries.push({ id: `start:${number}`, label: title, actions: true, variant: 'start-later', source: neighbourSource(number), order: base - 10, free: true,
+        open: true, onToggle: () => {},
+        content: <div className="lab-start-card is-later" data-testid="margin-neighbour-start-card" data-chapter={number}>
+          <div className="lab-start-acts" role="group" aria-label={`${title} actions`}>
+            {neighbourAct('Primer', 'margin-neighbour-start-primer', () => actOnChapter(number, () => bookScrollActs.current.openChapterNotes('primer', number, 'pill')))}
+            {neighbourAct('Summary', 'margin-neighbour-start-summary', () => actOnChapter(number, () => chapterSummaryRef.current()))}
+            {neighbourAct('Quiz me', 'margin-neighbour-start-quiz', anchor => actOnChapter(number, () => quizChapterRef.current(anchor, true)))}
+          </div>
+        </div> })
+      for (const item of ask.conversations.map(inReaderEdition)) {
+        if (item.bookId !== (book.bookId || 'bible') || item.chapterNumber !== number || !item.card || item.card.gone) continue
+        if (item.card.anchor && item.card.anchor.editionKey !== readerEditionKey) continue
+        if (!cardInMargin(item.card.kind, item.messages) || placed.has(item.id)) continue
+        const data = item.card.data as { freeAnchor?: MarginSourceAnchor; unitAnchor?: MarginSourceAnchor } | undefined
+        const place = item.card.anchor || data?.freeAnchor || data?.unitAnchor || null
+        const local = item.card.kind === 'recap' ? 1e12 - 2 : item.card.kind === 'primer' ? -2 : (place?.paragraphIndex ?? 0) * 100000 + (place?.fromWord ?? 0) + item.startTimestamp / 1e16
+        desktopMarginEntries.push({ id: item.id, label: marginActionLabel(item.card.kind), source: neighbourSource(number, place, item.card.kind === 'recap'), order: base + local,
+          free: !item.card.anchor, open: false, ...foldedPreview(item.card.kind, item.messages, raw => marginAnswerPreview(item.card!.kind, raw)), sourceText: item.card.text,
+          onToggle: () => actOnChapter(number, () => toggleMarginRef.current(item.id)), content: null })
+      }
+      for (const mark of bookScrollHighlights ?? []) {
+        if (mark.bookId !== (book.bookId || 'bible') || mark.chapterNumber !== number || (mark.editionKey && mark.editionKey !== readerEditionKey) || !mark.note || mark.kind === 'chapter' || placed.has(`highlight:${mark.id}`)) continue
+        desktopMarginEntries.push({ id: `highlight:${mark.id}`, label: 'Note', source: neighbourSource(number, mark), order: base + mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, free: isSourcePoint(mark),
+          onToggle: () => actOnChapter(number, () => openNoteRef.current(mark.id)), content: null })
+      }
+    }
+  }
+  // The whole book's cards (Primer, Summary) belong to "Before you start", at the book's opening heading, wherever the
+  // reader is (Anders, 13 Nov 2026: anchored to the current chapter's start, the Summary followed him into every chapter).
+  // Book scroll: beside the first chapter's heading while that chapter is painted; elsewhere, only in the first chapter.
+  const bookStartSource = () => {
+    const firstNumber = book.chapters[0]?.number
+    if (!marginHost || firstNumber == null) return null
+    let head: HTMLElement | null = null
+    if (bookScroll) {
+      const block = marginHost.querySelector<HTMLElement>(`[data-book-scroll-chapter="${firstNumber}"][data-book-scroll-painted="true"]`)
+      if (!block) return null
+      head = block.querySelector<HTMLElement>('.lab-passage-headline:not([hidden])') ?? block.querySelector<HTMLElement>('[data-testid="lab-opening-word"]')
+    } else {
+      if (book.chapterNumber !== firstNumber) return null
+      head = marginHost.querySelector<HTMLElement>('[data-testid="lab-passage-headline"]')
+      if (!head) return sourceForMargin(undefined)()
+    }
+    const rect = head?.getBoundingClientRect()
+    return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : null
+  }
+  // In book scroll, from a later chapter, the first chapter is a neighbour above the reader's: the whole book's cards
+  // sit in its band of the margin (the neighbours' orders above), not after the reader's own chapter's start actions,
+  // which pushed them down beside a later chapter (13 Nov 2026, own EPUB with short front matter).
+  const bookCardBand = bookScroll && book.chapters[0] != null && book.chapters[0].number !== book.chapterNumber
+    && (bookScrollUnitNow?.chapters[0]?.number === book.chapters[0].number) ? -1e16 : 0
+  if (continuousReader) for (const kind of desktopBookCards) {
+    const id = `mc_book_${kind}_${book.bookId || 'bible'}`
+    const title = book.bookTitle || 'This book'
+    const close = () => { setDesktopBookCards(current => current.filter(item => item !== kind)); if (desktopOpenId === id) setDesktopOpenId(null) }
+    const keep = (text: string) => { if (!text) return false; ask.keepExplanation(`${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber }); return true }
+    const follow = (shown: () => string) => <PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft}
+      onSend={question => { keep(shown()); dictation.stop(); void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') }) }}
+      onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} />
+    desktopMarginEntries.push({ id, label: `${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, source: bookStartSource, order: bookCardBand + (kind === 'primer' ? -9 : -8), free: true,
+      open: desktopOpenId === id, preview: desktopBookPreviews[kind], onToggle: () => toggleMargin(id), onDelete: close,
+      content: kind === 'primer'
+        ? <LabBookPrimerSheet embedded bookId={book.bookId || 'bible'} bookTitle={title} onClose={() => setDesktopOpenId(null)} follow={follow} onReady={text => setDesktopBookPreviews(current => current.primer === text ? current : { ...current, primer: text })} />
+        : userBook
+          ? <LabOwnCatchUpSheet embedded wholeBook bookHex={userBook.hex} bookTitle={book.bookTitle} chapters={userBook.edition.chapters} chapterNumber={book.chapterNumber} paragraphIndex={0} completed readToken={ownCatchUpToken}
+              onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} follow={follow}
+              onReady={text => setDesktopBookPreviews(current => current.summary === text ? current : { ...current, summary: text })} />
+          : <LabCatchUpSheet embedded wholeBook bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle} chapters={book.chapters} sections={book.sections} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={readSupabaseAccessToken}
+              onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} follow={follow}
+              onReady={text => setDesktopBookPreviews(current => current.summary === text ? current : { ...current, summary: text })} /> })
+  }
+  if (continuousReader) for (const notes of desktopChapterCards) {
+    const id = unitRailId(notes), kind = notes.request.kind === 'end' || notes.request.kind === 'sofar' ? 'recap' : 'primer'
+    // 'sofar' is a chapter's Summary from its start card: at the chapter's start, named for the action.
+    const atStart = notes.request.kind !== 'end' || (notes.as === 'summary' && !notes.atEnd)
+    desktopMarginEntries.push({ id, label: notes.request.kind === 'sofar' || notes.as === 'summary' ? BOOK_SUMMARY_TITLE : kind === 'recap' ? 'Recap' : 'Primer', source: sourceForMargin(notes.railAnchor, !atStart), order: atStart ? -2 : 1e12 - 2, open: desktopOpenId === id,
+      preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
+      onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopChapterCards(current => current.filter(item => unitRailId(item) !== id)); setDesktopOpenId(null) }, free: true,
+      content: <LabChapterNotesSheet embedded request={notes.request} title={notes.title} own={notes.own} onClose={() => setDesktopOpenId(null)} onChat={(title, beats) => continueChapterNotes('chat', title, beats)} onTalk={(title, beats) => continueChapterNotes('talk', title, beats)} readToken={readSupabaseAccessToken}
+        onReady={beats => saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats), notes.request.chapterNumber)}
+        follow={beats => <>{unitRailThread(id)}<PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft} onSend={question => { if (beats) saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats)); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueChapterNotes('talk', notes.title, beats)} disabled={ask.typedLoading} /></>} /> })
+  }
+  if (continuousReader && desktopCatchup && !userBook) {
+    const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
+    desktopMarginEntries.push({ id, label: desktopCatchupAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: catchUpOrder(id), open: desktopOpenId === id, free: true,
+      preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
+      onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopCatchup(false); setDesktopOpenId(null) },
+      content: <LabCatchUpSheet embedded bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle} chapters={book.chapters} sections={book.sections} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={readSupabaseAccessToken}
+        onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)}
+        onReady={text => saveUnitRailAnswer(id, 'catchup', text)}
+        follow={shown => <>{unitRailThread(id)}<PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
+  }
+  if (continuousReader) for (const note of highlightsApi.chapterNotes.filter(note => note.chapterNumber === book.chapterNumber)) {
+    const id = `chapter-note:${note.chapterNumber}`
+    if (liveIds.has(id)) continue
+    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(undefined, true), order: 1e12, open: false, preview: note.note, previewStyle: 'note', previewNote: true, free: true, ...notePlacing(note),
+      onToggle: () => { setPhoneNote(note.note || ''); openPhoneCard({ kind: 'chapter-note', chapterNumber: note.chapterNumber, chapterLabel: book.chapterLabel }) },
+      onDelete: () => { highlightsApi.setChapterNote(note.chapterNumber, ''); setMarginUndo(() => () => { highlightsApi.setChapterNote(note.chapterNumber, note.note || '') }) }, content: null })
+  }
+  if (continuousReader && desktopCatchup && userBook) {
+    const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
+    desktopMarginEntries.push({ id, label: desktopCatchupAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: catchUpOrder(id), open: desktopOpenId === id, free: true,
+      preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
+      onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopCatchup(false); setDesktopOpenId(null) },
+      content: <LabOwnCatchUpSheet embedded bookHex={userBook.hex} bookTitle={book.bookTitle} chapters={userBook.edition.chapters} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={ownCatchUpToken}
+        onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} onReady={text => saveUnitRailAnswer(id, 'catchup', text)}
+        follow={shown => <>{unitRailThread(id)}<PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
+  }
+  // A note in the blank margin goes on the word beside the click. In book scroll that word can be in a neighbouring
+  // chapter (its words are lab-opening-word spans): that chapter becomes the reader's own first, as for a selection
+  // in it, so the note is saved on the chapter that owns the word (13 Nov 2026: it went on the reader's chapter).
+  const blankMarginNoteAt = useRef<(paragraphIndex: number, fromWord: number) => void>(() => {})
+  blankMarginNoteAt.current = (paragraphIndex, fromWord) => {
+    const range: LabHighlightRange = { paragraphIndex, fromWord, endParagraphIndex: paragraphIndex, toWord: fromWord, text: '' }
+    const mark = highlightsApi.addOrReuse(range, lastHighlightColor(), readerEditionKey, book.chapterNumber)
+    setPhoneNote('')
+    openPhoneCard({ kind: 'note', created: true, highlightId: mark.id, passage: { text: '', paragraphIndex, chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel, editionKey: readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: book.chapterNumber, range }] } })
+  }
+  const openBlankMarginNote = ({ clientY }: { clientY: number; sourceY: number }) => {
+    if (desktopOpenId) { toggleMargin(desktopOpenId, desktopLiveCards.find(card => desktopCardId(card) === desktopOpenId)); return }
+    const words = [...(marginHost?.querySelectorAll<HTMLElement>('[data-testid="lab-word"], [data-book-scroll-chapter] [data-testid="lab-opening-word"]') ?? [])]
+    const word = words.find(word => word.getBoundingClientRect().bottom >= clientY) ?? words[words.length - 1]
+    if (!word) return
+    const paragraphIndex = Number(word.dataset.paragraphIndex), fromWord = Number(word.dataset.wordIndex)
+    if (!Number.isFinite(paragraphIndex) || !Number.isFinite(fromWord)) return
+    const owner = Number(word.closest<HTMLElement>('[data-book-scroll-chapter]')?.dataset.bookScrollChapter ?? book.chapterNumber)
+    actOnChapter(Number.isFinite(owner) ? owner : book.chapterNumber, () => blankMarginNoteAt.current(paragraphIndex, fromWord))
+  }
+  const marginPointerDownRef = useRef({ x: 0, y: 0, cardId: '' })
+  useLayoutEffect(() => {
+    if (!continuousReader || !marginHost) return
+    const active = marginConversations.find(item => item.id === desktopOpenId)
+    const range = active?.card?.anchor
+    const undoMark = range ? markPhoneCardPassage(marginHost, [{ chapterNumber: active.chapterNumber, range }], book.chapterNumber) : undefined
+    // Runs again after every change of the page's nodes (a book-scroll chapter painted or released): the newest card
+    // first, and with no card anchored only the words still marked are touched, never a long chapter's every word.
+    const paint = () => {
+      const anchored = [...marginConversations].reverse().filter(item => item.card?.anchor)
+      // A neighbour's words (book scroll) are no card's targets, though they were while the chapter was the reader's.
+      for (const word of marginHost.querySelectorAll<HTMLElement>('[data-source-card-id]:not([data-testid="lab-word"])')) delete word.dataset.sourceCardId
+      if (!anchored.length) {
+        for (const word of marginHost.querySelectorAll<HTMLElement>('[data-testid="lab-word"][data-source-card-id]')) delete word.dataset.sourceCardId
+        return
+      }
+      for (const word of marginHost.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')) {
+        const p = Number(word.dataset.paragraphIndex), w = Number(word.dataset.wordIndex)
+        const item = anchored.find(item => { const a = item.card?.anchor; return a && p >= a.paragraphIndex && p <= a.endParagraphIndex && (p > a.paragraphIndex || w >= a.fromWord) && (p < a.endParagraphIndex || w < a.toWord) })
+        if (item) word.dataset.sourceCardId = item.id
+        else delete word.dataset.sourceCardId
+      }
+    }
+    paint()
+    let frame = 0
+    const observer = new MutationObserver(records => { if (!frame && !onlyFieldEdits(records)) frame = requestAnimationFrame(() => { frame = 0; paint() }) })
+    // A book-scroll chapter changing role keeps its words and only rewrites their test ids: their card targets follow.
+    observer.observe(marginHost, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-testid'] })
+    const start = (event: PointerEvent) => { marginPointerDownRef.current = { x: event.clientX, y: event.clientY, cardId: (event.target as Element)?.closest<HTMLElement>('[data-source-card-id]')?.dataset.sourceCardId || '' } }
+    const click = (event: MouseEvent) => {
+      const word = (event.target as Element)?.closest<HTMLElement>('[data-source-card-id]')
+      const id = word?.dataset.sourceCardId || marginPointerDownRef.current.cardId
+      if (!id || Math.hypot(event.clientX - marginPointerDownRef.current.x, event.clientY - marginPointerDownRef.current.y) > 5) return
+      event.preventDefault(); event.stopPropagation(); setSelectionPopup(null)
+      const live = desktopLiveCards.find(card => desktopCardId(card) === id)
+      toggleMargin(id, live)
+    }
+    marginHost.addEventListener('pointerdown', start, true); marginHost.addEventListener('click', click, true)
+    return () => { undoMark?.(); observer.disconnect(); cancelAnimationFrame(frame); marginHost.removeEventListener('pointerdown', start, true); marginHost.removeEventListener('click', click, true) }
+  // Only source identity/open state changes require replacing the hit targets.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [continuousReader, marginHost, desktopOpenId, marginConversations.map(item => `${item.id}:${item.endTimestamp}`).join('|')])
+
+  const notesOpenedAt = useMemo(() => Date.now(), [chapterNotes])
+  const catchUpShown = superSheet === 'catchup'
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const catchUpOpenedAt = useMemo(() => Date.now(), [catchUpShown])
+  const catchUpFollowProps = {
+    follow: (shown: () => string) => pillCardFollow(`catchup:${catchUpOpenedAt}`,
+      () => { const text = shown(); if (!text) return false; ask.keepExplanation(CATCH_UP_TITLE, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber }); return true },
+      () => continueCatchUp('talk', shown())),
+    thread: pillCardThread(catchUpOpenedAt),
+  }
 
   if (temporaryHold && !holdRecovery) return (
     <EditionHoldPanel
@@ -4331,16 +7345,21 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   )
 
   return (
+    <MarginPhoneContext.Provider value={marginPills}>
     <div
       ref={labRootRef}
-      lang={allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
-      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
+      lang={userBook ? userBookLangAttribute(userBook.edition) : allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
+      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen && !marginPhone ? ' has-phone-ask' : ''}${marginPhone ? ' is-margin-phone' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${resolvedTheme === 'white' ? ' is-white-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
+      data-shared-reader={sharedReader ? 'true' : undefined}
+      data-reading-scroll={readingScrollActive ? 'true' : undefined}
+      data-continuous-reader={continuousReader ? 'true' : undefined}
+      data-margin-room={continuousReader ? marginRoom : undefined}
       data-page-turn-zones={pageTurnAffordance.tapZones === 'all' ? undefined : pageTurnAffordance.tapZones}
       data-theme={resolvedTheme}
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
       data-chrome-state={chrome}
-      data-phone-bar={showPhoneBar ? labPhoneBarMode(chrome, peekBook, phoneAskOpen) : 'none'}
+      data-phone-bar={showPhoneBar ? labPhoneBarMode(chrome, peekBook, phoneAskOpen && !marginPhone) : 'none'}
       data-page-height={pageMetrics ? String(pageMetrics.height) : ''}
       data-chapter={String(book.chapterNumber)}
       data-book-id={book.bookId || 'bible'}
@@ -4366,26 +7385,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         : !showPhoneChrome && desktopAskOpen ? (chrome === 'talking' ? 'talk' : 'chat') : 'none'}
       data-voice-surface={voiceLabView}
       data-voice-version={voiceVersion}
-      {...(chromeV2 ? {
-        'data-chrome-version': 'v2',
-        'data-transport': (showPhoneChrome ? audioBarActive : desktopAudioBarActive) ? 'open' : 'closed',
-        'data-super-menu': superMenuOpen ? 'open' : 'closed',
-        'data-super-sheet': superSheet ?? 'closed',
-      } : {})}
+      data-chrome-version="v2"
+      data-transport={(showPhoneChrome ? audioBarActive : desktopAudioBarActive) ? 'open' : 'closed'}
+      data-super-menu={superMenuOpen ? 'open' : 'closed'}
+      data-super-sheet={superSheet ?? 'closed'}
       data-voice-history-fixture={voiceHistoryFixture ? 'true' : 'false'}
       data-audio-speed={String(listen.speed)}
       style={{
         ['--lab-font-reader' as string]: labFontFamilyCss(readingFont),
-        ['--lab-font-size' as string]: String(prefs.fontSize),
+        ['--lab-font-size' as string]: String(readingFontSize),
         ['--lab-text-align' as string]: readingAlignment,
         ['--lab-line-height' as string]: String(labLineHeight(prefs.lineSpacing)),
         ['--lab-reader-margin' as string]: typeof prefs.margins === 'number' ? `${1.55 * prefs.margins}rem` : prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
-        // The V2 desktop leaves set their side padding from their own measured
+        // The desktop leaves set their side padding from their own measured
         // scale, not from a rem figure sized for the phone, so the Margins
         // preference reaches them as a factor on that scale. Both the painted
         // passage and the hidden measure box read it, so pagination and paint
-        // stay in step. V1 reads nothing of it, and its DOM stays as it was.
-        ...(chromeV2 ? { ['--lab-reader-margin-scale' as string]: String(labMarginScale(prefs.margins)) } : {}),
+        // stay in step.
+        ['--lab-reader-margin-scale' as string]: String(labMarginScale(prefs.margins)),
         ['--lab-paragraph-gap' as string]: typeof prefs.paragraphSpacing === 'number' ? `${labParagraphGap(prefs.paragraphSpacing)}em` : prefs.paragraphSpacing === 'compact' ? '.08em' : prefs.paragraphSpacing === 'generous' ? '.55em' : '.28em',
       }}
     >
@@ -4402,7 +7419,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       )}
       {!frontispieceVisible && <header
         className="lab-header"
-        {...(chromeV2 && (showPhoneChrome || desktopPaging) ? {
+        {...((showPhoneChrome || desktopPaging) ? {
           // Hidden chrome: a press anywhere in the top bar reveals it and does
           // nothing else. Caught on the way down, and the click that follows
           // the same press is swallowed too — otherwise the chapter pill under
@@ -4439,12 +7456,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           },
         } : {})}
       >
+        {/* Desktop: the way back to the library, icon only. The phone keeps
+            Library in the t menu and has its own Back. */}
+        {!showPhoneChrome && (
+          <button
+            type="button"
+            className="lab-v2-library-back"
+            data-testid="lab-library-back"
+            aria-label="Back to library"
+            title={privateBook ? 'Your books' : 'Library'}
+            onClick={() => handleSuperMenuSelect('library')}
+          >
+            <LibraryBackIcon size={LAB_V2_PLAY_PX} />
+          </button>
+        )}
         <div
           className="lab-header-brand"
           onClick={showPhoneChrome && !phoneReaderControlsVisible ? () => setReaderControlsVisible(true) : undefined}
         >
           <h1 className="lab-header-work" data-testid="lab-header-work">
-            {chromeV2 ? <button
+            <button
               ref={bookTitleButtonRef}
               type="button"
               className="lab-header-book"
@@ -4455,7 +7486,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onClick={openBookSwitcher}
             >
               <span>{book.bookTitle}</span>
-            </button> : book.bookTitle}
+            </button>
           </h1>
           <span className="lab-title-sep" aria-hidden="true"> · </span>
           <button
@@ -4463,57 +7494,42 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             className="lab-header-chapter"
             data-testid="lab-header-chapter"
             aria-label={paintedChapterLabel ? `Table of contents, ${paintedChapterLabel}` : 'Table of contents'}
-            onClick={() => { setGearOpen(false); setReaderControlsVisible(true); setTocOpen(true) }}
+            onClick={() => { setReaderControlsVisible(true); setTocOpen(true) }}
           >
             <span className="lab-header-chapter-label">{paintedChapterLabel}</span>
             <span className="lab-header-chevron" aria-hidden="true">∨</span>
           </button>
         </div>
         <div className="lab-header-controls">
-          {chromeV2 ? ((!showPhoneChrome || phoneReaderControlsVisible) ? (
+          {(!showPhoneChrome || phoneReaderControlsVisible) ? (
             <>
-              <button
+              {!isPhone && <button type="button" className="lab-header-notebook" data-testid="lab-header-notebook"
+                aria-label="Notebook" title="Notebook"
+                onClick={() => handleSuperMenuSelect('notebook')}><ReaderNotebookIcon /></button>}
+              {(!privateBook || ownNarration) && <button
                 type="button"
                 className="lab-v2-play"
                 data-testid="lab-v2-play"
-                aria-label={listen.pending ? 'Cancel audio loading' : listen.playing ? LAB_COPY.pause : LAB_COPY.play}
-                aria-busy={listen.pending || undefined}
+                aria-label={narrationInfo?.loading ? 'Loading audio options' : listen.pending ? 'Cancel audio loading' : listen.playing ? LAB_COPY.pause : LAB_COPY.play}
+                disabled={narrationInfo?.loading === true}
+                aria-busy={narrationInfo?.loading || listen.pending || undefined}
                 onClick={handleBarListen}
               >
-                {listen.loading ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
-              </button>
+                {narrationInfo?.loading || listen.loading || listen.buffering ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
+              </button>}
+              {!showPhoneChrome && <button type="button" className="lab-v2-aa" data-testid="lab-header-aa"
+                aria-label="Reading appearance" title="Reading appearance"
+                onClick={() => { setSuperMenuOpen(false); setCompareFromLayout(false); setSuperSheet('reading') }}>Aa</button>}
               <LabSuperButton
                 open={superMenuOpen}
                 onToggle={handleSuperToggle}
                 firstView={superFirstView}
                 onFirstViewEnd={handleFirstViewEnd}
                 reducedMotion={reducedMotion}
+                dot={profileDot && !superMenuOpen}
               />
             </>
-          ) : null) : (<>
-          {!showPhoneChrome && <button
-            type="button"
-            className={`lab-fullscreen ${fullscreen ? 'is-on' : ''}`}
-            onClick={() => { void toggleFullscreen() }}
-            aria-label={fullscreen ? LAB_COPY.exitFullScreen : LAB_COPY.fullScreen}
-            data-testid="lab-fullscreen"
-          >
-            <FullscreenIcon on={fullscreen} />
-          </button>}
-          <button
-            type="button"
-            className={`lab-gear ${gearOpen ? 'is-open' : ''}`}
-            onClick={() => { setTocOpen(false); setGearOpen(open => !open); setSettingsSection('reading') }}
-            aria-label={LAB_COPY.settings}
-            aria-expanded={gearOpen}
-            aria-haspopup="dialog"
-            aria-hidden={showPhoneChrome && !phoneReaderControlsVisible}
-            tabIndex={showPhoneChrome && !phoneReaderControlsVisible ? -1 : undefined}
-            data-testid="lab-gear"
-          >
-            <TuneIcon />
-          </button>
-          </>)}
+          ) : null}
         </div>
         <p className="lab-status" data-testid="lab-status">
           {labStatusLine(
@@ -4524,7 +7540,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         </p>
       </header>}
       {bookSwitcherOpen && !frontispieceVisible && <LabBookSwitcher
-        current={{ bookId: book.bookId || 'bible', title: book.bookTitle, chapterLabel: paintedChapterLabel, coverSrc: `/covers/v2/${book.bookId || 'bible'}.webp` }}
+        current={{ bookId: book.bookId || 'bible', title: book.bookTitle, chapterLabel: paintedChapterLabel, ...currentSwitcherCover(book.bookId || 'bible', userBook), coverTone: userBook ? null : getBook(book.bookId || 'bible')?.coverColor ?? null }}
         rows={bookSwitcherRows}
         loading={bookSwitcherLoading}
         error={bookSwitcherError}
@@ -4532,32 +7548,154 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onSelect={switchQuickBook}
         onLibrary={() => { setBookSwitcherOpen(false); handleSuperMenuSelect('library') }}
       />}
-      {chromeV2 && !frontispieceVisible && (
+      {!frontispieceVisible && (
         <LabSuperMenu
           open={superMenuOpen}
           phone={showPhoneChrome}
+          privateBook={privateBook}
+          ownPdf={ownEditions}
+          sharedReader={sharedReader}
+          profileDot={profileDot}
+          request={menuRequestShown && <LabMenuRequest
+            request={menuRequestShown.request}
+            followBack={menuRequestShown.followBack}
+            getToken={readRequestToken}
+            onFollowBack={() => { void followBackFromMenu() }}
+            onOpenRequests={openRequestsFromMenu}
+          />}
+          // The reading angle's row (Anders, 16 Nov 2026), where the start actions held it until then.
+          readingAngle={sharedReader || marginPhone ? bookAngle : undefined}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
       )}
-      {chromeV2 && !frontispieceVisible && (
+      {!frontispieceVisible && (
         <LabV2Sheet
           bookId={book.bookId || 'bible'}
           chapterNumber={book.chapterNumber}
           layer={superSheet}
-          onLayer={setSuperSheet}
-          onClose={() => setSuperSheet(null)}
+          onLayer={layer => { setSuperSheet(layer); if (layer !== 'compareEdition') setCompareFromLayout(false) }}
+          onClose={() => { setSuperSheet(null); setCompareFromLayout(false) }}
           prefs={displayPrefs}
           phoneShakespeare={phoneShakespeare}
-          onPrefs={updatePrefs}
+          onPrefs={sheetPrefs}
+          ownPdf={ownEditions}
+          editionRows={!privateBook || ownEditions}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
-          compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
-            ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() } }
+          compare={!handheldMargin && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
+            ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() } }
             : null}
+          margin={!showPhoneChrome && !userBook && marginPreviewOptedIn() && isMarginPreviewBook(getBook(book.bookId || 'bible'))
+            ? { onOpen: () => {
+                const bookId = book.bookId!
+                notePlace('hide')
+                window.location.assign(marginPreviewReturnHref(bookId, { editionKey: prefs.primaryEdition, chapterNumber: book.chapterNumber, paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex }))
+              } }
+            : null}
+          pdfSource={sharedReader && ownPdf ? {onOriginalPages:()=>openPdfPages()} : undefined}
+          readerLayout={sharedReader && !showPhoneChrome && !handheldMargin
+            ? { active: desktopCompareActive ? 'compare' : continuousReader ? 'margin' : 'two-page',
+                compareAvailable: desktopCompareChoiceAvailable,
+                onChoose: chooseSharedDesktopLayout }
+            : null}
+          bookScroll={sharedReader && !showPhoneChrome && !handheldMargin
+            ? { on: bookScrollOn, onToggle: () => {
+                try { window.localStorage.setItem(BOOK_SCROLL_DEVICE_KEY, bookScrollOn ? 'off' : 'on'); window.sessionStorage.removeItem('tinct-book-scroll-off') } catch { /* storage blocked */ }
+                notePlace('hide')
+                const url = new URL(window.location.href); url.searchParams.delete('bookScroll')
+                window.location.replace(url.toString())
+              } }
+            : null}
+          compareFromLayout={compareFromLayout}
+          compareChoice={!showPhoneChrome}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
-          returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
+          onAccountVoice={signedIn ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}
+          modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
+            ? { price: formatModernPrice(modern.status.offer.cents), busy: modernCheckoutBusy, onBuy: () => { void buyModernEdition() } }
+            : undefined}
+          readingAngle={{ onOpen: openReadingAngle }}
+        />
+      )}
+      {figureCard && (
+        <LabFigureCard figure={figureCard} onClose={() => setFigureCard(null)}
+          onExplain={explainFigure} onAsk={askAboutFigure}
+          onShowPage={ownPdf && figureCard.chapterNumber != null && figureCard.paragraphIndex != null
+            ? figure => openPdfPages({ chapterNumber: figure.chapterNumber!, paragraphIndex: figure.paragraphIndex!, wordIndex: 0 })
+            : undefined} />
+      )}
+      {!frontispieceVisible && superSheet === 'catchup' && !continuousReader && userBook && (
+        // The Margin reader shows Catch me up as a margin card (the effect above), never also as this sheet (10 Nov 2026).
+        // A reader's own book: one cumulative recap, built from this device's text a chapter at a time.
+        <LabOwnCatchUpSheet
+          bookHex={userBook.hex} bookTitle={book.bookTitle}
+          chapters={userBook.edition.chapters}
+          chapterNumber={book.chapterNumber} paragraphIndex={Math.max(0, placeRef.current.paragraphIndex)}
+          completed={finishedChapters.has(book.chapterNumber)}
+          readToken={ownCatchUpToken}
+          onClose={() => setSuperSheet(null)}
+          onChat={text => continueCatchUp('chat', text)}
+          onTalk={text => continueCatchUp('talk', text)}
+          onTopUp={() => setSuperSheet('account')}
+          {...(showPhoneChrome ? catchUpFollowProps : {})}
+        />
+      )}
+      {!frontispieceVisible && superSheet === 'catchup' && !continuousReader && !userBook && !book.chaptersProvisional && (
+        // Read-only over the reader: it takes the place once, at open, and never writes one.
+        <LabCatchUpSheet
+          bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle}
+          chapters={book.chapters} sections={book.sections}
+          chapterNumber={book.chapterNumber} paragraphIndex={Math.max(0, placeRef.current.paragraphIndex)}
+          completed={finishedChapters.has(book.chapterNumber)}
+          form={getLibraryMeta(book.bookId || 'bible')?.form ?? null}
+          readToken={readSupabaseAccessToken}
+          onClose={() => setSuperSheet(null)}
+          onChat={text => continueCatchUp('chat', text)}
+          onTalk={text => continueCatchUp('talk', text)}
+          onTopUp={() => setSuperSheet('account')}
+          card={marginPhone ? { label: phoneCardLabel(catchUpAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE) } : undefined}
+          {...(showPhoneChrome ? catchUpFollowProps : {})}
+        />
+      )}
+      {!frontispieceVisible && bookAction && !continuousReader && (() => {
+        // The whole book's Primer or Summary (start actions): a card over the page, which it never moves.
+        const title = book.bookTitle || 'This book'
+        const name = bookAction.kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE
+        const keep = (text: string) => { if (!text) return false; ask.keepExplanation(`${name} · ${title}`, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber }); return true }
+        const phoneFollow = showPhoneChrome ? {
+          follow: (shown: () => string) => pillCardFollow(`book:${bookAction.openedAt}`, () => keep(shown()), () => continueCatchUp('talk', shown())),
+          thread: pillCardThread(bookAction.openedAt),
+        } : {}
+        const close = () => setBookAction(null)
+        if (bookAction.kind === 'primer') return <LabBookPrimerSheet key={bookAction.openedAt} bookId={book.bookId || 'bible'} bookTitle={title} onClose={close}
+          card={marginPhone ? { label: `${name} · ${title}` } : undefined} {...phoneFollow} />
+        if (userBook) return <LabOwnCatchUpSheet key={bookAction.openedAt} wholeBook bookHex={userBook.hex} bookTitle={book.bookTitle} chapters={userBook.edition.chapters}
+          chapterNumber={book.chapterNumber} paragraphIndex={0} completed readToken={ownCatchUpToken} onClose={close}
+          onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} onTopUp={() => { close(); setSuperSheet('account') }} {...phoneFollow} />
+        return <LabCatchUpSheet key={bookAction.openedAt} wholeBook bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle}
+          chapters={book.chapters} sections={book.sections} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false}
+          readToken={readSupabaseAccessToken} onClose={close} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)}
+          onTopUp={() => { close(); setSuperSheet('account') }} card={marginPhone ? { label: `${name} · ${title}` } : undefined} {...phoneFollow} />
+      })()}
+      {!frontispieceVisible && chapterNotes && !continuousReader && (
+        <LabChapterNotesSheet
+          key={JSON.stringify(chapterNotes.request)}
+          request={chapterNotes.request}
+          own={chapterNotes.own}
+          title={chapterNotes.title}
+          onClose={() => setChapterNotes(null)}
+          onChat={(title, beats) => continueChapterNotes('chat', title, beats)}
+          onTalk={(title, beats) => continueChapterNotes('talk', title, beats)}
+          readToken={readSupabaseAccessToken}
+          onTopUp={() => { setChapterNotes(null); setSuperSheet('account') }}
+          card={marginPhone}
+          {...(showPhoneChrome ? {
+            follow: (beats: ChapterNotesBeat[] | null) => pillCardFollow(`notes:${notesOpenedAt}`,
+              () => { if (!beats) return false; ask.keepExplanation(chapterNotes.title, chapterNotesText(chapterNotes.title, beats), Math.max(0, placeRef.current.paragraphIndex), { bookId: chapterNotes.request.bookId, chapterNumber: chapterNotes.request.chapterNumber }); return true },
+              () => continueChapterNotes('talk', chapterNotes.title, beats)),
+            thread: pillCardThread(notesOpenedAt),
+          } : {})}
         />
       )}
       {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>
@@ -4575,24 +7713,49 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               {readerLoadAction.label}
             </button>
           )}
-          <a href="/library">Return to the library</a>
+          {privateBook ? <a href={USER_BOOKS_SHELF_URL}>Return to your books</a> : <a href="/library">Return to the library</a>}
         </div>
       )}
 
 
       <div className="lab-body">
-        {!(showPhoneChrome && phoneAsk) && (
+        {!(showPhoneChrome && phoneAsk && !marginPhone) && (
         <div
-          className={`lab-page-wrap${chromeV2 && showPhoneChrome && !measuredPaging && settleIndex != null && settleIndex <= readingPageIndex ? ' is-measuring-visible-page' : ''}${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
+          className={`lab-page-wrap${showPhoneChrome && !measuredPaging && settleIndex != null && settleIndex <= readingPageIndex ? ' is-measuring-visible-page' : ''}${initialResolving ? ' is-resolving' : ''}${firstReveal ? ' is-first-reveal' : ''}${showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
           ref={pageWrapRef}
           data-testid="lab-page-wrap"
           aria-busy={initialResolving || undefined}
         >
-          {chromeV2 && desktopCompareActive && <div className="lab-compare-divider" aria-hidden="true"><span>Compare</span></div>}
+          {desktopCompareActive && <div className="lab-compare-divider" aria-hidden="true"><span>Compare</span></div>}
+          {modern.wait && !readerLoadError && !chapterCoverTitle && (
+            <LabModernWait
+              wait={modern.wait}
+              bookTitle={book.bookTitle}
+              chapterTitle={book.chapterTitle}
+              onReadOriginal={() => {
+                // The edition toggle, to the original (paragraph-aligned: the place is kept).
+                const original = editionCommand('original')
+                modern.readOriginal()
+                if (original && prefs.primaryEdition !== original.key) updatePrefs({ ...prefs, primaryEdition: original.key, compareOpen: prefs.compareOpen && prefs.compareEdition !== original.key })
+              }}
+            />
+          )}
+          {/* Reading the original meanwhile, the folio names it (readingFootLabel); once Modern
+              English is ready here, one notice switches (dismissed for this chapter: the folio stays). */}
+          {modern.originalNote === 'ready' && modernNoteDismissed !== `${book.bookId}:${book.chapterNumber}` && !modern.wait && !readerLoadError && !chapterCoverTitle && (
+            <LabModernReadyNotice
+              onDismiss={() => setModernNoteDismissed(`${book.bookId}:${book.chapterNumber}`)}
+              onSwitch={() => {
+                const modernEdition = editionCommand('modern')
+                modern.backToModern()
+                if (modernEdition) updatePrefs({ ...prefs, primaryEdition: modernEdition.key, compareOpen: prefs.compareOpen && prefs.compareEdition !== modernEdition.key })
+              }}
+            />
+          )}
           {/* The version just swapped to, named for about a second and then
               gone. It sits on the page the reader landed on, every swap, and
               never stays: the page carries no running head. */}
-          {chromeV2 && showPhoneChrome && versionPill && (
+          {showPhoneChrome && versionPill && (
             <div
               key={versionPill.nonce}
               className="lab-v2-version-pill"
@@ -4604,10 +7767,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           )}
           {chapterCoverTitle ? (
             <LabChapterCover
-              imageSrc={chromeV2 && chapterCoverTitle === book.bookTitle ? `/covers/v2/${book.bookId || 'bible'}.webp` : undefined}
-              onLibrary={chapterCoverTitle === book.bookTitle ? () => handleSuperMenuSelect('library') : undefined}
               title={chapterCoverTitle}
-              series={chapterCoverTitle === book.bookTitle ? book.bookAuthor : book.bookTitle}
+              series={book.bookTitle}
               editionLabel={book.editionLabel}
               ground={getBook(book.bookId || 'bible')?.coverColor}
               accent={getBook(book.bookId || 'bible')?.coverAccent}
@@ -4620,18 +7781,149 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 }
               }}
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
-              onBefore={chapterCoverTitle === book.bookTitle && approvedPreface ? () => setPrefaceCoverBook(book.bookId) : undefined}
-              onStart={chapterCoverTitle === book.bookTitle ? () => goNext() : undefined}
-              continued={Boolean(readerHandoff?.savedPlace && !readerHandoff.startAtSavedPlace)}
+              verticalSwipeTurns={showPhoneChrome}
             />
-          ) : <LabPassage
-            pendingLayout={chromeV2 && measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
-            onPreviewChapter={chromeV2 ? () => handleChapterChat('preview') : undefined}
+          ) : bookScroll && bookScrollUnitNow ? (initialResolving || handoffWritesSuspended ? null : <BookScrollReader
+            cards={marginConversations.flatMap(item => item.card?.anchor && cardInMargin(item.card.kind, item.messages) ? [{ id: item.id, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
+              label: `${item.card.kind.charAt(0).toUpperCase() + item.card.kind.slice(1)} · ${item.card.text || book.chapterLabel}`, onOpen: () => toggleMargin(item.id) }] : [])}
+            key={`${continuousEpoch.bookId}/${continuousEpoch.editionKey}/${bookScrollUnitNow.key}`}
+            unit={bookScrollUnitNow}
+            texts={bookScrollTexts.texts}
+            onRequestChapters={bookScrollTexts.request}
+            bookHighlights={bookScrollHighlights}
+            bookCards={bookScrollCards}
+            cardOpen={desktopOpenId != null}
+            onJumpChapter={(number, anchor) => { setNotebookReturn(null); void goToChapter(number, 'start', false, anchor, !!anchor) }}
+            onCrossChapter={(number, anchor) => {
+              // The reading line is in another chapter of the unit: that chapter becomes the reader's own, at the
+              // word on the line. Never behind an overlay, during a restore, or while narration reads this chapter
+              // (unless the reader acted on that chapter: a pill, a selection or one of its cards).
+              const explicit = explicitAdoption.current
+              explicitAdoption.current = false
+              if (!continuousReady || placeWritesSuspended || (listen.playing && !explicit) || number === book.chapterNumber) return
+              if (!bookScrollUnitNow.chapters.some(chapter => chapter.number === number)) return
+              void goToChapter(number, 'start', false, anchor, true)
+            }}
+            controlRef={bookScrollControl}
+            onPaintedChange={setBookScrollPainted}
+            onLineChapter={setBookScrollLineChapter}
+            onSelectInChapter={(number, range, x, y) => actOnChapter(number, () => bookScrollActs.current.handleSelectRange(range, x, y))}
+            neighbourEnd={number => <MarginPhoneContext.Provider value={marginPills ? { ...marginPills, onQuiz: anchor => actOnChapter(number, () => quizChapterRef.current(anchor), 'end') } : null}>
+              <LabChapterEnd chapterTitle={book.chapters.find(chapter => chapter.number === number)?.title}
+                hasNext={nextLabChapter(book.chapters, number) != null}
+                onContinue={() => { const next = nextLabChapter(book.chapters, number); if (next != null) void goToChapter(next, 'start') }} busy={ask.typedLoading}
+                onDiscuss={() => actOnChapter(number, () => bookScrollActs.current.openChapterNotes('end', number, 'pill'), 'end')}
+                onNote={pill => actOnChapter(number, () => openChapterNoteRef.current(number, pill), 'end')} />
+            </MarginPhoneContext.Provider>}
+            epoch={continuousEpoch}
+            anchor={continuousAnchor}
+            onVisible={onContinuousVisible}
+            onLanded={onContinuousLanded}
+            onTail={onContinuousTail}
+            onReadToEnd={onContinuousReadToEnd}
+            onUserBrowse={() => {
+              // The Margin reader has no pages, so "Continue from last position" (shown while on
+              // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
+              setRecentChapterReturn(null)
+              setNotebookReturn(null)
+              if (!listen.playing) return
+              browseWhileListeningRef.current = true
+              setBrowseWhileListening(true)
+            }}
+            passage={{
+              chapterTitle: book.chapterTitle,
+              paragraphs: book.paragraphs,
+              chapterNumber: book.chapterNumber,
+              footnotes: chapterFootnotes,
+              onFootnote: showFootnote,
+              onOpenFigure: setFigureCard,
+              highlights: highlightsApi.chapterHighlights,
+              selectingRange: selectionPopup?.chapterNumber === book.chapterNumber ? selectionPopup.range : null,
+              onSelectRange: handleSelectRange,
+              onSelectingChange: handleSelectingChange,
+              onPreviewChapter: () => openChapterNotes('primer', book.chapterNumber, 'pill'),
+              chapterActionsBusy: ask.typedLoading,
+              chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle}
+                hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null}
+                onContinue={goNext} busy={false}
+                onDiscuss={() => openChapterNotes('end', book.chapterNumber, 'pill')}
+                onNote={pill => openChapterNoteRef.current(book.chapterNumber, pill)}
+                finishedCard={finishedCard} />,
+              follow: listen.follow,
+              followParagraphs: listen.followParagraphs,
+              playing: listen.playing,
+              browseWhileListening,
+              onSeekToWord: listen.playing || listen.pending ? seekAudioToWord : undefined,
+              inlineHearingPaint: showHearing && listen.playing,
+              markedIndexes,
+              onMark: handleMark,
+              focusParagraph,
+              discussedParagraph: desktopVoiceOpen ? callParagraph : null,
+              layoutKey: readerLayoutKey,
+            }}
+          />) : continuousReader ? (initialResolving || handoffWritesSuspended ? null : <ContinuousReader
+            cards={marginConversations.flatMap(item => item.card?.anchor && cardInMargin(item.card.kind, item.messages) ? [{ id: item.id, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
+              label: `${item.card.kind.charAt(0).toUpperCase() + item.card.kind.slice(1)} · ${item.card.text || book.chapterLabel}`, onOpen: () => toggleMargin(item.id) }] : [])}
+            bookMap={(book.bookId || 'bible') === 'bible' ? undefined : { chapters: book.chapters, chapterNumber: book.chapterNumber, onJumpChapter: (number, anchor) => { if (anchor) openContentsPassage({ chapterNumber: number, ...anchor }); else void goToChapter(number, 'start') } }}
+            key={`${continuousEpoch.bookId}/${continuousEpoch.editionKey}/${continuousEpoch.chapterNumber}/${continuousEpoch.navigation}`}
+            epoch={continuousEpoch}
+            anchor={continuousAnchor}
+            onVisible={onContinuousVisible}
+            onLanded={onContinuousLanded}
+            onTail={onContinuousTail}
+            onReadToEnd={onContinuousReadToEnd}
+            onUserBrowse={() => {
+              // The Margin reader has no pages, so "Continue from last position" (shown while on
+              // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
+              setRecentChapterReturn(null)
+              setNotebookReturn(null)
+              if (!listen.playing) return
+              browseWhileListeningRef.current = true
+              setBrowseWhileListening(true)
+            }}
+            passage={{
+              chapterTitle: book.chapterTitle,
+              paragraphs: book.paragraphs,
+              chapterNumber: book.chapterNumber,
+              footnotes: chapterFootnotes,
+              onFootnote: showFootnote,
+              onOpenFigure: setFigureCard,
+              highlights: highlightsApi.chapterHighlights,
+              selectingRange: selectionPopup?.chapterNumber === book.chapterNumber ? selectionPopup.range : null,
+              onSelectRange: handleSelectRange,
+              onSelectingChange: handleSelectingChange,
+              onPreviewChapter: () => openChapterNotes('primer', book.chapterNumber, 'pill'),
+              chapterActionsBusy: ask.typedLoading,
+              chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle}
+                hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null}
+                onContinue={goNext} busy={false}
+                onDiscuss={() => openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary', 'end')}
+                onNote={pill => openChapterNoteRef.current(book.chapterNumber, pill)}
+                finishedCard={finishedCard} />,
+              follow: listen.follow,
+              followParagraphs: listen.followParagraphs,
+              playing: listen.playing,
+              browseWhileListening,
+              onSeekToWord: listen.playing || listen.pending ? seekAudioToWord : undefined,
+              inlineHearingPaint: showHearing && listen.playing,
+              markedIndexes,
+              onMark: handleMark,
+              focusParagraph,
+              discussedParagraph: desktopVoiceOpen ? callParagraph : null,
+              layoutKey: readerLayoutKey,
+            }}
+          />) : <LabPassage
+            plannedHyphens={measuredPaging && !desktopPaging}
+            pendingLayout={measuredPaging && ((nativeMeasuredContent !== readerParagraphs && nativeHeadContent !== readerParagraphs) || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
+            onPreviewChapter={() => openChapterNotes('primer', book.chapterNumber, 'pill')}
             chapterActionsBusy={ask.typedLoading}
             chapterEnd={showChapterEnd ? <LabChapterEnd
+              chapterTitle={book.chapterTitle}
               docked={desktopPaging && desktopEndInFooter}
               hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
-              busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')}
+              busy={false} onDiscuss={() => openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary', 'end')}
+              onNote={pill => openChapterNoteRef.current(book.chapterNumber, pill)}
+              finishedCard={finishedCard}
             /> : undefined}
             desktopSpread={desktopSpread}
             selectionChapters={desktopSpread && !desktopCompareActive ? selectionChapters : undefined}
@@ -4644,7 +7936,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onSelectRange: (range, x, y, side, intent, id) => handleSelectRange(range, x, y, side, intent, id, {
                 chapterNumber: nextChapterOpening.chapterNumber, chapterLabel: nextChapterOpening.title, paragraphs: nextChapterOpening.paragraphs,
               }),
-              onPrimer: () => handleChapterChat('prepare'),
+              onPrimer: privateBook ? undefined : () => openChapterNotes('primer', nextChapterOpening.chapterNumber),
             } : undefined}
             previousChapterEnding={openingOnRight && carriedEndingCurrent ? {
               ...carriedEndingCurrent, highlights: highlightsApi.highlights,
@@ -4658,10 +7950,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
-            pageEndMarker={comparePageEndMarker}
             compare={desktopCompareActive && desktopCompareEnabled}
-            mode={!chromeV2 && showPhoneChrome && showHearing ? 'hearing' : 'reading'}
-            follow={(showHearing && listen.playing && (chromeV2 || !browseWhileListening) || chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive) ? listen.follow : { kind: 'none' }}
+            mode="reading"
+            follow={(showHearing && listen.playing || pausedTransportVisible && !listen.playing && !mobileCompareActive) ? listen.follow : { kind: 'none' }}
             followParagraphs={listen.followParagraphs}
             clips={listen.clips}
             playing={listen.playing}
@@ -4669,8 +7960,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             currentTime={listen.currentTime}
             speed={listen.speed}
             browseWhileListening={browseWhileListening}
-            inlineHearingPaint={chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive || showHearing && listen.playing && (chromeV2 || !showPhoneChrome && !browseWhileListening)}
-            onSeekToWord={listen.playing ? seekAudioToWord : undefined}
+            inlineHearingPaint={pausedTransportVisible && !listen.playing && !mobileCompareActive || showHearing && listen.playing}
+            onSeekToWord={listen.playing || listen.pending || (pausedTransportVisible && !mobileCompareActive) ? seekAudioToWord : undefined}
             onTogglePlay={() => {
               if (listen.isPending() || listen.playing) listen.pause()
               else if (listen.src) listen.resume()
@@ -4683,22 +7974,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             onMark={mobileCompareActive ? undefined : handleMark}
             focusParagraph={focusParagraph}
             discussedParagraph={desktopVoiceOpen ? callParagraph : null}
-            dimmed={voiceOverlayOpen}
             peek={chrome === 'hearing' && peekBook}
             readingPage={readingPage}
             chapterPages={readingPages}
             layoutKey={readerLayoutKey}
             highlights={mobileCompareActive ? highlightsApi.compareHighlights : highlightsApi.chapterHighlights}
-            keyboardSelection={chromeV2}
+            keyboardSelection
             compareHighlights={highlightsApi.compareHighlights}
             chapterNumber={book.chapterNumber}
+            footnotes={chapterFootnotes}
+            onFootnote={showFootnote}
+            onOpenFigure={setFigureCard}
             selectingRange={crossChapterRange(book.chapterNumber) ?? (selectionPopup?.range && selectionPopup.chapterNumber === book.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null)}
             selectingComparison={desktopCompareActive && selectionPopup?.side === 'compare'}
-            pageTurn={chromeV2 ? undefined : pageTurn}
             tapZones={pageTurnAffordance.tapZones}
+            verticalSwipeTurns={showPhoneChrome}
             onSelectRange={phoneAsk ? undefined : handleSelectRange}
             onSelectingChange={phoneAsk ? undefined : handleSelectingChange}
-            onSelectionPageTurn={chromeV2 && !phoneAsk && !selectionPopup && !mobileCompareActive && !desktopCompareActive ? direction => { if (direction > 0) goNext(); else goPrev() } : undefined}
+            onSelectionPageTurn={!phoneAsk && !selectionPopup && !mobileCompareActive && !desktopCompareActive ? direction => { if (direction > 0) goNext(); else goPrev() } : undefined}
             onPageTurn={labPageTurnSurfaceEnabled({
               phoneChrome: showPhoneChrome,
               buttons: pageTurnAffordance.buttons,
@@ -4712,9 +8005,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                   else goPrev()
                 }
               : undefined}
-            onCompareSwap={chromeV2 && showPhoneChrome && mobileCompareEnabled && !phoneAsk && !selectionPopup
-              ? handleMobileCompare
-              : undefined}
             onToggleControls={showPhoneChrome && !phoneAsk && !selectionPopup
               ? () => setReaderControlsVisible(visible => !visible)
               : undefined}
@@ -4725,21 +8015,27 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           </div>}
           {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator
-              fillPages={chromeV2}
-              chapterActions={chromeV2} hasNextChapter={canNextChapter}
+              fillPages
+              chapterActions hasNextChapter={canNextChapter}
               chapterTitle={book.chapterTitle}
               paragraphs={readerParagraphs}
               editionKey={readerEditionKey}
+              language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
               layoutKey={layoutKeyFor(readerEditionKey)}
               keepPages={pageFreeze && pageFreeze.content === readerParagraphs && pageFreeze.layoutKey === nativeLayoutKey ? pageFreeze.pages : undefined}
+              // The reader's first page of this visit: shown before the rest
+              // of its chapter is laid out (applyNativePages takes it only
+              // when that page is where the reader lands).
+              headFirst={!firstPageShown && !mobileCompareActive}
               onPages={applyNativePages}
             />
           )}
           {!chapterCoverTitle && desktopPaging && <LabDesktopPaginator
-            chapterActions={chromeV2} hasNextChapter={canNextChapter}
+            chapterActions hasNextChapter={canNextChapter}
             chapterTitle={book.chapterTitle} paragraphs={readerParagraphs}
             comparison={desktopCompareActive && desktopCompareEnabled ? book.compareParagraphs : undefined}
             editionKey={readerEditionKey}
+            language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
             layoutKey={desktopLayoutKey} onPages={applyDesktopPages}
           />}
           {/* The next chapter's first leaf, measured only near this chapter's end. */}
@@ -4747,23 +8043,25 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             chapterActions hasNextChapter pageLimit={2}
             chapterTitle={nextOpeningCurrent.title} paragraphs={nextOpeningCurrent.paragraphs}
             editionKey={readerEditionKey}
+            language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
             layoutKey={nextOpeningLayoutKey} onPages={applyNextOpeningPages}
           />}
           {/* The standby edition, measured in the same box while nobody is
               looking at it. It writes a ref and touches no state, so it can
               never paint; the swap reads it and commits the incoming page in
               one go instead of showing an estimate and correcting it. */}
-          {chromeV2 && !chapterCoverTitle && measuredPaging && mobileCompareEnabled && standbyParagraphs.length > 0 && (
+          {/* After the reader's own map is whole: a head-first chapter lays its rest out first. */}
+          {!chapterCoverTitle && measuredPaging && mobileCompareEnabled && standbyParagraphs.length > 0 && !headFirstOnScreen && (
             <LabNativePaginator
-              fillPages={chromeV2}
-              chapterActions={chromeV2} hasNextChapter={canNextChapter}
+              fillPages
+              chapterActions hasNextChapter={canNextChapter}
               chapterTitle={book.chapterTitle}
               paragraphs={standbyParagraphs}
               layoutKey={standbyKey}
               onPages={applyStandbyPages}
             />
           )}
-          {!chapterCoverTitle && !measuredPaging && settleIndex != null && draftPages[settleIndex] && (
+          {!continuousReader && !chapterCoverTitle && !measuredPaging && settleIndex != null && draftPages[settleIndex] && (
             <div
               className="lab-page-measure"
               ref={measureHostRef}
@@ -4771,7 +8069,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               key={`${settleIndex}-${draftPages[settleIndex].from}-${draftPages[settleIndex].to}`}
             >
               <LabPageMeasurePaint
-                chapterActions={chromeV2}
+                chapterActions
                 chapterTitle={book.chapterTitle}
                 paragraphs={readerParagraphs}
                 page={draftPages[settleIndex]}
@@ -4783,9 +8081,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         )}
         {desktopVoiceOpen && !callMinimized && (
           <LabVoiceDesktopPanel
-            preparationWelcome={preparationCompanion ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined}
             view={callView}
-            turns={callTurns}
+            context={talkContext}
             getAssistantLevel={ask.getAssistantLevel}
             reducedMotion={reducedMotion}
             notice={ask.notice}
@@ -4793,12 +8090,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             onEnd={endCall}
             onReconnect={reconnectCall}
             onMinimize={() => setCallMinimized(true)}
+            talkSpeed={ask.talkSpeed}
+            onTalkSpeedChange={ask.setTalkSpeed}
           />
         )}
         {desktopVoiceOpen && callMinimized && (
           <LabVoicePill
             view={callView}
-            turns={callTurns}
             getAssistantLevel={ask.getAssistantLevel}
             reducedMotion={reducedMotion}
             onMuteToggle={toggleCallMute}
@@ -4807,112 +8105,44 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             onExpand={() => setCallMinimized(false)}
           />
         )}
-        {((!showPhoneChrome && desktopAskOpen && !desktopVoiceOpen) || phoneAsk) && (
-          <LabAskPane
-            preparationSuggestions={preparationChat}
-            chromeV2={chromeV2}
-            focusTurnId={chromeV2 ? contentsConversation?.messages.find(message => message.role === 'user')?.id : undefined}
-            onBackToContents={chromeV2 && contentsConversation ? returnToContents : undefined}
-            dictationState={dictation.state}
-            onStopVoice={chromeV2 ? (callOpen ? endCall : ask.stopVoice) : undefined}
-            conversationState={ask.conversationState}
-            voiceActive={ask.voiceActive}
-            typedLoading={ask.typedLoading}
-            turns={ask.turns}
-            historyStatus={ask.historyStatus}
-            draft={draft}
-            attachment={askAttachment?.bookId === book.bookId ? askAttachment : null}
-            onRemoveAttachment={() => setAskAttachment(null)}
-            onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
-            onSubmit={(text) => { setPreparationChat(false); dictation.stop(); handleAsk(text) }}
-            onMic={handleMic}
-            onVoiceMode={chromeV2 ? () => {
-              dictation.stop()
-              handleTalk()
-            } : handleVoiceMode}
-            onRetry={ask.retryTyped}
-            notice={chromeV2 ? (dictation.notice || ask.notice) : ask.notice}
-            onDone={phoneAsk && !chromeV2 ? undefined : () => { setPreparationChat(false); dictation.stop(); closePhoneAsk() }}
-            phoneSheet={!!phoneAsk}
-            desktopCompanion={!showPhoneChrome ? (chrome === 'talking' ? 'talk' : 'chat') : undefined}
-            onKeyboardOpenChange={setPhoneKeyboardOpen}
-            inputRef={askInputRef}
-            chapterLabels={Object.fromEntries(book.chapters.map(chapter => [chapter.number, chapter.title]))}
-          />
-        )}
-        {/* V2 has no rail. Play is in the top bar and Compare, Chat and Talk
-            are in the menu, which is what the menu is for — a rail beside it
-            would be a second copy of the same four things. */}
-        {!showPhoneChrome && !frontispieceVisible && !chromeV2 && (
-          <nav className="lab-desktop-action-rail" data-testid="lab-desktop-action-rail" aria-label="Reader actions">
-            <button
-              type="button"
-              className={`lab-desktop-action is-play${desktopCompareActive || listen.playing ? ' is-active' : ''}`}
-              onClick={desktopCompareActive ? handleDesktopCompare : handleHeaderListen}
-              aria-label={desktopCompareActive ? LAB_COPY.read : listen.pending ? 'Cancel audio loading' : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)}
-              data-reader-action={desktopCompareActive ? 'read' : 'listen'}
-              data-testid="lab-listen"
-            >
-              <span
-                className="lab-desktop-action-icon"
-                data-testid={desktopCompareActive ? 'lab-desktop-read' : 'lab-desktop-play'}
-                aria-hidden="true"
-              >
-                {desktopCompareActive
-                  ? <ReadIcon size={19} />
-                  : listen.loading ? <LoadingIcon size={19} /> : (listen.playing && !listen.pending ? <PauseIcon size={19} /> : <PlayIcon size={19} />)}
-              </span>
-              <span>{desktopCompareActive ? LAB_COPY.read : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)}</span>
-            </button>
-            {desktopCompareEnabled && (
-              <button
-                type="button"
-                className={`lab-desktop-action${desktopCompareActive ? ' is-active' : ''}`}
-                onClick={handleDesktopCompare}
-                aria-label={desktopCompareActive ? `Close ${LAB_COPY.compare}` : LAB_COPY.compare}
-                aria-pressed={desktopCompareActive}
-                data-testid="lab-desktop-compare"
-              >
-                <CompareIcon />
-                <span>{LAB_COPY.compare}</span>
-              </button>
-            )}
-            <button
-              type="button"
-              className={`lab-desktop-action${desktopAskOpen && chrome !== 'talking' ? ' is-active' : ''}`}
-              onClick={handleChat}
-              aria-pressed={desktopAskOpen && chrome !== 'talking'}
-              data-testid="lab-desktop-chat"
-            >
-              <ChatIcon />
-              <span>{LAB_COPY.chat}</span>
-            </button>
-            <button
-              type="button"
-              className={`lab-desktop-action${desktopAskOpen && chrome === 'talking' ? ' is-active' : ''}`}
-              onClick={handleTalk}
-              aria-pressed={desktopAskOpen && chrome === 'talking'}
-              data-testid="lab-desktop-talk"
-            >
-              <TalkIcon />
-              <span>{LAB_COPY.talk}</span>
-            </button>
-          </nav>
-        )}
+        {((!showPhoneChrome && desktopAskOpen && !desktopVoiceOpen) || (phoneAsk && !marginPhone)) && askPaneElement}
       </div>
 
-      {(chromeV2 || listen.loading) && <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>}
+      <LabParagraphListen
+        enabled={continuousReader && !showPhoneChrome && !listenPlaybackUnavailable && !selectionPopup && !frontispieceVisible && !initialResolving && !tocOpen
+          && (listen.playing || listen.pending || pausedTransportVisible)}
+        chapterNumber={book.chapterNumber}
+        voice={(listen.playing || listen.pending || pausedTransportVisible) && listen.follow.kind !== 'none' && listenSource.bookId === (book.bookId || 'bible')
+          ? { chapterNumber: listenSource.chapterNumber, paragraphIndex: listen.follow.paragraphIndex } : null}
+        onListen={listenFromParagraph}
+        offer={listenOffer}
+      />
+      <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : listen.buffering ? 'Loading audio.' : ''}</span>
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
-      {listen.narration.status === 'error' && listen.narration.reason !== 'unauthenticated' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
+      {listen.narration.status === 'loading' && listen.narration.waiting && listen.pending && <div className="lab-narration-inline" role="status" data-testid="lab-narration-preparing">
+        {/* The ring the Play button shows, in the row; "Preparing narration…" stays for screen readers. */}
+        <LabWait label={LAB_COPY.preparingNarration} size={18} live={false} testId="lab-narration-preparing-wait" />
+        <button type="button" data-testid="lab-narration-cancel" onClick={listen.pause}>Cancel</button>
+      </div>}
+      {listen.narration.status === 'error' && listen.narration.reason !== 'unauthenticated' && listen.narration.reason !== 'own_book_premium' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
         <span title={listen.narration.message} aria-label={listen.narration.message}>{listen.narration.reason === 'unauthenticated'
           ? listen.narration.message
           : listen.narration.reason === 'budget_exhausted' ? 'Daily narration limit reached.'
           : listen.narration.reason === 'text_mismatch' ? 'Passage changed. Reload to play.'
+          : listen.narration.reason === 'own_book_limit' || listen.narration.reason === 'own_book_unavailable' ? listen.narration.message
           : 'Audio couldn’t start.'}</span>
         <button type="button" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
         <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss audio error">×</button>
       </div>}
-      {chromeV2 && recentChapterReturn && !initialResolving && !contentsTarget && !phoneAsk && !desktopAskOpen
+      {notebookReturn && notebookReturn.bookId === (book.bookId || 'bible') && notebookReturn.editionKey === prefs.primaryEdition
+        && !initialResolving && !contentsTarget && !tocOpen && !phoneAsk && !desktopAskOpen && !notebookCard && (
+        <button type="button" className="lab-back-to-audio" data-testid="lab-notebook-return" onClick={() => {
+          setNotebookFlash(null)
+          openContentsPassage(notebookReturn)
+          setNotebookReturn(null)
+        }}>Back to reading</button>
+      )}
+      {recentChapterReturn && !initialResolving && !contentsTarget && !phoneAsk && !desktopAskOpen
         && !mobileCompareActive && !listen.playing && readingPageIndex === 0
         && recentChapterReturn.libraryBookId === (book.bookId || 'bible')
         && recentChapterReturn.sequentialChapter === book.chapterNumber
@@ -4922,23 +8152,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           openContentsPassage({ chapterNumber: book.chapterNumber, paragraphIndex: recentChapterReturn.paragraphIndex, wordIndex: recentChapterReturn.wordIndex })
         }}>Continue from last position</button>
       )}
-      {chromeV2 && browseWhileListening && listen.playing && !phoneAsk && listen.follow.kind !== 'none' && (
-        <button type="button" className="lab-back-to-audio" data-testid="lab-back-to-audio" onClick={() => {
-          const follow = listen.follow
-          if (follow.kind === 'none') return
-          const wordIndex = follow.kind === 'word' ? follow.wordIndex : 0
-          browseWhileListeningRef.current = false
-          setBrowseWhileListening(false)
-          setChapterCoverTitle(null)
-          setReadingPageIndex(pageIndexForPlace(readingPages, follow.paragraphIndex, wordIndex))
-        }}>Back to audio</button>
+      {showVoicePills && (
+        <div className="lab-listen-pills" data-testid="lab-listen-pills">
+          <button type="button" className="lab-listen-pill" data-testid="lab-back-to-voice" onClick={backToVoice}><span aria-hidden="true">↑</span> Back to the voice</button>
+          <button type="button" className="lab-listen-pill is-primary" data-testid="lab-listen-from-here" onClick={listenFromHere}><span aria-hidden="true">▶</span> Listen from here</button>
+        </div>
       )}
-      {showReaderRail && (
+      {showReaderRail && !continuousReader && (
         <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}`} data-testid="lab-page-turn" aria-label="Page">
           {(!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (
             <button
               type="button"
-              className={pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'}
+              className={`${pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'} lab-page-prev`}
               data-testid="lab-page-prev"
               aria-label={LAB_COPY.previous}
               onClick={goPrev}
@@ -4955,30 +8180,28 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               data-testid="lab-chapter-progress"
               title={readerProgressMode === 'book' ? 'Show chapter progress' : 'Show book progress'}
               aria-label={`${footProgressLabel}. Show ${readerProgressMode === 'book' ? 'chapter' : 'book'} progress`}
-              onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
+              onClick={toggleReaderProgressMode}
             >
-              {chromeV2 && mobileCompareActive ? (
+              {mobileCompareActive ? (
                 <span className="lab-chapter-progress-info lab-v2-compare-mark" data-testid="lab-v2-compare-mark">{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</span>
               ) : (
-                <span className="lab-chapter-progress-info">{footProgressLabel}</span>
+                <span className="lab-chapter-progress-info" data-original={modern.originalNote ? true : undefined}>{readingFootLabel}</span>
               )}
             </button>
-          ) : chromeV2 ? (
+          ) : (
             <button type="button"
               className="lab-chapter-progress is-interactive"
               data-testid="lab-chapter-progress"
               aria-label={`${footProgressLabel}. Show ${readerProgressMode === 'book' ? 'chapter' : 'book'} progress`}
-              onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
+              onClick={toggleReaderProgressMode}
             >
-              <span className="lab-chapter-progress-info">{footProgressLabel}</span>
+              <span className="lab-chapter-progress-info" data-original={modern.originalNote ? true : undefined}>{readingFootLabel}</span>
             </button>
-          ) : (
-            <div className="lab-chapter-progress" data-testid="lab-chapter-progress"><span className="lab-chapter-progress-info">{footProgressLabel}</span></div>
           )}
           {chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button
               type="button"
-              className={pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'}
+              className={`${pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'} lab-page-next`}
               data-testid="lab-page-next"
               aria-label={LAB_COPY.next}
               onClick={() => goNext()}
@@ -4992,14 +8215,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       )}
 
       {desktopAudioBarActive && (
-        <section className="lab-desktop-audio-dock" data-testid="lab-desktop-audio-dock" aria-label="Audio player">
-          <button type="button" className="lab-desktop-audio-speed" data-testid="lab-hearing-speed" onClick={() => setSpeedPopoverOpen(open => !open)} aria-label={`Playback speed ${listen.speed} times`} aria-expanded={speedPopoverOpen}>{listen.speed}×</button>
+        <section ref={desktopDockRef} className="lab-desktop-audio-dock" data-testid="lab-desktop-audio-dock" aria-label="Audio player">
+          <button type="button" ref={speedButtonRef} className="lab-desktop-audio-speed" data-testid="lab-hearing-speed" aria-controls="lab-audio-speed-popover" onClick={() => setSpeedPopoverOpen(open => !open)} aria-label={`Playback speed ${listen.speed} times`} aria-expanded={speedPopoverOpen}>{listen.speed}×</button>
           <button type="button" data-testid="lab-hearing-back" onClick={() => listen.seek(-15)} aria-label="Back 15 seconds"><SkipIcon direction="back" /></button>
-          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : chromeV2 && !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{listen.loading ? <LoadingIcon size={22} /> : listen.pending || (chromeV2 && !listen.playing) ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>
+          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{listen.loading || listen.buffering ? <LoadingIcon size={22} /> : listen.pending || !listen.playing ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>
           <button type="button" data-testid="lab-hearing-forward" onClick={() => listen.seek(30)} aria-label="Forward 30 seconds"><SkipIcon direction="forward" seconds={30} /></button>
           <div className="lab-desktop-audio-track">
             <strong>{book.bookTitle}</strong>
-            <span>{editionLabelFor(narrationOption || retainedBella ? prefs.primaryEdition : audioEditionKey, bookEditions)}</span>
+            {/* Every Tinct voice is synthetic: the dock says so beside the edition (AI Act art. 50). */}
+            <span data-testid="lab-audio-ai-label">{`${editionLabelFor(narrationOption || retainedBella ? prefs.primaryEdition : audioEditionKey, bookEditions)} · ${LAB_COPY.aiNarration}`}</span>
             <i
               role="slider"
               tabIndex={0}
@@ -5019,50 +8243,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             ><b style={{ width: `${Math.max(0, Math.min(100, (listen.chapterTime / Math.max(1, listen.chapterDuration)) * 100))}%` }} /></i>
           </div>
           <button type="button" data-testid="lab-audio-talk" aria-label="Talk about this book" onClick={handleTalk}><TalkIcon size={22} /></button>
-          {chromeV2 && !listen.playing && !listen.pending && listen.narration.status !== 'error' && <button type="button" className="lab-desktop-audio-dismiss" aria-label="Close audio controls"
+          {!listen.playing && !listen.pending && listen.narration.status !== 'error' && <button type="button" className="lab-desktop-audio-dismiss" aria-label="Close audio controls"
             onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" /></svg></button>}
         </section>
       )}
 
-      {chromeV2 && showPhoneChrome && audioBarActive && !listen.playing && !listen.pending && listen.narration.status !== 'error' && !phoneAsk && <button
-        type="button" className="lab-audio-dismiss" aria-label="Close audio controls"
-        onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}
-      >×</button>}
-
       {(audioBarActive || desktopAudioBarActive) && speedPopoverOpen && (
-        <section
-          id="lab-audio-speed-popover"
-          className="lab-audio-speed-popover"
-          data-testid="lab-audio-speed-popover"
-          aria-label="Playback speed"
-        >
-          <div className="lab-audio-speed-heading">
-            <span>Playback speed</span>
-            <output htmlFor="lab-audio-speed-slider">{listen.speed}×</output>
-            {chromeV2 && <button type="button" className="lab-audio-speed-done" onClick={() => setSpeedPopoverOpen(false)}>Done</button>}
-          </div>
-          <input
-            id="lab-audio-speed-slider"
-            className={chromeV2 ? 'lab-v2-slider' : undefined}
-            data-testid="lab-audio-speed-slider"
-            type="range"
-            min="0.5"
-            max="3"
-            step="0.25"
-            value={listen.speed}
-            aria-label="Playback speed"
-            onChange={(event) => listen.setSpeed(Number(event.target.value))}
-          />
-          <div className="lab-audio-speed-scale" aria-hidden="true">
-            <span>0.5×</span>
-            <span>1×</span>
-            <span>2×</span>
-            <span>3×</span>
-          </div>
-        </section>
+        <LabAudioSpeedPopover speed={listen.speed} onChange={listen.setSpeed} anchorRef={speedButtonRef} desktop={!showPhoneChrome} />
       )}
 
-      {chromeV2 && ask.notice && !(showPhoneChrome ? phoneAsk : desktopAskOpen) && !callOpen && (
+      {ask.notice && !(showPhoneChrome ? phoneAsk : desktopAskOpen) && !callOpen && (
         <aside className="lab-v2-notice" role="alert" data-testid="lab-voice-notice">
           <p>{ask.notice}</p>
           <button type="button" className="lab-v2-notice-dismiss" onClick={ask.dismissNotice} aria-label="Dismiss message">×</button>
@@ -5072,22 +8262,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         </aside>
       )}
       {showPhoneBar && (
-        <footer className="lab-phone-bar" data-testid="lab-phone-bar">
-          {!chromeV2 && ask.notice && !phoneAsk && (
-            <p className="lab-phone-notice" data-testid="lab-voice-notice">{ask.notice}</p>
-          )}
-          <div className={`lab-phone-bar-row ${audioBarActive ? 'is-audio has-5' : `is-read ${mobileCompareEnabled ? 'has-4' : 'has-3'}`}`}>
+        <footer className={`lab-phone-bar${phonePausedCloseAllowed ? ' is-swipe-closable' : ''}`} data-testid="lab-phone-bar" ref={phoneBarSwipe.ref} {...phoneBarSwipe.handlers}>
+          <div className={`lab-phone-bar-row ${audioBarActive ? 'is-audio has-5' : 'is-read has-3'}`}>
             {audioBarActive ? (
-              // V2 reads speed · back · pause · forward · Talk, with the
-              // pause where a thumb sits; V1 keeps the order it ships with.
-              <>{(chromeV2
-                ? ['speed', 'back', 'pause', 'forward', 'talk'] as const
-                : ['pause', 'back', 'speed', 'forward', 'talk'] as const
-              ).map(control => ({
+              // Speed · back · pause · forward · Talk, with the pause where a
+              // thumb sits.
+              <>{(['speed', 'back', 'pause', 'forward', 'talk'] as const).map(control => ({
                 pause: (
-                  <button key="pause" type="button" className="lab-phone-fat lab-audio-control is-active" onClick={handleBarListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : chromeV2 ? (listen.playing ? 'Pause audiobook' : 'Resume audiobook') : 'Pause and return to reading'} data-testid="lab-listen">
-                    <span data-testid="lab-hearing-pause" className="lab-visually-hidden">{chromeV2 && !listen.playing ? 'Resume' : LAB_COPY.pause}</span>
-                    {listen.loading ? <LoadingIcon size={21} /> : listen.pending || (chromeV2 && !listen.playing) ? <PlayIcon size={21} /> : <PauseIcon size={21} />}
+                  <button key="pause" type="button" className="lab-phone-fat lab-audio-control is-active" onClick={handleBarListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : listen.playing ? 'Pause audiobook' : 'Resume audiobook'} data-testid="lab-listen">
+                    <span data-testid="lab-hearing-pause" className="lab-visually-hidden">{!listen.playing ? 'Resume' : LAB_COPY.pause}</span>
+                    {listen.loading || listen.buffering ? <LoadingIcon size={21} /> : listen.pending || !listen.playing ? <PlayIcon size={21} /> : <PauseIcon size={21} />}
                   </button>
                 ),
                 back: (
@@ -5098,6 +8282,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 speed: (
                   <button
                     key="speed"
+                    ref={speedButtonRef}
                     type="button"
                     className="lab-phone-fat lab-audio-control lab-audio-speed"
                     data-testid="lab-hearing-speed"
@@ -5126,8 +8311,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                   type="button"
                   className="lab-phone-fat"
                   onClick={handleBarListen}
-                  aria-label={listen.pending ? 'Cancel audio loading' : barPrimaryLabel}
-                  aria-busy={listen.pending || undefined}
+                  aria-label={narrationInfo?.loading && !mobileCompareActive && !barReturnsFromConversation ? 'Loading audio options' : listen.pending ? 'Cancel audio loading' : barPrimaryLabel}
+                  disabled={narrationInfo?.loading === true && !mobileCompareActive && !barReturnsFromConversation}
+                  aria-busy={narrationInfo?.loading && !mobileCompareActive && !barReturnsFromConversation || listen.pending || undefined}
                   data-reader-action={mobileCompareActive ? 'read' : 'listen'}
                   data-testid="lab-listen"
                 >
@@ -5137,24 +8323,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                     </span>
                   ) : (
                     <span className="lab-header-play" data-testid="lab-listen-play" aria-hidden="true">
-                      {listen.loading ? <LoadingIcon size={18} /> : <PlayIcon size={18} />}
+                      {narrationInfo?.loading || listen.loading ? <LoadingIcon size={18} /> : <PlayIcon size={18} />}
                     </span>
                   )}
                   {barPrimaryLabel}
                 </button>
-                {mobileCompareEnabled && (
-                  <button
-                    type="button"
-                    className={`lab-phone-fat ${mobileCompareActive ? 'is-active' : ''}`}
-                    onClick={handleMobileCompare}
-                    aria-label={mobileCompareActive ? `Return to ${primaryEditionLabel}` : `Compare with ${compareEditionLabel}`}
-                    aria-pressed={mobileCompareActive}
-                    data-testid="lab-phone-compare"
-                  >
-                    <CompareIcon />
-                    {LAB_COPY.compare}
-                  </button>
-                )}
+                {/* Compare has no bar button on a phone: it is reached from Book settings only (Anders, 2026-11-06). */}
                 <button
                   type="button"
                   className={`lab-phone-fat ${phoneAsk && !ask.voiceActive ? 'is-active' : ''}`}
@@ -5176,15 +8350,21 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               </>
             )}
           </div>
+          {/* The paused player's grab handle, centred above it: a tap closes
+              it, as does a swipe down on the bar. */}
+          {phonePausedCloseAllowed && <button
+            type="button" className="lab-audio-handle" data-testid="lab-audio-handle" aria-label="Close audio controls"
+            onClick={closePausedTransport}
+          />}
         </footer>
       )}
       </div>}
 
       <LabVoiceActionPanel
-        active={ask.voiceActive && !(chromeV2 && callOpen)}
+        active={ask.voiceActive && !callOpen}
         view={voiceLabView}
         darkMode={resolvedDarkMode}
-        fontSize={prefs.fontSize}
+        fontSize={readingFontSize}
         audioSpeed={listen.speed}
         fixtureEnabled={voiceHistoryFixture}
         onFixtureEnabled={setVoiceHistoryFixture}
@@ -5215,74 +8395,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         <span>{audioHeld && !isAudioHeld(book.bookId || 'bible', audioEditionKey) ? 'Audio is temporarily unavailable for this chapter. Other chapters are available. You can keep reading.' : 'Audio is temporarily unavailable for this edition. You can keep reading.'}</span>
         <button type="button" onClick={() => setAudioUnavailableNotice(false)} aria-label="Dismiss audio notice">×</button>
       </div>}
-      <LabSettingsSheet
-        open={gearOpen}
-        section={settingsSection}
-        onSection={setSettingsSection}
-        onClose={() => setGearOpen(false)}
-        prefs={displayPrefs}
-        phoneShakespeare={phoneShakespeare}
-        onPrefs={updatePrefs}
-        editions={bookEditions.filter(edition => isEditionDiscoverable(book.bookId || 'bible', edition) || edition.key === prefs.primaryEdition || edition.key === prefs.compareEdition)}
-        unavailableEditionKeys={bookEditions.filter(edition => !isEditionDiscoverable(book.bookId || 'bible', edition)).map(edition => edition.key)}
-        audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
-        onOpenThisBook={() => {
-          setGearOpen(false)
-          setPhoneAskOpen(false)
-          setInTheBookOpen(true)
-          setPeekBook(chrome === 'hearing')
-        }}
-        desktop={!showPhoneChrome}
-        returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
-        onLeaveToLibrary={rememberLibraryPlace}
-      />
-
       <LabAccountSheet
         open={accountPrompt !== null}
         action={accountPrompt?.action ?? 'chat'}
-        returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
+        returnTo={signInReturnTo}
         onClose={closeAccountPrompt}
         desktop={!showPhoneChrome}
       />
 
-      {prefaceCoverBook === book.bookId && approvedPreface && <LabBookPreface
-        open={prefaceVisible && accountPrompt === null}
-        key={approvedPreface.bookId}
-        preface={approvedPreface} title={book.bookTitle} cover={`/covers/v2/${approvedPreface.bookId}.webp`}
-        continued={readerHandoff ? Boolean(readerHandoff.savedPlace && !readerHandoff.startAtSavedPlace) : Boolean(boot.resume)}
-        ready={!initialResolving && book.paragraphs.length > 0}
-        cast={book.cast}
-        editions={bookEditions}
-        audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
-        audioChoice={prefs.audioFollowsPrimary === false ? prefs.audioEdition : ''}
-        onAudioChoice={value => updatePrefs({ ...prefs, audioEdition: value || prefs.primaryEdition, audioFollowsPrimary: value === '' })}
-        primaryEdition={prefs.primaryEdition}
-        secondaryEdition={prefs.compareOpen ? prefs.compareEdition : ''}
-        onEditions={(primary, secondary) => updatePrefs({ ...prefs, primaryEdition: primary, compareEdition: secondary || prefs.compareEdition, compareOpen: Boolean(secondary) })}
-        onBack={() => setPrefaceCoverBook(null)}
-        onAsk={(question) => {
-          preparationReturnRef.current = book.bookId || 'bible'
-          setPreparationCompanion(true)
-          setPreparationChat(true)
-          setDraft(question)
-          handleChat()
-        }}
-        onTalk={() => {
-          preparationReturnRef.current = book.bookId || 'bible'
-          setPreparationCompanion(true)
-          handleTalk()
-        }}
-        onRead={() => {
-          setPrefaceCoverBook(null)
-          if (chapterCoverTitle === book.bookTitle) goNext()
-          // Programmatic focus is useful for a hardware keyboard, but WebKit
-          // paints it as a focus-visible ring after a touch-only book entry.
-          if (typeof window !== 'undefined' && window.matchMedia?.('(pointer: fine)').matches) {
-            requestAnimationFrame(() => labRootRef.current?.querySelector<HTMLButtonElement>('[data-testid="lab-header-chapter"]')?.focus({ preventScroll: true }))
-          }
-        }}
-      />}
-      {chromeV2 && <LabContentsV2
+      <LabContentsV2
         onSwitchBook={openBookSwitcher}
         open={tocOpen}
         bookId={book.bookId || 'bible'}
@@ -5292,103 +8413,195 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         chapters={book.chapters}
         chaptersReady={!book.chaptersProvisional}
         sections={book.sections}
+        figures={book.figures}
         currentChapter={book.chapterNumber}
         currentPage={chapterProgress.currentPage}
         totalPages={chapterProgress.totalPages}
-        currentPercent={chapterProgress.percent}
+        currentPercent={continuousReader ? continuousPercent : chapterProgress.percent}
         statuses={pickerStatuses}
+        modernStates={prefs.primaryEdition === MODERN_EDITION_KEY && modern.status?.state === 'paid' ? modern.status.chapters : undefined}
         conversations={ask.conversations}
         historyStatus={ask.historyStatus}
         highlights={highlightsApi.highlights}
         unassignedHighlights={highlightsApi.unassignedHighlights}
+        chapterNotes={highlightsApi.chapterNotes}
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
-        onOpenPassage={place => openContentsPassage(place)}
-        onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
-        onOpenCover={() => {
-          listen.pause()
-          setTocOpen(false)
-          setPrefaceCoverBook(null)
-          setChapterCoverTitle(book.bookTitle)
-        }}
-        onOpenPreface={approvedPreface ? () => {
-          listen.pause()
-          setTocOpen(false)
-          // Keep the real cover mounted behind the dialog. The preface's Back
-          // transition measures this exact target before returning to it.
-          setChapterCoverTitle(book.bookTitle)
-          setPrefaceCoverBook(book.bookId || 'bible')
-        } : undefined}
+        onOpenPassage={place => openFromNotebook(place, { paragraphIndex: place.paragraphIndex, endParagraphIndex: place.paragraphIndex, fromWord: place.wordIndex, toWord: place.wordIndex + 1 })}
+        onOpenHighlight={highlight => openFromNotebook({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, highlight)}
+        onContinueConversation={openNotebookConversation}
+        onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
+        notebook={contentsNotebook}
+        search={contentsSearch}
+        notebookRecovery={ownNotebookRecovery}
+        sharedNotebook={sharedReader}
+        legacyOwnEpubItems={sharedReader && userBook && userBook.kind !== 'pdf' ? legacyOwnEpubItems : undefined}
+        onDeleteNotebookItem={sharedReader ? item => {
+          if (item.kind === 'card') return ask.deleteCard(item.id)
+          const mark = highlightsApi.allHighlights.find(entry => entry.id === item.id)
+          if (!mark || mark.bookId !== (book.bookId || 'bible')) return null
+          const saved = highlightsApi.allHighlights.filter(entry => entry.id === mark.id || (mark.groupId && entry.groupId === mark.groupId))
+          if (!highlightsApi.remove(item.id)) return null
+          return () => highlightsApi.restore(saved)
+        } : undefined}
         onClose={() => setTocOpen(false)}
-      />}
-      {tocOpen && !chromeV2 && (
-        <div className="lab-toc" data-testid="lab-toc">
-          <LabPhoneBibleTree
-            quickBookNavigation={chromeV2}
-            title={book.bookTitle}
-            chapters={book.chapters}
-            currentChapter={book.chapterNumber}
-            sections={book.sections}
-            finishedChapters={labFinishedChapterSet(pickerStatuses)}
-            statuses={pickerStatuses}
-            highlights={highlightsApi.highlights}
-            conversations={ask.conversations}
-            onSelectChapter={(number) => {
-              setTocOpen(false)
-              if (listen.playing) void browseToChapter(number, 'start')
-              else void goToChapter(number, 'start')
-            }}
-            onWarmChapter={warmChapterTexts}
-            onSelectHighlight={(highlight) => {
-              setTocOpen(false)
-              pendingMapHighlightRef.current = highlight
-              void goToChapter(highlight.chapterNumber, 'start')
-            }}
-            onOpenConversation={() => {
-              setTocOpen(false)
-              handleChat()
-            }}
-            onNewConversation={(number) => {
-              setTocOpen(false)
-              void goToChapter(number, 'start').then(() => window.setTimeout(handleChat, 0))
-            }}
-            onClose={() => setTocOpen(false)}
-          />
-        </div>
-      )}
-
-      {showPhoneChrome && !voiceCallSurface && voiceGate !== 'off' && (
-        <LabVoiceGate phase={voiceGate === 'ready' ? 'ready' : 'connecting'} />
-      )}
-
-      {callFullScreen && (
+      />
+      {callFullScreen && !marginPhone && (
         <LabVoiceCall
-          preparationWelcome={preparationCompanion ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined}
           view={callView}
+          context={talkContext}
           getAssistantLevel={ask.getAssistantLevel}
           reducedMotion={reducedMotion}
           notice={ask.notice}
-          bookLine={callBookLine}
-          utterance={callUtterance}
           onMuteToggle={toggleCallMute}
           onEnd={endCall}
           onReconnect={reconnectCall}
+          talkSpeed={ask.talkSpeed}
+          onTalkSpeedChange={ask.setTalkSpeed}
         />
       )}
 
-      {voiceOverlayOpen && (
-        <LabConversationOverlay
-          state={ask.conversationState}
-          notice={ask.notice}
-          onLeave={leaveTalking}
-          onActivate={handleOrb}
+      {selectionPopup && marginPhone && popupMode === 'character' && selectionPopup.character && (
+        <LabPhoneCard label={phoneCardLabel('People', selectionPopup.chapterLabel)} kind="character" testId="lab-phone-character" onClose={() => leaveSelectionInfo()}>
+          <PhoneCharacterBody key={`${selectionPopup.character.card.id}:${selectionPopup.openedAt}`} character={selectionPopup.character} renderFollow={shown => {
+            const passage = phonePassageOf(selectionPopup)
+            const at = selectionPopup.openedAt ?? 0
+            const id = `react_character_${at}_${shown.id}`
+            const conversationId = `mc_${id}`
+            const keep = () => {
+              const range = passage.ranges?.find(part => part.chapterNumber === passage.chapterNumber)?.range
+              ask.saveCard({ source: { kind: 'catalogue', bookId: book.bookId || 'bible' }, id, kind: 'define',
+                ...(range ? { anchor: { editionKey: passage.editionKey, chapterNumber: passage.chapterNumber,
+                  paragraphIndex: range.paragraphIndex, fromWord: range.fromWord, endParagraphIndex: range.endParagraphIndex, toWord: range.toWord } } : {}),
+                chapterNumber: passage.chapterNumber, text: passage.text,
+                turns: [{ role: 'assistant', content: `${shown.name}: ${shown.subtitle}\n\n${shown.body}` }], at, u: Date.now() })
+              return ask.revealConversation(conversationId)
+            }
+            return <PhoneFollowField draft={draftStore} onChange={text => { dictation.stop(); setDraft(text) }}
+              onSend={question => {
+                const saved = keep()
+                dictation.stop()
+                void ask.sendTyped(question, undefined, undefined, { highlightedText: passage.text, conversationId,
+                  sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex },
+                  onAccepted: () => { leaveSelectionInfo(); setContentsConversation(saved); setDesktopContinuationId(conversationId); setDraft(''); setPhoneAskOpen(true) },
+                })
+              }} onMic={handleMic} micOn={dictation.state !== 'idle'}
+              onTalk={() => { keep(); setDesktopContinuationId(conversationId); ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }}
+              inputRef={phoneFieldRef} disabled={ask.typedLoading} />
+          }} />
+        </LabPhoneCard>
+      )}
+      {selectionPopup && marginPhone && popupMode === 'define' && renderPhoneCard({
+        kind: 'define', passage: phonePassageOf(selectionPopup), word: selectionPopup.defineText || selectionPopup.text,
+        namesakes: selectionPopup.namesakes, openedAt: selectionPopup.openedAt ?? 0,
+      }, true)}
+      {selectionPopup && marginPhone && popupMode !== 'character' && popupMode !== 'define' && (
+        <LabPhoneBar
+          text={selectionPopup.text}
+          fallbackY={selectionPopup.y}
+          existingColor={selectionPopup.existingHighlightId ? highlightsApi.allHighlights.find(highlight => highlight.id === selectionPopup.existingHighlightId)?.color ?? lastHighlightColor() : undefined}
+          noted={!!(selectionPopup.existingHighlightId && highlightsApi.allHighlights.find(highlight => highlight.id === selectionPopup.existingHighlightId)?.note)}
+          onAsk={() => phoneBarAsk()}
+          onExplain={() => phoneBarAction('explain')}
+          onSimplify={() => phoneBarAction('simplify')}
+          onMore={phoneBarAction}
+          onHighlight={phoneBarHighlight}
+          onNote={phoneBarNote}
+          onRemove={() => { if (selectionPopup.existingHighlightId) highlightsApi.remove(selectionPopup.existingHighlightId); dismissSelectionPopup() }}
+          onShowPage={ownPdf && selectionPopup.range && !selectionPopup.side
+            ? () => { const range = selectionPopup.range!; setSelectionPopup(null); openPdfPages({ chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber, paragraphIndex: range.paragraphIndex, wordIndex: range.fromWord }) }
+            : undefined}
+          onDismiss={dismissSelectionPopup}
         />
       )}
+      {(marginPhone || sharedReader) && !continuousReader && phoneCard && renderPhoneCard(phoneCard)}
+      {continuousReader && <SourceMarginRail host={marginHost} entries={withFirstHint(desktopMarginEntries)} onBlankNote={openBlankMarginNote} />}
+      {continuousReader && marginUndo && !highlightUndoNotice && <div className="source-margin-undo" role="status">Deleted. <button onClick={() => { marginUndo(); setMarginUndo(null) }}>Undo</button></div>}
+      {highlightUndoNotice && <div key={highlightUndoNotice.at} className="source-margin-undo is-undone" role="status" data-testid="lab-undo-notice">{highlightUndoNotice.text}</div>}
+      <LabFigurePreview chapterNumber={book.chapterNumber} figures={book.figures ?? []} enabled={!showPhoneChrome} />
+      {notebookCard && (() => {
+        const Card = showPhoneChrome ? LabPhoneCard : LabDesktopCard
+        const saved = notebookCard
+        return <Card label={`${marginActionLabel(saved.card?.kind || 'ask')} · ${book.chapters.find(ch => ch.number === saved.chapterNumber)?.title || `Chapter ${saved.chapterNumber}`}`}
+          kind={saved.card?.kind || 'ask'} onClose={() => { setNotebookCard(null); setDraft('') }}>
+          {saved.card?.text && <p className="lab-pcard-source">{saved.card.text}</p>}
+          {saved.messages.filter(message => message.role === 'assistant').map(message => <div key={message.id} className="lab-pcard-answer">{saved.card?.kind === 'define' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
+          <button type="button" className="lab-pcard-link" onClick={() => {
+            setNotebookCard(null)
+            openFromNotebook({ chapterNumber: saved.chapterNumber, paragraphIndex: saved.card?.anchor?.paragraphIndex ?? saved.paragraphIndex ?? 0, wordIndex: saved.card?.anchor?.fromWord ?? 0 }, saved.card?.anchor)
+          }}>Show passage</button>
+          {saved.card?.kind !== 'quiz' && <PhoneFollowField draft={draftStore} onChange={setDraft} disabled={ask.typedLoading} onSend={question => {
+            ask.revealConversation(saved.id)
+            void ask.sendTyped(question, undefined, undefined, { conversationId: saved.id, highlightedText: saved.card?.text,
+              onAccepted: () => { setNotebookCard(null); setContentsConversation(saved); setDesktopContinuationId(saved.id); setDraft(''); setPhoneAskOpen(showPhoneChrome); setDesktopAskOpen(!showPhoneChrome) } })
+          }} />}
+        </Card>
+      })()}
+      {marginPhone && phoneAsk && (
+        <LabPhoneCard label="Chat" kind="chat" closeLabel="Close chat" onClose={() => { dictation.stop(); closePhoneAsk() }}>
+          {askPaneElement}
+        </LabPhoneCard>
+      )}
+      {marginPhone && callFullScreen && (
+        <LabPhoneCard label={phoneCardLabel('Talk')} kind="talk" onClose={endCall}>
+          <PhoneTalkFrame>{orbSize => (
+            <LabVoiceCall
+              view={callView}
+              getAssistantLevel={ask.getAssistantLevel}
+              reducedMotion={reducedMotion}
+              notice={ask.notice}
+              onMuteToggle={toggleCallMute}
+              onEnd={endCall}
+              onReconnect={reconnectCall}
+              talkSpeed={ask.talkSpeed}
+              onTalkSpeedChange={ask.setTalkSpeed}
+              orbSize={orbSize}
+            />
+          )}</PhoneTalkFrame>
+        </LabPhoneCard>
+      )}
 
-      {selectionPopup && (
+      {selectionPopup && !marginPhone && (
         <SelectionPopup
+          sharedReader={sharedReader}
+          saveError={cardSaveWarning}
           selection={selectionPopup}
           popupRef={popupRef}
+          onDictateAsk={sharedReader ? dictateDeskAsk : undefined}
+          dictatingAsk={dictation.state !== 'idle' && !!deskDictationRef.current}
+          onAskQuestion={sharedReader ? question => {
+            const passage = phonePassageOf(selectionPopup)
+            if (continuousReader) {
+              const openedAt = Date.now()
+              openPhoneCard({ kind: 'ask', passage, openedAt })
+              dictation.stop()
+              void ask.sendTyped(question, undefined, undefined, {
+                highlightedText: passage.text, conversationId: `mc_react_${openedAt}`,
+                sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex },
+              })
+              return
+            }
+            closePhoneCard()
+            setDesktopOpenId(null)
+            setSelectionPopup(null)
+            setDesktopContinuationId(null)
+            setContentsConversation(null)
+            setDraft('')
+            setPhoneAskOpen(showPhoneChrome)
+            setDesktopAskOpen(!showPhoneChrome)
+            dictation.stop()
+            void ask.sendTyped(question, undefined, undefined, {
+              highlightedText: passage.text, conversationId: null, sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex },
+              onAccepted: () => setDraft(''),
+            })
+          } : undefined}
+          onPassageAction={sharedReader ? phoneBarAction : undefined}
+          onPassageNote={sharedReader ? phoneBarNote : undefined}
+          onPassageAsk={sharedReader ? phoneBarAsk : undefined}
+          onQuizPassage={sharedReader ? () => phoneBarAction('quiz') : undefined}
+          onShowPage={ownPdf && selectionPopup.range && !selectionPopup.side
+            ? () => { const range = selectionPopup.range!; setSelectionPopup(null); openPdfPages({ chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber, paragraphIndex: range.paragraphIndex, wordIndex: range.fromWord }) }
+            : undefined}
           popupMode={popupMode}
           setPopupMode={setPopupMode}
           currentHighlightColor={selectionPopup.existingHighlightId
@@ -5435,24 +8648,36 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             }
             setPopupMode('note')
           }}
-          onExplanationReady={(answer) => ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })}
+          onExplanationReady={(answer) => saveExplanation({ bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber, paragraphIndex: selectionPopup.paragraphIndex, passage: selectionPopup.text, answer })}
           onExplain={(answer) => {
             const text = selectionPopup.text
             if (answer) ask.keepExplanation(text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
             handleChat()
-            setAskAttachment({ bookId: book.bookId, text })
+            setAskAttachment({ bookId: book.bookId || 'bible', text })
             setDraft('')
           }}
           onTalkExplanation={(answer) => {
             ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
-            // Let the explanation enter the hook's context before starting voice.
+            // Let the explanation enter the hook's context before starting voice;
+            // the microphone is asked for now, in the tap (Safari).
+            ask.primeVoice()
             requestAnimationFrame(() => handleTalk())
           }}
           onRequestExplanation={(onDelta, text, intent) => {
+            const selected = selectionPopup
+            const requestAt = Date.now()
+            if (sharedReader) setSharedCardSaveError(false)
             const editionKey = selectionPopup.editionKey || readerEditionKey
             const compare = editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition
+            const cardKey = JSON.stringify([book.bookId, selected.chapterNumber ?? book.chapterNumber, editionKey,
+              selected.paragraphIndex, selected.range?.fromWord, selected.range?.toWord, intent, text ?? selected.text])
+            let cardRequest = desktopCardRequestRef.current
+            if (!cardRequest || cardRequest.key !== cardKey) {
+              cardRequest = { key: cardKey, id: `react_desk_${requestAt}`, at: requestAt }
+              desktopCardRequestRef.current = cardRequest
+            }
             return ask.explainSelection({
               text: text ?? selectionPopup.text,
               intent,
@@ -5461,7 +8686,30 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               paragraphs: selectionPopup.paragraphs ?? (compare ? book.compareParagraphs : book.paragraphs),
               chapterNumber: selectionPopup.chapterNumber, chapterLabel: selectionPopup.chapterLabel,
               paragraphIndex: selectionPopup.paragraphIndex,
-            }, onDelta)
+            }, onDelta).then(answer => {
+              if (sharedReader && answer.trim()) {
+                // The contextual card may subscribe twice while its shell
+                // changes modes. Both subscriptions share one answer and one
+                // stable Notebook identity, with exactly one completed write.
+                if (cardRequest.savedAnswer === answer) return answer
+                const range = selected.range
+                const chapterNumber = selected.chapterNumber ?? book.chapterNumber
+                const saved = ask.saveCard({
+                  source: userBook
+                    ? { kind: 'own-text', bookId: userBook.bookId, ownHex: userBook.hex, converter: userBook.edition.converter, editionKey: ownSourceEditionKey(userBook.edition) as 'own' | 'own-en' | 'own-da' }
+                    : { kind: 'catalogue', bookId: book.bookId || 'bible' },
+                  id: cardRequest.id, kind: intent || 'explain', chapterNumber,
+                  ...(range ? { anchor: { editionKey, chapterNumber,
+                    paragraphIndex: range.paragraphIndex, fromWord: range.fromWord,
+                    endParagraphIndex: range.endParagraphIndex, toWord: range.toWord } } : {}),
+                  text: text ?? selected.text, turns: [{ role: 'assistant', content: answer }],
+                  at: cardRequest.at, u: Date.now(),
+                })
+                if (saved) cardRequest.savedAnswer = answer
+                setSharedCardSaveError(!saved)
+              }
+              return answer
+            })
           }}
           onCopy={() => {
             const text = selectionPopup.text
@@ -5483,8 +8731,43 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             highlightsApi.remove(id)
             dismissSelectionPopup()
           }}
+          onShareHighlight={privateBook ? undefined : (id) => {
+            const mark = highlightsApi.highlights.find(h => h.id === id) ?? highlightsApi.compareHighlights.find(h => h.id === id)
+            dismissSelectionPopup()
+            if (!mark) return
+            const editionKey = mark.editionKey || selectionPopup.editionKey || readerEditionKey
+            setShareTarget({
+              bookId: mark.bookId || book.bookId || 'bible', editionKey, editionLabel: editionLabelFor(editionKey, allBookEditions),
+              chapterNumber: mark.chapterNumber, paragraphIndex: mark.paragraphIndex, fromWord: mark.fromWord,
+              endParagraphIndex: mark.endParagraphIndex, toWord: mark.toWord,
+            })
+          }}
           dismissPopup={dismissSelectionPopup}
           lab
+          keyboardDock={isPhone || showPhoneChrome}
+          darkBar={!(isPhone || showPhoneChrome)}
+        />
+      )}
+      {chapterNoteEditor && (
+        <LabChapterNoteEditor
+          key={chapterNoteEditor.bookId + ':' + chapterNoteEditor.chapterNumber}
+          initialNote={highlightsApi.chapterNotes.find(note => note.chapterNumber === chapterNoteEditor.chapterNumber)?.note ?? ''}
+          keyboardDock={isPhone || showPhoneChrome}
+          anchor={chapterNoteEditor}
+          onSave={note => highlightsApi.setChapterNote(chapterNoteEditor.chapterNumber, note)}
+          onClose={() => setChapterNoteEditor(null)}
+        />
+      )}
+
+      {openFootnote && <LabFootnote open={openFootnote} onClose={() => setOpenFootnote(null)} />}
+
+      {shareTarget && (
+        <LabShareSheet
+          target={shareTarget}
+          format={isPhone ? 'phone' : 'desktop'}
+          align={readingAlignment}
+          look={typeof document !== 'undefined' && document.documentElement.dataset.eink === 'true' ? 'eink' : resolvedDarkMode ? 'night' : prefs.theme === 'book' ? 'book' : 'paper'}
+          onClose={() => setShareTarget(null)}
         />
       )}
 
@@ -5504,6 +8787,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         {listen.playing ? `playing:${listen.clipIndex}` : 'stopped'}
       </p>
     </div>
+    </MarginPhoneContext.Provider>
   )
 }
 

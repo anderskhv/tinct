@@ -3,8 +3,9 @@ import { build } from 'esbuild'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 
-const live = process.env.READER_LIVE === '1', origin = 'https://tinct.app'
+const live = process.env.READER_LIVE === '1', origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/book-transition'
 await fs.mkdir(output, { recursive: true })
 const bundled = await build({ stdin: { contents: "export { chunkNarrationText, narrationTextForParagraph, sha256Hex } from './src/narration/narrationCore'", resolveDir: process.cwd() },
@@ -16,7 +17,7 @@ const incoming = edition.chapters.find(c => c.title === 'Nehemiah 1')
 const cueText = 'You have completed Ezra. Next book: Nehemiah.'
 const results = []
 for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
- const browser = await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) })
+ const browser = await markInternal(await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) }))
  try { for (const phone of [false, true]) {
   const label = engine + (phone ? '-phone' : '-desktop')
   const context = await browser.newContext({ viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, serviceWorkers: 'block' })
@@ -58,7 +59,7 @@ for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
     return route.continue()
    })
    await page.addInitScript(({ chapter, paragraph }) => {
-    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'web-en', theme: 'light', voicePersona: 'female' }))
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'web-en', theme: 'light', voicePersona: 'female', voicePersonaChosen: true }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'bible', primaryEditionKey: 'web-en', savedPlace: { bookId: 'bible', chapterNumber: chapter, paragraphIndex: paragraph, wordIndex: 0, page: 0 } }))
     window.__audioCreates = 0; window.__played = []
     class SilentAudio extends EventTarget {
@@ -75,7 +76,7 @@ for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
     HTMLMediaElement.prototype.play = async function () { this.muted = true; throw Error('Unexpected native audio') }
     if (navigator.mediaDevices) navigator.mediaDevices.getUserMedia = async () => { throw Error('Microphone disabled') }
    }, { chapter: outgoing.number, paragraph: outgoing.paragraphs.length - 1 })
-   await page.goto(origin + '/reader?chrome=v2', { waitUntil: 'domcontentloaded' })
+   await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' })
    await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
    await page.evaluate(() => document.fonts.ready)
    if (live && process.env.TINCT_EXPECTED_BUNDLE) assert((await page.content()).includes(process.env.TINCT_EXPECTED_BUNDLE))

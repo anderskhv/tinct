@@ -5,6 +5,7 @@ import {
   LAB_V2_MARK_PX,
   labTeeFrameIndexAt,
 } from './labSuperGlyph'
+import { REQUEST_DOT_CLASS } from '../social/followRequests'
 
 export interface LabSuperButtonProps {
   open: boolean
@@ -15,6 +16,12 @@ export interface LabSuperButtonProps {
   onFirstViewEnd?: () => void
   reducedMotion?: boolean
   label?: string
+  /**
+   * Someone asks to follow the reader and this device has not shown it yet
+   * (social/followRequests.ts): the library's dot, laid over the button's
+   * corner, so nothing in the header or the page moves.
+   */
+  dot?: boolean
 }
 
 const LAST_FRAME = LAB_TEE_MORPH_FRAMES.length - 1
@@ -39,6 +46,7 @@ export function LabSuperButton({
   onFirstViewEnd,
   reducedMotion = false,
   label = 'Menu',
+  dot = false,
 }: LabSuperButtonProps) {
   const frameRefs = useRef<(SVGGElement | null)[]>([])
   const shownRef = useRef(open ? LAST_FRAME : 0)
@@ -114,7 +122,7 @@ export function LabSuperButton({
       className={classes.join(' ')}
       data-testid="lab-super"
       data-open={open ? 'true' : 'false'}
-      aria-label={label}
+      aria-label={dot ? `${label}, follow request waiting` : label}
       aria-expanded={open}
       aria-haspopup="menu"
       onPointerDown={() => setPressed(true)}
@@ -167,6 +175,7 @@ export function LabSuperButton({
           </span>
         </span>
       </span>
+      {dot && <span className={`lab-super-dot ${REQUEST_DOT_CLASS}`} data-testid="lab-super-dot" aria-hidden="true" />}
     </button>
   )
 }

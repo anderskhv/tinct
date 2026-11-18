@@ -1,4 +1,5 @@
 import { apiUrl } from '../utils/apiUrl'
+import { READER_BOOT_POSITION_PREFETCH, type ReaderBootPositionPrefetch } from './readerBoot'
 import { LAB_FINISHED_STORAGE_KEY, readFinishedChapters } from './labBibleTree'
 import {
   LAB_POSITION_DEVICE_KEY,
@@ -207,8 +208,30 @@ function writeLabPositionDirty(dirty: boolean): void {
  */
 export const LAB_POSITION_FETCH_TIMEOUT_MS = 10_000
 
+/**
+ * The reader's head script may already have started this GET with the same
+ * token (readerBootEntry). Take that response once, if it is recent; a failed
+ * early request falls back to a normal one. Same request, same data.
+ */
+async function takeBootPositionPrefetch(token: string): Promise<unknown | null> {
+  if (typeof window === 'undefined') return null
+  const slot = window as unknown as Record<string, ReaderBootPositionPrefetch | undefined>
+  const early = slot[READER_BOOT_POSITION_PREFETCH]
+  if (!early) return null
+  delete slot[READER_BOOT_POSITION_PREFETCH]
+  if (early.token !== token || Date.now() - early.at > 20_000) return null
+  return early.body.catch(() => null)
+}
+
 export async function fetchLabPositionCloud(token: string | null | undefined): Promise<LabPositionState | null> {
   if (!token) return null
+  const early = await takeBootPositionPrefetch(token)
+  if (early) {
+    try {
+      preserveUnresolvedSymposiumPositions(early)
+      return await prepareLabPositionMigrations(parseLabPositionState(early, readLabDeviceId()))
+    } catch { /* Fall through to a normal request. */ }
+  }
   const controller = typeof AbortController === 'undefined' ? null : new AbortController()
   const timeout = controller && typeof setTimeout !== 'undefined'
     ? setTimeout(() => controller.abort(), LAB_POSITION_FETCH_TIMEOUT_MS)
@@ -274,6 +297,39 @@ export function createLabPositionSync(opts: {
     writeLabPositionDirty(next)
   }
 
+  // One PUT at a time. The reader asks to persist three or four times in the
+  // first seconds of opening (the merged account record written straight
+  // back, the settle, a heartbeat); each used to go out at once and took
+  // seconds behind the others (10 Oct 2026 trace). While a PUT is in flight
+  // the latest state waits and goes out once it answers; a state identical
+  // to what the account already holds (just read, or just written) is not
+  // sent at all. A keepalive write (the page is leaving) never waits.
+  let written: string | null = null
+  let inFlight: Promise<boolean> | null = null
+  let pending: { state: LabPositionState; options: LabPositionPutOptions } | null = null
+  // Key order varies between a merged record and a fresh one: compare sorted.
+  const serialized = (state: LabPositionState) => JSON.stringify(state, (_key, value: unknown) =>
+    value && typeof value === 'object' && !Array.isArray(value)
+      ? Object.fromEntries(Object.keys(value as Record<string, unknown>).sort().map(k => [k, (value as Record<string, unknown>)[k]]))
+      : value)
+
+  const send = (state: LabPositionState, options: LabPositionPutOptions): Promise<boolean> => {
+    const text = serialized(state)
+    const flight = put(opts.token!, state, options).then((ok) => {
+      if (ok) written = text
+      markDirty(!ok)
+      return ok
+    }, () => { markDirty(true); return false })
+    inFlight = flight
+    void flight.then(() => {
+      if (inFlight === flight) inFlight = null
+      const next = pending
+      pending = null
+      if (next && serialized(next.state) !== written && isOnline()) void send(next.state, next.options)
+    })
+    return flight
+  }
+
   return {
     persist(state: LabPositionState, options: LabPositionPutOptions = {}) {
       last = writeLabPositionLocal(state)
@@ -282,17 +338,23 @@ export function createLabPositionSync(opts: {
         markDirty(true)
         return
       }
-      void put(opts.token, state, options).then((ok) => {
-        markDirty(!ok)
-      })
+      if (serialized(state) === written) { pending = null; return }
+      if (inFlight && !options.keepalive) { pending = { state, options }; return }
+      void send(state, options)
+    },
+    /** The account's record as just read: persisting the same state again sends nothing. */
+    noteWritten(state: LabPositionState | null) {
+      if (state) written = serialized(state)
     },
     async flush() {
       if (!opts.token) return false
       const state = last ?? readLabPositionLocal()
       if (!state.updatedAt) return false
-      const ok = await put(opts.token, state)
-      if (ok) markDirty(false)
-      return ok
+      pending = null
+      // A dirty record is one whose PUT failed or whose answer was never seen
+      // (a keepalive as the page left): it goes out again, identical or not.
+      if (!dirty && !readLabPositionDirty() && serialized(state) === written) return true
+      return send(state, {})
     },
     isDirty: () => dirty,
     canWriteCloud: () => Boolean(opts.token),

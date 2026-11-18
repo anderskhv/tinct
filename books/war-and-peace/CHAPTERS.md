@@ -35,7 +35,7 @@
 | 25 | Book One (1805) — Chapter XXV | 45 | 3595 | At Bald Hills, Prince Nicholas Andréevich Bolkónski’s estate... |
 | 26 | Book One (1805) — Chapter XXVI | 50 | 1951 | The gray-haired valet was sitting drowsily listening to the ... |
 | 27 | Book One (1805) — Chapter XXVII | 34 | 1561 | At the appointed hour the prince, powdered and shaven, enter... |
-| 28 | Book Two (1805) — Chapter XXVIII | 97 | 3280 | Prince Andrew was to leave next evening. The old prince, not... |
+| 28 | Book One (1805) — Chapter XXVIII | 97 | 3280 | Prince Andrew was to leave next evening. The old prince, not... |
 | 29 | Book Two (1805) — Chapter I | 39 | 1680 | In October, 1805, a Russian army was occupying the villages ... |
 | 30 | Book Two (1805) — Chapter II | 86 | 2619 | “He’s coming!” shouted the signaler at that moment.... |
 | 31 | Book Two (1805) — Chapter III | 61 | 2406 | On returning from the review, Kutúzov took the Austrian gene... |
@@ -56,7 +56,7 @@
 | 46 | Book Two (1805) — Chapter XVIII | 14 | 1676 | Prince Bagratión, having reached the highest point of our ri... |
 | 47 | Book Two (1805) — Chapter XIX | 24 | 2071 | The attack of the Sixth Chasseurs secured the retreat of our... |
 | 48 | Book Two (1805) — Chapter XX | 40 | 2175 | The infantry regiments that had been caught unawares in the ... |
-| 49 | Book Three (1805) — Chapter XXI | 70 | 2864 | The wind had fallen and black clouds, merging with the powde... |
+| 49 | Book Two (1805) — Chapter XXI | 70 | 2864 | The wind had fallen and black clouds, merging with the powde... |
 | 50 | Book Three (1805) — Chapter I | 37 | 3429 | Prince Vasíli was not a man who deliberately thought out his... |
 | 51 | Book Three (1805) — Chapter II | 52 | 3353 | In November, 1805, Prince Vasíli had to go on a tour of insp... |
 | 52 | Book Three (1805) — Chapter III | 71 | 3109 | Old Prince Nicholas Bolkónski received a letter from Prince ... |
@@ -75,7 +75,7 @@
 | 65 | Book Three (1805) — Chapter XVI | 25 | 1464 | Kutúzov accompanied by his adjutants rode at a walking pace ... |
 | 66 | Book Three (1805) — Chapter XVII | 45 | 1912 | On our right flank commanded by Bagratión, at nine o’clock t... |
 | 67 | Book Three (1805) — Chapter XVIII | 45 | 2610 | Rostóv had been ordered to look for Kutúzov and the Emperor ... |
-| 68 | Book Four (1806) — Chapter XIX | 43 | 1563 | On the Pratzen Heights, where he had fallen with the flagsta... |
+| 68 | Book Three (1805) — Chapter XIX | 43 | 1563 | On the Pratzen Heights, where he had fallen with the flagsta... |
 | 69 | Book Four (1806) — Chapter I | 95 | 2891 | Early in the year 1806 Nicholas Rostóv returned home on leav... |
 | 70 | Book Four (1806) — Chapter II | 36 | 2257 | On his return to Moscow from the army, Nicholas Rostóv was w... |
 | 71 | Book Four (1806) — Chapter III | 20 | 1889 | On that third of March, all the rooms in the English Club we... |
@@ -91,7 +91,7 @@
 | 81 | Book Four (1806) — Chapter XIII | 34 | 1180 | For two days after that Rostóv did not see Dólokhov at his o... |
 | 82 | Book Four (1806) — Chapter XIV | 26 | 1076 | An hour and a half later most of the players were but little... |
 | 83 | Book Four (1806) — Chapter XV | 34 | 1235 | To say “tomorrow” and keep up a dignified tone was not diffi... |
-| 84 | Book Five (1806 - 07) — Chapter XVI | 49 | 1257 | It was long since Rostóv had felt such enjoyment from music ... |
+| 84 | Book Four (1806) — Chapter XVI | 49 | 1257 | It was long since Rostóv had felt such enjoyment from music ... |
 | 85 | Book Five (1806 - 07) — Chapter I | 18 | 1277 | After his interview with his wife Pierre left for Petersburg... |
 | 86 | Book Five (1806 - 07) — Chapter II | 51 | 2315 | “I have the pleasure of addressing Count Bezúkhov, if I am n... |
 | 87 | Book Five (1806 - 07) — Chapter III | 55 | 2630 | On reaching Petersburg Pierre did not let anyone know of his... |
@@ -113,7 +113,7 @@
 | 103 | Book Five (1806 - 07) — Chapter XIX | 32 | 1534 | Having returned to the regiment and told the commander the s... |
 | 104 | Book Five (1806 - 07) — Chapter XX | 35 | 1417 | Rostóv had come to Tilsit the day least suitable for a petit... |
 | 105 | Book Five (1806 - 07) — Chapter XXI | 43 | 1720 | The Emperor rode to the square where, facing one another, a ... |
-| 106 | Book Six (1808 - 10) — Chapter XXII | 2 | 144 | In 1809 the intimacy between “the world’s two arbiters,” as ... |
+| 106 | Book Five (1806 - 07) — Chapter XXII | 2 | 144 | In 1809 the intimacy between “the world’s two arbiters,” as ... |
 | 107 | Book Six (1808 - 10) — Chapter I | 19 | 933 | Prince Andrew had spent two years continuously in the countr... |
 | 108 | Book Six (1808 - 10) — Chapter II | 25 | 1018 | Prince Andrew had to see the Marshal of the Nobility for the... |
 | 109 | Book Six (1808 - 10) — Chapter III | 10 | 921 | Next morning, having taken leave of no one but the count, an... |
@@ -139,7 +139,7 @@
 | 129 | Book Six (1808 - 10) — Chapter XXIII | 64 | 2218 | Prince Andrew needed his father’s consent to his marriage, a... |
 | 130 | Book Six (1808 - 10) — Chapter XXIV | 15 | 1121 | No betrothal ceremony took place and Natásha’s engagement to... |
 | 131 | Book Six (1808 - 10) — Chapter XXV | 9 | 1409 | During that year after his son’s departure, Prince Nicholas ... |
-| 132 | Book Seven (1810 - 11) — Chapter XXVI | 13 | 1309 | In the middle of the summer Princess Mary received an unexpe... |
+| 132 | Book Six (1808 - 10) — Chapter XXVI | 13 | 1309 | In the middle of the summer Princess Mary received an unexpe... |
 | 133 | Book Seven (1810 - 11) — Chapter I | 22 | 1697 | The Bible legend tells us that the absence of labor—idleness... |
 | 134 | Book Seven (1810 - 11) — Chapter II | 16 | 738 | After reaching home Nicholas was at first serious and even d... |
 | 135 | Book Seven (1810 - 11) — Chapter III | 21 | 1074 | The weather was already growing wintry and morning frosts co... |
@@ -152,7 +152,7 @@
 | 142 | Book Seven (1810 - 11) — Chapter X | 89 | 3098 | “Does it ever happen to you,” said Natásha to her brother, w... |
 | 143 | Book Seven (1810 - 11) — Chapter XI | 42 | 1486 | Pelagéya Danílovna Melyukóva, a broadly built, energetic wom... |
 | 144 | Book Seven (1810 - 11) — Chapter XII | 43 | 1126 | When they all drove back from Pelagéya Danílovna’s, Natásha,... |
-| 145 | Book Eight (1811 - 12) — Chapter XIII | 16 | 1169 | Soon after the Christmas holidays Nicholas told his mother o... |
+| 145 | Book Seven (1810 - 11) — Chapter XIII | 16 | 1169 | Soon after the Christmas holidays Nicholas told his mother o... |
 | 146 | Book Eight (1811 - 12) — Chapter I | 16 | 1953 | After Prince Andrew’s engagement to Natásha, Pierre without ... |
 | 147 | Book Eight (1811 - 12) — Chapter II | 8 | 1420 | At the beginning of winter Prince Nicholas Bolkónski and his... |
 | 148 | Book Eight (1811 - 12) — Chapter III | 51 | 2071 | In 1811 there was living in Moscow a French doctor—Métivier—... |
@@ -174,7 +174,7 @@
 | 164 | Book Eight (1811 - 12) — Chapter XIX | 36 | 1381 | From the day his wife arrived in Moscow Pierre had been inte... |
 | 165 | Book Eight (1811 - 12) — Chapter XX | 38 | 1152 | Pierre did not stay for dinner, but left the room and went a... |
 | 166 | Book Eight (1811 - 12) — Chapter XXI | 43 | 1447 | Pierre drove to Márya Dmítrievna’s to tell her of the fulfil... |
-| 167 | Book Nine (1812) — Chapter XXII | 36 | 1109 | That same evening Pierre went to the Rostóvs’ to fulfill the... |
+| 167 | Book Eight (1811 - 12) — Chapter XXII | 36 | 1109 | That same evening Pierre went to the Rostóvs’ to fulfill the... |
 | 168 | Book Nine (1812) — Chapter I | 20 | 1767 | From the close of the year 1811 an intensified arming and co... |
 | 169 | Book Nine (1812) — Chapter II | 18 | 1525 | On the twenty-ninth of May Napoleon left Dresden, where he h... |
 | 170 | Book Nine (1812) — Chapter III | 21 | 1413 | The Emperor of Russia had, meanwhile, been in Vílna for more... |
@@ -197,7 +197,7 @@
 | 187 | Book Nine (1812) — Chapter XX | 85 | 2215 | A few intimate friends were dining with the Rostóvs that day... |
 | 188 | Book Nine (1812) — Chapter XXI | 30 | 2046 | After the definite refusal he had received, Pétya went to hi... |
 | 189 | Book Nine (1812) — Chapter XXII | 31 | 2149 | Two days later, on the fifteenth of July, an immense number ... |
-| 190 | Book Ten (1812) — Chapter XXIII | 16 | 703 | At that moment Count Rostopchín with his protruding chin and... |
+| 190 | Book Nine (1812) — Chapter XXIII | 16 | 703 | At that moment Count Rostopchín with his protruding chin and... |
 | 191 | Book Ten (1812) — Chapter I | 23 | 2117 | Napoleon began the war with Russia because he could not resi... |
 | 192 | Book Ten (1812) — Chapter II | 46 | 1636 | The day after his son had left, Prince Nicholas sent for Pri... |
 | 193 | Book Ten (1812) — Chapter III | 24 | 972 | When Michael Ivánovich returned to the study with the letter... |
@@ -236,7 +236,7 @@
 | 226 | Book Ten (1812) — Chapter XXXVI | 28 | 1919 | Prince Andrew’s regiment was among the reserves which till a... |
 | 227 | Book Ten (1812) — Chapter XXXVII | 21 | 1153 | One of the doctors came out of the tent in a bloodstained ap... |
 | 228 | Book Ten (1812) — Chapter XXXVIII | 19 | 1263 | The terrible spectacle of the battlefield covered with dead ... |
-| 229 | Book Eleven (1812) — Chapter XXXIX | 8 | 1086 | Several tens of thousands of the slain lay in diverse postur... |
+| 229 | Book Ten (1812) — Chapter XXXIX | 8 | 1086 | Several tens of thousands of the slain lay in diverse postur... |
 | 230 | Book Eleven (1812) — Chapter I | 17 | 1322 | Absolute continuity of motion is not comprehensible to the h... |
 | 231 | Book Eleven (1812) — Chapter II | 9 | 1302 | The forces of a dozen European nations burst into Russia. Th... |
 | 232 | Book Eleven (1812) — Chapter III | 7 | 1056 | When Ermólov, having been sent by Kutúzov to inspect the pos... |
@@ -270,7 +270,7 @@
 | 260 | Book Eleven (1812) — Chapter XXXI | 37 | 1733 | The valet, returning to the cottage, informed the count that... |
 | 261 | Book Eleven (1812) — Chapter XXXII | 41 | 2363 | Seven days had passed since Prince Andrew found himself in t... |
 | 262 | Book Eleven (1812) — Chapter XXXIII | 43 | 2559 | On the third of September Pierre awoke late. His head was ac... |
-| 263 | Book Twelve (1812) — Chapter XXXIV | 38 | 1663 | Having run through different yards and side streets, Pierre ... |
+| 263 | Book Eleven (1812) — Chapter XXXIV | 38 | 1663 | Having run through different yards and side streets, Pierre ... |
 | 264 | Book Twelve (1812) — Chapter I | 27 | 1390 | In Petersburg at that time a complicated struggle was being ... |
 | 265 | Book Twelve (1812) — Chapter II | 14 | 944 | Anna Pávlovna’s presentiment was in fact fulfilled. Next day... |
 | 266 | Book Twelve (1812) — Chapter III | 32 | 1033 | Nine days after the abandonment of Moscow, a messenger from ... |
@@ -286,7 +286,7 @@
 | 276 | Book Twelve (1812) — Chapter XIII | 12 | 1110 | Twenty-three soldiers, three officers, and two officials wer... |
 | 277 | Book Twelve (1812) — Chapter XIV | 49 | 2050 | When Princess Mary heard from Nicholas that her brother was ... |
 | 278 | Book Twelve (1812) — Chapter XV | 45 | 1533 | When Natásha opened Prince Andrew’s door with a familiar mov... |
-| 279 | Book Thirteen (1812) — Chapter XVI | 47 | 2179 | Not only did Prince Andrew know he would die, but he felt th... |
+| 279 | Book Twelve (1812) — Chapter XVI | 47 | 2179 | Not only did Prince Andrew know he would die, but he felt th... |
 | 280 | Book Thirteen (1812) — Chapter I | 5 | 1261 | Man’s mind cannot grasp the causes of events in their comple... |
 | 281 | Book Thirteen (1812) — Chapter II | 13 | 803 | The famous flank movement merely consisted in this: after th... |
 | 282 | Book Thirteen (1812) — Chapter III | 9 | 1090 | The Russian army was commanded by Kutúzov and his staff, and... |
@@ -305,7 +305,7 @@
 | 295 | Book Thirteen (1812) — Chapter XVI | 27 | 981 | It was a warm, dark, autumn night. It had been raining for f... |
 | 296 | Book Thirteen (1812) — Chapter XVII | 20 | 1115 | Kutúzov like all old people did not sleep much at night. He ... |
 | 297 | Book Thirteen (1812) — Chapter XVIII | 11 | 664 | From the time he received this news to the end of the campai... |
-| 298 | Book Fourteen (1812) — Chapter XIX | 12 | 810 | A man in motion always devises an aim for that motion. To be... |
+| 298 | Book Thirteen (1812) — Chapter XIX | 12 | 810 | A man in motion always devises an aim for that motion. To be... |
 | 299 | Book Fourteen (1812) — Chapter I | 14 | 1219 | The Battle of Borodinó, with the occupation of Moscow that f... |
 | 300 | Book Fourteen (1812) — Chapter II | 16 | 890 | One of the most obvious and advantageous departures from the... |
 | 301 | Book Fourteen (1812) — Chapter III | 11 | 1058 | The so-called partisan war began with the entry of the Frenc... |
@@ -324,7 +324,7 @@
 | 314 | Book Fourteen (1812) — Chapter XVI | 6 | 625 | After the twenty-eighth of October when the frosts began, th... |
 | 315 | Book Fourteen (1812) — Chapter XVII | 7 | 650 | The movements of the Russian and French armies during the ca... |
 | 316 | Book Fourteen (1812) — Chapter XVIII | 14 | 641 | This campaign consisted in a flight of the French during whi... |
-| 317 | Book Fifteen (1812 - 13) — Chapter XIX | 30 | 1766 | What Russian, reading the account of the last part of the ca... |
+| 317 | Book Fourteen (1812) — Chapter XIX | 30 | 1766 | What Russian, reading the account of the last part of the ca... |
 | 318 | Book Fifteen (1812 - 13) — Chapter I | 21 | 1555 | When seeing a dying animal a man feels a sense of horror: su... |
 | 319 | Book Fifteen (1812 - 13) — Chapter II | 23 | 839 | Besides a feeling of aloofness from everybody Natásha was fe... |
 | 320 | Book Fifteen (1812 - 13) — Chapter III | 22 | 1018 | Princess Mary postponed her departure. Sónya and the count t... |
@@ -344,7 +344,7 @@
 | 334 | Book Fifteen (1812 - 13) — Chapter XVII | 56 | 1898 | Pierre was shown into the large, brightly lit dining room; a... |
 | 335 | Book Fifteen (1812 - 13) — Chapter XVIII | 59 | 1959 | It was a long time before Pierre could fall asleep that nigh... |
 | 336 | Book Fifteen (1812 - 13) — Chapter XIX | 9 | 726 | There was nothing in Pierre’s soul now at all like what had ... |
-| 337 | First Epilogue (1813 - 20) — Chapter XX | 21 | 564 | After Pierre’s departure that first evening, when Natásha ha... |
+| 337 | Book Fifteen (1812 - 13) — Chapter XX | 21 | 564 | After Pierre’s departure that first evening, when Natásha ha... |
 | 338 | First Epilogue (1813 - 20) — Chapter I | 17 | 1119 | Seven years had passed. The storm-tossed sea of European his... |
 | 339 | First Epilogue (1813 - 20) — Chapter II | 11 | 722 | If we assume as the historians do that great men lead humani... |
 | 340 | First Epilogue (1813 - 20) — Chapter III | 16 | 1713 | The fundamental and essential significance of the European e... |
@@ -360,7 +360,7 @@
 | 350 | First Epilogue (1813 - 20) — Chapter XIII | 22 | 1266 | When Pierre and his wife entered the drawing room the counte... |
 | 351 | First Epilogue (1813 - 20) — Chapter XIV | 52 | 1949 | Soon after this the children came in to say good night. They... |
 | 352 | First Epilogue (1813 - 20) — Chapter XV | 33 | 1849 | The conversation at supper was not about politics or societi... |
-| 353 | Second Epilogue — Chapter XVI | 46 | 1894 | Natásha and Pierre, left alone, also began to talk as only a... |
+| 353 | First Epilogue (1813 - 20) — Chapter XVI | 46 | 1894 | Natásha and Pierre, left alone, also began to talk as only a... |
 | 354 | Second Epilogue — Chapter I | 24 | 1755 | History is the life of nations and of humanity. To seize and... |
 | 355 | Second Epilogue — Chapter II | 13 | 1605 | What force moves the nations?... |
 | 356 | Second Epilogue — Chapter III | 9 | 874 | A locomotive is moving. Someone asks: “What moves it?” A pea... |

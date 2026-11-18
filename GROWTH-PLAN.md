@@ -66,7 +66,7 @@ Already specified elsewhere; listed here for the complete picture:
 1. `REMEDIATION-PLAN.md` Phase 5 — mechanical fixes (og:image, soft-404s, internal links, schema, Bing).
 2. `SEO-STRATEGY.md` §Mediocre→exceptional — English translation-comparison pages (the moat surface), CTR rewrites, AI-crawler opening + llms.txt (decision 5.7).
 3. **Paid tooling:** Ahrefs Starter ($29/mo now; Lite $129/mo when backlink work starts) — measurement, not magic.
-4. **Paid search ads: NO** (for growth). A $3/mo subscription cannot pay back CPC acquisition. Sole exception: ~$100/mo brand-defense + query-research budget, treated as market research (which queries convert), killed if it teaches nothing by month 2.
+4. **Paid search ads: NO** (for growth). A $5/mo subscription cannot pay back CPC acquisition. Sole exception: ~$100/mo brand-defense + query-research budget, treated as market research (which queries convert), killed if it teaches nothing by month 2.
 
 ---
 

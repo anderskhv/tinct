@@ -1841,7 +1841,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "symbol"
     ],
     "shelves": [
-      "american-novels"
+      "american-novels",
+      "adventure"
     ],
     "langs": [
       "EN",
@@ -2020,7 +2021,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "author": "Jules Verne",
     "year": "1873",
     "ySort": 1873,
-    "form": "children",
+    "form": "novel",
     "era": "modern",
     "hue": 60,
     "blurb": "Phileas Fogg bets the club; the clock starts.",
@@ -2030,7 +2031,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "travel"
     ],
     "shelves": [
-      "childrens-classics"
+      "adventure"
     ],
     "langs": [
       "EN",
@@ -2185,7 +2186,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "author": "Rudyard Kipling",
     "year": "1894",
     "ySort": 1894,
-    "form": "children",
+    "form": "novel",
     "era": "modern",
     "hue": 90,
     "blurb": "A boy raised by wolves; assorted other tales.",
@@ -2195,7 +2196,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "law"
     ],
     "shelves": [
-      "childrens-classics"
+      "adventure"
     ],
     "langs": [
       "EN",
@@ -2241,7 +2242,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "journey"
     ],
     "shelves": [
-      "english-novels"
+      "english-novels",
+      "adventure"
     ],
     "langs": [
       "EN",
@@ -2277,7 +2279,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "author": "Frances Hodgson Burnett",
     "year": "1905",
     "ySort": 1905,
-    "form": "children",
+    "form": "novel",
     "era": "contemporary",
     "hue": 310,
     "blurb": "A girl loses everything; her imagination keeps her warm.",
@@ -2287,7 +2289,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "school"
     ],
     "shelves": [
-      "childrens-classics"
+      "english-novels"
     ],
     "langs": [
       "EN",
@@ -2333,7 +2335,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "madness"
     ],
     "shelves": [
-      "satirical-novels"
+      "satirical-novels",
+      "adventure"
     ],
     "langs": [
       "EN",
@@ -2478,6 +2481,118 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ],
     "shelves": [
       "modernist-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "alice-in-wonderland",
+    "title": "Alice's Adventures in Wonderland",
+    "author": "Lewis Carroll",
+    "year": "1865",
+    "ySort": 1865,
+    "form": "novel",
+    "era": "modern",
+    "hue": 150,
+    "blurb": "Alice follows a hurried rabbit into a world of shifting sizes, disputed meanings and impatient rulers.",
+    "themes": [
+      "language",
+      "identity",
+      "authority"
+    ],
+    "shelves": [
+      "english-novels",
+      "satirical-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "wuthering-heights",
+    "title": "Wuthering Heights",
+    "author": "Emily Brontë",
+    "year": "1847",
+    "ySort": 1847,
+    "form": "novel",
+    "era": "modern",
+    "hue": 285,
+    "blurb": "Two Yorkshire households carry a childhood attachment, a family grievance and a struggle over property into another generation.",
+    "themes": [
+      "revenge",
+      "class",
+      "inheritance"
+    ],
+    "shelves": [
+      "english-novels",
+      "gothic-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "middlemarch",
+    "title": "Middlemarch",
+    "author": "George Eliot",
+    "year": "1871",
+    "ySort": 1871,
+    "form": "novel",
+    "era": "modern",
+    "hue": 265,
+    "blurb": "Interwoven lives in a provincial town test what ambition, marriage, and sympathy can make possible.",
+    "themes": [
+      "marriage",
+      "ambition",
+      "sympathy"
+    ],
+    "shelves": [
+      "english-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "sense-and-sensibility",
+    "title": "Sense and Sensibility",
+    "author": "Jane Austen",
+    "year": "1811",
+    "ySort": 1811,
+    "form": "novel",
+    "era": "modern",
+    "hue": 265,
+    "blurb": "Two sisters confront love, money, and the limits of their own judgment after losing the security of their family home.",
+    "themes": [
+      "marriage",
+      "money",
+      "judgment"
+    ],
+    "shelves": [
+      "english-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "adventures-of-sherlock-holmes",
+    "title": "The Adventures of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "year": "1892",
+    "ySort": 1892,
+    "form": "short-stories",
+    "era": "modern",
+    "hue": 265,
+    "blurb": "Twelve cases from Baker Street, told by Watson, in which an apparently trivial detail turns an entire explanation.",
+    "themes": [
+      "observation",
+      "inference",
+      "deception"
+    ],
+    "shelves": [
+      "detective-fiction"
     ],
     "langs": [
       "EN"
@@ -2746,6 +2861,201 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "EN",
       "DA"
     ]
+  },
+  {
+    "id": "the-sovereign-child",
+    "title": "The Sovereign Child",
+    "author": "Aaron Stupple with Logan Chipkin",
+    "tradition": "American",
+    "year": "2025",
+    "ySort": 2025,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 200,
+    "blurb": "Parenting without rules, argued from a theory of knowledge.",
+    "themes": [
+      "parenting",
+      "autonomy",
+      "epistemology"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "lords-of-the-cosmos",
+    "title": "Lords of the Cosmos",
+    "author": "Arjun Khemani and Logan Chipkin",
+    "year": "2025",
+    "ySort": 2025.1,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 265,
+    "blurb": "From cosmic monotony to the Enlightenment, a history of everything told through knowledge.",
+    "themes": [
+      "progress",
+      "optimism",
+      "enlightenment"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "bold-conjectures-volume-1",
+    "title": "Bold Conjectures, Volume I",
+    "author": "Logan Chipkin (ed.)",
+    "year": "2025",
+    "ySort": 2025.2,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 50,
+    "blurb": "David Deutsch in conversation, 2012–2024.",
+    "themes": [
+      "quantum-theory",
+      "epistemology",
+      "interviews"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "bold-conjectures-volume-2",
+    "title": "Bold Conjectures, Volume II",
+    "author": "Logan Chipkin (ed.)",
+    "year": "2026",
+    "ySort": 2026,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 215,
+    "blurb": "Physicists on what is still unsettled in fundamental physics.",
+    "themes": [
+      "physics",
+      "quantum-theory",
+      "essays"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "the-farthest-reaches",
+    "title": "The Farthest Reaches",
+    "author": "Brett Hall",
+    "year": "2026",
+    "ySort": 2026.1,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 330,
+    "blurb": "Why people are the most important entities in the universe.",
+    "themes": [
+      "personhood",
+      "universality",
+      "epistemology"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "grimms-fairy-tales",
+    "title": "Grimms’ Fairy Tales",
+    "author": "Jacob and Wilhelm Grimm",
+    "year": "1812",
+    "ySort": 1812,
+    "form": "short-stories",
+    "era": "modern",
+    "hue": 30,
+    "blurb": "Sixty-five tales of kings, tailors, stepmothers and talking animals, told in plain, repeated patterns.",
+    "themes": [
+      "tales",
+      "justice",
+      "transformation",
+      "family",
+      "cunning"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "arabian-nights",
+    "title": "The Arabian Nights Entertainments",
+    "author": "Andrew Lang",
+    "year": "1898",
+    "ySort": 1898,
+    "form": "short-stories",
+    "era": "modern",
+    "hue": 40,
+    "blurb": "A sultan’s nightly story-bargain opens tales of genies, sailors, merchants and a magic lamp.",
+    "themes": [
+      "storytelling",
+      "fate",
+      "power",
+      "travel",
+      "wonder"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "master-and-margarita",
+    "title": "The Master and Margarita",
+    "author": "Mikhail Bulgakov",
+    "year": "1928–1940",
+    "ySort": 1940,
+    "form": "novel",
+    "era": "contemporary",
+    "hue": 265,
+    "blurb": "The devil comes to 1930s Moscow; a procurator cannot forget a prisoner.",
+    "themes": [
+      "devil",
+      "cowardice",
+      "love"
+    ],
+    "shelves": [
+      "russian-novels"
+    ],
+    "langs": [
+      "EN",
+      "DA",
+      "RU"
+    ]
+  },
+  {
+    "id": "pinocchio",
+    "title": "The Adventures of Pinocchio",
+    "author": "Carlo Collodi",
+    "year": "1881–1883",
+    "ySort": 1883,
+    "form": "novel",
+    "era": "modern",
+    "hue": 40,
+    "blurb": "A runaway wooden puppet lies, boasts and trusts every swindler on the road home to his father.",
+    "themes": [
+      "tales",
+      "transformation",
+      "family"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales",
+      "adventure"
+    ],
+    "langs": [
+      "EN",
+      "DA",
+      "IT"
+    ]
   }
 ]
 
@@ -2827,7 +3137,7 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
   },
   "russian-novels": {
     "title": "The Russians",
-    "sub": "Dostoevsky and Tolstoy",
+    "sub": "Dostoevsky, Tolstoy and Bulgakov",
     "hue": 355
   },
   "english-novels": {
@@ -2853,6 +3163,11 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
   "gothic-novels": {
     "title": "The Gothic",
     "sub": "Doubles, monsters, dark houses",
+    "hue": 265
+  },
+  "detective-fiction": {
+    "title": "Detective Fiction",
+    "sub": "Cases, clues and the logic of inference",
     "hue": 265
   },
   "satirical-novels": {
@@ -2900,10 +3215,20 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
     "sub": "The art of conflict",
     "hue": 35
   },
-  "childrens-classics": {
-    "title": "Children's Classics",
-    "sub": "Books that grew up readers",
-    "hue": 310
+  "adventure": {
+    "title": "Adventure",
+    "sub": "Journeys, wagers and the open sea",
+    "hue": 60
+  },
+  "folk-and-fairy-tales": {
+    "title": "Folk & Fairy Tales",
+    "sub": "Tales from the oral tradition",
+    "hue": 30
+  },
+  "critical-rationalism": {
+    "title": "Critical Rationalism",
+    "sub": "Popper, Deutsch and how knowledge grows",
+    "hue": 175
   }
 }
 
@@ -2918,7 +3243,8 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "aristotle",
       "stoics",
       "christian-philosophy",
-      "modern-philosophy"
+      "modern-philosophy",
+      "critical-rationalism"
     ]
   },
   {
@@ -2949,8 +3275,8 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
   },
   {
     "id": "novel",
-    "title": "Novels",
-    "sub": "Long-form prose, by tradition",
+    "title": "Fiction",
+    "sub": "Novels and stories, by tradition",
     "hue": 25,
     "shelves": [
       "russian-novels",
@@ -2959,7 +3285,10 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "modernist-novels",
       "nordic-novels",
       "gothic-novels",
-      "satirical-novels"
+      "satirical-novels",
+      "adventure",
+      "folk-and-fairy-tales",
+      "detective-fiction"
     ]
   },
   {
@@ -3001,15 +3330,6 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "on-war",
       "strategy"
     ]
-  },
-  {
-    "id": "young",
-    "title": "For Younger Readers",
-    "sub": "Classics that grew up readers",
-    "hue": 310,
-    "shelves": [
-      "childrens-classics"
-    ]
   }
 ]
 
@@ -3025,6 +3345,10 @@ export const LIBRARY_FORMS = [
   {
     "id": "novel",
     "label": "Novels"
+  },
+  {
+    "id": "short-stories",
+    "label": "Short stories"
   },
   {
     "id": "epic",
@@ -3045,10 +3369,6 @@ export const LIBRARY_FORMS = [
   {
     "id": "scripture",
     "label": "Scripture"
-  },
-  {
-    "id": "children",
-    "label": "Children"
   },
   {
     "id": "strategy",
@@ -3080,7 +3400,12 @@ export const LIBRARY_ERAS = {
   "contemporary": {
     "id": "contemporary",
     "label": "20th Century & Beyond",
-    "range": "1900 –"
+    "range": "1900 – 2019"
+  },
+  "2020s": {
+    "id": "2020s",
+    "label": "2020s",
+    "range": "2020 –"
   }
 } as const
 

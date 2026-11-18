@@ -2,6 +2,10 @@
 import { act, cleanup, renderHook } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { useLabAsk, type UseLabAskOptions } from './useLabAsk'
+import { LAB_COPY } from './labCopy'
+import { isAiRestingError } from './labCompanion'
+import { turnsFromConversations, reconcileTurns } from './labChatHistory'
+import { COMPANION_MAX_TOKENS, buildCompanionSystem, companionBookRef, companionSelectionMessage, parseCompanionRequest } from '../companion/companionRequest'
 
 const { trackEvent } = vi.hoisted(() => ({ trackEvent: vi.fn() }))
 
@@ -125,13 +129,19 @@ it('explains a selected passage without adding it to chat history', async () => 
 
   expect(answer).toContain('Jeremiah 49')
   expect(result.current.turns).toHaveLength(before)
-  const request = JSON.parse(String(fetcher.mock.calls[0][1]?.body)) as { messages: Array<{ content: string }>; book?: { bookId?: string; editionKey?: string } }
-  expect(request.messages[0].content).toContain('<selected_passage>\nThe selected words.\n</selected_passage>')
-  expect(request.messages[0].content).toContain('without using knowledge from later in the work')
+  const request = JSON.parse(String(fetcher.mock.calls[0][1]?.body)) as { companion: unknown; system?: string; messages?: unknown }
+  // Structured only: the Worker builds the prompt and the question.
+  expect(request.system).toBeUndefined()
+  expect(request.messages).toBeUndefined()
+  const parsed = parseCompanionRequest(request.companion)!
+  expect(parsed.intent).toBe('explain')
+  const question = companionSelectionMessage(parsed)!
+  expect(question).toContain('<selected_passage>\nThe selected words.\n</selected_passage>')
+  expect(question).toContain('without using knowledge from later in the work')
   // The selection's edition names the text; Explain streams without book lookups.
-  expect(JSON.stringify(request)).toContain('World English Bible')
-  expect(request.book).toBeUndefined()
-  expect(JSON.stringify(request)).not.toContain('read_chapter')
+  expect(buildCompanionSystem(parsed)).toContain('World English Bible')
+  expect(companionBookRef(parsed)).toBeNull()
+  expect(buildCompanionSystem(parsed)).not.toContain('read_chapter')
 })
 
 it('does not clear a new draft when retrying an earlier failed turn', async () => {
@@ -219,7 +229,7 @@ it('sends the successor edition when the reader still holds a withdrawn one', as
 
   await act(async () => { await result.current.sendTyped('recap this chapter') })
   const body = JSON.parse(fetcher.mock.calls[0][1].body)
-  expect(body.book).toMatchObject({ bookId: 'bible', editionKey: 'web-en', chapterNumber: 794 })
+  expect(companionBookRef(parseCompanionRequest(body.companion)!)).toMatchObject({ bookId: 'bible', editionKey: 'web-en', chapterNumber: 794 })
   expect(JSON.stringify(body)).not.toContain('modern-en')
 })
 
@@ -289,7 +299,9 @@ it('reuses speculative explanations and imports their context only on explicit C
   expect(result.current.turns.map(turn => turn.role)).toEqual(['user', 'assistant'])
   await act(async () => { await result.current.sendTyped('Go deeper') })
   const body = JSON.parse(fetcher.mock.calls[1][1].body)
-  expect(body.messages.some((message: { role: string; content: string }) => message.role === 'assistant' && message.content === answer)).toBe(true)
+  // The explanation travels as context the reader was shown, never as the companion's own turn.
+  expect(body.messages.some((message: { role: string; content: string }) => message.role === 'assistant' && message.content === answer)).toBe(false)
+  expect(body.companion.shownExplanations).toEqual([{ passage: input.text, text: answer }])
 })
 
 it('never spends guest allowance or opens an account prompt during speculation', async () => {
@@ -319,8 +331,9 @@ it('drops a speculative explanation nobody opened and keeps one the reader did',
   act(() => result.current.discardSpeculativeExplanation())
   await expect(opened).resolves.toBeTruthy()
   expect(fetcher).toHaveBeenCalledTimes(2)
-  expect(JSON.parse(fetcher.mock.calls[1][1].body).max_tokens).toBe(450)
-  expect(JSON.parse(fetcher.mock.calls[1][1].body).messages[0].content).toContain('at most 25 words')
+  const parsed = parseCompanionRequest(JSON.parse(fetcher.mock.calls[1][1].body).companion)!
+  expect(COMPANION_MAX_TOKENS[parsed.intent]).toBe(450)
+  expect(companionSelectionMessage(parsed)).toContain('at most 25 words')
 })
 
 it('records a displayed explanation once and sends it as context for the next question', async () => {
@@ -335,8 +348,61 @@ it('records a displayed explanation once and sends it as context for the next qu
  await act(async () => { await result.current.sendTyped('Why did you say that?') })
  const bodies = fetcher.mock.calls.filter(([, init]) => init?.body).map(([, init]) => JSON.parse(init.body))
  const chat = bodies.find(body => body.messages)
- expect(JSON.stringify(chat.messages)).toContain('A specific explanation of this passage.')
- expect(JSON.stringify(chat.messages)).toContain('Selected passage')
+ expect(chat.companion.shownExplanations).toEqual([{ passage: 'Selected passage', text: 'A specific explanation of this passage.' }])
+ const system = buildCompanionSystem(parseCompanionRequest(chat.companion)!)
+ expect(system).toContain('A specific explanation of this passage.')
+ expect(system).toContain('Passage: "Selected passage"')
+})
+
+it('frames a kept explanation as unverified and to be corrected gently, while chat still shows it', async () => {
+ const fetcher = vi.fn().mockResolvedValue(ok())
+ vi.stubGlobal('fetch', fetcher)
+ const { result } = renderHook(() => useLabAsk(base))
+ await act(async () => { await result.current.sendTyped('Who is Ammon?') })
+ act(() => result.current.keepExplanation('Of the children of Ammon.', 'Ammon was a city in Egypt.', 0))
+ // Visible thread unchanged: the prompt line and the explanation as before.
+ expect(result.current.turns.slice(-2).map(turn => [turn.role, turn.content])).toEqual([['user', 'Explain this passage.'], ['assistant', 'Ammon was a city in Egypt.']])
+ await act(async () => { await result.current.sendTyped('Tell me more') })
+ const body = JSON.parse(fetcher.mock.calls.at(-1)![1].body)
+ // The ordinary conversation stays as it was, alternating, minus the explanation pair.
+ expect(body.messages.map((message: { role: string }) => message.role)).toEqual(['user', 'assistant', 'user'])
+ expect(JSON.stringify(body.messages)).not.toContain('Ammon was a city in Egypt.')
+ expect(JSON.stringify(body.messages)).not.toContain('Explain this passage.')
+ expect(body.companion).toMatchObject({ intent: 'ask', shownExplanations: [{ passage: 'Of the children of Ammon.', text: 'Ammon was a city in Egypt.' }] })
+ expect(body.system).toBeUndefined()
+ const system = buildCompanionSystem(parseCompanionRequest(body.companion)!)
+ expect(system).toContain('Explanation shown: Ammon was a city in Egypt.')
+ expect(system).toMatch(/A quicker model wrote them .* not your earlier answers\. Treat them as unverified\./)
+ expect(system).toMatch(/correct it gently in your next answer/)
+ expect(system).toContain('One nuance to add to that short explanation')
+ expect(system).toMatch(/Never contradict it silently and never ignore an error in it\./)
+})
+
+it('the flag survives a reload of the stored history', async () => {
+ const fetcher = vi.fn().mockResolvedValue(ok())
+ vi.stubGlobal('fetch', fetcher)
+ const first = renderHook(() => useLabAsk(base))
+ act(() => first.result.current.keepExplanation('Of the children of Ammon.', 'An oracle against Ammon.', 0))
+ first.unmount()
+ const second = renderHook(() => useLabAsk(base))
+ expect(second.result.current.turns.filter(turn => turn.shownExplanation).map(turn => turn.role)).toEqual(['user', 'assistant'])
+ await act(async () => { await second.result.current.sendTyped('And then?') })
+ const body = JSON.parse(fetcher.mock.calls.at(-1)![1].body)
+ expect(body.companion.shownExplanations).toEqual([{ passage: 'Of the children of Ammon.', text: 'An oracle against Ammon.' }])
+ expect(body.messages).toHaveLength(1)
+})
+
+it('a normal chat sends no shown explanations and the system prompt has no such block', async () => {
+ const fetcher = vi.fn().mockResolvedValue(ok())
+ vi.stubGlobal('fetch', fetcher)
+ const { result } = renderHook(() => useLabAsk(base))
+ await act(async () => { await result.current.sendTyped('Who is Kedar?') })
+ await act(async () => { await result.current.sendTyped('And Hazor?') })
+ const body = JSON.parse(fetcher.mock.calls.at(-1)![1].body)
+ expect(body.companion).not.toHaveProperty('shownExplanations')
+ expect(body.messages.map((message: { role: string }) => message.role)).toEqual(['user', 'assistant', 'user'])
+ expect(body.messages[1].content).toContain('Jeremiah 49 collects oracles')
+ expect(buildCompanionSystem(parseCompanionRequest(body.companion)!)).not.toMatch(/Explanations the reader was shown|Explanation shown|quicker model/)
 })
 
 it('requests a fresh explanation after remount', async () => {
@@ -349,4 +415,128 @@ it('requests a fresh explanation after remount', async () => {
   const second = renderHook(() => useLabAsk(base))
   await act(async () => { await second.result.current.explainSelection(input, vi.fn()) })
   expect(fetcher).toHaveBeenCalledTimes(2)
+})
+
+it('shows the calm resting message when the AI ceiling or a provider limit is reached', async () => {
+  const resting = () => new Response(JSON.stringify({ type: 'error', error: { type: 'ai_resting', message: 'AI is resting — try again later.' } }), { status: 503, headers: { 'Content-Type': 'application/json' } })
+  const fetcher = vi.fn().mockImplementation(async () => resting())
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk(base))
+  await act(async () => { await result.current.sendTyped('Who speaks here?') })
+  expect(result.current.notice).toBe(LAB_COPY.aiResting)
+  expect(fetcher).toHaveBeenCalledTimes(1)
+  let caught: unknown
+  await act(async () => {
+    await result.current.explainSelection({ text: 'The selected words.', editionKey: 'web-en', paragraphs: base.paragraphs, paragraphIndex: 0 }, vi.fn()).catch(error => { caught = error })
+  })
+  expect(isAiRestingError(caught)).toBe(true)
+  expect((caught as Error).message).toBe(LAB_COPY.aiResting)
+})
+
+it('exposes the lookup status while the answer has not begun and clears it once text arrives', async () => {
+  const encoder = new TextEncoder()
+  let provider!: ReadableStreamDefaultController<Uint8Array>
+  const body = new ReadableStream<Uint8Array>({ start(controller) { provider = controller } })
+  const event = (name: string, data: unknown) => encoder.encode(`event: ${name}\ndata: ${JSON.stringify(data)}\n\n`)
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(body, { headers: { 'Content-Type': 'text/event-stream' } })))
+  const { result } = renderHook(() => useLabAsk(base))
+
+  let sent!: Promise<void>
+  act(() => { sent = result.current.sendTyped('why buy a field?') })
+  await vi.waitFor(() => expect(provider).toBeTruthy())
+  expect(result.current.typedStatus).toBeNull()
+  await act(async () => { provider.enqueue(event('tinct_status', { type: 'tinct_status', text: 'Reading Jeremiah 32…' })) })
+  await vi.waitFor(() => expect(result.current.typedStatus).toBe('Reading Jeremiah 32…'))
+  await act(async () => { provider.enqueue(event('content_block_delta', { type: 'content_block_delta', index: 0, delta: { type: 'text_delta', text: 'It is a pledge.' } })) })
+  await vi.waitFor(() => expect(result.current.typedStatus).toBeNull())
+  await act(async () => {
+    provider.enqueue(event('message_stop', { type: 'message_stop' }))
+    provider.close()
+    await sent
+  })
+  expect(result.current.typedStatus).toBeNull()
+  expect(result.current.turns.some(turn => turn.role === 'assistant' && turn.content === 'It is a pledge.')).toBe(true)
+})
+
+it('keeps an in-flight source reply with its original card when another card is opened', async () => {
+  let finish!: (response: Response) => void
+  vi.stubGlobal('fetch', vi.fn(() => new Promise<Response>(resolve => { finish = resolve })))
+  const {result, rerender} = renderHook(({conversationId}) => useLabAsk({...base, conversationId}), {initialProps:{conversationId:'mc_source_a'}})
+  act(() => {
+    for (const id of ['source_a','source_b']) result.current.saveCard({source:{kind:'catalogue',bookId:'bible'},id,kind:'ask',chapterNumber:794,anchor:{editionKey:'web-en',chapterNumber:794,paragraphIndex:0,fromWord:id === 'source_a' ? 0 : 2,endParagraphIndex:0,toWord:id === 'source_a' ? 1 : 3},text:id,turns:[{role:'assistant',content:`Initial ${id}`}],at:100,u:100})
+  })
+  let pending!: Promise<void>
+  await act(async () => { pending = result.current.sendTyped('Question for source A') })
+  rerender({conversationId:'mc_source_b'})
+  await act(async () => { finish(ok()); await pending })
+  const first = result.current.conversations.find(item => item.id === 'mc_source_a')!
+  const second = result.current.conversations.find(item => item.id === 'mc_source_b')!
+  expect(first.messages.some(message => message.content.includes('Jeremiah 49'))).toBe(true)
+  expect(second.messages.map(message => message.content)).toEqual(['About this passage.', 'Initial source_b'])
+  expect(result.current.turns.filter(turn => turn.content === 'Question for source A' || turn.content.includes('Jeremiah 49')).every(turn => turn.conversationId === 'mc_source_a')).toBe(true)
+})
+
+it('starts a new source conversation without unrelated earlier card history', async () => {
+  const fetcher = vi.fn().mockImplementation(async () => ok())
+  vi.stubGlobal('fetch', fetcher)
+  const {result} = renderHook(() => useLabAsk(base))
+  await act(async () => { await result.current.sendTyped('First source question', undefined, undefined, {conversationId:'mc_new_a'}) })
+  await act(async () => { await result.current.sendTyped('Second source question', undefined, undefined, {conversationId:'mc_new_b'}) })
+  const payload = JSON.parse(String(fetcher.mock.calls[1][1]?.body))
+  expect(JSON.stringify(payload.messages)).toContain('Second source question')
+  expect(JSON.stringify(payload.messages)).not.toContain('First source question')
+  expect(JSON.stringify(payload.messages)).not.toContain('Jeremiah 49 collects')
+  expect(result.current.turns.filter(turn => turn.conversationId === 'mc_new_a')).toHaveLength(2)
+  expect(result.current.turns.filter(turn => turn.conversationId === 'mc_new_b')).toHaveLength(2)
+})
+
+it('retains source-card identity when saved turns hydrate and reconcile with pending replies', () => {
+  const rows = ['a','b'].map((id,index) => ({id:`mc_${id}`,bookId:'bible',chapterNumber:794,startTimestamp:100+index*10,endTimestamp:101+index*10,messages:[{id:`${id}-reply`,role:'assistant' as const,content:`Answer ${id}`,timestamp:101+index*10,bookId:'bible'}]}))
+  const saved = turnsFromConversations(rows)
+  expect(saved.map(turn => turn.conversationId)).toEqual(['mc_a','mc_b'])
+  const live = [...saved,{id:'pending-a',role:'assistant' as const,content:'Still arriving',timestamp:200,source:'typed' as const,conversationId:'mc_a'}]
+  expect(reconcileTurns(live,saved).filter(turn => turn.conversationId === 'mc_a').map(turn => turn.content)).toEqual(['Answer a','Still arriving'])
+})
+
+it('accepts one physical Ask submit while pending and retains a later intentional identical question', async () => {
+  let release!: (response: Response) => void
+  const fetcher = vi.fn(() => new Promise<Response>(resolve => { release = resolve }))
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk({ ...base, conversationId: 'mc_react_1234', sharedReader: true }))
+  let first!: Promise<void>
+  act(() => { first = result.current.sendTyped('Who did the treason?'); void result.current.sendTyped('Who did the treason?') })
+  await vi.waitFor(() => expect(fetcher).toHaveBeenCalledOnce())
+  expect(result.current.turns.filter(turn => turn.role === 'user')).toHaveLength(1)
+  await act(async () => { release(ok()); await first })
+  expect(result.current.turns.filter(turn => turn.role === 'user')).toHaveLength(1)
+  fetcher.mockResolvedValueOnce(ok())
+  await act(async () => { await result.current.sendTyped('Who did the treason?') })
+  const questions = result.current.turns.filter(turn => turn.role === 'user')
+  expect(questions).toHaveLength(2)
+  expect(new Set(questions.map(turn => turn.id)).size).toBe(2)
+})
+
+it('continues a saved earlier-chapter discussion without using the open chapter as its source', async () => {
+  const fetcher = vi.fn(async () => ok())
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk({ ...base, paragraphs: ['UNRELATED CURRENT CHAPTER SOURCE'] }))
+  act(() => { result.current.saveCard({ source: { kind: 'catalogue', bookId: 'bible' }, id: 'earlier', kind: 'explain', chapterNumber: 1,
+    text: 'Exact earlier quotation', turns: [{ role: 'assistant', content: 'Original saved explanation' }], at: 100, u: 100 }) })
+  await act(async () => { await result.current.sendTyped('Why?', undefined, undefined, { conversationId: 'mc_earlier' }) })
+  const payload = String(fetcher.mock.calls[0][1]?.body)
+  expect(payload).toContain('Exact earlier quotation')
+  expect(payload).not.toContain('UNRELATED CURRENT CHAPTER SOURCE')
+  expect(result.current.turns.find(turn => turn.content === 'Why?')?.chapterNumber).toBe(1)
+})
+
+it('keeps the selected source location when Ask opens away from the visible paragraph', async () => {
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(ok()))
+  const { result } = renderHook(() => useLabAsk(base))
+  await act(async () => { await result.current.sendTyped('Why this selection?', undefined, undefined, {
+    conversationId: 'selected-source', highlightedText: 'The exact selected words',
+    sourceLocation: { chapterNumber: 794, chapterLabel: 'Jeremiah 49', paragraphIndex: 12 },
+  }) })
+  expect(result.current.turns.find(turn => turn.role === 'user')).toMatchObject({
+    chapterNumber: 794, paragraphIndex: 12, conversationId: 'selected-source', highlightedText: 'The exact selected words',
+  })
 })

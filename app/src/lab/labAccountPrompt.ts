@@ -2,8 +2,12 @@
  * Account-prompt policy for the lab reader (owner decision, 2026-09-06).
  *
  * - Reading is always free, signed in or not. Nothing here ever blocks reading.
- * - Ten anonymous AI interactions share one device allowance across Explain,
- *   Chat and Talk. The next request asks for an account; reading stays free.
+ * - Ten anonymous AI interactions share one device allowance across Explain
+ *   and Chat. The next request asks for an account; reading stays free.
+ * - Talk (voice): a signed-out guest may try one conversation a day, two
+ *   minutes at most (Anders, 16 Oct 2026); after it, or on a second attempt
+ *   that day, the account sheet. The Worker enforces both (worker/lib/talkTrial.ts);
+ *   this device's day mark only sends a second attempt straight to the sheet.
  * - Opening books never prompts for an account.
  *
  * Paid-tier enforcement is intentionally absent. `LAB_PAID_FEATURES` records
@@ -11,13 +15,15 @@
  * one place later; nothing reads it to gate anything yet.
  */
 
+import { trackFunnel, trackFunnelOnce } from '../utils/funnel'
+
 /** Device counter of AI actions taken while anonymous. In the `tinct:` namespace `clearLocalUserData` wipes. */
 export const LAB_AI_ACTIONS_KEY = 'tinct:lab-ai-actions'
 /** Set once the second-book nudge has been shown on this device. */
 export const LAB_SECOND_BOOK_NUDGE_KEY = 'tinct:lab-second-book-nudge'
 /**
  * AI actions an anonymous reader gets before the account sheet. One shared
- * allowance across chat and voice, so both can be tried before signing up.
+ * allowance across Explain and chat; voice requires an account.
  */
 export const LAB_FREE_AI_ACTIONS = 10
 
@@ -27,12 +33,13 @@ export type LabAccountAction = LabAiAction | 'audio'
 /**
  * What Premium covers after the trial. `true` = paid after the trial (decided),
  * `null` = the owner has not decided. Not enforced anywhere yet.
+ * Audiobooks are Premium only, included in the 30-day trial (Anders, 2026-10-07).
  */
 export const LAB_PAID_FEATURES = Object.freeze({
   chat: true,
   voice: true,
   recap: true,
-  audiobook: null,
+  audiobook: true,
   compare: null,
 }) satisfies Readonly<Record<string, boolean | null>>
 
@@ -107,7 +114,34 @@ export function gateLabAiAction(input: { signedIn: boolean; storage?: LabPromptS
   const storage = input.storage === undefined ? browserStorage() : input.storage
   const decision = decideLabAiAction({ signedIn: input.signedIn, storage })
   if (decision.allowed && decision.reason === 'free') recordLabAiAction(storage)
+  trackLabAiGate(decision, input.signedIn)
   return decision
+}
+
+/**
+ * Funnel events for one gated AI turn: the device's first AI use, a member's
+ * use, and an anonymous reader reaching the free allowance. Fire and forget.
+ */
+function trackLabAiGate(decision: LabAiActionDecision, signedIn: boolean): void {
+  if (!decision.allowed) { trackFunnel('anon_limit_reached', { free_actions: LAB_FREE_AI_ACTIONS }); return }
+  trackFunnelOnce('ai_first_use', { signed_in: signedIn })
+  if (signedIn) trackFunnel('member_ai_use')
+}
+
+/** The UTC day this device last used its guest Talk trial (the Worker counts UTC days too). */
+export const LAB_TALK_TRIAL_KEY = 'tinct:lab-talk-trial'
+
+function utcToday(now: number): string {
+  return new Date(now).toISOString().slice(0, 10)
+}
+
+/** Has this device used today's guest Talk trial? */
+export function talkTrialUsedToday(storage: LabPromptStorage | null = browserStorage(), now = Date.now()): boolean {
+  try { return storage?.getItem(LAB_TALK_TRIAL_KEY) === utcToday(now) } catch { return false }
+}
+
+export function markTalkTrialUsed(storage: LabPromptStorage | null = browserStorage(), now = Date.now()): void {
+  try { storage?.setItem(LAB_TALK_TRIAL_KEY, utcToday(now)) } catch { /* private mode */ }
 }
 
 /** Lab sign-in page URL. The sign-in runtime owns the return-target safety policy. */
@@ -170,10 +204,4 @@ export function shouldShowSecondBookNudge(input: {
     if (bookId && bookId !== input.bookId) return true
   }
   return false
-}
-
-/** Preparation has not committed a reading place; return via its explicit book entry. */
-export function labBookSignInReturn(currentPath: string, bookId: string | undefined, preparing: boolean): string {
-  if (!preparing || !bookId) return currentPath
-  return '/library?' + new URLSearchParams({ book: bookId, view: 'book-detail' }).toString()
 }

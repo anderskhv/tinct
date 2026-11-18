@@ -1,0 +1,550 @@
+{
+  "bookId": "adventures-of-sherlock-holmes",
+  "status": "PROPOSAL ONLY - not runtime character data",
+  "coverage": "Selected principal figures and clients across the twelve stories; not a complete entity/mention inventory.",
+  "coordinateConvention": "Chapter and paragraph numbers are one-based in staged original-en. Literal-name coordinates are evidence pointers, not automatically safe reveal gates.",
+  "entities": [
+    {
+      "id": "sherlock-holmes",
+      "name": "Sherlock Holmes",
+      "storyNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "bodyProposal": "Consulting detective at Baker Street.",
+      "literalNameForms": [
+        "Sherlock Holmes",
+        "Holmes"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 1,
+          "paragraph1Based": 1
+        },
+        {
+          "chapter": 2,
+          "paragraph1Based": 1
+        },
+        {
+          "chapter": 3,
+          "paragraph1Based": 1
+        },
+        {
+          "chapter": 4,
+          "paragraph1Based": 1
+        },
+        {
+          "chapter": 5,
+          "paragraph1Based": 1
+        },
+        {
+          "chapter": 6,
+          "paragraph1Based": 28
+        },
+        {
+          "chapter": 7,
+          "paragraph1Based": 1
+        },
+        {
+          "chapter": 8,
+          "paragraph1Based": 1
+        },
+        {
+          "chapter": 9,
+          "paragraph1Based": 1
+        },
+        {
+          "chapter": 10,
+          "paragraph1Based": 1
+        },
+        {
+          "chapter": 11,
+          "paragraph1Based": 1
+        },
+        {
+          "chapter": 12,
+          "paragraph1Based": 1
+        }
+      ]
+    },
+    {
+      "id": "watson",
+      "name": "Dr. Watson",
+      "storyNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "bodyProposal": "Doctor, narrator, and companion of Holmes.",
+      "literalNameForms": [
+        "Watson"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 1,
+          "paragraph1Based": 5
+        },
+        {
+          "chapter": 2,
+          "paragraph1Based": 2
+        },
+        {
+          "chapter": 3,
+          "paragraph1Based": 30
+        },
+        {
+          "chapter": 4,
+          "paragraph1Based": 8
+        },
+        {
+          "chapter": 5,
+          "paragraph1Based": 108
+        },
+        {
+          "chapter": 6,
+          "paragraph1Based": 19
+        },
+        {
+          "chapter": 7,
+          "paragraph1Based": 26
+        },
+        {
+          "chapter": 8,
+          "paragraph1Based": 3
+        },
+        {
+          "chapter": 10,
+          "paragraph1Based": 12
+        },
+        {
+          "chapter": 11,
+          "paragraph1Based": 168
+        },
+        {
+          "chapter": 12,
+          "paragraph1Based": 1
+        }
+      ]
+    },
+    {
+      "id": "irene-adler",
+      "name": "Irene Adler",
+      "storyNumbers": [
+        1
+      ],
+      "bodyProposal": "Former opera singer at the centre of the opening case.",
+      "literalNameForms": [
+        "Irene Adler"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 1,
+          "paragraph1Based": 1
+        }
+      ]
+    },
+    {
+      "id": "king-of-bohemia",
+      "name": "King of Bohemia",
+      "storyNumbers": [
+        1
+      ],
+      "bodyProposal": "Royal client concerned about a compromising photograph.",
+      "literalNameForms": [
+        "King of Bohemia"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 1,
+          "paragraph1Based": 57
+        }
+      ]
+    },
+    {
+      "id": "godfrey-norton",
+      "name": "Godfrey Norton",
+      "storyNumbers": [
+        1
+      ],
+      "bodyProposal": "Lawyer of the Inner Temple who visits Irene Adler.",
+      "literalNameForms": [
+        "Godfrey Norton"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 1,
+          "paragraph1Based": 130
+        }
+      ]
+    },
+    {
+      "id": "jabez-wilson",
+      "name": "Jabez Wilson",
+      "storyNumbers": [
+        2
+      ],
+      "bodyProposal": "Pawnbroker and applicant to the Red-headed League.",
+      "literalNameForms": [
+        "Jabez Wilson"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 2,
+          "paragraph1Based": 12
+        }
+      ]
+    },
+    {
+      "id": "vincent-spaulding",
+      "name": "Vincent Spaulding",
+      "storyNumbers": [
+        2
+      ],
+      "bodyProposal": "Assistant in Wilson's pawnshop.",
+      "literalNameForms": [
+        "Vincent Spaulding"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 2,
+          "paragraph1Based": 36
+        }
+      ]
+    },
+    {
+      "id": "duncan-ross",
+      "name": "Duncan Ross",
+      "storyNumbers": [
+        2
+      ],
+      "bodyProposal": "Man handling applications to the Red-headed League.",
+      "literalNameForms": [
+        "Duncan Ross"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 2,
+          "paragraph1Based": 29
+        }
+      ]
+    },
+    {
+      "id": "mary-sutherland",
+      "name": "Mary Sutherland",
+      "storyNumbers": [
+        3
+      ],
+      "bodyProposal": "Client seeking an explanation of her fiance's disappearance.",
+      "literalNameForms": [
+        "Mary Sutherland"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 3,
+          "paragraph1Based": 14
+        }
+      ]
+    },
+    {
+      "id": "hosmer-angel",
+      "name": "Hosmer Angel",
+      "storyNumbers": [
+        3
+      ],
+      "bodyProposal": "The absent man in Mary Sutherland's account.",
+      "literalNameForms": [
+        "Hosmer Angel"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 3,
+          "paragraph1Based": 18
+        }
+      ]
+    },
+    {
+      "id": "james-mccarthy",
+      "name": "James McCarthy",
+      "storyNumbers": [
+        4
+      ],
+      "bodyProposal": "Young man implicated in the Boscombe Valley case.",
+      "literalNameForms": [
+        "James McCarthy"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 4,
+          "paragraph1Based": 19
+        }
+      ]
+    },
+    {
+      "id": "alice-turner",
+      "name": "Alice Turner",
+      "storyNumbers": [
+        4
+      ],
+      "bodyProposal": "Young woman who asks for help in the Boscombe Valley investigation.",
+      "literalNameForms": [
+        "Miss Turner",
+        "Alice"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 4,
+          "paragraph1Based": 22
+        }
+      ],
+      "identityNote": "Display name joins the daughter Alice and her family surname Turner; source generally uses Miss Turner. Limit matches to story 4. The maid Alice in story 10 and Alice Rucastle in story 12 are different people."
+    },
+    {
+      "id": "john-openshaw",
+      "name": "John Openshaw",
+      "storyNumbers": [
+        5
+      ],
+      "bodyProposal": "Young visitor bringing a story of threatening letters.",
+      "literalNameForms": [
+        "John Openshaw"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 5,
+          "paragraph1Based": 34
+        }
+      ]
+    },
+    {
+      "id": "neville-st-clair",
+      "name": "Neville St. Clair",
+      "storyNumbers": [
+        6
+      ],
+      "bodyProposal": "Missing man whose wife brings her concerns to Holmes.",
+      "literalNameForms": [
+        "Neville St. Clair"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 6,
+          "paragraph1Based": 42
+        }
+      ]
+    },
+    {
+      "id": "henry-baker",
+      "name": "Henry Baker",
+      "storyNumbers": [
+        7
+      ],
+      "bodyProposal": "Man associated with a lost hat and Christmas goose.",
+      "literalNameForms": [
+        "Henry Baker"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 7,
+          "paragraph1Based": 13
+        }
+      ]
+    },
+    {
+      "id": "helen-stoner",
+      "name": "Helen Stoner",
+      "storyNumbers": [
+        8
+      ],
+      "bodyProposal": "Woman seeking help concerning danger at her family home.",
+      "literalNameForms": [
+        "Helen Stoner"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 8,
+          "paragraph1Based": 22
+        }
+      ]
+    },
+    {
+      "id": "grimesby-roylott",
+      "name": "Dr. Grimesby Roylott",
+      "storyNumbers": [
+        8
+      ],
+      "bodyProposal": "Helen Stoner's stepfather.",
+      "literalNameForms": [
+        "Grimesby Roylott"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 8,
+          "paragraph1Based": 1
+        }
+      ]
+    },
+    {
+      "id": "victor-hatherley",
+      "name": "Victor Hatherley",
+      "storyNumbers": [
+        9
+      ],
+      "bodyProposal": "Hydraulic engineer who consults Watson after a severe injury.",
+      "literalNameForms": [
+        "Victor Hatherley"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 9,
+          "paragraph1Based": 9
+        }
+      ]
+    },
+    {
+      "id": "lord-st-simon",
+      "name": "Lord St. Simon",
+      "storyNumbers": [
+        10
+      ],
+      "bodyProposal": "Aristocratic client whose wedding has taken an unexpected course.",
+      "literalNameForms": [
+        "Lord St. Simon"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 10,
+          "paragraph1Based": 1
+        }
+      ]
+    },
+    {
+      "id": "hatty-doran",
+      "name": "Hatty Doran",
+      "storyNumbers": [
+        10
+      ],
+      "bodyProposal": "American bride in the noble bachelor's account.",
+      "literalNameForms": [
+        "Hatty Doran"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 10,
+          "paragraph1Based": 24
+        }
+      ]
+    },
+    {
+      "id": "alexander-holder",
+      "name": "Alexander Holder",
+      "storyNumbers": [
+        11
+      ],
+      "bodyProposal": "Banker who brings a problem involving a valuable coronet.",
+      "literalNameForms": [
+        "Alexander Holder"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 11,
+          "paragraph1Based": 15
+        }
+      ]
+    },
+    {
+      "id": "violet-hunter",
+      "name": "Violet Hunter",
+      "storyNumbers": [
+        12
+      ],
+      "bodyProposal": "Governess considering employment at the Copper Beeches.",
+      "literalNameForms": [
+        "Violet Hunter"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 12,
+          "paragraph1Based": 212
+        }
+      ]
+    },
+    {
+      "id": "mr-rucastle",
+      "name": "Mr. Rucastle",
+      "storyNumbers": [
+        12
+      ],
+      "bodyProposal": "Prospective employer offering Violet Hunter unusually high wages.",
+      "literalNameForms": [
+        "Mr. Rucastle"
+      ],
+      "firstLiteralOccurrencesWithinStories": [
+        {
+          "chapter": 12,
+          "paragraph1Based": 71
+        }
+      ],
+      "identityNote": "The source supplies JEPHRO RUCASTLE in the letter signature at story 12 paragraph 64 and Jephro in paragraph 122. Mr. Rucastle remains the proposed display name; the literal-name pointer at paragraph 71 records that displayed form, not the earliest identification."
+    }
+  ],
+  "identityDecisions": [
+    {
+      "entity": "irene-adler",
+      "laterNames": [
+        "Irene Norton"
+      ],
+      "rule": "Same person; do not expose married name or marriage before story 1 paragraph 142. The name Irene Norton itself appears at paragraph 247."
+    },
+    {
+      "entity": "king-of-bohemia",
+      "earlierName": "Count Von Kramm",
+      "rule": "Same person; preserve initial disguise. Do not reveal the royal identity before story 1 paragraph 55; full name is stated in paragraph 57."
+    },
+    {
+      "entity": "vincent-spaulding",
+      "laterName": "John Clay",
+      "rule": "One person; do not reveal alias linkage in initial card. Detection and reveal gates must be reviewed against the complete story; story 2 paragraph 195 names the captured intruder and paragraphs 206-209 explain the scheme."
+    },
+    {
+      "entity": "duncan-ross",
+      "otherNames": [
+        "William Morris",
+        "Archie"
+      ],
+      "rule": "Keep the apparent manager and later alias/companion revelations spoiler-gated. Do not globally equate the real author William Morris with this cover name."
+    },
+    {
+      "entity": "watson",
+      "rule": "Use book-local Watson identity consistently; never create a separate narrator entity for the pronoun I. Do not globally tag generic doctor."
+    },
+    {
+      "entity": "household-servants",
+      "rule": "Keep source Mrs. Turner in story 1. Do not silently substitute Mrs. Hudson from other Holmes works."
+    }
+  ],
+  "integrationRequirements": [
+    "Run the existing character pipeline only in a separately authorised integration task.",
+    "Review all aliases, initial descriptions, reveal points and literal matches before any runtime generation.",
+    "Complete the all-story entity inventory if required by the runtime contract; this selected proposal is not a claim of exhaustive coverage.",
+    "No production character files or existing mentions have been changed."
+  ]
+}

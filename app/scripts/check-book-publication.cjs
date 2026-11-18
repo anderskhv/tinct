@@ -1,7 +1,20 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Silent, isolated built/live acceptance. No synthesis, microphone or account writes.
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto')
-const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin='https://tinct.app',out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
-assert(['to-the-lighthouse','symposium'].includes(book));fs.mkdirSync(out,{recursive:true})
+const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''),out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
+// Books published through a reviewed release package (books/wip/<id>/release).
+const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility','grimms-fairy-tales','arabian-nights','master-and-margarita','pinocchio']
+// Text-only editions published beside the narrated ones: the Russian source of The
+// Master and Margarita and the Italian of Pinocchio. No narration, no character cards.
+const TEXT_ONLY_EDITIONS={'master-and-margarita':['original-ru'],'pinocchio':['original-it']}[book]||[]
+// Narrated editions. The Master and Margarita is translated by Tinct from the
+// Russian: no English original, and Compare defaults to the Russian (Anders, 2026-11-05).
+// Pinocchio likewise, from the Italian (2026-11-10).
+// The offered Danish editions (OFFERED_DANISH_EDITIONS) are narrated by streaming in
+// Danish since 2026-11-06 (Anders, after a Grok sample); until then they were text-only.
+const NARRATED_EDITIONS={'master-and-margarita':['modern-en','modern-da'],'pinocchio':['modern-en','modern-da'],'to-the-lighthouse':['modern-en','original-en','modern-da'],'grimms-fairy-tales':['modern-en','original-en','modern-da'],'arabian-nights':['modern-en','original-en','modern-da']}[book]||['modern-en','original-en']
+const compareFor=ed=>ed==='modern-en'?({'master-and-margarita':'original-ru','pinocchio':'original-it'}[book]||'original-en'):'modern-en'
+assert(PUBLICATION_BOOKS.includes(book),'TEST_BOOK must be one of '+PUBLICATION_BOOKS.join(', '));fs.mkdirSync(out,{recursive:true})
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
 const source=ed=>JSON.parse(fs.readFileSync('public/data/editions/'+book+'-'+ed+'.json','utf8'))
 const results={book,live,assets:[],cases:[]}
@@ -29,42 +42,62 @@ async function boot(browser,phone,ed,fixture={}){
   }
   return route.continue()
  })
- await page.addInitScript(({book,ed,fixture})=>{
+ await page.addInitScript(({book,ed,fixture,compare})=>{
   localStorage.setItem('tinct:wipe-v1-done','1')
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:ed,compareEdition:ed==='modern-en'?'original-en':'modern-en',compareOpen:true,voicePersona:'female'}))
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:ed,compareEdition:compare,compareOpen:true,voicePersona:'female',voicePersonaChosen:true}))
+  // Reads the main version first: a new book on a phone opens with Compare's view on (2026-10-14).
+  localStorage.setItem('tinct:reader-compare-view',JSON.stringify({['phone:'+book]:false,['desktop:'+book]:false}))
   if(fixture.position){
    if(!localStorage.getItem('tinct-lab-position'))localStorage.setItem('tinct-lab-position',JSON.stringify(fixture.position))
    if(!localStorage.getItem('tinct-lab-highlights'))localStorage.setItem('tinct-lab-highlights',JSON.stringify(fixture.highlights))
-  }else sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:ed,compareEditionKey:ed==='modern-en'?'original-en':'modern-en',savedPlace:{bookId:book,chapterNumber:fixture.chapter||1,paragraphIndex:0,wordIndex:0,page:0}}))
+  }else sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:ed,compareEditionKey:compare,savedPlace:{bookId:book,chapterNumber:fixture.chapter||1,paragraphIndex:0,wordIndex:0,page:0}}))
   HTMLMediaElement.prototype.play=async function(){this.muted=true}
   if(navigator.mediaDevices)Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{throw Error('Microphone disabled')}})
- },{book,ed,fixture})
- await page.goto(origin+(phone?'/reader?layout=phone':'/reader?chrome=v2'),{waitUntil:'domcontentloaded'})
+ },{book,ed,fixture,compare:compareFor(ed)})
+ await page.goto(origin+(phone?'/reader?layout=phone':'/reader'),{waitUntil:'domcontentloaded'})
  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:60000})
  await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(700)
  const bundle=await page.locator('script[src]').evaluateAll(ns=>ns.map(n=>new URL(n.src).pathname).find(x=>/\/assets\/index-.*\.js$/.test(x)))
  if(process.env.TINCT_EXPECTED_BUNDLE)assert.equal(bundle,process.env.TINCT_EXPECTED_BUNDLE)
  return {context,page,calls,errors,legacy,bundle,network,started}
 }
-async function toggleCompare(page,phone){
- if(!phone){
+async function toggleCompare(page){
+ // Compare opens from Book settings on the desktop; the phone swipe was removed (6 Nov 2026).
+ await page.getByTestId('lab-super').click()
+ await page.getByTestId('lab-super-row-editions').click()
+ return page.getByTestId('lab-v2-show-compare').click()
+}
+// The phone has no Compare (10 Nov 2026): Book settings offer the Main version only, and the place is kept.
+async function compareRoundTrip(page,phone,shot){
+ const root=page.getByTestId('lab-root'),place=await root.getAttribute('data-place')
+ if(phone){
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-editions').click()
-  return page.getByTestId('lab-v2-show-compare').click()
+  await page.getByTestId('lab-v2-main-edition').waitFor()
+  assert.equal(await page.getByTestId('lab-v2-show-compare').count(),0,'The phone offers no Compare')
+  assert.equal(await page.getByTestId('lab-v2-compare-edition').count(),0,'The phone offers no Compare version')
+  await page.getByTestId('lab-v2-sheet-close').click()
+ }else{
+  await toggleCompare(page)
+  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='true')
+  await page.waitForTimeout(300)
+  await page.screenshot({path:shot})
+  await toggleCompare(page)
+  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='false')
  }
- await page.getByTestId('lab-book').evaluate(el=>{
-  el.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,pointerId:71,pointerType:'touch',clientX:190,clientY:400}))
-  el.dispatchEvent(new PointerEvent('pointerup',{bubbles:true,pointerId:71,pointerType:'touch',clientX:190,clientY:270}))
- })
+ assert.equal(await root.getAttribute('data-place'),place,'Compare must retain primary place')
 }
 async function main(){
  if(live){
-  const files=[...['original-en','modern-en'].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/characters/'+book+'.v1.json','data/onboarding/'+book+'.json','data/editions/'+book+'-threads.json']
+  const files=[...[...NARRATED_EDITIONS,...TEXT_ONLY_EDITIONS].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/onboarding/'+book+'.json']
+  // Character cards and Cast are optional: anthologies such as Grimm and the Arabian Nights have neither.
+  for(const optional of ['data/characters/'+book+'.v1.json','data/editions/'+book+'-threads.json'])if(fs.existsSync('public/'+optional))files.push(optional)
   for(const asset of ['covers/v2/'+book+'.webp','brand/20260921/books/'+book+'.jpg'])if(fs.existsSync('public/'+asset))files.push(asset)
   if(book==='symposium')files.push('brand/20260921/books/to-the-lighthouse.jpg')
-  for(const ed of ['original-en','modern-en']){
+  for(const ed of [...NARRATED_EDITIONS,...TEXT_ONLY_EDITIONS]){
    const dir='data/editions-chapters/'+book+'-'+ed
-   files.push(...fs.readdirSync('public/'+dir).map(f=>dir+'/'+f))
+   // Small editions (Alice's original) are served whole and have no shards.
+   if(fs.existsSync('public/'+dir))files.push(...fs.readdirSync('public/'+dir).map(f=>dir+'/'+f))
   }
   if(book==='symposium')files.push('data/edition-migrations/symposium.positions.json','data/edition-migrations/symposium.highlights.json','data/editions/symposium-modern-da.json')
   for(const file of files){
@@ -81,23 +114,41 @@ async function main(){
   new Function('module','exports','require',compiled)(workerModule,workerModule.exports,require)
   const rawPage=fs.readFileSync('public/read/'+book+'/book.html')
   const canonical=origin+'/read/'+book
+  // The Worker builds /read/<id> from the library page plus the book page
+  // (bookLibraryPage.ts), so it asks the assets for both.
+  const libraryFile=['dist','public'].map(root=>path.join(root,'lab/library_2/index.html')).find(file=>fs.existsSync(file))
+  const assetPages={['/read/'+book+'/book']:rawPage,'/lab/library_2/':libraryFile&&fs.readFileSync(libraryFile)}
   const expectedPage=await workerModule.exports.handleSeoAndStaticRequest(new Request(canonical),{ASSETS:{fetch:async req=>{
-   assert.equal(new URL(req.url).pathname,'/read/'+book+'/book')
-   return new Response(rawPage,{headers:{'Content-Type':'text/html; charset=utf-8'}})
+   const page=assetPages[new URL(req.url).pathname]
+   assert.ok(page,'Unexpected asset request '+new URL(req.url).pathname)
+   return new Response(page,{headers:{'Content-Type':'text/html; charset=utf-8'}})
   }}},{waitUntil:()=>{}})
-  const expectedBytes=Buffer.from(await expectedPage.arrayBuffer()),pageResponse=await fetch(canonical)
-  assert.equal(pageResponse.status,200)
-  const livePage=Buffer.from(await pageResponse.arrayBuffer())
+  const expectedBytes=Buffer.from(await expectedPage.arrayBuffer())
+  // Right after a deploy some edges still serve the previous version's library
+  // page (its script tags differ), so poll for the exact bytes for up to two
+  // minutes before failing. The match itself stays exact.
+  let livePage,pageStatus
+  for(let attempt=0;attempt<13;attempt++){
+   if(attempt)await new Promise(resolve=>setTimeout(resolve,10000))
+   const pageResponse=await fetch(canonical,{headers:{'Cache-Control':'no-cache'}})
+   pageStatus=pageResponse.status;livePage=Buffer.from(await pageResponse.arrayBuffer())
+   if(pageStatus===200&&hash(livePage)===hash(expectedBytes))break
+  }
+  assert.equal(pageStatus,200)
   assert.equal(hash(livePage),hash(expectedBytes),'Canonical book page must match the Worker-branded accepted source')
   results.assets.push({path:'/read/'+book,sourceSha256:hash(rawPage),sha256:hash(livePage),bytes:livePage.length,transformation:'handleSeoAndStaticRequest'})
 
   const info=await(await fetch(origin+'/api/narration/voices')).json()
   assert.equal(info.provider,'grok');assert.equal(info.enabled,true);results.provider=info.provider
  }
- for(const [device,engine,phone] of [['phone',webkit,true],['desktop',chromium,false]]){
-  const browser=await engine.launch({headless:true,...(!phone?{args:['--mute-audio']}:{})})
+ // Local fallback for sandboxes without WebKit: PUBLICATION_PHONE_ENGINE=chromium
+ // runs the phone layout in Chromium; PLAYWRIGHT_CHROMIUM_PATH pins a Chromium binary.
+ const phoneEngine=process.env.PUBLICATION_PHONE_ENGINE==='chromium'?chromium:webkit
+ const executablePath=process.env.PLAYWRIGHT_CHROMIUM_PATH
+ for(const [device,engine,phone] of [['phone',phoneEngine,true],['desktop',chromium,false]]){
+  const browser=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(executablePath?{executablePath}:{})}:{})}))
   try{
-   for(const ed of ['modern-en','original-en']){
+   for(const ed of NARRATED_EDITIONS){
     const state=await boot(browser,phone,ed),{page,calls,errors,legacy}=state,root=page.getByTestId('lab-root')
     assert.equal(await root.getAttribute('data-chapter'),'1')
     const first=page.locator('.lab-page-wrap [data-paragraph-index="0"][data-word-index="0"]').first()
@@ -106,13 +157,7 @@ async function main(){
     await page.screenshot({path:out+'/'+device+'-'+ed+'-opening.png'})
     const place=await root.getAttribute('data-place')
     console.log(JSON.stringify({device,ed,stage:'opening',place,buttons:await page.locator('button:visible').allTextContents()}))
-    await toggleCompare(page,phone)
-    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='true')
-    await page.waitForTimeout(300)
-    await page.screenshot({path:out+'/'+device+'-'+ed+'-compare.png'})
-    await toggleCompare(page,phone)
-    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='false')
-    assert.equal(await root.getAttribute('data-place'),place,'Compare must retain primary place')
+    await compareRoundTrip(page,phone,out+'/'+device+'-'+ed+'-compare.png')
     const play=page.locator('[data-testid="lab-v2-play"]:visible,[data-testid="lab-listen"]:visible,[data-testid="lab-desktop-play"]:visible').first()
     const diagnostics=async()=>({calls:calls.length,network:state.network.map(event=>({...event})),errors:[...errors],screen:await page.evaluate(()=>({
       root:{...document.querySelector('[data-testid="lab-root"]')?.dataset},
@@ -134,10 +179,36 @@ async function main(){
     if(!calls.length)await page.screenshot({path:out+'/'+device+'-'+ed+'-play-failure.png'})
     assert(requestObserved&&calls.length>0,'Play must use streaming narration within the bounded request wait')
     const request=calls[0];assert.equal(request.bookId,book);assert.equal(request.editionKey,ed);assert.equal(request.chapter,1)
+    // The narrated text is the edition's own (Danish text for a Danish edition); the language is the Worker's to derive.
+    assert.equal(await root.getAttribute('lang'),ed.slice(-2))
     assert(request.paragraphs.some(p=>p.index===0&&/^[a-f0-9]{64}$/.test(p.textHash)),'Streaming must carry opening text identity')
     assert.equal(legacy.filter(url=>url.startsWith('/api/audio-file')).length,0,'Must not load obsolete recordings')
     assert.deepEqual(errors,[])
     results.cases.push({device,edition:ed,opening:true,compare:true,streamingRequest:request,legacyManifestProbes:legacy,bundle:state.bundle})
+    await state.context.close()
+   }
+   for(const ed of TEXT_ONLY_EDITIONS){
+    // Opens 1:1 beside the narrated edition; Play says audio is unavailable and
+    // never narrates (no narration in this language, no English audio for it).
+    const state=await boot(browser,phone,ed),{page,calls,errors,legacy}=state,root=page.getByTestId('lab-root')
+    assert.equal(await root.getAttribute('data-chapter'),'1')
+    assert.equal(await root.getAttribute('lang'),ed.slice(-2))
+    const first=page.locator('.lab-page-wrap [data-paragraph-index="0"][data-word-index="0"]').first()
+    await first.waitFor({state:'visible'});assert.equal(clean(await first.innerText()),clean(source(ed).chapters[0].paragraphs[0].split(/\s+/)[0]))
+    assert.equal(await page.getByTestId('edition-hold').count(),0,'An offered edition is not held')
+    await page.screenshot({path:out+'/'+device+'-'+ed+'-opening.png'})
+    const place=await root.getAttribute('data-place')
+    await compareRoundTrip(page,phone,out+'/'+device+'-'+ed+'-compare.png')
+    const play=page.locator('[data-testid="lab-v2-play"]:visible,[data-testid="lab-listen"]:visible,[data-testid="lab-desktop-play"]:visible').first()
+    if(await play.count()){
+     await play.click()
+     await page.locator('.lab-audio-unavailable').waitFor({state:'visible',timeout:5000})
+    }
+    await page.waitForTimeout(1500)
+    assert.equal(calls.length,0,'A text-only edition never asks for narration')
+    assert.deepEqual(legacy,[],'A text-only edition never asks for recordings')
+    assert.deepEqual(errors,[])
+    results.cases.push({device,edition:ed,opening:true,compare:true,textOnly:true,playButton:await play.count()>0,bundle:state.bundle})
     await state.context.close()
    }
    if(book==='symposium'){

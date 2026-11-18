@@ -29,27 +29,24 @@ export type LabCallMotion = 'breathe' | 'rotate' | 'pulse' | 'still'
 
 export const LAB_CALL_COPY = {
   live: 'Live',
-  connecting: 'Connecting.',
-  listening: 'Listening.',
-  thinking: 'Thinking.',
-  speaking: 'Speaking.',
+  /** Also the call's AI disclosure (AI Act art. 50; DECISIONS.md 2026-10-08). */
+  connecting: 'Connecting to AI…',
+  listening: 'Listening',
+  thinking: 'Thinking',
+  speaking: 'Speaking',
   micOff: 'Microphone off',
   disconnected: 'Disconnected',
-  disconnectedHelp: 'The conversation lost its connection. Nothing is being heard.',
-  connectionConnected: 'Connected',
-  connectionConnecting: 'Connecting',
-  connectionLost: 'Not connected',
-  connectionLabel: 'Connection',
-  /** The accessible name of End. */
+  /** End's accessible name and tooltip; the word under the red disc is `endWord`. */
   end: 'End conversation',
-  /** The word under the X. */
   endWord: 'End',
+  /** The word under Talk's speed disc; the disc itself shows the figure. */
+  speed: 'Speed',
+  /** Talk's title on the desktop window and the full-screen phone call. */
+  title: 'Talk',
   mute: 'Mute',
   unmute: 'Unmute',
   reconnect: 'Reconnect',
   callLabel: 'Voice conversation',
-  /** The caption while the microphone is open and nothing is being said. */
-  askAboutPage: 'Ask about this page.',
   minimize: 'Minimize the conversation',
   expand: 'Open the conversation',
 } as const
@@ -65,10 +62,8 @@ export interface LabCallInput {
 
 export interface LabCallView {
   status: LabCallStatus
-  /** The large explicit line under the circle. */
+  /** The one status line under the circle. */
   statusText: string
-  /** Connection status, always shown apart from the activity line. */
-  connectionText: string
   connected: boolean
   motion: LabCallMotion
   /** A broken ring rather than a closed circle. */
@@ -117,11 +112,6 @@ const MOTION: Record<LabCallStatus, LabCallMotion> = {
 
 export function labCallView(input: LabCallInput): LabCallView {
   const connected = input.connection === 'connected'
-  const connectionText = connected
-    ? LAB_CALL_COPY.connectionConnected
-    : input.connection === 'connecting'
-      ? LAB_CALL_COPY.connectionConnecting
-      : LAB_CALL_COPY.connectionLost
 
   // Transport first. Nothing about microphone or assistant activity can make a
   // call without a connection look live. `idle` means there is no session at
@@ -131,7 +121,6 @@ export function labCallView(input: LabCallInput): LabCallView {
     return {
       status: 'disconnected',
       statusText: STATUS_TEXT.disconnected,
-      connectionText,
       connected: false,
       motion: 'still',
       broken: true,
@@ -144,7 +133,6 @@ export function labCallView(input: LabCallInput): LabCallView {
     return {
       status: 'connecting',
       statusText: STATUS_TEXT.connecting,
-      connectionText,
       connected: false,
       motion: 'rotate',
       broken: true,
@@ -161,47 +149,12 @@ export function labCallView(input: LabCallInput): LabCallView {
   return {
     status,
     statusText: STATUS_TEXT[status],
-    connectionText,
     connected: true,
     motion: MOTION[status],
     broken: status === 'thinking' || status === 'connecting',
     micOff: input.micMuted,
     showReconnect: false,
   }
-}
-
-/** How much of an utterance the one-line caption and the pill carry. */
-export const LAB_CALL_CAPTION_CHARS = 120
-
-/**
- * The newest thing the assistant said, as one line: whitespace collapsed
- * and, when it runs long, the tail of it behind an ellipsis, since the end
- * of a sentence is what she is saying now.
- */
-export function labCallUtterance(turns: ReadonlyArray<{ role: 'user' | 'assistant'; content: string }>): string | null {
-  for (let index = turns.length - 1; index >= 0; index -= 1) {
-    const turn = turns[index]
-    if (turn.role !== 'assistant') continue
-    const text = turn.content.replace(/\s+/g, ' ').trim()
-    if (!text) continue
-    if (text.length <= LAB_CALL_CAPTION_CHARS) return text
-    const tail = text.slice(text.length - LAB_CALL_CAPTION_CHARS)
-    const cut = tail.indexOf(' ')
-    return `\u2026${cut > 0 && cut < 24 ? tail.slice(cut + 1) : tail}`
-  }
-  return null
-}
-
-/**
- * The italic line under the status word. While she speaks it is what she is
- * saying; while the microphone is open it invites the reader; otherwise
- * nothing, because the status word already says what is happening.
- */
-export function labCallCaption(view: Pick<LabCallView, 'status'>, utterance: string | null): string | null {
-  if (view.status === 'live') return utterance || LAB_CALL_COPY.askAboutPage
-  if (view.status === 'speaking') return utterance
-  if (view.status === 'listening') return LAB_CALL_COPY.askAboutPage
-  return null
 }
 
 /** Sounds the call may announce itself with. */

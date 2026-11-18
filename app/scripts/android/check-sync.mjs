@@ -1,9 +1,11 @@
 import {restartNativePage} from './native-page.mjs'
+import {markInternal} from '../lib/internalTraffic.cjs'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 
 /** Installed native storage + the real reader, with isolated account services. */
 export async function checkNativeSync(device, page, output) {
+ await markInternal(page)
  const packageId='app.tinct.reader.review', activity=packageId+'/app.tinct.reader.MainActivity'
  const authKey='sb-yazjyiqsxjystvpkyouk-auth-token'
  const now=Date.now(), exp=Math.floor(now/1000)+3600

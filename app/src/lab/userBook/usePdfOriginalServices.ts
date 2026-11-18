@@ -1,0 +1,844 @@
+import { PDF_SOURCE_PAGES, PDF_SOURCE_PAGE_CHARS, PDF_SOURCE_CHARS } from '../sharedReader/pdf/pdfOriginalSourceLimits'
+/** Owner-bound Original PDF page geometry, separate from PDF Tinct-text anchors. */
+import type { PdfRegionCapture } from '../sharedReader/pdf/pdfOriginalFigures'
+import { isPdfFreeNoteData, isPdfSourceAnchor } from '../../shared/pdfOriginalCardMetadata'
+import { createElement, useEffect, useMemo, useRef, useState } from 'react'
+import type { HighlightColor } from '../../types'
+import type { OwnCard, OwnMark, OwnMarkGone } from '../../worker/routes/userBooks'
+import type { PdfOriginalReaderServices } from '../sharedReader/pdf/PdfOriginalReaderShell'
+import type { PdfOriginalFollow, PdfOriginalSelection } from '../sharedReader/pdf/PdfOriginalSurface'
+import { readAnthropicResponse } from '../labCompanion'
+import { apiUrl } from '../../utils/apiUrl'
+import { internalTrafficHeaders } from '../../utils/internalTraffic'
+import { listAccountBooks, ownBookToken, type FetchLike } from './ownAccount'
+import { loadOwnedPdfBytes, readOwnedBookFileId, savePendingOwnedPdf, userBookOwner } from './userBookStore'
+import { openPdfOriginalBytes } from '../sharedReader/pdf/PdfOriginalSurface'
+import { loadPdfEngine } from './pdfEdition'
+import { pdfBodySize, pdfEdgeKeys, pdfGraphicBoxes, pdfNarrationPlan, pdfNarrationRenderedWord, pdfNarrationSpokenIndex, pdfRunningKeys,
+  type PdfNarrationBox, type PdfNarrationPageInput, type PdfNarrationPlan } from '../sharedReader/pdf/pdfNarration'
+import { narrationTokens } from '../../narration/narrationCore'
+import { listeningSentenceStart } from '../labHearing'
+import { useMarginListen, type MarginListenApi } from '../marginPreview/useMarginListen'
+import { userBookId } from './userBookId'
+import { readingAngleForAi } from '../labReadingAngle'
+import { withAiPrefs } from '../labAiPrefs'
+import type { PrimerOutline } from '../../companion/chapterChatPrompt'
+import { PdfOriginalTalkCard, pdfTalkConversations } from './PdfOriginalTalkCard'
+import { OwnTextCardsSync, unassignedOwnTextCardCount } from './ownTextCardsSync'
+import { isSelectionActionKind, markSelectionActionsUsed } from '../labSelectionActions'
+
+type Item = OwnMark | OwnCard | OwnMarkGone
+type SetName = 'marks' | 'cards'
+export type PdfOriginalUnitSource = { unit: { key: string; title: string; from: number; to: number }; pages: Array<{ n: number; text: string }>; atPage: number; anchor?: { page: number; frac: number }
+  /** A primer's: the PDF's sections nearest the unit, titles only (the Worker bounds it; chapterChatPrompt.ts). */
+  outline?: PrimerOutline }
+export type PdfOriginalUnitAction = 'primer' | 'catchup' | 'recap'
+type SavedSet<T extends Item> = { items: T[]; rev: number; dirty: boolean }
+const FILE_ID = /^[0-9a-f]{32}$/
+const HEX = /^[0-9a-f]{24}$/
+/** Pages on each side whose layout decides running heads and body size for read-aloud. */
+const PDF_NARRATION_WINDOW = 4
+/** How many pages read-aloud passes over looking for one with words to read. */
+const PDF_NARRATION_SKIP_PAGES = 10
+const key = (name: SetName, owner: string, fileId: string, hex: string) => `tinct-addbook:pdf-original-${name}:${owner}:${fileId}:${hex}`
+const gone = (item: Item): item is OwnMarkGone => 'gone' in item
+const updated = (item: Item) => gone(item) ? item.u : item.u ?? item.at
+const merge = <T extends Item>(a: T[], b: T[]): T[] => {
+  const byId = new Map<string, T>()
+  for (const item of [...a, ...b]) {
+    const prior = byId.get(item.id)
+    if (!prior || updated(item) > updated(prior) || updated(item) === updated(prior) && gone(item)) byId.set(item.id, item)
+  }
+  return [...byId.values()].sort((a, b) => a.id.localeCompare(b.id))
+}
+const fresh = <T extends Item>(): SavedSet<T> => ({ items: [], rev: 0, dirty: false })
+const unitFields = (data: unknown, page: number): boolean => {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return false
+  if (isPdfFreeNoteData(data)) return true
+  const d = data as Record<string, unknown>
+  if (d.sourceAnchor !== undefined && !isPdfSourceAnchor(d.sourceAnchor)) return false
+  if (d.action === 'recap' && Object.keys(d).length === 1) return true // older page recap
+  if (!['primer', 'catchup', 'recap', 'quiz', 'note'].includes(String(d.action))
+    || Object.keys(d).some(field => !['action', 'unit', 'source', 'sourceAnchor'].includes(field))
+    || !d.unit || typeof d.unit !== 'object' || Array.isArray(d.unit)
+    || !d.source || typeof d.source !== 'object' || Array.isArray(d.source)) return false
+  const u = d.unit as Record<string, unknown>, s = d.source as Record<string, unknown>
+  const positive = (n: unknown): n is number => Number.isSafeInteger(n) && (n as number) > 0
+  return Object.keys(u).every(field => ['key', 'title', 'from', 'to'].includes(field))
+    && Object.keys(s).every(field => ['from', 'to'].includes(field))
+    && typeof u.key === 'string' && !!u.key && u.key.length <= 120
+    && typeof u.title === 'string' && !!u.title.trim() && u.title.length <= 300
+    && positive(u.from) && positive(u.to) && u.to >= u.from && positive(s.from) && positive(s.to) && s.to >= s.from
+    && (d.sourceAnchor === undefined || isPdfSourceAnchor(d.sourceAnchor) && d.sourceAnchor.page >= u.from && d.sourceAnchor.page <= u.to)
+    && page >= u.from && page <= u.to && (d.action === 'catchup' ? s.to < page : s.from >= u.from && s.to <= u.to)
+}
+const validUnitSource = (source: PdfOriginalUnitSource, action: PdfOriginalUnitAction): boolean => {
+  const { unit, pages, atPage } = source
+  if (!Array.isArray(pages) || !pages.length || pages.length > PDF_SOURCE_PAGES || !Number.isInteger(atPage)
+    || !pages.every((page, index) => Number.isInteger(page.n) && page.n === pages[0].n + index
+      && typeof page.text === 'string' && page.text.length <= PDF_SOURCE_PAGE_CHARS)
+    || !pages.some(page => page.text.trim()) || pages.reduce((sum, page) => sum + page.text.length, 0) > PDF_SOURCE_CHARS) return false
+  return unitFields({ action, unit, source: { from: pages[0].n, to: pages[pages.length - 1].n } }, atPage)
+}
+const atMost = (value: unknown, limit: number): value is string => typeof value === 'string' && value.length <= limit
+const validItem = (name: SetName, item: unknown): item is Item => {
+  if (!item || typeof item !== 'object') return false
+  const row = item as Record<string, unknown>
+  if (typeof row.id !== 'string' || !/^[0-9a-z]{4,32}$/.test(row.id)) return false
+  if (row.gone === true) return Object.keys(row).every(field => ['id', 'gone', 'u'].includes(field))
+    && Number.isSafeInteger(row.u) && (row.u as number) > 0
+  if (!Number.isSafeInteger(row.page) || (row.page as number) < 1 || !Number.isSafeInteger(row.at) || (row.at as number) < 1
+    || row.u !== undefined && (!Number.isSafeInteger(row.u) || (row.u as number) < 1)
+    || !atMost(row.text, 2000) || !Array.isArray(row.rects) || row.rects.length > 400
+    || (!row.rects.length && !(name === 'cards' && row.pageOnly === true
+      && row.kind === ((row.data as { action?: string } | undefined)?.action === 'quiz' ? 'quiz' : 'ask')
+      && unitFields(row.data, row.page as number)))) return false
+  if (!row.rects.every((rect: unknown) => Array.isArray(rect) && rect.length === (name === 'marks' ? 4 : 5)
+    && rect.slice(name === 'marks' ? 0 : 1).every(n => typeof n === 'number' && Number.isFinite(n) && n >= -1 && n <= 2)
+    && (name === 'marks' || Number.isSafeInteger(rect[0]) && rect[0] > 0)
+    && rect.slice(name === 'marks' ? 0 : 1).every(n => Math.round(n * 10_000) / 10_000 === n))) return false
+  return name === 'marks' ? Object.keys(row).every(field => ['id', 'page', 'rects', 'text', 'color', 'at', 'u', 'note', 'box', 'kind', 'withNote'].includes(field))
+      && typeof row.color === 'string' && ['gold', 'rose', 'sage', 'sky', 'lavender'].includes(row.color)
+      && (row.note === undefined || atMost(row.note, 4000) && row.note.length > 0)
+      && (row.withNote === undefined || !!row.note)
+      && (row.box === undefined || row.box === true)
+      && (row.kind === undefined || ['figure', 'formula', 'snip'].includes(String(row.kind)))
+      && (row.withNote === undefined || row.withNote === true)
+    : typeof row.kind === 'string' && ['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz', 'related', 'figure'].includes(row.kind)
+      && Object.keys(row).every(field => ['id', 'kind', 'page', 'pageOnly', 'rects', 'text', 'turns', 'data', 'at', 'u'].includes(field))
+      && (row.pageOnly === undefined || row.pageOnly === true && row.rects.length === 0
+        && row.kind === ((row.data as { action?: string } | undefined)?.action === 'quiz' ? 'quiz' : 'ask')
+        && unitFields(row.data, row.page as number))
+      && (row.rects.length !== 0 || row.pageOnly === true)
+      && Array.isArray(row.turns) && row.turns.length <= 40 && row.turns.every((turn: unknown) => !!turn && typeof turn === 'object'
+        && Object.keys(turn).every(field => ['role', 'content', 'at', 'display'].includes(field))
+        && ['user', 'assistant'].includes((turn as { role?: string }).role || '')
+        && atMost((turn as { content?: unknown }).content, 12_000)
+        && ((turn as { at?: unknown }).at === undefined || Number.isSafeInteger((turn as { at?: unknown }).at) && (turn as { at: number }).at > 0)
+        && ((turn as { display?: unknown }).display === undefined || atMost((turn as { display?: unknown }).display, 2000)))
+      && (row.data === undefined || !!row.data && typeof row.data === 'object' && !Array.isArray(row.data) && JSON.stringify(row.data).length <= 16_000)
+      && (!row.pageOnly || (row.data as { action?: string } | undefined)?.action !== 'quiz'
+        || row.turns.length >= 2 && row.turns[0].role === 'assistant' && !!row.turns[0].content.trim()
+          && row.turns[1].role === 'assistant' && !!row.turns[1].content.trim())
+      && (!row.pageOnly || (row.data as { action?: string } | undefined)?.action !== 'note'
+        || row.turns.some(turn => turn.role === 'user' && !!turn.content.trim()))
+}
+const parse = <T extends Item>(name: SetName, raw: string | null): SavedSet<T> | null => {
+  if (!raw) return fresh<T>()
+  try {
+    const data = JSON.parse(raw) as SavedSet<T>
+    return Array.isArray(data.items) && data.items.length <= (name === 'marks' ? 5000 : 2000)
+      && JSON.stringify({ [name]: data.items, rev: data.rev, expectedFileId: '0'.repeat(32) }).length <= 2 * 1024 * 1024
+      && data.items.every(item => validItem(name, item))
+      && new Set(data.items.map(item => item.id)).size === data.items.length
+      && Number.isInteger(data.rev) && data.rev >= 0 && typeof data.dirty === 'boolean' ? data : null
+  } catch { return null }
+}
+
+/** One atomic owner/file-generation journal per set, including tombstones and the server revision. */
+export class PdfOriginalGeometry implements PdfOriginalReaderServices {
+  private talkComponent: NonNullable<PdfOriginalReaderServices['TalkCard']> = props => createElement(PdfOriginalTalkCard,
+    { ...props, hex: this.hex, owner: this.owner, fileId: this.fileId, chat: this.chat!,
+      title: this.bookMetadata.title, author: this.bookMetadata.author })
+  get dictation(): PdfOriginalReaderServices['dictation'] { return this.trusted() ? { getAuthToken: () => this.token() } : undefined }
+  get TalkCard(): PdfOriginalReaderServices['TalkCard'] { return this.trusted() && this.chat ? this.talkComponent : undefined }
+  readonly chat: OwnTextCardsSync | null
+  private marksSet: SavedSet<OwnMark | OwnMarkGone>
+  private cardsSet: SavedSet<OwnCard | OwnMarkGone>
+  private live = true
+  private staleGeneration = false
+  private listeners = new Set<() => void>()
+  private timers: Partial<Record<SetName, ReturnType<typeof setTimeout>>> = {}
+  private running: Partial<Record<SetName, Promise<void>>> = {}
+  private retries: Record<SetName, number> = { marks: 0, cards: 0 }
+  private pageTexts = new Map<number, string>()
+  private lastUnitAnswer: { source: string; action: PdfOriginalUnitAction; answer: string } | null = null
+  private lastUnitQuiz: { source: string; answer: string } | null = null
+  private bookMetadata: { title: string; author: string } = { title: 'Your PDF', author: '' }
+  private savedCardId: string | null = null
+  private regionCapture: PdfRegionCapture | null = null
+  setPdfRegionCapture = (capture: PdfRegionCapture | null) => { this.regionCapture = capture }
+  captureRegion: PdfRegionCapture = async (page, region) => this.trusted() ? this.regionCapture?.(page, region) ?? null : null
+  private pages = 0
+  private unsubscribePlayer: (() => void) | null = null
+  private unsubscribeChat: (() => void) | null = null
+  /** The document's reading angle (labReadingAngle.ts), sent with every request as the text reader's are. */
+  angleContext(): { readingAngle?: string } {
+    const angle = readingAngleForAi(userBookId(this.hex))
+    return angle ? { readingAngle: angle } : {}
+  }
+  constructor(readonly hex: string, readonly owner: string, readonly fileId: string,
+    private readonly token: () => Promise<string | null> = ownBookToken, private readonly fetchImpl: FetchLike = fetch,
+    private readonly player?: Pick<MarginListenApi, 'attachOwn' | 'play' | 'snapshot'> & Partial<Pick<MarginListenApi, 'subscribe' | 'pause' | 'resume' | 'setSpeed'>>,
+    metadata?: { title: string; author: string }) {
+    // Native window.fetch needs Window as its receiver. Calling this.fetchImpl()
+    // otherwise throws before any marks/cards or companion request is sent.
+    this.fetchImpl = fetchImpl.bind(globalThis) as FetchLike
+    this.setBookMetadata(metadata)
+    if (!HEX.test(hex) || !FILE_ID.test(fileId) || userBookOwner() !== owner) throw new Error('PDF owner unavailable')
+    const marks = parse<OwnMark | OwnMarkGone>('marks', localStorage.getItem(key('marks', owner, fileId, hex)))
+    const cards = parse<OwnCard | OwnMarkGone>('cards', localStorage.getItem(key('cards', owner, fileId, hex)))
+    if (!marks || !cards) throw new Error('Private PDF journal unreadable')
+    this.marksSet = marks; this.cardsSet = cards
+    try {
+      this.chat = new OwnTextCardsSync(hex, owner, null, token, fetchImpl, fileId)
+      this.unsubscribeChat = this.chat.subscribe(() => this.changed())
+    } catch { this.chat = null /* A damaged Talk journal cannot hide healthy PDF geometry. */ }
+    this.player?.attachOwn?.({
+      chapters: () => Array.from({ length: this.pages }, (_, index) => ({ number: index + 1, title: `Original PDF page ${index + 1}` })),
+      chapter: async page => {
+        if (!this.trusted() || page < 1 || page > this.pages) return null
+        // A page with nothing to read aloud (blank, or only a table, a figure's labels, running heads) is passed
+        // over: the next page with words starts from its top (useMarginListen follows the number returned).
+        for (let n = page; n <= Math.min(this.pages, page + PDF_NARRATION_SKIP_PAGES); n++) {
+          const text = this.pageTexts.get(n) ?? await this.loadPageText(n)
+          if (!this.trusted()) return null
+          const spoken = text ? await this.spokenText(n, text) : ''
+          if (!this.trusted()) return null
+          if (spoken) return { number: n, title: `Original PDF page ${n}`, paragraphs: [spoken] }
+        }
+        return null
+      },
+    })
+    if ('subscribe' in (this.player ?? {})) this.unsubscribePlayer = (this.player as MarginListenApi).subscribe(() => this.changed())
+  }
+  private async loadPageText(page: number): Promise<string> {
+    const bytes = await loadOwnedPdfBytes(this.hex, this.owner)
+    if (!bytes || !this.trusted()) return ''
+    const engine = await loadPdfEngine()
+    const pdf = await openPdfOriginalBytes(bytes, engine.pdfjs as unknown as Parameters<typeof openPdfOriginalBytes>[1])
+    try {
+      if (page > pdf.numPages) return ''
+      const content = await (await pdf.getPage(page)).getTextContent()
+      const text = content.items.map(item => item.str).join(' ').trim()
+      this.pageTexts.set(page, text)
+      return text
+    } finally { await pdf.destroy() }
+  }
+  /** Per page, the narration plan whose text the player was handed (null: the page's whole text, as before). */
+  private spokenPlans = new Map<number, PdfNarrationPlan | null>()
+  private narrationLayouts = new Map<number, PdfNarrationPageInput>()
+  /**
+   * What read-aloud speaks for a page (pdfNarration.ts): its main text in reading order, without running heads,
+   * page numbers, footnotes, figure labels or table cells. On the device; nothing new is sent anywhere. When the
+   * page's layout cannot be read, the page's text as before.
+   */
+  private async spokenText(page: number, text: string): Promise<string> {
+    let plan: PdfNarrationPlan | null = null
+    try { plan = await this.narrationPlan(page) } catch { plan = null }
+    // The plan belongs to this page only when it was made from the same extraction as the rendered text.
+    const usable = plan && plan.source === text.trim() ? plan : null
+    // Its words map one to one onto the narrator's tokens unless the narration text drops one (a lone "_"):
+    // then the page is still read, without the follow highlight.
+    this.spokenPlans.set(page, usable && narrationTokens(usable.text).length !== usable.words.length ? { ...usable, words: [] } : usable)
+    return usable ? usable.text : text
+  }
+  private async narrationPlan(page: number): Promise<PdfNarrationPlan | null> {
+    // Running heads repeat on nearby pages: a window of pages around this one decides them (and the body size).
+    const window: number[] = []
+    for (let n = Math.max(1, page - PDF_NARRATION_WINDOW); n <= Math.min(Math.max(page, this.pages), page + PDF_NARRATION_WINDOW); n++) window.push(n)
+    const missing = window.filter(n => !this.narrationLayouts.has(n))
+    if (missing.length) {
+      const read = await this.readNarrationPages(missing)
+      if (!this.trusted()) return null
+      for (const [n, layout] of read) this.narrationLayouts.set(n, layout)
+      for (const n of [...this.narrationLayouts.keys()]) if (Math.abs(n - page) > PDF_NARRATION_WINDOW * 3) this.narrationLayouts.delete(n)
+    }
+    const layout = this.narrationLayouts.get(page)
+    if (!layout) return null
+    const pages = window.flatMap(n => this.narrationLayouts.get(n) ?? [])
+    return pdfNarrationPlan(layout, { running: pdfRunningKeys(pages.map(pdfEdgeKeys)), bodySize: pdfBodySize(pages) })
+  }
+  /** The text items, page size and graphics boxes of these pages, read on the device (tests replace it). */
+  readNarrationPages = async (pages: number[]): Promise<Map<number, PdfNarrationPageInput>> => {
+    const found = new Map<number, PdfNarrationPageInput>()
+    const bytes = await loadOwnedPdfBytes(this.hex, this.owner)
+    if (!bytes || !this.trusted()) return found
+    const engine = await loadPdfEngine()
+    const pdf = await openPdfOriginalBytes(bytes, engine.pdfjs as unknown as Parameters<typeof openPdfOriginalBytes>[1])
+    const ops = (engine.pdfjs as unknown as { OPS?: Record<string, number> }).OPS
+    try {
+      for (const n of pages) {
+        if (n < 1 || n > pdf.numPages || !this.trusted()) continue
+        const page = await pdf.getPage(n) as Awaited<ReturnType<typeof pdf.getPage>> & { getOperatorList?: () => Promise<{ fnArray: number[]; argsArray: unknown[] }> }
+        const view = page.getViewport({ scale: 1 })
+        const content = await page.getTextContent()
+        let graphics: PdfNarrationBox[] = []
+        try { if (ops && page.getOperatorList) graphics = pdfGraphicBoxes(await page.getOperatorList(), ops, view) } catch { /* text rules still apply */ }
+        found.set(n, { items: content.items, view: { width: view.width, height: view.height, transform: view.transform }, graphics })
+      }
+    } finally { await pdf.destroy() }
+    return found
+  }
+  setPdfPageText = (page: number, text: string, pages: number) => {
+    if (!this.trusted() || !Number.isInteger(page) || page < 1 || !Number.isInteger(pages) || pages < page) return
+    this.pages = pages
+    this.pageTexts.set(page, text)
+  }
+  getPageText = async (page: number): Promise<string> => {
+    if (!this.trusted() || !Number.isInteger(page) || page < 1 || page > this.pages) return ''
+    return this.pageTexts.get(page) ?? this.loadPageText(page)
+  }
+  /** A unit's pages as the margin document; `part` (the prompt's "too long to include whole") only when they are not the whole file. */
+  private unitDocument = (source: PdfOriginalUnitSource) => source.pages.length === this.pages && source.pages[0]?.n === 1
+    ? { kind: 'pdf', units: source.pages }
+    : { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }
+  askUnit = async (source: PdfOriginalUnitSource, action: PdfOriginalUnitAction, signal?: AbortSignal, onDelta?: (text: string) => void): Promise<string | null> => {
+    this.lastUnitAnswer = null
+    if (!this.trusted() || !validUnitSource(source, action)) return null
+    const token = await this.token()
+    if (!token || !await this.currentGeneration(token)) return null
+    for (const page of source.pages) if (await this.getPageText(page.n) !== page.text || !this.trusted()) return null
+    const context = { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+      pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }
+    const question = action === 'primer' ? `Prepare me to read ${source.unit.title}.`
+      : action === 'catchup' ? `Catch me up before original PDF page ${source.atPage}.`
+        : `Summarize ${source.unit.title}.`
+    const document = this.unitDocument(source)
+    const companion = action === 'primer'
+      ? { intent: 'chapter', context, document, chapter: { action: { kind: 'primer', unitKey: source.unit.key, unitTitle: source.unit.title, ...(source.outline ? { outline: source.outline } : {}) } } }
+      : { intent: 'ask', context, document }
+    try {
+      const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
+        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: question }], companion: withAiPrefs(companion, action === 'primer' ? 'primer' : action === 'catchup' ? 'recap' : 'summary') }) })
+      if (!response.ok || !this.trusted()) return null
+      const answer = await readAnthropicResponse(response, onDelta)
+      if (!answer?.trim() || !this.trusted()) return null
+      this.lastUnitAnswer = { source: JSON.stringify(source), action, answer }
+      return answer
+    } catch { return null }
+  }
+  saveUnitCard = (source: PdfOriginalUnitSource, action: PdfOriginalUnitAction, answer: string): boolean => {
+    if (!this.trusted() || !validUnitSource(source, action) || this.lastUnitAnswer?.source !== JSON.stringify(source)
+      || this.lastUnitAnswer.action !== action || this.lastUnitAnswer.answer !== answer) return false
+    this.lastUnitAnswer = null
+    const title = source.unit.title.trim()
+    return this.saveCard({ page: source.atPage, text: title, rects: [] }, action, answer, {
+      question: action === 'primer' ? `Prepare me to read ${title}.` : action === 'catchup' ? `Catch me up before page ${source.atPage}.` : `Summarize ${title}.`,
+      data: { action, unit: source.unit, source: { from: source.pages[0].n, to: source.pages[source.pages.length - 1].n }, ...(source.anchor ? { sourceAnchor: source.anchor } : {}) },
+    })
+  }
+  saveUnitCardWithId = (source: PdfOriginalUnitSource, action: PdfOriginalUnitAction, answer: string): string | null =>
+    this.saveUnitCard(source, action, answer) ? this.savedCardId : null
+  private verifiedUnitPages = async (source: PdfOriginalUnitSource): Promise<boolean> => {
+    if (!this.trusted() || !validUnitSource(source, 'recap') || source.atPage !== source.unit.to
+      || source.pages[0].n !== source.unit.from || source.pages[source.pages.length - 1].n !== source.unit.to) return false
+    for (const page of source.pages) if (await this.getPageText(page.n) !== page.text || !this.trusted()) return false
+    return true
+  }
+  askUnitQuiz = async (source: PdfOriginalUnitSource, signal?: AbortSignal, onDelta?: (text: string) => void): Promise<string | null> => {
+    this.lastUnitQuiz = null
+    if (!await this.verifiedUnitPages(source)) return null
+    const token = await this.token()
+    if (!token || !await this.currentGeneration(token) || signal?.aborted) return null
+    try {
+      const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
+        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: `Quiz me on ${source.unit.title}.` }],
+          companion: withAiPrefs({ intent: 'quiz', document: this.unitDocument(source), context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false } }) }) })
+      if (!response.ok || !this.trusted()) return null
+      const answer = await readAnthropicResponse(response, onDelta)
+      if (!answer?.trim() || signal?.aborted || !this.trusted()) return null
+      this.lastUnitQuiz = { source: JSON.stringify(source), answer }
+      return answer
+    } catch { return null }
+  }
+  askUnitQuizCheck = async (source: PdfOriginalUnitSource, quiz: { question: string; expected: string; why?: string; answer: string; turns?: import('../../companion/companionRequest').QuizTurn[] }): Promise<string | null> => {
+    if (this.lastUnitQuiz?.source !== JSON.stringify(source) || !await this.verifiedUnitPages(source)) return null
+    const token = await this.token()
+    if (!token || !await this.currentGeneration(token)) return null
+    try {
+      const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
+        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }],
+          companion: withAiPrefs({ intent: 'quiz_check', document: this.unitDocument(source), context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }, quiz }) }) })
+      if (!response.ok || !this.trusted()) return null
+      return await readAnthropicResponse(response)
+    } catch { return null }
+  }
+  saveUnitQuizCardWithId = (source: PdfOriginalUnitSource, summary: string, generatedQuiz: string): string | null => {
+    if (!this.trusted() || !validUnitSource(source, 'recap') || source.atPage !== source.unit.to
+      || source.pages[0].n !== source.unit.from || source.pages[source.pages.length - 1].n !== source.unit.to
+      || this.lastUnitQuiz?.source !== JSON.stringify(source) || this.lastUnitQuiz.answer !== generatedQuiz
+      || !summary.trim() || summary.length > 12_000 || generatedQuiz.length > 12_000) return null
+    this.lastUnitQuiz = null
+    return this.saveCardWithId({ page: source.atPage, text: source.unit.title.trim(), rects: [] }, 'quiz', summary, {
+      turns: [{ role: 'assistant', content: generatedQuiz }, { role: 'assistant', content: summary }],
+      data: { action: 'quiz', unit: source.unit, source: { from: source.pages[0].n, to: source.pages[source.pages.length - 1].n }, ...(source.anchor ? { sourceAnchor: source.anchor } : {}) },
+    })
+  }
+  saveUnitNote = (source: { unit: PdfOriginalUnitSource['unit']; atPage: number; source: { from: number; to: number }; anchor?: { page: number; frac: number } }, note: string): string | null => {
+    if (!this.trusted() || source.atPage !== source.unit.to || !unitFields({ action: 'note', unit: source.unit, source: source.source }, source.atPage)
+      || note.length > 4000 || source.anchor !== undefined && !isPdfSourceAnchor(source.anchor)) return null
+    const prior = this.cardsSet.items.find((item): item is OwnCard => !gone(item) && item.data?.action === 'note' && (item.data.unit as { key?: string } | undefined)?.key === source.unit.key)
+    if (!note.trim()) { if (prior) this.removeCard(prior.id); return null }
+    if (prior) {
+      const turns = [{ role: 'user' as const, content: note.trim() }, ...prior.turns.slice(1)]
+      return this.putLocal('cards', { ...prior, turns, u: Math.max(Date.now(), updated(prior) + 1) }) ? prior.id : null
+    }
+    return this.saveCardWithId({ page: source.atPage, text: source.unit.title.trim(), rects: [] }, 'note', note, {
+      turns: [{ role: 'user', content: note.trim() }], data: { action: 'note', unit: source.unit, source: source.source,
+        ...(source.anchor ? { sourceAnchor: source.anchor } : {}) },
+    })
+  }
+  saveMarginNote = (page: number, y: number, note: string, id?: string): string | null => {
+    if (!this.trusted() || !Number.isSafeInteger(page) || page < 1 || page > 5000 || !isPdfFreeNoteData({ action: 'note', free: { y } }) || note.length > 4000) return null
+    const prior = id ? this.cardsSet.items.find((item): item is OwnCard => !gone(item) && item.id === id && isPdfFreeNoteData(item.data)) : undefined
+    if (id && !prior) return null
+    if (!note.trim()) { if (prior) this.removeCard(prior.id); return null }
+    if (prior) return this.putLocal('cards', { ...prior, turns: [{ role: 'user', content: note.trim() }, ...prior.turns.slice(1)], u: Math.max(Date.now(), updated(prior) + 1) }) ? prior.id : null
+    return this.saveCardWithId({ page, text: 'Margin note', rects: [] }, 'note', note.trim(), { turns: [{ role: 'user', content: note.trim() }], data: { action: 'note', free: { y } } })
+  }
+  updateMarkNote = (id: string, note: string): boolean => {
+    if (!this.trusted() || note.length > 4000) return false
+    const mark = this.marksSet.items.find((item): item is OwnMark => !gone(item) && item.id === id)
+    if (!mark) return false
+    const { note: _note, withNote: _withNote, ...plain } = mark
+    return this.putLocal('marks', { ...plain, ...(note.trim() ? { note: note.trim() } : {}), u: Math.max(Date.now(), updated(mark) + 1) })
+  }
+  get listen(): PdfOriginalReaderServices['listen'] {
+    if (!this.trusted() || !this.player || this.player.snapshot().available === false) return undefined
+    return (page, text) => {
+      if (!this.trusted() || this.player?.snapshot().available === false || !text.trim()) return
+      this.pageTexts.set(page, text)
+      this.player?.play({ chapterNumber: page, paragraphIndex: 0, wordIndex: 0 })
+    }
+  }
+  /** The page's narration plan as the player gets it (made now when the voice has not reached the page yet). */
+  private async planFor(page: number): Promise<{ text: string; plan: PdfNarrationPlan | null } | null> {
+    const text = this.pageTexts.get(page) ?? await this.loadPageText(page)
+    if (!this.trusted() || !text.trim()) return null
+    const spoken = await this.spokenText(page, text)
+    return this.trusted() ? { text: spoken, plan: this.spokenPlans.get(page) ?? null } : null
+  }
+  /** Rendered word to spoken word on a page: through the plan, or one to one when the page's whole text is read. */
+  private spokenAt(found: { text: string; plan: PdfNarrationPlan | null }, rendered: number): number | null {
+    if (found.plan) return found.plan.words.length ? pdfNarrationSpokenIndex(found.plan, rendered) : 0
+    const count = narrationTokens(found.text).length
+    return rendered < count ? rendered : null
+  }
+  private startAt(page: number, wordIndex: number) {
+    if (!this.trusted() || this.player?.snapshot().available === false) return false
+    this.player?.play({ chapterNumber: page, paragraphIndex: 0, wordIndex })
+    return true
+  }
+  /**
+   * Listen from here on a selection (Anders, 16 Nov 2026): the voice starts at the selected word, playing or not; a word
+   * that is not read (a table, a link) starts at the next word read after it, and past the page's last, the next page.
+   */
+  listenAt = async (page: number, rendered: number | null): Promise<boolean> => {
+    if (!this.trusted() || !this.player || this.player.snapshot().available === false || !Number.isInteger(page) || page < 1 || page > this.pages) return false
+    const found = await this.planFor(page)
+    if (!found) return this.startAt(Math.min(this.pages, page + 1), 0)
+    const at = rendered === null ? 0 : this.spokenAt(found, rendered)
+    return at === null ? (page < this.pages ? this.startAt(page + 1, 0) : false) : this.startAt(page, at)
+  }
+  /**
+   * Listen from here when the reader has moved off the voice (the text reader's pills): the first sentence that begins
+   * on screen, in the order the voice reads (pages top to bottom), else the first word read on screen.
+   */
+  listenFromScreen = async (pages: Array<{ page: number; words: number[] }>): Promise<boolean> => {
+    if (!this.trusted() || !this.player || this.player.snapshot().available === false) return false
+    for (const { page, words } of pages) {
+      if (!Number.isInteger(page) || page < 1 || page > this.pages || !words.length) continue
+      const found = await this.planFor(page)
+      if (!found) continue
+      const visible = new Set(words), tokens = narrationTokens(found.text).map(text => ({ text }))
+      const renderedOf = (i: number) => found.plan ? found.plan.words[i] : i
+      // An inserted word ("Figure:") stands where the word after it does.
+      const onScreen = (i: number) => { for (let k = i; k < tokens.length; k++) { const r = renderedOf(k); if (r === undefined) return false; if (r >= 0) return visible.has(r) } return false }
+      if (found.plan && !found.plan.words.length) { if (words.length) return this.startAt(page, 0); continue }
+      let first: number | null = null
+      for (let i = 0; i < tokens.length; i++) {
+        if (!onScreen(i)) continue
+        first ??= i
+        if (listeningSentenceStart(tokens, i) === i) return this.startAt(page, i)
+      }
+      if (first !== null) return this.startAt(page, first)
+    }
+    return false
+  }
+  get audio(): PdfOriginalReaderServices['audio'] {
+    if (!this.trusted() || !this.player) return undefined
+    const snapshot = this.player.snapshot()
+    return { speed: snapshot.speed, playing: snapshot.playing, pending: snapshot.pending === true, available: snapshot.available === true,
+      ...(snapshot.available === false ? { unavailable: true } : {}),
+      setSpeed: speed => { if (this.trusted() && Number.isFinite(speed) && speed >= .5 && speed <= 2) this.player?.setSpeed?.(speed) },
+      pause: () => { if (this.trusted()) this.player?.pause?.() },
+      resume: () => this.trusted() && this.player?.resume?.() === true }
+  }
+  get heardPage(): number | null {
+    const snapshot = this.player?.snapshot()
+    return this.trusted() && snapshot?.playing && Number.isInteger(snapshot.chapterNumber)
+      && snapshot.chapterNumber! >= 1 && snapshot.chapterNumber! <= this.pages ? snapshot.chapterNumber : null
+  }
+  get follow(): PdfOriginalFollow | null {
+    const page = this.heardPage, snapshot = this.player?.snapshot(), wordIndex = snapshot?.follow?.wordIndex
+    if (page === null || snapshot?.follow?.paragraphIndex !== 0 || !Number.isInteger(wordIndex) || wordIndex! < 0) return null
+    // A spoken word maps to its rendered word; an inserted one ("Figure:") or a skipped page part has none.
+    const plan = this.spokenPlans.get(page)
+    if (plan) {
+      const rendered = pdfNarrationRenderedWord(plan, wordIndex!)
+      return rendered === null ? null : { page, wordIndex: rendered, text: plan.source }
+    }
+    const text = this.pageTexts.get(page)
+    return text ? { page, wordIndex: wordIndex!, text } : null
+  }
+  private trusted() { return this.live && !this.staleGeneration && userBookOwner() === this.owner }
+  setBookMetadata(metadata?: { title: string; author: string }) {
+    this.bookMetadata = { title: typeof metadata?.title === 'string' && metadata.title.trim() ? metadata.title.trim().slice(0, 200) : 'Your PDF',
+      author: typeof metadata?.author === 'string' ? metadata.author.trim().slice(0, 200) : '' }
+  }
+  get marks() { return this.trusted() ? this.marksSet.items.filter((m): m is OwnMark => !gone(m)) : [] }
+  get cards() { return this.trusted() ? this.cardsSet.items.filter((c): c is OwnCard => !gone(c)).map(c => ({
+    id: c.id, page: c.page, text: c.text, kind: typeof c.data?.action === 'string' ? c.data.action : c.kind,
+    turns: c.turns.map(turn => ({ role: turn.role, content: turn.content })), at: c.at, data: c.data, rects: c.rects,
+  })) : [] }
+  get talkConversations() { return this.trusted() && this.chat ? pdfTalkConversations(this.chat.readAll()) : [] }
+  get recoverableTalkCount() { return this.trusted() && this.chat ? unassignedOwnTextCardCount(this.hex, this.owner, this.fileId) : 0 }
+  adoptRecoverableTalk = () => {
+    if (!this.trusted() || !this.chat?.adoptUnassigned()) return false
+    this.changed()
+    return true
+  }
+  subscribe = (notify: () => void) => { this.listeners.add(notify); return () => { this.listeners.delete(notify) } }
+  private changed() { for (const notify of this.listeners) notify() }
+  private commit(name: SetName, state: SavedSet<Item>): boolean {
+    if (!this.trusted()) return false
+    try {
+      const text = JSON.stringify(state), storageKey = key(name, this.owner, this.fileId, this.hex)
+      localStorage.setItem(storageKey, text)
+      if (localStorage.getItem(storageKey) !== text) return false
+      if (name === 'marks') this.marksSet = state as SavedSet<OwnMark | OwnMarkGone>
+      else this.cardsSet = state as SavedSet<OwnCard | OwnMarkGone>
+      this.changed()
+      return true
+    } catch { return false }
+  }
+  private queue(name: SetName, delay = 1500) {
+    if (this.timers[name]) clearTimeout(this.timers[name])
+    this.timers[name] = setTimeout(() => { delete this.timers[name]; void this.sync(name) }, delay)
+  }
+  private putLocal<T extends Item>(name: SetName, item: T): boolean {
+    const prior = name === 'marks' ? this.marksSet : this.cardsSet
+    const next = { items: merge(prior.items as T[], [item]), rev: prior.rev, dirty: true }
+    if (!parse(name, JSON.stringify(next)) || !this.commit(name, next)) return false
+    this.queue(name)
+    return true
+  }
+  saveHighlight = (selection: PdfOriginalSelection, color: HighlightColor) => this.saveMark(selection, color)
+  saveNote = (selection: PdfOriginalSelection, note: string) => this.saveMark(selection, 'gold', note)
+  private saveMark(selection: PdfOriginalSelection, color: HighlightColor, note?: string): boolean {
+    if (!this.trusted() || !selection.rects.length || selection.rects.length > 400 || !selection.text.trim() || selection.text.length > 2000
+      || note !== undefined && (!note.trim() || note.length > 4000)) return false
+    const byPage = new Map<number, number[][]>()
+    for (const [page, x, y, w, h] of selection.rects) {
+      if (!Number.isSafeInteger(page) || page < 1 || page > 5000 || ![x, y, w, h].every(Number.isFinite) || w <= 0 || h <= 0) return false
+      byPage.set(page, [...(byPage.get(page) ?? []), [x, y, w, h].map(n => Math.round(n * 10_000) / 10_000)])
+    }
+    const now = Date.now(), items: OwnMark[] = []
+    for (const [page, rects] of byPage) {
+      const prior = this.marks.find(mark => mark.page === page && mark.text === selection.text && JSON.stringify(mark.rects) === JSON.stringify(rects))
+      items.push({ ...(prior ?? {}), id: prior?.id ?? crypto.randomUUID().replace(/-/g, '').slice(0, 24), page, rects, text: selection.text,
+        color: note && prior ? prior.color : color, at: prior?.at ?? now, u: Math.max(now, prior ? updated(prior) + 1 : now),
+        ...(note && page === selection.page ? { note: note.trim() } : {}), ...(selection.region ? { box: true, kind: selection.region.kind === 'equation' ? 'formula' as const : 'figure' as const } : {}) })
+    }
+    const next = { ...this.marksSet, items: merge(this.marksSet.items, items), dirty: true }
+    if (!parse('marks', JSON.stringify(next)) || !this.commit('marks', next)) return false
+    this.queue('marks'); return true
+  }
+  removeMark = (id: string): (() => void) | null => {
+    const old = this.marks.find(item => item.id === id)
+    if (!old) return null
+    const time = Math.max(Date.now(), updated(old) + 1)
+    if (!this.putLocal('marks', { id, gone: true, u: time })) return null
+    return () => this.putLocal('marks', { ...old, u: Math.max(Date.now(), time + 1) })
+  }
+  saveCard: PdfOriginalReaderServices['saveCard'] = (selection, kind, answer, options) => {
+    this.savedCardId = null
+    const mapped = kind === 'recap' || kind === 'catchup' || kind === 'primer' || kind === 'note' ? 'ask' : kind
+    if (!['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz', 'related', 'figure'].includes(mapped)
+      || !answer.trim() || !Number.isInteger(selection.page) || selection.page < 1) return false
+    const rects = selection.rects.filter(rect => Number.isSafeInteger(rect[0]) && rect[0] >= 1 && rect[0] <= 5000 && rect.slice(1).every(Number.isFinite))
+      .map(([page, ...box]) => [page, ...box.map(n => Math.round(n * 10_000) / 10_000)])
+    const pageOnly = ['primer', 'catchup', 'recap', 'quiz', 'note'].includes(kind) && selection.rects.length === 0
+    const time = Date.now(), id = crypto.randomUUID().replace(/-/g, '').slice(0, 24)
+    const turns = options?.turns?.length ? options.turns : [
+      { role: 'user' as const, content: options?.question || selection.text || `Original PDF page ${selection.page}` },
+      { role: 'assistant' as const, content: answer },
+    ]
+    const data = { ...(options?.data ?? {}), ...(mapped !== kind ? { action: kind } : {}) }
+    if ((!rects.length && !pageOnly) || rects.length !== selection.rects.length || rects.length > 400
+      || selection.text.length > 2000 || turns.length > 40 || turns.some(turn => turn.content.length > 12_000)
+      || JSON.stringify(data).length > 16_000) return false
+    const saved = this.putLocal('cards', { id, kind: mapped as OwnCard['kind'], page: selection.page,
+      rects, text: selection.text, turns,
+      at: time, u: time, ...(pageOnly ? { pageOnly: true } : {}), ...(Object.keys(data).length ? { data } : {}) })
+    if (saved) this.savedCardId = id
+    // The first answered Ask, Explain or Simplify ends the reader's first visit, here as in the book reader.
+    if (saved && isSelectionActionKind(kind) && answer.trim()) markSelectionActionsUsed()
+    return saved
+  }
+  saveCardWithId: NonNullable<PdfOriginalReaderServices['saveCardWithId']> = (selection, kind, answer, options) =>
+    this.saveCard(selection, kind, answer, options) ? this.savedCardId : null
+  appendCardTurn = (id: string, question: string, answer: string): boolean => {
+    const prior = this.cardsSet.items.find((item): item is OwnCard => !gone(item) && item.id === id)
+    if (!this.trusted() || !prior || !question.trim() || question.length > 12_000 || !answer.trim() || answer.length > 12_000
+      || prior.turns.length > 38) return false
+    const time = Math.max(Date.now(), updated(prior) + 1)
+    return this.putLocal('cards', { ...prior, turns: [...prior.turns, { role: 'user', content: question, at: time },
+      { role: 'assistant', content: answer, at: time + 1 }], u: time + 1 })
+  }
+  askCardFollow = async (id: string, question: string, signal?: AbortSignal, onDelta?: (text: string) => void): Promise<string | null> => {
+    const card = this.cardsSet.items.find((item): item is OwnCard => !gone(item) && item.id === id)
+    if (!this.trusted() || !card || !question.trim() || question.length > 4000) return null
+    const token = await this.token()
+    if (!token || !await this.currentGeneration(token) || signal?.aborted) return null
+    const selectedPages = card.rects.map(rect => rect[0]).filter(Number.isSafeInteger)
+    const source = card.pageOnly && card.data && 'source' in card.data
+      ? card.data.source as { from?: number; to?: number } : selectedPages.length && Math.min(...selectedPages) !== Math.max(...selectedPages) ? { from: Math.min(...selectedPages), to: Math.max(...selectedPages) } : null
+    const incomplete = () => Object.assign(new Error('The full source for this saved answer is unavailable. This follow-up was not sent.'),
+      { code: 'pdf_original_incomplete_source' })
+    if (source && (card.pageOnly && !unitFields(card.data, card.page) || !Number.isSafeInteger(source.from) || !Number.isSafeInteger(source.to)
+      || source.from! < 1 || source.to! < source.from! || source.to! - source.from! + 1 > PDF_SOURCE_PAGES)) throw incomplete()
+    const first = source?.from ?? card.page, last = source?.to ?? card.page
+    const rect = card.kind === 'figure' ? card.rects[0] : null
+    const figure = rect ? await this.captureRegion(rect[0], { x: rect[1], y: rect[2], w: rect[3], h: rect[4] }).catch(() => null) : null
+    if (rect && !figure) throw new Error('This figure could not be read. No question was sent.')
+    if (!this.trusted() || signal?.aborted) return null
+    const pages: Array<{ n: number; text: string }> = []
+    let chars = 0
+    for (let n = first; n <= last; n++) {
+      let text: string
+      try { text = await this.getPageText(n) } catch { if (source) throw incomplete(); if (!figure) return null; text = '' }
+      if (!this.trusted() || signal?.aborted) return null
+      chars += text.length
+      if (!text.trim() && !figure || text.length > PDF_SOURCE_PAGE_CHARS || chars > PDF_SOURCE_CHARS) {
+        if (source) throw incomplete()
+        return null
+      }
+      pages.push({ n, text })
+    }
+    const prior = card.turns.slice(-8).map(turn => ({ role: turn.role, content: turn.content.slice(0, 4000) }))
+    try {
+      const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
+        body: JSON.stringify({ stream: true, messages: [...prior, { role: 'user', content: figure ? [figure.block, { type: 'text', text: question }] : question }],
+          companion: withAiPrefs({ intent: 'ask', context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
+            chapterLabel: source ? String((card.data?.unit as { title?: string } | undefined)?.title || `Original PDF pages ${first}–${last}`) : `Original PDF page ${card.page}`,
+            pageNumber: card.page, pages: pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false },
+            document: { kind: 'pdf', units: pages, part: { toc: [], total: this.pages } },
+            selection: card.pageOnly ? undefined : card.text.slice(0, 4000) }) }) })
+      if (!response.ok || !this.trusted()) return null
+      const answer = await readAnthropicResponse(response, onDelta)
+      return !signal?.aborted && this.trusted() ? answer : null
+    } catch { return null }
+  }
+  removeCard = (id: string): (() => void) | null => {
+    const old = this.cardsSet.items.find((item): item is OwnCard => !gone(item) && item.id === id)
+    if (!old || !this.trusted()) return null
+    const time = Math.max(Date.now(), updated(old) + 1)
+    if (!this.putLocal('cards', { id, gone: true, u: time })) return null
+    return () => this.putLocal('cards', { ...old, u: Math.max(Date.now(), time + 1) })
+  }
+  private async currentGeneration(token: string): Promise<boolean> {
+    const books = await listAccountBooks(token, this.fetchImpl)
+    if (!books || !this.trusted()) return false
+    if (books.some(book => book.type === 'pdf' && book.id === this.fileId && book.sha256.slice(0, 24) === this.hex)) return true
+    this.staleGeneration = true
+    this.changed()
+    return false
+  }
+  async open() { await Promise.all([this.sync('marks'), this.sync('cards')]) }
+  async sync(name: SetName): Promise<void> {
+    if (this.running[name]) return this.running[name]
+    const task = this.doSync(name).finally(() => {
+      if (this.running[name] === task) delete this.running[name]
+      const current = name === 'marks' ? this.marksSet : this.cardsSet
+      if (current.dirty && this.trusted() && !this.timers[name]) {
+        // A timer may have fired during the in-flight request. Keep the offline
+        // journal pending with bounded backoff until reconnect or this owner leaves.
+        this.retries[name] = Math.min(this.retries[name] + 1, 5)
+        this.queue(name, Math.min(30_000, 1500 * 2 ** (this.retries[name] - 1)))
+      } else if (!current.dirty) this.retries[name] = 0
+    })
+    this.running[name] = task
+    return task
+  }
+  private async doSync(name: SetName): Promise<void> {
+    if (!this.trusted()) return
+    const token = await this.token()
+    if (!token || !await this.currentGeneration(token)) return
+    const route = `/api/user-books/${name}/${this.hex}`
+    const call = async (method: string, body?: object) => {
+      const response = await this.fetchImpl(route, { method, cache: 'no-store', credentials: 'same-origin',
+        headers: { Authorization: `Bearer ${token}`, ...(body ? { 'Content-Type': 'application/json' } : {}) }, ...(body ? { body: JSON.stringify(body) } : {}) })
+      return { status: response.status, data: await response.json().catch(() => ({})) as { rev?: number; fileId?: string; error?: string; marks?: OwnMark[]; cards?: OwnCard[] } }
+    }
+    try {
+      const incoming = await call('GET')
+      if (incoming.status === 404 && this.trusted()) { this.staleGeneration = true; this.changed(); return }
+      if (incoming.status === 409 && incoming.data.error === 'generation_conflict' || incoming.status === 200 && incoming.data.fileId && incoming.data.fileId !== this.fileId) {
+        this.staleGeneration = true; this.changed(); return
+      }
+      if (incoming.status !== 200 || incoming.data.fileId !== this.fileId || !Number.isInteger(incoming.data.rev) || !Array.isArray(incoming.data[name]) || !this.trusted()) return
+      let current = name === 'marks' ? this.marksSet : this.cardsSet
+      const remote = incoming.data[name] as Item[]
+      const combined = merge(current.items, remote)
+      if (!this.commit(name, { items: combined, rev: incoming.data.rev!, dirty: current.dirty || JSON.stringify(combined) !== JSON.stringify(remote) })) return
+      for (let attempt = 0; attempt < 3; attempt++) {
+        current = name === 'marks' ? this.marksSet : this.cardsSet
+        if (!current.dirty || !this.trusted() || !await this.currentGeneration(token)) return
+        const sent = JSON.stringify(current.items)
+        const result = await call('PUT', { [name]: current.items, rev: current.rev, expectedFileId: this.fileId })
+        if (!this.trusted()) return
+        if (result.data.error === 'generation_conflict' || result.data.fileId && result.data.fileId !== this.fileId) {
+          this.staleGeneration = true; this.changed(); return
+        }
+        if (result.status === 404) { this.staleGeneration = true; this.changed(); return }
+        if (result.data.fileId !== this.fileId) return
+        if (result.status === 200 && Number.isInteger(result.data.rev)) {
+          // A note made while PUT was awaiting must not be overwritten by its older snapshot.
+          const latest = name === 'marks' ? this.marksSet : this.cardsSet
+          if (!this.commit(name, { ...latest, rev: result.data.rev!, dirty: JSON.stringify(latest.items) !== sent })) return
+          if ((name === 'marks' ? this.marksSet : this.cardsSet).dirty) this.queue(name)
+        } else if (result.status === 409 && Number.isInteger(result.data.rev) && Array.isArray(result.data[name])) {
+          const latest = name === 'marks' ? this.marksSet : this.cardsSet
+          if (!this.commit(name, { items: merge(latest.items, result.data[name] as Item[]), rev: result.data.rev!, dirty: true })) return
+        } else return
+      }
+    } catch { /* offline: one owner/file-generation journal remains dirty */ }
+  }
+  ask: PdfOriginalReaderServices['ask'] = async (selection, intent, question, signal, onDelta) => {
+    if (!this.trusted() || !selection.text.trim()) return null
+    if (selection.text.length > 9000) throw new PdfAskError('This selection is too long to explain. Select a shorter passage.')
+    const token = await this.token()
+    if (!token) throw new PdfAskError('Sign in again to ask about this PDF.')
+    if (!await this.currentGeneration(token)) throw new PdfAskError('This PDF changed in your account. Reopen it to ask about it.')
+    const action = intent === 'recap' || intent === 'catchup' ? 'ask' : intent
+    if (!['ask', 'explain', 'define', 'simplify', 'factcheck', 'counterpoint', 'quiz', 'related'].includes(action)) return null
+    // A figure or formula is sent as its image; its text stand-in ("Formula") must not reach the model as the passage.
+    const region = selection.region
+    const text = region ? `[The reader selected ${region.label || (region.kind === 'equation' ? 'a formula' : `a ${region.kind}`)} on page ${selection.page}. It is the attached image.${region.caption ? ` Caption: ${region.caption}` : ''}]` : selection.text
+    // The page around the selection, for a passage as for a figure: with only the selected words as its page, a
+    // diagram's labels ("Galileo → radio waves → Earth") read as a stray fragment (Anders, 30 Oct 2026).
+    const pageText = !selection.pages ? await this.getPageText(selection.page).catch(() => '') : ''
+    const selectedPages = selection.pages ?? [{ n: selection.page, text: pageText || text }]
+    const figure = region ? await region.image().catch(() => null) : null
+    if (selection.region && !figure) throw new PdfAskError('This figure could not be read. No question was sent.')
+    if (!this.trusted() || signal?.aborted) return null
+    const request = {
+      stream: true,
+      messages: [{ role: 'user', content: figure ? [figure.block, { type: 'text', text: question || `Explain this ${selection.region?.kind || 'figure'}.` }] : question || (intent === 'recap' ? `Summarize original PDF page ${selection.page}.` : intent === 'catchup' ? `Catch me up through original PDF page ${selection.page}.` : 'Please answer.') }],
+      // A Recap or Catch me up is sent as a question: its own settings (labAiPrefs.ts).
+      companion: withAiPrefs({ intent: action, context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`,
+        pageNumber: selection.page, pages: selectedPages, paragraphIndex: 0, lookups: false },
+        selection: text, ...(region && region.kind !== 'equation' && action === 'explain' ? { figure: true } : {}) }, intent === 'recap' ? 'summary' : intent === 'catchup' ? 'recap' : undefined),
+    }
+    // Every failure says what happened (Anders, 2 Nov 2026: a bare "No answer was returned." covered six causes).
+    // A dropped connection or a server error before any answer is tried once more.
+    let response: Response | null = null
+    for (let attempt = 0; attempt < 2 && !response; attempt++) {
+      let reply: Response
+      try { reply = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal, headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() }, body: JSON.stringify(request) }) }
+      catch {
+        if (signal?.aborted || !this.trusted()) return null
+        if (attempt === 0) continue
+        throw new PdfAskError('The connection dropped. Try again.')
+      }
+      if (!this.trusted() || signal?.aborted) return null
+      if (reply.ok) { response = reply; break }
+      if (reply.status >= 500 && attempt === 0) continue
+      const body = await reply.json().catch(() => ({})) as { error?: unknown }
+      const said = typeof body.error === 'string' && body.error.length < 160 ? body.error : ''
+      console.warn('[pdf ask] refused', reply.status, said)
+      throw new PdfAskError(reply.status === 401 ? 'Sign in again to ask about this PDF.'
+        : reply.status === 429 || reply.status === 402 ? said || 'Too many questions at once. Give it a few seconds.'
+          // The Worker refused the picture itself (chatImages.ts): trying again sends the same one.
+          : said === 'image_rejected' ? 'This figure could not be sent as a picture. Select a smaller part of it.'
+            : `Tinct could not answer this time (error ${reply.status}). Try again.`)
+    }
+    if (!response) return null
+    try {
+      const answer = await readAnthropicResponse(response, onDelta)
+      return this.trusted() ? answer : null
+    } catch (error) {
+      if (signal?.aborted || !this.trusted()) return null
+      console.warn('[pdf ask] stream ended without an answer', error)
+      throw new PdfAskError('The answer stopped before it was finished. Try again.')
+    }
+  }
+  askQuizCheck: NonNullable<PdfOriginalReaderServices['askQuizCheck']> = async (selection, quiz) => {
+    if (!this.trusted() || !selection.text.trim() || selection.text.length > 9000) return null
+    const token = await this.token()
+    if (!token || !await this.currentGeneration(token)) return null
+    try {
+      const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
+        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }], companion: withAiPrefs({
+          intent: 'quiz_check', context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`, pageNumber: selection.page,
+            pages: selection.pages ?? [{ n: selection.page, text: selection.text }], paragraphIndex: 0, lookups: false }, selection: selection.text.slice(0, 4000), quiz,
+        }) }),
+      })
+      if (!response.ok || !this.trusted()) return null
+      const answer = await readAnthropicResponse(response)
+      return this.trusted() ? answer : null
+    } catch { return null }
+  }
+  dispose() { this.live = false; this.unsubscribePlayer?.(); this.unsubscribeChat?.(); this.chat?.dispose(); for (const timer of Object.values(this.timers)) clearTimeout(timer); this.listeners.clear() }
+}
+
+/** A failed question with words for the reader; the shell shows `message` in the card. */
+export class PdfAskError extends Error {
+  readonly readerMessage: string
+  constructor(message: string) { super(message); this.name = 'PdfAskError'; this.readerMessage = message }
+}
+
+/** The shell only sees a service after its local file ID or account copy proves the generation. */
+export function usePdfOriginalServices(hex: string, owner: string | null, enabled: boolean,
+  metadata?: { title: string; author: string }, onStatus?: (status: string) => void, retry = 0): PdfOriginalReaderServices | null {
+  const [service, setService] = useState<PdfOriginalGeometry | null>(null)
+  const statusRef = useRef(onStatus)
+  statusRef.current = onStatus
+  const metadataRef = useRef(metadata)
+  metadataRef.current = metadata
+  // Not Premium (402): the account cards, with their Premium offer, open over the PDF, as for an own EPUB in the
+  // margin reader (MarginOwnBook) and an own book in the Tinct reader (LabApp's account sheet). Without this the
+  // request was put away and Play did nothing at all.
+  const own = useMemo(() => enabled ? { hex, onPremiumRequired: () => {
+    void import('../../cards/openCards').then(cards => cards.accountCardsOpen() || cards.openAccountCards({ start: 'you',
+      dark: typeof document !== 'undefined' && !!document.querySelector('.pdf-original-reader.is-night'), deskTop: 76 }))
+      .catch(() => { /* offline: nothing opened */ })
+  } } : null, [hex, enabled])
+  const player = useMarginListen({ bookId: userBookId(hex), editionKey: enabled ? 'own' : null, own })
+  useEffect(() => { service?.setBookMetadata(metadata) }, [service, metadata?.title, metadata?.author])
+  useEffect(() => {
+    if (!enabled || !owner || !HEX.test(hex) || userBookOwner() !== owner) { setService(null); return }
+    let live = true, active: PdfOriginalGeometry | null = null
+    statusRef.current?.('Preparing highlights and AI…')
+    void (async () => {
+      const localId = await readOwnedBookFileId(hex, owner)
+      const token = await ownBookToken()
+      const account = token ? await listAccountBooks(token) : null
+      if (!live || userBookOwner() !== owner) return
+      const file = account?.find(item => item.type === 'pdf' && item.sha256.slice(0, 24) === hex)
+      // A successful account listing is authoritative: it may reveal delete/reupload.
+      let fileId = account ? file?.id : localId
+      if (account && !fileId && !localId && token) {
+        statusRef.current?.('Saving this PDF to your account…')
+        fileId = await savePendingOwnedPdf(hex, owner, token) ?? undefined
+        if (!live || userBookOwner() !== owner) return
+      }
+      if (!fileId || !FILE_ID.test(fileId)) { statusRef.current?.('This PDF’s account copy is unavailable. Try again to enable highlights and AI.'); return }
+      active = new PdfOriginalGeometry(hex, owner, fileId, ownBookToken, fetch, player, metadataRef.current)
+      setService(active)
+      statusRef.current?.('')
+      void active.open()
+    })().catch(error => { if (live && userBookOwner() === owner) { setService(null); statusRef.current?.(error instanceof Error ? error.message : 'This PDF could not connect to your account. Try again.') } })
+    return () => { live = false; active?.dispose(); setService(null) }
+    // The player's command interface is stable through re-renders; reopening it would reset narration.
+  }, [hex, owner, enabled, retry])
+  return enabled && service?.hex === hex && service.owner === owner ? service : null
+}

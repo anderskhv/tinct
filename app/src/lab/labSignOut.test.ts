@@ -18,18 +18,31 @@ const USER_KEYS: Record<string, string> = {
   [READING_MEMORY_DEVICE_KEY]: '{"owner":"user-a","sessions":{}}',
   [READING_MEMORY_QUEUE_KEY]: '[{"type":"start"}]',
   'tinct:chat-history:lab': '[{"role":"user","content":"hi","bookId":"lab"}]',
+  'tinct-addbook:text-marks-local:user-a:abababababababababababab': '[]',
+  'tinct-addbook:text-marks-previous:user-a:abababababababababababab': '[]',
+  'tinct-addbook:text-marks-quarantine:user-a:abababababababababababab': '[]',
+  'tinct-addbook:text-marks-unassigned:abababababababababababab': '[]',
+  'tinct-addbook:text-cards-canonical:user-a:abababababababababababab': '{"conversations":[],"items":[],"rev":0,"dirty":false}',
+  'tinct-addbook:text-cards-unassigned:abababababababababababab': '[]',
+  'tinct-addbook:static-epub-marks:user-a:abababababababababababab': '[{"id":"own-mark"}]',
+  'tinct-addbook:static-epub-cards:user-a:abababababababababababab': '[{"id":"own-card"}]',
+  'tinct-addbook:legacy-epub-backup-quarantine:user-a:abababababababababababab': '{damaged',
   'tinct:lab-reader-handoff': '{"bookId":"bible"}',
   [LAB_AI_ACTIONS_KEY]: '1',
   [LAB_SECOND_BOOK_NUDGE_KEY]: '1',
   'tinct:library': '["odyssey"]',
   'tinct:lab-library-boot': '{"v":1,"at":1,"userId":"user-a","readingNow":1,"finished":0,"hero":null}',
+  // The device id also identifies analytics events: the next reader on this
+  // device must not be linked to this one (privacy review 2026-10-02).
+  [LAB_POSITION_DEVICE_KEY]: 'device-1234',
 }
 const DEVICE_KEYS: Record<string, string> = {
   [LAB_PREFS_KEY]: '{"version":2,"shared":{"audioSpeed":1.5},"phone":{},"desktop":{}}',
-  [LAB_POSITION_DEVICE_KEY]: 'device-1234',
   'tinct:device-preferences': '{"theme":"dark"}',
   'tinct:last-user-id': 'user-a',
   'tinct:tinct-tour-seen': 'true',
+  // Tinct's own testing flag (?internal=1) belongs to the device and survives sign-out.
+  'tinct:internal': '1',
 }
 
 function seed() {
@@ -49,7 +62,7 @@ beforeEach(() => { localStorage.clear() })
 afterEach(() => { localStorage.clear(); vi.unstubAllGlobals(); vi.restoreAllMocks() })
 
 describe('lab sign-out wipe', () => {
-  it('clears every lab and reading-memory key while keeping device preferences and the device id', () => {
+  it('clears every lab and reading-memory key and the device id, keeping device preferences', () => {
     seed()
     wipeLabDeviceUserData()
     expectWiped()
@@ -62,6 +75,17 @@ describe('lab sign-out wipe', () => {
     wipeLabDeviceUserData()
     expect(deleteDatabase).toHaveBeenCalledWith('tinct-lab')
     expectWiped()
+  })
+
+  it('removes the books opened from the reader\'s own files (Add a book)', () => {
+    const deleteDatabase = vi.fn()
+    vi.stubGlobal('indexedDB', { deleteDatabase })
+    localStorage.setItem('tinct-addbook:rights:user-a', '{"at":"2026-10-05"}')
+    localStorage.setItem('tinct-addbook:chat:pdf:abc', '[]')
+    wipeLabDeviceUserData()
+    expect(deleteDatabase).toHaveBeenCalledWith('tinct-addbook')
+    expect(localStorage.getItem('tinct-addbook:rights:user-a')).toBeNull()
+    expect(localStorage.getItem('tinct-addbook:chat:pdf:abc')).toBeNull()
   })
 
   it('still wipes localStorage when IndexedDB is unavailable or throws', () => {
@@ -77,5 +101,14 @@ describe('classic sign-out wipe (clearLocalUserData) and the lab keys', () => {
     seed()
     clearLocalUserData()
     expectWiped()
+  })
+
+  it('drops the Add-a-book files on every sign-out path', () => {
+    const deleteDatabase = vi.fn()
+    vi.stubGlobal('indexedDB', { deleteDatabase })
+    clearLocalUserData()
+    expect(deleteDatabase).toHaveBeenCalledWith('tinct-addbook')
+    // And own books' covers read from the account (lab/userBook/ownCovers.ts).
+    expect(deleteDatabase).toHaveBeenCalledWith('tinct-addbook-covers')
   })
 })

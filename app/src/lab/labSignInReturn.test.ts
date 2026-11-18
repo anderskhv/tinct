@@ -14,11 +14,16 @@ describe('safeLabReturnTo', () => {
   it('keeps the launch routes', () => {
     expect(safe('/library')).toBe('/library')
     expect(safe('/library/')).toBe('/library/')
-    expect(safe('/featured')).toBe('/featured')
     expect(safe('/admin/metrics')).toBe('/admin/metrics')
     expect(safe('/read/odyssey')).toBe('/read/odyssey')
     expect(safe('/read/odyssey/3')).toBe('/read/odyssey/3')
     expect(safe('/read/bible/40?voice=v2')).toBe('/read/bible/40?voice=v2')
+  })
+
+  it('returns to the Preparing page, which adds a text or file kept on /byob (5 Nov 2026)', () => {
+    expect(safe('/preparing?own=paste')).toBe('/preparing?own=paste')
+    expect(safe('/preparing?own=file')).toBe('/preparing?own=file')
+    expect(safe('/preparingx')).toBe(LAB_DEFAULT_RETURN_TO)
   })
 
   it('maps old /lab page URLs to the canonical page, never to an asset folder', () => {
@@ -30,6 +35,16 @@ describe('safeLabReturnTo', () => {
     expect(safe('/lab/')).toBe(LAB_DEFAULT_RETURN_TO)
     expect(safe('/lab/library_2/app.js')).toBe(LAB_DEFAULT_RETURN_TO)
     expect(safe('/lab/anything-else')).toBe(LAB_DEFAULT_RETURN_TO)
+  })
+
+  it('returns to the Add-a-book page, always with its trailing slash', () => {
+    expect(safe('/lab/addbook/')).toBe('/lab/addbook/')
+    expect(safe('/lab/addbook')).toBe('/lab/addbook/')
+    expect(safe('/lab/addbook/index.html?q=meditations')).toBe('/lab/addbook/?q=meditations')
+    expect(safe(`${ORIGIN}/lab/addbook/?work=pg2680`)).toBe('/lab/addbook/?work=pg2680')
+    expect(safe('/lab/addbook/js/reader.js')).toBe(LAB_DEFAULT_RETURN_TO)
+    expect(safe('/lab/addbook/../admin')).toBe(LAB_DEFAULT_RETURN_TO)
+    expect(safe('https://evil.example/lab/addbook/')).toBe(LAB_DEFAULT_RETURN_TO)
   })
 
   it('falls back to the library for empty and unknown same-origin paths', () => {

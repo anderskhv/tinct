@@ -13,6 +13,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { checkHeaders } = require('./lib/internalTraffic.cjs')
 
 const APP_DIR = path.resolve(__dirname, '..')
 const PUBLIC_DIR = path.join(APP_DIR, 'public')
@@ -20,13 +21,14 @@ const READ_DIR = path.join(PUBLIC_DIR, 'read')
 const EDITIONS_DIR = path.join(PUBLIC_DIR, 'data/editions')
 const SITEMAP = path.join(PUBLIC_DIR, 'sitemap.xml')
 const ORIGIN = 'https://tinct.app'
-const SHARED_SOCIAL_IMAGE = `${ORIGIN}/og-image-v2.jpg`
+const SHARED_SOCIAL_IMAGE = `${ORIGIN}/og-image-v3.jpg`
 
 const HOLD_BACK_BOOK_IDS = new Set([])
 
 const GENERIC_TITLES = new Set([
   'Tinct — A New Way to Read',
   'Tinct - A New Way to Read',
+  'Tinct — No text is beyond you',
 ])
 
 let failures = 0
@@ -75,9 +77,9 @@ function cleanPathFromUrl(url) {
 
 function htmlPathForCleanPath(cleanPath) {
   if (cleanPath === '/read') return path.join(READ_DIR, 'index.html')
-  const match = cleanPath.match(/^\/read\/([a-z0-9-]+)\/(summary|chapters|cast|themes|chapter-\d+)$/i)
+  const match = cleanPath.match(/^\/read\/([a-z0-9-]+)$/i)
   if (!match) return null
-  return path.join(READ_DIR, match[1], `${match[2]}.html`)
+  return path.join(READ_DIR, match[1], 'book.html')
 }
 
 function tagAttrs(tag) {
@@ -110,15 +112,6 @@ function hasBookJsonLd(html) {
 
 function hasBreadcrumbJsonLd(html) {
   return /<script\s+type=["']application\/ld\+json["'][^>]*>[\s\S]*?["']@type["']\s*:\s*["']BreadcrumbList["'][\s\S]*?<\/script>/i.test(html)
-}
-
-function readNextLinks(html) {
-  const start = html.search(/<h2\s+class=["']section["']>Read\s+<em>next<\/em><\/h2>/i)
-  if (start === -1) return []
-  const rest = html.slice(start)
-  const end = rest.search(/<p\s+class=["']end-cta["']/i)
-  const section = end === -1 ? rest : rest.slice(0, end)
-  return [...section.matchAll(/<a\s+href=["']\/read\/[^"']+\/summary["']/gi)]
 }
 
 function assertNoHeldBackContent(urls) {
@@ -155,6 +148,10 @@ function auditLocalSitemap() {
   if (nonCanonical.length > 0) fail(`sitemap contains non-canonical hosts: ${nonCanonical.slice(0, 5).join(', ')}`)
   else pass('sitemap URLs use https://tinct.app')
 
+  const retired = urls.filter(url => /\/read\/[a-z0-9-]+\/(summary|themes|cast|chapters|chapter-\d+)/i.test(url))
+  if (retired.length > 0) fail(`sitemap lists retired page types: ${retired.slice(0, 5).join(', ')}`)
+  else pass('sitemap lists no retired summary/themes/cast/chapter pages')
+
   assertNoHeldBackContent(urls)
 
   return urls
@@ -183,7 +180,6 @@ function auditLocalStaticPages(urls) {
     if (pageCanonical !== url) fail(`${cleanPath} canonical mismatch: expected ${url}, got ${pageCanonical || '(missing)'}`)
     if (html.includes('&amp;amp;')) fail(`${cleanPath} contains double-escaped &amp;amp;`)
     if (/^\/read\/[a-z0-9-]+\//i.test(cleanPath) && !hasBreadcrumbJsonLd(html)) fail(`${cleanPath} has no BreadcrumbList JSON-LD`)
-    if (/\/summary$/.test(cleanPath) && readNextLinks(html).length < 3) fail(`${cleanPath} has fewer than 3 Read next links`)
     checked += 1
   }
 
@@ -195,6 +191,8 @@ function auditSharedSocialPreviews() {
   const pages = [
     ['landing', path.join(PUBLIC_DIR, 'landing.html')],
     ['about', path.join(PUBLIC_DIR, 'about.html')],
+    ['credits', path.join(PUBLIC_DIR, 'credits.html')],
+    ['story', path.join(PUBLIC_DIR, 'story.html')],
     ['library hub', path.join(READ_DIR, 'index.html')],
   ]
 
@@ -211,7 +209,7 @@ function auditSharedSocialPreviews() {
   const aboutHtml = read(path.join(PUBLIC_DIR, 'about.html'))
   if (!attr(aboutHtml, 'og:description')) fail('about has no og:description')
 
-  const imagePath = path.join(PUBLIC_DIR, 'og-image-v2.jpg')
+  const imagePath = path.join(PUBLIC_DIR, 'og-image-v3.jpg')
   if (!fs.existsSync(imagePath) || fs.statSync(imagePath).size < 10_000) fail('shared social image is missing or empty')
   else pass('shared social previews use the versioned 1200x630 JPEG')
 }
@@ -220,10 +218,10 @@ async function fetchNoBody(url, init = {}) {
   return fetch(url, {
     redirect: 'manual',
     ...init,
-    headers: {
+    headers: checkHeaders({
       'User-Agent': 'Tinct SEO audit',
       ...(init.headers || {}),
-    },
+    }),
   })
 }
 

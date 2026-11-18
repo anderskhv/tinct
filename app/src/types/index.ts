@@ -33,14 +33,80 @@ export interface Edition {
   hasVerseLines?: boolean
 }
 
+/**
+ * What a paragraph is beyond running prose, for any book: a subheading, a
+ * label above a value, a list item, a chapter's subtitle or byline, or a line
+ * set apart (verse, an address). Painted by the reader (lab/labParagraphStyle.ts);
+ * the paragraph's text and word positions are the same either way.
+ */
+export type ParagraphKind = 'heading' | 'label' | 'item' | 'subtitle' | 'byline' | 'line'
+
+/** Web links in a chapter: [paragraph, fromWord, toWord, href]; http(s) only. */
+export type ChapterLink = [number, number, number, string]
+
+/**
+ * A picture in a chapter, for any book. It stands in the text as a paragraph
+ * of its own whose whole text is one word, `\uFFFC` + `id` (labFigures.ts),
+ * so positions, highlights, page turns and resume treat it as one item at
+ * its original place. The reader lays it out from these hints, never from the
+ * image itself, so pages measure the same before the image has loaded.
+ */
+export interface ChapterFigure {
+  /** Unique within the book; the paragraph text is `\uFFFC${id}`. */
+  id: string
+  /** Its number in the book, in reading order ("Figure 3"). */
+  number: number
+  /**
+   * Where the image is: a same-origin path for a built-in edition
+   * (`/data/figures/<book>/<file>`), or `asset:<key>` for a reader's own book,
+   * resolved on the device (labFigures.ts).
+   */
+  src: string
+  caption?: string
+  alt?: string
+  /** Intrinsic size in pixels: the aspect ratio and how large it may be drawn. */
+  width?: number
+  height?: number
+  /** A large or detailed image (a map, a plate): always shown as a strip that opens the full image. */
+  large?: boolean
+  /** The book names a picture here that this device cannot draw: its caption stands with a placeholder (`src` is empty). */
+  unavailable?: boolean
+  /**
+   * A reader's own PDF (Tinct text): what it is called where "Figure N" would not fit it
+   * ("Equation (2)", "Table 1", "Figure 3" as the PDF numbers it), and what it is.
+   */
+  label?: string
+  kind?: 'figure' | 'table' | 'equation'
+  /**
+   * How wide it is drawn: 'column' fills the reading column (a figure, a table cut from a
+   * PDF page), 'text' stands at its own size (a formula, set as large as the text around it),
+   * never wider than the column. Absent: as any picture (labFigures.ts figurePlacement).
+   */
+  fit?: 'column' | 'text'
+}
+
 export interface Chapter {
   number: number
   title: string
   paragraphs: string[]
+  /** Pictures standing in this chapter's text, each a paragraph of its own. */
+  figures?: ChapterFigure[]
+  /** Per paragraph, when any is more than prose. Absent for plain prose chapters. */
+  kinds?: Array<ParagraphKind | null>
+  /** External links by word range. A bare address in the text links by itself. */
+  links?: ChapterLink[]
   /** Section path this chapter belongs to, e.g. "Old Testament — Genesis" */
   section?: string
   /** Known paragraph total when a chapter's text is not loaded yet. */
   paragraphCount?: number
+  /** Known word total when a chapter's text is not loaded yet (from a chapter manifest that records it). */
+  wordCount?: number
+  /**
+   * Who wrote this chapter, when it names a writer other than the book's
+   * credit: an essay collection's or anthology's byline ("by David Deutsch"
+   * under the title). The byline itself stays in the text. Absent otherwise.
+   */
+  author?: string
 }
 
 /** Hierarchical section for table of contents (e.g., Testament → Book → Chapter) */
@@ -56,6 +122,18 @@ export interface EditionData {
   chapters: Chapter[]
   /** Optional hierarchical section structure for ToC (e.g., Bible) */
   sections?: Section[]
+  /**
+   * The book collects writing by several authors (an essay collection, an
+   * anthology): a chapter's writer is its `author`, and a chapter without one
+   * is by an unnamed writer, never the book's credit (an editor, a list).
+   */
+  collection?: boolean
+  /**
+   * A play whose speeches open on their speaker ("NORA. Hide the Christmas
+   * Tree…"), as Tinct's own plays are set: the reader sets each speaker as a
+   * label (labVerseLines.ts). Absent for every other book.
+   */
+  speakers?: boolean
   /** Present when only a chapter window is loaded for fast initial render. */
   windowed?: {
     complete: false
@@ -68,6 +146,11 @@ export interface Book {
   id: string
   title: string
   author: string
+  /**
+   * Other titles readers search for ("Enchiridion" for The Manual). The library search ranks
+   * them as titles; common ones for any copy live in addbooks/site/search.js ALT_TITLES.
+   */
+  altTitles?: string[]
   editions: Edition[]
   /** Short description for the store */
   description?: string
@@ -85,6 +168,21 @@ export interface Book {
    * Edition files for local-only books are listed in .gitignore.
    */
   localOnly?: boolean
+  /**
+   * A contemporary book already written in modern English (the Conjecture
+   * books, 2025-26): it has no Tinct Modern English edition and none may be
+   * offered, defaulted to or advertised for it. Enforced by
+   * noModernEdition.test.ts.
+   */
+  noModernEdition?: boolean
+  /**
+   * ISO 3166-1 alpha-2 countries (upper case) where the work is probably still
+   * in copyright, so Tinct's editions, narration and other text derived from it
+   * are not served to a request whose country is known to be one of them
+   * (src/data/regionRestrictions.ts, src/worker/lib/regionGate.ts). An unknown
+   * country is allowed. Decided per request; the country is never stored.
+   */
+  restrictedCountries?: string[]
 }
 
 // === Chat ===
@@ -123,6 +221,8 @@ export interface ChatMessage {
   isComplete?: boolean
   /** Spoken turns from the audiobook voice session */
   source?: 'text' | 'voice'
+  /** Lab: a quick-model explanation kept in the chat (and its prompt line); sent to the companion as unverified context. */
+  shownExplanation?: boolean
 }
 
 /** A group of chat messages from a single session/chapter */
@@ -142,6 +242,40 @@ export interface ChatConversation {
   summaryPrompt?: string
   /** Epoch ms when the summary was generated. */
   summaryCreatedAt?: number
+  /**
+   * A margin card kept in the chat history (Explain, Simplify, Define, Ask, Before you start, Recap, Quiz me,
+   * Fact-check, Counterpoint…, 21 Oct 2026): its kind and passage. The conversation's messages are its question and
+   * answers. A deleted card keeps only this, `gone`, with no messages (a tombstone, so it stays deleted everywhere).
+   */
+  card?: ChatCard
+}
+
+/** A passage in an edition as the book reader keeps it (LabHighlightRange): `toWord` is exclusive. */
+export interface ChatCardAnchor {
+  editionKey: string
+  chapterNumber: number
+  paragraphIndex: number
+  fromWord: number
+  endParagraphIndex: number
+  toWord: number
+}
+
+export interface ChatCard {
+  /** The margin's own id for the card (the conversation's id is `mc_<id>`). */
+  id: string
+  kind: string
+  chapterNumber: number
+  anchor?: ChatCardAnchor
+  /** The passage as quoted. */
+  text?: string
+  /** The margin's boxes for the passage (a fallback for drawing it before the passage is measured). */
+  rects?: number[][]
+  /** The card's own state: a quiz's questions and answers, a chapter card's unit, sources. Small. */
+  data?: unknown
+  at: number
+  /** Last change (ms): the newer copy wins on another device. */
+  u: number
+  gone?: true
 }
 
 // === Highlights & Annotations ===

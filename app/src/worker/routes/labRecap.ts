@@ -14,25 +14,36 @@
  * the lab's anonymous free-action rule is enforced by the client, as for
  * `/api/lab-chat` — and each IP is rate-limited like the lab chat.
  */
-import { COMPANION_MODEL } from '../../companionModel'
+import { COMPANION_MODEL, RECAP_FAST_MODEL } from '../../companionModel'
 import {
   LAB_RECAP_ROUTE,
   RECAP_CACHE_TTL_SECONDS,
   RECAP_MAX_PARAGRAPH_INDEX,
   RECAP_PROMPT_VERSION,
+  RECAP_BRIEF_MIN_NARRATIVE_WORDS,
+  isUsableRecapSummary,
   recapCacheKey,
   recapCoverageThrough,
+  recapNarrativeWords,
   type LabRecapCoverage,
   type LabRecapRequest,
   type LabRecapResponse,
 } from '../../recapSummary'
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
+import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
+import { allowanceUsedBody } from '../lib/aiAllowance'
 import { jsonResponse } from '../lib/responses'
+import { bookAssets } from './publicBooks'
+import { RECAP_ENTRY_INSTRUCTION, RECAP_ENTRY_TOOL_PAYLOAD, readRecapEntry } from '../lib/recapEntry'
+import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 
-export type LabRecapEnv = {
+export type LabRecapEnv = LedgerEnv & {
   ANTHROPIC_API_KEY?: string
   RATE_LIMIT?: KVNamespace
   ASSETS?: AssetsBinding
+  /** Added (`pd-`) books' editions live here (publicBooks.ts bookAssets). */
+  PUBLIC_BOOKS?: R2Bucket
+  AUDIO_BUCKET?: R2Bucket
 }
 
 type CheckRateLimit = (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
@@ -49,6 +60,12 @@ export interface LabRecapDeps {
   /** Anthropic transport; defaults to fetch. */
   fetchAnthropic?: (payload: Record<string, unknown>, apiKey: string) => Promise<Response>
   createRetrieval?: typeof createBookRetrieval
+  /** Daily ceiling for signed-out AI. Absent = refused (fail closed). */
+  reserveGuestSpend?: ReserveGuestSpend
+  /** Who to bill in the cost ledger when the request carries a session. Runs in the background write. */
+  resolveUser?: (request: Request) => Promise<string | null>
+  /** The AI allowance (lib/aiAllowance.ts): false refuses generation for a signed-in reader whose allowance is used up. */
+  allowsAi?: (request: Request) => Promise<boolean>
 }
 
 export const RECAP_MAX_TOKENS = 300
@@ -67,6 +84,16 @@ export const RECAP_SYSTEM_PROMPT = [
   'No praise, no interpretation, no advice, no preamble, no headings, no bullet points, and no quotation marks around the answer.',
 ].join('\n')
 
+/**
+ * Catch me up's entry for the chapter in progress: the same rules, about 40
+ * words, answered through the structured entry tool so an empty passage is an
+ * empty entry rather than a request for more text.
+ */
+export const RECAP_BRIEF_SYSTEM_PROMPT = `${RECAP_SYSTEM_PROMPT
+  .replace('in about 90 words, never more than 110, as one paragraph', 'in two short sentences, at most 40 words in all,')}\n${RECAP_ENTRY_INSTRUCTION}`
+/** Room for the 40-word entry and its tool call: a cut-off call is no entry (labCatchUp.ts CATCH_UP_MAX_TOKENS). */
+export const RECAP_BRIEF_MAX_TOKENS = 400
+
 function labGuestIp(request: Request): string {
   return request.headers.get('cf-connecting-ip')
     || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
@@ -76,6 +103,7 @@ function labGuestIp(request: Request): string {
 export type ParsedRecapRequest = Required<Pick<LabRecapRequest, 'bookId' | 'editionKey' | 'chapterNumber' | 'paragraphIndex' | 'completed'>> & {
   previousChapterNumber: number | null
   bookTitle: string | null
+  brief: boolean
 }
 
 /** Validate the body; malformed input is a 400, never a model call. */
@@ -90,7 +118,7 @@ export function parseRecapRequest(raw: unknown): ParsedRecapRequest | null {
   const previous = value.previousChapterNumber
   const previousChapterNumber = typeof previous === 'number' && Number.isInteger(previous) && previous >= 1 && previous === book.chapterNumber - 1 ? previous : null
   const bookTitle = typeof value.bookTitle === 'string' && value.bookTitle.trim() ? value.bookTitle.trim().slice(0, MAX_TITLE_CHARS) : null
-  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, paragraphIndex, completed, previousChapterNumber, bookTitle }
+  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, paragraphIndex, completed, previousChapterNumber, bookTitle, brief: value.brief === true }
 }
 
 function cleanParagraph(text: string): string {
@@ -153,16 +181,10 @@ function cacheRequest(origin: string, key: string): Request {
 }
 
 type AnthropicMessage = {
-  content?: Array<{ type?: string; text?: string }>
+  content?: Array<{ type?: string; text?: string; name?: string; input?: unknown }>
   stop_reason?: string
   model?: string
   usage?: { input_tokens?: number; output_tokens?: number }
-}
-
-function textOf(message: AnthropicMessage): string {
-  return Array.isArray(message.content)
-    ? message.content.filter(block => block?.type === 'text' && typeof block.text === 'string').map(block => block.text!.trim()).filter(Boolean).join('\n').trim()
-    : ''
 }
 
 export async function handleLabRecap(
@@ -191,7 +213,7 @@ export async function handleLabRecap(
 
   const origin = new URL(request.url).origin
   const retrieval: BookRetrieval = (deps.createRetrieval ?? createBookRetrieval)({
-    assets: env.ASSETS,
+    assets: bookAssets(env),
     origin,
     book: { bookId: parsed.bookId, editionKey: parsed.editionKey, chapterNumber: parsed.chapterNumber },
   })
@@ -216,11 +238,24 @@ export async function handleLabRecap(
     paragraphCount,
     completed: coverage.complete,
     previousChapterNumber: coverage.fromChapterNumber,
+    brief: parsed.brief,
   })
-  if (deps.prepared) {
+  const emptyEntry = (model: string) => jsonResponse({
+    summary: '', empty: true, coverage, model, version: RECAP_PROMPT_VERSION, cached: false,
+  } satisfies LabRecapResponse, 200, request)
+  // Catch me up's entry for the chapter in progress needs a few sentences of
+  // narrative. Below that (a heading, an address, a date) there is nothing to
+  // summarise: no model call, which would only ask for more text, and no cache
+  // write. The client skips such an entry itself; this covers older clients.
+  if (parsed.brief && recapNarrativeWords([
+    ...(previous?.paragraphs ?? []),
+    ...chapter.paragraphs.slice(0, throughParagraph + 1),
+  ]) < RECAP_BRIEF_MIN_NARRATIVE_WORDS) return emptyEntry(RECAP_FAST_MODEL)
+  // Prepared recaps are the 90-word "so far"; a brief entry is never one of them.
+  if (deps.prepared && !parsed.brief) {
     try {
       const ready = await deps.prepared({ ...parsed, previousChapterNumber: parsed.previousChapterNumber ?? undefined, bookTitle: parsed.bookTitle ?? undefined })
-      if (ready && ready.version === RECAP_PROMPT_VERSION && ready.coverage.throughParagraph <= throughParagraph) return jsonResponse({ ...ready, cached: true },200,request)
+      if (ready && ready.version === RECAP_PROMPT_VERSION && ready.coverage.throughParagraph <= throughParagraph && isUsableRecapSummary(ready.summary)) return jsonResponse({ ...ready, cached: true },200,request)
     } catch { /* Optional preparation must never block the foreground fallback. */ }
   }
   const cache = deps.cache === undefined ? defaultCache() : deps.cache
@@ -230,34 +265,52 @@ export async function handleLabRecap(
       const hit = await cache.match(cacheKey)
       if (hit) {
         const stored = await hit.json() as LabRecapResponse
-        return jsonResponse({ ...stored, cached: true }, 200, request)
+        // An entry that is not a summary is skipped and replaced below.
+        if (isUsableRecapSummary(stored?.summary)) return jsonResponse({ ...stored, cached: true }, 200, request)
       }
     } catch { /* a cache failure is never a user-facing failure */ }
   }
 
   const passage = buildRecapPassage({ chapter, throughParagraph, previous })
+  const content = userMessage({ parsed, chapter, coverage, passage })
+  const system = parsed.brief ? RECAP_BRIEF_SYSTEM_PROMPT : RECAP_SYSTEM_PROMPT
+  const model = parsed.brief ? RECAP_FAST_MODEL : COMPANION_MODEL
+  const maxTokens = parsed.brief ? RECAP_BRIEF_MAX_TOKENS : RECAP_MAX_TOKENS
+  const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
+  // Cached and prepared entries above cost nothing and are always served.
+  if (deps.allowsAi && !await deps.allowsAi(request)) return jsonResponse(allowanceUsedBody(), 402, request)
+  if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
+  const meter = createAiMeter(env, ctx, {
+    guest: ledgerGuestKey(request),
+    resolveUser: deps.resolveUser ? () => deps.resolveUser!(request) : undefined,
+  }, { feature: 'recap', bookId: parsed.bookId, model })
   try {
     const response = await (deps.fetchAnthropic ?? defaultFetchAnthropic)({
-      model: COMPANION_MODEL,
-      max_tokens: RECAP_MAX_TOKENS,
-      system: RECAP_SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: userMessage({ parsed, chapter, coverage, passage }) }],
-      output_config: { effort: 'low' },
+      model,
+      max_tokens: maxTokens,
+      system,
+      messages: [{ role: 'user', content }],
+      ...(parsed.brief ? RECAP_ENTRY_TOOL_PAYLOAD : { output_config: { effort: 'low' as const } }),
     }, apiKey)
-    if (!response.ok) return jsonResponse({ error: 'Summary unavailable' }, 502, request)
+    if (!response.ok) {
+      if (response.status === 402 || response.status === 429) return jsonResponse(aiRestingBody(), 503, request)
+      return jsonResponse({ error: 'Summary unavailable' }, 502, request)
+    }
     const message = await response.json() as AnthropicMessage
-    const summary = message.stop_reason === 'refusal' ? '' : textOf(message)
-    if (!summary) return jsonResponse({ error: 'Summary unavailable' }, 502, request)
+    meter.anthropic(message.usage)
+    const entry = readRecapEntry(message)
+    if (entry.kind === 'none') return jsonResponse({ error: 'Summary unavailable' }, 502, request)
     console.log(JSON.stringify({
       event: 'lab_recap_usage',
       route: LAB_RECAP_ROUTE,
       input_tokens: message.usage?.input_tokens ?? 0,
       output_tokens: message.usage?.output_tokens ?? 0,
     }))
+    if (entry.kind === 'empty') return emptyEntry(typeof message.model === 'string' && message.model ? message.model : model)
     const payload: LabRecapResponse = {
-      summary,
+      summary: entry.summary,
       coverage,
-      model: typeof message.model === 'string' && message.model ? message.model : COMPANION_MODEL,
+      model: typeof message.model === 'string' && message.model ? message.model : model,
       version: RECAP_PROMPT_VERSION,
       cached: false,
     }

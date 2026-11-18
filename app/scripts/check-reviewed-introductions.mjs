@@ -3,6 +3,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'
 import {createHash} from 'node:crypto'
+import { markInternal } from './lib/internalTraffic.cjs'
+import { liveLibraryRelease } from './lib/liveLibraryRelease.mjs'
 const live=process.env.LIBRARY_LIVE==='1',origin='https://tinct.app',out='artifacts/reviewed-introductions'
 fs.mkdirSync(out,{recursive:true})
 const firstSource=JSON.parse(fs.readFileSync('../books/wip/featured-content-20260929/featured-copy.json'))
@@ -11,7 +13,10 @@ const source={books:[...firstSource.books,...secondSource.books]}
 const catalogue=live?await fetch(origin+'/lab/catalogue.json').then(r=>{assert.equal(r.status,200);return r.json()}):JSON.parse(fs.readFileSync('dist/lab/catalogue.json'))
 const available=new Set(catalogue.books.filter(book=>book.discoveryAvailable!==false).map(book=>book.id))
 const manifest=JSON.parse(fs.readFileSync('public/lab/library_2/author-images.json'))
-const gallery=JSON.parse(fs.readFileSync('../books/wip/featured-content-20260929/character-galleries.json'))
+const openers=new Map(JSON.parse(fs.readFileSync('public/lab/library_2/book-openers.json')).books.map(book=>[book.workId,book.opening]))
+// Suggested prerequisites (Anders, 5 Nov 2026), from the English primer files the page draws.
+const prerequisites=id=>{const file='public/lab/library_2/primer-data/'+id+'.en.json';return fs.existsSync(file)?JSON.parse(fs.readFileSync(file)).prerequisites||[]:[]}
+assert(prerequisites('divine-comedy').length>0,'the Divine Comedy has suggested prerequisites');assert.equal(prerequisites('frankenstein').length,0,'Frankenstein has none')
 const cases=source.books.filter(book=>available.has(book.id)).map(book=>book.id),report=[]
 const retainedHolds=source.books.filter(book=>!available.has(book.id)).map(book=>book.id)
 assert.equal(source.books.length,101)
@@ -19,15 +24,22 @@ assert.equal(new Set(source.books.map(book=>book.id)).size,101)
 console.log('RETAINED_PUBLICATION_HOLDS '+JSON.stringify(retainedHolds))
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex')
 if(live){
- const files=['app.js','index.html','styles.css','authors.js','intro-review.css','reviewed-introductions.js','author-images.json',...source.books.map(b=>'intro-data/'+b.id+'.json'),...manifest.images.map(i=>i.publicPath.replace('/lab/library_2/',''))]
+ // Production serves the build's stamped copies and the Worker's /library page, not public/ byte for byte (scripts/lib/liveLibraryRelease.mjs).
+ const release=await liveLibraryRelease({appRoot:process.cwd(),origin})
+ const files=['app.js','styles.css','authors.js','intro-review.css','reviewed-introductions.js','author-images.json',...source.books.map(b=>'intro-data/'+b.id+'.json'),...manifest.images.map(i=>i.publicPath.replace('/lab/library_2/',''))]
  for(const file of files){
-  const local=fs.readFileSync('public/lab/library_2/'+file),response=await fetch(origin+'/lab/library_2/'+file+'?verified='+hash(local))
+  const stamped=release.files['lab/library_2/'+file],expected=stamped==null?fs.readFileSync('public/lab/library_2/'+file):Buffer.from(stamped)
+  const response=await fetch(origin+'/lab/library_2/'+file+'?verified='+hash(expected))
   assert.equal(response.status,200,file)
-  assert.equal(hash(Buffer.from(await response.arrayBuffer())),hash(local),file+' matches reviewed release')
+  assert.equal(hash(Buffer.from(await response.arrayBuffer())),hash(expected),file+' matches reviewed release')
  }
+ const page=await fetch(origin+'/library?verified='+Date.now(),{redirect:'manual'})
+ assert.equal(page.status,200,'/library')
+ const livePage=await page.text()
+ assert.equal(hash(livePage),hash(await release.libraryPage(livePage)),'index.html (served at /library) matches reviewed release')
 }
 for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[webkit,393,844,'reduce'],[webkit,393,844,'no-preference']]){
- const browser=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})})
+ const browser=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})}))
  try{
  const context=await browser.newContext({viewport:{width,height},serviceWorkers:'block',reducedMotion,...(engine===webkit?{isMobile:true,hasTouch:true}:{})})
  await context.addInitScript(()=>{
@@ -60,15 +72,15 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   });
   console.log('INTRO_STATE '+JSON.stringify({label,engine:engine.name(),id,...state}));
  }
- for(const id of reducedMotion==='reduce'?cases:['frankenstein','bible','federalist-papers','to-the-lighthouse','confessions'].filter(id=>available.has(id))){
+ for(const id of reducedMotion==='reduce'?cases:['frankenstein','divine-comedy','bible','federalist-papers','to-the-lighthouse','confessions'].filter(id=>available.has(id))){
   await page.goto(origin+'/library?view=book-detail&book='+id,{waitUntil:'domcontentloaded'})
   await page.locator('#book-overlay').waitFor()
   await page.locator('#page-back').waitFor()
-  assert.equal(await page.locator('.hero-dots button').count(),6,'reviewed copy must not add hero selections')
+  assert.equal(await page.locator('.hero-dots button').count(),6,'reviewed copy must not add hero selections (six featured books since the Bible joined, 10 Nov 2026)')
   const images=manifest.books.find(book=>book.bookId===id).imageIds.map(imageId=>manifest.images.find(image=>image.id===imageId))
   assert.equal(await page.locator('#slip-images img').count(),images.length,id+' complete author attribution')
   await page.waitForFunction(()=>[...document.querySelectorAll('#slip-images img')].every(image=>image.complete&&image.naturalWidth>0))
-  assert.deepEqual(await page.locator('#slip-images figcaption').allTextContents(),images.map(image=>image.caption))
+  assert.equal(await page.locator('#slip-images figcaption').count(),0,'author portraits carry no caption')
   await page.evaluate(()=>document.fonts.ready)
   await page.waitForFunction(()=>document.querySelector('#book-slip')?.inert===false)
   await page.waitForTimeout(300)
@@ -78,11 +90,10 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   })
   console.log('FLAP_GEOMETRY '+JSON.stringify({engine:engine.name(),id,...flapGeometry}))
   if(flapGeometry.compact){assert(flapGeometry.next.y>=0&&flapGeometry.next.bottom<=height+2,'Continue stays in the viewport: '+id);assert(flapGeometry.flap.x>=-2&&flapGeometry.flap.right<=width+2,'Author flap fits viewport: '+id)}
-  const credits=await page.locator('#slip-image-credits').textContent()
-  for(const image of images){assert(credits.includes(image.creator));assert(credits.includes(image.changes))}
+  // Flaps carry no question and no credits; attributions live on the Image credits page.
+  assert.equal(await page.locator('#slip-image-credits, #slip-invitation').count(),0,'flap has no credits or question: '+id)
   const accepted=source.books.find(book=>book.id===id)
   if(accepted){
-   assert.equal(await page.locator('#slip-invitation').textContent(),accepted.hook.text)
    assert.equal(await page.locator('#slip-copy').textContent(),accepted.author.biography.replace(/\*([^*]+)\*/g,'$1'))
   }
   if(['frankenstein','bible','federalist-papers','to-the-lighthouse','ulysses'].includes(id)){
@@ -93,13 +104,6 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
    console.log('REVIEW_END '+engine.name()+'-'+reducedMotion+'-'+id+'-flap')
   }
   if(flapGeometry.compact){
-   await page.locator('#slip-image-credits summary').scrollIntoViewIfNeeded();
-   await page.locator('#slip-image-credits summary').click();
-   assert(await page.locator('#slip-image-credits').evaluate(e=>e.open),'Image credits open: '+id);
-   const creditLinks=page.locator('#slip-image-credits a');
-   assert.equal(await creditLinks.count(),images.length*2,'Every portrait has a licence and source link');
-   await creditLinks.last().scrollIntoViewIfNeeded();
-   assert(await creditLinks.last().isVisible(),'Last author credit remains accessible');
    await page.locator('#slip-next').waitFor({state:'visible'});
    assert(await page.locator('#slip-next').evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))}),'Continue owns its visible tap target: '+id);
    await page.locator('#slip-next').click()
@@ -107,36 +111,48 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
    catch(error){console.log('INTRO_TRANSITION_FAILURE '+JSON.stringify({engine:engine.name(),id,screen:await page.evaluate(()=>({trace:window.__introTrace,intro:document.getElementById('intro').outerHTML.slice(0,180),shape:document.getElementById('book-shape').style.cssText,cover:document.getElementById('turning-cover').style.cssText,active:document.activeElement?.id}))}));await page.screenshot({path:out+'/'+engine.name()+'-'+reducedMotion+'-'+id+'-transition-failure.png'});throw error}
   }
   await page.locator('#begin-reading').waitFor()
-  if(accepted){
+  // Primers (Anders, 3 Nov 2026): a book with an authored opening (book-openers.json) opens with it, verbatim, in place
+  // of its earlier reviewed preface; a book without one keeps that preface.
+  const opening=openers.get(id)
+  if(opening||accepted){
    const paragraphs=await page.locator('#intro-body > p').allTextContents()
-   assert.deepEqual(paragraphs.slice(0,accepted.preface.paragraphs.length),accepted.preface.paragraphs,id+' exact reviewed preface')
-   assert.equal(await page.locator('.reading-orientation p').textContent(),accepted.orientation.text)
-   if(accepted.preface.signature)assert.equal(await page.locator('.preface-credit').textContent(),accepted.preface.signature)
+   const expected=opening?opening.split(/\n{2,}/).map(p=>p.trim()).filter(Boolean):accepted.preface.paragraphs
+   assert.deepEqual(paragraphs.slice(0,expected.length),expected,id+(opening?' exact authored opening':' exact reviewed preface'))
+   assert.equal(await page.locator('.reading-orientation, .preface-credit').count(),0,id+' preface has no signature or orientation')
   }
-  const cast=gallery.books.find(book=>book.bookId===id)
-  if(cast){
-   try{await page.locator('[data-tab=characters]').click()}catch(error){await introState('Characters failed',id);throw error}
-   assert.equal(await page.locator('[data-tab=characters]').textContent(),cast.sectionTitle)
-   assert.equal(await page.locator('#intro-character-list .character').count(),cast.characters.filter(c=>c.visibility==='featured').length)
-   await page.getByTestId('intro-gallery-toggle').click()
-   await page.waitForFunction(()=>document.querySelector('[data-testid=intro-gallery-toggle]')?.getAttribute('aria-expanded')==='true')
-   const expected=cast.characters.filter(c=>c.visibility!=='hold_until_revealed')
-   assert.deepEqual(await page.locator('#intro-character-list .character-copy > p:last-child').allTextContents(),expected.map(c=>c.body))
-   if(id==='jane-eyre')assert(!(await page.locator('#intro-character-list').textContent()).includes('Bertha'))
-   await page.screenshot({path:out+'/'+engine.name()+'-'+reducedMotion+'-'+id+'-gallery.png'})
+  // The Characters galleries are retired with the primers (Anders, 3 Nov 2026: "skip character gallery"):
+  // People & ideas on the opening page names the main people instead.
+  assert.equal(await page.locator('[data-tab=characters]:visible').count(),0,id+' offers no Characters gallery')
+  // Book-level primers (Anders, 5 Nov 2026): no Background and no What to notice; Suggested prerequisites only for
+  // a book with a strong one (the Divine Comedy, not Frankenstein), its library titles opening that book.
+  const rowTitles=(await page.locator('#intro-body .primer-row > summary').allTextContents()).map(t=>t.replace('⌄','').trim())
+  for(const retired of ['Background','What to notice','Helpful context'])assert(!rowTitles.includes(retired),id+' has no '+retired+' row: '+rowTitles.join(' | '))
+  assert.equal(await page.locator('[data-testid=primer-context], [data-testid=primer-notice]').count(),0,id+' draws no context or notice rows')
+  // People & ideas read like Structure (Anders, 6 Nov 2026): a bold "Name · role:" lead-in, then the text.
+  const peopleRow=page.locator('[data-testid=primer-people]')
+  if(await peopleRow.count()){
+   const leads=await peopleRow.locator('.primer-item > strong').allTextContents()
+   assert(leads.length&&leads.every(t=>/\S: $|[?!:] $/.test(t)),id+' people lead-ins are bold "Name · role:": '+leads.join(' | '))
+   assert.equal(await peopleRow.locator('.primer-item').filter({hasText:' – '}).count(),0,id+' people lines have no dash')
+  }
+  const wanted=prerequisites(id)
+  assert.equal(rowTitles.filter(t=>t==='Suggested prerequisites').length,wanted.length?1:0,id+' Suggested prerequisites row '+(wanted.length?'present':'absent'))
+  if(wanted.length){
+   const row=page.locator('[data-testid=primer-prerequisites]')
+   await row.locator('summary').click()
+   const items=await row.locator('.primer-item').allTextContents()
+   assert.deepEqual(items,wanted.map(item=>item.title+': '+item.text),id+' prerequisites verbatim')
+   assert.deepEqual(await row.locator('.primer-book-link').evaluateAll(links=>links.map(a=>a.dataset.book)),wanted.filter(item=>item.bookId&&available.has(item.bookId)).map(item=>item.bookId),id+' library titles link their book')
+   if(id==='divine-comedy'){
+    if(engine===chromium)await page.screenshot({path:out+'/'+engine.name()+'-'+reducedMotion+'-'+id+'-prerequisites.png'})
+    await row.locator('.primer-book-link').first().click()
+    await page.waitForFunction(()=>/Aeneid/.test(document.getElementById('intro-heading')?.textContent||''),null,{timeout:10000})
+    await page.locator('#book-overlay').waitFor()
+   }
   }
   assert(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'no viewport overflow: '+id)
-  report.push({engine:engine.name(),reducedMotion,book:id,authorImages:images.length,reviewedCopy:!!accepted,expandedGallery:!!cast})
+  report.push({engine:engine.name(),reducedMotion,book:id,authorImages:images.length,reviewedCopy:!!accepted})
  }
- await page.evaluate(()=>{
-  const now=Date.now(),place={bookId:'jane-eyre',headerBook:'Jane Eyre',chapterNumber:26,sequentialChapter:26,paragraphIndex:0,wordIndex:0,pageIndex:0,primaryEditionKey:'original-en',updatedAt:now,deviceId:'introduction-fixture',rev:1}
-  localStorage.setItem('tinct-lab-position',JSON.stringify({owner:null,books:{'jane-eyre':place},finished:{},hidden:{},lastSettledBookId:'jane-eyre',lastSettledAt:now,updatedAt:now,deviceId:'introduction-fixture'}))
- })
- await page.goto(origin+'/library?view=book-detail&book=jane-eyre')
- await page.locator('#book-overlay').waitFor();await page.locator('#page-back').waitFor()
- if(width<1100){await page.locator('#slip-next').waitFor();await page.locator('#slip-next').click();await page.waitForFunction(()=>document.getElementById('intro').getAttribute('aria-hidden')==='false')}
- await page.locator('[data-tab=characters]').click();await page.getByTestId('intro-gallery-toggle').click()
- await page.locator('[data-character-id=bertha-mason]').waitFor()
  assert.deepEqual(errors,[]);assert.deepEqual(providerRequests,[])
  await context.close()
  }finally{await browser.close()}

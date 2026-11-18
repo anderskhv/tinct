@@ -7,6 +7,7 @@
  */
 import { COMPANION_EFFORT_VOICE, COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
+import { authorshipNote, bookByline } from '../companion/authorship'
 import { nearbyParagraphWindow, VOICE_TOOLS } from '../voice/context'
 import type { VoiceActivityPhase } from '../voice/v2/voiceV2'
 import {
@@ -38,6 +39,9 @@ import {
   type AnthropicStreamResult,
   type LabTalkContext,
 } from './labCompanion'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
+import { aiPrefsPromptLines } from '../aiSettings'
+import { aiPrefsFor } from './labAiPrefs'
 
 export const LAB_ASK_COMPANION_TOOL_V2 = {
   type: 'function',
@@ -94,11 +98,15 @@ export function buildLabTalkInstructionsV2(input: LabTalkContext): string {
     `If they want the book back, call resume_audiobook and say one short closing sentence. If they clearly say goodbye or that the conversation is over, say one short goodbye and call end_voice_session. A bare thanks or thank you is not a goodbye; answer it in a word or two and keep listening.`,
     `Speak in complete sentences. Calm and direct. Short by default; go longer only when the question or the reader asks for depth, and then finish the thought. Do not use the formula "it's not X, it's Y." Almost never use em dashes.`,
     `[Current state]`,
-    `Right now reading: ${input.bookTitle} by ${input.bookAuthor} — ${input.chapterLabel} (${edition}).`,
+    `Right now reading: ${bookByline(input.bookTitle, input.bookAuthor, input.authorship)} — ${input.chapterLabel} (${edition}).`,
     `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}. Treat later chapters as unknown.`,
   ]
+  const authorship = authorshipNote(input.bookAuthor, input.authorship)
+  if (authorship) lines.push(authorship)
 
   if (input.readingAngle) lines.push(`Reading angle: ${input.readingAngle}`)
+  // The reader's own instructions (AI settings), after the angle; Talk keeps its spoken length.
+  lines.push(...aiPrefsPromptLines(aiPrefsFor(null), { length: false }))
   if (current) lines.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
   if (nearby.length > 0) {
     lines.push(`Nearby paragraphs:\n${nearby.map(text => `- "${text}"`).join('\n')}`)
@@ -155,6 +163,7 @@ async function fetchLabCompanionHopV2(input: {
 }): Promise<CompanionResponse> {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
+    ...internalTrafficHeaders(),
   }
   if (input.authToken) headers.Authorization = `Bearer ${input.authToken}`
   return fetch(apiUrl(input.authToken ? '/api/chat' : '/api/lab-chat'), {

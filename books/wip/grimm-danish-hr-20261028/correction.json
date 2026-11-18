@@ -1,0 +1,21 @@
+{
+  "workId": "grimms-fairy-tales",
+  "editionKey": "modern-da",
+  "baselineCommit": "58e631dcca524d2b265bccd9f7d43a94aebd6ebe",
+  "baselinePath": "app/public/data/editions/grimms-fairy-tales-modern-da.json",
+  "baselineSha256": "53550b14b49833ff6a26d746d6c7cc989009e3133876123e8b146ef907f4ef70",
+  "instruction": "User explicitly requested Hr. instead of herr in this modern Danish story.",
+  "status": "Exact requested correction prepared; not integrated or published.",
+  "changes": [
+    {
+      "chapterNumber": 11,
+      "chapterTitle": "Gærdesmutten og bjørnen",
+      "paragraphIndex": 0,
+      "before": "En sommer gik bjørnen og ulven i skoven, og da hørte bjørnen en fugl, der sang så smukt, at han sagde: »Bror ulv, hvad er det for en fugl, der synger så godt?« »Det er fuglenes konge,« sagde ulven, »og ham må vi bukke for.« Men i virkeligheden var fuglen en gærdesmutte. »Hvis det er sådan,« sagde bjørnen, »vil jeg meget gerne se hans kongelige palads. Kom, tag mig med derhen.« »Det går ikke så enkelt for sig, som du tror,« sagde ulven. »Du må vente, til dronningen kommer.« Kort efter kom dronningen med lidt mad i næbbet, og herr kongen kom også, og de begyndte at made deres unger. Bjørnen ville straks ind, men ulven holdt ham tilbage i ærmet og sagde: »Nej, du må vente, til herr konge og fru dronning er fløjet af sted igen.« Så mærkede de sig hullet, hvor reden lå, og travede af sted. Men bjørnen kunne ikke få ro, før han havde set det kongelige palads, og efter et lille stykke tid gik han tilbage. Kongen og dronningen var lige fløjet ud, så han kiggede ind og så fem eller seks unger ligge der. »Er det det kongelige palads?« råbte bjørnen. »Sikke et elendigt palads! Og I er ikke kongebørn, I er nogle uærlige unger!« Da de små gærdesmutter hørte det, blev de rasende og skreg: »Nej, det er vi ikke! Vores forældre er ærlige folk! Bjørn, det skal du komme til at betale for!«",
+      "after": "En sommer gik bjørnen og ulven i skoven, og da hørte bjørnen en fugl, der sang så smukt, at han sagde: »Bror ulv, hvad er det for en fugl, der synger så godt?« »Det er fuglenes konge,« sagde ulven, »og ham må vi bukke for.« Men i virkeligheden var fuglen en gærdesmutte. »Hvis det er sådan,« sagde bjørnen, »vil jeg meget gerne se hans kongelige palads. Kom, tag mig med derhen.« »Det går ikke så enkelt for sig, som du tror,« sagde ulven. »Du må vente, til dronningen kommer.« Kort efter kom dronningen med lidt mad i næbbet, og Hr. kongen kom også, og de begyndte at made deres unger. Bjørnen ville straks ind, men ulven holdt ham tilbage i ærmet og sagde: »Nej, du må vente, til Hr. konge og fru dronning er fløjet af sted igen.« Så mærkede de sig hullet, hvor reden lå, og travede af sted. Men bjørnen kunne ikke få ro, før han havde set det kongelige palads, og efter et lille stykke tid gik han tilbage. Kongen og dronningen var lige fløjet ud, så han kiggede ind og så fem eller seks unger ligge der. »Er det det kongelige palads?« råbte bjørnen. »Sikke et elendigt palads! Og I er ikke kongebørn, I er nogle uærlige unger!« Da de små gærdesmutter hørte det, blev de rasende og skreg: »Nej, det er vi ikke! Vores forældre er ærlige folk! Bjørn, det skal du komme til at betale for!«",
+      "beforeSha256": "f26a0660a2d4c0ed8d3c555aa8c81c37243d3a721687b2113908b494b6b8255a",
+      "afterSha256": "4755c88509e88d6bcc05fbedddf5ef7d9c0b1f06731a718c6a8c31904f9657c1",
+      "replacements": 2
+    }
+  ]
+}

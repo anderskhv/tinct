@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { labVoicePhaseLabel, nextLabVoiceGate } from './labChrome'
+import { labVoicePhaseLabel } from './labChrome'
 import { LAB_VOICE_TOOLS, labConversationState } from './labAsk'
 import {
   buildLabTalkInstructions,
@@ -130,8 +130,6 @@ describe('voice v1 stays byte-for-byte on its own instructions', () => {
     expect(labVoicePhaseLabel('idle')).toBeNull()
     expect(labVoicePhaseLabel('checking')).toBe('Checking text')
     expect(labVoicePhaseLabel('preparing')).toBe('Preparing answer')
-    expect(nextLabVoiceGate('connecting', 'checking', true)).toBe('off')
-    expect(nextLabVoiceGate('connecting', 'preparing', true)).toBe('off')
   })
 })
 

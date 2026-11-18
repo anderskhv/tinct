@@ -1,3 +1,4 @@
+import type { PendingMicrophone } from './microphoneRequest'
 import type { AssistantPace, LabPlaybackSkip } from '../lab/labAsk'
 import type { LabPlaybackNavigationOutcome } from '../lab/labVoiceControls'
 import type { VoiceActivityPhase } from './v2/voiceV2'
@@ -39,6 +40,12 @@ export interface VoiceSessionCallbacks {
   onSetAssistantPace?: (pace: AssistantPace) => void
   /** Production-owned Tinct tools such as history, navigation, and settings. */
   onApplicationTool?: VoiceApplicationToolHandler
+  /**
+   * A signed-out guest's Talk trial (one a day, two minutes): `started` when
+   * Tinct granted it, `ended` when its time ran out and the call was closed,
+   * `refused` when today's trial was already used. Never called signed in.
+   */
+  onGuestTrial?: (event: 'started' | 'ended' | 'refused') => void
 }
 
 /**
@@ -85,7 +92,15 @@ export interface StartVoiceSessionInput {
   /** Native provider web search. Defaults to on. */
   enableSearch?: boolean
   assistantPace?: AssistantPace
+  /** Talk's saved speaking speed (0.7-1.5); wins over `assistantPace`. */
+  assistantSpeed?: number
   voicePersona?: 'female' | 'male'
+  /**
+   * The microphone request made synchronously in the reader's tap
+   * (microphoneRequest.ts). The session owns it from start: it awaits it,
+   * and cancels it when the start ends early.
+   */
+  microphone?: PendingMicrophone
 }
 
 export const IDLE_VOICE_SNAPSHOT: VoiceUiSnapshot = {

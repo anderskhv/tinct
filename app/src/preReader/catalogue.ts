@@ -1,7 +1,9 @@
 import { editionHold } from '../data/editionAvailability'
-import { isAudioHeld, isBookDiscoverable, isEditionDiscoverable } from '../data/audioAvailability'
+import { isAudioHeld, isBookDiscoverable, isBookSearchable, isEditionDiscoverable } from '../data/audioAvailability'
 import { BOOKS } from '../data/bookRegistry'
 import { isEditionWithheld } from '../data/withheldEditions'
+import { publisherPermission } from '../data/publisherPermissions'
+import { danishAuthorNamesFor, danishTitlesFor } from '../data/danishTitles'
 import {
   LIBRARY_BOOK_META_BY_ID,
   LIBRARY_HOUSES,
@@ -114,9 +116,17 @@ export interface PreReaderEditionViewModel {
 
 export interface PreReaderBookViewModel {
   discoveryAvailable?: boolean
+  /** Found by a typed search, even while held from the shelves (SEARCH_ONLY_BOOKS). */
+  searchAvailable?: boolean
   id: string
   title: string
   author: string
+  /** Other titles readers know the book by (registry `altTitles`), searched as titles in the library. */
+  altTitles?: string[]
+  /** The book's titles in a language it can be read in (data/danishTitles.ts: only with a live Danish edition), searched as titles; the first is the one to show. */
+  localTitles?: { da: string[] }
+  /** The author's name as other languages spell it ("Platon"), searched as the author's name (every book, Danish edition or not). */
+  localAuthors?: { da: string[] }
   summary: string
   /** One-line description from the library taxonomy (falls back to the first sentence of the summary). */
   blurb: string
@@ -228,6 +238,11 @@ export interface ReaderHandoffSelection {
   bookId: string
   primaryEditionKey: EditionKey
   compareEditionKey?: EditionKey
+  /**
+   * The Compare edition (or its absence) is the reader's own explicit pick,
+   * e.g. "None" in the library introduction. Without it, Compare is a default.
+   */
+  compareChosen?: boolean
   audioEditionKey?: EditionKey
   savedPlace?: SavedReaderPlaceInput
   /** Begin the first rendered page exactly at savedPlace (share-link starts only). */
@@ -241,6 +256,11 @@ export interface ReaderHandoffIntent {
   bookId: string
   primaryEditionKey: EditionKey
   compareEditionKey?: EditionKey
+  /**
+   * The Compare edition (or its absence) is the reader's own explicit pick,
+   * e.g. "None" in the library introduction. Without it, Compare is a default.
+   */
+  compareChosen?: boolean
   audioEditionKey?: EditionKey
   savedPlace?: SavedReaderPlaceInput
   /** One-use document handoff flag; never stored as the user's reading position. */
@@ -258,9 +278,14 @@ function unique(values: Array<string | undefined>): string[] {
   return [...new Set(values.filter((value): value is string => Boolean(value?.trim())))]
 }
 
-function provenanceFor(edition: Edition): Pick<PreReaderEditionViewModel, 'group' | 'provenance' | 'provenanceLabel'> {
+function provenanceFor(edition: Edition, bookId: string): Pick<PreReaderEditionViewModel, 'group' | 'provenance' | 'provenanceLabel'> {
+  // In-copyright books published by permission are never called public domain.
+  const permission = publisherPermission(bookId)
+  if (permission && edition.style === 'original') {
+    return { group: 'human', provenance: 'published-edition', provenanceLabel: `Published by ${permission.publisher}, with permission` }
+  }
   if (edition.style === 'modern') {
-    return { group: 'modern', provenance: 'tinct-ai-adaptation', provenanceLabel: 'Tinct AI adaptation' }
+    return { group: 'modern', provenance: 'tinct-ai-adaptation', provenanceLabel: 'Line-by-line AI-based translation' }
   }
   if (edition.translator) {
     return {
@@ -275,7 +300,7 @@ function provenanceFor(edition: Edition): Pick<PreReaderEditionViewModel, 'group
   return { group: 'human', provenance: 'published-edition', provenanceLabel: 'Published public-domain edition' }
 }
 
-function editionViewModels(editions: Edition[]): PreReaderEditionViewModel[] {
+function editionViewModels(editions: Edition[], bookId: string): PreReaderEditionViewModel[] {
   const comparableKeys = new Set(
     editions.filter(edition => edition.aligned).map(edition => edition.key),
   )
@@ -287,7 +312,7 @@ function editionViewModels(editions: Edition[]): PreReaderEditionViewModel[] {
     translator: edition.translator || null,
     year: edition.year ?? null,
     aligned: edition.aligned,
-    ...provenanceFor(edition),
+    ...provenanceFor(edition, bookId),
     availability: {
       // BOOKS is the publication boundary. The exhaustive asset test enforces
       // that every registered edition has renderable chapter content.
@@ -313,8 +338,10 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
   // can keep offering an edition whose text is already 404. Filtering here
   // means that even a catalogue built while the registry still listed one would
   // not put it in front of a reader.
-  const publishedEditions = book.editions.filter(edition => !isEditionWithheld(book.id, edition.key))
-  const editions = editionViewModels(publishedEditions).map(edition => ({ ...edition, discoveryAvailable: isEditionDiscoverable(book.id, edition), audioHeld: isAudioHeld(book.id, edition.key) }))
+  // A book already in modern English (noModernEdition) never shows a modern edition.
+  const publishedEditions = book.editions.filter(edition => !isEditionWithheld(book.id, edition.key)
+    && !(book.noModernEdition && (edition.style === 'modern' || edition.key === 'modern-en')))
+  const editions = editionViewModels(publishedEditions, book.id).map(edition => ({ ...edition, discoveryAvailable: isEditionDiscoverable(book.id, edition), audioHeld: isAudioHeld(book.id, edition.key) }))
   const discoverable = editions.filter(edition => edition.discoveryAvailable)
   const defaultEditionKey = defaultPrimaryEditionKey(book.id, discoverable.length ? discoverable : editions)
   const summary = book.description?.trim() || meta.blurb?.trim() || `${book.title} by ${book.author}.`
@@ -328,6 +355,13 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
     id: book.id,
     title: book.title.trim(),
     author: book.author.trim(),
+    ...(book.altTitles?.length ? { altTitles: book.altTitles.map(title => title.trim()) } : {}),
+    // Danish titles find a book only while readers can read it in Danish (an offered, unheld
+    // Danish edition: OFFERED_DANISH_EDITIONS via isEditionDiscoverable), so a book lights up
+    // by its Danish title the day its Danish edition publishes (Anders, 2026-11-13).
+    ...(danishTitlesFor(book.id).length && editions.some(edition => edition.language === 'da' && edition.discoveryAvailable)
+      ? { localTitles: { da: danishTitlesFor(book.id) } } : {}),
+    ...(danishAuthorNamesFor(book.author).length ? { localAuthors: { da: danishAuthorNamesFor(book.author) } } : {}),
     summary,
     blurb,
     displayYear: getBookDisplayYear(book, meta),
@@ -360,6 +394,7 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
       optionalPreface: true,
     },
     discoveryAvailable: isBookDiscoverable(book.id),
+    searchAvailable: isBookSearchable(book.id),
     catalogueIndex,
   }
 }
@@ -443,7 +478,7 @@ export function searchPreReaderBooks(
   catalogue: PreReaderCatalogue = PRE_READER_CATALOGUE,
 ): PreReaderBookViewModel[] {
   if (!query.trim()) return catalogue.books.filter(book => book.discoveryAvailable !== false)
-  return catalogue.books.filter(book => book.discoveryAvailable !== false)
+  return catalogue.books.filter(book => (book.searchAvailable ?? book.discoveryAvailable) !== false)
     .map(book => ({ book, score: searchScore(book, query) }))
     .filter(result => result.score > 0)
     .sort((a, b) => b.score - a.score || a.book.catalogueIndex - b.book.catalogueIndex)
@@ -523,6 +558,7 @@ export function createReaderHandoffIntent(
     if (!primary.aligned || !compare || compare.key === primary.key || !compare.availability.compare) return null
     intent.compareEditionKey = compare.key
   }
+  if (selection.compareChosen === true) intent.compareChosen = true
   if (selection.audioEditionKey) {
     const audio = book.editions.find(edition => edition.key === selection.audioEditionKey)
     if (!audio?.availability.audio) return null

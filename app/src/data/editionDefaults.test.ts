@@ -1,6 +1,7 @@
+import { isBookTemporarilyHeld } from './editionAvailability'
 import { describe, expect, it } from 'vitest'
 import { BOOKS, getBook } from './bookRegistry'
-import { defaultCompareEditionKey, defaultPrimaryEditionKey, isMachineMadeOriginal, savedPlaceFallbackEditionKey } from './editionDefaults'
+import { defaultCompareEditionKey, defaultPrimaryEditionKey, humanPrimaryEditionKey, isMachineMadeOriginal, savedPlaceFallbackEditionKey } from './editionDefaults'
 import { PRE_READER_CATALOGUE } from '../preReader/catalogue'
 import { continueHandoff } from '../preReader/continueHandoff'
 
@@ -13,8 +14,11 @@ const defaults = (id: string) => {
 describe('default editions (approved 2026-09-25)', () => {
   it('uses approved defaults only where an edition remains available', () => {
     for (const book of BOOKS) {
-      const overrides: Record<string, string | undefined> = { bible: 'bsb-en', macbeth: undefined, 'as-you-like-it': undefined, jerusalem: 'original-en', 'faust-part-1': 'original-de' }
-      expect(defaultPrimaryEditionKey(book.id, book.editions), book.id).toBe(book.id in overrides ? overrides[book.id] : 'modern-en')
+      const overrides: Record<string, string | undefined> = { bible: 'bsb-en' }
+      // A book held whole has no available edition, so it has no default.
+      // A book already in modern English has no Modern English edition: it opens in its original.
+      const expected = isBookTemporarilyHeld(book.id) ? undefined : book.id in overrides ? overrides[book.id] : book.noModernEdition ? 'original-en' : 'modern-en'
+      expect(defaultPrimaryEditionKey(book.id, book.editions), book.id).toBe(expected)
     }
   })
 
@@ -54,6 +58,28 @@ describe('default editions (approved 2026-09-25)', () => {
     expect(savedPlaceFallbackEditionKey('fear-and-trembling', getBook('fear-and-trembling')!.editions)).toBe('modern-en')
     expect(continueHandoff({ bookId: 'fear-and-trembling', editionKey: null, chapterNumber: 1, chapterLabel: 'Preface', pageIndex: 0, paragraphIndex: 0, wordIndex: 0, paragraphCount: null, source: 'memory', at: 1 })?.primaryEditionKey).toBe('modern-en')
     expect(savedPlaceFallbackEditionKey('crito', getBook('crito')!.editions)).toBe('original-en')
+  })
+
+  it('Pinocchio: Tinct Modern English, Compare in the Italian original (10 Nov 2026)', () => {
+    // No human English translation is offered, so Collodi's Italian is the first comparable edition.
+    expect(defaults('pinocchio')).toEqual({ primary: 'modern-en', compare: 'original-it' })
+    const editions = getBook('pinocchio')!.editions
+    expect(humanPrimaryEditionKey('pinocchio', editions)).toBe('modern-en')
+    expect(savedPlaceFallbackEditionKey('pinocchio', editions)).toBe('modern-en')
+    const book = PRE_READER_CATALOGUE.booksById.get('pinocchio')!
+    expect(book.defaultEditionKey).toBe('modern-en')
+    expect(book.defaultCompareEditionKey).toBe('original-it')
+  })
+
+  it('The Master and Margarita: Tinct Modern English, Compare in the Russian original (Anders, 5 Nov 2026)', () => {
+    // No human English translation may be used, so the Russian original is the first comparable edition.
+    expect(defaults('master-and-margarita')).toEqual({ primary: 'modern-en', compare: 'original-ru' })
+    const editions = getBook('master-and-margarita')!.editions
+    expect(humanPrimaryEditionKey('master-and-margarita', editions)).toBe('modern-en')
+    expect(savedPlaceFallbackEditionKey('master-and-margarita', editions)).toBe('modern-en')
+    const book = PRE_READER_CATALOGUE.booksById.get('master-and-margarita')!
+    expect(book.defaultEditionKey).toBe('modern-en')
+    expect(book.defaultCompareEditionKey).toBe('original-ru')
   })
 
   it('knows of exactly one machine-made "original" English edition', () => {

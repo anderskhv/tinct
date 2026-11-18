@@ -61,6 +61,24 @@ export class ReaderPositionCoordinator extends DurableObject<PositionEnv> {
     if(alarm===null)await this.ctx.storage.setAlarm(Math.max(Date.now()+1500,this.cutoverAt()??0))
     return stored
   }
+  /** Admin export: every stored row verbatim. Never runs the legacy import. */
+  exportState(): Record<string, unknown> {
+    const labels: Record<number,string>={1:'position',2:'legacyImport',3:'mirrorCutoverAt',4:'legacyFinal'}
+    const out: Record<string, unknown>={}
+    for(const row of this.ctx.storage.sql.exec<{id:number;value:string}>('SELECT id, value FROM reader_position ORDER BY id').toArray()){
+      let value: unknown=row.value
+      try{value=JSON.parse(row.value)}catch{/* keep the raw text */}
+      out[labels[row.id]??`row${row.id}`]=value
+    }
+    return out
+  }
+  /** Admin account deletion: drop the alarm and all storage. Safe to repeat. */
+  async purge(): Promise<void> {
+    await this.ctx.storage.deleteAlarm()
+    await this.ctx.storage.deleteAll()
+    // An in-flight request may still query the table; leave it empty, not missing.
+    this.ctx.storage.sql.exec('CREATE TABLE IF NOT EXISTS reader_position (id INTEGER PRIMARY KEY, value TEXT NOT NULL)')
+  }
   async alarm(): Promise<void> {
     let state=this.stored()
     if(!state || !this.env.RATE_LIMIT)return

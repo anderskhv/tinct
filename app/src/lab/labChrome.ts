@@ -1,8 +1,8 @@
 /** Production desktop still uses the vertical Chat / Feed / Cast rails. */
 export const PRODUCTION_DESKTOP_PANES = ['Chat', 'Feed', 'Cast'] as const
 
-/** The lab desktop right pane is Ask only. */
-export const LAB_DESKTOP_PANES = ['Ask'] as const
+/** The lab desktop right pane is Chat only. */
+export const LAB_DESKTOP_PANES = ['Chat'] as const
 
 export type ProductionDesktopPane = typeof PRODUCTION_DESKTOP_PANES[number]
 export type LabDesktopPane = typeof LAB_DESKTOP_PANES[number]
@@ -60,27 +60,6 @@ export function labAfterTalk(returnTo: LabReturnTo): LabChromeState {
 
 export const LAB_CONNECTING_FAIL_MS = 8000
 
-export type LabVoiceGatePhase = 'off' | 'connecting' | 'ready'
-
-export function nextLabVoiceGate(
-  current: LabVoiceGatePhase,
-  conversationState: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing',
-  voiceActive: boolean,
-  notice?: string | null,
-  _userSpeechStarted?: boolean,
-): LabVoiceGatePhase {
-  if (notice || conversationState === 'idle') return 'off'
-  if (!voiceActive && conversationState !== 'connecting' && conversationState !== 'listening' && conversationState !== 'thinking') {
-    return 'off'
-  }
-  // The gate describes transport setup only. Once the live voice machine
-  // reports listening, thinking, or speaking, reveal that exact state rather
-  // than holding a synthetic startup label over it.
-  if (conversationState !== 'connecting') return 'off'
-  if (current === 'off' || current === 'connecting') return 'connecting'
-  return current
-}
-
 export function labVoicePhaseLabel(phase: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing'): string | null {
   if (phase === 'connecting') return 'Connecting'
   if (phase === 'listening') return 'Listening'
@@ -118,6 +97,29 @@ export function isIosHandheldUserAgent(userAgent: string): boolean {
   return /iPhone|iPod/i.test(userAgent)
 }
 
+/**
+ * Whether opening a companion should unlock the narration element inside the
+ * tap (`useLabListen.unlockPlayback`). Only iOS/iPadOS and touch-first devices
+ * need it: their WebKit refuses play() outside a gesture. A desktop with a
+ * fine pointer never does, and there the muted unlock still starts audio
+ * output, which can pull shared Bluetooth headphones (AirPods automatic
+ * switching) away from a phone and stop its music (owner report, 2026-10-08).
+ */
+export function labNeedsGestureAudioUnlock(input: {
+  userAgent?: string
+  maxTouchPoints?: number
+  /** `(pointer: coarse)`: the primary pointer is a finger. */
+  primaryCoarse?: boolean
+  /** `(hover: none)`: the primary pointer cannot hover. */
+  primaryHoverNone?: boolean
+}): boolean {
+  const ua = input.userAgent ?? ''
+  if (isIosHandheldUserAgent(ua) || /iPad/i.test(ua)) return true
+  // iPadOS Safari reports a Mac user agent; only touch tells it apart.
+  if (/Macintosh/i.test(ua) && (input.maxTouchPoints ?? 0) > 1) return true
+  return !!input.primaryCoarse || !!input.primaryHoverNone
+}
+
 export function isLabPhoneSurface(input: {
   override?: LabLayoutHint
   matchMediaPhone?: boolean
@@ -134,6 +136,25 @@ export function isLabPhoneSurface(input: {
   if (typeof input.innerWidth === 'number' && input.innerWidth <= 430) return true
   if (input.matchMediaPhone) return true
   return false
+}
+
+/**
+ * The browser's inputs to `isLabPhoneSurface`, read now. The reader's own
+ * surface test (LabApp) and the reader's boot (continueLatest.ts) share it, so
+ * both agree on which device is a phone.
+ */
+export function labPhoneSurfaceInput(override?: LabLayoutHint): Parameters<typeof isLabPhoneSurface>[0] {
+  if (typeof window === 'undefined') return { override }
+  let matchMediaPhone = false
+  try { matchMediaPhone = typeof window.matchMedia === 'function' ? window.matchMedia(LAB_PHONE_QUERY).matches : false } catch { matchMediaPhone = false }
+  return {
+    override,
+    matchMediaPhone,
+    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+    innerWidth: window.innerWidth,
+    maxTouchPoints: typeof navigator !== 'undefined' ? navigator.maxTouchPoints : 0,
+    screenWidth: window.screen?.width,
+  }
 }
 
 /** Footer chrome even if isPhone class is wrong on a narrow/iPhone surface. */
@@ -254,8 +275,6 @@ export function labShowReaderRail(input: {
 
 export type LabPhoneBarMode = 'reading' | 'hearing' | 'talking'
 
-export const LAB_PHONE_BAR_ITEMS = ['Play', 'Chat', 'Talk'] as const
-export const LAB_GEAR_ITEMS = ['Library', 'Reading', 'Layout'] as const
 /** Phone footer / sheet mode. The Play | Chat | Talk bar stays on. */
 export function labPhoneBarMode(
   state: LabChromeState,
@@ -276,9 +295,15 @@ export const LAB_VVH_VAR = '--lab-vvh'
 export function labVisualViewportHeightPx(
   viewportHeight?: number,
   innerHeight?: number,
+  context?: { textEntryFocused?: boolean; scale?: number },
 ): number {
   const vv = typeof viewportHeight === 'number' && viewportHeight > 0 ? viewportHeight : 0
   const inner = typeof innerHeight === 'number' && innerHeight > 0 ? innerHeight : 0
+  // A visual viewport shorter than the window with nothing to type into and
+  // no pinch-zoom is a stale figure, not a keyboard: iOS kept one after a
+  // Stripe round trip (10 Oct 2026) and the page came back short. The window
+  // is the height then.
+  if (context && vv > 0 && inner > 0 && vv < inner && !context.textEntryFocused && (context.scale ?? 1) <= 1.01) return Math.round(inner)
   return Math.round(vv || inner)
 }
 
@@ -311,22 +336,57 @@ export function labTextEntryFocused(active: Element | null | undefined): boolean
   return (active as HTMLElement).isContentEditable === true
 }
 
+/** A note sheet that docks itself above the software keyboard (useLabKeyboardDock.ts). */
+export const LAB_KEYBOARD_SHEET_ATTR = 'data-lab-keyboard-sheet'
+
+/**
+ * Typing in a keyboard-docked sheet: the sheet rides on the keyboard, so the
+ * shell keeps its height and the reader's page does not reflow or move.
+ */
+export function labKeyboardSheetFocused(active: Element | null | undefined): boolean {
+  return labTextEntryFocused(active) && !!active?.closest?.(`[${LAB_KEYBOARD_SHEET_ATTR}]`)
+}
+
+/**
+ * How far the software keyboard (or anything else hiding the bottom of the
+ * window) reaches up from the layout bottom: what a `position: fixed` sheet
+ * adds to `bottom` to sit directly above it.
+ */
+export function labKeyboardInsetPx(
+  viewport?: { height?: number; offsetTop?: number } | null,
+  innerHeight?: number,
+): number {
+  const height = typeof viewport?.height === 'number' && viewport.height > 0 ? viewport.height : 0
+  const inner = typeof innerHeight === 'number' && innerHeight > 0 ? innerHeight : 0
+  if (!height || !inner) return 0
+  const offset = typeof viewport?.offsetTop === 'number' && viewport.offsetTop > 0 ? viewport.offsetTop : 0
+  return Math.max(0, Math.round(inner - height - offset))
+}
+
 /**
  * iOS Safari answers a focused composer by shrinking the visual viewport and
  * panning it down the (unchanged) layout viewport. The shell is already
  * sized to the visible box, so the pan only hides the header under the URL
  * bar and leaves dead paper above the keyboard. Reset it while the keyboard
- * is up; a pinch-zoom pan with nothing focused is left alone.
+ * is up.
+ *
+ * The shell never scrolls the document, so a document still scrolled once the
+ * keyboard is down is a pan iOS forgot to undo: the header sat above the
+ * screen, the foot rose with blank paper under it, and taps on the selection
+ * bar missed until a reload (iPhone, 10 Nov 2026, after a follow-up typed in
+ * an Explain card). Reset that too. A pinch-zoom pan (scale above 1) with
+ * nothing focused is the reader's own and is left alone.
  */
 export function labShouldResetViewportPan(input: {
   offsetTop?: number
   scrollY?: number
   textEntryFocused: boolean
+  scale?: number
 }): boolean {
-  if (!input.textEntryFocused) return false
   const offsetTop = typeof input.offsetTop === 'number' ? input.offsetTop : 0
   const scrollY = typeof input.scrollY === 'number' ? input.scrollY : 0
-  return offsetTop > 0 || scrollY > 0
+  if (input.textEntryFocused) return offsetTop > 0 || scrollY > 0
+  return scrollY > 0 && (input.scale ?? 1) <= 1.01
 }
 
 /**
@@ -339,29 +399,59 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
   const apply = () => {
     if (typeof window === 'undefined') return
     const viewport = window.visualViewport
-    const px = labVisualViewportHeightPx(viewport?.height, window.innerHeight)
+    const active = typeof document !== 'undefined' ? document.activeElement : null
+    const textEntryFocused = labTextEntryFocused(active)
+    // A keyboard-docked note sheet keeps the shell (and so the page) as it is.
+    const px = labVisualViewportHeightPx(viewport?.height, window.innerHeight, { textEntryFocused: textEntryFocused && !labKeyboardSheetFocused(active), scale: viewport?.scale })
     if (px > 0) host.style.setProperty(LAB_VVH_VAR, `${px}px`)
     const panned = labShouldResetViewportPan({
       offsetTop: viewport?.offsetTop,
       scrollY: window.scrollY,
-      textEntryFocused: labTextEntryFocused(typeof document !== 'undefined' ? document.activeElement : null),
+      textEntryFocused,
+      scale: viewport?.scale,
     })
     if (panned) window.scrollTo(0, 0)
   }
   apply()
+  // iOS reports sizes from mid-rotation in its resize and orientationchange events and may send none once the
+  // rotation has settled: after landscape and back to portrait the page stayed short of the screen (iPhone, 31 Oct
+  // 2026). Measured again as the rotation settles.
+  let settling: ReturnType<typeof setTimeout>[] = []
+  const settle = () => {
+    apply()
+    settling.forEach(clearTimeout)
+    settling = [120, 350, 700, 1200].map(ms => setTimeout(apply, ms))
+  }
   const viewport = typeof window !== 'undefined' ? window.visualViewport : null
   viewport?.addEventListener('resize', apply)
   viewport?.addEventListener('scroll', apply)
+  // Measured again when the page comes back to the front (another app, a
+  // checkout, the tab switcher): iOS does not always send a resize for the
+  // height it then has.
+  const returned = () => { if (typeof document === 'undefined' || document.visibilityState !== 'hidden') apply() }
   if (typeof window !== 'undefined') {
-    window.addEventListener('resize', apply)
-    window.addEventListener('orientationchange', apply)
+    window.addEventListener('resize', settle)
+    window.addEventListener('orientationchange', settle)
+    window.addEventListener('pageshow', returned)
+    window.addEventListener('focus', returned)
   }
+  if (typeof document !== 'undefined') document.addEventListener('visibilitychange', returned)
+  // The keyboard going down: iOS may restore (or forget) its pan after the
+  // field loses focus, with no viewport event after it.
+  if (typeof document !== 'undefined') document.addEventListener('focusout', settle)
   return () => {
     viewport?.removeEventListener('resize', apply)
     viewport?.removeEventListener('scroll', apply)
     if (typeof window !== 'undefined') {
-      window.removeEventListener('resize', apply)
-      window.removeEventListener('orientationchange', apply)
+      window.removeEventListener('resize', settle)
+      window.removeEventListener('orientationchange', settle)
+      window.removeEventListener('pageshow', returned)
+      window.removeEventListener('focus', returned)
+    }
+    settling.forEach(clearTimeout)
+    if (typeof document !== 'undefined') {
+      document.removeEventListener('visibilitychange', returned)
+      document.removeEventListener('focusout', settle)
     }
     host.style.removeProperty(LAB_VVH_VAR)
   }
@@ -393,8 +483,9 @@ export const LAB_BAR_SELECTORS = [
 export function labVisibleBottomPx(
   viewport?: { height?: number; offsetTop?: number } | null,
   innerHeight?: number,
+  context?: { textEntryFocused?: boolean; scale?: number },
 ): number {
-  const height = labVisualViewportHeightPx(viewport?.height, innerHeight)
+  const height = labVisualViewportHeightPx(viewport?.height, innerHeight, context)
   if (height <= 0) return 0
   const offset = typeof viewport?.offsetTop === 'number' && viewport.offsetTop > 0 ? viewport.offsetTop : 0
   return Math.round(height + offset)
@@ -433,7 +524,16 @@ export function measureLabOnScreenBarTop(
   const barTop = measureLabBarTop(scope, fallback)
   const vv = typeof window !== 'undefined' ? window.visualViewport : null
   const inner = typeof window !== 'undefined' ? window.innerHeight : undefined
-  const visibleBottom = labVisibleBottomPx(vv, inner)
+  // Use the same viewport policy as bindLabVisualViewportHeight. A docked
+  // card's keyboard covers the leaf without resizing it; after dismissal iOS
+  // can also retain the short viewport for a few frames. Treating either as
+  // page overflow permanently peels valid words out of that full-height leaf.
+  const active = fallback?.ownerDocument.activeElement
+    ?? (typeof document !== 'undefined' ? document.activeElement : null)
+  const visibleBottom = labVisibleBottomPx(vv, inner, {
+    textEntryFocused: labTextEntryFocused(active) && !labKeyboardSheetFocused(active),
+    scale: vv?.scale,
+  })
   if (visibleBottom <= 0) return barTop
   if (barTop <= 0) return visibleBottom
   return Math.min(barTop, visibleBottom)
@@ -941,6 +1041,34 @@ export function labKeyboardPageDirection(key: string): LabPageTurnDirection | nu
   return null
 }
 
+/**
+ * Ctrl+Z (Cmd+Z on a Mac) undoes the reader's last highlight or note action.
+ * Never while typing: a text field keeps its own native undo. Shift (redo)
+ * and Alt are left to the browser. Matched by the key's position too, so a
+ * layout whose Z key types another letter still undoes.
+ */
+export function labUndoShortcut(event: Pick<KeyboardEvent, 'key' | 'code' | 'ctrlKey' | 'metaKey' | 'altKey' | 'shiftKey' | 'isComposing' | 'defaultPrevented' | 'repeat'>, active?: Element | null): boolean {
+  if (event.defaultPrevented || event.isComposing || event.repeat || event.altKey || event.shiftKey) return false
+  if (!(event.ctrlKey || event.metaKey) || (event.ctrlKey && event.metaKey)) return false
+  const key = event.key.toLowerCase()
+  if (key !== 'z' && !(event.code === 'KeyZ' && !/^[a-z]$/.test(key))) return false
+  return !labTextEntryFocused(active) && !active?.closest?.('[contenteditable]:not([contenteditable="false"]),[role="textbox"],select')
+}
+
+/**
+ * Ctrl+F (Cmd+F on a Mac) opens the book's own search (Contents, Search), which
+ * finds text in every chapter; the browser's Find only sees the pages on
+ * screen. Never while typing: a text field keeps the browser's Find. Matched by
+ * the key's position too, so a layout whose F key types another letter works.
+ */
+export function labFindShortcut(event: Pick<KeyboardEvent, 'key' | 'code' | 'ctrlKey' | 'metaKey' | 'altKey' | 'shiftKey' | 'isComposing' | 'defaultPrevented'>, active?: Element | null): boolean {
+  if (event.defaultPrevented || event.isComposing || event.altKey || event.shiftKey) return false
+  if (!(event.ctrlKey || event.metaKey) || (event.ctrlKey && event.metaKey)) return false
+  const key = event.key.toLowerCase()
+  if (key !== 'f' && !(event.code === 'KeyF' && !/^[a-z]$/.test(key))) return false
+  return !labTextEntryFocused(active) && !active?.closest?.('[contenteditable]:not([contenteditable="false"]),[role="textbox"],select')
+}
+
 /** Horizontal swipes turn one page only when horizontal intent is unambiguous. */
 export function labSwipePageDirection(
   deltaX: number,
@@ -953,20 +1081,141 @@ export function labSwipePageDirection(
 }
 
 /**
- * The Compare swap: a decisive vertical swipe, up or down.
- *
- * Vertical because horizontal already means the next page, and the two must
- * never be able to fire on the same gesture — a swipe that is not clearly one
- * axis is neither. The chrome never says any of this: the swipe is learned in
- * the edition picker, not on the page.
+ * The phone page's vertical page turn: swipe up for the next page, down for
+ * the previous one (Anders, 12 Nov 2026: a Kindle reader swiped up and
+ * nothing happened). Only a clearly vertical, quick swipe counts, so a
+ * diagonal or sideways swipe stays exactly what it was: sideways is
+ * `labSwipePageDirection`, and a swipe that is neither axis turns nothing.
+ * A slow drag is not a swipe (a long press there selects text instead).
  */
-export function labSwipeCompareSwap(
+export const LAB_VERTICAL_SWIPE_MIN_PX = 40
+export const LAB_VERTICAL_SWIPE_RATIO = 1.5
+export const LAB_VERTICAL_SWIPE_MAX_MS = 700
+export function labVerticalSwipePageDirection(
   deltaX: number,
   deltaY: number,
-  threshold = 52,
+  durationMs: number,
+): LabPageTurnDirection | null {
+  if (!(durationMs <= LAB_VERTICAL_SWIPE_MAX_MS)) return null
+  if (Math.abs(deltaY) <= LAB_VERTICAL_SWIPE_MIN_PX) return null
+  if (Math.abs(deltaY) <= Math.abs(deltaX) * LAB_VERTICAL_SWIPE_RATIO) return null
+  return deltaY < 0 ? 1 : -1
+}
+
+/**
+ * The page turn a released swipe asks for, if any: sideways everywhere it is
+ * offered, up/down only where `vertical` is on (the paginated phone page,
+ * touch or pen; never a mouse, whose vertical drag selects text, and never a
+ * reader that scrolls).
+ */
+export function labSwipeTurnDirection(input: {
+  deltaX: number
+  deltaY: number
+  durationMs: number
+  vertical: boolean
+  pointerType?: string
+}): LabPageTurnDirection | null {
+  const sideways = labSwipePageDirection(input.deltaX, input.deltaY)
+  if (sideways != null) return sideways
+  if (!input.vertical || input.pointerType === 'mouse') return null
+  return labVerticalSwipePageDirection(input.deltaX, input.deltaY, input.durationMs)
+}
+
+/**
+ * The page-turn zone a selection drag is in: the outer horizontal edges of a
+ * desktop spread, the top and bottom of a phone page. Holding the finger there
+ * extends the selection across the page.
+ */
+export function labSelectionEdgeDirection(
+  clientX: number,
+  clientY: number,
+  bounds: { left: number, right: number, top: number, bottom: number },
+  spread: boolean,
+  zonePx: number,
+): LabPageTurnDirection | null {
+  if (spread) return clientX >= bounds.right - zonePx ? 1 : clientX <= bounds.left + zonePx ? -1 : null
+  return clientY >= bounds.bottom - zonePx ? 1 : clientY <= bounds.top + zonePx ? -1 : null
+}
+
+/**
+ * Whether a selection that starts at this point may turn the page by holding
+ * at an edge straight away. Not when it starts inside a zone: the first line
+ * of a phone page sits in the top zone, so long-pressing its first word and
+ * dragging along the line turned back a page mid-selection (Anders,
+ * 2026-10-07, Esther 10). The finger must leave the zone first; coming back
+ * to it is then a deliberate reach for the next page.
+ */
+export function labSelectionEdgeArmedAt(
+  clientX: number,
+  clientY: number,
+  bounds: { left: number, right: number, top: number, bottom: number },
+  spread: boolean,
+  zonePx: number,
 ): boolean {
-  if (Math.abs(deltaY) < threshold) return false
-  return Math.abs(deltaY) > Math.abs(deltaX) * 1.2
+  return labSelectionEdgeDirection(clientX, clientY, bounds, spread, zonePx) == null
+}
+
+/**
+ * A finger swipe or edge tap turns the page only while nothing is selected.
+ * The reader's own selection is tracked in state; a native browser selection
+ * inside the page (an iOS long-press the page did not catch) counts too, so a
+ * drag that extends it is never read as a swipe.
+ */
+export function labNativeSelectionBlocksTurn(
+  selection: Pick<Selection, 'isCollapsed' | 'rangeCount' | 'anchorNode' | 'focusNode'> | null | undefined,
+  surface: Pick<Node, 'contains'> | null | undefined,
+): boolean {
+  if (!selection || !surface || selection.isCollapsed || selection.rangeCount === 0) return false
+  return surface.contains(selection.anchorNode) || surface.contains(selection.focusNode)
+}
+
+/**
+ * How long a finger rests on a word before it starts a selection. A paginated
+ * page has nothing to scroll, so it can answer quickly. In the Margin reader
+ * the text is a scroller and a finger that settles before it moves is
+ * scrolling, so the press is held about as long as the platform's own long
+ * press (Surface Duo, 6 Nov 2026: every touch on the text was taken).
+ */
+export const LAB_PAGE_LONG_PRESS_MS = 160
+export const LAB_SCROLL_LONG_PRESS_MS = 420
+export function labLongPressMs(touchScroll: boolean): number {
+  return touchScroll ? LAB_SCROLL_LONG_PRESS_MS : LAB_PAGE_LONG_PRESS_MS
+}
+
+/**
+ * Whether the passage cancels a native touch event (which stops the browser
+ * panning and its own long-press selection).
+ *
+ * A paginated page owns every touch on a word: there is nothing to scroll and
+ * the reader's swipes and long press must arrive whole. A passage inside a
+ * scroller (the Margin reader) owns only the drag that extends a selection
+ * its long press already started; every other touch, with a selection on
+ * screen or not, is the browser's scroll.
+ */
+export function labPassageBlocksNativeTouch(input: {
+  type: 'touchstart' | 'touchmove'
+  touchScroll: boolean
+  /** A pointer gesture on this passage is in progress. */
+  dragging: boolean
+  /** That gesture has become a selection (long press fired). */
+  selecting: boolean
+  /** A selection is on screen. */
+  selectionShown: boolean
+  /** The touch landed on a word. */
+  onWord: boolean
+}): boolean {
+  if (input.touchScroll) return input.type === 'touchmove' && input.dragging && input.selecting
+  return input.dragging || input.selectionShown || input.onWord
+}
+
+/**
+ * A touch that moved before its long press fired is not a press. On a page
+ * only a quick flick cancels it (a slow drag still selects when the timer
+ * fires); in a scroller any movement past the slop is a scroll.
+ */
+export function labLongPressCancelledByMove(input: { touchScroll: boolean, distance: number, elapsedMs: number }): boolean {
+  if (input.distance <= 10) return false
+  return input.touchScroll || input.elapsedMs < 100
 }
 
 /** Short taps in the outer thirds turn pages; the centre remains selection-safe. */

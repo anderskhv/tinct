@@ -19,7 +19,7 @@ const KV_PREFIX = 'lab-position:'
 // 66 biblical pins plus a full finished list for the Bible fit well under this.
 const MAX_BODY_BYTES = 65_536
 
-function kvKey(userId: string): string {
+export function kvKey(userId: string): string {
   return `${KV_PREFIX}${userId}`
 }
 

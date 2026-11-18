@@ -1,4 +1,5 @@
 import { resolveAudioUrl } from '../utils/audioUrl'
+import { hasRecordedAudio } from '../data/audioAvailability'
 import {
   followFromPlayback,
   followParagraphFromManifest,
@@ -166,6 +167,7 @@ export async function loadLabAudioChapter(
   editionKey = LAB_AUDIO.editionKey,
   bookId = LAB_AUDIO.bookId,
 ): Promise<FollowParagraph[]> {
+  if (!hasRecordedAudio(bookId, editionKey)) return paragraphs.map((text, index) => ({ index, text }))
   const [manifestRes, sidecarRes] = await Promise.all([
     fetch(labAudioManifestUrl(chapterNumber, editionKey, bookId)),
     fetch(labAudioSidecarUrl(chapterNumber, editionKey, bookId)).catch(() => null),

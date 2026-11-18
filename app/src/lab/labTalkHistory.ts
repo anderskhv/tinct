@@ -181,6 +181,8 @@ export async function fetchLabChatHistoryCloud(token: string | null | undefined)
     const res = await fetch(apiUrl('/api/lab-chat-history'), {
       method: 'GET',
       headers: { Authorization: `Bearer ${token}` },
+      // Bounded: the chat refresh awaits this before reading the per-book row.
+      ...(typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function' ? { signal: AbortSignal.timeout(15_000) } : {}),
     })
     if (!res.ok) return null
     return parseLabChatHistoryState(await res.json())

@@ -3,6 +3,7 @@ import http from 'node:http'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 const output='artifacts/direct-audio-cache'
 await fs.mkdir(output,{recursive:true})
 let audioRequests=0
@@ -22,7 +23,7 @@ const server=http.createServer(async(req,res)=>{
 })
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve))
 const origin='http://127.0.0.1:'+server.address().port
-const browser=await chromium.launch()
+const browser=await markInternal(await chromium.launch())
 try{
  const context=await browser.newContext({serviceWorkers:'allow'})
  const page=await context.newPage()

@@ -115,7 +115,7 @@ describe('admin metrics route', () => {
       }
       if (url.includes('/rest/v1/profiles?')) {
         return supabaseJson([
-          { id: readerId, email: 'reader@example.com' },
+          { id: readerId, email: 'reader@mail.com' },
           { id: excludedId, email: 'tinct12@fastmail.com' },
         ])
       }
@@ -144,7 +144,7 @@ describe('admin metrics route', () => {
     expect(body.users).toEqual([
       {
         userId: readerId,
-        email: 'reader@example.com',
+        email: 'reader@mail.com',
         sessions: 1,
         sessions2Min: 1,
         sessions10Min: 0,
@@ -165,5 +165,44 @@ describe('admin metrics route', () => {
       expect.stringContaining('created_at=gte.2026-05-17T12%3A00%3A00.000Z'),
       expect.any(Object),
     )
+  })
+
+  it('leaves out test accounts (is_test, test.tinct.app, reserved domains) and internal rows; works before the is_test migration', async () => {
+    const flagged = '33333333-3333-4333-8333-333333333333'
+    const qa = '44444444-4444-4444-8444-444444444444'
+    const legacyQa = '55555555-5555-4555-8555-555555555555'
+    const row = (user_id: string | null, session_id: string, payload: Record<string, unknown> | null = null) => ({
+      event_type: 'pageview', path: '/read/odyssey', duration_ms: null, user_id, session_id, payload, created_at: '2026-06-16T10:00:00.000Z',
+    })
+    for (const migrated of [true, false]) {
+      const profileQueries: string[] = []
+      vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input)
+        if (url.includes('/rest/v1/analytics_events?')) return supabaseJson([
+          row(readerId, 'reader'), row(flagged, 'flagged'), row(qa, 'qa'), row(legacyQa, 'legacy'),
+          // A check run by a real account (?internal=1) and an anonymous check device.
+          row(readerId, 'reader-check', { internal: true }), row(null, 'anon-check', { internal: true }),
+        ])
+        if (url.includes('/rest/v1/profiles?')) {
+          profileQueries.push(url)
+          if (url.includes('is_test') && !migrated) return supabaseJson({ code: '42703', message: 'column profiles.is_test does not exist' }, 400)
+          return supabaseJson([
+            { id: readerId, email: 'reader@mail.com', ...(migrated ? { is_test: false } : {}) },
+            { id: flagged, email: 'someone@mail.com', ...(migrated ? { is_test: true } : {}) },
+            { id: qa, email: 'qa-soc-a-1a2b3c@test.tinct.app', ...(migrated ? { is_test: false } : {}) },
+            { id: legacyQa, email: 'qa-soc-a@example.com', ...(migrated ? { is_test: false } : {}) },
+          ])
+        }
+        return supabaseJson({ error: 'unexpected URL' }, 500)
+      }))
+      const response = await handleAdminMetricsUsers(new Request('https://tinct.app/api/admin/metrics-users'), env, async () => true)
+      const body = await response.json() as { excludedAccounts: number; users: Array<{ userId: string; pageviews: number }> }
+      // Before the migration only the address can tell; the flagged account then still counts.
+      expect(body.users.map(user => [user.userId, user.pageviews]).sort()).toEqual(migrated ? [[readerId, 1]] : [[readerId, 1], [flagged, 1]].sort())
+      expect(body.excludedAccounts).toBe(migrated ? 3 : 2)
+      expect(profileQueries[0]).toContain('select=id,email,is_test')
+      if (!migrated) expect(profileQueries[1]).toContain('select=id,email')
+      vi.unstubAllGlobals()
+    }
   })
 })

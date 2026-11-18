@@ -139,8 +139,13 @@ function rememberOpening(key: string, value: string | undefined): void {
   openingCache.set(key, value)
 }
 
+// Shard reads in flight, so a send that starts while the pane's warm-up is
+// still loading a chapter joins that read instead of starting another.
+const openingInFlight = new Map<string, Promise<string | undefined>>()
+
 export function resetLabTrailOpeningCache(): void {
   openingCache.clear()
+  openingInFlight.clear()
 }
 
 /** Opening line of a chapter shard, cached; undefined when unavailable. */
@@ -152,15 +157,25 @@ export async function loadTrailOpeningLine(input: {
 }): Promise<string | undefined> {
   const key = `${input.bookId}-${input.editionKey}:${input.chapterNumber}`
   if (openingCache.has(key)) return openingCache.get(key)
-  const chapter = await loadChapterText({
-    bookId: input.bookId,
-    editionKey: input.editionKey,
-    chapterNumber: input.chapterNumber,
-    version: input.version,
-  }).catch(() => null)
-  const line = chapter ? openingLineOf(chapter.paragraphs) : undefined
-  if (chapter) rememberOpening(key, line)
-  return line
+  const pending = openingInFlight.get(key)
+  if (pending) return pending
+  const read = (async () => {
+    const chapter = await loadChapterText({
+      bookId: input.bookId,
+      editionKey: input.editionKey,
+      chapterNumber: input.chapterNumber,
+      version: input.version,
+    }).catch(() => null)
+    const line = chapter ? openingLineOf(chapter.paragraphs) : undefined
+    if (chapter) rememberOpening(key, line)
+    return line
+  })()
+  openingInFlight.set(key, read)
+  try {
+    return await read
+  } finally {
+    if (openingInFlight.get(key) === read) openingInFlight.delete(key)
+  }
 }
 
 /**

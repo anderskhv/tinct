@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from '../services/supabase'
@@ -48,6 +48,38 @@ interface AccountMetricsResponse {
 }
 
 type WindowDays = 1 | 7 | 14 | 30
+
+/** The ship-3 funnel, in order. Counted per anonymous device (payload.device_id), falling back to the tab session. */
+const FUNNEL_STEPS: Array<{ name: string; label: string }> = [
+  { name: 'landing_view', label: 'Landing view' },
+  { name: 'book_opened', label: 'Book opened' },
+  { name: 'first_page_turn', label: 'First page turn' },
+  { name: 'chapter_completed', label: 'Chapter completed' },
+  { name: 'ai_first_use', label: 'First AI use' },
+  { name: 'anon_limit_reached', label: 'Free limit reached' },
+  { name: 'signup_started', label: 'Signup started' },
+  { name: 'signup_completed', label: 'Signup completed' },
+  { name: 'member_ai_use', label: 'Member AI use' },
+  { name: 'checkout_started', label: 'Checkout started' },
+  { name: 'checkout_completed', label: 'Checkout completed' },
+]
+
+/** Social (ship 3) events, in the order a reader meets them. Shown only once any has landed. */
+const SOCIAL_STEPS: Array<{ name: string; label: string }> = [
+  { name: 'profile_created', label: 'Profile created' },
+  { name: 'profile_skipped', label: 'Profile skipped' },
+  { name: 'visibility_changed', label: 'Visibility changed' },
+  { name: 'follow', label: 'Follow' },
+  { name: 'unfollow', label: 'Unfollow' },
+  { name: 'leaderboard_opened', label: 'Leaderboard opened' },
+  { name: 'profile_viewed', label: 'Profile viewed' },
+  { name: 'reading_card_shared', label: 'Reading card shared' },
+]
+
+function visitorKey(row: AnalyticsRow): string {
+  const device = row.payload?.device_id
+  return typeof device === 'string' && device ? device : row.session_id
+}
 
 const TARGETS = {
   visitors: 100,
@@ -118,12 +150,60 @@ function metricCard(label: string, value: number | string, target?: number, sub?
 
 export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboardProps) {
   const [days, setDays] = useState<WindowDays>(14)
+  const accessTokenRef = useRef(session?.access_token)
+  accessTokenRef.current = session?.access_token
   const [rows, setRows] = useState<AnalyticsRow[]>([])
   const [accountMetrics, setAccountMetrics] = useState<AccountMetricsResponse | null>(null)
   const [loading, setLoading] = useState(false)
   const [accountsLoading, setAccountsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [accountsError, setAccountsError] = useState<string | null>(null)
+  const [accountAction, setAccountAction] = useState<string | null>(null)
+
+  async function adminAccountRequest(path: string, body: Record<string, string>) {
+    const res = await fetch(apiUrl(path), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token}` },
+      body: JSON.stringify(body),
+    })
+    const data = await res.json().catch(() => null)
+    return { res, data }
+  }
+
+  async function exportAccount(row: AccountMetricsRow) {
+    setAccountAction(`Exporting ${row.email}...`)
+    try {
+      const { res, data } = await adminAccountRequest('/api/admin/export-user', { userId: row.userId })
+      if (!res.ok) throw new Error(data?.error || `Export failed (${res.status})`)
+      const link = document.createElement('a')
+      link.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }))
+      link.download = `tinct-export-${row.userId}.json`
+      link.click()
+      URL.revokeObjectURL(link.href)
+      setAccountAction(data?.complete ? `Exported ${row.email}.` : `Exported ${row.email} with gaps: ${(data?.errors || []).join('; ') || 'truncated tables'}`)
+    } catch (err) {
+      setAccountAction(err instanceof Error ? err.message : 'Export failed')
+    }
+  }
+
+  async function deleteAccount(row: AccountMetricsRow) {
+    const typed = window.prompt(`Permanently delete ${row.email} and all its data? This cannot be undone.\n\nType the account email to confirm:`)
+    if (typed == null) return
+    if (typed.trim().toLowerCase() !== row.email.trim().toLowerCase()) {
+      setAccountAction('Email did not match; nothing was deleted.')
+      return
+    }
+    setAccountAction(`Deleting ${row.email}...`)
+    try {
+      const { res, data } = await adminAccountRequest('/api/admin/delete-user', { userId: row.userId, confirmEmail: typed })
+      const steps = (data?.steps || []) as { step: string; status: string; detail?: string }[]
+      const failed = steps.filter(step => step.status === 'failed').map(step => `${step.step}${step.detail ? ` (${step.detail})` : ''}`)
+      if (res.ok && data?.ok) setAccountAction(`Deleted ${row.email} (${steps.length} steps ok).`)
+      else setAccountAction(data?.error || `Deletion incomplete; re-run. Failed: ${failed.join('; ') || res.status}`)
+    } catch (err) {
+      setAccountAction(err instanceof Error ? err.message : 'Deletion failed')
+    }
+  }
 
   useEffect(() => {
     if (!session || !supabase) return
@@ -152,7 +232,11 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       })
 
     return () => { cancelled = true }
-  }, [days, session])
+    // Keyed by the account, not the session object: a token refresh (hourly,
+    // and on every return to the tab) must not re-read up to 10,000 analytics
+    // rows (Disk IO, 22 Oct 2026). The client carries the fresh token itself.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [days, session?.user?.id])
 
   useEffect(() => {
     if (!session?.access_token) return
@@ -161,7 +245,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
     setAccountsError(null)
 
     fetch(apiUrl(`/api/admin/metrics-users?days=${days}`), {
-      headers: { Authorization: `Bearer ${session.access_token}` },
+      headers: { Authorization: `Bearer ${accessTokenRef.current ?? session.access_token}` },
     })
       .then(async res => {
         const body = await res.json().catch(() => null)
@@ -182,14 +266,34 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       })
 
     return () => { cancelled = true }
-  }, [days, session?.access_token])
+    // Same as above: a refreshed token alone does not reload the accounts.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [days, session?.user?.id])
 
   const metrics = useMemo(() => {
     const pageviews = rows.filter(r => r.event_type === 'pageview')
     const durations = rows.filter(r => r.event_type === 'page_duration')
     const events = rows.filter(r => r.event_type === 'event')
     const bookPageviews = pageviews.filter(r => /^\/read\/[^/]+\/\d+$/.test(r.path))
-    const bookOpenSessions = new Set(bookPageviews.map(r => r.session_id))
+    const bookOpenedEvents = events.filter(r => eventName(r) === 'book_opened')
+    const bookOpenSessions = new Set([...bookPageviews, ...bookOpenedEvents].map(r => r.session_id))
+    const funnel = FUNNEL_STEPS.map(step => ({
+      ...step,
+      devices: unique(events.filter(r => eventName(r) === step.name).map(visitorKey)),
+    }))
+    const social = SOCIAL_STEPS.map(step => {
+      const matching = events.filter(r => eventName(r) === step.name)
+      return { ...step, events: matching.length, readers: unique(matching.map(r => r.user_id || visitorKey(r))) }
+    })
+    const funnelDuration = new Map<string, { ms: number; devices: Set<string> }>()
+    for (const row of durations) {
+      const surface = typeof row.payload?.surface === 'string' ? row.payload.surface : null
+      if (!surface) continue
+      const current = funnelDuration.get(surface) || { ms: 0, devices: new Set<string>() }
+      current.ms += row.duration_ms || 0
+      current.devices.add(visitorKey(row))
+      funnelDuration.set(surface, current)
+    }
 
     const durationBySession = new Map<string, number>()
     for (const row of durations) {
@@ -198,7 +302,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
     const tenMinuteReaders = [...durationBySession.entries()].filter(([, ms]) => ms >= 10 * 60 * 1000).map(([sessionId]) => sessionId)
 
     const signupEvents = events.filter(r => eventName(r) === 'signup_completed')
-    const chatEvents = events.filter(r => eventName(r) === 'chat_message_sent' || eventName(r) === 'chapter_reflection_started')
+    const chatEvents = events.filter(r => ['chat_message_sent', 'chapter_reflection_started', 'ai_first_use', 'member_ai_use'].includes(eventName(r)))
     const audioEvents = events.filter(r => eventName(r) === 'audio_started')
     const checkoutEvents = events.filter(r => eventName(r) === 'checkout_started')
     const aiOrAudioSessions = new Set([...chatEvents, ...audioEvents].map(r => r.session_id))
@@ -214,8 +318,8 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
     }
 
     const bookCounts = new Map<string, Set<string>>()
-    for (const row of bookPageviews) {
-      const bookId = bookIdFromPath(row.path)
+    for (const row of [...bookPageviews, ...bookOpenedEvents]) {
+      const bookId = row.event_type === 'event' ? (typeof row.payload?.book_id === 'string' ? row.payload.book_id : null) : bookIdFromPath(row.path)
       if (!bookId) continue
       const set = bookCounts.get(bookId) || new Set<string>()
       set.add(row.session_id)
@@ -232,6 +336,12 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       audioUsers: unique(audioEvents.map(r => r.session_id)),
       aiOrAudioUsers: aiOrAudioSessions.size,
       checkoutStarts: checkoutEvents.length,
+      funnel,
+      social: social.some(step => step.events > 0) ? social : [],
+      timeOnSurface: [...funnelDuration.entries()].map(([surface, data]) => ({
+        surface, devices: data.devices.size, minutes: Math.round((data.ms / 60000) * 10) / 10,
+        avgMinutes: data.devices.size ? Math.round((data.ms / 60000 / data.devices.size) * 10) / 10 : 0,
+      })),
       signedInUsers: unique(rows.map(r => r.user_id)),
       topSources: [...sourceCounts.entries()]
         .map(([source, data]) => ({ source, sessions: data.sessions.size, accounts: data.accounts, checkoutStarts: data.checkoutStarts }))
@@ -317,6 +427,57 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
 
       <section style={styles.twoCol}>
         <div style={styles.panel}>
+          <h2 style={styles.heading}>Funnel</h2>
+          <table style={styles.table}>
+            <thead><tr><th>Step</th><th>Devices</th><th>Of landing</th></tr></thead>
+            <tbody>
+              {metrics.funnel.map(step => (
+                <tr key={step.name}>
+                  <td>{step.label}</td>
+                  <td>{step.devices}</td>
+                  <td>{pct(step.devices, metrics.funnel[0]?.devices || 0)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {metrics.social.length > 0 && <div style={styles.panel}>
+          <h2 style={styles.heading}>Social</h2>
+          <table style={styles.table}>
+            <thead><tr><th>Event</th><th>Events</th><th>Readers</th></tr></thead>
+            <tbody>
+              {metrics.social.map(step => (
+                <tr key={step.name}>
+                  <td>{step.label}</td>
+                  <td>{step.events}</td>
+                  <td>{step.readers}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>}
+
+        <div style={styles.panel}>
+          <h2 style={styles.heading}>Time on page</h2>
+          <table style={styles.table}>
+            <thead><tr><th>Surface</th><th>Devices</th><th>Total</th><th>Average</th></tr></thead>
+            <tbody>
+              {metrics.timeOnSurface.map(row => (
+                <tr key={row.surface}>
+                  <td>{row.surface}</td>
+                  <td>{row.devices}</td>
+                  <td>{row.minutes}m</td>
+                  <td>{row.avgMinutes}m</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section style={styles.twoCol}>
+        <div style={styles.panel}>
           <h2 style={styles.heading}>Sources</h2>
           <table style={styles.table}>
             <thead><tr><th>Source</th><th>Visitors</th><th>Accounts</th><th>Checkout</th></tr></thead>
@@ -365,6 +526,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
           )}
         </div>
         {accountsError && <div style={styles.inlineError}>{accountsError}</div>}
+        {accountAction && <div style={styles.metricSub} role="status">{accountAction}</div>}
         <div style={styles.tableScroll}>
           <table style={styles.table}>
             <thead>
@@ -382,6 +544,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
                 <th>Cast</th>
                 <th>Checkout</th>
                 <th>Last seen</th>
+                <th>Data</th>
               </tr>
             </thead>
             <tbody>
@@ -400,10 +563,14 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
                   <td>{row.castInteractions}</td>
                   <td>{row.checkoutStarts}</td>
                   <td>{new Date(row.lastSeen).toLocaleDateString()}</td>
+                  <td style={styles.actionsCell}>
+                    <button type="button" style={styles.smallButton} onClick={() => exportAccount(row)}>Export</button>
+                    <button type="button" style={styles.smallButton} onClick={() => deleteAccount(row)}>Delete…</button>
+                  </td>
                 </tr>
               ))}
               {!accountsLoading && accountMetrics?.users.length === 0 && (
-                <tr><td colSpan={13} style={styles.emptyCell}>No signed-in account usage in this window.</td></tr>
+                <tr><td colSpan={14} style={styles.emptyCell}>No signed-in account usage in this window.</td></tr>
               )}
             </tbody>
           </table>
@@ -460,6 +627,8 @@ const styles: Record<string, CSSProperties> = {
   table: { width: '100%', borderCollapse: 'collapse', fontSize: 13 },
   tableScroll: { overflowX: 'auto', width: '100%' },
   emailCell: { minWidth: 210, fontWeight: 600 },
+  actionsCell: { whiteSpace: 'nowrap' },
+  smallButton: { border: '1px solid rgba(11,11,11,0.3)', borderRadius: 4, background: 'transparent', color: 'inherit', padding: '3px 8px', marginRight: 4, cursor: 'pointer', fontSize: 12 },
   emptyCell: { padding: '14px 0', color: 'var(--dim, #6a6555)' },
   inlineError: { color: '#9b2c2c', margin: '10px 0', fontSize: 13 },
   button: { border: '1px solid var(--ink, #0b0b0b)', borderRadius: 4, background: 'var(--ink, #0b0b0b)', color: 'var(--paper, #ece7db)', padding: '10px 14px', marginTop: 16, cursor: 'pointer' },

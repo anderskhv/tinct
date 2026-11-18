@@ -4,8 +4,9 @@ import path from 'node:path'
 import assert from 'node:assert/strict'
 import os from 'node:os'
 import { spawn } from 'node:child_process'
+import { markInternal } from './lib/internalTraffic.cjs'
 
-const live=process.env.TINCT_DESKTOP_LIVE==='1', origin='https://tinct.app', output='artifacts/omarchy'
+const live=process.env.TINCT_DESKTOP_LIVE==='1', origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''), output='artifacts/omarchy'
 await fs.mkdir(output,{recursive:true})
 const report=[]
 // Candidate browsers must enforce the deployed policy, not an unrestricted
@@ -33,10 +34,14 @@ bridge.on('error',error=>console.error(error))
 try {
 for(let i=0;i<50;i++){try{if((await fetch('http://127.0.0.1:47653/health')).ok)break}catch{};if(i===49)throw Error('Theme bridge did not start');await new Promise(r=>setTimeout(r,100))}
 for(const engine of [chromium,webkit]) {
-  const browser=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})})
+  const browser=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})}))
   const context=await browser.newContext({viewport:{width:1440,height:900},serviceWorkers:'block'})
   if(engine===chromium)await context.grantPermissions(['local-network-access'],{origin})
   const page=await context.newPage(), errors=[],requests=[],network=[]
+  const pending=new Map()
+  page.on('request',request=>pending.set(request,{at:Date.now(),url:request.url(),type:request.resourceType()}))
+  page.on('requestfinished',request=>pending.delete(request))
+  page.on('requestfailed',request=>pending.delete(request))
   const shot=async name=>{
     await page.screenshot({path:output+'/'+engine.name()+'-'+name+'.png'})
     if(process.env.TINCT_DESKTOP_VISUAL==='1')console.log('TINCT_SCREENSHOT '+engine.name()+'-'+name+' '+(await page.screenshot({type:'jpeg',quality:50})).toString('base64'))
@@ -62,7 +67,7 @@ for(const engine of [chromium,webkit]) {
   await page.route('**/*',async route=>{
     const req=route.request(),url=new URL(req.url())
     if(url.hostname==='127.0.0.1'&&url.port==='47653')return route.continue()
-    if(url.pathname==='/api/narration/voices')return route.fulfill({json:{enabled:true,voices:[{key:'f',label:'Ara',persona:'female'}]}})
+    if(url.pathname==='/api/narration/voices')return route.fulfill({json:{enabled:true,voices:[{key:'f',label:'Ara',persona:'female'},{key:'m',label:'Helios',persona:'male'}]}})
     if(req.method()!=='GET') {requests.push(url.pathname);return route.fulfill({status:401,json:{error:'Acceptance test: no provider calls'}})}
     if(!live&&url.origin===origin){
       const pathname=['/','/library','/library/'].includes(url.pathname)?'/lab/library_2/index.html':['/reader'].includes(url.pathname)?'/app.html':url.pathname
@@ -87,6 +92,16 @@ for(const engine of [chromium,webkit]) {
     HTMLMediaElement.prototype.play=async function(){this.muted=true}
   })
   try {
+    // A visitor who never opted in gets no commands panel, no Ctrl/Cmd+K and no letter shortcuts.
+    await page.goto(origin+'/library',{waitUntil:'domcontentloaded'})
+    await page.locator('#search-toggle').waitFor()
+    await page.waitForTimeout(800)
+    assert.equal(await page.locator('#library-commands').count(),0,'no commands button without opting in')
+    await page.locator('#header').click({position:{x:5,y:5}})
+    for(const key of ['?','Control+k','c'])await page.keyboard.press(key)
+    await page.waitForTimeout(400)
+    assert.equal(await page.evaluate(()=>document.documentElement.dataset.tinctCommandsOpen),undefined,'no commands panel without opting in')
+    assert.equal(await page.locator('#librarian-live .library-chat-form').isVisible().catch(()=>false),false,'no letter shortcuts without opting in')
     await page.goto(origin+'/library?omarchy=1',{waitUntil:'domcontentloaded'})
     await page.locator('#library-commands').waitFor()
     await page.waitForFunction(()=>document.documentElement.dataset.tinctTheme==='omarchy')
@@ -209,7 +224,13 @@ for(const engine of [chromium,webkit]) {
     await page.keyboard.press('Escape')
     await page.waitForFunction(()=>!document.documentElement.dataset.tinctCommandsOpen)
     await page.keyboard.press('t')
-    await page.waitForFunction(()=>window.__tinctMicAttempts>0)
+    // Guests are asked to create an account before Talk opens a voice session;
+    // signed-in readers reach the (silenced) microphone. Either keeps the page.
+    await page.waitForFunction(()=>window.__tinctMicAttempts>0||!!document.querySelector('[data-testid="lab-account-sheet"]'))
+    if(await page.getByTestId('lab-account-sheet').isVisible().catch(()=>false)){
+      await page.getByTestId('lab-account-keep-reading').click()
+      await page.getByTestId('lab-account-sheet').waitFor({state:'hidden'})
+    }
     assert.equal(await first(),settledParagraph,'Talk keeps its reading anchor even when microphone is unavailable')
     assert.equal(requests.filter(x=>/chat$|voice-session$/.test(x)).length,0,'no real AI calls during keyboard verification')
     await page.setViewportSize({width:390,height:844})
@@ -220,6 +241,10 @@ for(const engine of [chromium,webkit]) {
     assert.deepEqual(errors,[])
     report.push({engine:engine.name(),live,themeSync:engine===chromium?'real-loopback':'unavailable-fallback',libraryChat:true,readerCommands:true,placePreserved:true,silentTalk:true})
   } catch(error) {
+    // Capture before the fallback screenshot: it also waits for fonts and can
+    // otherwise hide which request was still outstanding at the first failure.
+    network.push({kind:'failure-state',at:Date.now(),pending:[...pending.values()],fonts:await page.evaluate(()=>({status:document.fonts.status,faces:[...document.fonts].map(font=>({family:font.family,status:font.status,weight:font.weight,style:font.style}))})).catch(()=>null)})
+    console.error('OMARCHY_FAILURE_RESOURCES',JSON.stringify(network.at(-1)))
     await shot('failure').catch(()=>{})
     console.error({url:page.url(),errors,requests,keys:await page.evaluate(()=>window.__tinctKeyTrace),state:await page.evaluate(()=>({theme:document.documentElement.dataset.tinctTheme,active:document.activeElement?.outerHTML.slice(0,300),open:document.documentElement.dataset.tinctCommandsOpen})),body:(await page.locator('body').innerText()).slice(0,1800)})
     throw error
