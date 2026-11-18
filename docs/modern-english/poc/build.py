@@ -41,6 +41,15 @@ def meta(b):
 def link(b): return f'{SITE}/read/{b["id"]}?{REF}'
 
 START = ['meditations', 'hamlet', 'crime-and-punishment', 'pride-and-prejudice', 'odyssey', 'frankenstein']
+# The library's signature books: their own painted scenes and the library's own questions (public/lab/library_2/app.js).
+FEATURED = [
+    ('meditations', 'Marcus Aurelius\u2019s', 'How do we stay steady in a world we cannot control?'),
+    ('odyssey', 'Homer\u2019s', 'How far must we travel to find home?'),
+    ('crime-and-punishment', 'Fyodor Dostoevsky\u2019s', 'Can an idea make a crime right?'),
+    ('pride-and-prejudice', 'Jane Austen\u2019s', 'How far can we trust a first impression?'),
+    ('the-prince', 'Niccol\u00f2 Machiavelli\u2019s', 'Can a ruler afford to be good?'),
+    ('frankenstein', 'Mary Shelley\u2019s', 'What do we owe to the intelligence we create?'),
+]
 
 def card(b, big=False):
     q = esc((b['title'] + ' ' + b['author']).lower())
@@ -66,6 +75,8 @@ MOD = ('1. Begin each morning by telling yourself: today I shall meet people who
        'only because we share the same blood or seed, but because we share the same intelligence and the same portion of the divine. So none '
        'of them can harm me, since none of them can drag me into anything shameful. Nor can I be angry with my kinsman or hate him.')
 
+FEAT_DATA = [{'id': i, 'kicker': k, 'q': q, 'title': by_id[i]['title'], 'meta': meta(by_id[i]) + ' \u00b7 Modern English ' + source(by_id[i]), 'href': link(by_id[i])} for i, k, q in FEATURED]
+SEARCH_DATA = [{'id': b['id'], 't': b['title'], 'a': b['author'], 's': source(b), 'q': (b['title'] + ' ' + b['author']).lower(), 'href': link(b)} for b in books]
 page = f'''<title>Classics in Modern English</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="robots" content="noindex">
@@ -85,37 +96,52 @@ a {{ color: inherit; text-decoration: none }}
 .pad {{ padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }}
 .inner {{ max-width: 1240px; margin: 0 auto }}
 
-.opening {{ position: relative; background: url("scene-phone.jpg") center top / cover no-repeat }}
-.opening::after {{ content: ""; position: absolute; inset: auto 0 0; height: 180px; background: linear-gradient(transparent, var(--room)); pointer-events: none }}
-.bar {{ display: flex; align-items: center; justify-content: space-between; padding-block: 14px; position: relative; z-index: 1 }}
+.opening {{ position: relative; background: #000 center / cover no-repeat; transition: background-image .4s }}
+.opening::before {{ content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,8,6,0.82) 0%, rgba(10,8,6,0.45) 55%, rgba(10,8,6,0.15) 100%); pointer-events: none }}
+.opening::after {{ content: ""; position: absolute; inset: auto 0 0; height: 160px; background: linear-gradient(transparent, var(--room)); pointer-events: none }}
+.bar, .claim, .feature {{ position: relative; z-index: 1 }}
+.bar {{ display: flex; align-items: center; justify-content: space-between; padding-block: 14px }}
 .logo {{ font: 26px var(--book) }}
 .bar nav {{ display: flex; gap: 18px; align-items: center; font: 14px var(--book); color: var(--dim) }}
 .bar nav a:hover {{ color: var(--text) }}
 @media (max-width: 599px) {{ .bar nav .wide {{ display: none }} }}
-
-.lead {{ position: relative; z-index: 1; padding-block: 18px 36px; display: grid; gap: 26px }}
-h1 {{ font: 600 clamp(34px, 6vw, 60px)/1.06 var(--display); margin: 0; text-wrap: balance; max-width: 15ch }}
-.sub {{ font: clamp(19px, 2.2vw, 22px)/1.45 var(--book); color: var(--dim); margin: 14px 0 0; max-width: 34ch }}
-.acts {{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px }}
+.claim {{ padding-block: 14px 0; z-index: 3 }}
+h1 {{ font: 600 clamp(30px, 5vw, 50px)/1.08 var(--display); margin: 0; text-wrap: balance; max-width: 18ch }}
+.sub {{ font: clamp(18px, 2vw, 21px)/1.45 var(--book); color: var(--dim); margin: 10px 0 0; max-width: 40ch }}
+.sr {{ position: absolute; left: -9999px }}
+.search {{ position: relative; margin-top: 20px; max-width: 540px }}
+.search svg {{ position: absolute; left: 18px; top: 16px; color: var(--dim); z-index: 1; pointer-events: none }}
+.search input {{ width: 100%; height: 52px; border-radius: 26px; border: 0; padding: 0 20px 0 50px; font: 18px var(--book); color: var(--text);
+  background: rgba(20,17,13,0.62); box-shadow: inset 0 0 0 1px rgba(239,232,219,0.28); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px) }}
+.search input::placeholder {{ color: var(--dim) }}
+.search input:focus {{ outline: 2px solid var(--text); outline-offset: 2px }}
+.results {{ position: absolute; left: 0; right: 0; top: 60px; list-style: none; margin: 0; padding: 6px; border-radius: 16px; background: #1b1814; box-shadow: 0 18px 50px rgba(0,0,0,0.6), inset 0 0 0 1px var(--rule); z-index: 5; max-height: 420px; overflow-y: auto }}
+.results a {{ display: flex; gap: 12px; align-items: center; padding: 7px 8px; border-radius: 10px }}
+.results a:hover, .results a[aria-selected="true"] {{ background: rgba(239,232,219,0.08) }}
+.results img {{ width: 36px; height: 54px; object-fit: cover; border-radius: 2px; flex: none }}
+.results .rt {{ font: 500 17px/1.2 var(--book); display: block }} .results .ra {{ font: 13px var(--ui); color: var(--faint) }}
+.results .rs {{ font: italic 13px var(--book); color: var(--faint); display: block }}
+.results .empty {{ padding: 10px; font: 16px var(--book); color: var(--dim) }}
+.feature {{ display: grid; grid-template-columns: 1fr; gap: 18px; padding-block: 34px 40px; align-items: end }}
+.kicker {{ font: italic 17px var(--book); color: var(--dim); margin: 0 }}
+.f-title {{ font: 600 clamp(34px, 5.4vw, 56px)/1.04 var(--display); margin: 2px 0 0 }}
+.f-q {{ font: clamp(18px, 2vw, 21px)/1.4 var(--book); margin: 8px 0 0; max-width: 30ch }}
+.f-meta {{ font: 13px var(--ui); color: var(--dim); margin: 10px 0 0 }}
+.acts {{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px }}
 .btn {{ display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 20px; border-radius: 23px; font: 500 15px var(--ui) }}
 .btn.main {{ background: var(--paper); color: var(--paper-ink) }}
 .btn.quiet {{ box-shadow: inset 0 0 0 1px rgba(239,232,219,0.4); color: var(--text) }}
-.btn:focus-visible, .card a:focus-visible, .switch button:focus-visible {{ outline: 2px solid var(--text); outline-offset: 3px }}
-
-/* The page itself: a spread of the reader, original on the left, modern on the right. On a phone one page and the switch. */
-.spread {{ background: var(--paper); color: var(--paper-ink); border-radius: 6px; box-shadow: 0 30px 80px rgba(0,0,0,0.6); overflow: hidden; min-width: 0 }}
-.spread-bar {{ display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; border-bottom: 1px solid #d6cdbb }}
-.spread-title {{ font: 600 16px var(--display) }} .spread-title i {{ font: italic 15px var(--book); color: var(--paper-dim); font-weight: 400 }}
-.switch {{ display: inline-flex; padding: 2px; border-radius: 15px; background: var(--chip) }}
-.switch button {{ border: 0; background: transparent; color: var(--paper-dim); font: italic 15px var(--book); height: 28px; padding: 0 12px; border-radius: 13px; cursor: pointer }}
-.switch button[aria-pressed="true"] {{ background: #f6f1e7; color: var(--paper-ink); box-shadow: 0 1px 2px rgba(0,0,0,0.15) }}
-.pages {{ display: grid; grid-template-columns: 1fr }}
-.page {{ padding: 20px 22px 18px; min-width: 0 }}
-.page h3 {{ font: 500 13px var(--ui); color: var(--paper-dim); margin: 0 0 8px }}
-.page p {{ font: 18px/1.55 var(--book); margin: 0; hyphens: auto; text-align: justify }}
-.page[hidden] {{ display: none }}
-.spread-foot {{ font: 13px var(--ui); color: var(--paper-dim); padding: 0 22px 16px }}
-
+.btn:focus-visible, .card a:focus-visible, .dots button:focus-visible, .results a:focus-visible {{ outline: 2px solid var(--text); outline-offset: 3px }}
+.dots {{ display: flex; gap: 8px; margin-top: 22px }}
+.dots button {{ width: 8px; height: 8px; border-radius: 4px; border: 0; padding: 0; background: rgba(239,232,219,0.35); cursor: pointer }}
+.dots button[aria-selected="true"] {{ width: 22px; background: var(--text) }}
+.f-cover {{ order: -1; justify-self: center }}
+.f-cover img {{ width: 150px; height: auto; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 3px; box-shadow: 0 24px 50px rgba(0,0,0,0.7) }}
+@media (min-width: 900px) {{
+  .feature {{ grid-template-columns: 1fr auto; padding-block: 60px 80px }}
+  .f-cover {{ order: 0; margin-right: 6% }}
+  .f-cover img {{ width: 230px }}
+}}
 .shelves {{ padding-block: 8px 20px }}
 .find {{ display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--rule); max-width: 420px; margin: 0 0 6px }}
 .find label {{ font: 14px var(--ui); color: var(--faint); flex: none }}
@@ -143,55 +169,41 @@ footer {{ border-top: 1px solid var(--rule); padding-block: 22px 32px; font: 14p
 footer .inner {{ display: flex; flex-wrap: wrap; gap: 8px 20px }}
 
 @media (min-width: 900px) {{
-  .opening {{ background-image: url("scene-wide.jpg") }}
-  .lead {{ grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: 48px; padding-block: 36px 70px }}
-  .pages {{ grid-template-columns: 1fr 1fr }}
-  .pages .page[hidden] {{ display: block }}
-  .page + .page {{ border-left: 1px solid #d6cdbb }}
-  .spread .switch {{ display: none }}
   .reel {{ grid-auto-columns: 150px; gap: 18px }}
   .reel.start {{ grid-auto-columns: 196px }}
 }}
 </style>
 
-<div class="opening">
+<div class="opening" id="opening">
   <div class="pad"><div class="inner bar">
     <a class="logo" href="{SITE}/library">tinct</a>
     <nav><a class="wide" href="#shelves">Every book</a><a class="wide" href="{SITE}/try">How Tinct works</a><a href="{SITE}/app">Sign in or join</a></nav>
   </div></div>
-  <div class="pad"><div class="inner lead">
-    <div>
-      <h1>The classics, in plain modern English.</h1>
-      <p class="sub">Free to read, no sign-up. Every page rewritten in today’s English with AI, with the original one tap away.</p>
-      <div class="acts">
-        <a class="btn main" href="{link(by_id['meditations'])}">Start with Meditations <span aria-hidden="true">→</span></a>
-        <a class="btn quiet" href="#shelves">Every book ({N})</a>
-      </div>
+  <div class="pad"><div class="inner claim">
+    <h1>The classics, in plain modern English.</h1>
+    <p class="sub">Free to read, no sign-up. Made with AI, with the original one tap away.</p>
+    <div class="search" role="search">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <label for="q" class="sr">Search the books</label>
+      <input id="q" type="search" placeholder="Search {N} books or authors" autocomplete="off" aria-controls="results" aria-expanded="false">
+      <ul id="results" class="results" hidden></ul>
     </div>
-    <figure class="spread" style="margin:0">
-      <div class="spread-bar">
-        <span class="spread-title">Meditations <i>· Book 2</i></span>
-        <div class="switch" role="group" aria-label="Edition">
-          <button type="button" id="b-mod" aria-pressed="true">Modern</button><button type="button" id="b-orig" aria-pressed="false">Original</button>
-        </div>
-      </div>
-      <div class="pages">
-        <div class="page" id="p-orig" hidden><h3>George Long’s translation, 1862</h3><p>{ORIG}</p></div>
-        <div class="page" id="p-mod"><h3>Modern English, made with AI</h3><p>{MOD}</p></div>
-      </div>
-      <figcaption class="spread-foot">Marcus Aurelius · the same passage, two ways</figcaption>
-    </figure>
+  </div></div>
+  <div class="pad"><div class="inner feature" id="feature">
+    <div class="feature-text">
+      <p class="kicker" id="f-kicker"></p>
+      <p class="f-title" id="f-title"></p>
+      <p class="f-q" id="f-q"></p>
+      <p class="f-meta" id="f-meta"></p>
+      <div class="acts"><a class="btn main" id="f-read" href="#">Read in modern English <span aria-hidden="true">\u2192</span></a></div>
+      <div class="dots" role="tablist" aria-label="Featured books">{"".join(f'<button type="button" role="tab" aria-label="{esc(by_id[i]["title"])}" data-i="{n}"></button>' for n, (i, _, _) in enumerate(FEATURED))}</div>
+    </div>
+    <a class="f-cover" id="f-cover-link" href="#"><img id="f-cover" src="covers/meditations.webp" alt="" width="300" height="450"></a>
   </div></div>
 </div>
 
 <main class="pad"><div class="inner">
-  <section class="shelf">
-    <h2>Start here</h2>
-    <ul class="reel start">{"".join(card(by_id[i], True) for i in START)}</ul>
-  </section>
-
   <div class="shelves" id="shelves">
-    <div class="find"><label for="q">Find</label><input id="q" type="search" placeholder="a book or an author" autocomplete="off"></div>
     {reels}
     <p class="none" id="none" hidden>Nothing on the shelves by that name. Try the author.</p>
   </div>
@@ -207,26 +219,57 @@ footer .inner {{ display: flex; flex-wrap: wrap; gap: 8px 20px }}
 
 <footer class="pad"><div class="inner"><span>tinct</span><a href="{SITE}/privacy">Privacy</a><a href="{SITE}/terms">Terms</a><a href="{SITE}/credits">Credits</a></div></footer>
 
-<script>
-(function () {{
-  var bm = document.getElementById('b-mod'), bo = document.getElementById('b-orig');
-  var pm = document.getElementById('p-mod'), po = document.getElementById('p-orig');
-  function show(mod) {{ pm.hidden = !mod; po.hidden = mod; bm.setAttribute('aria-pressed', String(mod)); bo.setAttribute('aria-pressed', String(!mod)); }}
-  bm.addEventListener('click', function () {{ show(true); }});
-  bo.addEventListener('click', function () {{ show(false); }});
-  var q = document.getElementById('q'), none = document.getElementById('none');
-  var shelves = Array.prototype.slice.call(document.querySelectorAll('[data-shelf]'));
-  q.addEventListener('input', function () {{
-    var t = q.value.trim().toLowerCase(), any = false;
-    shelves.forEach(function (s) {{
-      var n = 0;
-      s.querySelectorAll('.card').forEach(function (c) {{ var on = !t || c.getAttribute('data-q').indexOf(t) >= 0; c.hidden = !on; if (on) n++; }});
-      s.hidden = n === 0; if (n) any = true;
-    }});
-    none.hidden = any;
-  }});
-}})();
-</script>
+
 '''
+SCRIPT = r'''<script>
+var FEATURED = FEAT_JSON;
+var BOOKS = BOOKS_JSON;
+(function () {
+  var op = document.getElementById('opening'), i = 0;
+  var wide = window.matchMedia('(min-width: 900px)');
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.dots button'));
+  function show(n) {
+    i = n; var f = FEATURED[n];
+    op.style.backgroundImage = 'url("scenes/' + f.id + (wide.matches ? '-wide' : '-phone') + '.jpg")';
+    document.getElementById('f-kicker').textContent = f.kicker;
+    document.getElementById('f-title').textContent = f.title;
+    document.getElementById('f-q').textContent = f.q;
+    document.getElementById('f-meta').textContent = f.meta;
+    document.getElementById('f-read').href = f.href;
+    document.getElementById('f-cover-link').href = f.href;
+    var img = document.getElementById('f-cover'); img.src = 'covers/' + f.id + '.webp'; img.alt = f.title;
+    dots.forEach(function (d, k) { d.setAttribute('aria-selected', String(k === n)); });
+  }
+  dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); }); });
+  wide.addEventListener('change', function () { show(i); });
+  show(0);
+
+  var q = document.getElementById('q'), list = document.getElementById('results'), sel = -1;
+  function esc(t) { return t.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function render() {
+    var t = q.value.trim().toLowerCase();
+    if (!t) { list.hidden = true; q.setAttribute('aria-expanded', 'false'); return; }
+    var hits = BOOKS.filter(function (b) { return b.q.indexOf(t) >= 0; });
+    hits.sort(function (a, b) { return (a.t.toLowerCase().indexOf(t) === 0 ? 0 : 1) - (b.t.toLowerCase().indexOf(t) === 0 ? 0 : 1); });
+    sel = hits.length ? 0 : -1;
+    list.innerHTML = hits.length ? hits.slice(0, 8).map(function (b, k) {
+      return '<li><a href="' + b.href + '"' + (k === 0 ? ' aria-selected="true"' : '') + '><img src="covers/' + b.id + '.webp" alt=""><span><span class="rt">' + esc(b.t) + '</span><span class="ra">' + esc(b.a) + '</span><span class="rs">Modern English ' + esc(b.s) + '</span></span></a></li>';
+    }).join('') : '<li class="empty">No book by that name yet. Try the author.</li>';
+    list.hidden = false; q.setAttribute('aria-expanded', 'true');
+  }
+  q.addEventListener('input', render);
+  q.addEventListener('keydown', function (e) {
+    var links = list.querySelectorAll('a'); if (!links.length) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sel = (sel + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length;
+      links.forEach(function (l, k) { l.setAttribute('aria-selected', String(k === sel)); }); }
+    if (e.key === 'Enter' && sel >= 0) { window.open(links[sel].href, '_blank'); }
+    if (e.key === 'Escape') { q.value = ''; render(); }
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.search')) { list.hidden = true; } });
+  q.addEventListener('focus', render);
+})();
+</script>'''
+page = page + SCRIPT
+page = page.replace('FEAT_JSON', json.dumps(FEAT_DATA)).replace('BOOKS_JSON', json.dumps(SEARCH_DATA))
 open(OUT, 'w').write(page)
 print('ok', N, {hid: len(g) for hid, g in groups.items() if g})
