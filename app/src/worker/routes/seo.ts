@@ -285,9 +285,9 @@ async function serveLabDemo(
   if (!appResp.ok) return null
 
   const html = await appResp.text()
-  const withRobots = html.includes('name="robots"')
+  const withRobots = withTryDemo(url, html.includes('name="robots"')
     ? html
-    : html.replace(/<head([^>]*)>/i, '<head$1>\n  <meta name="robots" content="noindex, noarchive">')
+    : html.replace(/<head([^>]*)>/i, '<head$1>\n  <meta name="robots" content="noindex, noarchive">'))
   const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(withRobots, url.searchParams.get('book') || undefined, true), {
     status: 200,
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
@@ -301,6 +301,38 @@ async function serveLabDemo(
 }
 
 export const serveLabDemoForTest = serveLabDemo
+
+/**
+ * The /try page's reader (`/reader?demo=try`, docs/try-page/BRIEF.md): its demo-mode script runs first in the head,
+ * before the reader's boot script and bundle, so storage and writes are contained from the first line
+ * (public/lab/try/reader-demo.js; it does nothing unless /try frames it). Any other reader address is unchanged.
+ */
+export const TRY_DEMO_SCRIPT = '/lab/try/reader-demo.js'
+export function withTryDemo(url: URL, html: string): string {
+  if (url.searchParams.get('demo') !== 'try') return html
+  return html.replace(/<head([^>]*)>/i, `<head$1>\n  <script src="${TRY_DEMO_SCRIPT}"></script>`)
+}
+
+/**
+ * The Try page (future /about; Anders, 18 Nov 2026: build it, do not launch). Unlisted: noindex in the page and in
+ * this header, absent from the sitemap, linked from nowhere. Signed-in readers go to the app, as landing.html
+ * sends them (`/app`, the library), before anything renders; the page's own head script does the same for a session
+ * kept only in the browser.
+ */
+const TRY_PAGE_PATH = '/try'
+async function serveTryPage(request: Request, url: URL, env: SeoEnv): Promise<Response> {
+  if (url.pathname !== TRY_PAGE_PATH) {
+    return new Response(null, { status: 301, headers: { Location: TRY_PAGE_PATH + url.search, 'Cache-Control': 'public, max-age=3600' } })
+  }
+  const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
+  if (/(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)) {
+    return new Response(null, { status: 302, headers: { Location: '/app', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' } })
+  }
+  const page = await serveStaticHtml(request.method, request, url, TRY_PAGE_PATH, env)
+  if (!page) return serveNotFound(request.method, url, env)
+  page.headers.set('X-Robots-Tag', 'noindex, nofollow')
+  return page
+}
 export const isLabPathnameForTest = isLabPathname
 
 function editionBookIdFromPath(pathname: string): string | null {
@@ -439,6 +471,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
           'X-Robots-Tag': 'noindex, noarchive',
         },
       })
+    }
+
+    if ((request.method === 'GET' || request.method === 'HEAD') && /^\/try(?:\.html|\/)?$/.test(url.pathname)) {
+      return serveTryPage(request, url, env)
     }
 
     // The privacy policy is one page at /privacy (public/privacy.html, served by
