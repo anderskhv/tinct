@@ -422,7 +422,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       'modern-da': {
         // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
         before: 'c131aa0ae927e741d6f08a78a042aa5c0fee844ab0d9c765b0eb54774c053f3c',
-        after: '22aedb2ab997ec02fc42e8b2550a4875bf44e8c11093639b132001b07d557887',
+        after: 'd8a3cab5a1f7efcc046d7df901e6959e25e2e0a9ee8ed43d7ff064230f292e93',
         releasedAt: Date.parse('2026-11-20T00:00:00Z'),
       },
     },
