@@ -1,4 +1,4 @@
-// "Add your own book or text" in the library hero, signed out (Anders, 5 Nov 2026): the add step opens here,
+// "Bring your own text" in the library hero, signed out (Anders, 5 Nov 2026): the add step opens here,
 // on tinct.app, instead of going to /byob. Since 9 Nov 2026 the same "Add your own" sheet as the signed-in
 // pop-up (add-choices.js): Upload (files may also be dropped on it, on a desktop), Insert link and Paste text,
 // which becomes the same slim paste window as /byob and the signed-in pop-up (paste-box.js). What is chosen,
