@@ -252,7 +252,7 @@ export const HAMLET: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -328,7 +328,7 @@ export const MIDSUMMER: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -365,7 +365,7 @@ export const ROMEO_AND_JULIET: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -402,7 +402,7 @@ export const THE_TEMPEST: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -439,7 +439,7 @@ export const OTHELLO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -457,7 +457,7 @@ export const KING_LEAR: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1608)', year: 1608, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -493,7 +493,7 @@ export const TWELFTH_NIGHT: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -637,7 +637,7 @@ export const CORIOLANUS: Book = {
       hasAudio: true,
     },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -674,7 +674,7 @@ export const COMEDY_OF_ERRORS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -2372,7 +2372,7 @@ export const BEYOND_GOOD_AND_EVIL: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
