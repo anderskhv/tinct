@@ -678,11 +678,12 @@ describe('remoteResumeSelection', () => {
     const gone: LabBookPlace = { ...hebrews3(), primaryEditionKey: 'modern-en' }
     expect(resumePlaceEditionKey(gone)).toBeUndefined()
     expect(remoteResumeSelection(gone, { libraryBookId: 'bible', prefs: bsb })).toMatchObject({ bookId: 'bible', primaryEditionKey: 'bsb-en' })
-    // Held (Frankenstein's Danish is no longer offered): the book's current edition, never the held one.
-    const danish: LabBookPlace = { ...hebrews3(), bookId: 'frankenstein', headerBook: 'Frankenstein', chapterNumber: 11, sequentialChapter: 11, primaryEditionKey: 'modern-da' }
+    // Held (Pride and Prejudice's Danish is not offered; Frankenstein's was until 2026-11-18): the
+    // book's current edition, never the held one.
+    const danish: LabBookPlace = { ...hebrews3(), bookId: 'pride-and-prejudice', headerBook: 'Pride and Prejudice', chapterNumber: 11, sequentialChapter: 11, primaryEditionKey: 'modern-da' }
     expect(resumePlaceEditionKey(danish)).toBeUndefined()
     const modern = { ...prefs, primaryEdition: 'modern-en', audioEdition: 'modern-en' }
-    expect(remoteResumeSelection(danish, { libraryBookId: 'frankenstein', prefs: modern })).toMatchObject({ primaryEditionKey: 'modern-en' })
+    expect(remoteResumeSelection(danish, { libraryBookId: 'pride-and-prejudice', prefs: modern })).toMatchObject({ primaryEditionKey: 'modern-en' })
   })
 
   it('restores in view only a place whose words are the ones on screen', () => {
