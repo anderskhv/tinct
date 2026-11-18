@@ -28,6 +28,9 @@ import {createQuietLoads,stopOnAbort} from './quiet-loads.js?v=20261015quietopen
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
+// The librarian (orb, panel, Chat and Talk) is shelved: Anders, 18 Nov 2026, "cut it - shelf for later". Its code stays;
+// true brings it back (and remove `hidden` from #librarian in index.html). The server route is untouched.
+const LIBRARIAN=false;
 let savedBooks=new Set(),savedReady=false;const pendingSaves=new Map();
 const iconPaths={readArrow:'<path d="M2 12h20m-6-6 6 6-6 6"/>',search:'<circle cx="10.8" cy="10.8" r="7.3"/><path d="m16 16 5 5"/>',play:'<path d="m6 3 15 9-15 9z"/>',minus:'<path d="M5 12h14"/>',plus:'<path d="M12 5v14M5 12h14"/>',mic:'<rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-3 0h6"/>',mute:'<path d="m3 3 18 18M9 9v3a3 3 0 0 0 5 2M9 5a3 3 0 0 1 6 0v4M5 10v2a7 7 0 0 0 12 5M19 10v2M12 19v3"/>',chat:'<path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.4L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5Z"/>',end:'<path d="m6 6 12 12M18 6 6 18"/>',send:'<path d="m22 2-7 20-4-9L2 9 22 2ZM11 13 22 2"/>'};
 function icon(name){return `<svg viewBox="0 0 24 24" aria-hidden="true">${iconPaths[name]||''}</svg>`;}
@@ -559,11 +562,11 @@ function orbTarget(){const host=$(`librarian-${mode}`)?.querySelector('.orb-spac
 function moveOrb(target,done){if(orbMotion)cancelAnimationFrame(orbMotion);const from={...orbPosition},start=performance.now();function frame(now){const t=reduced.matches?1:clamp((now-start)/450,0,1);placeOrb(orbFrame(from,target,t));if(t<1)orbMotion=requestAnimationFrame(frame);else{orbMotion=null;done?.();}}orbMotion=requestAnimationFrame(frame);}
 function updateLibrarianContext(){$('librarian-question').textContent=activeBook?'Can I help you prepare your reading of the book?':'Want help finding a book?';}
 let panelLastRect={x:20,y:80};
-function setMode(next){const previous=mode;if(previous!=='minimized'){const r=$('librarian-panel').getBoundingClientRect();panelLastRect={x:r.x,y:r.y};}mode=next;$('librarian-welcome').hidden=next!=='welcome';$('librarian-live').hidden=next!=='chat'&&next!=='talk';$('librarian-panel').hidden=next==='minimized';$('librarian').hidden=next==='chat'||next==='talk';$('librarian').tabIndex=next==='minimized'?0:-1;const b=$('librarian');if(next!=='minimized'){if(b.classList.contains('tuck')){stopTuck();drag=null;const s=Math.min(tuck.w,tuck.h);b.classList.remove('tuck');placeOrb({x:tuck.x-s/2,y:tuck.y-s/2,size:s});}b.classList.remove('returning');b.classList.add('expanded');b.dataset.edge='none';}syncLock();if(next==='minimized'&&!b.classList.contains('tuck')){b.classList.add('returning');b.dataset.edge='none';const finish=()=>{b.classList.remove('expanded','returning');enterTuck();};if(previous==='chat'||previous==='talk'){placeOrb({x:clamp(panelLastRect.x+24,0,innerWidth-52),y:clamp(panelLastRect.y+65,0,innerHeight-52),size:52});}moveOrb(tuckReturnTarget(),finish);}else if(next==='welcome'){requestAnimationFrame(()=>moveOrbTo(orbTarget()));}updateLibrarianContext();}
+function setMode(next){const previous=mode;if(previous!=='minimized'){const r=$('librarian-panel').getBoundingClientRect();panelLastRect={x:r.x,y:r.y};}mode=next;$('librarian-welcome').hidden=next!=='welcome';$('librarian-live').hidden=next!=='chat'&&next!=='talk';$('librarian-panel').hidden=next==='minimized';$('librarian').hidden=!LIBRARIAN||next==='chat'||next==='talk';$('librarian').tabIndex=next==='minimized'?0:-1;const b=$('librarian');if(next!=='minimized'){if(b.classList.contains('tuck')){stopTuck();drag=null;const s=Math.min(tuck.w,tuck.h);b.classList.remove('tuck');placeOrb({x:tuck.x-s/2,y:tuck.y-s/2,size:s});}b.classList.remove('returning');b.classList.add('expanded');b.dataset.edge='none';}syncLock();if(next==='minimized'&&!b.classList.contains('tuck')){b.classList.add('returning');b.dataset.edge='none';const finish=()=>{b.classList.remove('expanded','returning');enterTuck();};if(previous==='chat'||previous==='talk'){placeOrb({x:clamp(panelLastRect.x+24,0,innerWidth-52),y:clamp(panelLastRect.y+65,0,innerHeight-52),size:52});}moveOrb(tuckReturnTarget(),finish);}else if(next==='welcome'){requestAnimationFrame(()=>moveOrbTo(orbTarget()));}updateLibrarianContext();}
 let assistant=null,assistantLoading=null;
 const ASSISTANT_MODULE='/lab/library-2-assistant.js?v=20261014talkwake';
 // Fetch the librarian's code while the page is idle, so Chat and Talk open without that wait.
-setTimeout(()=>(window.requestIdleCallback||setTimeout)(()=>import(ASSISTANT_MODULE).catch(()=>{}),{timeout:3000}),3000);
+if(LIBRARIAN)setTimeout(()=>(window.requestIdleCallback||setTimeout)(()=>import(ASSISTANT_MODULE).catch(()=>{}),{timeout:3000}),3000);
 async function loadAssistant(){
  if(assistant)return assistant;
  if(assistantLoading)return assistantLoading;
@@ -585,7 +588,7 @@ async function loadAssistant(){
  }).finally(()=>{$('talk').disabled=$('chat').disabled=false;});
  return assistantLoading;
 }
-function openLibrarian(){setMode('welcome');$('minimize').focus({preventScroll:true});void loadAssistant();}
+function openLibrarian(){if(!LIBRARIAN)return;setMode('welcome');$('minimize').focus({preventScroll:true});void loadAssistant();}
 function minimize(){if(assistant&&(mode==='talk'||mode==='chat'))assistant.close();else{setMode('minimized');$('librarian').focus({preventScroll:true});}}
 $('minimize').onclick=minimize;
 $('librarian').onclick=e=>{if(drag?.moved){drag=null;e.preventDefault();return;}if(mode==='minimized')openLibrarian();};
@@ -985,7 +988,7 @@ function linkedUnavailable(){if(linkedState!=='pending')return;linkedState=null;
 if(linkedBook)loadCatalogueData().then(data=>{if(linkedState!=='pending')return;const params=new URLSearchParams(location.search);const entry=data.books.find(b=>b.id===linkedBook&&b.discoveryAvailable!==false);if(!entry)return linkedUnavailable();let book=books.find(b=>b.id===linkedBook);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);const requested=params.get('edition');if(entry.editions?.some(e=>e.key===requested&&(e.language!=='da'||e.discoveryAvailable===true)&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false))editionChoices.set(book.id,{main:requested,explicit:true});featureLinked(book,entry);if(params.get('view')==='book-detail')return openBook(book,$('hero-book').querySelector('canvas'));}).catch(()=>{linkedUnavailable();notice('This book could not load. Please try again.');});
 
 // Reveal a fully drawn, positioned librarian instead of an empty circle at (0, 0).
-drawOrb(performance.now());document.documentElement.classList.add('library-ready');
+if(LIBRARIAN)drawOrb(performance.now());document.documentElement.classList.add('library-ready');
 
 mountHeroNavigation({
  hero:$('hero'),
@@ -1013,8 +1016,10 @@ registerCommands({
  blocked:()=>!!document.querySelector('dialog[open]')||searchOpen||menuOpen,
  commands:[
   {id:'library-search',label:'Search books and authors',key:'/',run:()=>{setSearch(true);$('search-input').focus();}},
+  ...(LIBRARIAN?[
   {id:'library-chat',label:'Chat with your librarian',key:'c',run:()=>openAssistantCommand('chat')},
   {id:'library-talk',label:'Talk with your librarian',key:'t',run:()=>{if(mode==='talk'){minimize();return;}openAssistantCommand('talk');}},
+  ]:[]),
   {id:'library-books',label:'My shelf',key:'b',run:()=>{const b=document.querySelector('[data-collection="saved"]');b?.click();}},
   {id:'library-menu',label:'Library categories and time periods',key:'i',run:()=>setMenu(true)},
   {id:'library-read',label:'Read the selected book',key:'r',enabled:()=>mode==='minimized',run:()=>{if(activeBook){$('begin-reading').click();}else{const resume=$('rt-continue');if(resume&&!resume.hidden&&resume.getClientRects().length)resume.click();else $('read-featured').click();}}},
