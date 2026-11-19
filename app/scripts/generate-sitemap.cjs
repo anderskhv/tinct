@@ -38,14 +38,9 @@ const SEO_EXCERPT_WORDS = 1200
 const MAX_META_TITLE_CHARS = 60
 const MAX_META_DESCRIPTION_CHARS = 155
 const DEFAULT_OG_IMAGE = `${ORIGIN}/og-image-v3.jpg`
-// Hand-set meta for a book, used before the generated text. The Odyssey's stale hand-tuned title, which
-// promised an AI companion and an audiobook, was removed (16 Nov 2026): it is titled like every other book,
-// and its description names only the editions.
-const MANUAL_BOOK_META = {
-  odyssey: {
-    description: 'The Odyssey by Homer in modern English, with the original edition to compare. Read free, no ads.',
-  },
-}
+// Hand-set meta for a book, used before the generated text. Empty since 19 Nov 2026: the Odyssey's hand-set
+// description gave way to the "read X online" wording every book page now has (seoBookDescription).
+const MANUAL_BOOK_META = {}
 
 // --- Parse the registry --------------------------------------------------
 
@@ -65,7 +60,11 @@ function loadPublicBooks() {
     const description = pickString(body, 'description')
     // Contemporary books with no Modern English edition (Book.noModernEdition).
     const noModernEdition = /\bnoModernEdition:\s*true\b/.test(body)
-    if (id) constToBook.set(constName, { id, title, author, description, noModernEdition })
+    // The translator of the book's original-en edition, when the registry names one (editionSources.ts reads
+    // the same field).
+    const originalEn = body.match(/\{[^{}]*\bkey:\s*['"]original-en['"][^{}]*\}/)
+    const translator = originalEn ? pickString(originalEn[0], 'translator') : ''
+    if (id) constToBook.set(constName, { id, title, author, description, noModernEdition, translator })
   }
 
   // The BOOKS array is the public list. Only include those — local-only
@@ -244,24 +243,51 @@ function hasModernEdition(book) {
   return !holds[`${book.id}/modern-en`] && fs.existsSync(path.join(EDITIONS_DIR, `${book.id}-modern-en.json`))
 }
 
+const EDITION_SOURCES = path.join(APP_DIR, 'src/data/editionSources.ts')
+let englishOriginals = null
+/** ENGLISH_ORIGINAL_BOOKS in src/data/editionSources.ts: books whose original-en is the author's own English text. */
+function englishOriginalBooks() {
+  if (!englishOriginals) {
+    const set = fs.readFileSync(EDITION_SOURCES, 'utf8').match(/ENGLISH_ORIGINAL_BOOKS[^=]*=\s*new Set\(\[([\s\S]*?)\]\)/)
+    if (!set) throw new Error('Could not find ENGLISH_ORIGINAL_BOOKS in src/data/editionSources.ts')
+    englishOriginals = new Set([...set[1].replace(/\/\/.*$/gm, '').matchAll(/['"]([a-z0-9-]+)['"]/g)].map(match => match[1]))
+  }
+  return englishOriginals
+}
+
+const isShakespeare = book => book.author === 'William Shakespeare'
+
 /**
- * The book page's title leads with what only Tinct has: the book in modern English (13 Nov 2026; it read
- * "Read Hamlet Free Online | Tinct"). A play with scene pages says so.
+ * The book page's title and description are worded for "read X online" and "X full text" searches, the only
+ * searches that brought readers in the SEO experiment (Anders, 19 Nov 2026; before, "X in modern English, free
+ * to read | Tinct"). Shakespeare's plays read scene by scene. A book without a Modern English edition keeps its
+ * earlier title and description, which promise none.
  */
 function seoBookTitle(book) {
   const manual = MANUAL_BOOK_META[book.id]
   if (manual?.title) return manual.title
   const title = plainText(book.title)
-  const candidates = hasModernEdition(book)
-    ? [
-        ...(scenePagesOf(book.id).length ? [`${title} in modern English, scene by scene | Tinct`] : []),
-        `${title} in modern English, free to read | Tinct`,
-        `${title} in modern English | Tinct`,
-      ]
-    : [`Read ${title} Free Online | Tinct`]
-  const fits = candidates.find(candidate => candidate.length <= MAX_META_TITLE_CHARS)
-  if (fits) return fits
-  return cappedWithFixedParts(hasModernEdition(book) ? '' : 'Free Classic Reader: ', book.title, hasModernEdition(book) ? ' in modern English | Tinct' : ' | Tinct', MAX_META_TITLE_CHARS)
+  if (hasModernEdition(book)) {
+    return isShakespeare(book)
+      ? `Read ${title} online free, scene by scene in modern English | Tinct`
+      : `Read ${title} online free, in modern English | Tinct`
+  }
+  const fits = `Read ${title} Free Online | Tinct`
+  if (fits.length <= MAX_META_TITLE_CHARS) return fits
+  return cappedWithFixedParts('Free Classic Reader: ', book.title, ' | Tinct', MAX_META_TITLE_CHARS)
+}
+
+/**
+ * What the Modern English stands beside, from the registry: the original-en edition's translator; the author's
+ * own text for an English original (ENGLISH_ORIGINAL_BOOKS, Shakespeare) or for a book whose chapter pages set
+ * the Modern English beside its own-language original; else, with no name in the registry, "the original".
+ */
+function modernBeside(book) {
+  if (book.translator && !isShakespeare(book)) return `${plainText(book.translator)}'s translation`
+  if (isShakespeare(book) || englishOriginalBooks().has(book.id)) return `${plainText(book.author)}'s original`
+  const original = chapterPagesOf(book.id)?.original
+  if (original && original !== 'original-en') return `${plainText(book.author)}'s original`
+  return 'the original'
 }
 
 function seoChapterTitle(book, chapterTitle) {
@@ -278,18 +304,8 @@ function seoBookDescription(book) {
   if (book.noModernEdition || PUBLISHER_PERMISSIONS[book.id]) {
     return clipAtWord(`Read ${book.title} free, no ads, with an AI reading companion. On Tinct with the publisher's permission.`, MAX_META_DESCRIPTION_CHARS)
   }
-  if (scenePagesOf(book.id).length && hasModernEdition(book)) {
-    const play = `${book.title} scene by scene in modern English, with Shakespeare's original text. Read free, no ads, with an AI companion that explains any line.`
-    if (play.length <= MAX_META_DESCRIPTION_CHARS) return play
-  }
   if (hasModernEdition(book)) {
-    const options = [
-      `${book.title} by ${book.author} in modern English, with the original edition to compare. Read free, no ads, with an AI companion that explains any passage.`,
-      `${book.title} in modern English, with the original edition to compare. Read free, no ads, with an AI companion that explains any passage.`,
-      `${book.title} in modern English, with the original to compare. Read free, no ads, with an AI companion.`,
-    ]
-    const fits = options.find(option => option.length <= MAX_META_DESCRIPTION_CHARS)
-    if (fits) return fits
+    return `Read the full text of ${plainText(book.title)} free online, with modern English beside ${modernBeside(book)}. No sign-up, no ads.`
   }
   const full = `Read free, no ads. Modern English compare, AI companion, cast guide, and audio for ${book.title}.`
   if (full.length <= MAX_META_DESCRIPTION_CHARS) return full
@@ -666,6 +682,29 @@ function openingPair(modern, original, chapterPages) {
   <style>.opening-label{margin:24px 0 6px!important;font:13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif!important;color:var(--muted)}.book-edition-note{margin:28px 0 40px;font:15px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--muted);max-width:720px}.book-edition-note strong{color:var(--cream);font-weight:600}</style>`
 }
 
+/**
+ * "Start reading: {first chapter}" at the top of the book's text (19 Nov 2026), plain HTML a crawler and a reader
+ * without scripts follow: the first chapter or scene page, else the first chapter in the reader. The library's
+ * read button and this page's own call to action give it its look; the style rule only sets it on its own line.
+ */
+function startReadingLink(book, { chapters, scenes, chapterPages }) {
+  let href, label
+  if (scenes.length) {
+    href = `/read/${book.id}/${scenes[0].slug}`
+    label = escapeHtml(scenes[0].title.split(' — ')[0])
+  } else if (chapterPages?.first) {
+    href = `/read/${book.id}/chapter-${chapterPages.first.chapter}`
+    label = escapeHtml(chapterPages.first.label)
+  } else if (chapters.length) {
+    href = bookChapterHref(book.id, 1)
+    label = emphasisHtml(String(chapters[0].title || '').split(' — ')[0].trim() || 'Chapter 1')
+  } else {
+    return ''
+  }
+  return `<p class="start-reading"><a class="read-button primary-cta" href="${href}">Start reading: ${label}</a></p>
+  <style>.start-reading{margin:0 0 32px}.start-reading a{display:inline-flex;text-decoration:none}</style>`
+}
+
 function buildBookIndexPage(book, edition, books = []) {
   const chapters = edition.data.chapters || []
   const firstChapter = chapters[0] || {}
@@ -692,6 +731,7 @@ function buildBookIndexPage(book, edition, books = []) {
     : chapters
       .map((chapter, index) => `<li><a href="${bookChapterHref(book.id, index + 1)}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${emphasisHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
       .join('\n')
+  const start = startReadingLink(book, { chapters, scenes, chapterPages })
   const scene = bookSceneSrc(book.id)
   const cover = bookCoverSrc(book.id)
   const blurb = libraryBlurb(book.id)
@@ -714,6 +754,7 @@ function buildBookIndexPage(book, edition, books = []) {
 </header>
 <!--tinct:about-->
 <main>
+  ${start}
   <div class="breadcrumb">
     <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>${escapeHtml(book.title)}</span>
   </div>

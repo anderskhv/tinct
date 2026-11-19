@@ -25,7 +25,7 @@ import { SCENE_HANDOFF_EDITION, type SceneHandoffAction } from '../lab/labSceneH
 import type { Book } from '../types'
 import {
   READER_CSS_PLACEHOLDER, READER_ROOT_STYLE, SCENE_PAGE_ORIGIN, act, askField, escapeHtml, headerHtml, pageStyles,
-  renderParagraph, sceneAssetPlaceholder, sceneHandoffHref, type Edition, type EditionChapter,
+  readIntentPageDescription, readIntentPageTitle, renderParagraph, sceneAssetPlaceholder, sceneHandoffHref, type Edition, type EditionChapter,
 } from './scenePages'
 
 export { editionNoteHtml, editionSource, SEO_INDEX_ALLOWLIST, sceneAssetPlaceholder }
@@ -116,7 +116,11 @@ export function chapterLabels(chapters: readonly Pick<EditionChapter, 'number' |
 }
 
 export function chapterPageTitle(book: ChapterPageBook, label: string): string {
-  return `${book.title}, ${label} in modern English | Tinct`
+  return readIntentPageTitle(book.title, label)
+}
+
+export function chapterPageDescription(book: ChapterPageBook, label: string): string {
+  return readIntentPageDescription(book.title, label)
 }
 
 export const chapterPagePath = (bookId: string, chapter: number) => `/read/${bookId}/chapter-${chapter}`
@@ -124,7 +128,7 @@ export const chapterPagePath = (bookId: string, chapter: number) => `/read/${boo
 const isFigure = (text: string) => text.startsWith(FIGURE_MARK)
 const plain = (text: string) => stripUnderscoreEmphasis(text).text.replace(/\s+/g, ' ').trim()
 
-/** The chapter's own opening words, clipped at a word: the page's description (no written summary). */
+/** The chapter's own opening words, clipped at a word (the pages' description until 19 Nov 2026; see chapterPageDescription). */
 export function chapterDescription(paragraphs: readonly string[]): string {
   const text = paragraphs.filter(paragraph => !isFigure(paragraph)).map(plain).filter(Boolean).join(' ')
   if (text.length <= MAX_META_DESCRIPTION_CHARS) return text
@@ -229,7 +233,7 @@ export function renderChapterPage(input: {
   const path = chapterPagePath(book.id, chapter.number)
   const canonical = `${CHAPTER_PAGE_ORIGIN}${path}`
   const title = chapterPageTitle(book, label)
-  const description = chapterDescription(chapter.paragraphs)
+  const description = chapterPageDescription(book, label)
   const previous = chapters[index - 1]
   const next = chapters[index + 1]
   const lastParagraph = Math.max(0, chapter.paragraphs.length - 1)

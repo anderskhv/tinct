@@ -33,9 +33,9 @@ describe('scene addresses', () => {
   })
 
   it('titles and describes the scene as the brief asks', () => {
-    expect(scenePageTitle(book('hamlet'), 'Act 3, Scene 1 — A Room in the Castle')).toBe('Hamlet, Act 3, Scene 1 in modern English | Tinct')
+    expect(scenePageTitle(book('hamlet'), 'Act 3, Scene 1 — A Room in the Castle')).toBe('Hamlet, Act 3, Scene 1: full text in modern English | Tinct')
     const description = scenePageDescription(book('hamlet'), 'Act 3, Scene 1 — A Room in the Castle')
-    expect(description).toBe("Hamlet, Act 3, Scene 1 (A Room in the Castle): the whole scene in a modern-English version, with Shakespeare's original text below it.")
+    expect(description).toBe('Read Act 3, Scene 1 of Hamlet free, in modern English beside the original. No sign-up.')
     expect(description.length).toBeLessThanOrEqual(155)
   })
 
@@ -65,7 +65,7 @@ describe('scene page text', () => {
       }
       expect(doc.querySelector('h1')!.textContent).toBe(chapter.title)
       expect(doc.querySelectorAll('h1')).toHaveLength(1)
-      expect(doc.title).toBe(`${BOOKS[id]}, ${chapter.title.split(' — ')[0]} in modern English | Tinct`)
+      expect(doc.title).toBe(`${BOOKS[id]}, ${chapter.title.split(' — ')[0]}: full text in modern English | Tinct`)
       expect(doc.querySelector('link[rel="canonical"]')!.getAttribute('href')).toBe(`https://tinct.app/read/${id}/${page.slug}`)
       // No Listen, anywhere.
       expect(page.html).not.toMatch(/lab-v2-play|aria-label="(?:Listen|Play)/)

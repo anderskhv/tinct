@@ -65,7 +65,7 @@ describe('chapter pages', () => {
     expect(resp.headers.get('Cache-Control')).toBe('public, max-age=300, stale-while-revalidate=86400')
     const html = await resp.text()
     expect(html).not.toMatch(/name="robots"/)
-    expect(html).toContain('<title>Moby Dick, Chapter 1 in modern English | Tinct</title>')
+    expect(html).toContain('<title>Moby Dick, Chapter 1: full text in modern English | Tinct</title>')
     expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/moby-dick/chapter-1">')
     expect(text(html)).toContain('Call me Ishmael. Some years ago — never mind exactly how long')
     expect(text(html)).toContain('Call me Ishmael. Some years ago—never mind how long precisely')

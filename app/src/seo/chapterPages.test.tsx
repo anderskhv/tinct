@@ -98,7 +98,7 @@ describe('chapter titles', () => {
     expect(chapterLabels(edition('moby-dick', 'modern-en').chapters).get(136)).toBe('Epilogue')
     // Anna Karenina numbers its chapters within each part: "Chapter 19" twice.
     expect(chapterLabels(edition('anna-karenina', 'modern-en').chapters).get(239)).toBe('Chapter 239')
-    expect(chapterPageTitle({ id: 'war-and-peace', title: 'War and Peace', author: 'Leo Tolstoy' }, 'Book One (1805), Chapter 1')).toBe('War and Peace, Book One (1805), Chapter 1 in modern English | Tinct')
+    expect(chapterPageTitle({ id: 'war-and-peace', title: 'War and Peace', author: 'Leo Tolstoy' }, 'Book One (1805), Chapter 1')).toBe('War and Peace, Book One (1805), Chapter 1: full text in modern English | Tinct')
   })
 
   it('describes a chapter with its own opening words, no written summary', () => {
@@ -115,7 +115,7 @@ describe('a chapter page', () => {
   it('is the whole chapter in both versions as HTML, self-canonical, indexable', () => {
     const page = moby[0].html
     expect(moby).toHaveLength(136)
-    expect(page).toContain('<title>Moby Dick, Chapter 1 in modern English | Tinct</title>')
+    expect(page).toContain('<title>Moby Dick, Chapter 1: full text in modern English | Tinct</title>')
     expect(page).toContain('<link rel="canonical" href="https://tinct.app/read/moby-dick/chapter-1">')
     expect(page).not.toMatch(/name="robots"/)
     const modern = edition('moby-dick', 'modern-en').chapters[0].paragraphs as string[]

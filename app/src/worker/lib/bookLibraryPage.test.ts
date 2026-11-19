@@ -35,6 +35,17 @@ describe('book links in the library', () => {
     expect(html).toContain('<button id="hero-book" class="hero-book cover-button" aria-label="Open Wuthering Heights"><img id="hero-cover-preview" alt="" fetchpriority="high" decoding="async" src="/covers/v2/wuthering-heights.webp"><canvas class="cover" data-book="wuthering-heights">')
   })
 
+  it('words the book page for "read X online" searches and opens its text with a link to the first chapter or scene', () => {
+    const crime = composeBookLibraryPage(library, readGeneratedBookPage(bookPage('crime-and-punishment'), 'crime-and-punishment')!)
+    expect(crime).toContain('<title>Read Crime and Punishment online free, in modern English | Tinct</title>')
+    expect(crime).toContain('<meta name="description" content="Read the full text of Crime and Punishment free online, with modern English beside Constance Garnett&#39;s translation. No sign-up, no ads.">')
+    expect(crime).toContain('<div class="book-about-text">\n  <p class="start-reading"><a class="read-button primary-cta" href="/read/crime-and-punishment/chapter-1">Start reading: Part 1, Chapter 1</a></p>')
+    expect(GENERATED_BOOK_META['moby-dick'].description).toBe("Read the full text of Moby Dick free online, with modern English beside Herman Melville's original. No sign-up, no ads.")
+    expect(GENERATED_BOOK_META.hamlet.title).toBe('Read Hamlet online free, scene by scene in modern English | Tinct')
+    expect(GENERATED_BOOK_META.hamlet.description).toBe("Read the full text of Hamlet free online, with modern English beside William Shakespeare's original. No sign-up, no ads.")
+    expect(bookPage('hamlet')).toContain('<p class="start-reading"><a class="read-button primary-cta" href="/read/hamlet/act-1-scene-1">Start reading: Act 1, Scene 1</a></p>')
+  })
+
   it('escapes hero text', () => {
     const html = prefillLibraryHero(library, { id: 'x', title: 'A <b>"Book"</b>', author: 'Some & One', question: '<script>', cover: null })
     expect(html).toContain('<h1 id="hero-title">A &lt;b&gt;&quot;Book&quot;&lt;/b&gt;</h1>')
@@ -48,8 +59,8 @@ describe('book links in the library', () => {
     const html = composeBookLibraryPage(library, page)
     expect(html).not.toContain('noindex')
     expect(html.match(/<title>/g)).toHaveLength(1)
-    expect(html).toContain('<title>Wuthering Heights in modern English, free to read | Tinct</title>')
-    expect(html).toContain('<meta property="og:title" content="Wuthering Heights in modern English, free to read | Tinct">')
+    expect(html).toContain('<title>Read Wuthering Heights online free, in modern English | Tinct</title>')
+    expect(html).toContain('<meta property="og:title" content="Read Wuthering Heights online free, in modern English | Tinct">')
     expect(html).toContain('<div id="shelves"></div><section id="book-about" class="book-about" aria-label="Wuthering Heights"><div class="book-about-text">')
     expect(html.match(/<main\b/g)).toHaveLength(1)
     expect(html).toContain('<base href="/lab/library_2/">')

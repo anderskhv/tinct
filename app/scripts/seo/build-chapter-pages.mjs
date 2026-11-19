@@ -106,6 +106,8 @@ for (const plan of plans) {
   manifest.books[plan.book.id] = {
     chapters: rendered.length, packs: starts, indexable: plan.indexable, original: plan.originalKey,
     labels: [renderer.editionLabelOf(plan.book, 'modern-en'), plan.originalKey ? renderer.editionLabelOf(plan.book, plan.originalKey) : null],
+    // The first chapter page, for the book page's "Start reading" link.
+    first: { chapter: rendered[0].chapterNumber, label: rendered[0].label },
   }
 }
 

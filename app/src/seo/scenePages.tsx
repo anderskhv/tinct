@@ -37,8 +37,6 @@ export const SCENE_PAGE_BOOKS = ['hamlet', 'macbeth', 'romeo-and-juliet', 'juliu
 export const READER_CSS_PLACEHOLDER = '<!--tinct:reader-css-->'
 /** Replaced at build time by the versioned address of a scene page script (public/read/scene-*.js). */
 export const sceneAssetPlaceholder = (name: 'scene-page.js' | 'scene-layout.js') => `__TINCT_SCENE_ASSET_${name}__`
-const MAX_META_DESCRIPTION_CHARS = 155
-
 export interface EditionChapter { number: number; title: string; paragraphs: string[] }
 export interface Edition { chapters: EditionChapter[] }
 export interface ScenePageBook { id: string; title: string; author: string }
@@ -73,15 +71,25 @@ export function sceneSlug(title: string): string {
 /** Slug pattern the Worker accepts under /read/{bookId}/ for these books. */
 export const SCENE_SLUG_RE = /^(?:act-\d{1,2}-scene-\d{1,2}|act-\d{1,2}-prologue|prologue)$/
 
+/**
+ * A chapter or scene page's title and description, worded for "read X online" and "X full text" searches, the
+ * only searches that brought readers in the SEO experiment (Anders, 19 Nov 2026). Shared by the scene pages and
+ * the chapter pages (chapterPages.tsx); `label` is the page's own chapter or scene label ("Part 1, Chapter 1").
+ */
+export function readIntentPageTitle(bookTitle: string, label: string): string {
+  return `${bookTitle}, ${label}: full text in modern English | Tinct`
+}
+
+export function readIntentPageDescription(bookTitle: string, label: string): string {
+  return `Read ${label} of ${bookTitle} free, in modern English beside the original. No sign-up.`
+}
+
 export function scenePageTitle(book: ScenePageBook, chapterTitle: string): string {
-  return `${book.title}, ${splitSceneTitle(chapterTitle).scene} in modern English | Tinct`
+  return readIntentPageTitle(book.title, splitSceneTitle(chapterTitle).scene)
 }
 
 export function scenePageDescription(book: ScenePageBook, chapterTitle: string): string {
-  const { scene, place } = splitSceneTitle(chapterTitle)
-  const tail = "the whole scene in a modern-English version, with Shakespeare's original text below it."
-  const full = `${book.title}, ${scene}${place ? ` (${place})` : ''}: ${tail}`
-  return full.length <= MAX_META_DESCRIPTION_CHARS ? full : `${book.title}, ${scene}: ${tail}`
+  return readIntentPageDescription(book.title, splitSceneTitle(chapterTitle).scene)
 }
 
 export function scenePagePath(bookId: string, slug: string): string {
