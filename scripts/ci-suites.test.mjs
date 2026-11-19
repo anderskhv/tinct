@@ -7,7 +7,7 @@ const run = (...files) => suitesFor(files).suites
 test('the reader, shared code, dependencies, workflows, build and Worker entry run everything', () => {
   for (const file of ['app/src/lab/LabApp.tsx', 'app/src/lab/labPosition.ts', 'app/src/narration/narrationCore.ts', 'app/src/utils/storage.ts',
     'app/package.json', 'app/package-lock.json', '.github/workflows/verify.yml', 'app/vite.config.ts', 'app/src/worker.ts',
-    'app/wrangler.jsonc', 'scripts/ci-suites.mjs', 'app/scripts/lib/internalTraffic.cjs', 'app/public/sw.js', 'app/public/data/editions/frankenstein-original-en.json'])
+    'app/wrangler.jsonc', 'scripts/ci-suites.mjs', 'scripts/release-lane.mjs', 'app/scripts/lib/internalTraffic.cjs', 'app/public/sw.js', 'app/public/data/editions/frankenstein-original-en.json'])
     assert.deepEqual(run(file), SUITES, file)
 })
 

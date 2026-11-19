@@ -19,6 +19,10 @@ name: deploy
 #   - CI once: when a verify.yml run that passed tested this exact tree (artifact verified-tree-<tree>, written by
 #     its ci-summary), the deploy job skips its own `npm test`; it still builds, runs verify-bundle, deploys, and
 #     every acceptance group and the automatic rollback run as before.
+#   - Page lane (Anders, 19 Nov 2026): a push whose every change since the nearest first-parent ancestor with such
+#     a verified tree is a standalone page, that page's own unit test or docs (scripts/release-lane.mjs) does not wait
+#     for main's verify run. It runs the full deploy job at once: npm test, build, verify-bundle, deploy, every
+#     acceptance group and the automatic rollback, exactly as on the full path.
 #   - Otherwise a push waits for verify.yml on this commit to pass (it never deploys a tree no CI passed) and then
 #     runs the full deploy job, `npm test` included. A manual dispatch runs the full deploy job at once, as before.
 #   - A push whose commit is no longer the head of main cancels its own run: the newer commit's run deploys.
@@ -84,12 +88,15 @@ jobs:
       tree: ${{ steps.decide.outputs.tree }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The page lane looks back along main's first parents for a verified tree (at most 20 commits).
+          fetch-depth: 25
       - name: Refuse a push the rollout does not release automatically
         if: github.event_name == 'push'
         run: |
           test "$GITHUB_REF" = refs/heads/main
           node app/scripts/release-tools.cjs push-release-phase
-      - name: Decide the release path (CI once, or wait for verify)
+      - name: Decide the release path (CI once, page lane, or wait for verify)
         id: decide
         env:
           GH_TOKEN: ${{ github.token }}
@@ -102,7 +109,7 @@ jobs:
           # A verify.yml run of this repository that passed and recorded this exact tree (pull request or main).
           verified_run() {
             local ids id
-            ids=$(gh api "repos/$REPO/actions/artifacts?name=verified-tree-$tree&per_page=30" \
+            ids=$(gh api "repos/$REPO/actions/artifacts?name=verified-tree-${1:-$tree}&per_page=30" \
               --jq '.artifacts[] | select(.expired | not) | .workflow_run.id') || return 0
             for id in $ids; do
               gh api "repos/$REPO/actions/runs/$id" 2>/dev/null | jq -r --arg repo "$REPO" \
@@ -129,10 +136,33 @@ jobs:
             { echo "Release path: **CI once** (verify passed on tree \`$tree\`: $1)."; echo 'Pre-go-live npm test skipped; build, verify-bundle, every acceptance group and automatic rollback run.'; } >> "$GITHUB_STEP_SUMMARY"
             exit 0
           }
+          # Page lane: the nearest first-parent ancestor (at most 20 back) whose tree a passing verify run recorded,
+          # and every file changed since it a standalone page, its own test or docs. Renames count as delete + add.
+          page_lane() {
+            local base='' base_tree evidence='' lane
+            for base in $(git rev-list --first-parent --max-count=20 HEAD^ 2>/dev/null); do
+              base_tree=$(git rev-parse "$base^{tree}")
+              evidence=$(verified_run "$base_tree")
+              [ -n "$evidence" ] && break
+            done
+            if [ -z "$evidence" ]; then
+              echo 'Page lane: no verified tree among the last 20 first-parent commits.'
+              return 0
+            fi
+            lane=$(git diff --name-only --no-renames -z "$base" HEAD | node scripts/release-lane.mjs) || return 0
+            echo "Page lane: since $base (verified: $evidence): $(echo "$lane" | sed -n 's/^reason=//p')"
+            echo "$lane" | grep -qx 'lane=page' || return 0
+            echo 'ci_once=false' >> "$GITHUB_OUTPUT"
+            echo 'Path: page lane. Not waiting for verify on this commit; the deploy job runs npm test, build, verify-bundle, acceptance and rollback.'
+            { echo "Release path: **page lane** (only standalone pages or docs changed since verified main \`$base\`: $evidence)."
+              echo 'Not waiting for verify on this commit; npm test, build, verify-bundle, every acceptance group and automatic rollback run.'; } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          }
           if [ "$EVENT_NAME" = push ] && newer=$(superseded); then stand_down "$newer"; fi
 
           evidence=$(verified_run)
           if [ -n "$evidence" ]; then ci_once "$evidence"; fi
+          if [ "$EVENT_NAME" = push ]; then page_lane; fi
           if [ "$EVENT_NAME" != push ]; then
             echo 'ci_once=false' >> "$GITHUB_OUTPUT"
             echo "Path: full. No passing verify run recorded tree $tree; the deploy job runs npm test before go-live, as before."
