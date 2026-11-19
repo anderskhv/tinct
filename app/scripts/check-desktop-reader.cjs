@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5191';
 const engine=process.env.ENGINE||'chromium';
@@ -15,7 +16,7 @@ async function snap(p){return p.locator('.lab-page-wrap > .lab-passage').evaluat
 })}
 async function ready(p){await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.waitForTimeout(120)}
 async function turn(p,key){await p.keyboard.press(key);await p.waitForTimeout(80);const a=await snap(p);await p.waitForTimeout(100);assert.deepEqual((await snap(p)).keys,a.keys,'Stable page after turn');assert.ok(a.bottom<a.limit,`Text ${a.bottom} overlaps footer ${a.limit}`);return a}
-(async()=>{const b=await({chromium,webkit}[engine]).launch();const results=[];try{
+(async()=>{const b=await markInternal(await ({chromium,webkit}[engine]).launch());const results=[];try{
  const p=await b.newPage({serviceWorkers:'block',viewport:{width:1440,height:950}});await p.route('**/api/**',r=>/\/api\/audio-(?:file|manifest)\?/.test(r.request().url())?r.continue():r.fulfill({status:404,body:'{}'}));p.on('pageerror',e=>console.log('PAGE ERROR',e.message));
  await p.addInitScript(()=>{if(!localStorage.getItem('desktop-fixture')){localStorage.setItem('desktop-fixture','1');sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'democracy-in-america',primaryEditionKey:'original-en',compareEditionKey:'modern-en',savedPlace:{bookId:'democracy-in-america',chapterNumber:1,paragraphIndex:0,page:0}}))}});
  // A deliberately cold font must settle before any page is exposed as ready.
@@ -65,8 +66,8 @@ async function turn(p,key){await p.keyboard.press(key);await p.waitForTimeout(80
  }
  // Actual playback; speed must respond to keyboard and pointer, with a usable popover.
  await p.getByTestId('lab-v2-play').click();await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='true',{}, {timeout:25000});await p.waitForTimeout(300);
- await p.getByTestId('lab-hearing-speed').click();const slider=p.getByTestId('lab-audio-speed-slider');await slider.focus();await slider.press('ArrowRight');assert.equal(await slider.inputValue(),'1.25');
- const box=await slider.boundingBox();await p.mouse.click(box.x+box.width*.6,box.y+box.height/2);assert.equal(await slider.inputValue(),'2');assert.ok(await p.evaluate(()=>window.__desktopAudio.some(audio=>!audio.paused&&audio.playbackRate===2)),'Selected rate reaches the actual playing audio');await p.getByRole('button',{name:'Done',exact:true}).click();await p.getByTestId('lab-audio-speed-popover').waitFor({state:'hidden'});
+ await p.getByTestId('lab-hearing-speed').click();const faster=p.getByTestId('lab-audio-speed-faster'),speedValue=p.getByTestId('lab-audio-speed-value');await faster.focus();await p.keyboard.press('Enter');assert.equal(await speedValue.textContent(),'1.25×');
+ for(let i=0;i<3;i++)await faster.click();assert.equal(await speedValue.textContent(),'2×');assert.ok(await p.evaluate(()=>window.__desktopAudio.some(audio=>!audio.paused&&audio.playbackRate===2)),'Selected rate reaches the actual playing audio');await p.keyboard.press('Escape');await p.getByTestId('lab-audio-speed-popover').waitFor({state:'hidden'});
  await p.screenshot({path:out+'/'+engine+'-audio.png'});await p.getByTestId('lab-v2-play').click();await p.waitForTimeout(250);assert.ok((await snap(p)).bottom<(await snap(p)).limit);
  results.push({reload:true,speedKeyboardAndPointer:true});
  await p.close();

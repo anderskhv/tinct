@@ -4,16 +4,18 @@ import { act, cleanup, render, waitFor } from '@testing-library/react'
 import type { MutableRefObject } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
+  LAB_POSITION_DEBOUNCE_MS,
   LAB_POSITION_DEVICE_KEY,
   LAB_POSITION_STORAGE_KEY,
   emptyLabPositionState,
   type LabBookPlace,
   type LabPositionState,
+  type LabReaderStateSnapshot,
 } from './labPosition'
 import { clearLabPositionLocal, readLabPositionLocal } from './labPositionStore'
 import * as sourceModule from './labSource'
 import { bibleFallbackSource, type LabChapter, type LabSource } from './labSource'
-import { bookFromResumePlace, bootLabReading, remoteResumeSelection, resumePlaceForLibrary, useLabPositionSync } from './useLabPositionSync'
+import { bookFromResumePlace, bootLabReading, placeRestoresInView, remoteResumeSelection, resumePlaceEditionKey, resumePlaceForLibrary, useLabPositionSync } from './useLabPositionSync'
 import { readLabPrefs } from './labPrefs'
 
 const PHONE = 'phone-device'
@@ -184,10 +186,12 @@ function Harness(props: {
   writesSuspended?: boolean
   initialCloudWaitMs?: number
   resolveBeforePaint?: boolean
+  readerStateRef?: MutableRefObject<LabReaderStateSnapshot>
 }) {
   const { notePlace, markChapterFinished, finishedChapters, initialPositionResolved } = useLabPositionSync({
     book: props.book,
     placeRef: props.placeRef,
+    readerStateRef: props.readerStateRef,
     sourceLocked: props.sourceLocked ?? false,
     writesSuspended: props.writesSuspended,
     authToken: props.token === undefined ? 'signed-in' : props.token,
@@ -445,6 +449,19 @@ describe('initial resolution: one place before first paint', () => {
     expect(placeRef.current).toEqual({ paragraphIndex: 9, wordIndex: 2 })
   })
 
+  it('cloud same chapter in another edition: reloads in that edition, never restores its words into this text', async () => {
+    // 14 Nov 2026: a KJV place restored by word into the BSB names another part of the chapter.
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({ ...settledProverbsLocal(), books: { proverbs: proverbs17({ primaryEditionKey: 'bsb-en' }) } }))
+    const kjv = { ...settledProverbsLocal(), books: { proverbs: proverbs17({ paragraphIndex: 9, wordIndex: 2, primaryEditionKey: 'kjv-en', updatedAt: 250_000, deviceId: DESK }) }, lastSettledAt: 250_000, updatedAt: 250_000, deviceId: DESK }
+    stubPositionApi(Promise.resolve(kjv))
+    const onRemoteResume = vi.fn()
+    const onResolvedPlace = vi.fn()
+    const readerStateRef = { current: { pageIndex: 0, primaryEditionKey: 'bsb-en', readerMode: 'read' as const } }
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} onResolvedPlace={onResolvedPlace} readerStateRef={readerStateRef} />)
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 9, wordIndex: 2, primaryEditionKey: 'kjv-en' })))
+    expect(onResolvedPlace).not.toHaveBeenCalled()
+  })
+
   it('a failed cloud answer resolves to the local place', async () => {
     localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
     stubPositionApi(Promise.resolve(null))
@@ -523,6 +540,31 @@ describe('writes from the reader', () => {
     expect(api.puts()).toHaveLength(0)
   })
 
+  it('writes a still-debounced page turn when the reader unmounts, never later from the dead reader', async () => {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] })
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const api = stubPositionApi(Promise.resolve(null))
+    const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
+    const { unmount } = render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={() => {}} />)
+    await settle()
+    act(() => { harness.markChapterFinished!(644) })
+    act(() => { harness.notePlace!('page-turn', { paragraphIndex: 5, wordIndex: 0 }) })
+    await settle()
+    const putsBefore = api.puts().length
+    // The page turn is waiting on its debounce: the cloud has not had it yet.
+    unmount()
+    await settle()
+    expect(api.puts()).toHaveLength(putsBefore + 1)
+    expect(JSON.parse(String(api.puts()[putsBefore]!.init?.body)).books.proverbs).toMatchObject({ paragraphIndex: 5, wordIndex: 0 })
+    // Whatever the device stores next (here: nothing, a cleared record) is
+    // never overwritten by the gone reader's timer.
+    clearLabPositionLocal()
+    await act(async () => { vi.advanceTimersByTime(LAB_POSITION_DEBOUNCE_MS * 2) })
+    await settle()
+    expect(localStorage.getItem(LAB_POSITION_STORAGE_KEY)).toBeNull()
+    expect(api.puts()).toHaveLength(putsBefore + 1)
+  })
+
   it('PUTs with keepalive on hide and flushes a dirty record when back online', async () => {
     localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
     const api = stubPositionApi(Promise.resolve(null))
@@ -541,6 +583,19 @@ describe('writes from the reader', () => {
     const before = api.puts().length
     act(() => { window.dispatchEvent(new Event('online')) })
     await waitFor(() => expect(api.puts().length).toBe(before + 1))
+  })
+
+  it('labels each PUT with this tab, the build and why it was written, for the server history only', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const api = stubPositionApi(Promise.resolve(null))
+    const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
+    render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={() => {}} />)
+    await settle()
+    act(() => { harness.notePlace!('hide') })
+    await settle()
+    const body = JSON.parse(String(api.puts()[api.puts().length - 1]?.init?.body)) as LabPositionState & { client?: Record<string, string> }
+    expect(body.client).toEqual({ tab: expect.stringMatching(/^[a-f0-9]{8}\.[a-f0-9]{4}$/), build: 'dev', reason: 'hide' })
+    expect(body.books.proverbs).not.toHaveProperty('client')
   })
 })
 
@@ -603,6 +658,41 @@ describe('remoteResumeSelection', () => {
     expect(selection?.primaryEditionKey).not.toBe('kjv-en')
     expect(selection?.prefs.primaryEdition).toBe(selection?.primaryEditionKey)
     expect(selection?.prefs).not.toBe(prefs)
+  })
+
+  it('a place from the account opens in the edition it was saved in, in the open book too (14 Nov 2026, KJV Luke 13 opened in the BSB)', () => {
+    const bsb = { ...prefs, primaryEdition: 'bsb-en', audioEdition: 'bsb-en' }
+    const luke: LabBookPlace = { ...hebrews3(), bookId: 'luke', headerBook: 'Luke', chapterNumber: 13, sequentialChapter: 986, paragraphIndex: 6, wordIndex: 150, primaryEditionKey: 'kjv-en' }
+    const selection = remoteResumeSelection(luke, { libraryBookId: 'bible', prefs: bsb })
+    expect(selection).toMatchObject({ bookId: 'bible', primaryEditionKey: 'kjv-en' })
+    // The reader's main edition on this device becomes the place's, as if chosen.
+    expect(selection?.prefs.primaryEdition).toBe('kjv-en')
+    const frankenstein: LabBookPlace = { ...hebrews3(), bookId: 'frankenstein', headerBook: 'Frankenstein', chapterNumber: 11, sequentialChapter: 11, primaryEditionKey: 'original-en' }
+    const modern = { ...prefs, primaryEdition: 'modern-en', audioEdition: 'modern-en' }
+    expect(remoteResumeSelection(frankenstein, { libraryBookId: 'frankenstein', prefs: modern })).toMatchObject({ bookId: 'frankenstein', primaryEditionKey: 'original-en' })
+    expect(remoteResumeSelection(frankenstein, { libraryBookId: 'bible', prefs: modern })).toMatchObject({ bookId: 'frankenstein', primaryEditionKey: 'original-en' })
+  })
+
+  it('a place in an edition the reader may not open reads in the current edition', () => {
+    const bsb = { ...prefs, primaryEdition: 'bsb-en', audioEdition: 'bsb-en' }
+    const gone: LabBookPlace = { ...hebrews3(), primaryEditionKey: 'modern-en' }
+    expect(resumePlaceEditionKey(gone)).toBeUndefined()
+    expect(remoteResumeSelection(gone, { libraryBookId: 'bible', prefs: bsb })).toMatchObject({ bookId: 'bible', primaryEditionKey: 'bsb-en' })
+    // Held (Pride and Prejudice's Danish is not offered; Frankenstein's was until 2026-11-18): the
+    // book's current edition, never the held one.
+    const danish: LabBookPlace = { ...hebrews3(), bookId: 'pride-and-prejudice', headerBook: 'Pride and Prejudice', chapterNumber: 11, sequentialChapter: 11, primaryEditionKey: 'modern-da' }
+    expect(resumePlaceEditionKey(danish)).toBeUndefined()
+    const modern = { ...prefs, primaryEdition: 'modern-en', audioEdition: 'modern-en' }
+    expect(remoteResumeSelection(danish, { libraryBookId: 'pride-and-prejudice', prefs: modern })).toMatchObject({ primaryEditionKey: 'modern-en' })
+  })
+
+  it('restores in view only a place whose words are the ones on screen', () => {
+    const kjv = { bookId: 'luke', sequentialChapter: 986, primaryEditionKey: 'kjv-en' }
+    expect(placeRestoresInView(kjv, { bookId: 'luke', chapterNumber: 986, primaryEditionKey: 'kjv-en' })).toBe(true)
+    expect(placeRestoresInView(kjv, { bookId: 'luke', chapterNumber: 986, primaryEditionKey: 'bsb-en' })).toBe(false)
+    expect(placeRestoresInView(kjv, { bookId: 'luke', chapterNumber: 985, primaryEditionKey: 'kjv-en' })).toBe(false)
+    expect(placeRestoresInView({ ...kjv, primaryEditionKey: undefined }, { bookId: 'luke', chapterNumber: 986, primaryEditionKey: 'bsb-en' })).toBe(true)
+    expect(placeRestoresInView(kjv, { bookId: 'luke', chapterNumber: 986 })).toBe(true)
   })
 
   it('keeps the edition the registry pin was read in when that book offers it', () => {
@@ -845,4 +935,113 @@ it('library Continue selects the newest Bible pin instead of a stale local chapt
   } }
   expect(resumePlaceForLibrary(state, 'bible')?.bookId).toBe('hebrews')
   expect(resumePlaceForLibrary(state, 'crito')?.bookId).toBe('crito')
+})
+
+it('an added (pd-) or own (userbook-) book\'s pin is never a Bible pin', () => {
+  const hebrews = settledHebrewsCloud()
+  const added = { ...proverbs17({ updatedAt: hebrews.books.hebrews.updatedAt + 60_000 }), bookId: 'pd-gut-the-time-machine', headerBook: 'The Time Machine', sequentialChapter: 2 }
+  const own = { ...added, bookId: 'userbook-0123456789abcdef01234567', headerBook: 'My book' }
+  const state = { ...hebrews, lastSettledBookId: own.bookId, books: { ...hebrews.books, [added.bookId]: added, [own.bookId]: own } }
+  expect(resumePlaceForLibrary(state, 'bible')?.bookId).toBe('hebrews')
+  expect(resumePlaceForLibrary({ ...state, books: { [added.bookId]: added, [own.bookId]: own } }, 'bible')).toBeNull()
+})
+
+it('library Continue keeps the settled Bible book over a newer short peek, as the library\'s own Continue does', () => {
+  const hebrews = settledHebrewsCloud()
+  const state = { ...hebrews, lastSettledBookId: 'hebrews', books: {
+    ...hebrews.books,
+    romans: { ...proverbs17({ updatedAt: hebrews.books.hebrews.updatedAt + 60_000 }), bookId: 'romans', headerBook: 'Romans', chapterNumber: 8, sequentialChapter: 1054 },
+  } }
+  expect(resumePlaceForLibrary(state, 'bible')?.bookId).toBe('hebrews')
+  expect(resumePlaceForLibrary({ ...state, lastSettledBookId: 'crito' }, 'bible')?.bookId).toBe('romans')
+})
+
+describe('a stale reader on the same device (12 Nov 2026, two tabs on one iPhone)', () => {
+  /** What another tab on this device stored after this reader last wrote: Proverbs 17, further on. */
+  function storeFromOtherTab(over: Partial<LabBookPlace> = {}) {
+    const record = readLabPositionLocal(PHONE)
+    const place = proverbs17({ paragraphIndex: 9, wordIndex: 2, updatedAt: Date.now() + 5_000, rev: 9, ...over })
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({
+      ...record, books: { ...record.books, proverbs: place }, lastSettledBookId: 'proverbs', lastSettledAt: place.updatedAt, updatedAt: place.updatedAt,
+    }))
+    return place
+  }
+
+  async function mountCurrent(props: { onRemoteResume?: (place: LabBookPlace) => void; onResolvedPlace?: (place: LabBookPlace) => void } = {}) {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({ ...settledProverbsLocal(), owner: READER }))
+    const api = stubPositionApi(Promise.resolve(null))
+    const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
+    render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={props.onRemoteResume ?? (() => {})} onResolvedPlace={props.onResolvedPlace} />)
+    await settle()
+    expect(harness.initialPositionResolved).toBe(true)
+    return { api, placeRef }
+  }
+
+  it('a page turn from the stale page moves to the newer place and never writes the stale one', async () => {
+    const onResolvedPlace = vi.fn()
+    const { api, placeRef } = await mountCurrent({ onResolvedPlace })
+    const newer = storeFromOtherTab()
+    act(() => { harness.notePlace!('page-turn', { paragraphIndex: 4, wordIndex: 0 }) })
+    await settle()
+    expect(readLabPositionLocal(PHONE).books.proverbs).toMatchObject({ paragraphIndex: 9, wordIndex: 2, updatedAt: newer.updatedAt })
+    expect(onResolvedPlace).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 9, wordIndex: 2 }))
+    expect(placeRef.current).toEqual({ paragraphIndex: 9, wordIndex: 2 })
+    expect(api.puts().some(put => JSON.parse(String(put.init?.body)).books.proverbs?.paragraphIndex === 4)).toBe(false)
+  })
+
+  it('reads on from the adopted place: the next turn is written, newer than the place it followed', async () => {
+    await mountCurrent()
+    const newer = storeFromOtherTab()
+    act(() => { harness.notePlace!('page-turn', { paragraphIndex: 4, wordIndex: 0 }) })
+    act(() => { harness.notePlace!('page-turn', { paragraphIndex: 10, wordIndex: 0 }) })
+    const stored = readLabPositionLocal(PHONE).books.proverbs
+    expect(stored).toMatchObject({ paragraphIndex: 10, wordIndex: 0 })
+    expect(stored.updatedAt).toBeGreaterThan(newer.updatedAt)
+    expect(stored.rev).toBeGreaterThan(newer.rev)
+  })
+
+  it('a chosen destination (Contents) is still written by a stale reader', async () => {
+    await mountCurrent()
+    storeFromOtherTab()
+    act(() => { harness.notePlace!('chapter-jump', { sequentialChapter: 646, paragraphIndex: 0, wordIndex: 0 }) })
+    expect(readLabPositionLocal(PHONE).books.proverbs).toMatchObject({ sequentialChapter: 646, paragraphIndex: 0 })
+  })
+
+  it('coming back to the tab shows the newer place at once, before any tap', async () => {
+    const onResolvedPlace = vi.fn()
+    await mountCurrent({ onResolvedPlace })
+    storeFromOtherTab()
+    act(() => { document.dispatchEvent(new Event('visibilitychange')) })
+    expect(onResolvedPlace).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 9, wordIndex: 2 }))
+  })
+
+  it('a page restored from the back/forward cache loads the chapter another tab read on into', async () => {
+    const onRemoteResume = vi.fn()
+    await mountCurrent({ onRemoteResume })
+    storeFromOtherTab({ sequentialChapter: 646, chapterNumber: 18, paragraphIndex: 1, wordIndex: 0 })
+    act(() => { window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true })) })
+    expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ sequentialChapter: 646, paragraphIndex: 1 }))
+  })
+
+  it('a current reader writes its own page turns and its hide flush as before', async () => {
+    const onResolvedPlace = vi.fn()
+    const { api } = await mountCurrent({ onResolvedPlace })
+    act(() => { harness.notePlace!('page-turn', { paragraphIndex: 5, wordIndex: 0 }) })
+    act(() => { harness.notePlace!('hide') })
+    await settle()
+    expect(onResolvedPlace).not.toHaveBeenCalled()
+    expect(readLabPositionLocal(PHONE).books.proverbs).toMatchObject({ paragraphIndex: 5, wordIndex: 0 })
+    expect(api.puts().length).toBeGreaterThan(0)
+    expect(JSON.parse(String(api.puts().at(-1)!.init?.body)).books.proverbs).toMatchObject({ paragraphIndex: 5, wordIndex: 0 })
+  })
+
+  it('another account\'s record on the device is never adopted', async () => {
+    const onResolvedPlace = vi.fn()
+    await mountCurrent({ onResolvedPlace })
+    const record = readLabPositionLocal(PHONE)
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({ ...record, owner: OTHER_ACCOUNT,
+      books: { proverbs: proverbs17({ paragraphIndex: 9, updatedAt: Date.now() + 5_000 }) } }))
+    act(() => { document.dispatchEvent(new Event('visibilitychange')) })
+    expect(onResolvedPlace).not.toHaveBeenCalled()
+  })
 })

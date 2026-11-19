@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import {preserveUnresolvedSymposiumPositions,SYMPOSIUM_POSITION_RECOVERY_KEY} from '../lab/labPositionStore'
 import {readFileSync} from 'node:fs'
-import {describe,it,expect,vi} from 'vitest'
+import {beforeAll,describe,it,expect,vi} from 'vitest'
 // The Symposium is held (2026-10-02); these tests cover the migration that runs once the hold lifts.
 vi.mock('./editionAvailability',async importOriginal=>{
  const actual=await importOriginal<typeof import('./editionAvailability')>()
@@ -9,7 +9,10 @@ vi.mock('./editionAvailability',async importOriginal=>{
 })
 import mapData from './symposiumCoordinateMap.json'
 import {projectEditionCoordinate,projectExactEditionRange,type CoordinateMigration} from './editionCoordinateMigration'
-import {loadedCoordinateMigration,writtenBeforeRelease} from './editionContentRevisions'
+import {__setLoadedCoordinateMigration,loadCoordinateMigration,loadedCoordinateMigration,writtenBeforeRelease} from './editionContentRevisions'
+import {LAB_POSITION_STORAGE_KEY,emptyLabPositionState} from '../lab/labPosition'
+import {readLabPositionLocal} from '../lab/labPositionStore'
+import {storedContentMigrations} from '../lab/labStoredContentMigrations'
 import {migrateLabBookPlace} from '../lab/labEditionMigration'
 import {migrateLoadedLabPlaces} from '../lab/labContentMigration'
 import {migrateLabHighlight} from '../lab/labHighlightMigration'
@@ -19,7 +22,38 @@ import {createHash} from 'node:crypto'
 import {usesRetainedBella} from '../narration/bellaRetention'
 const map=mapData as unknown as CoordinateMigration
 const current=(ed:string)=>JSON.parse(readFileSync(new URL('../../public/data/editions/symposium-'+ed+'.json',import.meta.url),'utf8'))
+// The map ships with the app as its own bundle, loaded only for a reader who
+// holds Symposium data to move (15 Oct 2026: it was 130 KB gzip on every
+// reader's first page). The reader waits for it before its first read
+// (main.tsx, storedContentMigrations), so migration still precedes the
+// synchronous bounds validation; the service worker installs the bundle with
+// the reader shell, so it does so offline too (stamp-sw-app-shell.cjs).
+describe('Symposium map loading',()=>{
+ it('is not in memory until asked for, and comes from the app itself, never the network',async()=>{
+  __setLoadedCoordinateMigration('positions',null,'symposium');__setLoadedCoordinateMigration('highlights',null,'symposium')
+  expect(loadedCoordinateMigration('positions','symposium')).toBeUndefined()
+  const fetchSpy=vi.spyOn(globalThis,'fetch')
+  const loaded=await loadCoordinateMigration('highlights','symposium')
+  expect(loaded?.revision).toBe(map.revision)
+  expect(loadedCoordinateMigration('positions','symposium')).toBe(loaded)
+  expect(fetchSpy).not.toHaveBeenCalled()
+  fetchSpy.mockRestore()
+ })
+ it('is loaded before the reader reads a device place that needs it, and the place moves',async()=>{
+  __setLoadedCoordinateMigration('positions',null,'symposium');__setLoadedCoordinateMigration('highlights',null,'symposium')
+  const place={bookId:'symposium',headerBook:'Symposium',chapterNumber:7,sequentialChapter:7,paragraphIndex:69,wordIndex:1,primaryEditionKey:'original-en',updatedAt:1700000000000,deviceId:'phone',rev:2}
+  localStorage.setItem(LAB_POSITION_STORAGE_KEY,JSON.stringify({...emptyLabPositionState('phone'),books:{symposium:place}}))
+  const waiting=storedContentMigrations()
+  expect(waiting).not.toBeNull()
+  await waiting
+  expect(readLabPositionLocal('phone').books.symposium).toMatchObject({chapterNumber:8,sequentialChapter:8,paragraphIndex:0,wordIndex:1,updatedAt:place.updatedAt})
+  localStorage.removeItem(LAB_POSITION_STORAGE_KEY)
+ })
+})
+
 describe('Symposium completeness compatibility',()=>{
+ // Every reader that could hold such data has it loaded first (above).
+ beforeAll(async()=>{await loadCoordinateMigration('positions','symposium')})
  it('retains edition-unknown Lab bookmarks before validation without guessing Danish',()=>{
   localStorage.removeItem(SYMPOSIUM_POSITION_RECOVERY_KEY)
   const place={bookId:'symposium',chapterNumber:7,sequentialChapter:7,paragraphIndex:100,wordIndex:8,updatedAt:1700000000000}
@@ -60,7 +94,7 @@ describe('Symposium completeness compatibility',()=>{
   }
  })
 
- it('bundles the map before synchronous bounds validation and never selects stale original recordings',()=>{
+ it('has the map in memory before synchronous bounds validation and never selects stale original recordings',()=>{
   expect(loadedCoordinateMigration('positions','symposium')?.revision).toBe(map.revision)
   expect(usesRetainedBella('symposium','original-en','female')).toBe(false)
  })

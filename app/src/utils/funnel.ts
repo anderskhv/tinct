@@ -16,11 +16,19 @@
  */
 import { apiUrl } from './apiUrl'
 import { captureAttribution, getAttributionPayload } from './attribution'
+import { isInternalTraffic } from './internalTraffic'
+import { readingPrivateBook, withholdAnalytics } from '../lab/userBook/privateReading'
 
 export type FunnelEventName =
   | 'landing_view' | 'book_opened' | 'first_page_turn' | 'chapter_completed'
   | 'ai_first_use' | 'anon_limit_reached' | 'signup_started' | 'signup_completed'
   | 'member_ai_use' | 'checkout_started' | 'checkout_completed'
+  | 'share_sheet_opened' | 'share_created' | 'share_completed' | 'share_link_opened' | 'share_link_signup'
+  | 'book_intro_viewed' | 'audio_failed' | 'audio_slow_start' | 'talk_failed'
+  // Social (ship 3): sent by the Friends page, a profile page and the reader.
+  | 'leaderboard_opened' | 'profile_viewed' | 'reading_card_shared'
+  // The library's picture tap that opened nothing (11 Oct 2026): what the open path saw, booleans only.
+  | 'cards_open_failed' | 'cards_open_stuck'
 
 type Wire = FunnelEventName | 'pageview' | 'page_duration'
 type Props = Record<string, string | number | boolean | null | undefined>
@@ -39,11 +47,18 @@ export interface FunnelDeps {
   once: { has(name: string): boolean; add(name: string): void }
   setTimer: (fn: () => void, ms: number) => unknown
   clearTimer: (handle: unknown) => void
+  /** Tinct's own testing (`?internal=1`): every event is sent marked `internal: true`. */
+  internal?: () => boolean
 }
 
 export const FUNNEL_FLUSH_MS = 4000
 export const FUNNEL_BATCH = 10
-export const FUNNEL_HEARTBEAT_MS = 30_000
+/**
+ * Visible time is reported this often while the page stays visible, and in
+ * full on hide and pagehide, so the summed duration is the same whatever the
+ * interval. Every report is an analytics_events row: keep it rare.
+ */
+export const FUNNEL_HEARTBEAT_MS = 5 * 60_000
 
 export function createFunnel(deps: FunnelDeps, surface: 'library' | 'reader' | 'sign-in' = 'reader') {
   let queue: Array<{ name: Wire; props: Record<string, string | number | boolean> }> = []
@@ -63,9 +78,11 @@ export function createFunnel(deps: FunnelDeps, surface: 'library' | 'reader' | '
   function flush(): void {
     if (timer !== null) { deps.clearTimer(timer); timer = null }
     if (queue.length === 0) return
-    const events = queue.slice(0, 20)
+    let events = queue.slice(0, 20)
     queue = queue.slice(20)
     try {
+      // Checked at send time, so events queued just before the flag was set are marked too.
+      if (deps.internal?.()) events = events.map(event => ({ ...event, props: { ...event.props, internal: true } }))
       deps.send(JSON.stringify({
         deviceId: deps.deviceId(), sessionId: deps.sessionId(), surface, path: deps.path(),
         referrer: deps.referrer(), attribution: deps.attribution(), events,
@@ -83,11 +100,12 @@ export function createFunnel(deps: FunnelDeps, surface: 'library' | 'reader' | '
     } catch { /* never throws */ }
   }
 
-  /** Once per device: the first time this has ever happened here. */
-  function trackOnce(name: FunnelEventName, props?: Props): void {
+  /** Once per device, or once per `scope` (a book) on this device. */
+  function trackOnce(name: FunnelEventName, props?: Props, scope?: string): void {
     try {
-      if (!deps.enabled() || deps.once.has(name)) return
-      deps.once.add(name)
+      const key = scope ? `${name}:${scope}` : name
+      if (!deps.enabled() || deps.once.has(key)) return
+      deps.once.add(key)
       track(name, props)
     } catch { /* never throws */ }
   }
@@ -194,6 +212,8 @@ function browserDeps(): FunnelDeps {
   return {
     enabled: () => {
       if (typeof window === 'undefined' || import.meta.env.DEV || import.meta.env.MODE === 'test') return false
+      // A reader's own book is never reported (lab/userBook/privateReading.ts).
+      if (readingPrivateBook()) return false
       return !(typeof navigator !== 'undefined' && navigator.webdriver)
     },
     deviceId: () => (deviceIdReader ? deviceIdReader() : lightDeviceId()),
@@ -221,6 +241,7 @@ function browserDeps(): FunnelDeps {
     once: browserOnce(),
     setTimer: (fn, ms) => setTimeout(fn, ms),
     clearTimer: handle => clearTimeout(handle as ReturnType<typeof setTimeout>),
+    internal: isInternalTraffic,
   }
 }
 
@@ -238,5 +259,5 @@ export function funnel(surface: 'library' | 'reader' | 'sign-in' = 'reader'): Re
 }
 
 /** Fire and forget helpers for call sites. */
-export function trackFunnel(name: FunnelEventName, props?: Props): void { funnel().track(name, props) }
-export function trackFunnelOnce(name: FunnelEventName, props?: Props): void { funnel().trackOnce(name, props) }
+export function trackFunnel(name: FunnelEventName, props?: Props): void { if (!withholdAnalytics(props)) funnel().track(name, props) }
+export function trackFunnelOnce(name: FunnelEventName, props?: Props, scope?: string): void { if (!withholdAnalytics([props, scope])) funnel().trackOnce(name, props, scope) }

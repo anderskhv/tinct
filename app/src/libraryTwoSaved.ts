@@ -1,10 +1,12 @@
 /** The library's To read shelf. No reading position or completion writes. */
 import { supabase } from './services/supabase'
 import { coerceRev, versionedWriteApplied } from './services/supabaseStorage.versioning'
+import type { ShelfMembership } from './preReader/readingNow'
+import { libraryPageIsLeaving } from './preReader/libraryPageLifecycle'
 const PREFIX = 'library-shelf:'
 const DEVICE = 'tinct:library-2-saved:'
-type Change = { saved: boolean; at: number; tableHidden?: boolean }
-type State = { items: Record<string, Change>; pending: Record<string, Change>; revisions?: Record<string, number> }
+export type ShelfChange = { saved: boolean; at: number; tableHidden?: boolean }
+type State = { items: Record<string, ShelfChange>; pending: Record<string, ShelfChange>; revisions?: Record<string, number> }
 const empty = (): State => ({ items: {}, pending: {} })
 let queue: Promise<unknown> = Promise.resolve()
 let viewer: string | null | undefined
@@ -39,9 +41,14 @@ function write(owner: string | null, state: State) {
 function ids(state: State): string[] {
   return Object.entries(state.items).filter(([, item]) => item.saved).sort((a, b) => b[1].at - a[1].at).map(([id]) => id)
 }
-function acceptRow(state: State, id: string, row: { value?: Change | null; rev?: number | null; updated_at?: string | null }) {
+function acceptRow(state: State, id: string, row: { value?: ShelfChange | null; rev?: number | null; updated_at?: string | null }) {
   const revision = coerceRev(row.rev), known = state.revisions?.[id]
   if (known !== undefined && (revision === undefined || revision < known)) return
+  // The row this device already holds (its own write, or the same row read before) keeps this
+  // device's time for it: a tombstone's row clock (the database's) never re-dates a removal
+  // made here, so a server clock behind this one cannot bring the book back (4 Nov 2026).
+  const held = state.items[id]
+  if (revision !== undefined && revision === known && held && held.saved === (row.value?.saved === true) && !!held.tableHidden === (row.value?.tableHidden === true)) return
   if (revision !== undefined) (state.revisions ??= {})[id] = revision
   // A tombstone carries no value, so its removal time is the row's own clock.
   // Membership compares that time with later reading (loadShelfMembership).
@@ -54,12 +61,14 @@ function rememberRevision(state: State, id: string, raw: unknown) {
 }
 async function sync(owner: string | null, state: State): Promise<boolean> {
   if (!owner || !supabase) return true
+  if (libraryPageIsLeaving()) return false
   if (typeof navigator !== 'undefined' && navigator.onLine === false) return false
   const client = supabase
   try {
     const { data, error } = await client.from('user_data').select('key,value,rev,updated_at').eq('user_id', owner).like('key', PREFIX + '%')
     if (error) return false
     if (await account() !== owner) throw new Error('Account changed')
+    if (libraryPageIsLeaving()) return false
     const rows = new Map((data ?? []).map(row => [row.key.slice(PREFIX.length), row]))
     // Cloud tombstones remove items on every device; only unacknowledged local
     // actions override the server. Never resurrect a deleted remote book.
@@ -68,16 +77,25 @@ async function sync(owner: string | null, state: State): Promise<boolean> {
       let row = rows.get(id)
       for (let attempt = 0; attempt < 3; attempt++) {
         if (await account() !== owner) throw new Error('Account changed')
+        if (libraryPageIsLeaving()) return false
         if (state.pending[id] !== change) break
         // A queued removal from an older visit must not delete a later re-add
         // on another device, including a value returned by a CAS conflict.
-        if (!change.saved && row?.value?.saved === true && Number(row.value.at) > change.at) {
+        // For private uploads both hide choices use their original action time,
+        // including migration from a device that has not been opened recently.
+        if (((!change.saved && row?.value?.saved === true) || id.startsWith('userbook-')) && Number(row?.value?.at || Date.parse(row?.updated_at ?? '')) > change.at) {
           delete state.pending[id]
           acceptRow(state, id, row)
           break
         }
         const { data: result, error: failed } = await client.rpc('commit_user_data', {
-          p_user_id: owner, p_key: PREFIX + id, p_value: change.saved ? change : null,
+          // A visibility-only hide is not deletion: retain its action time. A removal is a
+          // tombstone (null), dated by its row's clock, except where that clock cannot date it:
+          // over a row that is a tombstone already (commit_user_data does not rewrite an
+          // unchanged value, 20261022_disk_io_audit.sql, so the row kept the first removal's
+          // clock, older than the reading since, and the book came back: Anders, 4 Nov 2026),
+          // or a removal dated after now (libraryTwoReading removalTime). It carries its time.
+          p_user_id: owner, p_key: PREFIX + id, p_value: change.saved || change.tableHidden ? change : (row && row.value === null) || change.at > Date.now() ? { saved: false, at: change.at } : null,
           p_expected_rev: row?.rev ?? null,
         })
         if (failed) break
@@ -101,8 +119,10 @@ function watchAccount(owner: string | null) {
     if ((session?.user.id ?? null) !== viewer) location.reload()
   })
 }
-export async function loadSavedBooks(options: { onCached?: (value: { ids: string[]; synced: boolean }) => void } = {}) {
-  const owner = await account(), state = read(owner)
+export async function loadSavedBooks(options: { onCached?: (value: { ids: string[]; synced: boolean }) => void; expectedOwner?: string } = {}) {
+  const owner = await account()
+  if (options.expectedOwner !== undefined && owner !== options.expectedOwner) throw new Error('Account changed')
+  const state = read(owner)
   watchAccount(owner)
   write(owner, state)
   options.onCached?.({ ids: ids(state), synced: false })
@@ -114,11 +134,13 @@ export async function loadSavedBooks(options: { onCached?: (value: { ids: string
     return { ids: ids(state), synced }
   })
 }
-export async function setSavedBook(id: string, saved: boolean, options: { tableHidden?: boolean } = {}) {
+export async function setSavedBook(id: string, saved: boolean, options: { tableHidden?: boolean; expectedOwner?: string; at?: number } = {}) {
   if (!/^[a-z0-9][a-z0-9-]*$/.test(id)) throw new Error('Invalid book')
-  const owner = await account(), state = read(owner)
+  const owner = await account()
+  if (options.expectedOwner !== undefined && owner !== options.expectedOwner) throw new Error('Account changed')
+  const state = read(owner)
   watchAccount(owner)
-  const change: Change = { saved, at: Date.now(), ...(saved && options.tableHidden ? { tableHidden: true } : {}) }
+  const change: ShelfChange = { saved, at: options.at ?? Date.now(), ...(options.tableHidden ? { tableHidden: true } : {}) }
   state.items[id] = change
   if (owner) state.pending[id] = change
   // Persist each click before joining the cloud queue. A slow request must
@@ -138,10 +160,19 @@ export async function setSavedBook(id: string, saved: boolean, options: { tableH
  * Each removal carries its time (`removedAt`, `tableHiddenAt`; 0 = unknown):
  * it holds only until the reader reads that book again, exactly like the
  * desk's own hide stamp, so no removal can hide a book being read forever.
+ * Synced with the account first (loadSavedBooks).
  */
-export async function loadShelfMembership() {
+export async function loadShelfMembership(): Promise<ShelfMembership> {
   await loadSavedBooks()
-  const owner = await account()
+  return readShelfMembership(await account())
+}
+
+/**
+ * The membership this device holds for a viewer (the account's, as last synced
+ * here), without asking the account. The reader's book switcher reads it so its
+ * "Reading now" leaves out the books taken off My shelf, as the library does.
+ */
+export function readShelfMembership(owner: string | null): ShelfMembership {
   const state = read(owner)
   const removed = Object.entries(state.items).filter(([, item]) => !item.saved)
   const tableHidden = Object.entries(state.items).filter(([, item]) => item.saved && item.tableHidden)
@@ -151,4 +182,10 @@ export async function loadShelfMembership() {
     removedAt: Object.fromEntries(removed.map(([id, item]) => [id, item.at || 0])) as Record<string, number>,
     tableHiddenAt: Object.fromEntries(tableHidden.map(([id, item]) => [id, item.at || 0])) as Record<string, number>,
   }
+}
+
+/** Owner-scoped shelf choice, including its original action time. No title or reading content. */
+export function readShelfChange(owner: string, id: string): ShelfChange | undefined {
+  const value = read(owner).items[id]
+  return value ? { ...value } : undefined
 }

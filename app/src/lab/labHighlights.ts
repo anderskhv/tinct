@@ -1,3 +1,4 @@
+import { isFigureToken, readableParagraph } from './labFigures'
 import type { HighlightColor } from '../types'
 import { tokenizeWithEmphasis } from './labEmphasis'
 
@@ -36,6 +37,55 @@ export interface LabHighlight {
   /** Exact source wording, retained for requested history search. */
   text?: string
   kept?: boolean
+  /** Last change (ms). Missing on older marks; sync falls back to the id's creation time. */
+  updatedAt?: number
+  /**
+   * 'chapter': a note on the whole chapter, with no passage. Its range is the
+   * empty 0..0 (no word falls inside it, so nothing is ever painted), and it
+   * lives in the same list, storage and cloud rows as passage highlights.
+   */
+  kind?: 'chapter'
+  /**
+   * Where the reader moved this note's card in the desktop margin (Anders, 13 Nov 2026): its top at `fraction` of
+   * paragraph `paragraphIndex`'s height (0 its first line's top, 1 its last line's foot), in `editionKey`'s text.
+   * Kept relative to a paragraph, so it holds through a reload, sync, a font or size change and a resize. Absent:
+   * the card sits at its passage. A passage note stays linked to its highlight; a margin note's own paragraph moves
+   * with it.
+   */
+  cardPlace?: LabNoteCardPlace
+}
+
+export interface LabNoteCardPlace {
+  paragraphIndex: number
+  fraction: number
+  editionKey?: string
+}
+
+/** A stored card place, checked (from another device or an older copy): null when it is not one. */
+export function validNoteCardPlace(value: unknown): LabNoteCardPlace | null {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null
+  const v = value as Record<string, unknown>
+  if (typeof v.paragraphIndex !== 'number' || !Number.isInteger(v.paragraphIndex) || v.paragraphIndex < 0 || v.paragraphIndex > 10_000_000) return null
+  if (typeof v.fraction !== 'number' || !Number.isFinite(v.fraction)) return null
+  const fraction = Math.max(-1, Math.min(2, Math.round(v.fraction * 10000) / 10000))
+  return { paragraphIndex: v.paragraphIndex, fraction, ...(typeof v.editionKey === 'string' && v.editionKey && v.editionKey.length <= 80 ? { editionKey: v.editionKey } : {}) }
+}
+
+/**
+ * A note's card moved to `place`. A margin note (a note with no words) moves its own paragraph with it, so it is
+ * listed and found there; a passage note keeps its passage. `place` null: back beside its passage. Stamped `now`.
+ */
+export function withNoteCardPlace(highlight: LabHighlight, place: LabNoteCardPlace | null, now = Date.now()): LabHighlight {
+  const { cardPlace: _old, ...rest } = highlight
+  const checked = place ? validNoteCardPlace(place) : null
+  if (!checked) return { ...rest, updatedAt: Math.max(now, (highlight.updatedAt ?? 0) + 1) }
+  const marginNote = !isLabChapterNote(highlight) && highlight.paragraphIndex === highlight.endParagraphIndex && highlight.fromWord === highlight.toWord
+  return {
+    ...rest,
+    ...(marginNote ? { paragraphIndex: checked.paragraphIndex, endParagraphIndex: checked.paragraphIndex, fromWord: 0, toWord: 0 } : {}),
+    cardPlace: checked,
+    updatedAt: Math.max(now, (highlight.updatedAt ?? 0) + 1),
+  }
 }
 
 const STORAGE_KEY = 'tinct-lab-highlights'
@@ -89,8 +139,9 @@ export function createLabHighlight(
   range: LabHighlightRange,
   color: LabHighlightColor,
 ): LabHighlight {
+  const now = Date.now()
   return {
-    id: `hl-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    id: `hl-${now}-${Math.random().toString(36).slice(2, 8)}`,
     chapterNumber,
     text: range.text,
     paragraphIndex: range.paragraphIndex,
@@ -98,6 +149,28 @@ export function createLabHighlight(
     endParagraphIndex: range.endParagraphIndex,
     toWord: range.toWord,
     color,
+    updatedAt: now,
+  }
+}
+
+/** A note on the chapter itself (no passage); see `LabHighlight.kind`. */
+export function isLabChapterNote(highlight: Pick<LabHighlight, 'kind'>): boolean {
+  return highlight.kind === 'chapter'
+}
+
+export function createLabChapterNote(chapterNumber: number, note: string): LabHighlight {
+  const now = Date.now()
+  return {
+    id: `hl-${now}-${Math.random().toString(36).slice(2, 8)}`,
+    kind: 'chapter',
+    chapterNumber,
+    paragraphIndex: 0,
+    fromWord: 0,
+    endParagraphIndex: 0,
+    toWord: 0,
+    color: 'gold',
+    note,
+    updatedAt: now,
   }
 }
 
@@ -158,7 +231,8 @@ export function buildHighlightRange(
     const words = tokenizeWithEmphasis(paragraphs[p] || '')
     const from = p === paragraphIndex ? fromWord : 0
     const to = p === endParagraphIndex ? toWord : words.length
-    if (to > from) textParts.push(words.slice(from, to).map(word => word.text).join(' '))
+    // A figure reads as its caption ("[Figure 2: …]"), never as its placeholder.
+    if (to > from) textParts.push(words.slice(from, to).map(word => isFigureToken(word.text) ? readableParagraph(word.text) : word.text).join(' '))
   }
   const text = textParts.join(' ').trim()
   if (!text) return null

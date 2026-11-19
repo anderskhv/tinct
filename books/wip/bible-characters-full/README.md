@@ -2,7 +2,7 @@
 
 **Status: content accepted / handed off to Codex. Not published, not integrated.**
 
-Branch `claude/magical-lovelace-85vhtw` · baseline `origin/main` `fe699e90` (checked again against `a9d3386a` before handoff; the four edition files and the live character file are byte-identical there — see `SOURCES-PINNED.md`) · owned path `books/wip/bible-characters-full/` · contentVersion `2026-09-30.1`.
+Branch `claude/magical-lovelace-85vhtw` · baseline `origin/main` `fe699e90` (checked again against `a9d3386a` before handoff; the four edition files and the live character file are byte-identical there — see `SOURCES-PINNED.md`) · owned path `books/wip/bible-characters-full/` · contentVersion `2026-09-30.1`, revised `2026-10-21.1` (two cards for the sons of Absalom in 1 Maccabees; see `REVIEW-RECORD.md` stage 12).
 
 ## Result
 

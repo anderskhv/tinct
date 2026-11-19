@@ -1,3 +1,5 @@
+import { editionWholeUrl } from '../../data/editionUrls'
+import { CHAPTER_SHARDED_EDITION_IDS } from '../../data/editionShardRegistry'
 export interface PassagePoint { chapterNumber: number; paragraphIndex: number; offset: number }
 interface Snapshot { availableAt: PassagePoint; name: string; subtitle: string; body: string }
 interface Character { id: string; kind: string; storyRole: string; roleVisibleAt: PassagePoint; firstMention: PassagePoint; snapshots: Snapshot[] }
@@ -31,9 +33,15 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   // 2026-09-30.1 — every appearance linked in four editions. The 16.5 MB package
   // is served as one sidecar per edition (see characterAssetPath) so a reader
   // downloads only the edition that is open.
-  bible: { editions: ['kjv-en', 'web-en', 'bsb-en', 'webc-en'], revision: '2026-09-30.1', perEdition: true },
+  // 2026-10-21.1 — own cards for the sons of Absalom (1 Macc 11:70, 13:11), whose
+  // unlinked names drew a confident namesake from the contextual lookup.
+  bible: { editions: ['kjv-en', 'web-en', 'bsb-en', 'webc-en'], revision: '2026-10-21.1', perEdition: true },
+  // text-2026-11-18.1 (danish-recovered-batch-02) — Hamlet, King Lear, Othello, Romeo and Juliet,
+  // Midsummer, Twelfth Night, The Tempest, Comedy of Errors, Coriolanus and Beyond Good and Evil:
+  // modern-en mentions re-anchored by exact text after the English repairs published with the
+  // recovered Danish; card prose unchanged.
   // 2026-09-10.1 — Hamlet, Macbeth, four philosophy/reference, nine plays
-  hamlet: { editions: EN, revision: '2026-09-10.1' },
+  hamlet: { editions: EN, revision: 'text-2026-11-18.1' },
   macbeth: { editions: EN, revision: '2026-09-30.1' },
   crito: { editions: EN, revision: '2026-09-10.1' },
   apology: { editions: EN, revision: '2026-09-10.1' },
@@ -42,7 +50,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'henry-v': { editions: EN, revision: '2026-09-10.1' },
   'winters-tale': { editions: EN, revision: '2026-09-10.1' },
   cymbeline: { editions: EN, revision: '2026-09-10.1' },
-  coriolanus: { editions: EN, revision: '2026-09-10.1' },
+  coriolanus: { editions: EN, revision: 'text-2026-11-18.1' },
   'antony-and-cleopatra': { editions: EN, revision: '2026-09-10.1' },
   'richard-iii': { editions: EN, revision: '2026-09-10.1' },
   'henry-iv-part-2': { editions: EN, revision: '2026-09-10.1' },
@@ -52,46 +60,54 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'kant-groundwork': { editions: EN, revision: '2026-10-01.1' },
   'descartes-meditations': { editions: EN, revision: '2026-09-11.1' },
   // 2026-09-11.2 — bulk release of the validated queue
+  // text-2026-11-18.1 — modern-en mentions re-anchored by exact text after the English repairs
+  // published with the recovered Danish (Antigone, Candide, Frankenstein, Frederick Douglass,
+  // Genealogy of Morals, Heart of Darkness, both Oedipus plays); card prose unchanged.
   'a-little-princess': { editions: EN, revision: '2026-10-01.1' },
-  antigone: { editions: EN, revision: '2026-09-11.2' },
+  antigone: { editions: EN, revision: 'text-2026-11-18.1' },
   'around-the-world-80-days': { editions: EN, revision: '2026-10-01.1' },
   bacchae: { editions: EN, revision: '2026-10-01.2' },
   beowulf: { editions: EN, revision: '2026-09-11.2' },
-  candide: { editions: EN, revision: '2026-09-23.1' },
-  'comedy-of-errors': { editions: EN, revision: '2026-09-11.2' },
+  candide: { editions: EN, revision: 'text-2026-11-18.1' },
+  'comedy-of-errors': { editions: EN, revision: 'text-2026-11-18.1' },
   'communist-manifesto': { editions: EN, revision: '2026-10-01.1' },
   'discourse-on-inequality': { editions: EN, revision: '2026-09-11.2' },
-  'frederick-douglass': { editions: EN, revision: '2026-09-11.2' },
+  'frederick-douglass': { editions: EN, revision: 'text-2026-11-18.1' },
   gilgamesh: { editions: EN, revision: '2026-09-11.2' },
+  'heart-of-darkness': { editions: EN, revision: 'text-2026-11-18.1' },
+  'frederick-douglass': { editions: EN, revision: '2026-09-11.2' },
+  gilgamesh: { editions: EN, revision: 'text-2026-11-18.gilgamesh.1' },
   'heart-of-darkness': { editions: EN, revision: '2026-10-01.1' },
   'hume-enquiry': { editions: EN, revision: '2026-10-01.1' },
   'ivan-ilyich': { editions: EN, revision: '2026-09-11.2' },
-  'jekyll-and-hyde': { editions: EN, revision: '2026-09-24.1' },
+  'jekyll-and-hyde': { editions: EN, revision: 'text-2026-10-21.2' },
   'julius-caesar': { editions: EN, revision: '2026-09-24.1' },
   'jungle-book': { editions: EN, revision: '2026-10-01.1' },
-  'king-lear': { editions: EN, revision: '2026-09-11.2' },
+  'king-lear': { editions: EN, revision: 'text-2026-11-18.1' },
   medea: { editions: EN, revision: '2026-10-01.2' },
   'merchant-of-venice': { editions: EN, revision: '2026-09-11.2' },
-  midsummer: { editions: EN, revision: '2026-09-11.2' },
-  'much-ado-about-nothing': { editions: EN, revision: '2026-09-11.2' },
+  midsummer: { editions: EN, revision: 'text-2026-11-18.1' },
+  'much-ado-about-nothing': { editions: EN, revision: 'text-2026-10-21.1' },
   'notes-from-underground': { editions: EN, revision: '2026-10-01.1' },
-  'oedipus-at-colonus': { editions: EN, revision: '2026-09-11.2' },
-  'oedipus-rex': { editions: EN, revision: '2026-09-11.2' },
+  'oedipus-at-colonus': { editions: EN, revision: 'text-2026-11-18.1' },
+  'oedipus-rex': { editions: EN, revision: 'text-2026-11-18.1' },
   'on-liberty': { editions: EN, revision: 'text-2026-10-01.1' },
-  oresteia: { editions: EN, revision: '2026-09-11.2' },
-  othello: { editions: EN, revision: '2026-09-11.2' },
+  // text-2026-11-18.1 (danish-recovered-batch-03) — Oresteia, Aeneid, Republic, Walden, War and Peace:
+  // modern-en mentions re-anchored after the paired English repairs; card prose unchanged.
+  oresteia: { editions: EN, revision: 'text-2026-11-18.1' },
+  othello: { editions: EN, revision: 'text-2026-11-18.1' },
   phaedo: { editions: EN, revision: '2026-09-11.2' },
-  phaedrus: { editions: EN, revision: '2026-09-11.2' },
-  poetics: { editions: EN, revision: '2026-09-11.2' },
-  'romeo-and-juliet': { editions: EN, revision: '2026-09-11.2' },
+  phaedrus: { editions: EN, revision: 'text-2026-10-21.1' },
+  poetics: { editions: EN, revision: 'text-2026-10-21.5' },
+  'romeo-and-juliet': { editions: EN, revision: 'text-2026-11-18.1' },
   'social-contract': { editions: EN, revision: '2026-09-11.2' },
   symposium: { editions: EN, revision: '2026-09-25.1' },
   'the-prince': { editions: EN, revision: '2026-09-24.1' },
-  'twelfth-night': { editions: EN, revision: '2026-09-11.2' },
-  utilitarianism: { editions: EN, revision: '2026-09-11.2' },
+  'twelfth-night': { editions: EN, revision: 'text-2026-11-18.1' },
+  utilitarianism: { editions: EN, revision: 'text-2026-10-21.5' },
   werther: { editions: EN, revision: '2026-09-11.2' },
   // 2026-09-12.1 — novels and prose works
-  frankenstein: { editions: EN, revision: '2026-09-23.2' },
+  frankenstein: { editions: EN, revision: 'text-2026-11-18.1' },
   'pride-and-prejudice': { editions: EN, revision: '2026-09-25.1' },
   'jane-eyre': { editions: EN, revision: '2026-09-25.1' },
   'great-expectations': { editions: EN, revision: '2026-09-12.1' },
@@ -99,22 +115,22 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'moby-dick': { editions: EN, revision: '2026-09-30.1' },
   'crime-and-punishment': { editions: EN, revision: '2026-09-24.1' },
   'anna-karenina': { editions: EN, revision: '2026-09-12.1' },
-  'brothers-karamazov': { editions: EN, revision: '2026-09-12.1' },
+  'brothers-karamazov': { editions: EN, revision: 'text-2026-10-21.4' },
   'don-quixote': { editions: EN, revision: '2026-09-12.1' },
-  'war-and-peace': { editions: EN, revision: '2026-09-12.1' },
+  'war-and-peace': { editions: EN, revision: 'text-2026-11-18.1' },
   ulysses: { editions: EN, revision: '2026-09-12.1' },
   'niels-lyhne': { editions: EN, revision: '2026-10-01.1' },
-  walden: { editions: EN, revision: 'text-2026-10-01.1' },
+  walden: { editions: EN, revision: 'text-2026-11-18.1' },
   // 2026-09-12.1 — epics, plays, histories and ancient works
-  iliad: { editions: EN, revision: '2026-09-12.1' },
+  iliad: { editions: EN, revision: 'text-2026-10-21.3' },
   odyssey: { editions: EN, revision: '2026-09-12.1' },
-  'the-aeneid': { editions: EN, revision: '2026-09-12.1' },
+  'the-aeneid': { editions: EN, revision: 'text-2026-11-18.1' },
   'divine-comedy': { editions: EN, revision: '2026-09-12.1' },
   'paradise-lost': { editions: EN, revision: '2026-09-12.1' },
   'faust-part-1': { editions: EN, revision: '2026-09-30.1' },
   'the-histories': { editions: EN, revision: '2026-09-12.1' },
   'peloponnesian-war': { editions: EN, revision: '2026-09-12.1' },
-  'the-republic': { editions: EN, revision: '2026-09-12.1' },
+  'the-republic': { editions: EN, revision: 'text-2026-11-18.1' },
   // 2026-09-12.2 — re-anchored onto the re-based Meditations text (Long 1862,
   // 487 paragraphs). Figures and descriptions unchanged; hashes, offsets and
   // two spellings recomputed by scripts/reanchor-meditations-characters.py.
@@ -122,22 +138,26 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   confessions: { editions: EN, revision: '2026-09-25.1' },
   'as-you-like-it': { editions: EN, revision: '2026-09-30.1' },
   'taming-of-the-shrew': { editions: EN, revision: '2026-09-12.1' },
-  'the-tempest': { editions: EN, revision: '2026-09-12.1' },
+  'the-tempest': { editions: EN, revision: 'text-2026-11-18.1' },
   // 2026-09-12.1 — philosophy, political theory and religious works
   'nicomachean-ethics': { editions: EN, revision: '2026-09-12.1' },
   'aristotle-politics': { editions: EN, revision: '2026-10-01.1' },
   leviathan: { editions: EN, revision: '2026-09-12.1' },
   'second-treatise': { editions: EN, revision: '2026-09-30.1' },
-  'beyond-good-and-evil': { editions: EN, revision: '2026-10-01.1' },
-  'genealogy-of-morals': { editions: EN, revision: '2026-09-12.1' },
-  'democracy-in-america': { editions: EN, revision: '2026-09-12.1' },
+  'beyond-good-and-evil': { editions: EN, revision: 'text-2026-11-18.1' },
+  'genealogy-of-morals': { editions: EN, revision: 'text-2026-11-18.1' },
+  'democracy-in-america': { editions: EN, revision: 'text-2026-10-21.6' },
   'essays-montaigne': { editions: EN, revision: '2026-09-12.1' },
-  'federalist-papers': { editions: EN, revision: '2026-09-12.1' },
+  'federalist-papers': { editions: EN, revision: 'text-2026-10-21.3' },
   'wealth-of-nations': { editions: EN, revision: '2026-09-12.1' },
   'vindication-rights-of-woman': { editions: EN, revision: '2026-09-30.2' },
   'imitation-of-christ': { editions: EN, revision: '2026-09-12.1' },
   jerusalem: { editions: EN, revision: '2026-09-30.1' },
   'fear-and-trembling': { editions: ['modern-en'], revision: '2026-09-30.1' },
+  // 2026-11-05.1 — translated by Tinct from the Russian; no English original, so modern-en only.
+  'master-and-margarita': { editions: ['modern-en'], revision: '2026-11-05.1' },
+  // 2026-11-10.1 — translated by Tinct from the Italian; no English original, so modern-en only.
+  pinocchio: { editions: ['modern-en'], revision: '2026-11-10.1' },
 }
 /** Public path of the character package a reader needs for one edition. */
 export const characterAssetPath = (bookId: string, editionKey: string) =>
@@ -168,14 +188,42 @@ export async function verifyCharacters(asset: CharacterAsset, bookId: string, ed
   return { edition, paragraphs }
 }
 const loads = new Map<string, Promise<VerifiedCharacters | null>>()
+/** One request per package URL: a book whose package covers both editions is asked for once, not once per edition. */
+const assetLoads = new Map<string, Promise<CharacterAsset | null>>()
+function loadAsset(url: string): Promise<CharacterAsset | null> {
+  if (!assetLoads.has(url)) {
+    const pending = fetch(url).then(response => (response.ok ? response.json() as Promise<CharacterAsset> : null)).catch(() => null)
+    assetLoads.set(url, pending)
+    // A failed request is asked again by the next reader of the package.
+    void pending.then(asset => { if (!asset) assetLoads.delete(url) })
+  }
+  return assetLoads.get(url)!
+}
+/**
+ * The whole edition the package is checked against. For an edition the reader
+ * itself reads whole, this is the reader's own URL (editionUrls.ts, with the
+ * build version the edition loader appends), so the copy it already
+ * downloaded serves the check from the browser cache instead of a second
+ * download under another tag. A chapter-sharded edition (the Bible, the long
+ * novels) is read by chapter, so its whole file is fetched only here, under
+ * the package's release revision, which stays cached across app releases.
+ * Either tag changes when the text can, so neither is an immutable old copy.
+ */
+const SHARDED = new Set<string>(CHAPTER_SHARDED_EDITION_IDS)
+function editionTextUrl(bookId: string, editionKey: string): string {
+  const version = bookId === 'bible' || SHARDED.has(`${bookId}-${editionKey}`)
+    ? characterReleases[bookId].revision
+    : typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : 'dev'
+  return editionWholeUrl(bookId, editionKey, version)
+}
 export function loadCharacters(bookId?: string, editionKey?: string): Promise<VerifiedCharacters | null> {
   if (!bookId || !editionKey || !supportedEditions(bookId)?.includes(editionKey)) return Promise.resolve(null)
   const key = `${bookId}:${editionKey}`
   if (!loads.has(key)) loads.set(key, (async () => {
     try {
-      const [asset, source] = await Promise.all([fetch(`${characterAssetPath(bookId, editionKey)}?v=${characterReleases[bookId].revision}`), fetch(`/data/editions/${bookId}-${editionKey}.json?v=${characterReleases[bookId].revision}`)])
-      if (!asset.ok || !source.ok) return null
-      return await verifyCharacters(await asset.json(), bookId, editionKey, await source.arrayBuffer())
+      const [asset, source] = await Promise.all([loadAsset(`${characterAssetPath(bookId, editionKey)}?v=${characterReleases[bookId].revision}`), fetch(editionTextUrl(bookId, editionKey))])
+      if (!asset || !source.ok) return null
+      return await verifyCharacters(asset, bookId, editionKey, await source.arrayBuffer())
     } catch { return null }
   })())
   return loads.get(key)!
@@ -214,6 +262,32 @@ export function resolveCharacter(data: VerifiedCharacters | null, chapterNumber:
     return entry ? [{ card: entry, inPassage: mentions.some(m => m.characterId === c.id && m.endOffset <= cutoff.offset) }] : []
   })
   return { card, cutoff, gallery }
+}
+/** Two reviewed people claim the same selected source span. */
+export interface NamesakeNotice { name: string; candidates: ReleasedCard[] }
+const mentionName = (text: string) => text.replace(/[’']s$/, '')
+/**
+ * Only a genuine collision at this passage may suppress contextual lookup.
+ * A name shared elsewhere in a work does not identify an unlinked occurrence.
+ * Keep the released-card cutoff so ambiguity notices reveal no later details.
+ */
+export function namesakesAt(data: VerifiedCharacters | null, chapterNumber: number, paragraphIndex: number, start: number, end: number, text: string): NamesakeNotice | null {
+  if (!data || start < 0 || end <= start || normalizeParagraph(text) !== data.paragraphs[chapterNumber]?.[paragraphIndex]) return null
+  if (resolveCharacter(data, chapterNumber, paragraphIndex, start, end, text)) return null
+  const name = mentionName(normalizeParagraph(text).slice(start, end))
+  if (!/^\p{Lu}\p{Ll}/u.test(name)) return null
+  const people = new Set(data.edition.characters.filter(c => ['person', 'spirit', 'deity'].includes(c.kind)).map(c => c.id))
+  const ids = new Set(data.edition.mentions.filter(m => people.has(m.characterId)
+    && m.chapterNumber === chapterNumber && m.paragraphIndex === paragraphIndex
+    && m.startOffset <= start && m.endOffset >= end
+    && mentionName(m.text) === name).map(m => m.characterId))
+  if (ids.size < 2) return null
+  const cutoff = { chapterNumber, paragraphIndex, offset: end }
+  const candidates = data.edition.characters.flatMap(c => {
+    const card = ids.has(c.id) ? releasedCard(data.edition, c.id, cutoff) : null
+    return card ? [card] : []
+  })
+  return candidates.length >= 2 ? { name, candidates } : null
 }
 /** Word anchors in the current reader are exclusive at the end; punctuation is not part of a name. */
 export function wordSelectionOffsets(text: string, from: number, to: number): [number, number] | null {

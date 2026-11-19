@@ -22,7 +22,10 @@ import { summaryMatchesSession, visibleToViewer, type ReadingMemoryState, type R
 import { READING_SESSION_GAP_MS } from '../readingMemory/recorder'
 import { biblicalBookId, parseBiblicalPlaceTitle } from '../lab/labPosition'
 import type { LabBookPlace, LabPositionState } from '../lab/labPosition'
+import { normalizeChapterTitle } from '../../public/lab/chapter-title.js'
+import { isPublicBookId } from '../../public/lab/public-books.js'
 import { chapterProgress, includesPreviousChapter, positionLine, type ChapterProgress } from './recapPosition'
+import { isBookFinished } from './bookFinished'
 
 export type LibraryMode = 'new' | 'returning'
 
@@ -100,6 +103,8 @@ export interface ReadingListInput {
   books: ReadonlyMap<string, LibraryBookInfo>
   /** Books the app marked `book-completed:*`. */
   completedBookIds?: ReadonlySet<string>
+  /** Books the reader explicitly marked read. */
+  markedReadBookIds?: ReadonlySet<string>
 }
 
 export function libraryModeFor(list: Pick<ReadingList, 'readingNow' | 'finished'> | null | undefined): LibraryMode {
@@ -115,9 +120,20 @@ export function recapEyebrow(lastReadAt: number | null | undefined, now = Date.n
   return `Last time you read: ${days === 0 ? 'today' : days === 1 ? 'yesterday' : `${days} days ago`}`
 }
 
-/** "Chapter 1 — Loomings" → "Chapter 1"; labels the reader already shows, unchanged otherwise. */
-export function compactChapterTitle(title: string | null | undefined, fallback: string): string {
-  return String(title || fallback).split(/\s+[—–-]\s+/)[0].trim() || fallback
+/**
+ * "Chapter 1 — Loomings" → "Chapter 1"; labels the reader already shows, unchanged otherwise.
+ * In house style first (public/lab/chapter-title.js), so an added book's recorded
+ * "CHAPTER I—M. MYRIEL" reads "Chapter 1" like every other book; built-in, Bible
+ * and Shakespeare labels are already house style and pass through as they are.
+ */
+export function compactChapterTitle(title: string | null | undefined, fallback: string, editionKey?: string | null): string {
+  return normalizeChapterTitle(String(title || fallback), { language: editionLanguage(editionKey) }).split(/\s+[—–-]\s+/)[0].trim() || fallback
+}
+
+/** "modern-en" → "en"; the reader's house style casing is per language (labChapterTitles.ts). */
+function editionLanguage(editionKey: string | null | undefined): string | null {
+  const language = editionKey?.split('-').pop()
+  return language && /^[a-z]{2,3}$/.test(language) ? language : null
 }
 
 function newer(a: ReadingSession, b: ReadingSession): boolean {
@@ -148,7 +164,8 @@ export function catalogueBookIdForPlace(
   bibleChapters: readonly LibraryChapterRef[] = [],
 ): string | null {
   if (books.has(place.bookId)) return place.bookId
-  if (!books.has('bible')) return null
+  // An added book (`pd-…`) the catalogue does not list is never a biblical pin.
+  if (!books.has('bible') || isPublicBookId(place.bookId)) return null
   // Without the Bible's chapter list there is nothing to check against, so the
   // historical assumption stands: an unknown id is a biblical pin.
   if (bibleChapters.length === 0) return 'bible'
@@ -195,7 +212,7 @@ function placeLabel(book: LibraryBookInfo | undefined, place: LabBookPlace): str
   const bibleScoped = book?.id === 'bible' && place.bookId !== 'bible'
   if (bibleScoped) return `${place.headerBook} ${place.chapterNumber}`
   const chapter = book?.chapters.find(item => item.number === place.sequentialChapter)
-  return compactChapterTitle(chapter?.title, `Chapter ${place.sequentialChapter}`)
+  return compactChapterTitle(chapter?.title, `Chapter ${place.sequentialChapter}`, place.primaryEditionKey)
 }
 
 /**
@@ -241,7 +258,7 @@ export function continueTargetFor(input: {
     bookId,
     editionKey: session.anchor.editionKey,
     chapterNumber: session.anchor.chapterNumber,
-    chapterLabel: compactChapterTitle(session.anchor.chapterLabel, `Chapter ${session.anchor.chapterNumber}`),
+    chapterLabel: compactChapterTitle(session.anchor.chapterLabel, `Chapter ${session.anchor.chapterNumber}`, session.anchor.editionKey),
     pageIndex: Math.max(0, session.anchor.page - 1),
     paragraphIndex: session.anchor.paragraphIndex,
     wordIndex: session.anchor.wordIndex,
@@ -354,37 +371,72 @@ export function movedBackIntoBook(input: {
 }
 
 /**
+ * Every book the records say is finished, by the one shared rule
+ * (bookFinished.ts). Used by the library's Finished shelf and by Your reading,
+ * so the two can never disagree. Only books the catalogue knows count.
+ */
+export function finishedBookIdsFor(input: {
+  memory: ReadingMemoryState
+  viewer: string | null
+  positions: LabPositionState | null | undefined
+  books: ReadonlyMap<string, LibraryBookInfo>
+  completedBookIds?: ReadonlySet<string>
+  markedReadBookIds?: ReadonlySet<string>
+}): Set<string> {
+  const completed = input.completedBookIds ?? new Set<string>()
+  const marked = input.markedReadBookIds ?? new Set<string>()
+  const visible = visibleToViewer(input.viewer)
+  const candidates = new Set<string>([...completed, ...marked, ...Object.keys(input.positions?.finished ?? {})])
+  for (const session of Object.values(input.memory.sessions)) {
+    if (visible(session) && session.state === 'completed') candidates.add(session.anchor.bookId)
+  }
+  const ids = new Set<string>()
+  for (const bookId of candidates) {
+    const book = input.books.get(bookId)
+    if (!book) continue
+    if (isBookFinished({
+      chapterNumbers: book.chapters.map(chapter => chapter.number),
+      finishedChapters: finishedChaptersForBook({ memory: input.memory, viewer: input.viewer, positions: input.positions, bookId }),
+      completionRecord: completed.has(bookId),
+      markedRead: marked.has(bookId),
+    })) ids.add(bookId)
+  }
+  return ids
+}
+
+/**
  * Reading now (every in-progress book the reader has not taken off the list,
- * newest first by the newer of the two stores) and Finished (newest session completed on the book's final chapter,
- * the position record's finished mark on that chapter, or an app
- * `book-completed` mark). A finished book returns to Reading now only when
- * the reader has since moved back into it (`movedBackIntoBook`).
+ * newest first by the newer of the two stores) and Finished (the shared rule
+ * in bookFinished.ts: a read mark, a completion record, every chapter
+ * finished, or the last chapter plus 90% of them). Finished is a fact about
+ * the book and does not depend on where the reader now is: a book finished by
+ * its chapters also shows in Reading now when the reader has since moved back
+ * into it (`movedBackIntoBook`), so Continue resumes the re-read.
  */
 export function readingList(input: ReadingListInput): ReadingList {
   const sessions = newestSessionsByBook(input.memory, input.viewer)
   const places = positionPlacesByBook(input.positions, input.books, input.books.get('bible')?.chapters ?? [])
   const completedMarks = input.completedBookIds ?? new Set<string>()
-  const bookIds = new Set<string>([...sessions.keys(), ...places.keys(), ...completedMarks])
+  const markedRead = input.markedReadBookIds ?? new Set<string>()
+  const finishedIds = finishedBookIdsFor({ ...input, completedBookIds: completedMarks, markedReadBookIds: markedRead })
+  const bookIds = new Set<string>([...sessions.keys(), ...places.keys(), ...finishedIds])
   const readingNow: ReadingListRow[] = []
   const finished: FinishedRow[] = []
   for (const bookId of bookIds) {
     const book = input.books.get(bookId)
     const session = sessions.get(bookId) ?? null
     const place = places.get(bookId) ?? null
-    if (book && completedMarks.has(bookId)) {
-      finished.push({ bookId, finishedAt: session?.completedAt ?? session?.lastActiveAt ?? null, session })
-      continue
-    }
+    const isFinished = finishedIds.has(bookId)
+    if (isFinished) finished.push({ bookId, finishedAt: session?.completedAt ?? session?.lastActiveAt ?? null, session })
+    // A completion record or a read mark settles the book: it is not offered
+    // as being read again (the classic reader's places predate its records).
+    if (isFinished && (completedMarks.has(bookId) || markedRead.has(bookId))) continue
     const target = continueTargetFor({ book, session, place })
     if (!target) continue
-    const lastChapter = lastChapterNumber(book)
-    const finishedBySession = session !== null && session.state === 'completed' && lastChapter !== null && lastChapter === session.anchor.chapterNumber
-    const finishedByMark = lastChapter !== null && (input.positions?.finished?.[bookId] ?? []).includes(lastChapter)
-    const readingAgain = place !== null && lastChapter !== null
-      && movedBackIntoBook({ place, lastChapter, session: finishedBySession ? session : null })
-    if (completedMarks.has(bookId) || ((finishedBySession || finishedByMark) && !readingAgain)) {
-      finished.push({ bookId, finishedAt: session?.completedAt ?? session?.lastActiveAt ?? null, session })
-      continue
+    if (isFinished) {
+      const lastChapter = lastChapterNumber(book)
+      const finalSession = session !== null && session.state === 'completed' && session.anchor.chapterNumber === lastChapter ? session : null
+      if (place === null || lastChapter === null || !movedBackIntoBook({ place, lastChapter, session: finalSession })) continue
     }
     // Taken off the list by the reader. Nothing about the book was deleted —
     // the place, the notes, the highlights and the chat are all still there,

@@ -3,6 +3,8 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { loadEdition } from '../data/editionLoader'
 import { contentsTree, flattenContents, contentsPercent } from './labContentsTree'
+import { registerUserBook } from './userBook/userBookSource'
+import { USER_EDITION_FORMAT } from './userBook/userEdition'
 import { LabContentsV2 } from './LabContentsV2'
 import { contentsBooks, contentsChapterNumber, contentsQuote, searchContents } from './labContents'
 import type { ChatConversation, EditionData, Section } from '../types'
@@ -38,17 +40,59 @@ describe('V2 contents data', () => {
   })
 })
 
+describe('Figures tab', () => {
+  it('appears beside Chapters only for a book with figures, and jumps to one', () => {
+    const p = props()
+    const { rerender } = render(<LabContentsV2 {...p} />)
+    expect(screen.queryByTestId('lab-contents-tab-figures')).toBeNull()
+    rerender(<LabContentsV2 {...p} figures={[
+      { id: 'f1', number: 1, src: '/data/figures/test-fixture/lamp.png', caption: 'A lamp of the old kind.', chapterNumber: 44, paragraphIndex: 1 },
+      { id: 'f2', number: 2, src: '/data/figures/test-fixture/harbour.png', chapterNumber: 51, paragraphIndex: 0, large: true },
+    ]} />)
+    expect(screen.getByTestId('lab-contents-tab-chapters').getAttribute('aria-pressed')).toBe('true')
+    fireEvent.click(screen.getByTestId('lab-contents-tab-figures'))
+    const rows = screen.getAllByTestId('lab-contents-figure')
+    expect(rows.map(row => row.textContent)).toEqual(['Figure 1 · Genesis 44A lamp of the old kind.', 'Figure 2 · Psalms 1'])
+    fireEvent.click(rows[1])
+    expect(p.onOpenPassage).toHaveBeenCalledWith({ chapterNumber: 51, paragraphIndex: 0, wordIndex: 0 })
+    expect(p.onSelectChapter).not.toHaveBeenCalled()
+  })
+})
+
 describe('Design 1 contents', () => {
   it('opens at the current chapter and browses other branches without moving the reading marker', () => {
     const p = props(); render(<LabContentsV2 {...p} currentPercent={68} />)
     expect(screen.getByTestId('lab-tree-chapter-44').getAttribute('aria-current')).toBe('page')
     expect(screen.getByTestId('lab-tree-chapter-44').getAttribute('title')).toBe('68% read')
+    // An unread row has no "unread" tooltip over its title; screen readers still hear it.
+    expect(screen.getByTestId('lab-tree-chapter-43').hasAttribute('title')).toBe(false)
+    expect(screen.getByTestId('lab-tree-chapter-43').getAttribute('aria-label')).toBe('Genesis 43, unread')
     fireEvent.click(screen.getByRole('button', { name: 'Psalms', exact: true }))
     expect(screen.getByTestId('lab-tree-chapter-53')).toBeTruthy()
-    expect(screen.getByTestId('lab-tree-chapter-44').getAttribute('aria-current')).toBe('page')
+    // One branch open per level (Anders, 2 Nov 2026): Genesis folds, and the reading marker stays on its path.
+    expect(screen.queryByTestId('lab-tree-chapter-44')).toBeNull()
+    expect(screen.getByRole('button', { name: 'Genesis', exact: true }).closest('li')?.classList.contains('on-path')).toBe(true)
     expect(p.onSelectChapter).not.toHaveBeenCalled(); expect(p.onOpenPassage).not.toHaveBeenCalled()
+    fireEvent.click(screen.getByRole('button', { name: 'Genesis', exact: true }))
+    expect(screen.getByTestId('lab-tree-chapter-44').getAttribute('aria-current')).toBe('page')
+    expect(screen.queryByTestId('lab-tree-chapter-53')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: 'Psalms', exact: true }))
     fireEvent.click(screen.getByTestId('lab-tree-chapter-53'))
     expect(p.onSelectChapter).toHaveBeenCalledExactlyOnceWith(53)
+  })
+  it('tapping an open branch folds what is open inside it first, so its own sections show (Anders, 2 Nov 2026)', () => {
+    render(<LabContentsV2 {...props()} />)
+    const testament = screen.getByRole('button', { name: 'Old Testament', exact: true })
+    expect(testament.getAttribute('aria-expanded')).toBe('true')
+    expect(screen.getByRole('button', { name: 'Genesis', exact: true }).getAttribute('aria-expanded')).toBe('true')
+    fireEvent.click(testament)
+    expect(testament.getAttribute('aria-expanded')).toBe('true')
+    expect(screen.getByRole('button', { name: 'Genesis', exact: true }).getAttribute('aria-expanded')).toBe('false')
+    expect(screen.getByRole('button', { name: 'Psalms', exact: true }).getAttribute('aria-expanded')).toBe('false')
+    expect(screen.queryByTestId('lab-tree-chapter-44')).toBeNull()
+    fireEvent.click(testament)
+    expect(testament.getAttribute('aria-expanded')).toBe('false')
+    expect(screen.queryByRole('button', { name: 'Genesis', exact: true })).toBeNull()
   })
   it('uses real continuous percentages and retains unknown progress without inventing a value', () => {
     expect(contentsPercent({kind:'in-progress',page:7,totalPages:25},false)).toBe(28)
@@ -72,6 +116,21 @@ describe('Design 1 contents', () => {
     fireEvent.click(word.closest('button')!)
     expect(p.onOpenPassage).toHaveBeenCalledWith(expect.objectContaining({ chapterNumber: 51, paragraphIndex: 0, wordIndex: 1 }))
   })
+  it('searches an added book on this device without requesting a catalogue edition', async () => {
+    const bookId = 'userbook-abcdef1234567890'
+    registerUserBook(bookId, { format: USER_EDITION_FORMAT, converter: 7, language: 'en', title: 'Own book', author: 'Reader',
+      chapters: [{ number: 1, title: 'Opening', paragraphs: ['A beginning.'] },
+        { number: 2, title: 'Knowledge', paragraphs: ['Discussing empiricism here.'] }] })
+    const p = props()
+    render(<LabContentsV2 {...p} bookId={bookId} editionKey="own-en" currentChapter={1}
+      chapters={[{ number: 1, title: 'Opening' }, { number: 2, title: 'Knowledge' }]} sections={undefined} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Search contents' }))
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'empiricism' } })
+    const match = await screen.findByText('empiricism', { selector: 'mark' })
+    fireEvent.click(match.closest('button')!)
+    expect(p.onOpenPassage).toHaveBeenCalledWith(expect.objectContaining({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 1 }))
+    expect(loadEdition).not.toHaveBeenCalled()
+  })
   it('opens the exact conversation and keeps chapter annotation lists behind their icons', async () => {
     const p = props(); render(<LabContentsV2 {...p} />)
     expect(screen.queryByTestId('contents-chat-cup-chat')).toBeNull()
@@ -93,8 +152,10 @@ describe('Design 1 contents', () => {
   it('does not present missing text or pending history as an empty result', async () => {
     vi.mocked(loadEdition).mockRejectedValue(new Error('offline'))
     render(<LabContentsV2 {...props()} historyStatus="loading" />)
-    expect(screen.getByText('Loading saved conversations…')).toBeTruthy()
+    // The chapter tree says nothing about chat history (Anders, 16 Nov 2026); the search over chats does.
+    expect(screen.queryByText('Loading saved conversations…')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: 'Search contents' }))
+    expect(screen.getByText('Loading saved conversations…')).toBeTruthy()
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'missing' } })
     await screen.findByRole('button', { name: 'Retry' })
     expect(screen.queryByText('No matches.')).toBeNull()
@@ -115,10 +176,15 @@ describe('Design 1 contents', () => {
     fireEvent.click(screen.getByRole('button',{name:'Open passage'}))
     expect(p.onOpenPassage).toHaveBeenCalledWith({chapterNumber:44,paragraphIndex:1,wordIndex:0})
   })
-  it('waits for the real chapter manifest and resets ancestry when the book changes', () => {
+  it('waits for the real chapter manifest and resets ancestry when the book changes', async () => {
     const p = props()
     const {rerender} = render(<LabContentsV2 {...p} chaptersReady={false} />)
-    expect(screen.getByText('Loading contents…')).toBeTruthy()
+    // The wait is the reader's ring (LabWait, after its moment); "Loading contents…" stays for screen readers only.
+    const loading = screen.getByTestId('lab-contents-loading')
+    expect(loading.getAttribute('role')).toBe('status')
+    await waitFor(() => expect(screen.getByText('Loading contents…')).toBeTruthy())
+    expect(screen.getByText('Loading contents…').className).toBe('lab-visually-hidden')
+    expect(loading.querySelector('svg.lab-audio-spinner')).not.toBeNull()
     expect(screen.queryByTestId('lab-tree-chapter-44')).toBeNull()
     rerender(<LabContentsV2 {...p} />)
     expect(screen.getByTestId('lab-tree-chapter-44')).toBeTruthy()
@@ -157,3 +223,17 @@ it('puts one Introduction destination above the chapter tree without choosing a 
   expect(openIntroduction).toHaveBeenCalledTimes(1)
   expect(p.onSelectChapter).not.toHaveBeenCalled()
 })
+
+ it('keeps older-data recovery inside Notebook rather than over reading or Contents', () => {
+  const p = props()
+  const recover = vi.fn()
+  const recovery = <button onClick={recover}>Review older saved entries</button>
+  const { rerender } = render(<LabContentsV2 {...p} open={false} notebookRecovery={recovery} />)
+  expect(screen.queryByText('Review older saved entries')).toBeNull()
+  rerender(<LabContentsV2 {...p} notebookRecovery={recovery} />)
+  expect(screen.queryByText('Review older saved entries')).toBeNull()
+  rerender(<LabContentsV2 {...p} open={false} notebook notebookRecovery={recovery} />)
+  rerender(<LabContentsV2 {...p} notebook notebookRecovery={recovery} />)
+  fireEvent.click(screen.getByText('Review older saved entries'))
+  expect(recover).toHaveBeenCalledTimes(1)
+ })

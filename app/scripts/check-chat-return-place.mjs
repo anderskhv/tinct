@@ -15,12 +15,14 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import { createRequire } from 'node:module'
 import esbuild from 'esbuild'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const origin = 'https://tinct.app'
-// Pages are served with production's media and script policy: it refuses the
-// data: audio unlock clip, and that refusal is what once moved the reader to
-// the next chapter on opening Chat (reproduce with TEST_REAL_PLAY=1).
-const PRODUCTION_CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; img-src 'self' data:; media-src 'self' blob: mediastream:"
+// Pages are served with production's media and script policy. It refused the
+// old data: audio unlock clip (so the iPhone unlock never happened), and that
+// refusal once moved the reader to the next chapter on opening Chat. Any
+// media-src violation now fails the run (exercise with TEST_REAL_PLAY=1).
+const PRODUCTION_CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; img-src 'self' data: blob:; media-src 'self' blob: mediastream:"
 const dist = path.resolve('dist')
 const book = process.env.TEST_BOOK || 'to-the-lighthouse'
 const chapter = Number(process.env.TEST_CHAPTER || 1)
@@ -56,8 +58,14 @@ async function boot(browser) {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, serviceWorkers: 'block', userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1' })
   const page = await context.newPage()
   const errors = []
+  const cspViolations = []
   page.setDefaultTimeout(15000)
   page.on('pageerror', e => errors.push(e.message))
+  page.on('console', m => { if (m.type() === 'error' && /Content Security Policy/i.test(m.text())) cspViolations.push(m.text().slice(0, 300)) })
+  await page.exposeFunction('__tinctCspViolation', v => cspViolations.push(v))
+  await page.addInitScript(() => {
+    document.addEventListener('securitypolicyviolation', e => window.__tinctCspViolation(`${e.effectiveDirective} ${String(e.blockedURI).slice(0, 80)}`))
+  })
   if (process.env.TEST_CONSOLE === '1') page.on('console', m => console.log('  console:', m.type(), m.text().slice(0, 300)))
   await page.route('**/*', async route => {
     const req = route.request(), url = new URL(req.url())
@@ -109,7 +117,7 @@ async function boot(browser) {
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 60000 })
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(800)
-  return { context, page, errors }
+  return { context, page, errors, cspViolations }
 }
 
 async function snapshot(page) {
@@ -158,22 +166,12 @@ async function openAskAbout(page) {
   await page.locator('.selection-popup').waitFor()
   const more = page.getByRole('button', { name: 'More actions', exact: true })
   if (await more.isVisible()) await more.click()
-  await page.locator('.popup-menu-action', { hasText: /^Ask$/ }).click()
+  await page.locator('.popup-menu-action', { hasText: /^Chat$/ }).click()
   await page.getByTestId('lab-ask-pane').waitFor()
   await page.waitForTimeout(400)
 }
 
-async function openSummarizeChat(page) {
-  await showControls(page)
-  await page.getByTestId('lab-super').click()
-  await page.getByTestId('lab-super-row-summarize').click()
-  await page.getByTestId('lab-chapter-notes-beat').first().waitFor()
-  await page.getByTestId('lab-chapter-notes-chat').click()
-  await page.getByTestId('lab-ask-pane').waitFor()
-  await page.waitForTimeout(400)
-}
-
-const entries = { menu: openChat, 'ask-about-selection': openAskAbout, 'summarize-chat': openSummarizeChat }
+const entries = { menu: openChat, 'ask-about-selection': openAskAbout }
 const returns = {
   done: async page => page.getByTestId('lab-ask-done').click(),
   escape: async page => page.keyboard.press('Escape'),
@@ -186,24 +184,29 @@ const returns = {
   },
 }
 
-const browser = await chromium.launch({ executablePath, args: ['--mute-audio'] })
+const browser = await markInternal(await chromium.launch({ executablePath, args: ['--mute-audio'] }))
 const results = []
 let failed = false
 try {
-  // Read, and Compare (swiped to the other edition). Every Chat entry point
-  // returns by "Back to book"; the menu entry also by Escape and after a reply.
-  const views = process.env.TEST_VIEWS ? process.env.TEST_VIEWS.split(',') : ['read', 'compare']
+  // Read, and the other edition read as the Main version (the phone has no Compare
+  // since 10 Nov 2026). Every Chat entry point returns by "Back to book"; the menu
+  // entry also by Escape and after a reply. TEST_VIEWS=compare is an alias for edition.
+  const views = (process.env.TEST_VIEWS ? process.env.TEST_VIEWS.split(',') : ['read', 'edition']).map(view => view === 'compare' ? 'edition' : view)
   const cases = views.flatMap(view => Object.entries(entries).flatMap(([entry, open]) => Object.entries(returns)
     .filter(([back]) => entry === 'menu' || back === 'done')
     .map(([back, close]) => [`${view}/${entry}/${back}`, view, open, close])))
   for (const [name, view, open, close] of cases) {
-    const { context, page, errors } = await boot(browser)
+    const { context, page, errors, cspViolations } = await boot(browser)
     try {
-      if (view === 'compare') {
-        await page.getByTestId('lab-book').evaluate(el => {
-          el.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerId: 71, pointerType: 'touch', clientX: 190, clientY: 400 }))
-          el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerId: 71, pointerType: 'touch', clientX: 190, clientY: 270 }))
-        })
+      if (view === 'edition') {
+        // No Compare on the phone (10 Nov 2026): Book settings switch the Main version instead.
+        await page.getByTestId('lab-super').click()
+        await page.getByTestId('lab-super-row-editions').click()
+        assert.equal(await page.getByTestId('lab-v2-show-compare').count(), 0, 'The phone offers no Compare')
+        await page.getByTestId('lab-v2-main-edition').click()
+        await page.locator(`[data-edition="${compareEdition}"]`).click()
+        await page.getByTestId('lab-v2-sheet-close').click()
+        await page.waitForFunction(edition => document.querySelector('[data-testid="lab-root"]')?.dataset.readerEdition === edition, compareEdition)
         await page.waitForTimeout(1500)
       }
       await turnForward(page, turns)
@@ -230,12 +233,14 @@ try {
       // sentence it was in (which may begin on the previous page); the page
       // follows it there. Never further back, and never the chapter start.
       const pageOf = snap => Number(String(snap.progress).match(/^(\d+)/)?.[1])
-      const pass = audioMode === 'playing'
+      const keptPlace = audioMode === 'playing'
         ? after.chapter === before.chapter && pageOf(after) >= pageOf(before) - 1 && pageOf(after) > 1
         : before.firstWord === after.firstWord && before.place === after.place && before.progress === after.progress
+      const mediaViolations = cspViolations.filter(v => /media-src/i.test(v))
+      const pass = keptPlace && mediaViolations.length === 0
       if (!pass) failed = true
-      results.push({ case: name, pass, before, after, errors })
-      console.log(JSON.stringify({ case: name, audio: audioMode, pass, before, after, errors }))
+      results.push({ case: name, pass, before, after, errors, cspViolations })
+      console.log(JSON.stringify({ case: name, audio: audioMode, pass, before, after, errors, cspViolations }))
     } finally {
       await context.close()
     }
@@ -244,6 +249,6 @@ try {
   await browser.close()
 }
 if (failed) {
-  console.error('FAIL: returning from Chat moved the reader')
+  console.error('FAIL: returning from Chat moved the reader, or the page refused media under the production CSP')
   process.exitCode = 1
 } else console.log(`PASS: ${results.length} Chat returns kept the page`)

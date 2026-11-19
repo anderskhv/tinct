@@ -13,6 +13,11 @@ export interface LibraryBookHero {
   author: string
   question: string
   cover: string | null
+  /**
+   * The author's portrait for the flap (the library's author images), or null: the library page's own
+   * placeholder (Mary Shelley, a relative path) is then removed rather than shown for another author.
+   */
+  portrait?: { src: string; alt: string } | null
 }
 
 export interface GeneratedBookPage {
@@ -51,6 +56,9 @@ export function readGeneratedBookPage(html: string, bookId: string): GeneratedBo
         author: data.author,
         question: typeof data.question === 'string' ? data.question : '',
         cover: typeof data.cover === 'string' && /^\/covers\/[a-z0-9/._-]+$/i.test(data.cover) ? data.cover : null,
+        portrait: data.portrait && typeof data.portrait.src === 'string' && /^\/lab\/library_2\/assets\/[a-z0-9/._-]+$/i.test(data.portrait.src)
+          ? { src: data.portrait.src, alt: typeof data.portrait.alt === 'string' ? data.portrait.alt : '' }
+          : null,
       },
       seoHead,
       about,
@@ -77,6 +85,8 @@ export function prefillLibraryHero(html: string, hero: LibraryBookHero): string 
     .replace(/(<button id="hero-book"[^>]*aria-label=")[^"]*(")/, `$1Open ${title}$2`)
     .replace(/<img id="hero-cover-preview"([^>]*)>/, (_tag, attributes: string) => `<img id="hero-cover-preview"${attributes.replace(/\ssrc="[^"]*"/, '')}${hero.cover ? ` src="${escape(hero.cover)}"` : ''}>`)
     .replace(/(<canvas class="cover" data-book=")[^"]*(")/, `$1${escape(hero.id)}$2`)
+    // The flap's first-paint portrait is this book's author (an absolute address), or none at all.
+    .replace(/<img id="slip-portrait"[^>]*>/, hero.portrait ? `<img id="slip-portrait" src="${escape(hero.portrait.src)}" alt="${escape(hero.portrait.alt)}">` : '')
 }
 
 /**
@@ -90,7 +100,9 @@ export function composeBookLibraryPage(libraryHtml: string, book: GeneratedBookP
     .replace(/<title>[^<]*<\/title>/i, '')
     .replace('</head>', `${book.seoHead}</head>`)
   // The library already has its <main>; the generated page's own becomes a block.
+  // The hero carries the page's one <h1> (the book title); the text's own title is a section heading.
   const text = book.about.replace(/^<main>/, '<div class="book-about-text">').replace(/<\/main>$/, '</div>')
+    .replace(/<h1 class="title">([\s\S]*?)<\/h1>/, '<h2 class="title">$1</h2>')
   const about = `<section id="book-about" class="book-about" aria-label="${escape(book.hero.title)}">${text}</section>`
   return prefillLibraryHero(head, book.hero).replace('<div id="shelves"></div>', `<div id="shelves"></div>${about}`)
 }

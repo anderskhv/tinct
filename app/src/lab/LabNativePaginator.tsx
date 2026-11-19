@@ -1,10 +1,12 @@
+import { transcriptTurns } from './labTranscript'
 import { proseJoins, proseRuns } from './labPoetry'
+import { measureRowsState, paintRows } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
-import { labMeasureJoinInto, labMeasureParagraphInto } from './labMeasureParagraph'
+import { labMeasureJoinInto, labMeasureParagraphInto, labWordSpacing, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
 import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
-import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
+import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import {
   LAB_ORPHAN_PAGE_WORDS,
   chapterPagesCover,
@@ -22,8 +24,27 @@ import {
   type ChapterPageSegment,
 } from './labHearing'
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
-import { measuredDesktopPages, type LabPaginationStart } from './LabDesktopPaginator'
+import { measuredDesktopPages, measuredDesktopPageSteps, type LabPaginationStart } from './LabDesktopPaginator'
+import { paragraphKindClass, paragraphSetRagged, wordLink } from './labParagraphStyle'
+import { planHyphenationSteps } from './labHyphenPlan'
+import { figureFor, setFigureLayout } from './labFigures'
+import { LabFigureView } from './LabFigure'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
+
+/**
+ * Diagnostic timing for the long layout passes, read by
+ * scripts/check-shakespeare-layout.mjs through a PerformanceObserver. It
+ * records one user-timing entry and clears it from the buffer at once, so a
+ * long session never accumulates entries; it changes no layout or scheduling.
+ */
+function traceLayout(name: string, start: number) {
+  try {
+    performance.measure(`tinct:paginator:${name}`, { start, end: performance.now() })
+    performance.clearMeasures(`tinct:paginator:${name}`)
+  } catch {
+    // User timing is optional.
+  }
+}
 
 export interface LabNativeWordPlacement {
   pageIndex: number
@@ -206,38 +227,32 @@ export function nativePagesFromPlacements(
   return balanceNativeChapterTail(pages)
 }
 
-function nativeWordSpacing(
-  word: { text: string },
-  wordIndex: number,
-  previous?: { text: string },
-): string {
-  if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
-  // Mirrors LabPassage.wordSpacing exactly: the paginator must measure the same
-  // characters the reading column renders, or pages break in different places.
-  return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
-}
-
 function NativeWord({
   text,
   paragraphIndex,
   wordIndex,
   spacing,
+  paragraph,
 }: {
   text: string
   paragraphIndex: number
   wordIndex: number
   spacing: string
+  paragraph?: string
 }) {
+  // A link is laid out as painted: its label, not the raw address.
+  const link = wordLink(paragraph, wordIndex, text)
+  const figure = figureFor(text)
   return (
     <>
       {spacing}
       <span
-        className="lab-hearing-word"
+        className={figure ? 'lab-hearing-word lab-figure-word' : 'lab-hearing-word'}
         data-native-word="true"
         data-paragraph-index={paragraphIndex}
         data-word-index={wordIndex}
       >
-        {isLabVerseMarker(text) ? (
+        {figure ? <LabFigureView figure={figure} /> : link ? <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`}>{link.label}</a>{link.trail}</> : isLabVerseMarker(text) ? (
           <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
         ) : text}
       </span>
@@ -256,14 +271,15 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
         text={word.text}
         paragraphIndex={paragraphIndex}
         wordIndex={wordIndex}
-        spacing={nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
+        spacing={labWordSpacing(word, wordIndex, words[wordIndex - 1])}
+        paragraph={text}
       />
     )
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
       const nextIndex = wordIndex + 1
       rendered.push({ at: wordIndex, node: (
         <Fragment key={`verse-${wordIndex}`}>
-          {nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
+          {labWordSpacing(word, wordIndex, words[wordIndex - 1])}
           <span className="lab-verse-unit">
             <NativeWord
               text={word.text}
@@ -275,7 +291,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
               text={words[nextIndex].text}
               paragraphIndex={paragraphIndex}
               wordIndex={nextIndex}
-              spacing={nativeWordSpacing(words[nextIndex], nextIndex, word)}
+              spacing={labWordSpacing(words[nextIndex], nextIndex, word)}
             />
           </span>
         </Fragment>
@@ -295,7 +311,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
  * where the reader will.
  */
 function NativeParagraph({ paragraphs, run }: { paragraphs: string[]; run: number[] }) {
-  return <p className="lab-hearing-line">{run.map((paragraphIndex, position) => position === 0
+  return <p className={`lab-hearing-line${paragraphKindClass(paragraphs[run[0]])}`}>{run.map((paragraphIndex, position) => position === 0
     ? <Fragment key={paragraphIndex}>{nativeParagraphWords(paragraphs[paragraphIndex], paragraphIndex)}</Fragment>
     : <Fragment key={paragraphIndex}>{' '}<span className="lab-prose-join">{nativeParagraphWords(paragraphs[paragraphIndex], paragraphIndex)}</span></Fragment>)}</p>
 }
@@ -329,6 +345,53 @@ function nativeVerseLines(text: string, rendered: Array<{ at: number; node: Reac
   })
 }
 
+/** Advance a layout without changing its generator or source boundaries. */
+export function nativePaginationSlice<T>(steps: Generator<unknown, T>, now = () => performance.now()): IteratorResult<unknown, T> {
+  const until = now() + 50
+  let step = steps.next()
+  while (!step.done && now() < until) step = steps.next()
+  return step
+}
+
+/**
+ * The column flow's pages for the words from `start` on, as stand-ins: a
+ * head-first map (`headFirst` below) has its opening page exactly laid out and
+ * these after it only until the rest of the chapter is, a moment later. They
+ * are never shown: the reader does not turn onto a page of a head-first map.
+ */
+export function provisionalPagesAfter(preflight: ChapterHearingPage[], start: LabPaginationStart): ChapterHearingPage[] {
+  const pages: ChapterHearingPage[] = []
+  for (const page of preflight) {
+    const kept: ChapterPageSegment[] = []
+    for (const segment of chapterPageSegments(page)) {
+      if (segment.paragraphIndex < start.paragraphIndex) continue
+      if (segment.paragraphIndex === start.paragraphIndex && segment.to <= start.wordIndex) continue
+      const from = segment.paragraphIndex === start.paragraphIndex ? Math.max(segment.from, start.wordIndex) : segment.from
+      kept.push({
+        paragraphIndex: segment.paragraphIndex,
+        from,
+        to: segment.to,
+        ...(segment.paragraphIndex === start.paragraphIndex && from === start.wordIndex && start.headBreak != null ? { headBreak: start.headBreak } : {}),
+      })
+    }
+    if (kept.length) pages.push({ ...kept[0], segments: kept })
+  }
+  return pages
+}
+
+/** A head-first map needs at least this many pages: the chapter's end fitting (fitChapterEnd) only ever changes its last page. */
+const HEAD_FIRST_MIN_PAGES = 3
+
+/** Layouts whose chapter map a paginator keeps, per paragraph list. */
+const MEASURED_LAYOUTS = 4
+
+/** How many font files have loaded: any that arrives can change a measured line. */
+function loadedFontFaces(): number {
+  let loaded = 0
+  document.fonts?.forEach?.(face => { if (face.status === 'loaded') loaded += 1 })
+  return loaded
+}
+
 export const LabNativePaginator = memo(function LabNativePaginator({
   chapterTitle,
   paragraphs,
@@ -337,7 +400,9 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   chapterActions = false,
   hasNextChapter = false,
   editionKey,
+  language,
   keepPages,
+  headFirst = false,
   onPages,
 }: {
   chapterTitle: string
@@ -348,17 +413,34 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   hasNextChapter?: boolean
   /** Reading edition, for the hyphenation patterns a page-edge break needs. */
   editionKey?: string
+  /** The book's language when the edition key does not name it (a reader's own book). */
+  language?: string
   /**
    * Pages to keep verbatim at the head of the map (the reader's current page
    * and those before it) when the foot changes height under them. Only the
    * remainder is laid out at the new height. Ignored if the width changes.
    */
   keepPages?: ChapterHearingPage[]
-  onPages: (pages: ChapterHearingPage[], paragraphs?: string[]) => void
+  /**
+   * The reader opens at this chapter's first page (a new reader, a chapter
+   * start). The first map is then published as soon as its opening page is
+   * laid out (`partial`), and the rest of the chapter is laid out right after
+   * that page has painted, with the same layout, and published in full. The
+   * opening page is the same in both: it is the first page of one layout.
+   * Read when the chapter is measured, not one of its triggers.
+   */
+  headFirst?: boolean
+  onPages: (pages: ChapterHearingPage[], paragraphs?: string[], partial?: boolean) => void
 }) {
   const hostRef = useRef<HTMLDivElement | null>(null)
   const generationRef = useRef(0)
-  const hyphenLang = hyphenLangForEdition(editionKey)
+  // Chapter maps this paginator has measured, per paragraph list and layout.
+  // Going back to a layout (Compare off, the other edition back on standby)
+  // takes its map instead of laying the whole chapter out again.
+  const measuredRef = useRef(new WeakMap<string[], Map<string, ChapterHearingPage[]>>())
+  const headFirstRef = useRef(headFirst)
+  headFirstRef.current = headFirst
+  const hyphenLang = hyphenLangForEdition(editionKey, language)
   // Patterns arrive after the first layout. Re-measuring once they do is the
   // whole point: the first pass breaks between words, the second fills the
   // last lines. Both are correct pages, so the reader sees no error state.
@@ -377,12 +459,30 @@ export const LabNativePaginator = memo(function LabNativePaginator({
     let firstFrame = 0
     let secondFrame = 0
     let publishedPages: ChapterHearingPage[] | null = null
+    // The published map is a head-first one: its full map is always published, even if equal.
+    let publishedPartial = false
     // The kept pages were laid out at this width; a different width (a
     // rotation) invalidates them and the whole chapter is laid out again.
     let keepWidth: number | null = null
+    // The rest of a head-first map, waiting for its opening page to paint.
+    let rest: { frame: number; timer: number } | null = null
+    const cancelRest = () => {
+      if (!rest) return
+      cancelAnimationFrame(rest.frame)
+      window.clearTimeout(rest.timer)
+      rest = null
+    }
 
-    const measure = () => {
+    let measurement: Generator<unknown, void> | null = null
+    let measureTimer = 0
+    const cancelMeasurement = () => {
+      window.clearTimeout(measureTimer)
+      measurement?.return()
+      measurement = null
+    }
+    const measure = function* (): Generator<unknown, void> {
       if (cancelled) return
+      const columnAt = performance.now()
       const flow = host.querySelector('[data-native-page-flow]') as HTMLElement | null
       if (!flow) return
       const pageWidth = flow.getBoundingClientRect().width
@@ -401,6 +501,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           wordIndex,
         })
       })
+      traceLayout('column-map', columnAt)
       let pages = nativePagesFromPlacements(placements)
       if (fillPages) {
         // The column flow keeps whole words together. The visible leaf allows
@@ -411,62 +512,187 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         const header = surface.querySelector<HTMLElement>('.lab-passage-header')!
         const stage = surface.querySelector<HTMLElement>('.lab-hearing-stage')!
         const sourceWords = paragraphs.map(tokenizeHearingWords)
-        const wordBreaks = hyphenLang && hyphensReady
-          ? (paragraphIndex: number, wordIndex: number) => hyphenationBreaks(
-              sourceWords[paragraphIndex]?.[wordIndex]?.text ?? '', hyphenLang,
-            )
-          : undefined
+        // The book's own dashes break at a page edge from the first pass, as
+        // the browser breaks them inside a page; dictionary breaks join once
+        // the patterns land.
+        const breakLang = hyphenLang && hyphensReady ? hyphenLang : null
+        // A heading, label or index line is never hyphenated: at a page edge only its own dashes break.
+        const wordBreaks = (paragraphIndex: number, wordIndex: number) => pageEdgeBreaks(
+          sourceWords[paragraphIndex]?.[wordIndex]?.text ?? '', paragraphSetRagged(paragraphs[paragraphIndex]) ? null : breakLang, true,
+        )
         const end = surface.querySelector<HTMLElement>('.lab-chapter-end')
-        const fits = (segments: ChapterPageSegment[], first: boolean, withEnd = false) => {
+        // The block holding the last segment's words in the latest trial.
+        let tailBlock = null as Element | null
+        // The trial on the stage: asking about the same page again (its line
+        // starts, its last line's spacing, right after fitting it) reads that
+        // layout instead of building it again.
+        let onStage = ''
+        const stageRows = measureRowsState()
+        const paint = (segments: ChapterPageSegment[], first: boolean, withEnd: boolean) => {
+          const trial = JSON.stringify([segments, first, withEnd])
+          if (trial === onStage && stage.isConnected) return
+          onStage = trial
           if (end) end.hidden = !withEnd
           header.hidden = !first
-          stage.replaceChildren()
-          for (const run of proseRuns(paragraphs, segments)) {
+          // Rows this trial shares with the one on the stage stay painted (labMeasureRows).
+          const runs = proseRuns(paragraphs, segments)
+          const blocks = paintRows(stage, stageRows, runs.map(run => ({ key: JSON.stringify(run.map(index => segments[index])), build: () => {
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
             run.forEach((index, position) => {
               const segment = segments[index]
               const words = segmentWordTexts(sourceWords[segment.paragraphIndex], segment)
               const lineation = { text: paragraphs[segment.paragraphIndex], from: segment.from }
-              if (position === 0) labMeasureParagraphInto(p, words, lineation)
-              else labMeasureJoinInto(p, words, lineation)
+              const turn = transcriptTurns(paragraphs)?.get(segment.paragraphIndex)
+              if (position === 0) labMeasureParagraphInto(p, words, lineation, { plans: true, turn })
+              else labMeasureJoinInto(p, words, lineation, { plans: true, turn })
             })
-            stage.append(p)
-          }
+            return p
+          } })))
+          const last = blocks[blocks.length - 1]
+          tailBlock = last ? (runs[runs.length - 1].length > 1 ? last.lastElementChild : last) : null
+        }
+        const lineStarts = (segments: ChapterPageSegment[], first: boolean) => {
+          const tail = segments[segments.length - 1]
+          if (!tail) return null
+          paint(segments, first, false)
+          return tailBlock ? measuredLineStarts(tailBlock, tail.from) : null
+        }
+        const tailGap = (segments: ChapterPageSegment[], first: boolean) => {
+          if (!segments.length) return null
+          paint(segments, first, false)
+          const block = tailBlock?.closest('.lab-hearing-line') ?? null
+          return block ? measuredTailGapEm(block) : null
+        }
+        const fits = (segments: ChapterPageSegment[], first: boolean, withEnd = false) => {
+          paint(segments, first, withEnd)
           const painted = [...stage.querySelectorAll('.lab-hearing-word, .lab-word-fragment')]
           const last = painted[painted.length - 1]
           const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : Infinity
           const bottom = withEnd && end ? Math.max(lastBottom, end.getBoundingClientRect().bottom) : lastBottom
           return labPageFitsPaint({ lastBottom: bottom, chromeTop: host.getBoundingClientRect().bottom })
         }
+        // Figures are sized from this page (labFigures); the page paints with the same.
+        header.hidden = true
+        stage.replaceChildren()
+        onStage = ''
+        const probe = document.createElement('p')
+        probe.className = 'lab-hearing-line'
+        stage.append(probe)
+        const columnWidth = probe.getBoundingClientRect().width
+        const pageHeight = host.getBoundingClientRect().bottom - probe.getBoundingClientRect().top
+        const face = getComputedStyle(probe)
+        const faceKey = [face.font, face.lineHeight, face.letterSpacing, face.wordSpacing, face.textAlign, face.textIndent, face.marginBottom, face.hyphens].join('|')
+        setFigureLayout({ columnWidth, pageHeight })
+        probe.remove()
+        // Hyphens where a line needs one, chosen in this column (labHyphenPlan).
+        const planAt = performance.now()
+        // Painted as the page paints it, a transcript turn's time and speaker
+        // included: the speaker's heavier weight moves the line ends.
+        const planKey = yield* planHyphenationSteps(stage, paragraphs, breakLang, (p, words, text, plan, paragraphIndex) => {
+          labMeasureParagraphInto(p, words, { text, from: 0 }, { plan, turn: transcriptTurns(paragraphs)?.get(paragraphIndex) })
+        })
+        traceLayout('hyphen-plan', planAt)
+        onStage = ''
         const lengths = sourceWords.map(words => words.length)
         const fitEnd = chapterActions
-          ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true), cleanPageStarts(sourceWords))
+          ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true), cleanPageStarts(sourceWords), lineStarts)
           : undefined
         if (keepPages?.length && keepWidth == null) keepWidth = pageWidth
+        const keptAt = performance.now()
         const kept = keepPages?.length && keepWidth === pageWidth
-          ? labPagesKeepingPrefix(keepPages, lengths, start => measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, start), fitEnd)
+          ? labPagesKeepingPrefix(keepPages, lengths, start => measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, start, lineStarts, tailGap), fitEnd)
           : null
+        if (kept) traceLayout('kept-prefix', keptAt)
         if (kept && chapterPagesCover(paragraphs, kept)) pages = kept
         else {
-          pages = measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs)
-          if (fitEnd) pages = fitEnd(pages)
+          // Everything the map depends on: the column, the page, the face and
+          // every loaded font file, the breaks and the hyphen plans.
+          const layout = JSON.stringify([layoutKey, chapterTitle, chapterActions, hasNextChapter, breakLang, pageWidth, columnWidth, pageHeight, faceKey, planKey, loadedFontFaces()])
+          let measured = measuredRef.current.get(paragraphs)
+          if (!measured) measuredRef.current.set(paragraphs, measured = new Map())
+          const known = measured.get(layout)
+          if (known) {
+            pages = known
+            measured.delete(layout)
+          } else {
+            const preflight = pages
+            const opening: { page: ChapterHearingPage | null } = { page: null }
+            const steps = measuredDesktopPageSteps(lengths, fits, wordBreaks, Infinity, paragraphs, undefined, lineStarts, tailGap, closed => {
+              if (!opening.page && closed.length) opening.page = closed[0]
+            })
+            const headOnly = headFirstRef.current && !publishedPages && preflight.length >= HEAD_FIRST_MIN_PAGES
+            const layoutAt = performance.now()
+            let step = headOnly ? steps.next() : nativePaginationSlice(steps)
+            while (!step.done && headOnly && !opening.page) step = steps.next()
+            const start = !step.done && opening.page ? labResumeAfterPage(opening.page, lengths) : null
+            const head = headOnly && start && opening.page ? [opening.page, ...provisionalPagesAfter(preflight, start)] : null
+            if (!step.done) {
+              if (head && placements.length === wordNodes.length && chapterPagesCover(paragraphs, head)) {
+                publishedPages = head
+                publishedPartial = true
+                onPages(head, paragraphs, true)
+                traceLayout('head', layoutAt)
+              }
+              const layoutMap = measured
+              // The same layout carries on from the page it closed, on the
+              // same stage, once that page has painted (two frames, then a task).
+              const finish = () => {
+                rest = null
+                if (cancelled) return
+                const drainAt = performance.now()
+                const next = nativePaginationSlice(steps)
+                if (!next.done) { rest = pending; pending.timer = window.setTimeout(finish, 0); return }
+                let full = next.value
+                const fitAt = performance.now()
+                traceLayout('finish-drain', drainAt)
+                if (fitEnd) full = fitEnd(full)
+                if (fitEnd) traceLayout('finish-fit-end', fitAt)
+                layoutMap.set(layout, full)
+                while (layoutMap.size > MEASURED_LAYOUTS) layoutMap.delete(layoutMap.keys().next().value!)
+                if (end) end.hidden = true
+                stage.replaceChildren()
+                if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, full) && (!publishedPages || publishedPartial || !sameChapterPages(publishedPages, full))) {
+                  publishedPages = full
+                  publishedPartial = false
+                  const publishAt = performance.now()
+                  onPages(full, paragraphs)
+                  traceLayout('finish-publish', publishAt)
+                }
+              }
+              const pending = { frame: 0, timer: 0 }
+              pending.frame = requestAnimationFrame(() => {
+                pending.frame = requestAnimationFrame(() => { pending.timer = window.setTimeout(finish, 0) })
+              })
+              rest = pending
+              return
+            }
+            pages = step.value
+            if (fitEnd) pages = fitEnd(pages)
+            traceLayout('full-layout', layoutAt)
+          }
+          measured.set(layout, pages)
+          while (measured.size > MEASURED_LAYOUTS) measured.delete(measured.keys().next().value!)
         }
         if (end) end.hidden = true
         stage.replaceChildren()
       }
       if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, pages)
-        && (!publishedPages || !sameChapterPages(publishedPages, pages))) {
+        && (!publishedPages || publishedPartial || !sameChapterPages(publishedPages, pages))) {
         // loadingdone also fires for toolbar fonts. Re-publishing an unchanged
         // preflight map would erase the visible-page rounding corrections and
         // move the reader backwards. A changed reading font/layout still emits
         // its genuinely different map, and a new effect always publishes once.
         publishedPages = pages
+        publishedPartial = false
         onPages(pages, paragraphs)
       }
     }
 
     const schedule = () => {
+      // A newer measurement replaces the rest still to come.
+      cancelRest()
+      cancelMeasurement()
       const generation = ++generationRef.current
       if (firstFrame) cancelAnimationFrame(firstFrame)
       if (secondFrame) cancelAnimationFrame(secondFrame)
@@ -477,7 +703,17 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           const pageWidth = flow?.getBoundingClientRect().width ?? 0
           if (flow && pageWidth > 1) flow.style.columnWidth = `${pageWidth}px`
           secondFrame = requestAnimationFrame(() => {
-            if (!cancelled && generation === generationRef.current) measure()
+            if (cancelled || generation !== generationRef.current) return
+            const steps = measure()
+            measurement = steps
+            const run = () => {
+              measureTimer = 0
+              if (cancelled || generation !== generationRef.current) { steps.return(); return }
+              const next = nativePaginationSlice(steps)
+              if (!next.done) measureTimer = window.setTimeout(run, 0)
+              else measurement = null
+            }
+            run()
           })
         })
       })
@@ -489,6 +725,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
     document.fonts?.addEventListener?.('loadingdone', schedule)
     return () => {
       cancelled = true
+      cancelRest()
+      cancelMeasurement()
       generationRef.current += 1
       if (firstFrame) cancelAnimationFrame(firstFrame)
       if (secondFrame) cancelAnimationFrame(secondFrame)
@@ -515,7 +753,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       </article>
       {fillPages && <article className="lab-passage lab-book is-reading lab-native-fragment-surface" data-native-fragment-surface>
         <LabChapterHeading title={chapterTitle} preview={chapterActions} measuring />
-        <div className="lab-book-columns"><div className="lab-book-col"><div className="lab-hearing-stage" />{chapterActions && <LabChapterEnd hasNext={hasNextChapter} measuring />}</div></div>
+        <div className="lab-book-columns"><div className="lab-book-col"><div className="lab-hearing-stage" />{chapterActions && <LabChapterEnd chapterTitle={chapterTitle} hasNext={hasNextChapter} measuring />}</div></div>
       </article>}
     </div>
   )

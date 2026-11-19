@@ -1,8 +1,15 @@
+/* Brief source cue after an explicit Notebook Open/Show passage action. */
+.lab .is-notebook-passage { background-color: color-mix(in srgb, var(--lab-ink, #a87c35) 20%, transparent); border-radius: 2px; }
+
 .lab.is-phone .lab-narration-inline, .lab.has-phone-chrome .lab-narration-inline { position: absolute; left: 0; right: 0; bottom: calc(3.72rem + env(safe-area-inset-bottom, 0px)); padding: 0 16px; }
 .lab-narration-inline ~ .lab-page-turn .lab-chapter-progress { visibility: hidden; }
 /* Audio preparation stays inside the existing Play button. */
 .lab-audio-spinner { flex: none; animation: lab-narration-spin .9s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .lab-audio-spinner { animation: none; } }
+/* The one wait indicator (LabWait.tsx): the Play button's ring, in the area that is loading. It holds
+   the ring's box from the start so nothing jumps when the ring appears after its delay. */
+.lab-wait { display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; min-width: var(--lab-wait-size, 21px); min-height: max(var(--lab-wait-size, 21px), 1.4em); color: inherit; }
+.lab-wait .lab-audio-spinner { display: block; width: var(--lab-wait-size, 21px); height: var(--lab-wait-size, 21px); }
 .lab-narration-inline { pointer-events: auto; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 4px 16px; color: var(--lab-ink-muted); font: 13px/1.35 system-ui, sans-serif; }
 .lab-narration-inline span { min-width: 0; }
 .lab-narration-inline button { flex: none; border: 0; padding: 8px 4px; background: transparent; color: var(--lab-ink); font: inherit; text-decoration: underline; cursor: pointer; }
@@ -25,6 +32,10 @@
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
 }
 
+/* The header is chrome: a long press on the book's title must not select it and raise iOS's copy menu, which
+   then could not be dismissed (Anders, 16 Nov 2026). */
+.lab .lab-header, .lab .lab-header * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+
 .lab-header {
   position: relative;
   z-index: 60;
@@ -41,7 +52,7 @@
 .lab-status {
   grid-column: 1 / -1;
   margin: 0.15rem 0 0;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   color: #0b0b0b;
@@ -313,21 +324,23 @@
 
 /* On a narrow phone measure, long indivisible words create a coarse,
    stair-step rag. Let the browser use the edition language's dictionary on
-   the painted page, while avoiding arbitrary mid-letter emergency breaks.
+   the painted page; a word is broken mid-letter only when it is wider than the column.
    Two letters may precede the hyphen ("un-sound"), matching labHyphenate's
    HYPHEN_MIN_HEAD, so short prefixes can rescue an otherwise gappy line. */
 .lab.is-phone .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word,
 .lab.has-phone-chrome .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word {
   white-space: normal;
-  overflow-wrap: normal;
+  /* Only a word wider than the whole column ("christiantranshumanistpodcast.com")
+     is broken where it must be, rather than running off the page. */
+  overflow-wrap: break-word;
   word-break: normal;
   -webkit-hyphens: auto;
   hyphens: auto;
   -webkit-hyphenate-limit-before: 2;
   -webkit-hyphenate-limit-after: 3;
-  -webkit-hyphenate-limit-lines: 2;
+  -webkit-hyphenate-limit-lines: 3;
   hyphenate-limit-chars: 7 2 3;
-  hyphenate-limit-lines: 2;
+  hyphenate-limit-lines: 3;
 }
 
 .lab-hearing {
@@ -467,6 +480,8 @@
 }
 
 /* Beat Safari / UA h1 (2em) so computed size equals Hearing body. */
+/* A first chapter named as the book (a reader's own book): its heading stays in the tree, unshown. */
+.lab .lab-passage-headline[hidden] { display: none !important; }
 .lab h1.lab-passage-headline {
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   font-size: 2.45rem;
@@ -555,6 +570,13 @@
   color: inherit;
   background: none;
 }
+
+/* Transcripts (labTranscript, 11 Nov 2026): the time muted, the speaker bold. Display
+   only; the paginators measure the same classes. */
+.lab .lab-transcript-time,
+.lab .lab-passage .lab-hearing-word.lab-transcript-time { color: var(--lab-ink-muted); font-variant-numeric: tabular-nums; }
+.lab .lab-transcript-speaker,
+.lab .lab-passage .lab-hearing-word.lab-transcript-speaker { font-weight: 600; }
 
 .lab-passage.is-reading.is-hearing .lab-hearing-word.is-current,
 .lab-passage.is-reading.is-hearing .lab-hearing-word.is-line {
@@ -1018,7 +1040,9 @@
 .lab-markdown > :first-child { margin-top: 0; }
 .lab-markdown > :last-child { margin-bottom: 0; }
 .lab-markdown p { margin: 0 0 .72em; }
-.lab-markdown ul { margin: .2em 0 .72em; padding-left: 1.15em; }
+.lab-markdown ul, .lab-markdown ol { margin: .2em 0 .72em; padding-left: 1.15em; }
+/* A heading in an answer: a short bold line with a little room above, in the answer's own face and size. */
+.lab-markdown .lab-md-heading { margin: .9em 0 .3em; }
 .lab-markdown strong { font-weight: 650; }
 .lab-markdown code {
   padding: .05em .24em;
@@ -1131,6 +1155,15 @@
   overflow-y: auto;
   overscroll-behavior: contain;
 }
+.lab .lab-contextual-save-error {
+  margin: 8px 0 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--lab-border);
+  border-radius: 8px;
+  font: 14px/1.4 system-ui, sans-serif;
+  color: var(--lab-ink);
+  background: var(--lab-paper);
+}
 
 .lab-contextual-explain blockquote {
   max-height: 68px;
@@ -1213,6 +1246,25 @@
   touch-action: pinch-zoom;
   -webkit-touch-callout: none;
 }
+/* The Margin reader's text is a scroller: a finger on it scrolls the book, as
+   the margin beside it does; a long press still selects (LabPassage
+   touchScroll). Surface Duo spanned and iPad upright, 6 Nov 2026. */
+.lab .lab-passage.owns-text-selection.is-touch-scroll,
+.lab .lab-passage.owns-text-selection.is-touch-scroll * {
+  touch-action: pan-y pinch-zoom;
+}
+/* The phone page turns on a vertical swipe too (Anders, 12 Nov 2026), so the
+   browser must not claim the vertical drag as a pan: that ends the gesture in
+   pointercancel and, on iOS, pulls the page down with it. The page is
+   paginated to fit and never scrolls; pinch zoom stays the reader's. Listening
+   drops `owns-text-selection` (and the stage's own rule says pan-y), so this
+   reaches every element of the page, words included. */
+.lab .lab-passage.is-reading.has-vertical-swipe,
+.lab .lab-passage.is-reading.has-vertical-swipe *,
+.lab .lab-chapter-cover.has-vertical-swipe,
+.lab .lab-chapter-cover.has-vertical-swipe * {
+  touch-action: pinch-zoom;
+}
 /* The collapsed card is as tall as its opener: no clamp, no inner scroll,
    never a cut sentence. Only the expanded card scrolls. */
 .lab .lab-contextual-explain-scroll { box-sizing: border-box; }
@@ -1273,6 +1325,21 @@
 .lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-sage:has(> .lab-verse-mark) { background: var(--highlight-sage, #4a5c2e) !important; }
 .lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-sky:has(> .lab-verse-mark) { background: var(--highlight-sky, #2e3a5c) !important; }
 .lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-lavender:has(> .lab-verse-mark) { background: var(--highlight-lavender, #3a2e5c) !important; }
+
+/* A completed highlighter press reveals its chosen ink while the same
+   selection toolbar stays anchored. Active drags retain the warm preview. */
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection :is(.lab-hearing-word,.lab-highlight-gap).is-selecting.is-hl-warm { background:var(--highlight-gold,#f5e6c8); }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection :is(.lab-hearing-word,.lab-highlight-gap).is-selecting.is-hl-rose { background:var(--highlight-rose,#f5d0d0); }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection :is(.lab-hearing-word,.lab-highlight-gap).is-selecting.is-hl-sage { background:var(--highlight-sage,#cde3b4); }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection :is(.lab-hearing-word,.lab-highlight-gap).is-selecting.is-hl-sky { background:var(--highlight-sky,#d0e0f5); }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection :is(.lab-hearing-word,.lab-highlight-gap).is-selecting.is-hl-lavender { background:var(--highlight-lavender,#e0d0f5); }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection::selection,
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection *::selection { background:transparent; }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection.has-text-range-highlights .lab-hearing-word.is-selecting.is-hl-warm:has(> .lab-verse-mark) { background:var(--highlight-gold,#f5e6c8) !important; }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection.has-text-range-highlights .lab-hearing-word.is-selecting.is-hl-rose:has(> .lab-verse-mark) { background:var(--highlight-rose,#f5d0d0) !important; }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection.has-text-range-highlights .lab-hearing-word.is-selecting.is-hl-sage:has(> .lab-verse-mark) { background:var(--highlight-sage,#cde3b4) !important; }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection.has-text-range-highlights .lab-hearing-word.is-selecting.is-hl-sky:has(> .lab-verse-mark) { background:var(--highlight-sky,#d0e0f5) !important; }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection.has-text-range-highlights .lab-hearing-word.is-selecting.is-hl-lavender:has(> .lab-verse-mark) { background:var(--highlight-lavender,#e0d0f5) !important; }
 
 .lab-ask-attachment-text {
   display: block;
@@ -2195,6 +2262,9 @@
 .lab-verse-line {
   display: block;
   text-align: start;
+  /* Never inherit a justified last line from a page tail that continues
+     (`.is-continued[data-tail-full]`): each verse line ends its own block. */
+  text-align-last: auto;
   text-justify: auto;
   padding-left: 1.5em;
   text-indent: -1.5em;
@@ -2221,6 +2291,12 @@
   content: '\2010';
 }
 
+/* A break at the book's own dash ("twenty-|third") shows that dash; adding a
+   hyphen after it would print a character the book does not have. */
+.lab-word-fragment.is-hard-break::after {
+  content: none;
+}
+
 /* The verse number is small and raised. Its margin used to sit before it:
    highlights are painted per text fragment (::highlight) and a margin is not
    text, so a band across "² And" had a slit there. The space before the
@@ -2231,41 +2307,13 @@
   line-height: 0;
   font-weight: 600;
   margin-left: 0;
+  /* With the narrow no-break space after it (LAB_VERSE_SEPARATOR) this is
+     the number's fixed room: about a fifth of an em that a justified line
+     never stretches, so the number stays with its verse. Inside the number's
+     word span, whose own background paints highlights here, so no slit. */
+  margin-right: 0.18em;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
-}
-/* Compare: where the main page's passage ends in the other edition, when it
-   runs past the compare page. Takes no room (zero width, no line box of its
-   own), so the measured page is exactly the page painted. */
-.lab-compare-page-end {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 1em;
-  vertical-align: -0.12em;
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.lab-compare-page-end::before {
-  content: '';
-  position: absolute;
-  left: -0.5px;
-  top: -0.05em;
-  bottom: -0.1em;
-  width: 1px;
-  background: var(--lab-ink-faint);
-}
-.lab-compare-page-end::after {
-  content: attr(data-label);
-  position: absolute;
-  left: 3px;
-  top: -0.95em;
-  font: 500 0.5rem/1 'IBM Plex Mono', ui-monospace, monospace;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--lab-ink-faint);
 }
 /* Selection paints only: never add spacing that the measured page did not have. */
 
@@ -2534,15 +2582,31 @@
 .lab.is-phone .lab-hearing-stage {
   justify-content: flex-start;
   align-content: flex-start;
-  overflow-x: hidden;
   min-width: 0;
   max-width: 100%;
   padding: 0.15rem 0 0.35rem;
+  /* Ink may overhang a glyph's advance width: the hook of a line-final "f"
+     ("company of", Nehemiah 12) or an italic's lean at line start. The
+     stage used to clip at its content edge (overflow-x: hidden), cutting
+     that ink with a straight vertical edge. Clip with clip-path instead:
+     the same top and bottom edges, but the sides extend into the passage's
+     side padding, which is empty and itself clipped by the passage. Paint
+     only: the stage is a flex box under a block, so its overflow never
+     changed its size, its lines or the page map (measured in the hidden
+     native flow, where the stage is display: contents). iOS Safari has no
+     overflow-clip-margin; clip-path inset with negative sides works in
+     every engine. The visible stage holds only the current page's words,
+     so no neighbouring page can show through. */
+  overflow: visible;
+  clip-path: inset(0 calc(-1 * var(--lab-ink-overhang, 0.75rem)));
 }
 
 .lab.is-phone .lab-hearing-line {
   font-family: var(--lab-font-reader, 'EB Garamond', Georgia, 'Times New Roman', serif);
-  font-size: calc(1.72rem * (var(--lab-font-size, 1.3) / 1.3));
+  /* ≈25.3px at the default size (Anders, 2026-10-06): about 8% under the
+     earlier 1.72rem, nearer Kindle and Apple Books. The reader's own size
+     steps scale from this base. */
+  font-size: calc(1.58rem * (var(--lab-font-size, 1.3) / 1.3));
   line-height: 1.42;
   margin: 0 auto;
   max-width: 100%;
@@ -2664,6 +2728,10 @@
 .lab-book-switcher {
   width: min(390px, calc(100vw - 32px));
   max-height: min(68vh, 560px);
+  /* Head and the Library row stay put; only the book list scrolls, so the
+     way back to the library is visible however many books are listed. */
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--lab-border);
   border-radius: 18px;
@@ -2677,9 +2745,8 @@
   justify-content: space-between;
   padding: 15px 16px 10px;
   color: var(--lab-ink-muted);
-  font: 600 0.72rem/1.2 system-ui, sans-serif;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  /* Sentence case, as every label (design-system.md): "Reading now", never capitals (22 Oct 2026). */
+  font: 600 0.82rem/1.2 system-ui, sans-serif;
 }
 .lab-book-switcher-head button {
   width: 32px;
@@ -2693,7 +2760,8 @@
   cursor: pointer;
 }
 .lab-book-switcher-head button:hover { background: var(--lab-surface); }
-.lab-book-switcher-list { max-height: min(58vh, 480px); overflow-y: auto; padding: 0 8px 10px; overscroll-behavior: contain; }
+.lab-book-switcher-head, .lab-book-switcher-library { flex: none; }
+.lab-book-switcher-list { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0 8px 10px; overscroll-behavior: contain; }
 .lab-book-switcher-row {
   width: 100%;
   min-height: 60px;
@@ -2726,7 +2794,6 @@
 @media (max-width: 700px) {
   .lab-book-switcher-backdrop { align-items: flex-end; padding: 16px 10px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(14, 12, 10, 0.24); }
   .lab-book-switcher { width: 100%; max-height: min(72vh, 620px); border-radius: 20px; }
-  .lab-book-switcher-list { max-height: min(62vh, 530px); }
 }
 
 .lab-header-chapter {
@@ -2750,6 +2817,9 @@
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   font-size: 0.92rem;
   font-style: italic;
+  /* Italic figures lean past their advance ("Ezra 9"): the label clips at its
+     padding box, so a little room on the right keeps the last glyph whole. */
+  padding-right: 0.14em;
 }
 
 .lab-header-chevron {
@@ -3031,6 +3101,48 @@
   color: var(--lab-ink);
 }
 
+/* White (9 Nov 2026): Light's page on pure white paper. Near-black ink and neutral greys,
+   a touch warm so the accents and highlight tints still sit on it. */
+.lab.is-white-theme {
+  --lab-paper: #ffffff;
+  --lab-ink: #1a1a1a;
+  --lab-ink-muted: #5f5a52;
+  --lab-ink-faint: #757067;
+  --lab-surface: #f3f1ed;
+  --lab-border: #dcd8d0;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+}
+
+.lab.is-white-theme .lab-header,
+.lab.is-white-theme .lab-page-turn,
+.lab.is-white-theme .lab-phone-bar,
+.lab.is-white-theme .lab-ask,
+.lab.is-white-theme .lab-ask-composer,
+.lab.is-white-theme .lab-body,
+.lab.is-white-theme .lab-page-wrap,
+.lab.is-white-theme .lab-book,
+.lab.is-white-theme .lab-passage,
+.lab.is-white-theme .lab-hearing,
+.lab.is-white-theme .lab-hearing-stage,
+.lab.is-white-theme .lab-passage-header {
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+}
+
+.lab.is-white-theme .lab-header-chapter,
+.lab.is-white-theme .lab-speed-popover,
+.lab.is-white-theme .lab-speed-popover::after {
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+}
+
+.lab.is-white-theme .lab-passage-headline,.lab.is-white-theme h1.lab-passage-headline,.lab.is-white-theme .lab-hearing-line,.lab.is-white-theme .lab-hearing-line > span,.lab.is-white-theme .lab-header-work,.lab.is-white-theme .lab-page-turn-btn,.lab.is-white-theme .lab-ask-input,.lab.is-white-theme .lab-ask-send,.lab.is-white-theme .lab-ask-voice-status{
+  color: var(--lab-ink);
+}
+
 /* Terminal night ink — reading words must not stay on paper black (#0b0b0b). */
 .lab.is-night .lab-passage .lab-hearing-line,
 .lab.is-night .lab-passage .lab-hearing-line > span:not(.lab-mark-btn),
@@ -3263,11 +3375,6 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.lab.is-phone .lab-phone-bar-row.has-4,
-.lab.has-phone-chrome .lab-phone-bar-row.has-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
 .lab.is-phone .lab-phone-bar-row.has-5,
 .lab.has-phone-chrome .lab-phone-bar-row.has-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -3303,88 +3410,122 @@
 
 .lab.is-phone .lab-phone-bar-row .lab-audio-speed,
 .lab.has-phone-chrome .lab-phone-bar-row .lab-audio-speed {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-weight: 600;
 }
 
+/* ── Playback speed (approved mockup A, 4 Nov 2026) ──────────────────────
+   One row: the label, Slower, the speed as a figure, Faster. It stands over
+   the speed button that opened it and points at it (LabAudioSpeedPopover
+   sets --lab-speed-left/-bottom/-arrow from the button's box), in every
+   desktop layout and on the phone.
+
+   pointer-events: auto is the margin-reader fix (4 Nov 2026): the desktop
+   bottom chrome is pointer-events: none (it spans the column, so clicks
+   must fall through to the text) and the popover inherited that. In the
+   margin view it was painted above the text but hit-testing skipped it, so
+   every click landed on the word underneath and the outside-pointerdown
+   handler closed it. Two-page view only worked because its bottom chrome is
+   pointer-events: auto. The popover stays inside the bottom chrome's
+   stacking context (z-index 90), so dialogs and sheets still cover it. */
+.lab .lab-audio-speed-popover {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 10px 10px 18px;
+  border: 1px solid var(--lab-border);
+  border-radius: 18px;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  font: 14px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0;
+  white-space: nowrap;
+  box-shadow: 0 14px 36px rgba(43, 36, 26, 0.18), 0 3px 9px rgba(43, 36, 26, 0.08);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  pointer-events: auto;
+  animation: lab-audio-speed-enter 170ms cubic-bezier(.22,.8,.3,1) both;
+}
+.lab.is-night .lab-audio-speed-popover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+/* The pointer: the popover's own paper and hairline, turned over the button. */
+.lab .lab-audio-speed-popover::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--lab-speed-arrow, 30px) - 6px);
+  bottom: -7px;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
+  background: var(--lab-paper);
+  border-right: 1px solid var(--lab-border);
+  border-bottom: 1px solid var(--lab-border);
+  transform: rotate(45deg);
+}
+.lab.is-desktop .lab-audio-speed-popover {
+  position: fixed;
+  left: var(--lab-speed-left, 42px);
+  right: auto;
+  bottom: var(--lab-speed-bottom, 104px);
+  width: auto;
+  transform: none;
+  z-index: 250;
+}
+.lab .lab-audio-speed-title { font-weight: 600; }
+.lab .lab-audio-speed-stepper { display: flex; align-items: center; gap: 6px; }
+/* 36px discs inside a 44px tap area. */
+.lab .lab-audio-speed-step {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--lab-ink);
+  cursor: pointer;
+}
+.lab .lab-audio-speed-step::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid var(--lab-border);
+  border-radius: 999px;
+  transition: background-color 120ms ease;
+}
+.lab .lab-audio-speed-step:hover:not(:disabled)::before { background: color-mix(in srgb, var(--lab-ink) 7%, transparent); }
+.lab .lab-audio-speed-step:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
+.lab .lab-audio-speed-step:disabled { color: var(--lab-ink-faint); cursor: default; }
+.lab .lab-audio-speed-step:disabled::before { opacity: .55; }
+.lab .lab-audio-speed-value {
+  min-width: 3.2em;
+  text-align: center;
+  font: 600 22px/1.1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: var(--lab-ink);
+}
+/* The phone: above the bar, the same row sized for a thumb. */
 .lab.is-phone .lab-audio-speed-popover,
 .lab.has-phone-chrome .lab-audio-speed-popover {
   position: absolute;
   right: 0.75rem;
-  bottom: calc(2.95rem + env(safe-area-inset-bottom, 0px));
+  bottom: calc(3.6rem + env(safe-area-inset-bottom, 0px));
   left: 0.75rem;
   z-index: 5;
-  box-sizing: border-box;
-  padding: 0.78rem 0.92rem 0.68rem;
-  border: 1px solid rgba(139, 127, 108, 0.3);
-  border-radius: 1.12rem;
-  background:
-    linear-gradient(112deg, rgba(255, 255, 255, 0.82), rgba(243, 235, 220, 0.91) 52%, rgba(255, 252, 244, 0.84));
-  color: #332e27;
-  box-shadow:
-    0 14px 36px rgba(43, 36, 26, 0.2),
-    0 3px 9px rgba(43, 36, 26, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(24px) saturate(1.18);
-  -webkit-backdrop-filter: blur(24px) saturate(1.18);
-  pointer-events: auto;
-  animation: lab-audio-speed-enter 170ms cubic-bezier(.22,.8,.3,1) both;
+  padding: 8px 8px 8px 18px;
+  font-size: 16px;
 }
-
-.lab-audio-speed-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.58rem;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.025em;
-}
-
-.lab-audio-speed-heading output {
-  font-size: 1rem;
-  font-weight: 600;
-  color: inherit;
-}
-
-.lab-audio-speed-popover input[type='range'] {
-  display: block;
-  width: 100%;
-  height: 1.4rem;
-  margin: 0;
-  accent-color: #5e5142;
-  cursor: pointer;
-}
-
-.lab-audio-speed-scale {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.08rem;
-  color: rgba(63, 58, 50, 0.68);
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.56rem;
-  letter-spacing: 0.02em;
-}
-
-.lab.is-night.is-phone .lab-audio-speed-popover,
-.lab.is-night.has-phone-chrome .lab-audio-speed-popover {
-  border-color: rgba(202, 177, 139, 0.28);
-  background:
-    linear-gradient(112deg, rgba(82, 69, 52, 0.9), rgba(48, 41, 34, 0.94) 52%, rgba(69, 56, 43, 0.9));
-  color: #fffaf1;
-  box-shadow:
-    0 15px 38px rgba(0, 0, 0, 0.42),
-    0 3px 10px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 241, 218, 0.14);
-}
-
-.lab.is-night .lab-audio-speed-scale {
-  color: rgba(242, 231, 213, 0.66);
-}
-
-.lab.is-night .lab-audio-speed-popover input[type='range'] {
-  accent-color: #d5ae78;
-}
+.lab.is-phone .lab-audio-speed-step,
+.lab.has-phone-chrome .lab-audio-speed-step { width: 48px; height: 48px; }
+.lab.is-phone .lab-audio-speed-value,
+.lab.has-phone-chrome .lab-audio-speed-value { font-size: 24px; }
+html[data-eink="true"] .lab .lab-audio-speed-popover::after { background: #fff; border-color: #777; }
 
 @keyframes lab-audio-speed-enter {
   from { opacity: 0; transform: translateY(0.35rem) scale(0.985); }
@@ -3399,7 +3540,7 @@
 @media (prefers-reduced-motion: reduce) {
   .lab.is-phone .lab-phone-bar-row .lab-phone-fat,
   .lab.has-phone-chrome .lab-phone-bar-row .lab-phone-fat,
-  .lab.is-phone .lab-audio-speed-popover,
+  .lab .lab-audio-speed-popover,
   .lab.has-phone-chrome .lab-audio-speed-popover {
     animation: none;
   }
@@ -3552,8 +3693,8 @@
 }
 
 .lab.is-desktop .lab-header {
-  height: 72px;
-  min-height: 72px;
+  height: 56px;
+  min-height: 56px;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr) 48px;
@@ -3571,12 +3712,23 @@
   gap: 8px;
 }
 
+/* The right column holds up to four 42px discs (Notebook, Play, Aa, t), not 48px: on a narrow desktop or a
+   landscape iPad the centred title ran under them (Pinocchio, 16 Nov 2026). Both sides reserve that width so the
+   title stays centred and ends in an ellipsis before the first disc. */
+.lab[data-chrome-version="v2"].is-desktop .lab-header {
+  grid-template-columns: minmax(200px, 1fr) minmax(0, auto) minmax(200px, 1fr);
+}
+.lab[data-chrome-version="v2"].is-desktop .lab-header-brand {
+  min-width: 0;
+  max-width: min(720px, 100%);
+}
+
 .lab.is-desktop .lab-header-work {
   flex: 0 1 auto;
   min-width: 0;
   max-width: min(320px, 42vw);
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 23px;
+  font-size: 19px;
   line-height: 1;
 }
 
@@ -3586,16 +3738,23 @@
 }
 
 .lab.is-desktop .lab-header-chapter {
-  min-height: 39px;
+  /* The chapter is what the pill is for: the book title truncates first. */
+  flex: 0 0 auto;
+  min-height: 32px;
   max-width: min(420px, 46vw);
-  gap: 8px;
-  padding: 5px 13px 6px 16px;
+  gap: 7px;
+  padding: 3px 11px 4px 14px;
   background: rgba(219, 209, 190, .64);
 }
 
+.lab.is-desktop.is-night .lab-header-chapter {
+  background: var(--lab-surface);
+}
+
 .lab.is-desktop .lab-header-chapter-label {
-  font-size: 20px;
-  line-height: 1.15;
+  font-size: 17px;
+  /* Room for old-style figures' descenders inside the clipping box. */
+  line-height: 1.35;
 }
 
 .lab.is-desktop .lab-header-controls {
@@ -3950,7 +4109,8 @@
 .lab-desktop-audio-dock > button.lab-desktop-audio-speed {
   width: 54px;
   border-radius: 16px;
-  font: 600 13px/1 'IBM Plex Mono', ui-monospace, monospace;
+  font: 600 13px/1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
 }
 
 .lab-desktop-audio-track {
@@ -3977,7 +4137,8 @@
 .lab-desktop-audio-track span {
   justify-self: end;
   color: #766d60;
-  font: 10px/1.2 'IBM Plex Mono', ui-monospace, monospace;
+  font: 10px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
 }
 
 .lab-desktop-audio-track i {
@@ -3995,24 +4156,6 @@
   background: #4c4438;
 }
 
-/* The speed popover floats over the column, so it needs a surface of its own:
-   without one it was a transparent box and the paragraph behind it read
-   straight through the slider and the scale. Opaque paper in every theme;
-   Chrome V2 paints its own panel over this below. */
-.lab.is-desktop .lab-audio-speed-popover {
-  position: fixed;
-  left: 42px;
-  bottom: 104px;
-  width: 280px;
-  z-index: 180;
-  box-sizing: border-box;
-  padding: 0.78rem 0.92rem 0.68rem;
-  border: 1px solid var(--lab-border);
-  border-radius: 1.12rem;
-  background: var(--lab-paper);
-  color: var(--lab-ink);
-  box-shadow: 0 14px 36px rgba(43, 36, 26, 0.2), 0 3px 9px rgba(43, 36, 26, 0.1);
-}
 
 .lab.is-desktop .lab-chapter-cover {
   height: 100%;
@@ -4091,7 +4234,10 @@
 
 .lab.is-night.is-desktop .lab-page-wrap {
   background: color-mix(in srgb, var(--lab-paper) 97%, white);
-  border-color: rgba(222, 199, 165, .1);
+  /* No visible frame on dark paper: a hairline round the leaf read as a box,
+     not a book. Transparent, not removed, so the leaf's geometry and every
+     measured page are identical in both themes. */
+  border-color: transparent;
 }
 
 
@@ -4157,6 +4303,158 @@
 .lab .lab-ask-input::placeholder {
   color: var(--lab-ink-muted);
 }
+/* An added book's Modern English edition being written (LabModernWait.tsx).
+   Both pieces are placed over the page, never in its flow, so the page keeps
+   its size and pagination. Two families, like the reader around it: EB Garamond
+   for all text and buttons, Playfair for the one title; pills; no mono. */
+.lab-modern-wait {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 24px 16px;
+  background: var(--lab-paper, #ece7db);
+  color: var(--lab-ink, #0b0b0b);
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  text-align: center;
+}
+.lab-modern-wait__inner {
+  width: min(24rem, 100%);
+}
+.lab-modern-wait__eyebrow {
+  margin: 0 0 10px;
+  color: var(--lab-ink-muted, #6a6256);
+  font-size: 15px;
+  line-height: 1.3;
+}
+.lab-modern-wait__title {
+  margin: 0;
+  font: 600 clamp(28px, 7vw, 40px)/1.1 'Playfair Display', Georgia, serif;
+  overflow-wrap: anywhere;
+}
+.lab-modern-wait__chapter {
+  margin: 8px 0 0;
+  color: var(--lab-ink-muted, #6a6256);
+  font-size: 17px;
+  line-height: 1.35;
+}
+.lab-modern-wait__line {
+  margin: 28px 0 0;
+  font-size: 19px;
+  line-height: 1.45;
+}
+.lab-modern-wait__progress {
+  margin: 14px auto 0;
+  width: min(16rem, 100%);
+}
+.lab-modern-wait__bar {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--lab-ink, #0b0b0b) 12%, transparent);
+}
+.lab-modern-wait__bar > span {
+  display: block;
+  height: 100%;
+  min-width: 3px;
+  border-radius: inherit;
+  background: var(--lab-ink, #0b0b0b);
+  transition: width 600ms cubic-bezier(.2, .8, .2, 1);
+}
+.lab-modern-wait__meta {
+  margin: 10px 0 0;
+  color: var(--lab-ink-muted, #6a6256);
+  font-size: 15px;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+.lab-modern-wait__original {
+  margin-top: 32px;
+}
+.lab-modern-wait__button,
+.lab-modern-ready__switch {
+  min-height: 44px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lab-ink, #0b0b0b);
+  color: var(--lab-paper, #ece7db);
+  font: 500 17px/1 'EB Garamond', Georgia, 'Times New Roman', serif;
+  cursor: pointer;
+}
+.lab-modern-wait__button:focus-visible,
+.lab-modern-ready__switch:focus-visible,
+.lab-modern-ready__close:focus-visible {
+  outline: 2px solid var(--lab-accent, #1f4a5c);
+  outline-offset: 2px;
+}
+.lab-modern-wait__fine {
+  margin: 10px 0 0;
+  color: var(--lab-ink-muted, #6a6256);
+  font-size: 15px;
+  line-height: 1.4;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lab-modern-wait__bar > span { transition: none; }
+}
+
+/* Modern English is ready where the reader is: one notice, one tap. */
+.lab-modern-ready {
+  position: absolute;
+  z-index: 7;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  padding: 4px 4px 4px 18px;
+  border: 1px solid var(--lab-border, #c8c0ae);
+  border-radius: 999px;
+  background: var(--lab-paper, #ece7db);
+  color: var(--lab-ink, #0b0b0b);
+  box-shadow: 0 8px 30px rgba(20, 15, 8, .14);
+  font: 400 17px/1.3 'EB Garamond', Georgia, 'Times New Roman', serif;
+  white-space: nowrap;
+}
+.lab-modern-ready > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lab-modern-ready__switch {
+  flex: none;
+  min-height: 44px;
+  padding: 0 16px;
+}
+.lab-modern-ready__close {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--lab-ink-muted, #6a6256);
+  font: inherit;
+  cursor: pointer;
+}
+html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
+
+/* An own book opening: the page is what loads, so the ring sits on the paper alone (UserBookReader). */
+.lab-reader-load-wait {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  color: var(--lab-ink-muted, #6a6256);
+}
+
 .lab-reader-load-error {
   position: absolute;
   z-index: 8;
@@ -4443,8 +4741,8 @@
   background: color-mix(in srgb, var(--lab-paper) 88%, var(--lab-ink) 8%);
 }
 
-.lab.has-phone-chrome.has-page-buttons [data-testid="lab-page-prev"] { left: 8px; }
-.lab.has-phone-chrome.has-page-buttons [data-testid="lab-page-next"] { right: 8px; }
+.lab.has-phone-chrome.has-page-buttons .lab-page-prev { left: 8px; }
+.lab.has-phone-chrome.has-page-buttons .lab-page-next { right: 8px; }
 
 /* Selection palette: no note form until the explicit + action. */
 .lab .selection-popup.is-lab[data-popup-mode="colors"]{width:max-content!important;min-width:0!important;max-width:calc(100vw - 24px);padding:5px 10px!important;border-radius:16px}
@@ -4456,7 +4754,32 @@
 .lab .popup-highlight-palette{display:flex;align-items:center;gap:20px;min-height:44px;padding:0 4px}
 .lab .popup-highlight-palette .popup-color-dot{margin:0;cursor:pointer}
 .lab .popup-highlight-palette .popup-add-note{width:38px;height:40px;border:0;border-left:1px solid var(--lab-border,#cfc8b8);background:none;color:inherit;font:28px/1 system-ui;cursor:pointer}
-.lab .popup-highlight-palette .popup-add-note.is-pressed{transform:rotate(45deg);transform-origin:50% 50%;opacity:.7}
+.lab .popup-highlight-palette .popup-add-note > span{display:inline-block}
+/* Pressed, the "+" turns to a ×. Only the glyph turns: turning the button
+   also turned its divider into a stray diagonal line beside the ×. */
+.lab .popup-highlight-palette .popup-add-note.is-pressed{opacity:.7}
+.lab .popup-highlight-palette .popup-add-note.is-pressed > span{transform:rotate(45deg);transform-origin:50% 50%}
+/* Phone: the note editor is a small sheet resting on the software keyboard
+   (--lab-keyboard-inset, from visualViewport), never beside the passage
+   where the keyboard covers it. The reader page beneath stays put. */
+.lab .selection-popup.is-lab.is-compact.is-keyboard-docked[data-popup-mode="note"]{
+  left:0!important; right:0!important; top:auto!important; bottom:var(--lab-keyboard-inset,0px)!important;
+  width:auto!important; max-width:none; min-width:0!important;
+  max-height:calc(100% - var(--lab-keyboard-inset,0px) - 8px); overflow-y:auto; overscroll-behavior:contain;
+  padding:6px 16px max(8px, calc(env(safe-area-inset-bottom, 0px) - var(--lab-keyboard-inset,0px)))!important;
+  border-radius:16px 16px 0 0; box-sizing:border-box;
+}
+.lab .selection-popup.is-lab.is-compact.is-keyboard-docked{background:var(--lab-paper);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 -6px 24px rgba(30,25,18,.14)}
+.lab .selection-popup.is-lab.is-keyboard-docked .popup-highlight-note .popup-textarea:focus{outline:none;border-color:var(--lab-ink-muted)}
+/* The passage the note belongs to, named on the keyboard sheet only (approved mockup, 12 Oct). */
+.lab .selection-popup .popup-note-quote{display:none}
+.lab .selection-popup.is-lab.is-keyboard-docked .popup-note-quote{display:block;margin:0 0 8px;font:italic 400 15px/1.3 'EB Garamond',Georgia,serif;color:var(--lab-ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* The chapter note on the desktop: the highlight note's card, without the colour row to set its width. */
+.lab .selection-popup.is-lab.lab-chapter-note-editor[data-popup-mode="note"]:not(.is-keyboard-docked){width:min(340px, calc(100vw - 24px))!important}
+.lab .selection-popup.is-lab.is-compact.lab-chapter-note-editor[data-edge="above"]:not(.is-keyboard-docked){top:auto!important;bottom:var(--chapter-note-bottom,96px)!important}
+.lab .selection-popup.is-lab.is-keyboard-docked .popup-highlight-palette{justify-content:center}
+.lab .selection-popup.is-lab.is-keyboard-docked .popup-note-body{animation:none}
+.lab .selection-popup.is-lab.is-keyboard-docked .popup-highlight-note .popup-textarea{min-height:72px;max-height:30vh}
 
 /* Shared by visible paragraphs and their pagination measurement copies. */
 .lab-verse-speaker, .lab-verse-dialogue, .lab-speech-run { display: contents; }
@@ -4491,6 +4814,334 @@
 .lab-footnote .lab-footnote-body p { margin: 0; font-size: 15px; line-height: 1.5; }
 .lab-footnote-number { font: 600 .7em/1 'IBM Plex Mono', monospace; margin-right: .2em; vertical-align: super; }
 
+
+/* ---------- Any book's structure beyond prose (labParagraphStyle) ----------
+   Subheadings, labels, list items, a chapter's subtitle and byline, as an
+   edition's chapter records them (`kinds`, for built-in and own books alike),
+   and an index line of " • "-separated items in any book (`index`). Each is a
+   whole paragraph's block, painted and measured alike (the paginators put the
+   same classes on their measured blocks), and none but a list item is ever
+   justified: a list item is book text, justified and hyphenated like a
+   paragraph, and its last line on a page it continues past is filled
+   (`.is-continued[data-tail-full]`; nightly QA, New Life notes). Sizes
+   stay the body size so line metrics stay the reader's; small capitals and
+   italics carry the distinction. */
+.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index).lab-hearing-line.lab-hearing-line {
+  text-align: left;
+  text-align-last: auto;
+}
+/* Important: the phone and desktop reading rules set `hyphens: auto` on the
+   same elements with higher or equal specificity. */
+.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index),
+.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index) * {
+  -webkit-hyphens: manual !important;
+  hyphens: manual !important;
+}
+/* Words are set smaller inside the block (the block keeps the reader's line
+   height, so the page's rhythm and measurement are unchanged). */
+.lab .lab-hearing-line.is-kind-heading.lab-hearing-line {
+  margin-top: .9em;
+  font-weight: 600;
+}
+.lab .lab-hearing-line.is-kind-heading.lab-hearing-line > span {
+  font-size: .8em;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.lab .lab-hearing-stage > .lab-hearing-line.is-kind-heading:first-child { margin-top: 0; }
+/* A sub-section's heading ("i. …", "a) …"; labParagraphStyle isSubheading): lighter than a
+   section's, italic in the author's own case, never in capitals, so its "i." stays "i.". */
+.lab .lab-hearing-line.is-kind-heading.is-kind-subheading.lab-hearing-line {
+  font-weight: 400;
+  font-style: italic;
+}
+.lab .lab-hearing-line.is-kind-heading.is-kind-subheading.lab-hearing-line > span {
+  font-size: .92em;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.lab .lab-hearing-line:is(.is-kind-label, .is-kind-byline).lab-hearing-line > span {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: .56em;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .72;
+}
+.lab .lab-hearing-line.is-kind-label.lab-hearing-line { margin-top: .6em; }
+.lab .lab-hearing-line.is-kind-label.lab-hearing-line + .lab-hearing-line { margin-top: 0; }
+/* A chapter's subtitle: italic and a step smaller, under the heading. */
+.lab .lab-hearing-line.is-kind-subtitle.lab-hearing-line {
+  font-style: italic;
+}
+.lab .lab-hearing-line.is-kind-subtitle.lab-hearing-line > span {
+  font-size: .82em;
+}
+.lab .lab-hearing-line.is-kind-byline.lab-hearing-line { margin-bottom: .6em; }
+.lab .lab-hearing-line.is-kind-item.lab-hearing-line {
+  position: relative;
+  padding-left: 1.15em;
+  text-indent: 0;
+}
+.lab .lab-hearing-line.is-kind-item:not(.is-kind-resumed)::before {
+  content: '\2022';
+  position: absolute;
+  left: .3em;
+}
+/* The prose argument a verse translation opens a book with (Pope's Odyssey;
+   labParagraphStyle registerArgument): italic and a step smaller under a
+   small "Argument" label, as print editions set it apart from the verse.
+   The label is chrome, not book text: no word, index or position is its. */
+.lab .lab-hearing-line.is-kind-argument.lab-hearing-line {
+  font-style: italic;
+  text-indent: 0;
+  margin-bottom: .7em;
+}
+.lab .lab-hearing-line.is-kind-argument.lab-hearing-line > span {
+  font-size: .94em;
+}
+.lab .lab-hearing-line.is-kind-argument:not(.is-kind-resumed)::before {
+  content: 'Argument';
+  display: block;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: .62em;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: .01em;
+  text-align: left;
+  text-indent: 0;
+  opacity: .62;
+}
+/* Lines set apart by breaks (verse, addresses, credits): ragged, close
+   together, a wrapped line indented under its start. */
+.lab .lab-hearing-line.is-kind-line.lab-hearing-line {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+.lab .lab-hearing-line.is-kind-line.is-kind-resumed.lab-hearing-line { text-indent: 0; }
+.lab .lab-hearing-line.is-kind-line.lab-hearing-line + .lab-hearing-line.is-kind-line { margin-top: 0; }
+/* Keep with next in the phone's column preflight too (the measured paginator
+   carries the heading itself; see measuredDesktopPages). */
+.lab-native-page-flow .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle) {
+  break-after: avoid;
+}
+
+/* ---------- Figures (labFigures.ts, LabFigure.tsx) ----------
+   A figure is its own paragraph and one word: the word's span is a block
+   holding the figure. Inline: full column width (sized in px from the page by
+   labFigures, so the measuring copy and the page agree), caption beneath in
+   italic. Strip: a 64px thumbnail, "FIGURE N ↗" and the caption. The same
+   rules style the page's buttons and the measuring copy's spans. */
+.lab .lab-hearing-line.is-figure.lab-hearing-line.lab-hearing-line {
+  text-align: left;
+  text-align-last: auto;
+  text-indent: 0;
+  padding-left: 0;
+}
+.lab .lab-hearing-word.lab-figure-word {
+  display: block;
+  white-space: normal !important;
+  -webkit-hyphens: manual !important;
+  hyphens: manual !important;
+}
+.lab .lab-figure {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: .35em 0 .55em;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab .lab-figure:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.lab .lab-figure-frame {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 2px;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+.lab .lab-figure-frame img,
+.lab .lab-figure-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* A crop of a reader's own PDF page (Tinct text): drawn on clear paper, so it takes the page's own.
+   On night paper a formula's or a table's ink is turned light; a figure keeps its colours on a
+   light plate. */
+.lab .lab-figure[data-figure-kind] .lab-figure-frame { background: none; border-radius: 0; }
+.lab.is-night .lab-figure[data-figure-kind="equation"] img,
+.lab.is-night .lab-figure[data-figure-kind="table"] img { filter: invert(1) hue-rotate(180deg); }
+.lab.is-night .lab-figure[data-figure-kind="figure"] .lab-figure-frame { background: #f4efe4; border-radius: 3px; }
+.lab .lab-figure[data-figure-kind="equation"] { margin: .2em 0 .45em; }
+.lab.is-night .lab-figure-zoom[data-figure-kind="equation"] img,
+.lab.is-night .lab-figure-zoom[data-figure-kind="table"] img { filter: invert(1) hue-rotate(180deg); }
+.lab.is-night .lab-figure-zoom[data-figure-kind="figure"] img { background: #f4efe4; }
+.lab .lab-figure-caption {
+  display: block;
+  margin-top: .45em;
+  font-style: italic;
+  font-size: .78em;
+  line-height: 1.35;
+  opacity: .86;
+}
+.lab .lab-figure.is-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+}
+.lab .lab-figure-thumb {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.lab .lab-figure-thumb img { object-fit: cover; }
+/* A picture this device cannot draw: a quiet frame with a label, never a broken-image box. */
+.lab .lab-figure-missing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 3em;
+  box-sizing: border-box;
+  border: 1px dashed color-mix(in srgb, currentColor 28%, transparent);
+  border-radius: 2px;
+}
+.lab .lab-figure-missing-label {
+  font: 500 .56em/1.4 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .6;
+  text-align: center;
+  padding: 0 .6em;
+}
+.lab .lab-figure-thumb .lab-figure-missing { min-height: 0; }
+.lab .lab-figure-thumb .lab-figure-missing-label { display: none; }
+.lab .lab-figure-zoom .lab-figure-missing { min-height: 8em; }
+.lab .lab-figure-strip-text { display: flex; flex-direction: column; min-width: 0; }
+.lab .lab-figure-label,
+.lab .lab-figure-ref {
+  font: 500 .56em/1.5 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .72;
+}
+.lab .lab-figure-strip-text .lab-figure-caption { margin-top: .1em; }
+
+/* The figure card: the Catch me up sheet, the image large and zoomable. */
+.lab .lab-figure-card-body { padding: 4px 16px 10px; display: flex; flex-direction: column; gap: 10px; }
+.lab .lab-figure-zoom {
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+  min-height: 200px;
+  max-height: 62vh;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: color-mix(in srgb, currentColor 5%, transparent);
+  cursor: zoom-in;
+}
+.lab .lab-figure-zoom[data-zoom="in"] { cursor: grab; }
+.lab .lab-figure-zoom-inner { transform-origin: center; transition: transform .12s ease-out; }
+.lab .lab-figure-zoom img { display: block; max-width: 100%; max-height: 62vh; object-fit: contain; -webkit-user-select: none; user-select: none; }
+.lab .lab-figure-card-caption { margin: 0; font-family: var(--lab-font-reader, 'EB Garamond', Georgia, serif); font-style: italic; font-size: 17px; line-height: 1.4; }
+.lab .lab-figure-card-foot { gap: 10px; }
+/* Three actions (a PDF crop adds Show page) share the width on a phone. */
+.lab[data-chrome-version="v2"] .lab-figure-card-foot .lab-catch-up-discuss { min-width: 0; flex: 0 1 132px; padding: 0 12px; white-space: nowrap; }
+
+/* Links: tappable, quiet. A bare address shows its domain and an arrow. */
+.lab .lab-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  text-underline-offset: .16em;
+  -webkit-hyphens: manual;
+  hyphens: manual;
+}
+.lab .lab-link.is-link-end::after {
+  content: '\2009\2197';
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* The book's title opening above its first chapter heading. */
+.lab .lab-book-opening {
+  flex: 1 0 100%;
+  margin: 0 0 1.4rem;
+  padding: 0 0 1.1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--lab-border, #d8d0c0) 80%, transparent);
+}
+.lab .lab-book-opening p { margin: 0; text-align: left; }
+.lab .lab-book-opening-title {
+  font-family: 'Playfair Display', 'EB Garamond', Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--lab-ink, #0b0b0b);
+}
+.lab .lab-book-opening p.lab-book-opening-subtitle {
+  margin-top: .35rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: var(--lab-ink-muted, #6a6256);
+}
+/* The byline as the book gives it, in the UI face (design system: no mono, no all-caps labels). */
+.lab .lab-book-opening p.lab-book-opening-author {
+  margin-top: .7rem;
+  font: 500 .95rem/1.35 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--lab-ink-muted, #6a6256);
+}
+
+/* At most two hyphenated lines in a row where the browser still hyphenates
+   (Compare, a book without patterns). A block property: on the word spans
+   (above) it never applied. */
+.lab .lab-hearing-line {
+  -webkit-hyphenate-limit-lines: 3;
+  hyphenate-limit-lines: 3;
+}
+
+/* Planned hyphenation (labHyphenPlan): a paragraph with a plan breaks words
+   only where the plan put a discretionary hyphen, drawn after the head of the
+   word as generated content so it never enters the text, a copy or a
+   selection. Important: the phone and desktop reading rules set
+   `hyphens: auto` on the same elements with higher specificity. */
+.lab .lab-hearing-line.has-hyphen-plan,
+.lab .lab-hearing-line.has-hyphen-plan * {
+  -webkit-hyphens: manual !important;
+  hyphens: manual !important;
+}
+.lab .lab-syl::after { content: '\00AD'; }
+/* A planned break in the word welded to a verse number ("⁶ She-|maiah"): the
+   unit is nowrap, so the word holding the break wraps normally. The number
+   and the word's head stay together through the no-break space between them. */
+.lab .lab-verse-unit .lab-hearing-word:has(.lab-syl) { white-space: normal; }
+/* The planning copy is laid out ragged: its room per line is what it measures. */
+.lab .lab-hearing-line.is-hyphen-planning {
+  text-align: left !important;
+  text-align-last: left !important;
+}
 
 /* ─────────────────────────────────────────────────────────────────────────
    Reader chrome V2 — the reader shell.
@@ -4527,6 +5178,9 @@
   --lab-v2-disc: rgba(232, 214, 185, 0.2);
   --lab-v2-disc-open: rgba(232, 214, 185, 0.12);
 }
+
+/* White: the panels take the page's own white. */
+.lab[data-chrome-version="v2"].is-white-theme { --lab-v2-panel-ink: 255, 255, 255; }
 
 /* The one surface. Panel, transport and compare card all draw on it: a fill
    of the paper colour over a blur the panel carries itself, denser at the top
@@ -4713,6 +5367,16 @@
   z-index: 330;
 }
 
+/* iOS applies a native scroll-edge blur above ordinary flow content. Give
+   the phone's safe-area/header one opaque, viewport-constrained surface so
+   that effect cannot fade through the title. Sticky retains its flow height
+   and the existing safe-area padding, keeping page breaks unchanged. */
+.lab[data-chrome-version="v2"]:is(.is-phone, .has-phone-chrome) .lab-header {
+  position: sticky;
+  top: 0;
+  background: var(--lab-paper);
+}
+
 .lab[data-chrome-version="v2"] .lab-super-layer {
   position: absolute;
   inset: 0;
@@ -4786,6 +5450,133 @@
   line-height: 1;
 }
 
+/* Reading angle's state (16 Nov 2026): "Not set", or the book's angle cut to one line, quiet, before the chevron. */
+.lab[data-chrome-version="v2"] .lab-super-row:has(.lab-super-row-detail) .lab-super-row-label { flex: 0 0 auto; white-space: nowrap; }
+.lab[data-chrome-version="v2"] .lab-super-row-detail {
+  flex: 0 1 auto;
+  min-width: 0;
+  text-align: right;
+  margin: 0 4px 0 auto;
+  padding-left: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 400 13px/1.2 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--lab-ink-muted, #6a6256);
+}
+
+/* The Profile row's dot: someone asks to be friends (20 Oct 2026). */
+.lab[data-chrome-version="v2"] .lab-super-row-dot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--lab-accent, #1f4a5c);
+}
+
+/* The t button's dot (Anders, 16 Nov 2026): the library's request dot (followRequests REQUEST_DOT_CLASS: teal,
+   9px) laid over the button's top-right corner. Absolute inside the 44px button, so the header and the page never
+   move; a ring of the page's own colour keeps it apart from the letter. E-ink: ink, no ring. */
+.lab[data-chrome-version="v2"] .lab-super-dot {
+  position: absolute;
+  top: 8px;
+  right: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lab-request-teal);
+  box-shadow: 0 0 0 2px var(--lab-paper, #ece7db);
+  pointer-events: none;
+}
+/* The teal of both: the reader's accent, the library's lighter teal at night (phone night has no accent of its own). */
+.lab[data-chrome-version="v2"] { --lab-request-teal: var(--lab-accent, #1f4a5c); }
+.lab[data-chrome-version="v2"].is-night { --lab-request-teal: #78aabd; }
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-super-dot { background: #111; box-shadow: none; }
+
+/* The menu's follow request row, first while a request is due: picture, one line, Follow back (one request) or a
+   chevron to Following you (several). System UI, like every control in the chrome. */
+.lab[data-chrome-version="v2"] .lab-super-request {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  margin: 0 0 6px;
+  padding: 12px 14px 12px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--lab-v2-hairline);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: 400 14px/1.3 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab[data-chrome-version="v2"] .lab-super-request.is-many { align-items: center; min-height: 56px; cursor: pointer; }
+.lab[data-chrome-version="v2"] .lab-super-request-av {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-color: var(--lab-v2-hairline);
+  background-repeat: no-repeat;
+  color: inherit;
+  font: 600 14px/1 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+.lab[data-chrome-version="v2"] .lab-super-request-body { flex: 1 1 auto; min-width: 0; display: grid; justify-items: start; gap: 8px; }
+.lab[data-chrome-version="v2"] .lab-super-request-line { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+.lab[data-chrome-version="v2"] .lab-super-request-button {
+  position: relative;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--lab-request-teal);
+  border-radius: 999px;
+  background: var(--lab-request-teal);
+  color: var(--lab-paper, #ece7db);
+  font: 500 14px/1 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  cursor: pointer;
+}
+/* A 44px tap area around the 34px pill. */
+.lab[data-chrome-version="v2"] .lab-super-request-button::before { content: ''; position: absolute; inset: -5px -2px; }
+.lab[data-chrome-version="v2"] .lab-super-request-button.is-done {
+  background: transparent;
+  color: inherit;
+  border-color: var(--lab-v2-hairline);
+  cursor: default;
+}
+.lab[data-chrome-version="v2"] .lab-super-request-status { font-size: 13px; color: var(--lab-ink-muted, #6a6256); }
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-super-request-button { background: #111; border-color: #111; color: #fff; }
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-super-request-button.is-done { background: transparent; color: #111; border-color: #111; }
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-super-request-av { background-color: #eee; color: #111; }
+
+/* The menu's Librarian row: the body opens the default mode, the two icons
+   open Chat or Talk directly. Same 44px row and 40px gutter as every row. */
+.lab[data-chrome-version="v2"] .lab-super-row.is-librarian { padding-right: 4px; cursor: default; }
+.lab[data-chrome-version="v2"] .lab-super-row-main {
+  display: flex; align-items: center; flex: 1 1 auto; min-width: 0; min-height: 44px;
+  padding: 0; border: 0; background: transparent; color: inherit; text-align: left; font: inherit; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab[data-chrome-version="v2"] .lab-super-row-mode {
+  flex: 0 0 44px; width: 44px; height: 44px; display: grid; place-items: center;
+  padding: 0; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab[data-chrome-version="v2"] .lab-super-row-mode svg { display: block; }
+/* The phone's Chat · Talk row: two halves of one 44px row, a hairline between them. */
+.lab[data-chrome-version="v2"] .lab-super-row.is-pair { padding: 0; cursor: default; }
+.lab[data-chrome-version="v2"] .lab-super-row-half {
+  display: flex; align-items: center; flex: 1 1 50%; min-width: 0; min-height: 44px;
+  padding: 0; border: 0; background: transparent; color: inherit; text-align: left; font: inherit; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab[data-chrome-version="v2"] .lab-super-row-half.is-second { border-left: 1px solid var(--lab-v2-hairline); }
+.lab[data-chrome-version="v2"] .lab-super-row-half:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
+.lab[data-chrome-version="v2"] .lab-super-row-mode:focus-visible,
+.lab[data-chrome-version="v2"] .lab-super-row-main:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
+
 /* ── Transport ───────────────────────────────────────────────────────── */
 
 /* The same surface, in place. The bar keeps the box it has today — border
@@ -4816,7 +5607,7 @@
 }
 
 /* ── The V2 sheet ────────────────────────────────────────────────────────
-   Reading settings, Advanced settings, the font picker and Account: one box,
+   Aa, Book settings, Audio settings, Advanced settings, the font picker and Account: one box,
    four layers, one height. Switching layer must never resize the window, so
    the height is a constant — capped against a short viewport, but capped
    identically for all four, so they stay the same height as each other. */
@@ -4950,7 +5741,7 @@
   padding: 0 10px;
   background: var(--lab-v2-disc-open);
   color: var(--lab-v2-quiet);
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: 11px;
 }
 
@@ -4966,10 +5757,11 @@
   padding: 8px 16px 14px;
 }
 
-/* Theme cards. Book, Light and Dark — the reader picks a page, not a system. */
+/* Theme cards. Book, Light, White and Dark (and E-ink on e-readers) in one row — the reader picks a page, not a system. */
 .lab[data-chrome-version="v2"] .lab-v2-themes {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   gap: 10px;
   padding: 2px 0 12px;
 }
@@ -5000,6 +5792,7 @@
 
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-book .lab-v2-theme-face { background: #d8c8a7; color: #201a13; }
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-light .lab-v2-theme-face { background: #f4f0e7; color: #201a13; }
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-white .lab-v2-theme-face { background: #ffffff; color: #1a1a1a; box-shadow: inset 0 0 0 1px rgba(32, 26, 19, 0.2); }
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-dark .lab-v2-theme-face { background: #2e2a24; color: #faf6ee; }
 
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-active .lab-v2-theme-face {
@@ -5009,7 +5802,7 @@
 }
 
 .lab[data-chrome-version="v2"] .lab-v2-theme-label {
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: 9px;
   letter-spacing: 0.03em;
   color: var(--lab-v2-faint);
@@ -5152,7 +5945,8 @@
   align-items: center;
   gap: 6px;
   flex: 0 0 auto;
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 11.5px;
   letter-spacing: 0.03em;
   color: var(--lab-v2-quiet);
@@ -5189,7 +5983,8 @@
   flex: 0 0 52px;
   width: 52px;
   text-align: right;
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 11.5px;
   color: var(--lab-v2-quiet);
 }
@@ -5201,7 +5996,7 @@
 /* Advanced's groups: a small-caps label over a soft well. */
 .lab[data-chrome-version="v2"] .lab-v2-group-label {
   margin: 12px 0 6px 4px;
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: 9.6px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -5263,7 +6058,7 @@
   border-radius: 999px;
   background: var(--lab-v2-disc-open);
   color: inherit;
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: 12.5px;
   letter-spacing: 0.03em;
   cursor: pointer;
@@ -5301,56 +6096,6 @@
   font-size: 13px;
   line-height: 1.45;
   color: var(--lab-v2-quiet);
-}
-
-/* Account. Today's content, on the sheet the other layers use. */
-.lab[data-chrome-version="v2"] .lab-v2-account-card {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 14px;
-  margin: 4px 0 2px;
-  border-radius: 14px;
-  background: var(--lab-v2-well);
-  box-shadow: 0 1px 2px rgba(20, 15, 8, 0.08);
-}
-
-.lab[data-chrome-version="v2"] .lab-v2-account-card strong {
-  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
-  font-size: 16px;
-  font-weight: 600;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.lab[data-chrome-version="v2"] .lab-v2-account-card span {
-  flex: 0 0 auto;
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.03em;
-  color: var(--lab-v2-quiet);
-}
-
-.lab[data-chrome-version="v2"] .lab-v2-year-stats {
-  display: flex;
-  gap: 22px;
-  padding-bottom: 6px;
-}
-
-.lab[data-chrome-version="v2"] .lab-v2-year-stats span {
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.03em;
-  color: var(--lab-v2-quiet);
-}
-
-.lab[data-chrome-version="v2"] .lab-v2-year-stats strong {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 19px;
-  color: var(--lab-ink);
-  margin-right: 4px;
 }
 
 /* The vertical swipe has to reach the reader before the browser claims it as
@@ -5404,7 +6149,7 @@
   -webkit-backdrop-filter: blur(var(--lab-v2-panel-blur)) saturate(1.06);
   box-shadow: 0 8px 24px rgba(20, 15, 8, 0.16);
   color: var(--lab-ink);
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: 11px;
   letter-spacing: 0.035em;
   white-space: nowrap;
@@ -5443,13 +6188,28 @@
 }
 
 .lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-play,
-.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super {
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super,
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-aa {
   width: 42px;
   height: 42px;
   flex: 0 0 42px;
   border: 1px solid var(--lab-border);
   background: rgba(var(--lab-v2-panel-ink), 0.62);
   box-shadow: 0 8px 24px rgba(53, 43, 30, 0.08);
+}
+
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-aa {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 50%;
+  color: inherit;
+  font: 600 16px/1 Georgia, serif;
+  cursor: pointer;
+}
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-aa:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 /* The t's target is pulled left against Play on the phone, where the two sit
@@ -5474,13 +6234,13 @@
 }
 
 /* ── One surface, everywhere ─────────────────────────────────────────────
-   The menu, the transport, the sheets, the chapter picker, the speed
-   popover and the composer are all the same paint: a fill of the paper
+   The menu, the transport, the sheets, the chapter picker and the
+   composer are all the same paint (the speed popover is opaque paper): a fill of the paper
    colour over a blur each panel carries itself, denser at the top so a
    first label never sits on the thinnest part of it. The page behind is
    never blurred — the words have to read through. */
 
-.lab[data-chrome-version="v2"] .lab-audio-speed-popover,.lab[data-chrome-version="v2"] .lab-ask-composer{
+.lab[data-chrome-version="v2"] .lab-ask-composer{
   background: linear-gradient(
     180deg,
     rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill-top)),
@@ -5494,9 +6254,9 @@
 
 /* ── The foot, without the bar ─────────────────────────────────────────
    V2 has no reading bar: Play is in the top bar and the rest is in the menu.
-   What the foot holds is the progress line, in its own treatment and always
-   shown, and — for as long as audio plays — the transport, with the progress
-   line above it. The space the bar held goes to the page. The column's
+   What the foot holds is the progress line, in its own treatment, or — for
+   as long as the transport is up — the transport alone: the progress line
+   steps aside rather than sit between the page and the player. The space the bar held goes to the page. The column's
    bottom is measured from the rail itself, so the last line always clears it
    and the home indicator; V1's rules for the rail are overridden here only. */
 
@@ -5572,18 +6332,23 @@
   padding-bottom: 0;
 }
 
-/* With the transport up the rail sits above it, and the column ends above
-   the rail: 20px of rail over the 3.72rem the transport takes. The page on
-   screen does not reflow when this changes — the transport covers its last
-   line — and only the pages after it are laid out again at this height
-   (LabApp's page freeze, `labPagesKeepingPrefix`). */
+/* With the transport up the progress line is put away and the column ends
+   above the 3.72rem the transport takes. The page on screen keeps its first
+   word and its lines; it is laid out again at this height from that word,
+   so it ends on the last line that clears the transport and the next page
+   picks up from there (LabApp's page freeze, `labPagesKeepingPrefix`). */
 .lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-body,
 .lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-body {
-  padding-bottom: calc(4.97rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(3.72rem + env(safe-area-inset-bottom, 0px));
 }
 .lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
 .lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
-  height: calc(4.97rem + env(safe-area-inset-bottom, 0px));
+  height: calc(3.72rem + env(safe-area-inset-bottom, 0px));
+}
+.lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-page-turn.is-phone-rail .lab-chapter-progress,
+.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-page-turn.is-phone-rail .lab-chapter-progress,
+.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-chapter-progress {
+  visibility: hidden;
 }
 
 /* Desktop: the rail's column is gone, and its width goes to the page. */
@@ -5749,34 +6514,6 @@
   outline-offset: 3px;
 }
 
-/* "• Connected" beside the book line; hollow while the line is not open. */
-.lab[data-chrome-version="v2"] .lab-call-connection,
-.lab[data-chrome-version="v2"] .lab-voice-connection {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin: 0;
-  font-family: 'EB Garamond', Georgia, serif;
-  font-style: normal;
-  color: var(--lab-call-muted);
-}
-
-.lab[data-chrome-version="v2"] .lab-call-connection-dot,
-.lab[data-chrome-version="v2"] .lab-voice-connection-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--lab-call-ink);
-}
-
-.lab[data-chrome-version="v2"] [data-connection="connecting"] .lab-call-connection-dot,
-.lab[data-chrome-version="v2"] [data-connection="connecting"] .lab-voice-connection-dot,
-.lab[data-chrome-version="v2"] [data-connection="lost"] .lab-call-connection-dot,
-.lab[data-chrome-version="v2"] [data-connection="lost"] .lab-voice-connection-dot {
-  background: transparent;
-  box-shadow: inset 0 0 0 1px var(--lab-call-muted);
-}
-
 /* ── Phone: the full-screen call ──────────────────────────────────────── */
 
 /* z-index sits above the V2 header (330): a call owns the whole screen. */
@@ -5802,29 +6539,6 @@
   color: var(--lab-call-ink);
   font-family: 'EB Garamond', Georgia, serif;
   text-align: center;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-top {
-  display: flex;
-  min-width: 0;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  font-size: 17px;
-  color: var(--lab-call-muted);
-}
-
-.lab[data-chrome-version="v2"] .lab-call-book {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-style: italic;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-top .lab-call-connection {
-  flex: none;
-  font-size: 17px;
 }
 
 .lab[data-chrome-version="v2"] .lab-call-stage {
@@ -5858,9 +6572,6 @@
   color: var(--lab-call-ink);
 }
 
-.lab[data-chrome-version="v2"] .lab-call-caption,
-.lab[data-chrome-version="v2"] .lab-call-micoff,
-.lab[data-chrome-version="v2"] .lab-call-help,
 .lab[data-chrome-version="v2"] .lab-call-notice {
   margin: 0;
   max-width: 300px;
@@ -5869,13 +6580,6 @@
   font-size: 18px;
   line-height: 1.45;
   color: var(--lab-call-muted);
-}
-
-.lab[data-chrome-version="v2"] .lab-call-caption {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
 }
 
 .lab[data-chrome-version="v2"] .lab-call-controls {
@@ -5957,15 +6661,6 @@
   letter-spacing: -0.01em;
 }
 
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-connection {
-  font-size: 15px;
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-connection-dot {
-  width: 5px;
-  height: 5px;
-}
-
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-line {
   margin: 4px 0 0;
   max-width: 26rem;
@@ -5973,53 +6668,6 @@
   font-size: 16px;
   line-height: 1.4;
   color: var(--lab-call-muted);
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-thread {
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  padding: 26px 22px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-empty {
-  margin: 0;
-  font-style: italic;
-  color: var(--lab-call-muted);
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-turn {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-turn-label {
-  font-size: 15px;
-  font-style: italic;
-  color: var(--lab-call-muted);
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-turn-text {
-  margin: 0;
-  color: var(--lab-call-ink);
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-caret {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  margin-left: 2px;
-  vertical-align: -0.15em;
-  background: var(--lab-call-ink);
 }
 
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls {
@@ -6085,16 +6733,6 @@
   font-size: 21px;
   line-height: 1.15;
   letter-spacing: -0.01em;
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-line {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-style: italic;
-  font-size: 16px;
-  line-height: 1.35;
-  color: var(--lab-call-muted);
 }
 
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-controls {
@@ -6197,17 +6835,96 @@
   white-space: nowrap;
   cursor: pointer;
 }
+/* Listen from here (Anders approved the mockups, 16 Nov 2026): two pills, centred just above the audio player, where
+   "Back to audio" sat. Back to the voice is the light one, Listen from here the dark one. System UI, sentence case. */
+.lab[data-chrome-version="v2"] .lab-listen-pills {
+  pointer-events: none;
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+.lab[data-chrome-version="v2"] .lab-listen-pill {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  border: 1px solid var(--lab-v2-hairline, var(--lab-border));
+  border-radius: 999px;
+  padding: 0 16px;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  font: 500 14px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(32, 26, 19, .1);
+}
+.lab[data-chrome-version="v2"] .lab-listen-pill.is-primary {
+  border-color: var(--lab-ink);
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+}
+.lab[data-chrome-version="v2"] .lab-listen-pill span { font-size: 12px; line-height: 1; }
+/* 36 px to the eye, a 44 px tap area. */
+.lab[data-chrome-version="v2"] .lab-listen-pill { position: relative; }
+.lab[data-chrome-version="v2"] .lab-listen-pill::after { content: ''; position: absolute; inset: -4px 0; }
+.lab[data-chrome-version="v2"].is-phone .lab-listen-pill { min-height: 44px; }
+/* Listen from here's gutter ▶ (desktop, a hovering mouse): an overlay beside the paragraph's first line, with a faint
+   tint on the paragraph. Fixed, so it shifts nothing; only the button takes the pointer. */
+.lab[data-chrome-version="v2"] .lab-paragraph-listen-tint {
+  position: fixed;
+  z-index: 4;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--lab-ink) 3.5%, transparent);
+  pointer-events: none;
+}
+.lab[data-chrome-version="v2"] .lab-paragraph-listen {
+  position: fixed;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0 0 0 2px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(32, 26, 19, .18);
+}
+/* Just after Play: a faint ▶ beside every paragraph on screen, a chance to choose where the voice starts. */
+.lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer {
+  opacity: .32;
+  box-shadow: none;
+  transition: opacity .15s;
+  animation: lab-paragraph-listen-offer .25s ease-out;
+}
+.lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer:hover,
+.lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer:focus-visible { opacity: 1; }
+@keyframes lab-paragraph-listen-offer { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer { animation: none; transition: none; } }
+.lab[data-chrome-version="v2"] .lab-paragraph-listen:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: 2px; }
+.lab[data-chrome-version="v2"] .lab-paragraph-listen-tip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 6px);
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+  font: 400 13px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+}
 
-.lab[data-chrome-version="v2"] .lab-audio-speed-done { min-height:44px; padding:6px 12px; border:1px solid currentColor; border-radius:999px; color:inherit; background:transparent; font:inherit; cursor:pointer; }
-.lab[data-chrome-version="v2"] .lab-audio-speed-heading output { margin-left:auto; }
 
-/* Tick labels follow the 0.5–3 linear range and the 20px thumb centre. */
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale { position:relative; display:block; height:1.2em; margin:4px 10px 0; }
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale span { position:absolute; transform:translateX(-50%); }
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(1) { left:0%; }
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(2) { left:20%; }
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(3) { left:60%; }
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(4) { left:100%; }
 
 /* The composer gives writing a full-width row; actions never squeeze it. */
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline {
@@ -6275,19 +6992,60 @@
   position: absolute;
   inset: -6px;
 }
-.lab[data-chrome-version="v2"] .lab-audio-dismiss {
-  position: absolute;
-  right: 10px;
-  bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
-  z-index: 230;
-  pointer-events: auto;
-  width: 28px;
-  height: 28px;
-  border: 1px solid var(--lab-border);
-  border-radius: 50%;
-  color: var(--lab-ink);
-  background: var(--lab-paper);
+/* The paused player's grab handle, inside the player like a sheet grabber.
+   The player keeps exactly the playing bar's box — nothing grows over the
+   page. A 32x3 pill sits 3px below its top edge, in a 72x9 tap strip across
+   the top. To make room, the controls' painted boxes start 5px lower
+   (39px tall); each control's 44px touch target runs from its painted top
+   down into the bar's foot, so the strip covers no control's target. A tap
+   on the strip closes the player; so does a swipe down anywhere on it. */
+.lab[data-chrome-version="v2"] .lab-phone-bar.is-swipe-closable { touch-action: none; }
+.lab[data-chrome-version="v2"].is-phone .lab-phone-bar.is-swipe-closable .lab-phone-bar-row .lab-phone-fat,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-phone-bar.is-swipe-closable .lab-phone-bar-row .lab-phone-fat {
+  position: relative;
+  align-self: end;
+  min-height: 0;
+  height: calc(2.75rem - 5px);
+  margin-top: 5px;
 }
+.lab[data-chrome-version="v2"].is-phone .lab-phone-bar.is-swipe-closable .lab-phone-bar-row .lab-phone-fat::after,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-phone-bar.is-swipe-closable .lab-phone-bar-row .lab-phone-fat::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 -5px;
+}
+.lab[data-chrome-version="v2"] .lab-audio-handle {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  z-index: 2;
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 72px;
+  height: 9px;
+  margin: 0 0 0 -36px;
+  padding: 3px 0 0;
+  border: 0;
+  border-radius: 0 0 6px 6px;
+  background: transparent;
+  cursor: pointer;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab[data-chrome-version="v2"] .lab-audio-handle::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  border-radius: 1.5px;
+  background: var(--lab-ink-faint);
+}
+.lab[data-chrome-version="v2"].is-night .lab-audio-handle::before { background: var(--lab-ink-muted); }
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before { background: var(--lab-ink); }
+.lab[data-chrome-version="v2"] .lab-audio-handle:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
 .lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-passage,
 .lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-passage { padding-top: .4rem; }
 .lab[data-chrome-version="v2"].is-phone .lab-passage-header,
@@ -6298,10 +7056,6 @@
 .lab[data-chrome-version="v2"].is-phone .lab-passage,
 .lab[data-chrome-version="v2"].has-phone-chrome .lab-passage {
   padding-bottom: .5rem;
-}
-
-.lab[data-chrome-version="v2"] .lab-audio-dismiss::before {
-  content: ''; position: absolute; inset: -8px;
 }
 
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-icon svg { width: 20px; height: 20px; }
@@ -6319,11 +7073,16 @@
   color: var(--lab-paper);
 }
 
-/* Desktop uses measured leaves; all rules are scoped away from the phone. */
+/* Desktop uses measured leaves; all rules are scoped away from the phone.
+   Top 12 / bottom 30 give each leaf one more line than 20/48 (owner
+   feedback, 8 Oct 2026). The bottom margin holds the folio (footers below:
+   bottom 6px, ~17px tall, clear of the last line's box) or, at a full final
+   leaf, the compact docked chapter-end row. The measure box uses the same
+   insets, so pagination fits exactly the displayed box. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap {
   --desktop-pad-x: calc(clamp(28px, 3vw, 64px) * var(--lab-reader-margin-scale, 1));
-  --desktop-pad-top: 24px;
-  --desktop-pad-bottom: 62px;
+  --desktop-pad-top: 12px;
+  --desktop-pad-bottom: 30px;
   --desktop-gutter: 56px;
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap > .lab-passage {
@@ -6342,12 +7101,16 @@
   text-wrap: wrap;
   margin: 0 0 var(--lab-paragraph-gap, .28em);
 }
+/* The grid row stays the leaf's height: the last paragraph's bottom margin
+   must not stretch a column, or a docked chapter-end row (top: 100%) slides
+   past the leaf (macOS WebKit, 2.6px). */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-columns {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   column-gap: var(--desktop-gutter);
   position: relative;
   height: 100%;
+  grid-template-rows: minmax(0, 1fr);
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-col { min-width: 0; padding: 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-columns::after {
@@ -6359,6 +7122,7 @@
   column-gap: var(--desktop-gutter);
   align-content: start;
   height: auto;
+  grid-template-rows: none;
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book.is-aligned-compare .lab-book-col,
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book.is-aligned-compare .lab-hearing-stage { display: contents; }
@@ -6382,8 +7146,8 @@
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   color: var(--lab-ink); z-index: 190; font-size: 32px;
 }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] [data-testid="lab-page-prev"] { left: 8px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] [data-testid="lab-page-next"] { right: 8px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-prev { left: 8px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-next { right: 8px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-header-title { overflow: visible; line-height: 1.3; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock {
   left: 50%; right: auto; transform: translateX(-50%); width: min(580px, calc(100% - 80px));
@@ -6395,21 +7159,41 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock button { width: 40px; height: 40px; min-width: 40px; color: var(--lab-ink); }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock button.is-primary { background: var(--lab-surface); color: var(--lab-ink); }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-track span { display: block; font-size: 10px; opacity: .65; }
-/* bottom:88px cleared the audio dock but not the book-progress line beneath
-   it: measured at 1180x820 (playing, popover open), the progress line
-   (".lab-chapter-progress", part of ".lab-bottom-chrome") sits 725-743px
-   from the top of an 820px-tall viewport, and the popover's own bottom edge
-   landed at 732px — inside that span, so its rounded corners let the
-   translucent-looking (in fact just adjacent) progress text show through
-   the gap the radius leaves. 112px clears it with room at every height. */
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-audio-speed-popover {
-  left: 50%; transform: translateX(-50%); bottom: 112px; width: 300px;
-  padding: 16px; box-sizing: border-box; border-radius: 20px;
-  background: var(--lab-paper); border: 1px solid var(--lab-border);
-  box-shadow: 0 8px 30px #0002; z-index: 250; pointer-events: auto;
+/* Liquid glass (Anders approved variant A, 9 Oct 2026): translucent paper
+   tint, backdrop blur and saturation, a hairline edge, a soft top highlight.
+   It sits over the leaf's foot, so it stacks above the leaf. No monospace. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] {
+  --dock-glass-top: rgba(255, 252, 245, .58);
+  --dock-glass-bottom: rgba(244, 237, 224, .42);
+  --dock-glass-edge: rgba(255, 255, 255, .62);
+  --dock-glass-rim: rgba(92, 76, 54, .20);
+  --dock-glass-highlight: rgba(255, 255, 255, .80);
+  --dock-glass-shadow: 0 12px 32px rgba(53, 43, 30, .16), 0 2px 6px rgba(53, 43, 30, .08);
 }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-audio-speed-popover input { pointer-events: auto; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-audio-dismiss { right: calc(50% - 365px); bottom: 32px; z-index: 251; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"].is-night {
+  --dock-glass-top: rgba(58, 50, 42, .52);
+  --dock-glass-bottom: rgba(30, 26, 22, .40);
+  --dock-glass-edge: rgba(255, 238, 214, .16);
+  --dock-glass-rim: rgba(0, 0, 0, .45);
+  --dock-glass-highlight: rgba(255, 240, 220, .14);
+  --dock-glass-shadow: 0 14px 36px rgba(0, 0, 0, .38), 0 2px 6px rgba(0, 0, 0, .22);
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock,
+.lab.is-night[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock {
+  background: linear-gradient(180deg, var(--dock-glass-top), var(--dock-glass-bottom));
+  border: 1px solid var(--dock-glass-edge);
+  box-shadow: inset 0 1px 0 var(--dock-glass-highlight), inset 0 -1px 0 rgba(120, 100, 70, .08),
+    0 0 0 .5px var(--dock-glass-rim), var(--dock-glass-shadow);
+  backdrop-filter: blur(18px) saturate(1.7);
+  -webkit-backdrop-filter: blur(18px) saturate(1.7);
+  z-index: 200;
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock button.is-primary,
+.lab.is-night[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock button.is-primary {
+  background: color-mix(in srgb, var(--lab-ink) 88%, transparent); color: var(--lab-paper);
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock > button.lab-desktop-audio-speed { font: 500 15px/1 'EB Garamond', Georgia, serif; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-track span { font: italic 12px/1.2 'EB Garamond', Georgia, serif; letter-spacing: 0; opacity: .75; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-frontispiece .lab-body { height: 100%; flex: 1 1 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-frontispiece .lab-page-wrap { height: 100%; min-height: 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover { position: absolute; inset: 0; min-height: 0; overflow: hidden; }
@@ -6418,7 +7202,7 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-header-controls .lab-super {
   border-color: transparent; background: transparent; box-shadow: none;
 }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap { --desktop-pad-bottom: 62px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap { --desktop-pad-bottom: 30px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 68px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { right: 30px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.is-inline-hearing .lab-hearing-word.is-current { background: #dccbaa; color: var(--lab-ink); text-decoration: none; }
@@ -6449,34 +7233,46 @@
   padding: 0; margin: 16px 0 0; color: var(--lab-ink-muted); user-select: none;
   border: 0; border-radius: 0; background: transparent;
 }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: flex; flex-wrap: wrap; gap: 0 20px; }
+/* 8px between pills, as at the chapter's head (iPhone feedback, 21 Oct 2026); each keeps its 44px tap height. */
+/* Plain ink text, no pills (Anders, 14 Nov 2026: black, subtle, plain text; approved mockup). */
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: flex; flex-wrap: wrap; gap: 0 22px; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button {
   display: inline-flex; align-items: center; gap: 6px;
   min-height: 44px; padding: 8px 0; border: 0; border-radius: 0;
-  background: transparent; color: var(--lab-ink-muted);
+  background: transparent; color: var(--lab-ink);
   font: 16px/1.4 'EB Garamond', Georgia, serif; text-align: left; cursor: pointer;
 }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions button:hover { color: var(--lab-ink); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions button:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--lab-ink) 35%, transparent); }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button:disabled { opacity: .5; cursor: wait; }
 /* Recap is the companion's, like Primer at the chapter's head: the same pill and mark. */
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap { font-size: 14px; }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap > span {
-  border: 1px solid color-mix(in srgb, var(--lab-border) 70%, transparent);
-  border-radius: 999px; padding: 2px 10px;
-}
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap:hover > span { background: var(--lab-surface); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap > span { padding: 0; }
+/* The chapter note: the same quiet pill, without the companion's mark (a note is the reader's, never the AI's). */
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-note > span { padding: 0; }
+/* Social ship 3: the end of a book offers the "Finished {book}" reading card (only while SOCIAL_FRIENDS is on). */
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-finished-card { color: var(--lab-ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--lab-ink) 35%, transparent); }
+.lab[data-chrome-version="v2"] .lab-chapter-finished-note { margin: 0; font: italic 15px/1.4 'EB Garamond', Georgia, serif; color: var(--lab-ink-muted); }
 .lab[data-chrome-version="v2"] .lab-ask-notice .lab-text-btn { margin-left: 8px; text-decoration: underline; }
 
 
 /* Reader polish: footer space is part of each leaf; book progress is in the frame. */
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-body { padding-bottom: 108px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-body { padding-bottom: 108px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { bottom: 69px; pointer-events: auto; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 69px; }
+/* The space under the leaf is the same with the audio dock open or closed,
+   so opening it never re-paginates (and never moves the reader's place).
+   Closed, the progress line sits just under the leaf; open, the dock takes
+   the bottom and the line rises to sit between the dock and the leaf. */
+/* 9 Oct 2026 (Anders): the space under the leaf is trimmed from 92px to 56px,
+   still the same in both states. The dock rides ~10px over the leaf's foot
+   (its bottom padding, where the folios sit) but never over the text:
+   labAudioDock.ts measures the live leaf and sets --lab-dock-bottom. While
+   the dock shows, "% of book" is hidden (beside the phone rail's rule). */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-body { padding-bottom: 56px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-body { padding-bottom: 56px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { bottom: 22px; pointer-events: auto; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 22px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock { bottom: var(--lab-dock-bottom, 12px); }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers {
-  position: absolute; left: var(--desktop-pad-x); right: var(--desktop-pad-x); bottom: 14px;
+  position: absolute; left: var(--desktop-pad-x); right: var(--desktop-pad-x); bottom: 6px;
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--desktop-gutter);
-  color: var(--lab-ink-muted); font: 11px/1.4 'IBM Plex Mono', monospace; pointer-events: none;
+  color: var(--lab-ink-muted); font: 11px/1.4 'EB Garamond', Georgia, serif; pointer-events: none;
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers > span { display: flex; align-items: center; justify-content: center; gap: 12px; min-width: 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers b { font-weight: 400; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -6491,7 +7287,6 @@
   .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header:hover .lab-header-chapter,
   .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header:hover .lab-header-controls { opacity: 1; }
 }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock { box-shadow: inset 0 1px 0 #ffffff35, 0 5px 20px #00000012; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock .lab-desktop-audio-dismiss { margin-left: 2px; width: 32px; min-width: 32px; height: 32px; display: grid; place-items: center; padding: 0; }
 /* One row, always. Paused, the dock gains a close (×) after Talk; it sits
    inline at the end in an implicit column instead of wrapping onto a second
@@ -6580,9 +7375,6 @@
       max(1.25rem, env(safe-area-inset-left, 0px));
   }
 
-  .lab[data-chrome-version="v2"] .lab-call-top { font-size: 15px; }
-  .lab[data-chrome-version="v2"] .lab-call-top .lab-call-connection { font-size: 15px; }
-
   .lab[data-chrome-version="v2"] .lab-call-stage {
     flex-direction: row;
     gap: 32px;
@@ -6604,9 +7396,6 @@
 
   .lab[data-chrome-version="v2"] .lab-call-status { font-size: 26px; }
 
-  .lab[data-chrome-version="v2"] .lab-call-caption,
-  .lab[data-chrome-version="v2"] .lab-call-micoff,
-  .lab[data-chrome-version="v2"] .lab-call-help,
   .lab[data-chrome-version="v2"] .lab-call-notice {
     font-size: 16px;
     max-width: 280px;
@@ -6617,7 +7406,7 @@
 
   /* The sheets already scroll inside themselves, so nothing was unreachable;
      they just showed two rows at a time. A taller sheet and shorter theme
-     cards put the whole of Reading settings and Account on one screen. */
+     cards put the whole of Aa and Account on one screen. */
   .lab[data-chrome-version="v2"] {
     --lab-v2-sheet-height: min(452px, 94vh);
   }
@@ -6710,6 +7499,10 @@
 .lab.is-desktop[data-chrome-version="v2"] { background:var(--lab-paper); }
 .lab.is-desktop[data-chrome-version="v2"] .lab-body,
 .lab.is-desktop[data-chrome-version="v2"] .lab-page-wrap { background:var(--lab-paper); }
+/* Dark: the leaf has no frame line (see .lab.is-night.is-desktop .lab-page-wrap);
+   the desk a shade below the paper is what separates the book from it. */
+.lab.is-desktop.is-night[data-chrome-version="v2"][data-desktop-paging="true"]:not(.is-frontispiece),
+.lab.is-desktop.is-night[data-chrome-version="v2"][data-desktop-paging="true"]:not(.is-frontispiece) .lab-body { background: color-mix(in srgb, var(--lab-paper) 78%, #000); }
 /* Paint the binding on the whole sheet, independent of text/terminal-card
    height. This is decoration only: no reader or pagination geometry changes. */
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-columns::after {
@@ -6750,7 +7543,14 @@
   --lab-fold-light: rgb(242 230 207 / .09);
   box-shadow: 0 1px 3px rgb(0 0 0 / .1), 0 12px 36px rgb(0 0 0 / .18);
 }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers b { opacity:.6; font-family:var(--lab-font-reader); font-size:12px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers b { opacity:.6; font-family:'EB Garamond', Georgia, serif; font-size:12px; }
+/* Folios and chapter progress as the phone sets its progress line: 12px,
+   muted. Folios are always EB Garamond, never mono (Anders, 9 Oct 2026). */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers,
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-progress-info {
+  font-family: var(--lab-font-reader); font-size: 12px; color: var(--lab-ink-muted); letter-spacing: .02em;
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers { font-family: 'EB Garamond', Georgia, serif; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers > span { gap:20px; }
 .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-handle] { cursor:grab; touch-action:none; user-select:none; }
 .lab.is-desktop[data-chrome-version="v2"] [data-reader-window] { position:fixed!important; margin:0!important; box-sizing:border-box; max-height:calc(100dvh - 32px); min-height:0; max-width:calc(100vw - 32px); border-radius:16px; }
@@ -6790,6 +7590,19 @@
 
 /* Definitions use the headword itself as the draggable title. */
 .lab[data-chrome-version="v2"] .popup-define .lab-reader-window-title.popup-define-word { margin:0; font-family:var(--lab-font-reader); font-style:italic; font-size:1em; font-weight:400; }
+/* The definition's text starts where the headword does, as a person card's does (Anders, 12 Nov 2026: "tetrarch"). */
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define :is(.popup-define-result, .popup-define-status, .popup-define-note) { padding-left:18px; padding-right:18px; }
+/* One sense is not numbered: its meaning, then its sense here, each a paragraph flush with the headword. */
+.lab[data-chrome-version="v2"] .popup-define-result > p.popup-define-list { margin:0; padding-left:0; list-style:none; }
+/* "sepulchre · Noun", "Joanna · Minor character", "Galilee · Place": what the word is, on its line, quieter than it (Anders,
+   17 Nov 2026). The card's own serif, upright and regular, in sentence case; kept whole, it wraps below as one unit. */
+.lab[data-chrome-version="v2"] .popup-define-pos { font-family:inherit; font-size:0.8em; font-style:normal; font-weight:400; letter-spacing:normal; text-transform:none; color:var(--lab-ink-muted); white-space:nowrap; }
+/* "Mary Magdalene · Major figure": a character's name is a headword too, in the card's own serif, italic and regular,
+   not a third typeface in bold (Anders, 18 Nov 2026). */
+.lab[data-chrome-version="v2"] .popup-character h2.popup-character-name { font-family:inherit; font-style:italic; font-weight:400; }
+/* The header's own controls sit beside the title, so the old popup's room for a floating More button is not needed. */
+.lab[data-chrome-version="v2"] .selection-popup.is-compact .popup-define .lab-reader-window-title.popup-define-word { padding-right:0; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab.is-dark .popup-define-pos { color:var(--lab-pbar-soft); }
 
 /* Dark paper needs a quiet curved edge, not a luminous halo around black.
    Inset the painted fold within the existing gutter; measured leaves and
@@ -6844,8 +7657,14 @@
 .lab[data-chrome-version="v2"] .lab-v2-rows .lab-v2-row { box-shadow: none; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-link { min-height: 68px; justify-content: space-between; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-text { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
-.lab[data-chrome-version="v2"] .lab-v2-edition-current { font: 12px/1.4 'IBM Plex Mono', monospace; opacity: .75; }
+.lab[data-chrome-version="v2"] .lab-v2-edition-current { font: 12px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; opacity: .75; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-divider { height: 1px; background: var(--lab-v2-hairline); margin: 8px 0; }
+/* Make available offline: one row; once saved, a tick and a quiet Remove. */
+.lab[data-chrome-version="v2"] .lab-v2-offline { min-height: 52px; }
+.lab[data-chrome-version="v2"] .lab-v2-offline.is-saved { cursor: default; }
+.lab[data-chrome-version="v2"] .lab-v2-offline-tick { flex: 0 0 auto; color: var(--lab-accent, #1f4a5c); font: 17px/1 'EB Garamond', Georgia, serif; }
+.lab[data-chrome-version="v2"] .lab-v2-offline-remove { flex: 0 0 auto; min-height: 44px; padding: 0 0 0 14px; border: 0; background: transparent;
+  color: inherit; opacity: .72; font: 15px/1.2 'EB Garamond', Georgia, serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .lab[data-chrome-version="v2"] .lab-v2-row-note { margin: 6px 0 2px; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; line-height: 1.35; color: var(--lab-v2-muted, currentColor); opacity: .8; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-option { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px;
   padding: 10px 0; border: 0; background: transparent; color: inherit; font: 16px/1.5 'EB Garamond', Georgia, serif; text-align: left; cursor: pointer; }
@@ -6853,7 +7672,7 @@
 .lab[data-chrome-version="v2"] .lab-v2-edition-check { width: 18px; margin-left: auto; flex-shrink: 0; }
 .lab[data-chrome-version="v2"] .lab-v2-difficulty { display: inline-block; vertical-align: middle; margin-left: 7px; padding: 2px 7px;
   border-radius: 20px; background: rgba(128,128,128,.16); border: 1px solid rgba(128,128,128,.3);
-  color: #555; font: 10px/1.4 'IBM Plex Mono', monospace; white-space: nowrap; }
+  color: #555; font: 10px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; white-space: nowrap; }
 .lab[data-chrome-version="v2"].is-night .lab-v2-difficulty { color: #d0d0d0; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-option:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 6px; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-option:disabled { opacity: 0.5; cursor: default; }
@@ -6866,13 +7685,36 @@
 .lab[data-chrome-version="v2"] .lab-passage-header.is-long-title .lab-passage-headline {
   font-size: calc(1.35rem * (var(--lab-font-size, 1.3) / 1.3));
 }
+/* On a desktop or iPad page there is room: a long title stays a little larger than the prose under it
+   (Pinocchio's chapter summaries were set below the body size, Anders 16 Nov 2026). */
+.lab[data-chrome-version="v2"].is-desktop .lab-passage-header.is-long-title .lab-passage-headline {
+  font-size: calc(1.6875rem * (var(--lab-font-size, 1.3) / 1.3));
+  line-height: 1.25;
+}
+/* An upright iPad uses the phone chrome with 1.5rem prose (the 700-1024px block); its long title sits above that too. */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .lab[data-chrome-version="v2"].is-phone .lab-passage-header.is-long-title .lab-passage-headline,
+  .lab[data-chrome-version="v2"].has-phone-chrome .lab-passage-header.is-long-title .lab-passage-headline {
+    font-size: calc(1.6875rem * (var(--lab-font-size, 1.3) / 1.3));
+    line-height: 1.25;
+  }
+}
 
 /* A full final leaf keeps its prose. Its controls use the reserved footer
    instead of pushing a handful of words onto another leaf. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-col:has(> .lab-chapter-end.is-docked) { position: relative; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked { position: absolute; top: 100%; left: 0; right: 0; margin: 4px 0 0; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap:has(.lab-book-col:first-child > .lab-chapter-end.is-docked) .lab-desktop-page-footers > span:first-child,
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap:has(.lab-book-col-next > .lab-chapter-end.is-docked) .lab-desktop-page-footers > span:last-child { visibility: hidden; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-measure-page:has(> .lab-chapter-end.is-docked) { position: relative; }
+/* Docked in the slim folio margin, the row is set compact: 26px boxes (the
+   paginator measures this same class against the margin). The hit area
+   reaches past the box without moving it, so the target stays ~40px. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked { position: absolute; top: 100%; left: 0; right: 0; margin: 2px 0 0; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked .lab-chapter-end-actions button { position: relative; min-height: 26px; padding: 0; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked .lab-chapter-end-actions button::after { content: ''; position: absolute; inset: -4px 0 -10px; }
+/* Scoped to the passage, a sibling of the footers: a :has() on the whole page
+   wrap also watched the paginator's measuring leaf, so every trial restyled
+   the page (Gorgias froze 20-45 s; production QA, 9 Oct 2026). */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap > .lab-passage:has(> .lab-book-columns > .lab-book-col:first-child > .lab-chapter-end.is-docked) ~ .lab-desktop-page-footers > span:first-child,
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap > .lab-passage:has(> .lab-book-columns > .lab-book-col-next > .lab-chapter-end.is-docked) ~ .lab-desktop-page-footers > span:last-child { visibility: hidden; }
 
 /* Audio paints the existing words; its controls and wash never change the leaf. */
 .lab[data-chrome-version="v2"] .lab-passage .lab-hearing-word {
@@ -6890,13 +7732,40 @@
   padding-bottom: 0.5rem; overflow-y: hidden;
 }
 
-/* Desktop companions start compact; explicit user resizing still wins inline. */
+/* Desktop companions start compact at the book's lower right (Anders, 9 Oct
+   2026: 312 x 390, READER_COMPANION_WINDOW; useReaderWindow anchors the
+   place). Explicit user resizing still wins inline. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-ask.is-desktop-companion[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel[data-reader-window] {
-  width:min(390px,calc(100vw - 48px));
-  height:min(640px,calc(100dvh - 132px));
+  width:min(312px,calc(100vw - 48px));
+  height:min(390px,calc(100dvh - 132px));
+}
+/* Minimal Talk (Anders, 9 Oct 2026): the window holds only the header, the
+   orb, one status line and the controls, so it opens just tall enough for
+   them (READER_TALK_WINDOW, 312 x 336 since mockup B added the book line and
+   the words under the controls, 4 Nov 2026) at the same lower-right anchor
+   as Chat. The header and the controls row never leave the window; the orb
+   takes what height is left (about 120px at the default size, up to 170px in
+   a window the reader makes taller) and drops out first in a short one.
+   useReaderWindow keeps Talk at least 260 x 220. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window],
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel[data-reader-window] {
+  height:min(336px,calc(100dvh - 132px));
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] { container:talk-window / size; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-head,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-controls { flex:none; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-stage {
+  flex:1 1 auto; min-height:0; overflow:hidden; justify-content:center; border-bottom:0;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] .lab-voice-panel-stage .lab-voice-orb,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] .lab-voice-panel-stage .lab-voice-orb-canvas {
+  width:clamp(56px,calc(100cqh - 214px),170px)!important; height:clamp(56px,calc(100cqh - 214px),170px)!important;
+}
+@container talk-window (max-height: 270px) {
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage .lab-voice-orb { display:none; }
 }
 .lab.is-desktop[data-chrome-version="v2"]:not(.is-night) .lab-ask.is-desktop-companion[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"]:not(.is-night) .lab-voice-panel[data-reader-window] {
@@ -6940,8 +7809,7 @@
   border-bottom: 0;
 }
 
-/* Minimized companions remain live as small movable spheres. */
-.lab.is-desktop[data-chrome-version="v2"] .lab-companion-orb,
+/* A minimized Talk call stays live as a small movable sphere (a minimized Chat draws nothing). */
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill {
   position:fixed; z-index:340; left:auto; top:auto; right:20px; bottom:110px;
   width:64px; height:64px; min-width:64px; max-width:64px; padding:2px;
@@ -6949,7 +7817,6 @@
   color:var(--lab-ink); box-shadow:0 3px 14px #0002; touch-action:none; cursor:grab;
   display:grid; place-items:center;
 }
-.lab.is-desktop[data-chrome-version="v2"] .lab-companion-orb { bottom:190px; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-orb { width:60px; height:60px; padding:0; margin:0; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-words { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-controls {
@@ -6958,7 +7825,6 @@
 }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill:hover .lab-voice-pill-controls,
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill:focus-within .lab-voice-pill-controls { display:flex; }
-.lab.is-desktop[data-chrome-version="v2"] .lab-companion-orb:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
 
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill[data-near-top="true"] .lab-voice-pill-controls { top:100%; bottom:auto; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill[data-near-left="true"] .lab-voice-pill-controls { left:0; right:auto; }
@@ -6977,11 +7843,12 @@
 .lab[data-chrome-version="v2"] .lab-book-switcher-library:focus-visible{outline:2px solid var(--lab-ink);outline-offset:-4px}
 
 /* Desktop: back to the library, icon only, top left — the same 42px disc and
-   ink as Play and the t on the right, and it dims with them after a turn. */
+   ink as Play and the t on the right, and it dims with them after a turn.
+   Centred in the 56px desktop header. */
 .lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-library-back {
   position: absolute;
   left: 24px;
-  top: 15px;
+  top: 7px;
   width: 42px;
   height: 42px;
   padding: 0;
@@ -6999,3 +7866,271 @@
 @media (hover: hover) {
   .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header:hover .lab-v2-library-back { opacity: 1; }
 }
+/* Person and place cards (Anders, 2026-10-06): the text lines up under the name
+   in the panel head, the role sits right beneath it, and the one-line role is
+   the key part, so it is full ink with a capital. */
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .popup-character { padding:0 18px 6px; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .popup-character small { display:block; margin:-4px 0 0; opacity:1; color:var(--lab-ink-muted); font-size:13px; line-height:1.3; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .popup-character p { margin:8px 0 0; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-character .popup-character-subtitle { opacity:1; color:inherit; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-character .popup-character-subtitle::first-letter { text-transform:uppercase; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .lab-person-actions { padding:10px 0 4px; }
+
+/* Talk speed (2026-10-09): a third voice control between Mute and End. Its
+   popover follows narration's speed popover (paper, hairline, mono labels)
+   and rises from the control so it never leaves the call or the Talk window. */
+.lab[data-chrome-version="v2"] .lab-talk-speed { position: relative; display: flex; }
+.lab[data-chrome-version="v2"] .lab-talk-speed-popover {
+  position: absolute; bottom: calc(100% + 10px); left: 50%; translate: -50% 0;
+  z-index: 5; display: flex; gap: 4px; padding: 6px;
+  border: 1px solid var(--lab-border); border-radius: 1.12rem;
+  background: var(--lab-paper); color: var(--lab-ink);
+  box-shadow: 0 14px 36px rgba(43, 36, 26, 0.2), 0 3px 9px rgba(43, 36, 26, 0.1);
+  animation: lab-audio-speed-enter 170ms cubic-bezier(.22,.8,.3,1) both;
+}
+.lab[data-chrome-version="v2"] .lab-talk-speed-step {
+  min-width: 52px; min-height: 44px; padding: 6px 10px; border: 1px solid transparent; border-radius: 999px;
+  background: transparent; color: inherit; cursor: pointer;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; font-variant-numeric: tabular-nums; font-size: 0.82rem; white-space: nowrap;
+}
+.lab[data-chrome-version="v2"] .lab-talk-speed-step.is-current { border-color: currentColor; font-weight: 600; }
+.lab[data-chrome-version="v2"] .lab-talk-speed-step:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .lab[data-chrome-version="v2"] .lab-talk-speed-popover { animation: none; }
+}
+/* The Talk window's controls stay in view at its smallest size: the orb
+   stage gives up height before the row does, and the row's gap tightens. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { flex: 0 1 auto; min-height: 0; overflow: hidden; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls { gap: clamp(10px, 4%, 22px); }
+.lab[data-chrome-version="v2"] .lab-call-controls { gap: clamp(16px, 6vw, 28px); }
+
+/* Tighter Talk (2026-10-09). A smaller orb (108px on the desktop, 176px on
+   the phone; set in the components) and less padding. Type, the words under
+   the controls and the red End are set by the Talk block at the end of this
+   file (mockup B, 4 Nov 2026). */
+.lab[data-chrome-version="v2"] .lab-talk-speed-step {
+  font-family: 'EB Garamond', Georgia, serif; font-size: 1rem;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window],
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel[data-reader-window] {
+  padding: 8px 14px 10px;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel {
+  --lab-voice-control-size: 48px;
+  --lab-voice-control-word: 14px;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-control { gap: 2px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-minimize { width: 28px; height: 28px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { gap: 2px; padding: 0 0 6px; }
+/* In a short window the orb stage gives way first, so the controls row
+   stays whole. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { flex-shrink: 1000; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { margin: 2px 0 0; font-size: 22px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-line { margin: 2px 0 0; font-size: 15px; }
+/* No rule above the controls; the row sits straight under the status. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls {
+  align-items: flex-start;
+  padding: 6px 0 0;
+  border-top: 0;
+}
+/* The phone call upright; a phone lying down keeps its own layout above. */
+@media not all and (orientation: landscape) and (max-height: 500px) and (any-pointer: coarse) {
+  .lab[data-chrome-version="v2"] .lab-call {
+    padding:
+      calc(1.25rem + env(safe-area-inset-top, 0px))
+      1.25rem
+      calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  }
+  .lab[data-chrome-version="v2"] .lab-call-stage { gap: 16px; }
+  .lab[data-chrome-version="v2"] .lab-call-circle {
+    max-width: min(46vw, 176px);
+    max-height: min(46vw, 176px);
+  }
+  .lab[data-chrome-version="v2"] .lab-call-words { gap: 6px; }
+  .lab[data-chrome-version="v2"] .lab-call-status { font-size: 28px; }
+  .lab[data-chrome-version="v2"] .lab-call-controls { align-items: flex-start; }
+  .lab[data-chrome-version="v2"] .lab-call .lab-voice-control { gap: 4px; }
+}
+/* Minimal Talk on the phone (Anders, 9 Oct 2026): the orb, one status line
+   and the controls, centred together on the screen with even space above
+   and below; nothing pinned to the top. */
+.lab[data-chrome-version="v2"] .lab-call {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 6vh, 52px);
+}
+.lab[data-chrome-version="v2"] .lab-call-stage { flex: 0 1 auto; max-width: 100%; }
+
+/* Talk status (Anders, 9 Oct 2026): slightly smaller, with more room above the controls. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { font-size: 19px; margin: 2px 0 14px; }
+.lab[data-chrome-version="v2"] .lab-call-status { font-size: 24px; margin-bottom: 18px; }
+
+/* Layout previews use the sheet's own paper and ink in every appearance. */
+.lab[data-chrome-version="v2"] .lab-v2-layout-description { display: block; margin-top: 3px; font-size: 13px; line-height: 1.4; opacity: .78; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature { display: flex; align-items: stretch; gap: 3px; flex: 0 0 58px; height: 40px; padding: 5px; border: 1px solid currentColor; border-radius: 4px; opacity: .65; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature i { flex: 1; background: repeating-linear-gradient(to bottom, currentColor 0 1px, transparent 1px 5px); opacity: .65; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature i:nth-child(3) { display: none; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-margin i:first-child { flex: 3; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-margin i:nth-child(2) { align-self: center; height: 13px; border: 1px solid currentColor; border-radius: 2px; background: none; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-two-page { gap: 6px; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-compare i:nth-child(2) { opacity: .4; }
+
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-two-page { background: linear-gradient(to right, transparent calc(50% - .5px), currentColor 50%, transparent calc(50% + .5px)); }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-compare { position: relative; gap: 9px; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-compare::after { content: '↔'; position: absolute; left: 23px; top: 13px; font-size: 10px; line-height: 10px; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-compare i { padding-top: 9px; background-origin: content-box; background-clip: content-box; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-compare i::before { content: 'A'; position: absolute; top: 3px; font-size: 8px; font-style: normal; line-height: 9px; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-compare i:nth-child(2) { margin-right: 3px; background-image: repeating-linear-gradient(to bottom, currentColor 0 1px, transparent 1px 7px); opacity: .75; }
+.lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-compare i:nth-child(2)::before { content: 'A′'; }
+
+/* Shared desktop chrome follows the quiet margin reader: unboxed controls,
+   ordinary text labels, and a restrained menu surface. Phone chrome is unchanged. */
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-v2-library-back, .lab-v2-play, .lab-v2-aa, .lab-super, .lab-header-chapter, .lab-header-book) {
+  border: 0; border-radius: 0; background: transparent; box-shadow: none;
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-v2-library-back, .lab-v2-play, .lab-v2-aa, .lab-super) {
+  min-width: 40px; min-height: 40px; color: var(--lab-ink-muted);
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-v2-library-back, .lab-v2-play, .lab-v2-aa, .lab-super, .lab-header-chapter, .lab-header-book):hover {
+  color: var(--lab-ink); background: transparent; text-decoration-color: currentColor;
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header button:focus-visible {
+  outline: 1px solid var(--lab-accent, currentColor); outline-offset: 2px;
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop :is(.lab-super-panel, .lab-v2-sheet[data-reader-window]) {
+  border-radius: 0; border: 0; border-top: 1px solid var(--lab-border); border-bottom: 1px solid var(--lab-border); background: var(--lab-paper);
+  box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop :is(.lab-super-row, .lab-v2-choice, .lab-v2-pill) { border-radius: 0; }
+
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-chapter, .lab-header-book) { min-height: 32px; }
+
+/* Reading chrome stays quiet at rest; interaction restores full ink. */
+.lab[data-chrome-version="v2"].is-desktop .lab-header-notebook {
+  display:inline-flex; align-items:center; justify-content:center; min-width:40px; min-height:40px; padding:0 8px; border:0; border-radius:0; background:transparent; box-shadow:none;
+  font:14px/1.2 'EB Garamond',Georgia,serif; color:var(--lab-ink); cursor:pointer;
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) {
+  color:var(--lab-ink-muted); transition:color 140ms ease;
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header:is(:hover,:focus-within) :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) {
+  color:var(--lab-ink);
+}
+@media(prefers-reduced-motion:reduce) {
+  .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) { transition:none; }
+}
+
+/* Chat has room for an answer while remaining a movable, resizable window. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-ask.is-desktop-companion[data-reader-window],
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion[data-reader-window] {
+  width:min(440px,calc(100vw - 48px));
+  height:min(540px,calc(100dvh - 132px));
+  overflow-anchor:none;
+}
+
+/* ── Talk (approved mockup B, 4 Nov 2026) ─────────────────────────────────
+   Title in Playfair over the book and chapter, the orb, the status in the
+   UI face (no full stop), then three equal round controls with their words
+   beneath: Mute, Speed (the disc carries the figure) and End (red, ×).
+   Applies to the desktop Talk window and the phone call (full screen and
+   the margin phone's card). E-ink: no red, no shadow (display-profile.css
+   already removes shadows and blur). */
+.lab[data-chrome-version="v2"] {
+  --lab-call-end: #b9503d;
+  --lab-call-end-ink: #fff;
+}
+.lab[data-chrome-version="v2"].is-night { --lab-call-end: #c9604f; }
+html[data-eink="true"] .lab[data-chrome-version="v2"] { --lab-call-end: #111; --lab-call-end-ink: #fff; }
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-head { align-items: flex-start; }
+.lab[data-chrome-version="v2"] .lab-voice-panel-heading,
+.lab[data-chrome-version="v2"] .lab-call-head { min-width: 0; }
+.lab[data-chrome-version="v2"] .lab-voice-panel-title,
+.lab[data-chrome-version="v2"] .lab-call-title {
+  margin: 0;
+  font: 500 24px/1.2 'Playfair Display', Georgia, serif;
+  letter-spacing: 0;
+  color: var(--lab-call-ink);
+}
+.lab[data-chrome-version="v2"] .lab-voice-panel-context,
+.lab[data-chrome-version="v2"] .lab-call-context {
+  margin: 2px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 13px/1.35 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--lab-call-muted);
+}
+.lab[data-chrome-version="v2"] .lab-call-head { align-self: stretch; text-align: left; }
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status,
+.lab[data-chrome-version="v2"] .lab-call .lab-call-status,
+.lab[data-chrome-version="v2"] .lab-pcard .lab-call .lab-call-status {
+  font: 500 17px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { margin: 4px 0 16px; }
+.lab[data-chrome-version="v2"] .lab-call .lab-call-status { margin-bottom: 6px; }
+.lab[data-chrome-version="v2"] .lab-call .lab-call-notice,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-line {
+  font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel { --lab-voice-control-size: 56px; --lab-voice-control-word: 12px; }
+.lab[data-chrome-version="v2"] .lab-call { --lab-voice-control-size: 60px; --lab-voice-control-word: 13px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls,
+.lab[data-chrome-version="v2"] .lab-call-controls { gap: 26px; align-items: flex-start; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-control,
+.lab[data-chrome-version="v2"] .lab-call .lab-voice-control { gap: 7px; min-width: 60px; }
+.lab[data-chrome-version="v2"] .lab-voice-control-word {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--lab-call-muted);
+}
+.lab[data-chrome-version="v2"] .lab-voice-control-disc { background: color-mix(in srgb, var(--lab-call-ink) 4%, transparent); }
+.lab[data-chrome-version="v2"] .lab-voice-control.is-on .lab-voice-control-disc { background: color-mix(in srgb, var(--lab-call-ink) 12%, transparent); }
+.lab[data-chrome-version="v2"] .lab-voice-control.is-filled .lab-voice-control-disc {
+  border-color: var(--lab-call-end);
+  background: var(--lab-call-end);
+  color: var(--lab-call-end-ink);
+}
+.lab[data-chrome-version="v2"] .lab-voice-control-figure {
+  font: 600 16px/1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+/* The four speaking speeds read in the UI face too. */
+.lab[data-chrome-version="v2"] .lab-talk-speed-step {
+  font: 14px/1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Book settings' reading angle (and the desktop's "Before you start" card): the reader's own words, in the UI face. */
+.lab[data-chrome-version="v2"] .lab-reading-angle { display: flex; flex-direction: column; gap: 6px; padding: 6px 0 4px; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-label { font: 500 14px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+/* One soft box (approved mockup): the field without its own frame, the mic inside on the right; the box takes the focus ring. */
+.lab[data-chrome-version="v2"] .lab-reading-angle-box { display: flex; align-items: flex-start; gap: 4px; border: 1px solid var(--lab-v2-hairline, rgba(0,0,0,.14));
+  border-radius: 12px; background: color-mix(in srgb, currentColor 3%, transparent); padding: 2px 4px 2px 0; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-box:focus-within { border-color: var(--tui-accent, #1f6f78); }
+.lab[data-chrome-version="v2"] .lab-reading-angle-input { flex: 1; min-width: 0; width: 100%; box-sizing: border-box; min-height: 52px; padding: 10px 12px; border: 0;
+  border-radius: 12px; background: transparent; color: inherit; font: 16px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; resize: none; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-input::placeholder { color: inherit; opacity: .5; }
+/* The desktop sheet's own text size (Anders, 11 Nov 2026: "too big font"); a phone keeps 16px, under which iOS zooms the page on focus. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-reading-angle-input { font-size: 14px; min-height: 48px; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+/* "Saved", a moment after the last keystroke (LabSavedNote.tsx): quiet, in the chrome face, never moving the row. */
+.lab[data-chrome-version="v2"] .lab-saved-note { font: 400 12px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; opacity: 0; transition: opacity .2s ease; min-width: 2.6em; text-align: right; }
+.lab[data-chrome-version="v2"] .lab-saved-note[data-shown="true"] { opacity: .6; }
+@media (prefers-reduced-motion: reduce) { .lab[data-chrome-version="v2"] .lab-saved-note { transition: none; } }
+.lab[data-chrome-version="v2"] .lab-reading-angle-input:focus { outline: 0; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-mic { flex: none; display: grid; place-items: center; width: 36px; height: 36px; margin: 6px 0 0; padding: 0; border: 0; border-radius: 50%;
+  background: none; color: inherit; opacity: .6; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-mic[aria-pressed="true"] { opacity: 1; color: var(--tui-accent, #1f6f78); }
+.lab[data-chrome-version="v2"] .lab-reading-angle-mic .lab-picon { width: 18px; height: 18px; }
+
+/* Compare: the heading belongs to the left page. It spanned both columns, so a long title's Primer chip sat on the
+   right page (Anders, 10 Nov 2026, Hamlet 1.1); held to the left column, the chip wraps under the title. */
+.lab[data-chrome-version="v2"] .lab-passage.is-compare > .lab-passage-header,
+.lab[data-chrome-version="v2"] .lab-book.is-aligned-compare .lab-passage-header,
+.lab[data-chrome-version="v2"] .lab-desktop-measure.is-paired .lab-desktop-measure-page > .lab-passage-header { max-width: calc((100% - var(--desktop-gutter, 56px)) / 2); }
+

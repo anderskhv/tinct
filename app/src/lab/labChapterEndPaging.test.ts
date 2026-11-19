@@ -53,6 +53,25 @@ describe('chapter actions share a leaf with actual prose', () => {
     expect(result.map(p => [p.from,p.to])).toEqual([[0,260],[260,300]])
     expect(words(result)).toEqual(words(pages))
   })
+  it('cuts the leaf before the actions only where a line starts, so it never ends on a lone word', () => {
+    // 300 words, 12 to a line. A sentence starts at word 265, mid-line: cutting
+    // there left "…good sense." alone on the last line (CI Chromium 145, S&S @360).
+    const text = Array.from({ length: 300 }, (_, i) => ({ text: i === 264 ? 'sense.' : 'word' }))
+    const pages = [page(0, 300)]
+    const fitsTail = (segments: ReturnType<typeof chapterPageSegments>) => segments.reduce((n,s) => n+s.to-s.from,0) <= 290
+    const lineStarts = () => Array.from({ length: 24 }, (_, i) => (i + 1) * 12)
+    const result = fitChapterEnd(pages, fitsTail, cleanPageStarts([text]), lineStarts)
+    // 270 (the plain cut) and 265 (the sentence) are mid-line: the next line start, 276.
+    expect(result.map(p => [p.from,p.to])).toEqual([[0,276],[276,300]])
+    expect(words(result)).toEqual(words(pages))
+    // A sentence that starts a line is still preferred.
+    const atLine = Array.from({ length: 300 }, (_, i) => ({ text: i === 263 ? 'end.' : 'word' }))
+    expect(fitChapterEnd(pages, fitsTail, cleanPageStarts([atLine]), lineStarts).map(p => [p.from,p.to])).toEqual([[0,264],[264,300]])
+    // Cut on the page's last line: that whole line is carried instead, if it fits.
+    const lastLine = () => [12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264]
+    expect(fitChapterEnd(pages, segments => segments.reduce((n,s) => n+s.to-s.from,0) <= 40, undefined, lastLine).map(p => [p.from,p.to])).toEqual([[0,264],[264,300]])
+  })
+
   it('prefers a paragraph start, and keeps the plain cut when no clean break is near', () => {
     const pages = [{ paragraphIndex: 0, from: 0, to: 250, segments: [{ paragraphIndex: 0, from: 0, to: 250 }, { paragraphIndex: 1, from: 0, to: 50 }] }]
     const plain = [Array.from({ length: 250 }, () => ({ text: 'word' })), Array.from({ length: 50 }, () => ({ text: 'word' }))]

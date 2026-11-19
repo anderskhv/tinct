@@ -5,21 +5,56 @@
  * Both routes are POST, gated by the site-admin check, and act on exactly one
  * account. Deletion requires the operator to type the account's email, runs
  * every step idempotently, and removes the auth user only after every earlier
- * step succeeded, so a partial run can simply be repeated.
+ * step succeeded, so a partial run can simply be repeated. The deletion
+ * itself (deleteAccountData) is also the reader's own Delete account
+ * (routes/accountDelete.ts).
  */
 import type { ReaderPositionCoordinator } from '../readerPositionCoordinator'
 import type { RecapPreparationCoordinator } from '../recapPreparationCoordinator'
+import type { ShareStore } from '../shareStore'
+import type { NarrationCoordinator } from '../narrationCoordinator'
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseAuthAdminUser, supabaseDelete, supabaseGet, type SupabaseEnv } from '../lib/supabase'
 import { kvKey as chatHistoryKvKey } from './labChatHistory'
 import { kvKey as positionKvKey } from './labPosition'
+import { listOwnCards, listOwnCovers, listOwnMarks, listOwnPlaces, listOwnPrimers, listUserBooks, purgeUserBooks } from './userBooks'
+import { listProfileImages, purgeProfileImages } from './profiles'
+import type { OwnOcrCoordinator } from '../ownOcrCoordinator'
+import { listOwnOcrJobs, ocrCoordinatorName, ocrPagesName, ocrUserName, ownOcrBooks } from '../lib/ownOcr'
 
 export type AdminAccountsEnv = SupabaseEnv & {
   STRIPE_SECRET_KEY?: string
   RATE_LIMIT?: KVNamespace
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
+  SHARE_STORE?: DurableObjectNamespace<ShareStore>
+  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, their narration under u/{userId}/narration/, Catch me up recaps under u/{userId}/recaps/ and reading places under u/{userId}/places/, PDF highlights and notes under u/{userId}/marks/, the margin's cards (kept answers) under u/{userId}/cards/, the small images of their covers under u/{userId}/covers/ and Before you start primers of own PDFs under u/{userId}/primers/ (routes/userBooks.ts). */
+  USER_BOOKS?: R2Bucket
+  /** Own-book narration keeps one spend object per account, `own-user:{userId}` (routes/ownBookNarration.ts). */
+  NARRATION_COORDINATOR?: DurableObjectNamespace<NarrationCoordinator>
+  /**
+   * OCR of scanned own PDFs: one job object per book (ownOcrCoordinator.ts), its
+   * files under u/{userId}/ocr/, and the account's page and dollar counts on
+   * NARRATION_COORDINATOR (`ocr-pages:{userId}`, `ocr-user:{userId}`; lib/ownOcr.ts).
+   */
+  OWN_OCR?: DurableObjectNamespace<OwnOcrCoordinator>
+}
+
+/** The account's own-book narration spend object. */
+export const ownNarrationSpendName = (userId: string) => `own-user:${userId}`
+
+/** Count and size of the objects under one of the account's private own-book prefixes (never their content). */
+async function prefixSummary(bucket: R2Bucket, prefix: string): Promise<{ objects: number; bytes: number }> {
+  let objects = 0
+  let bytes = 0
+  let cursor: string | undefined
+  do {
+    const page = await bucket.list({ prefix, cursor, limit: 1000 })
+    for (const object of page.objects) { objects += 1; bytes += object.size }
+    cursor = page.truncated ? page.cursor : undefined
+  } while (cursor)
+  return { objects, bytes }
 }
 
 type VerifySiteAdmin = (env: AdminAccountsEnv, request: Request) => Promise<boolean>
@@ -42,10 +77,10 @@ type AuthUser = {
 
 type Profile = Record<string, unknown> & { id: string; email?: string | null; stripe_customer_id?: string | null }
 
-type Account = { userId: string; email: string | null; authUser: AuthUser | null; profile: Profile | null }
+export type Account = { userId: string; email: string | null; authUser: AuthUser | null; profile: Profile | null }
 
 /** Every Supabase table holding rows for one account, with a stable page order. */
-const USER_TABLES: { table: string; column: string; order: string }[] = [
+const USER_TABLES: { table: string; column: string; order: string; optional?: true }[] = [
   { table: 'profiles', column: 'id', order: 'id' },
   { table: 'user_data', column: 'user_id', order: 'key' },
   { table: 'user_data_audit', column: 'user_id', order: 'created_at,id' },
@@ -55,7 +90,31 @@ const USER_TABLES: { table: string; column: string; order: string }[] = [
   { table: 'analytics_events', column: 'user_id', order: 'created_at,id' },
   { table: 'issue_reports', column: 'user_id', order: 'created_at,id' },
   { table: 'ai_usage_events', column: 'user_id', order: 'id' },
+  // Reading time ledger (migrations/20261008_reading_time.sql). Optional: the
+  // Worker may run before the migration, and a missing table holds no rows.
+  { table: 'reading_time', column: 'user_id', order: 'day,book_id', optional: true },
   { table: 'site_admins', column: 'user_id', order: 'user_id' },
+]
+
+/**
+ * Tables that may not exist yet (their migration can run after the Worker
+ * ships): profiles (social ship 2, 20261008_profiles.sql) and the lifecycle
+ * email send log (ship 4, 20261008_email_log.sql). Exported and checked like
+ * USER_TABLES, but a missing table (404) exports as null, not as an error, and
+ * does not fail the deletion check. Every row here is removed by ON DELETE
+ * CASCADE when the auth user goes. Who blocked this reader is someone else's
+ * choice and is not exported.
+ */
+const OPTIONAL_USER_TABLES: { key: string; table: string; column: string; order: string }[] = [
+  { key: 'reader_profiles', table: 'reader_profiles', column: 'id', order: 'id' },
+  { key: 'follows_following', table: 'follows', column: 'follower', order: 'followed' },
+  { key: 'follows_followers', table: 'follows', column: 'followed', order: 'follower' },
+  { key: 'blocks', table: 'blocks', column: 'blocker', order: 'blocked' },
+  { key: 'email_log', table: 'email_log', column: 'user_id', order: 'sent_at,id' },
+  // Social (ship 3, 20261008_social.sql): this reader's cached 7-day total and the reports they filed.
+  // Reports about this reader go with the account (ON DELETE CASCADE); they name the reporter and are not exported.
+  { key: 'leaderboard_7d', table: 'leaderboard_7d', column: 'user_id', order: 'user_id' },
+  { key: 'profile_reports_filed', table: 'profile_reports', column: 'reporter', order: 'created_at,id' },
 ]
 
 /** ON DELETE SET NULL tables: rows must be deleted before the auth user goes. */
@@ -91,10 +150,16 @@ async function readBody(request: Request): Promise<Record<string, unknown> | nul
   }
 }
 
-async function getAll(env: AdminAccountsEnv, table: string, filter: string, order: string, select = '*'): Promise<{ rows: Record<string, unknown>[]; truncated: boolean }> {
+/** PostgREST's answer for a table that does not exist (yet): 404 / PGRST205. */
+function missingTable(res: Response): boolean {
+  return res.status === 404
+}
+
+async function getAll(env: AdminAccountsEnv, table: string, filter: string, order: string, select = '*', optional = false): Promise<{ rows: Record<string, unknown>[]; truncated: boolean }> {
   const rows: Record<string, unknown>[] = []
   for (let page = 0; page < MAX_PAGES; page++) {
     const res = await supabaseGet(env, `${table}?${filter}&select=${select}&order=${order}&limit=${PAGE}&offset=${page * PAGE}`)
+    if (optional && missingTable(res)) return { rows, truncated: false }
     if (!res.ok) throw new Error(`${table} read failed (${res.status})`)
     const batch = await res.json() as Record<string, unknown>[]
     rows.push(...batch)
@@ -105,7 +170,7 @@ async function getAll(env: AdminAccountsEnv, table: string, filter: string, orde
 
 type Resolved = { account: Account } | { error: string; status: number }
 
-async function resolveAccount(env: AdminAccountsEnv, body: Record<string, unknown>): Promise<Resolved> {
+export async function resolveAccount(env: AdminAccountsEnv, body: Record<string, unknown>): Promise<Resolved> {
   let userId = typeof body.userId === 'string' ? body.userId.trim() : ''
   const email = normalizeEmail(body.email)
   if (!userId && email) {
@@ -247,10 +312,21 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
   }
 
   const supabase: Record<string, unknown> = {}
-  for (const { table, column, order } of USER_TABLES) {
-    const result = await attempt(table, () => getAll(env, table, `${column}=eq.${account.userId}`, order))
+  for (const { table, column, order, optional } of USER_TABLES) {
+    const result = await attempt(table, () => getAll(env, table, `${column}=eq.${account.userId}`, order, '*', optional))
     supabase[table] = result?.rows ?? null
     if (result?.truncated) truncated.push(table)
+  }
+  for (const { key, table, column, order } of OPTIONAL_USER_TABLES) {
+    try {
+      const result = await getAll(env, table, `${column}=eq.${account.userId}`, order)
+      supabase[key] = result.rows
+      if (result.truncated) truncated.push(key)
+    } catch (error) {
+      const missing = error instanceof Error && /\(404\)/.test(error.message)
+      supabase[key] = null
+      if (!missing) errors.push(`${key}: ${error instanceof Error ? error.message : 'failed'}`)
+    }
   }
   const devices = deviceIdsFrom((supabase.analytics_events as Record<string, unknown>[] | null) ?? [])
   const anonymousRows: Record<string, unknown>[] = []
@@ -278,6 +354,64 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
       : (errors.push('do: RECAP_PREPARATION binding missing'), null),
   }
 
+  // The reader's own uploaded files: listed (name, size, dates), never the bytes.
+  const r2: Record<string, unknown> = {
+    userBooks: env.USER_BOOKS
+      ? await attempt('r2 user-books', async () => (await listUserBooks(env.USER_BOOKS!, account.userId)).map(book => ({
+        id: book.id, name: book.name, title: book.title, author: book.author, type: book.type, size: book.size, createdAt: book.createdAt,
+      })))
+      : (errors.push('r2: USER_BOOKS binding missing'), null),
+    // Profile pictures and backgrounds (routes/profiles.ts): listed, never the bytes.
+    profileImages: env.USER_BOOKS
+      ? await attempt('r2 profile-images', () => listProfileImages(env.USER_BOOKS!, account.userId))
+      : null,
+    // Recordings made when the reader chose Listen on an own book: counted, never the audio.
+    ownBookNarration: env.USER_BOOKS
+      ? await attempt('r2 own-book narration', () => prefixSummary(env.USER_BOOKS!, `u/${account.userId}/narration/`))
+      : null,
+    // The reader's place in each own book (by the book's hex; chapter, paragraph, word, when, percent).
+    ownBookPlaces: env.USER_BOOKS
+      ? await attempt('r2 own-book places', () => listOwnPlaces(env.USER_BOOKS!, account.userId))
+      : null,
+    // The highlights and notes in each own PDF (by the book's hex): the reader's own words and passages, in full; removals counted.
+    ownBookMarks: env.USER_BOOKS
+      ? await attempt('r2 own-book marks', () => listOwnMarks(env.USER_BOOKS!, account.userId))
+      : null,
+    // The margin's kept answers in each own PDF (by the book's hex): passages, questions and answers, in full; removals counted.
+    ownBookCards: env.USER_BOOKS
+      ? await attempt('r2 own-book cards', () => listOwnCards(env.USER_BOOKS!, account.userId))
+      : null,
+    // The small image of each own book's cover, kept with the file (by the book's hex): listed, never the bytes, like the files.
+    ownBookCovers: env.USER_BOOKS
+      ? await attempt('r2 own-book covers', () => listOwnCovers(env.USER_BOOKS!, account.userId))
+      : null,
+    // Catch me up recaps of own books (one object per finished chapter, one for the chapter in progress): counted, never the text.
+    ownBookRecaps: env.USER_BOOKS
+      ? await attempt('r2 own-book recaps', () => prefixSummary(env.USER_BOOKS!, `u/${account.userId}/recaps/`))
+      : null,
+    // Before you start primers of own PDFs (AI text about the reader's own file): counted per book, never the text.
+    ownBookPrimers: env.USER_BOOKS
+      ? await attempt('r2 own-book primers', () => listOwnPrimers(env.USER_BOOKS!, account.userId))
+      : null,
+    // Text recognised from scanned own PDFs: each job's book hex, page count, state and dates, never the text or images.
+    ownOcr: env.USER_BOOKS
+      ? await attempt('r2 own-book ocr', () => listOwnOcrJobs(env.USER_BOOKS!, account.userId))
+      : null,
+  }
+
+  // OCR of own PDFs: daily page and micro-dollar counts of the last two months, nothing else.
+  const ownOcrSpend = env.NARRATION_COORDINATOR
+    ? await attempt('do own-book ocr', async () => ({
+      pages: await env.NARRATION_COORDINATOR!.getByName(ocrPagesName(account.userId)).usage(),
+      microUsd: await env.NARRATION_COORDINATOR!.getByName(ocrUserName(account.userId)).usage(),
+    }))
+    : null
+
+  // Own-book narration spend: daily byte counts of the last two months, nothing else.
+  const ownBookNarrationSpend = env.NARRATION_COORDINATOR
+    ? await attempt('do own-book narration', async () => env.NARRATION_COORDINATOR!.getByName(ownNarrationSpendName(account.userId)).usage())
+    : (errors.push('do: NARRATION_COORDINATOR binding missing'), null)
+
   const stripeSummary = await attempt('stripe', () => exportStripe(env, account))
 
   console.log(JSON.stringify({ event: 'admin_account_export', user: account.userId.slice(0, 8), errors: errors.length }))
@@ -291,8 +425,30 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
     supabase,
     kv,
     durableObjects,
+    r2,
+    ownBookNarrationSpend,
+    ownOcrSpend,
     stripe: stripeSummary,
   }, 200, request)
+}
+
+/**
+ * One account's recent position writes (readerPositionCoordinator.positionHistory),
+ * for diagnosing a lost place without exporting the whole account. Same gate
+ * and account lookup as the export; read-only, never runs the legacy import.
+ */
+export async function handleAdminPositionHistory(request: Request, env: AdminAccountsEnv, verifySiteAdmin: VerifySiteAdmin): Promise<Response> {
+  const denied = await gate(request, env, verifySiteAdmin)
+  if (denied) return denied
+  if (!env.READER_POSITION) return reply({ error: 'READER_POSITION binding missing' }, 500, request)
+  const body = await readBody(request)
+  if (!body) return reply({ error: 'Invalid JSON' }, 400, request)
+  const resolved = await resolveAccount(env, body)
+  if ('error' in resolved) return reply({ error: resolved.error }, resolved.status, request)
+  const userId = resolved.account.userId
+  const history = await env.READER_POSITION.getByName(userId).positionHistory()
+  console.log(JSON.stringify({ event: 'admin_position_history', user: userId.slice(0, 8), entries: history.length }))
+  return reply({ userId, history }, 200, request)
 }
 
 // ===== Delete =====
@@ -325,6 +481,11 @@ function purgeAndKvSteps(env: AdminAccountsEnv, userId: string, prefix: string):
       if (!env.READER_POSITION) throw new Error('READER_POSITION binding missing')
       await env.READER_POSITION.getByName(userId).purge()
     }],
+    // Shared highlight links stay public; only their link to the account goes.
+    [`${prefix}do:share-creator`, async () => {
+      if (!env.SHARE_STORE) throw new Error('SHARE_STORE binding missing')
+      await env.SHARE_STORE.getByName('shares').forgetCreator(userId)
+    }],
     [`${prefix}kv:lab-chat-history`, async () => {
       if (!env.RATE_LIMIT) throw new Error('RATE_LIMIT binding missing')
       await env.RATE_LIMIT.delete(chatHistoryKvKey(userId))
@@ -332,6 +493,31 @@ function purgeAndKvSteps(env: AdminAccountsEnv, userId: string, prefix: string):
     [`${prefix}kv:lab-position`, async () => {
       if (!env.RATE_LIMIT) throw new Error('RATE_LIMIT binding missing')
       await env.RATE_LIMIT.delete(positionKvKey(userId))
+    }],
+    [`${prefix}do:own-book-narration`, async () => {
+      if (!env.NARRATION_COORDINATOR) throw new Error('NARRATION_COORDINATOR binding missing')
+      await env.NARRATION_COORDINATOR.getByName(ownNarrationSpendName(userId)).purge()
+    }],
+    // OCR jobs (found by their files, so before those go) stop and forget everything; then the account's page and dollar counts.
+    [`${prefix}do:own-ocr`, async () => {
+      if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
+      if (!env.NARRATION_COORDINATOR) throw new Error('NARRATION_COORDINATOR binding missing')
+      const books = await ownOcrBooks(env.USER_BOOKS, userId)
+      if (books.length && !env.OWN_OCR) throw new Error('OWN_OCR binding missing')
+      for (const hex of books) await env.OWN_OCR!.getByName(await ocrCoordinatorName(userId, hex)).cancel()
+      await env.NARRATION_COORDINATOR.getByName(ocrPagesName(userId)).purge()
+      await env.NARRATION_COORDINATOR.getByName(ocrUserName(userId)).purge()
+      return books.length ? `${books.length} job(s)` : undefined
+    }],
+    // The reader's own PDF/EPUB files, their narration, recaps and recognised text: every object under u/{userId}/.
+    [`${prefix}r2:user-books`, async () => {
+      if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
+      await purgeUserBooks(env.USER_BOOKS, userId)
+    }],
+    // Profile pictures and backgrounds: every object under profile/{userId}/.
+    [`${prefix}r2:profile-images`, async () => {
+      if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
+      await purgeProfileImages(env.USER_BOOKS, userId)
     }],
   ]
 }
@@ -357,8 +543,27 @@ export async function handleAdminDeleteUser(request: Request, env: AdminAccounts
     if (!account.email) return reply({ error: 'Account has no email to confirm against' }, 409, request)
     if (confirmEmail !== account.email) return reply({ error: 'confirmEmail does not match the account' }, 400, request)
   }
-  const accountAlreadyDeleted = !account.authUser && !account.profile
+  const result = await deleteAccountData(env, account, 'admin_account_delete')
+  return reply({ ok: result.ok, userId: account.userId, accountAlreadyDeleted: result.accountAlreadyDeleted, completedAt: new Date().toISOString(), steps: result.steps }, result.ok ? 200 : 500, request)
+}
 
+export type DeletionResult = {
+  /** Every step succeeded and the auth user is gone. */
+  ok: boolean
+  /** The auth user is gone (deleted now or by an earlier run): sign-in is no longer possible. */
+  authGone: boolean
+  accountAlreadyDeleted: boolean
+  steps: DeletionStep[]
+}
+
+/**
+ * Delete everything held for one account, in order, every step idempotent.
+ * Shared by the admin route and the reader's own Delete account
+ * (routes/accountDelete.ts). The auth user goes last and only after every
+ * earlier step succeeded, so a partial run can simply be repeated.
+ */
+export async function deleteAccountData(env: AdminAccountsEnv, account: Account, logEvent: string): Promise<DeletionResult> {
+  const accountAlreadyDeleted = !account.authUser && !account.profile
   const userId = account.userId
   const steps: DeletionStep[] = []
   let allOk = true
@@ -428,8 +633,15 @@ export async function handleAdminDeleteUser(request: Request, env: AdminAccounts
     for (const [name, run] of purgeAndKvSteps(env, userId, 'sweep:')) await step(name, run)
     await step('verify:cascade', async () => {
       const leftovers: string[] = []
-      for (const { table, column } of USER_TABLES) {
+      for (const { table, column, optional } of USER_TABLES) {
         const res = await supabaseGet(env, `${table}?${column}=eq.${userId}&select=${column}&limit=1`)
+        if (optional && missingTable(res)) continue
+        if (!res.ok) throw new Error(`${table} check failed (${res.status})`)
+        if ((await res.json() as unknown[]).length) leftovers.push(table)
+      }
+      for (const { table, column } of OPTIONAL_USER_TABLES) {
+        const res = await supabaseGet(env, `${table}?${column}=eq.${userId}&select=${column}&limit=1`)
+        if (res.status === 404) continue
         if (!res.ok) throw new Error(`${table} check failed (${res.status})`)
         if ((await res.json() as unknown[]).length) leftovers.push(table)
       }
@@ -438,6 +650,6 @@ export async function handleAdminDeleteUser(request: Request, env: AdminAccounts
   }
 
   const ok = authGone && allOk
-  console.log(JSON.stringify({ event: 'admin_account_delete', user: userId.slice(0, 8), ok, failed: steps.filter(s => s.status === 'failed').map(s => s.step) }))
-  return reply({ ok, userId, accountAlreadyDeleted, completedAt: new Date().toISOString(), steps }, ok ? 200 : 500, request)
+  console.log(JSON.stringify({ event: logEvent, user: userId.slice(0, 8), ok, failed: steps.filter(s => s.status === 'failed').map(s => s.step) }))
+  return { ok, authGone, accountAlreadyDeleted, steps }
 }

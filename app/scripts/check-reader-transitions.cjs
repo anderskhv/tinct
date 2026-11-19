@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Run from app/: TEST_ORIGIN=http://127.0.0.1:5191 ENGINE=webkit node scripts/check-reader-transitions.cjs
 // Uses real browser layout, chapter data and audiobook playback. No AI calls.
 const { chromium, webkit } = require('playwright')
@@ -30,15 +31,19 @@ async function turn(page, key) {
   assert.ok(settled.lastBottom < settled.chromeTop, 'Text must clear the progress/audio controls')
   return settled
 }
-async function swap(page) {
-  await page.getByTestId('lab-book').evaluate(el => {
-    el.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerId: 71, pointerType: 'touch', clientX: 190, clientY: 400 }))
-    el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerId: 71, pointerType: 'touch', clientX: 190, clientY: 270 }))
-  })
-  await page.waitForTimeout(250)
+async function swap(page, edition) {
+  // The phone has no Compare (10 Nov 2026): Book settings switch the Main version.
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-editions').click()
+  assert.equal(await page.getByTestId('lab-v2-show-compare').count(), 0, 'The phone offers no Compare')
+  await page.getByTestId('lab-v2-main-edition').click()
+  await page.locator(`[data-edition="${edition}"]`).click()
+  await page.getByTestId('lab-v2-sheet-close').click()
+  await page.waitForFunction(key => document.querySelector('[data-testid="lab-root"]')?.dataset.readerEdition === key, edition)
+  await page.waitForTimeout(400)
 }
 async function main() {
-  const browser = await (engine === 'webkit' ? webkit : chromium).launch()
+  const browser = await markInternal(await (engine === 'webkit' ? webkit : chromium).launch())
   const results = []
   try {
     for (const chapter of [788, 789]) {
@@ -81,15 +86,14 @@ async function main() {
       await turn(page, 'ArrowRight')
       const primary = await snapshot(page)
       const place = await page.getByTestId('lab-root').getAttribute('data-place')
-      await swap(page)
-      assert.equal(await page.getByTestId('lab-root').getAttribute('data-compare-active'), 'true')
-      const compare = await snapshot(page)
-      assert.ok(compare.keys.length >= 20, 'Compare must display a full measured page')
-      await page.screenshot({ path: path.join(artifactDir, `${engine}-${chapter}-compare.png`) })
-      await swap(page)
+      await swap(page, 'web-en')
       assert.equal(await page.getByTestId('lab-root').getAttribute('data-compare-active'), 'false')
-      assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'), place, 'Compare must preserve primary position')
-      assert.deepEqual((await snapshot(page)).keys, primary.keys, 'Return from Compare restores the primary page')
+      const other = await snapshot(page)
+      assert.ok(other.keys.length >= 20, 'The other edition must display a full measured page')
+      await page.screenshot({ path: path.join(artifactDir, `${engine}-${chapter}-other-edition.png`) })
+      await swap(page, 'kjv-en')
+      assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'), place, 'A Main version round trip must preserve the position')
+      assert.deepEqual((await snapshot(page)).keys, primary.keys, 'Returning to the first edition restores its page')
       await page.getByRole('button', { name: 'Close audio controls' }).click()
       await page.waitForTimeout(250)
       const closed = await snapshot(page)
@@ -100,11 +104,11 @@ async function main() {
       await page.waitForFunction(() => document.querySelector('.lab')?.dataset.playing === 'true')
       await page.waitForTimeout(250)
       const browsed = await turn(page, 'ArrowRight')
-      await page.getByTestId('lab-back-to-audio').waitFor()
+      await page.getByTestId('lab-back-to-voice').waitFor()
       await page.setViewportSize({ width: 393, height: 724 })
       await page.waitForTimeout(250)
       assert.ok((await snapshot(page)).keys.includes(browsed.keys[0]), 'Resize while listening must preserve the browsing word')
-      await page.getByTestId('lab-back-to-audio').click()
+      await page.getByTestId('lab-back-to-voice').click()
       await page.waitForTimeout(250)
       assert.equal(await page.getByTestId('lab-root').getAttribute('data-playing'), 'true')
       assert.ok((await snapshot(page)).keys.length >= 20)

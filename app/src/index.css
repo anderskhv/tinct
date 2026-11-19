@@ -13179,6 +13179,8 @@ body {
 .popup-character-gallery section > button { display: block; width: 100%; border-bottom: 1px solid #8883; }
 .popup-character-gallery strong, .popup-character-gallery span { display: block; font-size: 13px; line-height: 1.4; }
 .popup-character-gallery span { font-size: 12px; opacity: .7; }
+.popup-namesakes-list { list-style: none; margin: 0; padding: 0; }
+.popup-namesakes-list li { padding: 6px 0; border-bottom: 1px solid #8883; }
 .popup-character button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 
 .lab .selection-popup:has(.popup-character) { background: #f8f3e8; padding: 8px; overflow-y: auto; }

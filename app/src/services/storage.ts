@@ -12,6 +12,8 @@ export interface StorageProvider {
   getAll<T>(prefix: string): T[]
 }
 
+export type StorageWriteFailure = 'quota' | 'access' | 'write'
+
 class LocalStorageProvider implements StorageProvider {
   private prefix = 'tinct:'
 
@@ -24,11 +26,16 @@ class LocalStorageProvider implements StorageProvider {
     }
   }
 
-  set<T>(key: string, value: T): void {
+  set<T>(key: string, value: T): StorageWriteFailure | null {
     try {
       localStorage.setItem(this.prefix + key, JSON.stringify(value))
+      return null
     } catch (e) {
-      console.warn('Storage write failed:', e)
+      const name = e && typeof e === 'object' && 'name' in e ? e.name : ''
+      const failure = name === 'QuotaExceededError' ? 'quota' : name === 'SecurityError' ? 'access' : 'write'
+      // No key, value or browser exception text: those can contain reader data.
+      console.warn('Storage write failed:', failure)
+      return failure
     }
   }
 
@@ -90,6 +97,10 @@ const PRESERVED_KEYS: ReadonlySet<string> = new Set([
   // kept: it also identifies analytics events, so the next person on a shared
   // device starts with a fresh one (privacy review 2026-10-02).
   'tinct-lab-prefs',
+  // Tinct's own testing flag (`?internal=1`, public/lab/internal-traffic.js):
+  // a property of the device, not of the reader, so signing out keeps it.
+  // Added 2026-10-06.
+  'tinct:internal',
 ])
 
 /**
@@ -133,6 +144,11 @@ export function setAnonymousMode(restricted: boolean): void {
  * and journals — and the sign-in migration would copy them into the new
  * account's cloud row. Auth tokens (`sb-*`) are owned by Supabase and untouched.
  */
+/** IndexedDB database of the Add-a-book page (public/lab/addbook/js/reader.js). */
+export const ADD_BOOK_IDB_NAME = 'tinct-addbook'
+/** IndexedDB database of own books' covers read from the account (lab/userBook/ownCovers.ts). */
+export const ADD_BOOK_COVERS_IDB_NAME = 'tinct-addbook-covers'
+
 export function clearLocalUserData(): void {
   try {
     const toRemove: string[] = []
@@ -148,6 +164,10 @@ export function clearLocalUserData(): void {
   } catch (e) {
     console.warn('clearLocalUserData failed:', e)
   }
+  // Books opened from the reader's own files on /lab/addbook/ live in IndexedDB.
+  try { if (typeof indexedDB !== 'undefined') indexedDB.deleteDatabase(ADD_BOOK_IDB_NAME) } catch { /* private mode */ }
+  // And the covers of those books read from the account.
+  try { if (typeof indexedDB !== 'undefined') indexedDB.deleteDatabase(ADD_BOOK_COVERS_IDB_NAME) } catch { /* private mode */ }
 }
 
 // Active storage provider — starts as localStorage, can be swapped

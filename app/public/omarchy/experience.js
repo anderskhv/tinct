@@ -23,11 +23,16 @@ let mode=stored(KEY) || (new URLSearchParams(location.search).get('omarchy')==='
 if (!MODES.includes(mode)) mode='tinct';
 // The installation hint is remembered locally, never written to synced reader preferences.
 if (mode!=='tinct') save(KEY,mode);
+// Commands, Ctrl/Cmd+K and letter shortcuts are for Omarchy and other opted-in desktops only:
+// opening ?omarchy=1 (the Omarchy launcher) or choosing a desktop theme opts in for good.
+const OPT_IN='tinct:desktop-commands:v1';
+export const commandsEnabled=stored(OPT_IN)==='on' || mode!=='tinct';
+if (commandsEnabled) save(OPT_IN,'on');
 let letters=stored(SHORTCUTS)!=='off';
 let palette=FALLBACK;
 try { palette=validPalette(JSON.parse(stored(CACHE))) || FALLBACK; } catch {}
 let status='', timer=0, request=null, generation=0;
-const style=document.createElement('link'); style.rel='stylesheet'; style.href='/omarchy/experience.css?v=20260928-1'; document.head.append(style);
+const style=document.createElement('link'); style.rel='stylesheet'; style.href='/omarchy/experience.css?v=20261005h1'; document.head.append(style);
 
 function apply() {
   if (mode==='tinct' || root.dataset.eink==='true') {
@@ -111,7 +116,7 @@ function build() {
   results=node('div',null,'results');results.id='tinct-command-results';results.setAttribute('role','listbox');results.setAttribute('aria-label','Commands');
   const footer=node('footer'),label=node('label','Appearance');themeSelect=node('select');themeSelect.setAttribute('aria-label','Tinct appearance');
   for(const [value,text]of[['tinct','Tinct'],['omarchy','Follow Omarchy'],['persia','Prince of Persia']]){const o=node('option',text);o.value=value;themeSelect.append(o);}label.append(themeSelect);themeSelect.onchange=()=>selectTheme(themeSelect.value);
-  connection=node('p');connection.setAttribute('role','status');const hint=node('p','↑ ↓ choose · Enter open · Esc return · Ctrl/⌘ K commands','hint');
+  connection=node('p');connection.setAttribute('role','status');const hint=node('p','↑ ↓ choose · Enter open · Ctrl/⌘ K commands','hint');
   const shortcuts=node('label','Letter shortcuts','shortcuts');shortcutToggle=node('input');shortcutToggle.type='checkbox';shortcutToggle.checked=letters;shortcutToggle.onchange=()=>{letters=shortcutToggle.checked;save(SHORTCUTS,letters?'on':'off');};shortcuts.append(shortcutToggle);
   footer.append(label,connection,shortcuts,hint);dialog.append(header,input,results,footer);shadow.append(dialog);document.body.append(host);
   input.oninput=()=>{selected=0;render();};
@@ -149,11 +154,12 @@ function run(id) {
   c.run();
 }
 export function openCommands() {
+  if(!commandsEnabled)return;
   build();if(dialog.open){dialog.close();return;}restoreFocus=document.activeElement;input.value='';selected=0;render();root.dataset.tinctCommandsOpen='true';dialog.showModal();input.focus();
 }
 window.__tinctDesktopOpen=openCommands;
 window.addEventListener('keydown',e=>{
-  if(e.isComposing || e.repeat || e.defaultPrevented)return;
+  if(!commandsEnabled || e.isComposing || e.repeat || e.defaultPrevented)return;
   if((e.ctrlKey||e.metaKey)&&!e.altKey&&!e.shiftKey&&e.key.toLowerCase()==='k') {e.preventDefault();e.stopImmediatePropagation();openCommands();return;}
   if(dialog?.open)return;
   if(!letters || !eligibleShortcut(e))return;

@@ -8,7 +8,8 @@ export function corsHeaders(request: Request): Record<string, string> {
   return {
     'Access-Control-Allow-Origin': allowed,
     'Access-Control-Allow-Methods': 'GET, POST, PUT, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    // X-Tinct-Check: Tinct's own testing labels its AI and narration calls (the native app is cross-origin).
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Tinct-Check',
     'Access-Control-Max-Age': '86400',
   }
 }

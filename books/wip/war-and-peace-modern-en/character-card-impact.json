@@ -1,0 +1,6643 @@
+{
+ "package": "app/public/data/characters/war-and-peace.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "d3ecdb9d013f45e5681b1c091b6a018564e33d7eab1072cb247c284698a5f3f6",
+ "candidateSha256": "16d0f165ce7cbbed2914ca5a5adacebe296b2f298670aac4604e35d7525f7e9f",
+ "pinMatchesServedLive": true,
+ "offsetUnit": "utf16",
+ "mentionsTotal": 8466,
+ "unchanged": 8024,
+ "moved": 440,
+ "needsRuling": 2,
+ "notes": [
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
+  "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "natasha",
+   "chapter": 158,
+   "paragraph": 0,
+   "oldStartOffset": 118,
+   "oldEndOffset": 125,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 125,
+    "endOffset": 132,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "count-rostov",
+   "chapter": 158,
+   "paragraph": 0,
+   "oldStartOffset": 127,
+   "oldEndOffset": 139,
+   "oldText": "Count Rostov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 12,
+    "text": "Count Rostov",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 158,
+   "paragraph": 1,
+   "oldStartOffset": 119,
+   "oldEndOffset": 126,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 121,
+    "endOffset": 128,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 158,
+   "paragraph": 2,
+   "oldStartOffset": 249,
+   "oldEndOffset": 256,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 244,
+    "endOffset": 251,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 158,
+   "paragraph": 2,
+   "oldStartOffset": 275,
+   "oldEndOffset": 282,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 270,
+    "endOffset": 277,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 158,
+   "paragraph": 2,
+   "oldStartOffset": 388,
+   "oldEndOffset": 395,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 391,
+    "endOffset": 398,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 158,
+   "paragraph": 6,
+   "oldStartOffset": 354,
+   "oldEndOffset": 361,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 320,
+    "endOffset": 327,
+    "text": "Anatole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 158,
+   "paragraph": 9,
+   "oldStartOffset": 44,
+   "oldEndOffset": 51,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 45,
+    "endOffset": 52,
+    "text": "Anatole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 158,
+   "paragraph": 9,
+   "oldStartOffset": 63,
+   "oldEndOffset": 70,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 64,
+    "endOffset": 71,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 158,
+   "paragraph": 10,
+   "oldStartOffset": 94,
+   "oldEndOffset": 101,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 99,
+    "endOffset": 106,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 158,
+   "paragraph": 12,
+   "oldStartOffset": 301,
+   "oldEndOffset": 308,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 305,
+    "endOffset": 312,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 158,
+   "paragraph": 12,
+   "oldStartOffset": 379,
+   "oldEndOffset": 386,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 385,
+    "endOffset": 392,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 158,
+   "paragraph": 16,
+   "oldStartOffset": 453,
+   "oldEndOffset": 459,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 443,
+    "endOffset": 449,
+    "text": "Helene",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 158,
+   "paragraph": 16,
+   "oldStartOffset": 539,
+   "oldEndOffset": 546,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 528,
+    "endOffset": 535,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 158,
+   "paragraph": 16,
+   "oldStartOffset": 580,
+   "oldEndOffset": 586,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 570,
+    "endOffset": 576,
+    "text": "Helene",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 158,
+   "paragraph": 16,
+   "oldStartOffset": 628,
+   "oldEndOffset": 635,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 615,
+    "endOffset": 622,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 158,
+   "paragraph": 21,
+   "oldStartOffset": 90,
+   "oldEndOffset": 96,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 91,
+    "endOffset": 97,
+    "text": "Helene",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 158,
+   "paragraph": 21,
+   "oldStartOffset": 161,
+   "oldEndOffset": 168,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 162,
+    "endOffset": 169,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 158,
+   "paragraph": 21,
+   "oldStartOffset": 258,
+   "oldEndOffset": 265,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 227,
+    "endOffset": 234,
+    "text": "Anatole",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 158,
+   "paragraph": 24,
+   "oldStartOffset": 111,
+   "oldEndOffset": 117,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 117,
+    "endOffset": 123,
+    "text": "Helene",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 158,
+   "paragraph": 25,
+   "oldStartOffset": 21,
+   "oldEndOffset": 28,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 49,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 158,
+   "paragraph": 26,
+   "oldStartOffset": 21,
+   "oldEndOffset": 28,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 26,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 158,
+   "paragraph": 26,
+   "oldStartOffset": 122,
+   "oldEndOffset": 129,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 118,
+    "endOffset": 125,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 158,
+   "paragraph": 26,
+   "oldStartOffset": 133,
+   "oldEndOffset": 146,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 129,
+    "endOffset": 142,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 158,
+   "paragraph": 26,
+   "oldStartOffset": 158,
+   "oldEndOffset": 171,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 154,
+    "endOffset": 167,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 158,
+   "paragraph": 26,
+   "oldStartOffset": 245,
+   "oldEndOffset": 252,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 233,
+    "endOffset": 240,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 1,
+   "oldStartOffset": 237,
+   "oldEndOffset": 245,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 218,
+    "endOffset": 226,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 2,
+   "oldStartOffset": 199,
+   "oldEndOffset": 207,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 167,
+    "endOffset": 175,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 3,
+   "oldStartOffset": 94,
+   "oldEndOffset": 102,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 96,
+    "endOffset": 104,
+    "text": "Napoleon",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 3,
+   "oldStartOffset": 287,
+   "oldEndOffset": 295,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 278,
+    "endOffset": 286,
+    "text": "Napoleon",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 3,
+   "oldStartOffset": 814,
+   "oldEndOffset": 822,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 769,
+    "endOffset": 777,
+    "text": "Napoleon",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 3,
+   "oldStartOffset": 1298,
+   "oldEndOffset": 1306,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1264,
+    "endOffset": 1272,
+    "text": "Napoleon",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 4,
+   "oldStartOffset": 678,
+   "oldEndOffset": 686,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 639,
+    "endOffset": 647,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 4,
+   "oldStartOffset": 932,
+   "oldEndOffset": 940,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 864,
+    "endOffset": 872,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 5,
+   "oldStartOffset": 4,
+   "oldEndOffset": 12,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 40,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 6,
+   "oldStartOffset": 15,
+   "oldEndOffset": 23,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 8,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 6,
+   "oldStartOffset": 247,
+   "oldEndOffset": 255,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 198,
+    "endOffset": 206,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 14,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 17,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 16,
+   "oldStartOffset": 338,
+   "oldEndOffset": 346,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 355,
+    "endOffset": 363,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 168,
+   "paragraph": 18,
+   "oldStartOffset": 389,
+   "oldEndOffset": 397,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 397,
+    "endOffset": 405,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 169,
+   "paragraph": 0,
+   "oldStartOffset": 27,
+   "oldEndOffset": 35,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 8,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 169,
+   "paragraph": 0,
+   "oldStartOffset": 177,
+   "oldEndOffset": 185,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 8,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 169,
+   "paragraph": 0,
+   "oldStartOffset": 773,
+   "oldEndOffset": 781,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 691,
+    "endOffset": 699,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 169,
+   "paragraph": 4,
+   "oldStartOffset": 209,
+   "oldEndOffset": 217,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 305,
+    "endOffset": 313,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 169,
+   "paragraph": 7,
+   "oldStartOffset": 75,
+   "oldEndOffset": 83,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 39,
+    "endOffset": 47,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 169,
+   "paragraph": 14,
+   "oldStartOffset": 378,
+   "oldEndOffset": 386,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 346,
+    "endOffset": 354,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 169,
+   "paragraph": 15,
+   "oldStartOffset": 272,
+   "oldEndOffset": 280,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 450,
+    "endOffset": 458,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 169,
+   "paragraph": 15,
+   "oldStartOffset": 422,
+   "oldEndOffset": 430,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 450,
+    "endOffset": 458,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 170,
+   "paragraph": 3,
+   "oldStartOffset": 18,
+   "oldEndOffset": 26,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 16,
+    "endOffset": 24,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 5,
+   "oldStartOffset": 202,
+   "oldEndOffset": 207,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 195,
+    "endOffset": 200,
+    "text": "Boris",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 170,
+   "paragraph": 5,
+   "oldStartOffset": 371,
+   "oldEndOffset": 377,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 355,
+    "endOffset": 361,
+    "text": "Helene",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 170,
+   "paragraph": 5,
+   "oldStartOffset": 467,
+   "oldEndOffset": 473,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 430,
+    "endOffset": 436,
+    "text": "Helene",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 5,
+   "oldStartOffset": 532,
+   "oldEndOffset": 537,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 495,
+    "endOffset": 500,
+    "text": "Boris",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 170,
+   "paragraph": 6,
+   "oldStartOffset": 44,
+   "oldEndOffset": 50,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 40,
+    "endOffset": 46,
+    "text": "Helene",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 6,
+   "oldStartOffset": 117,
+   "oldEndOffset": 122,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 121,
+    "endOffset": 126,
+    "text": "Boris",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 6,
+   "oldStartOffset": 152,
+   "oldEndOffset": 157,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 156,
+    "endOffset": 161,
+    "text": "Boris",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 170,
+   "paragraph": 6,
+   "oldStartOffset": 177,
+   "oldEndOffset": 183,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 179,
+    "endOffset": 185,
+    "text": "Helene",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 7,
+   "oldStartOffset": 22,
+   "oldEndOffset": 27,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 27,
+    "endOffset": 32,
+    "text": "Boris",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 7,
+   "oldStartOffset": 686,
+   "oldEndOffset": 691,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 651,
+    "endOffset": 656,
+    "text": "Boris",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 7,
+   "oldStartOffset": 926,
+   "oldEndOffset": 931,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 889,
+    "endOffset": 894,
+    "text": "Boris",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 9,
+   "oldStartOffset": 13,
+   "oldEndOffset": 18,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 39,
+    "endOffset": 44,
+    "text": "Boris",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 170,
+   "paragraph": 9,
+   "oldStartOffset": 245,
+   "oldEndOffset": 251,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 216,
+    "endOffset": 222,
+    "text": "Helene",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 9,
+   "oldStartOffset": 523,
+   "oldEndOffset": 528,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 506,
+    "endOffset": 511,
+    "text": "Boris",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 11,
+   "oldStartOffset": 128,
+   "oldEndOffset": 133,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 131,
+    "endOffset": 136,
+    "text": "Boris",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 11,
+   "oldStartOffset": 270,
+   "oldEndOffset": 275,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 253,
+    "endOffset": 258,
+    "text": "Boris",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "boris",
+   "chapter": 170,
+   "paragraph": 14,
+   "oldStartOffset": 0,
+   "oldEndOffset": 5,
+   "oldText": "Boris",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 3,
+    "endOffset": 8,
+    "text": "Boris",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 170,
+   "paragraph": 16,
+   "oldStartOffset": 46,
+   "oldEndOffset": 54,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 33,
+    "endOffset": 41,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 0,
+   "oldStartOffset": 101,
+   "oldEndOffset": 109,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 83,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 1,
+   "oldStartOffset": 229,
+   "oldEndOffset": 237,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 225,
+    "endOffset": 233,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 3,
+   "oldStartOffset": 377,
+   "oldEndOffset": 385,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 394,
+    "endOffset": 402,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 10,
+   "oldStartOffset": 265,
+   "oldEndOffset": 273,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 272,
+    "endOffset": 280,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 12,
+   "oldStartOffset": 23,
+   "oldEndOffset": 31,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 11,
+    "endOffset": 19,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 13,
+   "oldStartOffset": 368,
+   "oldEndOffset": 376,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 369,
+    "endOffset": 377,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 14,
+   "oldStartOffset": 373,
+   "oldEndOffset": 381,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 371,
+    "endOffset": 379,
+    "text": "Napoleon",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 14,
+   "oldStartOffset": 419,
+   "oldEndOffset": 427,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 421,
+    "endOffset": 429,
+    "text": "Napoleon",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 17,
+   "oldStartOffset": 111,
+   "oldEndOffset": 119,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 23,
+    "endOffset": 31,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 19,
+   "oldStartOffset": 127,
+   "oldEndOffset": 135,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 119,
+    "endOffset": 127,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 21,
+   "oldStartOffset": 267,
+   "oldEndOffset": 275,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 225,
+    "endOffset": 233,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 22,
+   "oldStartOffset": 106,
+   "oldEndOffset": 114,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 102,
+    "endOffset": 110,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 29,
+   "oldStartOffset": 513,
+   "oldEndOffset": 521,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 510,
+    "endOffset": 518,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 32,
+   "oldStartOffset": 97,
+   "oldEndOffset": 105,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 92,
+    "endOffset": 100,
+    "text": "Napoleon",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 32,
+   "oldStartOffset": 684,
+   "oldEndOffset": 692,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 650,
+    "endOffset": 658,
+    "text": "Napoleon",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 32,
+   "oldStartOffset": 1548,
+   "oldEndOffset": 1556,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1518,
+    "endOffset": 1526,
+    "text": "Napoleon",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 35,
+   "oldStartOffset": 239,
+   "oldEndOffset": 247,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 240,
+    "endOffset": 248,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 37,
+   "oldStartOffset": 38,
+   "oldEndOffset": 46,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 44,
+    "text": "Napoleon",
+    "note": "8 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 37,
+   "oldStartOffset": 152,
+   "oldEndOffset": 160,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 148,
+    "endOffset": 156,
+    "text": "Napoleon",
+    "note": "8 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 37,
+   "oldStartOffset": 319,
+   "oldEndOffset": 327,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 311,
+    "endOffset": 319,
+    "text": "Napoleon",
+    "note": "8 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 37,
+   "oldStartOffset": 374,
+   "oldEndOffset": 382,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 366,
+    "endOffset": 374,
+    "text": "Napoleon",
+    "note": "8 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 37,
+   "oldStartOffset": 709,
+   "oldEndOffset": 717,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 696,
+    "endOffset": 704,
+    "text": "Napoleon",
+    "note": "8 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 37,
+   "oldStartOffset": 765,
+   "oldEndOffset": 773,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 788,
+    "endOffset": 796,
+    "text": "Napoleon",
+    "note": "8 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 37,
+   "oldStartOffset": 805,
+   "oldEndOffset": 813,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 788,
+    "endOffset": 796,
+    "text": "Napoleon",
+    "note": "8 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 39,
+   "oldStartOffset": 177,
+   "oldEndOffset": 185,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 186,
+    "endOffset": 194,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 43,
+   "oldStartOffset": 102,
+   "oldEndOffset": 110,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 98,
+    "endOffset": 106,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 43,
+   "oldStartOffset": 256,
+   "oldEndOffset": 264,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 257,
+    "endOffset": 265,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 173,
+   "paragraph": 44,
+   "oldStartOffset": 271,
+   "oldEndOffset": 279,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 279,
+    "endOffset": 287,
+    "text": "Napoleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 175,
+   "paragraph": 0,
+   "oldStartOffset": 23,
+   "oldEndOffset": 29,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 20,
+    "endOffset": 26,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 0,
+   "oldStartOffset": 41,
+   "oldEndOffset": 54,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 38,
+    "endOffset": 51,
+    "text": "Prince Andrew",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 175,
+   "paragraph": 0,
+   "oldStartOffset": 131,
+   "oldEndOffset": 138,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 125,
+    "endOffset": 132,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 175,
+   "paragraph": 0,
+   "oldStartOffset": 277,
+   "oldEndOffset": 283,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 259,
+    "endOffset": 265,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 0,
+   "oldStartOffset": 319,
+   "oldEndOffset": 332,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 301,
+    "endOffset": 314,
+    "text": "Prince Andrew",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 175,
+   "paragraph": 0,
+   "oldStartOffset": 351,
+   "oldEndOffset": 358,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 333,
+    "endOffset": 340,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 0,
+   "oldStartOffset": 488,
+   "oldEndOffset": 501,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 462,
+    "endOffset": 475,
+    "text": "Prince Andrew",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 175,
+   "paragraph": 0,
+   "oldStartOffset": 506,
+   "oldEndOffset": 513,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 480,
+    "endOffset": 487,
+    "text": "Kutuzov",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 175,
+   "paragraph": 0,
+   "oldStartOffset": 582,
+   "oldEndOffset": 589,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 557,
+    "endOffset": 564,
+    "text": "Kutuzov",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 0,
+   "oldStartOffset": 721,
+   "oldEndOffset": 734,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 688,
+    "endOffset": 701,
+    "text": "Prince Andrew",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "countess-rostova",
+   "chapter": 175,
+   "paragraph": 1,
+   "oldStartOffset": 166,
+   "oldEndOffset": 182,
+   "oldText": "Countess Rostova",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 155,
+    "endOffset": 171,
+    "text": "Countess Rostova",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 1,
+   "oldStartOffset": 324,
+   "oldEndOffset": 337,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 334,
+    "endOffset": 347,
+    "text": "Prince Andrew",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 1,
+   "oldStartOffset": 417,
+   "oldEndOffset": 430,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 396,
+    "endOffset": 409,
+    "text": "Prince Andrew",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 175,
+   "paragraph": 1,
+   "oldStartOffset": 881,
+   "oldEndOffset": 887,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 864,
+    "endOffset": 870,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 175,
+   "paragraph": 2,
+   "oldStartOffset": 109,
+   "oldEndOffset": 116,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 104,
+    "endOffset": 111,
+    "text": "Kutuzov",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 175,
+   "paragraph": 2,
+   "oldStartOffset": 194,
+   "oldEndOffset": 201,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 197,
+    "endOffset": 204,
+    "text": "Kutuzov",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 2,
+   "oldStartOffset": 271,
+   "oldEndOffset": 284,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 175,
+   "paragraph": 3,
+   "oldStartOffset": 44,
+   "oldEndOffset": 52,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 39,
+    "endOffset": 47,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 175,
+   "paragraph": 3,
+   "oldStartOffset": 79,
+   "oldEndOffset": 86,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 73,
+    "endOffset": 80,
+    "text": "Kutuzov",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 3,
+   "oldStartOffset": 174,
+   "oldEndOffset": 187,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 167,
+    "endOffset": 180,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 175,
+   "paragraph": 3,
+   "oldStartOffset": 194,
+   "oldEndOffset": 201,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 187,
+    "endOffset": 194,
+    "text": "Kutuzov",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 175,
+   "paragraph": 3,
+   "oldStartOffset": 239,
+   "oldEndOffset": 246,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 232,
+    "endOffset": 239,
+    "text": "Kutuzov",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 4,
+   "oldStartOffset": 75,
+   "oldEndOffset": 88,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 77,
+    "endOffset": 90,
+    "text": "Prince Andrew",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 175,
+   "paragraph": 4,
+   "oldStartOffset": 823,
+   "oldEndOffset": 836,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 802,
+    "endOffset": 815,
+    "text": "Princess Mary",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 4,
+   "oldStartOffset": 1176,
+   "oldEndOffset": 1189,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1160,
+    "endOffset": 1173,
+    "text": "Prince Andrew",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 4,
+   "oldStartOffset": 2063,
+   "oldEndOffset": 2076,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2064,
+    "endOffset": 2077,
+    "text": "Prince Andrew",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 175,
+   "paragraph": 4,
+   "oldStartOffset": 2334,
+   "oldEndOffset": 2347,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2319,
+    "endOffset": 2332,
+    "text": "Princess Mary",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 5,
+   "oldStartOffset": 93,
+   "oldEndOffset": 106,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 19,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 5,
+   "oldStartOffset": 425,
+   "oldEndOffset": 438,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 408,
+    "endOffset": 421,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 175,
+   "paragraph": 5,
+   "oldStartOffset": 577,
+   "oldEndOffset": 590,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 572,
+    "endOffset": 585,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 175,
+   "paragraph": 6,
+   "oldStartOffset": 62,
+   "oldEndOffset": 75,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 63,
+    "endOffset": 76,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 6,
+   "oldStartOffset": 386,
+   "oldEndOffset": 399,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 390,
+    "endOffset": 403,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 7,
+   "oldStartOffset": 22,
+   "oldEndOffset": 35,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 25,
+    "endOffset": 38,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 7,
+   "oldStartOffset": 376,
+   "oldEndOffset": 389,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 366,
+    "endOffset": 379,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 8,
+   "oldStartOffset": 117,
+   "oldEndOffset": 130,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 113,
+    "endOffset": 126,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 10,
+   "oldStartOffset": 48,
+   "oldEndOffset": 61,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 40,
+    "endOffset": 53,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 12,
+   "oldStartOffset": 293,
+   "oldEndOffset": 306,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 292,
+    "endOffset": 305,
+    "text": "Prince Andrew",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 12,
+   "oldStartOffset": 416,
+   "oldEndOffset": 429,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 415,
+    "endOffset": 428,
+    "text": "Prince Andrew",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 19,
+   "oldStartOffset": 73,
+   "oldEndOffset": 86,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 84,
+    "endOffset": 97,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 22,
+   "oldStartOffset": 266,
+   "oldEndOffset": 279,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 273,
+    "endOffset": 286,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 25,
+   "oldStartOffset": 152,
+   "oldEndOffset": 165,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 149,
+    "endOffset": 162,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 175,
+   "paragraph": 28,
+   "oldStartOffset": 218,
+   "oldEndOffset": 231,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 209,
+    "endOffset": 222,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 183,
+   "paragraph": 0,
+   "oldStartOffset": 21,
+   "oldEndOffset": 28,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 29,
+    "endOffset": 36,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "petya",
+   "chapter": 183,
+   "paragraph": 0,
+   "oldStartOffset": 116,
+   "oldEndOffset": 121,
+   "oldText": "Petya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 70,
+    "endOffset": 75,
+    "text": "Petya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "marya-dmitrievna",
+   "chapter": 183,
+   "paragraph": 0,
+   "oldStartOffset": 185,
+   "oldEndOffset": 201,
+   "oldText": "Marya Dmitrievna",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 197,
+    "endOffset": 213,
+    "text": "Marya Dmitrievna",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 183,
+   "paragraph": 1,
+   "oldStartOffset": 751,
+   "oldEndOffset": 758,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 717,
+    "endOffset": 724,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 183,
+   "paragraph": 1,
+   "oldStartOffset": 2617,
+   "oldEndOffset": 2624,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2487,
+    "endOffset": 2494,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 183,
+   "paragraph": 4,
+   "oldStartOffset": 336,
+   "oldEndOffset": 343,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 322,
+    "endOffset": 329,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 185,
+   "paragraph": 0,
+   "oldStartOffset": 491,
+   "oldEndOffset": 499,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 470,
+    "endOffset": 478,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 185,
+   "paragraph": 1,
+   "oldStartOffset": 108,
+   "oldEndOffset": 114,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 98,
+    "endOffset": 104,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 185,
+   "paragraph": 2,
+   "oldStartOffset": 871,
+   "oldEndOffset": 878,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 914,
+    "endOffset": 921,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 185,
+   "paragraph": 5,
+   "oldStartOffset": 270,
+   "oldEndOffset": 277,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 277,
+    "endOffset": 284,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 185,
+   "paragraph": 6,
+   "oldStartOffset": 363,
+   "oldEndOffset": 370,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 318,
+    "endOffset": 325,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 185,
+   "paragraph": 10,
+   "oldStartOffset": 112,
+   "oldEndOffset": 119,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 114,
+    "endOffset": 121,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 185,
+   "paragraph": 13,
+   "oldStartOffset": 142,
+   "oldEndOffset": 155,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 143,
+    "endOffset": 156,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 185,
+   "paragraph": 13,
+   "oldStartOffset": 346,
+   "oldEndOffset": 351,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 334,
+    "endOffset": 339,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 185,
+   "paragraph": 13,
+   "oldStartOffset": 766,
+   "oldEndOffset": 773,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 764,
+    "endOffset": 771,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 185,
+   "paragraph": 13,
+   "oldStartOffset": 933,
+   "oldEndOffset": 946,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 942,
+    "endOffset": 955,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "anatole",
+   "chapter": 185,
+   "paragraph": 13,
+   "oldStartOffset": 951,
+   "oldEndOffset": 958,
+   "oldText": "Anatole",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 960,
+    "endOffset": 967,
+    "text": "Anatole",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 185,
+   "paragraph": 15,
+   "oldStartOffset": 217,
+   "oldEndOffset": 224,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 214,
+    "endOffset": 221,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 185,
+   "paragraph": 17,
+   "oldStartOffset": 71,
+   "oldEndOffset": 78,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 82,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 185,
+   "paragraph": 23,
+   "oldStartOffset": 3,
+   "oldEndOffset": 10,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 7,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 260,
+   "paragraph": 0,
+   "oldStartOffset": 134,
+   "oldEndOffset": 139,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 136,
+    "endOffset": 141,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 0,
+   "oldStartOffset": 210,
+   "oldEndOffset": 217,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 212,
+    "endOffset": 219,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 1,
+   "oldStartOffset": 61,
+   "oldEndOffset": 68,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 67,
+    "endOffset": 74,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 260,
+   "paragraph": 3,
+   "oldStartOffset": 185,
+   "oldEndOffset": 190,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 157,
+    "endOffset": 162,
+    "text": "Sonya",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 3,
+   "oldStartOffset": 297,
+   "oldEndOffset": 304,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 215,
+    "endOffset": 222,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 260,
+   "paragraph": 3,
+   "oldStartOffset": 308,
+   "oldEndOffset": 321,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 229,
+    "endOffset": 242,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 260,
+   "paragraph": 3,
+   "oldStartOffset": 428,
+   "oldEndOffset": 433,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 398,
+    "endOffset": 403,
+    "text": "Sonya",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 260,
+   "paragraph": 3,
+   "oldStartOffset": 435,
+   "oldEndOffset": 440,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 398,
+    "endOffset": 403,
+    "text": "Sonya",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 260,
+   "paragraph": 9,
+   "oldStartOffset": 22,
+   "oldEndOffset": 27,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 22,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 13,
+   "oldStartOffset": 18,
+   "oldEndOffset": 25,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 26,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 260,
+   "paragraph": 13,
+   "oldStartOffset": 45,
+   "oldEndOffset": 58,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 41,
+    "endOffset": 54,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 16,
+   "oldStartOffset": 45,
+   "oldEndOffset": 52,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 46,
+    "endOffset": 53,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 16,
+   "oldStartOffset": 332,
+   "oldEndOffset": 339,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 317,
+    "endOffset": 324,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 260,
+   "paragraph": 16,
+   "oldStartOffset": 356,
+   "oldEndOffset": 369,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 341,
+    "endOffset": 354,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 260,
+   "paragraph": 16,
+   "oldStartOffset": 396,
+   "oldEndOffset": 409,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 341,
+    "endOffset": 354,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 260,
+   "paragraph": 16,
+   "oldStartOffset": 572,
+   "oldEndOffset": 577,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 546,
+    "endOffset": 551,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 260,
+   "paragraph": 22,
+   "oldStartOffset": 33,
+   "oldEndOffset": 38,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 37,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 260,
+   "paragraph": 23,
+   "oldStartOffset": 240,
+   "oldEndOffset": 245,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 259,
+    "endOffset": 264,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 23,
+   "oldStartOffset": 294,
+   "oldEndOffset": 301,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 313,
+    "endOffset": 320,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 23,
+   "oldStartOffset": 303,
+   "oldEndOffset": 310,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 313,
+    "endOffset": 320,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 260,
+   "paragraph": 24,
+   "oldStartOffset": 35,
+   "oldEndOffset": 40,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 41,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 26,
+   "oldStartOffset": 16,
+   "oldEndOffset": 23,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 15,
+    "endOffset": 22,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 26,
+   "oldStartOffset": 61,
+   "oldEndOffset": 68,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 58,
+    "endOffset": 65,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 27,
+   "oldStartOffset": 226,
+   "oldEndOffset": 233,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 224,
+    "endOffset": 231,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 260,
+   "paragraph": 31,
+   "oldStartOffset": 252,
+   "oldEndOffset": 265,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 243,
+    "endOffset": 256,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 260,
+   "paragraph": 32,
+   "oldStartOffset": 50,
+   "oldEndOffset": 63,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 53,
+    "endOffset": 66,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 260,
+   "paragraph": 34,
+   "oldStartOffset": 299,
+   "oldEndOffset": 306,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 288,
+    "endOffset": 295,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 260,
+   "paragraph": 34,
+   "oldStartOffset": 498,
+   "oldEndOffset": 511,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 468,
+    "endOffset": 481,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 0,
+   "oldStartOffset": 28,
+   "oldEndOffset": 41,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 29,
+    "endOffset": 42,
+    "text": "Prince Andrew",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 0,
+   "oldStartOffset": 893,
+   "oldEndOffset": 906,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 881,
+    "endOffset": 894,
+    "text": "Prince Andrew",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 0,
+   "oldStartOffset": 1156,
+   "oldEndOffset": 1169,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1129,
+    "endOffset": 1142,
+    "text": "Prince Andrew",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 0,
+   "oldStartOffset": 1313,
+   "oldEndOffset": 1326,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1277,
+    "endOffset": 1290,
+    "text": "Prince Andrew",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 11,
+   "oldStartOffset": 75,
+   "oldEndOffset": 88,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 68,
+    "endOffset": 81,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 17,
+   "oldStartOffset": 388,
+   "oldEndOffset": 401,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 389,
+    "endOffset": 402,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 19,
+   "oldStartOffset": 59,
+   "oldEndOffset": 72,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 46,
+    "endOffset": 59,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 19,
+   "oldStartOffset": 764,
+   "oldEndOffset": 777,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 711,
+    "endOffset": 724,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 20,
+   "oldStartOffset": 245,
+   "oldEndOffset": 258,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 241,
+    "endOffset": 254,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 22,
+   "oldStartOffset": 306,
+   "oldEndOffset": 313,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 311,
+    "endOffset": 318,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 23,
+   "oldStartOffset": 593,
+   "oldEndOffset": 600,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 599,
+    "endOffset": 606,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 24,
+   "oldStartOffset": 56,
+   "oldEndOffset": 69,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 55,
+    "endOffset": 68,
+    "text": "Prince Andrew",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 24,
+   "oldStartOffset": 195,
+   "oldEndOffset": 208,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 199,
+    "endOffset": 212,
+    "text": "Prince Andrew",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 24,
+   "oldStartOffset": 448,
+   "oldEndOffset": 461,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 479,
+    "endOffset": 492,
+    "text": "Prince Andrew",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 24,
+   "oldStartOffset": 694,
+   "oldEndOffset": 701,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 688,
+    "endOffset": 695,
+    "text": "Natasha",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 24,
+   "oldStartOffset": 719,
+   "oldEndOffset": 726,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 744,
+    "endOffset": 751,
+    "text": "Natasha",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 24,
+   "oldStartOffset": 893,
+   "oldEndOffset": 900,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 901,
+    "endOffset": 908,
+    "text": "Natasha",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 24,
+   "oldStartOffset": 946,
+   "oldEndOffset": 953,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 954,
+    "endOffset": 961,
+    "text": "Natasha",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 27,
+   "oldStartOffset": 35,
+   "oldEndOffset": 42,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 23,
+    "endOffset": 30,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 33,
+   "oldStartOffset": 44,
+   "oldEndOffset": 57,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 49,
+    "endOffset": 62,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 34,
+   "oldStartOffset": 96,
+   "oldEndOffset": 103,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 89,
+    "endOffset": 96,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 34,
+   "oldStartOffset": 183,
+   "oldEndOffset": 196,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 182,
+    "endOffset": 195,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 38,
+   "oldStartOffset": 44,
+   "oldEndOffset": 51,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 41,
+    "endOffset": 48,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 39,
+   "oldStartOffset": 111,
+   "oldEndOffset": 118,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 107,
+    "endOffset": 114,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 40,
+   "oldStartOffset": 53,
+   "oldEndOffset": 66,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 50,
+    "endOffset": 63,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 40,
+   "oldStartOffset": 187,
+   "oldEndOffset": 194,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 203,
+    "endOffset": 210,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 40,
+   "oldStartOffset": 265,
+   "oldEndOffset": 272,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 269,
+    "endOffset": 276,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 261,
+   "paragraph": 40,
+   "oldStartOffset": 379,
+   "oldEndOffset": 386,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 408,
+    "endOffset": 415,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 261,
+   "paragraph": 40,
+   "oldStartOffset": 391,
+   "oldEndOffset": 404,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 420,
+    "endOffset": 433,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 0,
+   "oldStartOffset": 51,
+   "oldEndOffset": 57,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 6,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 0,
+   "oldStartOffset": 464,
+   "oldEndOffset": 470,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 465,
+    "endOffset": 471,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 0,
+   "oldStartOffset": 619,
+   "oldEndOffset": 625,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 625,
+    "endOffset": 631,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 0,
+   "oldStartOffset": 937,
+   "oldEndOffset": 943,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 913,
+    "endOffset": 919,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 1,
+   "oldStartOffset": 396,
+   "oldEndOffset": 402,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 347,
+    "endOffset": 353,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 1,
+   "oldStartOffset": 1000,
+   "oldEndOffset": 1006,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 994,
+    "endOffset": 1000,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 12,
+   "oldStartOffset": 410,
+   "oldEndOffset": 416,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 387,
+    "endOffset": 393,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 13,
+   "oldStartOffset": 29,
+   "oldEndOffset": 35,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 24,
+    "endOffset": 30,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 14,
+   "oldStartOffset": 200,
+   "oldEndOffset": 206,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 192,
+    "endOffset": 198,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 16,
+   "oldStartOffset": 6,
+   "oldEndOffset": 12,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 6,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 18,
+   "oldStartOffset": 126,
+   "oldEndOffset": 132,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 123,
+    "endOffset": 129,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 21,
+   "oldStartOffset": 419,
+   "oldEndOffset": 425,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 396,
+    "endOffset": 402,
+    "text": "Pierre",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 21,
+   "oldStartOffset": 465,
+   "oldEndOffset": 471,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 442,
+    "endOffset": 448,
+    "text": "Pierre",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 23,
+   "oldStartOffset": 98,
+   "oldEndOffset": 104,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 99,
+    "endOffset": 105,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 23,
+   "oldStartOffset": 185,
+   "oldEndOffset": 191,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 186,
+    "endOffset": 192,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 24,
+   "oldStartOffset": 227,
+   "oldEndOffset": 233,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 217,
+    "endOffset": 223,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 25,
+   "oldStartOffset": 74,
+   "oldEndOffset": 80,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 66,
+    "endOffset": 72,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 26,
+   "oldStartOffset": 107,
+   "oldEndOffset": 113,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 106,
+    "endOffset": 112,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 27,
+   "oldStartOffset": 72,
+   "oldEndOffset": 78,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 85,
+    "endOffset": 91,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 30,
+   "oldStartOffset": 60,
+   "oldEndOffset": 66,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 59,
+    "endOffset": 65,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 32,
+   "oldStartOffset": 51,
+   "oldEndOffset": 57,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 107,
+    "endOffset": 113,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 37,
+   "oldStartOffset": 515,
+   "oldEndOffset": 521,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 517,
+    "endOffset": 523,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 263,
+   "paragraph": 37,
+   "oldStartOffset": 685,
+   "oldEndOffset": 691,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 681,
+    "endOffset": 687,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 265,
+   "paragraph": 0,
+   "oldStartOffset": 218,
+   "oldEndOffset": 225,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 214,
+    "endOffset": 221,
+    "text": "Kutuzov",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 265,
+   "paragraph": 0,
+   "oldStartOffset": 234,
+   "oldEndOffset": 241,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 230,
+    "endOffset": 237,
+    "text": "Kutuzov",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 265,
+   "paragraph": 0,
+   "oldStartOffset": 302,
+   "oldEndOffset": 309,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 296,
+    "endOffset": 303,
+    "text": "Kutuzov",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 265,
+   "paragraph": 1,
+   "oldStartOffset": 185,
+   "oldEndOffset": 193,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 190,
+    "endOffset": 198,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 265,
+   "paragraph": 2,
+   "oldStartOffset": 400,
+   "oldEndOffset": 407,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 388,
+    "endOffset": 395,
+    "text": "Kutuzov",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 265,
+   "paragraph": 4,
+   "oldStartOffset": 140,
+   "oldEndOffset": 148,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 141,
+    "endOffset": 149,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-vasili",
+   "chapter": 265,
+   "paragraph": 6,
+   "oldStartOffset": 172,
+   "oldEndOffset": 185,
+   "oldText": "Prince Vasili",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 157,
+    "endOffset": 170,
+    "text": "Prince Vasili",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 265,
+   "paragraph": 6,
+   "oldStartOffset": 219,
+   "oldEndOffset": 226,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 204,
+    "endOffset": 211,
+    "text": "Kutuzov",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 265,
+   "paragraph": 6,
+   "oldStartOffset": 422,
+   "oldEndOffset": 428,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 421,
+    "endOffset": 427,
+    "text": "Helene",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 265,
+   "paragraph": 6,
+   "oldStartOffset": 810,
+   "oldEndOffset": 816,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 811,
+    "endOffset": 817,
+    "text": "Helene",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 265,
+   "paragraph": 6,
+   "oldStartOffset": 944,
+   "oldEndOffset": 950,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 945,
+    "endOffset": 951,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-vasili",
+   "chapter": 265,
+   "paragraph": 6,
+   "oldStartOffset": 1085,
+   "oldEndOffset": 1098,
+   "oldText": "Prince Vasili",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1097,
+    "endOffset": 1110,
+    "text": "Prince Vasili",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helene",
+   "chapter": 265,
+   "paragraph": 7,
+   "oldStartOffset": 123,
+   "oldEndOffset": 129,
+   "oldText": "Helene",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 118,
+    "endOffset": 124,
+    "text": "Helene",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 265,
+   "paragraph": 8,
+   "oldStartOffset": 224,
+   "oldEndOffset": 231,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 234,
+    "endOffset": 241,
+    "text": "Kutuzov",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "prince-vasili",
+   "chapter": 265,
+   "paragraph": 8,
+   "oldStartOffset": 251,
+   "oldEndOffset": 264,
+   "oldText": "Prince Vasili",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 261,
+    "endOffset": 274,
+    "text": "Prince Vasili",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 265,
+   "paragraph": 8,
+   "oldStartOffset": 356,
+   "oldEndOffset": 363,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 354,
+    "endOffset": 361,
+    "text": "Kutuzov",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 265,
+   "paragraph": 11,
+   "oldStartOffset": 182,
+   "oldEndOffset": 189,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 184,
+    "endOffset": 191,
+    "text": "Kutuzov",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 265,
+   "paragraph": 12,
+   "oldStartOffset": 64,
+   "oldEndOffset": 71,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 65,
+    "endOffset": 72,
+    "text": "Kutuzov",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 266,
+   "paragraph": 0,
+   "oldStartOffset": 60,
+   "oldEndOffset": 67,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 55,
+    "endOffset": 62,
+    "text": "Kutuzov",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 266,
+   "paragraph": 9,
+   "oldStartOffset": 43,
+   "oldEndOffset": 50,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 43,
+    "text": "Kutuzov",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 266,
+   "paragraph": 27,
+   "oldStartOffset": 106,
+   "oldEndOffset": 114,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 109,
+    "endOffset": 117,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 267,
+   "paragraph": 1,
+   "oldStartOffset": 265,
+   "oldEndOffset": 271,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 268,
+    "endOffset": 274,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "nicholas-rostov",
+   "chapter": 267,
+   "paragraph": 3,
+   "oldStartOffset": 45,
+   "oldEndOffset": 60,
+   "oldText": "Nicholas Rostov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 34,
+    "text": "Nicholas Rostov",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kutuzov",
+   "chapter": 267,
+   "paragraph": 3,
+   "oldStartOffset": 416,
+   "oldEndOffset": 423,
+   "oldText": "Kutuzov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 409,
+    "endOffset": 416,
+    "text": "Kutuzov",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 267,
+   "paragraph": 16,
+   "oldStartOffset": 439,
+   "oldEndOffset": 447,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 375,
+    "endOffset": 383,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "count-rostov",
+   "chapter": 267,
+   "paragraph": 18,
+   "oldStartOffset": 215,
+   "oldEndOffset": 227,
+   "oldText": "Count Rostov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 203,
+    "endOffset": 215,
+    "text": "Count Rostov",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 0,
+   "oldStartOffset": 50,
+   "oldEndOffset": 63,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 13,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 269,
+   "paragraph": 0,
+   "oldStartOffset": 125,
+   "oldEndOffset": 138,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 124,
+    "endOffset": 137,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 1,
+   "oldStartOffset": 453,
+   "oldEndOffset": 466,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 466,
+    "endOffset": 479,
+    "text": "Princess Mary",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 1,
+   "oldStartOffset": 493,
+   "oldEndOffset": 506,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 466,
+    "endOffset": 479,
+    "text": "Princess Mary",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 2,
+   "oldStartOffset": 42,
+   "oldEndOffset": 55,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 38,
+    "endOffset": 51,
+    "text": "Princess Mary",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 2,
+   "oldStartOffset": 789,
+   "oldEndOffset": 802,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 704,
+    "endOffset": 717,
+    "text": "Princess Mary",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "count-rostov",
+   "chapter": 269,
+   "paragraph": 3,
+   "oldStartOffset": 79,
+   "oldEndOffset": 91,
+   "oldText": "Count Rostov",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 80,
+    "endOffset": 92,
+    "text": "Count Rostov",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 5,
+   "oldStartOffset": 499,
+   "oldEndOffset": 512,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 488,
+    "endOffset": 501,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 9,
+   "oldStartOffset": 291,
+   "oldEndOffset": 304,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 314,
+    "endOffset": 327,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 10,
+   "oldStartOffset": 334,
+   "oldEndOffset": 347,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 345,
+    "endOffset": 358,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 269,
+   "paragraph": 11,
+   "oldStartOffset": 103,
+   "oldEndOffset": 116,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 116,
+    "endOffset": 129,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 11,
+   "oldStartOffset": 259,
+   "oldEndOffset": 272,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 272,
+    "endOffset": 285,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 12,
+   "oldStartOffset": 24,
+   "oldEndOffset": 37,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 13,
+    "text": "Princess Mary",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 12,
+   "oldStartOffset": 304,
+   "oldEndOffset": 317,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 257,
+    "endOffset": 270,
+    "text": "Princess Mary",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 13,
+   "oldStartOffset": 76,
+   "oldEndOffset": 89,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 74,
+    "endOffset": 87,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 269,
+   "paragraph": 14,
+   "oldStartOffset": 409,
+   "oldEndOffset": 414,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 401,
+    "endOffset": 406,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 14,
+   "oldStartOffset": 486,
+   "oldEndOffset": 499,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 434,
+    "endOffset": 447,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 269,
+   "paragraph": 15,
+   "oldStartOffset": 335,
+   "oldEndOffset": 340,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 326,
+    "endOffset": 331,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 269,
+   "paragraph": 15,
+   "oldStartOffset": 726,
+   "oldEndOffset": 739,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 702,
+    "endOffset": 715,
+    "text": "Princess Mary",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 270,
+   "paragraph": 0,
+   "oldStartOffset": 182,
+   "oldEndOffset": 195,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 166,
+    "endOffset": 179,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 270,
+   "paragraph": 0,
+   "oldStartOffset": 382,
+   "oldEndOffset": 395,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 370,
+    "endOffset": 383,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 270,
+   "paragraph": 4,
+   "oldStartOffset": 32,
+   "oldEndOffset": 45,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 14,
+    "endOffset": 27,
+    "text": "Princess Mary",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 270,
+   "paragraph": 4,
+   "oldStartOffset": 174,
+   "oldEndOffset": 187,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 157,
+    "endOffset": 170,
+    "text": "Princess Mary",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 270,
+   "paragraph": 6,
+   "oldStartOffset": 95,
+   "oldEndOffset": 108,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 83,
+    "endOffset": 96,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 270,
+   "paragraph": 12,
+   "oldStartOffset": 975,
+   "oldEndOffset": 988,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 883,
+    "endOffset": 896,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 270,
+   "paragraph": 12,
+   "oldStartOffset": 1063,
+   "oldEndOffset": 1076,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 961,
+    "endOffset": 974,
+    "text": "Princess Mary",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 270,
+   "paragraph": 13,
+   "oldStartOffset": 118,
+   "oldEndOffset": 123,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 119,
+    "endOffset": 124,
+    "text": "Sonya",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 270,
+   "paragraph": 13,
+   "oldStartOffset": 559,
+   "oldEndOffset": 564,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 546,
+    "endOffset": 551,
+    "text": "Sonya",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 270,
+   "paragraph": 13,
+   "oldStartOffset": 670,
+   "oldEndOffset": 675,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 673,
+    "endOffset": 678,
+    "text": "Sonya",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 270,
+   "paragraph": 13,
+   "oldStartOffset": 724,
+   "oldEndOffset": 737,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 698,
+    "endOffset": 711,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 270,
+   "paragraph": 14,
+   "oldStartOffset": 79,
+   "oldEndOffset": 92,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 83,
+    "endOffset": 96,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 270,
+   "paragraph": 15,
+   "oldStartOffset": 272,
+   "oldEndOffset": 277,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 265,
+    "endOffset": 270,
+    "text": "Sonya",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 270,
+   "paragraph": 15,
+   "oldStartOffset": 401,
+   "oldEndOffset": 406,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 394,
+    "endOffset": 399,
+    "text": "Sonya",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 270,
+   "paragraph": 15,
+   "oldStartOffset": 699,
+   "oldEndOffset": 706,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 700,
+    "endOffset": 707,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 270,
+   "paragraph": 15,
+   "oldStartOffset": 994,
+   "oldEndOffset": 1007,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 991,
+    "endOffset": 1004,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 270,
+   "paragraph": 19,
+   "oldStartOffset": 126,
+   "oldEndOffset": 131,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 120,
+    "endOffset": 125,
+    "text": "Sonya",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 270,
+   "paragraph": 22,
+   "oldStartOffset": 80,
+   "oldEndOffset": 85,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 28,
+    "endOffset": 33,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 270,
+   "paragraph": 25,
+   "oldStartOffset": 225,
+   "oldEndOffset": 238,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 215,
+    "endOffset": 228,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 270,
+   "paragraph": 25,
+   "oldStartOffset": 360,
+   "oldEndOffset": 365,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 350,
+    "endOffset": 355,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 270,
+   "paragraph": 25,
+   "oldStartOffset": 370,
+   "oldEndOffset": 377,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 360,
+    "endOffset": 367,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 270,
+   "paragraph": 26,
+   "oldStartOffset": 117,
+   "oldEndOffset": 124,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 114,
+    "endOffset": 121,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 0,
+   "oldStartOffset": 217,
+   "oldEndOffset": 222,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 211,
+    "endOffset": 216,
+    "text": "Sonya",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 0,
+   "oldStartOffset": 259,
+   "oldEndOffset": 264,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 211,
+    "endOffset": 216,
+    "text": "Sonya",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 271,
+   "paragraph": 0,
+   "oldStartOffset": 407,
+   "oldEndOffset": 420,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 341,
+    "endOffset": 354,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 0,
+   "oldStartOffset": 517,
+   "oldEndOffset": 522,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 451,
+    "endOffset": 456,
+    "text": "Sonya",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 1,
+   "oldStartOffset": 104,
+   "oldEndOffset": 109,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 107,
+    "endOffset": 112,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 3,
+   "oldStartOffset": 308,
+   "oldEndOffset": 313,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 321,
+    "endOffset": 326,
+    "text": "Sonya",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 3,
+   "oldStartOffset": 1150,
+   "oldEndOffset": 1155,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1157,
+    "endOffset": 1162,
+    "text": "Sonya",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 3,
+   "oldStartOffset": 1334,
+   "oldEndOffset": 1339,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1337,
+    "endOffset": 1342,
+    "text": "Sonya",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 4,
+   "oldStartOffset": 101,
+   "oldEndOffset": 106,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 104,
+    "endOffset": 109,
+    "text": "Sonya",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 271,
+   "paragraph": 4,
+   "oldStartOffset": 181,
+   "oldEndOffset": 194,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 193,
+    "endOffset": 206,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 271,
+   "paragraph": 4,
+   "oldStartOffset": 263,
+   "oldEndOffset": 270,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 274,
+    "endOffset": 281,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 271,
+   "paragraph": 4,
+   "oldStartOffset": 631,
+   "oldEndOffset": 644,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 635,
+    "endOffset": 648,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 4,
+   "oldStartOffset": 889,
+   "oldEndOffset": 894,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 892,
+    "endOffset": 897,
+    "text": "Sonya",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 271,
+   "paragraph": 6,
+   "oldStartOffset": 96,
+   "oldEndOffset": 109,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 65,
+    "endOffset": 78,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 271,
+   "paragraph": 6,
+   "oldStartOffset": 157,
+   "oldEndOffset": 164,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 147,
+    "endOffset": 154,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 6,
+   "oldStartOffset": 349,
+   "oldEndOffset": 354,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 337,
+    "endOffset": 342,
+    "text": "Sonya",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 271,
+   "paragraph": 6,
+   "oldStartOffset": 404,
+   "oldEndOffset": 417,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 392,
+    "endOffset": 405,
+    "text": "Prince Andrew",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 271,
+   "paragraph": 6,
+   "oldStartOffset": 422,
+   "oldEndOffset": 429,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 410,
+    "endOffset": 417,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 271,
+   "paragraph": 6,
+   "oldStartOffset": 525,
+   "oldEndOffset": 532,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 497,
+    "endOffset": 504,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 6,
+   "oldStartOffset": 685,
+   "oldEndOffset": 690,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 666,
+    "endOffset": 671,
+    "text": "Sonya",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 271,
+   "paragraph": 12,
+   "oldStartOffset": 46,
+   "oldEndOffset": 53,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 43,
+    "endOffset": 50,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 271,
+   "paragraph": 12,
+   "oldStartOffset": 169,
+   "oldEndOffset": 176,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 134,
+    "endOffset": 141,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 271,
+   "paragraph": 12,
+   "oldStartOffset": 293,
+   "oldEndOffset": 306,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 292,
+    "endOffset": 305,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 271,
+   "paragraph": 12,
+   "oldStartOffset": 315,
+   "oldEndOffset": 322,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 314,
+    "endOffset": 321,
+    "text": "Natasha",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 12,
+   "oldStartOffset": 371,
+   "oldEndOffset": 376,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 373,
+    "endOffset": 378,
+    "text": "Sonya",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 17,
+   "oldStartOffset": 45,
+   "oldEndOffset": 50,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 46,
+    "endOffset": 51,
+    "text": "Sonya",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 271,
+   "paragraph": 25,
+   "oldStartOffset": 43,
+   "oldEndOffset": 50,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 44,
+    "endOffset": 51,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 271,
+   "paragraph": 25,
+   "oldStartOffset": 68,
+   "oldEndOffset": 73,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 65,
+    "endOffset": 70,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 271,
+   "paragraph": 30,
+   "oldStartOffset": 183,
+   "oldEndOffset": 190,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 198,
+    "endOffset": 205,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 271,
+   "paragraph": 30,
+   "oldStartOffset": 211,
+   "oldEndOffset": 224,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 223,
+    "endOffset": 236,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 271,
+   "paragraph": 30,
+   "oldStartOffset": 262,
+   "oldEndOffset": 275,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 271,
+    "endOffset": 284,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 0,
+   "oldStartOffset": 42,
+   "oldEndOffset": 48,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 80,
+    "endOffset": 86,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 1,
+   "oldStartOffset": 566,
+   "oldEndOffset": 572,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 562,
+    "endOffset": 568,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 2,
+   "oldStartOffset": 31,
+   "oldEndOffset": 37,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 27,
+    "endOffset": 33,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 2,
+   "oldStartOffset": 156,
+   "oldEndOffset": 162,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 157,
+    "endOffset": 163,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 3,
+   "oldStartOffset": 376,
+   "oldEndOffset": 382,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 389,
+    "endOffset": 395,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 4,
+   "oldStartOffset": 311,
+   "oldEndOffset": 317,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 318,
+    "endOffset": 324,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 4,
+   "oldStartOffset": 421,
+   "oldEndOffset": 427,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 431,
+    "endOffset": 437,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 4,
+   "oldStartOffset": 1108,
+   "oldEndOffset": 1114,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1089,
+    "endOffset": 1095,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 4,
+   "oldStartOffset": 1258,
+   "oldEndOffset": 1264,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1231,
+    "endOffset": 1237,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 7,
+   "oldStartOffset": 136,
+   "oldEndOffset": 142,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 135,
+    "endOffset": 141,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 272,
+   "paragraph": 8,
+   "oldStartOffset": 228,
+   "oldEndOffset": 234,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 214,
+    "endOffset": 220,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 0,
+   "oldStartOffset": 272,
+   "oldEndOffset": 278,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 276,
+    "endOffset": 282,
+    "text": "Pierre",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 0,
+   "oldStartOffset": 536,
+   "oldEndOffset": 542,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 540,
+    "endOffset": 546,
+    "text": "Pierre",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 0,
+   "oldStartOffset": 705,
+   "oldEndOffset": 711,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 710,
+    "endOffset": 716,
+    "text": "Pierre",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 0,
+   "oldStartOffset": 902,
+   "oldEndOffset": 908,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 911,
+    "endOffset": 917,
+    "text": "Pierre",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 0,
+   "oldStartOffset": 1097,
+   "oldEndOffset": 1103,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1103,
+    "endOffset": 1109,
+    "text": "Pierre",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 0,
+   "oldStartOffset": 1471,
+   "oldEndOffset": 1477,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1487,
+    "endOffset": 1493,
+    "text": "Pierre",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 1,
+   "oldStartOffset": 128,
+   "oldEndOffset": 134,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 55,
+    "endOffset": 61,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 1,
+   "oldStartOffset": 703,
+   "oldEndOffset": 709,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 701,
+    "endOffset": 707,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 1,
+   "oldStartOffset": 1071,
+   "oldEndOffset": 1077,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1025,
+    "endOffset": 1031,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 1,
+   "oldStartOffset": 1300,
+   "oldEndOffset": 1306,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1228,
+    "endOffset": 1234,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 2,
+   "oldStartOffset": 194,
+   "oldEndOffset": 200,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 195,
+    "endOffset": 201,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 3,
+   "oldStartOffset": 67,
+   "oldEndOffset": 73,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 70,
+    "endOffset": 76,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 4,
+   "oldStartOffset": 95,
+   "oldEndOffset": 101,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 86,
+    "endOffset": 92,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 6,
+   "oldStartOffset": 244,
+   "oldEndOffset": 250,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 6,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 7,
+   "oldStartOffset": 86,
+   "oldEndOffset": 92,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 81,
+    "endOffset": 87,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 10,
+   "oldStartOffset": 95,
+   "oldEndOffset": 101,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 99,
+    "endOffset": 105,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 11,
+   "oldStartOffset": 63,
+   "oldEndOffset": 69,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 58,
+    "endOffset": 64,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 18,
+   "oldStartOffset": 115,
+   "oldEndOffset": 121,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 127,
+    "endOffset": 133,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 24,
+   "oldStartOffset": 116,
+   "oldEndOffset": 122,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 115,
+    "endOffset": 121,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 25,
+   "oldStartOffset": 70,
+   "oldEndOffset": 76,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 74,
+    "endOffset": 80,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 25,
+   "oldStartOffset": 166,
+   "oldEndOffset": 172,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 154,
+    "endOffset": 160,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 28,
+   "oldStartOffset": 817,
+   "oldEndOffset": 823,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 803,
+    "endOffset": 809,
+    "text": "Pierre",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 28,
+   "oldStartOffset": 906,
+   "oldEndOffset": 912,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 891,
+    "endOffset": 897,
+    "text": "Pierre",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 273,
+   "paragraph": 30,
+   "oldStartOffset": 38,
+   "oldEndOffset": 44,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 39,
+    "endOffset": 45,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "napoleon",
+   "chapter": 274,
+   "paragraph": 0,
+   "oldStartOffset": 348,
+   "oldEndOffset": 356,
+   "oldText": "Napoleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 318,
+    "endOffset": 326,
+    "text": "Napoleon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 1,
+   "oldStartOffset": 69,
+   "oldEndOffset": 75,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 54,
+    "endOffset": 60,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 1,
+   "oldStartOffset": 192,
+   "oldEndOffset": 198,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 165,
+    "endOffset": 171,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 1,
+   "oldStartOffset": 414,
+   "oldEndOffset": 420,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 165,
+    "endOffset": 171,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 6,
+   "oldStartOffset": 124,
+   "oldEndOffset": 130,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 121,
+    "endOffset": 127,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 7,
+   "oldStartOffset": 302,
+   "oldEndOffset": 308,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 303,
+    "endOffset": 309,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 9,
+   "oldStartOffset": 119,
+   "oldEndOffset": 125,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 121,
+    "endOffset": 127,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 9,
+   "oldStartOffset": 456,
+   "oldEndOffset": 462,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 461,
+    "endOffset": 467,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 9,
+   "oldStartOffset": 465,
+   "oldEndOffset": 471,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 461,
+    "endOffset": 467,
+    "text": "Pierre",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 11,
+   "oldStartOffset": 295,
+   "oldEndOffset": 301,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 286,
+    "endOffset": 292,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 12,
+   "oldStartOffset": 101,
+   "oldEndOffset": 107,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 91,
+    "endOffset": 97,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 12,
+   "oldStartOffset": 436,
+   "oldEndOffset": 442,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 414,
+    "endOffset": 420,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 14,
+   "oldStartOffset": 345,
+   "oldEndOffset": 351,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 365,
+    "endOffset": 371,
+    "text": "Pierre",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 274,
+   "paragraph": 14,
+   "oldStartOffset": 368,
+   "oldEndOffset": 374,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 365,
+    "endOffset": 371,
+    "text": "Pierre",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 276,
+   "paragraph": 0,
+   "oldStartOffset": 89,
+   "oldEndOffset": 95,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 18,
+    "endOffset": 24,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "platon-karataev",
+   "chapter": 276,
+   "paragraph": 1,
+   "oldStartOffset": 83,
+   "oldEndOffset": 98,
+   "oldText": "Platon Karataev",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 78,
+    "endOffset": 93,
+    "text": "Platon Karataev",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 276,
+   "paragraph": 1,
+   "oldStartOffset": 233,
+   "oldEndOffset": 239,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 216,
+    "endOffset": 222,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 276,
+   "paragraph": 8,
+   "oldStartOffset": 347,
+   "oldEndOffset": 353,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 351,
+    "endOffset": 357,
+    "text": "Pierre",
+    "note": "7 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 276,
+   "paragraph": 8,
+   "oldStartOffset": 841,
+   "oldEndOffset": 847,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 835,
+    "endOffset": 841,
+    "text": "Pierre",
+    "note": "7 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 276,
+   "paragraph": 8,
+   "oldStartOffset": 1083,
+   "oldEndOffset": 1089,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1086,
+    "endOffset": 1092,
+    "text": "Pierre",
+    "note": "7 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 276,
+   "paragraph": 8,
+   "oldStartOffset": 1116,
+   "oldEndOffset": 1122,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1120,
+    "endOffset": 1126,
+    "text": "Pierre",
+    "note": "7 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 276,
+   "paragraph": 8,
+   "oldStartOffset": 1216,
+   "oldEndOffset": 1222,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1227,
+    "endOffset": 1233,
+    "text": "Pierre",
+    "note": "7 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 276,
+   "paragraph": 8,
+   "oldStartOffset": 1314,
+   "oldEndOffset": 1320,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1331,
+    "endOffset": 1337,
+    "text": "Pierre",
+    "note": "7 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "platon-karataev",
+   "chapter": 276,
+   "paragraph": 9,
+   "oldStartOffset": 28,
+   "oldEndOffset": 43,
+   "oldText": "Platon Karataev",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 27,
+    "endOffset": 42,
+    "text": "Platon Karataev",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 276,
+   "paragraph": 9,
+   "oldStartOffset": 182,
+   "oldEndOffset": 188,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 185,
+    "endOffset": 191,
+    "text": "Pierre",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pierre",
+   "chapter": 276,
+   "paragraph": 11,
+   "oldStartOffset": 181,
+   "oldEndOffset": 187,
+   "oldText": "Pierre",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 224,
+    "endOffset": 230,
+    "text": "Pierre",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 277,
+   "paragraph": 0,
+   "oldStartOffset": 529,
+   "oldEndOffset": 542,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 543,
+    "endOffset": 556,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 0,
+   "oldStartOffset": 552,
+   "oldEndOffset": 565,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 5,
+    "endOffset": 18,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 1,
+   "oldStartOffset": 14,
+   "oldEndOffset": 27,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 18,
+    "endOffset": 31,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 2,
+   "oldStartOffset": 79,
+   "oldEndOffset": 92,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 3,
+   "oldStartOffset": 70,
+   "oldEndOffset": 83,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 68,
+    "endOffset": 81,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 277,
+   "paragraph": 4,
+   "oldStartOffset": 529,
+   "oldEndOffset": 542,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 525,
+    "endOffset": 538,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 277,
+   "paragraph": 4,
+   "oldStartOffset": 563,
+   "oldEndOffset": 570,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 556,
+    "endOffset": 563,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 4,
+   "oldStartOffset": 611,
+   "oldEndOffset": 624,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 602,
+    "endOffset": 615,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 5,
+   "oldStartOffset": 132,
+   "oldEndOffset": 145,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 110,
+    "endOffset": 123,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 7,
+   "oldStartOffset": 34,
+   "oldEndOffset": 47,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 45,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 277,
+   "paragraph": 8,
+   "oldStartOffset": 114,
+   "oldEndOffset": 127,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 96,
+    "endOffset": 109,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 15,
+   "oldStartOffset": 34,
+   "oldEndOffset": 47,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 13,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 16,
+   "oldStartOffset": 221,
+   "oldEndOffset": 234,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 225,
+    "endOffset": 238,
+    "text": "Princess Mary",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sonya",
+   "chapter": 277,
+   "paragraph": 16,
+   "oldStartOffset": 270,
+   "oldEndOffset": 275,
+   "oldText": "Sonya",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 275,
+    "endOffset": 280,
+    "text": "Sonya",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 16,
+   "oldStartOffset": 278,
+   "oldEndOffset": 291,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 283,
+    "endOffset": 296,
+    "text": "Princess Mary",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 16,
+   "oldStartOffset": 556,
+   "oldEndOffset": 569,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 557,
+    "endOffset": 570,
+    "text": "Princess Mary",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 19,
+   "oldStartOffset": 21,
+   "oldEndOffset": 34,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 23,
+    "endOffset": 36,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 23,
+   "oldStartOffset": 363,
+   "oldEndOffset": 376,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 372,
+    "endOffset": 385,
+    "text": "Princess Mary",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 29,
+   "oldStartOffset": 31,
+   "oldEndOffset": 44,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 28,
+    "endOffset": 41,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 277,
+   "paragraph": 29,
+   "oldStartOffset": 272,
+   "oldEndOffset": 279,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 276,
+    "endOffset": 283,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 277,
+   "paragraph": 32,
+   "oldStartOffset": 329,
+   "oldEndOffset": 336,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 306,
+    "endOffset": 313,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 277,
+   "paragraph": 32,
+   "oldStartOffset": 399,
+   "oldEndOffset": 412,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 382,
+    "endOffset": 395,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 277,
+   "paragraph": 35,
+   "oldStartOffset": 61,
+   "oldEndOffset": 68,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 60,
+    "endOffset": 67,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 277,
+   "paragraph": 37,
+   "oldStartOffset": 64,
+   "oldEndOffset": 71,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 62,
+    "endOffset": 69,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 277,
+   "paragraph": 38,
+   "oldStartOffset": 269,
+   "oldEndOffset": 276,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 258,
+    "endOffset": 265,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 277,
+   "paragraph": 44,
+   "oldStartOffset": 88,
+   "oldEndOffset": 101,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 83,
+    "endOffset": 96,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 277,
+   "paragraph": 45,
+   "oldStartOffset": 276,
+   "oldEndOffset": 283,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 233,
+    "endOffset": 240,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 278,
+   "paragraph": 0,
+   "oldStartOffset": 5,
+   "oldEndOffset": 12,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 0,
+    "endOffset": 7,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 278,
+   "paragraph": 0,
+   "oldStartOffset": 20,
+   "oldEndOffset": 33,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 15,
+    "endOffset": 28,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 278,
+   "paragraph": 0,
+   "oldStartOffset": 74,
+   "oldEndOffset": 87,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 72,
+    "endOffset": 85,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 278,
+   "paragraph": 3,
+   "oldStartOffset": 41,
+   "oldEndOffset": 54,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 46,
+    "endOffset": 59,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 278,
+   "paragraph": 5,
+   "oldStartOffset": 137,
+   "oldEndOffset": 144,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 99,
+    "endOffset": 106,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 278,
+   "paragraph": 8,
+   "oldStartOffset": 77,
+   "oldEndOffset": 90,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 65,
+    "endOffset": 78,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 278,
+   "paragraph": 16,
+   "oldStartOffset": 104,
+   "oldEndOffset": 117,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 105,
+    "endOffset": 118,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 278,
+   "paragraph": 19,
+   "oldStartOffset": 112,
+   "oldEndOffset": 119,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 62,
+    "endOffset": 69,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 278,
+   "paragraph": 24,
+   "oldStartOffset": 44,
+   "oldEndOffset": 57,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 38,
+    "endOffset": 51,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 278,
+   "paragraph": 26,
+   "oldStartOffset": 50,
+   "oldEndOffset": 57,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 54,
+    "endOffset": 61,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 278,
+   "paragraph": 29,
+   "oldStartOffset": 66,
+   "oldEndOffset": 79,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 58,
+    "endOffset": 71,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 278,
+   "paragraph": 32,
+   "oldStartOffset": 33,
+   "oldEndOffset": 46,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 34,
+    "endOffset": 47,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "princess-mary",
+   "chapter": 278,
+   "paragraph": 41,
+   "oldStartOffset": 114,
+   "oldEndOffset": 127,
+   "oldText": "Princess Mary",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 128,
+    "endOffset": 141,
+    "text": "Princess Mary",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 278,
+   "paragraph": 42,
+   "oldStartOffset": 367,
+   "oldEndOffset": 374,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 335,
+    "endOffset": 342,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 278,
+   "paragraph": 42,
+   "oldStartOffset": 479,
+   "oldEndOffset": 486,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 469,
+    "endOffset": 476,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 278,
+   "paragraph": 43,
+   "oldStartOffset": 127,
+   "oldEndOffset": 134,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 128,
+    "endOffset": 135,
+    "text": "Natasha",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "andrew",
+   "chapter": 278,
+   "paragraph": 44,
+   "oldStartOffset": 28,
+   "oldEndOffset": 41,
+   "oldText": "Prince Andrew",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 24,
+    "endOffset": 37,
+    "text": "Prince Andrew",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 278,
+   "paragraph": 44,
+   "oldStartOffset": 68,
+   "oldEndOffset": 75,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 65,
+    "endOffset": 72,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "natasha",
+   "chapter": 278,
+   "paragraph": 44,
+   "oldStartOffset": 127,
+   "oldEndOffset": 134,
+   "oldText": "Natasha",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 115,
+    "endOffset": 122,
+    "text": "Natasha",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  }
+ ]
+}

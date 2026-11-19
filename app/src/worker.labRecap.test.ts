@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL, RECAP_FAST_MODEL } from './companionModel'
-import { RECAP_PROMPT_VERSION } from './recapSummary'
+import { RECAP_BRIEF_VERSION, RECAP_PROMPT_VERSION } from './recapSummary'
 import type { ChapterText } from './worker/lib/bookRetrieval'
 import {
   RECAP_MAX_PASSAGE_CHARS,
@@ -199,7 +199,98 @@ describe('POST /api/lab-recap', () => {
     expect(String(payload.system)).toMatch(/at most 40 words/)
     expect(String(payload.system)).toMatch(/Do not go beyond it/)
     await Promise.all(pending)
-    expect([...cache.entries.keys()][0]).toBe(`https://tinct.app/__lab-recap/brief-v1/${RECAP_PROMPT_VERSION}/bible/kjv-en/645/645/3`)
+    expect([...cache.entries.keys()][0]).toBe(`https://tinct.app/__lab-recap/${RECAP_BRIEF_VERSION}/${RECAP_PROMPT_VERSION}/bible/kjv-en/645/645/3`)
+  })
+
+  describe('Catch me up: a chapter with nothing read but its heading (Frankenstein, Letter 4)', () => {
+    const narrative = 'So strange an accident has happened to us that I cannot forbear recording it, although it is very probable that you will see me before these papers can come into your possession.'
+    const letter4: ChapterText = {
+      number: 4,
+      title: 'Letter 4',
+      paragraphs: ['_To Mrs. Saville, England._', 'August 5th, 17—.', ...Array.from({ length: 37 }, () => narrative)],
+    }
+    const frankensteinEnv = { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: fakeAssets({ 4: letter4 }) }
+    const atStart = { bookId: 'frankenstein', editionKey: 'original-en', chapterNumber: 4, paragraphIndex: 1, bookTitle: 'Frankenstein', brief: true }
+    const complaint = 'I need to see the actual content of Letter 4 to write an accurate summary. The passage provided only shows the heading "Letter 4" and the salutation "To Mrs. Saville, England." but contains no narrative or content beyond that. Could you provide the full text of the passage where the reader stopped?'
+    const toolAnswer = (input: Record<string, unknown>) => vi.fn(async () => Response.json({
+      model: RECAP_FAST_MODEL, stop_reason: 'tool_use', content: [{ type: 'tool_use', id: 'toolu_1', name: 'write_entry', input }], usage: { input_tokens: 400, output_tokens: 30 },
+    }))
+
+    it('answers an empty entry without a model call or a cache write when only the heading lines are covered', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const fetchAnthropic = vi.fn()
+      // Paragraph 4 of a 39-paragraph chapter is bucketed down to paragraph 0: still only the address line.
+      for (const paragraphIndex of [0, 1, 4]) {
+        const response = await handleLabRecap(recapRequest({ ...atStart, paragraphIndex }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+        expect(response.status).toBe(200)
+        expect(await response.json()).toMatchObject({ summary: '', empty: true, coverage: { chapterNumber: 4, complete: false } })
+      }
+      await Promise.all(pending)
+      expect(fetchAnthropic).not.toHaveBeenCalled()
+      expect(cache.entries.size).toBe(0)
+    })
+
+    it('asks for a structured entry once there is narrative, and shows the summary field', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const fetchAnthropic = toolAnswer({ nothing_to_summarise: false, summary: 'Walton records a strange accident in the ice.' })
+      const response = await handleLabRecap(recapRequest({ ...atStart, paragraphIndex: 5 }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: 'Walton records a strange accident in the ice.', cached: false })
+      const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>]
+      expect(payload.tool_choice).toEqual({ type: 'tool', name: 'write_entry' })
+      expect((payload.tools as Array<{ name: string; input_schema: { required: string[] } }>)[0]).toMatchObject({ name: 'write_entry', input_schema: { required: ['nothing_to_summarise', 'summary'] } })
+      expect(String(payload.system)).toMatch(/nothing_to_summarise to true/)
+      expect(String(payload.system)).toMatch(/Never ask for more text/)
+      await Promise.all(pending)
+      expect(cache.entries.size).toBe(1)
+    })
+
+    it('returns an empty entry, uncached, when the model says there is nothing to summarise', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      for (const fetchAnthropic of [toolAnswer({ nothing_to_summarise: true, summary: '' }), toolAnswer({ nothing_to_summarise: false, summary: complaint }), anthropicOk(complaint)]) {
+        const response = await handleLabRecap(recapRequest({ ...atStart, paragraphIndex: 5 }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+        expect(response.status).toBe(200)
+        const data = await response.json() as { summary: string; empty?: boolean }
+        expect(data).toMatchObject({ summary: '', empty: true })
+        expect(fetchAnthropic).toHaveBeenCalledOnce()
+      }
+      await Promise.all(pending)
+      expect(cache.entries.size).toBe(0)
+    })
+
+    it('a cut-off structured answer is a failure, not an entry', async () => {
+      const { ctx } = makeContext()
+      const cutOff = vi.fn(async () => Response.json({ stop_reason: 'max_tokens', content: [{ type: 'tool_use', name: 'write_entry', input: { summary: 'Walton rec' } }] }))
+      expect((await handleLabRecap(recapRequest({ ...atStart, paragraphIndex: 5 }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache: null, fetchAnthropic: cutOff })).status).toBe(502)
+    })
+
+    it('skips a cached complaint and replaces it with a real summary', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const key = `https://tinct.app/__lab-recap/${RECAP_BRIEF_VERSION}/${RECAP_PROMPT_VERSION}/frankenstein/original-en/4/4/5`
+      cache.entries.set(key, JSON.stringify({ summary: complaint, coverage: {}, model: 'x', version: RECAP_PROMPT_VERSION, cached: false }))
+      const fetchAnthropic = toolAnswer({ nothing_to_summarise: false, summary: 'Walton records a strange accident in the ice.' })
+      const response = await handleLabRecap(recapRequest({ ...atStart, paragraphIndex: 5 }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: 'Walton records a strange accident in the ice.', cached: false })
+      expect(fetchAnthropic).toHaveBeenCalledOnce()
+      await Promise.all(pending)
+      expect(JSON.parse(cache.entries.get(key)!)).toMatchObject({ summary: 'Walton records a strange accident in the ice.' })
+    })
+
+    it('the full "so far" never shows or caches a reply about the passage, and keeps its free-text call', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const fetchAnthropic = anthropicOk(complaint)
+      const response = await handleLabRecap(recapRequest({ ...atStart, brief: false, paragraphIndex: 1 }), frankensteinEnv, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: '', empty: true })
+      const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>]
+      expect(payload).not.toHaveProperty('tools')
+      expect(payload.output_config).toEqual({ effort: 'low' })
+      await Promise.all(pending)
+      expect(cache.entries.size).toBe(0)
+    })
   })
 
   it('serves a cached summary without calling the model', async () => {

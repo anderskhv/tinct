@@ -1,5 +1,6 @@
 import { LabMarkdown } from '../../lab/LabMarkdown'
 import { RowIcon } from '../../lab/LabSuperMenu.tsx'
+import { ChatIcon, HighlightIcon } from '../../lab/LabReaderIcons'
 import { isAiRestingError } from '../../lab/labCompanion'
 import { LAB_COPY } from '../../lab/labCopy'
 import { useEffect, useRef, useState } from 'react'
@@ -12,7 +13,7 @@ export function splitExplanation(text: string): { opener: string; rest: string }
   return { opener: text.slice(0, boundary), rest: text.slice(boundary + 2).trim() }
 }
 
-export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady, onClose, onHighlight }: {
+export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady, onClose, onHighlight, saveError }: {
   passage: string
   request: (onDelta: (text: string) => void) => Promise<string>
   onReady?: (answer: string) => void
@@ -20,6 +21,8 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
   onTalk?: (answer: string) => void
   onHighlight?: () => void
   onClose?: () => void
+  /** The answer remains visible, but this device did not persist its card. */
+  saveError?: boolean
 }) {
   const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error' | 'resting'>('loading')
   const [expanded, setExpanded] = useState(false)
@@ -101,13 +104,14 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
             </>
           )}
         </div>
+        {saveError && <p className="lab-contextual-save-error" role="status">This answer is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
       </div>
       <footer>
         {onHighlight && <button className="lab-contextual-explain-tool" type="button" aria-label="Highlight this passage" onClick={onHighlight}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m5 15 10-10 4 4L9 19H5zM4 22h16" /></svg>
+          <HighlightIcon size={18} />
         </button>}
         <button className="lab-contextual-explain-tool" type="button" aria-label="Chat about this explanation" onClick={() => onAsk(answer)} disabled={!answer}>
-          <RowIcon id="chat" />
+          <ChatIcon size={18} />
         </button>
         {onTalk && <button className="lab-contextual-explain-tool" type="button" aria-label="Talk about this explanation" onClick={() => onTalk(answer)} disabled={!answer}>
           <RowIcon id="talk" />

@@ -1,14 +1,15 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // TEST_ORIGIN=http://127.0.0.1:5198 ARTIFACT_DIR=/tmp/chat-inset node scripts/check-chat-inset.cjs
 // Uses isolated local reader fixtures and mocked replies; no provider/account calls.
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs')
 const base=process.env.TEST_ORIGIN||'http://127.0.0.1:5198',out=process.env.ARTIFACT_DIR||'/tmp/chat-inset'
 const answer=Array.from({length:10},(_,i)=>`Reading note ${i+1}: Hebrews opens by contrasting earlier messages through the prophets with the Son. The passage develops its argument through quotations, inviting the reader to follow each connection carefully.`).join('\n\n')
 fs.mkdirSync(out,{recursive:true})
-;(async()=>{const browser=await chromium.launch(),results=[];try{
+;(async()=>{const browser=await markInternal(await chromium.launch()),results=[];try{
 for(const [width,height,theme] of [[1440,950,'light'],[1440,950,'dark'],[1024,768,'light'],[390,844,'dark']]){
  const mobile=width<900,context=await browser.newContext({viewport:{width,height},isMobile:mobile,hasTouch:mobile,serviceWorkers:'block'}),page=await context.newPage();let sends=0
  await context.route('**/*',async r=>{const u=new URL(r.request().url());if(u.pathname.startsWith('/api/')){if(['/api/chat','/api/lab-chat'].includes(u.pathname)&&r.request().method()==='POST'){sends++;return r.fulfill({status:200,contentType:'application/json',body:JSON.stringify({content:[{text:answer}]})})}return r.fulfill({status:404,body:'{}'})}if(u.origin!==new URL(base).origin)return r.abort();return r.continue()})
- await page.addInitScript(({theme})=>{localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme,fontFamily:'garamond',fontSize:1.3,compareOpen:false}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:1134,paragraphIndex:0,page:0}}))},{theme})
+ await page.addInitScript(({theme})=>{localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme,fontFamily:'garamond',fontSize:1.3,fontSizeExplicit:true,compareOpen:false}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:1134,paragraphIndex:0,page:0}}))},{theme})
  try{
  await page.goto(base+(mobile?'/reader?layout=phone':'/reader'));await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.chapter==='1134');await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(500)
  const place=await page.getByTestId('lab-root').getAttribute('data-place')

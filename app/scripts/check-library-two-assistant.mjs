@@ -2,10 +2,11 @@ import { chromium } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 const live = process.env.LIBRARY_LIVE === '1'
 const output = 'artifacts/library-two-assistant'
 await fs.mkdir(output, { recursive: true })
-const browser = await chromium.launch({ headless: true, args: ['--mute-audio'] })
+const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio'] }))
 try {
   for (const viewport of [{ width:393, height:734 }, { width:1512, height:862 }]) {
     const context = await browser.newContext({ viewport, serviceWorkers:'block', permissions:[] })
@@ -52,7 +53,12 @@ try {
     await page.locator('#chat').click()
     await field.fill('What should I notice?')
     await page.getByRole('button', { name:'Send', exact:true }).click()
-    await page.waitForFunction(() => !document.querySelector('#librarian-live').shadowRoot.textContent.includes('Thinking…'))
+    // The answer has begun: the pending ring (LabWait, "Thinking…" for screen readers) is gone and the turn carries words.
+    await page.waitForFunction(() => {
+      const root = document.querySelector('#librarian-live').shadowRoot
+      const turn = [...root.querySelectorAll('.library-chat-turn.is-assistant')].pop()
+      return !!turn && !turn.querySelector('[data-testid="library-chat-pending"]') && !root.textContent.includes('Thinking…') && turn.textContent.trim().length > 'Tinct'.length
+    })
     // The Worker builds the prompt: the client sends the open book and the reader's shelf.
     assert.equal(requestedLibrary?.contextBookId, 'frankenstein')
     assert.deepEqual(Object.keys(requestedLibrary?.shelf ?? {}).sort(), ['finished', 'reading', 'saved'])

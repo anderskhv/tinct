@@ -1,5 +1,5 @@
 /** Remove generated website-only pages from the native copy, never source data. */
-import { rm, stat, readdir, readFile, writeFile, mkdir } from 'node:fs/promises'
+import { rm, stat, readdir, readFile, writeFile, mkdir, copyFile } from 'node:fs/promises'
 import { resolve, join } from 'node:path'
 const root = resolve('dist')
 async function bytes(path) {
@@ -10,10 +10,19 @@ async function bytes(path) {
   } catch (error) { if (error.code === 'ENOENT') return 0; throw error }
 }
 let removed = 0
-for (const name of ['read', 'sitemap.xml', 'robots.txt']) {
+// lab/addbook: the unlinked Add-a-book test page (about 9 MB of catalogue and PDF reader).
+for (const name of ['read', 'sitemap.xml', 'robots.txt', 'lab/addbook']) {
   const path = join(root, name)
   removed += await bytes(path)
   await rm(path, { recursive: true, force: true })
+}
+// The library statically imports these two dependency-free modules (library-search.js,
+// add-to-tinct.js). Without them the whole library module graph fails to load and no
+// control works, so restore them from the source copy after removing the test page.
+for (const name of ['search.js', 'file-handoff.js']) {
+  await mkdir(join(root, 'lab/addbook/js'), { recursive: true })
+  await copyFile(resolve('public/lab/addbook/js', name), join(root, 'lab/addbook/js', name))
+  removed -= (await stat(join(root, 'lab/addbook/js', name))).size
 }
 console.log(JSON.stringify({ nativeWebsiteBytesRemoved: removed, preserved: 'reader, catalogue, fonts, covers, all text and annotation recovery assets' }))
 
@@ -75,3 +84,23 @@ await writeFile('artifacts/android/native-library-footprint.json',JSON.stringify
  note:'Other books download on request; published source files and saved reader data are untouched.'
 },null,2))
 console.log(JSON.stringify({bundledBooks,bookBytesAvailableOnDemand:onDemandBytes}))
+
+// Books with a country restriction (Book.restrictedCountries) carry no text of
+// their own in the APK: the APK cannot know the reader's country, so text taken
+// from our editions comes only from tinct.app, whose Worker checks it per request
+// (src/worker/lib/regionGate.ts). The onboarding file holds the opening passage of
+// our translation and the primer quotes it; the on-demand download brings the
+// onboarding file back where the book is served. Covers, the introduction and the
+// preface are Tinct's own words about the book and stay.
+const regionRemoved=[]
+for(const entry of nativeIndex.books.filter(book=>Array.isArray(book.book?.restrictedCountries)&&book.book.restrictedCountries.length)) {
+  const id=entry.id
+  for(const folder of ['data/onboarding','lab/library_2/primer-data']) {
+    for(const name of await readdir(join(root,folder)).catch(()=>[])) {
+      if(name!==id+'.json'&&!name.startsWith(id+'.'))continue
+      await rm(join(root,folder,name),{force:true})
+      regionRemoved.push(folder+'/'+name)
+    }
+  }
+}
+console.log(JSON.stringify({countryRestrictedTextRemoved:regionRemoved}))

@@ -2,6 +2,8 @@ import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
+import { trackPending, probeStalled } from './lib/bootStallProbe.mjs'
 
 const live = process.env.AUTH_LIVE === '1'
 const origin = 'https://tinct.app'
@@ -17,17 +19,28 @@ const sessionFor = reader => {
   return { access_token: token, refresh_token: 'fixture-refresh', token_type: 'bearer', expires_in: 3600, expires_at: exp, user: reader }
 }
 for (const [engine, type] of Object.entries({ chromium, webkit })) {
-  const browser = await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) })
+  const browser = await markInternal(await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) }))
   try {
     for (const [size, width, height] of [['phone', 390, 844], ['desktop', 1440, 900]]) {
-      for (const test of ['signed-out', 'new-google', 'returning-google', 'email-confirmed', 'password-reset']) {
+      for (const test of ['signed-out', 'new-google', 'returning-google', 'email-confirmed', 'password-reset', 'email-code']) {
         const context = await browser.newContext({ viewport: { width, height }, serviceWorkers: 'block' })
         try {
           const page = await context.newPage()
-          const errors = [], assets = []
+          const boot = trackPending(page)
+          const errors = [], assets = [], pending = new Map()
+          page.on('request', request => pending.set(request, { path: new URL(request.url()).pathname, type: request.resourceType(), started: Date.now() }))
+          page.on('response', response => {
+            const record = pending.get(response.request())
+            if (record) Object.assign(record, { status: response.status(), responseAtMs: Date.now() - record.started,
+              contentType: response.headers()['content-type'], ray: response.headers()['cf-ray'] })
+          })
+          page.on('requestfinished', request => pending.delete(request))
+          page.on('requestfailed', request => pending.delete(request))
           page.on('pageerror', error => errors.push(error.message))
           const fixtureUser = test === 'returning-google' || test === 'email-confirmed' ? { ...user, created_at: '2026-01-01T00:00:00Z' } : user
-          const session = test === 'signed-out' ? null : sessionFor(fixtureUser)
+          const session = test === 'signed-out' || test === 'email-code' ? null : sessionFor(fixtureUser)
+          // A new reader by email code (onboarding v3): the code is entered three minutes after it was sent.
+          const codeUser = { ...user, app_metadata: { provider: 'email', providers: ['email'] }, last_sign_in_at: '2026-09-29T17:03:00Z' }
           await page.addInitScript(session => {
             if (session) localStorage.setItem('sb-yazjyiqsxjystvpkyouk-auth-token', JSON.stringify(session))
             HTMLMediaElement.prototype.play = async function () { this.muted = true }
@@ -36,7 +49,9 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
           await page.route('**/*', async route => {
             const request = route.request(), url = new URL(request.url())
             // No real accounts, emails, API writes or providers are contacted.
-            if (url.hostname.endsWith('.supabase.co')) return route.fulfill({ json: fixtureUser })
+            if (url.hostname.endsWith('.supabase.co') && url.pathname.endsWith('/auth/v1/otp')) return route.fulfill({ json: {} })
+            if (url.hostname.endsWith('.supabase.co') && url.pathname.endsWith('/auth/v1/verify')) return route.fulfill({ json: sessionFor(codeUser) })
+            if (url.hostname.endsWith('.supabase.co')) return route.fulfill({ json: test === 'email-code' ? null : fixtureUser })
             if (request.method() !== 'GET' || url.origin !== origin || url.pathname.startsWith('/api/')) return route.abort()
             if (url.pathname === '/reader') return route.fulfill({ contentType: 'text/html', body: '<p data-auth-destination>Book preserved</p>' })
             if (url.pathname.startsWith('/assets/')) assets.push(url.pathname)
@@ -46,16 +61,54 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
             if (!file.startsWith(path.resolve('dist') + '/')) return route.abort()
             try { return await route.fulfill({ path: file }) } catch { return route.abort() }
           })
+          const reportNavigationFailure = async error => {
+            // Navigation failures used to escape before any evidence was saved.
+            // Only fixture state and paths are recorded; never request headers/tokens.
+            const state = await page.evaluate(() => ({ url: location.href, title: document.title, readyState: document.readyState,
+              authReady: document.querySelector('#tinct-lab-sign-in')?.getAttribute('data-ready') })).catch(() => null)
+            const failure = { engine, size, test, errors, state,
+              pending: [...pending.values()].map(({ started, ...request }) => ({ ...request, elapsedMs: Date.now() - started })) }
+            console.log('AUTH_NAV_FAILURE ' + JSON.stringify(failure))
+            await fs.writeFile(output + '/' + engine + '-' + size + '-' + test + '-navigation.json', JSON.stringify(failure, null, 2))
+            await page.screenshot({ path: output + '/' + engine + '-' + size + '-' + test + '-navigation.png', timeout: 5000 }).catch(() => {})
+            throw error
+          }
           const callback = test === 'email-confirmed' ? 'signup' : 'oauth'
-          const query = test === 'signed-out' ? '' : test === 'password-reset' ? '&mode=reset' : '&callback=' + callback
-          await page.goto(origin + '/sign-in?returnTo=%2Freader%3Fbook%3Dbible%23p12' + query, { waitUntil: 'domcontentloaded' })
+          const query = test === 'signed-out' || test === 'email-code' ? '' : test === 'password-reset' ? '&mode=reset' : '&callback=' + callback
+          await page.goto(origin + '/sign-in?returnTo=%2Freader%3Fbook%3Dbible%23p12' + query, { waitUntil: 'domcontentloaded' }).catch(reportNavigationFailure)
           if (test === 'returning-google') {
             await page.waitForURL('**/reader?book=bible#p12')
             assert.equal(await page.locator('[data-auth-destination]').count(), 1)
           } else {
-            await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true')
+            try {
+              await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true')
+            } catch (error) {
+              console.error('BOOT_STALL ' + JSON.stringify({ engine, size, test, url: page.url(), probes: await probeStalled(boot.pending) }))
+              throw error
+            }
             const root = page.locator('#tinct-lab-sign-in')
+            // Live before a release (navigation-diagnostic on a PR): production may not have the code screen yet.
+            if (test === 'email-code' && live && await page.locator('[data-code-input]').count() === 0) {
+              console.log('AUTH_SKIP ' + JSON.stringify({ engine, size, test, reason: 'live page has no email code yet' }))
+              continue
+            }
+            if (test === 'email-code') {
+              // Keep your place: the Terms line for every way in, then one email field and the code.
+              assert.equal(await page.locator('[data-auth-legal]:visible').count(), 1)
+              await page.getByLabel('Email address').fill('new@example.com')
+              await page.getByRole('button', { name: 'Continue with email' }).click()
+              await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.mode === 'code')
+              assert.equal(await page.locator('[data-code-email]').innerText(), 'new@example.com')
+              assert.equal(await page.locator('[data-code-input]').getAttribute('autocomplete'), 'one-time-code')
+              const boxes = await page.locator('.auth-code-box').evaluateAll(nodes => nodes.map(node => { const r = node.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height)] }))
+              assert.equal(boxes.length, 6)
+              assert(boxes.every(([w, h]) => w >= 36 && h >= 44), JSON.stringify(boxes))
+              await page.screenshot({ path: output + '/' + engine + '-' + size + '-code.png' })
+              await page.locator('[data-code-input]').pressSequentially('123456')
+              await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.mode === 'welcome')
+            }
             const expected = test === 'signed-out' ? 'signin' : test === 'password-reset' ? 'reset' : 'welcome'
+            if (expected === 'signin') await page.screenshot({ path: output + '/' + engine + '-' + size + '-sheet.png' })
             assert.equal(await root.getAttribute('data-mode'), expected)
             assert.equal(await page.locator('[data-oauth="apple"]:visible').count(), 0)
             assert.equal(await page.locator('[data-oauth="github"]:visible').count(), 0)
@@ -75,7 +128,7 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
                   for (let i = 0; i < encoded.length; i += 12000) console.log('REVIEW_CHUNK ' + encoded.slice(i, i + 12000))
                   console.log('REVIEW_END')
                 }
-                await page.reload()
+                await page.reload().catch(reportNavigationFailure)
                 await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true')
                 assert.equal(await root.getAttribute('data-mode'), 'welcome')
               }

@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Isolated real reader and source data. All chat/account APIs are intercepted.
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict')
 const origin=process.env.TEST_ORIGIN||'https://tinct.app',dir=process.env.ARTIFACT_DIR||'artifacts/chapter-preview'
@@ -25,7 +26,7 @@ async function state(p){return p.evaluate(()=>{
 })}
 ;(async()=>{const results=[]
 for(const config of configs){
- const browser=await(config.width<900?webkit:chromium).launch()
+ const browser=await markInternal(await (config.width<900?webkit:chromium).launch())
  const context=await browser.newContext({serviceWorkers:'block',viewport:{width:config.width,height:config.height},isMobile:config.width<900,hasTouch:config.width<900})
  const p=await context.newPage(),calls=[],notes=[]
  const source=edition.chapters.find(c=>c.number===config.chapter)
@@ -65,7 +66,7 @@ for(const config of configs){
   await p.addInitScript(({config,highlight})=>{
    if(sessionStorage.getItem('chapter-preview-seeded'))return
    sessionStorage.setItem('chapter-preview-seeded','1')
-   localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:config.fontSize,theme:config.theme,compareOpen:false}))
+   localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:config.fontSize,fontSizeExplicit:true,theme:config.theme,compareOpen:false}))
    sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'kjv-en',...(config.compare?{compareEditionKey:'web-en'}:{}),savedPlace:{bookId:'bible',chapterNumber:config.chapter,paragraphIndex:0,wordIndex:0,page:0}}))
    localStorage.setItem('tinct-lab-highlights',JSON.stringify([highlight]))
   },{config,highlight})
@@ -131,7 +132,7 @@ for(const config of configs){
   assert.equal(await p.getByRole('heading',{name:'End of chapter',exact:true}).count(),0)
   assert.equal(await p.getByRole('button',{name:'Prep for next',exact:true}).count(),0)
   await p.evaluate(()=>localStorage.removeItem('tinct:lab-ai-actions'))
-  await p.locator('.lab-page-wrap').getByRole('button',{name:'Recap this chapter',exact:true}).click()
+  await p.locator('.lab-page-wrap').getByRole('button',{name:'Summary of this chapter',exact:true}).click()
   await p.waitForFunction(()=>document.querySelector('[data-testid="lab-chapter-notes"]')?.dataset.kind==='end'&&document.querySelector('[data-testid="lab-chapter-notes-beat"]'))
   assert.equal(notes.length,2);assert.equal(notes[1].kind,'end')
   assert.equal(notes[1].chapterNumber,config.chapter)

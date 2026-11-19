@@ -13,21 +13,50 @@
  * Every row carries the anonymous device id in payload.device_id. Only names
  * on FUNNEL_EVENT_NAMES and primitive, short property values are accepted; no
  * free text is stored.
+ *
+ * Tinct's own testing is marked, not dropped: a client with the internal flag
+ * (`?internal=1`) sends `internal: true` on every event, and any request with
+ * `x-tinct-check: 1` (automated checks) gets `internal: true` on every row, so
+ * metrics can leave it out while checks can still see their events land.
  */
 import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseInsertMinimal, type SupabaseEnv } from '../lib/supabase'
 
-export type EventsEnv = SupabaseEnv & { RATE_LIMIT?: KVNamespace }
+export type EventsEnv = SupabaseEnv & { RATE_LIMIT?: KVNamespace; SOCIAL_FRIENDS?: string; SOCIAL_PROFILES?: string }
 type VerifyUser = (env: EventsEnv, request: Request) => Promise<{ id: string } | null>
 type CheckRateLimit = (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
 
-export const FUNNEL_EVENT_NAMES = new Set([
+/**
+ * The social brief's events (docs/social/CODER-BRIEF.md "Analytics events").
+ * Accepted only while SOCIAL_FRIENDS (and SOCIAL_PROFILES) are on; off, the
+ * intake is exactly as before. Profile and follow events are recorded by the
+ * Worker; leaderboard_opened, profile_viewed and reading_card_shared by the pages.
+ */
+export const SOCIAL_EVENT_NAMES = [
+  'profile_created', 'profile_skipped', 'visibility_changed',
+  'follow', 'unfollow',
+  'leaderboard_opened', 'profile_viewed',
+  'reading_card_shared',
+] as const
+export type SocialEventName = typeof SOCIAL_EVENT_NAMES[number]
+
+export const FUNNEL_EVENT_NAMES = new Set<string>([
   'pageview', 'page_duration',
   'landing_view', 'book_opened', 'first_page_turn', 'chapter_completed',
   'ai_first_use', 'anon_limit_reached', 'signup_started', 'signup_completed',
   'member_ai_use', 'checkout_started', 'checkout_completed',
+  'book_intro_viewed', 'audio_failed', 'audio_slow_start', 'talk_failed',
+  'share_sheet_opened', 'share_created', 'share_completed', 'share_link_opened', 'share_link_signup',
+  'cards_open_failed', 'cards_open_stuck',
+  // The PDF reader's margin: a card whose request or drawing failed in the page (reader.js reportCardError;
+  // its kind, the step, the error's type and code location, never the passage, question or answer).
+  'margin_card_failed',
+  // A static scene page (/read/{bookId}/{scene}) handing over to the reader: the action and the scene, never the
+  // passage or question.
+  'scene_handoff',
 ])
+const SOCIAL_EVENTS = new Set<string>(SOCIAL_EVENT_NAMES)
 
 export const EVENTS_MAX_BODY_BYTES = 16_384
 export const EVENTS_MAX_BATCH = 20
@@ -35,7 +64,7 @@ export const EVENTS_RATE_PER_MINUTE = 60
 const MAX_PROPS = 12
 const MAX_STRING = 120
 const MAX_DURATION_MS = 30 * 60 * 1000
-const SURFACES = new Set(['library', 'reader', 'sign-in', 'server'])
+const SURFACES = new Set(['library', 'reader', 'sign-in', 'server', 'scene'])
 const ID = /^[A-Za-z0-9_-]{8,64}$/
 const PROP_KEY = /^[a-z][a-z0-9_]{0,31}$/
 
@@ -91,8 +120,13 @@ function cleanPath(value: unknown): string {
   return typeof value === 'string' && value.startsWith('/') ? value.split('?')[0].slice(0, 200) : '/'
 }
 
+/** Whether a request comes from Tinct's own automated checks. */
+export function isCheckRequest(request: Request): boolean {
+  return request.headers.get('x-tinct-check') === '1'
+}
+
 /** Pure: validate a batch and map it onto analytics_events rows. Returns null for a malformed body. */
-export function buildAnalyticsRows(body: unknown, userAgent: string, userId: string | null): AnalyticsInsertRow[] | null {
+export function buildAnalyticsRows(body: unknown, userAgent: string, userId: string | null, options: { internal?: boolean; social?: boolean } = {}): AnalyticsInsertRow[] | null {
   if (!body || typeof body !== 'object') return null
   const batch = body as IncomingBatch
   if (typeof batch.deviceId !== 'string' || !ID.test(batch.deviceId)) return null
@@ -104,8 +138,12 @@ export function buildAnalyticsRows(body: unknown, userAgent: string, userId: str
   const attribution = cleanAttribution(batch.attribution)
   const rows: AnalyticsInsertRow[] = []
   for (const item of (batch.events as IncomingEvent[]).slice(0, EVENTS_MAX_BATCH)) {
-    if (!item || typeof item.name !== 'string' || !FUNNEL_EVENT_NAMES.has(item.name)) continue
+    if (!item || typeof item.name !== 'string' || !(FUNNEL_EVENT_NAMES.has(item.name) || (options.social === true && SOCIAL_EVENTS.has(item.name)))) continue
     const props = cleanProps(item.props)
+    // `internal` is only ever true: a stray false or string never marks or unmarks a row.
+    delete props.internal
+    const internal = options.internal === true || (item.props as { internal?: unknown } | null | undefined)?.internal === true
+    const mark = internal ? { internal: true } : {}
     const common = {
       path, referrer, user_agent: userAgent.slice(0, 300), user_id: userId, session_id: batch.sessionId as string,
     }
@@ -114,17 +152,17 @@ export function buildAnalyticsRows(body: unknown, userAgent: string, userId: str
       if (!Number.isFinite(duration) || duration < 1000) continue
       rows.push({
         ...common, event_type: 'page_duration', duration_ms: Math.min(duration, MAX_DURATION_MS),
-        payload: { reason: 'duration', device_id: batch.deviceId, surface },
+        payload: { reason: 'duration', device_id: batch.deviceId, surface, ...mark },
       })
     } else if (item.name === 'pageview') {
       rows.push({
         ...common, event_type: 'pageview',
-        payload: { ...props, device_id: batch.deviceId, surface, ...(attribution ? { attribution } : {}) },
+        payload: { ...props, ...mark, device_id: batch.deviceId, surface, ...(attribution ? { attribution } : {}) },
       })
     } else {
       rows.push({
         ...common, event_type: 'event',
-        payload: { ...props, type: item.name, device_id: batch.deviceId, surface, ...(attribution ? { attribution } : {}) },
+        payload: { ...props, ...mark, type: item.name, device_id: batch.deviceId, surface, ...(attribution ? { attribution } : {}) },
       })
     }
   }
@@ -150,12 +188,12 @@ export function insertAnalyticsRows(env: EventsEnv, ctx: { waitUntil(p: Promise<
 export function recordServerEvent(
   env: EventsEnv,
   ctx: { waitUntil(p: Promise<unknown>): void } | undefined,
-  input: { name: 'checkout_started' | 'checkout_completed'; userId: string | null; props?: Record<string, Primitive> },
+  input: { name: 'checkout_started' | 'checkout_completed' | SocialEventName; userId: string | null; props?: Record<string, Primitive> },
 ): void {
   const rows = buildAnalyticsRows({
     deviceId: `server-${input.userId ?? 'anonymous'}`.slice(0, 64), sessionId: `server-${input.name}`, surface: 'server', path: '/api',
     events: [{ name: input.name, props: input.props ?? {} }],
-  }, 'tinct-worker', input.userId)
+  }, 'tinct-worker', input.userId, { social: SOCIAL_EVENTS.has(input.name) })
   if (rows) insertAnalyticsRows(env, ctx, rows)
 }
 
@@ -180,9 +218,10 @@ export async function handleEvents(
   let parsed: unknown
   try { parsed = JSON.parse(text) } catch { return jsonResponse({ error: 'Invalid JSON' }, 400, request) }
   const ua = request.headers.get('user-agent') || ''
+  const internal = isCheckRequest(request)
 
   // Validate first with no user, so a malformed or rate-limited beacon costs nothing.
-  if (!buildAnalyticsRows(parsed, ua, null)) return jsonResponse({ error: 'Invalid events' }, 400, request)
+  if (!buildAnalyticsRows(parsed, ua, null, { internal, social: env.SOCIAL_FRIENDS === '1' && env.SOCIAL_PROFILES === '1' })) return jsonResponse({ error: 'Invalid events' }, 400, request)
   if (!await checkRateLimit(`events:${clientIp(request)}`, env.RATE_LIMIT, EVENTS_RATE_PER_MINUTE)) {
     return new Response(null, { status: 204, headers: corsHeaders(request) })
   }
@@ -196,7 +235,7 @@ export async function handleEvents(
         userId = user && isValidUUID(user.id) ? user.id : null
       } catch { userId = null }
     }
-    const rows = buildAnalyticsRows(parsed, ua, userId)
+    const rows = buildAnalyticsRows(parsed, ua, userId, { internal, social: env.SOCIAL_FRIENDS === '1' && env.SOCIAL_PROFILES === '1' })
     if (rows) await writeAnalyticsRows(env, rows)
   })())
   return new Response(null, { status: 204, headers: corsHeaders(request) })

@@ -1,0 +1,466 @@
+/**
+ * A reader's own books on every device of their account: what this device
+ * keeps (Add a book's IndexedDB and `tinct-addbook:place:<hex>`) reconciled
+ * with the account's private copies and places (ownAccount.ts).
+ *
+ * - A book removed on another device (saved to the account, no longer in its
+ *   list) is forgotten here: the account's list is the record of what exists.
+ * - A place is one whole tuple (chapter, paragraph, word) with the time it was
+ *   read and the account revision this device last saw (`rev`). The newer
+ *   place wins: an account place read later on another device replaces this
+ *   device's, and this device's later place is saved to the account naming the
+ *   revision it saw. A stale write is refused by the account and answered
+ *   with its place, so no device overwrites a newer place blindly.
+ *
+ * - A PDF's place (Add a book's viewer, `tinct-addbook:pos:pdf:<hex>`) is its
+ *   page and how far down it, kept and reconciled the same way: the newer
+ *   place wins, a stale write is refused by the account, and this device's
+ *   zoom stays its own. It also carries the same spot in the PDF's Tinct text
+ *   and the edition it was read in (pdfEditions.ts), whichever edition wrote
+ *   it: a PDF read as Tinct text saves this one place, not a text place.
+ *
+ * - An EPUB read in Margin view (Add a book's margin reader, the desktop's
+ *   default) keeps its place by its words (`tinct-addbook:pos:epub:<hex>`):
+ *   noteEpubMarginPlace names it in the book's Tinct text as the Tinct
+ *   reader's place and saves that, so the account's other devices list and
+ *   open the book where it was read (4 Nov 2026: a phone led with the Bible).
+ *
+ * Nothing here names a book's title or text to the account, and nothing goes
+ * to the shared position stores (lab-position, reading memory).
+ */
+import { accountBookKey, fetchAccountPlaceSets, listAccountBooks, ownBookToken, putAccountPagePlace, putAccountPlace, type AccountBook, type AccountPagePlace, type AccountPlace, type FetchLike } from './ownAccount'
+import { PDF_PLACE_PREFIX, forgetRemovedOwnBooks, ownReading, ownReadingNow, pdfReading, placePercent, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './ownShelf'
+import { ownBookHref } from './userBookId'
+import { epubViewHere, readEpubPlace } from './epubView'
+import type { UserBookChapter, UserBookEdition } from './userEdition'
+import { sendMissingCovers, storedCovers, type CoverCache, type CoverShrinker } from './ownCovers'
+import { keepPdfTextPlace, pdfEditionChoice } from './pdfEditions'
+import { ownEpubEdition, userBookOwner } from './userBookStore'
+import { syncOwnShelfMembership } from './ownShelfMembership'
+
+const PLACE_PREFIX = 'tinct-addbook:place:'
+
+interface KeptPlace {
+  chapterNumber: number
+  paragraphIndex: number
+  wordIndex: number
+  updatedAt: number
+  percent?: number
+  /** The conversion rules the place was read under (userBookPlace.ts): carried to the account and back. */
+  converter?: number
+  /** The account revision this device last saw for the book (0 or absent: none). */
+  rev?: number
+  /** The `updatedAt` of the last place the account accepted from this device. */
+  savedAt?: number
+}
+
+function readKept(hex: string): KeptPlace | null {
+  try {
+    const raw = JSON.parse(localStorage.getItem(PLACE_PREFIX + hex) || 'null') as Partial<KeptPlace> | null
+    if (!raw || typeof raw !== 'object' || !Number.isInteger(raw.chapterNumber) || !Number.isInteger(raw.paragraphIndex) || !Number.isInteger(raw.wordIndex)) return null
+    return { ...raw, updatedAt: typeof raw.updatedAt === 'number' ? raw.updatedAt : 0 } as KeptPlace
+  } catch {
+    return null
+  }
+}
+
+function writeKept(hex: string, place: KeptPlace): void {
+  try { localStorage.setItem(PLACE_PREFIX + hex, JSON.stringify(place)) } catch { /* full or private */ }
+}
+
+/** The account's place, kept on this device as already saved. */
+function adopt(hex: string, place: AccountPlace): void {
+  const { rev, ...tuple } = place
+  writeKept(hex, { ...tuple, rev, savedAt: tuple.updatedAt })
+}
+
+/** Take every account place newer than this device's (EPUBs' and PDFs'). Returns the account's EPUB places, or null when unread. */
+export async function pullAccountPlaces(token: string | null, fetchImpl: FetchLike = fetch, owner?: string): Promise<Record<string, AccountPlace> | null> {
+  if (owner && userBookOwner() !== owner) return null
+  const sets = await fetchAccountPlaceSets(token, fetchImpl)
+  if (!sets || (owner && userBookOwner() !== owner)) return null
+  const places = sets.text
+  for (const [hex, place] of Object.entries(places)) {
+    const kept = readKept(hex)
+    if (!kept || place.updatedAt > kept.updatedAt) adopt(hex, place)
+  }
+  for (const [hex, place] of Object.entries(sets.pages)) adoptPageIfNewer(hex, place)
+  return places
+}
+
+// ===== A PDF's place: `tinct-addbook:pos:pdf:<hex>` =====
+
+/** Add a book's viewer keeps `{ page, frac, zoom, pages, at }`; sync adds the revision seen and what the account accepted. */
+interface KeptPage {
+  page: number
+  frac: number
+  /** When the reader was last there (ms); 0 for none. */
+  at: number
+  pages?: number
+  /** The same spot in the Tinct text, and the edition read (pdfEditions.ts). */
+  text?: { chapterNumber: number; paragraphIndex: number; wordIndex: number; converter?: number }
+  edition?: 't' | 'p'
+  rev?: number
+  savedAt?: number
+}
+
+function readPageRaw(hex: string): Record<string, unknown> | null {
+  try {
+    const raw = JSON.parse(localStorage.getItem(PDF_PLACE_PREFIX + hex) || 'null') as unknown
+    return raw && typeof raw === 'object' ? raw as Record<string, unknown> : null
+  } catch {
+    return null
+  }
+}
+
+function readPage(hex: string): KeptPage | null {
+  const raw = readPageRaw(hex)
+  if (!raw || !Number.isInteger(raw.page) || (raw.page as number) < 1) return null
+  const number = (value: unknown) => typeof value === 'number' && Number.isFinite(value) ? value : undefined
+  const whole = (value: unknown, min = 0) => Number.isInteger(value) && (value as number) >= min
+  const text = whole(raw.chapterNumber, 1) && whole(raw.paragraphIndex) && whole(raw.wordIndex)
+    ? { chapterNumber: raw.chapterNumber as number, paragraphIndex: raw.paragraphIndex as number, wordIndex: raw.wordIndex as number, ...(whole(raw.converter, 1) ? { converter: raw.converter as number } : {}) }
+    : undefined
+  return {
+    page: raw.page as number,
+    frac: Math.max(0, Math.min(1, number(raw.frac) ?? 0)),
+    at: number(raw.at) ?? 0,
+    pages: Number.isInteger(raw.pages) && (raw.pages as number) > 0 ? raw.pages as number : undefined,
+    text,
+    edition: raw.edition === 't' || raw.edition === 'p' ? raw.edition : undefined,
+    rev: number(raw.rev),
+    savedAt: number(raw.savedAt),
+  }
+}
+
+function writePage(hex: string, fields: Record<string, unknown>): void {
+  // The viewer's own fields (zoom, page count) stay as they are.
+  try { localStorage.setItem(PDF_PLACE_PREFIX + hex, JSON.stringify({ ...(readPageRaw(hex) ?? {}), ...fields })) } catch { /* full or private */ }
+}
+
+/** The account's place, kept on this device as already saved (a spot in the text it lacks is not kept from before). */
+function adoptPage(hex: string, place: AccountPagePlace): void {
+  writePage(hex, {
+    page: place.page, frac: place.frac ?? 0, at: place.updatedAt, rev: place.rev, savedAt: place.updatedAt,
+    chapterNumber: place.chapterNumber, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex, converter: place.converter, edition: place.edition,
+  })
+}
+
+/** Take the account's place when it was read later than this device's. */
+function adoptPageIfNewer(hex: string, place: AccountPagePlace): boolean {
+  const kept = readPage(hex)
+  if (kept && place.updatedAt <= kept.at) return false
+  adoptPage(hex, place)
+  return true
+}
+
+/**
+ * Save this device's place in one PDF to the account, when it is newer than
+ * what the account last accepted from here. A stale write is answered with the
+ * account's place: taken here when it was read later, else written over.
+ */
+export async function pushPdfPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; keepalive?: boolean; owner?: string } = {}): Promise<PushResult> {
+  const active = () => !options.owner || userBookOwner() === options.owner
+  if (!active()) return 'unavailable'
+  const kept = readPage(hex)
+  if (!kept || kept.at <= 0) return 'current'
+  if (kept.savedAt === kept.at) return 'current'
+  const token = options.token !== undefined ? options.token : await ownBookToken()
+  if (!token || !active()) return 'unavailable'
+  const percent = kept.pages ? Math.round(Math.max(0, Math.min(100, ((kept.page - 1 + kept.frac) / kept.pages) * 100)) * 100) / 100 : undefined
+  const tuple = { page: kept.page, frac: kept.frac, updatedAt: kept.at, ...(percent !== undefined ? { percent } : {}), ...(kept.text ?? {}), ...(kept.edition ? { edition: kept.edition } : {}) }
+  let rev = kept.rev ?? 0
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const result = await putAccountPagePlace(hex, tuple, rev, token, { fetchImpl: options.fetchImpl, keepalive: options.keepalive })
+    if (!active()) return 'unavailable'
+    if (result.status === 'saved') {
+      // A place noted while the request was out stays newer; it keeps the new revision.
+      const latest = readPage(hex) ?? kept
+      writePage(hex, { rev: result.place.rev, ...(latest.at === tuple.updatedAt ? { savedAt: tuple.updatedAt } : {}) })
+      return 'saved'
+    }
+    if (result.status !== 'conflict') return result.status
+    const theirs = result.place
+    if (theirs && theirs.updatedAt >= tuple.updatedAt) {
+      // Read later on another device: that place stands, here too (unless this device read on meanwhile).
+      const latest = readPage(hex)
+      if (!latest || latest.at <= theirs.updatedAt) adoptPage(hex, theirs)
+      return 'adopted'
+    }
+    rev = theirs?.rev ?? 0
+  }
+  return 'unavailable'
+}
+
+const pendingPages = new Map<string, { timer: ReturnType<typeof setTimeout>; token?: string | null; fetchImpl?: FetchLike }>()
+
+/**
+ * The viewer kept a new place in a PDF: saved to the account a moment later
+ * (the last one only), or at once with keepalive (`now`: the page is being
+ * hidden or left). Offline, it stays on this device and the next open saves it.
+ */
+export function notePdfPlace(hex: string, options: { now?: boolean; token?: string | null; fetchImpl?: FetchLike } = {}): void {
+  const waiting = pendingPages.get(hex)
+  if (waiting) clearTimeout(waiting.timer)
+  const send = (keepalive: boolean) => { pendingPages.delete(hex); void pushPdfPlace(hex, { token: options.token, fetchImpl: options.fetchImpl, keepalive }).catch(() => {}) }
+  if (options.now) { send(true); return }
+  pendingPages.set(hex, { timer: setTimeout(() => send(false), PUSH_DELAY_MS), token: options.token, fetchImpl: options.fetchImpl })
+}
+
+/** Send any PDF place still waiting (the viewer is being left). */
+export function flushPdfPlaces(): void {
+  for (const [hex, { timer, token, fetchImpl }] of [...pendingPages]) {
+    clearTimeout(timer)
+    pendingPages.delete(hex)
+    void pushPdfPlace(hex, { token, fetchImpl, keepalive: true }).catch(() => {})
+  }
+}
+
+/**
+ * Before the viewer shows a PDF: take the account's place when it was read
+ * later on another device ('adopted'), or keep this device's and save it when
+ * it is the newer one ('kept'). Bounded: offline, signed out or slow
+ * ('unavailable'), the book opens at this device's place.
+ */
+export async function reconcilePdfPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number; owner?: string } = {}): Promise<'adopted' | 'kept' | 'unavailable'> {
+  const active = () => !options.owner || userBookOwner() === options.owner
+  const work = (async (): Promise<'adopted' | 'kept' | 'unavailable'> => {
+    if (!active()) return 'unavailable'
+    const token = options.token !== undefined ? options.token : await ownBookToken()
+    if (!token || !active()) return 'unavailable'
+    const sets = await fetchAccountPlaceSets(token, options.fetchImpl)
+    if (!sets || !active()) return 'unavailable'
+    const theirs = sets.pages[hex]
+    if (theirs && adoptPageIfNewer(hex, theirs)) return 'adopted'
+    const kept = readPage(hex)
+    if (kept && kept.at > 0 && (!theirs || kept.at > theirs.updatedAt)) {
+      // Saved in the background: the book opens now.
+      void pushPdfPlace(hex, { token, fetchImpl: options.fetchImpl, owner: options.owner }).catch(() => {})
+    }
+    return 'kept'
+  })()
+  return withTimeout(work.catch(() => 'unavailable' as const), options.timeoutMs ?? 2500, 'unavailable')
+}
+
+export type PushResult = 'saved' | 'current' | 'adopted' | 'gone' | 'unavailable'
+
+/**
+ * Save this device's place in one book to the account, when it is newer than
+ * what the account last accepted from here. `chapters` (the book's text on
+ * this device) gives the percent the shelf shows on devices without the text.
+ */
+export async function pushOwnPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; chapters?: readonly UserBookChapter[]; keepalive?: boolean; owner?: string } = {}): Promise<PushResult> {
+  const active = () => !options.owner || userBookOwner() === options.owner
+  if (!active()) return 'unavailable'
+  const kept = readKept(hex)
+  if (!kept || kept.updatedAt <= 0) return 'current'
+  if (kept.savedAt === kept.updatedAt) return 'current'
+  const token = options.token !== undefined ? options.token : await ownBookToken()
+  if (!token || !active()) return 'unavailable'
+  const percent = options.chapters ? placePercent(options.chapters, kept) : kept.percent
+  const tuple = { chapterNumber: kept.chapterNumber, paragraphIndex: kept.paragraphIndex, wordIndex: kept.wordIndex, updatedAt: kept.updatedAt, ...(typeof percent === 'number' ? { percent } : {}), ...(typeof kept.converter === 'number' ? { converter: kept.converter } : {}) }
+  let rev = kept.rev ?? 0
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const result = await putAccountPlace(hex, tuple, rev, token, { fetchImpl: options.fetchImpl, keepalive: options.keepalive })
+    if (!active()) return 'unavailable'
+    if (result.status === 'saved') {
+      // A place noted while the request was out stays newer; it keeps the new revision.
+      const latest = readKept(hex) ?? kept
+      writeKept(hex, { ...latest, rev: result.place.rev, ...(latest.updatedAt === tuple.updatedAt ? { savedAt: tuple.updatedAt, ...(typeof percent === 'number' ? { percent } : {}) } : {}) })
+      return 'saved'
+    }
+    if (result.status !== 'conflict') return result.status
+    const theirs = result.place
+    if (theirs && theirs.updatedAt >= tuple.updatedAt) {
+      // Read later on another device: that place stands, here too (unless this device read on meanwhile).
+      const latest = readKept(hex)
+      if (!latest || latest.updatedAt <= theirs.updatedAt) adopt(hex, theirs)
+      return 'adopted'
+    }
+    rev = theirs?.rev ?? 0
+  }
+  return 'unavailable'
+}
+
+const PUSH_DELAY_MS = 2500
+const pending = new Map<string, { timer: ReturnType<typeof setTimeout>; chapters: readonly UserBookChapter[] }>()
+
+/**
+ * The reader noted a place in an own book (already kept on this device):
+ * saved to the account a moment later, or at once (`now`, e.g. the page is
+ * being hidden, sent with keepalive).
+ */
+export function noteOwnPlace(hex: string, chapters: readonly UserBookChapter[], options: { now?: boolean; fetchImpl?: FetchLike; pdf?: { pages?: number } } = {}): void {
+  // A PDF read as its Tinct text: the place it shares with its pages, saved as a PDF's place.
+  if (options.pdf) {
+    const kept = readKept(hex)
+    if (kept && keepPdfTextPlace(hex, chapters, kept, { edition: 't', pages: options.pdf.pages })) notePdfPlace(hex, { now: options.now, fetchImpl: options.fetchImpl })
+    return
+  }
+  const waiting = pending.get(hex)
+  if (waiting) clearTimeout(waiting.timer)
+  const flush = () => { pending.delete(hex); void pushOwnPlace(hex, { chapters, fetchImpl: options.fetchImpl, keepalive: options.now }).catch(() => {}) }
+  if (options.now) { flush(); return }
+  pending.set(hex, { timer: setTimeout(flush, PUSH_DELAY_MS), chapters })
+}
+
+/** Send any place still waiting (the reader is being left), a PDF's too. */
+export function flushOwnPlaces(): void {
+  flushPdfPlaces()
+  for (const [hex, { timer, chapters }] of [...pending]) {
+    clearTimeout(timer)
+    pending.delete(hex)
+    void pushOwnPlace(hex, { chapters, keepalive: true }).catch(() => {})
+  }
+}
+
+/** The Tinct text of EPUBs read in Margin view on this page, once found or converted (by account and book). */
+const marginEditions = new Map<string, UserBookEdition>()
+
+/**
+ * The margin reader kept a new place in an EPUB (`tinct-addbook:pos:epub:<hex>`): when it is newer than the
+ * Tinct reader's place it becomes that place, found by its words in the book's Tinct text (epubView.ts
+ * readEpubPlace; the text converted once on this device if it has none), and is saved to the account as
+ * noteOwnPlace saves the Tinct reader's (`now`: at once, with keepalive). Without the text (not this
+ * account's EPUB here, unreadable) nothing is written. Once the text is known, the place is noted before
+ * this returns, so a page being left can flush it.
+ */
+export function noteEpubMarginPlace(hex: string, options: { now?: boolean; owner?: string | null; fetchImpl?: FetchLike; edition?: (hex: string, owner: string) => Promise<UserBookEdition | null> } = {}): Promise<void> {
+  const owner = options.owner !== undefined ? options.owner : userBookOwner()
+  if (!owner) return Promise.resolve()
+  const share = (edition: UserBookEdition) => {
+    if (userBookOwner() !== owner) return
+    readEpubPlace(hex, edition)
+    noteOwnPlace(hex, edition.chapters, { now: options.now, fetchImpl: options.fetchImpl })
+  }
+  const known = marginEditions.get(owner + ':' + hex)
+  if (known) { share(known); return Promise.resolve() }
+  return (options.edition ?? ownEpubEdition)(hex, owner).catch(() => null).then(edition => {
+    if (!edition) return
+    marginEditions.set(owner + ':' + hex, edition)
+    share(edition)
+  })
+}
+
+const withTimeout = <T>(work: Promise<T>, ms: number, fallback: T): Promise<T> =>
+  Promise.race([work, new Promise<T>(resolve => setTimeout(() => resolve(fallback), ms))])
+
+/**
+ * Before the reader opens an own book: take the account's place when it was
+ * read later on another device, or save this device's when it is the newer
+ * one. Bounded: offline or slow, the book opens at this device's place.
+ */
+export async function reconcileOpenPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; chapters?: readonly UserBookChapter[]; timeoutMs?: number; owner?: string } = {}): Promise<void> {
+  const active = () => !options.owner || userBookOwner() === options.owner
+  const work = (async () => {
+    if (!active()) return
+    const token = options.token !== undefined ? options.token : await ownBookToken()
+    if (!token || !active()) return
+    const places = await pullAccountPlaces(token, options.fetchImpl, options.owner)
+    if (!places || !active()) return
+    const kept = readKept(hex)
+    const theirs = places[hex]
+    if (kept && (!theirs || kept.updatedAt > theirs.updatedAt)) {
+      // Saved in the background: the book opens now.
+      void pushOwnPlace(hex, { token, fetchImpl: options.fetchImpl, chapters: options.chapters, owner: options.owner }).catch(() => {})
+    }
+  })()
+  await withTimeout(work.catch(() => {}), options.timeoutMs ?? 2500, undefined)
+}
+
+/** An account book not on this device, as My shelf and the reading table list it (its place from the account, if read). */
+export function accountOnlyBook(book: AccountBook): OwnShelfBook {
+  const hex = book.sha256.slice(0, 24)
+  const at = Date.parse(book.createdAt) || 0
+  return {
+    key: accountBookKey(book),
+    kind: book.type,
+    hex,
+    title: book.title || book.name.replace(/\.(pdf|epub)$/i, '') || 'Untitled',
+    author: book.author || '',
+    cover: null,
+    storedCover: null,
+    at,
+    href: ownBookHref(hex, book.type, book.type === 'pdf' ? pdfEditionChoice(hex) : epubViewHere(hex)),
+    // A PDF's place: the page read on another device of the account (pullAccountPlaces), if any.
+    reading: book.type === 'epub' ? ownReading(hex, null, at) : pdfReading(hex, {}, at),
+  }
+}
+
+/** Metadata is mutable on the account; keep local cover and reading place when it changes on another device. */
+export function withAccountBookMetadata(local: OwnShelfBook, account: AccountBook | undefined): OwnShelfBook {
+  if (!account || accountBookKey(account) !== local.key || !(account.metadataRev && account.metadataRev > 0)) return local
+  return { ...local, title: account.title || account.name.replace(/\.(pdf|epub)$/i, '') || local.title, author: account.author }
+}
+
+/**
+ * Every own book of this account, as My shelf and the reading table list it:
+ * this device's (after reconcileOwnBooks), then the account's not on it, each
+ * key once, latest first. Without the account (signed out, offline, slow past
+ * `timeoutMs`), this device's books as they are.
+ */
+export async function ownShelfWithAccount(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number; shrink?: CoverShrinker; cache?: CoverCache } = {}): Promise<OwnShelfBook[]> {
+  if (!owner) return []
+  const token = options.token !== undefined ? options.token : await ownBookToken()
+  const account = await reconcileOwnBooks(owner, { ...options, token }).catch(() => null)
+  const out: OwnShelfBook[] = []
+  const here = new Set<string>()
+  let local = await readOwnShelf(owner)
+  await syncOwnShelfMembership(owner, local.map(book => book.hex), (account ?? []).map(book => book.sha256.slice(0, 24))).catch(() => {})
+  // Visibility changed after the first read; derive reading rows from the same
+  // saved places again so every consumer sees the adopted account choice.
+  local = await readOwnShelf(owner)
+  const accountByKey = new Map((account ?? []).map(book => [accountBookKey(book), book]))
+  for (const book of local) {
+    if (here.has(book.key)) continue
+    here.add(book.key)
+    out.push(withAccountBookMetadata(book, accountByKey.get(book.key)))
+  }
+  for (const book of account ?? []) {
+    const listed = accountOnlyBook(book)
+    if (here.has(listed.key)) continue
+    here.add(listed.key)
+    out.push(listed)
+  }
+  // This device's covers go to account copies that have none (in the background);
+  // a book with no picture here wears the account's stored one (book-cover.js).
+  if (account) void sendMissingCovers(local, account, { token, fetchImpl: options.fetchImpl, shrink: options.shrink }).catch(() => [])
+  const bare = new Set(out.filter(book => !book.cover).map(book => book.hex))
+  if (bare.size) {
+    const stored = await withTimeout(storedCovers(owner, account, bare, { token, fetchImpl: options.fetchImpl, cache: options.cache }).catch(() => new Map<string, string>()), 4000, new Map<string, string>())
+    for (const book of out) if (!book.cover && stored.has(book.hex)) book.storedCover = stored.get(book.hex)!
+  }
+  return out.sort((a, b) => b.at - a.at)
+}
+
+/**
+ * The reader's own books being read, as every "Reading now" lists them (the
+ * library's reading table, My shelf, the reader's book switcher): this
+ * device's and the account's (a book added or read on another device), most
+ * recently read first. Without the account, this device's.
+ */
+export async function ownReadingNowWithAccount(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number; shrink?: CoverShrinker; cache?: CoverCache } = {}): Promise<Array<OwnShelfBook & { reading: OwnShelfReading }>> {
+  if (!owner) return []
+  const books = await ownShelfWithAccount(owner, options).catch(() => readOwnShelf(owner).catch(() => [] as OwnShelfBook[]))
+  return ownReadingNow(books)
+}
+
+/**
+ * Bring this device in line with the account before own books are listed:
+ * forget books removed on another device, take newer places. Returns the
+ * account's books, or null when the account could not be read (this device's
+ * books are listed as they are).
+ */
+export async function reconcileOwnBooks(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number } = {}): Promise<AccountBook[] | null> {
+  if (!owner) return null
+  const token = options.token !== undefined ? options.token : await ownBookToken()
+  if (!token) return null
+  const books = await withTimeout(listAccountBooks(token, options.fetchImpl), options.timeoutMs ?? 5000, null)
+  if (!books) return null
+  await forgetRemovedOwnBooks(owner, new Set(books.filter(book => book.sha256).map(accountBookKey)))
+  // A slow position endpoint must not discard an already authoritative shelf
+  // list. Normal places land before rendering; late places still complete in
+  // the background, using the existing newer-position checks.
+  await withTimeout(pullAccountPlaces(token, options.fetchImpl).catch(() => null), 2500, null)
+  return books
+}

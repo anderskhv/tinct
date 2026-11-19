@@ -5,8 +5,9 @@ import { useAuth } from './hooks/useAuth'
 import { useVoiceSession } from './hooks/useVoiceSession'
 import { useVoicePersonaSync, type VoicePersona } from './lab/useVoicePersonaSync'
 import { LabMarkdown } from './lab/LabMarkdown'
+import { LabWait } from './lab/LabWait'
 import { LabVoiceCall } from './lab/LabVoiceCall.tsx'
-import { labCallUtterance, labCallView } from './lab/labVoiceCall'
+import { labCallView } from './lab/labVoiceCall'
 import { decideLabAiAction, gateLabAiAction, labSignInHref } from './lab/labAccountPrompt'
 import { LabChatError, isAiRestingError, labChatErrorType, readAnthropicResponse } from './lab/labCompanion'
 import { LAB_COPY } from './lab/labCopy'
@@ -26,6 +27,7 @@ import {
   type LibraryCatalogueBook,
   type LibraryShelf,
 } from './lab/libraryLibrarian'
+import { internalTrafficHeaders } from './utils/internalTraffic'
 
 type Mode = 'search' | 'chat' | 'talk' | null
 export interface LibraryAssistantControls {
@@ -291,7 +293,7 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
       const post = (bearer: string | null) => fetch(apiUrl(bearer ? '/api/chat' : '/api/lab-chat'), {
         method: 'POST',
         signal: controller.signal,
-        headers: { 'Content-Type': 'application/json', ...(bearer ? { Authorization: `Bearer ${bearer}` } : {}) },
+        headers: { 'Content-Type': 'application/json', ...internalTrafficHeaders(), ...(bearer ? { Authorization: `Bearer ${bearer}` } : {}) },
         body: JSON.stringify({
           stream: true,
           companion: { intent: 'library', library: { contextBookId: contextBook?.id ?? null, shelf: host?.getShelf?.() ?? null } },
@@ -312,8 +314,9 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
           showAccount('chat', text)
           throw new Error('account')
         }
-        const detail = response.status === 402 ? ((await response.json().catch(() => null)) as { error?: string } | null)?.error : null
-        throw new Error(response.status === 402 ? `allowance:${detail || 'No messages remaining.'}` : 'session')
+        // A 402 is the AI allowance at zero ({ error: 'allowance_used' }): the
+        // same line as the reader's chat, never the Worker's error code.
+        throw new Error(response.status === 402 ? `allowance:${LAB_COPY.balanceEmpty}` : 'session')
       }
       if (!response.ok) throw new LabChatError(await labChatErrorType(response))
       const answer = await readAnthropicResponse(response, accumulated => {
@@ -430,8 +433,8 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
         <div className="library-chat-thread" aria-live="polite">
           {turns.length === 0 && <p className="library-chat-empty">Tell me what you feel like reading, or name a book you loved.</p>}
           {turns.map(turn => <div key={turn.id} className={`library-chat-turn is-${turn.role}${turn.error ? ' is-error' : ''}`}>
-            <span>{turn.role === 'user' ? 'You' : 'Tinct'}</span>
-            <LabMarkdown>{turn.pending && !turn.content ? 'Thinking…' : visibleLibrarianText(turn.content)}</LabMarkdown>
+            {/* The reader's ring while the answer has not begun (the thread is the live region); "Thinking…" stays for screen readers. */}
+            {turn.pending && !turn.content ? <LabWait label="Thinking…" size={16} live={false} testId="library-chat-pending" /> : <LabMarkdown>{visibleLibrarianText(turn.content)}</LabMarkdown>}
             {turn.role === 'assistant' && !turn.pending && <BookActions onOpen={chooseBook} books={recommendationBookIds(turn.content, catalogue).map(id => byId.get(id)).filter((book): book is LibraryCatalogueBook => Boolean(book))} />}
           </div>)}
           {failedQuestion && !sending && <button className="library-retry" type="button" onClick={() => void sendChat(failedQuestion)}>Retry</button>}
@@ -446,9 +449,6 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
           view={voiceView}
           getAssistantLevel={voice.getAssistantLevel}
           notice={voice.error}
-          bookLine={contextBook?.title ?? "Tinct Library"}
-          utterance={labCallUtterance(voiceTurnsRef.current)}
-          idleCaption={contextBook ? "What would you like to know before reading?" : "Tell me what you feel like reading."}
           onMuteToggle={() => voice.setMicMuted(!voice.micMuted)}
           onEnd={close}
           onReconnect={() => void voice.start({ authToken: token })}

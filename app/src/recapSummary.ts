@@ -57,6 +57,12 @@ export interface LabRecapResponse {
   model: string
   version: string
   cached: boolean
+  /**
+   * The covered text holds nothing to summarise yet (a heading, an address
+   * line, a date): `summary` is empty and the caller shows no entry. Never
+   * cached, so a later request past real text is answered normally.
+   */
+  empty?: boolean
 }
 
 function clampIndex(paragraphIndex: number, paragraphCount: number): number {
@@ -101,5 +107,69 @@ export function recapCacheKey(input: {
       ? String(clampIndex(input.paragraphIndex, RECAP_MAX_PARAGRAPH_INDEX + 1))
       : String(recapCoverageThrough({ paragraphIndex: input.paragraphIndex, paragraphCount: input.paragraphCount, completed: false }))
   const from = input.previousChapterNumber ?? input.chapterNumber
-  return `${input.brief ? 'brief-v1/' : ''}${RECAP_PROMPT_VERSION}/${input.bookId}/${input.editionKey}/${input.chapterNumber}/${from}/${through}`
+  return `${input.brief ? `${RECAP_BRIEF_VERSION}/` : ''}${RECAP_PROMPT_VERSION}/${input.bookId}/${input.editionKey}/${input.chapterNumber}/${from}/${through}`
+}
+
+/** Catch me up's brief entry: v2 answers through a structured tool call and may return an empty entry. */
+export const RECAP_BRIEF_VERSION = 'brief-v2'
+/** Catch me up skips the chapter-in-progress entry until the reader has read at least this much narrative. */
+export const RECAP_BRIEF_MIN_NARRATIVE_WORDS = 40
+/** A paragraph shorter than this is a heading, address line, date or salutation, not narrative. */
+export const RECAP_NARRATIVE_PARAGRAPH_MIN_WORDS = 6
+
+function plainWords(text: string): string[] {
+  return text
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/[_*]+/g, ' ')
+    .replace(/[¹²³⁰-⁹]+/g, ' ')
+    .split(/\s+/)
+    .filter(word => /[\p{L}\p{N}]/u.test(word))
+}
+
+/**
+ * Words of narrative in these paragraphs. Headings, address lines, dates and
+ * salutations ("To Mrs. Saville, England.", "August 5th, 17—.") count for
+ * nothing, so a passage made only of them reads as 0.
+ */
+export function recapNarrativeWords(paragraphs: readonly string[]): number {
+  let total = 0
+  for (const paragraph of paragraphs) {
+    const words = plainWords(paragraph).length
+    if (words >= RECAP_NARRATIVE_PARAGRAPH_MIN_WORDS) total += words
+  }
+  return total
+}
+
+/**
+ * Whether a brief (Catch me up) entry for the chapter in progress has enough
+ * read text to summarise. Measured over exactly what the Worker would send,
+ * the chapter through `recapCoverageThrough`, so a long chapter's
+ * 5-paragraph bucket cannot turn "read a page" into "summarise the salutation".
+ */
+export function briefRecapHasEnoughText(input: { paragraphs: readonly string[]; paragraphIndex: number; completed: boolean }): boolean {
+  if (!input.paragraphs.length) return false
+  const through = recapCoverageThrough({ paragraphIndex: input.paragraphIndex, paragraphCount: input.paragraphs.length, completed: input.completed })
+  return recapNarrativeWords(input.paragraphs.slice(0, through + 1)) >= RECAP_BRIEF_MIN_NARRATIVE_WORDS
+}
+
+const RECAP_META_REPLY = new RegExp([
+  String.raw`\bI (?:would |'d )?need (?:to see|more|the)\b`,
+  String.raw`\b(?:could|can|would) you (?:please )?(?:provide|share|paste|send|give)\b`,
+  String.raw`\bplease (?:provide|share|paste|send)\b`,
+  String.raw`\bpassage (?:provided |given |above )?(?:only (?:shows|contains|includes)|contains no|has no|does not contain|doesn't contain)\b`,
+  String.raw`\b(?:full|actual|complete) (?:text|content) of\b`,
+  String.raw`\bI (?:cannot|can't|am unable to|'m unable to) (?:summari[sz]e|write|provide)\b`,
+].join('|'), 'i')
+
+/**
+ * Backstop for a summary that is not one: empty, or the model talking to the
+ * reader about the passage ("I need to see the actual content…", "Could you
+ * provide the full text…"). The structured response and the narrative floor
+ * are the primary guards; this catches an answer that slipped past them and
+ * anything already sitting in a cache.
+ */
+export function isUsableRecapSummary(summary: unknown): summary is string {
+  if (typeof summary !== 'string') return false
+  const text = summary.trim()
+  return text.length > 0 && !RECAP_META_REPLY.test(text)
 }

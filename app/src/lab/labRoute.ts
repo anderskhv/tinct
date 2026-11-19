@@ -7,7 +7,6 @@ export const PAGE_HOME = '/'
 export const PAGE_LIBRARY = '/library'
 export const PAGE_READER = '/reader'
 export const PAGE_SIGN_IN = '/sign-in'
-export const PAGE_FEATURED = '/featured'
 
 /** The one path that mounts the reader SPA. */
 export function isLabPath(pathname: string): boolean {
@@ -48,9 +47,16 @@ export function legacyLabPageRedirect(pathname: string, search = ''): string | n
     case '/lab/sign-in':
       target = PAGE_SIGN_IN
       break
-    case '/lab/featured':
-      target = PAGE_FEATURED
-      break
+    case '/lab/addbook': {
+      // One own book's old address (?userBook=<hex>, or an older ?open=<pdf|epub>:<hex>): its one address now,
+      // the reader (Anders, 22 Oct 2026). Original pages' `page`, `frac` and `pages` go along; the place itself is
+      // kept on the device and in the account. Any other visit (an old ?handoff=1 link) is still the page.
+      const hex = params.get('userBook') || /^(?:pdf|epub):([0-9a-f]{8,64})$/.exec(params.get('open') || '')?.[1] || ''
+      if (!/^[0-9a-f]{8,64}$/.test(hex)) return null
+      const kept = new URLSearchParams({ userBook: hex })
+      for (const key of ['page', 'frac', 'pages']) { const value = params.get(key); if (value !== null) kept.set(key, value) }
+      return `${PAGE_READER}?${kept}`
+    }
     default:
       return null
   }

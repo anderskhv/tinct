@@ -1,0 +1,278 @@
+tool: unmodified books/classify-modern-en.py (sha256 950700285d86e213), run on a scratch mirror: served original-en + candidate.json as modern-en…
+candidate.json sha256 1f123f52d66f4f4df3c4b8e2e47dd8d561bc10fd914c7ef90bed6db51327c7fa
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --per-chapter   # scratch mirror
+  ch    1  sim 0.729  REAL        No. 1 — General Introduction (Hamilton)
+  ch    2  sim 0.704  REAL        No. 2 — Concerning Dangers from Foreign Force and 
+  ch    3  sim 0.668  REAL        No. 3 — The Same Subject Continued (Concerning Dan
+  ch    4  sim 0.652  REAL        No. 4 — The Same Subject Continued (Concerning Dan
+  ch    5  sim 0.693  REAL        No. 5 — The Same Subject Continued (Concerning Dan
+  ch    6  sim 0.714  REAL        No. 6 — Concerning Dangers from Dissensions Betwee
+  ch    7  sim 0.669  REAL        No. 7 — The Same Subject Continued (Concerning Dan
+  ch    8  sim 0.750  REAL        No. 8 — The Consequences of Hostilities Between th
+  ch    9  sim 0.783  REAL        No. 9 — The Union as a Safeguard Against Domestic 
+  ch   10  sim 0.749  REAL        No. 10 — The Same Subject Continued (The Union as 
+  ch   11  sim 0.760  REAL        No. 11 — The Utility of the Union in Respect to Co
+  ch   12  sim 0.741  REAL        No. 12 — The Utility of the Union In Respect to Re
+  ch   13  sim 0.713  REAL        No. 13 — Advantage of the Union in Respect to Econ
+  ch   14  sim 0.705  REAL        No. 14 — Objections to the Proposed Constitution F
+  ch   15  sim 0.641  REAL        No. 15 — The Insufficiency of the Present Confeder
+  ch   16  sim 0.671  REAL        No. 16 — The Same Subject Continued (The Insuffici
+  ch   17  sim 0.675  REAL        No. 17 — The Same Subject Continued (The Insuffici
+  ch   18  sim 0.719  REAL        No. 18 — The Same Subject Continued (The Insuffici
+  ch   19  sim 0.607  REAL        No. 19 — The Same Subject Continued (The Insuffici
+  ch   20  sim 0.671  REAL        No. 20 — The Same Subject Continued (The Insuffici
+  ch   21  sim 0.644  REAL        No. 21 — Other Defects of the Present Confederatio
+  ch   22  sim 0.707  REAL        No. 22 — The Same Subject Continued (Other Defects
+  ch   23  sim 0.743  REAL        No. 23 — The Necessity of a Government as Energeti
+  ch   24  sim 0.760  REAL        No. 24 — The Powers Necessary to the Common Defens
+  ch   25  sim 0.726  REAL        No. 25 — The Same Subject Continued (The Powers Ne
+  ch   26  sim 0.762  REAL        No. 26 — The Idea of Restraining the Legislative A
+  ch   27  sim 0.759  REAL        No. 27 — The Same Subject Continued (The Idea of R
+  ch   28  sim 0.736  REAL        No. 28 — The Same Subject Continued (The Idea of R
+  ch   29  sim 0.776  REAL        No. 29 — Concerning the Militia (Hamilton)
+  ch   30  sim 0.767  REAL        No. 30 — Concerning the General Power of Taxation 
+  ch   31  sim 0.707  REAL        No. 31 — The Same Subject Continued (Concerning th
+  ch   32  sim 0.696  REAL        No. 32 — The Same Subject Continued (Concerning th
+  ch   33  sim 0.730  REAL        No. 33 — The Same Subject Continued (Concerning th
+  ch   34  sim 0.696  REAL        No. 34 — The Same Subject Continued (Concerning th
+  ch   35  sim 0.704  REAL        No. 35 — The Same Subject Continued (Concerning th
+  ch   36  sim 0.598  REAL        No. 36 — The Same Subject Continued (Concerning th
+  ch   37  sim 0.676  REAL        No. 37 — Concerning the Difficulties of the Conven
+  ch   38  sim 0.755  REAL        No. 38 — The Same Subject Continued, and the Incoh
+  ch   39  sim 0.665  REAL        No. 39 — The Conformity of the Plan to Republican 
+  ch   40  sim 0.624  REAL        No. 40 — On the Powers of the Convention to Form a
+  ch   41  sim 0.656  REAL        No. 41 — General View of the Powers Conferred by T
+  ch   42  sim 0.633  REAL        No. 42 — The Powers Conferred by the Constitution 
+  ch   43  sim 0.659  REAL        No. 43 — The Same Subject Continued (The Powers Co
+  ch   44  sim 0.666  REAL        No. 44 — Restrictions on the Authority of the Seve
+  ch   45  sim 0.661  REAL        No. 45 — The Alleged Danger From the Powers of the
+  ch   46  sim 0.689  REAL        No. 46 — The Influence of the State and Federal Go
+  ch   47  sim 0.721  REAL        No. 47 — The Particular Structure of the New Gover
+  ch   48  sim 0.753  REAL        No. 48 — These Departments Should Not Be So Far Se
+  ch   49  sim 0.735  REAL        No. 49 — Method of Guarding Against the Encroachme
+  ch   50  sim 0.657  REAL        No. 50 — Periodical Appeals to the People Consider
+  ch   51  sim 0.723  REAL        No. 51 — The Structure of the Government Must Furn
+  ch   52  sim 0.607  REAL        No. 52 — The House of Representatives (Madison)
+  ch   53  sim 0.662  REAL        No. 53 — The Same Subject Continued (The House of 
+  ch   54  sim 0.688  REAL        No. 54 — The Apportionment of Members Among the St
+  ch   55  sim 0.704  REAL        No. 55 — The Total Number of the House of Represen
+  ch   56  sim 0.713  REAL        No. 56 — The Same Subject Continued (The Total Num
+  ch   57  sim 0.637  REAL        No. 57 — The Alleged Tendency of the New Plan to E
+  ch   58  sim 0.650  REAL        No. 58 — Objection That The Number of Members Will
+  ch   59  sim 0.639  REAL        No. 59 — Concerning the Power of Congress to Regul
+  ch   60  sim 0.670  REAL        No. 60 — The Same Subject Continued (Concerning th
+  ch   61  sim 0.657  REAL        No. 61 — The Same Subject Continued (Concerning th
+  ch   62  sim 0.721  REAL        No. 62 — The Senate (Madison)
+  ch   63  sim 0.731  REAL        No. 63 — The Senate Continued (Madison)
+  ch   64  sim 0.765  REAL        No. 64 — The Powers of the Senate (Jay)
+  ch   65  sim 0.762  REAL        No. 65 — The Powers of the Senate Continued (Hamil
+  ch   66  sim 0.733  REAL        No. 66 — Objections to the Power of the Senate To 
+  ch   67  sim 0.648  REAL        No. 67 — The Executive Department (Hamilton)
+  ch   68  sim 0.647  REAL        No. 68 — The Mode of Electing the President (Hamil
+  ch   69  sim 0.736  REAL        No. 69 — The Real Character of the Executive (Hami
+  ch   70  sim 0.736  REAL        No. 70 — The Executive Department Further Consider
+  ch   71  sim 0.716  REAL        No. 71 — The Duration in Office of the Executive (
+  ch   72  sim 0.719  REAL        No. 72 — The Same Subject Continued, and Re-Eligib
+  ch   73  sim 0.601  REAL        No. 73 — The Provision For The Support of the Exec
+  ch   74  sim 0.742  REAL        No. 74 — The Command of the Military and Naval For
+  ch   75  sim 0.643  REAL        No. 75 — The Treaty-Making Power of the Executive 
+  ch   76  sim 0.766  REAL        No. 76 — The Appointing Power of the Executive (Ha
+  ch   77  sim 0.701  REAL        No. 77 — The Appointing Power Continued and Other 
+  ch   78  sim 0.737  REAL        No. 78 — The Judiciary Department (Hamilton)
+  ch   79  sim 0.693  REAL        No. 79 — The Judiciary Continued (Hamilton)
+  ch   80  sim 0.761  REAL        No. 80 — The Powers of the Judiciary (Hamilton)
+  ch   81  sim 0.781  REAL        No. 81 — The Judiciary Continued, and the Distribu
+  ch   82  sim 0.791  REAL        No. 82 — The Judiciary Continued. (Hamilton)
+  ch   83  sim 0.737  REAL        No. 83 — The Judiciary Continued in Relation to Tr
+  ch   84  sim 0.751  REAL        No. 84 — Certain General and Miscellaneous Objecti
+  ch   85  sim 0.713  REAL        No. 85 — Concluding Remarks (Hamilton)
+federalist-papers original-en -> modern-en  (85 chapters)
+  weighted similarity : 0.704   (gate: <= 0.75)
+  light+mechanical    : 0/85 = 0.0%   (gate: <= 5%)
+  identical long paras: 32/1232 = 2.6%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 85  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 1-7   # scratch mirror
+federalist-papers original-en -> modern-en  (7 chapters)
+  weighted similarity : 0.690   (gate: <= 0.75)
+  light+mechanical    : 0/7 = 0.0%   (gate: <= 5%)
+  identical long paras: 2/103 = 1.9%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 7  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 8-12   # scratch mirror
+federalist-papers original-en -> modern-en  (5 chapters)
+  weighted similarity : 0.756   (gate: <= 0.75)
+  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)
+  identical long paras: 6/80 = 7.5%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 5  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE FAIL
+exit 1
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 13-18   # scratch mirror
+federalist-papers original-en -> modern-en  (6 chapters)
+  weighted similarity : 0.682   (gate: <= 0.75)
+  light+mechanical    : 0/6 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/77 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 6  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 19-23   # scratch mirror
+federalist-papers original-en -> modern-en  (5 chapters)
+  weighted similarity : 0.678   (gate: <= 0.75)
+  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)
+  identical long paras: 4/88 = 4.5%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 5  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 24-29   # scratch mirror
+federalist-papers original-en -> modern-en  (6 chapters)
+  weighted similarity : 0.754   (gate: <= 0.75)
+  light+mechanical    : 0/6 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/68 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 6  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE FAIL
+exit 1
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 30-35   # scratch mirror
+federalist-papers original-en -> modern-en  (6 chapters)
+  weighted similarity : 0.717   (gate: <= 0.75)
+  light+mechanical    : 0/6 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/58 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 6  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 36-39   # scratch mirror
+federalist-papers original-en -> modern-en  (4 chapters)
+  weighted similarity : 0.676   (gate: <= 0.75)
+  light+mechanical    : 0/4 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/60 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 4  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 40-43   # scratch mirror
+federalist-papers original-en -> modern-en  (4 chapters)
+  weighted similarity : 0.644   (gate: <= 0.75)
+  light+mechanical    : 0/4 = 0.0%   (gate: <= 5%)
+  identical long paras: 11/94 = 11.7%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 4  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE FAIL
+exit 1
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 44-48   # scratch mirror
+federalist-papers original-en -> modern-en  (5 chapters)
+  weighted similarity : 0.695   (gate: <= 0.75)
+  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)
+  identical long paras: 4/85 = 4.7%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 5  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 49-55   # scratch mirror
+federalist-papers original-en -> modern-en  (7 chapters)
+  weighted similarity : 0.684   (gate: <= 0.75)
+  light+mechanical    : 0/7 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/71 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 7  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 56-61   # scratch mirror
+federalist-papers original-en -> modern-en  (6 chapters)
+  weighted similarity : 0.659   (gate: <= 0.75)
+  light+mechanical    : 0/6 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/74 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 6  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 62-66   # scratch mirror
+federalist-papers original-en -> modern-en  (5 chapters)
+  weighted similarity : 0.741   (gate: <= 0.75)
+  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)
+  identical long paras: 1/78 = 1.3%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 5  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 67-71   # scratch mirror
+federalist-papers original-en -> modern-en  (5 chapters)
+  weighted similarity : 0.708   (gate: <= 0.75)
+  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)
+  identical long paras: 2/69 = 2.9%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 5  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 72-77   # scratch mirror
+federalist-papers original-en -> modern-en  (6 chapters)
+  weighted similarity : 0.688   (gate: <= 0.75)
+  light+mechanical    : 0/6 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/62 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 6  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 78-82   # scratch mirror
+federalist-papers original-en -> modern-en  (5 chapters)
+  weighted similarity : 0.759   (gate: <= 0.75)
+  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)
+  identical long paras: 2/84 = 2.4%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 5  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE FAIL
+exit 1
+
+$ python3 books/classify-modern-en.py federalist-papers --gate --chapters 83-85   # scratch mirror
+federalist-papers original-en -> modern-en  (3 chapters)
+  weighted similarity : 0.737   (gate: <= 0.75)
+  light+mechanical    : 0/3 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/81 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 3  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ audit-truncation.py federalist-papers en   # scratch copy pointed at the mirror
+== federalist-papers: modern-en vs original-en ==
+  TOTAL: 0

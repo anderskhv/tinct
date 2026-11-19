@@ -86,7 +86,7 @@ That chain is breaking. Not because the books got worse. Because accessing them 
 - Read on phone, tablet, desktop, or e-reader — cross-device sync with a free account
 - Highlights, notes, reading journal that builds over time
 
-**Premium — $3/month (first month free, no card required):**
+**Premium — $5/month (first month free, no card required):**
 - An AI companion that knows your current page and your reading angle
 - A character tracker that shows who everyone is, only as far as you've read
 - A synced audiobook that picks up where you stopped reading
@@ -126,7 +126,7 @@ No competitor offers a reading experience purpose-built for classics + AI + mult
 
 | Platform | What they offer | Monthly cost |
 |---|---|---|
-| **Tinct** | Classics in authoritative translation + AI comparison translation, AI companion, audiobook, character tracker | **$3** |
+| **Tinct** | Classics in authoritative translation + AI comparison translation, AI companion, audiobook, character tracker | **$5** |
 | Kindle + Audible (full equivalent) | Classics reading + professional audio, no AI, no modern translation | ~$8–21 |
 | Kindle Unlimited | Ebook library, no AI, no translations | $11.99 |
 | Audible Plus | Classic audiobooks in catalogue, no text sync, no AI | $7.95 |
@@ -153,9 +153,9 @@ No competitor offers a reading experience purpose-built for classics + AI + mult
 ## 5. Revenue model
 
 **Free** — every book, every edition, cross-device sync, highlights, notes, reading journal.
-**Premium — $3/month** — AI companion (200 messages), audiobook, character tracker, journal export. First month free, no card required. Cancel anytime.
+**Premium — $5/month** — AI companion (200 messages), audiobook, adding any book (your own or from Gutenberg and other free libraries), character tracker, journal export. First month free, no card required. Cancel anytime.
 
-**Why $3:**
+**Why $5 (was $3 until 2026-10-05):**
 - **Less than a cup of coffee** — positions the price as trivial in the reader's head
 - **Less than a single ebook on Kindle** — positions it as an obvious bargain
 - 2–3× cheaper than Kindle Unlimited, Audible Plus, Scribd, Readwise
@@ -176,9 +176,10 @@ No competitor offers a reading experience purpose-built for classics + AI + mult
 
 **Long-term: the Western canon end-to-end.** Homer to Kafka, Genesis to the Church Fathers, Greek tragedy to Russian modernism. Anything that has survived a century of readers and still has something to give.
 
+**Classics first, but open to other books** (Anders, 2026-10-08). The canon remains the core of the library. Other books, including contemporary non-fiction, may join when their rights holders permit it; the first are the five Conjecture Institute books on the Critical Rationalism shelf, published with Logan Chipkin's permission. Such books are never labelled public domain, keep their publisher and copyright lines, and get no Modern English edition when they are already written in modern English.
+
 **Out of scope:**
 - **Kids editions** — dropped 2026-03-25. Diluted the product without growing the audience.
-- **Contemporary fiction / nonfiction** — not the mission.
 - **User-uploaded EPUBs (BYOB)** — a separate product if we ever build it. Not a feature on the side.
 
 ---
@@ -191,9 +192,9 @@ Reader, multi-edition, AI chat, highlights, notes, reading journal, character tr
 **Phase 2 (April 2026 – ongoing): Content expansion + design refresh + launch.**
 - Design refresh per new design system (Playfair Display / EB Garamond / IBM Plex Mono, teal accent, refined layouts) — landing page, reader, onboarding
 - Book additions: 50–100 more titles across the canon
-- Onboarding overhaul centred on the reading angle — research confirmed personal connection before reading begins is the single strongest completion driver
+- Onboarding overhaul centred on the reading angle — research confirmed personal connection before reading begins is the single strongest completion driver. **Superseded in the reader on 16 Nov 2026 (Anders):** nothing stands between a new reader and the first sentence. The first page shows one line on how to use Ask, Explain and Simplify; the reading angle is offered once the reader has started (the t menu's Reading angle, and "Read with an angle" at the end of a book's first chapter). First-party data for 10–16 Nov: about 1 in 10 first-time visitors used Ask, Explain or Simplify; 3 accounts had ever saved a reading angle against about 40 with a saved reading position; phones, two thirds of visitors, opened a book 39% of the time against 61% on computers and used the AI 9% against 20%. See [DECISIONS.md](DECISIONS.md).
 - Marketing: manifesto goes public at `/about`, elevator pitch for live conversations, landing page aligned with both
-- Growth channel: SEO-driven traffic to per-book landing pages, each with the reading-angle onboarding as conversion mechanism
+- Growth channel: SEO-driven traffic to per-book landing pages. (They named the reading-angle onboarding as the conversion mechanism; since 16 Nov 2026 the angle is offered after the reader has started, not before the first page.)
 - First paying users beyond friends and family
 
 **Phase 3 (late 2026 / 2027): Scale.**
@@ -221,9 +222,9 @@ Decisions deferred until we get there: whether to raise price, introduce tiers, 
 Current thinking: 50 titles. Enough to feel like a library; not so many that QA becomes a bottleneck. 100+ by year end.
 
 **2. What's the first real growth channel?**
-- **SEO** — one landing page per book, indexable, converts via reading-angle onboarding. Most defensible long-term.
+- **SEO** — one landing page per book, indexable, converting into the book's first page (no angle step before it since 16 Nov 2026). Most defensible long-term.
 - **Twitter/X** — @FallibleMusings audience is the right demographic (Deutsch-adjacent, literary, optimistic-about-civilisation). Slower but pre-qualified.
-- **Paid acquisition** — likely unprofitable at $3/mo. Deprioritised.
+- **Paid acquisition** — likely unprofitable at $5/mo. Deprioritised.
 - **Word of mouth** — slow but compounds. Reading angle + character tracker are the kind of features readers tell each other about.
 
 **3. What's the retention mechanism beyond the first book?**
@@ -232,7 +233,7 @@ Current thinking: 50 titles. Enough to feel like a library; not so many that QA 
 - No data yet — retention is the Phase 2 question to answer empirically
 
 **4. What happens when AI costs drop 10×?**
-Unit economics become trivial. $3/mo becomes a ~90% margin product. Good for Tinct. Likely within 18 months.
+Unit economics become trivial. $5/mo becomes a ~90% margin product. Good for Tinct. Likely within 18 months.
 
 **5. How do we measure mission success?**
 Not subscriber count alone. The better proxy: books finished per user. If a reader finishes three classics they'd never finished before, the transmission mechanism worked for them. Build telemetry to track this early.
@@ -242,7 +243,7 @@ Not subscriber count alone. The better proxy: books finished per user. If a read
 ## 10. Design principles
 
 1. **Reading comes first.** The text is the hero. Everything else is in service of understanding.
-2. **The reading angle is the product.** Not a feature — the mechanism that makes classics completable. Free for everyone. Set before reading begins.
+2. **The reading angle is the product.** Not a feature — the mechanism that makes classics completable. Free for everyone and always skippable. Offered after the reader has started, never before the first page (Anders, 16 Nov 2026; until then: "set before reading begins"): from the t menu's Reading angle at any time, and at the end of a book's first chapter while the book has none.
 3. **Available but not pushy.** AI chat, reflection prompts, annotations — present when you want them, invisible when you don't.
 4. **Beautiful typography.** Warm, literary aesthetic. Playfair Display, EB Garamond, IBM Plex Mono. Not clinical, not techy.
 5. **Honest translations.** Modern translations focus on comprehension. They do not editorialise or moralise. Readers get the author's mind, not the translator's.

@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Narrow Jekyll correction: keep the full-book threshold visible; reject regression."""
+"""Jekyll modern-en release: reject any similarity regression against the text it replaces.
+
+2026-09-24 pinned the narrow one-paragraph correction (f2cf24e9... at b91d4b8d -> 7bcc0ee8...), which
+could not pass the whole-book gate. 2026-10-21 (approved by Anders) moved the pin to the accepted
+whole-book repair (7bcc0ee8... at 5f4da80b -> 640dc4ea...), which passes it, so the gate is asserted too.
+Record: books/wip/modern-en-release-20261021/RELEASE-2.md."""
 import importlib.util, json, hashlib, subprocess
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
@@ -7,12 +12,12 @@ spec = importlib.util.spec_from_file_location("classifier", ROOT / "books/classi
 m = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
 book = "jekyll-and-hyde"
-base_ref = "b91d4b8d8ceab2e3379cb6a83174ce97c7c47aec"
+base_ref = "5f4da80b255686187bd2b1477dcd9599e6344c0d"
 path = f"app/public/data/editions/{book}-modern-en.json"
 before_raw = subprocess.check_output(["git","show",f"{base_ref}:{path}"],cwd=ROOT)
-assert hashlib.sha256(before_raw).hexdigest() == "f2cf24e93c77b354a9fa617d3440b6daaa09acd36e6fdb1df236469ac570a5ae"
+assert hashlib.sha256(before_raw).hexdigest() == "7bcc0ee81b68635f017b8324fab9dc2e4cc3fc0febb827e0431ce876a2d0ac6b"
 after_raw = (ROOT/path).read_bytes()
-assert hashlib.sha256(after_raw).hexdigest() == "7bcc0ee81b68635f017b8324fab9dc2e4cc3fc0febb827e0431ce876a2d0ac6b"
+assert hashlib.sha256(after_raw).hexdigest() == "640dc4ea5d7d56f4b015b000404b5275c5cf9223b9979ed6bfb3765155c4883d"
 source = m.load(book,"original-en")["chapters"]
 def metrics(raw):
     target = json.loads(raw)["chapters"]
@@ -28,4 +33,5 @@ def metrics(raw):
 before, after = metrics(before_raw), metrics(after_raw)
 assert all(after[k] <= before[k] for k in before), (before,after)
 assert after["lightChapterRate"] <= .05 and after["identicalLongParagraphRate"] <= .05
-print(json.dumps({"book":book,"scope":"one accepted paragraph; not whole-book gate certification","before":before,"after":after,"wholeBookSimilarityGatePass":after["weightedSimilarity"] <= .75,"noRegression":True},indent=2))
+assert after["weightedSimilarity"] <= .75, after
+print(json.dumps({"book":book,"scope":"accepted whole-book modern-en repair, text-2026-10-21.2","before":before,"after":after,"wholeBookSimilarityGatePass":True,"noRegression":True},indent=2))

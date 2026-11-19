@@ -1,8 +1,8 @@
 /**
  * The four layers of the V2 bottom sheet, and the values they name.
  *
- * Reading settings, Advanced settings, the font picker and Account are one
- * sheet at one height. That is the whole point of them: moving between layers
+ * Aa, Book settings, Audio settings, Advanced settings, the font picker and
+ * Account are one sheet at one height. That is the whole point of them: moving between layers
  * must never resize the window, so the page above stays exactly where it is
  * while a change lands on it.
  */
@@ -16,10 +16,14 @@ import {
   type LabMargins,
   type LabParagraphSpacing,
   type LabTextAlignment,
+  type LabPrefs,
   type LabTheme,
 } from './labPrefs'
+import { defaultCompareEditionKey } from '../data/editionDefaults'
+import { LAB_SETTINGS_GROUPS } from './labSuperMenu'
+import type { Edition } from '../types'
 
-export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'editions' | 'mainEdition' | 'audioEdition' | 'compareEdition' | 'catchup'
+export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'editions' | 'audio' | 'mainEdition' | 'audioEdition' | 'compareEdition' | 'catchup'
 
 /**
  * One height, in pixels, for every layer. Capped against the viewport so a
@@ -32,10 +36,11 @@ export const LAB_V2_SHEET_HEIGHT_PX = 452
 export const LAB_SHEET_FILL_PAPER = 0.9
 export const LAB_SHEET_FILL_NIGHT = 0.9
 
-/** Reading settings offers three themes. "Match system" is not one of them. */
+/** Aa offers four themes. "Match system" is not one of them. White sits beside Light, whose page it shares on pure white paper. */
 export const LAB_V2_THEMES: Array<{ theme: LabTheme; label: string }> = [
   { theme: 'book', label: 'Book' },
   { theme: 'light', label: 'Light' },
+  { theme: 'white', label: 'White' },
   { theme: 'dark', label: 'Dark' },
 ]
 
@@ -104,9 +109,16 @@ export const LAB_FONT_PICKER_GROUPS: LabFontPickerGroup[] = [
   { label: 'Accessibility', fonts: LAB_ACCESSIBILITY_FONTS },
 ]
 
+const groupTitle = (layer: 'reading' | 'editions' | 'audio') => LAB_SETTINGS_GROUPS.find(group => group.layer === layer)!.label
+
+/**
+ * The Aa entry opens Appearance (themes, size, Advanced settings and eligible desktop layouts).
+ * Book settings and Audio settings retain the menu model's group names.
+ */
 export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
-  reading: 'Settings',
-  editions: 'Book editions',
+  reading: 'Appearance',
+  editions: groupTitle('editions'),
+  audio: groupTitle('audio'),
   mainEdition: 'Main version',
   audioEdition: 'Audiobook version',
   compareEdition: 'Compare version',
@@ -116,9 +128,38 @@ export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
   catchup: 'Catch me up',
 }
 
+export function labV2SheetTitle(layer: LabV2SheetLayer): string {
+  return LAB_V2_SHEET_TITLES[layer]
+}
+
 /**
  * How long the version pill stays: in over 120ms, held to the second, out
  * over the last 300ms. Reduced motion shows it without the fade for the same
  * time. The CSS animation and the clock that removes the element agree.
  */
 export const LAB_V2_VERSION_PILL_MS = 2600
+
+/**
+ * Prefs after the reader picks a new main edition. When the new main is the
+ * edition Compare was showing, Compare pairs with another edition rather than
+ * turning off: with one other edition the two swap, otherwise the book's
+ * paired default, else the previous main. A Compare the reader turned off
+ * (None) stays off.
+ */
+export function labPrefsForMainEdition(
+  prefs: LabPrefs,
+  key: string,
+  bookId: string,
+  editions: readonly Pick<Edition, 'key' | 'style' | 'language'>[],
+  year?: number | null,
+): LabPrefs {
+  if (prefs.compareEdition !== key) return { ...prefs, primaryEdition: key }
+  if (prefs.compareChosen && !prefs.compareOpen) return { ...prefs, primaryEdition: key, compareOpen: false }
+  const others = editions.filter(edition => edition.key !== key)
+  const previous = others.find(edition => edition.key === prefs.primaryEdition)?.key
+  const pair = others.length === 1
+    ? others[0].key
+    : defaultCompareEditionKey(bookId, others, key, year) ?? previous ?? others[0]?.key
+  if (!pair) return { ...prefs, primaryEdition: key, compareOpen: false }
+  return { ...prefs, primaryEdition: key, compareEdition: pair, compareOpen: prefs.compareOpen }
+}

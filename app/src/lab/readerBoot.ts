@@ -15,14 +15,18 @@
  * it with what the loaders really fetch. Keep imports import-free modules.
  */
 import { editionPatchesPath, editionShardManifestUrl, editionShardPath, editionShardUrl, editionWholeUrl } from '../data/editionUrls'
+import { LAB_PHONE_QUERY, isLabPhoneSurface } from './labChrome'
 
 export const READER_BOOT_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 export const READER_BOOT_PREFS_KEY = 'tinct-lab-prefs'
 export const READER_BOOT_BIBLE_ID = 'bible'
+/** The Bible versions a deep link may name (`edition=`). */
+export const READER_BOOT_BIBLE_EDITIONS: readonly string[] = ['bsb-en', 'kjv-en', 'web-en', 'webc-en']
 
 /** Paper colours per resolved theme; LabApp paints the same values. */
 export const LAB_THEME_PAPER = {
-  light: '#f2eee4',
+  light: '#ece7db',
+  white: '#ffffff',
   book: '#e7dcc7',
   dark: '#171411',
 } as const
@@ -62,6 +66,65 @@ export function readerBootHandoff(raw: string | null): ReaderBootHandoff | null 
   } catch {
     return null
   }
+}
+
+/**
+ * The book, edition and chapter a public deep link opens
+ * (`/reader?book=<id>&chapter=<n>[&edition=<key>]`, see
+ * `readerHandoffFromUrlParams`), for the boot preload; null when the boot
+ * cannot know it exactly and the app is left to ask. `primaryExceptions` is
+ * the build's table of books whose new-reader default is not Modern English,
+ * or that have no English original to name (`readerBootPrimaryExceptions`,
+ * computed from `defaultPrimaryEditionKey`); an empty value means nothing is
+ * offered to open. A link without a chapter
+ * resumes the reader's own place, so it is the app's to resolve.
+ */
+export function readerBootDeepLink(search: string, primaryExceptions: Readonly<Record<string, string>>): ReaderBootHandoff | null {
+  let params: URLSearchParams
+  try {
+    params = new URLSearchParams(search)
+  } catch {
+    return null
+  }
+  const bookId = params.get('book')
+  const chapterText = params.get('chapter')
+  if (!bookId || !ID.test(bookId) || bookId.startsWith('pd-') || !chapterText || !/^\d{1,5}$/.test(chapterText)) return null
+  // Held books, Checkout returns and a reader's own books open by their own rules.
+  if (['heldBook', 'modern', 'userBook'].some(key => params.has(key))) return null
+  const chapterNumber = Number(chapterText)
+  if (chapterNumber < 1) return null
+  const named = params.get('edition')
+  const exception = Object.prototype.hasOwnProperty.call(primaryExceptions, bookId)
+  // A named edition is taken only where the boot knows the book has it: the
+  // two English editions of a book whose default is Modern English, and the
+  // Bible's four versions. Any other name may be missing or withdrawn, and the
+  // app falls back; guess nothing.
+  const knownByName = bookId === READER_BOOT_BIBLE_ID
+    ? READER_BOOT_BIBLE_EDITIONS.includes(named ?? '')
+    : !exception && (named === 'modern-en' || named === 'original-en')
+  const primaryEditionKey = named === null
+    ? (exception ? primaryExceptions[bookId] : 'modern-en')
+    : (knownByName ? named : '')
+  if (!primaryEditionKey || !ID.test(primaryEditionKey)) return null
+  return { bookId, primaryEditionKey, chapterNumber }
+}
+
+/** Read-only hint for a plain resume: never redirects or changes the saved place.
+ * Restrict to owner-matched sessions and chapter-sharded editions so a hint
+ * cannot download an entire book or another account's saved reading choice. */
+export function readerBootResume(search: string, raw: string | null, sessions: Array<[string, string | null]>, sharded: readonly string[], now = Date.now()): ReaderBootHandoff | null {
+  if (['book', 'chapter', 'edition', 'heldBook', 'modern', 'userBook'].some(key => new URLSearchParams(search).has(key))) return null
+  try {
+    const state = JSON.parse(raw || 'null')
+    if (!state?.owner || !sessions.some(entry => {
+      try { return readerBootPositionToken([entry], now / 1000) && JSON.parse(entry[1] || 'null')?.user?.id === state.owner } catch { return false }
+    })) return null
+    const place = state.books?.[state.lastSettledBookId]
+    if (!place || place.bookId !== state.lastSettledBookId || !ID.test(place.bookId) || !ID.test(place.primaryEditionKey)) return null
+    if (!Number.isSafeInteger(place.chapterNumber) || place.chapterNumber < 1 || place.chapterNumber > 99999) return null
+    if (!sharded.includes(`${place.bookId}-${place.primaryEditionKey}`)) return null
+    return { bookId: place.bookId, primaryEditionKey: place.primaryEditionKey, chapterNumber: place.chapterNumber }
+  } catch { return null }
 }
 
 export interface ReaderBootPreloadOptions {
@@ -106,10 +169,32 @@ export function readerBootPreloads(handoff: ReaderBootHandoff, options: ReaderBo
   return [editionWholeUrl(bookId, key, version), patches]
 }
 
+/**
+ * The margin preview's text (`/reader?book=<id>&margin=1`, or the device's opt-in `tinct:margin-preview`; round 3):
+ * the whole edition and its patches, as `marginPreviewLoad` reads them, started before the app bundle runs. Only
+ * when the boot can be sure of the edition (`marginPreviewEditionKey`): the book's place on this device names it,
+ * or there is none, the book's default is Modern English and no other main edition was chosen.
+ * `margin=0`: none; nor the Bible (its default is not Modern English). Kept small: it runs in the reader's head script, whose size is tested.
+ */
+export function readerBootMarginPreview(search: string, stored: (key: string) => string | null, prefs: string | null, primaryExceptions: Readonly<Record<string, string>>, version: string): string[] {
+  const params = new URLSearchParams(search), bookId = params.get('book') || '', flag = params.get('margin')
+  if (flag === '0' || (flag !== '1' && stored('tinct:margin-preview') !== '1') || !ID.test(bookId)) return []
+  try {
+    const place = (JSON.parse(stored('tinct-lab-position') || '{}').books || {})[bookId]
+    const key = place ? place.primaryEditionKey || '' : ((primaryExceptions[bookId] && primaryExceptions[bookId] !== 'modern-en') || /"primaryEdition":"(?!modern-en")/.test(prefs || '')) ? '' : 'modern-en'
+    return ID.test(key) ? [editionWholeUrl(bookId, key, version), editionPatchesPath(bookId, key)] : []
+  } catch {
+    return []
+  }
+}
+
 type StoredTheme = 'system' | LabResolvedTheme
 
-function storedTheme(value: unknown): StoredTheme | null {
-  return value === 'system' || value === 'light' || value === 'dark' || value === 'book' ? value : null
+/** White is stored as Light plus `paper: 'white'` (labPrefs.ts `labStoredTheme`). */
+function storedTheme(src: Record<string, unknown>): StoredTheme | null {
+  const value = src.theme
+  if (value === 'light' && src.paper === 'white') return 'white'
+  return value === 'system' || value === 'light' || value === 'white' || value === 'dark' || value === 'book' ? value : null
 }
 
 /** Each appearance profile's stored theme and face, as `parseLabStoredPrefs` reads them. */
@@ -126,11 +211,11 @@ function storedAppearances(raw: string | null): Array<{ theme: StoredTheme; font
   if (src.version === 2 && src.shared && typeof src.shared === 'object') {
     return ['phone', 'desktop'].map(profile => {
       const appearance = src[profile] && typeof src[profile] === 'object' ? src[profile] as Record<string, unknown> : {}
-      return { theme: storedTheme(appearance.theme) ?? 'system', fontFamily: appearance.fontFamily }
+      return { theme: storedTheme(appearance) ?? 'system', fontFamily: appearance.fontFamily }
     })
   }
   // Version 1 was one flat object shared by both profiles.
-  const theme = storedTheme(src.theme)
+  const theme = storedTheme(src)
     ?? (Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : 'system')
   return [{ theme, fontFamily: src.fontFamily }]
 }
@@ -141,13 +226,24 @@ function storedAppearances(raw: string | null): Array<{ theme: StoredTheme; font
  * the app's layout decision), the prefs are unreadable, or the device uses
  * the e-ink profile, which paints its own white.
  */
-export function readerBootTheme(rawPrefs: string | null, systemDark: boolean, eink: boolean): LabResolvedTheme | null {
+export function readerBootTheme(rawPrefs: string | null, systemDark: boolean, eink: boolean, profile?: 'phone' | 'desktop'): LabResolvedTheme | null {
   if (eink) return null
   const appearances = storedAppearances(rawPrefs)
   if (!appearances) return null
-  const resolved = new Set(appearances.map(({ theme }) => theme === 'system' ? (systemDark ? 'dark' : 'light') : theme))
+  // Version 2 keeps a phone and a desktop appearance; with the layout known
+  // (readerBootProfile, the app's own rule), that one's theme is the answer.
+  // Without it, both must agree (10 Oct 2026: a dark phone and a light desktop
+  // left the first frame white, and the library's leave veil light paper).
+  const chosen = profile && appearances.length === 2 ? [appearances[profile === 'phone' ? 0 : 1]] : appearances
+  const resolved = new Set(chosen.map(({ theme }) => theme === 'system' ? (systemDark ? 'dark' : 'light') : theme))
   return resolved.size === 1 ? [...resolved][0] : null
 }
+
+/** The appearance profile the app will use, by its own surface rule (labChrome.isLabPhoneSurface); the layout override is the app's. */
+export function readerBootProfile(input: { userAgent?: string; innerWidth?: number; maxTouchPoints?: number; screenWidth?: number; matchMediaPhone?: boolean }): 'phone' | 'desktop' {
+  return isLabPhoneSurface(input) ? 'phone' : 'desktop'
+}
+export { LAB_PHONE_QUERY }
 
 /** Whether every profile reads in the default face (never chose, or chose Literata). */
 export function readerBootUsesDefaultFace(rawPrefs: string | null): boolean {

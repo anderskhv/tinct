@@ -1,9 +1,16 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import type { ChapterNotesBeat, ChapterNotesRequest } from '../chapterNotes'
-import { fetchChapterNotes, storedChapterNotes } from './labChapterNotes'
+import { chapterNotesPlainText, fetchChapterNotes, keepChapterNotes, storedChapterNotes, type ChapterNotesResult } from './labChapterNotes'
+import { isUserBookId } from './userBook/userBookId'
+import { fetchOwnChapterNotes, isOwnChapterNotesKind, type OwnChapterNotesSource } from './userBook/ownChapterNotes'
 import { RowIcon } from './LabSuperMenu.tsx'
+import { CopyIcon } from '../components/reader/SelectionPopup'
 import { useReaderWindow } from './useReaderWindow'
+import { LabBalanceEmptyLine } from './LabAiUsageBar'
+import { LAB_COPY } from './labCopy'
+import { aiPrefsFor } from './labAiPrefs'
 import './labCatchUp.css'
+import { LabPhoneCard } from './marginPhone/LabPhoneCard'
 
 export interface LabChapterNotesSheetProps {
   request: ChapterNotesRequest
@@ -11,6 +18,26 @@ export interface LabChapterNotesSheetProps {
   onClose: () => void
   onChat: (title: string, beats: ChapterNotesBeat[] | null) => void
   onTalk: (title: string, beats: ChapterNotesBeat[] | null) => void
+  /** The reader's session, sent only while the AI allowance is on (labChapterNotes.ts). */
+  readToken?: () => Promise<string | null>
+  /** Opens where the reader can top up (the account sheet); links the balance line shown at zero. */
+  onTopUp?: () => void
+  /** The phone's margin mode: shown as the bottom card (marginPhone/LabPhoneCard). */
+  card?: boolean
+  embedded?: boolean
+  onReady?: (beats: ChapterNotesBeat[]) => void
+  /**
+   * The last row: the follow-up field with mic, Talk and send, given the beats shown; in place
+   * of the Chat, Talk and Copy buttons (iPhone feedback, 21 Oct 2026: the card's text can still be selected).
+   */
+  follow?: (beats: ChapterNotesBeat[] | null) => ReactNode
+  /** The follow-ups asked from the card and their answers, under the beats (margin card or phone sheet). */
+  thread?: ReactNode
+  /**
+   * A reader's own book: its Primer or Recap is made from this chapter's text, sent from this device with no book id
+   * (userBook/ownChapterNotes.ts), never from the server's chapter notes. Kept on this device as any notes are.
+   */
+  own?: OwnChapterNotesSource
 }
 
 /**
@@ -18,47 +45,75 @@ export interface LabChapterNotesSheetProps {
  * titled beats in the Catch me up sheet, never a chat answer. Chat and Talk
  * continue from it; closing it leaves the reader where it was.
  */
-export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk }: LabChapterNotesSheetProps) {
+export function LabChapterNotesSheet({ request: asked, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread, own, embedded = false, onReady }: LabChapterNotesSheetProps) {
+  // The reader's AI settings for the card (labAiPrefs.ts): Primer's row for a primer, Summary's otherwise.
+  // A card written to them is kept apart from the shared one (chapterNotesCacheKey).
+  const request = useMemo<ChapterNotesRequest>(() => {
+    const ai = aiPrefsFor(asked.kind === 'primer' ? 'primer' : 'summary')
+    return ai ? { ...asked, ai } : asked
+  }, [asked])
   const [beats, setBeats] = useState<ChapterNotesBeat[] | null>(() => storedChapterNotes(request))
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
+  // Refused at zero (402 allowance_used, only while the AI allowance is on).
+  const [allowanceUsed, setAllowanceUsed] = useState(false)
+  // The daily AI ceiling or a provider limit (503 ai_resting): said above Retry.
+  const [resting, setResting] = useState(false)
   const windowRef = useReaderWindow<HTMLElement>('chapter-notes', true)
+  const ready = useRef(onReady); ready.current = onReady
+  useEffect(() => { if (state === 'ok' && beats) ready.current?.(beats) }, [state, beats])
   const mounted = useRef(true)
-  useEffect(() => () => { mounted.current = false }, [])
+  // Set on every mount: React's development double mount runs the cleanup once.
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false } }, [])
+  const [copied, setCopied] = useState(false)
+  const copiedTimer = useRef<number | undefined>(undefined)
+  useEffect(() => () => window.clearTimeout(copiedTimer.current), [])
+
+  // The clipboard write starts inside the tap itself: iOS Safari grants
+  // clipboard access only during the gesture. Nothing here touches the page
+  // behind the sheet, so the reading place stays where it was.
+  const copy = () => {
+    if (!beats) return
+    const text = chapterNotesPlainText(title, beats)
+    const confirm = () => {
+      if (!mounted.current) return
+      setCopied(true)
+      window.clearTimeout(copiedTimer.current)
+      copiedTimer.current = window.setTimeout(() => { if (mounted.current) setCopied(false) }, 2000)
+    }
+    if (navigator.clipboard?.writeText) {
+      void navigator.clipboard.writeText(text).then(confirm, () => { if (copyBySelection(text)) confirm() })
+    } else if (copyBySelection(text)) confirm()
+  }
 
   const load = useCallback(() => {
     setState('loading')
-    void fetchChapterNotes(request).then(result => {
+    const notes = own && isOwnChapterNotesKind(request.kind)
+      ? fetchOwnChapterNotes(request.kind, own, { readToken }).then(result => { if (result.ok) keepChapterNotes(request, result.beats); return result })
+      // An own book's id never leaves the device: without its text here there is nothing to ask for.
+      : isUserBookId(request.bookId) ? Promise.resolve<ChapterNotesResult>({ ok: false, status: 0 })
+      : fetchChapterNotes(request, { readToken })
+    void notes.then(result => {
       if (!mounted.current) return
-      if (result.ok) { setBeats(result.beats); setState('ok') } else setState('error')
+      if (result.ok) { setBeats(result.beats); setState('ok') } else { setAllowanceUsed(result.allowanceUsed === true); setResting(result.resting === true); setState('error') }
     })
-  }, [request])
+  }, [request, readToken, own])
   useEffect(() => { if (!beats) load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    if (embedded) return
     const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); onClose() } }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [onClose])
+  }, [onClose, embedded])
 
-  return (
-    <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-chapter-notes-layer">
-      <button type="button" className="lab-super-scrim" aria-label="Close" onClick={onClose} />
-      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-chapter-notes" data-kind={request.kind} data-state={state} aria-label={title}>
-        <div className="lab-v2-head is-titled" data-reader-window-handle>
-          <h2 className="lab-v2-title">{title}</h2>
-          <button type="button" className="lab-v2-dismiss" data-testid="lab-chapter-notes-close" aria-label="Close" onClick={onClose}>×</button>
-        </div>
-        <div className="lab-v2-sheet-body lab-catch-up-body">
+  const timeline = (
+        <div className="lab-v2-sheet-body lab-catch-up-body" data-testid={card ? 'lab-chapter-notes' : undefined} data-kind={card ? request.kind : undefined} data-state={card ? state : undefined} aria-busy={card && state === 'loading' ? true : undefined}>
           <ol className="lab-catch-up-timeline">
-            {state === 'ok' && beats ? beats.map((beat, index) => (
-              <li key={index} className="lab-catch-up-entry" data-state="ok" data-testid="lab-chapter-notes-beat">
-                <span className="lab-catch-up-dot" aria-hidden="true" />
-                <h3 className="lab-catch-up-title">{beat.title}</h3>
-                <p className="lab-catch-up-text">{beat.text}</p>
-              </li>
-            )) : state === 'error' ? (
+            {state === 'ok' && beats ? <LabChapterNotesEntries beats={beats} /> : state === 'error' ? (
               <li className="lab-catch-up-entry" data-state="error">
                 <span className="lab-catch-up-dot" aria-hidden="true" />
+                {allowanceUsed && <LabBalanceEmptyLine onTopUp={onTopUp} testId="lab-chapter-notes-balance" />}
+                {resting && <p className="lab-catch-up-balance" data-testid="lab-chapter-notes-resting">{LAB_COPY.aiResting}</p>}
                 <button type="button" className="lab-catch-up-retry" data-testid="lab-chapter-notes-retry" onClick={load}>Retry</button>
               </li>
             ) : [0, 1, 2].map(index => (
@@ -69,12 +124,64 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk }
             ))}
             {request.kind === 'sofar' && <li className="lab-catch-up-here"><span className="lab-catch-up-dot" aria-hidden="true" />You are here</li>}
           </ol>
+          {thread}
         </div>
+  )
+  const foot = follow ? <div className="lab-catch-up-foot is-follow">{follow(state === 'ok' ? beats : null)}</div> : (
         <div className="lab-catch-up-foot lab-chapter-notes-foot">
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-chat" aria-label="Chat" onClick={() => onChat(title, beats)}><RowIcon id="chat" /></button>
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-talk" aria-label="Talk" onClick={() => onTalk(title, beats)}><RowIcon id="talk" /></button>
+          {state === 'ok' && beats && (
+            <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-copy" aria-label={copied ? 'Copied' : 'Copy'} onClick={copy}>
+              {copied ? <span aria-hidden="true">✓</span> : <CopyIcon />}
+            </button>
+          )}
         </div>
+  )
+  if (embedded) return <>{timeline}{follow?.(state === 'ok' ? beats : null)}</>
+  if (card) return <LabPhoneCard label={title} kind={`chapter-notes-${request.kind}`} onClose={onClose} foot={follow?.(state === 'ok' ? beats : null)}>{timeline}</LabPhoneCard>
+  return (
+    <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-chapter-notes-layer">
+      <button type="button" className="lab-super-scrim" aria-label="Close" onClick={onClose} />
+      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-chapter-notes" data-kind={request.kind} data-state={state} aria-label={title}>
+        <div className="lab-v2-head is-titled" data-reader-window-handle>
+          <h2 className="lab-v2-title">{title}</h2>
+          <button type="button" className="lab-v2-dismiss" data-testid="lab-chapter-notes-close" aria-label="Close" onClick={onClose}>×</button>
+        </div>
+        {timeline}
+        {foot}
       </section>
     </div>
   )
+}
+
+/** Shared completed-beat presentation for chapter sheets and original PDF unit cards. */
+export function LabChapterNotesEntries({ beats }: { beats: ChapterNotesBeat[] }) {
+  return <>{beats.map((beat, index) => <li key={index} className="lab-catch-up-entry" data-state="ok" data-testid="lab-chapter-notes-beat">
+    <span className="lab-catch-up-dot" aria-hidden="true" />
+    <h3 className="lab-catch-up-title">{beat.title}</h3>
+    {beat.items?.length ? <ul className="lab-catch-up-text lab-catch-up-items">{beat.items.map((item, i) => <li key={i}>{item}</li>)}</ul> : <p className="lab-catch-up-text">{beat.text}</p>}
+  </li>)}</>
+}
+
+/** Older browsers without the async clipboard: copy from an off-screen field
+ *  that never scrolls the page. */
+function copyBySelection(text: string): boolean {
+  if (typeof document === 'undefined' || typeof document.execCommand !== 'function') return false
+  const active = document.activeElement instanceof HTMLElement ? document.activeElement : null
+  const field = document.createElement('textarea')
+  field.value = text
+  field.setAttribute('readonly', '')
+  field.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;pointer-events:none;'
+  document.body.appendChild(field)
+  try {
+    field.focus({ preventScroll: true })
+    field.setSelectionRange(0, text.length)
+    return document.execCommand('copy')
+  } catch {
+    return false
+  } finally {
+    field.remove()
+    active?.focus({ preventScroll: true })
+  }
 }

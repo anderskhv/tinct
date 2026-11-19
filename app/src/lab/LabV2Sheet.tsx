@@ -1,34 +1,34 @@
 import { readEinkProfile, setEinkProfile } from '../../public/lab/display-profile.js'
-import { useReadingYearTotals } from './useLabReadingYear'
 import { useEffect, useState, type ReactNode } from 'react'
 import { editionDifficulty, readerEditionLabel } from './editionDifficulty'
-import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
+import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bibleEditionChapters'
 import { useReaderWindow } from './useReaderWindow'
 import { matchingAudioEditions } from '../utils/audioEditionSelection'
 import type { Edition } from '../types'
 import type { NarrationPilotInfo } from './labNarration'
-import { useAuth } from '../hooks/useAuth'
-import { useBalance } from '../hooks/useBalance'
 import {
   labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance,
   LAB_MAX_FONT_SIZE,
   LAB_MIN_FONT_SIZE,
-  labAccountUrl,
   labFontFamilyCss,
   labReadingFont,
-  labSignInUrl,
   type LabFontFamily,
   type LabPrefs,
   type LabTextAlignment,
 } from './labPrefs'
 import {
   LAB_FONT_PICKER_GROUPS,
-  LAB_V2_SHEET_TITLES,
+  labV2SheetTitle,
   LAB_V2_THEMES,
   labAlignmentValue,
   labFontValue,
+  labPrefsForMainEdition,
   type LabV2SheetLayer,
 } from './labV2Sheet'
+import { getBook } from '../data/bookRegistry'
+import { LabOfflineRow } from './LabOfflineRow'
+import { offlineEditionKeys } from './labOfflineBook'
+import { isUserBookId } from './userBook/userBookId'
 
 export interface LabV2SheetProps {
   bookId?: string
@@ -42,12 +42,31 @@ export interface LabV2SheetProps {
   audioEditions?: Edition[]
   /** Present once a compare edition is chosen: the switch between the main and compare page. */
   compare?: { active: boolean; onToggle: () => void } | null
+  /** A Compare pick opened from desktop Aa returns to its Layout choices. */
+  compareFromLayout?: boolean
+  /**
+   * The margin preview's layout (Anders, 2026-10-20), on the desktop while this device has opted in: opens
+   * the book in Margin at the same place.
+   */
+  margin?: { onOpen: () => void } | null
+  pdfSource?: {onOriginalPages:()=>void}
+  /** Desktop reading layouts. The caller keeps the same source-word anchor when switching. */
+  readerLayout?: {
+    active: 'margin' | 'two-page' | 'compare'
+    /** Compare is offered only when a distinct, aligned version can be read. */
+    compareAvailable?: boolean
+    onChoose: (layout: 'margin' | 'two-page' | 'compare') => void
+  } | null
+  /** Whole-book scroll in the desktop Margin reader (on for every reader since 13 Nov 2026), switched off or on for this device. */
+  bookScroll?: { on: boolean; onToggle: () => void } | null
   /**
    * Compare needs something to pair; say so instead of hiding the switch.
    * 'verses': a Bible pair with no shared verse numbers (desktop side by side).
    * 'paragraphs': an edition whose paragraphs do not match the other's.
    */
   compareUnavailable?: false | 'verses' | 'paragraphs' | 'chapter' | 'numbering'
+  /** Compare is a desktop view (Anders, 10 Nov 2026): false on the phone hides its version row and switch. */
+  compareChoice?: boolean
   /** The Bible chapter open in the reader: versions without it are shown but cannot be chosen as the main version. */
   chapterNumber?: number
   /**
@@ -55,8 +74,26 @@ export interface LabV2SheetProps {
    * `?narration=fish` (docs/fish-audio-pilot-2026-09-18.md).
    */
   narrationPilot?: { info: NarrationPilotInfo | null; voice: string | null } | null
-  /** Current reader path; the sign-in page returns here. */
-  returnTo?: string
+  /**
+   * Present for a signed-out reader: Orion and Eve need an account, so
+   * choosing one asks for it (the listening account sheet) and leaves the
+   * stored voice as it is. Guests narrate with Ara or Helios.
+   */
+  onAccountVoice?: () => void
+  /**
+   * An added public-domain book's Modern English edition, offered for purchase
+   * under the main-version choices (labModernEdition.ts). Absent when not offered.
+   */
+  modernOffer?: { price: string; busy?: boolean; onBuy: () => void }
+  /** A reader's own PDF: Book settings picks between its Tinct text and its Original pages only. */
+  ownPdf?: boolean
+  /** False for a reader's own book with one edition: no Book settings, and no Audiobook version in Audio settings. */
+  editionRows?: boolean
+  /**
+   * The book's reading angle lives in AI settings' This book tab (Anders, 11 Nov 2026): Book settings keeps one
+   * quiet row that opens it there.
+   */
+  readingAngle?: { onOpen: () => void } | null
 }
 
 /** A row's value and chevron, right-aligned in the mono the canvas uses. */
@@ -178,7 +215,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, returnTo }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, bookScroll = null, pdfSource, compareUnavailable = false, compareChoice = true, chapterNumber, modernOffer, ownPdf = false, editionRows = true, readingAngle = null }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -187,14 +224,6 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
     return () => window.removeEventListener('tinct:display-profile', update)
   }, [])
   const windowRef = useReaderWindow<HTMLElement>('settings', !!layer)
-  const auth = useAuth()
-  const balance = useBalance(auth.session, auth.profile, auth.user, {
-    authLoading: auth.isLoading,
-    likelyAuthenticated: auth.likelyAuthenticated,
-  })
-  const [resetStatus, setResetStatus] = useState('')
-  const yearTotals = useReadingYearTotals(auth.user?.id ?? null, layer === 'account')
-
   useEffect(() => {
     if (!layer) return
     const onKey = (event: KeyboardEvent) => {
@@ -206,10 +235,12 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
     return () => window.removeEventListener('keydown', onKey)
   }, [layer, onClose])
 
-  // Catch me up is its own sheet (LabCatchUpSheet); it shares the layer so every overlay guard applies.
-  if (!layer || layer === 'catchup') return null
+  // Catch me up is its own sheet (LabCatchUpSheet) and the account is the account cards
+  // (src/cards, opened by LabApp); both share the layer so every overlay guard applies.
+  if (!layer || layer === 'catchup' || layer === 'account') return null
 
   const font = labReadingFont(prefs.fontFamily)
+  const title = labV2SheetTitle(layer)
   const editionName = (key: string) => {
     const edition = editions.find(item => item.key === key)
     return edition ? readerEditionLabel(edition) : key
@@ -221,10 +252,10 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
     : layer === 'audioEdition' ? prefs.audioFollowsPrimary === false ? prefs.audioEdition : ''
     : prefs.compareOpen ? prefs.compareEdition : ''
   const choose = (key: string) => {
-    if (layer === 'mainEdition') onPrefs({ ...prefs, primaryEdition: key, compareOpen: prefs.compareOpen && prefs.compareEdition !== key })
+    if (layer === 'mainEdition') onPrefs(labPrefsForMainEdition(prefs, key, bookId, editions, getBook(bookId)?.year))
     else if (layer === 'audioEdition') onPrefs({ ...prefs, audioEdition: key || prefs.primaryEdition, audioFollowsPrimary: key === '' })
-    else onPrefs({ ...prefs, compareEdition: key || prefs.compareEdition, compareOpen: key !== '' })
-    onLayer('editions')
+    else onPrefs({ ...prefs, compareEdition: key || prefs.compareEdition, compareOpen: key !== '', compareChosen: true })
+    onLayer(layer === 'audioEdition' ? 'audio' : layer === 'compareEdition' && compareFromLayout ? 'reading' : 'editions')
   }
   const editionRow = (label: string, target: LabV2SheetLayer, value: string, testId: string) => (
     <button type="button" className="lab-v2-row lab-v2-edition-link" data-testid={testId} onClick={() => onLayer(target)}>
@@ -233,25 +264,64 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
     </button>
   )
 
-  const head = layer === 'reading' || layer === 'account' || layer === 'editions'
+  // Voice and speed: Audio settings, on the phone and the desktop.
+  const voiceRows = (
+    <div className="lab-v2-rows">
+      <SelectRow
+        label="Voice"
+        testId="lab-v2-narration-voice"
+        value={narrationPilot?.info?.provider !== 'grok' ? prefs.voicePersona
+          : onAccountVoice ? (narrationPilot?.voice === 'm' ? 'male' : narrationPilot?.voice === 'f' ? 'female' : prefs.voicePersona)
+          : prefs.audiobookVoice || prefs.voicePersona}
+        options={narrationPilot?.info?.provider === 'grok' ? [
+          { value: 'female', label: 'Ara · Female' },
+          { value: 'male', label: 'Helios · Male' },
+          { value: 'orion', label: 'Orion · Male' },
+          { value: 'eve', label: 'Eve · Female' },
+        ] : [{ value: 'female', label: 'Female' }, { value: 'male', label: 'Male' }]}
+        onChange={value => {
+          if (value !== 'orion' && value !== 'eve') onPrefs({ ...prefs, audiobookVoice: null, voicePersona: value === 'male' ? 'male' : 'female', voicePersonaChosen: true })
+          else if (onAccountVoice) onAccountVoice()
+          else onPrefs({ ...prefs, audiobookVoice: value, voicePersonaChosen: true })
+        }}
+      />
+      <SelectRow label="Speed" testId="lab-v2-audio-speed" value={String(prefs.audioSpeed)}
+        options={[...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.audioSpeed])].sort((a, b) => a - b).map(value => ({ value: String(value), label: value + '×' }))}
+        onChange={value => onPrefs({ ...prefs, audioSpeed: Number(value) })} />
+    </div>
+  )
+
+
+  // A play's layout (the phone): Book settings, the book's own layout.
+  const shakespeareRow = (
+    <div className="lab-v2-row is-select">
+      <span className="lab-v2-row-label">Shakespeare layout</span>
+      <Value>{prefs.shakespeareLayout === 'flowing' ? 'Flowing text' : 'Verse lines'}</Value>
+      <select className="lab-v2-row-select" aria-label="Shakespeare layout" value={prefs.shakespeareLayout || 'verse'} onChange={event => onPrefs({ ...prefs, shakespeareLayout: event.target.value as 'verse' | 'flowing' })}>
+        <option value="verse">Verse lines</option><option value="flowing">Flowing text</option>
+      </select>
+    </div>
+  )
+
+  const head = layer === 'reading' || layer === 'editions' || layer === 'audio'
     ? (
       <div className="lab-v2-head is-titled" data-reader-window-handle>
-        <h2 className="lab-v2-title">{LAB_V2_SHEET_TITLES[layer]}</h2>
+        <h2 className="lab-v2-title">{title}</h2>
         <button type="button" className="lab-v2-dismiss" data-testid="lab-v2-sheet-close" aria-label="Close" onClick={onClose}>×</button>
       </div>
     )
     : (
       <div className="lab-v2-head is-centred" data-reader-window-handle>
         {picker ? (
-          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('editions')}>‹ Editions</button>
+          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer(layer === 'audioEdition' ? 'audio' : layer === 'compareEdition' && compareFromLayout ? 'reading' : 'editions')}>{layer === 'audioEdition' ? '‹ Audio settings' : layer === 'compareEdition' && compareFromLayout ? '‹ Appearance' : '‹ Book settings'}</button>
         ) : layer === 'font' ? (
           <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('advanced')}>‹ Advanced</button>
         ) : layer === 'advanced' ? (
-          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('reading')}>‹ Settings</button>
+          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('reading')}>‹ Appearance</button>
         ) : (
           <button type="button" className="lab-v2-dismiss" data-testid="lab-v2-sheet-close" aria-label="Close" onClick={onClose}>×</button>
         )}
-        <h2 className="lab-v2-title">{LAB_V2_SHEET_TITLES[layer]}</h2>
+        <h2 className="lab-v2-title">{title}</h2>
         <button type="button" className="lab-v2-confirm" data-testid="lab-v2-sheet-confirm" aria-label="Done" onClick={onClose}>✓</button>
       </div>
     )
@@ -270,12 +340,41 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
         className="lab-v2-sheet"
         data-testid="lab-v2-sheet"
         data-layer={layer}
-        aria-label={LAB_V2_SHEET_TITLES[layer]}
+        aria-label={title}
       >
         {head}
         <div className="lab-v2-sheet-body">
           {layer === 'reading' && (
             <>
+              {(readerLayout || margin) && (
+                <div className="lab-v2-layout-choices" role="group" aria-label="Layout">
+                  <p className="lab-v2-group-label">Layout</p>
+                  <div className="lab-v2-group">
+                    {readerLayout
+                      ? (['margin', 'two-page', ...(readerLayout.compareAvailable ? ['compare' as const] : [])] as const).map(layout => (
+                        <button type="button" key={layout} className="lab-v2-edition-option"
+                          data-testid={`lab-v2-layout-${layout}`} aria-pressed={readerLayout.active === layout}
+                          onClick={() => readerLayout.onChoose(layout)}>
+                          <span className={`lab-v2-layout-miniature is-${layout}`} aria-hidden="true"><i /><i /><i /></span>
+                          <span className="lab-v2-edition-name"><span>{layout === 'two-page' ? 'Two-page' : layout === 'compare' ? 'Compare' : 'Margin'}</span>
+                            <small className="lab-v2-layout-description">{layout === 'two-page' ? 'Turn through two facing pages.' : layout === 'compare' ? 'Read compatible versions side by side.' : 'Flowing text with room for passage cards.'}</small>
+                          </span>
+                          <span className="lab-v2-edition-check" aria-hidden="true">{readerLayout.active === layout ? '✓' : ''}</span>
+                        </button>
+                      ))
+                      : <button type="button" className="lab-v2-edition-option" data-testid="lab-v2-layout-margin" onClick={margin!.onOpen}>
+                          <span className="lab-v2-edition-name">Margin</span><span aria-hidden="true">›</span>
+                        </button>}
+                  </div>
+                </div>
+              )}
+              {bookScroll && (
+                <button type="button" className="lab-v2-row is-toggle" role="switch" aria-checked={bookScroll.on}
+                  data-testid="lab-v2-book-scroll" onClick={bookScroll.onToggle}>
+                  <span className="lab-v2-row-label">Whole-book scroll</span>
+                  <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
+                </button>
+              )}
               <div className="lab-v2-themes" data-testid="lab-v2-themes">
                 {LAB_V2_THEMES.map(({ theme, label }) => (
                   <button
@@ -307,30 +406,17 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   max={LAB_MAX_FONT_SIZE}
                   step={0.1}
                   value={prefs.fontSize}
-                  onChange={event => onPrefs({ ...prefs, fontSize: Number(event.target.value) })}
+                  onChange={event => onPrefs({ ...prefs, fontSize: Number(event.target.value), fontSizeExplicit: true })}
                 />
                 <span className="lab-v2-size-large" aria-hidden="true">A</span>
               </div>
-              <div className="lab-v2-rows">
-
-                  <SelectRow
-                    label="Voice"
-                    testId="lab-v2-narration-voice"
-                    value={narrationPilot?.info?.provider === 'grok' ? prefs.audiobookVoice || prefs.voicePersona : prefs.voicePersona}
-                    options={narrationPilot?.info?.provider === 'grok' ? [
-                      { value: 'female', label: 'Ara · Female' },
-                      { value: 'male', label: 'Helios · Male' },
-                      { value: 'orion', label: 'Orion · Male' },
-                      { value: 'eve', label: 'Eve · Female' },
-                    ] : [{ value: 'female', label: 'Female' }, { value: 'male', label: 'Male' }]}
-                    onChange={value => onPrefs(value === 'orion' || value === 'eve'
-                      ? { ...prefs, audiobookVoice: value, voicePersonaChosen: true }
-                      : { ...prefs, audiobookVoice: null, voicePersona: value === 'male' ? 'male' : 'female', voicePersonaChosen: true })}
-                  />
-                <SelectRow label="Speed" testId="lab-v2-audio-speed" value={String(prefs.audioSpeed)}
-                  options={[...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.audioSpeed])].sort((a, b) => a - b).map(value => ({ value: String(value), label: value + '×' }))}
-                  onChange={value => onPrefs({ ...prefs, audioSpeed: Number(value) })} />
-              </div>
+              {pdfSource && <div className="lab-v2-layout-choices" role="group" aria-label="Book format">
+                <p className="lab-v2-group-label">Book format</p>
+                <div className="lab-v2-group">
+                  <div className="lab-v2-edition-option" aria-current="true"><span className="lab-v2-edition-name">Tinct book</span><span aria-hidden="true">✓</span></div>
+                  <button type="button" className="lab-v2-edition-option" data-testid="lab-v2-original-pages" onClick={pdfSource.onOriginalPages}><span className="lab-v2-edition-name">Original pages<small className="lab-v2-layout-description">Return to the PDF at this reading place.</small></span><span aria-hidden="true">›</span></button>
+                </div>
+              </div>}
               <div className="lab-v2-foot">
                 <button
                   type="button"
@@ -347,8 +433,16 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
 
           {layer === 'editions' && (
             <div className="lab-v2-editions">
+              {readingAngle && <>
+                <button type="button" className="lab-v2-row lab-v2-edition-link" data-testid="lab-reading-angle-link" onClick={readingAngle.onOpen}>
+                  <span className="lab-v2-edition-text"><span className="lab-v2-row-label">Reading angle</span><span className="lab-v2-edition-current">In AI settings</span></span>
+                  <span aria-hidden="true">›</span>
+                </button>
+                {editionRows && <div className="lab-v2-edition-divider" />}
+              </>}
+              {editionRows && <>
               {editionRow('Main version', 'mainEdition', editionName(prefs.primaryEdition), 'lab-v2-main-edition')}
-              {editionRow('Audiobook version', 'audioEdition', prefs.audioFollowsPrimary === false ? editionName(prefs.audioEdition) : 'Follow main version', 'lab-v2-audio-edition')}
+              {!ownPdf && compareChoice && <>
               <div className="lab-v2-edition-divider" />
               {editionRow('Compare version', 'compareEdition', prefs.compareOpen ? editionName(prefs.compareEdition) : 'None', 'lab-v2-compare-edition')}
               {compare && prefs.compareOpen && (
@@ -369,10 +463,32 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                         : 'Compare isn’t available for these two versions: their paragraphs don’t line up.'}
                 </p>
               )}
+              </>}
+              {phoneShakespeare && <>
+                <div className="lab-v2-edition-divider" />
+                <div className="lab-v2-rows">{shakespeareRow}</div>
+              </>}
+              {bookId && !ownPdf && !isUserBookId(bookId) && <>
+                <div className="lab-v2-edition-divider" />
+                <LabOfflineRow bookId={bookId}
+                  editionKeys={offlineEditionKeys(prefs.primaryEdition, prefs.compareOpen ? prefs.compareEdition : null)}
+                  hasVerseLines={editions.some(edition => edition.hasVerseLines)} />
+              </>}
+              </>}
+            </div>
+          )}
+
+          {layer === 'audio' && (
+            <div className="lab-v2-editions">
+              {editionRows && !ownPdf && <>
+                {editionRow('Audiobook version', 'audioEdition', prefs.audioFollowsPrimary === false ? editionName(prefs.audioEdition) : 'Follow main version', 'lab-v2-audio-edition')}
+                <div className="lab-v2-edition-divider" />
+              </>}
+              {voiceRows}
             </div>
           )}
           {picker && (
-            <div className="lab-v2-edition-choices" role="group" aria-label={LAB_V2_SHEET_TITLES[layer]}>
+            <div className="lab-v2-edition-choices" role="group" aria-label={title}>
               {layer !== 'mainEdition' && (
                 <button type="button" className="lab-v2-edition-option" aria-pressed={selected === ''} onClick={() => choose('')}>
                   <span>{layer === 'audioEdition' ? 'Follow main version' : 'None'}</span>
@@ -383,16 +499,35 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                 const difficulty = editionDifficulty(bookId, edition)
                 // A Bible version without this chapter (Tobit outside the Catholic edition) cannot be the main version here.
                 const missing = layer === 'mainEdition' && bookId === 'bible' && chapterNumber != null && !bibleEditionHasChapter(edition.key, chapterNumber)
+                const compareReason = layer === 'compareEdition'
+                  ? bookId === 'bible' && chapterNumber != null && !bibleEditionHasChapter(edition.key, chapterNumber)
+                    ? 'Doesn’t include this book'
+                    : bookId === 'bible' && chapterNumber != null && !bibleVerseNumbersCorrespond(prefs.primaryEdition, edition.key, chapterNumber)
+                      ? 'Verse numbers differ'
+                      : bookId !== 'bible' && (edition.aligned === false || editions.find(item => item.key === prefs.primaryEdition)?.aligned === false)
+                        ? 'Paragraphs don’t line up'
+                        : null
+                  : null
                 return <button key={edition.key} type="button" className="lab-v2-edition-option" aria-pressed={selected === edition.key}
-                  data-edition={edition.key} disabled={missing} onClick={() => choose(edition.key)}>
+                  data-edition={edition.key} disabled={missing || !!compareReason} onClick={() => choose(edition.key)}>
                   <span className="lab-v2-edition-name">{readerEditionLabel(edition)}
                     {difficulty && <span className="lab-v2-difficulty" title="Reading difficulty">{difficulty}</span>}
-                    {edition.key === 'modern-en' && <span className="lab-v2-difficulty">AI-generated</span>}
+                    {edition.style === 'modern' && <span className="lab-v2-difficulty">AI-generated</span>}
                     {missing && <span className="lab-v2-difficulty" data-testid="lab-v2-edition-missing-chapter">Doesn’t include this book</span>}
+                    {compareReason && <span className="lab-v2-difficulty">{compareReason}</span>}
                   </span>
                   <span className="lab-v2-edition-check" aria-hidden="true">{selected === edition.key ? '✓' : ''}</span>
                 </button>
               })}
+              {layer === 'mainEdition' && modernOffer && (
+                <button type="button" className="lab-v2-edition-option" data-testid="lab-v2-modern-offer"
+                  disabled={modernOffer.busy} onClick={modernOffer.onBuy}>
+                  <span className="lab-v2-edition-name">Tinct Modern English
+                    <span className="lab-v2-difficulty">{modernOffer.price}</span>
+                  </span>
+                  <span className="lab-v2-edition-check" aria-hidden="true" />
+                </button>
+              )}
             </div>
           )}
 
@@ -425,16 +560,6 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   </select>
                 </div>
               </Group>
-              {phoneShakespeare && <Group label="Shakespeare">
-                <div className="lab-v2-row is-select">
-                  <span className="lab-v2-row-icon" aria-hidden="true"><ParagraphIcon /></span>
-                  <span className="lab-v2-row-label">Shakespeare layout</span>
-                  <Value>{prefs.shakespeareLayout === 'flowing' ? 'Flowing text' : 'Verse lines'}</Value>
-                  <select className="lab-v2-row-select" aria-label="Shakespeare layout" value={prefs.shakespeareLayout || 'verse'} onChange={event => onPrefs({ ...prefs, shakespeareLayout: event.target.value as 'verse' | 'flowing' })}>
-                    <option value="verse">Verse lines</option><option value="flowing">Flowing text</option>
-                  </select>
-                </div>
-              </Group>}
               <Group label="Line spacing">
                 <LayoutSlider label="Line spacing" testId="lab-v2-line-spacing" icon={<LineIcon />}
                   value={labLineHeight(prefs.lineSpacing)} min={1.25} max={1.9} step={.01}
@@ -478,49 +603,6 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
             </>
           )}
 
-          {layer === 'account' && (
-            <>
-              <div className="lab-v2-account-card" data-testid="lab-v2-account-card">
-                <strong>{auth.user?.email || 'Reader account'}</strong>
-                <span>{auth.user ? (balance.isSubscribed ? 'Premium account' : 'Free account') : 'Reading locally'}</span>
-              </div>
-              {/* No AI credits row while signed-in AI is open (AI_ALLOWANCE_ENFORCED); the credit model will add one back. */}
-              <div className="lab-v2-year">
-                <p className="lab-v2-group-label">This year</p>
-                <div className="lab-v2-year-stats">
-                  <span><strong>{yearTotals.seconds < 3600 ? '<1' : Math.round(yearTotals.seconds / 3600)}</strong> hours</span>
-                  <span><strong>{yearTotals.pages.toLocaleString('en-US')}</strong> pages</span>
-                  <span><strong>{yearTotals.books}</strong> books</span>
-                </div>
-              </div>
-              <div className="lab-v2-rows">
-                <a
-                  className="lab-v2-row is-link"
-                  data-testid={auth.user ? 'lab-v2-account-manage' : 'lab-v2-account-sign-in'}
-                  href={auth.user ? labAccountUrl(returnTo) : labSignInUrl(returnTo)}
-                >
-                  <span className="lab-v2-row-label">{auth.user ? 'Manage account' : 'Sign in or create a free account'}</span>
-                  <Value>{''}</Value>
-                </a>
-                {auth.user?.email && (
-                  // The row the canvas notes as off the gutter. It sits on the
-                  // same left edge as every row above it now.
-                  <button
-                    type="button"
-                    className="lab-v2-row is-link"
-                    data-testid="lab-v2-reset-password"
-                    onClick={async () => {
-                      const result = await auth.resetPassword(auth.user!.email!)
-                      setResetStatus(result.error || 'Password reset email sent.')
-                    }}
-                  >
-                    <span className="lab-v2-row-label">Reset password</span>
-                  </button>
-                )}
-              </div>
-              {resetStatus && <p className="lab-v2-note" role="status">{resetStatus}</p>}
-            </>
-          )}
           {(layer === 'reading' || layer === 'advanced') && <button type="button" className="lab-v2-restore" onClick={() => onPrefs(restoreLabAppearance(prefs))}>Restore defaults</button>}
         </div>
       </section>

@@ -4,6 +4,7 @@ import { GROK_VOICE_MODEL } from './voice/grokConfig'
 import {
   AI_PRICING,
   AI_PRICING_VERSION,
+  ocrCostUsd,
   anthropicCostUsd,
   buildUsageRow,
   hashGuestKey,
@@ -69,6 +70,13 @@ describe('pricing table', () => {
     expect(AI_PRICING.anthropic['claude-sonnet-5'].cacheWritePerMTok).toBe(AI_PRICING.anthropic['claude-sonnet-5'].inputPerMTok * 1.25)
   })
 
+  it('prices an OCR page by xAI vision tokens at $0.20 in / $0.50 out per MTok', () => {
+    expect(AI_PRICING.xai.ocrInputPerMTok).toBe(1.25)
+    expect(AI_PRICING.xai.ocrOutputPerMTok).toBe(2.5)
+    expect(ocrCostUsd(3000, 1200)).toBeCloseTo(0.00675, 8)
+    expect(ocrCostUsd(-5, Number.NaN)).toBe(0)
+  })
+
   it('prices Claude tokens, cache reads and cache writes separately', () => {
     // 1,000 in + 500 out + 2,000 cache read + 4,000 cache write
     expect(anthropicCostUsd('claude-sonnet-5', { input_tokens: 1000, output_tokens: 500, cache_read_input_tokens: 2000, cache_creation_input_tokens: 4000 }))
@@ -112,6 +120,12 @@ describe('ledger rows', () => {
     expect(buildUsageRow(draft, { userId: 'not-a-uuid', guestKey: 'abc' })).toMatchObject({ user_id: null, guest_key: 'abc' })
   })
 
+  it("a signed-in check keeps the account (the allowance still counts) and adds only the 'check' marker", () => {
+    const draft = { feature: 'recap' as const, provider: 'anthropic' as const, model: 'm', cost_usd: 0.01 }
+    expect(buildUsageRow(draft, { userId, guestKey: 'check' })).toMatchObject({ user_id: userId, guest_key: 'check' })
+    expect(buildUsageRow(draft, { userId: null, guestKey: 'check' })).toMatchObject({ user_id: null, guest_key: 'check' })
+  })
+
   it('hashes the guest key: stable, keyed, and never the raw IP', async () => {
     const a = await hashGuestKey(env, '203.0.113.9')
     expect(a).toMatch(/^[0-9a-f]{20}$/)
@@ -151,6 +165,16 @@ describe('Anthropic call paths write one row each', () => {
     })
     expect(rows[0].cost_usd).toBe(anthropicCostUsd(COMPANION_MODEL, { input_tokens: 100, output_tokens: 40, cache_read_input_tokens: 500, cache_creation_input_tokens: 200 }))
     expect(JSON.stringify(rows[0])).not.toContain('An answer')
+  })
+
+  it('chat from a signed-in check (x-tinct-check: 1) is marked check beside the account; a reader IP is never stored', async () => {
+    const { rows } = stubFetch(url => url === 'https://api.anthropic.com/v1/messages'
+      ? Response.json({ content: [{ text: 'An answer.' }], usage: { input_tokens: 10, output_tokens: 4 } }) : undefined)
+    const { ctx, pending } = context()
+    await handleChat(post('/api/chat', { companion: { intent: 'ask', context: readerContext } }, { 'x-tinct-check': '1' }), env, ctx, async () => reader, allow)
+    await handleChat(post('/api/chat', { companion: { intent: 'ask', context: readerContext } }), env, ctx, async () => reader, allow)
+    await Promise.all(pending)
+    expect(rows.map(row => [row.user_id, row.guest_key])).toEqual([[userId, 'check'], [userId, null]])
   })
 
   it('explain: the structured explain intent is its own feature', async () => {
@@ -288,7 +312,7 @@ describe('recap and catch-up routes', () => {
     expect(rows.find(row => row.user_id === userId)).toMatchObject({ guest_key: null })
   })
 
-  it('catch-up (/api/lab-catch-up) is covered as feature recap', async () => {
+  it('catch-up (/api/lab-catch-up) is covered as feature catch_up', async () => {
     const { rows } = stubFetch(() => undefined)
     const { ctx, pending } = context()
     const response = await handleLabCatchUp(
@@ -298,7 +322,7 @@ describe('recap and catch-up routes', () => {
     expect(response.status).toBe(200)
     await Promise.all(pending)
     expect(rows).toHaveLength(1)
-    expect(rows[0]).toMatchObject({ feature: 'recap', provider: 'anthropic', input_tokens: 900, output_tokens: 80, book_id: 'anna' })
+    expect(rows[0]).toMatchObject({ feature: 'catch_up', provider: 'anthropic', input_tokens: 900, output_tokens: 80, book_id: 'anna' })
   })
 
   it('a ledger outage never fails or delays the reader\'s response', async () => {
@@ -346,5 +370,36 @@ describe('Talk', () => {
     expect(rows).toHaveLength(1)
     expect(rows[0].seconds).toBe(TALK_SESSION_MAX_SECONDS)
     expect(rows[0].cost_usd).toBe(talkCostUsd(TALK_SESSION_MAX_SECONDS))
+  })
+
+  it('never names a reader’s own book: a userbook- id is recorded as the marker "userbook"', async () => {
+    const { rows } = stubFetch(() => undefined)
+    const { ctx, pending } = context()
+    expect((await handleVoiceUsage(post('/api/voice-usage', { seconds: 30, bookId: 'userbook-ab12cd34ef56ab12cd34ef56' }), env, ctx, async () => reader, allow)).status).toBe(204)
+    await Promise.all(pending)
+    expect(rows).toHaveLength(1)
+    expect(rows[0].book_id).toBe('userbook')
+    expect(JSON.stringify(rows)).not.toContain('ab12cd34ef56')
+  })
+
+  it('the client reports Talk on an own book without its id', async () => {
+    const { reportTalkSeconds, setUsageReportTransport } = await import('./utils/usageReport')
+    const sent: Array<{ path: string; body: object }> = []
+    setUsageReportTransport((path, body) => { sent.push({ path, body }) })
+    try {
+      reportTalkSeconds({ seconds: 42, authToken: 't', bookId: 'userbook-ab12cd34ef56ab12cd34ef56' })
+      reportTalkSeconds({ seconds: 42, authToken: 't', bookId: 'bible' })
+    } finally { setUsageReportTransport(null) }
+    expect(sent).toEqual([{ path: '/api/voice-usage', body: { seconds: 42 } }, { path: '/api/voice-usage', body: { seconds: 42, bookId: 'bible' } }])
+  })
+})
+
+describe("Tinct's own checks in the ledger", () => {
+  it('labels a request carrying x-tinct-check as check, and leaves everyone else hashed', async () => {
+    const { ledgerGuestKey, CHECK_GUEST_KEY } = await import('./worker/lib/aiUsage')
+    const check = new Request('https://tinct.app/api/narration/ensure', { headers: { 'x-tinct-check': '1', 'cf-connecting-ip': '203.0.113.9' } })
+    const reader = new Request('https://tinct.app/api/narration/ensure', { headers: { 'cf-connecting-ip': '203.0.113.9' } })
+    expect(ledgerGuestKey(check)).toBe(CHECK_GUEST_KEY)
+    expect(ledgerGuestKey(reader)).toBe('203.0.113.9')
   })
 })

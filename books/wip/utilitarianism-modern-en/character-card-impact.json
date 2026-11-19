@@ -1,0 +1,649 @@
+{
+ "package": "app/public/data/characters/utilitarianism.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "7457e909ce911b5043c692ccf51e7ce30266b5824aec22c10997931dfb737361",
+ "candidateSha256": "534c43afa8af1f7dea12997361cd568a0569261d241e72c3fd6f961950a26fa1",
+ "pinMatchesServedLive": true,
+ "offsetUnit": "utf16",
+ "mentionsTotal": 42,
+ "unchanged": 0,
+ "moved": 42,
+ "needsRuling": 0,
+ "notes": [
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
+  "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "socrates",
+   "chapter": 1,
+   "paragraph": 0,
+   "oldStartOffset": 798,
+   "oldEndOffset": 806,
+   "oldText": "Socrates",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 869,
+    "endOffset": 877,
+    "text": "Socrates",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "protagoras",
+   "chapter": 1,
+   "paragraph": 0,
+   "oldStartOffset": 823,
+   "oldEndOffset": 833,
+   "oldText": "Protagoras",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 898,
+    "endOffset": 908,
+    "text": "Protagoras",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "plato",
+   "chapter": 1,
+   "paragraph": 0,
+   "oldStartOffset": 851,
+   "oldEndOffset": 856,
+   "oldText": "Plato",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1007,
+    "endOffset": 1012,
+    "text": "Plato",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bentham",
+   "chapter": 1,
+   "paragraph": 3,
+   "oldStartOffset": 807,
+   "oldEndOffset": 814,
+   "oldText": "Bentham",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 839,
+    "endOffset": 846,
+    "text": "Bentham",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kant",
+   "chapter": 1,
+   "paragraph": 3,
+   "oldStartOffset": 1633,
+   "oldEndOffset": 1637,
+   "oldText": "Kant",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1644,
+    "endOffset": 1648,
+    "text": "Kant",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "epicurus",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 921,
+   "oldEndOffset": 929,
+   "oldText": "Epicurus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 950,
+    "endOffset": 958,
+    "text": "Epicurus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bentham",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 933,
+   "oldEndOffset": 940,
+   "oldText": "Bentham",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 962,
+    "endOffset": 969,
+    "text": "Bentham",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "epicurus",
+   "chapter": 2,
+   "paragraph": 2,
+   "oldStartOffset": 331,
+   "oldEndOffset": 339,
+   "oldText": "Epicurus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 374,
+    "endOffset": 382,
+    "text": "Epicurus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "socrates",
+   "chapter": 2,
+   "paragraph": 5,
+   "oldStartOffset": 2872,
+   "oldEndOffset": 2880,
+   "oldText": "Socrates",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2816,
+    "endOffset": 2824,
+    "text": "Socrates",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "carlyle",
+   "chapter": 2,
+   "paragraph": 10,
+   "oldStartOffset": 271,
+   "oldEndOffset": 278,
+   "oldText": "Carlyle",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 281,
+    "endOffset": 288,
+    "text": "Carlyle",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "novalis",
+   "chapter": 2,
+   "paragraph": 11,
+   "oldStartOffset": 657,
+   "oldEndOffset": 664,
+   "oldText": "Novalis",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 628,
+    "endOffset": 635,
+    "text": "Novalis",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jesus",
+   "chapter": 2,
+   "paragraph": 17,
+   "oldStartOffset": 418,
+   "oldEndOffset": 435,
+   "oldText": "Jesus of Nazareth",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 419,
+    "endOffset": 436,
+    "text": "Jesus of Nazareth",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 2,
+   "paragraph": 21,
+   "oldStartOffset": 858,
+   "oldEndOffset": 861,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 906,
+    "endOffset": 909,
+    "text": "God",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 2,
+   "paragraph": 21,
+   "oldStartOffset": 888,
+   "oldEndOffset": 891,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 906,
+    "endOffset": 909,
+    "text": "God",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 2,
+   "paragraph": 21,
+   "oldStartOffset": 1166,
+   "oldEndOffset": 1169,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1202,
+    "endOffset": 1205,
+    "text": "God",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 2,
+   "paragraph": 21,
+   "oldStartOffset": 1279,
+   "oldEndOffset": 1282,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1315,
+    "endOffset": 1318,
+    "text": "God",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 2,
+   "paragraph": 21,
+   "oldStartOffset": 1318,
+   "oldEndOffset": 1321,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1315,
+    "endOffset": 1318,
+    "text": "God",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 2,
+   "paragraph": 21,
+   "oldStartOffset": 1843,
+   "oldEndOffset": 1846,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1912,
+    "endOffset": 1915,
+    "text": "God",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 2,
+   "paragraph": 21,
+   "oldStartOffset": 2097,
+   "oldEndOffset": 2100,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2160,
+    "endOffset": 2163,
+    "text": "God",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "galt",
+   "chapter": 2,
+   "paragraph": 25,
+   "oldStartOffset": 206,
+   "oldEndOffset": 210,
+   "oldText": "Galt",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 194,
+    "endOffset": 198,
+    "text": "Galt",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davis",
+   "chapter": 2,
+   "paragraph": 26,
+   "oldStartOffset": 100,
+   "oldEndOffset": 123,
+   "oldText": "Rev. J. Llewellyn Davis",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 101,
+    "endOffset": 124,
+    "text": "Rev. J. Llewellyn Davis",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bentham",
+   "chapter": 2,
+   "paragraph": 26,
+   "oldStartOffset": 1601,
+   "oldEndOffset": 1608,
+   "oldText": "Bentham",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1658,
+    "endOffset": 1665,
+    "text": "Bentham",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jesus",
+   "chapter": 3,
+   "paragraph": 1,
+   "oldStartOffset": 378,
+   "oldEndOffset": 384,
+   "oldText": "Christ",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 569,
+    "endOffset": 575,
+    "text": "Christ",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 3,
+   "paragraph": 2,
+   "oldStartOffset": 343,
+   "oldEndOffset": 364,
+   "oldText": "Ruler of the Universe",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 349,
+    "endOffset": 370,
+    "text": "Ruler of the Universe",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 3,
+   "paragraph": 2,
+   "oldStartOffset": 1173,
+   "oldEndOffset": 1176,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1184,
+    "endOffset": 1187,
+    "text": "God",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 3,
+   "paragraph": 2,
+   "oldStartOffset": 1349,
+   "oldEndOffset": 1352,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1375,
+    "endOffset": 1378,
+    "text": "God",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 3,
+   "paragraph": 2,
+   "oldStartOffset": 1473,
+   "oldEndOffset": 1476,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1496,
+    "endOffset": 1499,
+    "text": "God",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 3,
+   "paragraph": 5,
+   "oldStartOffset": 568,
+   "oldEndOffset": 571,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 588,
+    "endOffset": 591,
+    "text": "God",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 3,
+   "paragraph": 5,
+   "oldStartOffset": 594,
+   "oldEndOffset": 597,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 588,
+    "endOffset": 591,
+    "text": "God",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "comte",
+   "chapter": 3,
+   "paragraph": 9,
+   "oldStartOffset": 4693,
+   "oldEndOffset": 4698,
+   "oldText": "Comte",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 4710,
+    "endOffset": 4715,
+    "text": "Comte",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 3,
+   "paragraph": 9,
+   "oldStartOffset": 4989,
+   "oldEndOffset": 4999,
+   "oldText": "Providence",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 5001,
+    "endOffset": 5011,
+    "text": "Providence",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "kant",
+   "chapter": 5,
+   "paragraph": 21,
+   "oldStartOffset": 927,
+   "oldEndOffset": 931,
+   "oldText": "Kant",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 925,
+    "endOffset": 929,
+    "text": "Kant",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "kant",
+   "chapter": 5,
+   "paragraph": 21,
+   "oldStartOffset": 1549,
+   "oldEndOffset": 1553,
+   "oldText": "Kant",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1579,
+    "endOffset": 1583,
+    "text": "Kant",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "owen",
+   "chapter": 5,
+   "paragraph": 26,
+   "oldStartOffset": 581,
+   "oldEndOffset": 585,
+   "oldText": "Owen",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 561,
+    "endOffset": 565,
+    "text": "Owen",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "bentham",
+   "chapter": 5,
+   "paragraph": 34,
+   "oldStartOffset": 1637,
+   "oldEndOffset": 1644,
+   "oldText": "Bentham",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1582,
+    "endOffset": 1589,
+    "text": "Bentham",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bain",
+   "chapter": 5,
+   "paragraph": 37,
+   "oldStartOffset": 56,
+   "oldEndOffset": 70,
+   "oldText": "Professor Bain",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 31,
+    "text": "Professor Bain",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "spencer",
+   "chapter": 5,
+   "paragraph": 38,
+   "oldStartOffset": 141,
+   "oldEndOffset": 156,
+   "oldText": "Herbert Spencer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 32,
+    "text": "Herbert Spencer",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "spencer",
+   "chapter": 5,
+   "paragraph": 38,
+   "oldStartOffset": 950,
+   "oldEndOffset": 965,
+   "oldText": "Herbert Spencer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 929,
+    "endOffset": 944,
+    "text": "Herbert Spencer",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "bentham",
+   "chapter": 5,
+   "paragraph": 38,
+   "oldStartOffset": 1676,
+   "oldEndOffset": 1683,
+   "oldText": "Bentham",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1649,
+    "endOffset": 1656,
+    "text": "Bentham",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "spencer",
+   "chapter": 5,
+   "paragraph": 38,
+   "oldStartOffset": 1730,
+   "oldEndOffset": 1737,
+   "oldText": "Spencer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1678,
+    "endOffset": 1685,
+    "text": "Spencer",
+    "note": "5 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "spencer",
+   "chapter": 5,
+   "paragraph": 38,
+   "oldStartOffset": 2111,
+   "oldEndOffset": 2118,
+   "oldText": "Spencer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2081,
+    "endOffset": 2088,
+    "text": "Spencer",
+    "note": "5 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "spencer",
+   "chapter": 5,
+   "paragraph": 38,
+   "oldStartOffset": 2210,
+   "oldEndOffset": 2217,
+   "oldText": "Spencer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2177,
+    "endOffset": 2184,
+    "text": "Spencer",
+    "note": "5 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  }
+ ]
+}

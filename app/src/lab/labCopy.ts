@@ -50,6 +50,8 @@ export const LAB_COPY = {
   connecting: 'Connecting',
   checkingText: 'Checking text',
   preparingAnswer: 'Preparing answer',
+  /** Shown while the first sentence group of a chapter is still being synthesised. */
+  preparingNarration: 'Preparing narration…',
   readyToSpeak: 'Ready to speak',
   stopTalk: 'Stop talking',
   typedPending: 'A reply is on the way.',
@@ -64,15 +66,19 @@ export const LAB_COPY = {
   voiceStartFailed: "Couldn't start voice. Type a question instead.",
   signInAsk: 'Sign in to ask about this page.',
   balanceEmpty: 'Your AI chat balance is empty. Top up to continue.',
-  askUnavailable: 'Ask is unavailable right now.',
+  /** Beside the narrated book's details (AI Act art. 50: the voice is synthetic). */
+  aiNarration: 'AI narration',
+  askUnavailable: 'Chat is unavailable right now.',
   /** A daily ceiling or a provider limit was reached; reading is unaffected. */
   aiResting: 'AI is resting — try again later.',
-  offlineCast: 'You can read this introduction now. Ask needs a connection.',
+  offlineCast: 'You can read this introduction now. Chat needs a connection.',
   markAction: 'Keep this passage',
   labNote: 'Private lab for the new reading chrome.',
   accountEyebrow: 'Free account',
   accountTitle: 'Create a free account to keep using AI',
   accountTitleAudio: 'Create a free account to keep listening',
+  /** After a signed-out guest's Talk trial (one a day, two minutes). */
+  accountTitleTalk: 'Create a free account to keep talking',
   accountBody: 'Keep asking, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.',
   accountBodyAudio: 'Listen on, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.',
   accountKeepReading: 'Keep reading',

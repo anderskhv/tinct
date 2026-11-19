@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   prepare:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     defaults:
       run:
@@ -31,7 +31,7 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run verify-bundle
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Generate Lighthouse share card from its approved cover
         run: |
           BOOK_IDS=to-the-lighthouse node scripts/generate-brand-cards.mjs
@@ -57,8 +57,10 @@ jobs:
           git diff --cached --quiet || git commit -m "content: integrate pinned Symposium completeness assets and maps"
           git push origin HEAD:codex/symposium-publication-20260925
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: symposium-release-acceptance
           path: |
             books/wip/symposium-publication-20260925

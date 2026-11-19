@@ -81,7 +81,11 @@ describe('library recap helpers', () => {
       expect(recapEyebrow(value, T0)).toBe('Last time you read: —')
     }
     expect(compactChapterTitle('Chapter 1 — Loomings', 'Chapter 1')).toBe('Chapter 1')
-    expect(compactChapterTitle('Book II — The Just City', 'x')).toBe('Book II')
+    // In house style, as the reader shows the chapter (public/lab/chapter-title.js).
+    expect(compactChapterTitle('Book II — The Just City', 'x')).toBe('Book 2')
+    expect(compactChapterTitle('CHAPTER I—M. MYRIEL', 'Chapter 1', 'original-en')).toBe('Chapter 1')
+    expect(compactChapterTitle('Fitt XII', 'x')).toBe('Fitt 12')
+    for (const label of ['Proverbs 17', '1 Kings 3', 'Psalms 19', 'Act 1, Scene 2', 'Henry V', 'Book 4']) expect(compactChapterTitle(label, 'x')).toBe(label)
     expect(compactChapterTitle('', 'Chapter 4')).toBe('Chapter 4')
     expect(compactChapterTitle(undefined, 'Chapter 4')).toBe('Chapter 4')
   })
@@ -168,6 +172,9 @@ describe('library recap helpers', () => {
     expect(catalogueBookIdForPlace({ bookId: 'a-book-we-dropped' }, books, bible)).toBeNull()
     // No chapter list to check against: the historical assumption stands.
     expect(catalogueBookIdForPlace({ bookId: 'a-book-we-dropped' }, books)).toBe('bible')
+    // An added book the catalogue does not list is never a biblical pin.
+    expect(catalogueBookIdForPlace({ bookId: 'pd-pg-135' }, books)).toBeNull()
+    expect(catalogueBookIdForPlace({ bookId: 'pd-pg-135' }, books, bible)).toBeNull()
 
     const daniel = place({ bookId: 'daniel', headerBook: 'Daniel', chapterNumber: 7, sequentialChapter: 857, updatedAt: T0 + 1_000 })
     const droppedOld = place({ bookId: 'a-book-we-dropped', headerBook: 'Dropped', chapterNumber: 2, sequentialChapter: 2, updatedAt: T0 + 2_000 })
@@ -220,7 +227,7 @@ describe('library recap helpers', () => {
   it('uses the position store alone for a book with no memory session, with the catalogue chapter label', () => {
     const republic = place({ bookId: 'plato-republic', headerBook: 'The Republic', chapterNumber: 2, sequentialChapter: 2, paragraphIndex: 4, pageIndex: 3, primaryEditionKey: 'modern-en', updatedAt: T0 + 5_000 })
     const target = continueTargetFor({ book: books.get('plato-republic'), session: null, place: republic })
-    expect(target).toMatchObject({ bookId: 'plato-republic', editionKey: 'modern-en', chapterNumber: 2, chapterLabel: 'Book II', pageIndex: 3, paragraphIndex: 4, source: 'position' })
+    expect(target).toMatchObject({ bookId: 'plato-republic', editionKey: 'modern-en', chapterNumber: 2, chapterLabel: 'Book 2', pageIndex: 3, paragraphIndex: 4, source: 'position' })
     const unknown = place({ bookId: 'hamlet', headerBook: 'Hamlet', chapterNumber: 3, sequentialChapter: 3, updatedAt: T0 })
     expect(continueTargetFor({ book: undefined, session: null, place: unknown })).toBeNull()
     expect(continueTargetFor({ book: books.get('hamlet'), session: null, place: null })).toBeNull()
@@ -240,64 +247,84 @@ describe('library recap helpers', () => {
       ['plato-republic', 'memory'],
     ])
     expect(list.readingNow[0].target.chapterLabel).toBe('Book 2')
-    expect(list.readingNow[3].target.chapterLabel).toBe('Book I')
-    expect(inProgressLabel(list.readingNow[3])).toBe('Last time · Book I')
+    expect(list.readingNow[3].target.chapterLabel).toBe('Book 1')
+    expect(inProgressLabel(list.readingNow[3])).toBe('Last time · Book 1')
     expect(list.finished).toEqual([])
   })
 
-  it('moves books to Finished only for a completed final chapter or an app mark, and back when read again', () => {
+  it('moves books to Finished by the shared rule (every chapter, or a completion mark), and keeps them there when read again', () => {
     const finishedRevelation = sessionFor({ ...bibleChapterFixture(), chapterNumber: 1189, chapterLabel: 'Revelation 22' }, { id: 'r22', state: 'completed', startedAt: T0, lastActiveAt: T0 + 7_000 })
     const completedMidBook = sessionFor(platoDialogueFixture(), { id: 'p1', state: 'completed', startedAt: T0, lastActiveAt: T0 + 6_000 })
     const hamletSession = sessionFor({ ...platoDialogueFixture(), bookId: 'hamlet', chapterLabel: 'Act 1' }, { id: 'h1', state: 'progressed', startedAt: T0, lastActiveAt: T0 + 2_000 })
+    const bibleAll = books.get('bible')!.chapters.map(chapter => chapter.number)
     const list = readingList({
       memory: memoryOf(finishedRevelation, completedMidBook, hamletSession),
       viewer: null,
-      positions: null,
+      positions: positions([], null, { bible: bibleAll }),
       books,
       completedBookIds: new Set(['hamlet']),
     })
     expect(list.readingNow.map(row => row.bookId)).toEqual(['plato-republic'])
     expect(list.finished.map(row => [row.bookId, row.finishedAt])).toEqual([['bible', T0 + 7_000], ['hamlet', T0 + 2_000]])
     expect(list.readingNow[0].progress).toBe('finished')
-    expect(heroHeadline(list.readingNow[0])).toBe('You finished Book I')
+    expect(heroHeadline(list.readingNow[0])).toBe('You finished Book 1')
 
+    // The final chapter alone is not the book: it is still being read.
+    const lastOnly = readingList({ memory: memoryOf(finishedRevelation), viewer: null, positions: null, books })
+    expect(lastOnly.finished).toEqual([])
+    expect(lastOnly.readingNow.map(row => row.bookId)).toEqual(['bible'])
+
+    // Reading again: still Finished, and Continue resumes the re-read.
     const readingAgain = place({ bookId: 'revelation', headerBook: 'Revelation', chapterNumber: 1, sequentialChapter: 1170, updatedAt: T0 + 20_000 })
-    const again = readingList({ memory: memoryOf(finishedRevelation), viewer: null, positions: positions([readingAgain], 'revelation'), books })
-    expect(again.finished).toEqual([])
+    const again = readingList({ memory: memoryOf(finishedRevelation), viewer: null, positions: positions([readingAgain], 'revelation', { bible: bibleAll }), books })
+    expect(again.finished.map(row => row.bookId)).toEqual(['bible'])
     expect(again.readingNow[0]).toMatchObject({ bookId: 'bible', target: { source: 'position', chapterLabel: 'Revelation 1' } })
   })
 
-  it('keeps a finished book Finished when the reader only left the final page (a later hide write at that page)', () => {
+  it('keeps a finished book off Reading now when the reader only left the final page (a later hide write at that page)', () => {
     // Crito 3 completed on page 22 of 22; leaving the reader wrote the pin again at that page 40s later.
     const crito = { ...platoDialogueFixture(), bookId: 'crito', chapterNumber: 3, chapterLabel: 'The Laws of Athens Speak' }
     const completed = sessionFor(crito, { id: 'c3', state: 'completed', startedAt: T0, lastActiveAt: T0 + 5_000, page: 22, totalPages: 22 })
     const critoBooks = new Map(books)
     critoBooks.set('crito', { id: 'crito', title: 'Crito', chapters: [{ number: 1, title: 'The Visit at Dawn' }, { number: 2, title: 'The Plea' }, { number: 3, title: 'The Laws of Athens Speak' }] })
+    const read = { crito: [1, 2, 3] }
     const leftAtLastPage = place({ bookId: 'crito', headerBook: 'Crito', chapterNumber: 3, sequentialChapter: 3, pageIndex: 21, updatedAt: T0 + 45_000 })
-    const list = readingList({ memory: memoryOf(completed), viewer: null, positions: positions([leftAtLastPage], 'crito'), books: critoBooks })
+    const list = readingList({ memory: memoryOf(completed), viewer: null, positions: positions([leftAtLastPage], 'crito', read), books: critoBooks })
     expect(list.finished.map(row => row.bookId)).toEqual(['crito'])
     expect(list.readingNow).toEqual([])
 
-    // Turning back to an earlier page of that chapter, or opening an earlier chapter, is reading again.
+    // Turning back to an earlier page of that chapter, or opening an earlier chapter, is reading again:
+    // the book stays Finished and is also being read.
     const backAPage = { ...leftAtLastPage, pageIndex: 10, updatedAt: T0 + 60_000 }
-    expect(readingList({ memory: memoryOf(completed), viewer: null, positions: positions([backAPage], 'crito'), books: critoBooks }).finished).toEqual([])
+    const back = readingList({ memory: memoryOf(completed), viewer: null, positions: positions([backAPage], 'crito', read), books: critoBooks })
+    expect(back.finished.map(row => row.bookId)).toEqual(['crito'])
+    expect(back.readingNow.map(row => row.bookId)).toEqual(['crito'])
     const chapterOne = { ...leftAtLastPage, chapterNumber: 1, sequentialChapter: 1, pageIndex: 0, updatedAt: T0 + 60_000 }
-    expect(readingList({ memory: memoryOf(completed), viewer: null, positions: positions([chapterOne], 'crito'), books: critoBooks }).readingNow[0]).toMatchObject({ bookId: 'crito', target: { chapterNumber: 1 } })
+    expect(readingList({ memory: memoryOf(completed), viewer: null, positions: positions([chapterOne], 'crito', read), books: critoBooks }).readingNow[0]).toMatchObject({ bookId: 'crito', target: { chapterNumber: 1 } })
     // A pin older than the completion is stale, never "reading again".
     const stalePin = { ...chapterOne, updatedAt: T0 + 1_000 }
-    expect(readingList({ memory: memoryOf(completed), viewer: null, positions: positions([stalePin], 'crito'), books: critoBooks }).finished.map(row => row.bookId)).toEqual(['crito'])
+    const stale = readingList({ memory: memoryOf(completed), viewer: null, positions: positions([stalePin], 'crito', read), books: critoBooks })
+    expect(stale.finished.map(row => row.bookId)).toEqual(['crito'])
+    expect(stale.readingNow).toEqual([])
     expect(movedBackIntoBook({ place: stalePin, lastChapter: 3, session: completed })).toBe(false)
+    // Only the final chapter finished (opened from Contents and read to its end) is not the book.
+    expect(readingList({ memory: memoryOf(completed), viewer: null, positions: positions([leftAtLastPage], 'crito'), books: critoBooks }).finished).toEqual([])
   })
 
-  it('counts the position record\'s finished mark on the final chapter, even with no memory session left', () => {
+  it('counts the position record\'s finished chapters, even with no memory session left', () => {
     const atEnd = place({ bookId: 'meditations', headerBook: 'Meditations', chapterNumber: 12, sequentialChapter: 12, pageIndex: 4, updatedAt: T0 + 9_000 })
-    const done = readingList({ memory: emptyReadingMemory(), viewer: null, positions: positions([atEnd], 'meditations', { meditations: [11, 12] }), books })
+    const read = { meditations: [1, 2, 11, 12] }
+    const done = readingList({ memory: emptyReadingMemory(), viewer: null, positions: positions([atEnd], 'meditations', read), books })
     expect(done.finished.map(row => row.bookId)).toEqual(['meditations'])
-    // Back in Book 2 with the mark still set: reading again.
+    expect(done.readingNow).toEqual([])
+    // Back in Book 2: still Finished, and being read again.
     const earlier = { ...atEnd, chapterNumber: 2, sequentialChapter: 2, updatedAt: T0 + 10_000 }
-    const again = readingList({ memory: emptyReadingMemory(), viewer: null, positions: positions([earlier], 'meditations', { meditations: [11, 12] }), books })
-    expect(again.finished).toEqual([])
+    const again = readingList({ memory: emptyReadingMemory(), viewer: null, positions: positions([earlier], 'meditations', read), books })
+    expect(again.finished.map(row => row.bookId)).toEqual(['meditations'])
     expect(again.readingNow[0]).toMatchObject({ bookId: 'meditations', target: { chapterNumber: 2 } })
+    // The last chapter alone is not the book.
+    const lastOnly = readingList({ memory: emptyReadingMemory(), viewer: null, positions: positions([atEnd], 'meditations', { meditations: [11, 12] }), books })
+    expect(lastOnly.finished).toEqual([])
   })
 
   it('shows the stored summary in a row only when it describes the Continue chapter', () => {

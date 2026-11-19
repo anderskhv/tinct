@@ -1,0 +1,13 @@
+{
+  "_note": "Reviewed same-paragraph character-card rulings for the 2026-10-21 modern-en repair releases, applied by app/scripts/prepare-modern-en-repairs.py --mappings. Each entry renders the same figure in the same paragraph; every other mention the exact projection could not carry stays dropped and is listed in the release record.",
+  "jekyll-and-hyde": [
+    {
+      "characterId": "girl-doctor",
+      "from": "doctor",
+      "to": "Sawbones",
+      "occurrenceOverrides": [
+        { "chapterNumber": 1, "paragraphIndex": 7, "oldOccurrence": 1, "newOccurrence": 0 }
+      ]
+    }
+  ]
+}

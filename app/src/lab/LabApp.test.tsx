@@ -298,6 +298,80 @@ describe('lab bible book', () => {
     expect(line()).toContain('heavens and the earth were finished')
   })
 
+  describe('leaving a chapter read to its last page', () => {
+    const genesis1 = [
+      ['In the beginning God created the heaven and the earth.', ...Array.from({ length: 79 }, (_, i) => `g1a${i}`)].join(' '),
+      Array.from({ length: 80 }, (_, i) => `g1b${i}`).join(' '),
+      'And God made two great lights; the greater light to rule the day. ' + Array.from({ length: 70 }, (_, i) => `g1c${i}`).join(' '),
+    ]
+    const genesis2 = ['Thus the heavens and the earth were finished.', 'And on the seventh day God ended his work.']
+    const renderGenesis = () => {
+      vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input)
+        if (url.includes('bible-kjv-en/manifest.json')) return { ok: true, json: async () => ({ format: 'tinct-edition-chapters-v1', bookId: 'bible', editionKey: 'kjv-en', chapters: [{ number: 1, title: 'Genesis 1', path: 'ch0001.json' }, { number: 2, title: 'Genesis 2', path: 'ch0002.json' }] }) }
+        if (url.includes('bible-kjv-en/ch0001.json')) return { ok: true, json: async () => ({ number: 1, title: 'Genesis 1', paragraphs: genesis1 }) }
+        if (url.includes('bible-kjv-en/ch0002.json')) return { ok: true, json: async () => ({ number: 2, title: 'Genesis 2', paragraphs: genesis2 }) }
+        if (url.includes('bible-threads.json')) return { ok: true, json: async () => ({ characters: [] }) }
+        return { ok: false, json: async () => ({}) }
+      }))
+      render(<LabApp pathname="/lab/phone" source={{
+        ...bibleFallbackSource(),
+        paragraphs: genesis1,
+        followParagraphs: genesis1.map((text, index) => ({ index, text })),
+        chapters: [{ number: 1, title: 'Genesis 1', path: 'ch0001.json' }, { number: 2, title: 'Genesis 2', path: 'ch0002.json' }],
+        // The full chapter list is known, so Contents lists its rows.
+        chaptersProvisional: false,
+      }} />)
+    }
+    const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
+    const onLast = () => /^(\d+) \/ \1 of chapter/.test(progress())
+    // One turn at a time, so a slow render never turns past the end.
+    const readToLastPage = async () => {
+      for (let i = 0; i < 8 && !onLast(); i++) {
+        const before = progress()
+        fireEvent.click(screen.getByTestId('lab-page-next'))
+        await waitFor(() => expect(progress()).not.toBe(before))
+      }
+      expect(onLast()).toBe(true)
+    }
+    const jumpToGenesis2 = async () => {
+      // A turn puts the chrome away; the first press on the pill brings it back.
+      fireEvent.click(screen.getByTestId('lab-header-chapter'))
+      if (!screen.queryByTestId('lab-contents-v2')) fireEvent.click(screen.getByTestId('lab-header-chapter'))
+      fireEvent.click(await screen.findByTestId('lab-tree-chapter-2'))
+      await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
+    }
+
+    it('finishes it when the reader jumps elsewhere from Contents instead of turning past the end', async () => {
+      renderGenesis()
+      await readToLastPage()
+      expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
+      expect(readLabPositionLocal().finished.bible ?? []).toEqual([])
+      await jumpToGenesis2()
+      expect(readLabPositionLocal().finished.bible).toEqual([1])
+    })
+
+    it('leaves it unfinished when the reader jumps away before its last page', async () => {
+      renderGenesis()
+      fireEvent.click(screen.getByTestId('lab-page-next'))
+      await waitFor(() => expect(progress()).toMatch(/^2 \//))
+      expect(onLast()).toBe(false)
+      await jumpToGenesis2()
+      expect(readLabPositionLocal().finished.bible ?? []).toEqual([])
+    })
+
+    it('leaves it unfinished when the reader turned back off the last page before jumping', async () => {
+      renderGenesis()
+      await readToLastPage()
+      fireEvent.click(screen.getByTestId('lab-page-prev'))
+      await waitFor(() => expect(onLast()).toBe(false))
+      expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
+      expect(readLabPositionLocal().finished.bible ?? []).toEqual([])
+      await jumpToGenesis2()
+      expect(readLabPositionLocal().finished.bible ?? []).toEqual([])
+    })
+  })
+
   it('labels Proverbs 16 with the biblical name, never the linear index', () => {
     // Book-wide numbering is what this checks; the Bible opens on chapter progress.
     localStorage.setItem('tinct:reader-progress-mode', JSON.stringify({ bible: 'book' }))
@@ -426,7 +500,7 @@ describe('lab passage headline pages', () => {
         readingPage={{ paragraphIndex: 0, from: 0, to: 5 }}
       />,
     )
-    expect(screen.getByTestId('lab-reading-stage').textContent).toContain(`9\u00a0And`)
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain(`9\u202fAnd`)
   })
 
   it('lets the line break before a protected verse start', () => {
@@ -447,7 +521,7 @@ describe('lab passage headline pages', () => {
     const unit = screen.getByTestId('lab-reading-stage').querySelector('.lab-verse-unit')
     expect(unit?.previousSibling?.textContent).toBe(' ')
     expect(unit?.previousSibling?.previousSibling?.textContent).toBe('so.')
-    expect(unit?.textContent).toContain(`9\u00a0And`)
+    expect(unit?.textContent).toContain(`9\u202fAnd`)
   })
 
   it('shows the chapter headline only on the first hearing page', () => {
@@ -582,7 +656,7 @@ describe('lab passage headline pages', () => {
     }
     const view = render(<LabPassage {...props} pageTurn={{ direction: 'next', nonce: 1 }} />)
     expect(screen.getByTestId('lab-reading-stage').getAttribute('data-page-turn')).toBe('next')
-    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Before 2\u00a0the marker')
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Before 2\u202fthe marker')
     expect(screen.getByTestId('lab-reading-stage').textContent).toContain('After the marker')
 
     view.rerender(<LabPassage {...props} pageTurn={{ direction: 'previous', nonce: 2 }} />)
@@ -792,6 +866,8 @@ describe('lab passage headline pages', () => {
   /**
    * A click inside an existing highlight is a question about the thing the
    * reader marked, not about the word under the cursor.
+   * (Design change, 22 Oct 2026: on desktop the menu is the margin reader's dark bar, so the highlighter is
+   * "Highlight in <colour>" and Copy is under •••; what each action takes is unchanged.)
    */
   describe('a click inside an existing highlight acts on the whole highlight', () => {
     const selectWords = async (from: number, to: number, id: number) => {
@@ -806,12 +882,44 @@ describe('lab passage headline pages', () => {
       fireEvent.pointerUp(word, { pointerId: id, pointerType: 'mouse', clientX: 190, clientY: 200 })
     }
 
+    it('the highlight menu stays while the reader is still and goes once they scroll on (Anders, 2 Nov 2026)', async () => {
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+      await selectWords(1, 3, 61)
+      await waitFor(() => expect(document.querySelector('.selection-popup')).not.toBeNull())
+      const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); fireEvent.scroll(window) }
+      scrollTo(0)
+      scrollTo(20)
+      expect(document.querySelector('.selection-popup')).not.toBeNull()
+      scrollTo(200)
+      await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
+      Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
+    })
+
+    it('a saved highlight\u2019s menu (its colours) goes at once on a scroll or a turn of the wheel (Anders, 11 Nov 2026)', async () => {
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+      const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); fireEvent.scroll(window) }
+      await selectWords(1, 3, 71)
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
+      await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
+      expect(document.querySelector('.selection-popup, [role="toolbar"]')).not.toBeNull()
+      scrollTo(0)
+      scrollTo(2)
+      await waitFor(() => expect(document.querySelector('.selection-popup, [role="toolbar"]')).toBeNull())
+      // The wheel alone, before the page reports a scroll.
+      clickWord(2, 72)
+      await waitFor(() => expect(document.querySelector('.selection-popup, [role="toolbar"]')).not.toBeNull())
+      fireEvent.wheel(document.body, { deltaY: 40 })
+      await waitFor(() => expect(document.querySelector('.selection-popup, [role="toolbar"]')).toBeNull())
+      expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1)
+      Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
+    })
+
     it('takes the whole highlight for copy and ask, and the clicked word for define', async () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       const whole = [1, 2, 3].map(i => words[i].textContent?.trim()).join(' ')
       await selectWords(1, 3, 51)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 52, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -829,7 +937,8 @@ describe('lab passage headline pages', () => {
       })
       // The subject the actions operate on is the whole highlight.
       expect(popup.textContent).toBeTruthy()
-      fireEvent.click(screen.getByRole('button', { name: /copy/i }))
+      fireEvent.click(screen.getByRole('button', { name: 'More' }))
+      fireEvent.click(screen.getByRole('menuitem', { name: /copy/i }))
       await waitFor(() => expect(copied).toHaveLength(1))
       expect(copied[0]).toBe(whole)
       expect(copied[0].split(/\s+/).length).toBeGreaterThan(1)
@@ -841,7 +950,7 @@ describe('lab passage headline pages', () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       await selectWords(1, 2, 61)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 62, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -865,7 +974,7 @@ describe('lab passage headline pages', () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       await selectWords(1, 2, 71)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 72, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -877,7 +986,8 @@ describe('lab passage headline pages', () => {
       })
       await selectWords(0, 4, 73)
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeTruthy())
-      fireEvent.click(screen.getByRole('button', { name: /copy/i }))
+      fireEvent.click(screen.getByRole('button', { name: 'More' }))
+      fireEvent.click(screen.getByRole('menuitem', { name: /copy/i }))
       await waitFor(() => expect(copied).toHaveLength(1))
       expect(copied[0]).toBe([0, 1, 2, 3, 4].map(i => words[i].textContent?.trim()).join(' '))
     })
@@ -1791,6 +1901,112 @@ it('V2 plays from the new visible page after pausing and browsing, without repla
 })
 
 
+describe('paused phone player: grab handle and swipe down (14 Oct 2026)', () => {
+  const transport = () => document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')
+  const firstWord = () => screen.getByTestId('lab-book').querySelector<HTMLElement>('[data-testid="lab-word"]')!.dataset.wordIndex
+  async function pausedPlayer() {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class { constructor() { return audio } })
+    render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
+    fireEvent.click(screen.getByTestId('lab-v2-play'))
+    await waitFor(() => expect(audio.paused).toBe(false))
+    return audio
+  }
+  const drag = (target: Element, points: Array<[number, number]>) => {
+    const [[x0, y0], ...rest] = points
+    fireEvent.pointerDown(target, { pointerId: 7, pointerType: 'touch', isPrimary: true, button: 0, clientX: x0, clientY: y0 })
+    for (const [x, y] of rest) fireEvent.pointerMove(target, { pointerId: 7, pointerType: 'touch', isPrimary: true, clientX: x, clientY: y })
+    const [x, y] = rest[rest.length - 1] ?? [x0, y0]
+    fireEvent.pointerUp(target, { pointerId: 7, pointerType: 'touch', isPrimary: true, clientX: x, clientY: y })
+  }
+
+  it('shows the handle, not a corner ×, only while paused; a tap on it closes without moving the page', async () => {
+    const audio = await pausedPlayer()
+    expect(screen.queryByTestId('lab-audio-handle')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(audio.paused).toBe(true)
+    const handle = screen.getByTestId('lab-audio-handle')
+    expect(handle.tagName).toBe('BUTTON')
+    expect(handle.getAttribute('aria-label')).toBe('Close audio controls')
+    expect(screen.getByTestId('lab-phone-bar').contains(handle)).toBe(true)
+    expect(document.querySelector('.lab-audio-dismiss')).toBeNull()
+    const before = firstWord()
+    fireEvent.click(handle)
+    expect(transport()).toBe('closed')
+    expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
+    expect(firstWord()).toBe(before)
+    expect(audio.paused).toBe(true)
+  })
+
+  it('a swipe down on the paused bar closes it, the same close as the handle', async () => {
+    const audio = await pausedPlayer()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    const before = firstWord()
+    drag(screen.getByTestId('lab-hearing-back'), [[100, 700], [101, 712], [102, 730], [102, 760]])
+    await waitFor(() => expect(transport()).toBe('closed'))
+    expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
+    expect(firstWord()).toBe(before)
+    expect(audio.paused).toBe(true)
+  })
+
+  it('with reduced motion the bar does not follow the finger; the swipe just closes it', async () => {
+    vi.stubGlobal('matchMedia', (query: string) => ({ matches: query.includes('prefers-reduced-motion'), media: query, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, onchange: null, dispatchEvent: () => false }))
+    await pausedPlayer()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    const bar = screen.getByTestId('lab-phone-bar')
+    fireEvent.pointerDown(bar, { pointerId: 7, pointerType: 'touch', isPrimary: true, clientX: 100, clientY: 700 })
+    fireEvent.pointerMove(bar, { pointerId: 7, pointerType: 'touch', isPrimary: true, clientX: 100, clientY: 760 })
+    expect(bar.style.transform).toBe('')
+    fireEvent.pointerUp(bar, { pointerId: 7, pointerType: 'touch', isPrimary: true, clientX: 100, clientY: 760 })
+    expect(transport()).toBe('closed')
+  })
+
+  it('a sideways or upward drag, a short drag, or a swipe while playing leaves the bar open', async () => {
+    const audio = await pausedPlayer()
+    // Playing: the bar does not close by swipe and offers no handle.
+    drag(screen.getByTestId('lab-phone-bar'), [[100, 700], [100, 720], [100, 780]])
+    await new Promise(resolve => setTimeout(resolve, 250))
+    expect(transport()).toBe('open')
+    expect(audio.paused).toBe(false)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    const bar = screen.getByTestId('lab-phone-bar')
+    drag(bar, [[100, 700], [130, 704], [190, 712]])
+    drag(bar, [[100, 700], [100, 680], [100, 640]])
+    drag(bar, [[100, 700], [100, 710], [100, 714]])
+    await new Promise(resolve => setTimeout(resolve, 250))
+    expect(transport()).toBe('open')
+    expect(screen.getByTestId('lab-audio-handle')).toBeTruthy()
+  })
+
+  it('a tap on a bar button still works while the bar can be swiped', async () => {
+    const audio = await pausedPlayer()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(audio.paused).toBe(true)
+    const speed = screen.getByTestId('lab-hearing-speed')
+    drag(speed, [[40, 700], [42, 702]])
+    fireEvent.click(speed)
+    expect(screen.getByTestId('lab-audio-speed-popover')).toBeTruthy()
+    expect(transport()).toBe('open')
+    const back = screen.getByTestId('lab-hearing-back')
+    drag(back, [[90, 700], [91, 703]])
+    fireEvent.click(back)
+    const resume = screen.getByTestId('lab-listen')
+    drag(resume, [[195, 700], [196, 702]])
+    fireEvent.click(resume)
+    await waitFor(() => expect(audio.paused).toBe(false))
+  })
+
+  it('the click that ends a swipe is swallowed, so letting go over Play does not resume', async () => {
+    const audio = await pausedPlayer()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    const resume = screen.getByTestId('lab-listen')
+    drag(resume, [[195, 700], [195, 712], [195, 724]])
+    fireEvent.click(resume)
+    expect(audio.paused).toBe(true)
+    expect(transport()).toBe('open')
+  })
+})
+
 it('returns from V2 audio browsing without seeking or restarting playback', async () => {
   const audio = new FakeAudio()
   vi.stubGlobal('Audio', class { constructor() { return audio } })
@@ -1798,32 +2014,54 @@ it('returns from V2 audio browsing without seeking or restarting playback', asyn
   fireEvent.click(screen.getByTestId('lab-v2-play'))
   await waitFor(() => expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing'))
   fireEvent.click(screen.getByTestId('lab-page-next'))
-  await waitFor(() => expect(screen.getByTestId('lab-back-to-audio')).toBeTruthy())
+  await waitFor(() => expect(screen.getByTestId('lab-back-to-voice')).toBeTruthy())
   const time = audio.currentTime
-  fireEvent.click(screen.getByTestId('lab-back-to-audio'))
-  expect(screen.queryByTestId('lab-back-to-audio')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-back-to-voice'))
+  expect(screen.queryByTestId('lab-back-to-voice')).toBeNull()
   expect(audio.currentTime).toBe(time)
   expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing')
 })
 
 
-it('dismisses V2 speed controls with Done, outside tap and Escape without changing speed', async () => {
+it('steps V2 playback speed by 0.25 within 0.5–3 and closes on outside tap and Escape, focus back on the button', async () => {
   const audio = new FakeAudio()
   vi.stubGlobal('Audio', class { constructor() { return audio } })
   render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
   fireEvent.click(screen.getByTestId('lab-v2-play'))
   await waitFor(() => expect(audio.paused).toBe(false))
   fireEvent.click(screen.getByTestId('lab-hearing-speed'))
-  fireEvent.change(screen.getByTestId('lab-audio-speed-slider'), { target: { value: '1.75' } })
-  fireEvent.click(screen.getByRole('button', { name: 'Done', exact: true }))
-  expect(screen.queryByTestId('lab-audio-speed-popover')).toBeNull()
+  const popover = screen.getByTestId('lab-audio-speed-popover')
+  expect(popover.getAttribute('role')).toBe('group')
+  expect(screen.getByRole('group', { name: 'Playback speed' })).toBe(popover)
+  expect(screen.queryByRole('button', { name: 'Done' })).toBeNull()
+  expect(screen.queryByRole('slider', { name: 'Playback speed' })).toBeNull()
+  const value = screen.getByTestId('lab-audio-speed-value')
+  expect(value.getAttribute('aria-live')).toBe('polite')
+  expect(value.textContent).toBe('1×')
+  const faster = screen.getByRole('button', { name: 'Faster' })
+  const slower = screen.getByRole('button', { name: 'Slower' })
+  fireEvent.click(faster); fireEvent.click(faster); fireEvent.click(faster)
+  expect(value.textContent).toBe('1.75×')
   expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1.75×')
-  fireEvent.click(screen.getByTestId('lab-hearing-speed'))
+  for (let i = 0; i < 10; i++) fireEvent.click(screen.getByTestId('lab-audio-speed-faster'))
+  expect(value.textContent).toBe('3×')
+  expect((screen.getByTestId('lab-audio-speed-faster') as HTMLButtonElement).disabled).toBe(true)
+  for (let i = 0; i < 12; i++) fireEvent.click(slower)
+  expect(value.textContent).toBe('0.5×')
+  expect((screen.getByTestId('lab-audio-speed-slower') as HTMLButtonElement).disabled).toBe(true)
+  expect((screen.getByTestId('lab-audio-speed-faster') as HTMLButtonElement).disabled).toBe(false)
+  fireEvent.click(faster); fireEvent.click(faster)
+  expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1×')
   fireEvent.pointerDown(document.body)
+  fireEvent.click(document.body) // the rest of the dismissing tap, which is swallowed
   expect(screen.queryByTestId('lab-audio-speed-popover')).toBeNull()
+  expect(document.activeElement).toBe(screen.getByTestId('lab-hearing-speed'))
   fireEvent.click(screen.getByTestId('lab-hearing-speed'))
+  screen.getByTestId('lab-audio-speed-faster').focus()
   fireEvent.keyDown(document, { key: 'Escape' })
   expect(screen.queryByTestId('lab-audio-speed-popover')).toBeNull()
+  expect(document.activeElement).toBe(screen.getByTestId('lab-hearing-speed'))
+  expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1×')
   expect(audio.paused).toBe(false)
 })
 

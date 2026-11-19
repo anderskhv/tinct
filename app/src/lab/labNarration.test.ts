@@ -7,6 +7,7 @@ import {
   narrationFailureMessage,
   narrationPilotApplies,
   narrationPilotFlag,
+  readerNarrationVoices,
   resolveNarrationVoice,
   NarrationEnsureError,
 } from './labNarration'
@@ -55,11 +56,28 @@ describe('narration pilot flag and prefs', () => {
 describe('Grok production routing', () => {
   it('uses Grok for retained English originals and keeps optional voices separate from Talk', () => {
     expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'frankenstein','original-en',1,'grok')).toBe(true)
-    expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'frankenstein','modern-da',1,'grok')).toBe(false)
+    expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'pride-and-prejudice','modern-da',1,'grok')).toBe(false)
     const prefs = {...DEFAULT_LAB_PREFS,audiobookVoice:'orion' as const}
     const voices = [{key:'f',label:'Ara',persona:'female' as const},{key:'m',label:'Helios',persona:'male' as const},{key:'orion',label:'Orion',persona:'male' as const},{key:'eve',label:'Eve',persona:'female' as const}]
     expect(resolveNarrationVoice(prefs,voices)).toBe('orion')
     expect(prefs.voicePersona).toBe(DEFAULT_LAB_PREFS.voicePersona)
+  })
+  it('narrates a signed-out reader in Ara or Helios, matching a stored Orion or Eve, without changing the choice', () => {
+    const voices = [{key:'f',label:'Ara',persona:'female' as const},{key:'m',label:'Helios',persona:'male' as const},{key:'orion',label:'Orion',persona:'male' as const},{key:'eve',label:'Eve',persona:'female' as const}]
+    const orion = {...DEFAULT_LAB_PREFS,voicePersona:'female' as const,voicePersonaChosen:true,audiobookVoice:'orion' as const}
+    const eve = {...DEFAULT_LAB_PREFS,voicePersona:'male' as const,voicePersonaChosen:true,audiobookVoice:'eve' as const}
+    expect(resolveNarrationVoice(orion,voices,{signedIn:false})).toBe('m')
+    expect(resolveNarrationVoice(eve,voices,{signedIn:false})).toBe('f')
+    expect(orion.audiobookVoice).toBe('orion')
+    expect(eve.audiobookVoice).toBe('eve')
+    // Signed in (and by default), the stored voice plays.
+    expect(resolveNarrationVoice(orion,voices,{signedIn:true})).toBe('orion')
+    expect(resolveNarrationVoice(eve,voices)).toBe('eve')
+    // Ara and Helios are unchanged for guests.
+    expect(resolveNarrationVoice({...DEFAULT_LAB_PREFS,voicePersona:'female',voicePersonaChosen:true},voices,{signedIn:false})).toBe('f')
+    expect(resolveNarrationVoice(DEFAULT_LAB_PREFS,voices,{signedIn:false})).toBe('m')
+    expect(readerNarrationVoices(voices,false).map(voice => voice.key)).toEqual(['f','m'])
+    expect(readerNarrationVoices(voices,true)).toBe(voices)
   })
   it('fails closed to Grok when configuration cannot load', async () => {
     const offline = (async()=>{throw new TypeError('offline')}) as typeof fetch
@@ -101,6 +119,9 @@ describe('narration API client', () => {
       const fetchImpl = (async () => new Response('', { status })) as unknown as typeof fetch
       await expect(ensureNarration(request, { fetchImpl })).rejects.toMatchObject({ code })
     }
+    const unavailable = vi.fn(async () => Response.json({ reason: 'rate_limit_unavailable' }, { status: 503 }))
+    await expect(ensureNarration(request, { fetchImpl: unavailable })).rejects.toMatchObject({ code: 'http', status: 503 })
+    expect(unavailable).toHaveBeenCalledTimes(1)
     const abort = (async () => { throw new DOMException('aborted', 'AbortError') }) as unknown as typeof fetch
     const cancelled = new AbortController()
     cancelled.abort()
@@ -109,6 +130,15 @@ describe('narration API client', () => {
     await expect(ensureNarration(request, { fetchImpl: abort })).rejects.toMatchObject({ code: 'network', message: 'timeout' })
     const offline = (async () => { throw new TypeError('Failed to fetch') }) as unknown as typeof fetch
     await expect(ensureNarration(request, { fetchImpl: offline })).rejects.toBeInstanceOf(NarrationEnsureError)
+  })
+
+  it('reports a Modern English chapter still in its original text as modern_pending, with its own copy', async () => {
+    const request = { bookId: 'pd-pg-135', editionKey: 'modern-en', chapter: 3, voice: 'a', paragraphs: [{ index: 0, text: 'x' }] }
+    const pending = (async () => Response.json({ error: 'Modern English text not ready', reason: 'modern_pending' }, { status: 409 })) as unknown as typeof fetch
+    await expect(ensureNarration(request, { fetchImpl: pending })).rejects.toMatchObject({ code: 'modern_pending', status: 409 })
+    const otherConflict = (async () => new Response('', { status: 409 })) as unknown as typeof fetch
+    await expect(ensureNarration(request, { fetchImpl: otherConflict })).rejects.toMatchObject({ code: 'http', status: 409 })
+    expect(narrationFailureMessage('modern_pending')).toMatch(/Modern English/)
   })
 
   it('reads the pilot info defensively', async () => {
@@ -138,4 +168,18 @@ it('sends a bounded book-transition identity and hash, never arbitrary spoken te
   }) as unknown as typeof fetch
   await ensureNarration({ kind: 'book-transition', bookId: 'bible', editionKey: 'web-en', chapter: 413,
     nextChapter: 414, voice: 'f', paragraphs: [{ index: 0, text }] }, { fetchImpl })
+})
+
+it('finishes voice configuration when the response stalls, without leaving loading active', async () => {
+  vi.useFakeTimers()
+  try {
+    const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => new Promise<Response>((_resolve, reject) => {
+      init?.signal?.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')))
+    }))
+    const pending = fetchNarrationPilotInfo(fetchImpl)
+    await vi.advanceTimersByTimeAsync(10_000)
+    expect(await pending).toMatchObject({ enabled: false, reason: 'timeout', voices: [] })
+    expect((await pending).loading).not.toBe(true)
+    expect(vi.getTimerCount()).toBe(0)
+  } finally { vi.useRealTimers() }
 })

@@ -27,9 +27,19 @@ afterEach(() => vi.unstubAllGlobals())
 describe('funnel event rows', () => {
   it('accepts exactly the funnel, pageview and duration events', () => {
     expect([...FUNNEL_EVENT_NAMES].sort()).toEqual([
-      'ai_first_use', 'anon_limit_reached', 'book_opened', 'chapter_completed', 'checkout_completed', 'checkout_started',
-      'first_page_turn', 'landing_view', 'member_ai_use', 'page_duration', 'pageview', 'signup_completed', 'signup_started',
+      'ai_first_use', 'anon_limit_reached', 'audio_failed', 'audio_slow_start', 'book_intro_viewed', 'book_opened', 'cards_open_failed', 'cards_open_stuck', 'chapter_completed', 'checkout_completed', 'checkout_started',
+      'first_page_turn', 'landing_view', 'margin_card_failed', 'member_ai_use', 'page_duration', 'pageview',
+      'scene_handoff', 'share_completed', 'share_created', 'share_link_opened', 'share_link_signup', 'share_sheet_opened',
+      'signup_completed', 'signup_started', 'talk_failed',
     ])
+  })
+
+  it('takes a scene page\'s pageview and hand-over under its own surface, with the action and scene only', () => {
+    const rows = buildAnalyticsRows({ deviceId: 'device-12345678', sessionId: 'session12345678', surface: 'scene', path: '/read/hamlet/act-3-scene-1?q=x',
+      events: [{ name: 'pageview', props: { book: 'hamlet', chapter: 8 } }, { name: 'scene_handoff', props: { action: 'explain', book: 'hamlet', chapter: 8 } }] }, 'ua', null)!
+    expect(rows.map(row => [row.event_type, row.path, row.payload.surface, row.payload.type ?? null])).toEqual([
+      ['pageview', '/read/hamlet/act-3-scene-1', 'scene', null], ['event', '/read/hamlet/act-3-scene-1', 'scene', 'scene_handoff']])
+    expect(rows[1].payload).toMatchObject({ action: 'explain', book: 'hamlet', chapter: 8 })
   })
 
   it('maps onto the existing analytics_events shape the dashboard already reads', () => {
@@ -43,6 +53,15 @@ describe('funnel event rows', () => {
     expect(rows[2].payload).toMatchObject({ type: 'book_opened', device_id: 'device-1234abcd', surface: 'reader', book_id: 'odyssey', signed_in: false })
     expect(rows[2].payload.attribution).toEqual({ last_touch: { utm_source: 'newsletter', landing_path: '/library' } })
     expect(rows[0].payload.device_id).toBe('device-1234abcd')
+  })
+
+  it('keeps a margin card failure as a short, content-free row (reader.js reportCardError)', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'margin_card_failed', props: { intent: 'explain', phase: 'render', error: 'TypeError', message: "Cannot read properties of undefined (reading 'n')", where: 'citeTarget@margin.js:812:9 < cardHtml@margin.js:760:3' } },
+    ]), 'UA', userId)!
+    expect(rows).toHaveLength(1)
+    expect(rows[0].payload).toMatchObject({ type: 'margin_card_failed', intent: 'explain', phase: 'render', error: 'TypeError', surface: 'reader' })
+    expect(String(rows[0].payload.where).length).toBeLessThanOrEqual(120)
   })
 
   it('drops unknown events, short durations and non-primitive props, and caps the batch', () => {
@@ -116,6 +135,57 @@ describe('POST /api/events', () => {
     const response = await handleEvents(request(batch([{ name: 'pageview' }])), env, ctx, async () => null, async () => true)
     expect(response.status).toBe(204)
     await expect(Promise.all(pending)).resolves.toBeDefined()
+  })
+})
+
+describe('internal traffic (Tinct\'s own testing) is marked, not dropped', () => {
+  const request = (body: unknown, headers: Record<string, string> = {}) =>
+    new Request('https://tinct.app/api/events', { method: 'POST', body: JSON.stringify(body), headers: { 'content-type': 'text/plain;charset=UTF-8', ...headers } })
+
+  it('keeps internal: true on pageviews, durations and events sent by a flagged client', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'pageview', props: { internal: true } },
+      { name: 'page_duration', props: { duration_ms: 5000, internal: true } },
+      { name: 'book_opened', props: { book_id: 'odyssey', internal: true } },
+    ]), 'UA', null)!
+    expect(rows).toHaveLength(3)
+    for (const row of rows) expect(row.payload.internal).toBe(true)
+    expect(rows[2].payload).toMatchObject({ type: 'book_opened', book_id: 'odyssey', device_id: 'device-1234abcd' })
+  })
+
+  it('leaves ordinary rows unmarked and never stores a non-true internal value', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'pageview' },
+      { name: 'book_opened', props: { book_id: 'odyssey', internal: false } },
+      { name: 'first_page_turn', props: { internal: 'yes' } },
+    ]), 'UA', null)!
+    for (const row of rows) expect(row.payload).not.toHaveProperty('internal')
+  })
+
+  it('marks every row internal when the caller says the request is a check', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'pageview' },
+      { name: 'page_duration', props: { duration_ms: 5000 } },
+      { name: 'landing_view' },
+    ]), 'UA', null, { internal: true })!
+    expect(rows.map(row => row.payload.internal)).toEqual([true, true, true])
+  })
+
+  it('stores rows from a request carrying x-tinct-check: 1 as internal', async () => {
+    const bodies = stubAnalytics()
+    const { ctx, pending } = context()
+    const response = await handleEvents(request(batch([{ name: 'pageview' }, { name: 'landing_view' }]), { 'x-tinct-check': '1' }), env, ctx, async () => null, async () => true)
+    expect(response.status).toBe(204)
+    await Promise.all(pending)
+    expect(bodies[0].map(row => (row.payload as Record<string, unknown>).internal)).toEqual([true, true])
+  })
+
+  it('does not mark rows for any other x-tinct-check value', async () => {
+    const bodies = stubAnalytics()
+    const { ctx, pending } = context()
+    await handleEvents(request(batch([{ name: 'pageview' }]), { 'x-tinct-check': '0' }), env, ctx, async () => null, async () => true)
+    await Promise.all(pending)
+    expect(bodies[0][0].payload).not.toHaveProperty('internal')
   })
 })
 

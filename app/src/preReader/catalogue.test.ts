@@ -57,7 +57,7 @@ describe('pre-reader catalogue layer', () => {
         expect(edition.availability.chapterText).toBe(true)
         expect(edition.availability.audio).toBe(registryBook.editions.find(item => item.key === edition.key)?.hasAudio === true)
         expect(edition.group === 'modern').toBe(edition.style === 'modern')
-        if (edition.style === 'modern') expect(edition.provenanceLabel).toBe('Tinct AI adaptation')
+        if (edition.style === 'modern') expect(edition.provenanceLabel).toBe('Line-by-line AI-based translation')
         if (edition.translator) expect(edition.provenanceLabel).toContain(edition.translator)
       }
     }

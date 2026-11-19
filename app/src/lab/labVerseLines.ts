@@ -86,6 +86,40 @@ export function registerVerseLines(paragraphs: string[], chapter: Record<string,
   }
 }
 
+const MAX_VERSE_LINE = 100
+
+/**
+ * Record the lineation a verse edition carries in its own text.
+ *
+ * A verse translation (Pope's Odyssey) is stored one verse paragraph per
+ * paragraph with each verse line ended by a newline, so the line starts are
+ * read straight from the served bytes: the word after each newline begins a
+ * new line. Nothing is altered, so offsets, word indexes and positions stay
+ * exactly as for any other paragraph. Only editions registered with
+ * `style: 'verse'` come here; prose that happens to hold a newline (a letter,
+ * a song inside a novel) keeps today's flowing paragraph.
+ */
+export function registerNewlineVerseLines(paragraphs: string[]): void {
+  for (const text of paragraphs) {
+    if (!text || !text.includes('\n') || lineated.has(text)) continue
+    // A prose paragraph in a verse edition (Pope's prose argument before each
+    // book) may hold a newline too; its lines run to hundreds of characters,
+    // where a verse line never passes a hundred, so it keeps flowing as prose.
+    if (text.split('\n').some(line => line.length > MAX_VERSE_LINE)) continue
+    const starts = new Set<number>()
+    WORD.lastIndex = 0
+    let count = 0
+    let match: RegExpExecArray | null
+    let previousEnd = 0
+    while ((match = WORD.exec(text))) {
+      if (count > 0 && text.slice(previousEnd, match.index).includes('\n')) starts.add(count)
+      previousEnd = match.index + match[0].length
+      count += 1
+    }
+    if (starts.size) lineated.set(text, starts)
+  }
+}
+
 function offsetsFit(text: string, offsets: number[]): boolean {
   let previous = 0
   for (const offset of offsets) {
@@ -164,6 +198,32 @@ export function shakespeareSpeakerWords(text: string): number {
   const name = italic ? /^[\p{Lu}][\p{L}\p{N}’'-]*$/u : /^[\p{Lu}][\p{Lu}\p{N}’'-]*$/u
   if (!words.every(word => connector.test(word) || name.test(word))) return 0
   return (italic?.[0] ?? plain![0]).split(/\s+/).length
+}
+
+/** Labels that open a paragraph in prose, never a speaker: a proof's, a figure's, a numbered part's. */
+const NOT_A_SPEAKER = /^(?:act|scene|curtain|end|finis|chapter|chap|part|book|section|letter|vol|volume|no|enter|exit|exeunt|preface|contents|notes?|introduction|epilogue|prologue|dedication|appendix|index|proof|corollary|scholium|lemma|prop|proposition|definition|axiom|postulate|explanation|remark|obs|observ|fig|figure|schem|plate|example|answer|question|ans|q|a|ibid|id|cf|see|vide|viz|n\s*b|p\s*s|postscript|ps|song|tableau)$/i
+
+/**
+ * A play set the way Tinct's own plays are: its speeches open on their speaker
+ * ("NORA. Hide the Christmas Tree…"). Twenty speeches or more, one paragraph in
+ * ten at least, by three speakers or more who speak three times or more each.
+ * Labels that open prose ("PROOF.", "_Fig._ 2.") and numerals ("VI.") are not speakers.
+ */
+export function isPlayText(paragraphs: Iterable<string>): boolean {
+  let all = 0
+  let speeches = 0
+  const speakers = new Map<string, number>()
+  for (const text of paragraphs) {
+    all += 1
+    const count = shakespeareSpeakerWords(text)
+    const words = text.split(/\s+/).filter(Boolean)
+    if (!count || words.length <= count) continue
+    const label = words.slice(0, count).join(' ').replace(/[_.,:]/g, '').trim()
+    if (!label || NOT_A_SPEAKER.test(label) || /^[IVXLCDM]+$/.test(label)) continue
+    speeches += 1
+    speakers.set(label, (speakers.get(label) ?? 0) + 1)
+  }
+  return speeches >= 20 && speeches / Math.max(1, all) >= 0.1 && [...speakers.values()].filter(count => count >= 3).length >= 3
 }
 
 export function registerShakespeareSpeakers(paragraphs: string[]): void {

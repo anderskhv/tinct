@@ -11,8 +11,9 @@ import { usesRetainedBella } from '../narration/bellaRetention'
  */
 
 import { apiUrl } from '../utils/apiUrl'
-import { isPilotScope, narrationTextForParagraph, sha256Hex, type AlignedWord, type TokenAlignmentStats } from '../narration/narrationCore'
+import { isGuestNarrationVoice, isPilotScope, narrationTextForParagraph, sha256Hex, type AlignedWord, type TokenAlignmentStats } from '../narration/narrationCore'
 import type { LabPrefs } from './labPrefs'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 export type NarrationPilotFlag = 'fish' | 'off' | null
 
@@ -42,16 +43,20 @@ export interface NarrationVoiceOption {
 }
 
 export interface NarrationPilotInfo {
+  /** Local startup state; never copied from the server response. */
+  loading?: boolean
   enabled: boolean
   reason?: string
   provider?: string
   model?: string
   voices: NarrationVoiceOption[]
+  /** The server reads readers' own books aloud (OWN_BOOK_NARRATION). Listen shows for an own book only then. */
+  ownBooks?: boolean
 }
 
 /** Until configuration is known, English playback must not select legacy audio. */
 export function initialNarrationPilotInfo(): NarrationPilotInfo {
-  return { enabled: false, provider: 'grok', voices: [] }
+  return { enabled: false, provider: 'grok', voices: [], loading: true }
 }
 
 /** True when the reader opted in and the current text is inside the narration scope (featured books, English editions). */
@@ -59,20 +64,35 @@ export function narrationPilotApplies(prefs: LabPrefs, bookId: string, editionKe
   return isPilotScope(bookId, editionKey, chapter) && (provider === 'grok' || !usesRetainedBella(bookId, editionKey, prefs.voicePersona))
 }
 
-/** The voice to narrate with: the stored choice when the server still offers it, else the first voice. */
-export function resolveNarrationVoice(prefs: LabPrefs, voices: NarrationVoiceOption[]): string | null {
+/** The voices a reader can narrate with: a signed-out reader gets Ara and Helios only, when the server offers them. */
+export function readerNarrationVoices(voices: NarrationVoiceOption[], signedIn: boolean): NarrationVoiceOption[] {
+  if (signedIn) return voices
+  const guestVoices = voices.filter(voice => isGuestNarrationVoice(voice.key))
+  return guestVoices.length > 0 ? guestVoices : voices
+}
+
+/**
+ * The voice to narrate with: the stored choice when the server still offers it, else the first voice.
+ * A signed-out reader whose stored voice needs an account (Orion, Eve) hears
+ * the guest voice of the same persona; the stored choice itself is untouched.
+ */
+export function resolveNarrationVoice(prefs: LabPrefs, allVoices: NarrationVoiceOption[], options: { signedIn?: boolean } = {}): string | null {
+  const voices = readerNarrationVoices(allVoices, options.signedIn !== false)
   if (voices.length === 0) return null
+  const persona = allVoices.find(voice => voice.key === prefs.audiobookVoice)?.persona ?? prefs.voicePersona
   return voices.find(voice => voice.key === prefs.audiobookVoice)?.key
-    ?? voices.find(voice => voice.persona === prefs.voicePersona)?.key
-    ?? voices.find(voice => voice.key === (prefs.voicePersona === 'female' ? 'f' : 'm'))?.key
+    ?? voices.find(voice => voice.persona === persona)?.key
+    ?? voices.find(voice => voice.key === (persona === 'female' ? 'f' : 'm'))?.key
     // The preferred voice is not offered: narrate in the first one rather than
     // reporting audio as unavailable.
     ?? voices[0].key
 }
 
 export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): Promise<NarrationPilotInfo> {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 10_000)
   try {
-    const response = await fetchImpl(apiUrl('/api/narration/voices'), { cache: 'no-store' })
+    const response = await fetchImpl(apiUrl('/api/narration/voices'), { cache: 'no-store', headers: internalTrafficHeaders(), signal: controller.signal })
     if (!response.ok) return { enabled: false, provider: 'grok', reason: `http_${response.status}`, voices: [] }
     const json = await response.json() as Partial<NarrationPilotInfo>
     return {
@@ -80,12 +100,15 @@ export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): 
       reason: typeof json.reason === 'string' ? json.reason : undefined,
       provider: typeof json.provider === 'string' ? json.provider : undefined,
       model: typeof json.model === 'string' ? json.model : undefined,
+      ...(json.ownBooks === true ? { ownBooks: true } : {}),
       voices: Array.isArray(json.voices)
         ? json.voices.filter(voice => voice && typeof voice.key === 'string' && typeof voice.label === 'string')
         : [],
     }
   } catch {
-    return { enabled: false, provider: 'grok', reason: 'network', voices: [] }
+    return { enabled: false, provider: 'grok', reason: controller.signal.aborted ? 'timeout' : 'network', voices: [] }
+  } finally {
+    clearTimeout(timer)
   }
 }
 
@@ -154,7 +177,7 @@ export interface NarrationEnsureRequest {
 export const NARRATION_ENSURE_TIMEOUT_MS = 70_000
 
 export class NarrationEnsureError extends Error {
-  constructor(message: string, readonly code: 'unauthenticated' | 'not_configured' | 'rate_limited' | 'network' | 'http', readonly status?: number) {
+  constructor(message: string, readonly code: 'unauthenticated' | 'not_configured' | 'rate_limited' | 'modern_pending' | 'network' | 'http' | 'own_book_limit' | 'own_book_unavailable' | 'own_book_premium', readonly status?: number) {
     super(message)
   }
 }
@@ -174,7 +197,7 @@ export async function ensureNarration(
       ? { index: item.index, fromChunk: item.fromChunk, textHash: await sha256Hex(narrationTextForParagraph(item.text)) }
       : { index: item.index, fromChunk: item.fromChunk }
   )))
-  const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+  const headers: Record<string, string> = { 'Content-Type': 'application/json', ...internalTrafficHeaders() }
   if (options.authToken) headers.Authorization = `Bearer ${options.authToken}`
   // The Worker may wait up to ~55 s on a busy provider; past that the
   // request is abandoned client-side rather than left hanging.
@@ -199,12 +222,80 @@ export async function ensureNarration(
     options.signal?.removeEventListener('abort', onCancel)
   }
   if (response.status === 401) throw new NarrationEnsureError('Sign in to prepare narration', 'unauthenticated', 401)
-  if (response.status === 503) throw new NarrationEnsureError('Narration pilot is not configured', 'not_configured', 503)
+  if (response.status === 503) {
+    const reason = await response.json().then((body: { reason?: unknown }) => body?.reason, () => undefined)
+    if (reason === 'rate_limit_unavailable') throw new NarrationEnsureError('Narration temporarily unavailable', 'http', 503)
+    throw new NarrationEnsureError('Narration pilot is not configured', 'not_configured', 503)
+  }
   if (response.status === 429) throw new NarrationEnsureError('Too many requests', 'rate_limited', 429)
+  if (response.status === 409) {
+    // A Modern English chapter still shown in its original text: its words are about to be replaced.
+    const reason = await response.json().then((body: { reason?: unknown }) => body?.reason, () => undefined)
+    if (reason === 'modern_pending') throw new NarrationEnsureError('Modern English text not ready', 'modern_pending', 409)
+  }
   if (!response.ok) throw new NarrationEnsureError(`HTTP ${response.status}`, 'http', response.status)
   const json = await response.json() as { paragraphs?: NarrationParagraphResult[] }
   return Array.isArray(json.paragraphs) ? json.paragraphs : []
 }
+
+export interface OwnNarrationEnsureRequest {
+  /** The own book's hex (from `userbook-{hex}`): sent to the own-book route only. */
+  bookHex: string
+  voice: string
+  /** The chapter's paragraphs as this device converted them: the server has no copy of the text. */
+  paragraphs: Array<{ index: number; text: string; fromChunk?: number }>
+  mode?: 'next' | 'all'
+}
+
+/**
+ * Own-book counterpart of ensureNarration: the paragraphs' text goes with the
+ * request (the Worker checks the account owns the book), and the recordings
+ * come back as private, signed links.
+ */
+export async function ensureOwnNarration(
+  request: OwnNarrationEnsureRequest,
+  options: { signal?: AbortSignal; authToken?: string | null; fetchImpl?: typeof fetch } = {},
+): Promise<NarrationParagraphResult[]> {
+  const fetchImpl = options.fetchImpl || fetch
+  if (!options.authToken) throw new NarrationEnsureError('Sign in to prepare narration', 'unauthenticated', 401)
+  const headers: Record<string, string> = { 'Content-Type': 'application/json', Authorization: `Bearer ${options.authToken}`, ...internalTrafficHeaders() }
+  const deadline = new AbortController()
+  const timer = setTimeout(() => deadline.abort(), NARRATION_ENSURE_TIMEOUT_MS)
+  const onCancel = () => deadline.abort()
+  options.signal?.addEventListener('abort', onCancel, { once: true })
+  let response: Response
+  try {
+    response = await fetchImpl(apiUrl('/api/narration/own/ensure'), {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ book: request.bookHex, voice: request.voice, paragraphs: request.paragraphs, mode: request.mode ?? 'next' }),
+      signal: deadline.signal,
+    })
+  } catch (error) {
+    if (options.signal?.aborted) throw error
+    if ((error as Error)?.name === 'AbortError') throw new NarrationEnsureError('timeout', 'network')
+    throw new NarrationEnsureError('network', 'network')
+  } finally {
+    clearTimeout(timer)
+    options.signal?.removeEventListener('abort', onCancel)
+  }
+  if (response.status === 401) throw new NarrationEnsureError('Sign in to prepare narration', 'unauthenticated', 401)
+  if (response.status === 429) {
+    const reason = await response.json().then((body: { reason?: unknown }) => body?.reason, () => undefined)
+    if (reason === 'own_book_cap' || reason === 'own_book_pool') throw new NarrationEnsureError('Narration limit reached', 'own_book_limit', 429)
+    throw new NarrationEnsureError('Too many requests', 'rate_limited', 429)
+  }
+  // Audiobooks are Premium (trial included): the reader opens the account sheet with its Premium offer.
+  if (response.status === 402) throw new NarrationEnsureError('Premium required', 'own_book_premium', 402)
+  if (response.status === 403 || response.status === 404) throw new NarrationEnsureError('Narration unavailable for this book', 'own_book_unavailable', response.status)
+  if (response.status === 503) throw new NarrationEnsureError('Narration pilot is not configured', 'not_configured', 503)
+  if (!response.ok) throw new NarrationEnsureError(`HTTP ${response.status}`, 'http', response.status)
+  const json = await response.json() as { paragraphs?: NarrationParagraphResult[] }
+  return Array.isArray(json.paragraphs) ? json.paragraphs : []
+}
+
+/** The existing narration-unavailable copy, reused for an own book over its limit or not in the account. */
+export const OWN_BOOK_NARRATION_UNAVAILABLE = 'Audio is temporarily unavailable for this edition. You can keep reading.'
 
 /** Reader-facing copy for a failed preparation. */
 export function narrationFailureMessage(reason: string | undefined): string {
@@ -219,6 +310,11 @@ export function narrationFailureMessage(reason: string | undefined): string {
     case 'unavailable': return 'This passage has no narration yet. Try again.'
     case 'validation_failed': return 'The narration came back damaged and was not saved. Try again.'
     case 'rate_limited': return 'Too many narration requests. Wait a moment and try again.'
+    case 'modern_pending': return 'This chapter can be narrated once its Modern English text is ready.'
+    case 'own_book_limit':
+    case 'own_book_cap':
+    case 'own_book_pool':
+    case 'own_book_unavailable': return OWN_BOOK_NARRATION_UNAVAILABLE
     default: return 'Narration could not be prepared. Try again.'
   }
 }

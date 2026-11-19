@@ -1,9 +1,10 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { createFunnel, FUNNEL_BATCH, FUNNEL_FLUSH_MS, FUNNEL_HEARTBEAT_MS, type FunnelDeps } from './utils/funnel'
-import { createListenReporter, reportTalkSeconds, setUsageReportTransport } from './utils/usageReport'
+import { createListenReporter, LISTEN_REPORT_EVERY_SECONDS, LISTEN_REPORT_MAX_SECONDS, reportTalkSeconds, setUsageReportTransport } from './utils/usageReport'
+import { NARRATION_LISTEN_MAX_SECONDS } from './worker/routes/narration'
 import { gateLabAiAction } from './lab/labAccountPrompt'
 import * as funnelModule from './utils/funnel'
-import { createLibraryFunnel } from '../public/lab/library_2/funnel.js'
+import { createLibraryFunnel, BEAT_MS as LIBRARY_BEAT_MS } from '../public/lab/library_2/funnel.js'
 
 function harness(overrides: Partial<FunnelDeps> = {}) {
   const sent: Array<{ body: { deviceId: string; sessionId: string; surface: string; path: string; events: Array<{ name: string; props: Record<string, unknown> }> }; token: string | null }> = []
@@ -65,6 +66,16 @@ describe('reader funnel client', () => {
     expect(sent[0].body.events[0].props).toEqual({ book_id: 'a' })
   })
 
+  it('counts a book-scoped event once per book, so a second book still counts', () => {
+    const { deps, sent } = harness()
+    const funnel = createFunnel(deps)
+    funnel.trackOnce('first_page_turn', { book_id: 'a' }, 'a')
+    funnel.trackOnce('first_page_turn', { book_id: 'a' }, 'a')
+    funnel.trackOnce('first_page_turn', { book_id: 'b' }, 'b')
+    funnel.flush()
+    expect(sent[0].body.events.map((event: { props: unknown }) => event.props)).toEqual([{ book_id: 'a' }, { book_id: 'b' }])
+  })
+
   it('reports visible time only, flushing on hide and on the heartbeat', () => {
     const { deps, sent, clock, timers } = harness()
     const funnel = createFunnel(deps)
@@ -80,6 +91,25 @@ describe('reader funnel client', () => {
     clock.now += 2_000
     funnel.visibility(false)
     expect(sent[1].body.events[0]).toMatchObject({ name: 'page_duration', props: { duration_ms: 2_000 } })
+  })
+
+  it('beats every 5 minutes, and heartbeats plus the hide report sum to the visible time', () => {
+    expect(FUNNEL_HEARTBEAT_MS).toBe(5 * 60_000)
+    const { deps, sent, clock, timers } = harness()
+    const funnel = createFunnel(deps)
+    funnel.start()
+    const fireHeartbeat = () => {
+      const entry = [...timers].find(([, timer]) => timer.ms === FUNNEL_HEARTBEAT_MS)!
+      timers.delete(entry[0])
+      entry[1].fn()
+    }
+    clock.now += FUNNEL_HEARTBEAT_MS; fireHeartbeat()
+    clock.now += FUNNEL_HEARTBEAT_MS; fireHeartbeat()
+    clock.now += 123_000
+    funnel.visibility(false)
+    const durations = sent.flatMap(entry => entry.body.events).filter(event => event.name === 'page_duration').map(event => event.props.duration_ms as number)
+    expect(durations).toEqual([FUNNEL_HEARTBEAT_MS, FUNNEL_HEARTBEAT_MS, 123_000])
+    expect(durations.reduce((a, b) => a + b, 0)).toBe(2 * FUNNEL_HEARTBEAT_MS + 123_000)
   })
 
   it('sends nothing when disabled and never throws into the reader', () => {
@@ -157,6 +187,26 @@ describe('library funnel client (public/lab/library_2/funnel.js)', () => {
     expect(JSON.parse(sent[0])).toMatchObject({ surface: 'library', path: '/library', deviceId: 'device-1234abcd', attribution: { last_touch: { utm_source: 'newsletter' } } })
   })
 
+  it('beats every 5 minutes and loses no visible time on hide', () => {
+    vi.useFakeTimers()
+    try {
+      expect(LIBRARY_BEAT_MS).toBe(5 * 60_000)
+      const { deps, sent, clock } = libraryHarness()
+      const client = createLibraryFunnel(deps)
+      client.start()
+      clock.now += LIBRARY_BEAT_MS; vi.advanceTimersByTime(LIBRARY_BEAT_MS)
+      clock.now += 30_000
+      client.visibility(false)
+      client.stop()
+      vi.runAllTimers()
+      const durations = sent.flatMap(body => JSON.parse(body).events as Array<{ name: string; props: Record<string, number> }>)
+        .filter(event => event.name === 'page_duration').map(event => event.props.duration_ms)
+      expect(durations).toEqual([LIBRARY_BEAT_MS, 30_000])
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
   it('sends nothing when disabled and swallows transport errors', () => {
     const off = libraryHarness(false)
     const quiet = createLibraryFunnel(off.deps)
@@ -179,14 +229,16 @@ describe('usage reports', () => {
     expect(post).toHaveBeenCalledWith('/api/voice-usage', { seconds: 75, bookId: 'bible' }, 't')
   })
 
-  it('batches listening into about a minute and reports the previous book on a switch', () => {
+  it('batches listening into about five minutes and reports the previous book on a switch', () => {
+    // Interval change (DB IO trim, 20 Oct 2026): was 60 s a report, now 300 s.
+    expect(LISTEN_REPORT_EVERY_SECONDS).toBe(300)
     const post = vi.fn()
     setUsageReportTransport(post)
     const reporter = createListenReporter(() => 'jwt')
-    for (let i = 0; i < 11; i++) reporter.tick('odyssey', 5)
+    for (let i = 0; i < 59; i++) reporter.tick('odyssey', 5)
     expect(post).not.toHaveBeenCalled()
     reporter.tick('odyssey', 5)
-    expect(post).toHaveBeenCalledWith('/api/narration/listen', { bookId: 'odyssey', seconds: 60 }, 'jwt')
+    expect(post).toHaveBeenCalledWith('/api/narration/listen', { bookId: 'odyssey', seconds: 300 }, 'jwt')
     reporter.tick('odyssey', 5)
     reporter.tick('iliad', 5)
     expect(post).toHaveBeenLastCalledWith('/api/narration/listen', { bookId: 'odyssey', seconds: 5 }, 'jwt')
@@ -194,5 +246,79 @@ describe('usage reports', () => {
     expect(post).toHaveBeenLastCalledWith('/api/narration/listen', { bookId: 'iliad', seconds: 5 }, 'jwt')
     reporter.flush() // nothing pending: no empty report
     expect(post).toHaveBeenCalledTimes(3)
+  })
+
+  it('reports the same listened total in fewer rows, never above the Worker cap per report', () => {
+    expect(LISTEN_REPORT_MAX_SECONDS).toBe(NARRATION_LISTEN_MAX_SECONDS)
+    const post = vi.fn()
+    setUsageReportTransport(post)
+    const reporter = createListenReporter(() => null)
+    // 17 minutes 35 seconds of playback in 5 s ticks, then a stop.
+    for (let i = 0; i < 211; i++) reporter.tick('odyssey', 5)
+    reporter.flush()
+    const seconds = post.mock.calls.map(call => (call[1] as { seconds: number }).seconds)
+    expect(seconds).toEqual([300, 300, 300, 155])
+    expect(seconds.reduce((a, b) => a + b, 0)).toBe(211 * 5)
+    // One odd large tick is split, so nothing is clipped by the Worker.
+    post.mockClear()
+    reporter.tick('odyssey', 700)
+    expect(post.mock.calls.map(call => (call[1] as { seconds: number }).seconds)).toEqual([300, 300, 100])
+  })
+})
+
+describe('internal traffic (?internal=1) in the funnel', () => {
+  type Sent = { events: Array<{ name: string; props: Record<string, unknown> }> }
+
+  it('reader: marks every event internal: true while the flag is set', () => {
+    const { deps, sent, runTimers } = harness({ internal: () => true })
+    const funnel = createFunnel(deps)
+    funnel.start()
+    funnel.track('book_opened', { book_id: 'odyssey' })
+    runTimers()
+    const events = sent.flatMap(entry => entry.body.events)
+    expect(events.map(event => event.name)).toEqual(['pageview', 'book_opened'])
+    for (const event of events) expect(event.props.internal).toBe(true)
+    expect(events[1].props.book_id).toBe('odyssey')
+  })
+
+  it('reader: checks the flag when sending, so events queued just before it was set are marked too', () => {
+    let internal = false
+    const { deps, sent, runTimers } = harness({ internal: () => internal })
+    const funnel = createFunnel(deps)
+    funnel.track('first_page_turn')
+    internal = true
+    runTimers()
+    expect(sent[0].body.events[0].props.internal).toBe(true)
+  })
+
+  it('reader: sends no internal prop without the flag', () => {
+    const { deps, sent, runTimers } = harness({ internal: () => false })
+    const funnel = createFunnel(deps)
+    funnel.track('book_opened', { book_id: 'odyssey' })
+    runTimers()
+    expect(sent[0].body.events[0].props).not.toHaveProperty('internal')
+  })
+
+  it('library: marks every event internal: true while the flag is set, and nothing otherwise', () => {
+    const run = (internal: boolean) => {
+      const sent: string[] = []
+      const seen = new Set<string>()
+      const client = createLibraryFunnel({
+        enabled: () => true, internal: () => internal, deviceId: () => 'device-1234abcd', sessionId: () => 'session1234abcd', path: () => '/library', referrer: () => '',
+        attribution: () => ({}), visible: () => true, now: () => 1_000,
+        sessionSeen: { has: (n: string) => seen.has(n), add: (n: string) => { seen.add(n) } },
+        once: { has: () => false, add: () => {} },
+        send: (body: string) => { sent.push(body) },
+      })
+      client.start()
+      client.track('book_intro_viewed', { book_id: 'odyssey' })
+      client.flush()
+      client.stop()
+      return sent.flatMap(body => (JSON.parse(body) as Sent).events)
+    }
+    const marked = run(true)
+    expect(marked.map(event => event.name)).toEqual(['pageview', 'landing_view', 'book_intro_viewed'])
+    for (const event of marked) expect(event.props.internal).toBe(true)
+    for (const event of run(false)) expect(event.props).not.toHaveProperty('internal')
   })
 })

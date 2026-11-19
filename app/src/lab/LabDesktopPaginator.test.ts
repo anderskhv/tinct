@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { comparisonSegment, measuredDesktopPages } from './LabDesktopPaginator'
+import { comparisonSegment, measuredDesktopPages, measuredDesktopPageSteps } from './LabDesktopPaginator'
 import { chapterPageSegments } from './labHearing'
 
 describe('measured desktop leaves', () => {
@@ -36,5 +36,33 @@ describe('stray last lines carry their sentence', () => {
     const fits = (segments: { from: number; to: number }[]) => segments.reduce((n, s) => n + s.to - s.from, 0) <= 27
     const pages = measuredDesktopPages([30], fits, undefined, Infinity, [text])
     expect(pages.map(p => chapterPageSegments(p).map(s => [s.from, s.to]))).toEqual([[[0, 23]], [[23, 30]]])
+  })
+})
+
+describe('measuring a chapter a page at a time', () => {
+  const lengths = [13, 70, 4, 16]
+  const fits = (segments: { from: number; to: number }[], first: boolean) => segments.reduce((n, s) => n + s.to - s.from, 0) <= (first ? 20 : 30)
+
+  it('pauses after each page it closes and returns the same map as measuring in one go', () => {
+    const steps = measuredDesktopPageSteps(lengths, fits)
+    const closed: number[] = []
+    let step = steps.next()
+    while (!step.done) { closed.push(step.value); step = steps.next() }
+    expect(step.value).toEqual(measuredDesktopPages(lengths, fits))
+    // One pause per closed page, in order: a caller can stop between any two.
+    expect(closed).toEqual([1, 2, 3])
+    expect(step.value).toHaveLength(4)
+  })
+
+  it('keeps the page limit and a mid-chapter start', () => {
+    const drain = (generator: ReturnType<typeof measuredDesktopPageSteps>) => {
+      let step = generator.next()
+      while (!step.done) step = generator.next()
+      return step.value
+    }
+    expect(drain(measuredDesktopPageSteps(lengths, fits, undefined, 2))).toEqual(measuredDesktopPages(lengths, fits, undefined, 2))
+    const start = { paragraphIndex: 1, wordIndex: 40 }
+    expect(drain(measuredDesktopPageSteps(lengths, fits, undefined, Infinity, undefined, start)))
+      .toEqual(measuredDesktopPages(lengths, fits, undefined, Infinity, undefined, start))
   })
 })

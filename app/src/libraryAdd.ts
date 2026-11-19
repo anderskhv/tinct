@@ -1,0 +1,241 @@
+/**
+ * The library's "Add to Tinct" and "Your own books" engine (library_2 loads it
+ * as /lab/library-add.js, only when a reader taps Add or opens My shelf, and
+ * only where public-books.js `addToTinctEnabled()` allows).
+ *
+ * Add: the Worker downloads the work's EPUB from its library and hands it back;
+ * this page converts it with the reader's own converter (lab/userBook/
+ * epubEdition.ts, unchanged) and sends the chapters; the Worker checks them
+ * against the EPUB and publishes the book for everyone (worker/routes/publicBooks.ts).
+ *
+ * Your own books: the files Add a book keeps on this device (IndexedDB
+ * `tinct-addbook`, this account's records only) and in the account
+ * (`/api/user-books`), listed for My shelf, with the places read on the
+ * account's other devices (`/api/user-books/places`). Nothing is uploaded here,
+ * except Add a book's viewer saving a PDF's place (`pdfPlaces`) and an EPUB's
+ * place read in Margin view (`epubPlaces`). `rememberJustRead`
+ * names the book the viewer just read in this device's library snapshot (local only).
+ */
+import { supabase } from './services/supabase'
+import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './lab/labLibraryBoot'
+import { ownShelfSavedAt, type OwnShelfBook } from './lab/userBook/ownShelf'
+import { flushOwnPlaces, flushPdfPlaces, noteEpubMarginPlace, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
+import { userBookId } from './lab/userBook/userBookId'
+import { bookCoverSrc } from '../public/lab/book-cover.js'
+import { ocrShelfLines } from './lab/userBook/ownOcrShelf'
+import { fetchModernStatus, markPendingPurchase, startModernCheckout, type ModernStatus } from './lab/labModernEditionApi'
+import { publicChapters, type PublicChapterUpload } from './lab/userBook/publicChapters'
+
+export type ImportFailure = 'signed_out' | 'premium_required' | 'daily_limit' | 'in_progress' | 'not_importable' | 'unreadable' | 'failed'
+export type ImportResult =
+  | { ok: true; bookId: string; entry: Record<string, unknown> & { id: string }; existed: boolean }
+  | { ok: false; reason: ImportFailure }
+
+async function token(): Promise<string | null> {
+  if (!supabase) return null
+  try {
+    const { data } = await supabase.auth.getSession()
+    return data.session?.access_token ?? null
+  } catch {
+    return null
+  }
+}
+
+const failureFor = (status: number, code: string | undefined): ImportFailure =>
+  status === 401 ? 'signed_out'
+    : status === 402 ? 'premium_required'
+    : code === 'daily_limit' ? 'daily_limit'
+      : code === 'in_progress' ? 'in_progress'
+        // Too large even without its pictures (Gutenberg's no-images file is tried first): "cannot be added", never "try again".
+        : code === 'not_importable' || code === 'not_found' || code === 'source_not_allowed' || code === 'source_too_large' || code === 'too_large' ? 'not_importable'
+          // The library answered with a bot check instead of the book (ws-export's Anubis page).
+          : code === 'not_epub' || code === 'edition_mismatch' || code === 'bad_edition' || code === 'source_blocked' ? 'unreadable'
+            : 'failed'
+
+/** Import one catalogue work (or find it already in Tinct). `onStage` reports progress for the button. */
+export async function importWork(workId: string, options: { onStage?: (stage: 'download' | 'convert' | 'publish') => void; fetchImpl?: typeof fetch } = {}): Promise<ImportResult> {
+  const fetchImpl = options.fetchImpl ?? fetch
+  const auth = await token()
+  if (!auth) return { ok: false, reason: 'signed_out' }
+  const headers = { Authorization: `Bearer ${auth}` }
+  try {
+    options.onStage?.('download')
+    const prepared = await fetchImpl('/api/public-books/import', { method: 'POST', headers: { ...headers, 'Content-Type': 'application/json' }, body: JSON.stringify({ workId }) })
+    const step = await prepared.json().catch(() => ({})) as { status?: string; error?: string; bookId?: string; entry?: Record<string, unknown> & { id: string }; source?: string }
+    if (!prepared.ok) return { ok: false, reason: failureFor(prepared.status, step.error) }
+    if (step.status === 'exists' && step.entry && step.bookId) return { ok: true, bookId: step.bookId, entry: step.entry, existed: true }
+    if (step.status !== 'convert' || !step.source || !step.bookId) return { ok: false, reason: 'failed' }
+    const source = await fetchImpl(step.source, { headers })
+    if (!source.ok) return { ok: false, reason: failureFor(source.status, undefined) }
+    const bytes = new Uint8Array(await source.arrayBuffer())
+    options.onStage?.('convert')
+    let chapters: PublicChapterUpload[]
+    try {
+      const { epubToEdition } = await import('./lab/userBook/epubEdition')
+      // Titles as the file writes them: the Worker checks them against the EPUB, then sets them in house style.
+      // Text, verse and headings only: an added book shows no pictures (a picture's caption stays as text).
+      chapters = publicChapters((await epubToEdition(bytes, { sourceTitles: true })).chapters)
+    } catch {
+      return { ok: false, reason: 'unreadable' }
+    }
+    options.onStage?.('publish')
+    const committed = await fetchImpl(`/api/public-books/import/${encodeURIComponent(step.bookId)}/commit`, { method: 'POST', headers: { ...headers, 'Content-Type': 'application/json' }, body: JSON.stringify({ chapters }) })
+    const done = await committed.json().catch(() => ({})) as { error?: string; bookId?: string; entry?: Record<string, unknown> & { id: string } }
+    if (!committed.ok || !done.entry || !done.bookId) return { ok: false, reason: failureFor(committed.status, done.error) }
+    return { ok: true, bookId: done.bookId, entry: done.entry, existed: committed.status === 200 }
+  } catch {
+    return { ok: false, reason: 'failed' }
+  }
+}
+
+/**
+ * Whether this account may add books (Premium or its 30-day trial; the Worker's
+ * hasPremiumAccess). Only an authenticated entitlement response can deny access.
+ */
+export async function canAdd(fetchImpl: typeof fetch = fetch): Promise<boolean | null> {
+  const auth = await token()
+  if (!auth) return null
+  // This is an advisory preflight; the upload endpoint checks access again.
+  // A stalled request must not leave the file/paste dialog disabled forever.
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 15_000)
+  try {
+    const response = await fetchImpl('/api/public-books/import/access', { headers: { Authorization: `Bearer ${auth}` }, cache: 'no-store', signal: controller.signal })
+    if (!response.ok) return null
+    const body = await response.json() as { canAdd?: unknown }
+    return typeof body.canAdd === 'boolean' ? body.canAdd : null
+  } catch {
+    return null
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
+// ===== Modern English, asked right after an add (add-to-tinct.js finishAdd) =====
+
+/** The book's Modern English edition: its state and offer, as the reader asks (labModernEditionApi). Null when it cannot be told. */
+export function modernStatus(bookId: string, fetchImpl: typeof fetch = fetch): Promise<ModernStatus | null> {
+  return token().then(auth => fetchModernStatus(bookId, fetchImpl, auth))
+}
+
+/**
+ * The reader's own checkout for the edition (LabApp buyModernEdition): Stripe
+ * Checkout for this book, anchored at `chapter`, and the pending-purchase mark
+ * the reader reads on its return to switch to the edition. Resolves to the
+ * Checkout URL; rejects when it cannot start (signed out, already held or paid).
+ */
+export async function buyModern(bookId: string, chapter: number, fetchImpl: typeof fetch = fetch): Promise<string> {
+  const auth = await token()
+  if (!auth) throw new Error('signed_out')
+  const url = await startModernCheckout(bookId, chapter, auth, fetchImpl)
+  markPendingPurchase(bookId)
+  return url
+}
+
+// ===== Your own books =====
+
+export interface OwnBook {
+  key: string
+  kind: 'pdf' | 'epub'
+  title: string
+  author: string
+  /** The book's own cover (a data: URL): kept on this device, else the account's stored copy; null without either. */
+  cover: string | null
+  /** Last opened (or added) on this device or in the account. */
+  at: number
+  /** The reader has a saved place in it (on this device, or read on another device of the account): it is being read. */
+  readingAt: number | null
+  /** Taken off Currently reading, its place kept (when): listed under Saved for later. Null otherwise. */
+  savedAt: number | null
+  /** How far through it the reader is (0–100), when known. */
+  percent: number | null
+  href: string
+  /** "Recognising text…": a scan whose text the account is recognising (ownOcrShelf.ts). */
+  ocrLine?: string
+}
+
+const ownBook = (book: OwnShelfBook): OwnBook => ({
+  // This device's picture, else the account's stored copy of it (book-cover.js).
+  key: book.key, kind: book.kind, title: book.title, author: book.author, cover: bookCoverSrc({ bookId: userBookId(book.hex), ownCover: book.cover, storedCover: book.storedCover }), at: book.at,
+  readingAt: book.reading?.lastActiveAt ?? null, savedAt: book.reading ? null : ownShelfSavedAt(book.hex), percent: book.reading?.percent ?? null, href: book.href,
+})
+
+/**
+ * This account's own books, this device's first, then the account's copies
+ * not on it. The account's list is read first: a book removed on another
+ * device leaves this device too, and places read on other devices are taken
+ * (userBook/ownSync.ts), so Currently reading and its progress match there.
+ */
+export async function ownBooks(fetchImpl: typeof fetch = fetch): Promise<OwnBook[]> {
+  const owner = readCachedSupabaseUser()?.id
+  if (!owner) return []
+  const auth = await token()
+  const books = await ownShelfWithAccount(owner, { token: auth, fetchImpl })
+  // The scans kept here: is their text being recognised?
+  const lines = await ocrShelfLines(books.filter(book => book.scan).map(book => book.hex), { token: auth, fetchImpl })
+  return books.map(book => {
+    const listed = ownBook(book)
+    const line = lines.get(book.hex)
+    return line ? { ...listed, ocrLine: line } : listed
+  })
+}
+
+/**
+ * The book switcher for pages outside the reader (Add a book's PDF viewer):
+ * loaded only when it opens, so the library does not carry it.
+ */
+const switcher = () => import('./lab/userBook/ownSwitcher')
+let switcherModule: Awaited<ReturnType<typeof switcher>> | null = null
+export async function switcherRows(): Promise<{ rows: unknown[]; error: string }> {
+  switcherModule ??= await switcher()
+  return switcherModule.switcherRows()
+}
+/** Where a switcher row opens (null: its place cannot be handed over). Call after switcherRows. */
+export function switcherTarget(row: Parameters<Awaited<ReturnType<typeof switcher>>['switcherTarget']>[0]): string | null {
+  return switcherModule ? switcherModule.switcherTarget(row) : row.href ?? null
+}
+
+/**
+ * A PDF's place across the account's devices, for Add a book's viewer
+ * (userBook/ownSync.ts): reconciled before the book shows, each new place
+ * saved a moment later, and anything waiting sent when the page is left.
+ */
+export const pdfPlaces = {
+  reconcile: (hex: string) => reconcilePdfPlace(hex),
+  note: (hex: string, now = false) => notePdfPlace(hex, { now }),
+  flush: () => flushPdfPlaces(),
+}
+
+/**
+ * An EPUB's place across the account's devices, for Add a book's viewer in Margin view (userBook/ownSync.ts
+ * noteEpubMarginPlace): each new place saved a moment later as the book's Tinct reader place, and anything
+ * waiting sent when the page is left.
+ */
+export const epubPlaces = {
+  note: (hex: string, now = false) => { void noteEpubMarginPlace(hex, { now }).catch(() => {}) },
+  flush: () => flushOwnPlaces(),
+}
+
+/**
+ * The desktop viewer read an own book: it leads the library's first paint
+ * (labLibraryBoot.ts, `withJustRead` in libraryTwoReading.ts), so Continue
+ * opens it before the account's table arrives. This device's snapshot only;
+ * nothing is sent. The viewer calls it on the desktop only.
+ */
+export function rememberJustRead(input: { hex: string; title: string; chapterLabel: string }, now = Date.now()): void {
+  if (!/^[0-9a-f]{24}$/.test(input.hex) || !input.title || !input.chapterLabel) return
+  writeLabLibraryBootSnapshot(snapshotWithReaderPlace(readLabLibraryBootSnapshot(), {
+    userId: readCachedSupabaseUser()?.id ?? null,
+    bookId: userBookId(input.hex),
+    title: input.title.slice(0, 200),
+    chapterLabel: input.chapterLabel.slice(0, 200),
+    now,
+  }))
+}
+
+export async function assessPdf(bytes: ArrayBuffer) {
+  const { assessPdfReadability } = await import('./lab/userBook/pdfReadability')
+  return assessPdfReadability(bytes)
+}
+
+;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { assessPdf, importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget, pdfPlaces, epubPlaces, rememberJustRead }

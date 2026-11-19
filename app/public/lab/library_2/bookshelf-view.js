@@ -1,25 +1,34 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
 import { bookshelfMarkup } from './bookshelf-template.js?v=20260928f';
-import { bindingFor } from './reading-table.js?v=20261006links';
+import { bindingFor } from './reading-table.js?v=20261112bios';
+import { bookCoverSrc, ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009owncover';
+import { shortTitle } from '../book-title.js?v=20261009owncover';
+import { recordRects, playFlip } from './shelf-motion.js?v=20261009cover';
+import { PAPER_SPINE, hasPaperSpine } from './spine.js?v=20261009rel10';
 
 export function createBookshelf(root,{table,catalogue,saved,onOpen,onRemove,onError,summaryFor,enabled,prepareCover,initial,onSelection}){
 root.innerHTML=bookshelfMarkup;
 const $=id=>root.querySelector('#bs-'+id);
 const ASSETS='assets/';
 const books={};
-const studyCovers=new Set(['to-the-lighthouse','frankenstein','meditations','odyssey','crime-and-punishment','candide','jane-eyre','jekyll-and-hyde','julius-caesar','niels-lyhne','pride-and-prejudice','the-prince','the-awakening','notes-from-underground']);
 const shelves={reading:[],finished:[],later:[]};
 const chosen={reading:null,finished:null,later:null,...initial?.chosen};
 let busy=false,summaryTimer=null,summaryTurn=0;
 function updateData(nextTable,nextSaved){
- for(const entry of catalogue){books[entry.id]={title:entry.title,author:entry.author,cover:entry.art?.src||null,wordCount:entry.wordCount,binding:bindingFor({bookId:entry.id,tone:entry.cover?.background})[0]};}
- for(const b of [...nextTable.finished,...nextTable.reading]){books[b.bookId]={...books[b.bookId],title:b.title,author:b.author||books[b.bookId]?.author||'',cover:b.cover||books[b.bookId]?.cover||null,binding:bindingFor(b)[0],wordCount:b.wordCount||books[b.bookId]?.wordCount,place:b.chapterLabel,progress:b.percent,recap:b.recap||b.headline};}
- for(const [id,b] of Object.entries(books))if(studyCovers.has(id))b.cover=`assets/${id}.jpg`;
+ for(const entry of catalogue){books[entry.id]={title:entry.title,author:entry.author,cover:bookCoverSrc({bookId:entry.id,art:entry.art}),wordCount:entry.wordCount,binding:bindingFor({bookId:entry.id,tone:entry.cover?.background})[0]};}
+ for(const b of [...nextTable.finished,...nextTable.reading]){books[b.bookId]={...books[b.bookId],title:b.title,author:b.author||books[b.bookId]?.author||'',cover:b.own?(ownCoverImage(b.cover)||paperCoverUrl(b.title,b.author||'',b.kind||'')||null):bookCoverSrc({bookId:b.bookId,art:b.cover})||books[b.bookId]?.cover||null,binding:bindingFor(b)[0],wordCount:b.wordCount||books[b.bookId]?.wordCount,place:b.chapterLabel,progress:b.percent,recap:b.recap||b.headline};}
+ // Every cover by the one rule (/lab/book-cover.js): the same painting as the reading table and My shelf.
  const unique=ids=>[...new Set(ids)].filter(id=>books[id]);
+ const previous={...shelves};
  shelves.reading=unique(nextTable.reading.map(b=>b.bookId));shelves.finished=unique(nextTable.finished.map(b=>b.bookId));
  // A saved discovery hold is retained in storage, but cannot become a new selection.
  shelves.later=unique(nextSaved).filter(id=>catalogue.some(b=>b.id===id&&b.discoveryAvailable!==false)&&!shelves.reading.includes(id)&&!shelves.finished.includes(id));
- for(const key of Object.keys(shelves))if(!shelves[key].includes(chosen[key]))chosen[key]=shelves[key][0]||null;
+ // A chosen book taken off its shelf hands the choice to its neighbour (the next
+ // along, or the one before at the end of the row), never back to the first book.
+ for(const key of Object.keys(shelves))if(!shelves[key].includes(chosen[key])){
+  const was=previous[key]?.indexOf(chosen[key])??-1,stay=id=>shelves[key].includes(id);
+  chosen[key]=(was<0?null:previous[key].slice(was+1).find(stay)??previous[key].slice(0,was).reverse().find(stay))||shelves[key][0]||null;
+ }
 }
 updateData(table,saved);
 function updateRecap(id){
@@ -45,8 +54,11 @@ function renderShelf(key){
   const b=books[id],height=hero?240-i%3*4:key==='finished'?182-i%3*5:190-i%3*4;
   const words=Number(b.wordCount)||70000,depth=Math.round(Math.max(14,Math.min(hero?44:32,10+Math.sqrt(words/1000)*1.1)));
   const measure=document.createElement('canvas').getContext('2d');measure.font='16px Georgia';
-  const spineFont=Math.min(hero?14:11,16*(height*.62)/(measure.measureText(b.title.toUpperCase()).width+b.title.length*.8));
-  return `<button class="volume" data-book="${escapeText(id)}" data-on-shelf="${key}" aria-label="${escapeText(b.title+' by '+b.author)}" aria-pressed="${id===chosen[key]}" style="--depth:${depth}px;--height:${height}px;--cover-width:${width}px;--spine-font:${spineFont}px;--binding:url('${ASSETS}spines/spine-${b.binding}.jpg');--bookmark:${20+(b.progress||0)*.55}%"><span class="ribbon" aria-hidden="true"></span><span class="spine" aria-hidden="true"><span>${escapeText(b.title)}</span></span><span class="face"><span class="fallback-title">${escapeText(b.title)}</span><canvas data-cover="${escapeText(id)}" aria-hidden="true"></canvas></span></button>`;
+  const paper=hasPaperSpine(id,b.cover);
+  // The spine carries the title's short form (/lab/book-title.js), fitted to its length.
+  const spineText=shortTitle(b.title);
+  const spineFont=Math.min(hero?14:11,16*(height*.62)/(measure.measureText(spineText.toUpperCase()).width+spineText.length*.8));
+  return `<button class="volume" data-book="${escapeText(id)}" data-on-shelf="${key}" aria-label="${escapeText(b.title+' by '+b.author)}" aria-pressed="${id===chosen[key]}" style="--depth:${depth}px;--height:${height}px;--cover-width:${width}px;--spine-font:${spineFont}px;--binding:${paper?`${PAPER_SPINE.edge},linear-gradient(${PAPER_SPINE.colour},${PAPER_SPINE.colour})`:`url('${ASSETS}spines/spine-${b.binding}.jpg')`};--bookmark:${20+(b.progress||0)*.55}%"><span class="ribbon" aria-hidden="true"></span><span class="spine" aria-hidden="true"><span${paper?` style="color:${PAPER_SPINE.ink};text-shadow:none"`:''}>${escapeText(spineText)}</span></span><span class="face"><span class="fallback-title">${escapeText(b.title)}</span><canvas data-cover="${escapeText(id)}" aria-hidden="true"></canvas></span></button>`;
  }).join('') || '<p class=empty-bay>A little room for a new book</p>';
  $('count-'+key).textContent=shelves[key].length;
  $('shelf-'+key).querySelectorAll('[data-cover]').forEach(canvas=>{prepareCover(canvas.dataset.cover,canvas).catch(()=>{});});
@@ -70,7 +82,7 @@ function updateSelection(){
  $('previous-book').disabled=$('next-book').disabled=shelves[shelf].length<2;
  $('row-status').parentElement.hidden=row.total<=1;
  $('browse-shelf').hidden=shelves[shelf].length<=capacity[shelf];
- $('row-status').textContent=row.total?`Row ${row.index+1} of ${row.total}`:'No books yet';
+ $('row-status').textContent=row.total?`${row.start+1}–${row.start+row.items.length} of ${shelves[shelf].length} books`:'No books yet';
  $('previous-row').disabled=row.index===0;$('next-row').disabled=row.index>=row.total-1;
  $('browse-shelf').textContent=`All ${shelves[shelf].length} books`;
  onSelection?.({shelf,view,chosen:{...chosen}});
@@ -211,6 +223,8 @@ function atmosphere(t){
 function startAtmosphere(){if(frame)cancelAnimationFrame(frame);frame=requestAnimationFrame(atmosphere);}
 document.addEventListener('visibilitychange',startAtmosphere);reduced.addEventListener('change',startAtmosphere);startAtmosphere();
 
-return {update(nextTable,nextSaved,nextCatalogue){if(nextCatalogue)catalogue=nextCatalogue;updateData(nextTable,nextSaved);Object.keys(shelves).forEach(renderShelf);updateSelection();layout();},focus(key){focusShelf(key);},get selected(){return chosen[shelf];}};
+// The volumes left on a shelf glide into the room a removed one leaves (shelf-motion.js).
+const volumeKey=el=>el.dataset.onShelf+':'+el.dataset.book;
+return {update(nextTable,nextSaved,nextCatalogue,options){if(nextCatalogue)catalogue=nextCatalogue;const before=options?.instant||!root.checkVisibility()?null:recordRects(root.querySelectorAll('.volume'),volumeKey);updateData(nextTable,nextSaved);Object.keys(shelves).forEach(renderShelf);updateSelection();layout();if(before)playFlip(root.querySelectorAll('.volume'),before,volumeKey,{reduced:reduced.matches});},focus(key){focusShelf(key);},get selected(){return chosen[shelf];}};
 }
 

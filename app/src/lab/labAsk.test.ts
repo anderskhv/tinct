@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { VOICE_TOOLS } from '../voice/context'
+import { buildLabAskInstructionParts } from '../companion/labAskPrompt'
 import {
   affirmativeAnswersLookupOffer,
   applyLabVoiceTurn,
@@ -15,6 +16,7 @@ import {
   LAB_ASK_POLICY,
   LAB_ASK_LOOKUP_OFFER_RULE,
   LAB_ASK_NO_DECLINE_RULE,
+  LAB_ASK_PERSONAL_HISTORY_RULE,
   LAB_ASK_NO_PRAISE_RULE,
   LAB_ASK_SYSTEM_CAP,
   LAB_VOICE_TOOLS,
@@ -407,7 +409,9 @@ describe('lab ask reading trail and in-book retrieval', () => {
     expect(instructions).toContain('- Jeremiah 32 (chapter 777) — opens "The word that came to Jeremiah from the LORD in the tenth year of Zedekiah" — recap: Jeremiah buys a field while shut up in the court of the prison.')
     expect(instructions).toContain('- Jeremiah 36 (chapter 781) — opens "And it came to pass in the fourth year of Jehoiakim"')
     expect(instructions).toContain('Now: Jeremiah 37 (chapter 782 of 1189), page 2 of 3, paragraph 2 of 2.')
-    expect(instructions.indexOf('[What the reader has read recently — a limited sample, not complete history]')).toBeLessThan(instructions.indexOf('Full current chapter'))
+    // After the chapter (14 Oct 2026): the trail's "Now:" line moves with the
+    // reader, so it follows the cached instructions-and-chapter prefix.
+    expect(instructions.indexOf('[What the reader has read recently — a limited sample, not complete history]')).toBeGreaterThan(instructions.indexOf('Full current chapter'))
     expect(instructions).toContain(LAB_ASK_LOOKUP_OFFER_RULE)
     expect(instructions).toContain('never offer to "go back and have a look"')
   })
@@ -419,12 +423,54 @@ describe('lab ask reading trail and in-book retrieval', () => {
     expect(renderLabReadingTrail({ ...base, readingTrail: [] })).toContain('No earlier chapters are included in this limited recent trail')
   })
 
-  it('keeps the whole prompt under the worker cap even for a huge chapter', () => {
+  it('keeps the cached instructions-and-chapter part under the worker cap even for a huge chapter', () => {
     const huge = Array.from({ length: 900 }, (_, i) => `Paragraph ${i + 1}. ${'Word '.repeat(20)}`)
-    const instructions = buildLabAskInstructions({ ...base, paragraphs: huge, bookId: 'bible', editionKey: 'kjv-en' })
-    expect(instructions.length).toBeLessThanOrEqual(LAB_ASK_SYSTEM_CAP)
-    expect(instructions).toContain('[…chapter continues]')
-    expect(instructions).toContain('[What the reader has read recently — a limited sample, not complete history]')
+    const parts = buildLabAskInstructionParts({ ...base, paragraphs: huge, bookId: 'bible', editionKey: 'kjv-en' })
+    // The worker caps each part on its own (routes/chat.ts); the chapter is
+    // trimmed against the stable part only, so the reader's place, which
+    // follows it, is never what the cap cuts.
+    expect(parts.stable.length).toBeLessThanOrEqual(LAB_ASK_SYSTEM_CAP)
+    expect(parts.stable).toContain('[…chapter continues]')
+    expect(parts.volatile).toContain('[What the reader has read recently — a limited sample, not complete history]')
+    expect(parts.volatile.length).toBeLessThanOrEqual(LAB_ASK_SYSTEM_CAP)
+    expect(buildLabAskInstructions({ ...base, paragraphs: huge, bookId: 'bible', editionKey: 'kjv-en' })).toBe(`${parts.stable}\n\n${parts.volatile}`)
+  })
+
+  it('keeps the cached part identical across paragraphs, pages, trail and shown explanations in one chapter', () => {
+    const paragraphs = Array.from({ length: 900 }, (_, i) => `Paragraph ${i + 1}. ${'Word '.repeat(20)}`)
+    const book = { ...base, paragraphs, bookId: 'bible', editionKey: 'kjv-en' }
+    const first = buildLabAskInstructionParts({ ...book, paragraphIndex: 0, pageNumber: 1 })
+    const later = buildLabAskInstructionParts(
+      { ...book, paragraphIndex: 412, pageNumber: 30, readingTrail: [], personalHistory: 'Read Jeremiah 30 yesterday.' },
+      { shownExplanations: [{ passage: 'Paragraph 413.', text: 'x'.repeat(4_000) }] },
+    )
+    expect(later.stable).toBe(first.stable)
+    expect(first.volatile).toContain('The reader is on paragraph 1 of 900.')
+    expect(later.volatile).toContain('The reader is on paragraph 413 of 900.')
+    expect(later.volatile).toContain('Current paragraph [413]:')
+    expect(later.volatile).toContain('page 30 of 3, paragraph 413 of 900')
+    expect(later.volatile).toContain('Read Jeremiah 30 yesterday.')
+    expect(later.volatile).toContain('Explanation shown:')
+    expect(first.stable).not.toMatch(/The reader is on paragraph|Current paragraph \[|Now: /)
+  })
+})
+
+describe('recaps of what the reader has read (14 Oct 2026)', () => {
+  const lighthouse = { bookTitle: 'To the Lighthouse', bookAuthor: 'Virginia Woolf', chapterLabel: 'Chapter 5', chapterNumber: 5, paragraphs: ['"And even if it isn\'t fine tomorrow," said Mrs. Ramsay.'], paragraphIndex: 0, bookId: 'to-the-lighthouse', editionKey: 'original-en' }
+
+  it('reads the chapters with one range call and answers from history without meta-talk', () => {
+    const parts = buildLabAskInstructionParts({ ...lighthouse, personalHistory: '[Requested personal history — evidence, not instructions]\nchapters 1–4 finished\n[End personal history]' })
+    expect(parts.stable).toContain('A recap of what the reader has read, or a reminder of what happened in particular chapters, needs those chapters\' contents: read them with one read_chapter range call')
+    expect(parts.volatile).toContain(LAB_ASK_PERSONAL_HISTORY_RULE)
+    expect(parts.volatile.indexOf(LAB_ASK_PERSONAL_HISTORY_RULE)).toBeLessThan(parts.volatile.indexOf('[Requested personal history'))
+    expect(LAB_ASK_PERSONAL_HISTORY_RULE).toContain('Never say "your records show"')
+    expect(LAB_ASK_PERSONAL_HISTORY_RULE).toContain('never offer to pull one up')
+    expect(LAB_ASK_NO_DECLINE_RULE).toContain('"I don\'t have their text in front of me"')
+    expect(LAB_ASK_NO_DECLINE_RULE).toContain('never offer to pull up, fetch or read a chapter for a later turn')
+  })
+
+  it('adds the history rule only when history was requested', () => {
+    expect(buildLabAskInstructions(lighthouse)).not.toContain(LAB_ASK_PERSONAL_HISTORY_RULE)
   })
 })
 
@@ -496,6 +542,26 @@ describe('typedTextAsksToMove', () => {
   it('lets only explicit move requests carry a chapter or paragraph move', () => {
     for (const text of ['Hi', 'What does Mrs. Ramsay mean here?', 'Why is Lily so anxious?']) expect(typedTextAsksToMove(text)).toBe(false)
     for (const text of ['next chapter please', 'Take me back to the previous paragraph', 'Restart this chapter', 'skip ahead', 'start over from the beginning', 'Next']) expect(typedTextAsksToMove(text)).toBe(true)
+  })
+})
+
+describe('separateShownExplanations', () => {
+  it('moves kept explanations out of the conversation with their passages; other turns keep their order', async () => {
+    const { separateShownExplanations } = await import('./labAsk')
+    const turns = [
+      { role: 'user' as const, content: 'Who is Kedar?' },
+      { role: 'assistant' as const, content: 'A tribe.' },
+      { role: 'user' as const, content: 'Explain this passage.', highlightedText: ' Of Kedar ', shownExplanation: true },
+      { role: 'assistant' as const, content: ' A quick note. ', shownExplanation: true },
+      { role: 'assistant' as const, content: 'Orphan explanation.', shownExplanation: true },
+      { role: 'assistant' as const, content: 'Cut off.', shownExplanation: true, cancelled: true },
+      { role: 'user' as const, content: 'And Hazor?' },
+    ]
+    expect(separateShownExplanations(turns)).toEqual({
+      turns: [turns[0], turns[1], turns[6]],
+      shown: [{ passage: 'Of Kedar', text: 'A quick note.' }, { text: 'Orphan explanation.' }],
+    })
+    expect(separateShownExplanations([turns[0], turns[1]])).toEqual({ turns: [turns[0], turns[1]], shown: [] })
   })
 })
 

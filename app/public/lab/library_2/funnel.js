@@ -3,8 +3,12 @@
 // and sent to /api/events with sendBeacon, fire and forget, never blocking the page. Only an
 // anonymous device id, a per-tab session id and the page path are sent.
 // Off on localhost and in automated browsers so QA runs do not pollute the numbers.
+// Tinct's own testing (?internal=1, see ../internal-traffic.js) still sends, marked internal: true.
+import {isInternal} from '../internal-traffic.js';
 const DEVICE_KEY='tinct-lab-device-id',SESSION_KEY='tinct-funnel-session',ONCE_KEY='tinct:funnel-once';
-const FLUSH_MS=4000,BEAT_MS=30000,BATCH=10,ATTRIBUTION=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+// Visible time goes up every 5 minutes and in full on hide/pagehide (one analytics row each).
+export const BEAT_MS=5*60_000;
+const FLUSH_MS=4000,BATCH=10,ATTRIBUTION=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
 const newId=()=>{try{if(crypto.randomUUID)return crypto.randomUUID();}catch{}return `${Math.random().toString(36).slice(2)}${Date.now().toString(36)}`.padEnd(16,'0');};
 const memory={device:null,session:null,once:new Set()};
 function stored(store,key,make){try{let v=store.getItem(key);if(!v){v=make();store.setItem(key,v);}return v;}catch{return null;}}
@@ -22,7 +26,8 @@ export function createLibraryFunnel(deps){
   const flush=()=>{
     if(timer!==null){clearTimeout(timer);timer=null;}
     while(queue.length){
-      const events=queue.splice(0,20);
+      let events=queue.splice(0,20);
+      try{if(deps.internal?.())events=events.map(event=>({...event,props:{...event.props,internal:true}}));}catch{}
       try{deps.send(JSON.stringify({deviceId:deps.deviceId(),sessionId:deps.sessionId(),surface:'library',path:deps.path(),referrer:deps.referrer(),attribution:deps.attribution(),events}));}catch{}
     }
   };
@@ -53,6 +58,7 @@ function browserDeps(){
   const seen=new Set();
   return {
     enabled:()=>!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)&&!navigator.webdriver,
+    internal:()=>isInternal(),
     deviceId,sessionId,path:()=>location.pathname,referrer:()=>document.referrer,attribution,
     visible:()=>document.visibilityState!=='hidden',now:()=>Date.now(),
     sessionSeen:{has:n=>{try{return sessionStorage.getItem('tinct-funnel-seen-'+n)==='1'||seen.has(n);}catch{return seen.has(n);}},add:n=>{seen.add(n);try{sessionStorage.setItem('tinct-funnel-seen-'+n,'1');}catch{}}},
@@ -69,6 +75,9 @@ export function startLibraryFunnel(){
   document.addEventListener('visibilitychange',()=>client.visibility(document.visibilityState!=='hidden'));
   addEventListener('pagehide',()=>client.visibility(false));
   client.start();
+  // Other library modules report events without importing this one (it loads on its own tag).
+  addEventListener('tinct:funnel',event=>{const {name,props}=event.detail||{};if(LIBRARY_EVENTS.has(name))client.track(name,props);});
   return client;
 }
+const LIBRARY_EVENTS=new Set(['book_intro_viewed']);
 if(typeof window!=='undefined'&&typeof document!=='undefined'&&!window.__tinctNoFunnel)startLibraryFunnel();

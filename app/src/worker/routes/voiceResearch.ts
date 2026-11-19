@@ -1,9 +1,9 @@
 import { jsonResponse } from '../lib/responses'
-import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
+import { allowanceUsedBody, allowsAiFeature, createAllowanceGate, type AllowanceGate } from '../lib/aiAllowance'
 import { supabaseGet } from '../lib/supabase'
 import { isValidUUID } from '../lib/security'
 import type { VoiceEnv } from './voice'
-import { createAiMeter, type LedgerEnv, type OpenAiUsage } from '../lib/aiUsage'
+import { createAiMeter, ledgerGuestKey, type LedgerEnv, type OpenAiUsage } from '../lib/aiUsage'
 
 export type ReadingSourceResearch = {
   notes: string
@@ -85,16 +85,20 @@ export async function handleVoiceResearch(
   verifyUser: (env: VoiceEnv, request: Request) => Promise<{ id: string } | null>,
   checkRateLimit: (key: string, kv?: VoiceEnv['RATE_LIMIT'], max?: number) => Promise<boolean>,
   ctx?: ExecutionContext,
+  allowanceGate: AllowanceGate = createAllowanceGate(env),
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   const user = await verifyUser(env, request)
   if (!user || !isValidUUID(user.id)) return jsonResponse({ error: 'Sign in to search sources.' }, 401, request)
   if (!env.OPENAI_API_KEY) return jsonResponse({ error: 'Search is unavailable.' }, 503, request)
   if (!await checkRateLimit(`voice-research:${user.id}`, env.RATE_LIMIT, 6)) return jsonResponse({ error: 'Please wait before searching again.' }, 429, request)
-  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
+  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=id`)
   if (!profileRes.ok) return jsonResponse({ error: 'Could not check account access.' }, 503, request)
-  const profile = ((await profileRes.json()) as ChatProfile[])[0]
-  if (!profile || !evaluateChatAccess(profile).allowed) return jsonResponse({ error: 'Your AI balance is empty.' }, 402, request)
+  const profile = ((await profileRes.json()) as Array<{ id: string }>)[0]
+  if (!profile) return jsonResponse({ error: 'Your AI balance is empty.' }, 402, request)
+  if (allowanceGate.enforced && !allowsAiFeature(true, 'source_search', await allowanceGate.load(user.id))) {
+    return jsonResponse(allowanceUsedBody(), 402, request)
+  }
   // Bound the request before parsing: only a public-topic search query is accepted.
   const reader = request.body?.getReader()
   if (!reader) return jsonResponse({ error: 'A question is required.' }, 400, request)
@@ -109,7 +113,7 @@ export async function handleVoiceResearch(
   let query: unknown
   try { query = JSON.parse(raw).query } catch { return jsonResponse({ error: 'Invalid question.' }, 400, request) }
   if (typeof query !== 'string' || !query.trim() || query.length > 1000) return jsonResponse({ error: 'Invalid question.' }, 400, request)
-  const meter = createAiMeter(env as LedgerEnv, ctx, { userId: user.id }, { feature: 'source_search', model: 'gpt-4.1' })
+  const meter = createAiMeter(env as LedgerEnv, ctx, { userId: user.id, guest: ledgerGuestKey(request) }, { feature: 'source_search', model: 'gpt-4.1' })
   const result = await searchReadingSources(env.OPENAI_API_KEY, query.trim(), report => meter.sourceSearch(report.usage, report.searches))
   return result
     ? jsonResponse({ ok: true, ...result }, 200, request)

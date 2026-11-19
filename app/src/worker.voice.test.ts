@@ -77,13 +77,15 @@ describe('voice session route (Grok native speech-to-speech)', () => {
     expect(fetchMock).not.toHaveBeenCalled()
   })
 
-  it('requires sign-in on the former signed-out route and never contacts xAI', async () => {
+  it('gives a signed-out caller no xAI secret: without the guest ceiling it refuses calmly and never contacts xAI', async () => {
+    // Since 16 Oct a guest may try Talk once a day through the relay
+    // (worker.voiceGuestTrial.test.ts); the guest route never mints a secret.
     const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)
     vi.spyOn(console, 'log').mockImplementation(() => {})
-    const response = await handleLabVoiceSession(voiceRequest())
-    expect(response.status).toBe(401)
-    expect(await response.json()).toEqual({ error: 'Authentication required' })
+    const response = await handleLabVoiceSession(voiceRequest(), { XAI_API_KEY: env.XAI_API_KEY }, async () => true, async () => null)
+    expect(response.status).toBe(503)
+    expect(await response.json()).toEqual({ error: 'AI is resting — try again later.', code: 'ai_resting' })
     expect(fetchMock).not.toHaveBeenCalled()
   })
 

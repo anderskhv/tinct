@@ -1,7 +1,12 @@
+import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
+import { TRIAL_RESET_AT } from '../lib/aiAllowance'
+
 export type EmailEnv = {
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string
+  /** "1": the lifecycle engine replaces the legacy trial-day emails (src/worker/lifecycle/runtime.ts). */
+  LIFECYCLE_EMAILS?: string
 }
 // ===== Email: Send via Brevo =====
 
@@ -10,7 +15,7 @@ export async function sendEmail(
   to: string,
   subject: string,
   html: string,
-  options: { senderName?: string; replyTo?: string } = {}
+  options: { senderName?: string; replyTo?: string; text?: string; headers?: Record<string, string> } = {}
 ): Promise<boolean> {
   if (!env.BREVO_API_KEY) return false
   try {
@@ -21,6 +26,10 @@ export async function sendEmail(
       htmlContent: html,
     }
     if (options.replyTo) body.replyTo = { email: options.replyTo }
+    // Lifecycle emails (src/worker/lifecycle): the plain-text part and the
+    // List-Unsubscribe headers. Absent for every other email.
+    if (options.text) body.textContent = options.text
+    if (options.headers && Object.keys(options.headers).length) body.headers = options.headers
     const res = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
@@ -62,18 +71,36 @@ function wrapEmail(inner: string): string {
 // Anders' own account and numbered Tinct test aliases. Keep this gate local to
 // the scheduled campaign so transactional auth, issue-review, and internal
 // anomaly emails continue to work normally.
-function isLifecycleTestRecipient(email: string): boolean {
+// The lifecycle engine (src/worker/lifecycle) uses the same gate and, while
+// LIFECYCLE_TEST_GATE is true, only ever reads the test aliases' profiles.
+export const LIFECYCLE_TEST_GATE = true
+export function isLifecycleTestRecipient(email: string): boolean {
+  if (!LIFECYCLE_TEST_GATE) return true
   const normalized = email.trim().toLowerCase()
   return normalized === 'ahvelplund@fastmail.com' || /^tinct\d+@fastmail\.com$/.test(normalized)
 }
 
+// With the AI allowance on (src/aiAllowanceSwitch.ts), Premium is AI use plus
+// audiobooks and adding any book (Anders, 2026-10-07; narration is never
+// counted as AI use); Cast and Feed stay open to every account, so the emails
+// name what Premium adds in the /about page's words, and the button opens the
+// account page where the plan is chosen (the old ?action=subscribe opened
+// nothing). Off, the emails are unchanged.
+const PREMIUM_FEATURES_LEGACY = 'AI companion, audiobook, adding any book, Cast, and Feed'
+const PREMIUM_FEATURES_ALLOWANCE = 'AI chat, Talk, chapter recaps, audiobooks and adding any book'
+const SUBSCRIBE_URL_LEGACY = 'https://tinct.app?action=subscribe'
+const SUBSCRIBE_URL_ALLOWANCE = 'https://tinct.app/sign-in?mode=account'
+
+const premiumFeatures = (allowanceOn: boolean) => (allowanceOn ? PREMIUM_FEATURES_ALLOWANCE : PREMIUM_FEATURES_LEGACY)
+const subscribeUrl = (allowanceOn: boolean) => (allowanceOn ? SUBSCRIBE_URL_ALLOWANCE : SUBSCRIBE_URL_LEGACY)
+
 // Day 0 — welcome
-function welcomeEmail(): { subject: string; html: string } {
+export function welcomeEmail(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): { subject: string; html: string } {
   return {
     subject: 'Welcome to Tinct',
     html: wrapEmail(`
       <h2 style="font-weight: 400; margin: 0 0 16px;">Welcome.</h2>
-      <p>You're in. For the next 30 days you have full Premium: AI companion, audiobook, Cast, and Feed. No card on file, no charges. On day 30 you roll into the free tier automatically. Reading stays free forever.</p>
+      <p>You're in. For the next 30 days you have full Premium: ${premiumFeatures(allowanceOn)}. No card on file, no charges. On day 30 you roll into the free tier automatically. Reading stays free forever.</p>
       <p style="margin: 22px 0;">
         <a href="https://tinct.app/read" style="${BTN_STYLE}">Open Tinct</a>
       </p>
@@ -96,14 +123,14 @@ function midTrialEmail(): { subject: string; html: string } {
 }
 
 // Day 27 — 3 days left, the single warning
-function threeDayEmail(): { subject: string; html: string } {
+export function threeDayEmail(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): { subject: string; html: string } {
   return {
     subject: 'Your Tinct trial ends in 3 days',
     html: wrapEmail(`
       <h2 style="font-weight: 400; margin: 0 0 16px;">3 days left of Premium.</h2>
-      <p>Your free Premium trial ends in <strong>3 days</strong>. To keep the AI companion, audiobook, Cast, and Feed, subscribe for <strong>$3/month</strong>.</p>
+      <p>Your free Premium trial ends in <strong>3 days</strong>. To keep ${allowanceOn ? PREMIUM_FEATURES_ALLOWANCE : `the ${PREMIUM_FEATURES_LEGACY}`}, subscribe for <strong>$5/month</strong>.</p>
       <p style="margin: 22px 0;">
-        <a href="https://tinct.app?action=subscribe" style="${BTN_STYLE}">Keep Premium · $3/mo</a>
+        <a href="${subscribeUrl(allowanceOn)}" style="${BTN_STYLE}">Keep Premium · $5/mo</a>
       </p>
       <p style="color: #555; font-size: 14px;">Reading is always free. All your books, editions, highlights, and notes stay yours whether you subscribe or not.</p>
       <p style="color: #555; font-size: 14px;">Can't afford it? Reply to this email. We'll work something out.</p>
@@ -112,15 +139,15 @@ function threeDayEmail(): { subject: string; html: string } {
 }
 
 // Day 30 — trial ended
-function trialEndedEmail(): { subject: string; html: string } {
+export function trialEndedEmail(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): { subject: string; html: string } {
   return {
     subject: 'Your Tinct trial has ended',
     html: wrapEmail(`
       <h2 style="font-weight: 400; margin: 0 0 16px;">Your trial ended.</h2>
       <p>You're now on the free tier. Reading stays free: all the books, every edition, your highlights, your notes, your reading position across devices. Nothing you've already made is gone.</p>
-      <p>Premium features (AI companion, audiobook, Cast, Feed) have paused. $3/month brings them back whenever you want.</p>
+      <p>Premium features (${allowanceOn ? PREMIUM_FEATURES_ALLOWANCE : 'AI companion, audiobook, adding any book, Cast, Feed'}) have paused. $5/month brings them back whenever you want.</p>
       <p style="margin: 22px 0;">
-        <a href="https://tinct.app?action=subscribe" style="${BTN_STYLE}">Resubscribe · $3/mo</a>
+        <a href="${subscribeUrl(allowanceOn)}" style="${BTN_STYLE}">Resubscribe · $5/mo</a>
       </p>
       <p style="color: #555; font-size: 14px;">Or just keep reading for free. The books are still here.</p>
     `),
@@ -130,10 +157,12 @@ function trialEndedEmail(): { subject: string; html: string } {
 // ===== Cron: Trial lifecycle emails =====
 
 /** Users whose account was created roughly `daysAgo` days ago (±12h window).
- * Filtered to accounts that haven't subscribed. */
-async function usersAgedDays(env: EmailEnv, daysAgo: number): Promise<Array<{ id: string; email: string }>> {
+ * Filtered to accounts that haven't subscribed. Once `notBefore` has passed,
+ * only accounts created at or after it. */
+async function usersAgedDays(env: EmailEnv, daysAgo: number, notBefore?: Date): Promise<Array<{ id: string; email: string }>> {
   const now = Date.now()
-  const start = new Date(now - (daysAgo + 0.5) * 24 * 60 * 60 * 1000).toISOString()
+  const from = now - (daysAgo + 0.5) * 24 * 60 * 60 * 1000
+  const start = new Date(notBefore && now >= notBefore.getTime() ? Math.max(from, notBefore.getTime()) : from).toISOString()
   const end = new Date(now - (daysAgo - 0.5) * 24 * 60 * 60 * 1000).toISOString()
   // Only readers who ticked the email opt-in at sign-up (profiles.email_opt_in).
   const query = `profiles?select=id,email&subscription_status=is.null&email_opt_in=is.true&created_at=gte.${start}&created_at=lt.${end}`
@@ -166,6 +195,15 @@ export async function handleScheduled(env: EmailEnv): Promise<void> {
     return
   }
 
+  // With LIFECYCLE_EMAILS on, the lifecycle engine (src/worker/lifecycle,
+  // */10 cron) replaces these four trial-day emails; the anomaly check stays.
+  if (env.LIFECYCLE_EMAILS !== '1') await sendLegacyTrialEmails(env)
+
+  // Anomaly detection: chapters with 3+ reports in the last 24h
+  await sendAnomalyAlert(env)
+}
+
+async function sendLegacyTrialEmails(env: EmailEnv): Promise<void> {
   // Four emails across the trial. Sent from "Tinct" brand voice. Mid-trial
   // email is the feedback ask — we commit to reading every reply.
   const milestones: Array<{ daysAgo: number; email: () => { subject: string; html: string } }> = [
@@ -177,7 +215,10 @@ export async function handleScheduled(env: EmailEnv): Promise<void> {
 
   let totalSent = 0
   for (const { daysAgo, email } of milestones) {
-    const users = await usersAgedDays(env, daysAgo)
+    // The trial-day emails after the welcome count from sign-up, so they skip
+    // accounts created before the trial reset, whose trial now runs from it
+    // (lib/aiAllowance.ts TRIAL_RESET_AT).
+    const users = await usersAgedDays(env, daysAgo, daysAgo > 0 ? TRIAL_RESET_AT : undefined)
     if (users.length === 0) {
       console.log(`[cron] daysAgo=${daysAgo}: 0 users`)
       continue
@@ -198,8 +239,9 @@ export async function handleScheduled(env: EmailEnv): Promise<void> {
     console.log(`[cron] daysAgo=${daysAgo}: sent ${sent}/${users.length}, paused ${skipped}`)
   }
   console.log(`[cron] total emails sent: ${totalSent}`)
+}
 
-  // Anomaly detection: chapters with 3+ reports in the last 24h
+async function sendAnomalyAlert(env: EmailEnv): Promise<void> {
   try {
     const since = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
     const anomalyRes = await fetch(
@@ -207,7 +249,7 @@ export async function handleScheduled(env: EmailEnv): Promise<void> {
       {
         method: 'POST',
         headers: {
-          'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
+          'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
           'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
           'Content-Type': 'application/json',
         },

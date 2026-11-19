@@ -1,10 +1,25 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const origin='https://tinct.app',baseline=process.env.OPENING_BASELINE==='1',built=process.env.READER_BUILT!=='0';
 const out=process.env.ARTIFACT_DIR||'artifacts/opening-highlights';fs.mkdirSync(out,{recursive:true});
+// The desktop selection bar is the margin reader's dark bar (22 Oct 2026): one click on the highlighter highlights,
+// a second shows the colours, named by themselves. The older light palette said "Highlight Sage".
+async function pickColour(p,name){
+ const light=p.getByRole('button',{name:'Highlight '+name,exact:true});
+ if(await light.count())return light.click();
+ if(await p.getByTestId('lab-desk-bar').count()){
+  const swatch=p.getByRole('button',{name,exact:true});
+  if(!await swatch.count()){await p.getByRole('button',{name:/^Highlight in /}).click();await p.getByRole('button',{name:/^Highlight in /}).click();}
+  await swatch.click();return;
+ }
+ const highlight=p.getByRole('button',{name:'Highlight',exact:true});
+ if(await highlight.count())await highlight.click();else await p.getByRole('button',{name:'Highlight this passage',exact:true}).click();
+ await light.click();
+}
 async function ready(p){await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(500);}
 (async()=>{const results=[];
 for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'chromium,webkit').split(',').includes(e.name()))){
- const browser=await engine.launch({args:engine===chromium?['--mute-audio']:[]});
+ const browser=await markInternal(await engine.launch({args:engine===chromium?['--mute-audio']:[]}));
  const context=await browser.newContext({viewport:{width:1450,height:879},serviceWorkers:'block'});
  if(built)await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));return f.startsWith(path.resolve('dist')+'/')&&fs.existsSync(f)&&fs.statSync(f).isFile()?r.fulfill({path:f}):r.fulfill({status:404,body:'{}'});});
  await context.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await context.route('**/*supabase.co/**',r=>r.abort());
@@ -12,14 +27,23 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
  await context.addInitScript(older=>{
   HTMLMediaElement.prototype.play=async()=>{};
   if(sessionStorage.getItem('opening-seeded'))return;sessionStorage.setItem('opening-seeded','1');
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,theme:'dark',compareOpen:false}));
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,fontSizeExplicit:true,theme:'dark',compareOpen:false}));
   localStorage.setItem('tinct-lab-highlights',JSON.stringify([older]));
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:917,paragraphIndex:0,wordIndex:0,page:0}}));
  },older);
  const p=await context.newPage();p.setDefaultTimeout(25000);
  try{
-  await p.goto(origin+'/reader');await ready(p);
-  for(let i=0;i<15&&!await p.locator('.lab-next-chapter-opening').count();i++){await p.keyboard.press('ArrowRight');await ready(p);}
+  // Chapter length may end on either leaf at a given viewport (the leaf's
+  // line count follows the reader's margins). Select a viewport where 917
+  // actually ends on the left leaf, as check-audio-spread does.
+  for(const height of [879,813,940,740]){
+   await p.setViewportSize({width:1450,height});
+   await p.evaluate(()=>sessionStorage.removeItem('opening-seeded')).catch(()=>{});
+   // This fixture checks Classic's paginated next-chapter leaf, also when Margin is the build default.
+   await p.goto(origin+'/reader?view=two-page');await ready(p);
+   for(let i=0;i<15&&!await p.locator('.lab-next-chapter-opening').count();i++){await p.keyboard.press('ArrowRight');await ready(p);}
+   if(await p.locator('.lab-next-chapter-opening').count()&&await p.locator('.lab').getAttribute('data-chapter')==='917')break;
+  }
   const opening=p.locator('.lab-next-chapter-opening');await opening.waitFor();
   assert.equal(await p.locator('.lab').getAttribute('data-chapter'),'917');
   if(baseline){
@@ -33,12 +57,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   await p.mouse.move(start.x+start.width/2,start.y+start.height/2);await p.mouse.down();
   await p.mouse.move(end.x+end.width/2,end.y+end.height/2,{steps:12});await p.mouse.up();
   const popup=p.locator('.selection-popup');await popup.waitFor();
-  const direct=p.getByRole('button',{name:'Highlight Sage',exact:true});
-  if(!await direct.count()){
-   const highlight=p.getByRole('button',{name:'Highlight',exact:true});
-   if(await highlight.count())await highlight.click();else await p.getByRole('button',{name:'Highlight this passage',exact:true}).click();
-  }
-  await direct.click();
+  await pickColour(p,'Sage');
   await p.waitForFunction(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]').some(h=>h.chapterNumber===918));
   const saved=await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')));
   assert.equal(saved.length,2);assert.deepEqual(saved.find(h=>h.id==='preserve'),older);
@@ -69,9 +88,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
    await p.mouse.move(start.x+start.width/2,start.y+start.height/2);await p.mouse.down();
    await p.mouse.move(end.x+end.width/2,end.y+end.height/2,{steps:16});await p.mouse.up();
    await p.locator('.selection-popup').waitFor();
-   const colour=p.getByRole('button',{name:'Highlight Rose',exact:true});
-   if(!await colour.count())await p.getByRole('button',{name:'Highlight',exact:true}).click();
-   await colour.click();
+   await pickColour(p,'Rose');
    const marks=await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')));
    const cross=marks.find(h=>h.chapterNumber===918&&h.paragraphIndex===aPlace.p&&h.fromWord===aPlace.w);
    assert.ok(cross,'Cross-spread selection saved');assert.equal(cross.endParagraphIndex,bPlace.p);assert.equal(cross.toWord,bPlace.w+1);

@@ -53,7 +53,7 @@ export function LabAccountSheet({ open, action, returnTo, onClose, desktop = fal
           ×
         </button>
         <p className="lab-account-eyebrow">{LAB_COPY.accountEyebrow}</p>
-        <h2 className="lab-account-title" id="lab-account-title">{action === 'audio' ? LAB_COPY.accountTitleAudio : LAB_COPY.accountTitle}</h2>
+        <h2 className="lab-account-title" id="lab-account-title">{action === 'audio' ? LAB_COPY.accountTitleAudio : action === 'voice' ? LAB_COPY.accountTitleTalk : LAB_COPY.accountTitle}</h2>
         <p className="lab-account-body">{action === 'audio' ? LAB_COPY.accountBodyAudio : LAB_COPY.accountBody}</p>
         <a className="lab-account-primary" href={labSignInHref('create', returnTo)} data-testid="lab-account-create">
           {LAB_COPY.accountCreate}

@@ -5,8 +5,9 @@ export type LabChapterStatusKind = 'not-started' | 'visited' | 'in-progress' | '
 
 /**
  * One truthful line per chapter for the picker. Every field is a stored fact:
- *  - `finished`: the reader turned past the last page or heard the chapter
- *    out (position record), or reading memory holds a `completed` session;
+ *  - `finished`: the reader turned past the last page, left the chapter from
+ *    a last page reached by reading on, or heard the chapter out (position
+ *    record), or reading memory holds a `completed` session;
  *  - `in-progress`: any recorded reading session, or a position pin, sits in
  *    that chapter;
  *  - `visited`: no reading record survives (memory keeps the last 50

@@ -31,3 +31,16 @@ export function useLabFunnel(input: { bookId: string; ready: boolean; signedIn: 
     trackFunnel('book_opened', { book_id: bookId, signed_in: signedIn })
   }, [bookId, ready, signedIn])
 }
+
+/**
+ * The visible-time beats alone (pageview and page_duration, as /reader sends them), for the own-book readers that do
+ * not mount LabApp: the Original PDF pages and the Margin frame. No book id goes with them.
+ */
+export function useLabFunnelVisibleTime(enabled = true): void {
+  useEffect(() => {
+    if (!enabled) return
+    setFunnelDeviceId(readLabDeviceId)
+    funnel().start()
+    return () => funnel().stop()
+  }, [enabled])
+}

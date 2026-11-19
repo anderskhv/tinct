@@ -1,3 +1,5 @@
+import {markInternal} from '../lib/internalTraffic.cjs'
+
 /** Observe the new process; webView({pkg}) alone can return the retiring one. */
 export async function restartNativePage(device, packageId, launch) {
  const next = device.waitForEvent('webview', {
@@ -8,5 +10,6 @@ export async function restartNativePage(device, packageId, launch) {
  next.catch(() => {})
  await device.shell('am force-stop ' + packageId)
  await launch()
- return (await next).page()
+ // Tinct's own check: keep its traffic marked internal in the new WebView process.
+ return markInternal(await (await next).page())
 }

@@ -6,14 +6,28 @@ import { LAB_OVERFLOW_CLEAR_PX } from './labChrome'
 const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
 const foot = css.slice(css.indexOf('── The foot, without the bar'))
 
+// Commas inside :is()/:not() are part of one scoped selector, not new rules.
+const selectorsOf = (selector: string) => {
+  let depth = 0, from = 0
+  const selectors: string[] = []
+  for (let index = 0; index < selector.length; index++) {
+    if (selector[index] === '(' || selector[index] === '[') depth++
+    if (selector[index] === ')' || selector[index] === ']') depth--
+    if (selector[index] === ',' && depth === 0) { selectors.push(selector.slice(from, index)); from = index + 1 }
+  }
+  selectors.push(selector.slice(from))
+  return selectors
+}
+
+
 /**
  * The foot's geometry, in one place so it cannot drift apart.
  *
  * Transport closed: 20px of painted progress line over a 5.6px inset is the
  * whole reserved foot, so the column uses every line. Transport open: the
- * rail rides above the transport and both boxes grow together; the page on
- * screen is kept (LabApp's page freeze) and only later pages are laid out at
- * that height.
+ * progress line is put away and both boxes reserve the transport alone; the
+ * page on screen keeps its first word and is laid out again at that height
+ * (LabApp's page freeze), so no line sits under the player.
  */
 const PAINTED_REM = 1.25
 const INSET_REM = 0.35
@@ -27,15 +41,24 @@ describe('the V2 foot', () => {
   })
 
   it('reserves the transport only while it is open, in both boxes', () => {
-    const open = `calc(${(TRANSPORT_REM + PAINTED_REM).toFixed(2)}rem + env(safe-area-inset-bottom, 0px))`
+    const open = `calc(${TRANSPORT_REM.toFixed(2)}rem + env(safe-area-inset-bottom, 0px))`
     const openRules = foot.split('}').filter(rule => rule.includes(open))
     expect(openRules.some(rule => rule.includes('height: ' + open))).toBe(true)
     expect(openRules.some(rule => rule.includes('padding-bottom: ' + open))).toBe(true)
     for (const rule of openRules) {
       const selector = rule.slice(rule.lastIndexOf('*/') + 2).split('{')[0]
-      for (const part of selector.split(',')) {
+      for (const part of selectorsOf(selector)) {
         if (part.trim()) expect(part).toContain('[data-transport="open"]')
       }
+    }
+  })
+
+  it('puts the progress line away while the transport is open, and only then', () => {
+    const rules = foot.split('}').filter(rule => /\.lab-chapter-progress\s*(,|\{)/.test(rule) && rule.includes('visibility: hidden'))
+    expect(rules.length).toBe(1)
+    const selector = rules[0].slice(rules[0].lastIndexOf('*/') + 2).split('{')[0]
+    for (const part of selectorsOf(selector)) {
+      if (part.trim()) expect(part).toContain('[data-transport="open"]')
     }
   })
 
@@ -68,7 +91,7 @@ describe('the V2 foot', () => {
     for (const rule of foot.split('}')) {
       const selector = rule.slice(rule.lastIndexOf('*/') + 2).split('{')[0].trim()
       if (!selector || selector.startsWith('@') || selector.startsWith('/*')) continue
-      for (const part of selector.split(',')) {
+      for (const part of selectorsOf(selector)) {
         if (part.trim()) expect(part).toContain('[data-chrome-version="v2"]')
       }
     }

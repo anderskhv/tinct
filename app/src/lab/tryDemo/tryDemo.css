@@ -1,0 +1,77 @@
+/* The reader inside the /try page (tryDemo.ts). Only `.lab[data-try-demo]` is touched; the reader is unchanged elsewhere. */
+
+/* No chapter map at the left edge: the paper starts near the frame's edge and the margin keeps a full card column
+   (about 360px at the page's 1056px frame), so Explain, follow-ups and Summary land as cards, never as dots. */
+.lab[data-try-demo] .source-minimap { display: none; }
+.lab.is-desktop[data-try-demo][data-continuous-reader="true"] .continuous-reader-paper {
+  width: min(calc(clamp(36rem, 46vw, 46rem) + 2 * var(--continuous-paper-pad)), calc(100% - 400px));
+  margin-left: 40px;
+  margin-right: 0;
+}
+.lab.is-desktop[data-try-demo][data-continuous-reader="true"] { --continuous-paper-pad: clamp(28px, 3vw, 40px); }
+.lab[data-try-demo] .source-minimap + .continuous-reader { scrollbar-width: thin; }
+.lab[data-try-demo] .lab-header-book { cursor: default; }
+
+/* Original | Modern beside the chapter chip: the chip's own face and colours. */
+.lab-try-editions {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 10px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(219, 209, 190, .64);
+}
+.lab.is-night .lab-try-editions { background: var(--lab-surface); }
+.lab-try-editions button {
+  appearance: none;
+  min-height: 28px;
+  padding: 2px 12px 3px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #8a8172;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.35;
+  cursor: pointer;
+}
+.lab-try-editions button[aria-pressed="true"] {
+  background: var(--lab-paper, #f4efe4);
+  color: var(--lab-ink, #2a251d);
+  box-shadow: 0 1px 2px rgba(40, 34, 20, .12);
+}
+/* A tablet or a phone sideways reads the desktop reader here: the switch is a 32px tap target on a touch screen. */
+@media (hover: none) and (pointer: coarse) {
+  .lab-try-editions button { min-height: 32px; }
+}
+.lab-try-editions button:focus-visible { outline: 2px solid var(--lab-accent, #2f7f7a); outline-offset: 2px; }
+
+/* The margin's cards a step smaller with the demo's reading size (TRY_DEMO_DESKTOP_FONT_SIZE), so an Explain card with
+   its follow-up, or the chapter Summary with the folded Explain under it, fits the frame (D5, D8). */
+.lab.is-desktop[data-try-demo] .source-margin-item { font-size: 15px; }
+.lab.is-desktop[data-try-demo] .source-margin-preview,
+.lab.is-desktop[data-try-demo] .source-margin-preview .source-margin-preview-note { font-size: 15px !important; }
+.lab.is-desktop[data-try-demo] .source-margin-preview-question { font-size: 14.5px; }
+.lab.is-desktop[data-try-demo] .source-margin-content .lab-pcard-answer { font-size: 15px; }
+.lab.is-desktop[data-try-demo] .source-margin-head .source-margin-label { font-size: 13px; }
+
+/* Aa on the phone (the demo has no menu, so the reader's own Appearance sheet opens from here): Play's 44px target,
+   the desktop Aa's face. */
+.lab[data-try-demo][data-chrome-version="v2"]:is(.is-phone, .has-phone-chrome) .lab-v2-aa {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: 600 17px/1 Georgia, serif;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab[data-try-demo]:is(.is-phone, .has-phone-chrome) .lab-v2-aa:focus-visible { outline: 2px solid currentColor; outline-offset: -4px; }

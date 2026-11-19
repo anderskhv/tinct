@@ -1,0 +1,27 @@
+{
+  "witness": "Project Gutenberg 205, Walden chapters only",
+  "corpusSlots": 502,
+  "chapterSlots": [
+    136,
+    26,
+    12,
+    27,
+    19,
+    27,
+    21,
+    6,
+    35,
+    17,
+    18,
+    18,
+    22,
+    26,
+    15,
+    23,
+    30,
+    24
+  ],
+  "normalizedWords": "All primary body tokens match except for two corrupted Greek words in original-en at 17:7, corrected in provisional modern-en, and terminal THE END, a colophon not in the reader. Case, punctuation, whitespace, and ligatures are normalized in this check.",
+  "omittedFigure": "Walden Pond (1846) after 16:5. See map-descriptions.json and walden_pond_map.jpg.",
+  "formatting": "Original reader flattens verse and account tables. Special-source-slot-map.json records their positions. Chapter 17 verse-gap asterisk row restored in Danish."
+}

@@ -2,6 +2,7 @@ import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.READER_LIVE === '1'
 const expected = process.env.TINCT_EXPECTED_BUNDLE || ''
@@ -45,7 +46,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     return route.continue()
   })
   await page.addInitScript(({bookId,edition,chapterNumber,fixture}) => {
-    localStorage.setItem('tinct-lab-prefs', JSON.stringify({theme: fixture.theme, fontSize:fixture.fontSize, primaryEdition:edition}))
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({theme: fixture.theme, fontSize:fixture.fontSize, fontSizeExplicit:true, primaryEdition:edition}))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:fixture.paragraphIndex||0,wordIndex:0,page:0}}))
     if(fixture.highlights && !localStorage.getItem('tinct-lab-highlights')) localStorage.setItem('tinct-lab-highlights',JSON.stringify(fixture.highlights))
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable:true, value:async()=>{throw Error('Microphone disabled during reader acceptance')} })
@@ -61,7 +62,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
 }
 
 for (const [engine, name] of [[chromium,'chromium'],[webkit,'webkit']]) {
-  const browser = await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser = await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   try {
     for (const phone of [false,true]) for (const fontSize of [1.3,2.2]) {
       let reference

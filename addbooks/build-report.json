@@ -1,0 +1,1235 @@
+{
+  "builtAt": "2026-10-05T20:20:44.860413+00:00",
+  "gutenbergSource": "https://www.gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2",
+  "standardEbooksCoverage": "partial: public feed, latest 15 releases",
+  "skipped": {
+    "notPublicDomainUS": 861,
+    "notText": 815
+  },
+  "warnings": [
+    "Standard Ebooks full feeds require authorized access. This build contains only the 15 public recent releases.",
+    "Original language and first publication year are null unless explicitly known. Gutenberg release dates are not first-publication dates.",
+    "Public-domain text records without an EPUB remain indexed with epubUrl=null.",
+    "Grouping is conservative: title + full author/alias + language. Volumes, anthologies, and different-language titles may remain separate.",
+    "SE translators and language tags are read from EPUB package metadata; PG missing translator fields remain unknown.",
+    "US source rights only. EU and other region clearance is not implemented in this search-only prototype."
+  ],
+  "gutenbergRecords": 79547,
+  "gutenbergEditions": 77871,
+  "gutenbergWithoutEpub": 268,
+  "standardEbooksMetadataPackages": 15,
+  "standardEbooksEditions": 15,
+  "sources": {
+    "Wikisource": {
+      "languages": {
+        "da": {
+          "candidates": 231,
+          "books": 147
+        },
+        "sv": {
+          "candidates": 1752,
+          "books": 835
+        },
+        "no": {
+          "candidates": 511,
+          "books": 404
+        },
+        "nl": {
+          "candidates": 169,
+          "books": 82
+        },
+        "la": {
+          "candidates": 1143,
+          "books": 698
+        },
+        "pt": {
+          "candidates": 6366,
+          "books": 4619
+        },
+        "es": {
+          "candidates": 11363,
+          "books": 8248
+        },
+        "it": {
+          "candidates": 6945,
+          "books": 4125
+        },
+        "fr": {
+          "candidates": 34825,
+          "books": 14914
+        },
+        "pl": {
+          "candidates": 78473,
+          "books": 13282
+        },
+        "de": {
+          "candidates": 13294,
+          "books": 10912
+        },
+        "en": {
+          "candidates": 30687,
+          "books": 18846
+        }
+      },
+      "editions": 77112,
+      "licences": {
+        "CC BY-SA 4.0": 77112
+      }
+    },
+    "Kalliope": {
+      "skippedRecentOrUnknownDeath": 124,
+      "editions": 2645,
+      "licences": {
+        "PD": 2645
+      }
+    },
+    "Projekt Runeberg": {
+      "skippedInCopyrightOrUnknown": 1010,
+      "editions": 5942,
+      "licences": {
+        "PD": 5942
+      }
+    },
+    "Litteraturbanken": {
+      "skippedRestrictedLicence": 780,
+      "editions": 861,
+      "licences": {
+        "PD": 861
+      }
+    },
+    "DBNL": {
+      "rows": 9100,
+      "editions": 7436,
+      "licences": {
+        "PD": 7436
+      }
+    },
+    "Deutsches Textarchiv": {
+      "skippedNewspapersOrUnlicensed": 2056,
+      "editions": 3424,
+      "licences": {
+        "CC BY-NC 3.0": 1973,
+        "CC BY 4.0": 214,
+        "CC BY-SA 3.0": 558,
+        "CC BY-SA 4.0": 319,
+        "PD": 303,
+        "CC BY-SA 2.0": 51,
+        "CC BY-NC-SA 4.0": 2,
+        "CC BY 3.0": 3,
+        "CC BY-NC 4.0": 1
+      }
+    },
+    "TextGrid": {
+      "collections": 693,
+      "editions": 4482,
+      "licences": {
+        "CC BY 3.0 DE": 4482
+      }
+    },
+    "Wolne Lektury": {
+      "skippedUnclearRights": 110,
+      "editions": 2421,
+      "licences": {
+        "PD": 2355,
+        "CC BY-SA 3.0": 64,
+        "CC BY-SA 4.0": 2
+      }
+    },
+    "Bibebook": {
+      "editions": 1722,
+      "licences": {
+        "CC BY-SA": 1722
+      }
+    }
+  },
+  "excludedNonCommercialLicence": {
+    "Deutsches Textarchiv": 1976
+  },
+  "skippedUntitled": 5,
+  "lifeDatesBorrowedByName": 8032,
+  "copyright": {
+    "rule": "life+70: every author and translator died before 1956",
+    "kept": 129221,
+    "keptAsOldAnonymous": 2421,
+    "excludedBySource": {
+      "Bibebook": {
+        "creatorDiedTooRecently": 3
+      },
+      "DBNL": {
+        "creatorDiedTooRecently": 6,
+        "creatorPossiblyAlive": 1
+      },
+      "Deutsches Textarchiv": {
+        "unverified": 114
+      },
+      "Gutenberg": {
+        "unverified": 14533,
+        "creatorDiedTooRecently": 8657,
+        "creatorPossiblyAlive": 1449
+      },
+      "Litteraturbanken": {
+        "creatorDiedTooRecently": 3
+      },
+      "Projekt Runeberg": {
+        "unverified": 23
+      },
+      "Standard Ebooks": {
+        "creatorDiedTooRecently": 3,
+        "unverified": 2
+      },
+      "Wikisource": {
+        "unverified": 25918,
+        "creatorDiedTooRecently": 1677,
+        "creatorPossiblyAlive": 274
+      },
+      "Wolne Lektury": {
+        "unverified": 50,
+        "creatorDiedTooRecently": 16
+      }
+    }
+  },
+  "ambiguousAuthorNames": 1204,
+  "duplicatesMerged": 6435,
+  "crossSourceWorks": 3605,
+  "tinctLiveBooks": 105,
+  "tinctBooksMatched": 80,
+  "worksOnTinct": 136,
+  "tinctMatches": [
+    {
+      "id": "to-the-lighthouse",
+      "title": "To the Lighthouse",
+      "workIds": [
+        "ws:en:Q478016"
+      ]
+    },
+    {
+      "id": "odyssey",
+      "title": "The Odyssey",
+      "workIds": [
+        "pg:1727",
+        "ws:en:Q15628440"
+      ]
+    },
+    {
+      "id": "ulysses",
+      "title": "Ulysses",
+      "workIds": [
+        "pg:4300"
+      ]
+    },
+    {
+      "id": "war-and-peace",
+      "title": "War and Peace",
+      "workIds": [
+        "pg:2600",
+        "ws:en:Q40896503"
+      ]
+    },
+    {
+      "id": "hamlet",
+      "title": "Hamlet",
+      "workIds": [
+        "pg:1122",
+        "pg:15032",
+        "pg:15632",
+        "pg:25667",
+        "pg:56454",
+        "wl:hamlet",
+        "ws:de:Q59257762"
+      ]
+    },
+    {
+      "id": "macbeth",
+      "title": "Macbeth",
+      "workIds": [
+        "pg:13868",
+        "pg:1533",
+        "pg:16893",
+        "pg:6975",
+        "rb:macbeth",
+        "ws:it:Q18746277",
+        "ws:pl:Q60147947"
+      ]
+    },
+    {
+      "id": "midsummer",
+      "title": "A Midsummer Night's Dream",
+      "workIds": [
+        "pg:1113"
+      ]
+    },
+    {
+      "id": "romeo-and-juliet",
+      "title": "Romeo and Juliet",
+      "workIds": [
+        "pg:1112"
+      ]
+    },
+    {
+      "id": "the-tempest",
+      "title": "The Tempest",
+      "workIds": [
+        "pg:1135"
+      ]
+    },
+    {
+      "id": "the-art-of-war",
+      "title": "The Art of War",
+      "workIds": [
+        "ws:en:Q8251"
+      ]
+    },
+    {
+      "id": "pride-and-prejudice",
+      "title": "Pride and Prejudice",
+      "workIds": [
+        "pg:1342"
+      ]
+    },
+    {
+      "id": "crime-and-punishment",
+      "title": "Crime and Punishment",
+      "workIds": [
+        "pg:2554"
+      ]
+    },
+    {
+      "id": "the-republic",
+      "title": "The Republic",
+      "workIds": [
+        "pg:150"
+      ]
+    },
+    {
+      "id": "meditations",
+      "title": "Meditations",
+      "workIds": [
+        "pg:2680",
+        "ws:en:Q1152283"
+      ]
+    },
+    {
+      "id": "divine-comedy",
+      "title": "The Divine Comedy",
+      "workIds": [
+        "pg:8800",
+        "ws:en:Q40185"
+      ]
+    },
+    {
+      "id": "jane-eyre",
+      "title": "Jane Eyre",
+      "workIds": [
+        "pg:1260",
+        "pg:79159",
+        "tg:ksbg.0",
+        "ws:fr:Q61959073",
+        "ws:sv:Q122190096"
+      ]
+    },
+    {
+      "id": "the-aeneid",
+      "title": "The Aeneid",
+      "workIds": [
+        "pg:228",
+        "ws:en:Q19031184",
+        "ws:en:Q60220"
+      ]
+    },
+    {
+      "id": "paradise-lost",
+      "title": "Paradise Lost",
+      "workIds": [
+        "pg:20"
+      ]
+    },
+    {
+      "id": "frankenstein",
+      "title": "Frankenstein",
+      "workIds": [
+        "pg:84"
+      ]
+    },
+    {
+      "id": "apology",
+      "title": "Apology",
+      "workIds": [
+        "pg:1656"
+      ]
+    },
+    {
+      "id": "symposium",
+      "title": "Symposium",
+      "workIds": [
+        "pg:1600"
+      ]
+    },
+    {
+      "id": "phaedo",
+      "title": "Phaedo",
+      "workIds": [
+        "pg:1658"
+      ]
+    },
+    {
+      "id": "crito",
+      "title": "Crito",
+      "workIds": [
+        "pg:1657",
+        "pg:51220",
+        "pg:69559"
+      ]
+    },
+    {
+      "id": "phaedrus",
+      "title": "Phaedrus",
+      "workIds": [
+        "pg:1636",
+        "ws:la:Q555862"
+      ]
+    },
+    {
+      "id": "poetics",
+      "title": "Poetics",
+      "workIds": [
+        "ws:en:Q108374728"
+      ]
+    },
+    {
+      "id": "moby-dick",
+      "title": "Moby Dick",
+      "workIds": [
+        "pg:15",
+        "ws:fr:Q19219307"
+      ]
+    },
+    {
+      "id": "great-expectations",
+      "title": "Great Expectations",
+      "workIds": [
+        "pg:1400"
+      ]
+    },
+    {
+      "id": "the-histories",
+      "title": "The Histories",
+      "workIds": [
+        "ws:en:Q746583"
+      ]
+    },
+    {
+      "id": "niels-lyhne",
+      "title": "Niels Lyhne",
+      "workIds": [
+        "pg:55389",
+        "rb:nielslyhne"
+      ]
+    },
+    {
+      "id": "imitation-of-christ",
+      "title": "The Imitation of Christ",
+      "workIds": [
+        "pg:1653"
+      ]
+    },
+    {
+      "id": "jerusalem",
+      "title": "Jerusalem",
+      "workIds": [
+        "pg:15837",
+        "ws:sv:Q122223293"
+      ]
+    },
+    {
+      "id": "the-awakening",
+      "title": "The Awakening",
+      "workIds": [
+        "ws:en:Q1567505"
+      ]
+    },
+    {
+      "id": "brothers-karamazov",
+      "title": "The Brothers Karamazov",
+      "workIds": [
+        "pg:28054"
+      ]
+    },
+    {
+      "id": "iliad",
+      "title": "The Iliad",
+      "workIds": [
+        "pg:2199",
+        "ws:en:Q16547641"
+      ]
+    },
+    {
+      "id": "nicomachean-ethics",
+      "title": "Nicomachean Ethics",
+      "workIds": [
+        "ws:en:Q19075531"
+      ]
+    },
+    {
+      "id": "the-prince",
+      "title": "The Prince",
+      "workIds": [
+        "pg:1232",
+        "ws:en:Q131719"
+      ]
+    },
+    {
+      "id": "beyond-good-and-evil",
+      "title": "Beyond Good and Evil",
+      "workIds": [
+        "pg:4363",
+        "ws:en:Q579794"
+      ]
+    },
+    {
+      "id": "candide",
+      "title": "Candide",
+      "workIds": [
+        "pg:19942",
+        "ws:no:Q136468328"
+      ]
+    },
+    {
+      "id": "democracy-in-america",
+      "title": "Democracy in America",
+      "workIds": [
+        "ws:en:Q118120459"
+      ]
+    },
+    {
+      "id": "antigone",
+      "title": "Antigone",
+      "workIds": [
+        "pg:54543",
+        "pg:64403",
+        "ws:no:Q138312612"
+      ]
+    },
+    {
+      "id": "on-liberty",
+      "title": "On Liberty",
+      "workIds": [
+        "pg:34901"
+      ]
+    },
+    {
+      "id": "utilitarianism",
+      "title": "Utilitarianism",
+      "workIds": [
+        "pg:11224"
+      ]
+    },
+    {
+      "id": "peloponnesian-war",
+      "title": "History of the Peloponnesian War",
+      "workIds": [
+        "pg:7142",
+        "ws:en:Q50809813"
+      ]
+    },
+    {
+      "id": "aristotle-politics",
+      "title": "Politics",
+      "workIds": [
+        "pg:6762",
+        "ws:en:Q69539"
+      ]
+    },
+    {
+      "id": "leviathan",
+      "title": "Leviathan",
+      "workIds": [
+        "pg:3207"
+      ]
+    },
+    {
+      "id": "communist-manifesto",
+      "title": "The Communist Manifesto",
+      "workIds": [
+        "pg:61"
+      ]
+    },
+    {
+      "id": "second-treatise",
+      "title": "Second Treatise of Government",
+      "workIds": [
+        "pg:7370"
+      ]
+    },
+    {
+      "id": "hume-enquiry",
+      "title": "An Enquiry Concerning Human Understanding",
+      "workIds": [
+        "pg:9662"
+      ]
+    },
+    {
+      "id": "social-contract",
+      "title": "The Social Contract",
+      "workIds": [
+        "ws:en:Q190126"
+      ]
+    },
+    {
+      "id": "wealth-of-nations",
+      "title": "The Wealth of Nations",
+      "workIds": [
+        "ws:en:Q104556291"
+      ]
+    },
+    {
+      "id": "werther",
+      "title": "The Sorrows of Young Werther",
+      "workIds": [
+        "pg:2527"
+      ]
+    },
+    {
+      "id": "medea",
+      "title": "Medea",
+      "workIds": [
+        "tg:mvrs.0",
+        "ws:en:Q52165023",
+        "ws:no:Q134978029"
+      ]
+    },
+    {
+      "id": "a-little-princess",
+      "title": "A Little Princess",
+      "workIds": [
+        "pg:146"
+      ]
+    },
+    {
+      "id": "jungle-book",
+      "title": "The Jungle Book",
+      "workIds": [
+        "pg:236"
+      ]
+    },
+    {
+      "id": "around-the-world-80-days",
+      "title": "Around the World in Eighty Days",
+      "workIds": [
+        "pg:103"
+      ]
+    },
+    {
+      "id": "heart-of-darkness",
+      "title": "Heart of Darkness",
+      "workIds": [
+        "pg:219"
+      ]
+    },
+    {
+      "id": "jekyll-and-hyde",
+      "title": "Strange Case of Dr Jekyll and Mr Hyde",
+      "workIds": [
+        "pg:42"
+      ]
+    },
+    {
+      "id": "vindication-rights-of-woman",
+      "title": "A Vindication of the Rights of Woman",
+      "workIds": [
+        "pg:3420"
+      ]
+    },
+    {
+      "id": "comedy-of-errors",
+      "title": "The Comedy of Errors",
+      "workIds": [
+        "pg:1104"
+      ]
+    },
+    {
+      "id": "merchant-of-venice",
+      "title": "The Merchant of Venice",
+      "workIds": [
+        "pg:1114"
+      ]
+    },
+    {
+      "id": "as-you-like-it",
+      "title": "As You Like It",
+      "workIds": [
+        "pg:1121"
+      ]
+    },
+    {
+      "id": "winters-tale",
+      "title": "The Winter's Tale",
+      "workIds": [
+        "pg:1134"
+      ]
+    },
+    {
+      "id": "julius-caesar",
+      "title": "Julius Caesar",
+      "workIds": [
+        "pg:1120",
+        "pg:18512",
+        "pg:46768",
+        "pg:9875"
+      ]
+    },
+    {
+      "id": "twelfth-night",
+      "title": "Twelfth Night",
+      "workIds": [
+        "pg:1123",
+        "pg:38901"
+      ]
+    },
+    {
+      "id": "measure-for-measure",
+      "title": "Measure for Measure",
+      "workIds": [
+        "pg:1126"
+      ]
+    },
+    {
+      "id": "merry-wives-of-windsor",
+      "title": "The Merry Wives of Windsor",
+      "workIds": [
+        "pg:1116"
+      ]
+    },
+    {
+      "id": "othello",
+      "title": "Othello",
+      "workIds": [
+        "pg:1127",
+        "pg:17529",
+        "pg:18179",
+        "pg:7185"
+      ]
+    },
+    {
+      "id": "king-lear",
+      "title": "King Lear",
+      "workIds": [
+        "pg:1128"
+      ]
+    },
+    {
+      "id": "much-ado-about-nothing",
+      "title": "Much Ado About Nothing",
+      "workIds": [
+        "pg:1118"
+      ]
+    },
+    {
+      "id": "taming-of-the-shrew",
+      "title": "The Taming of the Shrew",
+      "workIds": [
+        "pg:1107"
+      ]
+    },
+    {
+      "id": "antony-and-cleopatra",
+      "title": "Antony and Cleopatra",
+      "workIds": [
+        "pg:1130"
+      ]
+    },
+    {
+      "id": "richard-iii",
+      "title": "Richard III",
+      "workIds": [
+        "pg:6924"
+      ]
+    },
+    {
+      "id": "coriolanus",
+      "title": "Coriolanus",
+      "workIds": [
+        "pg:1131",
+        "pg:20188",
+        "pg:6990",
+        "ws:nl:Q98915743"
+      ]
+    },
+    {
+      "id": "cymbeline",
+      "title": "Cymbeline",
+      "workIds": [
+        "pg:1133",
+        "pg:19201",
+        "pg:22556",
+        "tg:vn3z.0"
+      ]
+    },
+    {
+      "id": "anna-karenina",
+      "title": "Anna Karenina",
+      "workIds": [
+        "pg:13214",
+        "pg:1399",
+        "ws:en:Q123734886",
+        "ws:en:Q147787"
+      ]
+    },
+    {
+      "id": "don-quixote",
+      "title": "Don Quixote",
+      "workIds": [
+        "pg:996",
+        "ws:en:Q49612156"
+      ]
+    },
+    {
+      "id": "alice-in-wonderland",
+      "title": "Alice's Adventures in Wonderland",
+      "workIds": [
+        "pg:11"
+      ]
+    },
+    {
+      "id": "wuthering-heights",
+      "title": "Wuthering Heights",
+      "workIds": [
+        "pg:768"
+      ]
+    },
+    {
+      "id": "middlemarch",
+      "title": "Middlemarch",
+      "workIds": [
+        "pg:145",
+        "ws:fr:Q111821061"
+      ]
+    },
+    {
+      "id": "sense-and-sensibility",
+      "title": "Sense and Sensibility",
+      "workIds": [
+        "pg:161"
+      ]
+    }
+  ],
+  "tinctUnmatched": [
+    {
+      "id": "gilgamesh",
+      "title": "The Epic of Gilgamesh",
+      "author": "Anonymous",
+      "year": -2100,
+      "candidateIds": []
+    },
+    {
+      "id": "the-manual",
+      "title": "The Manual",
+      "author": "Epictetus",
+      "year": 125,
+      "candidateIds": []
+    },
+    {
+      "id": "kant-groundwork",
+      "title": "Groundwork of the Metaphysics of Morals",
+      "author": "Immanuel Kant",
+      "year": 1785,
+      "candidateIds": []
+    },
+    {
+      "id": "oedipus-rex",
+      "title": "Oedipus Rex",
+      "author": "Sophocles",
+      "year": -429,
+      "candidateIds": []
+    },
+    {
+      "id": "oedipus-at-colonus",
+      "title": "Oedipus at Colonus",
+      "author": "Sophocles",
+      "year": -406,
+      "candidateIds": []
+    },
+    {
+      "id": "genealogy-of-morals",
+      "title": "On the Genealogy of Morals",
+      "author": "Friedrich Nietzsche",
+      "year": 1887,
+      "candidateIds": []
+    },
+    {
+      "id": "descartes-meditations",
+      "title": "Meditations on First Philosophy",
+      "author": "René Descartes",
+      "year": 1641,
+      "candidateIds": []
+    },
+    {
+      "id": "fear-and-trembling",
+      "title": "Fear and Trembling",
+      "author": "Søren Kierkegaard",
+      "year": 1843,
+      "candidateIds": []
+    },
+    {
+      "id": "faust-part-1",
+      "title": "Faust, Part One",
+      "author": "Johann Wolfgang von Goethe",
+      "year": 1808,
+      "candidateIds": []
+    },
+    {
+      "id": "oresteia",
+      "title": "The Oresteia",
+      "author": "Aeschylus",
+      "year": -458,
+      "candidateIds": []
+    },
+    {
+      "id": "bacchae",
+      "title": "The Bacchae",
+      "author": "Euripides",
+      "year": -405,
+      "candidateIds": []
+    },
+    {
+      "id": "notes-from-underground",
+      "title": "Notes from Underground",
+      "author": "Fyodor Dostoevsky",
+      "year": 1864,
+      "candidateIds": []
+    },
+    {
+      "id": "us-founding-documents",
+      "title": "The US Founding Documents",
+      "author": "Various (Jefferson, Madison, et al.)",
+      "year": 1776,
+      "candidateIds": []
+    },
+    {
+      "id": "frederick-douglass",
+      "title": "Narrative of the Life of Frederick Douglass",
+      "author": "Frederick Douglass",
+      "year": 1845,
+      "candidateIds": []
+    },
+    {
+      "id": "discourse-on-inequality",
+      "title": "Discourse on the Origin of Inequality",
+      "author": "Jean-Jacques Rousseau",
+      "year": 1755,
+      "candidateIds": []
+    },
+    {
+      "id": "walden",
+      "title": "Walden",
+      "author": "Henry David Thoreau",
+      "year": 1854,
+      "candidateIds": []
+    },
+    {
+      "id": "henry-iv-part-2",
+      "title": "Henry IV, Part 2",
+      "author": "William Shakespeare",
+      "year": 1598,
+      "candidateIds": []
+    },
+    {
+      "id": "ivan-ilyich",
+      "title": "The Death of Ivan Ilyich",
+      "author": "Leo Tolstoy",
+      "year": 1886,
+      "candidateIds": []
+    }
+  ],
+  "tinctAmbiguous": [
+    {
+      "id": "bible",
+      "title": "The Bible",
+      "author": "Various",
+      "year": -1400,
+      "candidateIds": [
+        "pg:36266",
+        "pg:46737",
+        "ws:en:Q2316049",
+        "ws:en:Q75882422"
+      ]
+    },
+    {
+      "id": "beowulf",
+      "title": "Beowulf",
+      "author": "Anonymous",
+      "year": 1000,
+      "candidateIds": [
+        "pg:16328",
+        "pg:34117",
+        "pg:50677",
+        "pg:981",
+        "ws:en:Q19074835"
+      ]
+    },
+    {
+      "id": "confessions",
+      "title": "Confessions",
+      "author": "Augustine",
+      "year": 397,
+      "candidateIds": [
+        "ws:en:Q372941",
+        "ws:fr:Q19151176"
+      ]
+    },
+    {
+      "id": "magna-carta",
+      "title": "Magna Carta",
+      "author": "Anonymous (sealed by King John)",
+      "year": 1215,
+      "candidateIds": [
+        "pg:65363",
+        "ws:la:Q137375810"
+      ]
+    },
+    {
+      "id": "federalist-papers",
+      "title": "The Federalist Papers",
+      "author": "Hamilton, Madison, Jay (as \"Publius\")",
+      "year": 1788,
+      "candidateIds": [
+        "pg:18"
+      ]
+    },
+    {
+      "id": "henry-v",
+      "title": "Henry V",
+      "author": "William Shakespeare",
+      "year": 1599,
+      "candidateIds": [
+        "ws:en:Q19034216"
+      ]
+    },
+    {
+      "id": "essays-montaigne",
+      "title": "Essays",
+      "author": "Michel de Montaigne",
+      "year": 1580,
+      "candidateIds": [
+        "pg:1434",
+        "pg:35860",
+        "pg:36120",
+        "pg:71838",
+        "ws:en:Q3944819"
+      ]
+    }
+  ],
+  "works": 122786,
+  "editions": 129221,
+  "languages": {
+    "af": 11,
+    "ang": 1,
+    "ar": 11,
+    "arp": 1,
+    "be": 1,
+    "bg": 5,
+    "bn": 7,
+    "br": 15,
+    "brx": 2,
+    "ca": 75,
+    "co": 1,
+    "cs": 50,
+    "csb": 1,
+    "cy": 13,
+    "da": 2520,
+    "de": 16012,
+    "el": 175,
+    "en": 46274,
+    "enm": 3,
+    "eo": 45,
+    "es": 5323,
+    "et": 3,
+    "fa": 7,
+    "fi": 2838,
+    "fo": 1,
+    "fr": 16086,
+    "fy": 20,
+    "ga": 6,
+    "gd": 3,
+    "gl": 6,
+    "gla": 3,
+    "grc": 1,
+    "gu": 1,
+    "he": 15,
+    "hi": 2,
+    "ht": 1,
+    "hu": 611,
+    "is": 29,
+    "it": 2232,
+    "ja": 9,
+    "ka": 1,
+    "kha": 1,
+    "kld": 1,
+    "la": 961,
+    "lt": 36,
+    "lv": 1,
+    "mi": 2,
+    "mk": 1,
+    "myn": 2,
+    "nah": 2,
+    "nai": 2,
+    "nl": 8015,
+    "no": 1291,
+    "oc": 10,
+    "oji": 1,
+    "pl": 10532,
+    "pt": 3659,
+    "rmq": 1,
+    "ro": 9,
+    "ru": 171,
+    "sa": 9,
+    "sco": 1,
+    "se": 6,
+    "sk": 2,
+    "sl": 6,
+    "smi": 1,
+    "sr": 4,
+    "sv": 5755,
+    "ta": 1,
+    "te": 1,
+    "tl": 29,
+    "uk": 13,
+    "und": 37,
+    "wa": 3,
+    "yi": 1,
+    "zh": 180
+  },
+  "seUnmatched": [
+    {
+      "id": "se:arthur-conan-doyle/brigadier-gerard-stories",
+      "title": "Brigadier Gerard Stories",
+      "sourceGutenbergIds": []
+    },
+    {
+      "id": "se:edmund-burke/reflections-on-the-revolution-in-france",
+      "title": "Reflections on the Revolution in France",
+      "sourceGutenbergIds": [
+        "15679"
+      ]
+    },
+    {
+      "id": "se:george-macdonald/within-and-without",
+      "title": "Within and Without",
+      "sourceGutenbergIds": [
+        "9543"
+      ]
+    },
+    {
+      "id": "se:h-c-mcneile/the-final-count",
+      "title": "The Final Count",
+      "sourceGutenbergIds": []
+    },
+    {
+      "id": "se:pauline-e-hopkins/contending-forces",
+      "title": "Contending Forces",
+      "sourceGutenbergIds": []
+    },
+    {
+      "id": "se:winnifred-eaton-reeve/his-royal-nibs",
+      "title": "His Royal Nibs",
+      "sourceGutenbergIds": [
+        "66184"
+      ]
+    }
+  ],
+  "missingOriginalLanguage": 121870,
+  "missingFirstPublishedYear": 86222,
+  "sameTitleReviewGroups": 4549,
+  "groupingReviewSample": {
+    "": [
+      "tg:wgtc.0",
+      "ws:pl:Q134539928",
+      "ws:pl:Q134547157",
+      "ws:pl:Q98151148",
+      "ws:pt:Q19426159",
+      "ws:pt:Q19426190"
+    ],
+    "100 problemi di scacchi": [
+      "ws:it:Q131837472",
+      "ws:it:Q131861550"
+    ],
+    "1812": [
+      "pg:48216",
+      "pg:51418",
+      "pg:69333"
+    ],
+    "1914": [
+      "pg:24538",
+      "pg:66846",
+      "ws:en:Q4559795"
+    ],
+    "1914 and other poems": [
+      "kal:brooke/1915",
+      "pg:33902",
+      "ws:en:Q19019291"
+    ],
+    "20 000 mil podmorskiej zeglugi": [
+      "wl:20-000-mil-podmorskiej-zeglugi",
+      "ws:pl:Q58364741"
+    ],
+    "20 hrs 40 min": [
+      "pg:73448",
+      "ws:en:Q124414235"
+    ],
+    "813": [
+      "bb:leblanc_maurice_-_813",
+      "pg:34758",
+      "pg:55203"
+    ],
+    "a": [
+      "ws:es:Q19410479",
+      "ws:es:Q19410481",
+      "ws:es:Q19410488",
+      "ws:es:Q19410491",
+      "ws:es:Q19410492",
+      "ws:es:Q19410494",
+      "ws:pt:Q21075228"
+    ],
+    "aamukellot": [
+      "pg:76270",
+      "pg:78487"
+    ],
+    "aan mynen geest": [
+      "dbnl:lann005aanm01",
+      "dbnl:wolf016aanm01"
+    ],
+    "aarresaari": [
+      "pg:44339",
+      "rb:aarresaari"
+    ]
+  },
+  "sourceSHA256": {
+    "rdf-files.tar.bz2": "66d791c6b98353f80575e9e205fbda1b888e3cd56d51e539994f409754684a8e",
+    "standardebooks-new-releases.xml": "5440f8b17d5dd90ff5a57d8855be9024f5e3199d359f2ed8dff2397d0a212eab"
+  },
+  "editionsBySource": {
+    "Gutenberg": 53231,
+    "Wikisource": 49239,
+    "DBNL": 7429,
+    "Projekt Runeberg": 5919,
+    "TextGrid": 4482,
+    "Kalliope": 2645,
+    "Wolne Lektury": 2355,
+    "Bibebook": 1719,
+    "Deutsches Textarchiv": 1334,
+    "Litteraturbanken": 858,
+    "Standard Ebooks": 10
+  },
+  "licences": {
+    "PD": 72735,
+    "CC BY-SA 4.0": 49551,
+    "CC BY 3.0 DE": 4482,
+    "CC BY-SA": 1719,
+    "CC BY-SA 3.0": 557,
+    "CC BY 4.0": 124,
+    "CC BY-SA 2.0": 50,
+    "CC BY 3.0": 3
+  },
+  "indexBytes": 129175690,
+  "indexGzipBytes": 12643919,
+  "commitIndex": false
+}

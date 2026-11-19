@@ -2,8 +2,8 @@ import type { ReactNode } from 'react'
 
 /**
  * Stroke icons for the voice surface, 1.5px, drawn in `currentColor`.
- * Microphone = Mute/Unmute, three lines = Transcript, X = End, a turning
- * arrow = Reconnect, diagonal arrows = minimize / expand.
+ * Microphone = Mute/Unmute, X = End, a turning arrow = Reconnect, diagonal
+ * arrows = minimize / expand. Talk's speed shows its figure, not an icon.
  */
 
 function Stroke({ size, children }: { size: number; children: ReactNode }) {
@@ -69,32 +69,44 @@ export function VoiceExpandIcon({ size = 20 }: { size?: number }) {
 
 interface VoiceControlProps {
   testId: string
+  /** The word under the disc: Mute, Speed, End. */
   word: string
-  /** The accessible name when the visible word is shorter than the action. */
+  /** The accessible name and tooltip when they say more than the word (End conversation). */
   label?: string
   icon: ReactNode
   filled?: boolean
   on?: boolean
   pressed?: boolean
-  /** Icon only: the word becomes the accessible name. */
+  /** Disc only (the corner pill): the word stays the accessible name and tooltip. */
   compact?: boolean
+  /** For a control that opens a popover: its open state and the popover's id. */
+  expanded?: boolean
+  controls?: string
   onClick: () => void
 }
 
-/** A round icon button with one word beneath it. */
-export function VoiceControl({ testId, word, label, icon, filled, on, pressed, compact, onClick }: VoiceControlProps) {
+/**
+ * A round control with its word beneath it (Talk, approved mockup B,
+ * 4 Nov 2026): Mute, Speed and End read the same way. The word is visual;
+ * the button's name is `label`, or the word itself.
+ */
+export function VoiceControl({ testId, word, label, icon, filled, on, pressed, compact, expanded, controls, onClick }: VoiceControlProps) {
+  const name = label ?? word
   return (
     <button
       type="button"
       className={`lab-voice-control${filled ? ' is-filled' : ''}${on ? ' is-on' : ''}${compact ? ' is-compact' : ''}`}
       data-testid={testId}
-      aria-label={compact ? (label ?? word) : label}
+      aria-label={name}
       aria-pressed={pressed}
-      title={compact ? (label ?? word) : undefined}
+      aria-expanded={expanded}
+      aria-controls={controls}
+      title={name}
       onClick={onClick}
     >
       <span className="lab-voice-control-disc" aria-hidden="true">{icon}</span>
-      {!compact && <span className="lab-voice-control-word">{word}</span>}
+      {!compact && <span className="lab-voice-control-word" aria-hidden="true">{word}</span>}
     </button>
   )
 }
+

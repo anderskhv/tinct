@@ -1,8 +1,11 @@
-import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260930fix';
+import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20261112bios';
 // The production catalogue behind the library_2 design: every discoverable
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
-import { coverAsset } from './cover-assets.js?v=20260928covers';
+import { coverAsset, coverSources } from './cover-assets.js?v=20261009owncover';
+import { withPublicBooks } from './add-to-tinct.js?v=20261106mm';
+import { coverToneFor } from './spine.js?v=20261009rel10';
+import { loadRestrictedBookIds, restrictCatalogue } from '../restricted-books.js?v=20261117geo';
 const CATALOGUE_URL = '/lab/catalogue.json';
 
 let catalogue = null;
@@ -21,10 +24,12 @@ export function loadCatalogueData() {
     const native = window.Capacitor?.isNativePlatform?.()
       ? import('/lab/native-books.js').then(() => window.__tinctNativeBooks.catalogue())
       : null;
+    // Books not served in this visitor's country leave discovery, search and the shelves (restricted-books.js).
+    const restricted = loadRestrictedBookIds();
     catalogueData = (native || early || fetch(CATALOGUE_URL).then(response => {
       if (!response.ok) throw new Error(`Catalogue ${response.status}`);
       return response.json();
-    })).catch(error => { catalogueData = null; window.__library2CatalogueShared = null; throw error; });
+    })).then(data => (native ? data : withPublicBooks(data))).then(async data => restrictCatalogue(data, await restricted)).catch(error => { catalogueData = null; window.__library2CatalogueShared = null; throw error; });
     window.__library2CatalogueShared = catalogueData;
   }
   return catalogueData;
@@ -35,6 +40,8 @@ export async function loadCatalogue() {
   const data = await loadCatalogueData();
   catalogue = {
     books: data.books.filter(book => book.discoveryAvailable !== false),
+    // Held from the shelves, found by a typed search (War and Peace, 2026-10-08).
+    searchOnly: data.books.filter(book => book.discoveryAvailable === false && book.searchAvailable === true),
     houses: data.houses || [],
   };
   return catalogue;
@@ -47,18 +54,24 @@ export function libraryBook(entry) {
     title: entry.title,
     author: entry.author,
     cover: coverAsset(entry.id, entry.art?.src || null),
-    coverTone: entry.cover?.background || '#1b231c',
+    coverSources: coverSources(entry.id, entry.art),
+    // An added book's paper cover opens on paper boards, not a dark binding.
+    coverTone: coverToneFor(entry),
     summary: entry.summary || entry.blurb || '',
     preface: null,
     characters: null,
     fromCatalogue: true,
+    // A book readers added (public-books.js): a paper cover until a painting exists.
+    ...(entry.paper ? { paper: !entry.art, public: entry.public || null, form: entry.form || null, era: entry.era || null, year: entry.year ?? null } : {}),
   };
 }
 
 /** Attach the catalogue facts the reader hand-off needs to any library_2 book. */
 export function attachCatalogue(book, entry) {
+  book.coverSources = coverSources(entry.id, entry.art);
   book.editions = entry.editions || [];
   book.defaultEditionKey = entry.defaultEditionKey || null;
+  book.defaultCompareEditionKey = entry.defaultCompareEditionKey || null;
   book.wordCount = entry.wordCount ?? null;
   book.displayYear = entry.displayYear || '';
   book.firstChapter = entry.readingStructure?.chapters?.[0]?.number ?? 1;
@@ -67,6 +80,45 @@ export function attachCatalogue(book, entry) {
 }
 
 /** Preface paragraphs and cast for a catalogue book, loaded once when it is opened. */
+// The authored book opening (Codex-written in the desktop app, imported verbatim from book-openers.json; never
+// generated or rewritten here) and the book's supporting rows (primer-data/<id>.<lang>.json, the same authored
+// source). A book without either keeps its title and Begin reading: no stand-in text is made.
+let openersReady = null;
+function loadOpeners() {
+  openersReady ||= fetch('book-openers.json').then(r => (r.ok ? r.json() : null)).then(data => {
+    const byId = new Map();
+    for (const entry of data?.books ?? []) if (typeof entry?.workId === 'string' && typeof entry.opening === 'string') byId.set(entry.workId, entry.opening);
+    return byId;
+  }).catch(() => new Map());
+  return openersReady;
+}
+const text = value => (typeof value === 'string' && value.trim() ? value.trim() : null);
+const list = (value, max) => (Array.isArray(value) ? value.slice(0, max) : []);
+/** The supporting rows as the page draws them; anything malformed is left out, never guessed. */
+export function primerRows(data) {
+  if (!data || data.schemaVersion !== 1) return null;
+  return {
+    opening: text(data.opening),
+    structure: list(data.structure, 6).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), text: item.text.trim() }] : [])),
+    people: list(data.people, 8).flatMap(item => (text(item?.name) && text(item?.text) ? [{ name: item.name.trim(), role: text(item.role), text: item.text.trim() }] : [])),
+    // Suggested prerequisites (Anders, 5 Nov 2026): only books with a strong one carry the list. `bookId` names a
+    // catalogue book whose introduction the title opens. The files' older `context` and `notice` rows (Background,
+    // What to notice) are no longer drawn and are not read here.
+    prerequisites: list(data.prerequisites, 3).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), text: item.text.trim(), bookId: text(item.bookId) }] : [])),
+  };
+}
+export async function loadPrimer(book, language = 'en') {
+  const id = encodeURIComponent(book.id);
+  const [openers, data] = await Promise.all([
+    loadOpeners(),
+    fetch(`primer-data/${id}.${language}.json`).then(r => (r.ok ? r.json() : null)).catch(() => null),
+  ]);
+  const rows = primerRows(data);
+  // The English opening is book-openers.json's (it wins over a copy in the rows file); another language's is its own file's.
+  book.opening = (language === 'en' ? openers.get(book.id) : rows?.opening) ?? rows?.opening ?? null;
+  book.primer = rows;
+}
+
 export async function loadIntroduction(book) {
   await loadReviewedIntroduction(book);
   if (book.preface && book.characters) return;
@@ -83,7 +135,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260930edpick').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20261014talkwake').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });

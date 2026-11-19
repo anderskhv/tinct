@@ -1,7 +1,4 @@
-import { useEffect, useRef } from 'react'
-import { LAB_COPY } from './labCopy'
-import type { LabAskTurn } from './labAsk'
-import { LAB_CALL_COPY, labCallCaption, labCallUtterance, type LabCallView } from './labVoiceCall'
+import { LAB_CALL_COPY, type LabCallView } from './labVoiceCall'
 import {
   VoiceControl,
   VoiceEndIcon,
@@ -11,31 +8,27 @@ import {
   VoiceReconnectIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
+import { LabTalkSpeedControl } from './LabTalkSpeedControl'
 import { useReaderWindow } from './useReaderWindow'
 import { useDraggableSurface } from './useDraggableSurface'
 
 /**
- * The desktop voice surface. The conversation lives in the companion panel:
- * orb on top with the status word and connection beneath, the transcript in
- * the panel body, Mute and End at the bottom. A minimize control collapses
- * it to a pill in the corner of the page while the call keeps running.
+ * The desktop voice surface (Talk, approved mockup B, 4 Nov 2026): a compact
+ * window titled Talk over the book and chapter, the orb, one status line
+ * (Connecting to AI… / Listening / Speaking …, announced through aria-live)
+ * and three equal round controls with their words beneath: Mute (or
+ * Reconnect), Speed (the disc shows the figure) and End (red). The transcript is kept by the session for history
+ * and usage but not drawn here. A minimize control collapses it to a pill in
+ * the corner of the page while the call keeps running.
  *
  * Both are rendering only. The view they draw is the same `LabCallView`
  * the phone call surface draws, and every control calls back into the
  * reader-owned session; nothing here starts, stops or moves anything.
  */
 
-export const LAB_VOICE_PANEL_ORB_PX = 170
+/** 108px: about 64% of the original 170px orb (2026-10-09, tighter Talk window). */
+export const LAB_VOICE_PANEL_ORB_PX = 108
 export const LAB_VOICE_PILL_ORB_PX = 60
-
-function ConnectionLine({ view, testId }: { view: LabCallView; testId: string }) {
-  return (
-    <span className="lab-voice-connection" data-testid={testId}>
-      <span className="lab-voice-connection-dot" aria-hidden="true" />
-      {view.connectionText}
-    </span>
-  )
-}
 
 function MuteOrReconnect({
   view,
@@ -76,19 +69,24 @@ function MuteOrReconnect({
 
 interface LabVoiceDesktopPanelProps {
   view: LabCallView
-  turns: LabAskTurn[]
   getAssistantLevel?: () => number | null
   reducedMotion?: boolean
+  /** A failure the reader must act on (sign in, allowance, start failed). */
   notice?: string | null
   onMuteToggle: () => void
   onEnd: () => void
   onReconnect: () => void
   onMinimize: () => void
+  /** Talk's saved speaking speed; the control shows when a setter is given. */
+  talkSpeed?: number
+  onTalkSpeedChange?: (speed: number) => void
+  /** The line under the title: the book and the chapter the reader shows ("The Prince · Chapter 5"). */
+  context?: string
 }
 
 export function LabVoiceDesktopPanel({
   view,
-  turns,
+  context,
   getAssistantLevel,
   reducedMotion = false,
   notice,
@@ -96,27 +94,10 @@ export function LabVoiceDesktopPanel({
   onEnd,
   onReconnect,
   onMinimize,
+  talkSpeed = 1,
+  onTalkSpeedChange,
 }: LabVoiceDesktopPanelProps) {
   const windowRef = useReaderWindow<HTMLElement>('talk')
-  const threadRef = useRef<HTMLDivElement | null>(null)
-  const followRef = useRef(true)
-  const lastTurn = turns[turns.length - 1]
-  const streamingId = view.status === 'speaking' && lastTurn?.role === 'assistant' ? lastTurn.id : null
-
-  // The transcript follows the newest line unless the reader has scrolled
-  // up to read something earlier.
-  useEffect(() => {
-    const node = threadRef.current
-    if (!node || !followRef.current) return
-    node.scrollTop = node.scrollHeight
-  }, [turns, view.status])
-
-  const onScroll = () => {
-    const node = threadRef.current
-    if (!node) return
-    followRef.current = node.scrollHeight - node.scrollTop - node.clientHeight <= 48
-  }
-
   const motion = reducedMotion ? 'still' : view.motion
   return (
     <aside
@@ -129,7 +110,10 @@ export function LabVoiceDesktopPanel({
     >
       <button type="button" data-reader-window-resize aria-label="Resize voice panel" />
       <div className="lab-voice-panel-head" data-reader-window-handle>
-        <strong>Talk</strong>
+        <div className="lab-voice-panel-heading">
+          <h2 className="lab-voice-panel-title">{LAB_CALL_COPY.title}</h2>
+          {context && <p className="lab-voice-panel-context" data-testid="lab-voice-panel-context">{context}</p>}
+        </div>
         <button
           type="button"
           className="lab-voice-panel-minimize"
@@ -154,36 +138,13 @@ export function LabVoiceDesktopPanel({
         <p className="lab-voice-panel-status" data-testid="lab-voice-panel-status" aria-live="polite">
           {view.statusText}
         </p>
-        <ConnectionLine view={view} testId="lab-voice-panel-connection" />
-        {view.micOff && view.status !== 'muted' && (
-          <p className="lab-voice-panel-line" data-testid="lab-voice-panel-micoff">{LAB_CALL_COPY.micOff}</p>
-        )}
-        {view.status === 'disconnected' && (
-          <p className="lab-voice-panel-line" data-testid="lab-voice-panel-help">{LAB_CALL_COPY.disconnectedHelp}</p>
-        )}
         {notice && <p className="lab-voice-panel-line" data-testid="lab-voice-panel-notice">{notice}</p>}
-      </div>
-      <div className="lab-voice-panel-thread" data-testid="lab-voice-panel-thread" ref={threadRef} onScroll={onScroll}>
-        {turns.length === 0 && (
-          <p className="lab-voice-panel-empty" data-testid="lab-voice-panel-empty">{LAB_CALL_COPY.askAboutPage}</p>
-        )}
-        {turns.map(turn => (
-          <div
-            key={turn.id}
-            className={`lab-voice-turn is-${turn.role}`}
-            data-testid={`lab-voice-turn-${turn.role}`}
-            data-turn-id={turn.id}
-          >
-            <span className="lab-voice-turn-label">{turn.role === 'user' ? LAB_COPY.youLabel : LAB_COPY.tinctLabel}</span>
-            <p className="lab-voice-turn-text">
-              {turn.content}
-              {streamingId === turn.id && <span className="lab-voice-caret" aria-hidden="true" />}
-            </p>
-          </div>
-        ))}
       </div>
       <div className="lab-voice-panel-controls">
         <MuteOrReconnect view={view} testIdPrefix="lab-voice-panel" onMuteToggle={onMuteToggle} onReconnect={onReconnect} />
+        {onTalkSpeedChange && (
+          <LabTalkSpeedControl speed={talkSpeed} onChange={onTalkSpeedChange} testIdPrefix="lab-voice-panel" />
+        )}
         <VoiceControl
           testId="lab-voice-panel-end"
           word={LAB_CALL_COPY.endWord}
@@ -199,19 +160,17 @@ export function LabVoiceDesktopPanel({
 
 interface LabVoicePillProps {
   view: LabCallView
-  turns: LabAskTurn[]
   getAssistantLevel?: () => number | null
   reducedMotion?: boolean
   onMuteToggle: () => void
   onEnd: () => void
   onReconnect: () => void
-  /** Brings the panel back: the orb, Transcript and the expand control all do this. */
+  /** Brings the panel back: the orb and the expand control both do this. */
   onExpand: () => void
 }
 
 export function LabVoicePill({
   view,
-  turns,
   getAssistantLevel,
   reducedMotion = false,
   onMuteToggle,
@@ -220,7 +179,6 @@ export function LabVoicePill({
   onExpand,
 }: LabVoicePillProps) {
   const motion = reducedMotion ? 'still' : view.motion
-  const line = labCallCaption(view, labCallUtterance(turns))
   // The call keeps running wherever the pill sits, so where it sits is the
   // reader's business: drag it off the passage being discussed and it stays
   // there, on this device, across calls.
@@ -258,7 +216,6 @@ export function LabVoicePill({
       </button>
       <div className="lab-voice-pill-words">
         <span className="lab-voice-pill-status" data-testid="lab-voice-pill-status">{view.statusText}</span>
-        {line && <span className="lab-voice-pill-line" data-testid="lab-voice-pill-line">{line}</span>}
       </div>
       <div className="lab-voice-pill-controls">
         <MuteOrReconnect view={view} testIdPrefix="lab-voice-pill" compact onMuteToggle={onMuteToggle} onReconnect={onReconnect} />

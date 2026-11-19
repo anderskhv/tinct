@@ -1,6 +1,6 @@
 # Coverage
 
-All numbers are for the accepted candidate `package/bible.v1.json` (contentVersion `2026-09-30.1`, SHA-256 `37cf805b2dc7269131e0aa8273a00d1071345e1ed123a3be611a16534b4fb3b9`), computed from the pinned edition bytes in `SOURCES-PINNED.md`.
+All numbers are for the accepted candidate `package/bible.v1.json` (contentVersion `2026-09-30.1`, SHA-256 `37cf805b2dc7269131e0aa8273a00d1071345e1ed123a3be611a16534b4fb3b9`; revision `2026-10-21.1` adds two webc-en cards and three webc-en links, see the last section), computed from the pinned edition bytes in `SOURCES-PINNED.md`.
 
 ## Per-edition summary
 
@@ -320,3 +320,103 @@ The 149 existing ids are unchanged and no id was removed. The 46 new ids exist o
 | `zephaniah` | Zephaniah | 1 | 1 | 1 | 1 | 1 | 1 |
 | `zerubbabel` | Zerubbabel | 5 | 5 | 25 | 25 | 25 | 26 |
 | `zion` | Zion | 8 | 8 | 161 | 161 | 167 | 177 |
+
+## Shared names across all books (21 Oct 2026)
+
+From `app/src/services/characters/sharedCharacterNames.test.ts` on revision `2026-10-21.1` (method in `REVIEW-RECORD.md` stage 12). A *shared name* is a mention text that two or more cards in the same book edition use. *Qualifier agrees*: a kin phrase or epithet next to the name matches the linked card. *Unresolved*: no telling context next to the name; the link is the reviewed decision alone. The unresolved counts are the ratchet in `app/src/services/characters/sharedNameBaseline.json` and may only go down. Books with no shared names are not listed.
+
+| Book | Edition | Name forms with unresolved mentions | Mentions of a shared name | Qualifier agrees | Unresolved (baseline) | Contradictions |
+|---|---|---|---|---|---|---|
+| a-little-princess | original-en | 3 | 17 | 0 | 17 | 0 |
+| a-little-princess | modern-en | 3 | 13 | 0 | 13 | 0 |
+| antony-and-cleopatra | original-en | 4 | 215 | 0 | 215 | 0 |
+| antony-and-cleopatra | modern-en | 4 | 186 | 0 | 186 | 0 |
+| around-the-world-80-days | original-en | 7 | 104 | 0 | 104 | 0 |
+| around-the-world-80-days | modern-en | 6 | 82 | 0 | 82 | 0 |
+| beowulf | original-en | 3 | 82 | 0 | 82 | 0 |
+| beowulf | modern-en | 3 | 92 | 2 | 90 | 0 |
+| bible | bsb-en | 11 | 3,361 | 39 | 3,322 | 0 |
+| bible | kjv-en | 13 | 4,815 | 38 | 4,777 | 0 |
+| bible | web-en | 12 | 3,888 | 41 | 3,847 | 0 |
+| bible | webc-en | 20 | 5,720 | 93 | 5,627 | 0 |
+| candide | original-en | 12 | 91 | 0 | 91 | 0 |
+| candide | modern-en | 12 | 87 | 0 | 87 | 0 |
+| comedy-of-errors | original-en | 5 | 77 | 0 | 77 | 0 |
+| comedy-of-errors | modern-en | 5 | 77 | 0 | 77 | 0 |
+| coriolanus | original-en | 1 | 3 | 0 | 3 | 0 |
+| coriolanus | modern-en | 1 | 3 | 0 | 3 | 0 |
+| cymbeline | original-en | 5 | 36 | 0 | 36 | 0 |
+| cymbeline | modern-en | 5 | 37 | 0 | 37 | 0 |
+| frederick-douglass | original-en | 7 | 31 | 0 | 31 | 0 |
+| frederick-douglass | modern-en | 7 | 31 | 0 | 31 | 0 |
+| gilgamesh | original-en | 1 | 8 | 0 | 8 | 0 |
+| gilgamesh | modern-en | 1 | 7 | 0 | 7 | 0 |
+| hamlet | original-en | 5 | 231 | 0 | 231 | 0 |
+| hamlet | modern-en | 5 | 245 | 0 | 245 | 0 |
+| heart-of-darkness | original-en | 1 | 2 | 0 | 2 | 0 |
+| heart-of-darkness | modern-en | 1 | 2 | 0 | 2 | 0 |
+| henry-iv-part-2 | original-en | 4 | 199 | 0 | 199 | 0 |
+| henry-iv-part-2 | modern-en | 3 | 160 | 0 | 160 | 0 |
+| henry-v | original-en | 6 | 24 | 0 | 24 | 0 |
+| henry-v | modern-en | 6 | 24 | 0 | 24 | 0 |
+| hume-enquiry | original-en | 1 | 5 | 0 | 5 | 0 |
+| hume-enquiry | modern-en | 1 | 4 | 0 | 4 | 0 |
+| ivan-ilyich | original-en | 1 | 63 | 0 | 63 | 0 |
+| ivan-ilyich | modern-en | 1 | 63 | 0 | 63 | 0 |
+| jekyll-and-hyde | original-en | 1 | 7 | 0 | 7 | 0 |
+| jekyll-and-hyde | modern-en | 1 | 6 | 0 | 6 | 0 |
+| julius-caesar | original-en | 11 | 458 | 3 | 455 | 0 |
+| julius-caesar | modern-en | 12 | 463 | 3 | 460 | 0 |
+| jungle-book | original-en | 2 | 7 | 0 | 7 | 0 |
+| jungle-book | modern-en | 2 | 7 | 0 | 7 | 0 |
+| king-lear | original-en | 6 | 107 | 0 | 107 | 0 |
+| king-lear | modern-en | 6 | 89 | 0 | 89 | 0 |
+| macbeth | original-en | 15 | 152 | 0 | 152 | 0 |
+| macbeth | modern-en | 15 | 164 | 0 | 164 | 0 |
+| measure-for-measure | original-en | 1 | 3 | 0 | 3 | 0 |
+| measure-for-measure | modern-en | 1 | 3 | 0 | 3 | 0 |
+| merchant-of-venice | original-en | 5 | 51 | 0 | 51 | 0 |
+| merchant-of-venice | modern-en | 6 | 54 | 0 | 54 | 0 |
+| merry-wives-of-windsor | original-en | 2 | 226 | 0 | 226 | 0 |
+| merry-wives-of-windsor | modern-en | 1 | 23 | 0 | 23 | 0 |
+| middlemarch | original-en | 1 | 19 | 0 | 19 | 0 |
+| middlemarch | modern-en | 1 | 19 | 0 | 19 | 0 |
+| midsummer | original-en | 2 | 11 | 0 | 11 | 0 |
+| midsummer | modern-en | 2 | 4 | 0 | 4 | 0 |
+| much-ado-about-nothing | original-en | 6 | 228 | 1 | 227 | 0 |
+| much-ado-about-nothing | modern-en | 6 | 228 | 0 | 228 | 0 |
+| notes-from-underground | original-en | 2 | 16 | 0 | 16 | 0 |
+| notes-from-underground | modern-en | 1 | 12 | 0 | 12 | 0 |
+| on-liberty | original-en | 1 | 11 | 0 | 11 | 0 |
+| on-liberty | modern-en | 1 | 11 | 0 | 11 | 0 |
+| oresteia | original-en | 7 | 242 | 0 | 242 | 0 |
+| oresteia | modern-en | 6 | 239 | 0 | 239 | 0 |
+| othello | original-en | 2 | 5 | 0 | 5 | 0 |
+| othello | modern-en | 2 | 5 | 0 | 5 | 0 |
+| phaedo | original-en | 1 | 3 | 0 | 3 | 0 |
+| phaedrus | original-en | 1 | 2 | 0 | 2 | 0 |
+| poetics | original-en | 1 | 2 | 1 | 1 | 0 |
+| poetics | modern-en | 1 | 2 | 1 | 1 | 0 |
+| richard-iii | original-en | 5 | 194 | 1 | 193 | 0 |
+| richard-iii | modern-en | 8 | 357 | 1 | 356 | 0 |
+| romeo-and-juliet | original-en | 8 | 78 | 0 | 78 | 0 |
+| romeo-and-juliet | modern-en | 8 | 76 | 0 | 76 | 0 |
+| sense-and-sensibility | original-en | 6 | 300 | 0 | 300 | 0 |
+| sense-and-sensibility | modern-en | 5 | 163 | 0 | 163 | 0 |
+| social-contract | original-en | 2 | 6 | 0 | 6 | 0 |
+| social-contract | modern-en | 2 | 6 | 0 | 6 | 0 |
+| symposium | original-en | 3 | 13 | 0 | 13 | 0 |
+| symposium | modern-en | 3 | 12 | 0 | 12 | 0 |
+| the-awakening | original-en | 3 | 15 | 0 | 15 | 0 |
+| the-awakening | modern-en | 3 | 15 | 0 | 15 | 0 |
+| the-prince | original-en | 12 | 71 | 1 | 70 | 0 |
+| the-prince | modern-en | 11 | 69 | 1 | 68 | 0 |
+| twelfth-night | original-en | 3 | 43 | 0 | 43 | 0 |
+| twelfth-night | modern-en | 3 | 43 | 0 | 43 | 0 |
+| werther | original-en | 14 | 119 | 0 | 119 | 0 |
+| werther | modern-en | 12 | 99 | 0 | 99 | 0 |
+| winters-tale | original-en | 2 | 22 | 0 | 22 | 0 |
+| winters-tale | modern-en | 2 | 22 | 0 | 22 | 0 |
+| wuthering-heights | original-en | 2 | 31 | 0 | 31 | 0 |
+| wuthering-heights | modern-en | 2 | 31 | 0 | 31 | 0 |
+| **All** | 92 editions | | **24,749** | **226** | **24,523** | **0** |

@@ -20,6 +20,7 @@
 import { chromium } from '@playwright/test'
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const [base = 'http://127.0.0.1:8787', questionWav, resumeWav, artifactDir = 'artifacts/grok-voice-smoke'] = process.argv.slice(2)
 if (!questionWav) throw new Error('Provide the question WAV')
@@ -28,7 +29,7 @@ const report = { base, sessions: [] }
 const fail = message => { throw new Error(message) }
 
 async function launch(wav) {
-  const browser = await chromium.launch({
+  const browser = await markInternal(await chromium.launch({
     headless: true,
     // A sandbox whose egress proxy cannot relay a WebSocket upgrade: keep the proxy for everything except the named hosts.
     ...(process.env.TINCT_PROXY_BYPASS ? { env: { ...process.env, NO_PROXY: [process.env.NO_PROXY, process.env.TINCT_PROXY_BYPASS].filter(Boolean).join(','), no_proxy: [process.env.no_proxy ?? process.env.NO_PROXY, process.env.TINCT_PROXY_BYPASS].filter(Boolean).join(',') } } : {}),
@@ -45,7 +46,7 @@ async function launch(wav) {
       '--mute-audio',
       '--autoplay-policy=no-user-gesture-required',
     ],
-  })
+  }))
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, permissions: ['microphone'] })
   await context.addInitScript(() => {
     // Observe microphone tracks and provider audio without changing behaviour.

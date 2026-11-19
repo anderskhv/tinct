@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LAB_PHONE_QUERY, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+import { LAB_PAGE_LONG_PRESS_MS, LAB_SCROLL_LONG_PRESS_MS, labLongPressMs, labPassageBlocksNativeTouch, labLongPressCancelledByMove, LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSwipeTurnDirection, labVerticalSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
   labShouldAutofocusComposer,
 } from './labChrome'
 
@@ -94,6 +94,11 @@ describe('lab visual viewport height', () => {
     expect(labVisualViewportHeightPx(undefined, 844)).toBe(844)
     expect(labVisualViewportHeightPx(0, 390)).toBe(390)
     expect(labVisualViewportHeightPx()).toBe(0)
+    // A shorter visual viewport with nothing to type into and no zoom is stale (iOS after a checkout): the window's height wins.
+    expect(labVisualViewportHeightPx(600, 844, { textEntryFocused: false, scale: 1 })).toBe(844)
+    expect(labVisualViewportHeightPx(600, 844, { textEntryFocused: true, scale: 1 })).toBe(600)
+    expect(labVisualViewportHeightPx(600, 844, { textEntryFocused: false, scale: 1.8 })).toBe(600)
+    expect(labVisualViewportHeightPx(844, 844, { textEntryFocused: false, scale: 1 })).toBe(844)
   })
 })
 
@@ -113,12 +118,43 @@ describe('lab keyboard pan reset', () => {
     expect(labTextEntryFocused(null)).toBe(false)
   })
 
-  it('resets the pan only while a text field owns the keyboard', () => {
+  it('resets the keyboard pan, and a document scroll iOS left behind once the keyboard is down, but not a pinch-zoom pan', () => {
     expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 0, textEntryFocused: true })).toBe(true)
     expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 300, textEntryFocused: true })).toBe(true)
     expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 0, textEntryFocused: true })).toBe(false)
-    expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 300, textEntryFocused: false })).toBe(false)
     expect(labShouldResetViewportPan({ textEntryFocused: true })).toBe(false)
+    // Keyboard down, document still scrolled (iPhone, 10 Nov 2026): the header above the screen, taps missing.
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 62, textEntryFocused: false, scale: 1 })).toBe(true)
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 62, textEntryFocused: false })).toBe(true)
+    // The reader's own pinch-zoom pan stays.
+    expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 300, textEntryFocused: false, scale: 2 })).toBe(false)
+    expect(labShouldResetViewportPan({ offsetTop: 120, scrollY: 0, textEntryFocused: false, scale: 1.6 })).toBe(false)
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 0, textEntryFocused: false })).toBe(false)
+  })
+
+  it('measures the height again when the page comes back to the front, and takes the window over a stale shorter visual viewport', () => {
+    document.body.innerHTML = '<div id="host"></div>'
+    const host = document.getElementById('host') as HTMLElement
+    const viewport = { height: 600, offsetTop: 0, scale: 1, addEventListener: vi.fn(), removeEventListener: vi.fn() }
+    const original = window.visualViewport
+    const innerHeight = Object.getOwnPropertyDescriptor(window, 'innerHeight')
+    Object.defineProperty(window, 'visualViewport', { configurable: true, value: viewport })
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 600 })
+    try {
+      const unbind = bindLabVisualViewportHeight(host)
+      expect(host.style.getPropertyValue('--lab-vvh')).toBe('600px')
+      // Back from a checkout: the window is tall again, the visual viewport still says 600 and no resize came.
+      Object.defineProperty(window, 'innerHeight', { configurable: true, value: 844 })
+      document.dispatchEvent(new Event('visibilitychange'))
+      expect(host.style.getPropertyValue('--lab-vvh')).toBe('844px')
+      unbind()
+      document.dispatchEvent(new Event('visibilitychange'))
+      expect(host.style.getPropertyValue('--lab-vvh')).toBe('')
+    } finally {
+      Object.defineProperty(window, 'visualViewport', { configurable: true, value: original })
+      if (innerHeight) Object.defineProperty(window, 'innerHeight', innerHeight)
+      else Reflect.deleteProperty(window, 'innerHeight')
+    }
   })
 
   it('scrolls the window back to the top when Safari pans the focused composer under the URL bar', () => {
@@ -128,6 +164,7 @@ describe('lab keyboard pan reset', () => {
     const viewport = {
       height: 400,
       offsetTop: 444,
+      scale: 1.9, // pinch-zoomed: the shorter visual viewport is real
       addEventListener: (type: string, fn: () => void) => { listeners.set(type, fn) },
       removeEventListener: (type: string) => { listeners.delete(type) },
     }
@@ -171,12 +208,74 @@ describe('lab settled page geometry', () => {
   })
 })
 
+describe('selection drags never turn the page by accident', () => {
+  const page = { left: 0, right: 390, top: 100, bottom: 800 }
+  it('finds the phone page-turn zones at the top and bottom, the spread zones at the outer sides', () => {
+    expect(labSelectionEdgeDirection(200, 110, page, false, 32)).toBe(-1)
+    expect(labSelectionEdgeDirection(200, 790, page, false, 32)).toBe(1)
+    expect(labSelectionEdgeDirection(5, 400, page, false, 32)).toBeNull()
+    expect(labSelectionEdgeDirection(5, 400, page, true, 32)).toBe(-1)
+    expect(labSelectionEdgeDirection(385, 110, page, true, 32)).toBe(1)
+  })
+  it('does not arm the edge hold for a selection that starts inside a page-turn zone', () => {
+    // Esther 10, 2026-10-07: long-press on the page's first word, drag right.
+    expect(labSelectionEdgeArmedAt(80, 110, page, false, 32)).toBe(false)
+    expect(labSelectionEdgeArmedAt(80, 790, page, false, 32)).toBe(false)
+    expect(labSelectionEdgeArmedAt(80, 400, page, false, 32)).toBe(true)
+    expect(labSelectionEdgeArmedAt(5, 400, page, true, 32)).toBe(false)
+  })
+  it('treats a native selection inside the page as a selection, and nothing else', () => {
+    const inside = {} as Node, outside = {} as Node
+    const surface = { contains: (node: Node | null) => node === inside }
+    const sel = (over: Partial<Selection>) => ({ isCollapsed: false, rangeCount: 1, anchorNode: inside, focusNode: inside, ...over }) as Selection
+    expect(labNativeSelectionBlocksTurn(sel({}), surface)).toBe(true)
+    expect(labNativeSelectionBlocksTurn(sel({ anchorNode: outside }), surface)).toBe(true)
+    expect(labNativeSelectionBlocksTurn(sel({ isCollapsed: true }), surface)).toBe(false)
+    expect(labNativeSelectionBlocksTurn(sel({ rangeCount: 0 }), surface)).toBe(false)
+    expect(labNativeSelectionBlocksTurn(sel({ anchorNode: outside, focusNode: outside }), surface)).toBe(false)
+    expect(labNativeSelectionBlocksTurn(null, surface)).toBe(false)
+  })
+})
+
 describe('lab page gestures', () => {
   it('maps horizontal swipes and ignores vertical selection-like movement', () => {
     expect(labSwipePageDirection(-70, 8)).toBe(1)
     expect(labSwipePageDirection(70, -8)).toBe(-1)
     expect(labSwipePageDirection(30, 2)).toBeNull()
     expect(labSwipePageDirection(70, 65)).toBeNull()
+  })
+
+  // Phone: swipe up/down turns pages like left/right (Anders, 12 Nov 2026).
+  it('maps a clear, quick vertical swipe: up is next, down is previous', () => {
+    expect(labVerticalSwipePageDirection(4, -80, 200)).toBe(1)
+    expect(labVerticalSwipePageDirection(-4, 80, 200)).toBe(-1)
+    // Too short, too slow, or not clearly vertical: nothing.
+    expect(labVerticalSwipePageDirection(0, -40, 200)).toBeNull()
+    expect(labVerticalSwipePageDirection(0, 41, 200)).toBe(-1)
+    expect(labVerticalSwipePageDirection(0, -120, 701)).toBeNull()
+    expect(labVerticalSwipePageDirection(60, -90, 200)).toBeNull()
+    expect(labVerticalSwipePageDirection(59, -90, 200)).toBe(1)
+    expect(labVerticalSwipePageDirection(0, -120, Number.NaN)).toBeNull()
+  })
+
+  it('keeps sideways and diagonal swipes exactly as before, and vertical only where offered', () => {
+    const turn = (deltaX: number, deltaY: number, vertical = true, pointerType = 'touch', durationMs = 200) =>
+      labSwipeTurnDirection({ deltaX, deltaY, durationMs, vertical, pointerType })
+    for (const [dx, dy] of [[-70, 8], [70, -8], [30, 2], [70, 65], [-200, 0], [60, 0], [80, 80]]) {
+      expect(turn(dx, dy)).toBe(labSwipePageDirection(dx, dy))
+    }
+    // A slow sideways swipe still turns, as it always has.
+    expect(turn(-70, 8, true, 'touch', 3000)).toBe(1)
+    // Diagonal: neither axis.
+    expect(turn(-60, -70)).toBeNull()
+    expect(turn(60, 85)).toBeNull()
+    expect(turn(0, -90)).toBe(1)
+    expect(turn(0, 90)).toBe(-1)
+    expect(turn(0, -90, true, 'pen')).toBe(1)
+    // Off the phone page, and for a mouse (a vertical drag selects text).
+    expect(turn(0, -90, false)).toBeNull()
+    expect(turn(0, -90, true, 'mouse')).toBeNull()
+    expect(turn(-70, 8, true, 'mouse')).toBe(1)
   })
 
   it('turns only from the outer thirds', () => {
@@ -351,13 +450,14 @@ describe('lab chrome inset invariant', () => {
     expect(labScrollportOverflows(wrap)).toBe(true)
   })
 
-  it('clamps chrome top to the visible visualViewport, never 100vh', () => {
+  it('clamps chrome top to the visualViewport while an ordinary composer owns the keyboard', () => {
     expect(labVisibleBottomPx({ height: 628, offsetTop: 0 }, 844)).toBe(628)
     expect(labVisibleBottomPx({ height: 628, offsetTop: 12 }, 844)).toBe(640)
     expect(labVisibleBottomPx(undefined, 844)).toBe(844)
     document.body.innerHTML = `
-      <footer class="lab-phone-bar"></footer>
+      <footer class="lab-phone-bar"></footer><input id="composer">
     `
+    document.getElementById('composer')!.focus()
     const phone = document.querySelector('.lab-phone-bar') as HTMLElement
     phone.getBoundingClientRect = () => ({ top: 720, bottom: 800, height: 80, width: 390, left: 0, right: 390, x: 0, y: 720, toJSON() {} })
     const original = window.visualViewport
@@ -510,3 +610,60 @@ describe('the phone surface media query', () => {
     expect(matches(1024, 1366)).toBe(true)
   })
 })
+
+describe('labNeedsGestureAudioUnlock (opening Chat must not take a phone\'s headphones)', () => {
+  const MAC_CHROME = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36'
+  const MAC_SAFARI = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15'
+  const WIN = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36'
+  const IPHONE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1'
+  const IPAD = 'Mozilla/5.0 (iPad; CPU OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1'
+  const ANDROID = 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36'
+
+  it('never unlocks on a desktop with a fine pointer (Mac, Windows), even with a touch-capable screen', () => {
+    for (const userAgent of [MAC_CHROME, MAC_SAFARI, WIN]) {
+      expect(labNeedsGestureAudioUnlock({ userAgent, maxTouchPoints: 0, primaryCoarse: false, primaryHoverNone: false })).toBe(false)
+    }
+    // A Windows touch laptop whose primary pointer is still the trackpad.
+    expect(labNeedsGestureAudioUnlock({ userAgent: WIN, maxTouchPoints: 10, primaryCoarse: false, primaryHoverNone: false })).toBe(false)
+    expect(labNeedsGestureAudioUnlock({})).toBe(false)
+  })
+
+  it('unlocks on iPhone, iPad (including iPadOS reporting a Mac) and touch-first devices', () => {
+    expect(labNeedsGestureAudioUnlock({ userAgent: IPHONE, maxTouchPoints: 5 })).toBe(true)
+    expect(labNeedsGestureAudioUnlock({ userAgent: IPAD, maxTouchPoints: 5 })).toBe(true)
+    expect(labNeedsGestureAudioUnlock({ userAgent: MAC_SAFARI, maxTouchPoints: 5, primaryCoarse: false, primaryHoverNone: false })).toBe(true)
+    expect(labNeedsGestureAudioUnlock({ userAgent: ANDROID, maxTouchPoints: 5, primaryCoarse: true, primaryHoverNone: true })).toBe(true)
+    expect(labNeedsGestureAudioUnlock({ userAgent: WIN, primaryCoarse: true })).toBe(true)
+    expect(labNeedsGestureAudioUnlock({ userAgent: WIN, primaryHoverNone: true })).toBe(true)
+  })
+})
+
+// Surface Duo / iPad, 6 Nov 2026: the Margin reader's text is a scroller.
+describe('touch on a scrolling passage', () => {
+  const base = { dragging: false, selecting: false, selectionShown: false, onWord: true }
+  it('keeps every touch on a paginated word for the reader', () => {
+    expect(labPassageBlocksNativeTouch({ ...base, type: 'touchstart', touchScroll: false })).toBe(true)
+    expect(labPassageBlocksNativeTouch({ ...base, onWord: false, selectionShown: true, type: 'touchmove', touchScroll: false })).toBe(true)
+    expect(labPassageBlocksNativeTouch({ ...base, onWord: false, type: 'touchstart', touchScroll: false })).toBe(false)
+  })
+  it('leaves a scroller touch to the browser unless it extends a long-press selection', () => {
+    expect(labPassageBlocksNativeTouch({ ...base, type: 'touchstart', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, type: 'touchmove', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, selectionShown: true, type: 'touchmove', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, selecting: true, type: 'touchstart', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, selecting: true, type: 'touchmove', touchScroll: true })).toBe(true)
+  })
+  it('holds the long press about as long as the platform does in a scroller', () => {
+    expect(labLongPressMs(false)).toBe(LAB_PAGE_LONG_PRESS_MS)
+    expect(LAB_PAGE_LONG_PRESS_MS).toBe(160)
+    expect(labLongPressMs(true)).toBe(LAB_SCROLL_LONG_PRESS_MS)
+    expect(LAB_SCROLL_LONG_PRESS_MS).toBeGreaterThanOrEqual(400)
+  })
+  it('cancels a pending press on any movement past the slop in a scroller, only a quick flick on a page', () => {
+    expect(labLongPressCancelledByMove({ touchScroll: true, distance: 8, elapsedMs: 50 })).toBe(false)
+    expect(labLongPressCancelledByMove({ touchScroll: true, distance: 14, elapsedMs: 300 })).toBe(true)
+    expect(labLongPressCancelledByMove({ touchScroll: false, distance: 14, elapsedMs: 50 })).toBe(true)
+    expect(labLongPressCancelledByMove({ touchScroll: false, distance: 14, elapsedMs: 300 })).toBe(false)
+  })
+})
+

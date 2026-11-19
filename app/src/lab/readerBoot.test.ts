@@ -3,13 +3,18 @@ import path from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { CHAPTER_SHARDED_EDITION_IDS } from '../data/editionShardRegistry'
 import { editionShardPath } from '../data/editionUrls'
+import { BOOKS } from '../data/bookRegistry'
+import { readerBootPrimaryExceptions } from '../../scripts/readerBootScript'
 import {
+  readerBootMarginPreview,
   LAB_THEME_PAPER,
   READER_BOOT_DEFAULT_FACE_URL,
+  readerBootDeepLink,
   readerBootEink,
   readerBootHandoff,
   readerBootPreloads,
   readerBootTheme,
+  readerBootProfile,
   readerBootUsesDefaultFace,
 } from './readerBoot'
 
@@ -96,10 +101,10 @@ describe('readerBootPreloads matches the loader byte for byte', () => {
   )
 
   it('a whole-book edition: the edition JSON and its patches', async () => {
-    expect(CHAPTER_SHARDED_EDITION_IDS).not.toContain('frankenstein-modern-en')
-    const expected = preloads('frankenstein', 'modern-en', 3)
+    expect(CHAPTER_SHARDED_EDITION_IDS).not.toContain('the-awakening-modern-en')
+    const expected = preloads('the-awakening', 'modern-en', 3)
     expect(expected).toHaveLength(2)
-    expect((await loaderRequests('frankenstein', 'modern-en', 3)).sort()).toEqual([...expected].sort())
+    expect((await loaderRequests('the-awakening', 'modern-en', 3)).sort()).toEqual([...expected].sort())
   })
 
   it('a chapter-sharded edition: the manifest, the chapter window and patches', async () => {
@@ -150,6 +155,55 @@ describe('readerBootPreloads matches the loader byte for byte', () => {
   })
 })
 
+describe('readerBootDeepLink', () => {
+  const exceptions = readerBootPrimaryExceptions()
+
+  it('opens what the app opens for every published book\'s chapter link, or guesses nothing', async () => {
+    const { readerHandoffFromUrlParams } = await import('./labReaderHandoff')
+    let resolved = 0
+    for (const book of BOOKS) {
+      for (const search of [`?book=${book.id}&chapter=2`, `?book=${book.id}&edition=original-en&chapter=1`]) {
+        const boot = readerBootDeepLink(search, exceptions)
+        if (!boot) continue
+        const app = readerHandoffFromUrlParams(new URLSearchParams(search))
+        expect(app, search).not.toBeNull()
+        expect({ bookId: boot.bookId, primaryEditionKey: boot.primaryEditionKey, chapterNumber: boot.chapterNumber }, search)
+          .toEqual({ bookId: app!.bookId, primaryEditionKey: app!.primaryEditionKey, chapterNumber: app!.savedPlace?.chapterNumber })
+        resolved += 1
+      }
+    }
+    for (const key of ['bsb-en', 'kjv-en', 'web-en', 'webc-en']) {
+      const search = `?book=bible&edition=${key}&chapter=3`
+      const boot = readerBootDeepLink(search, exceptions)
+      const app = readerHandoffFromUrlParams(new URLSearchParams(search))
+      expect(boot, search).toEqual({ bookId: 'bible', primaryEditionKey: app!.primaryEditionKey, chapterNumber: 3 })
+    }
+    // Nearly every book's default is Modern English; the table names the rest.
+    expect(resolved).toBeGreaterThan(BOOKS.length)
+    expect(exceptions.bible).toBe('bsb-en')
+    expect(Object.keys(exceptions).length).toBeLessThan(BOOKS.length / 4)
+  })
+
+  it('leaves to the app what it cannot know exactly', () => {
+    expect(readerBootDeepLink('?book=odyssey&chapter=3', exceptions)).toEqual({ bookId: 'odyssey', primaryEditionKey: 'modern-en', chapterNumber: 3 })
+    expect(readerBootDeepLink('?book=odyssey', exceptions)).toBeNull() // resumes the reader's own place
+    expect(readerBootDeepLink('?book=odyssey&chapter=0', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?book=odyssey&chapter=x', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?book=odyssey&edition=modern-da&chapter=1', exceptions)).toBeNull()
+    // No English original: a plain link preloads Modern English, a named edition is left to the app.
+    expect(exceptions['master-and-margarita']).toBe('modern-en')
+    expect(readerBootDeepLink('?book=master-and-margarita&chapter=2', exceptions)).toEqual({ bookId: 'master-and-margarita', primaryEditionKey: 'modern-en', chapterNumber: 2 })
+    expect(readerBootDeepLink('?book=master-and-margarita&edition=original-en&chapter=1', exceptions)).toBeNull()
+    // Pinocchio has no English original either (Tinct Modern English from the Italian, 10 Nov 2026).
+    expect(exceptions['pinocchio']).toBe('modern-en')
+    expect(readerBootDeepLink('?book=pinocchio&edition=original-en&chapter=1', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?book=odyssey&chapter=1&modern=1', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?heldBook=gilgamesh&book=gilgamesh&chapter=1', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?book=pd-abc&chapter=1', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?book=../x&chapter=1', exceptions)).toBeNull()
+  })
+})
+
 describe('readerBootTheme', () => {
   const v2 = (phone: unknown, desktop: unknown) => JSON.stringify({ version: 2, shared: {}, phone: { theme: phone }, desktop: { theme: desktop } })
 
@@ -158,6 +212,14 @@ describe('readerBootTheme', () => {
     expect(readerBootTheme(v2('book', 'book'), true, false)).toBe('book')
     expect(readerBootTheme(v2('system', 'dark'), true, false)).toBe('dark')
     expect(readerBootTheme(v2('system', 'system'), false, false)).toBe('light')
+  })
+
+  it('reads White, stored as Light on white paper, and nothing else as White', () => {
+    const white = JSON.stringify({ version: 2, shared: {}, phone: { theme: 'light', paper: 'white' }, desktop: { theme: 'light', paper: 'white' } })
+    expect(readerBootTheme(white, true, false)).toBe('white')
+    expect(readerBootTheme(JSON.stringify({ version: 2, shared: {}, phone: { theme: 'light', paper: 'white' }, desktop: { theme: 'light' } }), false, false, 'desktop')).toBe('light')
+    expect(readerBootTheme(JSON.stringify({ version: 2, shared: {}, phone: { theme: 'dark', paper: 'white' }, desktop: { theme: 'dark', paper: 'white' } }), false, false)).toBe('dark')
+    expect(readerBootTheme(JSON.stringify({ theme: 'light', paper: 'white' }), true, false)).toBe('white')
   })
 
   it('a new reader follows the system', () => {
@@ -170,6 +232,23 @@ describe('readerBootTheme', () => {
     expect(readerBootTheme(JSON.stringify({ theme: 'book' }), true, false)).toBe('book')
   })
 
+  it('with the layout known, takes that profile\'s theme (a dark phone and a light desktop no longer leave the first frame white)', () => {
+    expect(readerBootTheme(v2('dark', 'light'), false, false, 'phone')).toBe('dark')
+    expect(readerBootTheme(v2('dark', 'light'), false, false, 'desktop')).toBe('light')
+    expect(readerBootTheme(v2('system', 'book'), true, false, 'phone')).toBe('dark')
+    expect(readerBootTheme(v2('system', 'book'), true, false, 'desktop')).toBe('book')
+    // Version 1 has one appearance: the profile changes nothing.
+    expect(readerBootTheme(JSON.stringify({ theme: 'book' }), true, false, 'phone')).toBe('book')
+    expect(readerBootTheme(v2('dark', 'light'), false, true, 'phone')).toBeNull()
+  })
+
+  it('picks the profile by the app\'s own surface rule', () => {
+    expect(readerBootProfile({ userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)', innerWidth: 980 })).toBe('phone')
+    expect(readerBootProfile({ innerWidth: 390, maxTouchPoints: 5, screenWidth: 390 })).toBe('phone')
+    expect(readerBootProfile({ innerWidth: 1440, maxTouchPoints: 0, screenWidth: 1440, matchMediaPhone: false })).toBe('desktop')
+    expect(readerBootProfile({ innerWidth: 800, matchMediaPhone: true })).toBe('phone')
+  })
+
   it('leaves the page alone when the answer depends on the layout, the prefs are unreadable, or on e-ink', () => {
     expect(readerBootTheme(v2('dark', 'light'), false, false)).toBeNull()
     expect(readerBootTheme('{', false, false)).toBeNull()
@@ -177,7 +256,18 @@ describe('readerBootTheme', () => {
   })
 
   it('paints LabApp’s own paper colours', () => {
-    expect(LAB_THEME_PAPER).toEqual({ light: '#f2eee4', book: '#e7dcc7', dark: '#171411' })
+    expect(LAB_THEME_PAPER).toEqual({ light: '#ece7db', white: '#ffffff', book: '#e7dcc7', dark: '#171411' })
+  })
+
+  // The status bar of a home-screen app takes this colour, so it must be the
+  // page's own paper, not a near match.
+  it('matches the reader page’s paper in every theme', () => {
+    const css = fs.readFileSync(path.join(__dirname, 'lab.css'), 'utf8')
+    const paper = (selector: string) => css.match(new RegExp(`^${selector.replace(/\./g, '\\.')} \\{\\s*--lab-paper: (#[0-9a-f]{6});`, 'm'))?.[1]
+    expect(paper('.lab')).toBe(LAB_THEME_PAPER.light)
+    expect(paper('.lab.is-book-theme')).toBe(LAB_THEME_PAPER.book)
+    expect(paper('.lab.is-white-theme')).toBe(LAB_THEME_PAPER.white)
+    expect(paper('.lab.is-night')).toBe(LAB_THEME_PAPER.dark)
   })
 })
 
@@ -202,5 +292,31 @@ describe('reading face and e-ink', () => {
     expect(readerBootEink('?eink=0', 'eink')).toBe(false)
     expect(readerBootEink('?eink=1', null)).toBe(true)
     expect(readerBootEink('', 'normal')).toBe(false)
+  })
+})
+
+describe('readerBootMarginPreview (round 3)', () => {
+  const placed = (key: string) => JSON.stringify({ books: { frankenstein: { bookId: 'frankenstein', primaryEditionKey: key } } })
+  const urls = (key: string, id = 'frankenstein') => [`/data/editions/${id}-${key}.json?v=v1`, `/api/edition-patches?bookId=${id}&editionKey=${key}`]
+  const at = (search: string, o: { sticky?: string; position?: string; prefs?: string } = {}, exceptions: Record<string, string> = {}) =>
+    readerBootMarginPreview(search, key => ({ 'tinct:margin-preview': o.sticky, 'tinct-lab-position': o.position } as Record<string, string | undefined>)[key] ?? null, o.prefs ?? null, exceptions, 'v1')
+  it('the edition the preview will read, only when the boot can be sure', () => {
+    expect(at('?book=frankenstein&margin=1')).toEqual(urls('modern-en'))
+    expect(at('?book=frankenstein', { sticky: '1' })).toEqual(urls('modern-en'))
+    expect(at('?book=frankenstein&margin=1', { position: placed('original-en') })).toEqual(urls('original-en'))
+    expect(at('?book=frankenstein&margin=1', { prefs: JSON.stringify({ primaryEdition: 'modern-en' }) })).toEqual(urls('modern-en'))
+    // Off: nothing.
+    expect(at('?book=frankenstein')).toEqual([])
+    expect(at('?book=frankenstein&margin=0', { sticky: '1' })).toEqual([])
+    expect(at('?book=bible&margin=1', {}, readerBootPrimaryExceptions())).toEqual([])
+    // Listed only for its missing English original, a Modern English book still previews Modern English.
+    expect(at('?book=master-and-margarita&margin=1', {}, readerBootPrimaryExceptions())).toEqual(urls('modern-en', 'master-and-margarita'))
+    expect(at('?margin=1')).toEqual([])
+    // In doubt: another chosen main edition, a book whose default is not Modern English, a place without a usable edition, unreadable storage.
+    expect(at('?book=frankenstein&margin=1', { prefs: JSON.stringify({ version: 2, shared: { primaryEdition: 'original-en' } }) })).toEqual([])
+    expect(at('?book=x-book&margin=1', {}, { 'x-book': 'original-en' })).toEqual([])
+    expect(at('?book=frankenstein&margin=1', { position: placed('../x') })).toEqual([])
+    expect(at('?book=frankenstein&margin=1', { position: JSON.stringify({ books: { frankenstein: {} } }) })).toEqual([])
+    expect(at('?book=frankenstein&margin=1', { position: '{' })).toEqual([])
   })
 })

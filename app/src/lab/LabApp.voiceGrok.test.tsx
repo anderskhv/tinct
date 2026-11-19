@@ -4,11 +4,13 @@
 // transport is stubbed: getUserMedia hangs or the token route fails, so no
 // provider session is ever opened here.
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { afterEach, expect, it, vi } from 'vitest'
+import { beforeAll, afterEach, expect, it, vi } from 'vitest'
 import type { useVoiceSession } from '../hooks/useVoiceSession'
 import { GROK_VOICE_INSTRUCTIONS } from '../voice/grokConfig'
 import { LabApp } from './LabApp'
 import { fallbackLabSource } from './labSource'
+const accountCards = vi.hoisted(() => ({ open: vi.fn(async (_options: { start?: string }) => true) }))
+vi.mock('../cards/openCards', async importOriginal => ({ ...await importOriginal<typeof import('../cards/openCards')>(), openAccountCards: accountCards.open }))
 
 const captured = vi.hoisted(() => ({ options: null as Parameters<typeof useVoiceSession>[0] | null }))
 vi.mock('../hooks/useVoiceSession', async importOriginal => {
@@ -17,6 +19,14 @@ vi.mock('../hooks/useVoiceSession', async importOriginal => {
     captured.options = options
     return original.useVoiceSession(options)
   } }
+})
+
+// Talk's session code and the account cards load on demand in the reader
+// (first use). Loaded here up front so a busy machine's first transform of
+// those modules is not counted against a waitFor below.
+beforeAll(async () => {
+  await import('../voice/GrokVoiceSessionController')
+  await import('../cards/openCards')
 })
 
 afterEach(() => {
@@ -66,8 +76,8 @@ it('keeps an account rejection visible after the call closes, without an audio b
   expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
   expect(stop).toHaveBeenCalled()
   fireEvent.click(screen.getByRole('button', { name: 'View account' }))
-  expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('account')
-  fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+  expect(screen.getByTestId('lab-root').getAttribute('data-super-sheet')).toBe('account')
+  await waitFor(() => expect(accountCards.open).toHaveBeenCalled())
   fireEvent.click(screen.getByRole('button', { name: 'Dismiss message' }))
   expect(screen.queryByTestId('lab-voice-notice')).toBeNull()
 })
@@ -130,8 +140,8 @@ it('gives Talk the Grok contract: reference data apart from the prompt, and the 
   expect(names).not.toContain('ask_companion')
   const resume = (options.tools as Array<{ name: string; parameters: { required?: string[] } }>).find(tool => tool.name === 'resume_audiobook')!
   expect(resume.parameters.required).toEqual(['play_audio'])
-  // Voice sessions require sign-in: the signed-out route is never used.
-  expect(options.labGuest).toBe(false)
+  // Signed out, Talk is the guest trial (one a day, two minutes, through the relay).
+  expect(options.labGuest).toBe(true)
 })
 
 it('carries the Explain quote and its explanation into Talk as reference data', async () => {

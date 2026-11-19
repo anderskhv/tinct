@@ -1,3 +1,4 @@
+import type { Authorship } from '../companion/authorship'
 export type VoiceModeState =
   | 'reading'
   | 'listening'
@@ -58,6 +59,8 @@ export interface VoiceReaderContext {
   bookId?: string
   bookTitle: string
   bookAuthor: string
+  /** An essay collection or anthology: who wrote the current chapter (companion/authorship.ts). */
+  authorship?: Authorship
   editionKey?: string
   editionLabel?: string
   chapterNumber?: number

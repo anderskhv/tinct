@@ -2861,6 +2861,201 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "EN",
       "DA"
     ]
+  },
+  {
+    "id": "the-sovereign-child",
+    "title": "The Sovereign Child",
+    "author": "Aaron Stupple with Logan Chipkin",
+    "tradition": "American",
+    "year": "2025",
+    "ySort": 2025,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 200,
+    "blurb": "Parenting without rules, argued from a theory of knowledge.",
+    "themes": [
+      "parenting",
+      "autonomy",
+      "epistemology"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "lords-of-the-cosmos",
+    "title": "Lords of the Cosmos",
+    "author": "Arjun Khemani and Logan Chipkin",
+    "year": "2025",
+    "ySort": 2025.1,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 265,
+    "blurb": "From cosmic monotony to the Enlightenment, a history of everything told through knowledge.",
+    "themes": [
+      "progress",
+      "optimism",
+      "enlightenment"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "bold-conjectures-volume-1",
+    "title": "Bold Conjectures, Volume I",
+    "author": "Logan Chipkin (ed.)",
+    "year": "2025",
+    "ySort": 2025.2,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 50,
+    "blurb": "David Deutsch in conversation, 2012–2024.",
+    "themes": [
+      "quantum-theory",
+      "epistemology",
+      "interviews"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "bold-conjectures-volume-2",
+    "title": "Bold Conjectures, Volume II",
+    "author": "Logan Chipkin (ed.)",
+    "year": "2026",
+    "ySort": 2026,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 215,
+    "blurb": "Physicists on what is still unsettled in fundamental physics.",
+    "themes": [
+      "physics",
+      "quantum-theory",
+      "essays"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "the-farthest-reaches",
+    "title": "The Farthest Reaches",
+    "author": "Brett Hall",
+    "year": "2026",
+    "ySort": 2026.1,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 330,
+    "blurb": "Why people are the most important entities in the universe.",
+    "themes": [
+      "personhood",
+      "universality",
+      "epistemology"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "grimms-fairy-tales",
+    "title": "Grimms’ Fairy Tales",
+    "author": "Jacob and Wilhelm Grimm",
+    "year": "1812",
+    "ySort": 1812,
+    "form": "short-stories",
+    "era": "modern",
+    "hue": 30,
+    "blurb": "Sixty-five tales of kings, tailors, stepmothers and talking animals, told in plain, repeated patterns.",
+    "themes": [
+      "tales",
+      "justice",
+      "transformation",
+      "family",
+      "cunning"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "arabian-nights",
+    "title": "The Arabian Nights Entertainments",
+    "author": "Andrew Lang",
+    "year": "1898",
+    "ySort": 1898,
+    "form": "short-stories",
+    "era": "modern",
+    "hue": 40,
+    "blurb": "A sultan’s nightly story-bargain opens tales of genies, sailors, merchants and a magic lamp.",
+    "themes": [
+      "storytelling",
+      "fate",
+      "power",
+      "travel",
+      "wonder"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "master-and-margarita",
+    "title": "The Master and Margarita",
+    "author": "Mikhail Bulgakov",
+    "year": "1928–1940",
+    "ySort": 1940,
+    "form": "novel",
+    "era": "contemporary",
+    "hue": 265,
+    "blurb": "The devil comes to 1930s Moscow; a procurator cannot forget a prisoner.",
+    "themes": [
+      "devil",
+      "cowardice",
+      "love"
+    ],
+    "shelves": [
+      "russian-novels"
+    ],
+    "langs": [
+      "EN",
+      "DA",
+      "RU"
+    ]
+  },
+  {
+    "id": "pinocchio",
+    "title": "The Adventures of Pinocchio",
+    "author": "Carlo Collodi",
+    "year": "1881–1883",
+    "ySort": 1883,
+    "form": "novel",
+    "era": "modern",
+    "hue": 40,
+    "blurb": "A runaway wooden puppet lies, boasts and trusts every swindler on the road home to his father.",
+    "themes": [
+      "tales",
+      "transformation",
+      "family"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales",
+      "adventure"
+    ],
+    "langs": [
+      "EN",
+      "DA",
+      "IT"
+    ]
   }
 ]
 
@@ -2942,7 +3137,7 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
   },
   "russian-novels": {
     "title": "The Russians",
-    "sub": "Dostoevsky and Tolstoy",
+    "sub": "Dostoevsky, Tolstoy and Bulgakov",
     "hue": 355
   },
   "english-novels": {
@@ -3024,6 +3219,16 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
     "title": "Adventure",
     "sub": "Journeys, wagers and the open sea",
     "hue": 60
+  },
+  "folk-and-fairy-tales": {
+    "title": "Folk & Fairy Tales",
+    "sub": "Tales from the oral tradition",
+    "hue": 30
+  },
+  "critical-rationalism": {
+    "title": "Critical Rationalism",
+    "sub": "Popper, Deutsch and how knowledge grows",
+    "hue": 175
   }
 }
 
@@ -3038,7 +3243,8 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "aristotle",
       "stoics",
       "christian-philosophy",
-      "modern-philosophy"
+      "modern-philosophy",
+      "critical-rationalism"
     ]
   },
   {
@@ -3081,6 +3287,7 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "gothic-novels",
       "satirical-novels",
       "adventure",
+      "folk-and-fairy-tales",
       "detective-fiction"
     ]
   },
@@ -3193,7 +3400,12 @@ export const LIBRARY_ERAS = {
   "contemporary": {
     "id": "contemporary",
     "label": "20th Century & Beyond",
-    "range": "1900 –"
+    "range": "1900 – 2019"
+  },
+  "2020s": {
+    "id": "2020s",
+    "label": "2020s",
+    "range": "2020 –"
   }
 } as const
 

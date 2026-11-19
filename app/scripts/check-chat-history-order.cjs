@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Chat history: what the reader sees when the panel opens on a months-old
 // Bible thread, and when the account's history arrives after first paint.
 //
@@ -216,7 +217,7 @@ async function run(browser, { phone, viewport }) {
 
 async function main() {
   fs.mkdirSync(OUT, { recursive: true })
-  const browser = await chromium.launch({ executablePath: EXECUTABLE })
+  const browser = await markInternal(await chromium.launch({ executablePath: EXECUTABLE }))
   const results = []
   try {
     results.push(await run(browser, { phone: true, viewport: { width: 393, height: 852 } }))

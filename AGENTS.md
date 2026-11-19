@@ -79,10 +79,14 @@ Interpretation rules:
   deployment owner. When a genuine blocker exists, every report to Anders includes
   a concise `Needs your decision` line with the concrete choice and recommendation;
   do not invent blockers or re-ask for already approved work.
+- **One release owner, release trains (Anders, 3 Nov 2026).** Claude owns merging to `main` and dispatching deploys; any other agent (Codex included) pushes its branch or PR and leaves the release to Claude. Changes that are ready ship together in one release train (one CI run, one deploy), not one release per change. Since 13 Nov 2026 merging to `main` deploys by itself (Deploy flow below), so merging is the release decision: no dispatch is needed, and merges made while a deploy runs release together as the newest commit. A repair release accepts the version the last fully accepted repair release left live (deploy.yml `record-accepted`), so a waiting change no longer needs re-pinning after every release; the hand pin in `app/scripts/release-tools.cjs` still counts. Adding or changing a Worker secret or variable in the Cloudflare dashboard ("Add variables and deploy") makes a new live version that no release accepted, so the next repair release stops at "Require the accepted reader"; when that version serves the last accepted bundle unchanged, re-pin it there (9 Nov 2026, Google sign-in secrets).
 - Until Tinct has more than 10 users, deploy-after-verify is the default. After `npm run build` and `npm run verify-bundle` pass, release by merging to `main`: the GitHub Actions deploy workflow (Node 24.13.0) runs the staged release described under Deploy flow. `npm run deploy` from `app/` remains only for the migrations fallback and emergencies. Do not ask first. Skip deploy only if Anders says local-only. Never run raw `wrangler` (deploy, versions, rollback); use the npm scripts. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
 - Do not call Anthropic APIs during development. The production reader chat may use Claude, but development content generation must happen in the agent conversation and be written to files.
-- While Anders assigns content work to Claude, Codex owns code and technical
-  pipelines only. Codex does not author or semantically approve translations,
+- Since 2026-10-08 Claude owns integration and publication as well as book
+  content; Codex is retired. The notes below that address Codex now apply to
+  the agent doing the coding/integration task.
+- While Anders assigns content work to Claude, the coding agent owns code and technical
+  pipelines only. It does not author or semantically approve translations,
   character copy, narration, or other book content.
 - Do not run `generate-editions.cjs` for development work.
 - Keep app, content, and audio work separated as described in `docs/workflow-boundaries.md`.
@@ -140,7 +144,21 @@ Agents and real reader data: do not read production user rows, analytics,
 chats or exports without Anders's approval for that task; test with synthetic
 or own test accounts. Never commit reader data, emails or exports to this
 public repo, and never paste them into outside services. Aggregate numbers
-Anders asks for are fine.
+Anders asks for are fine. Anders's own account is the exception (his standing
+permission, 2026-10-10): his reading figures, profile and stats are not secret
+to agents and may be read whenever useful, as ground truth for checking what
+the app shows. That covers his account only, never another reader's, and his
+data still never goes into the repo or outside services.
+
+Our own testing must never count as readers (since 2026-10-10). A production
+test account is created only with `app/scripts/lib/testAccounts.cjs`
+(`qa-<label>-<random>@test.tinct.app`, `profiles.is_test`), never by signing
+up through the live form with another address. Every script or agent browser
+that reaches production uses `app/scripts/lib/internalTraffic.cjs`:
+`markInternal` on the browser before any navigation (it also adds
+`x-tinct-check: 1` to the page's `/api/` calls) and `checkHeaders` /
+`checkFetch` for direct API calls. `src/scripts.internalTraffic.test.ts`
+fails CI for a script under `app/scripts/` that targets production without it.
 
 ## Verification
 
@@ -156,20 +174,25 @@ After those gates pass, release by merging to `main`; GitHub Actions (Node 24.13
 
 ### Deploy flow (staged release)
 
-`.github/workflows/deploy.yml` runs on every push to `main` (and manually):
+`.github/workflows/deploy.yml` runs on every push to `main` (and manually). **A merge to `main` is the release** (Anders, 13 Nov 2026): while `app/release/shared-reader-rollout.json` is `repair-pending` the push releases as the approved repair of exactly that commit (same accepted-reader pin, exact-SHA and reader-ON checks as a dispatch with `release_phase=repair`, `approved_repair_release=true`, `approved_source_sha=<sha>`, which still works for a re-run by hand); the floor and reader phases stay manual dispatches. Releases are serialized (`deploy-tinct-production`): a started run is never cancelled, and GitHub keeps only the newest waiting run, so a burst of merges releases only the newest commit.
 
-1. `npm test`.
-2. Choose mode. **Direct is the default**: `npm run deploy`, then acceptance on production. The version serving production is recorded first, and if any acceptance step fails after the deploy the workflow runs `npm run rollback` to it automatically (the job still ends red). Staged releases (steps 4–7) run only when requested with `mode=staged`: Cloudflare does not create preview URLs for a Worker with Durable Objects, and Tinct's Worker has four, so the staged path cannot test before promote today. Staged requests still fall back to direct when the Durable Object `migrations` or `app/wrangler.jsonc` changed. A migration change cannot be rolled back across; review it as such.
+0. `gate`: **CI once.** When a `verify` run that passed tested this exact tree (its `ci-summary` uploads `verified-tree-<tree>`; a squash merge of a pull request whose CI ran against the current `main` has the same tree), the deploy job skips its own `npm test`. Build, verify-bundle, the deploy, every acceptance group and the automatic rollback always run. Otherwise a push waits (up to 45 min) for `verify` on its own commit and deploys only if it passed, then runs `npm test` too; a dispatch runs `npm test` at once. A push whose commit is no longer the head of `main` cancels its own run. The run summary names the path taken.
+1. `npm test` (skipped on the CI-once path).
+2. Choose mode. **Direct is the default**: `npm run deploy`, then acceptance on production (the check groups run side by side in their own jobs, on the deploy job's exact `dist/`; PR CI runs only the suites a change needs, see `scripts/ci-suites.mjs`, and `ci-summary` is the one check to wait for). The version serving production is recorded first, and if any acceptance step fails after the deploy the workflow runs `npm run rollback` to it automatically (the job still ends red). Staged releases (steps 4–7) run only when requested with `mode=staged`: Cloudflare does not create preview URLs for a Worker with Durable Objects, and Tinct's Worker has four, so the staged path cannot test before promote today. Staged requests still fall back to direct when the Durable Object `migrations` or `app/wrangler.jsonc` changed. A migration change cannot be rolled back across; review it as such.
 3. Record the version now serving production (used for rollback).
 4. `npm run release:upload`: build, verify-bundle, clean-main check, then `wrangler versions upload`. The new version serves **no** traffic and gets a preview URL (`https://<8-char-version>-tinct.<subdomain>.workers.dev`).
 5. Wait until the preview serves the exact built bundle, then run the pre-promote checks against it. Acceptance scripts read the target from `TINCT_ORIGIN` (default `https://tinct.app`), so one variable retargets them.
    Pre-promote: `smoke-test.sh`, Android publication, Omarchy, inline audio loading, reader panels, reader feedback, book transition, Shakespeare layout, hyphenation, Lighthouse and Symposium publication. These exercise the Worker, assets and reader, which the preview shares with production (same bindings, secrets and data).
 6. Any failure before promotion stops the job. Production is untouched.
 7. `npm run release:promote -- <version-id>` sends 100% of traffic to the version; the job waits for production to serve the new bundle.
-8. Post-promote checks against `https://tinct.app`: smoke test, brand metadata (canonical URLs name the production host), production sign-in (Supabase redirect allow-list, cookies), Grok microphone recovery (only with `[reader-voice-qa]` in the commit message), featured preview and public library (hardcoded to production).
+8. Post-promote checks against `https://tinct.app`: smoke test, brand metadata (canonical URLs name the production host), production sign-in (Supabase redirect allow-list, cookies), Grok microphone recovery (only with `[reader-voice-qa]` in the commit message) and public library (hardcoded to production).
 9. If any step after promotion fails, the job runs `npm run rollback -- <previous-version-id>` and still finishes red. Fix forward and push again.
 
 Preview URLs are enabled in code (`"workers_dev": true, "preview_urls": true` in `app/wrangler.jsonc`), but Cloudflare returns none for a Worker with Durable Objects (confirmed on the first staged run, 2026-09-30). A staged request that gets no preview URL warns and deploys directly (after restoring the files the upload's build regenerated), so releases never stall. Staged becomes useful if the Durable Objects move to their own Worker.
+
+### Cache tags
+
+`app/public/lab/addbook` (the margin reader and Add a book) is the only source of those pages; the old `addbooks/web/src` mirror is gone. Its `?v=` tags are all the literal `?v=__TINCT_BUILD__`: never hand-bump them. `npm run build` (`scripts/stamp-lab-entry-tags.cjs`) replaces it with the build's `index-*.js` hash, references to built `/lab` entries get content-derived tags, and `verify-bundle` fails if a placeholder is left in `dist/`. Other `/lab` files (library_2, `tinct-ui.css`) still carry hand tags.
 
 ### Rollback
 
@@ -192,7 +215,7 @@ Do not ask Anders to deploy or to verify production. When app/lab work is done:
 1. **Tests** — `npm test` (or focused `src/lab/` when lab-only).
 2. **Build gates** — `npm run build` + `npm run verify-bundle` from `app/`.
 3. **Deploy** — merge to `main` (GitHub Actions staged release). Use `npm run deploy` from `app/` only for the migrations fallback or an emergency, when the Cloudflare token is in the environment. Do not stop at “PR ready”; ship it.
-4. **Confirm deploy** — wait for the `deploy` workflow to succeed (pre-promote and post-promote checks green, no rollback step run). Ignore non-blocking **Workers Builds: tinct** Cloudflare dashboard failures when GitHub `deploy` passed.
+4. **Confirm deploy** — wait for the `deploy` workflow the merge started to succeed (every `checks` group green, no rollback step run; a run cancelled as superseded deployed nothing, so follow the newer one). Ignore non-blocking **Workers Builds: tinct** Cloudflare dashboard failures when GitHub `deploy` passed.
 5. **Production verify on tinct.app** — open `https://tinct.app/reader` (mobile viewport ~390×844; `?layout=phone|desktop` forces a layout), not localhost only. Confirm:
    - JS bundle filename in HTML/Network matches the new `assets/index-*.js` from the deploy.
    - The specific change you shipped (e.g. Genesis 1 page 1: no mid-sentence cut, ink clears pagination bar).
@@ -207,8 +230,12 @@ Talk runs on xAI Grok native speech-to-speech (`grok-voice-latest`, voice `altai
 over one browser WebSocket; see `docs/voice-grok-2026-09-18.md`.
 
 - Worker secret `XAI_API_KEY` mints single-use client secrets at
-  `/api/voice-session` (signed-in, charged) and `/api/lab-voice-session`
-  (guest, rate limited). Never put the key in browser assets or logs.
+  `/api/voice-session` (signed-in, charged). A signed-out guest's Talk trial
+  (one a day per IP, two minutes, reserved against the guest AI ceiling) gets
+  a ticket from `/api/lab-voice-session` for the Worker relay
+  `/api/lab-voice-relay`, which connects to xAI with the key and closes the
+  call at two minutes (`app/src/worker/lib/talkTrial.ts`). Never put the key in
+  browser assets or logs.
 - The runtime prompt is `GROK_VOICE_INSTRUCTIONS` in
   `app/src/voice/grokConfig.ts`. Keep it minimal; add a constraint only for a
   demonstrated issue. Reference text (position, excerpt, recent turns) is data
@@ -226,7 +253,9 @@ over one browser WebSocket; see `docs/voice-grok-2026-09-18.md`.
 The authoritative runtime and approved next rollout are documented separately in
 [Audio architecture](docs/audiobook-architecture-2026-09-21.md). The Grok implementation and release acceptance are recorded in
 [Grok narration release](docs/grok-narration-2026-09-23.md). The production
-configuration selects Grok for English narration; historical Google/Bella
+configuration selects Grok for English narration and, since 2026-11-06, Danish
+narration of the offered Danish editions (streamed only, `language: "da"`; see the
+architecture doc's voice contract); historical Google/Bella
 paths remain rollback code and must not be selected as a failed-Grok fallback.
 
 - Accepted text repairs ship with required character-card compatibility. Legacy
@@ -252,7 +281,7 @@ paths remain rollback code and must not be selected as a failed-Grok fallback.
 
 ## Public URLs
 
-Readers only ever see `/` and `/library` (the library), `/reader`, `/sign-in`, `/featured` (admin preview), `/read/{bookId}` (SEO pages), `/admin/metrics`, and API/asset paths. A book link (`/read/{bookId}`, the URL that is shared, or `/library?book={bookId}`) shows that book in the library hero from the first paint, or in focus on a returning reader's desk, and opens nothing by itself; only `view=book-detail` (in-app links) opens its introduction. The Worker builds `/read/{bookId}` from the library page plus the generated `book.html`'s search head and text (`app/src/worker/lib/bookLibraryPage.ts`); signed-in readers are sent to `/library?book={bookId}`. Never link, redirect, `location.assign` or pass a return URL to an asset-folder page such as `/lab/library_2/`, `/lab/sign-in/` or `/lab/phone`. The Worker serves `/library`, `/sign-in` and `/featured` from static assets with the URL unchanged, and answers the old `/lab` page URLs with a 308 to the canonical page (`legacyLabPageRedirect` in `app/src/lab/labRoute.ts`). `/reader?layout=phone|desktop` forces a layout for QA. The `/lab` namespace is free for future experiments. Supabase OAuth/email callbacks still name `/lab/sign-in` (the redirect the Worker forwards); move them to `/sign-in` once that URL is on Supabase's redirect allow-list.
+Readers only ever see `/` and `/library` (the library), `/reader`, `/sign-in`, `/read/{bookId}` (SEO pages), `/admin/metrics`, `/byob` (reading your own books) and `/preparing` (adds a text or file kept on /byob after sign-in, then opens the reader; 5 Nov 2026), `/your-reading` (the reader's own reading time; served only while the Worker var `SOCIAL_READING_TIME` is `"1"`, otherwise left to the usual 404), and API/asset paths. A book link (`/read/{bookId}`, the URL that is shared, or `/library?book={bookId}`) shows that book in the library hero from the first paint, or in focus on a returning reader's desk, and opens nothing by itself; only `view=book-detail` (in-app links) opens its introduction. The Worker builds `/read/{bookId}` from the library page plus the generated `book.html`'s search head and text (`app/src/worker/lib/bookLibraryPage.ts`); signed-in readers are sent to `/library?book={bookId}`. Never link, redirect, `location.assign` or pass a return URL to an asset-folder page such as `/lab/library_2/`, `/lab/sign-in/` or `/lab/phone`. One exception: `/lab/addbook/` is no longer a destination (2026-10-08: its `js/route.js` sends every visit to My shelf, `/library#my-shelf`, where "My private uploads" lists a reader's own books and the + adds one in place); it remains only as the PDF reader for one kept book (`/lab/addbook/?open=<key>`), so the sign-in page still accepts it as a return target (`labSignInReturn.ts`). Link a reader's own books to My shelf (`USER_BOOKS_SHELF_URL`), never to Add a book. The Worker serves `/library` and `/sign-in` from static assets with the URL unchanged, and answers the old `/lab` page URLs with a 308 to the canonical page (`legacyLabPageRedirect` in `app/src/lab/labRoute.ts`). `/reader?layout=phone|desktop` forces a layout for QA. The `/lab` namespace is free for future experiments. Supabase OAuth/email callbacks still name `/lab/sign-in` (the redirect the Worker forwards); move them to `/sign-in` once that URL is on Supabase's redirect allow-list. Google sign-in can instead run on tinct.app (`app/src/lab/googleSignIn.ts`, `app/src/worker/routes/googleAuth.ts`, 9 Nov 2026): `/auth/google/callback` is Google's redirect_uri and only redirects to `/sign-in?callback=google` with the answer in the fragment; it is on only while the Worker secrets `GOOGLE_OAUTH_CLIENT_ID` and `GOOGLE_OAUTH_CLIENT_SECRET` are both set, and Supabase's own Google flow is used otherwise.
 
 The legacy React reader (`app/src/App.tsx`, `useReadingPosition`, `useReadingLog`, `readerSession`) was deleted on 2026-09-30. The live reader is `app/src/lab/LabApp.tsx` at `/reader`. The invariants below are the behavioural contract the old code enforced; they now apply to the lab position and sync code.
 
@@ -292,7 +321,10 @@ For non-trivial bugs:
 
 ## Product And UX Notes
 
+- **Own books: same experience as the library (Anders, 11 Nov 2026).** PDFs, EPUBs and pasted text must feel the same to the reader as Tinct library books: same primer structure, chapter pills, cards, t menu, settings and gestures. A feature built for one is built for the other in the same change, or the gap is named in the report. Expected differences only: library books carry extra editions (Modern English, translations, narration); a PDF opens as its original pages by default. A separate own-book variant of a feature (a different primer, a different card) is a bug to remove, not a design.
+
 - Tinct should feel warm, literary, clean, and focused.
+- Design system: build UI from `app/public/lab/tinct-ui.css` (`tui-` classes, `--tui-*` tokens); rules in `docs/design-system.md`, live reference at `/lab/design-system.html`.
 - Anders prefers faithful previews of the actual result. Before presenting a
   faithful design preview, inspect the current phone and desktop components,
   styles and relevant state; preserve their surrounding copy, controls and

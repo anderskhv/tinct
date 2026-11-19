@@ -5,6 +5,7 @@
  * reports are keepalive fetches that never await, throw or block anything.
  */
 import { apiUrl } from './apiUrl'
+import { internalTrafficHeaders } from './internalTraffic'
 
 type Post = (path: string, body: object, token: string | null | undefined) => void
 
@@ -13,7 +14,7 @@ const defaultPost: Post = (path, body, token) => {
     if (typeof fetch !== 'function') return
     void fetch(apiUrl(path), {
       method: 'POST', keepalive: true, body: JSON.stringify(body),
-      headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+      headers: { 'Content-Type': 'application/json', ...internalTrafficHeaders(), ...(token ? { Authorization: `Bearer ${token}` } : {}) },
     }).catch(() => {})
   } catch { /* the ledger never breaks the feature */ }
 }
@@ -25,23 +26,37 @@ export function setUsageReportTransport(next: Post | null): void { post = next ?
 /** Connected Talk time (signed-in only: Talk requires an account). */
 export function reportTalkSeconds(input: { seconds: number; authToken?: string | null; bookId?: string | null }): void {
   if (!input.authToken || !(input.seconds >= 1)) return
-  post('/api/voice-usage', { seconds: Math.round(input.seconds), ...(input.bookId ? { bookId: input.bookId } : {}) }, input.authToken)
+  // A reader's own book (`userbook-…`) is reported without its id.
+  const bookId = input.bookId && !input.bookId.startsWith('userbook-') ? input.bookId : null
+  post('/api/voice-usage', { seconds: Math.round(input.seconds), ...(bookId ? { bookId } : {}) }, input.authToken)
 }
 
-export const LISTEN_REPORT_EVERY_SECONDS = 60
+/**
+ * Listened seconds go up in batches of about five minutes (one ai_usage_events
+ * row each), and at once on pause, book change, hide and pagehide, so the
+ * summed seconds are the same as with smaller batches.
+ */
+export const LISTEN_REPORT_EVERY_SECONDS = 5 * 60
+/** The most one report may carry: the Worker's NARRATION_LISTEN_MAX_SECONDS. */
+export const LISTEN_REPORT_MAX_SECONDS = 300
 
 /**
- * Accumulates listened seconds per book and reports them in batches of about a
- * minute, on pause, on book change and when the page is hidden.
+ * Accumulates listened seconds per book and reports them in batches of about
+ * five minutes, on pause, on book change and when the page is hidden.
  */
 export function createListenReporter(getToken: () => string | null | undefined) {
   let bookId: string | null = null
   let pending = 0
   const flush = () => {
-    const seconds = Math.round(pending)
+    let seconds = Math.round(pending)
     pending = 0
     if (seconds < 1 || !bookId) return
-    post('/api/narration/listen', { bookId, seconds }, getToken())
+    // Never more than the Worker credits per report: a larger batch is split.
+    while (seconds > 0) {
+      const part = Math.min(seconds, LISTEN_REPORT_MAX_SECONDS)
+      post('/api/narration/listen', { bookId, seconds: part }, getToken())
+      seconds -= part
+    }
   }
   return {
     /** Add playback time for a book; switching books reports the previous one first. */

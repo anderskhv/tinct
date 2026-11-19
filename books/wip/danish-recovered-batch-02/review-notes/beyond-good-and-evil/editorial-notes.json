@@ -1,0 +1,35 @@
+[
+  {
+    "type": "source-completeness",
+    "finding": "Full repository original-en token comparison with Gutenberg Zimmern text: all body text identical normalized, including combined aphorism slots. Only final slot11:31is Gutenberg end marker absent from body extraction. Do not treat it as Nietzsche verse."
+  },
+  {
+    "type": "German-witness",
+    "finding": "Full NietzscheSource critical German downloaded and compared with independent ProjektGutenberg German. All differences enumerated, no contiguous discrepancy >8words after verse div.l extraction. Manual per-section evaluation ongoing. Critical source verse must include div.l, not only div.p."
+  },
+  {
+    "type": "slot-map",
+    "finding": "Aphorisms237/237a merged into preceding236slot;278merged into277;281and282merged into280. Also65a,73a. Preserve exact slots but explicitly review all subunits."
+  },
+  {
+    "type": "emphasis",
+    "finding": "English transcription capitalizes original emphasis, retainedDAmostly erased emphasis. Restore semantic emphasis using underscores from German critical text; do not rely on marker-count equality to oldDA."
+  },
+  {
+    "type": "translator-gloss",
+    "slots": [
+      "2:2",
+      "2:3",
+      "2:8"
+    ],
+    "finding": "Untranslated Latin/French preserved with bracketed original Danish explanation; 2:8two Latin verse lines restored and bracketed translation supplied."
+  },
+  {
+    "type": "terminology",
+    "finding": "Trieb→drift; Erkenntnis→erkendelse; Urtheil→dom; Schein→skin; Wahrhaftigkeit→sandfærdighed; Geist→ånd. Preserve provocative/historical assertions as author claims."
+  },
+  {
+    "type": "opening-fidelity",
+    "finding": "1:1restores German long-lasting vs tiresome, Geldmoneyvsgold, GeistnotSeele; no silent correction of German gunpowder claim."
+  }
+]

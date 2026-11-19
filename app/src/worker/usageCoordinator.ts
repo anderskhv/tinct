@@ -32,6 +32,15 @@ export class UsageCoordinator extends DurableObject {
     return outcome.allowed
   }
 
+  /**
+   * Give back one hit counted in the current window (a guest Talk trial whose
+   * provider never connected). Never below zero; a window that has already
+   * ended is left alone.
+   */
+  unhit(): void {
+    this.ctx.storage.sql.exec('UPDATE request_window SET count=MAX(0, count-1) WHERE id=1 AND reset_at>?', Date.now())
+  }
+
   /** Reserve `units` against a daily limit. `false` = the reservation would exceed it. */
   reserve(day: string, units: number, dailyLimit: number): boolean {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !Number.isSafeInteger(units) || units <= 0 || !Number.isSafeInteger(dailyLimit)) return false
@@ -41,6 +50,12 @@ export class UsageCoordinator extends DurableObject {
       this.ctx.storage.sql.exec('INSERT INTO spend VALUES (?, ?) ON CONFLICT(day) DO UPDATE SET units=units+excluded.units', day, units)
       return true
     })
+  }
+
+  /** Give back `units` reserved on `day` for a request that never ran. Never below zero. */
+  release(day: string, units: number): void {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !Number.isSafeInteger(units) || units <= 0) return
+    this.ctx.storage.sql.exec('UPDATE spend SET units=MAX(0, units-?) WHERE day=?', units, day)
   }
 
   usage(): { day: string; units: number }[] {

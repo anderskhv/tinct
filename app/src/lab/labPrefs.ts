@@ -4,16 +4,20 @@ import { BIBLE } from '../data/bookRegistry'
 import { isEditionWithheld, migrateWithheldEdition } from '../data/withheldEditions'
 import { LAB_COMPARE_EDITION_KEY, LAB_EDITION_KEY } from './labSource'
 import { resolveAudioEditionKey } from '../utils/audioEditionSelection'
+import { clampTalkSpeed } from './labTalkSpeed'
 
 /** Lab library route. Full navigation, never /app or a book id. */
 export const LAB_LIBRARY_URL = '/library'
 /**
- * A book's introduction in the library (library_2 opens the book on its
- * introduction tab). `preview` is an optional `?name=value` query of preview
+ * A book's introduction in the library: library_2 opens the 3D book on its
+ * introduction (view=book-detail). `preview` is an optional `?name=value` query of preview
  * flags to carry along, such as `?voiceTrial=mini`.
  */
 export function labLibraryIntroductionUrl(bookId: string, editionKey?: string, preview = ''): string {
-  const params = new URLSearchParams({ book: bookId })
+  // view=book-detail opens the 3D book on its introduction; without it the library only
+  // features the book (6 Nov 2026: Contents' "Introduction" landed on the hero, whose Continue
+  // went straight back into the reader).
+  const params = new URLSearchParams({ book: bookId, view: 'book-detail' })
   if (editionKey) params.set('edition', editionKey)
   new URLSearchParams(preview).forEach((value, name) => { if (!params.has(name)) params.set(name, value) })
   return `${LAB_LIBRARY_URL}?${params}`
@@ -22,18 +26,24 @@ export function labLibraryIntroductionUrl(bookId: string, editionKey?: string, p
 export function labSignInUrl(returnTo: string = LAB_LIBRARY_URL): string {
   return `/sign-in?returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
 }
-export function labAccountUrl(returnTo: string = LAB_LIBRARY_URL): string {
-  return `/sign-in?mode=account&returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
-}
 /** Library defaults, for surfaces with no reader to return to. */
 export const LAB_SIGN_IN_URL = labSignInUrl()
-export const LAB_ACCOUNT_URL = labAccountUrl()
 
 export const LAB_PREFS_KEY = 'tinct-lab-prefs'
 
 export const LAB_MIN_FONT_SIZE = 0.8
 export const LAB_MAX_FONT_SIZE = 2.2
 export const LAB_FONT_SIZES = [LAB_MIN_FONT_SIZE, 1.0, 1.2, 1.5, 1.8, LAB_MAX_FONT_SIZE] as const
+/**
+ * The phone's text size for a reader who never set one (Anders, 14 Oct 2026:
+ * "Phone text 1.0"): about 19.5px Literata. 1.3 set ~25px, five words a line.
+ */
+export const LAB_PHONE_DEFAULT_FONT_SIZE = 1.0
+/**
+ * The default every record stored before 14 Oct 2026. A stored size without
+ * `fontSizeExplicit` that equals it was never chosen by the reader.
+ */
+export const LAB_LEGACY_DEFAULT_FONT_SIZE = 1.3
 export const LAB_FONT_FAMILIES: FontFamily[] = ['garamond', 'baskerville', 'sourceserif']
 
 /**
@@ -69,7 +79,18 @@ export function labReadingFont(family: LabFontFamily | null): LabFontFamily {
   return family ?? LAB_DEFAULT_FONT
 }
 
-export type LabTheme = 'system' | 'light' | 'dark' | 'book'
+export type LabTheme = 'system' | 'light' | 'white' | 'dark' | 'book'
+
+/**
+ * White (9 Nov 2026) is Light's page on pure white paper. It is stored as
+ * `theme: 'light'` plus `paper: 'white'`, so a client that predates it (a
+ * stale tab, a cached bundle, the PDF viewer's own reader) reads Light rather
+ * than an unknown theme, which those clients treat as Match system.
+ */
+export function labStoredTheme(theme: LabTheme): { theme: Exclude<LabTheme, 'white'>; paper?: 'white' } {
+  return theme === 'white' ? { theme: 'light', paper: 'white' } : { theme }
+}
+
 export type LabTextAlignment = 'left' | 'justify'
 export type LabLineSpacing = 'compact' | 'comfortable' | 'open' | number
 export type LabMargins = 'narrow' | 'medium' | 'wide' | number
@@ -81,6 +102,13 @@ export interface LabAppearancePrefs {
   /** `null` is "never chosen" — see `labReadingFont`. */
   fontFamily: LabFontFamily | null
   fontSize: number
+  /**
+   * True once the reader set the text size themselves. Until then the
+   * desktop reads at `labDesktopDefaultFontSize` for its window and the
+   * phone at `LAB_PHONE_DEFAULT_FONT_SIZE`, rather than at `fontSize` (see
+   * `labReadingFontSize`).
+   */
+  fontSizeExplicit?: boolean
   alignment: LabTextAlignment
   alignmentExplicit?: boolean
   shakespeareLayout?: 'verse' | 'flowing'
@@ -90,6 +118,14 @@ export interface LabAppearancePrefs {
   progressDisplay: ProgressDisplay
 }
 
+/**
+ * The librarian margin tab (2026-10-07) was removed on 2026-10-08: the
+ * librarian opens only from the menu's Librarian row. Its stored keys
+ * (`librarianTab`, `librarianTabOpens`, `librarianTabLongPress` in shared,
+ * `librarianTabDock` per layout) are ignored on read and dropped on the next
+ * write; nothing else depends on them.
+ */
+
 export interface LabSharedPrefs {
   primaryEdition: string
   compareEdition: string
@@ -97,7 +133,19 @@ export interface LabSharedPrefs {
   /** Omitted in older preferences: narration follows the primary edition. */
   audioFollowsPrimary?: boolean
   audioSpeed: number
+  /**
+   * Talk's speaking speed (xAI `audio.output.speed`, 0.7-1.5). Stored only
+   * once the reader changed it; absent reads as 1.
+   */
+  talkSpeed?: number
+  /**
+   * Compare is on by default (Anders, 2026-10-06): the AI/modern edition
+   * reads, the human edition sits beside it. Only a reader's own choice,
+   * marked by `compareChosen`, turns it off.
+   */
   compareOpen: boolean
+  /** True once the reader chose Compare's edition or None themselves. */
+  compareChosen?: boolean
   /**
    * Fish Audio narration pilot (docs/fish-audio-pilot-2026-09-18.md). Off
    * unless the reader opted in with `?narration=fish` on a reader route; the
@@ -117,9 +165,11 @@ export interface LabSharedPrefs {
   voicePersonaChosen?: boolean
 }
 
+type LabStoredShared = LabSharedPrefs
+
 export interface LabStoredPrefs {
   version: 2
-  shared: LabSharedPrefs
+  shared: LabStoredShared
   phone: LabAppearancePrefs
   desktop: LabAppearancePrefs
   /**
@@ -160,7 +210,7 @@ export function markLabSeenOnce(what: string, accountId: string | null | undefin
     const current = readLabStoredPrefs()
     if (current.seenOnce[key] === true) return
     const next: LabStoredPrefs = { ...current, seenOnce: { ...current.seenOnce, [key]: true } }
-    localStorage.setItem(LAB_PREFS_KEY, JSON.stringify(next))
+    localStorage.setItem(LAB_PREFS_KEY, serializeLabStoredPrefs(next))
   } catch {
     /* quota / private mode */
   }
@@ -180,7 +230,8 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   darkMode: false,
   theme: 'system',
   fontFamily: null,
-  fontSize: 1.3,
+  fontSize: LAB_PHONE_DEFAULT_FONT_SIZE,
+  fontSizeExplicit: false,
   alignment: 'justify',
   alignmentExplicit: false,
   shakespeareLayout: 'verse',
@@ -188,7 +239,7 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   margins: 'medium',
   paragraphSpacing: 'standard',
   progressDisplay: { metric: 'page', scope: 'chapter' },
-  compareOpen: false,
+  compareOpen: true,
   voicePersona: 'male',
 }
 
@@ -287,7 +338,13 @@ function isFamily(value: unknown): value is LabFontFamily {
 }
 
 function isTheme(value: unknown): value is LabTheme {
-  return value === 'system' || value === 'light' || value === 'dark' || value === 'book'
+  return value === 'system' || value === 'light' || value === 'white' || value === 'dark' || value === 'book'
+}
+
+/** The stored theme, White read from Light plus its paper (see `labStoredTheme`). */
+function storedLabTheme(src: Record<string, unknown>): LabTheme | null {
+  if (!isTheme(src.theme)) return null
+  return src.theme === 'light' && src.paper === 'white' ? 'white' : src.theme
 }
 
 function parseAppearance(
@@ -303,11 +360,13 @@ function parseAppearance(
     ? Math.max(LAB_MIN_FONT_SIZE, Math.min(LAB_MAX_FONT_SIZE, src.fontSize))
     : fallback.fontSize
   return {
-    theme: isTheme(src.theme)
-      ? src.theme
-      : (legacy && Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : fallback.theme),
+    theme: storedLabTheme(src)
+      ?? (legacy && Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : fallback.theme),
     fontFamily: isFamily(src.fontFamily) ? src.fontFamily : fallback.fontFamily,
     fontSize,
+    // Older records stored the size on every write. The old default (1.3) is
+    // read as never chosen; any other stored size was the reader's own.
+    fontSizeExplicit: typeof src.fontSizeExplicit === 'boolean' ? src.fontSizeExplicit : typeof src.fontSize === 'number' && src.fontSize !== LAB_LEGACY_DEFAULT_FONT_SIZE,
     alignment: src.alignment === 'left' || src.alignment === 'justify' ? src.alignment : fallback.alignment,
     // Old records did not distinguish automatic writes from user choices.
     // Preserve their alignment rather than risk erasing an explicit choice.
@@ -338,7 +397,7 @@ function parseSeenOnce(raw: unknown): Record<string, boolean> {
   return seen
 }
 
-function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
+function parseShared(raw: unknown, fallback: LabSharedPrefs): LabStoredShared {
   const src = raw && typeof raw === 'object' ? raw as Record<string, unknown> : {}
   const parsedSpeed = typeof src.audioSpeed === 'number' && Number.isFinite(src.audioSpeed)
     ? Math.max(0.5, Math.min(3, Math.round(src.audioSpeed * 100) / 100))
@@ -355,8 +414,12 @@ function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
       : fallback.audioEdition,
     audioFollowsPrimary: src.audioFollowsPrimary !== false,
     audioSpeed: parsedSpeed,
+    ...(typeof src.talkSpeed === 'number' && Number.isFinite(src.talkSpeed) ? { talkSpeed: clampTalkSpeed(src.talkSpeed) } : {}),
     ...(src.audiobookVoice === 'orion' || src.audiobookVoice === 'eve' ? { audiobookVoice: src.audiobookVoice } : {}),
-    compareOpen: typeof src.compareOpen === 'boolean' ? src.compareOpen : fallback.compareOpen,
+    // Before 2026-10-06 Compare was off by default and that default was stored
+    // as if chosen; only a marked choice keeps Compare off now.
+    compareOpen: src.compareChosen === true && typeof src.compareOpen === 'boolean' ? src.compareOpen : fallback.compareOpen,
+    ...(src.compareChosen === true && typeof src.compareOpen === 'boolean' ? { compareChosen: true } : {}),
     voicePersona: src.voicePersonaChosen === true && (src.voicePersona === 'male' || src.voicePersona === 'female')
       ? src.voicePersona
       : fallback.voicePersona,
@@ -387,6 +450,12 @@ const DEFAULT_LAB_SHARED: LabSharedPrefs = {
   audioSpeed: DEFAULT_LAB_PREFS.audioSpeed,
   compareOpen: DEFAULT_LAB_PREFS.compareOpen,
   voicePersona: DEFAULT_LAB_PREFS.voicePersona,
+}
+
+/** The stored JSON: each profile's theme as `labStoredTheme` writes it. */
+export function serializeLabStoredPrefs(prefs: LabStoredPrefs): string {
+  const profile = (appearance: LabAppearancePrefs) => ({ ...appearance, ...labStoredTheme(appearance.theme) })
+  return JSON.stringify({ ...prefs, phone: profile(prefs.phone), desktop: profile(prefs.desktop) })
 }
 
 export function parseLabStoredPrefs(raw: unknown): LabStoredPrefs {
@@ -450,6 +519,7 @@ export function writeLabPrefs(prefs: LabPrefs, profile: LabAppearanceProfile = '
       theme: prefs.theme,
       fontFamily: prefs.fontFamily,
       fontSize: prefs.fontSize,
+      fontSizeExplicit: prefs.fontSizeExplicit ?? (prefs.fontSize !== DEFAULT_LAB_PREFS.fontSize && prefs.fontSize !== LAB_LEGACY_DEFAULT_FONT_SIZE),
       alignment: prefs.alignment,
       alignmentExplicit: prefs.alignmentExplicit ?? true,
       shakespeareLayout: prefs.shakespeareLayout ?? 'verse',
@@ -465,7 +535,7 @@ export function writeLabPrefs(prefs: LabPrefs, profile: LabAppearanceProfile = '
       desktop: profile === 'desktop' ? appearance : current.desktop,
       seenOnce: current.seenOnce,
     }
-    localStorage.setItem(LAB_PREFS_KEY, JSON.stringify(next))
+    localStorage.setItem(LAB_PREFS_KEY, serializeLabStoredPrefs(next))
   } catch {
     /* quota / private mode */
   }
@@ -536,10 +606,25 @@ const READER_WORDS_PER_PAGE_KEY = 'tinct:reader-words-per-page'
 /** Words per full page last measured on this device for one layout and window
  * size, so a reader who opens straight onto a one-page chapter still gets a
  * book page count that a full page produced. */
+/**
+ * Whether a chapter can measure words per page: prose, its paragraphs averaging twelve words or
+ * more. A printed contents, a list of dates or a title page (three words a line) measured a few
+ * words a page and read 25,134 pages for a 76,000-word book (Memoirs of Victor Hugo, 2026-10-12).
+ */
+export function proseChapter(paragraphs: readonly unknown[]): boolean {
+  const texts = paragraphs.filter((text): text is string => typeof text === 'string' && text.trim().length > 0)
+  if (!texts.length) return false
+  const words = texts.reduce((total, text) => total + (text.match(/\S+/g)?.length ?? 0), 0)
+  return words / texts.length >= 12
+}
+
+/** Fewer words than this on a full page is a mis-measure (see proseChapter), never kept or read back. */
+export const MIN_WORDS_PER_PAGE = 20
+
 export function readStoredWordsPerPage(layout: string): number | null {
   try {
     const stored = JSON.parse(localStorage.getItem(READER_WORDS_PER_PAGE_KEY) || 'null')
-    return stored?.layout === layout && Number.isFinite(stored.wordsPerPage) && stored.wordsPerPage > 0 ? stored.wordsPerPage : null
+    return stored?.layout === layout && Number.isFinite(stored.wordsPerPage) && stored.wordsPerPage >= MIN_WORDS_PER_PAGE ? stored.wordsPerPage : null
   } catch {
     return null
   }
@@ -556,6 +641,42 @@ export function storeReaderProgressMode(bookId: string, mode: LabReaderProgressM
     const modes = JSON.parse(localStorage.getItem(READER_PROGRESS_MODE_KEY) || '{}')
     localStorage.setItem(READER_PROGRESS_MODE_KEY, JSON.stringify({ ...(modes && typeof modes === 'object' ? modes : {}), [bookId]: mode }))
   } catch { /* a device preference only */ }
+}
+
+const READER_COMPARE_VIEW_KEY = 'tinct:reader-compare-view'
+
+/** Whether the reader last turned Compare's view on or off for this book in this layout, if they ever did. */
+export function readStoredCompareView(profile: LabAppearanceProfile, bookId: string): boolean | null {
+  try {
+    const on = JSON.parse(localStorage.getItem(READER_COMPARE_VIEW_KEY) || '{}')?.[`${profile}:${bookId}`]
+    return typeof on === 'boolean' ? on : null
+  } catch {
+    return null
+  }
+}
+
+export function storeCompareView(profile: LabAppearanceProfile, bookId: string, on: boolean): void {
+  try {
+    const views = JSON.parse(localStorage.getItem(READER_COMPARE_VIEW_KEY) || '{}')
+    localStorage.setItem(READER_COMPARE_VIEW_KEY, JSON.stringify({ ...(views && typeof views === 'object' ? views : {}), [`${profile}:${bookId}`]: on }))
+  } catch { /* a device preference only */ }
+}
+
+/**
+ * Whether a book opens with Compare's view on (Anders, 2026-10-14, option B):
+ * a book this device has no place for opens on its main edition in every
+ * layout, with the compare edition chosen (on a phone, behind Book settings).
+ * The reader's own toggle for the book wins; a book already read keeps the
+ * view its saved place was left in.
+ */
+export function initialLabCompareView(args: {
+  profile: LabAppearanceProfile
+  stored: boolean | null
+  savedMode: 'read' | 'compare' | null
+}): boolean {
+  if (args.stored !== null) return args.stored
+  if (args.savedMode) return args.savedMode === 'compare'
+  return false
 }
 
 function labPageNumber(value: number): string {
@@ -656,6 +777,12 @@ export function labBookPageEstimate(input: {
   chapterWeights: LabBookPageWeight[]
   wordsPerPage: number
   bookWordCount?: number
+  /**
+   * The book's page count as first shown in this layout on this visit: held, so the
+   * count never moves under the reader at a chapter change (the page before and after
+   * the current chapter are estimated, its own pages counted; Anders, 16 Oct 2026).
+   */
+  heldTotalPages?: number | null
 }): LabBookPageEstimate {
   const weights = labChapterWordWeights(input.chapterWeights, input.bookWordCount)
   const totalWords = weights.reduce((total, chapter) => total + chapter.wordCount, 0)
@@ -680,8 +807,9 @@ export function labBookPageEstimate(input: {
 
   const pagesBefore = Math.max(0, Math.round(before / capacity))
   const pagesAfter = Math.max(0, Math.round(after / capacity))
-  const page = pagesBefore + currentPage
-  const totalPages = pagesBefore + chapterPages + pagesAfter
+  const held = input.heldTotalPages
+  const totalPages = typeof held === 'number' && Number.isFinite(held) && held >= 1 ? Math.round(held) : pagesBefore + chapterPages + pagesAfter
+  const page = Math.min(totalPages, pagesBefore + currentPage)
   return { page, totalPages, percent: clampPercent(page, totalPages), honest: true }
 }
 
@@ -699,6 +827,8 @@ export function labReaderProgressLabel(input: {
   /** Null until a full page has been measured in this layout. */
   wordsPerPage: number | null
   bookWordCount?: number
+  /** See labBookPageEstimate. */
+  heldTotalPages?: number | null
   /** Retained for callers that still pass it; the book page is measured, not word-summed. */
   chapterWordsRead?: number
 }): string {
@@ -724,12 +854,37 @@ export function labReaderProgressLabel(input: {
     chapterWeights: input.chapterWordCounts,
     wordsPerPage: input.wordsPerPage,
     bookWordCount: input.bookWordCount,
+    heldTotalPages: input.heldTotalPages,
   })
   return `${labPageNumber(estimate.page)} / ${labPageNumber(estimate.totalPages)} of book \u00b7 ${estimate.percent}%`
 }
 
 export function editionLabelFor(key: string, editions: Edition[]): string {
   return editions.find(edition => edition.key === key)?.label || key
+}
+
+/**
+ * The desktop text size for a reader who never set one, for a window
+ * `viewportWidth` CSS pixels wide: about 68 characters a line in the default
+ * face (Literata) in each leaf of the spread, measured at 1280-1920px (Oct
+ * 2026: 1.3 everywhere set ~51 characters at 1280 and ~58 at 1440). In steps
+ * of the size slider (0.1), from 1.0 (1280px and narrower) to 1.4.
+ */
+export const LAB_DESKTOP_FONT_SIZE_RANGE = [1.0, 1.4] as const
+export function labDesktopDefaultFontSize(viewportWidth: number): number {
+  if (!(viewportWidth > 0)) return DEFAULT_LAB_PREFS.fontSize
+  const size = Math.round(viewportWidth * 0.00077 * 10) / 10
+  return Math.max(LAB_DESKTOP_FONT_SIZE_RANGE[0], Math.min(LAB_DESKTOP_FONT_SIZE_RANGE[1], size))
+}
+
+/**
+ * The size the reader reads at: their own once chosen; until then the
+ * window's size on the desktop and `LAB_PHONE_DEFAULT_FONT_SIZE` on the phone,
+ * whatever an older record stored as `fontSize`.
+ */
+export function labReadingFontSize(prefs: Pick<LabPrefs, 'fontSize' | 'fontSizeExplicit'>, profile: LabAppearanceProfile, desktopDefault: number): number {
+  if (prefs.fontSizeExplicit) return prefs.fontSize
+  return profile === 'desktop' ? desktopDefault : LAB_PHONE_DEFAULT_FONT_SIZE
 }
 
 /** Numeric layout controls preserve the existing named presets on read. */
@@ -744,6 +899,6 @@ export function labParagraphGap(value: LabParagraphSpacing): number {
 }
 export function restoreLabAppearance(prefs: LabPrefs): LabPrefs {
   return { ...prefs, theme: DEFAULT_LAB_PREFS.theme, darkMode: DEFAULT_LAB_PREFS.theme === 'dark',
-    fontFamily: null, fontSize: DEFAULT_LAB_PREFS.fontSize, alignment: DEFAULT_LAB_PREFS.alignment, alignmentExplicit: false, shakespeareLayout: 'verse',
+    fontFamily: null, fontSize: DEFAULT_LAB_PREFS.fontSize, fontSizeExplicit: false, alignment: DEFAULT_LAB_PREFS.alignment, alignmentExplicit: false, shakespeareLayout: 'verse',
     lineSpacing: 'comfortable', margins: 'medium', paragraphSpacing: 'standard' }
 }

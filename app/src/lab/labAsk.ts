@@ -3,13 +3,15 @@ import type { VoiceModeState } from '../voice/types'
 import { VOICE_TOOLS } from '../voice/context'
 import { parseHearingSpeed } from './labHearing'
 import { nextLabChapter, prevLabChapter, type LabChapter } from './labSource'
-import { storage } from '../services/storage'
+import { readingAngleForAi } from './labReadingAngle'
 import { LAB_ASK_COMPANION_TOOL } from './labCompanion'
 
 /** `checking` and `preparing` are Voice V2 only; V1 never produces them. */
 export type LabConversationState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing'
 
 export interface LabAskTurn {
+  /** Source conversation captured when the request starts, independent of later UI focus. */
+  conversationId?: string | null
   bookId?: string
   chapterAction?: ChapterChatAction
   id: string
@@ -22,6 +24,34 @@ export interface LabAskTurn {
   /** Passage the reader attached to this question. Kept separate from the visible question. */
   highlightedText?: string
   cancelled?: boolean
+  /** A quick-model explanation (Explain, or a chapter-notes card) carried into
+   *  the conversation. Shown as before; the companion receives it as unverified
+   *  context, never as its own earlier answer (see separateShownExplanations). */
+  shownExplanation?: boolean
+}
+
+/**
+ * Splits the explanation turns `keepExplanation` inserted out of the
+ * conversation sent to the companion. Their prompt line ("Explain this
+ * passage.") is dropped and each explanation travels on its own, with the
+ * passage it explained, so the Worker can frame it as something the reader
+ * was shown rather than something the companion said.
+ */
+export function separateShownExplanations<T extends Pick<LabAskTurn, 'role' | 'content' | 'highlightedText' | 'shownExplanation' | 'cancelled'>>(turns: T[]): {
+  turns: T[]
+  shown: Array<{ passage?: string; text: string }>
+} {
+  const kept: T[] = []
+  const shown: Array<{ passage?: string; text: string }> = []
+  let passage: string | undefined
+  for (const turn of turns) {
+    if (!turn.shownExplanation) { kept.push(turn); passage = undefined; continue }
+    if (turn.role === 'user') { passage = turn.highlightedText?.trim() || undefined; continue }
+    const text = turn.content.trim()
+    if (text && !turn.cancelled) shown.push({ ...(passage ? { passage } : {}), text })
+    passage = undefined
+  }
+  return { turns: kept, shown }
 }
 
 const LAB_GREETING_LINE = "I'm listening."
@@ -100,6 +130,7 @@ export {
   LAB_ASK_LOOKUP_OFFER_RULE,
   LAB_ASK_NO_DECLINE_RULE,
   LAB_ASK_NO_PRAISE_RULE,
+  LAB_ASK_PERSONAL_HISTORY_RULE,
   LAB_ASK_POLICY,
   LAB_ASK_SYSTEM_CAP,
   buildLabAskInstructions,
@@ -108,10 +139,9 @@ export {
   type LabAskContext,
 } from '../companion/labAskPrompt'
 
-export function labReadingAngle(): string | undefined {
-  const prefs = storage.get<{ readingObjective?: string }>('preferences')
-  const angle = prefs?.readingObjective?.trim()
-  return angle || undefined
+/** The book's own reading angle (labReadingAngle.ts); a book with none sends none. */
+export function labReadingAngle(bookId: string | null | undefined): string | undefined {
+  return readingAngleForAi(bookId)
 }
 
 /**
@@ -210,6 +240,8 @@ export const ASSISTANT_PACE_SPEED: Record<AssistantPace, number> = {
   normal: 1,
   fast: 1.25,
 }
+
+export { TALK_SPEED_STEPS, TALK_SPEED_MIN, TALK_SPEED_MAX, TALK_SPEED_DEFAULT, clampTalkSpeed } from './labTalkSpeed'
 
 export const LAB_SET_PLAYBACK_SPEED_TOOL = {
   type: 'function',

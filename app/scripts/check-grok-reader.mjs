@@ -2,6 +2,7 @@ import {chromium,webkit} from '@playwright/test'
 import fs from 'node:fs/promises'
 import assert from 'node:assert/strict'
 import {releaseWarmSignature} from '../src/narration/narrationReleaseAuth.ts'
+import { markInternal } from './lib/internalTraffic.cjs'
 const origin='https://tinct.app'
 const plan=JSON.parse(await fs.readFile('artifacts/grok-openings/plan.json','utf8'))
 const warmed=JSON.parse(await fs.readFile('artifacts/grok-openings/warm-report.json','utf8'))
@@ -161,7 +162,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
  report.concurrency={requests:2,generated,sharedHash:hashes[0],reused:generated===0}
 }
 if(!webkitOnly){
-const chrome=await chromium.launch({headless:true,args:['--mute-audio']})
+const chrome=await markInternal(await chromium.launch({headless:true,args:['--mute-audio']}))
 try{
  for(const entry of plan.entries)for(const voice of entry.voices)await run(chrome,'chromium',entry,voice)
  const entry=plan.entries[0]
@@ -185,7 +186,7 @@ try{
  }
 }finally{await chrome.close()}
 }
-const safari=await webkit.launch({headless:true})
+const safari=await markInternal(await webkit.launch({headless:true}))
 try{for(const voice of ['f','m'])await run(safari,'webkit',plan.entries[0],voice)}finally{await safari.close()}
 report.completedAt=new Date().toISOString()
 await fs.writeFile(output+'/reader-report.json',JSON.stringify(report,null,2))

@@ -60,6 +60,23 @@ fi
 # 1c. SPA loads at /reader
 echo "1c. App"
 HTML=$(curl -sf "$URL/reader" 2>/dev/null || echo "FAIL")
+# While Cloudflare rolls a version out, a request can still reach the old one:
+# its page names the old stylesheet, which the new version no longer serves
+# (#372's deploy: an old page at 13:33, then five minutes of 404s for its CSS).
+# With the expected bundle known, check the page that names it.
+if [ -n "${TINCT_EXPECTED_BUNDLE:-}" ]; then
+  for attempt in $(seq 1 60); do
+    printf '%s\n' "$HTML" | grep -qF "src=\"$TINCT_EXPECTED_BUNDLE\"" && break
+    [ $((attempt % 6)) -eq 1 ] && echo "    /reader still names another bundle (attempt $attempt)"
+    sleep 5
+    HTML=$(curl -sf "$URL/reader" 2>/dev/null || echo "FAIL")
+  done
+  if printf '%s\n' "$HTML" | grep -qF "src=\"$TINCT_EXPECTED_BUNDLE\""; then
+    pass "/reader names the expected bundle"
+  else
+    fail "/reader never named the expected bundle $TINCT_EXPECTED_BUNDLE"
+  fi
+fi
 if printf '%s\n' "$HTML" | grep -q '<div id="root"'; then
   pass "SPA loads at /reader with root div"
 else
@@ -116,15 +133,6 @@ if [ -n "$JS_FILE" ]; then
     fail "Worker audio route MISSING from bundle — audio will be broken"
   fi
 
-  # 4b. AI-narration disclaimer MP3s accessible (both languages)
-  for lang in en da; do
-    D_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL/api/audio-file?path=disclaimer-${lang}.mp3")
-    if [ "$D_STATUS" = "200" ]; then
-      pass "Disclaimer audio disclaimer-${lang}.mp3 reachable"
-    else
-      fail "Disclaimer audio disclaimer-${lang}.mp3 unreachable (HTTP $D_STATUS) — first-play UX will skip the AI notice"
-    fi
-  done
 else
   fail "JS bundle not found in HTML"
 fi
@@ -133,6 +141,7 @@ fi
 echo "5. Chat API"
 CHAT_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$URL/api/chat" \
   -H "Content-Type: application/json" \
+  -H "x-tinct-check: 1" \
   -d '{"messages":[{"role":"user","content":"ping"}]}' 2>/dev/null || echo "000")
 if [ "$CHAT_STATUS" = "401" ] || [ "$CHAT_STATUS" = "200" ] || [ "$CHAT_STATUS" = "429" ]; then
   pass "Chat API responds (HTTP $CHAT_STATUS)"

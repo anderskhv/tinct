@@ -11,12 +11,20 @@ import {
   READER_BOOT_HANDOFF_KEY,
   READER_BOOT_PREFS_KEY,
   readerBootEink,
+  readerBootDeepLink,
   readerBootHandoff,
+  readerBootMarginPreview,
   readerBootPositionToken,
   readerBootPreloads,
+  readerBootResume,
   readerBootTheme,
+  readerBootProfile,
+  LAB_PHONE_QUERY,
   readerBootUsesDefaultFace,
 } from './readerBoot'
+
+/** Inlined by scripts/readerBootScript.ts: books whose deep-link default is not modern-en. */
+declare const __READER_BOOT_PRIMARY_EXCEPTIONS__: Readonly<Record<string, string>>
 
 function read(storage: () => Storage, key: string): string | null {
   try {
@@ -45,6 +53,13 @@ try {
       prefs,
       typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches,
       readerBootEink(location.search, read(() => localStorage, 'tinct:display-profile')),
+      readerBootProfile({
+        userAgent: navigator.userAgent,
+        innerWidth: window.innerWidth,
+        maxTouchPoints: navigator.maxTouchPoints,
+        screenWidth: typeof screen !== 'undefined' ? screen.width : undefined,
+        matchMediaPhone: typeof matchMedia === 'function' && matchMedia(LAB_PHONE_QUERY).matches,
+      }),
     )
     if (theme) {
       // The same attributes LabApp sets on mount, set before the first paint.
@@ -52,22 +67,31 @@ try {
       root.style.colorScheme = theme === 'dark' ? 'dark' : 'light'
       root.style.backgroundColor = LAB_THEME_PAPER[theme]
     }
+    const entries: Array<[string, string | null]> = []
+    try {
+      for (let i = 0; i < localStorage.length; i += 1) {
+        const key = localStorage.key(i)
+        if (key && key.startsWith('sb-')) entries.push([key, localStorage.getItem(key)])
+      }
+    } catch { /* Storage is optional; the normal app still resolves auth. */ }
+    // A library handoff wins over the address, as in the app (consumeLabReaderHandoffForPage).
     const handoff = readerBootHandoff(read(() => sessionStorage, READER_BOOT_HANDOFF_KEY))
+      ?? readerBootDeepLink(location.search, __READER_BOOT_PRIMARY_EXCEPTIONS__)
+      ?? readerBootResume(location.search, read(() => localStorage, 'tinct-lab-position'), entries, CHAPTER_SHARDED_EDITION_IDS)
     if (handoff) {
       for (const href of readerBootPreloads(handoff, {
         version: __BUILD_VERSION__,
         shardedEditionIds: CHAPTER_SHARDED_EDITION_IDS,
         shardWindowDisabled: read(() => localStorage, 'tinct:chapter-sharded-editions') === '0',
       })) preload(href, 'fetch')
+    } else {
+      // The margin preview reads its whole edition (marginPreviewLoad): started here, not after the app bundle.
+      for (const href of readerBootMarginPreview(location.search, key => read(() => localStorage, key), prefs, __READER_BOOT_PRIMARY_EXCEPTIONS__, __BUILD_VERSION__)) preload(href, 'fetch')
     }
     if (readerBootUsesDefaultFace(prefs)) preload(READER_BOOT_DEFAULT_FACE_URL, 'font')
     // The signed-in reader's cloud position, started before the bundle runs.
-    if (navigator.onLine !== false) {
-      const entries: Array<[string, string | null]> = []
-      for (let i = 0; i < localStorage.length; i += 1) {
-        const key = localStorage.key(i)
-        if (key && key.startsWith('sb-')) entries.push([key, localStorage.getItem(key)])
-      }
+    // A reader's own book (?userBook=) never reads the account's position.
+    if (navigator.onLine !== false && !new URLSearchParams(location.search).has('userBook')) {
       const token = readerBootPositionToken(entries, Date.now() / 1000)
       if (token) {
         const body = fetch('/api/lab-position', { method: 'GET', headers: { Authorization: `Bearer ${token}` } })

@@ -1,0 +1,471 @@
+// @vitest-environment jsdom
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { useLayoutEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
+import { ContinuousReader, continuousReaderWindows, measureContinuousWords, continuousViewportWords } from './ContinuousReader'
+import { acceptContinuousReaderPlace, type ContinuousReaderEpoch } from './continuousReaderEpoch'
+
+afterEach(cleanup)
+
+const first: ContinuousReaderEpoch = { bookId: 'frankenstein', editionKey: 'original-en', chapterNumber: 7, navigation: 12 }
+const position = { paragraphIndex: 2, wordIndex: 4 }
+
+describe('continuous location ownership', () => {
+  it('offers source actions for a native drag that starts in the paper margin', () => {
+    const onSelectRange = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Chapter', paragraphs: ['One two three four five.'], chapterNumber: 7,
+        follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set(), onSelectRange }}
+      onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    const paper = host.querySelector('.continuous-reader-paper')!
+    const words = host.querySelectorAll('[data-testid="lab-word"]')
+    fireEvent.pointerDown(paper, { button: 0, pointerType: 'mouse', clientX: 5, clientY: 100 })
+    const range = document.createRange()
+    range.setStartBefore(words[1]); range.setEndAfter(words[3])
+    const selection = window.getSelection()!
+    selection.removeAllRanges(); selection.addRange(range)
+    fireEvent.pointerUp(paper, { button: 0, pointerType: 'mouse', clientX: 200, clientY: 100 })
+    expect(onSelectRange).toHaveBeenCalledOnce()
+    expect(onSelectRange.mock.calls[0][0]).toMatchObject({ paragraphIndex: 0, fromWord: 1, toWord: 4 })
+    expect(selection.toString()).toBe('')
+  })
+
+  it('does not include a neighboring word touched only at a native range boundary', () => {
+    const onSelectRange = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Chapter', paragraphs: ['One two three four five.'], follow: { kind: 'none' },
+        followParagraphs: [], markedIndexes: new Set(), onSelectRange }} onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const paper = screen.getByTestId('continuous-reader').querySelector('.continuous-reader-paper')!
+    const words = paper.querySelectorAll('[data-testid="lab-word"]')
+    fireEvent.pointerDown(paper, { button: 0, pointerType: 'mouse' })
+    const start = document.createTreeWalker(words[1], NodeFilter.SHOW_TEXT).nextNode()!
+    const end = document.createTreeWalker(words[3], NodeFilter.SHOW_TEXT).nextNode()!
+    const range = document.createRange(); range.setStart(start, start.textContent!.length); range.setEnd(end, 0)
+    window.getSelection()!.removeAllRanges(); window.getSelection()!.addRange(range)
+    fireEvent.pointerUp(paper, { button: 0, pointerType: 'mouse' })
+    expect(onSelectRange.mock.calls[0][0]).toMatchObject({ fromWord: 2, toWord: 3, text: 'three' })
+  })
+
+  it('clears an unhandled native selection with a blank-paper click without selecting source again', () => {
+    const onSelectRange = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Chapter', paragraphs: ['One two three four five.'], follow: { kind: 'none' },
+        followParagraphs: [], markedIndexes: new Set(), onSelectRange }} onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader'), paper = host.querySelector('.continuous-reader-paper')!
+    const word = host.querySelector('[data-testid="lab-word"]')!
+    const selection = window.getSelection()!, range = document.createRange()
+    range.selectNodeContents(word); selection.removeAllRanges(); selection.addRange(range)
+    fireEvent.pointerDown(paper, { button: 0, pointerType: 'mouse' })
+    fireEvent.pointerUp(paper, { button: 0, pointerType: 'mouse' })
+    expect(selection.toString()).toBe('')
+    expect(onSelectRange).not.toHaveBeenCalled()
+  })
+
+  it('rejects a native selection released after navigation replaces the source', () => {
+    const onSelectRange = vi.fn()
+    const passage = { chapterTitle: 'Chapter', paragraphs: ['One two three four five.'], follow: { kind: 'none' as const },
+      followParagraphs: [], markedIndexes: new Set<number>(), onSelectRange }
+    const { rerender } = render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={passage} onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const paper = screen.getByTestId('continuous-reader').querySelector('.continuous-reader-paper')!
+    fireEvent.pointerDown(paper, { button: 0, pointerType: 'mouse' })
+    rerender(<ContinuousReader epoch={{ ...first, navigation: 13 }} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={passage} onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const word = paper.querySelector('[data-testid="lab-word"]')!, range = document.createRange()
+    range.selectNodeContents(word); window.getSelection()!.removeAllRanges(); window.getSelection()!.addRange(range)
+    fireEvent.pointerUp(paper, { button: 0, pointerType: 'mouse' })
+    expect(onSelectRange).not.toHaveBeenCalled()
+  })
+
+  it('rejects callbacks from an outgoing chapter, edition, source, or navigation and suspends unresolved writes', () => {
+    const paragraphs = ['one two', 'three four', 'five six seven eight nine ten']
+    expect(acceptContinuousReaderPlace(first, first, true, false, position, paragraphs)).toBe(true)
+    for (const changed of [
+      { ...first, bookId: 'bible' }, { ...first, editionKey: 'modern-en' },
+      { ...first, chapterNumber: 8 }, { ...first, navigation: 13 },
+    ]) expect(acceptContinuousReaderPlace(first, changed, true, false, position, paragraphs)).toBe(false)
+    expect(acceptContinuousReaderPlace(first, first, false, false, position, paragraphs)).toBe(false)
+    expect(acceptContinuousReaderPlace(first, first, true, true, position, paragraphs)).toBe(false)
+    expect(acceptContinuousReaderPlace(first, first, true, false, { paragraphIndex: 4, wordIndex: 0 }, paragraphs)).toBe(false)
+    expect(acceptContinuousReaderPlace(first, first, true, false, { paragraphIndex: 2, wordIndex: 30 }, paragraphs)).toBe(false)
+  })
+
+  it('keeps every source word mounted, including both sides of a resumed position', () => {
+    const paragraphs = Array.from({ length: 600 }, (_, p) => Array.from({ length: 20 }, (_, w) => `p${p}w${w}`).join(' '))
+    const windows = continuousReaderWindows(paragraphs)
+    expect(windows).toHaveLength(1)
+    expect(windows.reduce((sum, current) => sum + current.wordCount, 0)).toBe(12000)
+    const segments = windows.flatMap(window => window.page.segments!)
+    expect(segments).toEqual(paragraphs.map((_, paragraphIndex) => ({ paragraphIndex, from: 0, to: 20 })))
+  })
+
+  it('replaces a long chapter with a short chapter and lands its exact nonzero word', () => {
+    const long = Array.from({ length: 400 }, (_, p) => p === 349 ? Array.from({ length: 2000 }, (_, w) => `word${w}`).join(' ') : `${p} source words in a long chapter`)
+    const onLanded = vi.fn()
+    const passage = (paragraphs: string[]) => ({ chapterTitle: 'Chapter', paragraphs, follow: { kind: 'none' as const }, followParagraphs: [], markedIndexes: new Set<number>() })
+    const { rerender } = render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 350, wordIndex: 2 }} passage={passage(long)} onLanded={onLanded} onVisible={vi.fn()} />)
+    expect(screen.getByTestId('continuous-reader').querySelector('[data-paragraph-index="350"][data-word-index="2"]')).toBeTruthy()
+    const short = ['A first line', 'A second line with exact word']
+    const nextEpoch = { ...first, chapterNumber: 8, navigation: 13 }
+    rerender(<ContinuousReader epoch={nextEpoch} anchor={{ paragraphIndex: 1, wordIndex: 3 }} passage={passage(short)} onLanded={onLanded} onVisible={vi.fn()} />)
+    expect(screen.getByTestId('continuous-reader').querySelector('[data-paragraph-index="1"][data-word-index="3"]')).toBeTruthy()
+    expect(onLanded).toHaveBeenLastCalledWith(nextEpoch, { paragraphIndex: 1, wordIndex: 3 })
+    expect(screen.getByTestId('continuous-reader').querySelectorAll('[data-testid="lab-word"]').length).toBeLessThanOrEqual(10)
+  })
+
+  it('mounts all short paragraphs without wheel-driven content replacement', () => {
+    const paragraphs = Array.from({ length: 70 }, (_, i) => i % 11 === 10 ? '' : `word${i}`)
+    const onVisible = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Short', paragraphs, follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+      onVisible={onVisible} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    const words = [...host.querySelectorAll('[data-testid="lab-word"]')]
+    expect(words).toHaveLength(64)
+    for (const deltaY of [240, 240, -240]) fireEvent.wheel(host, { deltaY })
+    expect([...host.querySelectorAll('[data-testid="lab-word"]')]).toEqual(words)
+    expect(onVisible).not.toHaveBeenCalled()
+  })
+
+  it('does not restore the navigation anchor when identical source is refreshed while reading', () => {
+    const paragraphs = ['A first paragraph of readable source', 'A second paragraph with more source']
+    const props = { epoch: first, anchor: { paragraphIndex: 0, wordIndex: 0 }, onVisible: vi.fn(), onLanded: vi.fn() }
+    const passage = (text: string[]) => ({ chapterTitle: 'Chapter', paragraphs: text,
+      follow: { kind: 'none' as const }, followParagraphs: [], markedIndexes: new Set<number>() })
+    const { rerender } = render(<ContinuousReader {...props} passage={passage(paragraphs)} />)
+    const host = screen.getByTestId('continuous-reader')
+    host.scrollTop = 320
+    const firstWord = host.querySelector<HTMLElement>('[data-testid="lab-word"]')!
+    vi.spyOn(firstWord, 'getBoundingClientRect').mockReturnValue({ top: -320, bottom: -300, height: 20 } as DOMRect)
+    rerender(<ContinuousReader {...props} passage={passage([...paragraphs])} />)
+    expect(host.scrollTop).toBe(320)
+    expect(props.onLanded).toHaveBeenCalledTimes(1)
+  })
+
+  it('keeps an in-progress word drag when its parent rerenders the same source', () => {
+    const paragraphs = ['The beginning of this source has many words for a selection']
+    const onSelectRange = vi.fn()
+    const passage = () => ({ chapterTitle: 'Own EPUB', chapterNumber: 1, paragraphs,
+      follow: { kind: 'none' as const }, followParagraphs: [], markedIndexes: new Set<number>(), onSelectRange })
+    const onVisible = vi.fn()
+    const onLanded = vi.fn()
+    const { rerender } = render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={passage()} onVisible={onVisible} onLanded={onLanded} />)
+    const words = screen.getByTestId('continuous-reader').querySelectorAll<HTMLElement>('[data-testid="lab-word"]')
+    fireEvent.pointerDown(words[0], { pointerId: 1, pointerType: 'mouse', button: 0, clientX: 10, clientY: 10 })
+    rerender(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={passage()} onVisible={onVisible} onLanded={onLanded} />)
+    fireEvent.pointerMove(words[3], { pointerId: 1, pointerType: 'mouse', buttons: 1, clientX: 120, clientY: 10 })
+    fireEvent.pointerUp(words[3], { pointerId: 1, pointerType: 'mouse', button: 0, clientX: 120, clientY: 10 })
+    expect(onSelectRange).toHaveBeenCalledTimes(1)
+    expect(onSelectRange.mock.calls[0][0].text).toBe('The beginning of this')
+  })
+})
+
+
+describe('continuous scroll geometry', () => {
+  it('matches the source anchor and bottom ink without repeated layout reads while scrolling', () => {
+    const host = document.createElement('div')
+    Object.defineProperty(host, 'clientHeight', { value: 600 })
+    const hostRect = vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ top: 80 } as DOMRect)
+    const reads = vi.fn()
+    const tops: number[] = []
+    for (let i = 0; i < 1350; i++) {
+      const node = document.createElement('span')
+      node.dataset.testid = 'lab-word'; node.dataset.paragraphIndex = '0'; node.dataset.wordIndex = String(i)
+      // Superscripts have a different top within the same line: preserve DOM
+      // order semantics instead of assuming monotonically increasing tops.
+      const top = Math.floor(i / 12) * 28 + (i % 17 === 0 ? -5 : 0)
+      tops.push(top)
+      node.getBoundingClientRect = () => { reads(); return { top: 80 + top - host.scrollTop, bottom: 100 + top - host.scrollTop, height: 20 } as DOMRect }
+      host.append(node)
+    }
+    const geometry = measureContinuousWords(host)
+    expect(reads).toHaveBeenCalledTimes(1350)
+    reads.mockClear(); hostRect.mockClear()
+    for (let scroll = 0; scroll < 2400; scroll += 13) {
+      host.scrollTop = scroll
+      const result = continuousViewportWords(geometry, scroll, 600)
+      const crossing = tops.findIndex(top => top >= scroll + 140)
+      const expected = crossing < 0 ? 1349 : crossing > 0 && tops[crossing - 1] + 20 > scroll ? crossing - 1 : crossing
+      const last = tops.findLastIndex(top => top < scroll + 600 && top + 20 > scroll)
+      expect(result.first?.anchor.wordIndex).toBe(expected)
+      expect(result.last?.anchor.wordIndex).toBe(last)
+    }
+    expect(reads).not.toHaveBeenCalled()
+    expect(hostRect).not.toHaveBeenCalled()
+  })
+})
+
+
+it('reuses scroll geometry and remeasures after the paper reflows', () => {
+  const originalFonts = Object.getOwnPropertyDescriptor(document, 'fonts')
+  const fonts = new EventTarget()
+  Object.defineProperty(document, 'fonts', { configurable: true, value: fonts })
+  const observers: { callback: () => void; targets: Element[] }[] = []
+  vi.stubGlobal('ResizeObserver', class {
+    record: { callback: () => void; targets: Element[] }
+    constructor(callback: () => void) { this.record = { callback, targets: [] }; observers.push(this.record) }
+    observe(target: Element) { this.record.targets.push(target) }
+    disconnect() {}
+  })
+  try {
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Source', paragraphs: [Array.from({ length: 100 }, (_, i) => `word${i}`).join(' ')],
+        follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+      onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    Object.defineProperties(host, { clientHeight: { value: 600 }, scrollHeight: { value: 5000 } })
+    vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ top: 0, bottom: 600 } as DOMRect)
+    const reads = vi.fn()
+    host.querySelectorAll<HTMLElement>('[data-testid="lab-word"]').forEach((word, i) => {
+      word.getBoundingClientRect = () => { reads(); return { top: i * 20 - host.scrollTop, bottom: i * 20 + 20 - host.scrollTop, height: 20 } as DOMRect }
+    })
+    fireEvent.pointerDown(host)
+    host.scrollTop = 500; fireEvent.scroll(host)
+    expect(reads).toHaveBeenCalledTimes(100)
+    reads.mockClear()
+    host.scrollTop = 510; fireEvent.scroll(host)
+    expect(reads).not.toHaveBeenCalled()
+    const paperObserver = observers.find(observer => observer.targets.some(target => target.classList.contains('continuous-reader-paper')))!
+    act(() => paperObserver.callback())
+    host.scrollTop = 520; fireEvent.scroll(host)
+    expect(reads).toHaveBeenCalledTimes(100)
+    reads.mockClear()
+    act(() => { fonts.dispatchEvent(new Event('loadingdone')) })
+    host.scrollTop = 530; fireEvent.scroll(host)
+    expect(reads).toHaveBeenCalledTimes(100)
+  } finally { vi.unstubAllGlobals(); if (originalFonts) Object.defineProperty(document, 'fonts', originalFonts); else Reflect.deleteProperty(document, 'fonts') }
+})
+
+
+// Offline, the book face comes from the service worker's cache a moment after
+// the chapter lands: the text above the saved word reflows taller. The landed
+// word must stay on its line, not drift down the screen (6 Nov 2026).
+it('keeps the landed word on its line through a late reflow, until the reader moves', () => {
+  const observers: { callback: () => void; targets: Element[] }[] = []
+  vi.stubGlobal('ResizeObserver', class {
+    record: { callback: () => void; targets: Element[] }
+    constructor(callback: () => void) { this.record = { callback, targets: [] }; observers.push(this.record) }
+    observe(target: Element) { this.record.targets.push(target) }
+    disconnect() {}
+  })
+  let grown = 0
+  const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
+    if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 600, height: 600 } as DOMRect
+    if (this.dataset.testid === 'lab-word') {
+      const host = this.closest<HTMLElement>('.continuous-reader')!
+      const top = Number(this.dataset.paragraphIndex) * 400 + Number(this.dataset.wordIndex) * 20 + grown - host.scrollTop
+      return { top, bottom: top + 20, height: 20 } as DOMRect
+    }
+    return { top: 0, bottom: 0, height: 0 } as DOMRect
+  })
+  const height = vi.spyOn(HTMLElement.prototype, 'clientHeight', 'get').mockReturnValue(600)
+  try {
+    const onVisible = vi.fn()
+    const paragraphs = Array.from({ length: 12 }, (_, p) => Array.from({ length: 10 }, (_, w) => `p${p}w${w}`).join(' '))
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 8, wordIndex: 3 }}
+      passage={{ chapterTitle: 'Source', paragraphs, follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+      onVisible={onVisible} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    const word = host.querySelector<HTMLElement>('[data-paragraph-index="8"][data-word-index="3"]')!
+    const landed = word.getBoundingClientRect().top
+    expect(landed).toBe(140)
+    const paperObserver = observers.find(observer => observer.targets.some(target => target.classList.contains('continuous-reader-paper')))!
+    grown = 311
+    act(() => paperObserver.callback())
+    expect(word.getBoundingClientRect().top).toBe(landed)
+    expect(onVisible).not.toHaveBeenCalled()
+    // Once the reader scrolls, a reflow no longer moves the page.
+    fireEvent.wheel(host)
+    const scrolled = host.scrollTop
+    grown = 500
+    act(() => paperObserver.callback())
+    expect(host.scrollTop).toBe(scrolled)
+  } finally { rect.mockRestore(); height.mockRestore(); vi.unstubAllGlobals() }
+})
+
+it('keeps a long paragraph and its verse marker together without artificial chunk boundaries', () => {
+  const paragraph = [...Array.from({ length: 449 }, (_, i) => `word${i}`), '¹', 'Paul', 'continues'].join(' ')
+  const windows = continuousReaderWindows([paragraph])
+  expect(windows).toHaveLength(1)
+  expect(windows[0].page.segments![0]).toMatchObject({ from: 0, to: 452 })
+  expect(windows.reduce((sum, window) => sum + window.wordCount, 0)).toBe(452)
+})
+
+it('physically applies repeated minimap jumps within the same canonical window', () => {
+  const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
+    if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 200, height: 200 } as DOMRect
+    if (this.dataset.testid === 'lab-word') {
+      const host = this.closest<HTMLElement>('.continuous-reader')!
+      const top = Number(this.dataset.paragraphIndex) * 400 + Number(this.dataset.wordIndex) * 4 - host.scrollTop
+      return { top, bottom: top + 20, height: 20 } as DOMRect
+    }
+    return { top: 0, bottom: 0, height: 0 } as DOMRect
+  })
+  try {
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Source', paragraphs: Array.from({ length: 2 }, () => Array.from({ length: 100 }, (_, w) => `word${w}`).join(' ')),
+        follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }} onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    let top = 0
+    Object.defineProperties(host, { clientHeight: { value: 200 }, scrollHeight: { value: 1000 },
+      scrollTop: { get: () => top, set: value => { top = Math.max(0, value) } } })
+    const map = screen.getByRole('slider', { name: 'Chapter position' })
+    fireEvent.keyDown(map, { key: 'End' })
+    expect(host.scrollTop).toBeGreaterThan(0)
+    fireEvent.keyDown(map, { key: 'Home' })
+    expect(host.scrollTop).toBe(0)
+    expect(map.getAttribute('aria-valuenow')).toBe('0')
+  } finally { rect.mockRestore() }
+})
+
+it.each([180, -180])('preserves all mounted nodes and %spx native momentum without offset correction', movement => {
+  const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
+    if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 600, height: 600 } as DOMRect
+    if (this.classList.contains('continuous-reader-window')) return { top: -1 } as DOMRect
+    if (this.dataset.testid === 'lab-word') {
+      const host = this.closest<HTMLElement>('.continuous-reader')!
+      const initialWindow = host.firstElementChild!.firstElementChild as HTMLElement
+      const absolute = Number(this.dataset.paragraphIndex) * 40 + Number(this.dataset.wordIndex)
+      const base = Number(initialWindow.dataset.windowFirst) * 40
+      const top = Math.floor((absolute - base) / 10) * 28 - host.scrollTop
+      return { top, bottom: top + 20, height: 20 } as DOMRect
+    }
+    return { top: 0, bottom: 0, height: 0 } as DOMRect
+  })
+  try {
+    const onVisible = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Momentum', paragraphs: Array.from({ length: 100 }, (_, p) => Array.from({ length: 40 }, (_, w) => `p${p}w${w}`).join(' ')), follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+      onVisible={onVisible} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    let top = 0
+    Object.defineProperties(host, { clientHeight: { value: 600 },
+      scrollHeight: { get: () => Math.ceil(host.querySelectorAll('[data-testid="lab-word"]').length / 10) * 28 },
+      scrollTop: { get: () => top, set: value => { top = Math.max(0, value) } } })
+    const mounted = [...host.querySelectorAll('[data-testid="lab-word"]')]
+    expect(mounted).toHaveLength(4000)
+    fireEvent.pointerDown(host)
+    host.scrollTop = host.scrollHeight - 900
+    const held = continuousViewportWords(measureContinuousWords(host), host.scrollTop, 600).first!
+    const capturedPixel = held.node.getBoundingClientRect().top
+    act(() => {
+      // Native momentum can advance again before React commits the position UI.
+      host.dispatchEvent(new Event('scroll', { bubbles: true }))
+      host.scrollTop += movement
+    })
+    expect(Number(host.querySelector('.continuous-reader-window')?.getAttribute('data-window-first'))).toBe(0)
+    expect([...host.querySelectorAll('[data-testid="lab-word"]')]).toEqual(mounted)
+    const retained = host.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${held.anchor.paragraphIndex}"][data-word-index="${held.anchor.wordIndex}"]`)!
+    expect(retained.getBoundingClientRect().top).toBe(capturedPixel - movement)
+    const current = continuousViewportWords(measureContinuousWords(host), host.scrollTop, 600).first!.anchor
+    onVisible.mockClear()
+    // A coalesced notification still saves the final native position.
+    fireEvent.scroll(host)
+    expect(onVisible).toHaveBeenLastCalledWith(first, current)
+    // A card action must not save a layout clamp as a new reading position;
+    // physical wheel movement in the same portal resumes position tracking.
+    const card = document.createElement('section')
+    card.className = 'source-margin-item'; card.dataset.open = 'true'
+    host.append(card)
+    fireEvent.pointerDown(card)
+    onVisible.mockClear()
+    host.scrollTop -= 112; fireEvent.scroll(host)
+    expect(onVisible).not.toHaveBeenCalled()
+    fireEvent.wheel(card, { deltaY: -112 })
+    host.scrollTop -= 112; fireEvent.scroll(host)
+    expect(onVisible).toHaveBeenCalled()
+    card.remove()
+
+  } finally { rect.mockRestore() }
+})
+
+// Anders, 5 Nov 2026: "I had actually finished 2 Maccabees 11 but it looks like
+// I haven't even started it." In Margin a chapter is read by scrolling, so the
+// reader reports the last word in view (its page tail) and, once their own
+// forward scroll brings the chapter's last word into view, that it was read to
+// the end. A landing, a layout correction or a minimap jump is not reading.
+describe('reading a chapter through to its end', () => {
+  const paragraphs = Array.from({ length: 10 }, (_, p) => Array.from({ length: 10 }, (_, w) => `p${p}w${w}`).join(' '))
+  const lastWord = { paragraphIndex: 9, wordIndex: 9 }
+  const geometry = () => vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
+    if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 200, height: 200 } as DOMRect
+    if (this.dataset.testid === 'lab-word') {
+      const host = this.closest<HTMLElement>('.continuous-reader')!
+      const top = (Number(this.dataset.paragraphIndex) * 10 + Number(this.dataset.wordIndex)) * 20 - host.scrollTop
+      return { top, bottom: top + 20, height: 20 } as DOMRect
+    }
+    return { top: 0, bottom: 0, height: 0 } as DOMRect
+  })
+  const mount = (anchor = { paragraphIndex: 0, wordIndex: 0 }) => {
+    const onTail = vi.fn(), onReadToEnd = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={anchor}
+      passage={{ chapterTitle: 'Short', paragraphs, follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+      onVisible={vi.fn()} onLanded={vi.fn()} onTail={onTail} onReadToEnd={onReadToEnd} />)
+    const host = screen.getByTestId('continuous-reader')
+    let top = 0
+    Object.defineProperties(host, { clientHeight: { value: 200 }, scrollHeight: { value: 2400 },
+      scrollTop: { get: () => top, set: value => { top = Math.max(0, Math.min(2200, value)) } } })
+    return { host, onTail, onReadToEnd }
+  }
+
+  it('reports the last word in view and the end once the reader scrolls the last line into view', () => {
+    const rect = geometry()
+    try {
+      const { host, onTail, onReadToEnd } = mount()
+      for (let scroll = 160; scroll <= 1600; scroll += 160) { fireEvent.wheel(host, { deltaY: 160 }); host.scrollTop = scroll; fireEvent.scroll(host) }
+      expect(onTail).toHaveBeenLastCalledWith(first, { paragraphIndex: 8, wordIndex: 9 })
+      expect(onReadToEnd).not.toHaveBeenCalled()
+      for (let scroll = 1760; scroll <= 2200; scroll += 160) { fireEvent.wheel(host, { deltaY: 160 }); host.scrollTop = scroll; fireEvent.scroll(host) }
+      fireEvent.wheel(host, { deltaY: 160 }); host.scrollTop = 2200; fireEvent.scroll(host)
+      expect(onTail).toHaveBeenLastCalledWith(first, lastWord)
+      expect(onReadToEnd).toHaveBeenCalled()
+      expect(onReadToEnd).toHaveBeenLastCalledWith(first, lastWord)
+    } finally { rect.mockRestore() }
+  })
+
+  // Anders, 6 Nov 2026: 2 Maccabees 11-13, each with margin cards, read to their
+  // ends showed nothing in Contents. The margin rail is a portal from outside this
+  // reader's React tree; its blank room covers the whole margin, so a wheel with
+  // the pointer resting there never reached React's onWheel on the host. The
+  // chapter scrolled to its end, but no place was saved and it was not finished.
+  it('counts a wheel over the margin rail portal as the reader scrolling', () => {
+    const rect = geometry()
+    try {
+      function Rail() {
+        const [host, setHost] = useState<HTMLElement | null>(null)
+        useLayoutEffect(() => { setHost(document.querySelector<HTMLElement>('[data-testid="continuous-reader"]')) }, [])
+        return host ? createPortal(<div className="source-margin-rail"><div className="source-margin-room" data-testid="margin-room" /></div>, host) : null
+      }
+      const onVisible = vi.fn(), onReadToEnd = vi.fn(), onUserBrowse = vi.fn()
+      render(<><ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+        passage={{ chapterTitle: 'Short', paragraphs, follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+        onVisible={onVisible} onLanded={vi.fn()} onReadToEnd={onReadToEnd} onUserBrowse={onUserBrowse} /><Rail /></>)
+      const host = screen.getByTestId('continuous-reader')
+      let top = 0
+      Object.defineProperties(host, { clientHeight: { value: 200 }, scrollHeight: { value: 2400 },
+        scrollTop: { get: () => top, set: value => { top = Math.max(0, Math.min(2200, value)) } } })
+      const room = screen.getByTestId('margin-room')
+      for (let scroll = 160; scroll <= 2200; scroll += 160) { fireEvent.wheel(room, { deltaY: 160 }); host.scrollTop = scroll; fireEvent.scroll(host) }
+      fireEvent.wheel(room, { deltaY: 160 }); host.scrollTop = 2200; fireEvent.scroll(host)
+      expect(onUserBrowse).toHaveBeenCalled()
+      expect(onVisible).toHaveBeenCalled()
+      expect(onReadToEnd).toHaveBeenLastCalledWith(first, lastWord)
+    } finally { rect.mockRestore() }
+  })
+
+  it('does not count a chapter opened at its end, or scrolled back to it, as read through', () => {
+    const rect = geometry()
+    try {
+      const { host, onReadToEnd } = mount({ paragraphIndex: 9, wordIndex: 0 })
+      // The landing scroll and the browser's echo of it are not the reader's.
+      host.scrollTop = 2200; fireEvent.scroll(host)
+      expect(onReadToEnd).not.toHaveBeenCalled()
+      fireEvent.wheel(host, { deltaY: -120 }); host.scrollTop -= 120; fireEvent.scroll(host)
+      expect(onReadToEnd).not.toHaveBeenCalled()
+    } finally { rect.mockRestore() }
+  })
+})

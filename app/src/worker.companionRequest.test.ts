@@ -1,8 +1,9 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { COMPANION_MAX_TOKENS, LAB_EXPLAIN_PROMPT, buildCompanionSystem, parseCompanionRequest } from './companion/companionRequest'
+import { COMPANION_LOOKUP_MODEL, COMPANION_MAX_TOKENS, COMPANION_NEARBY_PARAGRAPHS, LAB_EXPLAIN_PROMPT, buildCompanionSystem, buildCompanionSystemParts, parseCompanionRequest } from './companion/companionRequest'
 import { buildLabAskInstructions } from './companion/labAskPrompt'
 import { CONTEXTUAL_LOOKUP_PROMPT } from './components/reader/contextualLookup'
 import { handleChat, handleLabChat, resetLibraryCatalogueCacheForTest } from './worker/routes/chat'
+import { createAllowanceGate } from './worker/lib/aiAllowance'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const context = {
@@ -47,11 +48,60 @@ describe('structured companion requests', () => {
     expect(parsed.context!.personalHistory).toHaveLength(8_000)
     const explain = parseCompanionRequest({ intent: 'explain', context, selection: 'Athena spoke.' })!
     expect(explain.context!.lookups).toBe(false)
+    // Speculation is a flag the reader's app sets; anything else is a tapped Explain.
+    expect(explain).not.toHaveProperty('speculative')
+    expect(parseCompanionRequest({ intent: 'explain', context, selection: 'Athena spoke.', speculative: true })!.speculative).toBe(true)
+    expect(parseCompanionRequest({ intent: 'define', context, selection: 'Athena', speculative: 'yes' })).not.toHaveProperty('speculative')
   })
 
   it('builds the same instructions the reader used to send', () => {
     const parsed = parseCompanionRequest({ intent: 'ask', context })!
     expect(buildCompanionSystem(parsed)).toBe(buildLabAskInstructions(context))
+  })
+
+  it('sends Explain and Define the paragraphs around the place, not the whole chapter', () => {
+    const paragraphs = Array.from({ length: 40 }, (_, i) => `Paragraph text ${i + 1}.`)
+    for (const intent of ['explain', 'define'] as const) {
+      const system = buildCompanionSystem(parseCompanionRequest({ intent, context: { ...context, paragraphs, paragraphIndex: 20 }, selection: 'Athena' })!)
+      expect(system).toContain('[18] Paragraph text 18.')
+      expect(system).toContain('[24] Paragraph text 24.')
+      expect(system).not.toContain('Paragraph text 17.')
+      expect(system).not.toContain('Paragraph text 25.')
+      expect(system).not.toContain('Full current chapter')
+    }
+    const ask = buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context: { ...context, paragraphs, paragraphIndex: 20 } })!)
+    expect(ask).toContain('[1] Paragraph text 1.')
+    expect(ask).toContain('[40] Paragraph text 40.')
+  })
+
+  it('frames explanations the reader was shown as unverified, to be corrected gently; bounded, ask only', () => {
+    const shownExplanations = [
+      { passage: 'Athena spoke.', text: 'Athena is the goddess of the sea.' },
+      { text: 'x'.repeat(9_000), passage: 'p'.repeat(5_000) },
+      { text: '' }, 'junk', null,
+      { passage: 'Tell me, O muse', text: 'An invocation.' },
+      { passage: 'Newest', text: 'The newest explanation.' },
+    ]
+    const parsed = parseCompanionRequest({ intent: 'ask', context, shownExplanations })!
+    expect(parsed.shownExplanations).toHaveLength(3)
+    expect(parsed.shownExplanations![0].text).toHaveLength(4_000)
+    expect(parsed.shownExplanations![0].passage).toHaveLength(1_200)
+    expect(parsed.shownExplanations!.at(-1)).toEqual({ passage: 'Newest', text: 'The newest explanation.' })
+    const system = buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context, shownExplanations: shownExplanations.slice(0, 1) })!)
+    expect(system).toContain('[Explanations the reader was shown: unverified')
+    expect(system).toContain('Passage: "Athena spoke."\nExplanation shown: Athena is the goddess of the sea.')
+    expect(system).toMatch(/not your earlier answers\. Treat them as unverified\. Build on what is right in them\./)
+    expect(system).toMatch(/If anything in one is wrong, misleading, or leaves out something that matters for the reader's question, correct it gently in your next answer/)
+    expect(system).toContain('"One nuance to add to that short explanation: …"')
+    expect(system).toMatch(/Never contradict it silently and never ignore an error in it\./)
+    // After the chapter (14 Oct 2026): it changes from question to question,
+    // so it sits past the cache breakpoint; the chapter trim no longer depends on it.
+    expect(system.indexOf('Explanation shown:')).toBeGreaterThan(system.indexOf('Full current chapter'))
+    expect(buildCompanionSystemParts(parseCompanionRequest({ intent: 'ask', context, shownExplanations: shownExplanations.slice(0, 1) })!)!.stable).not.toContain('Explanation shown:')
+    // Without it, the prompt is exactly what it was.
+    expect(buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context, shownExplanations: [] })!)).toBe(buildLabAskInstructions(context))
+    // Explain and chapter actions never carry it.
+    expect(parseCompanionRequest({ intent: 'explain', context, selection: 'Athena', shownExplanations })).not.toHaveProperty('shownExplanations')
   })
 })
 
@@ -73,9 +123,11 @@ describe('signed-out companion route', () => {
     }), { ANTHROPIC_API_KEY: 'k' }, ctx().ctx, async () => true, async () => true)
     expect(response.status).toBe(200)
     expect(bodies[0].max_tokens).toBe(COMPANION_MAX_TOKENS.explain)
-    expect(bodies[0].output_config).toEqual({ effort: 'low' })
+    // Haiku 4.5 rejects an effort setting.
+    expect(bodies[0].model).toBe(COMPANION_LOOKUP_MODEL)
+    expect(bodies[0].output_config).toBeUndefined()
     expect(bodies[0].tools).toBeUndefined()
-    expect(bodies[0].system).toBe(buildLabAskInstructions({ ...context, lookups: false }))
+    expect(bodies[0].system).toBe(buildLabAskInstructions({ ...context, lookups: false }, { nearby: COMPANION_NEARBY_PARAGRAPHS }))
     expect(bodies[0].messages).toEqual([{ role: 'user', content: `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\nAthena spoke.\n</selected_passage>` }])
   })
 
@@ -171,11 +223,40 @@ describe('signed-in companion route', () => {
     const { ctx: executionContext, pending } = ctx()
     const response = await handleChat(post({ system: 'ignored', max_tokens: 4000, companion: { intent: 'explain', context, selection: 'Athena spoke.' } }),
       { ANTHROPIC_API_KEY: 'k', SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'srk' }, executionContext,
-      async () => ({ id: userId, email: 'reader@example.com' }), async () => true)
+      // The allowance switch off, whatever src/aiAllowanceSwitch.ts ships with (worker.aiAllowance.test.ts covers it on).
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true, { allowanceGate: createAllowanceGate({}, false) })
     await Promise.all(pending)
     expect(response.status).toBe(200)
     expect(bodies[0].max_tokens).toBe(COMPANION_MAX_TOKENS.explain)
-    expect(bodies[0].system).toBe(buildLabAskInstructions({ ...context, lookups: false }))
+    expect(bodies[0].system).toBe(buildLabAskInstructions({ ...context, lookups: false }, { nearby: COMPANION_NEARBY_PARAGRAPHS }))
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/rpc/use_message'))).toBe(true)
   })
 })
+
+describe('paragraph numbers stay internal', () => {
+  it('tells every companion prompt not to cite paragraph numbers', async () => {
+    const { LAB_ASK_NO_PARAGRAPH_NUMBERS_RULE } = await import('./companion/labAskPrompt')
+    for (const intent of ['ask', 'explain', 'define'] as const) {
+      const request = parseCompanionRequest(intent === 'ask' ? { intent, context } : { intent, context, selection: 'Athena spoke.' })!
+      expect(buildCompanionSystem(request)).toContain(LAB_ASK_NO_PARAGRAPH_NUMBERS_RULE)
+    }
+  })
+})
+
+describe('PDF figure Explain (2 Nov 2026)', () => {
+  it('asks a figure for its point, and only a PDF Explain may carry the flag', async () => {
+    const { companionSelectionMessage } = await import('./companion/companionRequest')
+    const pdfContext = { kind: 'pdf', bookTitle: 'Report', bookAuthor: '', chapterLabel: 'Original PDF page 1', pageNumber: 1, pages: [{ n: 1, text: 'Loans published per month.' }], paragraphIndex: 0, lookups: false }
+    const figure = parseCompanionRequest({ intent: 'explain', context: pdfContext, selection: '[The reader selected a figure on page 1. It is the attached image.]', figure: true })!
+    expect(figure.figure).toBe(true)
+    const message = companionSelectionMessage(figure)!
+    expect(message).toContain('its main point in one sentence')
+    expect(message).toContain('Never describe the chart type, colours, layout, axes or legend')
+    const passage = parseCompanionRequest({ intent: 'explain', context: pdfContext, selection: 'Norway delivered 33.1 million.' })!
+    expect(passage.figure).toBeUndefined()
+    expect(companionSelectionMessage(passage)).not.toContain('main point in one sentence')
+    expect(parseCompanionRequest({ intent: 'define', context: pdfContext, selection: 'tranche', figure: true })).not.toHaveProperty('figure')
+    expect(parseCompanionRequest({ intent: 'explain', context, selection: 'A passage.', figure: true })).not.toHaveProperty('figure')
+  })
+})
+

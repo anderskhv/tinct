@@ -1,0 +1,3226 @@
+{
+ "package": "app/public/data/characters/poetics.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "20c7f0695e0360b9ea800ae11c0720bfe38d1e7e85b828d0a19bed542a9b175e",
+ "candidateSha256": "c14bf2d099284fad9b2801ba2272ef92ce9be3ba3e1eb43dfa789febd2f17323",
+ "pinMatchesServedLive": true,
+ "offsetUnit": "utf16",
+ "mentionsTotal": 221,
+ "unchanged": 7,
+ "moved": 213,
+ "needsRuling": 1,
+ "notes": [
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
+  "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "sophron",
+   "chapter": 1,
+   "paragraph": 4,
+   "oldStartOffset": 229,
+   "oldEndOffset": 236,
+   "oldText": "Sophron",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 230,
+    "endOffset": 237,
+    "text": "Sophron",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "xenarchus",
+   "chapter": 1,
+   "paragraph": 4,
+   "oldStartOffset": 241,
+   "oldEndOffset": 250,
+   "oldText": "Xenarchus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 242,
+    "endOffset": 251,
+    "text": "Xenarchus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 1,
+   "paragraph": 4,
+   "oldStartOffset": 670,
+   "oldEndOffset": 675,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 772,
+    "endOffset": 777,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "empedocles",
+   "chapter": 1,
+   "paragraph": 4,
+   "oldStartOffset": 680,
+   "oldEndOffset": 690,
+   "oldText": "Empedocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 782,
+    "endOffset": 792,
+    "text": "Empedocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "chaeremon",
+   "chapter": 1,
+   "paragraph": 4,
+   "oldStartOffset": 880,
+   "oldEndOffset": 889,
+   "oldText": "Chaeremon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1020,
+    "endOffset": 1029,
+    "text": "Chaeremon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "polygnotus",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 379,
+   "oldEndOffset": 389,
+   "oldText": "Polygnotus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 326,
+    "endOffset": 336,
+    "text": "Polygnotus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pauson",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 428,
+   "oldEndOffset": 434,
+   "oldText": "Pauson",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 375,
+    "endOffset": 381,
+    "text": "Pauson",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "dionysius",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 450,
+   "oldEndOffset": 459,
+   "oldText": "Dionysius",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 401,
+    "endOffset": 410,
+    "text": "Dionysius",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 2,
+   "paragraph": 1,
+   "oldStartOffset": 301,
+   "oldEndOffset": 306,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 340,
+    "endOffset": 345,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "cleophon",
+   "chapter": 2,
+   "paragraph": 1,
+   "oldStartOffset": 353,
+   "oldEndOffset": 361,
+   "oldText": "Cleophon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 392,
+    "endOffset": 400,
+    "text": "Cleophon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hegemon",
+   "chapter": 2,
+   "paragraph": 1,
+   "oldStartOffset": 375,
+   "oldEndOffset": 382,
+   "oldText": "Hegemon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 429,
+    "endOffset": 436,
+    "text": "Hegemon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "nicochares",
+   "chapter": 2,
+   "paragraph": 1,
+   "oldStartOffset": 426,
+   "oldEndOffset": 436,
+   "oldText": "Nicochares",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 480,
+    "endOffset": 490,
+    "text": "Nicochares",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "timotheus",
+   "chapter": 2,
+   "paragraph": 1,
+   "oldStartOffset": 568,
+   "oldEndOffset": 577,
+   "oldText": "Timotheus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 635,
+    "endOffset": 644,
+    "text": "Timotheus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "philoxenus",
+   "chapter": 2,
+   "paragraph": 1,
+   "oldStartOffset": 582,
+   "oldEndOffset": 592,
+   "oldText": "Philoxenus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 649,
+    "endOffset": 659,
+    "text": "Philoxenus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "cyclops",
+   "chapter": 2,
+   "paragraph": 1,
+   "oldStartOffset": 624,
+   "oldEndOffset": 632,
+   "oldText": "Cyclopes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 691,
+    "endOffset": 699,
+    "text": "Cyclopes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 3,
+   "paragraph": 0,
+   "oldStartOffset": 208,
+   "oldEndOffset": 213,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 251,
+    "endOffset": 256,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sophocles",
+   "chapter": 3,
+   "paragraph": 1,
+   "oldStartOffset": 163,
+   "oldEndOffset": 172,
+   "oldText": "Sophocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 172,
+    "endOffset": 181,
+    "text": "Sophocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 3,
+   "paragraph": 1,
+   "oldStartOffset": 208,
+   "oldEndOffset": 213,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 217,
+    "endOffset": 222,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "aristophanes",
+   "chapter": 3,
+   "paragraph": 1,
+   "oldStartOffset": 310,
+   "oldEndOffset": 322,
+   "oldText": "Aristophanes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 321,
+    "endOffset": 333,
+    "text": "Aristophanes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "epicharmus",
+   "chapter": 3,
+   "paragraph": 1,
+   "oldStartOffset": 672,
+   "oldEndOffset": 682,
+   "oldText": "Epicharmus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 733,
+    "endOffset": 743,
+    "text": "Epicharmus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "chionides",
+   "chapter": 3,
+   "paragraph": 1,
+   "oldStartOffset": 702,
+   "oldEndOffset": 711,
+   "oldText": "Chionides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 770,
+    "endOffset": 779,
+    "text": "Chionides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "magnes",
+   "chapter": 3,
+   "paragraph": 1,
+   "oldStartOffset": 716,
+   "oldEndOffset": 722,
+   "oldText": "Magnes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 784,
+    "endOffset": 790,
+    "text": "Magnes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 4,
+   "paragraph": 2,
+   "oldStartOffset": 354,
+   "oldEndOffset": 359,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 410,
+    "endOffset": 415,
+    "text": "Homer",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 4,
+   "paragraph": 2,
+   "oldStartOffset": 399,
+   "oldEndOffset": 404,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 410,
+    "endOffset": 415,
+    "text": "Homer",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "margites",
+   "chapter": 4,
+   "paragraph": 2,
+   "oldStartOffset": 445,
+   "oldEndOffset": 453,
+   "oldText": "Margites",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 531,
+    "endOffset": 539,
+    "text": "Margites",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 4,
+   "paragraph": 3,
+   "oldStartOffset": 22,
+   "oldEndOffset": 27,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 21,
+    "endOffset": 26,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "margites",
+   "chapter": 4,
+   "paragraph": 3,
+   "oldStartOffset": 240,
+   "oldEndOffset": 248,
+   "oldText": "Margites",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 257,
+    "endOffset": 265,
+    "text": "Margites",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sophocles",
+   "chapter": 4,
+   "paragraph": 5,
+   "oldStartOffset": 129,
+   "oldEndOffset": 138,
+   "oldText": "Sophocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 126,
+    "endOffset": 135,
+    "text": "Sophocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "crates",
+   "chapter": 5,
+   "paragraph": 1,
+   "oldStartOffset": 570,
+   "oldEndOffset": 576,
+   "oldText": "Crates",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 573,
+    "endOffset": 579,
+    "text": "Crates",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "zeuxis",
+   "chapter": 6,
+   "paragraph": 4,
+   "oldStartOffset": 758,
+   "oldEndOffset": 764,
+   "oldText": "Zeuxis",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 789,
+    "endOffset": 795,
+    "text": "Zeuxis",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "polygnotus",
+   "chapter": 6,
+   "paragraph": 4,
+   "oldStartOffset": 769,
+   "oldEndOffset": 779,
+   "oldText": "Polygnotus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 739,
+    "endOffset": 749,
+    "text": "Polygnotus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "polygnotus",
+   "chapter": 6,
+   "paragraph": 4,
+   "oldStartOffset": 788,
+   "oldEndOffset": 798,
+   "oldText": "Polygnotus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 739,
+    "endOffset": 749,
+    "text": "Polygnotus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "zeuxis",
+   "chapter": 6,
+   "paragraph": 4,
+   "oldStartOffset": 832,
+   "oldEndOffset": 838,
+   "oldText": "Zeuxis",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 789,
+    "endOffset": 795,
+    "text": "Zeuxis",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "heracles",
+   "chapter": 8,
+   "paragraph": 0,
+   "oldStartOffset": 359,
+   "oldEndOffset": 367,
+   "oldText": "Heracles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 400,
+    "endOffset": 408,
+    "text": "Heracles",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "heracles",
+   "chapter": 8,
+   "paragraph": 0,
+   "oldStartOffset": 394,
+   "oldEndOffset": 402,
+   "oldText": "Heracles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 400,
+    "endOffset": 408,
+    "text": "Heracles",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 8,
+   "paragraph": 0,
+   "oldStartOffset": 429,
+   "oldEndOffset": 434,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 470,
+    "endOffset": 475,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 8,
+   "paragraph": 0,
+   "oldStartOffset": 593,
+   "oldEndOffset": 601,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 668,
+    "endOffset": 676,
+    "text": "Odysseus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "herodotus",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 278,
+   "oldEndOffset": 287,
+   "oldText": "Herodotus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 265,
+    "endOffset": 274,
+    "text": "Herodotus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "alcibiades",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 875,
+   "oldEndOffset": 885,
+   "oldText": "Alcibiades",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 886,
+    "endOffset": 896,
+    "text": "Alcibiades",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "agathon",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 1497,
+   "oldEndOffset": 1504,
+   "oldText": "Agathon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1508,
+    "endOffset": 1515,
+    "text": "Agathon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mitys",
+   "chapter": 9,
+   "paragraph": 2,
+   "oldStartOffset": 443,
+   "oldEndOffset": 448,
+   "oldText": "Mitys",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 456,
+    "endOffset": 461,
+    "text": "Mitys",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 156,
+   "oldEndOffset": 163,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 158,
+    "endOffset": 165,
+    "text": "Oedipus",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 194,
+   "oldEndOffset": 201,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 211,
+    "endOffset": 218,
+    "text": "Oedipus",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "lynceus",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 324,
+   "oldEndOffset": 331,
+   "oldText": "Lynceus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 344,
+    "endOffset": 351,
+    "text": "Lynceus",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "lynceus",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 333,
+   "oldEndOffset": 340,
+   "oldText": "Lynceus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 344,
+    "endOffset": 351,
+    "text": "Lynceus",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "danaus",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 376,
+   "oldEndOffset": 382,
+   "oldText": "Danaus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 397,
+    "endOffset": 403,
+    "text": "Danaus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "danaus",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 445,
+   "oldEndOffset": 451,
+   "oldText": "Danaus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 479,
+    "endOffset": 485,
+    "text": "Danaus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "lynceus",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 466,
+   "oldEndOffset": 473,
+   "oldText": "Lynceus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 500,
+    "endOffset": 507,
+    "text": "Lynceus",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 734,
+   "oldEndOffset": 741,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 782,
+    "endOffset": 789,
+    "text": "Oedipus",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "iphigenia",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 1423,
+   "oldEndOffset": 1432,
+   "oldText": "Iphigenia",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1571,
+    "endOffset": 1580,
+    "text": "Iphigenia",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 1448,
+   "oldEndOffset": 1455,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1584,
+    "endOffset": 1591,
+    "text": "Orestes",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 1530,
+   "oldEndOffset": 1537,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1584,
+    "endOffset": 1591,
+    "text": "Orestes",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "iphigenia",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 1547,
+   "oldEndOffset": 1556,
+   "oldText": "Iphigenia",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1571,
+    "endOffset": 1580,
+    "text": "Iphigenia",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 13,
+   "paragraph": 1,
+   "oldStartOffset": 1161,
+   "oldEndOffset": 1168,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1177,
+    "endOffset": 1184,
+    "text": "Oedipus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "thyestes",
+   "chapter": 13,
+   "paragraph": 1,
+   "oldStartOffset": 1170,
+   "oldEndOffset": 1178,
+   "oldText": "Thyestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1186,
+    "endOffset": 1194,
+    "text": "Thyestes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "alcmaeon",
+   "chapter": 13,
+   "paragraph": 2,
+   "oldStartOffset": 526,
+   "oldEndOffset": 534,
+   "oldText": "Alcmaeon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 517,
+    "endOffset": 525,
+    "text": "Alcmaeon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 13,
+   "paragraph": 2,
+   "oldStartOffset": 536,
+   "oldEndOffset": 543,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 527,
+    "endOffset": 534,
+    "text": "Oedipus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 13,
+   "paragraph": 2,
+   "oldStartOffset": 545,
+   "oldEndOffset": 552,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 536,
+    "endOffset": 543,
+    "text": "Orestes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "meleager",
+   "chapter": 13,
+   "paragraph": 2,
+   "oldStartOffset": 554,
+   "oldEndOffset": 562,
+   "oldText": "Meleager",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 545,
+    "endOffset": 553,
+    "text": "Meleager",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "thyestes",
+   "chapter": 13,
+   "paragraph": 2,
+   "oldStartOffset": 564,
+   "oldEndOffset": 572,
+   "oldText": "Thyestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 555,
+    "endOffset": 563,
+    "text": "Thyestes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "telephus",
+   "chapter": 13,
+   "paragraph": 2,
+   "oldStartOffset": 574,
+   "oldEndOffset": 582,
+   "oldText": "Telephus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 565,
+    "endOffset": 573,
+    "text": "Telephus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "euripides",
+   "chapter": 13,
+   "paragraph": 2,
+   "oldStartOffset": 756,
+   "oldEndOffset": 765,
+   "oldText": "Euripides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 739,
+    "endOffset": 748,
+    "text": "Euripides",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "euripides",
+   "chapter": 13,
+   "paragraph": 2,
+   "oldStartOffset": 1026,
+   "oldEndOffset": 1035,
+   "oldText": "Euripides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1018,
+    "endOffset": 1027,
+    "text": "Euripides",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 13,
+   "paragraph": 3,
+   "oldStartOffset": 437,
+   "oldEndOffset": 444,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 442,
+    "endOffset": 449,
+    "text": "Orestes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "aegisthus",
+   "chapter": 13,
+   "paragraph": 3,
+   "oldStartOffset": 449,
+   "oldEndOffset": 458,
+   "oldText": "Aegisthus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 454,
+    "endOffset": 463,
+    "text": "Aegisthus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 14,
+   "paragraph": 0,
+   "oldStartOffset": 411,
+   "oldEndOffset": 418,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 390,
+    "endOffset": 397,
+    "text": "Oedipus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "clytemnestra",
+   "chapter": 14,
+   "paragraph": 2,
+   "oldStartOffset": 681,
+   "oldEndOffset": 693,
+   "oldText": "Clytemnestra",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 712,
+    "endOffset": 724,
+    "text": "Clytemnestra",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 14,
+   "paragraph": 2,
+   "oldStartOffset": 707,
+   "oldEndOffset": 714,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 697,
+    "endOffset": 704,
+    "text": "Orestes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "eriphyle",
+   "chapter": 14,
+   "paragraph": 2,
+   "oldStartOffset": 719,
+   "oldEndOffset": 727,
+   "oldText": "Eriphyle",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 745,
+    "endOffset": 753,
+    "text": "Eriphyle",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "alcmaeon",
+   "chapter": 14,
+   "paragraph": 2,
+   "oldStartOffset": 731,
+   "oldEndOffset": 739,
+   "oldText": "Alcmaeon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 729,
+    "endOffset": 737,
+    "text": "Alcmaeon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "euripides",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 108,
+   "oldEndOffset": 117,
+   "oldText": "Euripides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 109,
+    "endOffset": 118,
+    "text": "Euripides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "medea",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 122,
+   "oldEndOffset": 127,
+   "oldText": "Medea",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 129,
+    "endOffset": 134,
+    "text": "Medea",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sophocles",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 256,
+   "oldEndOffset": 265,
+   "oldText": "Sophocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 277,
+    "endOffset": 286,
+    "text": "Sophocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 268,
+   "oldEndOffset": 275,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 266,
+    "endOffset": 273,
+    "text": "Oedipus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "astydamas",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 407,
+   "oldEndOffset": 416,
+   "oldText": "Astydamas",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 435,
+    "endOffset": 444,
+    "text": "Astydamas",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "alcmaeon",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 419,
+   "oldEndOffset": 427,
+   "oldText": "Alcmaeon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 423,
+    "endOffset": 431,
+    "text": "Alcmaeon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "telegonus",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 435,
+   "oldEndOffset": 444,
+   "oldText": "Telegonus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 449,
+    "endOffset": 458,
+    "text": "Telegonus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 460,
+   "oldEndOffset": 468,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 474,
+    "endOffset": 482,
+    "text": "Odysseus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "antigone",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 1039,
+   "oldEndOffset": 1047,
+   "oldText": "Antigone",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1070,
+    "endOffset": 1078,
+    "text": "Antigone",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "haemon",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 1055,
+   "oldEndOffset": 1061,
+   "oldText": "Haemon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1086,
+    "endOffset": 1092,
+    "text": "Haemon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "creon",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 1080,
+   "oldEndOffset": 1085,
+   "oldText": "Creon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1111,
+    "endOffset": 1116,
+    "text": "Creon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "cresphontes",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 1358,
+   "oldEndOffset": 1369,
+   "oldText": "Cresphontes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1391,
+    "endOffset": 1402,
+    "text": "Cresphontes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "merope",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 1370,
+   "oldEndOffset": 1376,
+   "oldText": "Merope",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1417,
+    "endOffset": 1423,
+    "text": "Merope",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "iphigenia",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 1451,
+   "oldEndOffset": 1460,
+   "oldText": "Iphigenia",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1502,
+    "endOffset": 1511,
+    "text": "Iphigenia",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "helle",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 1526,
+   "oldEndOffset": 1531,
+   "oldText": "Helle",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1582,
+    "endOffset": 1587,
+    "text": "Helle",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "menelaus",
+   "chapter": 15,
+   "paragraph": 0,
+   "oldStartOffset": 873,
+   "oldEndOffset": 881,
+   "oldText": "Menelaus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 875,
+    "endOffset": 883,
+    "text": "Menelaus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 15,
+   "paragraph": 0,
+   "oldStartOffset": 889,
+   "oldEndOffset": 896,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 891,
+    "endOffset": 898,
+    "text": "Orestes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 15,
+   "paragraph": 0,
+   "oldStartOffset": 955,
+   "oldEndOffset": 963,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 966,
+    "endOffset": 974,
+    "text": "Odysseus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "scylla",
+   "chapter": 15,
+   "paragraph": 0,
+   "oldStartOffset": 971,
+   "oldEndOffset": 977,
+   "oldText": "Scylla",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 982,
+    "endOffset": 988,
+    "text": "Scylla",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "melanippe",
+   "chapter": 15,
+   "paragraph": 0,
+   "oldStartOffset": 996,
+   "oldEndOffset": 1005,
+   "oldText": "Melanippe",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1007,
+    "endOffset": 1016,
+    "text": "Melanippe",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "iphigenia",
+   "chapter": 15,
+   "paragraph": 0,
+   "oldStartOffset": 1029,
+   "oldEndOffset": 1038,
+   "oldText": "Iphigenia",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1041,
+    "endOffset": 1050,
+    "text": "Iphigenia",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "iphigenia",
+   "chapter": 15,
+   "paragraph": 0,
+   "oldStartOffset": 1054,
+   "oldEndOffset": 1063,
+   "oldText": "Iphigenia",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1066,
+    "endOffset": 1075,
+    "text": "Iphigenia",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "medea",
+   "chapter": 15,
+   "paragraph": 1,
+   "oldStartOffset": 511,
+   "oldEndOffset": 516,
+   "oldText": "Medea",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 501,
+    "endOffset": 506,
+    "text": "Medea",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sophocles",
+   "chapter": 15,
+   "paragraph": 1,
+   "oldStartOffset": 992,
+   "oldEndOffset": 1001,
+   "oldText": "Sophocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 989,
+    "endOffset": 998,
+    "text": "Sophocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 15,
+   "paragraph": 1,
+   "oldStartOffset": 1004,
+   "oldEndOffset": 1011,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 978,
+    "endOffset": 985,
+    "text": "Oedipus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "achilles",
+   "chapter": 15,
+   "paragraph": 2,
+   "oldStartOffset": 400,
+   "oldEndOffset": 408,
+   "oldText": "Achilles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 403,
+    "endOffset": 411,
+    "text": "Achilles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "agathon",
+   "chapter": 15,
+   "paragraph": 2,
+   "oldStartOffset": 425,
+   "oldEndOffset": 432,
+   "oldText": "Agathon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 416,
+    "endOffset": 423,
+    "text": "Agathon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 15,
+   "paragraph": 2,
+   "oldStartOffset": 437,
+   "oldEndOffset": 442,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 428,
+    "endOffset": 433,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "carcinus",
+   "chapter": 16,
+   "paragraph": 1,
+   "oldStartOffset": 216,
+   "oldEndOffset": 224,
+   "oldText": "Carcinus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 222,
+    "endOffset": 230,
+    "text": "Carcinus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "thyestes",
+   "chapter": 16,
+   "paragraph": 1,
+   "oldStartOffset": 232,
+   "oldEndOffset": 240,
+   "oldText": "Thyestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 249,
+    "endOffset": 257,
+    "text": "Thyestes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "tyro",
+   "chapter": 16,
+   "paragraph": 1,
+   "oldStartOffset": 360,
+   "oldEndOffset": 364,
+   "oldText": "Tyro",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 416,
+    "endOffset": 420,
+    "text": "Tyro",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 16,
+   "paragraph": 1,
+   "oldStartOffset": 477,
+   "oldEndOffset": 485,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 507,
+    "endOffset": 515,
+    "text": "Odysseus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 16,
+   "paragraph": 2,
+   "oldStartOffset": 102,
+   "oldEndOffset": 109,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 121,
+    "endOffset": 128,
+    "text": "Orestes",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "iphigenia",
+   "chapter": 16,
+   "paragraph": 2,
+   "oldStartOffset": 117,
+   "oldEndOffset": 126,
+   "oldText": "Iphigenia",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 97,
+    "endOffset": 106,
+    "text": "Iphigenia",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 16,
+   "paragraph": 2,
+   "oldStartOffset": 155,
+   "oldEndOffset": 162,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 148,
+    "endOffset": 155,
+    "text": "Orestes",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 16,
+   "paragraph": 2,
+   "oldStartOffset": 332,
+   "oldEndOffset": 339,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 343,
+    "endOffset": 350,
+    "text": "Orestes",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sophocles",
+   "chapter": 16,
+   "paragraph": 2,
+   "oldStartOffset": 442,
+   "oldEndOffset": 451,
+   "oldText": "Sophocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 439,
+    "endOffset": 448,
+    "text": "Sophocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "tereus",
+   "chapter": 16,
+   "paragraph": 2,
+   "oldStartOffset": 454,
+   "oldEndOffset": 460,
+   "oldText": "Tereus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 429,
+    "endOffset": 435,
+    "text": "Tereus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "dicaeogenes",
+   "chapter": 16,
+   "paragraph": 3,
+   "oldStartOffset": 112,
+   "oldEndOffset": 123,
+   "oldText": "Dicaeogenes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 100,
+    "endOffset": 111,
+    "text": "Dicaeogenes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "alcinous",
+   "chapter": 16,
+   "paragraph": 3,
+   "oldStartOffset": 196,
+   "oldEndOffset": 204,
+   "oldText": "Alcinous",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 180,
+    "endOffset": 188,
+    "text": "Alcinous",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 16,
+   "paragraph": 3,
+   "oldStartOffset": 213,
+   "oldEndOffset": 221,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 190,
+    "endOffset": 198,
+    "text": "Odysseus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 16,
+   "paragraph": 4,
+   "oldStartOffset": 113,
+   "oldEndOffset": 120,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 128,
+    "endOffset": 135,
+    "text": "Orestes",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 16,
+   "paragraph": 4,
+   "oldStartOffset": 132,
+   "oldEndOffset": 139,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 128,
+    "endOffset": 135,
+    "text": "Orestes",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "iphigenia",
+   "chapter": 16,
+   "paragraph": 4,
+   "oldStartOffset": 185,
+   "oldEndOffset": 194,
+   "oldText": "Iphigenia",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 166,
+    "endOffset": 175,
+    "text": "Iphigenia",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "polyidus",
+   "chapter": 16,
+   "paragraph": 4,
+   "oldStartOffset": 210,
+   "oldEndOffset": 218,
+   "oldText": "Polyidus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 203,
+    "endOffset": 211,
+    "text": "Polyidus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "theodectes",
+   "chapter": 16,
+   "paragraph": 4,
+   "oldStartOffset": 342,
+   "oldEndOffset": 352,
+   "oldText": "Theodectes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 350,
+    "endOffset": 360,
+    "text": "Theodectes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "tydeus",
+   "chapter": 16,
+   "paragraph": 4,
+   "oldStartOffset": 355,
+   "oldEndOffset": 361,
+   "oldText": "Tydeus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 340,
+    "endOffset": 346,
+    "text": "Tydeus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "phineidae",
+   "chapter": 16,
+   "paragraph": 4,
+   "oldStartOffset": 443,
+   "oldEndOffset": 452,
+   "oldText": "Phineidae",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 448,
+    "endOffset": 457,
+    "text": "Phineidae",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 16,
+   "paragraph": 4,
+   "oldStartOffset": 682,
+   "oldEndOffset": 690,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 686,
+    "endOffset": 694,
+    "text": "Odysseus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 16,
+   "paragraph": 4,
+   "oldStartOffset": 784,
+   "oldEndOffset": 792,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 798,
+    "endOffset": 806,
+    "text": "Odysseus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 16,
+   "paragraph": 5,
+   "oldStartOffset": 181,
+   "oldEndOffset": 188,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 158,
+    "endOffset": 165,
+    "text": "Oedipus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "iphigenia",
+   "chapter": 16,
+   "paragraph": 5,
+   "oldStartOffset": 200,
+   "oldEndOffset": 209,
+   "oldText": "Iphigenia",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 221,
+    "endOffset": 230,
+    "text": "Iphigenia",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "iphigenia",
+   "chapter": 16,
+   "paragraph": 5,
+   "oldStartOffset": 236,
+   "oldEndOffset": 245,
+   "oldText": "Iphigenia",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 221,
+    "endOffset": 230,
+    "text": "Iphigenia",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "carcinus",
+   "chapter": 17,
+   "paragraph": 0,
+   "oldStartOffset": 372,
+   "oldEndOffset": 380,
+   "oldText": "Carcinus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 328,
+    "endOffset": 336,
+    "text": "Carcinus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "amphiaraus",
+   "chapter": 17,
+   "paragraph": 0,
+   "oldStartOffset": 382,
+   "oldEndOffset": 392,
+   "oldText": "Amphiaraus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 370,
+    "endOffset": 380,
+    "text": "Amphiaraus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "iphigenia",
+   "chapter": 17,
+   "paragraph": 2,
+   "oldStartOffset": 225,
+   "oldEndOffset": 234,
+   "oldText": "Iphigenia",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 188,
+    "endOffset": 197,
+    "text": "Iphigenia",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "euripides",
+   "chapter": 17,
+   "paragraph": 2,
+   "oldStartOffset": 823,
+   "oldEndOffset": 832,
+   "oldText": "Euripides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 817,
+    "endOffset": 826,
+    "text": "Euripides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "polyidus",
+   "chapter": 17,
+   "paragraph": 2,
+   "oldStartOffset": 838,
+   "oldEndOffset": 846,
+   "oldText": "Polyidus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 841,
+    "endOffset": 849,
+    "text": "Polyidus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 17,
+   "paragraph": 3,
+   "oldStartOffset": 133,
+   "oldEndOffset": 140,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 126,
+    "endOffset": 133,
+    "text": "Orestes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poseidon",
+   "chapter": 17,
+   "paragraph": 3,
+   "oldStartOffset": 472,
+   "oldEndOffset": 480,
+   "oldText": "Poseidon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 468,
+    "endOffset": 476,
+    "text": "Poseidon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "theodectes",
+   "chapter": 18,
+   "paragraph": 0,
+   "oldStartOffset": 440,
+   "oldEndOffset": 450,
+   "oldText": "Theodectes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 444,
+    "endOffset": 454,
+    "text": "Theodectes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lynceus",
+   "chapter": 18,
+   "paragraph": 0,
+   "oldStartOffset": 453,
+   "oldEndOffset": 460,
+   "oldText": "Lynceus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 433,
+    "endOffset": 440,
+    "text": "Lynceus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "ajax",
+   "chapter": 18,
+   "paragraph": 1,
+   "oldStartOffset": 180,
+   "oldEndOffset": 184,
+   "oldText": "Ajax",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 175,
+    "endOffset": 179,
+    "text": "Ajax",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "ixion",
+   "chapter": 18,
+   "paragraph": 1,
+   "oldStartOffset": 189,
+   "oldEndOffset": 194,
+   "oldText": "Ixion",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 184,
+    "endOffset": 189,
+    "text": "Ixion",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "phthiotides",
+   "chapter": 18,
+   "paragraph": 1,
+   "oldStartOffset": 253,
+   "oldEndOffset": 264,
+   "oldText": "Phthiotides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 248,
+    "endOffset": 259,
+    "text": "Phthiotides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "peleus",
+   "chapter": 18,
+   "paragraph": 1,
+   "oldStartOffset": 273,
+   "oldEndOffset": 279,
+   "oldText": "Peleus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 268,
+    "endOffset": 274,
+    "text": "Peleus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "phorcides",
+   "chapter": 18,
+   "paragraph": 1,
+   "oldStartOffset": 381,
+   "oldEndOffset": 390,
+   "oldText": "Phorcides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 363,
+    "endOffset": 372,
+    "text": "Phorcides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prometheus",
+   "chapter": 18,
+   "paragraph": 1,
+   "oldStartOffset": 396,
+   "oldEndOffset": 406,
+   "oldText": "Prometheus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 378,
+    "endOffset": 388,
+    "text": "Prometheus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "euripides",
+   "chapter": 18,
+   "paragraph": 3,
+   "oldStartOffset": 513,
+   "oldEndOffset": 522,
+   "oldText": "Euripides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 498,
+    "endOffset": 507,
+    "text": "Euripides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "niobe",
+   "chapter": 18,
+   "paragraph": 3,
+   "oldStartOffset": 560,
+   "oldEndOffset": 565,
+   "oldText": "Niobe",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 543,
+    "endOffset": 548,
+    "text": "Niobe",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "aeschylus",
+   "chapter": 18,
+   "paragraph": 3,
+   "oldStartOffset": 599,
+   "oldEndOffset": 608,
+   "oldText": "Aeschylus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 575,
+    "endOffset": 584,
+    "text": "Aeschylus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "agathon",
+   "chapter": 18,
+   "paragraph": 3,
+   "oldStartOffset": 675,
+   "oldEndOffset": 682,
+   "oldText": "Agathon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 645,
+    "endOffset": 652,
+    "text": "Agathon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sisyphus",
+   "chapter": 18,
+   "paragraph": 3,
+   "oldStartOffset": 945,
+   "oldEndOffset": 953,
+   "oldText": "Sisyphus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 889,
+    "endOffset": 897,
+    "text": "Sisyphus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "agathon",
+   "chapter": 18,
+   "paragraph": 3,
+   "oldStartOffset": 1029,
+   "oldEndOffset": 1036,
+   "oldText": "Agathon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 973,
+    "endOffset": 980,
+    "text": "Agathon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "sophocles",
+   "chapter": 18,
+   "paragraph": 4,
+   "oldStartOffset": 141,
+   "oldEndOffset": 150,
+   "oldText": "Sophocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 133,
+    "endOffset": 142,
+    "text": "Sophocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "euripides",
+   "chapter": 18,
+   "paragraph": 4,
+   "oldStartOffset": 156,
+   "oldEndOffset": 165,
+   "oldText": "Euripides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 157,
+    "endOffset": 166,
+    "text": "Euripides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "agathon",
+   "chapter": 18,
+   "paragraph": 4,
+   "oldStartOffset": 353,
+   "oldEndOffset": 360,
+   "oldText": "Agathon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 346,
+    "endOffset": 353,
+    "text": "Agathon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "protagoras",
+   "chapter": 19,
+   "paragraph": 1,
+   "oldStartOffset": 388,
+   "oldEndOffset": 398,
+   "oldText": "Protagoras",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 386,
+    "endOffset": 396,
+    "text": "Protagoras",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 19,
+   "paragraph": 1,
+   "oldStartOffset": 410,
+   "oldEndOffset": 415,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 413,
+    "endOffset": 418,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "protagoras",
+   "chapter": 19,
+   "paragraph": 1,
+   "oldStartOffset": 570,
+   "oldEndOffset": 580,
+   "oldText": "Protagoras",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 573,
+    "endOffset": 583,
+    "text": "Protagoras",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "theodorus",
+   "chapter": 20,
+   "paragraph": 4,
+   "oldStartOffset": 204,
+   "oldEndOffset": 213,
+   "oldText": "Theodorus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 207,
+    "endOffset": 216,
+    "text": "Theodorus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "cleon",
+   "chapter": 20,
+   "paragraph": 7,
+   "oldStartOffset": 327,
+   "oldEndOffset": 332,
+   "oldText": "Cleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 332,
+    "endOffset": 337,
+    "text": "Cleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "cleon-father",
+   "chapter": 20,
+   "paragraph": 7,
+   "oldStartOffset": 340,
+   "oldEndOffset": 345,
+   "oldText": "Cleon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 332,
+    "endOffset": 337,
+    "text": "Cleon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hermocaicoxanthus",
+   "chapter": 21,
+   "paragraph": 0,
+   "oldStartOffset": 410,
+   "oldEndOffset": 429,
+   "oldText": "Hermo-caico-xanthus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 408,
+    "endOffset": 427,
+    "text": "Hermo-caico-xanthus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "zeus",
+   "chapter": 21,
+   "paragraph": 0,
+   "oldStartOffset": 452,
+   "oldEndOffset": 456,
+   "oldText": "Zeus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 449,
+    "endOffset": 453,
+    "text": "Zeus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 21,
+   "paragraph": 3,
+   "oldStartOffset": 320,
+   "oldEndOffset": 328,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 346,
+    "endOffset": 354,
+    "text": "Odysseus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "dionysus",
+   "chapter": 21,
+   "paragraph": 3,
+   "oldStartOffset": 962,
+   "oldEndOffset": 970,
+   "oldText": "Dionysus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1088,
+    "endOffset": 1096,
+    "text": "Dionysus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "ares",
+   "chapter": 21,
+   "paragraph": 3,
+   "oldStartOffset": 991,
+   "oldEndOffset": 995,
+   "oldText": "Ares",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1117,
+    "endOffset": 1121,
+    "text": "Ares",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "dionysus",
+   "chapter": 21,
+   "paragraph": 3,
+   "oldStartOffset": 1044,
+   "oldEndOffset": 1052,
+   "oldText": "Dionysus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1088,
+    "endOffset": 1096,
+    "text": "Dionysus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "ares",
+   "chapter": 21,
+   "paragraph": 3,
+   "oldStartOffset": 1082,
+   "oldEndOffset": 1086,
+   "oldText": "Ares",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1117,
+    "endOffset": 1121,
+    "text": "Ares",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "empedocles",
+   "chapter": 21,
+   "paragraph": 3,
+   "oldStartOffset": 1244,
+   "oldEndOffset": 1254,
+   "oldText": "Empedocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1366,
+    "endOffset": 1376,
+    "text": "Empedocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "ares",
+   "chapter": 21,
+   "paragraph": 3,
+   "oldStartOffset": 1816,
+   "oldEndOffset": 1820,
+   "oldText": "Ares",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1889,
+    "endOffset": 1893,
+    "text": "Ares",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "cleophon",
+   "chapter": 22,
+   "paragraph": 0,
+   "oldStartOffset": 181,
+   "oldEndOffset": 189,
+   "oldText": "Cleophon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 152,
+    "endOffset": 160,
+    "text": "Cleophon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sthenelus",
+   "chapter": 22,
+   "paragraph": 0,
+   "oldStartOffset": 194,
+   "oldEndOffset": 203,
+   "oldText": "Sthenelus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 168,
+    "endOffset": 177,
+    "text": "Sthenelus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "eucleides",
+   "chapter": 22,
+   "paragraph": 0,
+   "oldStartOffset": 1550,
+   "oldEndOffset": 1559,
+   "oldText": "Eucleides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1456,
+    "endOffset": 1465,
+    "text": "Eucleides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "aeschylus",
+   "chapter": 22,
+   "paragraph": 0,
+   "oldStartOffset": 2434,
+   "oldEndOffset": 2443,
+   "oldText": "Aeschylus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2660,
+    "endOffset": 2669,
+    "text": "Aeschylus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "euripides",
+   "chapter": 22,
+   "paragraph": 0,
+   "oldStartOffset": 2448,
+   "oldEndOffset": 2457,
+   "oldText": "Euripides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2674,
+    "endOffset": 2683,
+    "text": "Euripides",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "euripides",
+   "chapter": 22,
+   "paragraph": 0,
+   "oldStartOffset": 2533,
+   "oldEndOffset": 2542,
+   "oldText": "Euripides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2674,
+    "endOffset": 2683,
+    "text": "Euripides",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "aeschylus",
+   "chapter": 22,
+   "paragraph": 0,
+   "oldStartOffset": 2652,
+   "oldEndOffset": 2661,
+   "oldText": "Aeschylus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2660,
+    "endOffset": 2669,
+    "text": "Aeschylus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "philoctetes",
+   "chapter": 22,
+   "paragraph": 0,
+   "oldStartOffset": 2669,
+   "oldEndOffset": 2680,
+   "oldText": "Philoctetes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2898,
+    "endOffset": 2909,
+    "text": "Philoctetes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 23,
+   "paragraph": 0,
+   "oldStartOffset": 920,
+   "oldEndOffset": 925,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 903,
+    "endOffset": 908,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "philoctetes",
+   "chapter": 23,
+   "paragraph": 0,
+   "oldStartOffset": 1793,
+   "oldEndOffset": 1804,
+   "oldText": "Philoctetes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1766,
+    "endOffset": 1777,
+    "text": "Philoctetes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "neoptolemus",
+   "chapter": 23,
+   "paragraph": 0,
+   "oldStartOffset": 1810,
+   "oldEndOffset": 1821,
+   "oldText": "Neoptolemus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1783,
+    "endOffset": 1794,
+    "text": "Neoptolemus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "eurypylus",
+   "chapter": 23,
+   "paragraph": 0,
+   "oldStartOffset": 1827,
+   "oldEndOffset": 1836,
+   "oldText": "Eurypylus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1800,
+    "endOffset": 1809,
+    "text": "Eurypylus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 23,
+   "paragraph": 0,
+   "oldStartOffset": 1852,
+   "oldEndOffset": 1860,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1825,
+    "endOffset": 1833,
+    "text": "Odysseus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 24,
+   "paragraph": 0,
+   "oldStartOffset": 333,
+   "oldEndOffset": 338,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 314,
+    "endOffset": 319,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "chaeremon",
+   "chapter": 24,
+   "paragraph": 3,
+   "oldStartOffset": 568,
+   "oldEndOffset": 577,
+   "oldText": "Chaeremon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 551,
+    "endOffset": 560,
+    "text": "Chaeremon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 24,
+   "paragraph": 4,
+   "oldStartOffset": 338,
+   "oldEndOffset": 343,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 328,
+    "endOffset": 333,
+    "text": "Homer",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hector",
+   "chapter": 24,
+   "paragraph": 5,
+   "oldStartOffset": 217,
+   "oldEndOffset": 223,
+   "oldText": "Hector",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 187,
+    "endOffset": 193,
+    "text": "Hector",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "achilles",
+   "chapter": 24,
+   "paragraph": 5,
+   "oldStartOffset": 319,
+   "oldEndOffset": 327,
+   "oldText": "Achilles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 296,
+    "endOffset": 304,
+    "text": "Achilles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 24,
+   "paragraph": 5,
+   "oldStartOffset": 542,
+   "oldEndOffset": 547,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 523,
+    "endOffset": 528,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 24,
+   "paragraph": 6,
+   "oldStartOffset": 278,
+   "oldEndOffset": 285,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 269,
+    "endOffset": 276,
+    "text": "Oedipus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "laius",
+   "chapter": 24,
+   "paragraph": 6,
+   "oldStartOffset": 328,
+   "oldEndOffset": 333,
+   "oldText": "Laius",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 306,
+    "endOffset": 311,
+    "text": "Laius",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "electra",
+   "chapter": 24,
+   "paragraph": 6,
+   "oldStartOffset": 377,
+   "oldEndOffset": 384,
+   "oldText": "Electra",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 352,
+    "endOffset": 359,
+    "text": "Electra",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 24,
+   "paragraph": 6,
+   "oldStartOffset": 837,
+   "oldEndOffset": 845,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 784,
+    "endOffset": 792,
+    "text": "Odysseus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 24,
+   "paragraph": 6,
+   "oldStartOffset": 1003,
+   "oldEndOffset": 1008,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "hector",
+   "chapter": 25,
+   "paragraph": 2,
+   "oldStartOffset": 346,
+   "oldEndOffset": 352,
+   "oldText": "Hector",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 347,
+    "endOffset": 353,
+    "text": "Hector",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sophocles",
+   "chapter": 25,
+   "paragraph": 4,
+   "oldStartOffset": 132,
+   "oldEndOffset": 141,
+   "oldText": "Sophocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 163,
+    "endOffset": 172,
+    "text": "Sophocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "euripides",
+   "chapter": 25,
+   "paragraph": 4,
+   "oldStartOffset": 191,
+   "oldEndOffset": 200,
+   "oldText": "Euripides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 220,
+    "endOffset": 229,
+    "text": "Euripides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "xenophanes",
+   "chapter": 25,
+   "paragraph": 4,
+   "oldStartOffset": 518,
+   "oldEndOffset": 528,
+   "oldText": "Xenophanes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 562,
+    "endOffset": 572,
+    "text": "Xenophanes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "dolon",
+   "chapter": 25,
+   "paragraph": 6,
+   "oldStartOffset": 218,
+   "oldEndOffset": 223,
+   "oldText": "Dolon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 286,
+    "endOffset": 291,
+    "text": "Dolon",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hippias",
+   "chapter": 25,
+   "paragraph": 8,
+   "oldStartOffset": 60,
+   "oldEndOffset": 67,
+   "oldText": "Hippias",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 55,
+    "endOffset": 62,
+    "text": "Hippias",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "empedocles",
+   "chapter": 25,
+   "paragraph": 9,
+   "oldStartOffset": 52,
+   "oldEndOffset": 62,
+   "oldText": "Empedocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 50,
+    "endOffset": 60,
+    "text": "Empedocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "ganymede",
+   "chapter": 25,
+   "paragraph": 11,
+   "oldStartOffset": 77,
+   "oldEndOffset": 85,
+   "oldText": "Ganymede",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 123,
+    "endOffset": 131,
+    "text": "Ganymede",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "zeus",
+   "chapter": 25,
+   "paragraph": 11,
+   "oldStartOffset": 115,
+   "oldEndOffset": 119,
+   "oldText": "Zeus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 161,
+    "endOffset": 165,
+    "text": "Zeus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "icarius",
+   "chapter": 25,
+   "paragraph": 12,
+   "oldStartOffset": 604,
+   "oldEndOffset": 611,
+   "oldText": "Icarius",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 619,
+    "endOffset": 626,
+    "text": "Icarius",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "telemachus",
+   "chapter": 25,
+   "paragraph": 12,
+   "oldStartOffset": 716,
+   "oldEndOffset": 726,
+   "oldText": "Telemachus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 740,
+    "endOffset": 750,
+    "text": "Telemachus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "odysseus",
+   "chapter": 25,
+   "paragraph": 12,
+   "oldStartOffset": 841,
+   "oldEndOffset": 849,
+   "oldText": "Odysseus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 881,
+    "endOffset": 889,
+    "text": "Odysseus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "icadius",
+   "chapter": 25,
+   "paragraph": 12,
+   "oldStartOffset": 909,
+   "oldEndOffset": 916,
+   "oldText": "Icadius",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 946,
+    "endOffset": 953,
+    "text": "Icadius",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "icarius",
+   "chapter": 25,
+   "paragraph": 12,
+   "oldStartOffset": 922,
+   "oldEndOffset": 929,
+   "oldText": "Icarius",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 959,
+    "endOffset": 966,
+    "text": "Icarius",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "zeuxis",
+   "chapter": 25,
+   "paragraph": 13,
+   "oldStartOffset": 300,
+   "oldEndOffset": 306,
+   "oldText": "Zeuxis",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 240,
+    "endOffset": 246,
+    "text": "Zeuxis",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "euripides",
+   "chapter": 25,
+   "paragraph": 15,
+   "oldStartOffset": 178,
+   "oldEndOffset": 187,
+   "oldText": "Euripides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 171,
+    "endOffset": 180,
+    "text": "Euripides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "aegeus",
+   "chapter": 25,
+   "paragraph": 15,
+   "oldStartOffset": 206,
+   "oldEndOffset": 212,
+   "oldText": "Aegeus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 198,
+    "endOffset": 204,
+    "text": "Aegeus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "menelaus",
+   "chapter": 25,
+   "paragraph": 15,
+   "oldStartOffset": 233,
+   "oldEndOffset": 241,
+   "oldText": "Menelaus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 225,
+    "endOffset": 233,
+    "text": "Menelaus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "orestes",
+   "chapter": 25,
+   "paragraph": 15,
+   "oldStartOffset": 249,
+   "oldEndOffset": 256,
+   "oldText": "Orestes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 241,
+    "endOffset": 248,
+    "text": "Orestes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "scylla",
+   "chapter": 26,
+   "paragraph": 0,
+   "oldStartOffset": 568,
+   "oldEndOffset": 574,
+   "oldText": "Scylla",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 564,
+    "endOffset": 570,
+    "text": "Scylla",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mynniscus",
+   "chapter": 26,
+   "paragraph": 0,
+   "oldStartOffset": 690,
+   "oldEndOffset": 699,
+   "oldText": "Mynniscus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 675,
+    "endOffset": 684,
+    "text": "Mynniscus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "callippides",
+   "chapter": 26,
+   "paragraph": 0,
+   "oldStartOffset": 713,
+   "oldEndOffset": 724,
+   "oldText": "Callippides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 698,
+    "endOffset": 709,
+    "text": "Callippides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pindarus",
+   "chapter": 26,
+   "paragraph": 0,
+   "oldStartOffset": 807,
+   "oldEndOffset": 815,
+   "oldText": "Pindarus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 791,
+    "endOffset": 799,
+    "text": "Pindarus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sosistratus",
+   "chapter": 26,
+   "paragraph": 1,
+   "oldStartOffset": 139,
+   "oldEndOffset": 150,
+   "oldText": "Sosistratus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 141,
+    "endOffset": 152,
+    "text": "Sosistratus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mnasitheus",
+   "chapter": 26,
+   "paragraph": 1,
+   "oldStartOffset": 185,
+   "oldEndOffset": 195,
+   "oldText": "Mnasitheus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 207,
+    "endOffset": 217,
+    "text": "Mnasitheus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "callippides",
+   "chapter": 26,
+   "paragraph": 1,
+   "oldStartOffset": 336,
+   "oldEndOffset": 347,
+   "oldText": "Callippides",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 370,
+    "endOffset": 381,
+    "text": "Callippides",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sophocles",
+   "chapter": 26,
+   "paragraph": 2,
+   "oldStartOffset": 485,
+   "oldEndOffset": 494,
+   "oldText": "Sophocles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 509,
+    "endOffset": 518,
+    "text": "Sophocles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "oedipus",
+   "chapter": 26,
+   "paragraph": 2,
+   "oldStartOffset": 497,
+   "oldEndOffset": 504,
+   "oldText": "Oedipus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 498,
+    "endOffset": 505,
+    "text": "Oedipus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  }
+ ]
+}

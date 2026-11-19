@@ -11,6 +11,7 @@
 import { chromium } from 'playwright'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const origin = process.env.TEST_ORIGIN || 'http://127.0.0.1:5173'
 const artifactDir = process.env.ARTIFACT_DIR || '/tmp/tinct-narration-pilot'
@@ -35,7 +36,7 @@ async function sha256(text) {
 }
 
 const executablePath = [process.env.PW_CHROMIUM, '/opt/pw-browsers/chromium'].find(candidate => candidate && fs.existsSync(candidate))
-const browser = await chromium.launch({ executablePath, args: ['--mute-audio', '--autoplay-policy=no-user-gesture-required'] })
+const browser = await markInternal(await chromium.launch({ executablePath, args: ['--mute-audio', '--autoplay-policy=no-user-gesture-required'] }))
 const context = await browser.newContext({serviceWorkers:'block', viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true })
 const page = await context.newPage()
 await page.addInitScript(() => {
@@ -136,7 +137,9 @@ await page.waitForTimeout(500)
 await page.mouse.click(195, 420)
 await page.getByTestId('lab-super').waitFor({ timeout: 10000 })
 await page.getByTestId('lab-super').click()
-await page.getByTestId('lab-super-row-settings').click()
+await page.getByTestId('lab-super-menu').waitFor()
+// Audio settings holds the voice and speed, on the phone and the desktop (22 Oct 2026).
+await page.getByTestId('lab-super-row-audio').click()
 const row = page.getByTestId('lab-v2-narration-voice')
 await row.waitFor({ timeout: 10000 })
 const options = await row.locator('option').allTextContents()

@@ -1,10 +1,16 @@
 import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
+import { transcriptTurns, transcriptWordClass } from './labTranscript'
 import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
+import { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap, labFragmentClass, labWordSpacing, measuredTailGapEm, type LabTailRect } from './labMeasureParagraph'
+import { paragraphKindClass, wordLink } from './labParagraphStyle'
+import { hyphenPlanClass, plannedBreak } from './labHyphenPlan'
+import { figureFor, figureLabel, isFigureToken, type LabFigure } from './labFigures'
+import { LabFigureView } from './LabFigure'
 import { LabChapterHeading } from './LabChapterHeading'
-import { useTextRangeHighlights } from './useTextRangeHighlights'
+import { paintsTextRanges, useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
 import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
-import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import { Fragment, memo, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import type { PlacedFootnote } from './labFootnotes'
 import {
@@ -22,7 +28,7 @@ import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, i
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
-import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
+import { labLongPressCancelledByMove, labLongPressMs, labNativeSelectionBlocksTurn, labPassageBlocksNativeTouch, labSelectionEdgeArmedAt, labSelectionEdgeDirection, labSwipeTurnDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
 /** Drag-to-select page turns: the strip at the top and bottom of the page
  *  that turns it, and how long the finger rests there first. 24px / 700ms
@@ -38,6 +44,18 @@ interface LabPassageProps {
   onCrossChapterSelect?: (parts: ChapterSelectionPart[], x: number, y: number) => void
   onCrossChapterSelecting?: (parts: ChapterSelectionPart[] | null) => void
   openingOnly?: boolean
+  /**
+   * Book scroll: a chapter painted beside the reader's own. The page is the reader's own page in every node (so the
+   * chapter keeps its DOM when it becomes the reader's, BookScrollReader), but its words are inert
+   * "lab-opening-word"s, its heading and stage carry no test ids, its paragraphs no ids, and it shows no footnotes.
+   */
+  inertWords?: boolean
+  /**
+   * Book scroll: each line's words re-render only when something they show changes (a mark, the selection, the
+   * spoken word, a footnote), and a change of role (`inertWords`) only rewrites the words' test ids. A whole long
+   * chapter otherwise re-renders on every reader render, and twice at each chapter line.
+   */
+  stableWords?: boolean
   pendingLayout?: boolean
   chapterEnd?: ReactNode
   onPreviewChapter?: () => void
@@ -79,6 +97,12 @@ interface LabPassageProps {
   readingPage?: ChapterHearingPage
   chapterPages?: ChapterHearingPage[]
   keyboardSelection?: boolean
+  /** The passage sits in a native scroller (the Margin reader): a finger drag
+   *  scrolls the text and a long press selects, as the paginated phone page does. */
+  touchScroll?: boolean
+  /** Whether a chapter-end card running past the page is tracked. Off where the text is one long scroll (book
+   *  scroll): there nothing clips the end, and the flip re-rendered every word of the chapter after it mounted. */
+  measureEndOverflow?: boolean
   compareHighlights?: LabHighlight[]
   selectingComparison?: boolean
   highlights?: LabHighlight[]
@@ -99,13 +123,12 @@ interface LabPassageProps {
    * previous/next buttons instead, 'touch' on a machine that has both.
    */
   tapZones?: LabTapTurnZones
-  /** Compare's whole-page swap. A vertical swipe, and nothing that says so. */
-  onCompareSwap?: () => void
   /**
-   * Phone Compare: the word the main page's passage ends before, when that
-   * passage runs on past a compare page. A quiet mark is drawn there.
+   * The paginated phone page also turns on a vertical swipe: up is the next
+   * page, down the previous one, through the same `onPageTurn` as a sideways
+   * swipe. Never on a passage inside a scroller (`touchScroll`).
    */
-  pageEndMarker?: { paragraphIndex: number; wordIndex: number } | null
+  verticalSwipeTurns?: boolean
   onToggleControls?: () => void
   /**
    * Identity of the reader typography (font, size, alignment, spacing,
@@ -120,24 +143,27 @@ interface LabPassageProps {
    */
   footnotes?: PlacedFootnote[]
   onFootnote?: (note: PlacedFootnote, marker: HTMLElement) => void
+  /** A figure on the page was tapped: open its card. */
+  onOpenFigure?: (figure: LabFigure) => void
+  /**
+   * The page was laid out with planned hyphens (labHyphenPlan: the phone's
+   * paginator) and must paint them, on every paint of it. Desktop leaves keep
+   * the browser's dictionary hyphenation.
+   */
+  plannedHyphens?: boolean
 }
 
-function wordSpacing(
-  word: { text: string },
-  wordIndex: number,
-  previous?: { text: string },
-): string {
-  if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
-  // After a verse marker the separator belongs to THIS word, not to the marker:
-  // it is then inside the word's painted span, so a highlight that starts here
-  // has no unpainted notch between the number and the first word. Non-breaking,
-  // so the marker and its word still never split across a line.
-  return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
-}
-
-function renderWordText(text: string, emphasis = false) {
-  const content = isLabVerseMarker(text) ? (
+function renderWordText(text: string, emphasis = false, paragraph?: string, wordIndex = -1, hyphenAt?: number, onOpenFigure?: (figure: LabFigure) => void) {
+  const figure = figureFor(text)
+  if (figure) return <LabFigureView figure={figure} onOpen={onOpenFigure} />
+  const link = wordIndex >= 0 ? wordLink(paragraph, wordIndex, text) : null
+  const content = link ? (
+    <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>{link.trail}</>
+  ) : isLabVerseMarker(text) ? (
     <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
+  ) : hyphenAt != null && hyphenAt > 0 && hyphenAt < text.length ? (
+    // A planned hyphen (labHyphenPlan): drawn by CSS after the head, never in the text.
+    <><span className="lab-syl">{text.slice(0, hyphenAt)}</span>{text.slice(hyphenAt)}</>
   ) : text
   return emphasis ? <em>{content}</em> : content
 }
@@ -159,7 +185,7 @@ export function renderWordGroups<T extends { text: string }>(
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
     const word = words[wordIndex]
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
-      const spacing = wordSpacing(word, wordIndex, words[wordIndex - 1])
+      const spacing = labWordSpacing(word, wordIndex, words[wordIndex - 1])
       rendered.push({
         at: wordIndex,
         node: (
@@ -167,14 +193,14 @@ export function renderWordGroups<T extends { text: string }>(
             {renderSpacing ? renderSpacing(spacing, wordIndex) : spacing}
             <span className="lab-verse-unit">
               {renderWord(word, wordIndex, "")}
-              {renderWord(words[wordIndex + 1], wordIndex + 1, wordSpacing(words[wordIndex + 1], wordIndex + 1, word))}
+              {renderWord(words[wordIndex + 1], wordIndex + 1, labWordSpacing(words[wordIndex + 1], wordIndex + 1, word))}
             </span>
           </Fragment>
         ),
       })
       wordIndex += 1
     } else {
-      const spacing = wordSpacing(word, wordIndex, words[wordIndex - 1])
+      const spacing = labWordSpacing(word, wordIndex, words[wordIndex - 1])
       rendered.push({
         at: wordIndex,
         node: (
@@ -249,7 +275,8 @@ export function lineContinuesParagraph(
  */
 export const LAB_CONTINUED_TAIL_MIN_FILL = 0.6
 
-interface TailRect { left: number; right: number; bottom: number; height: number }
+type TailRect = LabTailRect
+export { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap }
 
 /** Natural fill (0..1) of the last painted line, from per-fragment word rects. */
 export function continuedTailFill(
@@ -289,7 +316,11 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
         for (const rect of word.getClientRects()) fragments.push(rect)
       })
       const fill = continuedTailFill(box.left + padLeft, box.right - padRight, fragments)
-      if (fill >= LAB_CONTINUED_TAIL_MIN_FILL) line.setAttribute('data-tail-full', 'true')
+      if (fill < LAB_CONTINUED_TAIL_MIN_FILL) return
+      // Never stretched beyond ordinary loose spacing (the paginator ends such
+      // a page a line earlier; this guards a paint that differs from its measure).
+      if ((measuredTailGapEm(line) ?? 0) > LAB_CONTINUED_TAIL_MAX_GAP_EM) return
+      line.setAttribute('data-tail-full', 'true')
     } catch { /* jsdom has no layout */ }
   })
 }
@@ -306,24 +337,30 @@ function joinedLines(run: number[], body: (lineIndex: number) => ReactNode, memb
     : <Fragment key={lineIndex}>{' '}<span className="lab-prose-join" {...member?.(lineIndex)}>{body(lineIndex)}</span></Fragment>)
 }
 
-/** The visual paragraph goes on to the next page: justify its last line like any interior one. */
-function runContinuesParagraph(paragraphs: string[], lines: Array<{ paragraphIndex?: number; from?: number; words: Array<{ text: string; fragment?: boolean }> }>, run: number[]): boolean {
+/**
+ * The visual paragraph goes on to the next page: justify its last line like
+ * any interior one. A following poetry line continues it only where joined
+ * lines are painted inline (`joins`); verse-paired Compare paints each source
+ * line as its own row, so there a paragraph that ends is set ragged like any
+ * other paragraph end, never stretched to the margin.
+ */
+export function runContinuesParagraph(paragraphs: string[], lines: Array<{ paragraphIndex?: number; from?: number; words: Array<{ text: string; fragment?: boolean }> }>, run: number[], joins = true): boolean {
   const last = lines[run[run.length - 1]]
-  return lineContinuesParagraph(paragraphs, last) || sliceRunContinues(paragraphs, lineSlice(last))
+  return lineContinuesParagraph(paragraphs, last) || (joins && sliceRunContinues(paragraphs, lineSlice(last)))
 }
 
-function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[]) {
+function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[], usePlans = false) {
   return proseRuns(paragraphs, lines.map(lineSlice)).map(run => (
-    <p key={run[0]} className={`lab-hearing-line${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}>
+    <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], lines[run[0]].from)}${hyphenPlanClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], usePlans)}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}>
       {joinedLines(run, (lineIndex) => {
         const line = lines[lineIndex]
         return renderWordGroups(line.words, (word, wordIndex, spacing) => word.fragment
         // The page-edge fragment: its hyphen is drawn by CSS, as on the reading page.
-        ? <span key={`${lineIndex}-${wordIndex}`} className="lab-word-fragment" aria-hidden="true">{spacing}{word.text}</span>
+        ? <span key={`${lineIndex}-${wordIndex}`} className={labFragmentClass(word.text)} aria-hidden="true">{spacing}{word.text}</span>
         : (
         <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
           {spacing}
-          {renderWordText(word.text, word.emphasis)}
+          {renderWordText(word.text, word.emphasis, paragraphs[line.paragraphIndex ?? 0], (line.from ?? 0) + wordIndex, usePlans ? plannedBreak(paragraphs[line.paragraphIndex ?? 0], (line.from ?? 0) + wordIndex, word.text) : undefined)}
         </span>
       ), lineationFor(paragraphs, line))
       })}
@@ -358,6 +395,7 @@ function renderHearingWords(
   readingPage?: ChapterHearingPage,
   chapterPages?: ChapterHearingPage[],
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void,
+  usePlans = false,
 ) {
   const fallbackParagraphIndex = paragraph?.index ?? 0
   const lines = readingPage
@@ -370,7 +408,7 @@ function renderHearingWords(
     return (
       <p
         key={run[0]}
-        className={`lab-hearing-line${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}
+        className={`lab-hearing-line${paragraphKindClass(paragraphs[paragraphIndex], lines[run[0]].from)}${hyphenPlanClass(paragraphs[paragraphIndex], usePlans)}${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}
         data-follow-granularity={followGranularityAttr(followParagraphs, paragraphIndex)}
       >
         {joinedLines(run, (lineIndex) => {
@@ -391,7 +429,7 @@ function renderHearingWords(
                 : undefined}
             >
               {spacing}
-              {renderWordText(word.text, word.emphasis)}
+              {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], word.wordIndex ?? -1, usePlans && word.wordIndex != null ? plannedBreak(paragraphs[paragraphIndex], word.wordIndex, word.text) : undefined)}
             </span>
           )
         }, lineationFor(paragraphs, line, fallbackParagraphIndex))
@@ -439,8 +477,18 @@ function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): La
 
 const EMPTY_COMPARE_PARAGRAPHS: string[] = []
 
+/** One line's words, rendered again only when its `signature` (everything the words show) changes. */
+const StableLine = memo(function StableLine({ render }: { signature: string; render: () => ReactNode }) {
+  return <>{render()}</>
+}, (before, after) => before.signature === after.signature)
+let stableLinesEpoch = 0
+const highlightsKey = (marks: readonly LabHighlight[]) => marks.map(mark =>
+  `${mark.id}:${mark.chapterNumber}:${mark.paragraphIndex}:${mark.fromWord}:${mark.endParagraphIndex}:${mark.toWord}:${mark.color}`).join('|')
+
 export function LabPassage({
   openingOnly = false,
+  inertWords = false,
+  stableWords = false,
   pendingLayout = false,
   chapterEnd,
   onPreviewChapter,
@@ -479,6 +527,8 @@ export function LabPassage({
   readingPage,
   chapterPages,
   keyboardSelection = false,
+  touchScroll = false,
+  measureEndOverflow = true,
   compareHighlights = [],
   selectingComparison = false,
   highlights = [],
@@ -493,10 +543,11 @@ export function LabPassage({
   onSelectionPageTurn,
   onSelectingChange,
   tapZones = 'all',
-  onCompareSwap,
-  pageEndMarker,
+  verticalSwipeTurns = false,
   onToggleControls,
   layoutKey = '',
+  onOpenFigure,
+  plannedHyphens = false,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -511,7 +562,7 @@ export function LabPassage({
   const paragraph = linesFollow.kind === 'none'
     ? followParagraphs[clipIndex] || followParagraphs[0]
     : followParagraphs.find(item => item.index === linesFollow.paragraphIndex) || followParagraphs[clipIndex]
-  const readingLines = readingPageLines(paragraphs, readingPage)
+  const readingLines = useMemo(() => readingPageLines(paragraphs, readingPage), [paragraphs, readingPage])
   const showHeadline = followActive && linesFollow.kind === 'word'
     ? (readingPage
         ? isChapterFirstReadingPage(readingPage)
@@ -561,10 +612,31 @@ export function LabPassage({
     : null
   const pageStageRef = useRef<HTMLDivElement>(null)
   const articleRef = useRef<HTMLElement>(null)
-  useTextRangeHighlights(articleRef)
   const [endOverflow, setEndOverflow] = useState(false)
+  // Up/down turns only on a paginated single page that turns at all.
+  const verticalPageSwipe = verticalSwipeTurns && !touchScroll && !desktopSpread && !!onPageTurn
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
+  const appliedSelection = !localSelecting && !!selectingRange && (selectingComparison ? compareHighlights ?? [] : highlights ?? []).some(mark => mark.chapterNumber === chapterNumber
+    && mark.paragraphIndex === selectingRange.paragraphIndex && mark.fromWord === selectingRange.fromWord
+    && mark.endParagraphIndex === selectingRange.endParagraphIndex && mark.toWord === selectingRange.toWord)
+  const selectionPaintKey = activeSelecting
+    ? `${activeSelecting.paragraphIndex}:${activeSelecting.fromWord}:${activeSelecting.endParagraphIndex}:${activeSelecting.toWord}:${activeSelecting.lookupWord ?? ''}`
+    : ''
+  // The marks as text, not as arrays: the same marks in a new array (a parent's render, a book-scroll chapter changing
+  // role) paint the same ranges, so the passage's words are not scanned again.
+  const marksKey = useMemo(() => highlightsKey(highlights), [highlights])
+  const compareMarksKey = useMemo(() => highlightsKey(compareHighlights), [compareHighlights])
+  useTextRangeHighlights(articleRef, layoutKey, [paragraphs, compareParagraphs, readingPage, marksKey, compareMarksKey, selectionPaintKey, appliedSelection], appliedSelection)
+  // A tint never moves a word. Wrapping the space between two marked words in
+  // its own span (to carry the mark's background) makes Chromium rebreak and
+  // rehyphenate a justified `hyphens: auto` paragraph: selecting, asking about
+  // or opening the card of a passage rewrapped it (Anders, 4 Nov 2026, own
+  // EPUB in Margin; check-tint-no-reflow.mjs). Where marks are painted as text
+  // ranges the range already covers the bare space, so the separator stays a
+  // bare space and a mark changes only the words' classes. Only a browser
+  // without the Highlight API still gets the separator span.
+  const markedGaps = !paintsTextRanges()
   const selectingChangeRef = useRef(onSelectingChange)
   selectingChangeRef.current = onSelectingChange
   useEffect(() => { selectingChangeRef.current?.(localSelecting) }, [localSelecting])
@@ -574,12 +646,22 @@ export function LabPassage({
     cancelEdge()
   }, [])
 
-  useEffect(() => {
+  const endSelectionGesture = () => {
     dragRef.current = null
     setLocalSelecting(null)
     if (longPressRef.current) clearTimeout(longPressRef.current)
     cancelEdge()
-  }, [chapterNumber, paragraphs, compareParagraphs])
+  }
+  // New text ends a selection in progress.
+  useEffect(endSelectionGesture, [chapterNumber, paragraphs])
+  // So does new Compare text, except Compare text arriving where there was none (a cold open's Compare edition,
+  // fetched after the first page): it replaces nothing a finger could be on, so a drag through the main text goes on.
+  const shownCompareRef = useRef(compareParagraphs)
+  useEffect(() => {
+    const before = shownCompareRef.current
+    shownCompareRef.current = compareParagraphs
+    if (before !== compareParagraphs && before.length > 0) endSelectionGesture()
+  }, [compareParagraphs])
 
   // Pointer cancellation alone does not cancel Safari's native long-press
   // selection. React touch listeners are passive, so own these native events
@@ -591,7 +673,14 @@ export function LabPassage({
       if (event.touches.length > 1) return
       const target = event.target as Element | null
       if (target?.closest('button, a, input, textarea, select')) return
-      if (dragRef.current || selectingRange || wordPlaceFromTarget(target)) {
+      if (labPassageBlocksNativeTouch({
+        type: event.type === 'touchmove' ? 'touchmove' : 'touchstart',
+        touchScroll,
+        dragging: !!dragRef.current,
+        selecting: !!dragRef.current?.selecting,
+        selectionShown: !!selectingRange,
+        onWord: !!wordPlaceFromTarget(target),
+      })) {
         event.preventDefault()
       }
     }
@@ -606,7 +695,7 @@ export function LabPassage({
       article.removeEventListener('touchmove', preventNativeTouch)
       article.removeEventListener('selectstart', preventNativeSelection)
     }
-  }, [hearing, onSelectRange, onSeekToWord, selectingRange])
+  }, [hearing, onSelectRange, onSeekToWord, selectingRange, touchScroll])
 
   // The tail measurement strips `is-tail-full`, forces a layout with the tail
   // start-aligned, then puts the class back. Doing that after every commit
@@ -622,6 +711,7 @@ export function LabPassage({
     const article = articleRef.current
     if (!article) return
     article.scrollTop = 0
+    if (!measureEndOverflow) return
     const check = () => {
       const card = article.querySelector<HTMLElement>('.lab-chapter-end')
       const overflow = Boolean(card && card.getBoundingClientRect().bottom > article.getBoundingClientRect().bottom - 8)
@@ -636,6 +726,15 @@ export function LabPassage({
   useLayoutEffect(() => {
     markFullContinuedTails(articleRef.current)
   }, [paintedLinesKey, nextReadingPage, paintedBranch, compare, showHeadline, layoutKey, paragraphs])
+  // `stableWords`: a line whose words did not change keeps its nodes when the chapter changes role, test ids included.
+  // They are set here, so every word says what it is now; a line rendered again writes the same value.
+  const wordTestId = openingOnly || inertWords ? 'lab-opening-word' : 'lab-word'
+  useLayoutEffect(() => {
+    const stage = pageStageRef.current
+    if (!stableWords || !stage) return
+    const other = wordTestId === 'lab-word' ? 'lab-opening-word' : 'lab-word'
+    for (const word of stage.querySelectorAll(`[data-testid="${other}"]`)) word.setAttribute('data-testid', wordTestId)
+  }, [stableWords, wordTestId])
 
   useEffect(() => {
     const article = articleRef.current
@@ -723,6 +822,9 @@ export function LabPassage({
       seek,
     }
     dragRef.current = drag
+    // A selection that starts inside a page-turn zone (the first line of a
+    // phone page) must leave the zone before holding there can turn a page.
+    edgeArmedRef.current = labSelectionEdgeArmedAt(event.clientX, event.clientY, event.currentTarget.getBoundingClientRect(), !!desktopSpread, LAB_EDGE_ZONE_PX)
     if (touchSelection && selectionPlace) {
       longPressRef.current = setTimeout(() => {
         if (dragRef.current !== drag) return
@@ -730,7 +832,7 @@ export function LabPassage({
         const native = window.getSelection()
         if (native?.anchorNode && articleRef.current?.contains(native.anchorNode)) native.removeAllRanges()
         setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, selectionPlace, selectionPlace))
-      }, 160)
+      }, labLongPressMs(touchScroll))
     }
   }
 
@@ -739,8 +841,8 @@ export function LabPassage({
     if (!drag) return
     if (!drag.selecting) {
       const distance = Math.max(Math.abs(event.clientX - drag.startX), Math.abs(event.clientY - drag.startY))
-      if (drag.touch && distance > 10 && longPressRef.current
-        && event.timeStamp - drag.startedAt < 100) {
+      if (drag.touch && longPressRef.current
+        && labLongPressCancelledByMove({ touchScroll, distance, elapsedMs: event.timeStamp - drag.startedAt })) {
         clearTimeout(longPressRef.current)
         longPressRef.current = null
         drag.start = null
@@ -772,9 +874,7 @@ export function LabPassage({
     const bounds = event.currentTarget.getBoundingClientRect()
     // Desktop turns at the outer horizontal edges. Crossing the gutter from
     // the bottom of the left leaf to the top of the right must not turn.
-    const direction = desktopSpread
-      ? event.clientX >= bounds.right - LAB_EDGE_ZONE_PX ? 1 : event.clientX <= bounds.left + LAB_EDGE_ZONE_PX ? -1 : null
-      : event.clientY >= bounds.bottom - LAB_EDGE_ZONE_PX ? 1 : event.clientY <= bounds.top + LAB_EDGE_ZONE_PX ? -1 : null
+    const direction = labSelectionEdgeDirection(event.clientX, event.clientY, bounds, !!desktopSpread, LAB_EDGE_ZONE_PX)
     if (!direction) edgeArmedRef.current = true
     if (direction !== edgeDirectionRef.current) cancelEdge()
     if (direction && edgeArmedRef.current && !edgeTimerRef.current && pageTurnRef.current && !drag.comparison) {
@@ -870,6 +970,10 @@ export function LabPassage({
       onSeekToWord(drag.seek.paragraphIndex, drag.seek.wordIndex)
       return
     }
+    // A native selection inside the page (iOS can start one under a long
+    // press) is a selection too: lifting the finger from it never turns.
+    const nativeSelecting = drag.pointerType !== 'mouse'
+      && labNativeSelectionBlocksTurn(typeof window.getSelection === 'function' ? window.getSelection() : null, articleRef.current)
     const visibleHighlights = drag.comparison ? compareHighlights : highlights
     const savedHighlight = visibleHighlights.find(mark => mark.id === drag.highlightId && mark.chapterNumber === chapterNumber)
       ?? (drag.start ? highlightAt(visibleHighlights, chapterNumber, drag.start.paragraphIndex, drag.start.wordIndex) : undefined)
@@ -884,6 +988,7 @@ export function LabPassage({
       && labTapTurnAllowed(tapZones, drag.pointerType)
       && !selectingRange
       && !drag.selecting
+      && !nativeSelecting
       && Math.abs(deltaX) <= 10
       && Math.abs(deltaY) <= 10
       && duration <= 500
@@ -900,24 +1005,8 @@ export function LabPassage({
       }
       return
     }
-    // Compare's whole-page swap is the vertical swipe, and it is checked
-    // first: the two gestures are on different axes and must never both fire.
-    // A swipe is a finger. A mouse dragged down the page is selecting text,
-    // and always has been; the menu's Compare row is the pointer's way in.
-    if (
-      onCompareSwap
-      && drag.pointerType !== 'mouse'
-      && !selectingRange
-      && !drag.selecting
-      && labSwipeCompareSwap(deltaX, deltaY)
-    ) {
-      dragRef.current = null
-      setLocalSelecting(null)
-      onCompareSwap()
-      return
-    }
-    const swipe = onPageTurn && !selectingRange && !drag.selecting
-      ? labSwipePageDirection(deltaX, deltaY)
+    const swipe = onPageTurn && !selectingRange && !drag.selecting && !nativeSelecting
+      ? labSwipeTurnDirection({ deltaX, deltaY, durationMs: duration, vertical: verticalPageSwipe, pointerType: drag.pointerType })
       : null
     const direction = swipe ?? tap
     if (direction != null) {
@@ -950,15 +1039,31 @@ export function LabPassage({
     setLocalSelecting(null)
   }
 
+  // A transcript's turns: the time muted and the speaker bold (display only).
+  const transcript = useMemo(() => transcriptTurns(paragraphs), [paragraphs])
   const footnotesAt = useMemo(() => {
     const at = new Map<string, PlacedFootnote[]>()
     for (const note of footnotes ?? []) at.set(`${note.paragraphIndex}:${note.wordIndex}`, [...(at.get(`${note.paragraphIndex}:${note.wordIndex}`) ?? []), note])
     return at
   }, [footnotes])
-  const renderReadingLines = (pageLines: ReturnType<typeof readingPageLines>, secondary = false, ownChapter = true) => {
+  const onFootnoteRef = useRef(onFootnote)
+  onFootnoteRef.current = onFootnote
+  // `stableWords`: what every line's words take from the passage besides its marks, selection, spoken word and footnotes.
+  // A new key re-renders every line.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const stableLinesKey = useMemo(() => ++stableLinesEpoch, [paragraphs, readingPage, chapterNumber, plannedHyphens, compare, alignCompare, onOpenFigure, transcript])
+  const footnotesInParagraph = useMemo(() => {
+    const at = new Map<number, string>()
+    for (const note of footnotes ?? []) at.set(note.paragraphIndex, `${at.get(note.paragraphIndex) ?? ''}${note.id}:${note.wordIndex}:${note.number};`)
+    return at
+  }, [footnotes])
+  const renderReadingLines = (pageLines: ReturnType<typeof readingPageLines>, secondary = false, ownChapter = true, stable = false) => {
     // Verse-paired Compare lays each primary line in its own grid row, so
     // lines are never joined there; a joined BSB line only sits tight.
     const gridRows = alignCompare && compare
+    // Single-edition pages paint the hyphenation the paginator measured them with.
+    // Only a page the phone's paginator laid out with its hyphen plan paints it.
+    const usePlans = plannedHyphens && !compare
     const lineParagraph = (lineIndex: number) => pageLines[lineIndex].paragraphIndex ?? readingPage?.paragraphIndex ?? 0
     const slices = pageLines.map(lineSlice)
     const lineBody = (lineIndex: number) => {
@@ -983,7 +1088,7 @@ export function LabPassage({
                         return (
                           <span
                             key={`${lineIndex}-${wordIndex}`}
-                            className={`lab-word-fragment ${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
+                            className={`${labFragmentClass(word.text)} ${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
                             data-testid="lab-word-fragment"
                             data-fragment-paragraph={paragraphIndex}
                             data-fragment-word={absoluteWord}
@@ -995,30 +1100,28 @@ export function LabPassage({
                           </span>
                         )
                       }
-                      const endsHere = pageEndMarker?.paragraphIndex === paragraphIndex && pageEndMarker.wordIndex === absoluteWord
                       return (
                         <Fragment key={`${lineIndex}-${wordIndex}`}>
-                        {endsHere && <span className="lab-compare-page-end" data-testid="lab-compare-page-end" data-label="end of your page" role="img" aria-label="End of your page" />}
                         <span
-                          className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
-                          data-testid={openingOnly ? "lab-opening-word" : "lab-word"}
+                          className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}${isFigureToken(word.text) ? ' lab-figure-word' : ''}${transcriptWordClass(transcript, paragraphIndex, absoluteWord)}`}
+                          data-testid={wordTestId}
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
                           data-highlight-id={mark?.id}
                           data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}
                         >
                           {spacing}
-                          {renderWordText(word.text, word.emphasis)}
+                          {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], absoluteWord, usePlans ? plannedBreak(paragraphs[paragraphIndex], absoluteWord, word.text) : undefined, onOpenFigure)}
                         </span>
                         {ownChapter && footnotesAt.get(`${paragraphIndex}:${absoluteWord}`)?.map(note => (
                           <span key={note.id} className="lab-footnote-anchor">
-                            <button type="button" className="lab-footnote-mark" data-testid="lab-footnote-mark" data-footnote-id={note.id} onClick={event => onFootnote?.(note, event.currentTarget)}>{note.number}</button>
+                            <button type="button" className="lab-footnote-mark" data-testid="lab-footnote-mark" data-footnote-id={note.id} onClick={event => onFootnoteRef.current?.(note, event.currentTarget)}>{note.number}</button>
                           </span>
                         ))}
                         </Fragment>
                       )
                     }, { text: paragraphs[paragraphIndex], from: wordBase }, (spacing, wordIndex) => {
-                      if (!spacing || wordIndex <= 0) return spacing
+                      if (!spacing || wordIndex <= 0 || !markedGaps) return spacing
                       const absoluteWord = wordBase + wordIndex
                       const previousWord = absoluteWord - 1
                       const mark = highlightAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
@@ -1031,6 +1134,28 @@ export function LabPassage({
                       return className ? <span className={className} data-highlight-id={mark?.id}>{spacing}</span> : spacing
                     })
     }
+    // A stable line is painted again only when its signature changes: the marks on its paragraph (in order: the topmost
+    // owns a word), the selection over it, the spoken word while narration paints the text, and its footnotes.
+    let body: (lineIndex: number) => ReactNode = lineBody
+    if (stable) {
+      const marksIn = new Map<number, string>()
+      for (const mark of highlights) {
+        if (mark.chapterNumber !== chapterNumber) continue
+        for (let index = mark.paragraphIndex; index <= mark.endParagraphIndex; index++) {
+          marksIn.set(index, `${marksIn.get(index) ?? ''}${mark.id}:${mark.color}:${mark.paragraphIndex}:${mark.fromWord}:${mark.endParagraphIndex}:${mark.toWord};`)
+        }
+      }
+      const onPrimary = !((localSelecting && dragRef.current?.comparison) || (!localSelecting && selectingComparison))
+      const selected = activeSelecting && onPrimary ? activeSelecting : null
+      const selectedKey = selected ? `${selected.paragraphIndex}:${selected.fromWord}:${selected.endParagraphIndex}:${selected.toWord}:${selected.lookupWord ?? ''}` : ''
+      const spoken = inlineHearingPaint ? `${JSON.stringify(follow)}:${playing}` : ''
+      body = (lineIndex: number) => {
+        const paragraphIndex = lineParagraph(lineIndex)
+        const inSelection = selected && paragraphIndex >= selected.paragraphIndex && paragraphIndex <= selected.endParagraphIndex
+        const signature = `${stableLinesKey}|${lineIndex}|${paragraphIndex}|${marksIn.get(paragraphIndex) ?? ''}|${inSelection ? selectedKey : ''}|${spoken}|${ownChapter ? footnotesInParagraph.get(paragraphIndex) ?? '' : ''}`
+        return <StableLine signature={signature} render={() => lineBody(lineIndex)} />
+      }
+    }
     return proseRuns(paragraphs, slices, !gridRows).map((run) => {
                 const lineIndex = run[0]
                 const paragraphIndex = lineParagraph(lineIndex)
@@ -1040,10 +1165,10 @@ export function LabPassage({
                     key={lineIndex}
                     id={secondary ? undefined : `lab-p-${paragraphIndex}`}
                     className={[
-                      'lab-hearing-line',
+                      'lab-hearing-line' + paragraphKindClass(paragraphs[paragraphIndex], pageLines[lineIndex].from ?? readingPage?.from) + hyphenPlanClass(paragraphs[paragraphIndex], usePlans),
                       gridRows && sliceJoinsPrevious(paragraphs, slices[lineIndex - 1], slices[lineIndex]) ? 'is-joined-row' : '',
                       inlineHearingPaint && follow.kind === 'paragraph' && anyParagraph(index => follow.paragraphIndex === index) ? 'is-paragraph-current' : '',
-                      runContinuesParagraph(paragraphs, pageLines, run) ? 'is-continued' : '',
+                      runContinuesParagraph(paragraphs, pageLines, run, !gridRows) ? 'is-continued' : '',
                       anyParagraph(index => markedIndexes.has(index)) ? 'is-marked' : '',
                       anyParagraph(index => focusParagraph === index) ? 'is-focus' : '',
                       anyParagraph(index => discussedParagraph === index) ? 'is-discussed' : '',
@@ -1051,7 +1176,7 @@ export function LabPassage({
                     style={gridRows ? { gridColumn: 1, gridRow: lineIndex + 1 } : undefined}
                     data-follow-granularity={inlineHearingPaint ? followGranularityAttr(followParagraphs, paragraphIndex) : undefined}
                   >
-                    {joinedLines(run, lineBody, index => ({
+                    {joinedLines(run, body, index => ({
                       id: secondary ? undefined : `lab-p-${lineParagraph(index)}`,
                       'data-follow-granularity': inlineHearingPaint ? followGranularityAttr(followParagraphs, lineParagraph(index)) : undefined,
                     }))}
@@ -1062,7 +1187,7 @@ export function LabPassage({
 
   if (openingOnly) return <div
     ref={articleRef as React.RefObject<HTMLDivElement>}
-    className="lab-opening-passage owns-text-selection"
+    className={`lab-opening-passage owns-text-selection${appliedSelection ? ' has-applied-selection' : ''}`}
     data-chapter-number={chapterNumber}
     data-selection-chapter={selectionChapters ? chapterNumber : undefined}
     tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
@@ -1097,7 +1222,11 @@ export function LabPassage({
         'lab-passage',
         'lab-book',
         'is-reading',
-        !hearing && onSelectRange ? 'owns-text-selection' : '',
+        appliedSelection ? 'has-applied-selection' : '',
+        // An inert chapter keeps the class it has as the reader's own: its words are not restyled when it changes role.
+        !hearing && (onSelectRange || inertWords) ? 'owns-text-selection' : '',
+        touchScroll ? 'is-touch-scroll' : '',
+        verticalPageSwipe ? 'has-vertical-swipe' : '',
         hearing && !browseWhileListening ? 'is-hearing' : '',
         (followActive || inlineHearingPaint) && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',
         inlineHearingPaint ? 'is-inline-hearing' : '',
@@ -1110,7 +1239,8 @@ export function LabPassage({
         alignCompare && compare ? 'is-aligned-compare' : '',
         peek ? 'is-peek' : '',
       ].filter(Boolean).join(' ')}
-      data-testid="lab-book"
+      data-testid={inertWords ? undefined : 'lab-book'}
+      data-chapter-number={inertWords ? chapterNumber : undefined}
       data-selection-chapter={selectionChapters ? chapterNumber : undefined}
       data-passage-mode={mode}
       tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
@@ -1139,13 +1269,13 @@ export function LabPassage({
       }}
     >
             {showHeadline && !desktopSpread && (
-        <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />
+        <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} measuring={inertWords} />
       )}
       <div className="lab-book-columns">
         <div className="lab-book-col">
           {previousChapterEnding ? <>
             {isChapterFirstReadingPage(previousChapterEnding.page) && <LabChapterHeading title={previousChapterEnding.title} preview={Boolean(previousChapterEnding.onPrimer)} onPreview={previousChapterEnding.onPrimer} />}
-            <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
+            <LabPassage plannedHyphens={plannedHyphens} selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
               paragraphs={previousChapterEnding.paragraphs} readingPage={previousChapterEnding.page}
               compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]}
               markedIndexes={new Set()} keyboardSelection={keyboardSelection} highlights={previousChapterEnding.highlights}
@@ -1157,24 +1287,24 @@ export function LabPassage({
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord)}
+                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord, plannedHyphens && !compare)}
               </div>
             </div>
           ) : hearing && !browseWhileListening ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderPlainWords(readingLines, paragraphs)}
+                {renderPlainWords(readingLines, paragraphs, plannedHyphens && !compare)}
               </div>
             </div>
           ) : (
             <div
               className="lab-hearing-stage"
-              data-testid="lab-reading-stage"
+              data-testid={inertWords ? undefined : 'lab-reading-stage'}
               data-page-turn={pageTurn?.direction}
               data-page-turn-nonce={pageTurn?.nonce}
               ref={pageStageRef}
             >
-              {renderReadingLines(readingLines)}
+              {renderReadingLines(readingLines, inertWords, !inertWords, stableWords)}
             </div>
           )}
           {!compare && (!desktopSpread || !nextReadingPage) && chapterEnd}
@@ -1190,7 +1320,7 @@ export function LabPassage({
             {!previousChapterEnding && nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
             {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
               <div className="lab-next-chapter-opening" data-testid="lab-next-chapter-opening">
-                <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly
+                <LabPassage plannedHyphens={plannedHyphens} selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly
                   chapterTitle={nextChapterOpening.title} chapterNumber={nextChapterOpening.chapterNumber ?? chapterNumber + 1}
                   paragraphs={nextChapterOpening.paragraphs} readingPage={nextChapterOpening.page}
                   compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{ kind: 'none' }}
@@ -1219,8 +1349,10 @@ export function LabPassage({
                 const selecting = compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord)
                 const previousColor = index > 0 ? highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord - 1) : null
                 const previousSelecting = index > 0 && compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord - 1)
-                const gapClass = index > 0 ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
-                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>
+                const gapClass = index > 0 && markedGaps ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
+                // A figure in the Compare column is named, not drawn (it is drawn beside it).
+                const shown = isFigureToken(word.text) ? <span className="lab-figure-ref">{figureLabel(figureFor(word.text) ?? { number: 0 })}</span> : word.emphasis ? <em>{word.text}</em> : word.text
+                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{shown}</span></Fragment>
               }))
               }
               const pieceData = (paragraphIndex: number, segment: { from: number; to: number }) => ({
@@ -1290,7 +1422,7 @@ export function LabPageMeasurePaint(input: {
         <div className="lab-book-col">
           <div className="lab-hearing-stage">
             {proseRuns(input.paragraphs, lines.map(lineSlice)).map(run => (
-              <p key={run[0]} className="lab-hearing-line">
+              <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(input.paragraphs[lines[run[0]].paragraphIndex ?? input.page.paragraphIndex], lines[run[0]].from ?? input.page.from)}`}>
                 {joinedLines(run, (lineIndex) => {
                   const line = lines[lineIndex]
                   return renderWordGroups(line.words, (word, wordIndex, spacing) => (
@@ -1301,7 +1433,7 @@ export function LabPageMeasurePaint(input: {
                       : 'lab-hearing-word'}
                   >
                     {spacing}
-                    {renderWordText(word.text, word.emphasis)}
+                    {renderWordText(word.text, word.emphasis, input.paragraphs[line.paragraphIndex ?? input.page.paragraphIndex], (line.from ?? input.page.from) + wordIndex)}
                   </span>
                 ), lineationFor(input.paragraphs, line, input.page.paragraphIndex, input.page.from))
                 })}

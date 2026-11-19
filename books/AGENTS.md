@@ -1,6 +1,6 @@
 # Book Factory Agent Instructions
 
-> **Book assignments — 2026-09-24:** First read [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md) and [README.md](README.md). Claude writes only isolated content artifacts; Codex owns code, registry, live paths and publication. This task-specific rule overrides broader path/permission lists below.
+> **Book assignments — 2026-09-24:** First read [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md) and [README.md](README.md). Claude writes only isolated content artifacts in the content stage; integration (code, registry, live paths and publication) is a separately assigned step, owned by Claude since 2026-10-08 (Codex retired). This task-specific rule overrides broader path/permission lists below.
 
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
@@ -31,7 +31,7 @@ Allowed write paths for Claude book assignments: the owned content staging folde
 - No kids editions.
 - Every production book must be classified in the library taxonomy: House, Shelf membership, form, era, and relevant canon/list metadata.
 - Claude owns the content package for new books: source discovery, original parsing, human English translation sourcing for non-English works, `modern-en`.
-- Codex owns publication: final registry/public `BOOKS` changes, app verification, and deploy after verify per `../AGENTS.md` (do not ask first unless Anders said local-only).
+- The integration step (Claude since 2026-10-08; Codex retired) owns publication: final registry/public `BOOKS` changes, app verification, and deploy after verify per `../AGENTS.md` (do not ask first unless Anders said local-only).
 - Preserve user changes and never overlap deploy work with active edition writes.
 
 ## Structure Discussion

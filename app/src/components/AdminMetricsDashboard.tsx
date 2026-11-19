@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from '../services/supabase'
@@ -62,6 +62,18 @@ const FUNNEL_STEPS: Array<{ name: string; label: string }> = [
   { name: 'member_ai_use', label: 'Member AI use' },
   { name: 'checkout_started', label: 'Checkout started' },
   { name: 'checkout_completed', label: 'Checkout completed' },
+]
+
+/** Social (ship 3) events, in the order a reader meets them. Shown only once any has landed. */
+const SOCIAL_STEPS: Array<{ name: string; label: string }> = [
+  { name: 'profile_created', label: 'Profile created' },
+  { name: 'profile_skipped', label: 'Profile skipped' },
+  { name: 'visibility_changed', label: 'Visibility changed' },
+  { name: 'follow', label: 'Follow' },
+  { name: 'unfollow', label: 'Unfollow' },
+  { name: 'leaderboard_opened', label: 'Leaderboard opened' },
+  { name: 'profile_viewed', label: 'Profile viewed' },
+  { name: 'reading_card_shared', label: 'Reading card shared' },
 ]
 
 function visitorKey(row: AnalyticsRow): string {
@@ -138,6 +150,8 @@ function metricCard(label: string, value: number | string, target?: number, sub?
 
 export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboardProps) {
   const [days, setDays] = useState<WindowDays>(14)
+  const accessTokenRef = useRef(session?.access_token)
+  accessTokenRef.current = session?.access_token
   const [rows, setRows] = useState<AnalyticsRow[]>([])
   const [accountMetrics, setAccountMetrics] = useState<AccountMetricsResponse | null>(null)
   const [loading, setLoading] = useState(false)
@@ -218,7 +232,11 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       })
 
     return () => { cancelled = true }
-  }, [days, session])
+    // Keyed by the account, not the session object: a token refresh (hourly,
+    // and on every return to the tab) must not re-read up to 10,000 analytics
+    // rows (Disk IO, 22 Oct 2026). The client carries the fresh token itself.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [days, session?.user?.id])
 
   useEffect(() => {
     if (!session?.access_token) return
@@ -227,7 +245,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
     setAccountsError(null)
 
     fetch(apiUrl(`/api/admin/metrics-users?days=${days}`), {
-      headers: { Authorization: `Bearer ${session.access_token}` },
+      headers: { Authorization: `Bearer ${accessTokenRef.current ?? session.access_token}` },
     })
       .then(async res => {
         const body = await res.json().catch(() => null)
@@ -248,7 +266,9 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       })
 
     return () => { cancelled = true }
-  }, [days, session?.access_token])
+    // Same as above: a refreshed token alone does not reload the accounts.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [days, session?.user?.id])
 
   const metrics = useMemo(() => {
     const pageviews = rows.filter(r => r.event_type === 'pageview')
@@ -261,6 +281,10 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       ...step,
       devices: unique(events.filter(r => eventName(r) === step.name).map(visitorKey)),
     }))
+    const social = SOCIAL_STEPS.map(step => {
+      const matching = events.filter(r => eventName(r) === step.name)
+      return { ...step, events: matching.length, readers: unique(matching.map(r => r.user_id || visitorKey(r))) }
+    })
     const funnelDuration = new Map<string, { ms: number; devices: Set<string> }>()
     for (const row of durations) {
       const surface = typeof row.payload?.surface === 'string' ? row.payload.surface : null
@@ -313,6 +337,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       aiOrAudioUsers: aiOrAudioSessions.size,
       checkoutStarts: checkoutEvents.length,
       funnel,
+      social: social.some(step => step.events > 0) ? social : [],
       timeOnSurface: [...funnelDuration.entries()].map(([surface, data]) => ({
         surface, devices: data.devices.size, minutes: Math.round((data.ms / 60000) * 10) / 10,
         avgMinutes: data.devices.size ? Math.round((data.ms / 60000 / data.devices.size) * 10) / 10 : 0,
@@ -416,6 +441,22 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
             </tbody>
           </table>
         </div>
+
+        {metrics.social.length > 0 && <div style={styles.panel}>
+          <h2 style={styles.heading}>Social</h2>
+          <table style={styles.table}>
+            <thead><tr><th>Event</th><th>Events</th><th>Readers</th></tr></thead>
+            <tbody>
+              {metrics.social.map(step => (
+                <tr key={step.name}>
+                  <td>{step.label}</td>
+                  <td>{step.events}</td>
+                  <td>{step.readers}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>}
 
         <div style={styles.panel}>
           <h2 style={styles.heading}>Time on page</h2>

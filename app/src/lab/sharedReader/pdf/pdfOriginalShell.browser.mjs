@@ -1,0 +1,277 @@
+// Real pdf.js surface and shared controls, with an in-memory owner-service fixture.
+// node src/lab/sharedReader/pdf/pdfOriginalShell.browser.mjs
+import assert from 'node:assert/strict'
+import fs from 'node:fs/promises'
+import { chromium, webkit } from '@playwright/test'
+import { createServer } from 'vite'
+import { makePdf } from '../../../../../addbooks/web/test/make-pdf.mjs'
+import { markInternal } from '../../../../scripts/lib/internalTraffic.cjs'
+
+const vite = await createServer({ server: { host: '127.0.0.1', port: 0, watch: { ignored: ['**/public/**', '**/data/**'] } }, logLevel: 'error' })
+await vite.listen()
+const origin = vite.resolvedUrls.local[0].replace(/\/$/, '')
+const fixture = makePdf({ pages: [
+  { lines: [{x:72,y:740,size:28,text:'These pages'},{ x: 72, y: 700, size: 24, text: 'Original selectable words' }] },
+  { images: [{ x: 55, y: 120, w: 300, h: 500 }] },
+],outline:[{title:'These pages',page:1}] }).toString('base64')
+await fs.mkdir('artifacts/pdf-original-shell', { recursive: true })
+const shots = [`artifacts/pdf-original-shell`, ...(process.env.PDF_SHELL_SHOTS ? [process.env.PDF_SHELL_SHOTS] : [])]
+for (const dir of shots) await fs.mkdir(dir, { recursive: true })
+const shoot = async (page, file) => { for (const dir of shots) await page.screenshot({ path: `${dir}/${file}` }) }
+const openFixture = async (context, errors, search = '') => {
+  const page = await context.newPage()
+  page.on('pageerror', error => errors.push(error.message))
+  await page.route('**/*', route => { const url = new URL(route.request().url()); return url.origin === origin && !url.pathname.startsWith('/api/') ? route.continue() : route.abort() })
+  await page.addInitScript(value => { window.__pdfFixture = value }, fixture)
+  await page.goto(`${origin}/src/lab/sharedReader/pdf/pdfOriginalShell.browser.html${search}`, { waitUntil: 'domcontentloaded' })
+  await page.locator('.pdf-original__text').getByText('Original selectable words').waitFor({ timeout: 30000 })
+  return page
+}
+// Read as Tinct book (Anders, 6 Nov 2026): accepting the offer kept nothing on screen while the PDF converted.
+// The bar stays and shows the conversion, a failure offers Try again or Keep pages, success opens at the same place.
+const offerCheck = async (browser, name, errors) => {
+  const context = await browser.newContext({ viewport: { width: 1024, height: 768 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
+  try {
+    const page = await openFixture(context, errors, '?offer=1')
+    await page.locator('.pdf-original__scroll').evaluate(el => {
+      const second = el.querySelector('.pdf-original__slot:nth-child(2)')
+      el.scrollTop = second.offsetTop + second.clientHeight * .25
+      el.dispatchEvent(new Event('scroll', { bubbles: true }))
+    })
+    await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 2 of 2"]').waitFor()
+    const bar = page.getByTestId('pdf-text-offer')
+    await bar.getByText('You last read this as a Tinct book.').waitFor()
+    await shoot(page, `${name}-offer-1-offered.png`)
+    const place = await page.evaluate(() => window.__pdfPlace)
+    await bar.getByRole('button', { name: 'Read as Tinct book' }).click()
+    await page.waitForFunction(() => !!window.__conversion)
+    await page.evaluate(() => window.__conversion.progress({ stage: 'text', done: 1, total: 2 }))
+    await page.waitForTimeout(100)
+    await shoot(page, `${name}-offer-2-converting.png`)
+    await bar.getByText('Preparing pages 1 of 2').waitFor({ timeout: 2000 })
+    assert.equal(await bar.getByRole('progressbar').getAttribute('value'), '1', 'the bar shows the conversion\'s own progress')
+    assert.equal(await bar.getByRole('button').count(), 0, 'conversion cannot be cancelled, so no button pretends to')
+    await page.evaluate(() => { const done = window.__conversion; window.__conversion = null; done.finish(false) })
+    await bar.getByText('The Tinct book could not be prepared.', { exact: false }).waitFor()
+    await shoot(page, `${name}-offer-3-failed.png`)
+    await bar.getByRole('button', { name: 'Try again' }).click()
+    await page.waitForFunction(() => !!window.__conversion)
+    await bar.getByText('Opening the PDF…').waitFor()
+    await page.evaluate(() => window.__conversion.finish(true))
+    await page.getByTestId('tinct-book-opened').waitFor()
+    await shoot(page, `${name}-offer-4-opened.png`)
+    const opens = (await page.evaluate(() => window.__pdfCalls)).filter(call => call.kind === 'open-text')
+    assert.equal(opens.length, 2)
+    assert(opens.every(call => call.place.page === place.page && Math.abs(call.place.frac - place.frac) < .02), `Tinct book opens at the PDF place: ${JSON.stringify({ place, opens })}`)
+  } finally { await context.close() }
+  const phoneContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block', reducedMotion: 'reduce' })
+  try {
+    const page = await openFixture(phoneContext, errors, '?offer=1')
+    await page.getByRole('button', { name: 'Menu', exact: true }).click()
+    await page.getByRole('button', { name: 'Book settings' }).click()
+    await page.getByRole('button', { name: 'Convert to EPUB' }).click()
+    await page.waitForFunction(() => !!window.__conversion)
+    await page.getByRole('button', { name: 'Close panel' }).click()
+    await page.evaluate(() => window.__conversion.progress({ stage: 'scanning' }))
+    await page.waitForTimeout(100)
+    await shoot(page, `${name}-offer-5-phone-converting.png`)
+    const bar = page.getByTestId('pdf-text-offer')
+    await bar.getByText('Checking the text and chapters…').waitFor({ timeout: 2000 })
+    const box = await bar.boundingBox(), rail = await page.locator('.pdf-original-reader__footer').boundingBox()
+    assert(box.x >= 16 && box.x + box.width <= 390 - 16 && box.y + box.height <= rail.y, `phone progress sits inside the gutter, above the page rail: ${JSON.stringify({ box, rail })}`)
+    await page.evaluate(() => window.__conversion.finish(true))
+    await page.getByTestId('tinct-book-opened').waitFor()
+  } finally { await phoneContext.close() }
+}
+
+try {
+  const engines = [['chromium', chromium], ...(process.env.PDF_BROWSER_WEBKIT === '1' ? [['webkit', webkit]] : [])]
+  for (const [name, engine] of engines) {
+    const browser = await markInternal(await engine.launch({ headless: true, args: name === 'chromium' ? ['--mute-audio', '--no-sandbox'] : [] }))
+    try {
+      const offerErrors = []
+      await offerCheck(browser, name, offerErrors)
+      assert.deepEqual(offerErrors, [])
+      const context = await browser.newContext({ viewport: { width: 1024, height: 768 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
+      const page = await context.newPage(), errors = []
+      page.on('pageerror', error => errors.push(error.message))
+      await page.route('**/*', route => {
+        const url = new URL(route.request().url())
+        return url.origin === origin && !url.pathname.startsWith('/api/') ? route.continue() : route.abort()
+      })
+      await page.addInitScript(value => { window.__pdfFixture = value }, fixture)
+      await page.goto(`${origin}/src/lab/sharedReader/pdf/pdfOriginalShell.browser.html`, { waitUntil: 'domcontentloaded' })
+      const layer = page.locator('.pdf-original__text')
+      await layer.getByText('Original selectable words').waitFor({ timeout: 30000 })
+      assert.equal(await page.locator('[data-pdf-original=true]').count(), 1)
+      for (const width of [1024, 2047]) {
+        await page.setViewportSize({ width, height: 1133 })
+        const controls = await page.evaluate(() => ['Contents', 'Notebook', 'Appearance', 'Listen', 'Menu'].map(name => {
+          const button = [...document.querySelectorAll('.pdf-original-reader .lab-header button')].find(item => item.getAttribute('aria-label') === name || item.textContent?.trim() === name)
+          const rect = button?.getBoundingClientRect()
+          const hit = rect && document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2)
+          return { name, rect: rect && { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom },
+            hit: !!button && (hit === button || button.contains(hit)) }
+        }))
+        assert(controls.every(({ rect, hit }) => rect && rect.left >= 0 && rect.right <= width && rect.top >= 0 && rect.bottom <= 1133 && hit),
+          `PDF header actions must be in viewport and directly pressable at ${width}px: ${JSON.stringify(controls)}`)
+      }
+      const beforePanels = await page.evaluate(() => window.__pdfPlace)
+      await page.getByTestId('lab-header-book').click()
+      await page.getByRole('dialog', { name: 'Switch books' }).waitFor()
+      await page.screenshot({ path: `artifacts/pdf-original-shell/${name}-book-picker.png` })
+      await page.getByRole('button', { name: 'Close book switcher' }).click()
+      assert.deepEqual(await page.evaluate(() => window.__pdfPlace), beforePanels, 'book picker open and close preserves source place')
+      const notebook = page.getByTestId('lab-header-notebook')
+      assert.equal(await notebook.locator('svg').count(), 1, 'Notebook has shared icon')
+      assert.equal((await notebook.innerText()).trim(), '', 'Notebook has no visible text label')
+      const headerGeometry = await page.locator('.lab-header-brand').evaluate(el => {
+        const b = el.getBoundingClientRect(); return { top: b.top, bottom: b.bottom }
+      })
+      assert(headerGeometry.top >= 0 && headerGeometry.bottom <= 100, `title remains entirely visible: ${JSON.stringify(headerGeometry)}`)
+      const wideSheet = await page.locator('.pdf-original__page[data-page="1"]').evaluate(el => el.getBoundingClientRect().width)
+      assert(wideSheet > 0 && wideSheet <= 1500, `wide PDF sheet keeps original 1500px cap: ${wideSheet}`)
+      await page.screenshot({ path: `artifacts/pdf-original-shell/${name}-wide-header.png` })
+      await page.getByRole('button', { name: 'Appearance' }).click()
+      await page.getByRole('slider', { name: 'Page size' }).fill('0.75')
+      await page.waitForFunction(() => Math.abs(document.querySelector('.pdf-original__page[data-page="1"]')?.getBoundingClientRect().width - 1125) <= 2)
+      await page.getByRole('button', { name: 'Fit', exact: true }).click()
+      await page.waitForFunction(() => Math.abs(document.querySelector('.pdf-original__page[data-page="1"]')?.getBoundingClientRect().width - 1500) <= 2)
+      await page.getByRole('button', { name: 'Close panel' }).click()
+      const wheelCaptured = await page.locator('.pdf-original__scroll').evaluate(el => !el.dispatchEvent(new WheelEvent('wheel', {
+        bubbles: true, cancelable: true, ctrlKey: true, deltaY: 30,
+      })))
+      assert(wheelCaptured, 'Ctrl-wheel zoom must prevent browser zoom')
+      await page.waitForFunction(() => document.querySelector('.pdf-original__page[data-page="1"]')?.getBoundingClientRect().width < 1500)
+      await page.getByRole('button', { name: 'Appearance' }).click()
+      await page.getByRole('button', { name: 'Fit', exact: true }).click()
+      await page.getByRole('button', { name: 'Close panel' }).click()
+      await page.locator('.pdf-original__scroll').evaluate(el => {
+        const second = el.querySelector('.pdf-original__slot:nth-child(2)')
+        el.scrollTop = second.offsetTop + second.clientHeight * .25
+        el.dispatchEvent(new Event('scroll', { bubbles: true }))
+      })
+      await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 2 of 2"]').waitFor()
+      const beforeZoom = await page.evaluate(() => window.__pdfPlace)
+      assert.equal(beforeZoom.page, 2)
+      assert(Math.abs(beforeZoom.frac - .25) < .02, `continuous PDF scroll retains page-local fraction: ${JSON.stringify(beforeZoom)}`)
+      await page.getByRole('button', { name: 'Appearance' }).click()
+      await page.getByRole('slider', { name: 'Page size' }).fill('0.75')
+      await page.waitForFunction(() => Math.abs(document.querySelector('.pdf-original__page[data-page="2"]')?.getBoundingClientRect().width - 1125) <= 2)
+      const afterZoom = await page.evaluate(() => window.__pdfPlace)
+      assert.equal(afterZoom.page, 2)
+      assert(Math.abs(afterZoom.frac - beforeZoom.frac) < .02, `zoom retains PDF page/fraction: ${JSON.stringify({ beforeZoom, afterZoom })}`)
+      await page.getByRole('button', { name: 'Fit', exact: true }).click()
+      await page.getByRole('button', { name: 'Close panel' }).click()
+      await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
+      await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 1 of 2"]').waitFor()
+      await page.setViewportSize({ width: 1024, height: 768 })
+      const primer=page.locator('[data-testid="pdf-heading-actions"]').first().getByRole('button',{name:'Primer',exact:true})
+      await primer.focus();await primer.click()
+      await page.getByText('The original page introduces an idea to follow.').waitFor()
+      await page.getByText('Key claims').waitFor()
+      assert.equal(await page.locator('.lab-pcard').getByText('"gist"').count(), 0, 'structured Primer stays readable')
+      const unitCalls = await page.evaluate(() => window.__pdfCalls)
+      assert.equal(unitCalls.filter(call => call.kind === 'unit-ask').length, 1)
+      assert.deepEqual(unitCalls.find(call => call.kind === 'unit-ask').source.pages.map(item => item.n), [1, 2])
+      assert.match(unitCalls.find(call => call.kind === 'unit-ask').source.pages[0].text, /Original selectable words/)
+      assert.equal(unitCalls.find(call => call.kind === 'unit-ask').source.pages[1].text, '')
+      assert.equal(unitCalls.filter(call => call.kind === 'unit-card').length, 1)
+      await page.keyboard.press('Escape')
+      const select = async () => layer.getByText('Original selectable words').evaluate(el => {
+        const selection = window.getSelection(), range = document.createRange()
+        range.selectNodeContents(el); selection.removeAllRanges(); selection.addRange(range)
+        el.parentElement.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }))
+      })
+      await select()
+      await page.getByTestId('lab-dbar-highlight').click()
+      await page.waitForFunction(() => window.__pdfCalls.some(call => call.kind === 'highlight'))
+      await page.locator('.pdf-original__highlight').first().waitFor()
+      await page.locator('.pdf-original__map-activity--mark').waitFor()
+      assert.match(await page.locator('.pdf-original__map-activity--mark').getAttribute('aria-label'), /Original selectable words/, 'rail highlight identifies actual passage')
+      const mark = await page.evaluate(() => window.__pdfCalls.find(call => call.kind === 'highlight'))
+      assert.equal(mark.selection.page, 1)
+      assert.match(mark.selection.text, /Original selectable words/)
+      assert.ok(mark.selection.rects.every(rect => rect.length === 5 && rect[0] === 1))
+      await page.screenshot({ path: `artifacts/pdf-original-shell/${name}-highlight.png` })
+      await page.keyboard.press('Escape')
+      await select()
+      await page.getByTestId('lab-dbar-ask').click()
+      await page.getByTestId('lab-dbar-ask-field').fill('Why this passage?')
+      await page.getByTestId('lab-dbar-ask-field').press('Enter')
+      await page.getByText('A local source-page answer.').waitFor()
+      const calls = await page.evaluate(() => window.__pdfCalls)
+      const asks = calls.filter(call => call.kind === 'ask' && call.intent === 'ask')
+      assert.equal(asks.length, 1)
+      assert.equal(asks[0].question, 'Why this passage?')
+      assert.deepEqual(asks[0].selection.rects, mark.selection.rects)
+      assert.equal(calls.filter(call => call.kind === 'card' && call.intent === 'ask').length, 1)
+      await page.getByLabel('Follow up').fill('And then?')
+      await page.getByTestId('lab-phone-card-send').click()
+      await page.getByText('A local follow-up answer.').waitFor()
+      const railInk = await page.locator('.pdf-original__map-line').evaluateAll(lines => lines.map(line => line.outerHTML))
+      const cardTick = page.locator('.pdf-original__map-activity--card').last()
+      await cardTick.focus()
+      await page.keyboard.press('Enter')
+      await page.getByText('A local follow-up answer.').waitFor()
+      assert.deepEqual(await page.locator('.pdf-original__map-line').evaluateAll(lines => lines.map(line => line.outerHTML)), railInk, 'activating source activity never changes overview source lines')
+      await page.screenshot({ path: `artifacts/pdf-original-shell/${name}-rail-activity.png` })
+      const followed = await page.evaluate(() => window.__pdfCalls)
+      assert.equal(followed.filter(call => call.kind === 'follow-ask').length, 1)
+      assert.equal(followed.filter(call => call.kind === 'follow-save').length, 1)
+      assert.equal(followed.find(call => call.kind === 'follow-save').question, 'And then?')
+      await page.mouse.click(400, 300)
+      await page.getByRole('button', { name: 'Notebook', exact: true }).click()
+      await page.getByText('Original PDF page 1 · ask').waitFor()
+      await page.getByRole('button', { name: 'Notes', exact: true }).click()
+      assert.equal(await page.getByText('Original PDF page 1 · ask').count(), 0)
+      await page.getByRole('button', { name: 'AI', exact: true }).click()
+      await page.getByText('Original PDF page 1 · ask').waitFor()
+      await page.getByRole('button', { name: 'Close panel' }).click()
+      await page.getByRole('button', { name: 'Contents', exact: true }).click()
+      await page.getByTestId('lab-contents-v2').waitFor()
+      await page.screenshot({ path: `artifacts/pdf-original-shell/${name}-normal-contents.png` })
+      await page.getByLabel('Go to page', { exact: true }).fill('2')
+      await page.getByRole('button', { name: 'Go', exact: true }).click()
+      await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 2 of 2"]').waitFor()
+      assert.equal(await page.locator('.pdf-original__page[data-page="2"] .pdf-original__text span').count(), 0, 'scanned page has no invented text')
+      await page.getByRole('button', { name: 'Appearance' }).click()
+      await page.getByTestId('lab-v2-theme-dark').click()
+      assert.equal(await page.locator('[data-pdf-original=true]').getAttribute('data-theme'), 'dark')
+      await page.screenshot({ path: `artifacts/pdf-original-shell/${name}-dark-scan.png` })
+      assert.deepEqual(errors, [])
+      const phoneContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true,
+        serviceWorkers: 'block', reducedMotion: 'reduce' })
+      try {
+        const phonePage = await phoneContext.newPage()
+        phonePage.on('pageerror', error => errors.push(error.message))
+        await phonePage.route('**/*', route => { const url = new URL(route.request().url()); return url.origin === origin && !url.pathname.startsWith('/api/') ? route.continue() : route.abort() })
+        await phonePage.addInitScript(value => { window.__pdfFixture = value }, fixture)
+        await phonePage.goto(`${origin}/src/lab/sharedReader/pdf/pdfOriginalShell.browser.html`, { waitUntil: 'domcontentloaded' })
+        const words = phonePage.locator('.pdf-original__text').getByText('Original selectable words')
+        await words.waitFor({ timeout: 30000 })
+        for (const name of ['Contents', 'Menu']) {
+          const hit = await phonePage.getByRole('button', { name, exact: true }).evaluate(button => {
+            const rect = button.getBoundingClientRect(), target = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2)
+            return rect.left >= 0 && rect.right <= innerWidth && target && (target === button || button.contains(target))
+          })
+          assert(hit, `phone PDF ${name} must be directly pressable inside its viewport`)
+        }
+        await words.evaluate(el => { const range = document.createRange(), selected = window.getSelection(); range.selectNodeContents(el); selected.removeAllRanges(); selected.addRange(range); el.parentElement.dispatchEvent(new MouseEvent('mouseup', { bubbles: true })) })
+        await phonePage.getByTestId('lab-phone-bar').waitFor({ timeout: 5000 }).catch(async error => {
+          const state = await phonePage.evaluate(() => ({ selection: window.getSelection()?.toString(), phone: document.querySelector('.pdf-original-reader')?.className,
+            text: document.querySelector('.pdf-original__text')?.textContent, error: document.querySelector('[role=alert]')?.textContent }))
+          throw new Error(`${error.message}\n${JSON.stringify(state)}\n${errors.join('\n')}`)
+        })
+        await phonePage.getByTestId('lab-pbar-more').click()
+        await phonePage.getByRole('menuitem', { name: 'Define' }).click()
+        await phonePage.getByText('Noun. An idea named by this original PDF passage.').waitFor()
+        assert.equal(await phonePage.locator('.lab-pcard').getByText('"kind"').count(), 0, 'structured Define stays readable')
+        assert.equal((await phonePage.evaluate(() => window.__pdfCalls)).filter(call => call.kind === 'ask' && call.intent === 'define').length, 1)
+        await phonePage.screenshot({ path: `artifacts/pdf-original-shell/${name}-phone-card.png` })
+      } finally { await phoneContext.close() }
+      assert.deepEqual(errors, [])
+      process.stdout.write(`${name}: original PDF shell selection, rects, Ask, Notebook, Contents, scan, themes and Tinct book progress passed\n`)
+    } finally { await browser.close() }
+  }
+} finally { await vite.close() }

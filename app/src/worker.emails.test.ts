@@ -98,6 +98,33 @@ describe('email worker helpers', () => {
     })
   })
 
+  it('sends no trial-day email after the welcome to an account created before the trial reset', async () => {
+    vi.setSystemTime(new Date('2026-10-20T12:00:00.000Z'))
+    const queries: string[] = []
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles?')) {
+        queries.push(url)
+        // PostgREST would apply the window; here every query names it, so check the bounds below.
+        return json([])
+      }
+      if (url.includes('/rest/v1/rpc/issue_anomalies')) return json([])
+      return json({ error: 'unexpected URL' }, 500)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    await handleScheduled(env)
+
+    const starts = queries.map(url => /created_at=gte\.([^&]+)/.exec(url)?.[1])
+    // Welcome (day 0): its own ±12 h window. Days 14, 27 and 30: never before the reset.
+    expect(starts).toEqual([
+      '2026-10-20T00:00:00.000Z',
+      '2026-10-15T00:00:00.000Z',
+      '2026-10-15T00:00:00.000Z',
+      '2026-10-15T00:00:00.000Z',
+    ])
+  })
+
   it('pauses lifecycle emails for ordinary users', async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input)

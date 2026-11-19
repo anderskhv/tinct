@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 
+import { useState } from 'react'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { SelectionPopup, type SelectionInfo, type SelectionPopupProps } from './SelectionPopup'
@@ -55,6 +56,16 @@ afterEach(() => {
 })
 
 describe('compact selection popup', () => {
+  it('keeps a failed shared card write inside its explanation instead of adding a floating banner', async () => {
+    const view = render(<SelectionPopup {...props({
+      popupMode: 'explain', lab: true, sharedReader: true, saveError: true,
+      onRequestExplanation: async () => 'A visible explanation.',
+    })} />)
+    const card = view.container.querySelector('.lab-contextual-explain')
+    expect(card).toBeTruthy()
+    expect(card?.querySelector('[role="status"].lab-contextual-save-error')?.textContent).toMatch(/could not be saved on this device/)
+    expect(view.container.querySelector('.lab-shared-card-save-error')).toBeNull()
+  })
   it('shows information and More without saving or exposing actions', () => {
     const input = props({ defineLoading: false, defineResult: { word: 'selfishness', definitions: ['Concern for oneself.'] } })
     render(<SelectionPopup {...input} />)
@@ -72,7 +83,7 @@ describe('compact selection popup', () => {
     const input = props({ popupMode: 'main', defineLoading: false, defineResult: { word: 'selfishness', definitions: ['Concern for oneself.'] } })
     render(<SelectionPopup {...input} />)
     expect(screen.queryByText('Concern for oneself.')).toBeNull()
-    expect(screen.getAllByRole('button').map(b => b.textContent)).toEqual(['‹ Back', 'Highlight', 'Copy', 'Ask', 'Add note'])
+    expect(screen.getAllByRole('button').map(b => b.textContent)).toEqual(['‹ Back', 'Highlight', 'Copy', 'Chat', 'Add note'])
     fireEvent.click(screen.getByText('Highlight'))
     expect(input.onColorClick).toHaveBeenCalledWith('sky')
     expect(input.setPopupMode).toHaveBeenCalledWith('colors')
@@ -101,6 +112,17 @@ describe('compact selection popup', () => {
     fireEvent.pointerUp(outside)
     fireEvent.click(outside)
     expect(underlying).not.toHaveBeenCalled()
+    unmount()
+  })
+  it('lets a sheet opened above it take its first tap (the account sheet after the free AI uses)', () => {
+    const create = vi.fn(), input = props()
+    const { unmount } = render(<><div className="lab-v2-sheet-layer"><button onClick={create}>Create free account</button></div><SelectionPopup {...input} /></>)
+    const button = screen.getByText('Create free account')
+    fireEvent.pointerDown(button)
+    fireEvent.pointerUp(button)
+    fireEvent.click(button)
+    expect(create).toHaveBeenCalledOnce()
+    expect(input.dismissPopup).toHaveBeenCalledOnce()
     unmount()
   })
   it('saves notes explicitly and cancellation does not write edits', () => {
@@ -138,6 +160,18 @@ describe('compact selection popup', () => {
     expect(screen.getAllByText('Zerubbabel')).toHaveLength(1)
   })
 
+  it('puts the name and its role on one line: "Mary Magdalene · Major figure" (Anders, 18 Nov 2026)', () => {
+    const card = { id: 'mary-magdalene', kind: 'person', role: 'major', name: 'Mary Magdalene', subtitle: 'Follower of Jesus', body: 'First at the empty tomb.' }
+    const character = { card, cutoff: { chapterNumber: 1, paragraphIndex: 2, offset: 14 }, gallery: [{ card, inPassage: true }] }
+    const { container } = render(<SelectionPopup {...props({ lab: true, popupMode: 'character', selection: selection({ character }) })} />)
+    const title = screen.getByRole('heading', { level: 2 })
+    expect(title.className).toBe('popup-character-name')
+    expect(title.textContent).toBe('Mary Magdalene · Major figure')
+    expect(title.querySelector('.popup-define-pos [aria-hidden="true"]')?.textContent).toBe('·')
+    expect(screen.getByText('Major figure').closest('h2')).toBe(title)
+    expect(container.querySelector('.popup-character small')).toBeNull()
+  })
+
   it('uses the locked contextual menu and saves a last-colour highlight before editing', () => {
     localStorage.setItem('tinct-highlight-color', 'sage')
     const input = props({
@@ -146,8 +180,8 @@ describe('compact selection popup', () => {
       onRequestExplanation: vi.fn().mockResolvedValue('An explanation.'),
     })
     render(<SelectionPopup {...input} />)
-    expect(Array.from(document.querySelectorAll('.popup-menu-action')).map(button => button.textContent?.replace('✧', ''))).toEqual(['Explain', 'Ask', 'Highlight', 'Copy'])
-    expect(screen.getByText('Ask')).toBeTruthy()
+    expect(Array.from(document.querySelectorAll('.popup-menu-action')).map(button => button.textContent?.replace('✧', ''))).toEqual(['Explain', 'Chat', 'Highlight', 'Copy'])
+    expect(screen.getByText('Chat')).toBeTruthy()
     expect(screen.queryByText('Add note')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: 'Highlight' }))
     expect(input.onColorClick).toHaveBeenCalledWith('sage')
@@ -208,17 +242,17 @@ describe('compact selection popup', () => {
     })
     render(<SelectionPopup {...input} />)
     expect(Array.from(document.querySelectorAll('.popup-menu-action')).map(button => button.textContent?.replace('✧', '')))
-      .toEqual(['Delete highlight', 'Explain', 'Ask', 'Highlight', 'Copy'])
+      .toEqual(['Delete highlight', 'Explain', 'Chat', 'Highlight', 'Copy'])
     fireEvent.click(screen.getByRole('button', { name: 'Delete highlight' }))
     expect(input.onDeleteHighlight).toHaveBeenCalledWith('saved')
     expect(input.dismissPopup).toHaveBeenCalledOnce()
   })
 })
 
-it('keeps the palette compact until Add note and sends Ask to the composer', () => {
+it('keeps the palette compact until Add note and sends Chat to the composer', () => {
   const input=props({lab:true,popupMode:'main',onRequestExplanation:vi.fn()})
   const {rerender}=render(<SelectionPopup {...input}/>)
-  fireEvent.click(screen.getByRole('button',{name:'Ask',exact:true}))
+  fireEvent.click(screen.getByRole('button',{name:'Chat',exact:true}))
   expect(input.onExplain).toHaveBeenCalledOnce()
   rerender(<SelectionPopup {...input} popupMode="colors"/>)
   expect(screen.queryByRole('textbox')).toBeNull()
@@ -248,6 +282,82 @@ it('keeps the palette at the action menu anchor when its shorter height would fi
     view.rerender(<SelectionPopup {...input} popupMode="colors" />)
     expect(menu.style.getPropertyValue('--anchored-popup-y')).toBe(anchor)
   } finally { height.mockRestore(); width.mockRestore() }
+})
+
+it('places the private popup from its pointer anchor without measuring every selected word', () => {
+  const query = vi.spyOn(document, 'querySelectorAll')
+  try {
+    const input = props({ lab: true, sharedReader: true, selection: selection({ x: 220, y: 510, showBelow: true }) })
+    const view = render(<SelectionPopup {...input} />)
+    const popup = view.container.querySelector<HTMLElement>('.selection-popup')!
+    expect(popup.style.getPropertyValue('--anchored-popup-y')).toBeTruthy()
+    expect(query.mock.calls.some(([selector]) => selector === '.lab .lab-hearing-word.is-selecting')).toBe(false)
+  } finally { query.mockRestore() }
+})
+
+it('measures selected words when the private pointer anchor is invalid', () => {
+  const query = vi.spyOn(document, 'querySelectorAll')
+  try {
+    render(<SelectionPopup {...props({ lab: true, sharedReader: true, selection: selection({ x: -1, y: -1 }) })} />)
+    expect(query.mock.calls.some(([selector]) => selector === '.lab .lab-hearing-word.is-selecting')).toBe(true)
+  } finally { query.mockRestore() }
+})
+
+it('bounds a long private selection with its two endpoint words', () => {
+  const rects = vi.spyOn(Element.prototype, 'getClientRects').mockImplementation(function(this: Element) {
+    if (!this.classList.contains('is-selecting')) return [] as unknown as DOMRectList
+    const top = Number(this.getAttribute('data-top'))
+    return [new DOMRect(30, top, 24, 16)] as unknown as DOMRectList
+  })
+  try {
+    const words = Array.from({ length: 20 }, (_, index) => <span className="lab-hearing-word is-selecting" data-top={120 + index * 9} key={index}>word </span>)
+    const input = props({ lab: true, sharedReader: true,
+      selection: selection({ x: 220, y: 310, text: 'A long selected passage whose words span several lines of the visible reading page.' }) })
+    const view = render(<div className="lab">{words}<SelectionPopup {...input} /></div>)
+    expect(view.container.querySelector<HTMLElement>('.selection-popup')!.style.getPropertyValue('--anchored-popup-y')).toBeTruthy()
+    expect(rects.mock.instances.filter(node => node instanceof Element && node.classList.contains('is-selecting'))).toHaveLength(2)
+  } finally { rects.mockRestore() }
+})
+
+it('skips duplicate resize delivery but repositions a long selection for a changed box, window, or older observer', () => {
+  let notify!: ResizeObserverCallback
+  class TestResizeObserver {
+    constructor(callback: ResizeObserverCallback) { notify = callback }
+    observe() {}
+    disconnect() {}
+  }
+  vi.stubGlobal('ResizeObserver', TestResizeObserver)
+  let width = 280
+  const widthRead = vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(() => width)
+  const heightRead = vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockReturnValue(80)
+  const rects = vi.spyOn(Element.prototype, 'getClientRects').mockImplementation(function(this: Element) {
+    if (!this.classList.contains('is-selecting')) return [] as unknown as DOMRectList
+    return [new DOMRect(30, Number(this.getAttribute('data-top')), 24, 16)] as unknown as DOMRectList
+  })
+  try {
+    const words = Array.from({ length: 20 }, (_, index) => <span className="lab-hearing-word is-selecting" data-top={120 + index * 9} key={index}>word </span>)
+    const input = props({ lab: true, sharedReader: true, popupMode: 'main', selection: selection({ x: 350, y: 310, text: 'A long selected passage whose words span several lines of the visible reading page.' }) })
+    const view = render(<div className="lab">{words}<SelectionPopup {...input} /></div>)
+    const popup = view.container.querySelector<HTMLElement>('.selection-popup')!
+    const selectedReads = () => rects.mock.instances.filter(node => node instanceof Element && node.classList.contains('is-selecting')).length
+    const y = popup.style.getPropertyValue('--anchored-popup-y'), x = popup.style.getPropertyValue('--anchored-popup-x')
+    expect(selectedReads()).toBe(2)
+    const deliver = (size?: { inlineSize: number; blockSize: number }) => notify([{ target: popup, borderBoxSize: size ? [size] : undefined } as unknown as ResizeObserverEntry], {} as ResizeObserver)
+    deliver({ inlineSize: 280, blockSize: 80 })
+    expect(selectedReads()).toBe(2)
+    expect(popup.style.getPropertyValue('--anchored-popup-y')).toBe(y)
+    width = 320
+    deliver({ inlineSize: 320, blockSize: 80 })
+    expect(selectedReads()).toBe(4)
+    expect(popup.style.getPropertyValue('--anchored-popup-x')).not.toBe(x)
+    expect(popup.style.getPropertyValue('--anchored-popup-y')).toBe(y)
+    deliver({ inlineSize: 320, blockSize: 80 })
+    expect(selectedReads()).toBe(4)
+    window.dispatchEvent(new Event('resize'))
+    expect(selectedReads()).toBe(6)
+    deliver()
+    expect(selectedReads()).toBe(8)
+  } finally { rects.mockRestore(); widthRead.mockRestore(); heightRead.mockRestore(); vi.unstubAllGlobals() }
 })
 
 it('shows a contextual person card for a name missing from the released cards', async () => {
@@ -298,4 +408,58 @@ it('retains the source page for an expanded explanation', () => {
   const input = props({ lab: true, popupMode: 'explain', selection: selection({ x: window.innerWidth - 100 }), onRequestExplanation: vi.fn().mockResolvedValue('A short explanation.') })
   const { container } = render(<SelectionPopup {...input} />)
   expect(container.querySelector('[data-explain-origin="right"]')).toBeTruthy()
+})
+
+describe('phone note: typing right after Add note', () => {
+  // Nightly QA, 6 Oct: on a phone, Highlight → "+" (Add note) → type at once
+  // left the field empty ("Add a note…") and Save note stored an empty note.
+  // The field never took focus, so iOS raised no keyboard and the keys went
+  // nowhere. The tap that asks for the note must focus the field itself.
+  function NoteHarness({ onUpdateHighlightNote, existingNote }: { onUpdateHighlightNote: (id: string, note: string) => void; existingNote?: string }) {
+    const [mode, setMode] = useState<SelectionPopupProps['popupMode']>('colors')
+    const [note, setNote] = useState(existingNote ?? '')
+    const [info, setInfo] = useState(selection({ text: 'the storm rose', existingNote }))
+    return <SelectionPopup {...props({
+      lab: true,
+      popupMode: mode,
+      setPopupMode: setMode,
+      selection: info,
+      noteInput: note,
+      setNoteInput: setNote,
+      onUpdateHighlightNote,
+      onRequestExplanation: vi.fn(),
+      // Mirrors LabApp: the highlight is created, then the note editor opens.
+      onRequestNote: () => { setInfo(current => ({ ...current, existingHighlightId: current.existingHighlightId ?? 'h-new' })); setMode('note') },
+    })} />
+  }
+
+  it('focuses the note field inside the Add note tap (touch: no autofocus on mount)', () => {
+    const save = vi.fn()
+    render(<NoteHarness onUpdateHighlightNote={save} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Add note' }))
+    const field = screen.getByRole('textbox', { name: 'Highlight note' })
+    expect(document.activeElement).toBe(field)
+    fireEvent.change(field, { target: { value: 'Typed at once' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Save note' }))
+    expect(save).toHaveBeenCalledWith('h-new', 'Typed at once')
+  })
+
+  it('never saves an empty new note silently', () => {
+    const save = vi.fn()
+    render(<NoteHarness onUpdateHighlightNote={save} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Add note' }))
+    const button = screen.getByRole('button', { name: 'Save note' }) as HTMLButtonElement
+    expect(button.disabled).toBe(true)
+    fireEvent.click(button)
+    expect(save).not.toHaveBeenCalled()
+  })
+
+  it('still lets a reader clear an existing note on purpose', () => {
+    const save = vi.fn()
+    render(<NoteHarness onUpdateHighlightNote={save} existingNote="old" />)
+    fireEvent.click(screen.getByRole('button', { name: 'Edit note' }))
+    fireEvent.change(screen.getByRole('textbox', { name: 'Highlight note' }), { target: { value: '' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Save note' }))
+    expect(save).toHaveBeenCalledWith('h-new', '')
+  })
 })

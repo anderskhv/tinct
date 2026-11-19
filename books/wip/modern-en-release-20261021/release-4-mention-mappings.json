@@ -1,0 +1,23 @@
+{
+  "_note": "Reviewed same-sentence character-card rulings for the Brothers Karamazov modern-en repair (release text-2026-10-21.4), applied by app/scripts/prepare-modern-en-repairs.py --mappings. Each maps a mention to the same name in the repaired version of the same sentence. Every ruling and every mention left dropped is listed in RELEASE-4.md.",
+  "brothers-karamazov": [
+    { "characterId": "alyosha", "from": "Alyosha", "to": "Alyosha", "occurrenceOverrides": [
+      { "chapterNumber": 29, "paragraphIndex": 0, "oldOccurrence": 5, "newOccurrence": 4 },
+      { "chapterNumber": 39, "paragraphIndex": 7, "oldOccurrence": 1, "newOccurrence": 1 },
+      { "chapterNumber": 73, "paragraphIndex": 1, "oldOccurrence": 2, "newOccurrence": 2 } ] },
+    { "characterId": "dmitri", "from": "Mitya", "to": "Mitya", "occurrenceOverrides": [
+      { "chapterNumber": 46, "paragraphIndex": 19, "oldOccurrence": 5, "newOccurrence": 3 },
+      { "chapterNumber": 47, "paragraphIndex": 8, "oldOccurrence": 0, "newOccurrence": 0 },
+      { "chapterNumber": 59, "paragraphIndex": 24, "oldOccurrence": 2, "newOccurrence": 1 },
+      { "chapterNumber": 61, "paragraphIndex": 15, "oldOccurrence": 4, "newOccurrence": 3 } ] },
+    { "characterId": "katerina", "from": "Katerina Ivanovna", "to": "Katerina Ivanovna", "occurrenceOverrides": [
+      { "chapterNumber": 94, "paragraphIndex": 0, "oldOccurrence": 1, "newOccurrence": 1 } ] },
+    { "characterId": "ilusha", "from": "Ilusha", "to": "Ilusha", "occurrenceOverrides": [
+      { "chapterNumber": 96, "paragraphIndex": 12, "oldOccurrence": 0, "newOccurrence": 0 } ] },
+    { "characterId": "grushenka", "from": "Grushenka", "to": "Grushenka", "occurrenceOverrides": [
+      { "chapterNumber": 23, "paragraphIndex": 40, "oldOccurrence": 0, "newOccurrence": 0 } ] },
+    { "characterId": "smerdyakov", "from": "Smerdyakov", "to": "Smerdyakov", "occurrenceOverrides": [
+      { "chapterNumber": 90, "paragraphIndex": 2, "oldOccurrence": 1, "newOccurrence": 2 } ] },
+    { "characterId": "rakitin", "from": "Rakitin", "to": "Rakitin", "occurrenceOverrides": [] }
+  ]
+}

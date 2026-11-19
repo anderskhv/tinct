@@ -3,6 +3,7 @@ import { RECAP_PREPARATION_ROUTE, type RecapCandidate, type RecapQueueUpdate } f
 import { recapCacheKey, type LabRecapRequest, type LabRecapResponse } from '../recapSummary'
 import { storeRecapSummary } from './recapSummaryClient'
 import { apiUrl } from '../utils/apiUrl'
+import { libraryPageIsLeaving } from './libraryPageLifecycle'
 export async function sendRecapPreparation(update: RecapQueueUpdate, token: string, keepalive = false): Promise<void> {
   const response = await fetch(apiUrl(RECAP_PREPARATION_ROUTE), { method:'POST', headers:{ 'Content-Type':'application/json', Authorization:'Bearer '+token }, body:JSON.stringify(update), keepalive })
   if (!response.ok || update.kind !== 'shelf') return
@@ -19,5 +20,6 @@ export async function sendRecapPreparation(update: RecapQueueUpdate, token: stri
   }
 }
 export function prepareShelfRecaps(candidates: RecapCandidate[], token: string): Promise<void> {
+  if (libraryPageIsLeaving()) return Promise.resolve()
   return sendRecapPreparation({ kind:'shelf', candidates:candidates.slice(0,100) }, token)
 }

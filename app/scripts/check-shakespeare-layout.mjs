@@ -3,20 +3,44 @@ import { chromium, webkit, devices } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 const live = process.env.SHAKESPEARE_LIVE === '1'
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, ''), output = 'artifacts/shakespeare-layout'
 await fs.mkdir(output, { recursive: true })
 const results = []
+// Diagnostics only (a WebKit scenario once hung after reader-ready in CI):
+// nothing below changes what passes or fails. Each helper bounds its wait and
+// never throws.
+function settle(promise, ms) {
+  let timer
+  const outcome = promise.then(value => ({ value }), error => ({ error: String(error?.message || error).split('\n')[0] }))
+  return Promise.race([outcome, new Promise(resolve => { timer = setTimeout(() => resolve({ timedOut: true }), ms) })]).finally(() => clearTimeout(timer))
+}
 async function prepare(context) {
   await context.addInitScript(() => {
     HTMLMediaElement.prototype.play = async function () { this.muted = true }
     if (navigator.mediaDevices) navigator.mediaDevices.getUserMedia = async () => { throw Error('Disabled for silent acceptance') }
   })
-  await context.route('**/*', async route => {
+  // Long tasks (Chromium), paginator user timing (LabNativePaginator) and, for
+  // engines without longtask entries, main-thread stalls seen by a timer.
+  await context.addInitScript(() => {
+    const diag = window.__shakespeareDiag = { longTasks: 'unsupported', measures: [], stalls: [] }
+    const keep = (list, item) => { list.push(item); if (list.length > 40) list.shift() }
+    const observe = (type, onEntry) => { try { if (!PerformanceObserver.supportedEntryTypes?.includes(type)) return false; new PerformanceObserver(list => list.getEntries().forEach(onEntry)).observe({ type, buffered: true }); return true } catch { return false } }
+    if (observe('longtask', entry => keep(diag.longTasks, { start: Math.round(entry.startTime), ms: Math.round(entry.duration) }))) diag.longTasks = []
+    observe('measure', entry => { if (entry.name.startsWith('tinct:')) keep(diag.measures, { name: entry.name, start: Math.round(entry.startTime), ms: Math.round(entry.duration) }) })
+    let last = performance.now()
+    setInterval(() => { const now = performance.now(); if (now - last > 500) keep(diag.stalls, { start: Math.round(last), ms: Math.round(now - last) }); last = now }, 250)
+  })
+  // Live, the site's own pages and assets load untouched: passing every request
+  // through route.continue() once left a script pending past the 30 s goto
+  // timeout with the page idle (21 Oct 2026, deploy run 39673147646). Only what
+  // the check changes is intercepted: other origins, and /api (answered 404).
+  const intercept = url => !live || url.origin !== origin || url.pathname.startsWith('/api/')
+  await context.route(intercept, async route => {
     const url = new URL(route.request().url())
     if (url.origin !== origin || route.request().method() !== 'GET') return route.abort()
     if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
-    if (live) return route.continue()
     const file = path.resolve('dist', '.' + (url.pathname === '/reader' ? '/app.html' : url.pathname))
     if (file.startsWith(path.resolve('dist') + '/')) try { if ((await fs.stat(file)).isFile()) return route.fulfill({ path: file }) } catch {}
     return route.abort()
@@ -26,11 +50,20 @@ async function boot(page, scenario) {
   await page.addInitScript(s => {
     if (sessionStorage.getItem('qa:shakespeare')) return
     sessionStorage.setItem('qa:shakespeare', '1')
-    const appearance = { alignment: s.alignment, alignmentExplicit: s.explicit, fontSize: s.size, shakespeareLayout: s.layout }
+    const appearance = { alignment: s.alignment, alignmentExplicit: s.explicit, fontSize: s.size, fontSizeExplicit: true, shakespeareLayout: s.layout }
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: { primaryEdition: 'original-en', compareEdition: 'modern-en' }, phone: appearance, desktop: appearance }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
   }, scenario)
-  await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' })
+  // A transport error before any page loads (the runner's connection reset,
+  // 21 Oct 2026 deploy run 39683857823) is retried once; nothing of the
+  // reader ran, so nothing it is checked for is excused. A timeout or any
+  // later failure is not retried.
+  try { await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' }) } catch (error) {
+    if (!/net::ERR_(CONNECTION_RESET|CONNECTION_CLOSED|CONNECTION_REFUSED|NETWORK_CHANGED|EMPTY_RESPONSE|HTTP2_PROTOCOL_ERROR)|Could not connect|Connection reset|The network connection was lost/.test(String(error?.message))) throw error
+    console.log('RETRY goto after transport error:', String(error.message).split('\n')[0])
+    await page.waitForTimeout(2000)
+    await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' })
+  }
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(800)
@@ -68,7 +101,13 @@ async function inspect(page, scenario) {
   return state
 }
 for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
-  const browser = await browserType.launch({ headless: true, args: engine === 'chromium' ? ['--mute-audio'] : [] })
+  // Capture bounded transport evidence without changing acceptance behavior.
+  // Default NetLog privacy mode excludes cookies and raw response bytes.
+  const args = engine === 'chromium' ? ['--mute-audio'] : []
+  if (engine === 'chromium' && process.env.SHAKESPEARE_NETLOG === '1') {
+    args.push(`--log-net-log=${path.resolve(output, 'chromium-netlog.json')}`, '--net-log-max-size-mb=50')
+  }
+  const browser = await markInternal(await browserType.launch({ headless: true, args }))
   try {
     const scenarios = []
     for (const width of [320, 390]) for (const layout of ['verse', 'flowing']) for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ width, layout, size, alignment, explicit: true, phone: true, book: 'macbeth', chapter: 1, paragraph: 0 })
@@ -82,8 +121,31 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       const context = await browser.newContext({ ...device, viewport: { width: scenario.width, height: 844 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
       await prepare(context)
       const page = await context.newPage()
+      const events = [], startedAt = Date.now(), note = (...parts) => events.push(`+${Date.now() - startedAt}ms ${parts.join(' ')}`)
+      page.on('pageerror', error => note('pageerror', String(error.stack || error.message).slice(0, 600)))
+      page.on('console', message => { if (message.type() === 'error') note('console.error', message.text().slice(0, 300), message.location()?.url || '') })
+      page.on('framenavigated', frame => { if (frame === page.mainFrame()) note('navigated', frame.url()) })
+      page.on('crash', () => note('crash'))
+      const pending = new Map()
+      page.on('request', request => pending.set(request, { url: request.url(), type: request.resourceType(), started: Date.now() }))
+      page.on('response', response => {
+        const entry = pending.get(response.request())
+        if (entry) Object.assign(entry, { responseAt: Date.now(), status: response.status(), contentType: response.headers()['content-type'], cacheStatus: response.headers()['cf-cache-status'] })
+      })
+      page.on('requestfinished', request => pending.delete(request))
+      page.on('requestfailed', request => { note('requestfailed', request.url(), request.failure()?.errorText); pending.delete(request) })
       try {
         await boot(page, scenario)
+        // Liveness: a page that cannot answer a trivial evaluate after ready
+        // is reported, then given up to 60 s more before the checks run.
+        const probedAt = Date.now(), probe = settle(page.evaluate(() => 1), 65000)
+        if ((await settle(probe, 5000)).timedOut) {
+          console.log('HUNG after ready', engine, index, JSON.stringify(scenario))
+          const answer = await settle(probe, 60000)
+          console.log('HUNG answer', engine, index, answer.timedOut ? 'none after 65 s' : answer.error ? `error after ${Date.now() - probedAt} ms: ${answer.error}` : `after ${Date.now() - probedAt} ms`)
+          const diag = await settle(page.evaluate(() => window.__shakespeareDiag), 5000)
+          if (diag.value) console.log('HUNG diag', engine, index, JSON.stringify(diag.value))
+        }
         const state = await inspect(page, scenario)
         if (index === 0 || index === 7 || index === 15 || index >= 24) {
           await page.screenshot({ path: `${output}/${engine}-${index}.png` })
@@ -98,8 +160,9 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         // Use actual settings once to verify persistence and no font-triggered switching.
         if (index === 0 || tablet || scenario.width === 1440) {
           await page.getByTestId('lab-super').click({ force: true })
-          await page.getByTestId('lab-super-row-settings').click()
-          await page.getByTestId('lab-v2-advanced').click()
+          await page.getByTestId('lab-super-menu').waitFor()
+          // A play's layout is Book settings' (22 Oct 2026), on the phone only.
+          await page.getByTestId('lab-super-row-editions').click()
           const choice = page.getByLabel('Shakespeare layout')
           assert.equal(await choice.count(), scenario.phone ? 1 : 0)
           if (scenario.phone) {
@@ -121,7 +184,17 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         }
         results.push({ engine, scenario, state })
         console.log('PASS', engine, index, scenario.book, scenario.width, scenario.layout, scenario.size, scenario.alignment)
-      } catch (error) { await page.screenshot({ path: `${output}/${engine}-${index}-failure.png` }); throw error } finally { await context.close() }
+      } catch (error) {
+        try {
+          console.log('FAIL pending requests', JSON.stringify([...pending.entries()].map(([handle, request]) => ({ ...request, elapsedMs: Date.now() - request.started, timing: handle.timing() }))))
+          console.log('FAIL', engine, index, JSON.stringify(scenario), String(error?.message).split('\n')[0])
+          const state = await settle(page.evaluate(() => { const root = document.querySelector('[data-testid="lab-root"]'); return { readyState: document.readyState, labRoot: !!root, readerReady: root?.dataset.readerReady ?? null, href: location.href, diag: window.__shakespeareDiag ?? null } }), 5000)
+          console.log('FAIL page', state.timedOut ? 'no answer in 5 s (main thread busy?)' : JSON.stringify(state.value ?? state.error))
+          console.log('FAIL events', events.length ? '\n' + events.join('\n') : 'none')
+          await page.screenshot({ path: `${output}/${engine}-${index}-failure.png`, timeout: 5000 }).catch(shot => console.log('FAIL screenshot skipped:', String(shot?.message).split('\n')[0]))
+        } catch {}
+        throw error
+      } finally { await context.close() }
     }
   } finally { await browser.close(); await fs.writeFile(`${output}/results.json`, JSON.stringify(results, null, 2)) }
 }
