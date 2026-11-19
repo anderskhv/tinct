@@ -9,6 +9,18 @@ export const TEMPORARY_EDITION_HOLDS: Readonly<Record<string, { reason: string }
  * grants publication by itself: each exact identity must pass integration QA.
  */
 export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
+  // Recovered Danish batch 02, 18 Nov 2026 (books/wip/danish-recovered-batch-02).
+  'hamlet/modern-da',
+  'king-lear/modern-da',
+  'othello/modern-da',
+  'romeo-and-juliet/modern-da',
+  'midsummer/modern-da',
+  'twelfth-night/modern-da',
+  'the-tempest/modern-da',
+  'comedy-of-errors/modern-da',
+  'coriolanus/modern-da',
+  'beyond-good-and-evil/modern-da',
+  // Earlier batches.
   'to-the-lighthouse/modern-da',
   'a-little-princess/modern-da',
   'around-the-world-80-days/modern-da',
@@ -28,6 +40,13 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'medea/modern-da',
   'meditations/modern-da',
   'middlemarch/modern-da',
+  // Recovered Danish batch 03, 18 Nov 2026 (books/wip/danish-recovered-batch-03).
+  'oresteia/modern-da',
+  'the-aeneid/modern-da',
+  'the-republic/modern-da',
+  'walden/modern-da',
+  'war-and-peace/modern-da',
+  // End of batch 03.
   'the-art-of-war/modern-da',
   'the-manual/modern-da',
   'wuthering-heights/modern-da',
