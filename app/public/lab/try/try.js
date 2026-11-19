@@ -31,11 +31,11 @@
     ['04', 0, 3800],
     ['51', 1, 900], ['08', 1, 3400],
     ['11', 2, 280], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
-    ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 900],
+    ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 1500],
     ['10', 3, 4200],
   ].filter(function (frame) { return !frame[3] || (frame[3] === 'phone') === PHONE })
   // Bump when the frames are re-captured, so browsers fetch the new ones.
-  var FRAMES_V = '20261119n'
+  var FRAMES_V = '20261119o'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -145,6 +145,9 @@
   }
 
   var index = 0
+  // How long before the tap that starts a moment its headline comes up.
+  var LEAD_MS = 1700
+  var ledStep = -1
   var timer = null
   var held = false
   var visible = true
@@ -219,7 +222,10 @@
     }
     var newStep = shown < 0 || FRAMES[shown][1] !== FRAMES[index][1]
     shown = index
-    var step = FRAMES[index][1]
+    markStep(FRAMES[index][1])
+    return newStep
+  }
+  function markStep(step) {
     $$('[data-try-step]').forEach(function (button) {
       if (Number(button.getAttribute('data-try-step')) === step) button.setAttribute('aria-current', 'step')
       else button.removeAttribute('aria-current')
@@ -229,7 +235,6 @@
     text('[data-try-title]', STEPS[step].title)
     text('[data-try-upnext]', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
     if (next) next.setAttribute('aria-label', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
-    return newStep
   }
   // Slower than captured (Anders, 19 Nov: too much, too fast), the phone most: a small screen takes longer to read.
   // The word-by-word Listen frames slow only a little, so the voice still sounds like reading.
@@ -240,9 +245,22 @@
     if (reduce || held || !visible) return
     var frame = FRAMES[index]
     var duration = pace(frame[2]) + (opened ? (phoneQuery.matches ? 1100 : 600) : 0)
-    if (opened && !phoneQuery.matches) announce(frame[1])
+    if (opened && !phoneQuery.matches && ledStep !== frame[1]) announce(frame[1])
+    ledStep = -1
     if (phoneQuery.matches) frameCaption(frame[1])
     duration = act(frame, duration)
+    // The headline leads the action (Anders, 19 Nov): when this frame ends in the tap that starts the next moment
+    // (Play, Summary), that moment's headline and dot come up first, and the tap follows a beat later.
+    var nextStep = FRAMES[(index + 1) % FRAMES.length][1]
+    var action = (PHONE && PHONE_ACTIONS[frame[0]]) || ACTIONS[frame[0]]
+    if (!reduce && action && action.press && nextStep !== frame[1]) {
+      later(function () {
+        ledStep = nextStep
+        if (phoneQuery.matches) frameCaption(nextStep)
+        else announce(nextStep)
+        markStep(nextStep)
+      }, Math.max(0, duration - LEAD_MS))
+    }
     timer = setTimeout(function () {
       // Switch only once the next frame is decoded, so a change never flashes an empty reader.
       var nextIndex = (index + 1) % FRAMES.length
