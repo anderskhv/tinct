@@ -46,6 +46,18 @@ describe('book links in the library', () => {
     expect(bookPage('hamlet')).toContain('<p class="start-reading"><a class="read-button primary-cta" href="/read/hamlet/act-1-scene-1">Start reading: Act 1, Scene 1</a></p>')
   })
 
+  it('shows the start link beside the hero\'s Read button while scripts run, and the text\'s own without them', () => {
+    const crime = composeBookLibraryPage(library, readGeneratedBookPage(bookPage('crime-and-punishment'), 'crime-and-punishment')!)
+    expect(crime).toContain('<span data-icon="readArrow"></span></button><a class="hero-own hero-start" id="hero-start" href="/read/crime-and-punishment/chapter-1">Start reading: Part 1, Chapter 1</a><a class="hero-own" id="hero-own"')
+    expect(crime.match(/id="hero-start"/g)).toHaveLength(1)
+    const head = crime.slice(0, crime.indexOf('</head>'))
+    expect(head).toContain('<style>#library .book-about .start-reading{display:none}html.returning #library .book-about .start-reading,html.returning-pending #library .book-about .start-reading,html:has(#hero-book .cover:not([data-book="crime-and-punishment"])) #library .book-about .start-reading{display:block}html:has(#hero-book .cover:not([data-book="crime-and-punishment"])) #hero-start{display:none}</style>')
+    expect(head).toContain('<noscript><style>#hero-start{display:none!important}#library .book-about .start-reading{display:block!important}#library #shelves{margin-top:0}</style></noscript>')
+    // The library's own hero is unchanged.
+    expect(library).not.toContain('hero-start')
+    expect(prefillLibraryHero(library, readGeneratedBookPage(bookPage('crime-and-punishment'), 'crime-and-punishment')!.hero)).not.toContain('hero-start')
+  })
+
   it('escapes hero text', () => {
     const html = prefillLibraryHero(library, { id: 'x', title: 'A <b>"Book"</b>', author: 'Some & One', question: '<script>', cover: null })
     expect(html).toContain('<h1 id="hero-title">A &lt;b&gt;&quot;Book&quot;&lt;/b&gt;</h1>')

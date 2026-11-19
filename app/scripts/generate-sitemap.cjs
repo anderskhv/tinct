@@ -283,7 +283,13 @@ function seoBookTitle(book) {
  * the Modern English beside its own-language original; else, with no name in the registry, "the original".
  */
 function modernBeside(book) {
-  if (book.translator && !isShakespeare(book)) return `${plainText(book.translator)}'s translation`
+  if (book.translator && !isShakespeare(book)) {
+    // A registry name that carries its editor ("Henry Reeve, revised by Francis Bowen", "Samuel Moore (edited by
+    // Engels)", "Charles Cotton, ed. William Hazlitt") puts the editor after the translation.
+    const translator = plainText(book.translator)
+    const edited = translator.match(/^(.+?)(?:, ((?:revised by|ed\.) .+)| \(((?:edited|revised) by .+)\))$/)
+    return edited ? `${edited[1]}'s translation (${edited[2] || edited[3]})` : `${translator}'s translation`
+  }
   if (isShakespeare(book) || englishOriginalBooks().has(book.id)) return `${plainText(book.author)}'s original`
   const original = chapterPagesOf(book.id)?.original
   if (original && original !== 'original-en') return `${plainText(book.author)}'s original`

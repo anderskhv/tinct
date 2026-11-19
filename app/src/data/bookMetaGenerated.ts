@@ -264,7 +264,7 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
   },
   'democracy-in-america': {
     title: 'Read Democracy in America online free, in modern English | Tinct',
-    description: 'Read the full text of Democracy in America free online, with modern English beside Henry Reeve, revised by Francis Bowen\'s translation. No sign-up, no ads.',
+    description: 'Read the full text of Democracy in America free online, with modern English beside Henry Reeve\'s translation (revised by Francis Bowen). No sign-up, no ads.',
     bookName: 'Democracy in America',
     author: 'Alexis de Tocqueville',
   },
@@ -336,7 +336,7 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
   },
   'communist-manifesto': {
     title: 'Read The Communist Manifesto online free, in modern English | Tinct',
-    description: 'Read the full text of The Communist Manifesto free online, with modern English beside Samuel Moore (edited by Engels)\'s translation. No sign-up, no ads.',
+    description: 'Read the full text of The Communist Manifesto free online, with modern English beside Samuel Moore\'s translation (edited by Engels). No sign-up, no ads.',
     bookName: 'The Communist Manifesto',
     author: 'Karl Marx & Friedrich Engels',
   },
@@ -582,7 +582,7 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
   },
   'essays-montaigne': {
     title: 'Read Essays online free, in modern English | Tinct',
-    description: 'Read the full text of Essays free online, with modern English beside Charles Cotton, ed. William Hazlitt\'s translation. No sign-up, no ads.',
+    description: 'Read the full text of Essays free online, with modern English beside Charles Cotton\'s translation (ed. William Hazlitt). No sign-up, no ads.',
     bookName: 'Essays',
     author: 'Michel de Montaigne',
   },

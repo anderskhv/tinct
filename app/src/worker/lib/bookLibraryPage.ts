@@ -104,5 +104,27 @@ export function composeBookLibraryPage(libraryHtml: string, book: GeneratedBookP
   const text = book.about.replace(/^<main>/, '<div class="book-about-text">').replace(/<\/main>$/, '</div>')
     .replace(/<h1 class="title">([\s\S]*?)<\/h1>/, '<h2 class="title">$1</h2>')
   const about = `<section id="book-about" class="book-about" aria-label="${escape(book.hero.title)}">${text}</section>`
-  return prefillLibraryHero(head, book.hero).replace('<div id="shelves"></div>', `<div id="shelves"></div>${about}`)
+  const page = prefillLibraryHero(head, book.hero).replace('<div id="shelves"></div>', `<div id="shelves"></div>${about}`)
+  return heroStartReading(page, book)
+}
+
+/**
+ * The text's "Start reading: {first chapter}" link (generate-sitemap.cjs, `startReadingLink`) also stands beside the
+ * hero's Read button, so a reader sees it at the top rather than after the shelves (19 Nov 2026). One shows at a
+ * time: the hero's while scripts run and the hero shows this book; the text's own without scripts (where it is the
+ * first thing after the hero), on a returning reader's desk (no hero copy), or once the hero features another book.
+ * CSS only: the page's policy allows no inline script.
+ */
+function heroStartReading(html: string, book: GeneratedBookPage): string {
+  const link = book.about.match(/<p class="start-reading"><a class="[^"]*" href="([^"]*)">([^<]*)<\/a><\/p>/)
+  if (!link || !/<button class="read-button" id="read-featured">/.test(html)) return html
+  const id = escape(book.hero.id)
+  const text = '#library .book-about .start-reading'
+  const rivals = `html:has(#hero-book .cover:not([data-book="${id}"]))`
+  const style = `<style>${text}{display:none}html.returning ${text},html.returning-pending ${text},${rivals} ${text}{display:block}${rivals} #hero-start{display:none}</style>`
+    // Without scripts the shelves stay empty, so they no longer bleed up into the hero, which would cover the link.
+    + `<noscript><style>#hero-start{display:none!important}${text}{display:block!important}#library #shelves{margin-top:0}</style></noscript>`
+  return html
+    .replace('</head>', `${style}</head>`)
+    .replace(/(<button class="read-button" id="read-featured">[\s\S]*?<\/button>)/, `$1<a class="hero-own hero-start" id="hero-start" href="${link[1]}">${link[2]}</a>`)
 }
