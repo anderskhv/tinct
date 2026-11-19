@@ -8,22 +8,25 @@
  */
 (function () {
   'use strict'
-  // The step beside the reader: the copy approved for the step page (18 Nov), in the order the frames play.
+  // The step beside the reader: the copy approved for the step page (18 Nov), in the order the frames play. Modern is
+  // the second move (Anders, 19 Nov), and Listen then plays the modern English.
   var STEPS = [
     { title: 'Explain anything', line: 'Select a passage. The explanation lands beside it, in the margin, and stays there as a note.' },
-    { title: 'Hear it as you read', line: 'Press play. Every word is marked as it is read.' },
     { title: "Read it in today's words", line: 'Switch to modern English. Switch back any time; you stay on the line.' },
+    { title: 'Hear it as you read', line: 'Press play. Every word is marked as it is read.' },
     { title: 'Get the gist in a minute', line: 'Tap Summary beside the chapter. It opens as a card, four beats long.' },
   ]
-  // [file number, step, milliseconds on screen]
+  // [file, step, milliseconds on screen]. Listen is fourteen frames 280 ms apart, as captured, so the marked word moves
+  // word by word (Anders, 19 Nov: it lagged); they cut, not fade, into each other.
   var FRAMES = [
     ['01', 0, 1300], ['02', 0, 1500], ['04', 0, 3200],
-    ['05', 1, 1300], ['06', 1, 1300], ['07', 1, 1500],
-    ['08', 2, 3200],
+    ['08', 1, 3200],
+    ['11', 2, 280], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
+    ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 900],
     ['10', 3, 3600],
   ]
   // Bump when the frames are re-captured, so browsers fetch the new ones.
-  var FRAMES_V = '20261119b'
+  var FRAMES_V = '20261119c'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -51,11 +54,12 @@
   var visible = true
 
   // The frame that switches to modern English arrives as a wave running down the page (the launch film's switch).
-  var WAVE = FRAMES.map(function (frame, i) { return i > 0 && frame[1] === 2 && FRAMES[i - 1][1] !== 2 })
+  var WAVE = FRAMES.map(function (frame, i) { return i > 0 && frame[1] === 1 && FRAMES[i - 1][1] !== 1 })
   var shown = -1
   function paint() {
     var wave = !reduce && shown >= 0 && shown !== index && WAVE[index]
     var under = wave ? shown : -1
+    demo.classList.toggle('is-cut', shown >= 0 && FRAMES[shown][1] === 2 && FRAMES[index][1] === 2)
     pictures.forEach(function (picture, i) {
       picture.classList.remove('is-wave', 'is-under')
       picture.classList.toggle('is-on', i === index)
