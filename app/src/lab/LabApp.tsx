@@ -7557,7 +7557,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               >
                 {narrationInfo?.loading || listen.loading || listen.buffering ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
               </button>}
-              {!showPhoneChrome && <button type="button" className="lab-v2-aa" data-testid="lab-header-aa"
+              {/* The /try page's phone reader has no menu (demo mode), so Aa stands in for the menu's Appearance there. */}
+              {(!showPhoneChrome || TRY_DEMO) && <button type="button" className="lab-v2-aa" data-testid="lab-header-aa"
                 aria-label="Reading appearance" title="Reading appearance"
                 onClick={() => { setSuperMenuOpen(false); setCompareFromLayout(false); setSuperSheet('reading') }}>Aa</button>}
 {!TRY_DEMO && <LabSuperButton

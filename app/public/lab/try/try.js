@@ -309,6 +309,22 @@
     ;['try', 'features', 'pricing', 'questions'].forEach(function (id) { var el = document.getElementById(id); if (el) observer.observe(el) })
   }
 
+  // ---- Phone: the reader ends on the first screen (try.css --try-reader-h) ----
+  // Its top depends on how the chips and the book and edition row wrap at this width, so it is measured, never
+  // guessed. Only the reader's height follows; nothing scrolls.
+  var readerBox = $('[data-try-reader]')
+  var readerTop = -1
+  function measureReaderTop() {
+    var top = Math.round(readerBox.getBoundingClientRect().top + window.scrollY)
+    if (top === readerTop) return
+    readerTop = top
+    document.body.style.setProperty('--try-reader-top', top + 'px')
+  }
+  measureReaderTop()
+  window.addEventListener('resize', measureReaderTop)
+  if ('ResizeObserver' in window) new ResizeObserver(measureReaderTop).observe($('.try-stage'))
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureReaderTop)
+
   window.matchMedia(WIDE).addEventListener('change', function (event) {
     // The reader is laid out for the frame it opened in; a phone and a desktop frame are different readers.
     wide = event.matches

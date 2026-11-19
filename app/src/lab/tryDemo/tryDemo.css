@@ -56,3 +56,22 @@
 .lab.is-desktop[data-try-demo] .source-margin-preview-question { font-size: 14.5px; }
 .lab.is-desktop[data-try-demo] .source-margin-content .lab-pcard-answer { font-size: 15px; }
 .lab.is-desktop[data-try-demo] .source-margin-head .source-margin-label { font-size: 13px; }
+
+/* Aa on the phone (the demo has no menu, so the reader's own Appearance sheet opens from here): Play's 44px target,
+   the desktop Aa's face. */
+.lab[data-try-demo][data-chrome-version="v2"]:is(.is-phone, .has-phone-chrome) .lab-v2-aa {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: 600 17px/1 Georgia, serif;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab[data-try-demo]:is(.is-phone, .has-phone-chrome) .lab-v2-aa:focus-visible { outline: 2px solid currentColor; outline-offset: -4px; }
