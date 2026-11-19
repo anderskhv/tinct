@@ -5,7 +5,7 @@
   "scope": "Every CONTENT_CHECKS_PASS record of CLAUDE-RELEASE-MASTER.md whose Danish edition is already live (27 books).",
   "integratedOnMain": "39fffba205",
   "reconciliation": "Each candidate was hash-compared with main (Danish body, paired English, both guides), then classified paragraph by paragraph against main's copy of the modern-da-quality package (books/wip/modern-da-quality-20261102, the source of #818) and its INTEGRATION-2026-11-13.json. The recovered-branch Danish bodies equal that package exactly; every remaining Danish difference is one of #818's 45 integration adjustments, which main keeps. Their English differences are the package's modern-en repairs, which #818 did not publish (\"they need their own English release\"); the English base each review started from equals main's live English, so they apply cleanly. Confessions and Middlemarch: the source snapshots in their folders equal main byte for byte (Confessions) or are main at a1ee0ffd with no later change (Middlemarch), so the recovered revisions replace nothing newer.",
-  "releasedAtNote": "Edition releasedAt re-pinned at merge to 2026-11-19T08:00:00Z, just after the expected go-live. Re-pin it if the merge lands later; it must not be earlier than the deploy.",
+  "releasedAtNote": "Edition releasedAt re-pinned at merge to 2026-11-19T08:30:00Z, just after the expected go-live. Re-pin it if the merge lands later; it must not be earlier than the deploy.",
   "books": {
     "a-little-princess": {
       "status": "updated",
