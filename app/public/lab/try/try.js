@@ -60,6 +60,44 @@
   layer.innerHTML = '<span class="try-pointer"></span><span class="try-scene"></span>'
   demo.appendChild(layer)
   var pointer = $('.try-pointer', layer)
+  // ---- Phone: the launch film's way (Anders, 19 Nov). One caption per moment, the reader in a phone, and the camera
+  // moving in on what matters (the card, the marked word). ----
+  var CAPTIONS = [
+    ['Stuck on a line?', 'Explain it.'],
+    ['Language too hard?', 'Switch to modern English.'],
+    ['On the go?', 'Listen.'],
+    ['Short on time?', 'Get the gist.'],
+  ]
+  // The camera moves inside the phone's screen, never the phone. It follows the frame: the drag and the wave wide,
+  // the Explain and Summary cards brought up from the bottom of the screen, Listen leaning in on the marked word.
+  function frameCamera(file) {
+    var transform = 'none', origin = '50% 0'
+    if (file === '04' || file === '10') {
+      var pic = pictures[index]
+      var shift = pic ? Math.min(0, demo.clientHeight - pic.offsetTop - pic.offsetHeight) : 0
+      transform = 'translateY(' + shift + 'px)'
+      origin = '50% 100%'
+    } else if (Number(file) >= 11) {
+      transform = 'scale(1.1)'
+      origin = '20% 30%'
+    }
+    demo.style.setProperty('--try-camera', transform)
+    demo.style.setProperty('--try-origin', origin)
+  }
+  var caption = document.createElement('p')
+  caption.className = 'try-caption'
+  caption.setAttribute('aria-hidden', 'true')
+  demo.parentNode.insertBefore(caption, demo)
+  var captionStep = -1
+  function frameCaption(step) {
+    if (step === captionStep) return
+    captionStep = step
+    caption.classList.remove('is-on')
+    later(function () {
+      caption.innerHTML = CAPTIONS[step][0] + ' <em>' + CAPTIONS[step][1] + '</em>'
+      caption.classList.add('is-on')
+    }, caption.innerHTML ? 260 : 0)
+  }
   var scene = $('.try-scene', layer)
   var actionTimers = []
   function later(fn, ms) { actionTimers.push(setTimeout(fn, ms)) }
@@ -149,7 +187,8 @@
     if (reduce || held || !visible) return
     var frame = FRAMES[index]
     var duration = pace(frame[2]) + (opened ? (phoneQuery.matches ? 1100 : 600) : 0)
-    if (opened) announce(frame[1])
+    if (opened && !phoneQuery.matches) announce(frame[1])
+    if (phoneQuery.matches) { frameCaption(frame[1]); frameCamera(frame[0]) }
     duration = act(frame, duration)
     timer = setTimeout(function () {
       // Switch only once the next frame is decoded, so a change never flashes an empty reader.
