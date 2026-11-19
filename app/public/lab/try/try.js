@@ -1,14 +1,20 @@
 /*
  * The Try page (public/try.html; docs/try-page/BRIEF.md): the reader plays itself (Anders, 19 Nov 2026).
  * Frames of the real reader, captured by scripts/capture-try-frames.cjs (Meditations Book 2: Explain, Listen,
- * Modern, Summary), crossfade on a loop beside four steps that follow along. Nothing here asks the visitor to do
+ * Modern, Summary), crossfade on a loop beside the step they show (Next moves on, the dots jump). Nothing here asks the visitor to do
  * anything and nothing calls the server: a click on the frames, or on Start reading, opens the reader itself.
  * Hover or focus pauses the loop; a step (or a dot on the phone) jumps to its moment; reduced motion shows each
  * step's last frame and waits for the visitor.
  */
 (function () {
   'use strict'
-  var STEPS = ['Explain any line', 'Hear it as you read', "Read it in today's words", 'Get the gist in a minute']
+  // The step beside the reader: the copy approved for the step page (18 Nov), in the order the frames play.
+  var STEPS = [
+    { title: 'Explain anything', line: 'Select a passage. The explanation lands beside it, in the margin, and stays there as a note.' },
+    { title: 'Hear it as you read', line: 'Press play. Every word is marked as it is read.' },
+    { title: "Read it in today's words", line: 'Switch to modern English. Switch back any time; you stay on the line.' },
+    { title: 'Get the gist in a minute', line: 'Tap Summary beside the chapter. It opens as a card, four beats long.' },
+  ]
   // [file number, step, milliseconds on screen]
   var FRAMES = [
     ['01', 0, 1300], ['02', 0, 1500], ['04', 0, 3200],
@@ -21,7 +27,7 @@
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
   var $$ = function (selector, root) { return Array.prototype.slice.call((root || document).querySelectorAll(selector)) }
   var demo = $('[data-try-demo]')
-  var caption = $('[data-try-caption]')
+  var text = function (selector, value) { var el = $(selector); if (el) el.textContent = value }
   if (!demo) return
 
   // The first frame is in the page; the rest load after it, one picture each (phone and desktop crops).
@@ -49,7 +55,11 @@
       if (Number(button.getAttribute('data-try-step')) === step) button.setAttribute('aria-current', 'step')
       else button.removeAttribute('aria-current')
     })
-    if (caption) caption.textContent = STEPS[step]
+    text('[data-try-count]', (step + 1) + ' of ' + STEPS.length)
+    text('[data-try-num]', (step + 1) + '. ')
+    text('[data-try-title]', STEPS[step].title)
+    text('[data-try-line]', STEPS[step].line)
+    text('[data-try-upnext]', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
   }
   function schedule() {
     clearTimeout(timer)
@@ -67,6 +77,8 @@
   $$('[data-try-step]').forEach(function (button) {
     button.addEventListener('click', function () { show(Number(button.getAttribute('data-try-step'))) })
   })
+  var next = $('[data-try-next]')
+  if (next) next.addEventListener('click', function () { show((FRAMES[index][1] + 1) % STEPS.length) })
   demo.addEventListener('mouseenter', function () { held = true; clearTimeout(timer) })
   demo.addEventListener('mouseleave', function () { held = false; schedule() })
   demo.addEventListener('focus', function () { held = true; clearTimeout(timer) })

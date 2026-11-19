@@ -170,8 +170,9 @@ describe('the reader plays itself (Anders, 19 Nov 2026)', () => {
   const frames = [...script.matchAll(/\['(\d\d)', (\d), \d+\]/g)].map(match => ({ file: match[1], step: Number(match[2]) }))
 
   it('shows four steps in the order the frames play them, and asks the visitor to do nothing', () => {
-    const titles = [...page.matchAll(/<span class="try-step-title">([^<]+)<\/span>/g)].map(match => match[1])
-    expect(titles).toEqual(['Explain any line', 'Hear it as you read', "Read it in today's words", 'Get the gist in a minute'])
+    const titles = [...script.matchAll(/\{ title: '((?:[^'\\]|\\.)*)'|\{ title: "([^"]+)"/g)].map(match => match[1] ?? match[2])
+    expect(titles).toEqual(['Explain anything', 'Hear it as you read', "Read it in today's words", 'Get the gist in a minute'])
+    expect(page).toContain('<span data-try-title>Explain anything</span>')
     expect(frames.map(frame => frame.step)).toEqual([...frames.map(frame => frame.step)].sort())
     expect(new Set(frames.map(frame => frame.step))).toEqual(new Set([0, 1, 2, 3]))
     expect(page).not.toMatch(/data-try-item|data-try-hint|data-try-limit|<iframe/)
@@ -184,7 +185,9 @@ describe('the reader plays itself (Anders, 19 Nov 2026)', () => {
   })
 
   it('opens Meditations Book 2 in the reader from the frames and from Start reading', () => {
-    expect([...page.matchAll(/href="(\/reader\?[^"]+)"/g)].map(match => match[1])).toEqual(['/reader?book=meditations&amp;chapter=2', '/reader?book=meditations&amp;chapter=2'])
+    const links = [...page.matchAll(/href="(\/reader\?[^"]+)"/g)].map(match => match[1])
+    expect(links.length).toBe(3)
+    expect(new Set(links)).toEqual(new Set(['/reader?book=meditations&amp;chapter=2']))
   })
 
   it('calls nothing and scrolls nothing', () => {
