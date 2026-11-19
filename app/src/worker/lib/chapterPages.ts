@@ -6,7 +6,7 @@
  */
 import manifest from '../../data/chapterPages.generated.json'
 
-type BookEntry = { chapters: number; packs: number[]; indexable: boolean; original: string | null }
+type BookEntry = { chapters: number; bookPage?: boolean; packs: number[]; indexable: boolean; original: string | null }
 const BOOKS = (manifest as { books: Record<string, BookEntry> }).books
 const HUBS = (manifest as { hubs: Record<string, boolean> }).hubs
 
@@ -24,6 +24,16 @@ export function chapterPageEntry(bookId: string, chapter: number): { pack: strin
   let pack = 0
   for (let index = 0; index < book.packs.length; index += 1) if (book.packs[index] <= chapter) pack = index
   return { pack: `${CHAPTER_PACK_PREFIX}${bookId}/${pack}.txt`, indexable: book.indexable }
+}
+
+/**
+ * The book page (/read/{bookId}): the first chapter under the book's header, page 0 of the book's first pack
+ * (Anders, 19 Nov 2026, docs/seo-brief-2026-11-19.md §1). Null when the book has none.
+ */
+export function bookPageEntry(bookId: string): { pack: string; indexable: boolean } | null {
+  const book = hasChapterPages(bookId) ? BOOKS[bookId] : null
+  if (!book?.bookPage) return null
+  return { pack: `${CHAPTER_PACK_PREFIX}${bookId}/0.txt`, indexable: book.indexable }
 }
 
 /** One page out of a pack (each page follows its `<!--tinct:chapter-page N-->` marker), or null. */

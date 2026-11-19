@@ -1,18 +1,21 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import worker from './worker'
-import { renderScenePage } from './seo/scenePages'
+import { renderScenePage, renderScenePages } from './seo/scenePages'
 
 // The scene pages (13 Nov 2026): /read/{bookId}/{scene} for five plays, served as static HTML to everyone.
 const hamlet = JSON.parse(readFileSync('public/data/editions/hamlet-modern-en.json', 'utf8'))
 const page = renderScenePage({ book: { id: 'hamlet', title: 'Hamlet', author: 'William Shakespeare' }, chapters: hamlet.chapters, chapterNumber: 8, original: null }).html
 const bookPage = readFileSync('public/read/hamlet/book.html', 'utf8')
+// The play's book page (since 19 Nov 2026): the first scene under the play's header, kept outside /read/.
+const playBookPage = renderScenePages({ book: { id: 'hamlet', title: 'Hamlet', author: 'William Shakespeare' }, modern: hamlet, original: null, bookPage: { source: { kind: 'english-original', author: 'William Shakespeare' } } })[0].html
 const library = readFileSync('public/lab/library_2/index.html', 'utf8')
 const env = {
   ASSETS: {
     fetch: async (request: Request) => {
       const url = new URL(request.url)
       if (url.pathname === '/read/hamlet/act-3-scene-1') return new Response(page, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+      if (url.pathname === '/seo/book-pages/hamlet.html') return new Response(playBookPage, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
       if (url.pathname === '/read/hamlet/book') return new Response(bookPage, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
       if (url.pathname === '/lab/library_2/') return new Response(library, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
       if (url.pathname === '/404.html') return new Response('<title>Page not found — Tinct</title>', { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
@@ -31,7 +34,7 @@ describe('scene pages', () => {
     expect(resp.headers.get('Cache-Control')).toBe('public, max-age=300, stale-while-revalidate=86400')
     const html = await resp.text()
     expect(html).not.toMatch(/name="robots"/)
-    expect(html).toContain('<title>Hamlet, Act 3, Scene 1 in modern English | Tinct</title>')
+    expect(html).toContain('<title>Hamlet, Act 3, Scene 1 of 4: full text in modern English | Tinct</title>')
     expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/hamlet/act-3-scene-1">')
     expect(html).toContain('To be, or not to be — that is the question.')
     expect(html).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/books/hamlet.jpg">')
@@ -75,12 +78,15 @@ describe('scene pages', () => {
     }
   })
 
-  it('keeps /read/{bookId} as before: the book page signed out (now linking its scenes), the library signed in', async () => {
+  // Since 19 Nov 2026 (docs/seo-brief-2026-11-19.md §1) /read/{play} opens straight into the first scene signed out.
+  it('opens /read/{bookId} into the first scene signed out, with every scene linked; the library signed in', async () => {
     const out = await get('/read/hamlet')
     expect(out.status).toBe(200)
     const html = await out.text()
-    expect(html).toContain('<title>Hamlet in modern English, scene by scene | Tinct</title>')
-    expect(html).toContain('<a href="/read/hamlet/act-3-scene-1">')
+    expect(html).toContain('<title>Read Hamlet online free, scene by scene in modern English | Tinct</title>')
+    expect(html).toContain('<a href="/read/hamlet/act-3-scene-1" data-scene-keep>')
+    expect(html).toContain('id="book-structure">5 acts · 20 scenes<')
+    expect((await get('/seo/book-pages/hamlet.html')).status).toBe(404)
     const signedIn = await get('/read/hamlet', { Cookie: 'tinct_auth=1' })
     expect(signedIn.status).toBe(302)
     expect(signedIn.headers.get('Location')).toBe('/library?book=hamlet')

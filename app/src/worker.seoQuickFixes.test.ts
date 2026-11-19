@@ -80,9 +80,9 @@ describe('book pages', () => {
   })
 
   it('title the Odyssey like every other book, with no audio or AI promise', async () => {
-    expect(GENERATED_BOOK_META.odyssey.title).toBe('The Odyssey in modern English, free to read | Tinct')
+    expect(GENERATED_BOOK_META.odyssey.title).toBe('Read The Odyssey online free, in modern English | Tinct')
     const html = await (await get('/read/odyssey')).text()
-    expect(html).toContain('<title>The Odyssey in modern English, free to read | Tinct</title>')
+    expect(html).toContain('<title>Read The Odyssey online free, in modern English | Tinct</title>')
     const description = html.match(/<meta name="description" content="([^"]*)"/)![1]
     expect(description).not.toMatch(/audio|AI|companion|narrat/i)
     expect(html).not.toMatch(/Modern Translation, AI Companion, Audiobook/)

@@ -10,7 +10,9 @@
  * Request URL; the browser never leaves 127.0.0.1 (every other request is aborted), so nothing reaches production.
  *
  * Checks: Googlebot fetches of a book page, an indexable and a noindex chapter page, a missing chapter, robots.txt,
- * the sitemap and the hubs; then in a browser, that utm_source and gclid survive the hand-off into the reader (a
+ * the sitemap and the hubs; since 19 Nov 2026 (docs/seo-brief-2026-11-19.md) Googlebot and Bingbot fetches of the
+ * brief's list, and in a signed-out browser on desktop and phone the text switch, the remembered choice, Continue
+ * reading and the saved place after leaving and coming back; then in a browser, that utm_source and gclid survive the hand-off into the reader (a
  * Primer link, a selection's Explain, a typed question) and the reader receives them; and screenshots (chapter page
  * desktop and phone in light and dark, a book page, a hub).
  */
@@ -30,6 +32,7 @@ const DIST = path.join(ROOT, 'dist')
 const OUT = process.env.CHAPTER_OUT || path.join(ROOT, 'artifacts/chapter-pages')
 const GOOGLEBOT = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 const SMARTPHONE_GOOGLEBOT = 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+const BINGBOT = 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)'
 const IPHONE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1'
 if (!fs.existsSync(path.join(DIST, 'seo/chapter-packs'))) throw new Error('dist has no chapter packs: run npm run build first')
 fs.mkdirSync(OUT, { recursive: true })
@@ -77,40 +80,55 @@ const crawl = (pathname, ua = GOOGLEBOT) => fetch(`${ORIGIN}${pathname}`, { head
 const text = html => html.replace(/<[^>]+>/g, '').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&')
 
 try {
-  // ===== Googlebot =====
-  {
-    const resp = await crawl('/read/moby-dick')
-    assert.equal(resp.status, 200)
-    assert.equal(resp.headers.get('x-robots-tag'), null)
-    const html = await resp.text()
-    assert.ok(!/name="robots"/.test(html))
-    assert.ok(html.includes("<strong>How this edition was made.</strong> Tinct's modern English is drafted with AI from Herman Melville's original text"), 'edition note')
-    assert.ok(text(html).includes('Call me Ishmael. Some years ago — never mind exactly how long'), 'modern first paragraph')
-    assert.ok(text(html).includes('Call me Ishmael. Some years ago—never mind how long precisely'), 'original first paragraph')
-    assert.ok(html.includes('<a href="/read/moby-dick/chapter-136">'), 'links every chapter')
-    ok('Googlebot /read/moby-dick: 200, edition note, first paragraph in both versions, every chapter linked')
+  // ===== Googlebot and Bingbot (docs/seo-brief-2026-11-19.md, "Verify and report") =====
+  for (const [bot, ua] of [['Googlebot', GOOGLEBOT], ['Googlebot smartphone', SMARTPHONE_GOOGLEBOT], ['Bingbot', BINGBOT]]) {
+    {
+      const resp = await crawl('/read/jane-eyre', ua)
+      assert.equal(resp.status, 200)
+      assert.equal(resp.headers.get('x-robots-tag'), null)
+      const html = await resp.text()
+      assert.ok(!/name="robots"/.test(html))
+      assert.ok(html.includes('<title>Read Jane Eyre online free, in modern English | Tinct</title>'), 'book title')
+      assert.ok(html.includes('<span class="book-structure" id="book-structure">38 chapters</span>'), 'structure pill')
+      assert.ok(html.includes('<link rel="canonical" href="https://tinct.app/read/jane-eyre">'))
+      assert.ok(html.includes('class="chapter-col chapter-col-modern"') && html.includes('class="chapter-col chapter-col-original"'), 'both texts')
+      assert.ok(text(html).includes('There was no possibility of taking a walk that day.'), 'original chapter 1')
+      assert.ok(html.includes('<a href="/read/jane-eyre/chapter-38" data-scene-keep>'), 'chapter list')
+      assert.ok(!html.includes('<!--tinct:reader-css-->') && /<link[^>]+href="\/assets\/[^"]+\.css"/.test(html), 'reader CSS stamped')
+      ok(`${bot} /read/jane-eyre: chapter 1 text in both versions, the pill, the new title, the chapter list`, `${html.length} bytes`)
+    }
+    {
+      const html = await (await crawl('/read/jane-eyre/chapter-1', ua)).text()
+      assert.ok(html.includes('<link rel="canonical" href="https://tinct.app/read/jane-eyre">'))
+      const c26 = await (await crawl('/read/jane-eyre/chapter-26', ua)).text()
+      assert.ok(c26.includes('<title>Jane Eyre, Chapter 26 of 38: full text in modern English | Tinct</title>'))
+      assert.ok(c26.includes('Chapter 26<span class="chapter-of"> of 38</span>'))
+      assert.ok(c26.includes('<link rel="canonical" href="https://tinct.app/read/jane-eyre/chapter-26">'))
+      const odyssey = await crawl('/read/odyssey/chapter-1', ua)
+      assert.equal(odyssey.status, 200)
+      assert.equal(odyssey.headers.get('x-robots-tag'), null)
+      assert.ok(!/name="robots"/.test(await odyssey.text()))
+      const hub = await crawl('/modern-english', ua)
+      assert.equal(hub.status, 200)
+      const hubHtml = await hub.text()
+      assert.ok(hubHtml.includes('<title>Classics in modern English, free to read | Tinct</title>') && hubHtml.includes('Every classic in modern English</h1>'))
+      assert.ok(!/name="robots"/.test(hubHtml) && hub.headers.get('x-robots-tag') === null)
+      const llms = await crawl('/llms.txt', ua)
+      assert.equal(llms.status, 200)
+      assert.ok((await llms.text()).includes('https://tinct.app/modern-english'))
+      const hamlet = await (await crawl('/read/hamlet', ua)).text()
+      assert.ok(hamlet.includes('<title>Read Hamlet online free, scene by scene in modern English | Tinct</title>') && hamlet.includes('id="book-structure">5 acts · 20 scenes<'))
+      ok(`${bot}: chapter-1 canonical → /read/jane-eyre; chapter-26 "of 38" and its title; /read/odyssey/chapter-1 indexable; /modern-english 200; /llms.txt; /read/hamlet`)
+    }
   }
-  for (const ua of [GOOGLEBOT, SMARTPHONE_GOOGLEBOT]) {
-    const resp = await crawl('/read/moby-dick/chapter-1', ua)
-    assert.equal(resp.status, 200)
-    assert.equal(resp.headers.get('x-robots-tag'), null)
-    const html = await resp.text()
-    assert.ok(!/name="robots"/.test(html), 'no robots meta')
-    assert.ok(html.includes('<link rel="canonical" href="https://tinct.app/read/moby-dick/chapter-1">'), 'self-canonical')
-    assert.ok(html.includes('<title>Moby Dick, Chapter 1 in modern English | Tinct</title>'))
-    assert.ok(text(html).includes('Call me Ishmael. Some years ago — never mind exactly how long'), 'modern text')
-    assert.ok(text(html).includes('Call me Ishmael. Some years ago—never mind how long precisely'), 'original text')
-    assert.ok(!html.includes('<!--tinct:reader-css-->') && /<link[^>]+href="\/assets\/[^"]+\.css"/.test(html), 'reader CSS stamped')
-    ok(`${ua === GOOGLEBOT ? 'Googlebot' : 'Googlebot smartphone'} /read/moby-dick/chapter-1: 200, both texts as HTML, self-canonical, no noindex`, `${html.length} bytes`)
-  }
   {
-    const resp = await crawl('/read/odyssey/chapter-1')
+    const resp = await crawl('/read/the-art-of-war/chapter-2')
     assert.equal(resp.status, 200)
     assert.equal(resp.headers.get('x-robots-tag'), 'noindex, follow')
     assert.ok((await resp.text()).includes('<meta name="robots" content="noindex, follow">'))
-    ok('Googlebot /read/odyssey/chapter-1: 200, X-Robots-Tag and meta noindex, follow')
+    ok('Googlebot /read/the-art-of-war/chapter-2 (not allowlisted): 200, X-Robots-Tag and meta noindex, follow')
   }
-  for (const [pathname, status] of [['/read/moby-dick/chapter-137', 404], ['/read/odyssey/chapter-0', 404], ['/seo/chapter-packs/moby-dick/0.txt', 404], ['/read/moby-dick/chapter-1/', 301], ['/read/hamlet/chapter-8', 301]]) {
+  for (const [pathname, status] of [['/read/moby-dick/chapter-137', 404], ['/read/odyssey/chapter-0', 404], ['/seo/chapter-packs/moby-dick/0.txt', 404], ['/seo/book-pages/hamlet.html', 404], ['/read/moby-dick/chapter-0', 404], ['/read/moby-dick/chapter-1/', 301], ['/read/hamlet/chapter-8', 301]]) {
     assert.equal((await crawl(pathname)).status, status, pathname)
   }
   ok('missing chapter 404, packs not served, trailing slash 301, plays keep their scene redirect')
@@ -129,7 +147,10 @@ try {
     const chapterBooks = new Set([...sitemap.matchAll(/<loc>https:\/\/tinct\.app\/read\/([a-z0-9-]+)\/chapter-\d+<\/loc>/g)].map(match => match[1]))
     const allowlist = fs.readFileSync(path.join(ROOT, 'src/data/seoIndexAllowlist.ts'), 'utf8').match(/'([a-z0-9-]+)',/g).map(id => id.slice(1, -2))
     assert.ok([...chapterBooks].every(id => allowlist.includes(id)), 'only allowlisted books')
-    assert.equal(chapterBooks.size, 14)
+    assert.equal(chapterBooks.size, 18)
+    assert.ok(!sitemap.includes('<loc>https://tinct.app/read/jane-eyre/chapter-1</loc>') && sitemap.includes('<loc>https://tinct.app/read/jane-eyre</loc>'), 'chapter 1 is the book page')
+    assert.ok(!sitemap.includes('<loc>https://tinct.app/read/hamlet/act-1-scene-1</loc>'), 'the first scene is the book page')
+    assert.ok(sitemap.includes('<loc>https://tinct.app/modern-english</loc>'))
     ok('sitemap lists chapter pages only for allowlisted books', `${chapterBooks.size} books, ${(sitemap.match(/\/chapter-\d+<\/loc>/g) || []).length} pages; not listed: ${allowlist.filter(id => !chapterBooks.has(id)).join(', ')}`)
   }
   {
@@ -142,7 +163,8 @@ try {
   }
 
   // ===== Browser: attribution through the hand-off, and screenshots =====
-  const browser = await markInternal(await chromium.launch())
+  const executablePath = process.env.PW_CHROMIUM || (fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined)
+  const browser = await markInternal(await chromium.launch(executablePath ? { executablePath } : {}))
   const local = async context => {
     await context.route('**/*', route => new URL(route.request().url()).host === new URL(ORIGIN).host ? route.continue() : route.abort())
     return context
@@ -195,20 +217,112 @@ try {
     assert.equal(askUrl.searchParams.get('gclid'), 'x')
     assert.equal(askUrl.searchParams.get('utm_source'), 'test')
     await page.goto(`${ORIGIN}/read/moby-dick/chapter-2?utm_source=test&gclid=x`, { waitUntil: 'networkidle' })
-    const next = await page.locator('a[rel="next"]').getAttribute('href')
+    const next = await page.locator('.scene-turns a[rel="next"]').getAttribute('href')
+    assert.equal(await page.locator('.chapter-continue-link').getAttribute('href'), '/read/moby-dick/chapter-3?utm_source=test&gclid=x')
     assert.equal(next, '/read/moby-dick/chapter-3?utm_source=test&gclid=x')
     ok('a typed question and the next-chapter link keep utm_source and gclid')
     assert.deepEqual(errors.filter(message => !/supabase|fetch|network|Failed to load/i.test(message)), [], 'no page errors')
     await context.close()
   }
+  // ===== Signed out, private window: the switch, a remembered choice, Continue reading, a saved place =====
+  for (const [device, options] of [['desktop', { viewport: { width: 1440, height: 900 } }], ['phone', { viewport: { width: 390, height: 844 }, userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }]]) {
+    const context = await local(await browser.newContext({ serviceWorkers: 'block', ...options }))
+    const page = await context.newPage()
+    const errors = []
+    page.on('pageerror', error => errors.push(error.message))
+    await page.goto(`${ORIGIN}/read/jane-eyre`, { waitUntil: 'networkidle' })
+    const shown = () => page.evaluate(() => ({
+      view: document.querySelector('.lab').dataset.view,
+      modern: getComputedStyle(document.querySelector('.chapter-col-modern')).display,
+      original: getComputedStyle(document.querySelector('.chapter-col-original')).display,
+    }))
+    assert.deepEqual(await shown(), { view: 'modern', modern: 'block', original: 'none' }, `${device}: Modern English alone first`)
+    // Nothing before the text: the first thing in the article after the book's header is the chapter.
+    const beforeText = await page.evaluate(() => [...document.querySelectorAll('dialog[open], [role="dialog"]')].filter(el => el.getBoundingClientRect().height).length)
+    assert.equal(beforeText, 0, `${device}: no prompt before the text`)
+    const switchSel = device === 'desktop' ? '.chapter-view-switch.is-desk' : '.chapter-view-switch.is-phone'
+    assert.ok(await page.locator(switchSel).isVisible(), `${device}: switch visible`)
+    assert.ok(!(await page.locator(device === 'desktop' ? '.chapter-view-switch.is-phone' : '.chapter-view-switch.is-desk').isVisible()), `${device}: only one switch`)
+    await page.locator(`${switchSel} button[data-view="original"]`).click()
+    assert.deepEqual(await shown(), { view: 'original', modern: 'none', original: 'block' }, `${device}: Original`)
+    await page.screenshot({ path: path.join(OUT, `switch-original-${device}.png`) })
+    if (device === 'desktop') {
+      await page.locator(`${switchSel} button[data-view="both"]`).click()
+      assert.equal((await shown()).view, 'both')
+      assert.equal((await shown()).modern, 'contents')
+      await page.screenshot({ path: path.join(OUT, `switch-both-${device}.png`) })
+      await page.locator(`${switchSel} button[data-view="original"]`).click()
+    }
+    // The choice is remembered on the next chapter, before the text paints (the layout script sets it).
+    await page.goto(`${ORIGIN}/read/jane-eyre/chapter-2`, { waitUntil: 'networkidle' })
+    assert.equal((await shown()).view, 'original', `${device}: choice remembered`)
+    await page.locator(`${switchSel} button[data-view="modern"]`).click()
+    // Continue reading at the end, with the saved-place line shown (storage works here).
+    const cont = page.locator('.chapter-continue-link')
+    assert.equal((await cont.textContent()).trim(), 'Continue reading: Chapter 3 of 38 →')
+    assert.ok(await page.locator('.chapter-saved').isVisible(), `${device}: "Your place is saved" shown`)
+    await cont.scrollIntoViewIfNeeded()
+    await page.screenshot({ path: path.join(OUT, `continue-${device}.png`) })
+    await cont.click()
+    await page.waitForURL(/\/read\/jane-eyre\/chapter-3$/)
+    // Read into chapter 3, leave, come back to the book page: the way back is offered and lands at the place.
+    await page.evaluate(() => document.getElementById('lab-p-12').scrollIntoView({ block: 'start' }))
+    await page.waitForTimeout(700)
+    const anchor = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct-read-place:jane-eyre') || 'null'))
+    assert.equal(anchor?.chapter, 3, `${device}: place saved in chapter 3`)
+    assert.match(anchor.anchor, /^lab-p-1[12]$/)
+    await page.goto(`${ORIGIN}/about`, { waitUntil: 'domcontentloaded' }).catch(() => {})
+    await page.goto(`${ORIGIN}/read/jane-eyre`, { waitUntil: 'networkidle' })
+    const resume = page.locator('[data-place-resume]')
+    assert.ok(await resume.isVisible(), `${device}: resume link on the book page`)
+    assert.equal((await resume.textContent()).trim(), 'Continue at Chapter 3 of 38 →')
+    await page.screenshot({ path: path.join(OUT, `resume-${device}.png`) })
+    await resume.click()
+    await page.waitForURL(/chapter-3#lab-p-/)
+    await page.waitForTimeout(400)
+    const top = await page.evaluate(id => { const box = document.getElementById(id).getBoundingClientRect(); return { top: box.top, header: document.querySelector('.lab-header').getBoundingClientRect().bottom } }, anchor.anchor)
+    assert.ok(top.top >= top.header - 4 && top.top < 260, `${device}: lands at the saved paragraph (${JSON.stringify(top)})`)
+    // Opening chapter 3 by its own address also returns to the place.
+    await page.goto(`${ORIGIN}/read/jane-eyre/chapter-3`, { waitUntil: 'networkidle' })
+    await page.waitForTimeout(300)
+    const back = await page.evaluate(() => {
+      const saved = JSON.parse(localStorage.getItem('tinct-read-place:jane-eyre') || 'null')
+      return { saved, top: document.getElementById(saved.anchor).getBoundingClientRect().top, scrollY }
+    })
+    assert.ok(back.top < 260 && back.top > -40, `${device}: chapter 3 reopened at the place (${JSON.stringify(back)})`)
+    await page.screenshot({ path: path.join(OUT, `place-restored-${device}.png`) })
+    assert.deepEqual(errors, [], `${device}: no page errors`)
+    ok(`${device} signed out: switch, remembered choice, Continue reading, saved place after leaving and coming back`)
+    await context.close()
+  }
+  // A browser that keeps nothing (storage blocked) does not claim the place is saved.
+  {
+    const context = await local(await browser.newContext({ serviceWorkers: 'block', viewport: { width: 1440, height: 900 } }))
+    await context.addInitScript(() => { Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked') } }) })
+    const page = await context.newPage()
+    await page.goto(`${ORIGIN}/read/jane-eyre/chapter-2`, { waitUntil: 'networkidle' })
+    assert.ok(!(await page.locator('.chapter-saved').isVisible()), 'no "Your place is saved" without storage')
+    await page.locator('.chapter-view-switch.is-desk button[data-view="both"]').click()
+    assert.equal(await page.evaluate(() => document.querySelector('.lab').dataset.view), 'both', 'the switch works without storage')
+    ok('storage blocked: no "place is saved" claim, the switch still works')
+    await context.close()
+  }
   const shots = [
+    ['book-desktop-jane-eyre', '/read/jane-eyre', { viewport: { width: 1440, height: 900 } }],
+    ['book-phone-jane-eyre', '/read/jane-eyre', { viewport: { width: 390, height: 844 }, userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }],
+    ['chapter26-desktop', '/read/jane-eyre/chapter-26', { viewport: { width: 1440, height: 900 } }],
+    ['chapter26-phone', '/read/jane-eyre/chapter-26', { viewport: { width: 390, height: 844 }, userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }],
+    ['book-desktop-hamlet', '/read/hamlet', { viewport: { width: 1440, height: 900 } }],
+    ['scene-phone-hamlet', '/read/hamlet/act-3-scene-1', { viewport: { width: 390, height: 844 }, userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }],
+    ['book-desktop-crime', '/read/crime-and-punishment', { viewport: { width: 1440, height: 900 } }],
+    ['modern-english-desktop', '/modern-english', { viewport: { width: 1440, height: 900 } }],
+    ['modern-english-phone', '/modern-english', { viewport: { width: 390, height: 844 }, userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }],
+    ['book-chapter-list-desktop', '/read/jane-eyre', { viewport: { width: 1440, height: 900 } }, '#chapters'],
     ['chapter-desktop-light', '/read/moby-dick/chapter-1', { viewport: { width: 1440, height: 900 }, colorScheme: 'light' }],
     ['chapter-desktop-dark', '/read/moby-dick/chapter-1', { viewport: { width: 1440, height: 900 }, colorScheme: 'dark' }],
     ['chapter-phone-light', '/read/moby-dick/chapter-1', { viewport: { width: 390, height: 844 }, colorScheme: 'light', userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }],
     ['chapter-phone-dark', '/read/moby-dick/chapter-1', { viewport: { width: 390, height: 844 }, colorScheme: 'dark', userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }],
-    ['chapter-desktop-noindex-odyssey', '/read/odyssey/chapter-1', { viewport: { width: 1440, height: 900 }, colorScheme: 'light' }],
-    ['book-desktop', '/read/moby-dick', { viewport: { width: 1440, height: 900 } }, '.opening-pair'],
-    ['book-phone', '/read/moby-dick', { viewport: { width: 390, height: 844 }, userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }, '.opening-pair'],
+    ['chapter-desktop-odyssey', '/read/odyssey/chapter-2', { viewport: { width: 1440, height: 900 }, colorScheme: 'light' }],
     ['hub-desktop', '/read/shelf/russian-novels', { viewport: { width: 1440, height: 900 } }],
     ['hub-phone', '/read/shelf/russian-novels', { viewport: { width: 390, height: 844 }, userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }],
   ]

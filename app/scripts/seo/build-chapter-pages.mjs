@@ -9,10 +9,12 @@
 // file per pack, and the Worker serves one page out of its pack (src/worker/lib/chapterPages.ts).
 //
 // Writes (generated, not committed):
-//   public/seo/chapter-packs/{bookId}/{n}.txt   chapter pages, each after <!--tinct:chapter-page N-->; the reader's
+//   public/seo/chapter-packs/{bookId}/{n}.txt   chapter pages, each after <!--tinct:chapter-page N--> (N = 0: the
+//                                               book page, /read/{bookId}, ahead of chapter 1); the reader's
 //                                               CSS links are stamped in after vite build (stamp-scene-pages.cjs)
 //   public/read/shelf/{shelf}.html              the shelf hubs
 //   public/read/chapter-page.css                the chapter pages' own stylesheet
+//   public/modern-english.html                  /modern-english, every book in Modern English by shelf
 // and the committed manifests src/data/chapterPages.generated.json (the Worker's routes, the sitemap and the book
 // pages read it) and src/data/editionNotes.generated.json (the book pages' edition notes).
 // Book text is read, never written.
@@ -80,7 +82,7 @@ for (const plan of plans) {
   const original = plan.originalKey ? readEdition(plan.book.id, plan.originalKey) : null
   const rendered = renderer.renderChapterPages({
     book: plan.book, modern, original, originalKey: plan.originalKey,
-    note: plan.source ? renderer.editionNoteHtml(plan.source) : null, indexable: plan.indexable,
+    note: plan.source ? renderer.editionNoteHtml(plan.source) : null, indexable: plan.indexable, bookPage: true,
   })
   const dir = join(PACK_DIR, plan.book.id)
   mkdirSync(dir, { recursive: true })
@@ -101,10 +103,12 @@ for (const plan of plans) {
     if (Buffer.byteLength(pack) >= PACK_BYTES) flush()
   }
   flush()
+  // The book page (/read/{bookId}) is page 0 of the first pack: the first chapter under the book's header.
+  const chapterCount = rendered.filter(page => page.chapterNumber > 0).length
   pages += rendered.length
   if (plan.indexable) indexablePages += rendered.length
   manifest.books[plan.book.id] = {
-    chapters: rendered.length, packs: starts, indexable: plan.indexable, original: plan.originalKey,
+    chapters: chapterCount, bookPage: rendered.some(page => page.chapterNumber === 0), packs: starts, indexable: plan.indexable, original: plan.originalKey,
     labels: [renderer.editionLabelOf(plan.book, 'modern-en'), plan.originalKey ? renderer.editionLabelOf(plan.book, plan.originalKey) : null],
   }
 }
@@ -125,6 +129,16 @@ for (const hub of hubs) {
   writeFileSync(join(HUB_DIR, `${hub.shelfId}.html`), hub.html)
   manifest.hubs[hub.shelfId] = hub.indexable
 }
+
+// /modern-english: every book with a Modern English edition, by shelf (docs/seo-brief-2026-11-19.md §6).
+const modernBooks = publicBooks.filter(book => sitemap.hasModernEdition(book))
+const modernHub = renderer.renderModernEnglishHub({
+  books: modernBooks.map(book => ({
+    id: book.id, title: book.title, author: book.author,
+    cover: existsSync(join(root, 'public/covers/v2', `${book.id}.webp`)) ? `/covers/v2/${book.id}.webp` : null,
+  })),
+})
+writeFileSync(join(root, 'public/modern-english.html'), modernHub.html)
 
 // One book per line: a small file and a readable diff.
 const lines = Object.entries(manifest.books).map(([bookId, entry]) => `  ${JSON.stringify(bookId)}: ${JSON.stringify(entry)}`)

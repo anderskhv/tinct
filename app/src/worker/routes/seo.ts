@@ -6,8 +6,8 @@ import { htmlEscape } from '../lib/html'
 import { isPublicBookId } from '../../../public/lab/public-books.js'
 import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage, type GeneratedBookPage } from '../lib/bookLibraryPage'
 import { withStaticCache } from '../lib/staticCache'
-import { isScenePage, scenePageForChapter } from '../lib/scenePages'
-import { CHAPTER_PACK_PREFIX, chapterPageEntry, chapterPageFromPack, hasChapterPages, shelfHubIndexable } from '../lib/chapterPages'
+import { PLAY_BOOK_PAGE_PREFIX, isScenePage, playBookPagePath, scenePageForChapter } from '../lib/scenePages'
+import { CHAPTER_PACK_PREFIX, bookPageEntry, chapterPageEntry, chapterPageFromPack, hasChapterPages, shelfHubIndexable } from '../lib/chapterPages'
 
 export type SeoEnv = {
   INDEXNOW_KEY?: string
@@ -92,7 +92,7 @@ const CONTENT_BOOK_IDS = new Set([...PUBLIC_BOOK_IDS, ...Object.keys(TEMPORARY_E
 
 /** Static public pages (book pages, the hub, About, Credits, Privacy, Terms): short public cache. Per-user pages stay no-store. */
 const PUBLIC_PAGE_CACHE = 'public, max-age=300, stale-while-revalidate=86400'
-const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/credits', '/credits/', '/story', '/story/', '/privacy', '/privacy/', '/terms', '/terms/', '/byob', '/byob/', '/copyright', '/copyright/'])
+const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/credits', '/credits/', '/story', '/story/', '/privacy', '/privacy/', '/terms', '/terms/', '/byob', '/byob/', '/copyright', '/copyright/', '/modern-english', '/modern-english/'])
 
 async function serveStaticHtml(
   requestMethod: string,
@@ -269,6 +269,30 @@ async function serveBookLibraryPage(requestMethod: string, url: URL, env: SeoEnv
   // Public page: a short cache. Signed-in readers are redirected instead (the
   // tinct_auth cookie), so the cached copy varies by cookie.
   const resp = new Response(requestMethod === 'HEAD' ? null : html, {
+    status: 200,
+    headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': PUBLIC_PAGE_CACHE, Vary: 'Cookie' },
+  })
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) resp.headers.set(key, value)
+  return resp
+}
+
+/**
+ * `/read/<id>` for a book with chapter pages (page 0 of its first pack) or scene pages (the play's book page):
+ * the first chapter or scene under the book's header. Null when the book has neither, so the library page answers.
+ */
+async function serveReadingBookPage(requestMethod: string, url: URL, env: SeoEnv, bookId: string): Promise<Response | null> {
+  const entry = bookPageEntry(bookId)
+  let page: string | null = null
+  if (entry) {
+    const packResp = await env.ASSETS.fetch(new Request(`${url.origin}${entry.pack}`))
+    page = packResp.ok ? chapterPageFromPack(await packResp.text(), 0) : null
+  } else {
+    const path = playBookPagePath(bookId)
+    const playResp = path ? await env.ASSETS.fetch(new Request(`${url.origin}${path}`)) : null
+    page = playResp?.status === 200 ? await playResp.text() : null
+  }
+  if (!page) return null
+  const resp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(page, bookId), {
     status: 200,
     headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': PUBLIC_PAGE_CACHE, Vary: 'Cookie' },
   })
@@ -596,7 +620,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
 
     // The chapter packs are read by the chapter route below, never fetched by a visitor.
-    if (url.pathname.startsWith(CHAPTER_PACK_PREFIX)) return missingFileResponse(request.method)
+    if (url.pathname.startsWith(CHAPTER_PACK_PREFIX) || url.pathname.startsWith(PLAY_BOOK_PAGE_PREFIX)) return missingFileResponse(request.method)
 
     // Chapter pages (16 Nov 2026): /read/{bookId}/chapter-N, the whole chapter in
     // Modern English beside its original (scripts/seo/build-chapter-pages.mjs),
@@ -710,6 +734,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
           return new Response(null, { status: 302, headers: { Location: `/library?book=${encodeURIComponent(bookId)}`, 'Cache-Control': 'no-store' } })
         }
         if (!hasAuthCookie && !addedBook) {
+          // Since 19 Nov 2026 (docs/seo-brief-2026-11-19.md §1) a book with chapter or scene pages opens straight
+          // into its first chapter or scene, under a slim header, with the chapter list below.
+          const readingPage = await serveReadingBookPage(request.method, url, env, bookId)
+          if (readingPage) return readingPage
           const bookPage = await serveBookLibraryPage(request.method, url, env, bookId)
           if (bookPage) return bookPage
           const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
