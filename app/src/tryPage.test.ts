@@ -4,7 +4,6 @@ import { join } from 'node:path'
 import { handleSeoAndStaticRequest, withTryDemo, TRY_DEMO_SCRIPT } from './worker/routes/seo'
 import { CARDS_COPY } from './cards/cardsCopy'
 import { TRIAL_DAYS } from './worker/lib/aiAllowance'
-import { LAB_COPY } from './lab/labCopy'
 import { firstSentenceWords } from './lab/tryDemo/tryDemo'
 import { LAB_EXPLAIN_PROMPT } from './companion/companionRequest'
 import { parseChapterNotesBeats } from './chapterNotes'
@@ -103,11 +102,6 @@ describe('/try content', () => {
     for (const href of ['/library', '/privacy', '/terms', 'mailto:contact@tinct.app', '/copyright']) expect(page).toContain(`href="${href}"`)
   })
 
-  it('reuses the reader’s listening prompt word for word', () => {
-    expect(script).toContain(`audioTitle: '${LAB_COPY.accountTitleAudio}'`)
-    expect(script).toContain(`audioBody: '${LAB_COPY.accountBodyAudio}'`)
-  })
-
   it('never uses mono and keeps sentence case on buttons', () => {
     const css = readFileSync('public/lab/try/try.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '')
     expect(css).not.toMatch(/mono|uppercase|letter-spacing:\s*[1-9]/i)
@@ -172,18 +166,31 @@ describe('the reader in demo mode', () => {
 
 })
 
-describe('just the reader, with hints (Anders, 18 Nov 2026)', () => {
-  const demo = readFileSync('src/lab/tryDemo/tryDemo.ts', 'utf8')
+describe('the reader plays itself (Anders, 19 Nov 2026)', () => {
+  const frames = [...script.matchAll(/\['(\d\d)', (\d), \d+\]/g)].map(match => ({ file: match[1], step: Number(match[2]) }))
 
-  it('has no Next and no steps: a checklist of five that the visitor ticks by doing', () => {
-    expect(page).not.toMatch(/data-try-next|data-try-back|data-try-step\b/)
-    const items = [...page.matchAll(/<li data-try-item="(\w+)"/g)].map(match => match[1])
-    expect(items).toEqual(['explain', 'ask', 'modern', 'listen', 'summary', 'explain', 'ask', 'modern', 'listen', 'summary'])
-    expect(text(page)).toContain("Try it yourself It's the real reader. Do things in any order.")
+  it('shows four steps in the order the frames play them, and asks the visitor to do nothing', () => {
+    const titles = [...script.matchAll(/\{ title: '((?:[^'\\]|\\.)*)'|\{ title: "([^"]+)"/g)].map(match => match[1] ?? match[2])
+    expect(titles).toEqual(['Explain anything', 'Hear it as you read', "Read it in today's words", 'Get the gist in a minute'])
+    expect(page).toContain('<span data-try-title>Explain anything</span>')
+    expect(frames.map(frame => frame.step)).toEqual([...frames.map(frame => frame.step)].sort())
+    expect(new Set(frames.map(frame => frame.step))).toEqual(new Set([0, 1, 2, 3]))
+    expect(page).not.toMatch(/data-try-item|data-try-hint|data-try-limit|<iframe/)
   })
 
-  it('never makes the reader act or scroll on its own: the page sends only its phone edition switch', () => {
-    expect([...script.matchAll(/send\(\{ cmd: '(\w+)'/g)].map(match => match[1])).toEqual(['edition'])
-    for (const source of [script, demo]) expect(source).not.toMatch(/scrollTo|scrollBy|scrollIntoView|scrollTop\s*=/)
+  it('has a desktop and a phone frame for every moment it plays', () => {
+    for (const { file } of frames) for (const kind of ['desktop', 'phone']) {
+      expect(statSync(`public/lab/try/frames/${kind}-${file}.webp`).size, `${kind}-${file}`).toBeGreaterThan(1000)
+    }
+  })
+
+  it('opens Meditations Book 2 in the reader from the frames and from Start reading', () => {
+    const links = [...page.matchAll(/href="(\/reader\?[^"]+)"/g)].map(match => match[1])
+    expect(links.length).toBe(3)
+    expect(new Set(links)).toEqual(new Set(['/reader?book=meditations&amp;chapter=2']))
+  })
+
+  it('calls nothing and scrolls nothing', () => {
+    expect(script).not.toMatch(/fetch\(|XMLHttpRequest|sendBeacon|postMessage|scrollTo|scrollBy|scrollIntoView|scrollTop\s*=/)
   })
 })

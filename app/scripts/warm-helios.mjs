@@ -26,6 +26,8 @@ const origin = process.env.NARRATION_ORIGIN || 'https://tinct.app'
 const dryRun = (process.env.HELIOS_DRY_RUN ?? 'true') !== 'false'
 const bookIds = (process.env.HELIOS_BOOKS || '').split(',').map(s => s.trim()).filter(Boolean)
 const chapterNumbers = (process.env.HELIOS_CHAPTERS || '1,2,3').split(',').map(s => Number(s.trim()))
+// Optional: one named edition instead of each book's default (the /try page's Modern English Book 2).
+const editionOverride = (process.env.HELIOS_EDITION || '').trim()
 const outDir = 'artifacts/helios-warm'
 const MAX_REQUESTS_PER_TARGET = 400
 const CONCURRENCY = 3
@@ -38,14 +40,14 @@ const wrangler = await fs.readFile('wrangler.jsonc', 'utf8')
 const ceiling = name => Number(new RegExp(`"${name}"\\s*:\\s*"(\\d+)"`).exec(wrangler)?.[1] || 0)
 const ceilings = { dailyBytes: ceiling('NARRATION_DAILY_BYTES'), monthlyBytes: ceiling('NARRATION_MONTHLY_BYTES') }
 
-// ---- Plan: default primary edition, held/withheld editions skipped ----
+// ---- Plan: default primary edition (or HELIOS_EDITION), held/withheld editions skipped ----
 const targets = []
 const skipped = []
 for (const bookId of bookIds) {
   const book = BOOKS.find(b => b.id === bookId)
   if (!book) { skipped.push({ bookId, reason: 'unknown book id' }); continue }
   if (isBookTemporarilyHeld(bookId)) { skipped.push({ bookId, reason: 'book held' }); continue }
-  const editionKey = defaultPrimaryEditionKey(bookId, book.editions)
+  const editionKey = editionOverride || defaultPrimaryEditionKey(bookId, book.editions)
   if (!editionKey || editionHold(bookId, editionKey) || isEditionWithheld(bookId, editionKey)) { skipped.push({ bookId, reason: `edition unavailable (${editionKey})` }); continue }
   let data
   try { data = JSON.parse(await fs.readFile(`public/data/editions/${bookId}-${editionKey}.json`, 'utf8')) } catch { skipped.push({ bookId, editionKey, reason: 'edition text missing' }); continue }

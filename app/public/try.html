@@ -9,128 +9,52 @@
 <meta name="description" content="Read any book with an explanation in the margin, modern English, narration and a summary for every chapter.">
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
 <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel10">
-<link rel="stylesheet" href="/lab/try/try.css?v=20261119phone">
+<link rel="stylesheet" href="/lab/try/try.css?v=20261119dark">
 <script type="module" src="/lab/internal-traffic.js"></script>
-<script src="/lab/try/try.js?v=20261119phone" defer></script>
+<script src="/lab/try/try.js?v=20261119dark" defer></script>
 </head>
 <body class="try">
 <!-- The Try page (docs/try-page/BRIEF.md): unlisted at /try, noindex, linked from nowhere, later /about. -->
+<header class="try-nav">
+  <a class="try-logo" href="/library" aria-label="Tinct library">Tinct.</a>
+  <nav class="try-sections" aria-label="Sections">
+    <a href="#try" aria-current="true">Try it</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#questions">Questions</a>
+  </nav>
+  <div class="try-account">
+    <a class="try-pill try-pill--outline" href="/sign-in">Sign in</a>
+    <a class="try-pill try-pill--cream try-only-wide" href="/sign-in?mode=create">Create free account</a>
+  </div>
+</header>
 <div class="try-hero" id="try">
   <div class="try-backdrop" aria-hidden="true"></div>
-  <header class="try-nav">
-    <a class="try-logo" href="/library" aria-label="Tinct library">Tinct.</a>
-    <nav class="try-sections" aria-label="Sections">
-      <a href="#try" aria-current="true">Try it</a>
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#questions">Questions</a>
-    </nav>
-    <div class="try-account">
-      <a class="try-pill try-pill--outline" href="/sign-in">Sign in</a>
-      <a class="try-pill try-pill--cream try-only-wide" href="/sign-in?mode=create">Create free account</a>
-    </div>
-  </header>
-
   <h1 class="try-headline">No text is beyond you.</h1>
 
   <div class="try-stage">
-    <aside class="try-panel" aria-label="Try it yourself">
-      <label class="try-book try-only-wide">
-        <span class="sr-only">Book</span>
-        <select data-try-book aria-label="Book"><option value="meditations" selected>Meditations</option></select>
-      </label>
-      <!-- The reader is the guide: a checklist that ticks as the visitor does each thing, in any order, and one hint at a time in the reader. -->
-      <section class="try-todo" aria-labelledby="try-todo-title">
-        <h2 class="try-todo-title" id="try-todo-title">Try it yourself</h2>
-        <p class="try-todo-sub">It's the real reader. Do things in any order.</p>
-        <ol class="try-checks" data-try-checks>
-          <li data-try-item="explain"><span class="try-check" aria-hidden="true"></span><span class="try-check-text"><span class="sr-only"></span><span class="try-check-title">Explain a passage</span><span class="try-check-line">Select a sentence</span></span></li>
-          <li data-try-item="ask"><span class="try-check" aria-hidden="true"></span><span class="try-check-text"><span class="sr-only"></span><span class="try-check-title">Ask a follow-up</span><span class="try-check-line">Type a question under the answer</span></span></li>
-          <li data-try-item="modern"><span class="try-check" aria-hidden="true"></span><span class="try-check-text"><span class="sr-only"></span><span class="try-check-title">Read it in today's words</span><span class="try-check-line">Switch to Modern</span></span></li>
-          <li data-try-item="listen"><span class="try-check" aria-hidden="true"></span><span class="try-check-text"><span class="sr-only"></span><span class="try-check-title">Hear it as you read</span><span class="try-check-line">Press play</span></span></li>
-          <li data-try-item="summary"><span class="try-check" aria-hidden="true"></span><span class="try-check-text"><span class="sr-only"></span><span class="try-check-title">Get the gist in a minute</span><span class="try-check-line">Open the chapter's Summary</span></span></li>
-        </ol>
-      </section>
-      <!-- Phone: the same checklist as five chips. -->
-      <section class="try-chips-card" aria-label="Try it yourself">
-        <p class="try-chips-title">Try it yourself</p>
-        <ul class="try-chips" data-try-chips>
-          <li data-try-item="explain"><span class="sr-only"></span>Explain</li>
-          <li data-try-item="ask"><span class="sr-only"></span>Ask</li>
-          <li data-try-item="modern"><span class="sr-only"></span>Modern</li>
-          <li data-try-item="listen"><span class="sr-only"></span>Listen</li>
-          <li data-try-item="summary"><span class="sr-only"></span>Summary</li>
-        </ul>
-      </section>
-    </aside>
+    <!-- What the reader beside it is showing. It plays on its own (try.js); Next moves on, the dots jump. -->
+    <section class="try-step" aria-label="What you are watching" aria-live="polite">
+      <p class="try-count"><span data-try-count>1 of 4</span><span class="try-dots" role="group" aria-label="Moments">
+        <button type="button" data-try-step="0" aria-label="Explain anything" aria-current="step"></button><button type="button" data-try-step="1" aria-label="Hear it as you read"></button><button type="button" data-try-step="2" aria-label="Read it in today's words"></button><button type="button" data-try-step="3" aria-label="Get the gist in a minute"></button>
+      </span></p>
+      <h2 class="try-step-title"><span class="try-step-num" data-try-num>1. </span><span data-try-title>Explain anything</span></h2>
+      <p class="try-step-line" data-try-line>Select a passage. The explanation lands beside it, in the margin, and stays there as a note.</p>
+      <button type="button" class="try-pill try-pill--cream try-next" data-try-next aria-label="Next"><span class="try-next-word">Next</span> <span aria-hidden="true">→</span></button>
+      <p class="try-upnext"><span data-try-upnext>Next: Hear it as you read</span><br><a href="/reader?book=meditations&amp;chapter=2" data-try-start>Or start reading Meditations</a></p>
+    </section>
 
-    <div class="try-phone-row">
-      <label class="try-book">
-        <span class="sr-only">Book</span>
-        <select data-try-book aria-label="Book"><option value="meditations" selected>Meditations</option></select>
-      </label>
-      <div class="try-editions" role="group" aria-label="Edition">
-        <button type="button" data-try-edition="original" aria-pressed="true">Original</button>
-        <button type="button" data-try-edition="modern" aria-pressed="false">Modern<span class="try-edition-more"> English</span></button>
-      </div>
-    </div>
-
-    <div class="try-reader" data-try-reader>
-      <iframe title="Meditations, Book 2, in the Tinct reader" data-try-frame></iframe>
-      <div class="try-limit" data-try-limit hidden>
-        <section class="try-limit-card" role="dialog" aria-modal="true" aria-labelledby="try-limit-title">
-          <button type="button" class="tui-close try-limit-close" data-try-limit-close aria-label="Not now" hidden>×</button>
-          <h2 id="try-limit-title" data-try-limit-title>Keep the conversation going</h2>
-          <p data-try-limit-body>That's the free questions for today. Create an account and carry on right here — this conversation comes with you, and your first month of Premium is free.</p>
-          <a class="try-pill try-pill--ink try-pill--block" href="/sign-in?mode=create" data-try-create>Create a free account</a>
-          <a class="try-pill try-pill--outline-ink try-pill--block" href="/sign-in" data-try-signin>I already have an account</a>
-        </section>
-      </div>
+    <div class="try-show">
+      <!-- Frames of the real reader (scripts/capture-try-frames.cjs), Meditations Book 2. The first is in the page; try.js adds the rest. -->
+      <a class="try-demo" href="/reader?book=meditations&amp;chapter=2" data-try-demo aria-label="Meditations, Book 2: open it in the reader">
+        <picture class="is-on"><source media="(max-width: 899px)" srcset="/lab/try/frames/phone-01.webp"><img src="/lab/try/frames/desktop-01.webp" alt="" width="2112" height="1222" fetchpriority="high"></picture>
+        <span class="try-demo-open" aria-hidden="true">Open it in the reader</span>
+      </a>
+      <a class="try-pill try-pill--cream try-pill--big try-phone-start" href="/reader?book=meditations&amp;chapter=2">Start reading Meditations</a>
     </div>
   </div>
-
-  <a class="try-peek" href="#features">
-    <span class="try-peek-title try-only-wide">Everything you can do in Tinct</span>
-    <span class="try-peek-links">Features · Pricing · Questions <span aria-hidden="true">↓</span></span>
-  </a>
 </div>
 
 <main class="try-below">
-  <section class="try-section" id="features" aria-labelledby="features-title">
-    <h2 class="try-section-title" id="features-title">Everything you can do in Tinct</h2>
-    <p class="try-section-sub">What you just tried works in every book — and in your own.</p>
-    <div class="try-features">
-      <article class="try-feature try-feature--dark">
-        <h3>Your own books and PDFs</h3>
-        <p>Add a PDF or EPUB, or paste text or a link to an article, and read it with the companion in the margin, summaries, audio and Talk.</p>
-      </article>
-      <article class="try-feature">
-        <h3>100+ classics, free to read</h3>
-        <p>Homer to Austen to Dostoevsky, in the original and in modern English. Every book stays free to read.</p>
-      </article>
-      <article class="try-feature">
-        <h3>A companion in the margin</h3>
-        <p>Select a line to explain or simplify it, ask follow-ups, or talk it through out loud.</p>
-      </article>
-      <article class="try-feature">
-        <h3>Listen</h3>
-        <p>The whole book read aloud, word by word, so you can follow along — or put the phone away.</p>
-      </article>
-      <article class="try-feature">
-        <h3>Highlights and notes</h3>
-        <p>Mark any line, add a note, and find it all in your notebook on every device.</p>
-      </article>
-      <article class="try-feature">
-        <h3>Catch me up</h3>
-        <p>Back after a week? A short recap of the story so far, up to the line you're on.</p>
-      </article>
-      <article class="try-feature">
-        <h3>Read your way</h3>
-        <p>Book, light, white or dark pages, the type size you like, offline and on Android.</p>
-      </article>
-    </div>
-  </section>
-
   <section class="try-section" id="pricing" aria-labelledby="pricing-title">
     <h2 class="try-section-title" id="pricing-title">Pricing</h2>
     <p class="try-section-sub">Reading is free. Premium adds the companion, Talk and audio — and the first month is on us.</p>
@@ -152,8 +76,8 @@
         <ul>
           <li>Everything in Free</li>
           <li>Explain, simplify and ask</li>
+          <li>Audiobooks for all your texts</li>
           <li>Talk to the book</li>
-          <li>Audiobooks</li>
           <li>Catch me up and chapter summaries</li>
           <li>Your own books and PDFs</li>
         </ul>
@@ -207,7 +131,5 @@
     <a href="/copyright">Copyright</a>
   </nav>
 </footer>
-<!-- One hint at a time, placed beside its control in the reader (try.js). -->
-<div class="try-hint" data-try-hint role="status" hidden><p class="try-hint-text" data-try-hint-text></p><button type="button" class="try-hint-close" data-try-hint-close aria-label="Dismiss hint">×</button></div>
 </body>
 </html>
