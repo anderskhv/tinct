@@ -215,8 +215,9 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard-note:focus { box-shadow: inset 0 -1.5px 0 var(--lab-accent, #1f4a5c); outline: 0 !important; }
 .lab .lab-pcard-note::placeholder { color: var(--lab-ink-faint); opacity: 1; }
 
-/* Define: the dictionary's and the passage's senses, in the card's type. */
-.lab .lab-pcard :is(.popup-define-word, .popup-define-list, .popup-define-result, .popup-define-status, .popup-define-note, .popup-define-empty) { color: var(--lab-ink); }
+/* Define: the dictionary's and the passage's senses, in the card's type and ink. A card open in the desktop margin or
+   the notebook too: lab.css's popup inks are fixed near-black, unreadable on dark paper (18 Nov 2026). */
+.lab :is(.lab-pcard, .source-margin-content) :is(.popup-define-word, .popup-define-list, .popup-define-result, .popup-define-status, .popup-define-note, .popup-define-empty) { color: var(--lab-ink); }
 .lab .lab-pcard .popup-define-list { margin: 0; padding-left: 18px; font-size: 17px; line-height: 1.45; display: grid; gap: 4px; }
 .lab .lab-pcard .popup-character, .lab .lab-pcard .popup-define-result, .lab .lab-pcard .popup-define-status { font-size: 17px; line-height: 1.45; }
 .lab .lab-pcard .popup-character small { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; color: var(--lab-ink-faint); }

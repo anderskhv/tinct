@@ -1,0 +1,30 @@
+# Staten / The Republic
+
+**A full modern-Danish revision candidate is ready for native review.** The retained book was complete enough to revise in place. The candidate contains 96,405 Danish words across 10 books and 4,308 populated paragraphs. The pass changes 270 Danish paragraphs, normalizes all ten book headings, repairs 13 modern-English paragraphs and replaces the reading-guide editorial text in both languages. Paragraph coordinates match the existing reader files. This work stays local for Claude.
+
+## Files to review
+
+- candidate-the-republic-modern-da.json — complete Danish book.
+- candidate-the-republic-modern-en.json — complete English reader file with targeted repairs.
+- candidate-the-republic.da.json and candidate-the-republic.json — matching Danish and English introductory guides. The Danish work and author are presented as *Staten* and *Platon*. Each guide opens with the matching reader edition, keeps the existing schema, and explains the brothers’ challenges to Socrates without identifying the challengers’ arguments as their own commitments.
+- danish-changes.json and english-changes.json — exact paragraph-by-paragraph before and after text. English rows include source-based reasons. All coordinates are one-based.
+- book-ledger.json — all ten book boundaries, counts and checked Jowett text coverage. MANIFEST.json identifies the snapshots and candidate contents.
+
+## Witnesses and extent
+
+The corpus source is [Benjamin Jowett’s translation of The Republic, Project Gutenberg 1497](https://www.gutenberg.org/ebooks/1497), taken from the project’s archived raw file. After isolating the ten BOOK headings in the dialogue proper, all **136,858 normalized word and punctuation tokens** of that text match the complete corpus historical-English edition in the same order, book by book. The pre-dialogue translator’s long introduction, summaries and editorial cast page are outside the ten-book reader scope. The separate short project editorial preface was reviewed. The candidate includes the journey to the Piraeus at 327a and the return of Er and final exhortation at 621d.
+
+[John Burnet, Platonis Opera IV, Oxford 1905, Greek text in Perseus](https://github.com/PerseusDL/canonical-greekLit/blob/282e6f5a3ec12e6ca67e44cd4fa3487526e3b421/data/tlg0059/tlg030/tlg0059.tlg030.perseus-grc2.xml) is the independent historical witness for disputed readings. [Paul Shorey’s parallel translation, Perseus’s 1935–37 printing metadata](https://github.com/PerseusDL/canonical-greekLit/blob/282e6f5a3ec12e6ca67e44cd4fa3487526e3b421/data/tlg0059/tlg030/tlg0059.tlg030.perseus-eng2.xml) was used as a second reading at difficult points. The original corpus remains Jowett; this is an editorial revision of the retained Danish, with selected passages newly translated. The entire continuous Greek was available; the Danish wording was not separately collated against each Greek line.
+
+## Material defects fixed
+
+- At 331d Polemarchus explicitly contradicts Socrates and claims to be his father’s heir. Both retained modern readers had him agree and assigned the heir’s line to Socrates. The Danish also reversed which sum the grandfather inherited at 330b.
+- The Danish lost most of 4.6, including the painted statue, farmers and potters, the distinction between apparently and actually guarding the city, and the point of looking for happiness in the whole city. It also cut 4.258’s comparison of city and person, including the image of striking a light. Both full arguments have been restored.
+- Thrasymachus’ recurring formula is *den stærkeres fordel*. In the tripartite soul, *kampviljen* refers to the spirited part that can take offence, feel shame or fight alongside reason. It is distinguished from *tapperhed*, the virtue of courage. The divided line and its reprise now distinguish reasoning from assumptions, dialectic, conviction and thinking through images. A square’s *diagonal* replaces its supposed diameter.
+- Restored material in the music, guardian and poet discussions includes the two permitted modes, the rowing and navigation analogy, the Homeric challenge about legislators, quotations and explanatory notes. The wording of the musical argument at 7.243 previously inverted the criticism of Pythagorean harmonics.
+- At 546a–d the actual geometrical riddle replaces a generalized mathematical summary. Jowett’s mutually competing numerical readings are identified as a translator’s note. In the Myth of Er the book distinguishes witnesses, souls being judged, planets’ ordinal positions, and the souls’ choice of a guardian spirit. Greek gives no planet names in the colour-and-motion list. Names that conflicted with the ordering in Jowett’s English gloss were removed from both modern readers.
+- The spellcheck used every distinct Danish word as input. Confirmed corruptions included *alleryoungste*, *mangeholvedet beists*, *racker*, *dydiiges*, *familieejendomben*, *udstryrer* and *vieste*. Proper names, technical terms and valid compounds were judged in context. spelling-review.tsv records the first-pass detector output and includes false positives; it is not a remaining-defects list.
+
+## Checks still open
+
+A native Danish reader should read sustained sections aloud, particularly Thrasymachus’ rebuke, the transition from *kampvilje* to *tapperhed*, the divided line across Books VI–VII, the geometrical riddle and the concluding myth. The retained translation contains more than 4,000 unchanged paragraphs, including many brief dialogue answers. This pass covered whole-book structure and spelling, investigated severe shortening, quotations, technical distinctions and suspected changes of sense, and sampled continuous prose. The token comparison certifies the historical English source’s completeness; it does not certify every sentence of the Danish or modern English. Retain native review as pending. Exact saved highlights in materially rewritten paragraphs may require relocation at eventual integration even though every paragraph number is preserved.

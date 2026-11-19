@@ -29,6 +29,9 @@ html[data-eink="true"] .lab .lab-desktop-card { box-shadow: none; border: 0; bor
 .lab.is-desktop:is([data-continuous-reader="true"], .pdf-original-reader) .lab-pcard.lab-desktop-card {
   background: transparent;
 }
+/* A Notebook entry floats over the margin's cards, so it is on the page's own paper: nothing behind shows through
+   its head or body (18 Nov 2026). */
+.lab.is-desktop:is([data-continuous-reader="true"], .pdf-original-reader) .lab-pcard.lab-desktop-card[data-notebook] { background: var(--lab-paper); }
 .lab .lab-desktop-card .lab-pcard-follow-box {
   min-height: 36px; padding: 6px 0 2px; border: 0; border-bottom: 1px solid var(--lab-pcard-hair);
   border-radius: 0; background: transparent; box-shadow: none;

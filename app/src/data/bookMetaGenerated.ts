@@ -40,6 +40,12 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'The Bible',
     author: 'Various',
   },
+  'gilgamesh': {
+    title: 'The Epic of Gilgamesh in modern English | Tinct',
+    description: 'The Epic of Gilgamesh in modern English, with the original edition to compare. Read free, no ads, with an AI companion that explains any passage.',
+    bookName: 'The Epic of Gilgamesh',
+    author: 'Anonymous',
+  },
   'hamlet': {
     title: 'Hamlet in modern English, scene by scene | Tinct',
     description: 'Hamlet scene by scene in modern English, with Shakespeare\'s original text. Read free, no ads, with an AI companion that explains any line.',

@@ -1,7 +1,7 @@
 import { registerLoadedChapter } from './labPoetry'
 import { leadingPreface, noteChapterEdition } from './labEditionSwitch'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
-import type { Edition, Section, ThreadCharacter } from '../types'
+import { setsNewlineVerse, type Edition, type Section, type ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
 import { ensurePublicBook, isPublicBookId } from '../utils/publicBooks'
 import { loadPublicModernEdition, modernChapterPending, modernChapterWritten, MODERN_EDITION_KEY } from './labModernEdition'
@@ -636,6 +636,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
       const chapter = later?.chapters.find(item => item.number === entry.number)
       const paragraphs = chapter?.paragraphs ?? []
       registerChapterStructure(chapter)
+      if (setsNewlineVerse(compareEdition)) registerNewlineVerseLines(paragraphs)
       if (primaryData.speakers || later?.speakers) {
         registerShakespeareSpeakers(entry.paragraphs)
         registerShakespeareSpeakers(paragraphs)
@@ -656,8 +657,8 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     ...(compareEdition ? [[compareEdition.key, compareParagraphs] as const] : []),
   ])
   // A verse edition ends each verse line with a newline in its own text.
-  if (primaryEdition.style === 'verse') registerNewlineVerseLines(entry.paragraphs)
-  if (compareEdition?.style === 'verse') registerNewlineVerseLines(compareParagraphs)
+  if (setsNewlineVerse(primaryEdition)) registerNewlineVerseLines(entry.paragraphs)
+  if (setsNewlineVerse(compareEdition)) registerNewlineVerseLines(compareParagraphs)
   // ... and opens each book with a prose argument, set apart from the verse (labParagraphStyle registerArgument).
   if (primaryEdition.style === 'verse' && leadingPreface(entry.paragraphs)) registerArgument(entry.paragraphs[0])
   const supplement = onceCalled(() => Promise.all([

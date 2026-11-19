@@ -1,0 +1,334 @@
+{
+  "preparedFromBranch": "dd7d22437633d57d624f18ff93cd88f33845857c",
+  "comparedAgainstMain": "b02c2c9ad4a8c10dfbe1c663ce01ac1dbe7abf04",
+  "noUploadsOrPublicationPerformed": true,
+  "books": [
+    {
+      "bookId": "antigone",
+      "status": "editorial_prepared_recovered; final application integration and release checks by Claude",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/antigone-modern-da.json",
+          "candidateSha256": "8ddc5003e340343af29d6542bf9892639c15e06c059b1b67a0ca1f4848d348c6",
+          "currentMainSha256": "5bfac8c577539e955a8375d4d5db11ff1e4e46e98d47fcdb564f79cee06c5dbb"
+        },
+        {
+          "path": "app/public/data/editions/antigone-modern-en.json",
+          "candidateSha256": "b6fe87351be805a9f9aa384cd298cf71066e4df1b0f23531eab27c6fe03f4c6b",
+          "currentMainSha256": "923ec3c1b9bcc3e1c2ddeeae4b6e65e4a1dfd72a425f769f02ff12565cdd05ff"
+        },
+        {
+          "path": "app/public/data/onboarding/antigone.json",
+          "candidateSha256": "92c9cb9f733bb96b29375c0892e98b627590ac0166d73ea9e85e02abfa0b6884",
+          "currentMainSha256": "3a60410c47c031eae63f4fcc68710f092a3b1d20e8cb745c58f7c42b9c3224e4"
+        },
+        {
+          "path": "app/public/data/onboarding/antigone.da.json",
+          "candidateSha256": "18ee949b388994aef5505fff804b53f86cf0df55b72143c3ef4f895db2b59e2f",
+          "currentMainSha256": "ba9085fa3e56075b361b47e13909482492e7d9d81d72b6724d9f6296630a1a70"
+        }
+      ],
+      "modernEnglishGate": "PASS"
+    },
+    {
+      "bookId": "candide",
+      "status": "editorial_prepared_recovered; final application integration and release checks by Claude",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/candide-modern-en.json",
+          "candidateSha256": "2c4c48b957428ba8a801f224863613127b35684a112778c6c11663ed492de1c6",
+          "currentMainSha256": "e7fd2a802ac233b8598ddccbb03cef8a4fc422fba2d67f6aa0387bee80ba2b25"
+        },
+        {
+          "path": "app/public/data/editions/candide-modern-da.json",
+          "candidateSha256": "c02459a23c0dfc6b1b5db192a208f2ab75e5acf43e59aef43c66c267c3374cb8",
+          "currentMainSha256": "5d461138e1b097dd40dadb76aedf108ec8e7efea4f19eb3d935af20a44d4e90d"
+        },
+        {
+          "path": "app/public/data/onboarding/candide.json",
+          "candidateSha256": "066ebe60a4fbef4da84eb2367993b7980257ae5fec7a592b5e754ddc13d42124",
+          "currentMainSha256": "f1cbbfb7f11a24026ee53a44972d6b20bcbc169c4dc11042f6f9005839e3af89"
+        },
+        {
+          "path": "app/public/data/onboarding/candide.da.json",
+          "candidateSha256": "0cf06083057e1c972e7d05659c181c45c328beb4b61c319869fd526d668ef82c",
+          "currentMainSha256": "4be75470093df1a407ab4e718d900b20e8a87d2cd470d9242e8f576d7acbbfdb"
+        }
+      ],
+      "supplement": "supplements/candide-footnotes-da.json",
+      "modernEnglishGate": "PASS"
+    },
+    {
+      "bookId": "frankenstein",
+      "status": "editorial_prepared_recovered; final application integration and release checks by Claude",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/frankenstein-modern-da.json",
+          "candidateSha256": "8ddf25e3f5e3ca1ea3d15e698bc1b88b27d43f10a2c8286a9b9be223f35a1170",
+          "currentMainSha256": "f52630181990e7aefcdbd89f4cf76ae1f25e1c336108f8c76b8796b4ecdeeda9"
+        },
+        {
+          "path": "app/public/data/editions/frankenstein-modern-en.json",
+          "candidateSha256": "c497bc60fc7ad0ffc6de74df2c47d7eace252f5c27243c36010183756d706cd0",
+          "currentMainSha256": "a99352b3bf5f9d1f7a78970b658f2a35722a2b5031d4037a398d284c6ab390ff"
+        },
+        {
+          "path": "app/public/data/onboarding/frankenstein.json",
+          "candidateSha256": "bdf036d257b1600e5076b76dc014618ace786a7e8d7d245d6caae66830a74894",
+          "currentMainSha256": "e8502529c864ff4306ddaea499d7a520b0524fa36e3f2e6e1a39f66b9647fb19"
+        },
+        {
+          "path": "app/public/data/onboarding/frankenstein.da.json",
+          "candidateSha256": "97c20a265ba32452628c41e3854bccc894a876b95a888c347c2d873c1d15242a",
+          "currentMainSha256": "066cdba604f8df35ea673badc4124626c00c3ec150ab6a273b1000e601117847"
+        }
+      ],
+      "modernEnglishGate": "PASS"
+    },
+    {
+      "bookId": "frederick-douglass",
+      "status": "editorial_prepared_recovered; final application integration and release checks by Claude",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/frederick-douglass-modern-en.json",
+          "candidateSha256": "d2a317207f5b82fd244eeb586063311bf431f57397439f7231424253e90755cc",
+          "currentMainSha256": "695db129557f339345670d8ea3abeceae6625101d91c530891ee303fe8321b0b"
+        },
+        {
+          "path": "app/public/data/editions/frederick-douglass-modern-da.json",
+          "candidateSha256": "07e3c40a4023f5e292f6aa6fdd959d3e5a79696c74f221b21bb9b7be32595557",
+          "currentMainSha256": "45495079dc5f8ac4ce50d97bd56b9d4eab9f8117cf6218e85f114daa56a33bfe"
+        },
+        {
+          "path": "app/public/data/onboarding/frederick-douglass.da.json",
+          "candidateSha256": "e27443d19619541e626b0612d347026b87868356a2dc4bf968db5e1b1ba36c08",
+          "currentMainSha256": "2f212796e1fcfe75589d707dac324286821dd738d36e5ed78d8e0dbb37f18200"
+        },
+        {
+          "path": "app/public/data/onboarding/frederick-douglass.json",
+          "candidateSha256": "fbf23b502f096f6617a2ffd5d5fc197918a881315fe94b61ba4159934afd4587",
+          "currentMainSha256": "8b18ffa1d14cd3f102ef546c62014a075d97f15bff50b0cc677cdfad75af0808"
+        }
+      ],
+      "modernEnglishGate": "PASS"
+    },
+    {
+      "bookId": "genealogy-of-morals",
+      "status": "editorial_prepared_recovered; final application integration and release checks by Claude",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/genealogy-of-morals-modern-da.json",
+          "candidateSha256": "9f85ab298fa6e00bc0274b2f0058d29d075c639e4957b48bcfbf6abe676c244e",
+          "currentMainSha256": "4e1dc72f97f6c9ac48a3d65e98f1de0f0d85d6f7bf3d3f03083c2299b2b9e71e"
+        },
+        {
+          "path": "app/public/data/editions/genealogy-of-morals-modern-en.json",
+          "candidateSha256": "147a13fff83e88a2301b936169c0fb1090a28eba3d0bd3f3e221e039d3dcb88a",
+          "currentMainSha256": "f108ea298f97f055749347e71a5bfbe55398409c79b4162e7691735331677c6f"
+        },
+        {
+          "path": "app/public/data/onboarding/genealogy-of-morals.da.json",
+          "candidateSha256": "ad7dd354dfb3630b41f0ffac1b69bcc33d6f5776a7ee36ac495a422bd5348f25",
+          "currentMainSha256": "f3ad8cbd8bee8f6b44387cba5a4afd45ffc54c13d868b2af9413c8258cab6212"
+        },
+        {
+          "path": "app/public/data/onboarding/genealogy-of-morals.json",
+          "candidateSha256": "1af076ecc7165bdb17466154b354d57f107c4092b96fbc36d2296883344ebbf5",
+          "currentMainSha256": "e4e81956da807c4609e1968d737bb3af9e3e8c6b1064f94cba118e9274e9d334"
+        }
+      ],
+      "modernEnglishGate": "PASS"
+    },
+    {
+      "bookId": "heart-of-darkness",
+      "status": "editorial_prepared_recovered; final application integration and release checks by Claude",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/heart-of-darkness-modern-da.json",
+          "candidateSha256": "3e22e97ddd79371bf420c965917666aee690802ab6adce8b6f44c5c882fdb922",
+          "currentMainSha256": "b0d43952a120819a451538113d82947f922ddaba0535257fb19bd909ba834444"
+        },
+        {
+          "path": "app/public/data/editions/heart-of-darkness-modern-en.json",
+          "candidateSha256": "e631c9d999c9cfaadd245049f768917beab19374b59c56fede8acf43c8777a76",
+          "currentMainSha256": "abcf3c20a7d0b42c15ad3196032cea5a14a113f8cecea35c70d5af8023d4aebf"
+        },
+        {
+          "path": "app/public/data/onboarding/heart-of-darkness.da.json",
+          "candidateSha256": "a89753daa52ab1be74d18e79730cf96e08c8b6b288dcb798d3a3007e79524930",
+          "currentMainSha256": "4b55ea2eb77219bb0f8127c57a042275538a9964b2170fc17f2c905173ea8517"
+        },
+        {
+          "path": "app/public/data/onboarding/heart-of-darkness.json",
+          "candidateSha256": "8d66864b14d55bbec70c66e8ad6219d688ed1aaaa067b1f5579708cbdec46417",
+          "currentMainSha256": "230df789d215456cfbbe27cab3732f5edd7e776dbf11c1a95fe47e7377c6c480"
+        }
+      ],
+      "modernEnglishGate": "PASS"
+    },
+    {
+      "bookId": "notes-from-underground",
+      "status": "editorial_prepared_recovered; final application integration and release checks by Claude",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/notes-from-underground-modern-da.json",
+          "candidateSha256": "b6c0cd4426e077efdcec262b62e484af3ee1976ac951d8762835bec5a52d593e",
+          "currentMainSha256": "5654b6b12c596775fe92516cbf5c5c609087cbb787987870548fcd8159cf96fe"
+        },
+        {
+          "path": "app/public/data/onboarding/notes-from-underground.json",
+          "candidateSha256": "e965d093865b46eb0aecc3f2f2e6d8315154215fd7338a4b30946613a1d6bf94",
+          "currentMainSha256": "21ac278de59554e467b5b942a3eda4c4ceeeefcbb4f2e806a96a8b972dbcda38"
+        },
+        {
+          "path": "app/public/data/onboarding/notes-from-underground.da.json",
+          "candidateSha256": "88c7afc1a34c0fd050529bfddf5221a11b790361dda01082b66495b689fe0a99",
+          "currentMainSha256": "ee041ed0dc4cf2d15d810df340a5ea34449db59f9416134f348d9fa4dcf43435"
+        }
+      ],
+      "modernEnglishGate": "PASS"
+    },
+    {
+      "bookId": "oedipus-at-colonus",
+      "status": "editorial_prepared_recovered; final application integration and release checks by Claude",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/oedipus-at-colonus-modern-da.json",
+          "candidateSha256": "82c00707f3520ccace65bbffe83f164cce69b5b861661dffba60e11835358967",
+          "currentMainSha256": "04a3c0a06f626a6508b1ae3d03b53acb4bb1016e26e964437b4bfda007c44885"
+        },
+        {
+          "path": "app/public/data/editions/oedipus-at-colonus-modern-en.json",
+          "candidateSha256": "504bfd4b248fbcd28039960c0317971f749e8ae53c9da2579473313aef55fbdc",
+          "currentMainSha256": "5c18460809bf2eacfd1d3f17e5f31b7959f2fada81ddccc59a3588ba92683a7b"
+        },
+        {
+          "path": "app/public/data/onboarding/oedipus-at-colonus.json",
+          "candidateSha256": "0921207085c44597e2fdd7417a0c0692d9b3429de9e2b9bb2bb7000c541e5af3",
+          "currentMainSha256": "83061e23ed826e6c3ae4f9055800c191b6114c95354212a67392d4ecc2be162d"
+        },
+        {
+          "path": "app/public/data/onboarding/oedipus-at-colonus.da.json",
+          "candidateSha256": "87cb36049028e8479cc262a9b7ff3339c8f8632b73cdbf2442bfa413db754ce0",
+          "currentMainSha256": "377d2882c03cf98a74faf94e1c30813d88633a2553697fcf4c177223d993a645"
+        }
+      ],
+      "modernEnglishGate": "PASS"
+    },
+    {
+      "bookId": "oedipus-rex",
+      "status": "editorial_prepared_recovered; final application integration and release checks by Claude",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/oedipus-rex-modern-en.json",
+          "candidateSha256": "bff7b3623105bcdab947887fe96a9d345b1f181047babca3d7f98753e3092cb0",
+          "currentMainSha256": "f96170b779e2c9faf1050b0ad4fa43222dc42ab4f96b2b58a5c372e09dc21281"
+        },
+        {
+          "path": "app/public/data/editions/oedipus-rex-modern-da.json",
+          "candidateSha256": "f0d10aa4e9067ea25dac712446deac0a7820588d541720aa66d5a294957f20cc",
+          "currentMainSha256": "bd607d8644de54d136ec2b81a65dcfc6050963d959b09d745ee850ada8a1537a"
+        },
+        {
+          "path": "app/public/data/onboarding/oedipus-rex.da.json",
+          "candidateSha256": "07291e7c85ea0fe2123732d8fe3997c9c1cc798f13556d45733653980057d826",
+          "currentMainSha256": "9081fb3d8197a4d6595acf1c6771c7d061ff4661d4cdd0e542d15bc815ddebba"
+        },
+        {
+          "path": "app/public/data/onboarding/oedipus-rex.json",
+          "candidateSha256": "9b6818cbbf52e313cc5a99db9ab6fcabfe33073b22ed78f72676f9248bd16617",
+          "currentMainSha256": "70ad8d3fb9b27afad4bb81c2ef09efc3f251566582284fa0048bf8f2f8b36493"
+        }
+      ],
+      "modernEnglishGate": "PASS"
+    },
+    {
+      "bookId": "second-treatise",
+      "status": "editorial_prepared_recovered; final application integration and release checks by Claude",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/second-treatise-modern-da.json",
+          "candidateSha256": "bc48d477bdc342530a59a68dc9e657a51dc53b4e019b72ca33a0b075bfc8ff96",
+          "currentMainSha256": "7f5a7c98a4b9fe1a2dc409d0290364f93b9e8e77ec0a375605104f4d1f34929c"
+        },
+        {
+          "path": "app/public/data/editions/second-treatise-modern-en.json",
+          "candidateSha256": "4fb340f35fcff545c4258ac5ec8792e82cea3730933dfac4f05ea648b99ad2d5",
+          "currentMainSha256": "f6799fa25a28d93cec6029b76e929c788c4d123d02450b517fd128c3a73e6dd2"
+        },
+        {
+          "path": "app/public/data/onboarding/second-treatise.da.json",
+          "candidateSha256": "514215f04b7bf019e6168fb99404ac6065e51c726e0b02cc1b46cdb0ca12e634",
+          "currentMainSha256": "abb6b40bfd44046367b9a6e3f02dfb6500cd395a09f5c86d019e911872c0da24"
+        },
+        {
+          "path": "app/public/data/onboarding/second-treatise.json",
+          "candidateSha256": "63db654b5ae18b1b7b47fcd73f51ee7f8825605b4ed7037fc60a74a169715bf6",
+          "currentMainSha256": "0bf9ffee9c6f44d9607dfc1017838d9a7662d78dccbdb49e393414c1286c80dc"
+        }
+      ],
+      "modernEnglishGate": "PASS"
+    },
+    {
+      "bookId": "social-contract",
+      "status": "HOLD: modern-English modernization gate fails; Danish recovered; remediation/explicit applicable exception required",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/social-contract-modern-en.json",
+          "candidateSha256": "38017d38954c4c5cfe3682b9a96175923e60094548230721db843ce1d9a70646",
+          "currentMainSha256": "cf7facb77bfc5bafc99cb4d7a236fd4f59d5f9ffc4554c6f063ee8daae273843"
+        },
+        {
+          "path": "app/public/data/editions/social-contract-modern-da.json",
+          "candidateSha256": "ed513d04f1153e053701d11efde8c1dc5f8a372d3598879f7e23b096d76c99b3",
+          "currentMainSha256": "2b6fcfad924735d9fb32d6104d06057a066a2d5ce95b3422592b03e05c15ef3d"
+        },
+        {
+          "path": "app/public/data/onboarding/social-contract.da.json",
+          "candidateSha256": "75755ec2eec72338632cca8febdb49737e067bf6d39a75c79a327dcd0498df77",
+          "currentMainSha256": "8ad80d82c4d9f58d631014ca381a740e0a16c6fdeefcafc250721a2047c49169"
+        },
+        {
+          "path": "app/public/data/onboarding/social-contract.json",
+          "candidateSha256": "e19d4071dcb8c09432c0b66fbbe9899b2b84dccdde5a6f30061f66bf7a2d99c4",
+          "currentMainSha256": "fe132d464ad7dc8a36b1b64a16094d696e9b2872f69873feeae2b5e05516a618"
+        }
+      ],
+      "modernEnglishGate": "FAIL"
+    },
+    {
+      "bookId": "the-awakening",
+      "status": "HOLD: modern-English modernization gate fails; Danish recovered; remediation/explicit applicable exception required",
+      "nativeReview": "pending; user accepts provisional launch",
+      "files": [
+        {
+          "path": "app/public/data/editions/the-awakening-modern-da.json",
+          "candidateSha256": "966f676b796e8c5e42ec22ef30cd137be4a85e53b6d357cd34e56da92d53fc21",
+          "currentMainSha256": "9afc197ea21772a6d9f1dee1cb42d4bd568ddd95f0570c8e5811d5e8106a68a7"
+        },
+        {
+          "path": "app/public/data/editions/the-awakening-modern-en.json",
+          "candidateSha256": "53cd925a9bd34275501edec6370118d577732f1f07445f13617afa78c3731589",
+          "currentMainSha256": "06a1d8570cba2c315f444cbbb455dc57aa9b25853198f00643256f69ba24ccf1"
+        },
+        {
+          "path": "app/public/data/onboarding/the-awakening.da.json",
+          "candidateSha256": "0f049bc2eab1cf5a1d960fd964504fba08f4ff07fe567bae10ee69994ca513cb",
+          "currentMainSha256": "63553b76d9f7baf0c759d9876c9f2eb3f5dfe01419050aa9bdc340ba470af5b6"
+        }
+      ],
+      "modernEnglishGate": "FAIL"
+    }
+  ]
+}

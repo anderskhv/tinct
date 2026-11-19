@@ -16,3 +16,20 @@ it('offers a follow-up for the displayed person, including a gallery choice', ()
   fireEvent.click(screen.getByText('Second person'))
   expect(screen.getByLabelText('Ask a follow-up').getAttribute('data-context')).toBe('Second body.')
 })
+
+it('puts the name and its role on one line, as the desktop popup does (Anders, 18 Nov 2026)', () => {
+  const card = { id: 'mary', kind: 'person', role: 'major', name: 'Mary Magdalene', subtitle: 'Follower of Jesus', body: 'First at the empty tomb.' }
+  const character: CharacterSelection = { card, cutoff: { chapterNumber: 1, paragraphIndex: 0, offset: 10 }, gallery: [{ card, inPassage: true }] }
+  render(<PhoneCharacterBody character={character} renderFollow={() => null} />)
+  const title = screen.getByRole('heading', { level: 2 })
+  expect(title.className).toBe('popup-character-name')
+  expect(title.textContent).toBe('Mary Magdalene · Major figure')
+  expect(screen.getByTestId('lab-phone-character-body').querySelector('small')).toBeNull()
+})
+
+it('a name without a role is the name alone', () => {
+  const card = { id: 'x', kind: 'person', role: null, name: 'Cleopas', subtitle: '', body: 'On the road to Emmaus.' }
+  const character = { card, cutoff: { chapterNumber: 1, paragraphIndex: 0, offset: 10 }, gallery: [{ card, inPassage: true }] } as unknown as CharacterSelection
+  render(<PhoneCharacterBody character={character} renderFollow={() => null} />)
+  expect(screen.getByRole('heading', { level: 2 }).textContent).toBe('Cleopas')
+})

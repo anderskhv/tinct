@@ -8,7 +8,7 @@ import { drawnParagraphText } from '../marginPreview/marginPreviewAnchors'
 import { fractionIn, orderOfPlace, placeAt, placeApplies, yOfPlace } from './notePlace'
 import type { EditionData } from '../../types'
 
-const passage = (over: Partial<LabHighlight> = {}): LabHighlight => ({ id: 'hl-1700000000000-abcd', bookId: 'frankenstein', editionKey: 'modern-en', chapterNumber: 2, paragraphIndex: 0, fromWord: 5, endParagraphIndex: 0, toWord: 6, color: 'rose', text: 'Genevese,', note: '**born**', updatedAt: 1000, ...over })
+const passage = (over: Partial<LabHighlight> = {}): LabHighlight => ({ id: 'hl-1700000000000-abcd', bookId: 'treasure-island', editionKey: 'modern-en', chapterNumber: 2, paragraphIndex: 0, fromWord: 5, endParagraphIndex: 0, toWord: 6, color: 'rose', text: 'Genevese,', note: '**born**', updatedAt: 1000, ...over })
 const marginNote = (over: Partial<LabHighlight> = {}): LabHighlight => passage({ id: 'hl-1700000000001-efgh', paragraphIndex: 1, endParagraphIndex: 1, fromWord: 3, toWord: 3, text: '', note: '- a\n  - b', ...over })
 
 describe('a moved note\'s card place', () => {
@@ -49,8 +49,8 @@ describe('a moved note\'s card place', () => {
     expect(mergeLabHighlightSets({ highlights: [b], deleted: [] }, { highlights: [a], deleted: [] }).highlights[0].cardPlace).toEqual({ paragraphIndex: 9, fraction: 0.1 })
     // A note edited later on another device carries its own place (or none): the record as a whole is newest-wins.
     const row = labHighlightRowValue({ highlights: [b], deleted: [] })
-    expect(parseLabHighlightRow(JSON.parse(JSON.stringify(row)), 'frankenstein').highlights[0].cardPlace).toEqual({ paragraphIndex: 9, fraction: 0.1 })
-    const broken = parseLabHighlightRow({ v: 1, highlights: [{ ...b, cardPlace: { paragraphIndex: 'x', fraction: 1 } }], deleted: [] }, 'frankenstein')
+    expect(parseLabHighlightRow(JSON.parse(JSON.stringify(row)), 'treasure-island').highlights[0].cardPlace).toEqual({ paragraphIndex: 9, fraction: 0.1 })
+    const broken = parseLabHighlightRow({ v: 1, highlights: [{ ...b, cardPlace: { paragraphIndex: 'x', fraction: 1 } }], deleted: [] }, 'treasure-island')
     expect(broken.highlights).toHaveLength(1)
     expect('cardPlace' in broken.highlights[0]).toBe(false)
   })
@@ -63,7 +63,7 @@ describe('a moved note in the margin frame (Tinct books) is the book reader\'s p
       { number: 2, title: 'Chapter 1', paragraphs: ['I am by birth a Genevese, and my family is one of the most distinguished.', 'Second paragraph here.', 'And so it went on, day after day.'] },
     ],
   } as unknown as EditionData)
-  const scope: MarginMarkScope = { bookId: 'frankenstein', editionKey: 'modern-en', chapters }
+  const scope: MarginMarkScope = { bookId: 'treasure-island', editionKey: 'modern-en', chapters }
   const startOf = (k: number) => { const c = chapters[1]; return (c.section ?? '').length + c.title.length + c.paragraphs.slice(0, k).reduce((n, p) => n + drawnParagraphText(p.text).length, 0) }
 
   it('goes to the frame as the paragraph\'s offset and comes back as the same paragraph', () => {

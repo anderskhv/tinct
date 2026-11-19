@@ -1,9 +1,8 @@
 {
   "version": 1,
-  "date": "2026-10-24",
+  "date": "2026-11-18",
   "wholeBooks": [
     "discourse-on-inequality",
-    "gilgamesh",
     "second-treatise",
     "social-contract",
     "symposium"
@@ -29,10 +28,6 @@
       "reason": "Major passages are missing, including the end of Book 5.",
       "sha256": "266ada0a3a74b0838b1dfe4a54a08d2959f03d627ddc955e954fcb306ead117c"
     },
-    "heart-of-darkness/modern-da": {
-      "reason": "Part III is English text offered as Danish.",
-      "sha256": "b0d43952a120819a451538113d82947f922ddaba0535257fb19bd909ba834444"
-    },
     "discourse-on-inequality/modern-da": {
       "reason": "Part II is English text offered as Danish.",
       "sha256": "383db95bbf30559d6ba41eb2045d37f2a24db49e9a3e80b2e246efb8e6b2c224"
@@ -52,14 +47,6 @@
     "discourse-on-inequality/modern-en": {
       "reason": "Rights: the live English text is G. D. H. Cole's 1913 translation (Cole d. 1959); a public-domain replacement is being built.",
       "sha256": "78356e4ffdf62ec28c056fe871521967da428d31fafe694cad8b064f7019c62f"
-    },
-    "gilgamesh/original-en": {
-      "reason": "Rights: the live English text is not cleared for Tinct; a public-domain replacement is being built.",
-      "sha256": "1c9886e2b341187c3dd2b0e4fbcbfc285e65f7631ae6944d094424ac50ef31cc"
-    },
-    "gilgamesh/modern-en": {
-      "reason": "Rights: the live English text is not cleared for Tinct; a public-domain replacement is being built.",
-      "sha256": "419a43b05bfcbf84dce9f1948158a8f3d34a4b6dc41c93767c827aede87ad63c"
     },
     "second-treatise/original-en": {
       "reason": "Held out of the library at Anders's instruction (2026-10-02 rights holds).",
@@ -88,7 +75,6 @@
   },
   "wholeBookReasons": {
     "discourse-on-inequality": "Rights: the live English text is G. D. H. Cole's 1913 translation (Cole d. 1959); a public-domain replacement is being built.",
-    "gilgamesh": "Rights: the live English text is not cleared for Tinct; a public-domain replacement is being built.",
     "second-treatise": "Held out of the library at Anders's instruction (2026-10-02 rights holds).",
     "social-contract": "Rights: the live English text is G. D. H. Cole's 1913 translation (Cole d. 1959); a public-domain replacement is being built.",
     "symposium": "Held out of the library at Anders's instruction (2026-10-02 rights holds)."
