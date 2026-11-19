@@ -314,24 +314,12 @@ export function withTryDemo(url: URL, html: string): string {
 }
 
 /**
- * The Try page (future /about; Anders, 18 Nov 2026: build it, do not launch). Unlisted: noindex in the page and in
- * this header, absent from the sitemap, linked from nowhere. Signed-in readers go to the app, as landing.html
- * sends them (`/app`, the library), before anything renders; the page's own head script does the same for a session
- * kept only in the browser.
+ * The Try page became the About page (Anders, 19 Nov 2026): public/about.html, served at /about like the other static
+ * public pages (indexable, in the sitemap, no signed-in redirect). /try, /try.html and /try/ answer with a permanent
+ * redirect to /about that keeps the query string, so ad and launch links (`?ref=…`) still land and count.
  */
-const TRY_PAGE_PATH = '/try'
-async function serveTryPage(request: Request, url: URL, env: SeoEnv): Promise<Response> {
-  if (url.pathname !== TRY_PAGE_PATH) {
-    return new Response(null, { status: 301, headers: { Location: TRY_PAGE_PATH + url.search, 'Cache-Control': 'public, max-age=3600' } })
-  }
-  const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
-  if (/(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)) {
-    return new Response(null, { status: 302, headers: { Location: '/app', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' } })
-  }
-  const page = await serveStaticHtml(request.method, request, url, TRY_PAGE_PATH, env)
-  if (!page) return serveNotFound(request.method, url, env)
-  page.headers.set('X-Robots-Tag', 'noindex, nofollow')
-  return page
+function redirectTryToAbout(url: URL): Response {
+  return new Response(null, { status: 301, headers: { Location: '/about' + url.search, 'Cache-Control': 'public, max-age=3600' } })
 }
 export const isLabPathnameForTest = isLabPathname
 
@@ -473,8 +461,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       })
     }
 
-    if ((request.method === 'GET' || request.method === 'HEAD') && /^\/try(?:\.html|\/)?$/.test(url.pathname)) {
-      return serveTryPage(request, url, env)
+    if (/^\/try(?:\.html|\/)?$/.test(url.pathname)) {
+      return redirectTryToAbout(url)
     }
 
     // The privacy policy is one page at /privacy (public/privacy.html, served by

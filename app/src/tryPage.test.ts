@@ -8,15 +8,15 @@ import { firstSentenceWords } from './lab/tryDemo/tryDemo'
 import { LAB_EXPLAIN_PROMPT } from './companion/companionRequest'
 import { parseChapterNotesBeats } from './chapterNotes'
 
-// The Try page (docs/try-page/BRIEF.md): unlisted at /try, built, not launched.
-const page = readFileSync('public/try.html', 'utf8')
+// The Try page (docs/try-page/BRIEF.md), the About page at /about since 19 Nov 2026 (Anders); /try redirects there.
+const page = readFileSync('public/about.html', 'utf8')
 const script = readFileSync('public/lab/try/try.js', 'utf8')
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ').replace(/\s+/g, ' ')
 
 function worker(cookie?: string) {
   const env = {
     ASSETS: {
-      fetch: async (request: Request) => new URL(request.url).pathname === '/try'
+      fetch: async (request: Request) => new URL(request.url).pathname === '/about'
         ? new Response(page, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         : new Response('nf', { status: 404 }),
     },
@@ -25,58 +25,66 @@ function worker(cookie?: string) {
   return (pathname: string) => handleSeoAndStaticRequest(new Request(`https://tinct.app${pathname}`, cookie ? { headers: { Cookie: cookie } } : undefined), env as never, ctx)
 }
 
-describe('/try is unlisted', () => {
-  it('says noindex in the page and in the header', async () => {
-    expect(page).toContain('<meta name="robots" content="noindex, nofollow">')
-    const response = await worker()('/try')
+describe('/about is the Try page, and /try redirects to it', () => {
+  it('is indexable: no noindex in the page or the header, self-canonical, one h1, the brand promise in its titles', async () => {
+    expect(page).not.toMatch(/name="robots"/)
+    const response = await worker()('/about')
     expect(response.status).toBe(200)
-    expect(response.headers.get('X-Robots-Tag')).toBe('noindex, nofollow')
+    expect(response.headers.get('X-Robots-Tag')).toBeNull()
+    expect(response.headers.get('Cache-Control')).toBe('public, max-age=300, stale-while-revalidate=86400')
     expect(response.headers.get('Content-Security-Policy')).toContain("script-src 'self'")
+    const html = await response.text()
+    expect(html).toContain('<h1 class="try-headline">Read and listen anywhere, with help always at hand.</h1>')
+    expect(page).toContain('<link rel="canonical" href="https://tinct.app/about">')
+    expect(page).toContain('<meta property="og:url" content="https://tinct.app/about">')
+    expect(page).toContain('<title>About Tinct — No text is beyond you</title>')
+    expect(page).toContain('<meta property="og:title" content="About Tinct — No text is beyond you">')
+    expect(page.match(/<h1\b/g)).toHaveLength(1)
   })
 
-  it('is not in the sitemap, robots.txt or the llms files', () => {
+  it('/try, /try.html and /try/ redirect permanently to /about, keeping the query string', async () => {
+    for (const path of ['/try', '/try.html', '/try/']) {
+      const response = await worker()(path)
+      expect(response.status, path).toBe(301)
+      expect(response.headers.get('Location'), path).toBe('/about')
+    }
+    const ad = await worker()('/try?ref=launch&utm_source=x')
+    expect(ad.status).toBe(301)
+    expect(ad.headers.get('Location')).toBe('/about?ref=launch&utm_source=x')
+  })
+
+  it('does not send a signed-in reader away (no Worker redirect, no head guard)', async () => {
+    const response = await worker('tinct_auth=1')('/about')
+    expect(response.status).toBe(200)
+    expect(response.headers.get('Location')).toBeNull()
+    expect(page).not.toMatch(/try-guard|location\.replace/)
+  })
+
+  it('/about is in the sitemap; /try is not in the sitemap, robots.txt or the llms files', () => {
+    expect(readFileSync('public/sitemap.xml', 'utf8')).toContain('<loc>https://tinct.app/about</loc>')
     for (const file of ['public/sitemap.xml', 'public/robots.txt', 'public/llms.txt', 'public/llms-full.txt']) {
       expect(readFileSync(file, 'utf8'), file).not.toMatch(/tinct\.app\/try\b|["'(\s]\/try\b/)
     }
   })
 
-  it('nothing in the app, the public pages or the emails links to it', () => {
+  it('nothing in the app, the public pages or the emails links to /try: links name /about', () => {
     const offenders: string[] = []
     const walk = (dir: string) => {
       for (const name of readdirSync(dir)) {
         const file = join(dir, name)
         if (statSync(file).isDirectory()) { if (!['node_modules', 'read', 'data', 'covers', 'try'].includes(name)) walk(file); continue }
-        if (!/\.(tsx?|jsx?|html|cjs|mjs|json)$/.test(name) || /\.test\.|try\.html$|tryPage/.test(name)) continue
+        if (!/\.(tsx?|jsx?|html|cjs|mjs|json)$/.test(name) || /\.test\.|tryPage/.test(name)) continue
         const body = readFileSync(file, 'utf8')
         if (/href=["'`]\/try\b|['"`]\/try['"`?#]|tinct\.app\/try\b/.test(body)) offenders.push(file)
       }
     }
     walk('src'); walk('public')
-    // The Worker's own route and the frame's demo check name the path; nothing else may.
+    // The Worker's own redirect names the path; nothing else may.
     expect(offenders.filter(file => !/worker[\\/]routes[\\/]seo\.ts$/.test(file))).toEqual([])
-  })
-
-  it('sends a signed-in reader to the app before rendering: the cookie at the Worker, a kept session in the head', async () => {
-    const response = await worker('tinct_auth=1')('/try')
-    expect(response.status).toBe(302)
-    expect(response.headers.get('Location')).toBe('/app')
-    // The guard is the head's first script, before any stylesheet or content.
-    expect(page.indexOf('/lab/try/try-guard.js')).toBeLessThan(page.indexOf('<link'))
-    const guard = readFileSync('public/lab/try/try-guard.js', 'utf8')
-    expect(guard).toContain("location.replace('/app')")
-    expect(guard).toContain('-auth-token')
-  })
-
-  it('has one address', async () => {
-    for (const path of ['/try.html', '/try/']) {
-      const response = await worker()(path)
-      expect(response.status).toBe(301)
-      expect(response.headers.get('Location')).toBe('/try')
-    }
   })
 })
 
-describe('/try content', () => {
+describe('/about content', () => {
   it('takes its prices from the code: $5 a month, $50 a year, a free first month', () => {
     const monthly = CARDS_COPY.monthlyPrice.match(/\$\d+/)![0]
     const yearly = CARDS_COPY.yearlyPrice.match(/\$\d+/)![0]
