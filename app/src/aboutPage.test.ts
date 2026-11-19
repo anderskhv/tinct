@@ -4,36 +4,10 @@ import { createRequire } from 'node:module'
 import { handleSeoAndStaticRequest } from './worker/routes/seo'
 
 const require = createRequire(import.meta.url)
-const { build, buildCredits } = require('../scripts/build-about-page.cjs') as { build: () => string; buildCredits: () => string }
+const { buildCredits } = require('../scripts/build-about-page.cjs') as { buildCredits: () => string }
 const manifest = JSON.parse(readFileSync('public/lab/library_2/author-images.json', 'utf8')) as { images: Array<{ authorName: string; sourcePage: string }> }
 
-describe('/about', () => {
-  it('is the committed output of build-about-page.cjs', () => {
-    expect(readFileSync('public/about.html', 'utf8')).toBe(build())
-  })
-
-  it('has no team section and links to the credits instead of holding them', () => {
-    const html = build()
-    expect(html).not.toContain('Our team')
-    expect(html).not.toContain('<h2>Credits</h2>')
-    expect(html).not.toContain(manifest.images[0].sourcePage.replace(/&/g, '&amp;'))
-    expect(html).toContain('<p class="footer"><a href="/library">Library</a><a href="/credits">Credits</a><a href="/privacy">Privacy</a>')
-  })
-
-  it('lists audiobooks and adding any book under Premium only', () => {
-    const html = build()
-    expect(html).toContain('<tr><td>AI chat, Talk, chapter recaps and audiobooks</td><td class="c">–</td><td class="c">✓</td></tr>')
-    expect(html).toContain('<tr><td>Add any book: your own or from Gutenberg and other free libraries</td><td class="c">–</td><td class="c">✓</td></tr>')
-  })
-
-  it('is self-canonical and indexable, with one h1', () => {
-    const html = build()
-    expect(html).toContain('<link rel="canonical" href="https://tinct.app/about">')
-    expect(html).not.toMatch(/name="robots"/)
-    expect(html.match(/<h1\b/g)).toHaveLength(1)
-  })
-})
-
+// /about is the Try page since 19 Nov 2026 (public/about.html, tested in tryPage.test.ts); this script builds /credits only.
 describe('/credits', () => {
   it('is the committed output of build-about-page.cjs', () => {
     expect(readFileSync('public/credits.html', 'utf8')).toBe(buildCredits())
@@ -46,14 +20,12 @@ describe('/credits', () => {
     }
   })
 
-  it('is self-canonical and indexable, with one h1, and shares the /about page style', () => {
+  it('is self-canonical and indexable, with one h1', () => {
     const html = buildCredits()
     expect(html).toContain('<link rel="canonical" href="https://tinct.app/credits">')
     expect(html).toContain('<meta property="og:url" content="https://tinct.app/credits">')
     expect(html).not.toMatch(/name="robots"/)
     expect(html.match(/<h1\b/g)).toHaveLength(1)
-    const style = (page: string) => page.slice(page.indexOf('<style>'), page.indexOf('</style>'))
-    expect(style(html)).toBe(style(build()))
     expect(html).toContain('<a href="/about">About</a>')
   })
 

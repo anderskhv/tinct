@@ -11,9 +11,7 @@ Mockups:
 
 An about page where the product is the proof. You arrive, read one headline, and use the **real margin reader** right there. Five steps beside it walk you through what Tinct does. Below the fold come features, pricing, questions and the footer (privacy, terms).
 
-It will become `/about` later. For now it lives at **`/try`**:
-- unlisted: not in the sitemap, `noindex`, and nothing links to it;
-- signed-in readers are redirected to the app, the same way `landing.html` does it.
+**Since 19 Nov 2026 (Anders) it is the About page at `/about`** (`app/public/about.html`): indexable, in the sitemap, with no signed-in redirect. `/try` answers with a 301 to `/about` that keeps the query string, so ad links (`?ref=…`) still land. It was built unlisted at `/try` (noindex, signed-in readers redirected); the sections below keep that history.
 
 ## "Not launching" means
 
