@@ -349,7 +349,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
 @media (min-width: 900px) { .try-step { display: none; } }
 
 /* ---- Phone: the launch film's way (Anders, 19 Nov). The caption on the left, the reader in a real phone shape on the
-   right (its frames are a phone's own screen), and a camera that zooms in on what matters and back out. ---- */
+   right (its frames are a phone's own screen), always whole: no zoom (Anders, 19 Nov), a touch dot shows each tap. ---- */
 .try-caption { display: none; }
 @media (max-width: 899px) {
   .try-show {
@@ -376,12 +376,15 @@ html[data-eink="true"] .try-backdrop { display: none; }
     padding: 22px 0 0; border: 7px solid #12100e; border-radius: 34px; background: #ebe6da; overflow: hidden;
     box-shadow: 0 0 0 1.5px #9a6a45, 0 14px 30px rgba(0, 0, 0, .4);
     -webkit-mask-image: none; mask-image: none;
-    transform-origin: 0 0; transform: var(--try-camera, none); transition: transform 1.3s cubic-bezier(.45, 0, .2, 1);
   }
   .try-demo::before { content: ''; position: absolute; z-index: 3; top: 6px; left: 34%; width: 32%; height: 13px; border-radius: 8px; background: #000; }
   .try-demo picture { position: static; grid-area: 1 / 1; height: auto; }
   .try-demo img { position: static; width: 100%; height: auto; }
-  .try-pointer-layer { display: none; }
+  /* The touch dot taps over the screen inside the phone: the layer covers the screen, under the notch strip. */
+  .try-pointer-layer { inset: 22px 0 0 0; aspect-ratio: auto; }
+  .try-pointer { width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+  .try-pointer::after { left: -5px; top: -5px; width: 28px; height: 28px; }
+  .try-scene { display: none; }
   .try-phone-more { left: 16px; right: auto; justify-content: flex-start; }
   /* The dots alone, centred; the caption names the moment. */
   .try-step { left: 0; right: 0; justify-content: center; grid-template-columns: auto; bottom: calc(env(safe-area-inset-bottom, 0px) + 106px); }
@@ -389,4 +392,4 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-count { grid-column: 1; }
 }
 @media (max-width: 374px) { .try-caption { font-size: 20px; } }
-@media (max-width: 899px) and (prefers-reduced-motion: reduce) { .try-demo, .try-caption span { transition: none; } }
+@media (max-width: 899px) and (prefers-reduced-motion: reduce) { .try-caption span { transition: none; } }

@@ -18,19 +18,15 @@
   ]
   // [file, step, milliseconds on screen]. Listen is fourteen frames 280 ms apart, as captured, so the marked word moves
   // word by word (Anders, 19 Nov: it lagged); they cut, not fade, into each other.
-  // A fourth field marks a phone-only frame: the phone shows Aa opened and Modern English chosen before the wave
-  // (Anders, 19 Nov); the desktop's switch is in its own top bar, where the pointer clicks it.
-  var PHONE = window.matchMedia('(max-width: 899px)').matches
   var FRAMES = [
     ['01', 0, 1300], ['02', 0, 1500], ['04', 0, 3600],
-    ['05', 1, 2200, 'phone'],
     ['08', 1, 3200],
     ['11', 2, 280], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
     ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 900],
     ['10', 3, 4200],
-  ].filter(function (frame) { return !frame[3] || PHONE })
+  ]
   // Bump when the frames are re-captured, so browsers fetch the new ones.
-  var FRAMES_V = '20261119e'
+  var FRAMES_V = '20261119f'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -54,7 +50,7 @@
 
   // ---- The visitor's pointer (Anders, 19 Nov: show the click before each change). Where it goes was recorded when the
   // frames were captured (scripts/capture-try-frames.cjs writes frames/*-pointer.json), as fractions of the frame. ----
-  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.1059, 0.2422], "selectTo": [0.2497, 0.4082], "explain": [0.2709, 0.5053], "play": [0.7842, 0.0528], "summary": [0.5729, 0.157]}}
+  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.131, 0.1657], "selectTo": [0.6907, 0.2793], "explain": [0.3141, 0.3458], "modern": [0.88, 0.0361], "play": [0.7621, 0.0361], "summary": [0.6317, 0.1074]}}
   // What happens on a frame before the next one: a drag that selects, or a press on a button.
   var ACTIONS = { '01': { drag: ['selectFrom', 'selectTo'] }, '02': { press: 'explain' }, '04': { press: 'modern' }, '08': { press: 'play' }, '24': { press: 'summary' } }
   var phoneQuery = window.matchMedia('(max-width: 899px)')
@@ -72,21 +68,6 @@
     ['On the go?', 'Listen.'],
     ['Short on time?', 'Get the gist.'],
   ]
-  // The camera, like the film: it shows the whole phone, then zooms in on what matters (the passage being chosen, the
-  // card, the word being read) and back out for the wave. The phone's left edge stays put, so it never runs under
-  // the caption; the zoom spills off the right of the screen. Focus: how far down the frame to look, and how close.
-  var FOCUS = { '01': null, '02': [0.2, 1.4], '04': [0.8, 1.3], '05': null, '08': null, '10': [0.8, 1.3] }
-  var LISTEN_FOCUS = [0.2, 1.4]
-  function frameCamera(file) {
-    var focus = file in FOCUS ? FOCUS[file] : LISTEN_FOCUS
-    if (!focus) { demo.style.setProperty('--try-camera', 'none'); return }
-    var stage = demo.parentNode, scale = focus[1], top = demo.offsetTop, height = demo.offsetHeight
-    var y = 22 + focus[0] * (height - 22)
-    // Bring the focus to the middle of the stage, but never leave a gap above or below the phone's screen.
-    var ty = stage.clientHeight / 2 - top - scale * y
-    ty = Math.min(-top, Math.max(stage.clientHeight - top - scale * height, ty))
-    demo.style.setProperty('--try-camera', 'translateY(' + Math.round(ty) + 'px) scale(' + scale + ')')
-  }
   var caption = document.createElement('p')
   caption.className = 'try-caption'
   caption.setAttribute('aria-hidden', 'true')
@@ -191,7 +172,7 @@
     var frame = FRAMES[index]
     var duration = pace(frame[2]) + (opened ? (phoneQuery.matches ? 1100 : 600) : 0)
     if (opened && !phoneQuery.matches) announce(frame[1])
-    if (phoneQuery.matches) { frameCaption(frame[1]); frameCamera(frame[0]) }
+    if (phoneQuery.matches) frameCaption(frame[1])
     duration = act(frame, duration)
     timer = setTimeout(function () {
       // Switch only once the next frame is decoded, so a change never flashes an empty reader.
