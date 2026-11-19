@@ -9,9 +9,9 @@
 <meta name="description" content="Read any book with an explanation in the margin, modern English, narration and a summary for every chapter.">
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
 <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel10">
-<link rel="stylesheet" href="/lab/try/try.css?v=20261119one">
+<link rel="stylesheet" href="/lab/try/try.css?v=20261119act">
 <script type="module" src="/lab/internal-traffic.js"></script>
-<script src="/lab/try/try.js?v=20261119one" defer></script>
+<script src="/lab/try/try.js?v=20261119act" defer></script>
 </head>
 <body class="try">
 <div class="try-backdrop" aria-hidden="true"></div>
@@ -38,8 +38,8 @@
         <button type="button" data-try-step="0" aria-label="Explain anything" aria-current="step"></button><button type="button" data-try-step="1" aria-label="Hear it as you read"></button><button type="button" data-try-step="2" aria-label="Read it in today's words"></button><button type="button" data-try-step="3" aria-label="Get the gist in a minute"></button>
       </span></p>
       <h2 class="try-step-title"><span class="try-step-num" data-try-num>1. </span><span data-try-title>Explain anything</span></h2>
-      <button type="button" class="try-pill try-pill--cream try-next" data-try-next aria-label="Next"><span class="try-next-word">Next</span> <span aria-hidden="true">→</span></button>
-      <p class="try-upnext"><span data-try-upnext>Next: Hear it as you read</span><br><a href="/library" data-try-start>Or browse the library</a></p>
+      <button type="button" class="try-pill try-pill--outline try-next" data-try-next aria-label="Next"><span class="try-next-word" data-try-upnext>Next: Hear it as you read</span> <span aria-hidden="true">→</span></button>
+      <a class="try-pill try-pill--cream try-pill--big try-action" href="/library" data-try-start>Browse the library</a>
     </section>
 
     <div class="try-show">
@@ -111,12 +111,6 @@
     </div>
   </section>
 </main>
-
-<section class="try-closing" aria-labelledby="closing-title">
-  <h2 id="closing-title">Start with the book you put down.</h2>
-  <p>Your place, highlights and notes are kept. The first month of Premium is on us.</p>
-  <a class="try-pill try-pill--cream" href="/sign-in?mode=create">Create a free account</a>
-</section>
 
 <footer class="try-footer">
   <span class="try-footer-mark">Tinct</span>

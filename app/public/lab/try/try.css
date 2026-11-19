@@ -18,7 +18,7 @@
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---- The dark ground ---- */
-.try-hero, .try-closing { position: relative; }
+.try-hero { position: relative; }
 /* One scene behind the whole page, never flat dark (Anders, 19 Nov): fixed, so every section sits on it. */
 .try-backdrop {
   position: fixed; inset: -60px; z-index: -1; pointer-events: none;
@@ -72,7 +72,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
 /* ---- Hero: the step beside the playing reader ---- */
 .try-hero { padding: 104px 0 64px; }
 .try-headline {
-  max-width: 1400px; margin: 0 auto 30px; padding: 0 80px;
+  max-width: 1400px; margin: 0 auto 30px; padding: 0 32px 0 56px;
   font-family: var(--tui-font-display); font-weight: 700; font-size: clamp(36px, 3.6vw, 56px); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance;
 }
 .try-stage { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 40px; align-items: start; padding: 0 32px 0 56px; }
@@ -86,11 +86,8 @@ html[data-eink="true"] .try-backdrop { display: none; }
 .try-step-title { margin: 0 0 12px; font-family: var(--tui-font-display); font-weight: 700; font-size: 32px; line-height: 1.12; text-wrap: balance; }
 .try-step-num { display: none; }
 .try-step-title { margin-bottom: 22px; }
-.try-next { min-height: 44px; padding: 0 20px; font-size: 16px; }
-.try-upnext { margin: 18px 0 0; font-size: 14.5px; line-height: 1.6; color: var(--try-cream-ink); }
-.try-upnext span { color: var(--try-cream-ink); }
-.try-upnext a { color: var(--try-muted-on-dark); text-decoration: underline; text-decoration-color: var(--try-line-on-dark); text-underline-offset: 3px; }
-.try-upnext a:hover { color: var(--try-cream-ink); }
+.try-next { min-height: 38px; padding: 0 16px; font-size: 14px; }
+.try-action { display: flex; width: 100%; max-width: 260px; margin-top: 14px; }
 .try-phone-more { display: none; }
 @keyframes try-nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
 
@@ -141,10 +138,6 @@ html[data-eink="true"] .try-backdrop { display: none; }
 .try-faq p { margin: -4px 0 20px; font-family: var(--tui-font-serif); font-size: 17px; line-height: 1.55; color: var(--try-muted-on-dark); }
 .try-faq a { color: var(--try-cream-ink); }
 
-.try-closing { padding: 110px 24px 120px; text-align: center; }
-.try-closing h2 { margin: 0 0 14px; font-family: var(--tui-font-display); font-weight: 700; font-size: 46px; line-height: 1.12; text-wrap: balance; }
-.try-closing p { margin: 0 auto 30px; max-width: 640px; font-family: var(--tui-font-serif); font-size: 19px; color: var(--try-muted-on-dark); }
-.try-closing .try-pill { min-height: 46px; padding: 0 24px; }
 
 .try-footer {
   display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px;
@@ -157,7 +150,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
 @media (max-width: 1180px) {
   .try-nav { padding-left: 24px; padding-right: 24px; }
   .try-sections { gap: 20px; }
-  .try-headline { padding: 0 32px; }
+  .try-headline { padding: 0 24px 0 32px; }
   .try-stage { grid-template-columns: 230px minmax(0, 1fr); gap: 28px; padding: 0 24px 0 32px; }
   .try-step-title { font-size: 28px; }
   .try-section, .try-footer { padding-left: 40px; padding-right: 40px; }
@@ -191,7 +184,8 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-step-title { grid-column: 1; margin: 0; font-family: var(--tui-font-ui); font-size: 15.5px; font-weight: 600; line-height: 1.3; }
   .try-step-num { display: inline; }
   .try-next { grid-column: 2; grid-row: 1 / span 2; width: 36px; height: 36px; min-height: 36px; padding: 0; border-radius: 50%; font-size: 16px; }
-  .try-next-word, .try-upnext { display: none; }
+  .try-next-word, .try-action { display: none; }
+  .try-next { border-color: transparent; background: var(--try-cream-ink); color: var(--tui-ink); }
   /* The reader takes the full width (never squeezed) and Browse the library ends the first screen (Anders, 19 Nov):
      on a short phone the frame gives up its top edge, never its sides or the answer at its foot. */
   .try-demo { width: 100%; aspect-ratio: auto; height: min(calc((100vw - 32px) * 880 / 716), max(320px, calc(100svh - 230px))); border-radius: 14px; }
@@ -205,9 +199,6 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-section-title { font-size: 28px; }
   .try-section-sub { font-size: 17px; margin-bottom: 24px; }
   .try-plans { grid-template-columns: 1fr; }
-  .try-closing { padding: 70px 16px 80px; text-align: left; }
-  .try-closing h2 { font-size: 34px; }
-  .try-closing p { margin-left: 0; }
   .try-footer { padding: 26px 16px 34px; }
   .try-footer nav { margin-left: 0; }
 }
