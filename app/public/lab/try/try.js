@@ -140,8 +140,9 @@
     if (next) next.setAttribute('aria-label', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
     return newStep
   }
-  // The phone plays slower: a small screen takes longer to read (Anders, 19 Nov: too much, too fast).
-  function pace(ms) { return phoneQuery.matches ? Math.round(ms * (ms > 400 ? 1.45 : 1.15)) : ms }
+  // Slower than captured (Anders, 19 Nov: too much, too fast), the phone most: a small screen takes longer to read.
+  // The word-by-word Listen frames slow only a little, so the voice still sounds like reading.
+  function pace(ms) { return Math.round(ms * (phoneQuery.matches ? (ms > 400 ? 1.45 : 1.15) : (ms > 400 ? 1.3 : 1.1))) }
   function schedule(opened) {
     clearTimeout(timer)
     clearActions()
