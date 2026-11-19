@@ -122,7 +122,16 @@ html[data-eink="true"] .try-backdrop { display: none; }
 
 /* ---- Below the fold: cream ---- */
 .try-below { color: var(--try-cream-ink); padding: 56px 0 90px; border-top: 1px solid var(--try-line-on-dark); }
-.try-section { max-width: 1000px; margin: 0 auto; padding: 0 80px; }
+.try-section { max-width: 1400px; margin: 0 auto; padding: 0 32px 0 56px; }
+/* Desktop (Anders, 19 Nov): Pricing and Questions sit on the hero's grid, so the page reads as one: the title in the
+   left column under the headline, the plans and answers on the right under the reader. */
+@media (min-width: 900px) {
+  .try-section { display: grid; grid-template-columns: 340px minmax(0, 1fr); column-gap: 48px; align-items: start; }
+  .try-section-title, .try-section-sub { grid-column: 1; }
+  .try-section-title { margin-top: -.12em; }
+  .try-plans, .try-faq { grid-column: 2; grid-row: 1 / span 3; }
+  .try-section .try-faq { max-width: none; }
+}
 .try-section + .try-section { margin-top: 110px; }
 .try-section-title { margin: 0 0 8px; font-family: var(--tui-font-display); font-weight: 700; font-size: 36px; line-height: 1.1; }
 .try-section-sub { margin: 0 0 30px; font-family: var(--tui-font-serif); font-size: 18px; color: var(--try-muted-on-dark); }
@@ -165,7 +174,8 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-nav { padding-left: 24px; padding-right: 24px; }
   .try-sections { gap: 20px; }
   .try-stage { grid-template-columns: 280px minmax(0, 1fr); gap: 32px; padding: 0 24px 0 32px; }
-  .try-section, .try-footer { padding-left: 40px; padding-right: 40px; }
+  .try-footer { padding-left: 40px; padding-right: 40px; }
+  .try-section { padding: 0 24px 0 32px; grid-template-columns: 280px minmax(0, 1fr); column-gap: 32px; }
 }
 
 /* ---- Phones and narrow windows: the step as a card, then the reader, then Start reading ---- */
