@@ -109,24 +109,23 @@ html[data-eink="true"] .try-backdrop { display: none; }
 
 /* ---- Below the fold: cream ---- */
 .try-below { background: var(--tui-paper); color: var(--tui-ink); padding: 40px 0 90px; border-radius: 22px 22px 0 0; margin-top: -22px; position: relative; }
-.try-section { max-width: 1120px; margin: 0 auto; padding: 0 80px; }
+.try-section { max-width: 1000px; margin: 0 auto; padding: 0 80px; }
 .try-section + .try-section { margin-top: 110px; }
-.try-section-title { margin: 0 0 10px; font-family: var(--tui-font-display); font-weight: 700; font-size: 44px; line-height: 1.1; }
-.try-section-sub { margin: 0 0 40px; font-family: var(--tui-font-serif); font-size: 19px; color: var(--tui-ink-muted); }
+.try-section-title { margin: 0 0 8px; font-family: var(--tui-font-display); font-weight: 700; font-size: 36px; line-height: 1.1; }
+.try-section-sub { margin: 0 0 30px; font-family: var(--tui-font-serif); font-size: 18px; color: var(--tui-ink-muted); }
 
 .try-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.try-plan { display: flex; flex-direction: column; padding: 30px; border-radius: var(--tui-radius-lg); background: var(--tui-surface); }
-.try-plan h3 { display: flex; align-items: center; justify-content: space-between; margin: 0 0 14px; font-family: var(--tui-font-display); font-weight: 700; font-size: 26px; }
-.try-tag { padding: 4px 10px; border-radius: var(--tui-radius-pill); background: #e9c97a; color: #1b160f; font: 500 12.5px/1.2 var(--tui-font-ui); }
+.try-plan { display: flex; flex-direction: column; padding: 26px 28px; border-radius: var(--tui-radius-lg); background: var(--tui-surface); border: 1px solid var(--tui-line); }
+.try-plan h3 { display: flex; align-items: center; justify-content: space-between; margin: 0 0 10px; font-family: var(--tui-font-display); font-weight: 700; font-size: 22px; }
+.try-tag { padding: 4px 10px; border-radius: var(--tui-radius-pill); background: #f1e2bd; color: #1b160f; font: 500 12.5px/1.2 var(--tui-font-ui); }
 .try-price { margin: 0 0 18px; display: flex; align-items: baseline; gap: 10px; }
-.try-amount { font-family: var(--tui-font-serif); font-size: 52px; line-height: 1; font-variant-numeric: tabular-nums; }
+.try-amount { font-family: var(--tui-font-serif); font-size: 38px; line-height: 1; font-variant-numeric: tabular-nums; }
 .try-per { font-size: 15px; color: var(--tui-ink-muted); }
-.try-plan ul { list-style: none; margin: 0 0 30px; padding: 0; display: grid; gap: 11px; font-family: var(--tui-font-serif); font-size: 17px; }
+.try-plan ul { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 9px; font-family: var(--tui-font-serif); font-size: 16.5px; }
 .try-plan li { position: relative; padding-left: 26px; }
 .try-plan li::before { content: '✓'; position: absolute; left: 2px; top: 0; font-family: var(--tui-font-ui); font-size: 14px; color: var(--tui-ink-faint); }
 .try-plan .try-pill { margin-top: auto; }
-.try-plan--dark { background: var(--tui-primary); color: var(--tui-on-primary); }
-.try-plan--dark .try-per, .try-plan--dark li::before { color: rgba(236, 231, 219, .7); }
+.try-plan--dark { border: 1.5px solid #c9a14e; box-shadow: 0 10px 30px rgba(40, 30, 15, .08); }
 
 .try-faq { max-width: 640px; border-top: 1px solid var(--tui-line); }
 .try-faq details { border-bottom: 1px solid var(--tui-line); }
@@ -165,16 +164,21 @@ html[data-eink="true"] .try-backdrop { display: none; }
 
 /* ---- Phones and narrow windows: the step as a card, then the reader, then Start reading ---- */
 @media (max-width: 899px) {
-  .try-only-wide, .try-sections { display: none !important; }
-  .try-nav { display: flex; justify-content: space-between; padding: 8px 16px; padding-top: max(8px, env(safe-area-inset-top, 0px)); }
+  .try-only-wide { display: none !important; }
+  .try-nav { display: flex; align-items: center; gap: 14px; padding: 8px 16px; padding-top: max(8px, env(safe-area-inset-top, 0px)); }
+  /* The phone's menu: the two sections, beside Sign in (Anders, 19 Nov). */
+  .try-sections { margin-left: auto; gap: 14px; font-size: 14px; }
+  .try-sections a[href="#try"] { display: none; }
+  .try-sections a { padding: 4px 0; }
+  .try-account { margin-left: 2px; }
   .try-logo { font-size: 22px; }
   .try-account .try-pill { min-height: 34px; padding: 0 14px; font-size: 13.5px; }
-  .try-hero { padding: 70px 0 36px; }
-  .try-headline { margin: 0 0 14px; padding: 0 16px; font-size: 28px; }
+  .try-hero { padding: 62px 0 30px; }
+  .try-headline { margin: 0 0 10px; padding: 0 16px; font-size: 24px; }
   .try-stage { display: block; padding: 0 16px; }
   .try-step {
     display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: center;
-    padding: 12px 12px 12px 14px; margin-bottom: 12px; border-radius: 14px;
+    padding: 10px 10px 10px 14px; margin-bottom: 10px; border-radius: 14px;
     background: rgba(244, 239, 228, .07); border: 1px solid var(--try-line-on-dark);
   }
   .try-count { grid-column: 1; margin: 0 0 4px; }
@@ -188,14 +192,16 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-step-line { grid-column: 1; margin: 0; font-size: 14.5px; line-height: 1.4; min-height: 2.8em; }
   .try-next { grid-column: 2; grid-row: 1 / span 3; width: 40px; height: 40px; min-height: 40px; padding: 0; border-radius: 50%; font-size: 17px; }
   .try-next-word, .try-upnext { display: none; }
-  /* The reader takes the full width (Anders, 19 Nov: never squeezed); Browse the library follows it. */
-  .try-demo { width: 100%; aspect-ratio: 716 / 880; border-radius: 14px; }
+  /* The reader takes the full width (never squeezed) and Browse the library ends the first screen (Anders, 19 Nov):
+     on a short phone the frame gives up its top edge, never its sides or the answer at its foot. */
+  .try-demo { width: 100%; aspect-ratio: auto; height: min(calc((100vw - 32px) * 880 / 716), max(320px, calc(100svh - 296px))); border-radius: 14px; }
+  .try-demo img { object-position: center bottom; }
   .try-demo-open { display: none; }
-  .try-phone-start { display: flex; width: 100%; margin-top: 14px; }
+  .try-phone-start { display: flex; width: 100%; margin-top: 12px; }
   .try-below { padding: 34px 0 60px; }
   .try-section { padding: 0 16px; }
   .try-section + .try-section { margin-top: 64px; }
-  .try-section-title { font-size: 32px; }
+  .try-section-title { font-size: 28px; }
   .try-section-sub { font-size: 17px; margin-bottom: 24px; }
   .try-plans { grid-template-columns: 1fr; }
   .try-closing { padding: 70px 16px 80px; text-align: left; }
