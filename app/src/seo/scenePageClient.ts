@@ -2,10 +2,13 @@
  * The scene page's script (built to /read/scene-page.js, a module). The page is static; this only does what a
  * static page cannot: show the reader's selection bar over a selection, send a typed question, and hand every
  * reader-only action over to /reader at this scene with the visitor's attribution (utm tags and click ids) kept.
- * It never imports or hydrates the reader and never reads or writes a reading position.
+ * It never imports or hydrates the reader and never reads or writes the reader's reading position. Since 19 Nov
+ * 2026 (docs/seo-brief-2026-11-19.md §2) it runs the page's text switch (remembered per book) and keeps the
+ * visitor's place in this book's pages on this device only (READ_PLACE_KEY), shown again on the book page.
  */
 import { isInternal } from '../../public/lab/internal-traffic.js'
 import { captureAttribution, readAttributionPayload, TRACKED_PARAMS } from '../utils/attribution'
+import { READ_VIEW_KEY, resolveReadView, type ReadView } from './sceneLayout'
 import { SCENE_HANDOFF_EDITION, SCENE_QUESTION_MAX, sceneHandoffHash, type SceneHandoffAction, type SceneSelection } from '../lab/labSceneHandoff'
 
 /** Character spans of the words in a paragraph's text, as the reader counts words (/\S+/). */
@@ -152,6 +155,88 @@ export function createSceneDuration(deps: {
   }
 }
 
+// ===== The text switch and the saved place =====
+
+/** The visitor's place in a book's public pages, on this device only. */
+export const READ_PLACE_KEY = (bookId: string) => `tinct-read-place:${bookId}`
+export interface ReadPlace { chapter: number; path: string; label: string; anchor: string | null }
+
+export function parseReadPlace(raw: string | null): ReadPlace | null {
+  try {
+    const value = raw ? JSON.parse(raw) : null
+    if (!value || !Number.isInteger(value.chapter) || typeof value.path !== 'string' || !value.path.startsWith('/read/')) return null
+    const anchor = typeof value.anchor === 'string' && /^(?:lab|orig)-p-\d{1,5}$/.test(value.anchor) ? value.anchor : null
+    return { chapter: value.chapter, path: value.path, label: typeof value.label === 'string' ? value.label.slice(0, 120) : '', anchor }
+  } catch { return null }
+}
+
+/** The first paragraph of the shown text whose bottom is below the top bar: where the visitor is reading. */
+export function topParagraph(root: HTMLElement, headerBottom: number): HTMLElement | null {
+  for (const p of root.querySelectorAll<HTMLElement>('.chapter-pairs p[id^="lab-p-"], .chapter-pairs p[id^="orig-p-"]')) {
+    const box = p.getBoundingClientRect()
+    if (!box.height) continue
+    if (box.bottom > headerBottom + 8) return p
+  }
+  return null
+}
+
+function startTextAndPlace(doc: Document, root: HTMLElement, bookId: string, chapterNumber: number): void {
+  const storage = (() => { try { const store = localStorage; store.setItem('tinct-read-probe', '1'); store.removeItem('tinct-read-probe'); return store } catch { return null } })()
+  const phone = root.classList.contains('is-phone')
+  const show = (view: ReadView) => {
+    root.dataset.view = view
+    for (const button of root.querySelectorAll<HTMLButtonElement>('.chapter-view-switch button[data-view]')) {
+      button.setAttribute('aria-pressed', String(button.dataset.view === view || (phone && view === 'both' && button.dataset.view === 'modern')))
+    }
+  }
+  if (root.dataset.view) show(resolveReadView(root.dataset.view, root.dataset.defaultView, phone))
+  for (const button of root.querySelectorAll<HTMLButtonElement>('.chapter-view-switch button[data-view]')) {
+    button.addEventListener('click', () => {
+      const anchor = topParagraph(root, root.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 0)
+      const view = resolveReadView(button.dataset.view || null, root.dataset.defaultView, phone)
+      show(view)
+      try { storage?.setItem(READ_VIEW_KEY(bookId), view) } catch { /* storage is optional */ }
+      // Keep the place: the matching paragraph of the other text when there is one, else the same paragraph.
+      const index = anchor?.id.match(/-p-(\d+)$/)?.[1]
+      const target = index ? (doc.getElementById(`${view === 'original' ? 'orig' : 'lab'}-p-${index}`) ?? anchor) : null
+      if (target && target.getBoundingClientRect().height) target.scrollIntoView({ block: 'start' })
+    })
+  }
+  if (!storage) return
+  // The place is saved only when the browser keeps it, and only then does the page say so.
+  for (const note of root.querySelectorAll<HTMLElement>('[data-place-note]')) note.hidden = false
+  const key = READ_PLACE_KEY(bookId)
+  const saved = parseReadPlace(storage.getItem(key))
+  const label = root.dataset.chapterLabel || ''
+  const path = location.pathname
+  const firstVisit = saved?.chapter === chapterNumber && saved.anchor && !location.hash
+  const navigation = (performance.getEntriesByType?.('navigation')[0] as PerformanceNavigationTiming | undefined)?.type
+  if (firstVisit && navigation !== 'back_forward' && navigation !== 'reload') {
+    const target = doc.getElementById(saved!.anchor!)
+    if (target && target.getBoundingClientRect().height) target.scrollIntoView({ block: 'start' })
+  }
+  // On the book page: the way back to a place in another chapter.
+  const resume = root.querySelector<HTMLAnchorElement>('[data-place-resume]')
+  if (resume && saved && saved.chapter !== chapterNumber && saved.label) {
+    resume.href = `${saved.path}${saved.anchor ? `#${saved.anchor}` : ''}`
+    resume.textContent = `Continue at ${saved.label} →`
+    resume.hidden = false
+  }
+  let pending = 0
+  const save = () => {
+    window.clearTimeout(pending)
+    const anchor = topParagraph(root, root.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 0)
+    // Before the first paragraph is passed, a visit that only looked at the top keeps the earlier place in another chapter.
+    if (!anchor) return
+    const place: ReadPlace = { chapter: chapterNumber, path, label, anchor: anchor.id }
+    if (anchor.id.endsWith('-p-0') && window.scrollY < 40 && saved && saved.chapter !== chapterNumber) return
+    try { storage.setItem(key, JSON.stringify(place)) } catch { /* full or blocked */ }
+  }
+  window.addEventListener('scroll', () => { window.clearTimeout(pending); pending = window.setTimeout(save, 400) }, { passive: true })
+  window.addEventListener('pagehide', save)
+  doc.addEventListener('visibilitychange', () => { if (doc.visibilityState === 'hidden') save() })
+}
+
 // ===== The page =====
 
 const MORE_ICON = '<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false" class="lab-picon"><circle cx="4" cy="9" r=".9"></circle><circle cx="9" cy="9" r=".9"></circle><circle cx="14" cy="9" r=".9"></circle></svg>'
@@ -163,6 +248,7 @@ export function startScenePage(doc: Document = document): void {
   const bookId = root.dataset.bookId || ''
   const chapterNumber = Number(root.dataset.chapter)
   const search = location.search
+  try { startTextAndPlace(doc, root, bookId, chapterNumber) } catch { /* the page stays as served */ }
   // The visitor's first touch is this page (a search result, a shared link), as it would have been the reader.
   try { captureAttribution() } catch { /* storage is optional */ }
 

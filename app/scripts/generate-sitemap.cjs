@@ -237,6 +237,31 @@ function editionNoteOf(bookId) {
   return editionNotes[bookId] || ''
 }
 
+const PLAY_BOOK_PAGE_DIR = path.join(APP_DIR, 'public/seo/book-pages')
+/**
+ * The book page the Worker serves at /read/{bookId} since 19 Nov 2026 (docs/seo-brief-2026-11-19.md §1): the first
+ * chapter (page 0 of the book's first chapter pack) or the play's first scene, under the book's header. Null when
+ * the build wrote none (the book keeps the library page).
+ */
+function readingBookPage(bookId) {
+  const play = path.join(PLAY_BOOK_PAGE_DIR, `${bookId}.html`)
+  if (scenePagesOf(bookId).length && fs.existsSync(play)) return fs.readFileSync(play, 'utf8')
+  if (!chapterPagesOf(bookId)?.bookPage) return null
+  const pack = path.join(CHAPTER_PACK_DIR, bookId, '0.txt')
+  if (!fs.existsSync(pack)) return null
+  const parts = fs.readFileSync(pack, 'utf8').split(/<!--tinct:chapter-page (\d+)-->\n/)
+  return parts[1] === '0' ? parts[2] : null
+}
+const unescapeHtml = value => value.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+/** The reading book page's own title and description (one source of truth: the page renderer). */
+function readingBookMeta(bookId) {
+  const html = readingBookPage(bookId)
+  if (!html) return null
+  const title = html.match(/<title>([^<]*)<\/title>/)?.[1]
+  const description = html.match(/<meta name="description" content="([^"]*)">/)?.[1]
+  return title && description ? { title: unescapeHtml(title), description: unescapeHtml(description) } : null
+}
+
 /** Whether readers get a Modern English edition of the book (served and not held). */
 function hasModernEdition(book) {
   if (book.noModernEdition || PUBLISHER_PERMISSIONS[book.id]) return false
@@ -251,6 +276,8 @@ function hasModernEdition(book) {
 function seoBookTitle(book) {
   const manual = MANUAL_BOOK_META[book.id]
   if (manual?.title) return manual.title
+  const reading = readingBookMeta(book.id)
+  if (reading) return reading.title
   const title = plainText(book.title)
   const candidates = hasModernEdition(book)
     ? [
@@ -274,6 +301,8 @@ const PUBLISHER_PERMISSIONS = require('../src/data/publisherPermissions.json').b
 function seoBookDescription(book) {
   const manual = MANUAL_BOOK_META[book.id]
   if (manual?.description) return manual.description
+  const reading = readingBookMeta(book.id)
+  if (reading) return reading.description
   // No Modern English, narration or cast guide to advertise, and never "classic".
   if (book.noModernEdition || PUBLISHER_PERMISSIONS[book.id]) {
     return clipAtWord(`Read ${book.title} free, no ads, with an AI reading companion. On Tinct with the publisher's permission.`, MAX_META_DESCRIPTION_CHARS)
@@ -850,21 +879,31 @@ function buildSitemap(books, state = loadLastmodState(), next = {}) {
   for (const b of books) {
     const page = path.join(READ_DIR, b.id, 'book.html')
     if (!fs.existsSync(page)) continue
-    entry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9 }, page)
-    // The book's scene pages, each only once the build has written it (and the Worker serves it, 200).
-    for (const scene of scenePagesOf(b.id)) {
+    // The book page: the reading page (first chapter or scene) when the build wrote one, else the library page.
+    const reading = readingBookPage(b.id)
+    const bookLoc = `${ORIGIN}/read/${b.id}`
+    if (reading) lines.push(urlEntry(bookLoc, { changefreq: 'monthly', priority: 0.9, lastmod: textLastmod(state, next, bookLoc, reading) }))
+    else entry(bookLoc, { changefreq: 'monthly', priority: 0.9 }, page)
+    // The book's scene pages, each only once the build has written it (and the Worker serves it, 200). The first
+    // scene is the book page (its canonical), so it is not listed.
+    for (const scene of scenePagesOf(b.id).slice(reading ? 1 : 0)) {
       const loc = `${ORIGIN}/read/${b.id}/${scene.slug}`
       lines.push(urlEntry(loc, { changefreq: 'monthly', priority: 0.7, lastmod: sceneLastmod(state, next, loc, path.join(READ_DIR, b.id, `${scene.slug}.html`)) }))
     }
     // Chapter pages: only an indexable (allowlisted) book's, and only those the build wrote.
     const chapters = chapterPagesOf(b.id)
     if (chapters?.indexable) {
-      for (const [number, html] of chapterPagesInPacks(b.id)) {
+      const pages = chapterPagesInPacks(b.id).filter(([number]) => number > 0)
+      // The first chapter is the book page (its canonical), so it is not listed.
+      for (const [number, html] of pages.slice(chapters.bookPage ? 1 : 0)) {
         const loc = `${ORIGIN}/read/${b.id}/chapter-${number}`
         lines.push(urlEntry(loc, { changefreq: 'monthly', priority: 0.6, lastmod: textLastmod(state, next, loc, html) }))
       }
     }
   }
+  // /modern-english: every book in Modern English (docs/seo-brief-2026-11-19.md §6).
+  const modernHub = path.join(APP_DIR, 'public/modern-english.html')
+  if (fs.existsSync(modernHub)) entry(`${ORIGIN}/modern-english`, { changefreq: 'weekly', priority: 0.8 }, modernHub)
   // Shelf hubs that list an indexable book.
   for (const [shelf, indexable] of Object.entries(loadChapterManifest().hubs)) {
     const file = path.join(READ_DIR, 'shelf', `${shelf}.html`)
@@ -955,6 +994,7 @@ module.exports = {
   generateReaderSeoPages,
   seoBookTitle,
   seoBookDescription,
+  readingBookPage,
   metaDescription,
   MAX_META_TITLE_CHARS,
   MAX_META_DESCRIPTION_CHARS,

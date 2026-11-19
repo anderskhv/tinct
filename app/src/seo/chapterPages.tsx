@@ -25,8 +25,10 @@ import { SCENE_HANDOFF_EDITION, type SceneHandoffAction } from '../lab/labSceneH
 import type { Book } from '../types'
 import {
   READER_CSS_PLACEHOLDER, READER_ROOT_STYLE, SCENE_PAGE_ORIGIN, act, askField, escapeHtml, headerHtml, pageStyles,
-  renderParagraph, sceneAssetPlaceholder, sceneHandoffHref, type Edition, type EditionChapter,
+  positionHtml, renderParagraph, sceneAssetPlaceholder, sceneHandoffHref, viewSwitchHtml, type Edition, type EditionChapter,
 } from './scenePages'
+import { bookPageDescription, bookPageTitle, chapterPositions, curlyQuotes, structureFacts, type StructureFacts } from './bookStructure'
+export { besidePhrase, bookPageDescription, bookPageTitle } from './bookStructure'
 
 export { editionNoteHtml, editionSource, SEO_INDEX_ALLOWLIST, sceneAssetPlaceholder }
 
@@ -36,7 +38,6 @@ export function editionSourceFor(bookId: string): EditionSource | null {
   return book ? editionSource(book) : null
 }
 export const CHAPTER_PAGE_ORIGIN = SCENE_PAGE_ORIGIN
-const MAX_META_DESCRIPTION_CHARS = 155
 /** Where a pack of chapter pages starts (the Worker serves one chapter out of its pack; see build-chapter-pages.mjs). */
 export const chapterPageMarker = (chapter: number) => `<!--tinct:chapter-page ${chapter}-->`
 
@@ -115,22 +116,21 @@ export function chapterLabels(chapters: readonly Pick<EditionChapter, 'number' |
   return new Map(chapters.map((chapter, index) => [chapter.number, distinct ? own[index]! : `Chapter ${chapter.number}`]))
 }
 
-export function chapterPageTitle(book: ChapterPageBook, label: string): string {
-  return `${book.title}, ${label} in modern English | Tinct`
+/** A chapter page's title, by search intent (Anders, 19 Nov 2026): "Jane Eyre, Chapter 26 of 38: full text in modern English | Tinct". */
+export function chapterPageTitle(book: ChapterPageBook, label: string, of: number | null = null): string {
+  return `${book.title}, ${label}${of ? ` of ${of}` : ''}: full text in modern English | Tinct`
+}
+
+/** "Read Chapter 26 of Jane Eyre free, in modern English beside the original. No sign-up." */
+export function chapterPageDescription(book: ChapterPageBook, label: string): string {
+  return `Read ${label} of ${book.title} free, in modern English beside the original. No sign-up.`
 }
 
 export const chapterPagePath = (bookId: string, chapter: number) => `/read/${bookId}/chapter-${chapter}`
+export const bookPagePath = (bookId: string) => `/read/${bookId}`
 
 const isFigure = (text: string) => text.startsWith(FIGURE_MARK)
 const plain = (text: string) => stripUnderscoreEmphasis(text).text.replace(/\s+/g, ' ').trim()
-
-/** The chapter's own opening words, clipped at a word: the page's description (no written summary). */
-export function chapterDescription(paragraphs: readonly string[]): string {
-  const text = paragraphs.filter(paragraph => !isFigure(paragraph)).map(plain).filter(Boolean).join(' ')
-  if (text.length <= MAX_META_DESCRIPTION_CHARS) return text
-  const clipped = text.slice(0, MAX_META_DESCRIPTION_CHARS - 1).replace(/\s+\S*$/, '').replace(/[\s,;:—–-]+$/, '')
-  return `${clipped}…`
-}
 
 // ===== The page =====
 
@@ -170,24 +170,10 @@ export function chapterPageCss(): string {
 /** Page-only layout for the side-by-side text, on top of the scene page's rules. Colours are the reader's tokens. */
 function chapterStyles(): string {
   return `<style>
-.tinct-chapter .lab.is-desktop .continuous-reader-paper { width: min(calc(70rem + 2 * var(--continuous-paper-pad, 3rem)), calc(100% - clamp(16rem, 24vw, 22rem) - clamp(3.5rem, 6vw, 6rem))); margin-left: clamp(3.5rem, 6vw, 6rem); }
-.tinct-chapter .chapter-pairs { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-auto-flow: row dense; column-gap: 52px; position: relative; }
-.tinct-chapter .chapter-pairs::after { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--lab-border, rgba(123, 110, 90, .18)); opacity: .6; }
-.tinct-chapter .chapter-col { display: contents; }
-.tinct-chapter .chapter-col-modern > * { grid-column: 1; }
-.tinct-chapter .chapter-col-original > * { grid-column: 2; }
-.tinct-chapter .chapter-col-head { margin: 0 0 12px; font: 400 14px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--lab-ink-muted); }
-.tinct-chapter .lab.is-desktop .chapter-pairs .lab-hearing-line { font-size: calc(1.08rem * (var(--lab-font-size, 1.3) / 1.3)); line-height: 1.55; }
-.tinct-chapter .chapter-col-original .lab-hearing-line { color: var(--lab-ink-muted); }
 .tinct-chapter .chapter-figure { margin: 0; }
 .tinct-chapter .chapter-note { margin: 34px 0 0; padding-top: 16px; border-top: 1px solid var(--lab-border, rgba(32,26,19,.12)); font: 400 15px/1.5 system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--lab-ink-muted); }
 .tinct-chapter .chapter-note strong { font-weight: 600; color: var(--lab-ink); }
 .tinct-chapter .scene-turns .scene-contents { margin: 0 auto; }
-.tinct-chapter .lab.is-phone .chapter-pairs { display: block; }
-.tinct-chapter .lab.is-phone .chapter-pairs::after { content: none; }
-.tinct-chapter .lab.is-phone .chapter-col { display: block; }
-.tinct-chapter .lab.is-phone .chapter-col-original { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--lab-border, rgba(32,26,19,.12)); }
-@media (max-width: 1100px) { .tinct-chapter .lab.is-desktop .continuous-reader-paper { width: calc(100% - 320px); margin-left: 56px; } .tinct-chapter .chapter-pairs { column-gap: 32px; } }
 </style>`
 }
 
@@ -207,7 +193,27 @@ export interface ChapterPage {
   html: string
 }
 
-/** One chapter page. `chapters` are the modern edition's, in order; `original` is the same chapter of the original. */
+/** What the book page adds around its first chapter (Anders, 19 Nov 2026, option B). */
+export interface BookPageFrame {
+  structure: StructureFacts
+  source: EditionSource | null
+}
+
+/** The chapter's own name when its title says more than its position ("Chapter 1 — Loomings" → "Loomings"). */
+export function chapterName(title: string, label: string): string | null {
+  const plainTitle = stripUnderscoreEmphasis(title).text.trim()
+  const flat = plainTitle.replace(/ — /g, ', ')
+  if (flat === label) return null
+  if (flat.startsWith(`${label}, `)) return plainTitle.slice(plainTitle.length - (flat.length - label.length - 2))
+  if (flat.startsWith(`${label}. `)) return plainTitle.slice(label.length + 2)
+  return plainTitle
+}
+
+/**
+ * One chapter page; with `bookPage`, the book page (`/read/{book}`): the same first chapter under a slim header
+ * (title, author, structure, a link to the chapter list), the chapter list below it, its own title and canonical.
+ * `chapters` are the modern edition's, in order; `original` is the same chapter of the original.
+ */
 export function renderChapterPage(input: {
   book: ChapterPageBook
   chapters: readonly EditionChapter[]
@@ -219,45 +225,90 @@ export function renderChapterPage(input: {
   modernLabel: string
   note: string | null
   indexable: boolean
+  positions?: Map<number, { label: string; of: number | null }>
+  bookPage?: BookPageFrame | null
 }): ChapterPage {
-  const { book, chapters, labels, chapterNumber, original, note, indexable } = input
+  const { book, chapters, labels, chapterNumber, original, note, indexable, bookPage } = input
+  const positions = input.positions ?? chapterPositions(labels)
   const index = chapters[chapterNumber - 1]?.number === chapterNumber ? chapterNumber - 1 : chapters.findIndex(chapter => chapter.number === chapterNumber)
   const chapter = chapters[index]
   if (!chapter) throw new Error(`${book.id}: no chapter ${chapterNumber}`)
   resetVerseLines()
   const label = labels.get(chapter.number)!
-  const path = chapterPagePath(book.id, chapter.number)
-  const canonical = `${CHAPTER_PAGE_ORIGIN}${path}`
-  const title = chapterPageTitle(book, label)
-  const description = chapterDescription(chapter.paragraphs)
+  const position = positions.get(chapter.number) ?? { label, of: null }
+  const first = chapters[0]
+  // The first chapter's own page points search engines at the book page, which is the same chapter.
+  const pathOf = (number: number) => number === first.number ? bookPagePath(book.id) : chapterPagePath(book.id, number)
+  const path = bookPage ? bookPagePath(book.id) : chapterPagePath(book.id, chapter.number)
+  const canonical = `${CHAPTER_PAGE_ORIGIN}${pathOf(chapter.number)}`
+  const title = bookPage ? bookPageTitle(book) : chapterPageTitle(book, position.label, position.of)
+  const description = bookPage ? bookPageDescription(book, bookPage.structure.units, bookPage.source) : chapterPageDescription(book, position.label)
   const previous = chapters[index - 1]
   const next = chapters[index + 1]
   const lastParagraph = Math.max(0, chapter.paragraphs.length - 1)
   const reader = (action: SceneHandoffAction, at?: number) => sceneHandoffHref(book.id, chapter.number, action, at)
+  const positionLabel = (target: EditionChapter) => {
+    const at = positions.get(target.number)
+    return at ? `${at.label}${at.of ? ` of ${at.of}` : ''}` : labels.get(target.number)!
+  }
   const turn = (target: EditionChapter | undefined, rel: 'prev' | 'next') => target
-    ? `<a href="${chapterPagePath(book.id, target.number)}" rel="${rel}" data-scene-keep>${rel === 'prev' ? '← ' : ''}${escapeHtml(labels.get(target.number)!)}${rel === 'next' ? ' →' : ''}</a>`
+    ? `<a href="${pathOf(target.number)}" rel="${rel}" data-scene-keep>${rel === 'prev' ? '← ' : ''}${escapeHtml(labels.get(target.number)!)}${rel === 'next' ? ' →' : ''}</a>`
     : '<span></span>'
   const paragraph = (text: string, at: number, prefix: string, figureClass: string) => isFigure(text)
     ? `<p class="lab-hearing-line chapter-figure ${figureClass}" aria-hidden="true"></p>`
-    : prefix === 'lab-p-' ? renderParagraph(text, at) : renderParagraph(text, at, prefix).replace(` data-p="${at}"`, '')
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebPage', '@id': `${canonical}#page`, url: canonical, name: title.replace(/ \| Tinct$/, ''), description, inLanguage: 'en',
-        isPartOf: { '@type': 'Book', '@id': `${CHAPTER_PAGE_ORIGIN}/read/${book.id}#book`, name: book.title, author: { '@type': 'Person', name: book.author }, url: `${CHAPTER_PAGE_ORIGIN}/read/${book.id}` },
-        isAccessibleForFree: true,
-      },
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Library', item: `${CHAPTER_PAGE_ORIGIN}/read/` },
-          { '@type': 'ListItem', position: 2, name: book.title, item: `${CHAPTER_PAGE_ORIGIN}/read/${book.id}` },
-          { '@type': 'ListItem', position: 3, name: label, item: canonical },
+    : prefix === 'lab-p-' ? renderParagraph(curlyQuotes(text), at) : renderParagraph(text, at, prefix).replace(` data-p="${at}"`, '')
+  const name = chapterName(chapter.title, position.label)
+  const headingTag = bookPage ? 'h2' : 'h1'
+  const view = 'modern'
+  const switchDesk = original ? viewSwitchHtml('desk', view) : ''
+  const switchPhone = original ? viewSwitchHtml('phone', view) : ''
+  const pageJsonLd = bookPage
+    ? {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Book', '@id': `${CHAPTER_PAGE_ORIGIN}/read/${book.id}#book`, name: book.title, author: { '@type': 'Person', name: book.author },
+            url: canonical, inLanguage: 'en', isAccessibleForFree: true, description,
+          },
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Library', item: `${CHAPTER_PAGE_ORIGIN}/read/` },
+              { '@type': 'ListItem', position: 2, name: book.title, item: canonical },
+            ],
+          },
         ],
-      },
-    ],
-  }
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'WebPage', '@id': `${canonical}#page`, url: canonical, name: title.replace(/ \| Tinct$/, ''), description, inLanguage: 'en',
+            isPartOf: { '@type': 'Book', '@id': `${CHAPTER_PAGE_ORIGIN}/read/${book.id}#book`, name: book.title, author: { '@type': 'Person', name: book.author }, url: `${CHAPTER_PAGE_ORIGIN}/read/${book.id}` },
+            isAccessibleForFree: true,
+          },
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Library', item: `${CHAPTER_PAGE_ORIGIN}/read/` },
+              { '@type': 'ListItem', position: 2, name: book.title, item: `${CHAPTER_PAGE_ORIGIN}/read/${book.id}` },
+              { '@type': 'ListItem', position: 3, name: position.label, item: `${CHAPTER_PAGE_ORIGIN}${chapterPagePath(book.id, chapter.number)}` },
+            ],
+          },
+        ],
+      }
+  const bookHead = bookPage ? `<header class="book-head">
+<h1 class="book-head-title">${escapeHtml(book.title)}</h1>
+<p class="book-head-author">${escapeHtml(book.author)}</p>
+<p class="book-head-facts"><span class="book-structure" id="book-structure">${escapeHtml(bookPage.structure.pill)}</span><a href="#chapters" data-scene-keep>All ${chapters.length === 1 ? 'chapters' : `${chapters.length} chapters`}</a></p>
+<a class="book-resume" href="${path}" data-place-resume hidden></a>
+</header>` : ''
+  const chapterList = bookPage ? `<section class="book-chapters" id="chapters" aria-labelledby="chapters-title">
+<h2 id="chapters-title">Chapters</h2>
+<ol>
+${chapters.map(item => `<li><a href="${pathOf(item.number)}" data-scene-keep>${escapeHtml(stripUnderscoreEmphasis(item.title).text)}</a></li>`).join('\n')}
+</ol>
+</section>` : ''
   const html = `<!doctype html>
 <html lang="en" class="tinct-scene tinct-chapter" data-theme="light">
 <head>
@@ -270,9 +321,9 @@ export function renderChapterPage(input: {
   <meta property="og:title" content="${escapeHtml(title.replace(/ \| Tinct$/, ''))}">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${escapeHtml(canonical)}">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="${bookPage ? 'book' : 'article'}">
   <meta property="og:site_name" content="Tinct">
-  <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>
+  <script type="application/ld+json">${JSON.stringify(pageJsonLd).replace(/</g, '\\u003c')}</script>
   <!--/tinct:seo-->
   <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   ${READER_CSS_PLACEHOLDER}
@@ -281,15 +332,16 @@ export function renderChapterPage(input: {
 </head>
 <body>
 <div id="root">
-<div class="lab is-desktop" lang="en" data-scene-page="true" data-chapter-page="true" data-shared-reader="true" data-continuous-reader="true" data-theme="light" data-lab-layout="desktop" data-reader-controls="desktop" data-chrome-version="v2" data-book-id="${book.id}" data-chapter="${chapter.number}" data-reader-edition="${SCENE_HANDOFF_EDITION}" data-scene-title="${escapeHtml(chapter.title)}" data-scene-paragraphs="${chapter.paragraphs.length}" style="${READER_ROOT_STYLE}">
+<div class="lab is-desktop" lang="en" data-scene-page="true" data-chapter-page="true"${bookPage ? ' data-book-page="true"' : ''} data-shared-reader="true" data-continuous-reader="true" data-theme="light" data-lab-layout="desktop" data-reader-controls="desktop" data-chrome-version="v2" data-book-id="${book.id}" data-chapter="${chapter.number}" data-chapter-label="${escapeHtml(positionLabel(chapter))}" data-view="${view}" data-default-view="${view}" data-reader-edition="${SCENE_HANDOFF_EDITION}" data-scene-title="${escapeHtml(chapter.title)}" data-scene-paragraphs="${chapter.paragraphs.length}" style="${READER_ROOT_STYLE}">
 <script src="${sceneAssetPlaceholder('scene-layout.js')}"></script>
-${restingHeader(headerHtml(book, chapter))}
+${restingHeader(headerHtml(book, chapter, { labelHtml: positionHtml(position.label, position.of), switchHtml: switchDesk }))}
 <div class="lab-body"><div class="lab-page-wrap">
 ${renderChapterMinimap(chapters, chapter.number)}
 <div class="continuous-reader">
 <div class="continuous-reader-paper"><div class="continuous-reader-window">
 <article class="lab-passage lab-book is-reading is-compare is-aligned-compare" data-scene-text="true">
-<header class="lab-passage-header"><h1 class="lab-passage-headline">${escapeHtml(stripUnderscoreEmphasis(chapter.title).text)}</h1></header>
+${bookHead}
+<header class="lab-passage-header"><${headingTag} class="lab-passage-headline">${positionHtml(position.label, position.of)}</${headingTag}>${name ? `<p class="chapter-name">${escapeHtml(name)}</p>` : ''}${switchPhone}</header>
 <div class="lab-hearing-stage chapter-pairs" data-scene-modern="true">
 <div class="chapter-col chapter-col-modern">
 <p class="chapter-col-head">${escapeHtml(input.modernLabel)}</p>
@@ -300,9 +352,11 @@ ${original ? `<div class="chapter-col chapter-col-original" lang="${input.origin
 ${original.paragraphs.map((text, at) => paragraph(text, at, 'orig-p-', 'is-original')).join('\n')}
 </div>` : ''}
 </div>
+${next ? `<div class="chapter-continue"><a class="chapter-continue-link" href="${pathOf(next.number)}" rel="next" data-scene-keep>Continue reading: ${escapeHtml(positionLabel(next))} <span aria-hidden="true">→</span></a><p class="chapter-saved" data-place-note hidden>Your place is saved on this device. No account needed.</p></div>` : ''}
 <section class="lab-chapter-end" aria-label="End of the chapter"><div class="lab-chapter-end-actions">${act('Recap', reader('recap', lastParagraph), 'recap', 'lab-chapter-recap')}${act('Quiz me', reader('quiz'), 'quiz', 'lab-chapter-recap')}</div></section>
 <nav class="scene-turns" aria-label="Chapters">${turn(previous, 'prev')}<a class="scene-contents" href="/read/${book.id}#chapters" data-scene-keep>Contents</a>${turn(next, 'next')}</nav>
 ${note ? `<p class="chapter-note">${note}</p>` : ''}
+${chapterList}
 </article>
 </div></div>
 <aside class="scene-margin" aria-label="Margin"><section class="source-margin-item is-open is-actions is-hint"><div class="source-margin-content">
@@ -323,7 +377,10 @@ ${askField('Ask about this chapter', 'scene-dock', 'Ask about this chapter')}
   return { bookId: book.id, chapterNumber: chapter.number, label, title, html }
 }
 
-/** Every chapter page of a book, in edition order. */
+/**
+ * Every chapter page of a book, in edition order; with `bookPage`, the book page too (chapterNumber 0: the build
+ * writes it ahead of chapter 1 in the book's first pack).
+ */
 export function renderChapterPages(input: {
   book: Book
   modern: Edition
@@ -331,20 +388,27 @@ export function renderChapterPages(input: {
   originalKey: string | null
   note: string | null
   indexable: boolean
+  bookPage?: boolean
 }): ChapterPage[] {
   const { book, modern } = input
   const originals = new Map((input.original?.chapters ?? []).map(chapter => [chapter.number, chapter]))
   const labels = chapterLabels(modern.chapters)
+  const positions = chapterPositions(labels)
   const originalLang = input.originalKey?.split('-').pop() || 'en'
-  return modern.chapters.map(chapter => renderChapterPage({
+  const render = (chapter: EditionChapter, bookPage: BookPageFrame | null) => renderChapterPage({
     book: { id: book.id, title: book.title, author: book.author },
-    chapters: modern.chapters, labels, chapterNumber: chapter.number,
+    chapters: modern.chapters, labels, positions, chapterNumber: chapter.number,
     original: originals.get(chapter.number) ?? null,
     originalLabel: input.originalKey ? editionLabel(book, input.originalKey) : null,
     originalLang,
     modernLabel: editionLabel(book, 'modern-en'),
-    note: input.note, indexable: input.indexable,
-  }))
+    // The book page stays indexable for every book, as /read/{bookId} always was; the allowlist decides the chapters.
+    note: input.note, indexable: input.indexable || !!bookPage, bookPage,
+  })
+  const pages = modern.chapters.map(chapter => render(chapter, null))
+  if (!input.bookPage || !modern.chapters.length) return pages
+  const front = render(modern.chapters[0], { structure: structureFacts(labels.values()), source: editionSource(book) })
+  return [{ ...front, chapterNumber: 0 }, ...pages]
 }
 
 // ===== Shelf hubs =====
@@ -403,6 +467,7 @@ export function renderShelfHubs(input: {
     .hub-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px max(20px, 2.5vw); }
     .hub-top a { color: var(--tui-ink); text-decoration: none; font-size: var(--tui-text-ui); }
     .hub-top .hub-logo { font-family: var(--tui-font-serif); font-size: 30px; letter-spacing: -1.5px; }
+    .hub-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 20px; }
     main { max-width: 1180px; margin: 0 auto; padding: 24px max(20px, 2.5vw) 80px; }
     /* Two families on the screen: the books' serif (title and book titles) and the system face for the links. */
     h1 { margin: 0 0 32px; font: 500 var(--tui-text-3xl)/1.1 var(--tui-font-serif); letter-spacing: -.01em; }
@@ -415,7 +480,7 @@ export function renderShelfHubs(input: {
   </style>
 </head>
 <body>
-<nav class="hub-top"><a class="hub-logo" href="/">tinct</a><a href="/read/">Library</a></nav>
+<nav class="hub-top"><a class="hub-logo" href="/">tinct</a><span class="hub-links"><a href="/modern-english">Every classic in modern English</a><a href="/read/">Library</a></span></nav>
 <main>
 <h1>${escapeHtml(heading)}</h1>
 <ul class="hub-books">
@@ -428,4 +493,98 @@ ${items}
     hubs.push({ shelfId, heading, indexable, bookIds: books.map(book => book.id), html })
   }
   return hubs
+}
+
+// ===== /modern-english =====
+
+export const MODERN_ENGLISH_PATH = '/modern-english'
+export const MODERN_ENGLISH_TITLE = 'Classics in modern English, free to read | Tinct'
+export const MODERN_ENGLISH_HEADING = 'Every classic in modern English'
+/**
+ * The edition note for many books at once: Anders's note with "{translator}'s public-domain translation" and
+ * "{author}'s original text" folded into one phrase. New wording, proposed to Anders in the PR (19 Nov 2026).
+ */
+export const MODERN_ENGLISH_NOTE = "<strong>How these editions are made.</strong> Tinct's modern English is drafted with AI from each book's public-domain translation or original text, then checked by a separate AI review against it. The original is one tap away, and if you spot a mistake, tell us."
+
+/**
+ * `/modern-english` (docs/seo-brief-2026-11-19.md §6): every book with a Modern English edition, grouped by the
+ * library's shelves (each book once, under its first shelf), with cover, title, author and a link to its book page;
+ * the edition note once. Nothing else written.
+ */
+export function renderModernEnglishHub(input: {
+  books: ReadonlyArray<Pick<Book, 'id' | 'title' | 'author'> & { cover: string | null }>
+}): { html: string; bookIds: string[] } {
+  const byId = new Map(input.books.map(book => [book.id, book]))
+  const order = LIBRARY_HOUSES.flatMap(house => house.shelves)
+  const shelfIds = [...order, ...Object.keys(LIBRARY_SHELVES).filter(id => !order.includes(id))]
+  const placed = new Set<string>()
+  const groups: Array<{ title: string; books: typeof input.books[number][] }> = []
+  for (const shelfId of shelfIds) {
+    const shelf = LIBRARY_SHELVES[shelfId]
+    if (!shelf) continue
+    const books = LIBRARY_BOOK_META.filter(meta => meta.shelves.includes(shelfId) && byId.has(meta.id) && !placed.has(meta.id)).map(meta => byId.get(meta.id)!)
+    if (!books.length) continue
+    for (const book of books) placed.add(book.id)
+    groups.push({ title: shelf.title, books })
+  }
+  const rest = input.books.filter(book => !placed.has(book.id))
+  if (rest.length) groups.push({ title: 'More books', books: rest })
+  const canonical = `${CHAPTER_PAGE_ORIGIN}${MODERN_ENGLISH_PATH}`
+  const bookIds = groups.flatMap(group => group.books.map(book => book.id))
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${canonical}#page`, url: canonical, name: MODERN_ENGLISH_HEADING,
+    hasPart: groups.flatMap(group => group.books.map(book => ({ '@type': 'Book', name: book.title, author: { '@type': 'Person', name: book.author }, url: `${CHAPTER_PAGE_ORIGIN}/read/${book.id}` }))),
+  }
+  const section = (group: typeof groups[number]) => `<section>
+<h2>${escapeHtml(group.title)}</h2>
+<ul class="hub-books">
+${group.books.map(book => `<li><a href="/read/${book.id}">${book.cover ? `<img src="${escapeHtml(book.cover)}" alt="" width="180" height="270" loading="lazy" decoding="async">` : '<span class="hub-cover-blank" aria-hidden="true"></span>'}<span class="tui-book-title">${escapeHtml(book.title)}</span><span class="hub-author">${escapeHtml(book.author)}</span></a></li>`).join('\n')}
+</ul>
+</section>`
+  const html = `<!doctype html>
+<html lang="en" data-tui-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--tinct:seo-->
+  <title>${escapeHtml(MODERN_ENGLISH_TITLE)}</title>
+  <link rel="canonical" href="${escapeHtml(canonical)}">
+  <meta property="og:title" content="${escapeHtml(MODERN_ENGLISH_HEADING)}">
+  <meta property="og:url" content="${escapeHtml(canonical)}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tinct">
+  <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>
+  <!--/tinct:seo-->
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
+  <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel10">
+  <style>
+    html, body { margin: 0; background: var(--tui-paper); color: var(--tui-ink); }
+    body { font-family: var(--tui-font-ui); -webkit-font-smoothing: antialiased; }
+    .hub-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px max(20px, 2.5vw); }
+    .hub-top a { color: var(--tui-ink); text-decoration: none; font-size: var(--tui-text-ui); }
+    .hub-top .hub-logo { font-family: var(--tui-font-serif); font-size: 30px; letter-spacing: -1.5px; }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px max(20px, 2.5vw) 80px; }
+    h1 { margin: 0 0 16px; font: 500 var(--tui-text-3xl)/1.1 var(--tui-font-serif); letter-spacing: -.01em; }
+    .hub-note { max-width: 46rem; margin: 0 0 40px; color: var(--tui-ink-muted, var(--tui-ink)); font-size: var(--tui-text-ui); line-height: 1.5; }
+    h2 { margin: 48px 0 20px; font: 500 var(--tui-text-xl, 24px)/1.2 var(--tui-font-serif); }
+    .hub-books { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 32px 24px; }
+    .hub-books a { display: grid; gap: 6px; color: var(--tui-ink); text-decoration: none; }
+    .hub-books img, .hub-cover-blank { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; border-radius: 2px; box-shadow: var(--tui-shadow-sm); background: var(--tui-surface-2); margin-bottom: 4px; }
+    .hub-books .tui-book-title { font-size: var(--tui-text-body); line-height: 1.25; }
+    .hub-books .hub-author { font-size: var(--tui-text-ui); opacity: .7; }
+    .hub-books a:hover .tui-book-title, .hub-books a:focus-visible .tui-book-title { text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 520px) { .hub-books { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; } }
+  </style>
+</head>
+<body>
+<nav class="hub-top"><a class="hub-logo" href="/">tinct</a><a href="/read/">Library</a></nav>
+<main>
+<h1>${escapeHtml(MODERN_ENGLISH_HEADING)}</h1>
+<p class="hub-note">${MODERN_ENGLISH_NOTE}</p>
+${groups.map(section).join('\n')}
+</main>
+</body>
+</html>
+`
+  return { html, bookIds }
 }

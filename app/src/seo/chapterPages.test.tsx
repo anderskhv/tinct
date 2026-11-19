@@ -7,9 +7,11 @@ import notes from '../data/editionNotes.generated.json'
 import { SEO_INDEX_ALLOWLIST } from '../data/seoIndexAllowlist'
 import { editionNoteText, editionSource } from '../data/editionSources'
 import {
-  chapterDescription, chapterLabels, chapterOwnLabel, chapterPagePlans, chapterPageTitle, renderChapterPages, renderShelfHubs,
+  chapterLabels, chapterOwnLabel, chapterPagePlans, chapterPageTitle, renderChapterPages, renderShelfHubs,
 } from './chapterPages'
 import { paragraphPlainText } from './scenePages'
+import { curlyQuotes } from './bookStructure'
+import { JSDOM } from 'jsdom'
 
 const edition = (id: string, key: string) => JSON.parse(readFileSync(`public/data/editions/${id}-${key}.json`, 'utf8'))
 const book = (id: string) => BOOKS.find(entry => entry.id === id)!
@@ -35,7 +37,8 @@ describe('which books get chapter pages', () => {
   })
 
   it('indexes only the allowlist, and only a book whose source the registry names', () => {
-    expect(SEO_INDEX_ALLOWLIST).toHaveLength(15)
+    // Wave 2 (Anders, 19 Nov 2026): the Odyssey, the Oresteia, the Histories and Beowulf.
+    expect(SEO_INDEX_ALLOWLIST).toHaveLength(19)
     const indexable = plans.filter(plan => plan.indexable).map(plan => plan.book.id).sort()
     expect(indexable).toEqual(SEO_INDEX_ALLOWLIST.filter(id => id !== 'ivan-ilyich').slice().sort())
     // The Maudes' Ivan Ilyich has no year in the registry: its source is unknown, so it cannot be indexed.
@@ -54,12 +57,12 @@ describe('which books get chapter pages', () => {
 
 describe('the edition note', () => {
   it('uses Anders\'s exact wording, filled from the registry', () => {
-    expect(editionNoteText(editionSource(book('crime-and-punishment'))!)).toBe("Tinct's modern English is drafted with AI from Constance Garnett's public-domain translation (1914), then checked by a separate AI review against that translation. The original is always beside it, and if you spot a mistake, tell us.")
-    expect(editionNoteText(editionSource(book('moby-dick'))!)).toBe("Tinct's modern English is drafted with AI from Herman Melville's original text, then checked by a separate AI review against it. The original is always beside it, and if you spot a mistake, tell us.")
-    expect((notes.books as Record<string, string>)['moby-dick']).toBe("<strong>How this edition was made.</strong> Tinct's modern English is drafted with AI from Herman Melville's original text, then checked by a separate AI review against it. The original is always beside it, and if you spot a mistake, tell us.")
+    expect(editionNoteText(editionSource(book('crime-and-punishment'))!)).toBe("Tinct's modern English is drafted with AI from Constance Garnett's public-domain translation (1914), then checked by a separate AI review against that translation. The original is one tap away, and if you spot a mistake, tell us.")
+    expect(editionNoteText(editionSource(book('moby-dick'))!)).toBe("Tinct's modern English is drafted with AI from Herman Melville's original text, then checked by a separate AI review against it. The original is one tap away, and if you spot a mistake, tell us.")
+    expect((notes.books as Record<string, string>)['moby-dick']).toBe("<strong>How this edition was made.</strong> Tinct's modern English is drafted with AI from Herman Melville's original text, then checked by a separate AI review against it. The original is one tap away, and if you spot a mistake, tell us.")
     // Every note is one of the two sentences with only the registry's values filled in.
-    const translated = /^<strong>How this edition was made\.<\/strong> Tinct's modern English is drafted with AI from (.+)'s public-domain translation \((\d{3,4})\), then checked by a separate AI review against that translation\. The original is always beside it, and if you spot a mistake, tell us\.$/
-    const english = /^<strong>How this edition was made\.<\/strong> Tinct's modern English is drafted with AI from (.+)'s original text, then checked by a separate AI review against it\. The original is always beside it, and if you spot a mistake, tell us\.$/
+    const translated = /^<strong>How this edition was made\.<\/strong> Tinct's modern English is drafted with AI from (.+)'s public-domain translation \((\d{3,4})\), then checked by a separate AI review against that translation\. The original is one tap away, and if you spot a mistake, tell us\.$/
+    const english = /^<strong>How this edition was made\.<\/strong> Tinct's modern English is drafted with AI from (.+)'s original text, then checked by a separate AI review against it\. The original is one tap away, and if you spot a mistake, tell us\.$/
     for (const [id, note] of Object.entries(notes.books as Record<string, string>)) {
       const source = editionSource(book(id))!
       const match = note.match(source.kind === 'translation' ? translated : english)
@@ -98,30 +101,29 @@ describe('chapter titles', () => {
     expect(chapterLabels(edition('moby-dick', 'modern-en').chapters).get(136)).toBe('Epilogue')
     // Anna Karenina numbers its chapters within each part: "Chapter 19" twice.
     expect(chapterLabels(edition('anna-karenina', 'modern-en').chapters).get(239)).toBe('Chapter 239')
-    expect(chapterPageTitle({ id: 'war-and-peace', title: 'War and Peace', author: 'Leo Tolstoy' }, 'Book One (1805), Chapter 1')).toBe('War and Peace, Book One (1805), Chapter 1 in modern English | Tinct')
-  })
-
-  it('describes a chapter with its own opening words, no written summary', () => {
-    const text = chapterDescription(edition('moby-dick', 'modern-en').chapters[0].paragraphs)
-    expect(text.startsWith('Call me Ishmael.')).toBe(true)
-    expect(text.length).toBeLessThanOrEqual(155)
+    expect(chapterPageTitle({ id: 'war-and-peace', title: 'War and Peace', author: 'Leo Tolstoy' }, 'Book One (1805), Chapter 1')).toBe('War and Peace, Book One (1805), Chapter 1: full text in modern English | Tinct')
+    expect(chapterPageTitle({ id: 'jane-eyre', title: 'Jane Eyre', author: 'Charlotte Brontë' }, 'Chapter 26', 38)).toBe('Jane Eyre, Chapter 26 of 38: full text in modern English | Tinct')
   })
 })
 
 describe('a chapter page', () => {
   const moby = renderChapterPages({ book: book('moby-dick'), modern: edition('moby-dick', 'modern-en'), original: edition('moby-dick', 'original-en'), originalKey: 'original-en', note: (notes.books as Record<string, string>)['moby-dick'], indexable: true })
-  const odyssey = renderChapterPages({ book: book('odyssey'), modern: edition('odyssey', 'modern-en'), original: edition('odyssey', 'original-en'), originalKey: 'original-en', note: null, indexable: false })
+  const artOfWar = renderChapterPages({ book: book('the-art-of-war'), modern: edition('the-art-of-war', 'modern-en'), original: edition('the-art-of-war', 'original-en'), originalKey: 'original-en', note: null, indexable: false })
 
-  it('is the whole chapter in both versions as HTML, self-canonical, indexable', () => {
+  // Since 19 Nov 2026 (docs/seo-brief-2026-11-19.md): "of N" titles, the first chapter's canonical is the book page,
+  // curly quotes in the Modern English, Modern English alone by default with the original in the HTML behind a switch.
+  it('is the whole chapter in both versions as HTML, indexable, the first chapter pointing at the book page', () => {
     const page = moby[0].html
     expect(moby).toHaveLength(136)
-    expect(page).toContain('<title>Moby Dick, Chapter 1 in modern English | Tinct</title>')
-    expect(page).toContain('<link rel="canonical" href="https://tinct.app/read/moby-dick/chapter-1">')
+    expect(page).toContain('<title>Moby Dick, Chapter 1 of 135: full text in modern English | Tinct</title>')
+    expect(page).toContain('<link rel="canonical" href="https://tinct.app/read/moby-dick">')
+    expect(moby[1].html).toContain('<link rel="canonical" href="https://tinct.app/read/moby-dick/chapter-2">')
+    expect(page).toContain('data-view="modern"')
     expect(page).not.toMatch(/name="robots"/)
     const modern = edition('moby-dick', 'modern-en').chapters[0].paragraphs as string[]
     const original = edition('moby-dick', 'original-en').chapters[0].paragraphs as string[]
     const text = page.replace(/<[^>]+>/g, '').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&')
-    for (const paragraph of [...modern, ...original]) expect(text).toContain(paragraphPlainText(paragraph).slice(0, 80))
+    for (const paragraph of [...modern.map(curlyQuotes), ...original]) expect(text).toContain(paragraphPlainText(paragraph).slice(0, 80))
     expect(page).toContain('<p class="chapter-col-head">Modern English</p>')
     expect(page).toContain('<p class="chapter-col-head" lang="en">Original (1851)</p>')
     expect(page).toContain("How this edition was made.</strong> Tinct's modern English is drafted with AI from Herman Melville's original text")
@@ -137,7 +139,10 @@ describe('a chapter page', () => {
 
   it('navigates previous, next and contents, and hands over to the reader with Primer, Recap and the ask field', () => {
     const page = moby[1].html
-    expect(page).toContain('<a href="/read/moby-dick/chapter-1" rel="prev" data-scene-keep>← Chapter 1</a>')
+    expect(page).toContain('<a href="/read/moby-dick" rel="prev" data-scene-keep>← Chapter 1</a>')
+    expect(page).toContain('<a class="chapter-continue-link" href="/read/moby-dick/chapter-3" rel="next" data-scene-keep>Continue reading: Chapter 3 of 135 <span aria-hidden="true">→</span></a>')
+    expect(page).toContain('<p class="chapter-saved" data-place-note hidden>Your place is saved on this device. No account needed.</p>')
+    expect(page.indexOf('class="chapter-continue"')).toBeLessThan(page.indexOf('class="lab-chapter-end"'))
     expect(page).toContain('<a href="/read/moby-dick/chapter-3" rel="next" data-scene-keep>Chapter 3 →</a>')
     expect(page).toContain('<a class="scene-contents" href="/read/moby-dick#chapters" data-scene-keep>Contents</a>')
     expect(page).toContain('href="/reader?book=moby-dick&amp;chapter=2&amp;edition=modern-en#scene=primer" data-scene-action="primer"')
@@ -148,9 +153,9 @@ describe('a chapter page', () => {
   })
 
   it('is noindex, follow for a book not on the allowlist, and has no note when the source is unknown', () => {
-    expect(odyssey[0].html).toContain('<meta name="robots" content="noindex, follow">')
-    expect(odyssey[0].html).toContain('<link rel="canonical" href="https://tinct.app/read/odyssey/chapter-1">')
-    expect(odyssey[0].html).not.toContain('How this edition was made.')
+    expect(artOfWar[1].html).toContain('<meta name="robots" content="noindex, follow">')
+    expect(artOfWar[1].html).toContain('<link rel="canonical" href="https://tinct.app/read/the-art-of-war/chapter-2">')
+    expect(artOfWar[1].html).not.toContain('How this edition was made.')
   })
 })
 
@@ -171,7 +176,8 @@ describe('shelf hubs', () => {
     expect(russians.heading).toBe('The Russians in modern English')
     expect(russians.bookIds).toEqual(['crime-and-punishment', 'master-and-margarita'])
     const body = russians.html.slice(russians.html.indexOf('<body>'))
-    expect(body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).toBe('tinct Library The Russians in modern English Crime and Punishment The Master and Margarita')
+    // Every shelf hub links /modern-english (docs/seo-brief-2026-11-19.md §6).
+    expect(body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).toBe('tinct Every classic in modern English Library The Russians in modern English Crime and Punishment The Master and Margarita')
     expect(body).toContain('<a href="/read/crime-and-punishment"><img src="/covers/v2/crime-and-punishment.webp"')
     expect(russians.html).not.toContain('name="description"')
   })
@@ -183,5 +189,43 @@ describe('shelf hubs', () => {
     expect(hub('stoics').html).toContain('<meta name="robots" content="noindex, follow">')
     // "in modern English" only when every book listed has it.
     expect(hub('critical-rationalism').heading).toBe('Critical Rationalism')
+  })
+})
+
+describe('the book page', () => {
+  const pages = renderChapterPages({ book: book('jane-eyre'), modern: edition('jane-eyre', 'modern-en'), original: edition('jane-eyre', 'original-en'), originalKey: 'original-en', note: (notes.books as Record<string, string>)['jane-eyre'], indexable: true, bookPage: true })
+  const doc = new JSDOM(pages[0].html).window.document
+
+  it('is the first chapter under the book\'s header, with the plain chapter list below (docs/seo-brief-2026-11-19.md §1, §3, §4)', () => {
+    expect(pages[0].chapterNumber).toBe(0)
+    expect(pages).toHaveLength(39)
+    expect(doc.title).toBe('Read Jane Eyre online free, in modern English | Tinct')
+    expect(doc.querySelector('meta[name="description"]')!.getAttribute('content')).toBe("Jane Eyre has 38 chapters. Read the full text free online in modern English beside Charlotte Brontë's original. No sign-up, no ads.")
+    expect(doc.querySelector('link[rel="canonical"]')!.getAttribute('href')).toBe('https://tinct.app/read/jane-eyre')
+    expect(doc.querySelector('h1')!.textContent).toBe('Jane Eyre')
+    expect(doc.querySelector('.book-head-author')!.textContent).toBe('Charlotte Brontë')
+    expect(doc.querySelector('#book-structure')!.textContent).toBe('38 chapters')
+    expect(doc.querySelector('h2.lab-passage-headline')!.textContent).toBe('Chapter 1 of 38')
+    expect(doc.querySelectorAll('.chapter-col-modern p[data-p]').length).toBe(edition('jane-eyre', 'modern-en').chapters[0].paragraphs.length)
+    expect(doc.querySelectorAll('.chapter-col-original p[id^="orig-p-"]').length).toBe(edition('jane-eyre', 'original-en').chapters[0].paragraphs.length)
+    const list = [...doc.querySelectorAll('#chapters ol > li > a')]
+    expect(list).toHaveLength(38)
+    expect(list[0].getAttribute('href')).toBe('/read/jane-eyre')
+    expect(list[25].getAttribute('href')).toBe('/read/jane-eyre/chapter-26')
+  })
+
+  it('puts no prompt before the text and offers the switch on desktop and phone', () => {
+    expect([...doc.querySelectorAll('.chapter-view-switch.is-desk button')].map(b => `${b.textContent}:${b.getAttribute('aria-pressed')}`)).toEqual(['Original:false', 'Modern:true', 'Both:false'])
+    expect([...doc.querySelectorAll('.chapter-view-switch.is-phone button')].map(b => b.textContent)).toEqual(['Modern English', 'Original'])
+    expect(doc.querySelector('.lab-header-controls')!.firstElementChild!.classList.contains('chapter-view-switch')).toBe(true)
+    expect(pages[0].html).not.toMatch(/reading angle|sign up|onboarding/i)
+  })
+
+  it('counts chapter 26 of 38', () => {
+    const page = new JSDOM(pages[26].html).window.document
+    expect(page.title).toBe('Jane Eyre, Chapter 26 of 38: full text in modern English | Tinct')
+    expect(page.querySelector('h1')!.textContent).toBe('Chapter 26 of 38')
+    expect(page.querySelector('.lab-header-chapter-label')!.textContent).toBe('Chapter 26 of 38')
+    expect(page.querySelector('meta[name="description"]')!.getAttribute('content')).toBe('Read Chapter 26 of Jane Eyre free, in modern English beside the original. No sign-up.')
   })
 })
