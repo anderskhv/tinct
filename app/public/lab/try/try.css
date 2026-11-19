@@ -178,8 +178,9 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-stage { display: block; padding: 0 16px; }
   .try-step {
     display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: center;
-    padding: 8px 8px 8px 14px; margin-bottom: 10px; border-radius: 14px;
-    background: rgba(244, 239, 228, .07); border: 1px solid var(--try-line-on-dark);
+    padding: 0 0 0 2px; margin-bottom: 12px;
+    /* No box (Anders, 19 Nov): the step is a plain row over the scene. */
+    background: none; border: 0;
   }
   .try-count { grid-column: 1; margin: 0 0 4px; }
   .try-count [data-try-count] { display: none; }
