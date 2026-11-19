@@ -26,7 +26,7 @@
     ['10', 3, 3600],
   ]
   // Bump when the frames are re-captured, so browsers fetch the new ones.
-  var FRAMES_V = '20261119c'
+  var FRAMES_V = '20261119d'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -68,21 +68,20 @@
     ['On the go?', 'Listen.'],
     ['Short on time?', 'Get the gist.'],
   ]
-  // The camera moves inside the phone's screen, never the phone. It follows the frame: the drag and the wave wide,
-  // the Explain and Summary cards brought up from the bottom of the screen, Listen leaning in on the marked word.
+  // The camera, like the film: it shows the whole phone, then zooms in on what matters (the passage being chosen, the
+  // card, the word being read) and back out for the wave. The phone's left edge stays put, so it never runs under
+  // the caption; the zoom spills off the right of the screen. Focus: how far down the frame to look, and how close.
+  var FOCUS = { '01': null, '02': [0.2, 1.4], '04': [0.86, 1.35], '08': null, '10': [0.86, 1.35] }
+  var LISTEN_FOCUS = [0.2, 1.4]
   function frameCamera(file) {
-    var transform = 'none', origin = '50% 0'
-    if (file === '04' || file === '10') {
-      var pic = pictures[index]
-      var shift = pic ? Math.min(0, demo.clientHeight - pic.offsetTop - pic.offsetHeight) : 0
-      transform = 'translateY(' + shift + 'px)'
-      origin = '50% 100%'
-    } else if (Number(file) >= 11) {
-      transform = 'scale(1.1)'
-      origin = '20% 30%'
-    }
-    demo.style.setProperty('--try-camera', transform)
-    demo.style.setProperty('--try-origin', origin)
+    var focus = file in FOCUS ? FOCUS[file] : LISTEN_FOCUS
+    if (!focus) { demo.style.setProperty('--try-camera', 'none'); return }
+    var stage = demo.parentNode, scale = focus[1], top = demo.offsetTop, height = demo.offsetHeight
+    var y = 22 + focus[0] * (height - 22)
+    // Bring the focus to the middle of the stage, but never leave a gap above or below the phone's screen.
+    var ty = stage.clientHeight / 2 - top - scale * y
+    ty = Math.min(-top, Math.max(stage.clientHeight - top - scale * height, ty))
+    demo.style.setProperty('--try-camera', 'translateY(' + Math.round(ty) + 'px) scale(' + scale + ')')
   }
   var caption = document.createElement('p')
   caption.className = 'try-caption'
@@ -94,7 +93,7 @@
     captionStep = step
     caption.classList.remove('is-on')
     later(function () {
-      caption.innerHTML = CAPTIONS[step][0] + ' <em>' + CAPTIONS[step][1] + '</em>'
+      caption.innerHTML = '<span>' + CAPTIONS[step][0] + ' <em>' + CAPTIONS[step][1] + '</em></span>'
       caption.classList.add('is-on')
     }, caption.innerHTML ? 260 : 0)
   }

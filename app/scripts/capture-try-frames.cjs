@@ -28,9 +28,9 @@ async function run(kind) {
   const phone = kind === 'phone'
   const params = new URLSearchParams({ book: 'meditations', chapter: '2', edition: 'original-en', demo: 'try', layout: phone ? 'phone' : 'desktop' })
   if (!phone) params.set('view', 'margin')
-  // The phone frame is wider than the page shows it, so the reader's chrome (the selection menu) reads at its real size
-  // on a phone, not enlarged (Anders, 19 Nov).
-  const size = phone ? 'width:430px;height:520px' : 'width:1056px;height:611px'
+  // The phone frame is a phone's own screen (390 wide, tall), so the page can show it in a real phone shape and zoom in
+  // on it like the launch film (Anders, 19 Nov).
+  const size = phone ? 'width:390px;height:760px' : 'width:1056px;height:611px'
   await page.route(ORIGIN + '/try', route => route.fulfill({ contentType: 'text/html', body:
     `<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="margin:0;padding:16px;background:#ece7db">` +
     `<iframe data-try-frame src="/reader?${params}" style="${size};border:0;display:block"></iframe>` }))
