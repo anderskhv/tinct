@@ -23,6 +23,10 @@ English is the strategy. Danish is optional, not a launch, QA or marketing requi
 
 Deploy-after-verify (until Tinct has more than 10 users): build, verify-bundle, merge to `main`, and let the GitHub Actions deploy workflow release it. Do not ask first unless Anders said local-only. Details and the completion checklist are in `AGENTS.md`.
 
+## Marketing
+
+In any marketing, SEO, ads or growth conversation, read `docs/cmo-memory.md` first and update it before the conversation ends.
+
 ## Data and privacy
 
 - Anders's own account data (reading time, profile, stats) may be read at any time as ground truth. Other readers' data needs his approval per `AGENTS.md`. Nothing of his goes into the repo.
