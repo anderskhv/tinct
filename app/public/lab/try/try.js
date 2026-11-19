@@ -46,7 +46,63 @@
     pictures.push(picture)
   })
   // Lazy images in a stack under the first never scroll into view on their own: ask for them once the page is up.
-  window.addEventListener('load', function () { pictures.forEach(function (p) { var img = $('img', p); img.loading = 'eager' }) })
+  window.addEventListener('load', function () { pictures.forEach(function (p) { var img = $('img', p); img.loading = 'eager'; if (img.decode) img.decode().catch(function () {}) }) })
+
+  // ---- The visitor's pointer (Anders, 19 Nov: show the click before each change). Where it goes was recorded when the
+  // frames were captured (scripts/capture-try-frames.cjs writes frames/*-pointer.json), as fractions of the frame. ----
+  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.1059, 0.2422], "selectTo": [0.2497, 0.4082], "explain": [0.2709, 0.5053], "play": [0.7842, 0.0528], "summary": [0.5729, 0.157]}}
+  // What happens on a frame before the next one: a drag that selects, or a press on a button.
+  var ACTIONS = { '01': { drag: ['selectFrom', 'selectTo'] }, '02': { press: 'explain' }, '04': { press: 'modern' }, '08': { press: 'play' }, '24': { press: 'summary' } }
+  var phoneQuery = window.matchMedia('(max-width: 899px)')
+  var layer = document.createElement('div')
+  layer.className = 'try-pointer-layer'
+  layer.setAttribute('aria-hidden', 'true')
+  layer.innerHTML = '<span class="try-pointer"></span><span class="try-scene"></span>'
+  demo.appendChild(layer)
+  var pointer = $('.try-pointer', layer)
+  var scene = $('.try-scene', layer)
+  var actionTimers = []
+  function later(fn, ms) { actionTimers.push(setTimeout(fn, ms)) }
+  function clearActions() { actionTimers.forEach(clearTimeout); actionTimers = []; pointer.className = 'try-pointer' }
+  function place(at, glide) {
+    pointer.style.transition = glide ? 'left ' + glide + 'ms cubic-bezier(.4, 0, .2, 1), top ' + glide + 'ms cubic-bezier(.4, 0, .2, 1), opacity .25s' : 'opacity .25s'
+    pointer.style.left = (at[0] * 100) + '%'
+    pointer.style.top = (at[1] * 100) + '%'
+  }
+  // Plays the frame's action so it ends just as the frame changes; returns how long the frame must stay up for it.
+  function act(frame, duration) {
+    var action = ACTIONS[frame[0]]
+    var marks = POINTER[phoneQuery.matches ? 'phone' : 'desktop']
+    if (!action || reduce) return duration
+    if (action.drag) {
+      var from = marks[action.drag[0]], to = marks[action.drag[1]]
+      if (!from || !to) return duration
+      var total = Math.max(duration, 2600)
+      later(function () { place(from, 0); pointer.className = 'try-pointer is-on' }, 500)
+      later(function () { pointer.className = 'try-pointer is-on is-down' }, 900)
+      later(function () { place(to, 1100) }, 1000)
+      later(function () { pointer.className = 'try-pointer is-on' }, total - 250)
+      return total
+    }
+    var at = marks[action.press]
+    if (!at) return duration
+    var whole = Math.max(duration, 1700)
+    later(function () { if (pointer.className.indexOf('is-on') < 0) { place([at[0] + .08, at[1] + .18], 0) } pointer.className = 'try-pointer is-on' }, whole - 1500)
+    later(function () { place(at, 650) }, whole - 1450)
+    later(function () { pointer.className = 'try-pointer is-on is-down is-press' }, whole - 600)
+    later(function () { pointer.className = 'try-pointer is-on is-press' }, whole - 420)
+    later(function () { pointer.className = 'try-pointer' }, whole + 350)
+    return whole
+  }
+  // A new moment opens with its name over the reader for a beat, so a change of scene reads as one.
+  function announce(step) {
+    if (reduce) return
+    scene.textContent = STEPS[step].title
+    scene.className = 'try-scene'
+    void scene.offsetWidth
+    scene.className = 'try-scene is-on'
+    later(function () { scene.className = 'try-scene' }, phoneQuery.matches ? 1500 : 1200)
+  }
 
   var index = 0
   var timer = null
@@ -70,6 +126,7 @@
       pictures[index].classList.add('is-wave')
       setTimeout(function () { pictures[under].classList.remove('is-under') }, 1600)
     }
+    var newStep = shown < 0 || FRAMES[shown][1] !== FRAMES[index][1]
     shown = index
     var step = FRAMES[index][1]
     $$('[data-try-step]').forEach(function (button) {
@@ -81,18 +138,33 @@
     text('[data-try-title]', STEPS[step].title)
     text('[data-try-upnext]', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
     if (next) next.setAttribute('aria-label', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
+    return newStep
   }
-  function schedule() {
+  // The phone plays slower: a small screen takes longer to read (Anders, 19 Nov: too much, too fast).
+  function pace(ms) { return phoneQuery.matches ? Math.round(ms * (ms > 400 ? 1.45 : 1.15)) : ms }
+  function schedule(opened) {
     clearTimeout(timer)
+    clearActions()
     if (reduce || held || !visible) return
-    timer = setTimeout(function () { index = (index + 1) % FRAMES.length; paint(); schedule() }, FRAMES[index][2])
+    var frame = FRAMES[index]
+    var duration = pace(frame[2]) + (opened ? (phoneQuery.matches ? 1100 : 600) : 0)
+    if (opened) announce(frame[1])
+    duration = act(frame, duration)
+    timer = setTimeout(function () {
+      // Switch only once the next frame is decoded, so a change never flashes an empty reader.
+      var nextIndex = (index + 1) % FRAMES.length
+      var img = $('img', pictures[nextIndex])
+      var go = function () { if (held || !visible) return; index = nextIndex; var fresh = paint(); schedule(fresh) }
+      if (img && img.decode) img.decode().then(go, go)
+      else go()
+    }, duration)
   }
   function show(step) {
     // A step opens on its first frame and plays on; with reduced motion, its last.
     var matches = FRAMES.map(function (frame, i) { return frame[1] === step ? i : -1 }).filter(function (i) { return i >= 0 })
     index = reduce ? matches[matches.length - 1] : matches[0]
     paint()
-    schedule()
+    schedule(true)
   }
 
   $$('[data-try-step]').forEach(function (button) {
@@ -102,9 +174,9 @@
   if (next) next.addEventListener('click', function () { show((FRAMES[index][1] + 1) % STEPS.length) })
   var prev = $('[data-try-prev]')
   if (prev) prev.addEventListener('click', function () { show((FRAMES[index][1] + STEPS.length - 1) % STEPS.length) })
-  demo.addEventListener('mouseenter', function () { held = true; clearTimeout(timer) })
+  demo.addEventListener('mouseenter', function () { held = true; clearTimeout(timer); clearActions() })
   demo.addEventListener('mouseleave', function () { held = false; schedule() })
-  demo.addEventListener('focus', function () { held = true; clearTimeout(timer) })
+  demo.addEventListener('focus', function () { held = true; clearTimeout(timer); clearActions() })
   demo.addEventListener('blur', function () { held = false; schedule() })
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {

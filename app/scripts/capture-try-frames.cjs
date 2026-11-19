@@ -41,6 +41,15 @@ async function run(kind) {
   await word(1).waitFor({ timeout: 45000 })
   await page.waitForTimeout(3000)
   let n = 0
+  // Where the visitor's pointer goes before each change (Anders, 19 Nov: show the click), as fractions of the frame,
+  // written beside the frames for try.js.
+  const marks = {}
+  const mark = async (name, locator, edge) => {
+    const box = await locator.boundingBox(), fr = await frameEl.boundingBox()
+    if (!box || !fr) return
+    const x = edge === 'start' ? box.x + 2 : edge === 'end' ? box.x + box.width - 2 : box.x + box.width / 2
+    marks[name] = [+((x - fr.x) / fr.width).toFixed(4), +((box.y + box.height / 2 - fr.y) / fr.height).toFixed(4)]
+  }
   // Phone: the Explain and Summary cards are shown as a peek, lowered so only their top shows over the page (Anders,
   // 19 Nov: "too big, just hint them"). The card's fixed sheet is moved down and the dimming behind it lifted.
   const PEEK_SHOWN = Number(process.env.PEEK || 140)
@@ -70,6 +79,7 @@ async function run(kind) {
     if (box) box.style.visibility = 'hidden'
   })
   await shot('start')
+  await mark('selectFrom', word(1), 'start'); await mark('selectTo', word(19), 'end')
   // 1. Explain the first sentence (the page's scripted answer: no AI call).
   const a = await word(1).boundingBox(), b = await word(19).boundingBox()
   if (kind === 'phone') {
@@ -82,6 +92,7 @@ async function run(kind) {
     }, [1, 19])
     await page.waitForTimeout(700)
     await shot('selected')
+    await mark('explain', f.getByTestId('lab-pbar-explain'))
     await f.getByTestId('lab-pbar-explain').click()
   } else {
     await page.mouse.move(a.x + 2, a.y + a.height / 2)
@@ -90,6 +101,7 @@ async function run(kind) {
     await page.mouse.up()
     await page.waitForTimeout(700)
     await shot('selected')
+    await mark('explain', f.locator('.selection-popup').getByRole('button', { name: /^Explain/ }).first())
     await f.locator('.selection-popup').getByRole('button', { name: /^Explain/ }).first().click()
   }
   await page.waitForTimeout(1600); await shot('explain-typing')
@@ -105,7 +117,7 @@ async function run(kind) {
   if (kind === 'phone') { await page.keyboard.press('Escape').catch(() => {}); await page.waitForTimeout(800) }
   // 2. Modern (Anders, 19 Nov: the second move, before Listen).
   if (phone) await page.evaluate(() => document.querySelector('[data-try-frame]').contentWindow.postMessage({ source: 'tinct-try-page', cmd: 'edition', kind: 'modern' }, location.origin))
-  else await f.getByTestId('lab-try-editions').locator('button').last().click()
+  else { await mark('modern', f.getByTestId('lab-try-editions').locator('button').last()); await f.getByTestId('lab-try-editions').locator('button').last().click() }
   await page.waitForTimeout(2500)
   const after = await headingTop()
   if (before != null && after != null && Math.abs(after - before) > 1) {
@@ -123,6 +135,7 @@ async function run(kind) {
   await shot('modern', '08')
   // 3. Listen to the modern English (Modern Book 2 is recorded).
   const playBtn = f.locator('[data-testid="lab-v2-play"]').first()
+  await mark('play', playBtn)
   for (let i = 0; i < 3; i++) {
     await playBtn.click()
     try { await f.locator('[data-testid="lab-v2-play"][aria-label="Pause"]').first().waitFor({ timeout: 6000 }); break } catch (e) { console.log(kind, 'play retry', await playBtn.getAttribute('aria-label')) }
@@ -144,10 +157,13 @@ async function run(kind) {
   await page.waitForTimeout(1000)
   n = 8
   // 4. Summary (scripted).
+  await mark('summary', f.locator('[data-testid="margin-start-summary"], [data-testid="lab-unit-summary"]').first())
   await f.locator('[data-testid="margin-start-summary"], [data-testid="lab-unit-summary"]').first().click()
   await page.waitForTimeout(1500); await shot('summary-typing')
   await page.waitForTimeout(3000); await peek(); await shot('summary')
   await browser.close()
+  fs.writeFileSync(`${OUT}${kind}-pointer.json`, JSON.stringify(marks) + '\n')
+  console.log(kind, 'pointer', JSON.stringify(marks))
   for (const file of fs.readdirSync(RAW).filter(f => f.startsWith(kind + '-')).sort()) {
     const number = file.split('-')[1]
     if (!keep(number)) continue
