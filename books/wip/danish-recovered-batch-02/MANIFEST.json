@@ -1,0 +1,844 @@
+{
+  "sourceCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+  "books": [
+    {
+      "bookId": "hamlet",
+      "masterIndex": {
+        "bookId": "hamlet",
+        "danishCandidate": "recovery-worker-a/reconstructed/hamlet/candidate-hamlet-modern-da.json",
+        "englishCandidate": "recovery-worker-a/reconstructed/hamlet/candidate-hamlet-modern-en.json",
+        "folder": "recovery-worker-a/reconstructed/hamlet",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "461151fafaa7e5728ff4ee93cc9483e405a9c6f2fea867a63231afbfddda4779",
+        "localOriginalDanishSha256": "b3a43d96c434119c99db7f907b617a901364bae42789ab8d76da88c769301eea"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-worker-a/reconstructed/hamlet/candidate-hamlet-modern-en.json",
+        "danishCandidate": "recovery-worker-a/reconstructed/hamlet/candidate-hamlet-modern-da.json",
+        "pairedShape": true,
+        "nonemptyDanish": true,
+        "chapters": 20,
+        "paragraphs": 1391,
+        "originalShapeMatchesGateScope": true,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "hamlet original-en -> modern-en  (20 chapters)\n  weighted similarity : 0.442   (gate: <= 0.75)\n  light+mechanical    : 0/20 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/478 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 17  REAL 3  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "hamlet",
+        "guide": "recovery-worker-a/reconstructed/hamlet/candidate-hamlet.da.json",
+        "openingMatchesParagraphPrefix": false,
+        "excerptFoundAfterWhitespaceNormalization": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-worker-a/reconstructed/hamlet/candidate-hamlet-modern-da.json",
+          "sha256": "461151fafaa7e5728ff4ee93cc9483e405a9c6f2fea867a63231afbfddda4779",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-worker-a/reconstructed/hamlet/candidate-hamlet-modern-en.json",
+          "sha256": "1a6bffcb4b53cdc696c959112c6368d4dda098dfb4d9ac555d854f600c36c3d8",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-worker-a/reconstructed/hamlet/candidate-hamlet.da.json",
+          "sha256": "4f8c892321a3bbc25f1c57a8aeb3dc3955949b89d7dcfc1c1ca86ad9fa817cb2",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-worker-a/reconstructed/hamlet/candidate-hamlet.json",
+          "sha256": "20fe031fcf1eb73ea3543f3cbdda099d2e85f491b00d0bd21893410ad5a6529f",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-worker-a/reconstructed/hamlet/source-hamlet-modern-da.json",
+          "sha256": "50f746c0148271659c5b02b23fb6a0b423d1948b297d860665add873db1080f2",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-worker-a/reconstructed/hamlet/source-hamlet-modern-en.json",
+          "sha256": "b614019c3c67574609c87ec566f15bc89e102c767ac9e8f707ceecd15b7e33e6",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-worker-a/reconstructed/hamlet/source-hamlet.da.json",
+          "sha256": "262645087ee12e5dee07e667d5cdb6eb6092230522ed07d9176361c3294cb2d8",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-worker-a/reconstructed/hamlet/source-hamlet.json",
+          "sha256": "2b09f940ba8857186d429b032de9e9e76fc96dd0ee059d79fa52c5117665d989",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-worker-a/reconstructed/hamlet/source-hamlet-original-en.json",
+          "sha256": "ec9767090ed52010c65ac8836a81f2e9258901bad5bb7d48f7f8133c37705709",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "king-lear",
+      "masterIndex": {
+        "bookId": "king-lear",
+        "danishCandidate": "recovery-parallel/king-lear/modern-da.json",
+        "englishCandidate": "recovery-parallel/king-lear/modern-en.json",
+        "folder": "recovery-parallel/king-lear",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "9b7c07f112e4e353e454d92968b8832b243816cdb5cda27fa5b532954420b6a0"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parallel/king-lear/modern-en.json",
+        "danishCandidate": "recovery-parallel/king-lear/modern-da.json",
+        "pairedShape": true,
+        "originalShapeMatches": true,
+        "nonemptyDanish": true,
+        "chapters": 26,
+        "paragraphs": 1371,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "king-lear original-en -> modern-en  (26 chapters)\n  weighted similarity : 0.679   (gate: <= 0.75)\n  light+mechanical    : 0/26 = 0.0%   (gate: <= 5%)\n  identical long paras: 3/489 = 0.6%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 26  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "king-lear",
+        "guide": "recovery-parallel/king-lear/onboarding-da.json",
+        "openingMatchesParagraphPrefix": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/king-lear/modern-da.json",
+          "sha256": "9b7c07f112e4e353e454d92968b8832b243816cdb5cda27fa5b532954420b6a0",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/king-lear/modern-en.json",
+          "sha256": "8ead3f96e37db56aa6be2b2813b4cec98059804e21d886859044cb20e62a87cf",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/king-lear/onboarding-da.json",
+          "sha256": "54d6bdc7557ebf083c8e27ada97322d97327d080ffab4ae8ab0a8ee5db781a27",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/king-lear/onboarding-en.json",
+          "sha256": "6b56f6db372c3b6e64c6138db996dedff368dfb36d365f61c26c7baca09ee446",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parallel/king-lear/source-modern-da.json",
+          "sha256": "b330f5edaddf72173f8958ee61ba3d027fdc5f6d0a5fb111e8bdc6bef56c9cf5",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parallel/king-lear/source-modern-en.json",
+          "sha256": "9f4719b82396b06f919866a68fcfab53427865248f959dd6eff16e80b04b920c",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-parallel/king-lear/source-onboarding-da.json",
+          "sha256": "7530339d58eee3ec89997d5ee36231ab6f83a5e4a9eba6f76660a07a8376965f",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-parallel/king-lear/source-onboarding-en.json",
+          "sha256": "02bb022e7ea631a969cb301809b563c4c15a383e63f6ca1a29c35a6f5e267275",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parallel/king-lear/source-original-en.json",
+          "sha256": "6a8c008eae10905969decc11ef6f7c56e563c68de8597f11f7c52dc3d7732bb5",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "othello",
+      "masterIndex": {
+        "bookId": "othello",
+        "danishCandidate": "recovery-parallel/othello/modern-da.json",
+        "englishCandidate": "recovery-parallel/othello/modern-en.json",
+        "folder": "recovery-parallel/othello",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "5a66ebaae8fba003f22f95ca4f7767a9b788332c28e8e99e66faca62eb0a4d5b"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parallel/othello/modern-en.json",
+        "danishCandidate": "recovery-parallel/othello/modern-da.json",
+        "pairedShape": true,
+        "originalShapeMatches": true,
+        "nonemptyDanish": true,
+        "chapters": 15,
+        "paragraphs": 1391,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "othello original-en -> modern-en  (15 chapters)\n  weighted similarity : 0.690   (gate: <= 0.75)\n  light+mechanical    : 0/15 = 0.0%   (gate: <= 5%)\n  identical long paras: 2/473 = 0.4%   (gate: <= 5%)\n  buckets: REAL-HEAVY 2  REAL 13  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "othello",
+        "guide": "recovery-parallel/othello/onboarding-da.json",
+        "openingMatchesParagraphPrefix": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/othello/modern-da.json",
+          "sha256": "5a66ebaae8fba003f22f95ca4f7767a9b788332c28e8e99e66faca62eb0a4d5b",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/othello/modern-en.json",
+          "sha256": "6dd3299c1f2ee14328e85070b50c6c38b89ac26832aa424f7d58001ddb55ede1",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/othello/onboarding-da.json",
+          "sha256": "2333a504e501dae5e5991e133c83c7b00ded620498efe09b98f0caf64472ad25",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/othello/onboarding-en.json",
+          "sha256": "b8fddb5fb0cde5a9254c781e431d7218c90708467fc2ec722b89fff1616a238e",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parallel/othello/source-modern-da.json",
+          "sha256": "048b82fecf563ec728efa40b1a0bcb94cfc7cef907ef6c07c3e780a842d5b168",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parallel/othello/source-modern-en.json",
+          "sha256": "5beb0f0093ef10f1d725b797c3eef7cdfe370b3d74be8738f4fd01431dbdb04d",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-parallel/othello/source-onboarding-da.json",
+          "sha256": "1c5f07edd86cd48b2c4cb936bbbad47b485282925a26b0e8901f1775f68f7bec",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-parallel/othello/source-onboarding-en.json",
+          "sha256": "a30b9f1f0f24a27570475a483b15f1b461b5ce91a5a702cb8ccae4f461d94edb",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parallel/othello/source-original-en.json",
+          "sha256": "a8e8ae40b054bce1b60dcba35fcd194f08e74829fcc0faa6665456f962b5d1df",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "romeo-and-juliet",
+      "masterIndex": {
+        "bookId": "romeo-and-juliet",
+        "danishCandidate": "recovery-parallel/romeo-and-juliet/modern-da.json",
+        "englishCandidate": "recovery-parallel/romeo-and-juliet/modern-en.json",
+        "folder": "recovery-parallel/romeo-and-juliet",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "5538ecb4fc5a9e001e8229af74cf0861bed0266dfeed43a71bc90e7fd736c98f"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parallel/romeo-and-juliet/modern-en.json",
+        "danishCandidate": "recovery-parallel/romeo-and-juliet/modern-da.json",
+        "pairedShape": true,
+        "nonemptyDanish": true,
+        "chapters": 25,
+        "paragraphs": 1062,
+        "originalShapeMatchesGateScope": true,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "romeo-and-juliet original-en -> modern-en  (25 chapters)\n  weighted similarity : 0.441   (gate: <= 0.75)\n  light+mechanical    : 0/25 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/456 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 24  REAL 1  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "romeo-and-juliet",
+        "guide": "recovery-parallel/romeo-and-juliet/onboarding-da.json",
+        "openingMatchesParagraphPrefix": false,
+        "excerptFoundAfterWhitespaceNormalization": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/romeo-and-juliet/modern-da.json",
+          "sha256": "5538ecb4fc5a9e001e8229af74cf0861bed0266dfeed43a71bc90e7fd736c98f",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/romeo-and-juliet/modern-en.json",
+          "sha256": "d1ebae48d3c3f9a658455f2a5aabf0b6dfeeefa2510321d0021f8af2426eecb0",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/romeo-and-juliet/onboarding-da.json",
+          "sha256": "c2809768463dc458945794dc5cd41b140b60538226fe00ef3e475e58f83b69bd",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/romeo-and-juliet/onboarding-en.json",
+          "sha256": "7d724631ace784027743fd2d68f1c913a5c266e086cf9fedbe84929bb677e6d5",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parallel/romeo-and-juliet/source-modern-da.json",
+          "sha256": "bed47cb3281aa1e9f70885921ff6cb79b603f4a5a124e2445c19167778877046",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parallel/romeo-and-juliet/source-modern-en.json",
+          "sha256": "0f7f2f2fbfb6e17d1c070228df6ec190d05bac150eeb16b1d12dc99a24efe04b",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parallel/romeo-and-juliet/source-original-en.json",
+          "sha256": "d7be46edc32ddbb1321be7655ff819bd43e349f6ac59ba8c990fbd236f9f9276",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "midsummer",
+      "masterIndex": {
+        "bookId": "midsummer",
+        "danishCandidate": "recovery-parallel/midsummer/modern-da.json",
+        "englishCandidate": "recovery-parallel/midsummer/modern-en.json",
+        "folder": "recovery-parallel/midsummer",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "b1652ed2fb73795108c5862d958f687e9a3dddad12bfae38956dba96e5d0d15b"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parallel/midsummer/modern-en.json",
+        "danishCandidate": "recovery-parallel/midsummer/modern-da.json",
+        "pairedShape": true,
+        "originalShapeMatches": true,
+        "nonemptyDanish": true,
+        "chapters": 9,
+        "paragraphs": 641,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "midsummer original-en -> modern-en  (9 chapters)\n  weighted similarity : 0.412   (gate: <= 0.75)\n  light+mechanical    : 0/9 = 0.0%   (gate: <= 5%)\n  identical long paras: 2/290 = 0.7%   (gate: <= 5%)\n  buckets: REAL-HEAVY 8  REAL 1  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "midsummer",
+        "guide": "recovery-parallel/midsummer/onboarding-da.json",
+        "openingMatchesParagraphPrefix": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/midsummer/modern-da.json",
+          "sha256": "b1652ed2fb73795108c5862d958f687e9a3dddad12bfae38956dba96e5d0d15b",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/midsummer/modern-en.json",
+          "sha256": "7fb7ccf8ad474d339bc7030763e9b7c71ba601107d7c927b9a288621039ef322",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/midsummer/onboarding-da.json",
+          "sha256": "e6f39616ba3b0457dd8e13af88649439abcd45e448a7ac9ce0cd94a9ab810b1c",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/midsummer/onboarding-en.json",
+          "sha256": "f5348bc503dc30e54ef151130ae0c7e7017ad06a4356b95460ea08c06f74b796",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parallel/midsummer/source-modern-da.json",
+          "sha256": "5b516f16b544ccb0e30e21e1af9a29d98104acb40f7f3b6dc163ccc006d43e4d",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parallel/midsummer/source-modern-en.json",
+          "sha256": "ddd879aff705ebe12cbe15172de80294413fadcfc3f6befd5cab8043ae00a2a7",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-parallel/midsummer/source-onboarding-da.json",
+          "sha256": "4383178d28772c58de52e96e61f92dde18faa97c42d7e3ad28c1976e7a0ce696",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-parallel/midsummer/source-onboarding-en.json",
+          "sha256": "face43cff7ea32d3c98df9ae3ef459eb5b2936df3231e883dc57d6e193a3fc5c",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parallel/midsummer/source-original-en.json",
+          "sha256": "da423c96140e1d50255f3bda4acc7769f9dfd7fc4f38adb692e14aac7939d4e0",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "twelfth-night",
+      "masterIndex": {
+        "bookId": "twelfth-night",
+        "danishCandidate": "recovery-parallel/twelfth-night/modern-da.json",
+        "englishCandidate": "recovery-parallel/twelfth-night/modern-en.json",
+        "folder": "recovery-parallel/twelfth-night",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "77394d0895456ee284b63522182e3f63f565a0c80eb802a5dc6fa61e02c5b79c"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parallel/twelfth-night/modern-en.json",
+        "danishCandidate": "recovery-parallel/twelfth-night/modern-da.json",
+        "pairedShape": true,
+        "nonemptyDanish": true,
+        "chapters": 18,
+        "paragraphs": 1120,
+        "originalShapeMatchesGateScope": true,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "twelfth-night original-en -> modern-en  (18 chapters)\n  weighted similarity : 0.686   (gate: <= 0.75)\n  light+mechanical    : 0/18 = 0.0%   (gate: <= 5%)\n  identical long paras: 3/401 = 0.7%   (gate: <= 5%)\n  buckets: REAL-HEAVY 1  REAL 17  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "twelfth-night",
+        "guide": "recovery-parallel/twelfth-night/onboarding-da.json",
+        "openingMatchesParagraphPrefix": false,
+        "excerptFoundAfterWhitespaceNormalization": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/twelfth-night/modern-da.json",
+          "sha256": "77394d0895456ee284b63522182e3f63f565a0c80eb802a5dc6fa61e02c5b79c",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/twelfth-night/modern-en.json",
+          "sha256": "02e9182b980831f2da48fd466bfaa0753364dfa3a7857c35d32155902e956171",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/twelfth-night/onboarding-da.json",
+          "sha256": "b7e230438a3a6f43fe924d64a1764b23bd0032c921d1980809dbd30f60cbb4bc",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/twelfth-night/onboarding-en.json",
+          "sha256": "4ae0f018485c5f3ed653b72fffb34a9560f755b7f43c61283702906e42b5bb3b",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parallel/twelfth-night/source-modern-da.json",
+          "sha256": "6082c3cbef7468f7144738817cc795c28d35fc112b53ef4635bbfe0f7379c9ff",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parallel/twelfth-night/source-modern-en.json",
+          "sha256": "95580e0b935cdfce4931acc61bd345c90b2ebbbae92bad677f09909ed2a5a5a0",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parallel/twelfth-night/source-original-en.json",
+          "sha256": "bf69ddee77f588e6032f726a7cb81a18b3d60ca37f380ed2d76a5f9d756baed3",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "the-tempest",
+      "masterIndex": {
+        "bookId": "the-tempest",
+        "danishCandidate": "recovery-parallel/the-tempest/modern-da.json",
+        "englishCandidate": "recovery-parallel/the-tempest/modern-en.json",
+        "folder": "recovery-parallel/the-tempest",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "ef4e204fb5dfc5cd620bc3d70b68ac08f32d1a891d6088ad7711f9a36425fe47"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parallel/the-tempest/modern-en.json",
+        "danishCandidate": "recovery-parallel/the-tempest/modern-da.json",
+        "pairedShape": true,
+        "nonemptyDanish": true,
+        "chapters": 10,
+        "paragraphs": 790,
+        "originalShapeMatchesGateScope": true,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "the-tempest original-en -> modern-en  (10 chapters)\n  weighted similarity : 0.450   (gate: <= 0.75)\n  light+mechanical    : 0/10 = 0.0%   (gate: <= 5%)\n  identical long paras: 9/359 = 2.5%   (gate: <= 5%)\n  buckets: REAL-HEAVY 8  REAL 2  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "the-tempest",
+        "guide": "recovery-parallel/the-tempest/onboarding-da.json",
+        "openingMatchesParagraphPrefix": false,
+        "excerptFoundAfterWhitespaceNormalization": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/the-tempest/modern-da.json",
+          "sha256": "ef4e204fb5dfc5cd620bc3d70b68ac08f32d1a891d6088ad7711f9a36425fe47",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/the-tempest/modern-en.json",
+          "sha256": "3be5cddbeebf431be1177c8aa9960cb29b01e62aceb25882d0104462d902a672",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/the-tempest/onboarding-da.json",
+          "sha256": "df5efecdd79b74daa3d5b1fe7a70a9979678f4a0c54476a489b0b00a05886ca3",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/the-tempest/onboarding-en.json",
+          "sha256": "faaa4fb89575d94c6b4bf1edabef20fe00d023b852ec5f4528797b3c65f9e6bf",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parallel/the-tempest/source-modern-da.json",
+          "sha256": "82dcfbf3e42e6ebd5485e19ac7fdcc23e278794e7d7c709b38ac953955932417",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parallel/the-tempest/source-modern-en.json",
+          "sha256": "ddbade7e7141e485ae8a36fb6b34401a95c87de48054ff9d2053c5fb8d1e063f",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parallel/the-tempest/source-original-en.json",
+          "sha256": "c7b057ac30de314a239d6ebc1f133bf36195d1e4a0109650ceb97a25a972ac23",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "comedy-of-errors",
+      "masterIndex": {
+        "bookId": "comedy-of-errors",
+        "danishCandidate": "recovery-parallel/comedy-of-errors/modern-da.json",
+        "englishCandidate": "recovery-parallel/comedy-of-errors/modern-en.json",
+        "folder": "recovery-parallel/comedy-of-errors",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "deb21de13556e6fa5f9d0d59e3e10df2fa2571f2de5f5d0afe1b8c7a62c9d4a0"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parallel/comedy-of-errors/modern-en.json",
+        "danishCandidate": "recovery-parallel/comedy-of-errors/modern-da.json",
+        "pairedShape": true,
+        "nonemptyDanish": true,
+        "chapters": 11,
+        "paragraphs": 690,
+        "originalShapeMatchesGateScope": true,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "comedy-of-errors original-en -> modern-en  (11 chapters)\n  weighted similarity : 0.598   (gate: <= 0.75)\n  light+mechanical    : 0/11 = 0.0%   (gate: <= 5%)\n  identical long paras: 2/288 = 0.7%   (gate: <= 5%)\n  buckets: REAL-HEAVY 1  REAL 10  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "comedy-of-errors",
+        "guide": "recovery-parallel/comedy-of-errors/onboarding-da.json",
+        "openingMatchesParagraphPrefix": false,
+        "excerptFoundAfterWhitespaceNormalization": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/comedy-of-errors/modern-da.json",
+          "sha256": "deb21de13556e6fa5f9d0d59e3e10df2fa2571f2de5f5d0afe1b8c7a62c9d4a0",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/comedy-of-errors/modern-en.json",
+          "sha256": "2ec8079e148b81879079f732bd403588f7716f8f1cf354cbc99823718aff8d59",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/comedy-of-errors/onboarding-da.json",
+          "sha256": "658d4e1673a9b57cb5fdf61c83d3860a03ff1dbbd7097caf3931800d703cb131",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/comedy-of-errors/onboarding-en.json",
+          "sha256": "ea4d61918606b4f3ac5a213964ad16b2a7eddc565f9e8e9fed3abca466ccd36d",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parallel/comedy-of-errors/source-modern-da.json",
+          "sha256": "52bf2d92553a53d5e6a0b3f5fc4bbdda11306a5a5557d1de3da890e3c5ab6c9a",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parallel/comedy-of-errors/source-modern-en.json",
+          "sha256": "6319d77729e29c7b62f5f8f651469fcbd2cffb337b4e3b67367c364ee2698353",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parallel/comedy-of-errors/source-original-en.json",
+          "sha256": "84bba3a2afd91e5fa77f769259098cb68b45748e9e3f8a8f355a82215e0f354c",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "coriolanus",
+      "masterIndex": {
+        "bookId": "coriolanus",
+        "danishCandidate": "recovery-parallel/coriolanus/modern-da.json",
+        "englishCandidate": "recovery-parallel/coriolanus/modern-en.json",
+        "folder": "recovery-parallel/coriolanus",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "daf1e8bf68448f566084cb193283f58aac1dc45150dcea907fd1e2fb547e1026"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parallel/coriolanus/modern-en.json",
+        "danishCandidate": "recovery-parallel/coriolanus/modern-da.json",
+        "pairedShape": true,
+        "originalShapeMatches": true,
+        "nonemptyDanish": true,
+        "chapters": 29,
+        "paragraphs": 1379,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "coriolanus original-en -> modern-en  (29 chapters)\n  weighted similarity : 0.683   (gate: <= 0.75)\n  light+mechanical    : 0/29 = 0.0%   (gate: <= 5%)\n  identical long paras: 2/564 = 0.4%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 29  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "coriolanus",
+        "guide": "recovery-parallel/coriolanus/onboarding-da.json",
+        "openingMatchesParagraphPrefix": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/coriolanus/modern-da.json",
+          "sha256": "daf1e8bf68448f566084cb193283f58aac1dc45150dcea907fd1e2fb547e1026",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/coriolanus/modern-en.json",
+          "sha256": "0055e48fe53acb2c0b5ed51aacda203cb26d072ea40950f2ce7fa5cb45689dc8",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/coriolanus/onboarding-da.json",
+          "sha256": "66f0ab1f9dcec00c906a9fcffe50e3c1efa12a31721d58d176f410d1fbc133d9",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/coriolanus/onboarding-en.json",
+          "sha256": "84b71de8c469e8535d297b71ce91af069a057f21c0aecb1c3aabdf6ac65c7862",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parallel/coriolanus/source-modern-da.json",
+          "sha256": "3178e314c82eeada6b6b3df6eb8e965f016724305ea8c709b743d1593cb23636",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parallel/coriolanus/source-modern-en.json",
+          "sha256": "cb7175962445184e3d28082130a5eee53b66dee497c1f92d9d516f512de8b488",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-parallel/coriolanus/source-onboarding-da.json",
+          "sha256": "cdfa4000831ce3e4fffdf29aba08721fb8e8fcdcfc6ff2dd5b84c0cf58798b6b",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-parallel/coriolanus/source-onboarding-en.json",
+          "sha256": "5232ae920daea98d0ff0dfb5dc626b33e923b3060bc64af4519eaeac61856a01",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parallel/coriolanus/source-original-en.json",
+          "sha256": "d0381f3053901dbbf81876e9ef4ce8a4dd2829d40c50c3b199a959c5da8468da",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "beyond-good-and-evil",
+      "masterIndex": {
+        "bookId": "beyond-good-and-evil",
+        "danishCandidate": "recovery-worker-a/reconstructed/beyond-good-and-evil/beyond-good-and-evil-modern-da.json",
+        "englishCandidate": "recovery-worker-a/reconstructed/beyond-good-and-evil/beyond-good-and-evil-modern-en.json",
+        "folder": "recovery-worker-a/reconstructed/beyond-good-and-evil",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "db8ec87d81c17f6acbb5e52e1c16b56251db543554a006de82c7d6d96f9bb967",
+        "localOriginalDanishSha256": "c6ce72bc0b67c33e7db033b81c2e91f284ed35ed2bd8bc6df7549eeeb620a3aa"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-worker-a/reconstructed/beyond-good-and-evil/beyond-good-and-evil-modern-en.json",
+        "danishCandidate": "recovery-worker-a/reconstructed/beyond-good-and-evil/beyond-good-and-evil-modern-da.json",
+        "pairedShape": true,
+        "originalShapeMatches": true,
+        "nonemptyDanish": true,
+        "chapters": 11,
+        "paragraphs": 325,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "beyond-good-and-evil original-en -> modern-en  (11 chapters)\n  weighted similarity : 0.541   (gate: <= 0.75)\n  light+mechanical    : 0/11 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/289 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 8  REAL 3  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "beyond-good-and-evil",
+        "guide": "recovery-worker-a/reconstructed/beyond-good-and-evil/beyond-good-and-evil.da.json",
+        "openingMatchesParagraphPrefix": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-worker-a/reconstructed/beyond-good-and-evil/beyond-good-and-evil-modern-da.json",
+          "sha256": "db8ec87d81c17f6acbb5e52e1c16b56251db543554a006de82c7d6d96f9bb967",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-worker-a/reconstructed/beyond-good-and-evil/beyond-good-and-evil-modern-en.json",
+          "sha256": "d017ff076cbbf10f7aa9002fb77818fbedeaa551ecbc39fa336330d68a4f116a",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-worker-a/reconstructed/beyond-good-and-evil/beyond-good-and-evil.da.json",
+          "sha256": "4594c023153e93c5fb59ccdf5b9dd9848da5b96a9b67c770845fb6494ac52274",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-worker-a/reconstructed/beyond-good-and-evil/beyond-good-and-evil.json",
+          "sha256": "0b6be5cc4c59889b4047f1536239b5733f1f64b72c1bb35568f511dc7aa33eff",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-worker-a/reconstructed/beyond-good-and-evil/source-beyond-good-and-evil-modern-da.json",
+          "sha256": "e02d01b1610c98bfc95304351969912a6ef89b205e7a4ef2559f4fef5d861d27",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-worker-a/reconstructed/beyond-good-and-evil/source-beyond-good-and-evil-modern-en.json",
+          "sha256": "e523d52b006da0963c0956cca1aa808145d62238db2686cf415a95ed7d849eb0",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-worker-a/reconstructed/beyond-good-and-evil/source-beyond-good-and-evil.da.json",
+          "sha256": "ae7ce3a8967bee353374bd6965b5efb1e0940c1daa3d9d0b89105111d5d0f685",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-worker-a/reconstructed/beyond-good-and-evil/source-beyond-good-and-evil.json",
+          "sha256": "ffd28ecec0d94e1b9e2480a5b887da835168412b01dc364a458179742b65429a",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-worker-a/reconstructed/beyond-good-and-evil/source-beyond-good-and-evil-original-en.json",
+          "sha256": "78b3cd315bfcadb8f4cb4ed700fff01501af76f1f51f33b2cca783e56827ec6a",
+          "uploadedSha256Matches": true
+        }
+      ]
+    }
+  ]
+}

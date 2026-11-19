@@ -34,6 +34,11 @@ export interface LabPhoneCardProps {
   children: ReactNode
   /** The follow-up line, kept above the keyboard. */
   foot?: ReactNode
+  /**
+   * A Notebook entry opened over the reader. On desktop it floats over the margin's cards, so it is on paper, not
+   * transparent like a margin response (desktopCard.css). A phone card is always on its own sheet.
+   */
+  notebook?: boolean
   /** A tall card (Chat, Talk) takes a fixed share of the screen; the rest grow with their content. */
   tall?: boolean
   /**

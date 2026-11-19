@@ -188,7 +188,7 @@ export const GILGAMESH: Book = {
   author: 'Anonymous',
   description: 'The oldest surviving great work of literature. A king and a wild man become brothers, slay monsters, and defy the gods — then face the one enemy no mortal can defeat.',
   year: -2100,
-  wordCount: 30000,
+  wordCount: 14500,
   coverColor: '#4a3728',
   coverAccent: '#c9963a',
   editions: [
@@ -196,9 +196,21 @@ export const GILGAMESH: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Prose Compilation',
+      // Replaced 2026-11-18 (rights): R. Campbell Thompson, The Epic of Gilgamish: a new translation
+      // from a collation of the cuneiform tablets in the British Museum rendered literally into English
+      // hexameters (London: Luzac, 1928), transcribed from the page images (archive.org
+      // thompson-1928-gilgamesh). Thompson died 1941. His three paragraphs of the Hittite version,
+      // which he credits as translated from Friedrich (d. 1972) and Ungnad, are left out (Anders,
+      // 17 Nov 2026). Modern English and Moderne Dansk are Tinct renderings of this text.
+      // Package and provenance: books/wip/gilgamesh-thompson.
+      label: 'Thompson (1928)',
+      translator: 'R. Campbell Thompson',
+      year: 1928,
       aligned: true,
       hasAudio: true,
+      // Thompson's verse lines, one per text line, as printed (restored 18 Nov 2026 from the page
+      // layout of the archive.org scan); the paragraphs and their words are unchanged.
+      newlineVerse: true,
     },
     {
       key: 'modern-en',
@@ -208,14 +220,7 @@ export const GILGAMESH: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -252,7 +257,7 @@ export const HAMLET: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -328,7 +333,7 @@ export const MIDSUMMER: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -365,7 +370,7 @@ export const ROMEO_AND_JULIET: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -402,7 +407,7 @@ export const THE_TEMPEST: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -439,7 +444,7 @@ export const OTHELLO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -457,7 +462,7 @@ export const KING_LEAR: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1608)', year: 1608, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -493,7 +498,7 @@ export const TWELFTH_NIGHT: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -637,7 +642,7 @@ export const CORIOLANUS: Book = {
       hasAudio: true,
     },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -674,7 +679,7 @@ export const COMEDY_OF_ERRORS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -2375,7 +2380,7 @@ export const BEYOND_GOOD_AND_EVIL: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }

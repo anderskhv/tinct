@@ -160,6 +160,18 @@ describe('compact selection popup', () => {
     expect(screen.getAllByText('Zerubbabel')).toHaveLength(1)
   })
 
+  it('puts the name and its role on one line: "Mary Magdalene · Major figure" (Anders, 18 Nov 2026)', () => {
+    const card = { id: 'mary-magdalene', kind: 'person', role: 'major', name: 'Mary Magdalene', subtitle: 'Follower of Jesus', body: 'First at the empty tomb.' }
+    const character = { card, cutoff: { chapterNumber: 1, paragraphIndex: 2, offset: 14 }, gallery: [{ card, inPassage: true }] }
+    const { container } = render(<SelectionPopup {...props({ lab: true, popupMode: 'character', selection: selection({ character }) })} />)
+    const title = screen.getByRole('heading', { level: 2 })
+    expect(title.className).toBe('popup-character-name')
+    expect(title.textContent).toBe('Mary Magdalene · Major figure')
+    expect(title.querySelector('.popup-define-pos [aria-hidden="true"]')?.textContent).toBe('·')
+    expect(screen.getByText('Major figure').closest('h2')).toBe(title)
+    expect(container.querySelector('.popup-character small')).toBeNull()
+  })
+
   it('uses the locked contextual menu and saves a last-colour highlight before editing', () => {
     localStorage.setItem('tinct-highlight-color', 'sage')
     const input = props({

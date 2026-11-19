@@ -6,7 +6,7 @@ import { desktopCardPlace, type CardBox } from './desktopCardPlace'
 import './desktopCard.css'
 
 /** The same response body and Notebook flow as a phone card, placed outside selected ink. */
-export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', children, foot, testId = 'lab-phone-card', getAnchor, hasPassage = false, passageText, embedded = false }: LabPhoneCardProps & { getAnchor?: () => CardBox | null; hasPassage?: boolean; passageText?: string; embedded?: boolean }) {
+export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', children, foot, testId = 'lab-phone-card', getAnchor, hasPassage = false, passageText, embedded = false, notebook = false }: LabPhoneCardProps & { getAnchor?: () => CardBox | null; hasPassage?: boolean; passageText?: string; embedded?: boolean }) {
   const ref = useRef<HTMLElement | null>(null)
   const windowRef = useReaderWindow<HTMLElement>(`card-${kind}`, !embedded)
   const setRef = useCallback((node: HTMLElement | null) => { ref.current = node; windowRef(node) }, [windowRef])
@@ -62,7 +62,7 @@ export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = '
     return () => { window.removeEventListener('keydown', key); window.removeEventListener('pointerdown', outside, true) }
   }, [embedded])
   if (embedded) return <><div className="lab-pcard-body" data-testid="lab-phone-card-body">{children}</div>{foot}</>
-  return <section ref={setRef} className="lab-pcard lab-desktop-card" role="dialog" aria-label={label} aria-description={passageText?.trim() || undefined} data-kind={kind} data-testid={testId} style={{ visibility: 'hidden' }}>
+  return <section ref={setRef} className="lab-pcard lab-desktop-card" role="dialog" aria-label={label} aria-description={passageText?.trim() || undefined} data-kind={kind} data-testid={testId} data-notebook={notebook || undefined} style={{ visibility: 'hidden' }}>
     <header className="lab-pcard-head" data-reader-window-handle>
       <span className="lab-pcard-label" data-testid="lab-phone-card-label">{label}</span>
       {onDelete && <button type="button" className="lab-pcard-bin" data-reader-window-control data-testid="lab-phone-card-delete" aria-label={deleteLabel} onClick={onDelete}><PhoneIcon name="trash" /></button>}
