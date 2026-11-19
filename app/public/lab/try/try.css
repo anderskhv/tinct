@@ -49,9 +49,14 @@ html[data-eink="true"] .try-backdrop { display: none; }
 
 /* ---- Top bar ---- */
 .try-nav {
+  /* Always there, however far down the page (Anders, 19 Nov 2026). Outside .try-hero, whose overflow would end it. */
+  position: sticky; top: 0; z-index: 30;
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-  padding: 18px 48px 0;
+  padding: 12px 48px; padding-top: max(12px, env(safe-area-inset-top, 0px));
+  background: rgba(14, 11, 8, .88); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--try-line-on-dark);
 }
+.try-hero, #pricing, #questions { scroll-margin-top: 64px; }
 .try-logo { color: inherit; font-family: var(--tui-font-display); font-size: 26px; font-weight: 500; text-decoration: none; letter-spacing: -.01em; }
 .try-sections { display: flex; gap: 28px; font-size: 14px; }
 .try-sections a { text-decoration: none; color: var(--try-muted-on-dark); padding: 6px 0; border-bottom: 1.5px solid transparent; }
@@ -60,8 +65,8 @@ html[data-eink="true"] .try-backdrop { display: none; }
 .try-account { justify-self: end; display: flex; gap: 12px; }
 
 .try-headline {
-  margin: 34px 0 30px; padding: 0 80px;
-  font-family: var(--tui-font-display); font-weight: 700; font-size: clamp(44px, 4.6vw, 70px); line-height: 1.05; letter-spacing: -.01em;
+  margin: 26px 0 24px; padding: 0 80px;
+  font-family: var(--tui-font-display); font-weight: 700; font-size: clamp(34px, 3.2vw, 48px); line-height: 1.05; letter-spacing: -.01em;
 }
 
 /* ---- The stage: the checklist beside the reader ---- */
@@ -226,8 +231,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
    At 1280×593 the 520px reader ran 110px under the fold, and the Explain bar of the first sentence opened there. */
 @media (min-width: 900px) and (max-height: 760px) {
   .try { --try-reader-h: clamp(360px, calc(100svh - 150px), 760px); }
-  .try-nav { padding-top: 12px; }
-  .try-headline { margin: 14px 0 16px; font-size: clamp(36px, 3.6vw, 52px); }
+  .try-headline { margin: 14px 0 16px; font-size: clamp(30px, 2.8vw, 40px); }
   .try-todo { margin-top: 18px; padding-top: 14px; }
   .try-todo-title { font-size: 28px; }
   .try-todo-sub { margin-bottom: 16px; }
@@ -250,10 +254,10 @@ html[data-eink="true"] .try-backdrop { display: none; }
      page: then the Explain card and its follow-up field open on screen. */
   .try { --try-reader-h: max(var(--try-reader-min, 320px), calc(100svh - var(--try-reader-top, 230px) - 12px)); }
   .try-only-wide, .try-sections, .try-todo { display: none !important; }
-  .try-nav { display: flex; justify-content: space-between; padding: 14px 16px 0; }
+  .try-nav { display: flex; justify-content: space-between; padding: 8px 16px; padding-top: max(8px, env(safe-area-inset-top, 0px)); }
   .try-logo { font-size: 22px; }
   .try-account .try-pill { min-height: 34px; padding: 0 14px; font-size: 13.5px; }
-  .try-headline { margin: 24px 0 18px; padding: 0 16px; font-size: 31px; }
+  .try-headline { margin: 16px 0 14px; padding: 0 16px; font-size: 26px; }
   /* The first screen (QA 19 Nov 2026, Anders): the chips, then the book and edition on the same line where it fits
      (a phone sideways, an iPad upright) or on the next one, then the reader. No reserved empty row, so the reader
      starts about 90px higher; try.js sizes the reader to end on the first screen (--try-reader-top). */
@@ -301,7 +305,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
 /* The narrowest phones: the headline, the chips and the book and edition row each on one line ("Modern" alone). */
 @media (max-width: 374px) {
   .try-edition-more { display: none; }
-  .try-headline { font-size: 28px; }
+  .try-headline { font-size: 24px; }
   .try-chips { gap: 6px 4px; }
   .try-chips li { padding: 0 6px; font-size: 12px; }
 }
@@ -309,6 +313,5 @@ html[data-eink="true"] .try-backdrop { display: none; }
    show on the first screen. */
 @media (max-width: 899px) and (max-height: 500px) {
   .try-edition-more { display: none; }
-  .try-nav { padding-top: 8px; }
-  .try-headline { margin: 12px 0 12px; font-size: 26px; }
+  .try-headline { margin: 12px 0 12px; font-size: 23px; }
 }

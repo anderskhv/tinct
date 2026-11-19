@@ -1,7 +1,7 @@
 /*
  * The Try page (public/try.html; docs/try-page/BRIEF.md): just the reader, with hints (Anders, 18 Nov 2026). The
  * real reader runs in a frame in demo mode (public/lab/try/reader-demo.js, src/lab/tryDemo/tryDemo.ts). Beside it, a
- * checklist of five things ticks as the visitor does each one, in any order; inside it, one small hint at a time sits
+ * checklist of four things ticks as the visitor does each one, in any order; inside it, one small hint at a time sits
  * by the control for the next thing not yet done. Nothing runs on its own and nothing here scrolls the reader: the
  * page only reads the frame's DOM (same origin) to place the hint. When the AI runs out (the visitor's free
  * questions, or the page's own day), the sign-up card shows instead of an error, and creating an account carries
@@ -19,10 +19,9 @@
     audioTitle: 'Create a free account to keep listening',
     audioBody: 'Listen on, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.',
   }
-  // The five things, in the order the checklist and the hints offer them. `hint` is the bubble's fixed copy (HTML).
+  // The four things, in the order the checklist and the hints offer them. `hint` is the bubble's fixed copy (HTML).
   var ITEMS = [
     { key: 'explain', hint: (TOUCH ? 'Press and hold' : 'Select') + ' a sentence to have it <b>explained</b>.', side: 'above' },
-    { key: 'ask', hint: '<b>Keep asking.</b> Try “Why does he call them kin?”', side: 'below' },
     { key: 'modern', hint: 'Read it in <b>today’s words</b>. Your place stays put.', side: 'below' },
     { key: 'listen', hint: 'Hear it as you read.', side: 'below' },
     { key: 'summary', hint: 'Get the gist in a minute.', side: 'below' },
@@ -75,7 +74,7 @@
     schedule()
   }
 
-  /** The visitor did one of the five: it ticks, and the hint moves on to the next thing not yet done. */
+  /** The visitor did one of the four: it ticks, and the hint moves on to the next thing not yet done. */
   function did(key) {
     if (done[key]) return
     done[key] = true
