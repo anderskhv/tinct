@@ -18,9 +18,10 @@
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---- The dark ground ---- */
-.try-hero, .try-closing { position: relative; isolation: isolate; overflow: hidden; }
+.try-hero, .try-closing { position: relative; }
+/* One scene behind the whole page, never flat dark (Anders, 19 Nov): fixed, so every section sits on it. */
 .try-backdrop {
-  position: absolute; inset: -60px; z-index: -1;
+  position: fixed; inset: -60px; z-index: -1; pointer-events: none;
   /* Warm brown and deep blue, never black: matched to Anders's reference of the step page (19 Nov). */
   background: linear-gradient(180deg, rgba(14, 11, 8, .35), rgba(14, 11, 8, .6)), url('/lab/library_2/assets/scene-odyssey-wide.jpg') center 30% / cover no-repeat;
   filter: blur(36px) saturate(1) brightness(.9);
@@ -57,7 +58,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
   border-bottom: 1px solid transparent; transition: background .25s, border-color .25s;
 }
 .try-nav.is-scrolled {
-  background: rgba(14, 11, 8, .9); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  background: rgba(24, 18, 12, .5); -webkit-backdrop-filter: blur(18px) saturate(1.2); backdrop-filter: blur(18px) saturate(1.2);
   border-bottom-color: var(--try-line-on-dark);
 }
 .try-hero, #pricing, #questions { scroll-margin-top: 72px; }
