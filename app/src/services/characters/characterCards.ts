@@ -60,15 +60,21 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'kant-groundwork': { editions: EN, revision: 'text-2026-11-18.1' },
   'descartes-meditations': { editions: EN, revision: '2026-09-11.1' },
   // 2026-09-11.2 — bulk release of the validated queue
+  // text-2026-11-18.1 — modern-en mentions re-anchored by exact text after the English repairs
+  // published with the recovered Danish (Antigone, Candide, Frankenstein, Frederick Douglass,
+  // Genealogy of Morals, Heart of Darkness, both Oedipus plays); card prose unchanged.
   'a-little-princess': { editions: EN, revision: 'text-2026-11-18.1' },
-  antigone: { editions: EN, revision: '2026-09-11.2' },
+  antigone: { editions: EN, revision: 'text-2026-11-18.1' },
   'around-the-world-80-days': { editions: EN, revision: 'text-2026-11-18.1' },
   bacchae: { editions: EN, revision: '2026-10-01.2' },
   beowulf: { editions: EN, revision: '2026-09-11.2' },
-  candide: { editions: EN, revision: '2026-09-23.1' },
+  candide: { editions: EN, revision: 'text-2026-11-18.1' },
   'comedy-of-errors': { editions: EN, revision: 'text-2026-11-18.1' },
   'communist-manifesto': { editions: EN, revision: 'text-2026-11-18.1' },
   'discourse-on-inequality': { editions: EN, revision: '2026-09-11.2' },
+  'frederick-douglass': { editions: EN, revision: 'text-2026-11-18.1' },
+  gilgamesh: { editions: EN, revision: '2026-09-11.2' },
+  'heart-of-darkness': { editions: EN, revision: 'text-2026-11-18.1' },
   'frederick-douglass': { editions: EN, revision: '2026-09-11.2' },
   gilgamesh: { editions: EN, revision: 'text-2026-11-18.gilgamesh.1' },
   'heart-of-darkness': { editions: EN, revision: '2026-10-01.1' },
@@ -83,8 +89,8 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   midsummer: { editions: EN, revision: 'text-2026-11-18.1' },
   'much-ado-about-nothing': { editions: EN, revision: 'text-2026-10-21.1' },
   'notes-from-underground': { editions: EN, revision: '2026-10-01.1' },
-  'oedipus-at-colonus': { editions: EN, revision: '2026-09-11.2' },
-  'oedipus-rex': { editions: EN, revision: '2026-09-11.2' },
+  'oedipus-at-colonus': { editions: EN, revision: 'text-2026-11-18.1' },
+  'oedipus-rex': { editions: EN, revision: 'text-2026-11-18.1' },
   'on-liberty': { editions: EN, revision: 'text-2026-10-01.1' },
   // text-2026-11-18.1 (danish-recovered-batch-03) — Oresteia, Aeneid, Republic, Walden, War and Peace:
   // modern-en mentions re-anchored after the paired English repairs; card prose unchanged.
@@ -101,7 +107,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   utilitarianism: { editions: EN, revision: 'text-2026-11-18.1' },
   werther: { editions: EN, revision: 'text-2026-11-18.1' },
   // 2026-09-12.1 — novels and prose works
-  frankenstein: { editions: EN, revision: '2026-09-23.2' },
+  frankenstein: { editions: EN, revision: 'text-2026-11-18.1' },
   'pride-and-prejudice': { editions: EN, revision: '2026-09-25.1' },
   'jane-eyre': { editions: EN, revision: '2026-09-25.1' },
   'great-expectations': { editions: EN, revision: '2026-09-12.1' },
@@ -139,7 +145,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   leviathan: { editions: EN, revision: '2026-09-12.1' },
   'second-treatise': { editions: EN, revision: '2026-09-30.1' },
   'beyond-good-and-evil': { editions: EN, revision: 'text-2026-11-18.1' },
-  'genealogy-of-morals': { editions: EN, revision: 'text-2026-10-21.5' },
+  'genealogy-of-morals': { editions: EN, revision: 'text-2026-11-18.1' },
   'democracy-in-america': { editions: EN, revision: 'text-2026-10-21.6' },
   'essays-montaigne': { editions: EN, revision: '2026-09-12.1' },
   'federalist-papers': { editions: EN, revision: 'text-2026-10-21.3' },

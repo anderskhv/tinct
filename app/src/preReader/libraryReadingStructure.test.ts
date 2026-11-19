@@ -59,7 +59,10 @@ describe('Library 2 published reading structures', () => {
     expect(original.wordCount).not.toBe(modern.wordCount)
     expect(original.readingStructure?.editionKey).toBe('original-en')
     expect(modern.readingStructure?.editionKey).toBe('modern-en')
-    expect(book.editions.find(edition=>edition.language==='da')?.wordCount).toBeNull()
+    // Frankenstein's Danish is offered since 2026-11-18 and measured; a withdrawn Danish edition is not.
+    expect(book.editions.find(edition=>edition.language==='da')?.wordCount).toBeGreaterThan(60000)
+    const withdrawn=catalogue.books.find(book=>book.id==='pride-and-prejudice')!
+    expect(withdrawn.editions.find(edition=>edition.language==='da')?.wordCount).toBeNull()
   })
 
   it('uses the real chapter extent instead of a chapter-local page percentage', () => {

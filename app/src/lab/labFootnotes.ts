@@ -29,8 +29,12 @@ export interface PlacedFootnote {
   text: string
 }
 
-/** Editions that have a footnote sidecar. Any other edition makes no request. */
-const FOOTNOTE_EDITIONS: ReadonlySet<string> = new Set(['fear-and-trembling/modern-en'])
+/**
+ * Editions that have a footnote sidecar. Any other edition makes no request.
+ * candide/modern-da (2026-11-18): the historical editor's notes of the English
+ * edition Tinct follows (Gutenberg 19942), translated with the recovered Danish.
+ */
+const FOOTNOTE_EDITIONS: ReadonlySet<string> = new Set(['fear-and-trembling/modern-en', 'candide/modern-da'])
 
 export const hasFootnotes = (bookId?: string, editionKey?: string): boolean =>
   Boolean(bookId && editionKey && FOOTNOTE_EDITIONS.has(`${bookId}/${editionKey}`))

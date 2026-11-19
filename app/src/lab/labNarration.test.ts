@@ -56,7 +56,7 @@ describe('narration pilot flag and prefs', () => {
 describe('Grok production routing', () => {
   it('uses Grok for retained English originals and keeps optional voices separate from Talk', () => {
     expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'frankenstein','original-en',1,'grok')).toBe(true)
-    expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'frankenstein','modern-da',1,'grok')).toBe(false)
+    expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'pride-and-prejudice','modern-da',1,'grok')).toBe(false)
     const prefs = {...DEFAULT_LAB_PREFS,audiobookVoice:'orion' as const}
     const voices = [{key:'f',label:'Ara',persona:'female' as const},{key:'m',label:'Helios',persona:'male' as const},{key:'orion',label:'Orion',persona:'male' as const},{key:'eve',label:'Eve',persona:'female' as const}]
     expect(resolveNarrationVoice(prefs,voices)).toBe('orion')
