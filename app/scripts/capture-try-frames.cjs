@@ -21,7 +21,7 @@ const DRAG_STEPS = Array.from({ length: 17 }, (_, i) => [i + 2, String(i + 29)])
 // The top share of the frame a drag frame keeps: the selection ends at about a third of the way down.
 const DRAG_CROP = { phone: 0.34, desktop: 0.42 }
 // 46-50: the Explain answer typing itself in; 51: the card closed again, before the switch to modern English.
-const TYPING = ['46', '47', '48', '49', '50']
+const TYPING = []  // Anders, 19 Nov: the answer arrives at once; no typing frames
 const keep = id => KEEP.includes(id) || (Number(id) >= 11 && Number(id) <= 24) || (Number(id) >= 29 && Number(id) <= 51)
 const ORIGIN = process.env.ORIGIN || 'https://tinct.app'
 const only = process.argv[2]

@@ -19,22 +19,23 @@
   // [file, step, milliseconds on screen]. Listen is fourteen frames 280 ms apart, as captured, so the marked word moves
   // word by word (Anders, 19 Nov: it lagged); they cut, not fade, into each other.
   // A fourth field keeps a frame to one device. The motion follows the launch film (Anders, 19 Nov: "the video
-  // nailed this"): on the phone a press selects the sentence and its menu at once; the Explain answer types itself in
-  // (46-50); the card goes down (51) before the page dissolves into modern English, paragraph band by band.
+  // nailed this"): on the phone a press selects the sentence and its menu at once; the Explain card rises with its
+  // answer already in it (Anders, 19 Nov: no typing lag); the card goes down (51) before the page dissolves into
+  // modern English, band by band.
   // Desktop keeps its drag, a word a frame (29-45).
   var PHONE = window.matchMedia('(max-width: 899px)').matches
   var FRAMES = [
     ['01', 0, 1300],
     ['29', 0, 75, 'desktop'], ['30', 0, 75, 'desktop'], ['31', 0, 75, 'desktop'], ['32', 0, 75, 'desktop'], ['33', 0, 75, 'desktop'], ['34', 0, 75, 'desktop'], ['35', 0, 75, 'desktop'], ['36', 0, 75, 'desktop'], ['37', 0, 75, 'desktop'], ['38', 0, 75, 'desktop'], ['39', 0, 75, 'desktop'], ['40', 0, 75, 'desktop'], ['41', 0, 75, 'desktop'], ['42', 0, 75, 'desktop'], ['43', 0, 75, 'desktop'], ['44', 0, 75, 'desktop'], ['45', 0, 75, 'desktop'],
     ['02', 0, 1400],
-    ['46', 0, 260], ['47', 0, 260], ['48', 0, 260], ['49', 0, 260], ['50', 0, 260], ['04', 0, 3000],
+    ['04', 0, 3800],
     ['51', 1, 900], ['08', 1, 3400],
     ['11', 2, 280], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
     ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 900],
     ['10', 3, 4200],
   ].filter(function (frame) { return !frame[3] || (frame[3] === 'phone') === PHONE })
   // Bump when the frames are re-captured, so browsers fetch the new ones.
-  var FRAMES_V = '20261119m'
+  var FRAMES_V = '20261119n'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -51,7 +52,7 @@
   FRAMES.slice(1).forEach(function (frame) {
     var picture = document.createElement('picture')
     if (isCrop(frame[0])) picture.className = 'is-crop'
-    picture.innerHTML = '<source media="(max-width: 899px)" srcset="/lab/try/frames/phone-' + frame[0] + '.webp?v=' + FRAMES_V + '">' +
+    picture.innerHTML = '<source media="(max-width: 899px)" srcset="/lab/try/frames/phone-' + frame[0] + '.webp?v=' + FRAMES_V + '" width="780" height="1520">' +
       '<img src="/lab/try/frames/desktop-' + frame[0] + '.webp?v=' + FRAMES_V + '" alt="" width="2112" height="1222" loading="lazy" decoding="async">'
     demo.insertBefore(picture, $('.try-demo-open', demo))
     pictures.push(picture)
@@ -153,7 +154,7 @@
   // The frames that open a card: the card rises from the foot of the screen over the page, as it does in the reader
   // (Anders, 19 Nov: Explain looked jumpy). Every other change fades the new frame in over the old one, never through
   // an empty screen.
-  var RISE = FRAMES.map(function (frame) { return frame[0] === '46' || frame[0] === '10' })
+  var RISE = FRAMES.map(function (frame) { return frame[0] === '04' || frame[0] === '10' })
   // The card going down again before the switch (phone: the sheet sinks out of the screen).
   var SINK = FRAMES.map(function (frame) { return PHONE && frame[0] === '51' })
   var shown = -1
@@ -200,7 +201,7 @@
     var under = shown >= 0 && shown !== index ? shown : -1
     // Cut, not fade: word by word in Listen, and the selection growing under the finger.
     // …and the answer typing itself in, which only adds words.
-    var drag = function (i) { var n = Number(FRAMES[i][0]); return (n >= 29 && n <= 50) || (n === 4 && Number(FRAMES[shown][0]) >= 46) }
+    var drag = function (i) { var n = Number(FRAMES[i][0]); return n >= 29 && n <= 45 }
     demo.classList.toggle('is-cut', shown >= 0 && ((FRAMES[shown][1] === 2 && FRAMES[index][1] === 2) || drag(shown) || drag(index)))
     clearTimeout(underTimer)
     pictures.forEach(function (picture, i) {
