@@ -58,7 +58,6 @@
     text('[data-try-count]', (step + 1) + ' of ' + STEPS.length)
     text('[data-try-num]', (step + 1) + '. ')
     text('[data-try-title]', STEPS[step].title)
-    text('[data-try-line]', STEPS[step].line)
     text('[data-try-upnext]', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
   }
   function schedule() {
@@ -93,6 +92,12 @@
   if (reduce) index = FRAMES.map(function (frame) { return frame[1] }).lastIndexOf(0)
   paint()
   schedule()
+
+  // ---- The top bar turns solid once the page scrolls (over the hero it shows the scene) ----
+  var nav = $('.try-nav')
+  function navState() { if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 8) }
+  window.addEventListener('scroll', navState, { passive: true })
+  navState()
 
   // ---- Section links show where you are ----
   var links = $$('.try-sections a')

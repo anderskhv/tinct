@@ -9,11 +9,12 @@
 <meta name="description" content="Read any book with an explanation in the margin, modern English, narration and a summary for every chapter.">
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
 <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel10">
-<link rel="stylesheet" href="/lab/try/try.css?v=20261119dark">
+<link rel="stylesheet" href="/lab/try/try.css?v=20261119start">
 <script type="module" src="/lab/internal-traffic.js"></script>
-<script src="/lab/try/try.js?v=20261119dark" defer></script>
+<script src="/lab/try/try.js?v=20261119act" defer></script>
 </head>
 <body class="try">
+<div class="try-backdrop" aria-hidden="true"></div>
 <!-- The Try page (docs/try-page/BRIEF.md): unlisted at /try, noindex, linked from nowhere, later /about. -->
 <header class="try-nav">
   <a class="try-logo" href="/library" aria-label="Tinct library">Tinct.</a>
@@ -23,12 +24,12 @@
     <a href="#questions">Questions</a>
   </nav>
   <div class="try-account">
+    <a class="try-pill try-pill--cream try-only-phone" href="/library">Start reading</a>
     <a class="try-pill try-pill--outline" href="/sign-in">Sign in</a>
     <a class="try-pill try-pill--cream try-only-wide" href="/sign-in?mode=create">Create free account</a>
   </div>
 </header>
 <div class="try-hero" id="try">
-  <div class="try-backdrop" aria-hidden="true"></div>
   <h1 class="try-headline">No text is beyond you.</h1>
 
   <div class="try-stage">
@@ -38,9 +39,8 @@
         <button type="button" data-try-step="0" aria-label="Explain anything" aria-current="step"></button><button type="button" data-try-step="1" aria-label="Hear it as you read"></button><button type="button" data-try-step="2" aria-label="Read it in today's words"></button><button type="button" data-try-step="3" aria-label="Get the gist in a minute"></button>
       </span></p>
       <h2 class="try-step-title"><span class="try-step-num" data-try-num>1. </span><span data-try-title>Explain anything</span></h2>
-      <p class="try-step-line" data-try-line>Select a passage. The explanation lands beside it, in the margin, and stays there as a note.</p>
-      <button type="button" class="try-pill try-pill--cream try-next" data-try-next aria-label="Next"><span class="try-next-word">Next</span> <span aria-hidden="true">→</span></button>
-      <p class="try-upnext"><span data-try-upnext>Next: Hear it as you read</span><br><a href="/reader?book=meditations&amp;chapter=2" data-try-start>Or start reading Meditations</a></p>
+      <button type="button" class="try-pill try-pill--outline try-next" data-try-next aria-label="Next"><span class="try-next-word" data-try-upnext>Next: Hear it as you read</span> <span aria-hidden="true">→</span></button>
+      <a class="try-pill try-pill--cream try-pill--big try-action" href="/library" data-try-start>Start reading</a>
     </section>
 
     <div class="try-show">
@@ -49,7 +49,7 @@
         <picture class="is-on"><source media="(max-width: 899px)" srcset="/lab/try/frames/phone-01.webp"><img src="/lab/try/frames/desktop-01.webp" alt="" width="2112" height="1222" fetchpriority="high"></picture>
         <span class="try-demo-open" aria-hidden="true">Open it in the reader</span>
       </a>
-      <a class="try-pill try-pill--cream try-pill--big try-phone-start" href="/reader?book=meditations&amp;chapter=2">Start reading Meditations</a>
+      <a class="try-phone-more" href="#pricing">Pricing · Questions <span aria-hidden="true">↓</span></a>
     </div>
   </div>
 </div>
@@ -68,7 +68,7 @@
           <li>Highlights and notes</li>
           <li>Your place, synced across devices</li>
         </ul>
-        <a class="try-pill try-pill--ink try-pill--block" href="/sign-in?mode=create">Create a free account</a>
+        <a class="try-pill try-pill--outline-ink try-pill--block" href="/sign-in?mode=create">Create a free account</a>
       </article>
       <article class="try-plan try-plan--dark">
         <h3>Premium <span class="try-tag">First month free</span></h3>
@@ -112,13 +112,6 @@
     </div>
   </section>
 </main>
-
-<section class="try-closing" aria-labelledby="closing-title">
-  <div class="try-backdrop" aria-hidden="true"></div>
-  <h2 id="closing-title">Start with the book you put down.</h2>
-  <p>Your place, highlights and notes are kept. The first month of Premium is on us.</p>
-  <a class="try-pill try-pill--cream" href="/sign-in?mode=create">Create a free account</a>
-</section>
 
 <footer class="try-footer">
   <span class="try-footer-mark">Tinct</span>
