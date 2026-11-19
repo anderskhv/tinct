@@ -13,8 +13,10 @@ const RAW = fs.mkdtempSync(path.join(require('os').tmpdir(), 'try-frames-')) + '
 const OUT = path.join(__dirname, '../public/lab/try/frames/')
 // The frames try.js plays (the near-duplicate 'typing' frames 03 and 09 are captured but not kept).
 // Listen is a run of short frames ('11'…'24'), so the marked word moves word by word (Anders, 19 Nov: it lagged).
-const KEEP = ['01', '02', '04', '08', '10']
+const KEEP = ['01', '02', '04', '08', '10', '25', '26', '27', '28']
 const keep = id => KEEP.includes(id) || (Number(id) >= 11 && Number(id) <= 24)
+// The selection growing under the finger (Anders, 19 Nov: "it should highlight it"): frames 25-28, mid-drag.
+const DRAG_STEPS = [[5, '25'], [9, '26'], [13, '27'], [16, '28']]
 const ORIGIN = process.env.ORIGIN || 'https://tinct.app'
 const only = process.argv[2]
 async function run(kind) {
@@ -93,8 +95,24 @@ async function run(kind) {
       const w = i => document.querySelector(`[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="${i}"]`)
       const pos = el => { const rs = el.getClientRects(); const r = rs[rs.length - 1]; return { clientX: r.left + r.width / 2, clientY: r.top + r.height / 2 } }
       const ev = (el, type) => el.dispatchEvent(new PointerEvent(type, { pointerId: 9, pointerType: 'touch', isPrimary: true, bubbles: true, button: 0, ...pos(el) }))
-      ev(w(1), 'pointerdown'); return new Promise(r => setTimeout(() => { ev(w(19), 'pointermove'); ev(w(19), 'pointerup'); r() }, 320))
+      ev(w(1), 'pointerdown'); return new Promise(r => setTimeout(r, 320))
     }, [1, 19])
+    for (const [k, id] of DRAG_STEPS) {
+      await fr.evaluate(k => {
+        const el = document.querySelector(`[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="${k}"]`)
+        const rs = el.getClientRects(), rc = rs[rs.length - 1]
+        el.dispatchEvent(new PointerEvent('pointermove', { pointerId: 9, pointerType: 'touch', isPrimary: true, bubbles: true, button: 0, clientX: rc.right - 2, clientY: rc.top + rc.height / 2 }))
+      }, k)
+      await page.waitForTimeout(260)
+      await mark('drag' + id, word(k), 'end')
+      await shot('drag', id)
+    }
+    await fr.evaluate(() => {
+      const el = document.querySelector('[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="19"]')
+      const rs = el.getClientRects(), rc = rs[rs.length - 1]
+      const at = { pointerId: 9, pointerType: 'touch', isPrimary: true, bubbles: true, button: 0, clientX: rc.right - 2, clientY: rc.top + rc.height / 2 }
+      el.dispatchEvent(new PointerEvent('pointermove', at)); el.dispatchEvent(new PointerEvent('pointerup', at))
+    })
     await page.waitForTimeout(700)
     await shot('selected')
     await mark('explain', f.getByTestId('lab-pbar-explain'))
@@ -102,7 +120,14 @@ async function run(kind) {
   } else {
     await page.mouse.move(a.x + 2, a.y + a.height / 2)
     await page.mouse.down()
-    await page.mouse.move(b.x + b.width - 2, b.y + b.height / 2, { steps: 12 })
+    for (const [k, id] of DRAG_STEPS) {
+      const c = await word(k).boundingBox()
+      await page.mouse.move(c.x + c.width - 2, c.y + c.height / 2, { steps: 4 })
+      await page.waitForTimeout(200)
+      await mark('drag' + id, word(k), 'end')
+      await shot('drag', id)
+    }
+    await page.mouse.move(b.x + b.width - 2, b.y + b.height / 2, { steps: 4 })
     await page.mouse.up()
     await page.waitForTimeout(700)
     await shot('selected')
