@@ -114,6 +114,15 @@ mark.ink.fresh{animation:inkin .38s ease-out both}
   <h2>Handoff spec</h2>
   <p class="lead2">Everything below the controls is a working reference. This section gives the values and rules to build from. Decided by Anders on 18–19 Nov 2026 (DECISIONS.md). Scope: the book reader in <code>app/src/lab</code>, desktop Two-page layout and the phone reader. The Margin layout and the add-a-book reader are out of scope.</p>
 
+  <h3>0. Fidelity: follow this exactly</h3>
+  <ul>
+    <li><b>Every value on this page is binding.</b> Colours, sizes, opacities, durations, thresholds and formulas are copied as written. Nothing is rounded, "simplified", replaced by an existing token that looks close, or tuned by eye.</li>
+    <li><b>Port, do not reinvent.</b> The stroke paths, the edge shadows and the roll geometry are taken from this file's own script (<code>INK_PATHS</code>, <code>inkURI</code>, <code>stackShadow</code>, <code>roll.set</code>, <code>roll.follow</code>, <code>roll.tween</code>) and adapted only as far as the reader's code structure requires. The maths stays identical.</li>
+    <li><b>No additions.</b> No extra animation, colour, control, setting, label or behaviour that this page does not describe.</li>
+    <li><b>Any deviation is Anders's call.</b> If the codebase makes an exact match impossible, or this page is unclear or silent on something, stop that part, explain why, propose the smallest deviation, and wait for Anders's yes. Do not guess and ship.</li>
+    <li><b>Proof is a side-by-side.</b> Each item in the checklist at the end is shown as a screenshot of the reader next to the same state in this file, at the same viewport.</li>
+  </ul>
+
   <h3>1. Highlights: a hand-drawn marker</h3>
   <ul>
     <li>Each highlighted line fragment gets one SVG stroke as its background, stretched to the fragment: <code>background-size:100% 100%; background-repeat:no-repeat; box-decoration-break:clone; padding:.04em 3px; margin:0 -3px</code>. Letters are never filtered or distorted.</li>
@@ -127,10 +136,10 @@ mark.ink.fresh{animation:inkin .38s ease-out both}
   <h3>2. Where you are: page edges plus "% of chapter"</h3>
   <ul>
     <li>Position is the book position the reader already estimates (the same source as "% of book"), not the chapter. <code>read = (page − 1) / (pages − 1)</code>, <code>left = 1 − read</code>.</li>
-    <li>Desktop two pages: a block of page edges behind the spread, drawn as stacked box-shadows. Left sheets <code>round(read × 24)</code>, right sheets <code>round(left × 24)</code>, each 1px further out and up to 2px lower, alternating #f1ebdf and #d6ccb8, closed by one <code>rgba(0,0,0,.35)</code> shadow blurred 2px. A side with 0 sheets draws nothing: at page 1 there is no left block, at the last page no right block.</li>
+    <li>Desktop two pages: a block of page edges behind the spread, drawn as stacked box-shadows. Left sheets <code>round(read × 24)</code>, right sheets <code>round(left × 24)</code>, sheet <code>i</code> (1 to n) offset <code>±i px</code> sideways (left side negative) and <code>min(i,4) × 0.5 px</code> down, with no blur, odd sheets #f1ebdf and even sheets #d6ccb8, closed by one shadow at <code>±(n+1) px</code>, <code>min(n,4) × 0.5 + 1 px</code> down, 2px blur, <code>rgba(0,0,0,.35)</code>. A side with 0 sheets draws nothing: at page 1 there is no left block, at the last page no right block.</li>
     <li>Desktop two pages: a cloth cover behind the book, gradient #24404d to #1a313b, radius 5px, 9px above and 11px below the pages, and 10px beyond the outermost sheet on each side, so it grows and shrinks with the edges.</li>
-    <li>Both pages keep a 46px gutter shade toward the spine.</li>
-    <li>Phone, one page: no cover and no left edge. A right-hand hint of 1px lines, <code>round(left × 6)</code> px wide, hidden at 0.</li>
+    <li>Both pages keep a 46px gutter shade toward the spine: <code>linear-gradient</code> from transparent at the outer side, <code>rgba(60,45,25,.06)</code> at 55%, to <code>rgba(40,30,15,.2)</code> at the spine.</li>
+    <li>Phone, one page: no cover and no left edge. A right-hand hint, <code>round(left × 6)</code> px wide and hidden at 0: <code>repeating-linear-gradient(90deg, #d6ccb8 0 1px, #f1ebdf 1px 2px)</code> with <code>box-shadow: -2px 0 3px rgba(60,45,25,.14)</code>, full screen height.</li>
     <li>Keep the existing "% of chapter" line: under the book on desktop, at the bottom of the phone screen in place of the page number.</li>
   </ul>
 
@@ -143,6 +152,17 @@ mark.ink.fresh{animation:inkin .38s ease-out both}
     <li>Dragging follows the finger (<code>x = Wt + dx × 1.15</code>); past 50px it finishes the turn, otherwise it settles back in 220ms. A two-finger sideways trackpad swipe drives the same drag (wheel <code>deltaX</code>, finished after 130ms without events, then ignored for 650ms so momentum cannot turn twice). A vertical wheel turns one page. Arrow keys and the existing chevrons play the roll.</li>
     <li>Animate only <code>clip-path</code>, <code>transform</code> and backgrounds; no layout per frame. Under reduced motion and on e-ink, turn instantly.</li>
     <li>Turning must not change how or when the reading position is saved (CLAUDE.md invariants and the live reader's position code, <code>src/lab/labPosition*</code>). Text selection for highlights must keep working; the roll starts from the page edges, a click on the side, keys or a swipe, not from a drag across the text.</li>
+  </ul>
+
+  <h3>4. Acceptance checklist</h3>
+  <ul>
+    <li>A highlight in each of the five colours on Light and on Book paper, one spanning two lines: one stroke per line, letters crisp, the same stroke shape on every reload.</li>
+    <li>Making a highlight: the 380ms sweep; none with reduced motion on.</li>
+    <li>Desktop Two-page at 1440 × 900 at page 1, the middle of the book and the last page: no left block at page 1, no right block at the last page, cover tracking the edges, "% of chapter" under the book.</li>
+    <li>Phone at 390 × 844 at the same three positions: hint 6px, about 3px, gone; "% of chapter" at the bottom; no cover.</li>
+    <li>Roll mid-turn on one page and on two, by click, drag from the edge and trackpad swipe; a short drag settles back; one swipe never turns two pages.</li>
+    <li>Reading position after turning, reloading and switching layout is exactly where the reader left off. <code>npm test</code> passes.</li>
+    <li>Night and e-ink: screenshots sent to Anders and approved before they ship.</li>
   </ul>
 </section>
 
