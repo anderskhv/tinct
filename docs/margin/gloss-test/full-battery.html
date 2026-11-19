@@ -1,0 +1,138 @@
+<title>Full Test Battery</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@700&display=swap">
+<style>
+/* Layout: a single reading column (report), wide tables scroll inside their own box. Tinct's paper and ink; verdict colours only in the score chips. */
+:root {
+  --bg: #ece7db; --surface: #f6f2ea; --ink: #141210; --muted: #6a6256; --line: rgba(32,26,19,.16); --wash: rgba(32,26,19,.06);
+  --good: #2f6b3a; --mid: #8a6a12; --bad: #9b2c1f; --good-bg: rgba(47,107,58,.12); --mid-bg: rgba(138,106,18,.13); --bad-bg: rgba(155,44,31,.12);
+  --display: "Playfair Display", Georgia, serif; --body: "EB Garamond", Georgia, serif; --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #151310; --surface: #1e1b17; --ink: #e6ddd0; --muted: #9a9083; --line: rgba(230,221,208,.16); --wash: rgba(230,221,208,.06); --good: #8fc79a; --mid: #d9b75a; --bad: #e58b7d; --good-bg: rgba(143,199,154,.14); --mid-bg: rgba(217,183,90,.14); --bad-bg: rgba(229,139,125,.14); color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #151310; --surface: #1e1b17; --ink: #e6ddd0; --muted: #9a9083; --line: rgba(230,221,208,.16); --wash: rgba(230,221,208,.06); --good: #8fc79a; --mid: #d9b75a; --bad: #e58b7d; --good-bg: rgba(143,199,154,.14); --mid-bg: rgba(217,183,90,.14); --bad-bg: rgba(229,139,125,.14); color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 19px/1.55 var(--body); padding-block: 40px 96px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+main { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+h1 { font: 700 2.3rem/1.15 var(--display); margin: 0; text-wrap: balance; }
+h2 { font: 700 1.45rem/1.25 var(--display); margin: 0 0 10px; }
+h3 { font: 600 1.1rem/1.3 var(--body); margin: 18px 0 6px; }
+p { margin: 0 0 12px; }
+.lede { font-size: 1.15rem; }
+.meta { font: 14px/1.5 var(--ui); color: var(--muted); }
+.tw { overflow-x: auto; border-radius: 10px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+table { border-collapse: collapse; width: 100%; font: 15px/1.45 var(--ui); min-width: 720px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-top: 1px solid var(--line); }
+thead th { border-top: 0; font-weight: 600; color: var(--muted); font-size: 13px; background: var(--wash); }
+td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.s { display: inline-block; min-width: 2.2em; text-align: center; border-radius: 6px; padding: 1px 6px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.g { color: var(--good); background: var(--good-bg); } .m { color: var(--mid); background: var(--mid-bg); } .b { color: var(--bad); background: var(--bad-bg); } .x { color: var(--muted); background: var(--wash); }
+ul, ol { margin: 0 0 12px; padding-left: 1.3em; } li { margin: 0 0 8px; }
+.sev { font: 600 12px var(--ui); border-radius: 5px; padding: 1px 6px; margin-right: 6px; white-space: nowrap; }
+.crit { color: var(--bad); background: var(--bad-bg); } .maj { color: var(--mid); background: var(--mid-bg); } .min { color: var(--muted); background: var(--wash); }
+figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+figure img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); display: block; }
+figcaption { font: 14px/1.45 var(--ui); color: var(--muted); }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 18px; }
+.callout { background: var(--surface); box-shadow: 0 0 0 1px var(--line); border-radius: 10px; padding: 16px 18px; }
+code { font: 14px var(--ui); background: var(--wash); padding: 0 4px; border-radius: 4px; }
+blockquote { margin: 0 0 12px; padding: 2px 0 2px 14px; box-shadow: inset 2px 0 0 var(--line); color: var(--muted); font-style: italic; }
+</style>
+
+<main>
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <h1>Full test battery: papers, literature, phones</h1>
+    <p class="lede">Every test so far, rerun on the build that went live tonight (release train 3 and the Aa panel). Tinct now scores 4.3 on the Attention paper and 4.2 on The Yellow Wallpaper, against Gloss’s 4.7 and 4.6. For the first time there were <b>no failed loads</b> in a full run. Phones work well. Fiction is mostly good, and Tinct’s primer beats Gloss’s because it does not give away the ending. What is left is a small set of prompt fixes, Quiz me’s speed, and two gaps on phones.</p>
+    <p class="meta">15 October 2026, 21:00–23:30, live site, test account flagged internal. Files: Attention, GAN, ResNet (figures), a scanned GAN, Sutton and Barto (548 pages), The Yellow Wallpaper (13-page PDF), Metamorphosis (71-page PDF with outline, and the Gutenberg EPUB). Same rubric as before. How to rerun all of this: <code>docs/margin/test-battery/README.md</code>.</p>
+  </header>
+
+  <section>
+    <h2>Scores</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Action</th><th>Attention: Tinct</th><th>Attention: Gloss</th><th>Yellow Wallpaper: Tinct</th><th>Yellow Wallpaper: Gloss</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Explain</td><td class="n"><span class="s g">4.4</span></td><td class="n">4.8</td><td class="n"><span class="s g">4.1</span></td><td class="n">4.8</td><td>Correct, 115–185 words, 3.2–4.3 s. In fiction it is accurate but plainer than Gloss, which catches ironies (“she herself creeps by daylight”). Two template leaks: “The image confirms this passage reads as printed”, and in a story, “there are no symbols or equations to explain”.</td></tr>
+        <tr><td>Simplify</td><td class="n"><span class="s g">4.4</span></td><td class="n">4.6</td><td class="n"><span class="s m">3.4</span></td><td class="n">4.7</td><td>Good on the paper (1.9–4 s). In fiction, 2 of 3 still paste the passage back: one repeats “It is always the same shape, only very numerous.” word for word, and one quotes the next four sentences unchanged. In Metamorphosis it printed the same plain line twice.</td></tr>
+        <tr><td>Define</td><td class="n"><span class="s g">4.6</span></td><td class="n">4.8</td><td class="n"><span class="s g">4.6</span></td><td class="n">4.8</td><td><b>Fixed.</b> “In this text” comes first for all 9 words, including ensemble, perplexity, smooch (a smear, not a kiss), arabesque and frieze. The in-text sense takes 5 s; the dictionary shows at 0.5 s.</td></tr>
+        <tr><td>Fact-check</td><td class="n"><span class="s g">4.0</span></td><td class="n">4.5</td><td class="n"><span class="s m">3.9</span></td><td class="n">4.4</td><td><b>First words in 2.1–2.6 s</b> (target under 4 s); done in 13–17 s. The verdict is stated once now. It still opens with a long “The passage claims… the document offers…” paragraph (220–300 words in all). In fiction it starts “there is no factual claim to test”, then does check one (Weir Mitchell, correctly).</td></tr>
+        <tr><td>Counterpoint</td><td class="n"><span class="s g">4.2</span></td><td class="n">4.8</td><td class="n"><span class="s m">3.8</span></td><td class="n">4.7</td><td>4–9 s. It still gets Table 1 wrong: self-attention is O(n²·d) per layer, but the answer said O(n·d). In fiction, one “counterpoint” argued the same reading as the passage. The “author’s reply” template is awkward for stories.</td></tr>
+        <tr><td>Ask</td><td class="n"><span class="s g">4.5</span></td><td class="n">4.8</td><td class="n"><span class="s g">4.5</span></td><td class="n">4.8</td><td>Excellent and well grounded. It labels general knowledge and interpretation. Longer than Gloss (about 210 words against 90). 5–8 s.</td></tr>
+        <tr><td>Quiz me</td><td class="n"><span class="s m">3.8</span></td><td class="n">—</td><td class="n"><span class="s g">4.2</span></td><td class="n">—</td><td>Questions are on the passage and the marking is good. But the first question is slow: 5–20 s, and 20–32 s on Metamorphosis. One quiz did not open.</td></tr>
+        <tr><td>Whole document</td><td class="n"><span class="s g">4.6</span></td><td class="n">4.8</td><td class="n"><span class="s g">4.6</span></td><td class="n">4.8</td><td>Now via Chat or Librarian. Covers the whole file, with page citations, flags its own calculations, and now works out that Jennie is John’s sister. 4.5–14 s.</td></tr>
+        <tr><td>Primer</td><td class="n"><span class="s g">4.6</span></td><td class="n">4.8</td><td class="n"><span class="s g">4.8</span></td><td class="n"><span class="s m">3.8</span></td><td>Fiction gets “Where we are · People · Threads to watch”, with no spoilers. <b>Gloss’s primer gives away the ending</b> (“John faints… she creeps over his body”). In Metamorphosis the primer covers the part you are in (Part III).</td></tr>
+        <tr><td><b>Average</b></td><td class="n"><b>4.3</b></td><td class="n"><b>4.7</b></td><td class="n"><b>4.2</b></td><td class="n"><b>4.6</b></td><td>Up from 3.4 (morning) and 4.1 (evening) on Attention. Zero “could not be loaded” in either run.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Literature</h2>
+    <ul>
+      <li><b>A literary PDF opens in the book reader by default</b> (“Tinct text”), so readers do not get the margin there unless they switch layout. The EPUB also opens in the book reader: one-line Explains in about 0.4 s from the old popup (Explain, Chat, Highlight, Copy), and no Simplify, Define, Fact-check or Quiz me.</li>
+      <li><b>Metamorphosis</b> (71 pages, in the margin): whole-book answers are excellent. They trace Grete across all three parts with pages, explain who the three gentlemen are and why they leave, and correctly name the father as the one who threw the apple. Define gave vermin, plaintively and intercede in their story senses.</li>
+      <li><b>The fiction gaps:</b> Simplify pastes the text back; Fact-check opens with “there is no factual claim”; Counterpoint sometimes agrees with the passage; and the Explain notation template leaks into stories.</li>
+      <li><b>Ligatures:</b> PDFs set with ligatures (ﬁ, ﬂ, ﬀ) put those characters into the text layer (“inﬂuence”). Answers were not affected, but a search or quote may be.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Phones (390 × 844, touch)</h2>
+    <ul>
+      <li><b>Works well.</b> Selecting text brings up the bar just under the selection, with 40-pixel-high buttons. Answers open as bottom sheets, More is a clean menu, Define is a dark card with “In this text”, the quiz opens in a sheet, and the primer comes up from below. The layout check found no overlaps and nothing off-screen.</li>
+      <li><b>Speed on the phone</b> matched the desktop: Explain 2.5–3.7 s, Simplify under 2 s, Fact-check’s first words 2.5 s, Ask 7–8 s.</li>
+      <li><b>Whole document:</b> it lives under t menu → “Librarian” (5.7 s, correct). The release notes call it Chat, so readers looking for “Chat” will not find it.</li>
+      <li><b>PDF pages are too small to read on a phone</b> at fit-to-width. On phones, Tinct text or a zoomed column view should probably be the default.</li>
+      <li><b>Header:</b> the title truncates (“Attentio…”), and the page pill collapses to an empty “∨”.</li>
+      <li><b>Figures on the phone:</b> tapping a figure brings up the chip (Explain, Chat, Highlight, Copy). Good.</li>
+      <li><b>Two devices at once:</b> the phone and desktop runs on the same book produced <code>409</code> conflicts on cards and places. No cards were lost, but it is worth confirming that the conflict path adopts the server copy without a visible error.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Scans, figures, long books (re-checked tonight)</h2>
+    <ul>
+      <li><b>Scans: fixed.</b> Recognition is offered on the first open, the scan stays in the PDF reader with a text layer, Explain took 3 s, and the Table 1 answer (225 ± 2) came from the recognised text. Recognition took 46–80 s for 9 pages.</li>
+      <li><b>Figures:</b> all 6 ResNet figures get an on-screen chip, and the visual answers are right. Still open: Figure 2 is detected only in part; one Explain described Table 8 instead of Figure 6; a question naming a figure on another page gets no picture; the TD-Gammon diagram gets no chip.</li>
+      <li><b>Long book:</b> the primer covers the current chapter, and the printed page appears in the header and cards. Sarsa is found on p. 129. Still open: search returns only the first lines of a section, “Go to page” takes the file’s number, and text wrapped beside a figure is scrambled.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>UI from Anders’s notes, checked live</h2>
+    <ul>
+      <li><b>Done:</b>
+        <ul>
+          <li>no foot bar (whole-document questions go through Chat or Librarian);</li>
+          <li>no blinking caret on load;</li>
+          <li>highlighter and pencil icons;</li>
+          <li>delete on every card, with “Deleted · Undo” (tested: 22 → 21 → 22);</li>
+          <li>the primer expands in place (top fixed, height eases);</li>
+          <li>one scroll surface;</li>
+          <li>an Aa panel with Margin view, Focus view, Convert to Tinct book, themes, size and toggles.</li>
+        </ul>
+      </li>
+      <li><b>Small:</b> Escape does not close the Aa panel. The first open of a book with <code>&amp;pages</code> sometimes still lands in the book reader.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What Coder should do next</h2>
+    <ol>
+      <li><b>Simplify:</b> never return the passage or the following sentences unchanged, and never print the same line twice. Fiction gets one plain restatement plus, at most, one line on what it means.</li>
+      <li><b>Fiction prompts:</b>
+        <ul>
+          <li>Fact-check: no “there is no factual claim” opener. Check the real-world references, or say in one line that there is nothing outside the story to check.</li>
+          <li>Counterpoint: give an alternative reading that differs from the obvious one, with no “author’s reply” template.</li>
+          <li>Explain: drop the notation paragraph for prose.</li>
+        </ul>
+      </li>
+      <li><b>Fact-check length:</b> drop the opening “The passage claims… the document offers…” summary. Start with the verdict, which is already streaming fast.</li>
+      <li><b>Quiz me speed:</b> show the first question in under 5 s (it is 5–32 s now); stream it as planned.</li>
+      <li><b>Accuracy:</b> the Table 1 complexity slip (self-attention is O(n²·d)). Remove the leaks “The image confirms this passage reads as printed” and the raw “sec. 3” tag.</li>
+      <li><b>Phones:</b> name the whole-document chat consistently (Chat or Librarian), make PDF pages readable on a phone, and fix the header title and page pill.</li>
+      <li><b>Still open from before:</b> long-book search sends the full section; “Go to page” takes printed numbers; the figure items (Figure 2 region, Table 8/Figure 6, other-page figures, TD-Gammon); reading order around figures.</li>
+    </ol>
+    <div class="callout"><p style="margin:0"><b>Where this leaves the normal-reader question:</b> reliability and Fact-check speed, the two blockers from this evening, are fixed. What remains is prompt polish, Quiz me’s speed and phone gaps. A novel in the margin works well apart from items 1–2. One more clean round and the new menu is ready to try in the book reader for Anders and the test accounts.</p></div>
+  </section>
+</main>

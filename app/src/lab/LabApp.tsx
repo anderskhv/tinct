@@ -234,6 +234,9 @@ import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { ChatConversation, HighlightColor } from '../types'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { TRY_DEMO, TRY_DEMO_DESKTOP_FONT_SIZE, tryDemoTell, useTryDemo, type TryDemoHandles } from './tryDemo/tryDemo'
+import { FREE_MODE, FREE_MODE_COMMANDS, FREE_MODE_HOME, freeModeEditionFor, freeModeEditions, freeModeMenuRows, freeModeSourceLine, otherFreeModeEdition, withFreeMode } from './freeMode/freeMode'
+import { LabFreeModeEditions, LabFreeModeCopyBar, LabFreeModePhoneBand } from './freeMode/LabFreeMode'
+import { FreeModeSourceContext } from './freeMode/freeModeContext'
 import { useLabHighlights } from './useLabHighlights'
 import { labHighlightUndoMessage } from './labHighlightUndo'
 import { useLabAsk } from './useLabAsk'
@@ -572,7 +575,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (back?.kind !== 'cancel') return
     void readSupabaseAccessToken().then(token => token ? cancelModernCheckout(back.bookId, token) : false).catch(() => false)
   }, [])
-  const { user: authUser, likelyAuthenticated } = useAuth()
+  const auth = useAuth()
+  // Free reading mode reads as a guest whoever is signed in: nothing of the account is read or written here.
+  const authUser = FREE_MODE ? null : auth.user
+  const likelyAuthenticated = FREE_MODE ? false : auth.likelyAuthenticated
   const privateBook = Boolean(userBook)
   // A reader's own PDF read as its Tinct text: Book editions also offers its Original pages.
   const ownPdf = userBook?.kind === 'pdf'
@@ -655,13 +661,26 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const flagged = applyNarrationPilotFlag(migrated, narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : '')))
     const synced = syncLabAudioEdition(flagged, book.editions?.length ? book.editions : bibleEditions())
     if (userBookEditionKey) return userBookPrefs(synced, userBookEditionKey)
+    // Free reading mode reads Original or Modern English, with the other beside it for Both (freeMode.ts).
+    if (FREE_MODE) {
+      const primary = freeModeEditionFor(book.editions ?? [], synced.primaryEdition)
+      if (primary) return syncLabAudioEdition({ ...synced, primaryEdition: primary, compareEdition: otherFreeModeEdition(primary), compareOpen: true, compareChosen: true }, book.editions ?? [])
+    }
     // Compare chosen in the margin preview's Layout: its compare edition is shown, even after an earlier None.
     return readerHandoff && deepLinkViewForPage() === 'compare' && !synced.compareOpen && synced.compareEdition !== synced.primaryEdition
       ? { ...synced, compareOpen: true }
       : synced
   })
   const allBookEditions = book.editions?.length ? book.editions : bibleEditions()
-  const bookEditions = selectableLabEditions(book.bookId || 'bible', allBookEditions)
+  const selectableEditions = selectableLabEditions(book.bookId || 'bible', allBookEditions)
+  // A stable list: effects depend on it, so free mode's filtered copy is made only when the editions change. A book
+  // with neither Original nor Modern English (the Bible, reached from the book picker) keeps its own editions.
+  const freeEditions = useMemo(() => {
+    if (!FREE_MODE) return null
+    const offered = freeModeEditions(selectableEditions)
+    return offered.length ? offered : null
+  }, [selectableEditions])
+  const bookEditions = freeEditions ?? selectableEditions
   // An own EPUB on the desktop has two editions too: its text here, and Margin view (Add a book's margin reader; epubView.ts).
   const ownEpubMargin = !!userBook && userBook.kind !== 'pdf' && bookEditions.some(edition => edition.key === EPUB_MARGIN_EDITION_KEY)
   const ownEditions = ownPdf || ownEpubMargin
@@ -1131,6 +1150,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, allBookEditions)
   const compareEditionLabel = editionLabelFor(prefs.compareEdition, allBookEditions)
   const continuousReader = sharedReader && !showPhoneChrome && !desktopCompareActive && !privateDesktopClassic
+  // Free reading mode names what the Modern English was made from under each chapter heading, but not in Both, where
+  // the column labels say it (freeMode.ts freeModeSourceLine).
+  const freeModeSourceBook = FREE_MODE ? getBook(book.bookId || 'bible') : undefined
+  const freeModeSource = freeModeSourceBook && !(desktopCompareActive && !showPhoneChrome) ? freeModeSourceLine(freeModeSourceBook) : null
   // Book scroll (Anders, 11 Nov 2026): the desktop Margin reader scrolls a whole scroll unit (a biblical book, a
   // titled division, else the whole book). Library books and, since 13 Nov 2026, a reader's own EPUBs, pasted texts
   // (no gap between their sections) and PDFs read as Tinct text; phone, two-page and Compare as before. A PDF's
@@ -1974,6 +1997,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     notePlace('mode-change', anchor)
     setSuperSheet(null)
   }
+  /**
+   * Free reading mode's switch (freeMode.ts): Original or Modern is the main edition, with the other kept as the
+   * Compare edition, so Both (desktop only) is the reader's own Compare view of the two. Both paths keep the place:
+   * the editions are paragraph-aligned and the layout switch opens at the word the outgoing view was at.
+   */
+  const chooseFreeModeView = (view: string) => {
+    if (view === 'both') { if (!showPhoneChrome) chooseSharedDesktopLayout('compare'); return }
+    const target = bookEditions.find(edition => edition.key === view)
+    if (!target) return
+    if (!showPhoneChrome && desktopCompareActive) chooseSharedDesktopLayout(privateDesktopClassic ? 'two-page' : 'margin')
+    if (prefs.primaryEdition !== target.key) updatePrefs({ ...prefs, primaryEdition: target.key, compareEdition: otherFreeModeEdition(target.key), compareOpen: true })
+  }
   // Leaving or hiding the page sends the own book's place still waiting (keepalive).
   useEffect(() => {
     if (!userBook) return
@@ -2180,7 +2215,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       return
     }
     setBookSwitcherOpen(false)
-    const destination = `/reader${readerPreviewSearch(window.location.search)}`
+    // Free reading mode stays free in the next book (freeMode.ts): Original or Modern, place on this device only.
+    const destination = FREE_MODE ? withFreeMode(`/reader?book=${encodeURIComponent(intent.bookId)}`) : `/reader${readerPreviewSearch(window.location.search)}`
     window.location.assign(sharedReader ? sharedReaderDestination(destination) : destination)
   }, [notePlace, rememberLibraryPlace, sharedReader])
 
@@ -6688,7 +6724,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       { id: 'ai-settings', label: 'AI settings', run: () => openAiSettings() },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
       { id: 'undo-highlight', label: 'Undo last highlight or note change', enabled: highlightsApi.canUndo, run: () => { highlightUndoRef.current() } },
-    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
+    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions))
+      // Free reading mode keeps reading, moving and the editions (freeMode.ts FREE_MODE_COMMANDS); its O and M are its own switch.
+      .filter(command => !FREE_MODE || FREE_MODE_COMMANDS.has(command.id))
+      .map(command => FREE_MODE && (command.id === 'original' || command.id === 'modern') ? { ...command, run: () => chooseFreeModeView(`${command.id}-en`) } : command),
   })
 
   // The /try page's reader (tryDemo/tryDemo.ts): the page's own Original | Modern English switch (phone) runs here
@@ -6712,6 +6751,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     chapterCard: chapterNotes ? (chapterNotes.as ?? chapterNotes.request.kind) : null,
   })
   useEffect(() => {
+    // Free reading mode asks for nothing: no sign-in, Premium or keep-your-place prompt is ever shown (freeMode.ts).
+    if (FREE_MODE && accountPrompt) { setAccountPrompt(null); return }
     if (!TRY_DEMO || !accountPrompt) return
     // The page shows its own card ("Keep the conversation going"; for Listen, the reader's listening copy).
     tryDemoTell({ type: 'account', action: accountPrompt.action })
@@ -7106,7 +7147,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // 16 Nov 2026): it is the t menu's Reading angle and the first chapter's end.
   // A reader who has never used Ask, Explain or Simplify sees only how to, and the chapter's Primer (the simple first
   // page, 16 Nov 2026); while a signed-in reader's account is read, nothing.
-  if (continuousReader && !book.chaptersProvisional && !initialResolving && selectionActions !== 'unknown') {
+  if (!FREE_MODE && continuousReader && !book.chaptersProvisional && !initialResolving && selectionActions !== 'unknown') {
     const first = book.chapters[0]?.number === book.chapterNumber
     // "Before you start" sits at the very top of the book, level with the opening heading (Anders, 10 Nov 2026),
     // not at the first line of text below it.
@@ -7374,6 +7415,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   )
 
   return (
+    <FreeModeSourceContext.Provider value={freeModeSource}>
     <MarginPhoneContext.Provider value={marginPills}>
     <div
       ref={labRootRef}
@@ -7382,6 +7424,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       data-testid="lab-root"
       data-shared-reader={sharedReader ? 'true' : undefined}
       data-try-demo={TRY_DEMO ? 'true' : undefined}
+      data-free-mode={FREE_MODE ? 'true' : undefined}
       data-reading-scroll={readingScrollActive ? 'true' : undefined}
       data-continuous-reader={continuousReader ? 'true' : undefined}
       data-margin-room={continuousReader ? marginRoom : undefined}
@@ -7493,9 +7536,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             type="button"
             className="lab-v2-library-back"
             data-testid="lab-library-back"
-            aria-label="Back to library"
-            title={privateBook ? 'Your books' : 'Library'}
-            onClick={() => handleSuperMenuSelect('library')}
+            aria-label={FREE_MODE ? 'Back to the modern-English classics' : 'Back to library'}
+            title={FREE_MODE ? 'All the books' : privateBook ? 'Your books' : 'Library'}
+            onClick={() => {
+              // Free reading mode came from the modern-English page and goes back to it, its place kept on this device.
+              if (FREE_MODE) { notePlace('hide'); window.location.assign(FREE_MODE_HOME); return }
+              handleSuperMenuSelect('library')
+            }}
           >
             <LibraryBackIcon size={LAB_V2_PLAY_PX} />
           </button>
@@ -7504,6 +7551,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           className="lab-header-brand"
           onClick={showPhoneChrome && !phoneReaderControlsVisible ? () => setReaderControlsVisible(true) : undefined}
         >
+          {/* Free reading mode on the phone: the same way back to the modern-English page as the desktop's arrow
+              (the t menu's Library and the picker's Library → leave free mode for the full library). */}
+          {FREE_MODE && showPhoneChrome && (
+            <button
+              type="button"
+              className="lab-free-back"
+              data-testid="lab-free-back"
+              aria-label="Back to the modern-English classics"
+              title="All the books"
+              onClick={() => { notePlace('hide'); window.location.assign(FREE_MODE_HOME) }}
+            >
+              <LibraryBackIcon size={22} />
+            </button>
+          )}
           <h1 className="lab-header-work" data-testid="lab-header-work">
             <button
               ref={bookTitleButtonRef}
@@ -7543,10 +7604,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <div className="lab-header-controls">
           {(!showPhoneChrome || phoneReaderControlsVisible) ? (
             <>
-              {!isPhone && <button type="button" className="lab-header-notebook" data-testid="lab-header-notebook"
+              {/* Free reading mode (freeMode.ts): Original · Modern · Both on the desktop, beside the t menu; no
+                  Notebook, Play or Aa. The phone has its switch in the bottom band. */}
+              {FREE_MODE && !showPhoneChrome && (
+                <LabFreeModeEditions
+                  editions={bookEditions}
+                  current={desktopCompareActive ? 'both' : prefs.primaryEdition}
+                  both={desktopCompareEnabled || desktopCompareActive}
+                  onChoose={chooseFreeModeView}
+                />
+              )}
+              {!FREE_MODE && !isPhone && <button type="button" className="lab-header-notebook" data-testid="lab-header-notebook"
                 aria-label="Notebook" title="Notebook"
                 onClick={() => handleSuperMenuSelect('notebook')}><ReaderNotebookIcon /></button>}
-              {(!privateBook || ownNarration) && <button
+              {!FREE_MODE && (!privateBook || ownNarration) && <button
                 type="button"
                 className="lab-v2-play"
                 data-testid="lab-v2-play"
@@ -7558,7 +7629,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 {narrationInfo?.loading || listen.loading || listen.buffering ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
               </button>}
               {/* The /try page's phone reader has no menu (demo mode), so Aa stands in for the menu's Appearance there. */}
-              {(!showPhoneChrome || TRY_DEMO) && <button type="button" className="lab-v2-aa" data-testid="lab-header-aa"
+              {!FREE_MODE && (!showPhoneChrome || TRY_DEMO) && <button type="button" className="lab-v2-aa" data-testid="lab-header-aa"
                 aria-label="Reading appearance" title="Reading appearance"
                 onClick={() => { setSuperMenuOpen(false); setCompareFromLayout(false); setSuperSheet('reading') }}>Aa</button>}
 {!TRY_DEMO && <LabSuperButton
@@ -7592,12 +7663,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {!frontispieceVisible && (
         <LabSuperMenu
           open={superMenuOpen}
+          rows={FREE_MODE ? freeModeMenuRows() : undefined}
           phone={showPhoneChrome}
           privateBook={privateBook}
           ownPdf={ownEditions}
           sharedReader={sharedReader}
           profileDot={profileDot}
-          request={menuRequestShown && <LabMenuRequest
+          request={!FREE_MODE && menuRequestShown && <LabMenuRequest
             request={menuRequestShown.request}
             followBack={menuRequestShown.followBack}
             getToken={readRequestToken}
@@ -7626,7 +7698,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           compare={!handheldMargin && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
             ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() } }
             : null}
-          margin={!showPhoneChrome && !userBook && marginPreviewOptedIn() && isMarginPreviewBook(getBook(book.bookId || 'bible'))
+          margin={!FREE_MODE && !showPhoneChrome && !userBook && marginPreviewOptedIn() && isMarginPreviewBook(getBook(book.bookId || 'bible'))
             ? { onOpen: () => {
                 const bookId = book.bookId!
                 notePlace('hide')
@@ -7648,14 +7720,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               } }
             : null}
           compareFromLayout={compareFromLayout}
-          compareChoice={!showPhoneChrome}
+          compareChoice={!showPhoneChrome && !FREE_MODE}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
-          onAccountVoice={signedIn ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}
+          onAccountVoice={signedIn || FREE_MODE ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}
           modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
             ? { price: formatModernPrice(modern.status.offer.cents), busy: modernCheckoutBusy, onBuy: () => { void buyModernEdition() } }
             : undefined}
-          readingAngle={{ onOpen: openReadingAngle }}
+          readingAngle={FREE_MODE ? null : { onOpen: openReadingAngle }}
         />
       )}
       {figureCard && (
@@ -8213,7 +8285,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           ) : (
             !showPhoneChrome ? <span className="lab-page-turn-spacer" /> : null
           )}
-          {showPhoneChrome ? (
+          {showPhoneChrome && FREE_MODE ? (
+            // Free reading mode's bottom band (p-modern.jpg): Original | Modern in the centre, the page number on the right.
+            <LabFreeModePhoneBand editions={bookEditions} current={prefs.primaryEdition} progressLabel={footProgressLabel} onChoose={chooseFreeModeView} />
+          ) : showPhoneChrome ? (
             <button
               type="button"
               className="lab-chapter-progress is-interactive"
@@ -8436,7 +8511,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <button type="button" onClick={() => setAudioUnavailableNotice(false)} aria-label="Dismiss audio notice">×</button>
       </div>}
       <LabAccountSheet
-        open={accountPrompt !== null && !TRY_DEMO}
+        open={accountPrompt !== null && !TRY_DEMO && !FREE_MODE}
         action={accountPrompt?.action ?? 'chat'}
         returnTo={signInReturnTo}
         onClose={closeAccountPrompt}
@@ -8501,7 +8576,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         />
       )}
 
-      {selectionPopup && marginPhone && popupMode === 'character' && selectionPopup.character && (
+      {/* Free reading mode: a selection offers Copy only (no Explain, Simplify, Ask or highlight). */}
+      {FREE_MODE && selectionPopup && selectionPopup.text.trim() && (
+        <LabFreeModeCopyBar key={`${selectionPopup.x}:${selectionPopup.y}:${selectionPopup.text.length}`} text={selectionPopup.text} x={selectionPopup.x} y={selectionPopup.y} onDone={dismissSelectionPopup} />
+      )}
+      {!FREE_MODE && selectionPopup && marginPhone && popupMode === 'character' && selectionPopup.character && (
         <LabPhoneCard label={phoneCardLabel('People', selectionPopup.chapterLabel)} kind="character" testId="lab-phone-character" onClose={() => leaveSelectionInfo()}>
           <PhoneCharacterBody key={`${selectionPopup.character.card.id}:${selectionPopup.openedAt}`} character={selectionPopup.character} renderFollow={shown => {
             const passage = phonePassageOf(selectionPopup)
@@ -8531,11 +8610,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           }} />
         </LabPhoneCard>
       )}
-      {selectionPopup && marginPhone && popupMode === 'define' && renderPhoneCard({
+      {!FREE_MODE && selectionPopup && marginPhone && popupMode === 'define' && renderPhoneCard({
         kind: 'define', passage: phonePassageOf(selectionPopup), word: selectionPopup.defineText || selectionPopup.text,
         namesakes: selectionPopup.namesakes, openedAt: selectionPopup.openedAt ?? 0,
       }, true)}
-      {selectionPopup && marginPhone && popupMode !== 'character' && popupMode !== 'define' && (
+      {!FREE_MODE && selectionPopup && marginPhone && popupMode !== 'character' && popupMode !== 'define' && (
         <LabPhoneBar
           text={selectionPopup.text}
           fallbackY={selectionPopup.y}
@@ -8603,7 +8682,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         </LabPhoneCard>
       )}
 
-      {selectionPopup && !marginPhone && (
+      {!FREE_MODE && selectionPopup && !marginPhone && (
         <SelectionPopup
           sharedReader={sharedReader}
           saveError={cardSaveWarning}
@@ -8830,6 +8909,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       </p>
     </div>
     </MarginPhoneContext.Provider>
+    </FreeModeSourceContext.Provider>
   )
 }
 

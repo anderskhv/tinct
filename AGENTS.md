@@ -172,6 +172,21 @@ npm run verify-bundle
 
 After those gates pass, release by merging to `main`; GitHub Actions (Node 24.13.0) does the rest.
 
+### New pages: light lane (Anders, 2026-11-19)
+
+A new standalone page (a landing or demo page such as `/try`, `/modern-english`, `/byob`) that does not
+change the reader's position, sync or edition code ships in a light lane:
+
+- **Approval is the go.** Once Anders approves the design (mockup) and it is built, it ships. Do not ask for a
+  second "go", and do not queue it behind content batches or other releases: it goes next.
+- **Checks are proportionate:** the page's own unit test (render, links, noindex if unlisted), `npm run build`
+  and `npm run verify-bundle`, and one screenshot pass at 390, 980 and 1440 (light and dark if the page has
+  both) against a local build with `/api/**` stubbed. CI runs as usual; no extra device sweeps, multi-engine
+  QA marathons or new e2e suites before the first release.
+- **Fix forward.** Polish found after release ships as small follow-ups, not as a gate on the first release.
+- **Still applies:** never lose reading position, privacy, zero Anthropic API spend in development, and the
+  full lane for anything touching `src/lab/labPosition*`, sync, editions or the reader core.
+
 ### Deploy flow (staged release)
 
 `.github/workflows/deploy.yml` runs on every push to `main` (and manually). **A merge to `main` is the release** (Anders, 13 Nov 2026): while `app/release/shared-reader-rollout.json` is `repair-pending` the push releases as the approved repair of exactly that commit (same accepted-reader pin, exact-SHA and reader-ON checks as a dispatch with `release_phase=repair`, `approved_repair_release=true`, `approved_source_sha=<sha>`, which still works for a re-run by hand); the floor and reader phases stay manual dispatches. Releases are serialized (`deploy-tinct-production`): a started run is never cancelled, and GitHub keeps only the newest waiting run, so a burst of merges releases only the newest commit.

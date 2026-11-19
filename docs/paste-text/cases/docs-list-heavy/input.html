@@ -1,0 +1,51 @@
+<html><body>
+<!--StartFragment--><nav class="theme-doc-breadcrumbs" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="https://docs.shelfkeeper.example/">🏠</a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="https://docs.shelfkeeper.example/guides">Guides</a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Importing a library</span></li></ul></nav>
+<div class="theme-doc-version-badge badge badge--secondary">Version: 3.2</div>
+<div class="theme-doc-toc-mobile tocCollapsible_ETCw"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div>
+<div class="theme-doc-markdown markdown"><header><h1>Importing a library</h1></header>
+<p>Shelfkeeper can import a library from a spreadsheet, another catalogue app, or a folder of e-books. This page covers all three.</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"></svg></span>note</div><div class="admonitionContent_BuS1"><p>Imports never delete books that are already in your library.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="before-you-start">Before you start<a href="#before-you-start" class="hash-link" aria-label="Direct link to Before you start" title="Direct link to Before you start">​</a></h2>
+<p>Check that:</p>
+<ul>
+<li>you are signed in as the library owner;</li>
+<li>the file is one of:
+<ul>
+<li>CSV (UTF-8, comma or semicolon separated)</li>
+<li>a Goodreads or StoryGraph export</li>
+<li>a ZIP of EPUB files, at most 2 GB</li>
+</ul>
+</li>
+<li>nobody else is editing the library.</li>
+</ul>
+<h2 class="anchor" id="steps">Steps<a href="#steps" class="hash-link" aria-label="Direct link to Steps">​</a></h2>
+<ol>
+<li>Open <strong>Settings → Library → Import</strong>.</li>
+<li>Choose the source:
+<ol type="a">
+<li><strong>Spreadsheet</strong> — map your columns to Title, Author, ISBN.</li>
+<li><strong>Another app</strong> — pick it from the list.</li>
+<li><strong>E-books</strong> — drop the ZIP file.</li>
+</ol>
+</li>
+<li>Review the preview. Rows with problems are marked:
+<ul>
+<li>⚠️ <em>duplicate</em> — already in your library</li>
+<li>❌ <em>unreadable</em> — will be skipped</li>
+</ul>
+</li>
+<li>Press <kbd>Import</kbd>. You can keep working while it runs.</li>
+</ol>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar"><code class="codeBlockLines_e6Vv"><span class="token-line"><span class="token plain">shelfkeeper import --file books.csv --dry-run</span><br></span><span class="token-line"><span class="token plain">shelfkeeper import --file books.csv</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA">Copy</span></button></div></div></div>
+<h2 class="anchor" id="column-reference">Column reference<a href="#column-reference" class="hash-link" aria-label="Direct link to Column reference">​</a></h2>
+<dl>
+<dt><code>title</code></dt><dd>Required. The book's title as it should appear on the shelf.</dd>
+<dt><code>author</code></dt><dd>Optional. Several authors separated by <code>;</code>.</dd>
+<dt><code>isbn</code></dt><dd>Optional. ISBN-10 or ISBN-13; used to find covers.</dd>
+</dl>
+</div>
+<footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/shelfkeeper/docs/edit/main/docs/guides/import.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page">Edit this page</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated on <b><time datetime="2026-09-14T10:00:00.000Z">Sep 14, 2026</time></b></span></div></div></footer>
+<div class="feedback"><p>Was this page helpful?</p><button>Yes</button><button>No</button></div>
+<nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="https://docs.shelfkeeper.example/guides/shelves"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Organising shelves</div></a><a class="pagination-nav__link pagination-nav__link--next" href="https://docs.shelfkeeper.example/guides/export"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Exporting</div></a></nav>
+<div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#before-you-start" class="table-of-contents__link toc-highlight">Before you start</a></li><li><a href="#steps" class="table-of-contents__link toc-highlight">Steps</a></li><li><a href="#column-reference" class="table-of-contents__link toc-highlight">Column reference</a></li></ul></div></div><!--EndFragment-->
+</body></html>

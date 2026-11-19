@@ -1,0 +1,107 @@
+<title>Morning Retest</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@700&display=swap">
+<style>
+/* Layout: a single reading column (report), wide tables scroll inside their own box. Tinct's paper and ink; verdict colours only in the score chips. */
+:root {
+  --bg: #ece7db; --surface: #f6f2ea; --ink: #141210; --muted: #6a6256; --line: rgba(32,26,19,.16); --wash: rgba(32,26,19,.06);
+  --good: #2f6b3a; --mid: #8a6a12; --bad: #9b2c1f; --good-bg: rgba(47,107,58,.12); --mid-bg: rgba(138,106,18,.13); --bad-bg: rgba(155,44,31,.12);
+  --display: "Playfair Display", Georgia, serif; --body: "EB Garamond", Georgia, serif; --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #151310; --surface: #1e1b17; --ink: #e6ddd0; --muted: #9a9083; --line: rgba(230,221,208,.16); --wash: rgba(230,221,208,.06); --good: #8fc79a; --mid: #d9b75a; --bad: #e58b7d; --good-bg: rgba(143,199,154,.14); --mid-bg: rgba(217,183,90,.14); --bad-bg: rgba(229,139,125,.14); color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #151310; --surface: #1e1b17; --ink: #e6ddd0; --muted: #9a9083; --line: rgba(230,221,208,.16); --wash: rgba(230,221,208,.06); --good: #8fc79a; --mid: #d9b75a; --bad: #e58b7d; --good-bg: rgba(143,199,154,.14); --mid-bg: rgba(217,183,90,.14); --bad-bg: rgba(229,139,125,.14); color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 19px/1.55 var(--body); padding-block: 40px 96px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+main { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+h1 { font: 700 2.3rem/1.15 var(--display); margin: 0; text-wrap: balance; }
+h2 { font: 700 1.45rem/1.25 var(--display); margin: 0 0 10px; }
+h3 { font: 600 1.1rem/1.3 var(--body); margin: 18px 0 6px; }
+p { margin: 0 0 12px; }
+.lede { font-size: 1.15rem; }
+.meta { font: 14px/1.5 var(--ui); color: var(--muted); }
+.tw { overflow-x: auto; border-radius: 10px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+table { border-collapse: collapse; width: 100%; font: 15px/1.45 var(--ui); min-width: 720px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-top: 1px solid var(--line); }
+thead th { border-top: 0; font-weight: 600; color: var(--muted); font-size: 13px; background: var(--wash); }
+td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.s { display: inline-block; min-width: 2.2em; text-align: center; border-radius: 6px; padding: 1px 6px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.g { color: var(--good); background: var(--good-bg); } .m { color: var(--mid); background: var(--mid-bg); } .b { color: var(--bad); background: var(--bad-bg); } .x { color: var(--muted); background: var(--wash); }
+ul, ol { margin: 0 0 12px; padding-left: 1.3em; } li { margin: 0 0 8px; }
+.sev { font: 600 12px var(--ui); border-radius: 5px; padding: 1px 6px; margin-right: 6px; white-space: nowrap; }
+.crit { color: var(--bad); background: var(--bad-bg); } .maj { color: var(--mid); background: var(--mid-bg); } .min { color: var(--muted); background: var(--wash); }
+figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+figure img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); display: block; }
+figcaption { font: 14px/1.45 var(--ui); color: var(--muted); }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 18px; }
+.callout { background: var(--surface); box-shadow: 0 0 0 1px var(--line); border-radius: 10px; padding: 16px 18px; }
+code { font: 14px var(--ui); background: var(--wash); padding: 0 4px; border-radius: 4px; }
+blockquote { margin: 0 0 12px; padding: 2px 0 2px 14px; box-shadow: inset 2px 0 0 var(--line); color: var(--muted); font-style: italic; }
+</style>
+
+<main>
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <h1>Morning retest, 16 October</h1>
+    <p class="lede">The full battery, rerun at 06:30 against release trains 4 and 5. Tinct now scores <b>4.5</b> on Attention, <b>4.5</b> on GAN and <b>4.4</b> on The Yellow Wallpaper, against Gloss’s 4.7, 4.6 and 4.6. That is close to parity. There were no failed loads in about 120 actions across desktop and phone. Most of last night’s list is fixed. What is left: maths lost from the PDF text, one table misread, a visible search outage message, and the page jump on long books.</p>
+    <p class="meta">Live site, test account flagged internal. Same files, question sets and rubric as last night: <code>docs/margin/test-battery/README.md</code>. Last night’s report: <code>full-battery.html</code>.</p>
+  </header>
+
+  <section>
+    <h2>Scores</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Action</th><th>Attention</th><th>GAN</th><th>Yellow Wallpaper</th><th>Gloss</th><th>Change since last night</th></tr></thead>
+      <tbody>
+        <tr><td>Explain</td><td class="n"><span class="s g">4.4</span></td><td class="n"><span class="s g">4.5</span></td><td class="n"><span class="s g">4.3</span></td><td class="n">4.8</td><td>No template lines in fiction now; 2.4–4.3 s. One leak left: “The image shows the abstract line …”.</td></tr>
+        <tr><td>Simplify</td><td class="n"><span class="s g">4.8</span></td><td class="n"><span class="s g">4.7</span></td><td class="n"><span class="s g">4.4</span></td><td class="n">4.6–4.7</td><td><b>Fixed.</b> One plain rewrite of 19–56 words, never pasting the passage back; 1.9–2.9 s on desktop. On the phone, two were slow (6.4 s and 8.9 s).</td></tr>
+        <tr><td>Define</td><td class="n"><span class="s g">4.6</span></td><td class="n"><span class="s g">4.6</span></td><td class="n"><span class="s g">4.6</span></td><td class="n">4.8</td><td>“In this text” is right on all 14 words, including saturate, Parzen and charwoman. No grammar label on eponyms.</td></tr>
+        <tr><td>Fact-check</td><td class="n"><span class="s g">4.2</span></td><td class="n"><span class="s g">4.3</span></td><td class="n"><span class="s g">4.4</span></td><td class="n">4.2–4.5</td><td>One line on the claim, then the verdict; 140–210 words. First words in 1.9–3.7 s, done in 4.5–12.7 s. Fiction is clean now: Weir Mitchell checked, no “no factual claim” opener. <b>New:</b> one answer said “Can’t check. The search tool is unavailable right now.”</td></tr>
+        <tr><td>Counterpoint</td><td class="n"><span class="s g">4.3</span></td><td class="n"><span class="s g">4.1</span></td><td class="n"><span class="s m">3.9</span></td><td class="n">4.7–4.8</td><td><b>Faster: 3.6–7.5 s</b> (was 4–9 s). Two errors remain (below). In fiction it now gives a real alternative reading, but the “author’s best reply” template is still there.</td></tr>
+        <tr><td>Ask</td><td class="n"><span class="s g">4.5</span></td><td class="n"><span class="s g">4.6</span></td><td class="n"><span class="s g">4.6</span></td><td class="n">4.4–4.8</td><td>Excellent, 3.9–6.3 s.</td></tr>
+        <tr><td>Quiz me</td><td class="n"><span class="s g">4.4</span></td><td class="n"><span class="s g">4.4</span></td><td class="n"><span class="s g">4.3</span></td><td class="n">—</td><td><b>First question in about 3 s</b>, down from 5–32 s. All 8 quizzes opened.</td></tr>
+        <tr><td>Whole document (Chat)</td><td class="n"><span class="s g">4.6</span></td><td class="n"><span class="s g">4.7</span></td><td class="n"><span class="s g">4.4</span></td><td class="n">4.3–4.8</td><td>4.2–8.4 s. It still refers back to earlier turns (“This also corrects my earlier remark”, “I can be more specific than before”). On Jennie it is accurate but hedged.</td></tr>
+        <tr><td>Primer</td><td class="n"><span class="s g">4.6</span></td><td class="n"><span class="s g">4.6</span></td><td class="n"><span class="s g">4.8</span></td><td class="n">3.8–5.0</td><td>Unchanged and good. Fiction keeps “Where we are · People · Threads to watch”.</td></tr>
+        <tr><td><b>Average</b></td><td class="n"><b>4.5</b></td><td class="n"><b>4.5</b></td><td class="n"><b>4.4</b></td><td class="n"><b>4.7 / 4.6 / 4.6</b></td><td>Up from 4.3 (Attention) and 4.2 (Yellow Wallpaper) last night.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Also re-checked</h2>
+    <ul>
+      <li><b>Figures:</b> all 6 ResNet figures get a chip, and <b>Figure 2 is now detected as the whole block</b>. All 6 questions that need the plot read it correctly (13% vs 9.7%; the drops at 15 and 30; the magenta curve near 8%).</li>
+      <li><b>Metamorphosis</b> (late pages): Simplify is one clean line, Define gives the story sense of charwoman, the Counterpoint is a real critique of the family’s self-justification, Ask names the father as the one who threw the apple, and the Part III primer opens in 1 s.</li>
+      <li><b>Phone:</b>
+        <ul>
+          <li>The header now reads “Attention Is All Y… · p. 1 · Aa”.</li>
+          <li>The t menu says <b>Chat</b>, and it answered the Jennie question in 5 s.</li>
+          <li>The bar sits just under the selection.</li>
+          <li>The layout check found nothing outside scrolling sheets.</li>
+          <li>The PDF page fits its text column now, but body text is still small on a 390 px screen.</li>
+        </ul>
+      </li>
+      <li><b>UI:</b> Escape closes Aa, delete with Undo works (30 → 29 → 30), the primer expands in place, and the scrollbar sits at the right edge.</li>
+      <li><b>Long book:</b>
+        <ul>
+          <li>The TD-Gammon diagram now gets a chip.</li>
+          <li>“Go to page” takes printed numbers on some pages but not others: 445 went to printed 445 (Mastering the Game of Go), but 423 landed in Chapter 15 (Actor and Critic) instead of printed 423 (TD-Gammon).</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What is still wrong</h2>
+    <ol>
+      <li><b>Maths lost from the PDF text.</b> The text layer drops superscripts. Table 1’s O(n²·d) reaches the model as “O(n · d)”, and two Counterpoints repeated that error. Table 2’s FLOPs arrive as “3.3 · 10” with the exponent gone. When a passage or question touches a table or formula, send the page picture, or keep superscripts as ^2 when extracting.</li>
+      <li><b>A table misread.</b> A GAN Counterpoint said adversarial nets come second to DBN on TFD. In fact they beat DBN (2057 vs 1909) and come second to Stacked CAE (2110).</li>
+      <li><b>The search outage shows.</b> “Can’t check. The search tool is unavailable right now.” Retry once, then fall back quietly to the document and general knowledge, with at most a short “no outside sources this time”.</li>
+      <li><b>Small leaks:</b> “The image shows …” in Explain, and Chat referring back to its own earlier answers.</li>
+      <li><b>“Go to page” on long books</b> maps printed numbers inconsistently (423 is wrong, 445 is right).</li>
+      <li><b>Fiction Counterpoint</b> still ends with the “author’s best reply” template.</li>
+      <li><b>Captions:</b> selecting caption text brings up the figure chip, not the bar, so a caption cannot be highlighted, noted or asked about. One GAN Counterpoint could not run for that reason.</li>
+      <li><b>Phone:</b> Simplify was slow twice (6.4 s and 8.9 s), and PDF body text is still small.</li>
+    </ol>
+    <div class="callout"><p style="margin:0"><b>For the normal-reader decision:</b> the blockers from yesterday (reliability, speed, Simplify, fiction prompts, phones) are fixed. Items 1–3 are worth doing first, because they affect accuracy. After that, I would be comfortable trying the new menu in the book reader for Anders and the test accounts.</p></div>
+  </section>
+</main>

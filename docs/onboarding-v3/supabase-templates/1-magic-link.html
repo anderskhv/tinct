@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+</head>
+<body style="margin: 0; padding: 0; background-color: #ece7db; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color: #ece7db; padding: 48px 16px;">
+    <tr>
+      <td align="center">
+        <table width="440" cellpadding="0" cellspacing="0" role="presentation" style="max-width: 440px; width: 100%; background-color: #f8f5ee; border-radius: 14px; padding: 40px 36px 36px;">
+          <tr>
+            <td align="center">
+              <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; color: #1d1a16; margin: 0 0 28px 0;">Tinct<span style="color: #1f4a5c;">.</span></p>
+              <p style="font-size: 16px; color: #1d1a16; line-height: 1.5; margin: 0 0 22px 0;">Your sign-in code</p>
+              <table cellpadding="0" cellspacing="0" role="presentation" style="margin: 0 auto 22px auto;">
+                <tr>
+                  <td style="background-color: #ffffff; border: 1px solid #e3dccd; border-radius: 12px; padding: 16px 16px 16px 26px; font-size: 34px; font-weight: 600; letter-spacing: 10px; color: #1d1a16; font-variant-numeric: tabular-nums; text-align: center;">{{ .Token }}</td>
+                </tr>
+              </table>
+              <p style="font-size: 14px; color: #6b6357; line-height: 1.5; margin: 0 0 30px 0;">Enter it in Tinct within 10 minutes.</p>
+              <p style="font-size: 13px; color: #8a8174; line-height: 1.5; margin: 0; border-top: 1px solid #e3dccd; padding-top: 22px;">Reading on this device? <a href="{{ .ConfirmationURL }}" style="color: #1f4a5c;">Sign in with one tap</a><br>Didn't ask for this? You can ignore it.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

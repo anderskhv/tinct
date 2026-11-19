@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { bookOpening } from './labParagraphStyle'
 import { unitName, useMarginPhone, type MarginBookStart } from './marginPhone/marginPhoneContext'
+import { FREE_MODE, useFreeModeSourceLine } from './freeMode/freeModeContext'
 
 /**
  * Shared by visible pages and inert measurement surfaces. A reader's own book
@@ -49,13 +50,17 @@ function bookSegments(book: MarginBookStart): Segment[] {
   ]
 }
 
-export function LabChapterHeading({ title, preview = false, busy = false, measuring = false, onPreview }: {
+export function LabChapterHeading({ title, preview: previewAsked = false, busy = false, measuring = false, onPreview }: {
   title: string; preview?: boolean; busy?: boolean; measuring?: boolean; onPreview?: () => void
 }) {
   const opening = bookOpening(title)
   // A first chapter named as the book (a PDF's text before its first heading) is not named twice.
   const repeats = !!opening && sameWords(opening.title, title)
-  const margin = useMarginPhone()
+  const marginPills = useMarginPhone()
+  // Free reading mode (freeMode.ts): the bare heading and the line naming the Modern English's source, no actions.
+  const sourceLine = useFreeModeSourceLine()
+  const margin = FREE_MODE ? null : marginPills
+  const preview = previewAsked && !FREE_MODE
   // The phone's start actions (approved mockup, 9 Nov 2026): soft pills under the book's opening and the heading.
   const phone = preview && margin?.layout === 'phone'
   // layout 'desktop': the Margin reader keeps its headings bare; these actions are its margin's start cards.
@@ -80,6 +85,7 @@ export function LabChapterHeading({ title, preview = false, busy = false, measur
     </div>}
     {/* Kept, hidden, when it repeats the opening: the paginators read its face from it. */}
     <h1 className="lab-passage-headline" data-testid={measuring ? undefined : "lab-passage-headline"} hidden={repeats || undefined}>{title}</h1>
+    {sourceLine && <p className="lab-free-source" data-testid={measuring ? undefined : 'lab-free-source'}>{sourceLine}</p>}
     {/* Each chapter keeps the reader's existing chips (Anders, 10 Nov 2026): ✧ Primer · ✧ Summary. No Quiz on the
         phone; the desktop Margin reader keeps Quiz me in its chapter cards. */}
     {phone && margin && <div className="lab-unit-pills is-start" data-testid={measuring ? undefined : 'lab-unit-start'}>

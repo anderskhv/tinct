@@ -1,0 +1,43 @@
+{
+ "explain": [
+  "Training error (left) and test error (right) on CIFAR-10",
+  "Residual learning: a building block",
+  "Example network architectures for ImageNet",
+  "Thin curves denote training error, and bold curves",
+  "Dashed lines denote training error, and bold lines denote testing error",
+  "Standard deviations (std) of layer responses"
+ ],
+ "simplify": [],
+ "define": [],
+ "factcheck": [],
+ "counterpoint": [],
+ "ask": [
+  [
+   "Training error (left) and test error (right) on CIFAR-10",
+   "Roughly what test error does the 56-layer network end at, and how does that compare with the 20-layer one?"
+  ],
+  [
+   "Residual learning: a building block",
+   "What happens to the signal right after the addition in this diagram?"
+  ],
+  [
+   "Example network architectures for ImageNet",
+   "What do the dotted shortcut arrows mean, and how many of them are in the 34-layer residual network?"
+  ],
+  [
+   "Thin curves denote training error, and bold curves",
+   "At about which iterations do the sudden drops in error happen, and why?"
+  ],
+  [
+   "Dashed lines denote training error, and bold lines denote testing error",
+   "In the right panel, what colour is the 1202-layer curve and roughly what test error does it reach?"
+  ],
+  [
+   "Standard deviations (std) of layer responses",
+   "In the bottom plot, which network has the smallest responses overall?"
+  ]
+ ],
+ "whole": [
+  "In Figure 6, what colour is the 1202-layer curve in the right panel?"
+ ]
+}

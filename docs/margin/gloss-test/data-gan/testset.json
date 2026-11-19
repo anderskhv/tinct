@@ -1,0 +1,69 @@
+{
+ "explain": [
+  "This framework corresponds to a minimax two-player game",
+  "Early in learning, when G is poor, D can reject samples with high confidence",
+  "Optimizing D to completion in the inner loop of training is computationally prohibitive",
+  "We recognize in the previous expression the Jensen",
+  "The subderivatives of a supremum of convex functions include the derivative of the function at the point where the maximum is attained"
+ ],
+ "simplify": [
+  "procedure for G is to maximize the probability of D making a mistake",
+  "Competition in this game drives both teams to improve their methods until the counterfeits are indistiguishable from the genuine articles",
+  "This objective function results in the same fixed point of the dynamics of G and D but provides much stronger gradients early in learning",
+  "This method of estimating the likelihood has somewhat high variance and does not perform well in high dimensional spaces",
+  "G must not be trained too much without updating D"
+ ],
+ "define": [
+  "minimax",
+  "saturates",
+  "maxout",
+  "Parzen",
+  "log-likelihood"
+ ],
+ "factcheck": [
+  "So far, the most striking successes in deep learning have involved discriminative models",
+  "No approximate inference or Markov chains are necessary",
+  "it is the best method available to our knowledge",
+  "we believe that these samples are at least competitive with the better generative models in the literature",
+  "suggests that they are a reasonable model to use despite their lack of theoretical guarantees"
+ ],
+ "counterpoint": [
+  "The generative model can be thought of as analogous to a team of counterfeiters",
+  "Samples are fair random draws, not cherry-picked",
+  "in order to demonstrate that the model has not memorized the training set",
+  "This results in D being maintained near its optimal solution, so long as G changes slowly enough",
+  "Advances in generative models that can sample but not estimate likelihood directly motivate further research into how to evaluate such models"
+ ],
+ "ask": [
+  [
+   "Early in learning, when G is poor",
+   "Why does maximizing log D(G(z)) give stronger gradients than minimizing log(1 - D(G(z)))?"
+  ],
+  [
+   "The number of steps to apply to the discriminator",
+   "Why did they use k = 1, and what would a larger k change?"
+  ],
+  [
+   "We recognize in the previous expression the Jensen",
+   "Why does reaching -log 4 mean the generator matches the data?"
+  ],
+  [
+   "We estimate probability of the test set data under",
+   "What is a Parzen window estimate, and why is it unreliable here?"
+  ],
+  [
+   "G collapses too many values of",
+   "What is the Helvetica scenario, and what do people call it today?"
+  ]
+ ],
+ "quiz": [
+  "procedure for G is to maximize the probability of D making a mistake",
+  "We recognize in the previous expression the Jensen",
+  "This method of estimating the likelihood has somewhat high variance"
+ ],
+ "whole": [
+  "What limitations or open problems do the authors acknowledge?",
+  "How does the theory in section 4 differ from what they actually trained in section 5?",
+  "Which results in Table 1 support the paper's claims, and how strong is that evidence?"
+ ]
+}
