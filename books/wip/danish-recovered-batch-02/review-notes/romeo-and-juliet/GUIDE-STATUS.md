@@ -1,0 +1,1 @@
+Guides copied from main b02c2c9ad4a8c10dfbe1c663ce01ac1dbe7abf04. Opening excerpts and chapter labels updated to match recovered candidates. All remaining guide prose is unchanged and unreviewed in this recovery; no full guide pass is claimed.
