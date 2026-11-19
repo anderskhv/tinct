@@ -179,7 +179,7 @@ describe('the reader plays itself (Anders, 19 Nov 2026)', () => {
 
   it('shows four steps in the order the frames play them, and asks the visitor to do nothing', () => {
     const titles = [...script.matchAll(/\{ title: '((?:[^'\\]|\\.)*)'|\{ title: "([^"]+)"/g)].map(match => match[1] ?? match[2])
-    expect(titles).toEqual(['Explain anything', 'Hear it as you read', "Read it in today's words", 'Get the gist in a minute'])
+    expect(titles).toEqual(['Explain anything', "Read it in today's words", 'Hear it as you read', 'Get the gist in a minute'])
     expect(page).toContain('<span data-try-title>Explain anything</span>')
     expect(frames.map(frame => frame.step)).toEqual([...frames.map(frame => frame.step)].sort())
     expect(new Set(frames.map(frame => frame.step))).toEqual(new Set([0, 1, 2, 3]))

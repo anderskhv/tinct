@@ -22,9 +22,9 @@
 <link rel="icon" href="/favicon.ico">
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
 <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel10">
-<link rel="stylesheet" href="/lab/try/try.css?v=20261119create">
+<link rel="stylesheet" href="/lab/try/try.css?v=20261119oilm4">
 <script type="module" src="/lab/internal-traffic.js"></script>
-<script src="/lab/try/try.js?v=20261119act" defer></script>
+<script src="/lab/try/try.js?v=20261119oilm4" defer></script>
 </head>
 <body class="try">
 <div class="try-backdrop" aria-hidden="true"></div>
@@ -38,29 +38,33 @@
   </nav>
   <div class="try-account">
     <a class="try-pill try-pill--cream try-only-phone" href="/library">Start reading</a>
-    <a class="try-pill try-pill--outline try-only-wide" href="/sign-in">Sign in</a>
     <a class="try-pill try-pill--outline try-only-phone" href="/sign-in?mode=create">Create account</a>
-    <a class="try-pill try-pill--cream try-only-wide" href="/sign-in?mode=create">Create free account</a>
   </div>
 </header>
 <div class="try-hero" id="try">
-  <h1 class="try-headline">Read and listen anywhere, with help always at hand.</h1>
-
   <div class="try-stage">
-    <!-- What the reader beside it is showing. It plays on its own (try.js); Next moves on, the dots jump. -->
+    <!-- Desktop: the headline, Start reading and the step sit beside the reader, the headline level with its top
+         edge (Anders, 19 Nov). Phone: the headline, the step, then the reader. -->
+    <div class="try-intro">
+    <h1 class="try-headline">Read and listen anywhere, with help always at hand.</h1>
+    <a class="try-pill try-pill--cream try-pill--big try-action" href="/library" data-try-start>Start reading</a>
+
+    <!-- What the reader beside it is showing. It plays on its own (try.js); the arrows step, the dots jump. -->
     <section class="try-step" aria-label="What you are watching" aria-live="polite">
+      <p class="try-watching">What you're watching</p>
+      <button type="button" class="try-prev" data-try-prev aria-label="Previous"><span aria-hidden="true">←</span></button>
       <p class="try-count"><span data-try-count>1 of 4</span><span class="try-dots" role="group" aria-label="Moments">
-        <button type="button" data-try-step="0" aria-label="Explain anything" aria-current="step"></button><button type="button" data-try-step="1" aria-label="Hear it as you read"></button><button type="button" data-try-step="2" aria-label="Read it in today's words"></button><button type="button" data-try-step="3" aria-label="Get the gist in a minute"></button>
+        <button type="button" data-try-step="0" aria-label="Explain anything" aria-current="step"></button><button type="button" data-try-step="1" aria-label="Read it in today's words"></button><button type="button" data-try-step="2" aria-label="Hear it as you read"></button><button type="button" data-try-step="3" aria-label="Get the gist in a minute"></button>
       </span></p>
       <h2 class="try-step-title"><span class="try-step-num" data-try-num>1. </span><span data-try-title>Explain anything</span></h2>
-      <button type="button" class="try-pill try-pill--outline try-next" data-try-next aria-label="Next"><span class="try-next-word" data-try-upnext>Next: Hear it as you read</span> <span aria-hidden="true">→</span></button>
-      <a class="try-pill try-pill--cream try-pill--big try-action" href="/library" data-try-start>Start reading</a>
+      <button type="button" class="try-pill try-pill--outline try-next" data-try-next aria-label="Next"><span class="try-next-word" data-try-upnext>Next: Read it in today's words</span> <span aria-hidden="true">→</span></button>
     </section>
+    </div>
 
     <div class="try-show">
       <!-- Frames of the real reader (scripts/capture-try-frames.cjs), Meditations Book 2. The first is in the page; try.js adds the rest. -->
       <a class="try-demo" href="/reader?book=meditations&amp;chapter=2" data-try-demo aria-label="Meditations, Book 2: open it in the reader">
-        <picture class="is-on"><source media="(max-width: 899px)" srcset="/lab/try/frames/phone-01.webp"><img src="/lab/try/frames/desktop-01.webp" alt="" width="2112" height="1222" fetchpriority="high"></picture>
+        <picture class="is-on"><source media="(max-width: 899px)" srcset="/lab/try/frames/phone-01.webp?v=20261119o" width="780" height="1520"><img src="/lab/try/frames/desktop-01.webp?v=20261119o" alt="" width="2112" height="1222" fetchpriority="high"></picture>
         <span class="try-demo-open" aria-hidden="true">Open it in the reader</span>
       </a>
       <a class="try-phone-more" href="#pricing">Pricing · Questions <span aria-hidden="true">↓</span></a>
@@ -71,7 +75,7 @@
 <main class="try-below">
   <section class="try-section" id="pricing" aria-labelledby="pricing-title">
     <h2 class="try-section-title" id="pricing-title">Reading is free</h2>
-    <p class="try-section-sub">Premium adds the companion, Talk and audio — and the first month is on us.</p>
+    <p class="try-section-sub">Premium adds the companion, Talk and audio. The first month is on us, and no credit card is needed.</p>
     <div class="try-plans">
       <article class="try-plan">
         <h3>Free</h3>
@@ -96,6 +100,7 @@
           <li>Your own books and PDFs</li>
         </ul>
         <a class="try-pill try-pill--cream try-pill--block" href="/sign-in?mode=create">Create an account — first month free</a>
+        <p class="try-plan-note">No credit card needed</p>
       </article>
     </div>
   </section>

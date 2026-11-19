@@ -25,6 +25,8 @@
     // NARRATION_ADMIN_TOKEN (warm route) is a Worker secret, never a var.
     "NARRATION_PILOT": "1",
     "NARRATION_PROVIDER": "grok",
+    // Readers' own day. The owner-run warm workflow has a separate day (NARRATION_WARM_DAILY_BYTES, default the
+    // same), so a warm run can never leave readers at "Daily narration limit reached". The month is shared.
     "NARRATION_DAILY_BYTES": "2000000",
     "NARRATION_MONTHLY_BYTES": "10000000",
     // Read-aloud of readers' own books (src/worker/routes/ownBookNarration.ts), Premium only.

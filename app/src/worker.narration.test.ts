@@ -265,7 +265,7 @@ describe('POST /api/narration/ensure', () => {
     expect(audio.status).toBe(206)
     expect(audio.headers.get('Content-Type')).toBe('audio/mpeg')
 
-    const usage = await h.env.RATE_LIMIT.get('narration:usage:day:2026-09-18', 'json') as Record<string, number>
+    const usage = await h.env.RATE_LIMIT.get('narration:usage:reader-day:2026-09-18', 'json') as Record<string, number>
     expect(usage).toMatchObject({ generated: 1, cacheHits: 1, requests: 2 })
     expect(usage.bytes).toBeGreaterThan(0)
   })
@@ -389,11 +389,23 @@ describe('POST /api/narration/ensure', () => {
 
   it('stops at the spending ceiling without calling the provider', async () => {
     const h = makeHarness({ NARRATION_DAILY_BYTES: '150' })
-    await h.env.RATE_LIMIT.put('narration:usage:day:2026-09-18', JSON.stringify({ bytes: 100, requests: 1, generated: 1, failed: 0, cacheHits: 0, providerMs: 0 }))
+    await h.env.RATE_LIMIT.put('narration:usage:reader-day:2026-09-18', JSON.stringify({ bytes: 100, requests: 1, generated: 1, failed: 0, cacheHits: 0, providerMs: 0 }))
     const result = await ensure(h, { paragraphs: [{ index: 0 }] })
     expect(result.json.paragraphs[0]).toMatchObject({ status: 'failed', reason: 'budget_exhausted' })
     expect(result.json.paragraphs[0].retryAfterMs).toBeGreaterThan(0)
     expect(h.fish.calls.length).toBe(0)
+  })
+
+  it('keeps the readers\' day apart from the warm runs\' day', async () => {
+    // A warm run that used its whole day must not stop readers (Anders, 19 Nov 2026).
+    const reader = makeHarness({ NARRATION_DAILY_BYTES: '150' })
+    await reader.env.RATE_LIMIT.put('narration:usage:warm-day:2026-09-18', JSON.stringify({ bytes: 5000, requests: 9, generated: 9, failed: 0, cacheHits: 0, providerMs: 0 }))
+    const read = await ensure(reader, { paragraphs: [{ index: 0 }] })
+    expect(read.json.paragraphs[0]).toMatchObject({ status: 'ready' })
+    expect(reader.fish.calls.length).toBe(1)
+    const readerDay = await reader.env.RATE_LIMIT.get('narration:usage:reader-day:2026-09-18', 'json') as Record<string, number>
+    expect(readerDay.bytes).toBeGreaterThan(0)
+    expect(await reader.env.RATE_LIMIT.get('narration:usage:month:2026-09', 'json')).toMatchObject({ bytes: readerDay.bytes })
   })
 
   it('retries overloads a bounded number of times and opens the breaker after repeated failures', async () => {
@@ -723,7 +735,8 @@ describe('Grok narration rollout', () => {
       NARRATION_COORDINATOR: { getByName: (name: string) => ({
         claim: async (token: string) => { if (held.has(name)) return false; held.set(name, token); return true },
         release: async (token: string) => { if (held.get(name) === token) held.delete(name) },
-        reserve: async (_day: string, bytes: number) => { reservations.push(bytes); return true },
+        // One reservation per chunk against the shared month (each pool's own day is reserved alongside it).
+        reserve: async (_day: string, bytes: number) => { if (name.startsWith('budget:')) reservations.push(bytes); return true },
         usage: async () => [],
       }) } as unknown as DurableObjectNamespace,
     })

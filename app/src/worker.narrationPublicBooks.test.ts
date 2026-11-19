@@ -88,7 +88,8 @@ function setup(options: { reserve?: boolean } = {}): Setup {
     NARRATION_COORDINATOR: { getByName: (name: string) => ({
       claim: async (token: string) => { if (held.has(name)) return false; held.set(name, token); return true },
       release: async (token: string) => { if (held.get(name) === token) held.delete(name) },
-      reserve: async (_day: string, bytes: number) => { reservations.push(bytes); return options.reserve !== false },
+      // Counts the shared month's reservation, one per chunk (each pool's own day is reserved alongside it).
+      reserve: async (_day: string, bytes: number) => { if (name.startsWith('budget:')) reservations.push(bytes); return options.reserve !== false },
       usage: async () => [],
     }) },
     // Added books are not static assets: any lookup here is the bug this file guards.
