@@ -344,3 +344,6 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-scene { top: 30%; font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .try-pointer, .try-scene { display: none; } }
+/* Desktop: the reader names each moment itself (the scene's name, the pointer), so the step control beside it goes
+   (Anders, 19 Nov). The left column is the headline and Start reading. */
+@media (min-width: 900px) { .try-step { display: none; } }
