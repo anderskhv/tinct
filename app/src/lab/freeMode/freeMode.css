@@ -136,3 +136,31 @@
 .lab-free-copy button:focus-visible { outline: 2px solid var(--lab-paper, #f4efe4); outline-offset: -2px; }
 .lab.is-night .lab-free-copy { background: var(--lab-paper, #f4efe4); }
 .lab.is-night .lab-free-copy button { color: var(--lab-ink, #2a251d); }
+
+/* The phone's way back to /modern-english, before the book title: the desktop arrow's glyph, a 44px target whose
+   arrow lines up with the text's left edge. */
+.lab-free-back {
+  appearance: none;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: -10px 0 -10px -12px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab-free-back svg { display: block; }
+.lab-free-back:focus-visible { outline: 2px solid var(--lab-accent, #2f7f7a); outline-offset: -4px; }
+
+/* No passage cards in free mode, so on a wide screen the paper stands in the middle of the window, not left of an
+   empty card column (QA 19 Nov 2026, Anders). Its width, and so its lines and pages, are the Margin reader's. */
+.lab.is-desktop[data-free-mode="true"][data-continuous-reader="true"] .continuous-reader-paper {
+  margin-left: auto;
+  margin-right: auto;
+}

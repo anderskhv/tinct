@@ -7594,6 +7594,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           className="lab-header-brand"
           onClick={showPhoneChrome && !phoneReaderControlsVisible ? () => setReaderControlsVisible(true) : undefined}
         >
+          {/* Free reading mode on the phone: the same way back to the modern-English page as the desktop's arrow
+              (the t menu's Library and the picker's Library → leave free mode for the full library). */}
+          {FREE_MODE && showPhoneChrome && (
+            <button
+              type="button"
+              className="lab-free-back"
+              data-testid="lab-free-back"
+              aria-label="Back to the modern-English classics"
+              title="All the books"
+              onClick={() => { notePlace('hide'); window.location.assign(FREE_MODE_HOME) }}
+            >
+              <LibraryBackIcon size={22} />
+            </button>
+          )}
           <h1 className="lab-header-work" data-testid="lab-header-work">
             <button
               ref={bookTitleButtonRef}
