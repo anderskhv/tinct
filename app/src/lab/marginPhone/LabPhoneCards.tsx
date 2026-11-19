@@ -9,6 +9,7 @@ import { PHONE_CARD_BUSY_ATTR, PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFo
 import type { PhoneCardRange } from './phoneCardPassage'
 import type { CharacterSelection, NamesakeNotice, ReleasedCard } from '../../services/characters/characterCards'
 import { subtitleRepeatsBody } from '../../services/characters/cardSubtitle'
+import { HeadwordLabel } from '../../components/reader/DefinitionFallback'
 
 /** The streamed lead already displays this initial saved projection. Keep it
  * in storage/chat, but omit the duplicate below the live card's answer. */
@@ -71,8 +72,8 @@ export function PhoneCharacterBody({ character, renderFollow }: { character: Cha
       </div>
       <button type="button" onClick={() => { setGalleryId(null); setGallery(false) }}>Back to selected name</button>
     </> : card && <>
-      <h2>{card.name}</h2>
-      {roleLabel && <small>{roleLabel}</small>}
+      {/* "Mary Magdalene · Major figure", as the desktop popup (Anders, 18 Nov 2026). */}
+      <h2 className="popup-character-name">{card.name}<HeadwordLabel label={roleLabel ?? ''} /></h2>
       {card.subtitle && !subtitleRepeatsBody(card.subtitle, card.body) && <p className="popup-character-subtitle">{card.subtitle}</p>}
       <p>{card.body}</p>
       <button type="button" onClick={() => setGallery(true)}>Character gallery</button>

@@ -1,0 +1,23 @@
+{
+  "book": "othello",
+  "scenes": 15,
+  "paragraph_positions": 1391,
+  "danish_changed_or_restored_positions": 892,
+  "danish_new_positions": 0,
+  "english_changed_positions": 45,
+  "shape_matches_original": true,
+  "historical_final_counts_match": true,
+  "guides_recovered": true,
+  "sha256": {
+    "modern-da.json": "5a66ebaae8fba003f22f95ca4f7767a9b788332c28e8e99e66faca62eb0a4d5b",
+    "modern-en.json": "6dd3299c1f2ee14328e85070b50c6c38b89ac26832aa424f7d58001ddb55ede1",
+    "onboarding-da.json": "2333a504e501dae5e5991e133c83c7b00ded620498efe09b98f0caf64472ad25",
+    "onboarding-en.json": "b8fddb5fb0cde5a9254c781e431d7218c90708467fc2ec722b89fff1616a238e"
+  },
+  "limitations": [
+    "Recovery and structural checks do not constitute a new complete literary review.",
+    "Native Danish sign-off remains pending.",
+    "Historical final file hashes were not available; matching counts corroborate reconstruction but are not byte-identity proof."
+  ],
+  "publication_notes": "Restores 37 witness-derived stage-direction variants in both languages; see source-witness-variants.json. Source witness was reacquired from a Gutenberg mirror."
+}

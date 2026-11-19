@@ -1,0 +1,448 @@
+{
+  "sourceCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+  "books": [
+    {
+      "bookId": "oresteia",
+      "masterIndex": {
+        "bookId": "oresteia",
+        "danishCandidate": "recovery-parent/reconstructed/oresteia/draft-modern-da.json",
+        "englishCandidate": "recovery-parent/reconstructed/oresteia/draft-modern-en.json",
+        "folder": "recovery-parent/reconstructed/oresteia",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "b0ee34691f7bc32f5a5801554a4219a719a9c294d71618c673d65d4606b7bf9d"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parent/reconstructed/oresteia/draft-modern-en.json",
+        "danishCandidate": "recovery-parent/reconstructed/oresteia/draft-modern-da.json",
+        "pairedShape": true,
+        "nonemptyDanish": true,
+        "chapters": 26,
+        "paragraphs": 771,
+        "originalShapeMatchesGateScope": true,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "oresteia original-en -> modern-en  (26 chapters)\n  weighted similarity : 0.612   (gate: <= 0.75)\n  light+mechanical    : 0/26 = 0.0%   (gate: <= 5%)\n  identical long paras: 10/450 = 2.2%   (gate: <= 5%)\n  buckets: REAL-HEAVY 4  REAL 22  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "oresteia",
+        "guide": "recovery-parent/reconstructed/oresteia/onboarding-da.json",
+        "openingMatchesParagraphPrefix": false,
+        "excerptFoundAfterWhitespaceNormalization": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parent/reconstructed/oresteia/draft-modern-da.json",
+          "sha256": "b0ee34691f7bc32f5a5801554a4219a719a9c294d71618c673d65d4606b7bf9d",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parent/reconstructed/oresteia/draft-modern-en.json",
+          "sha256": "763aecc4c2260c29ee48356a3278b72f9c665089a575970fb03f40e2b52fa501",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parent/reconstructed/oresteia/onboarding-da.json",
+          "sha256": "c3f1c5224c528c78793f2b1cc750bb3b9222a5346c4827652cc3268531ae9ac8",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parent/reconstructed/oresteia/onboarding-en.json",
+          "sha256": "633e3566b93ab452686df3b88a729673c7955b7d8b1451be04f826e990dafefa",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parent/reconstructed/oresteia/modern-da.json",
+          "sha256": "f17f73cbfc743b55fadcfbcdc709bbb357964a314b855cd3ef618ebe07e5ea41",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parent/reconstructed/oresteia/modern-en.json",
+          "sha256": "ccd4b6fa76b35eb110d7d20774e1f5252dabdb311110180c3f677810a3128c07",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-parent/reconstructed/oresteia/source-onboarding-oresteia.da.json",
+          "sha256": "c1dae5b9d5a471426a21a051638f3c39fafa4b72f11d54e718f391605e55248c",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-parent/reconstructed/oresteia/source-onboarding-oresteia.json",
+          "sha256": "155f2262515124f1351fbefdc9ee7cc296565cf0b207c33ff3664ce1a5ef92e7",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parent/reconstructed/oresteia/original-en.json",
+          "sha256": "3134b7ec7c615cb2ef2dd4e007b05c320739c45f8b3ad085f02a2cf3e45cff1d",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "the-aeneid",
+      "masterIndex": {
+        "bookId": "the-aeneid",
+        "danishCandidate": "recovery-parallel/the-aeneid/final-release-candidate/modern-da.json",
+        "englishCandidate": "recovery-parallel/the-aeneid/final-release-candidate/modern-en.json",
+        "folder": "recovery-parallel/the-aeneid/final-release-candidate",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Eight substantive corrections now applied and checked in final-release-candidate; historical draft preserved. Native review pending; normal reader/release checks remain.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "c8629f249b857fbe42e740b0d708d54d53ed57ec864929c90b5641641317819c"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parallel/the-aeneid/candidate-the-aeneid-modern-en.json",
+        "danishCandidate": "recovery-parallel/the-aeneid/candidate-the-aeneid-modern-da.json",
+        "pairedShape": true,
+        "originalShapeMatches": true,
+        "nonemptyDanish": true,
+        "chapters": 12,
+        "paragraphs": 544,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "the-aeneid original-en -> modern-en  (12 chapters)\n  weighted similarity : 0.649   (gate: <= 0.75)\n  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/544 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 12  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "the-aeneid",
+        "guide": "recovery-parallel/the-aeneid/final-release-candidate/onboarding-da.json",
+        "openingMatchesParagraphPrefix": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/the-aeneid/final-release-candidate/modern-da.json",
+          "sha256": "c8629f249b857fbe42e740b0d708d54d53ed57ec864929c90b5641641317819c",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/the-aeneid/final-release-candidate/modern-en.json",
+          "sha256": "d31476703adeb70dfeab3175b07239a6270dc503fd3a00b96ca9300ef6cf689a",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/the-aeneid/final-release-candidate/onboarding-da.json",
+          "sha256": "f6cd14d24d89cbce37a1517534ce90e5b3c8271d74b66d7fe4216834e16375da",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/the-aeneid/final-release-candidate/onboarding-en.json",
+          "sha256": "85d256fc3d2480944f7627e6deefb5c993ed4feb50a752fab1a1266d151d5642",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parallel/the-aeneid/source-the-aeneid-modern-da.json",
+          "sha256": "ed6ef13cbfdd867014f73b37289032705160a65f17e6d116761ee446abc9b9b8",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parallel/the-aeneid/source-the-aeneid-modern-en.json",
+          "sha256": "1e9b6dd64911f96374ae6e9322379d4eb30a9d9dfc8e0a994e717c71f3a05c07",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-parallel/the-aeneid/source-the-aeneid.da.json",
+          "sha256": "c20bbd7632c81af92da80ec9530f3f68268b5e0ae1c81efa6ceceded3e3d3cb4",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-parallel/the-aeneid/source-the-aeneid.json",
+          "sha256": "4b9a1faa9e99cea99f1147c3b06ecb6c6e09630f35a2340c11c2cc6e2c963286",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parallel/the-aeneid/source-the-aeneid-original-en.json",
+          "sha256": "4a763d99af704695d1fbe4fc6c9740c2335dedc7bbf7e2b22aff8af23903aaf0",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "the-republic",
+      "masterIndex": {
+        "bookId": "the-republic",
+        "danishCandidate": "recovery-parent/reconstructed/the-republic/candidate-the-republic-modern-da.json",
+        "englishCandidate": "recovery-parent/reconstructed/the-republic/candidate-the-republic-modern-en.json",
+        "folder": "recovery-parent/reconstructed/the-republic",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "05fcf5f17426ea6dd2bbec17cf48bf8aeebf32fa1779123ce5e4a3f841da4cda"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parent/reconstructed/the-republic/candidate-the-republic-modern-en.json",
+        "danishCandidate": "recovery-parent/reconstructed/the-republic/candidate-the-republic-modern-da.json",
+        "pairedShape": true,
+        "originalShapeMatches": true,
+        "nonemptyDanish": true,
+        "chapters": 10,
+        "paragraphs": 4308,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "the-republic original-en -> modern-en  (10 chapters)\n  weighted similarity : 0.628   (gate: <= 0.75)\n  light+mechanical    : 0/10 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/2015 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 10  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "the-republic",
+        "guide": "recovery-parent/reconstructed/the-republic/candidate-the-republic.da.json",
+        "openingMatchesParagraphPrefix": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parent/reconstructed/the-republic/candidate-the-republic-modern-da.json",
+          "sha256": "05fcf5f17426ea6dd2bbec17cf48bf8aeebf32fa1779123ce5e4a3f841da4cda",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parent/reconstructed/the-republic/candidate-the-republic-modern-en.json",
+          "sha256": "081dfa1a6bb5669e010888f5a1db5c1794412209796d6c693f5216cffe48264d",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parent/reconstructed/the-republic/candidate-the-republic.da.json",
+          "sha256": "d77a7d5ce01cc3f1ecaa3c1e73e90ef5fc6ea2fd29ef6405118527b3344958d0",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parent/reconstructed/the-republic/candidate-the-republic.json",
+          "sha256": "128ab91a287810ecf9e3f64c23a17fa58139abc19f35e660e6b614d54fd18ade",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parent/reconstructed/the-republic/source-the-republic-modern-da.json",
+          "sha256": "9de2ff16ca374bdbe70339db2067375b7d8c68d6abed6e8edcab10fd50d68859",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parent/reconstructed/the-republic/source-the-republic-modern-en.json",
+          "sha256": "2bc78ba1f33b207c52ee98dd47954c82c07afb11b3b70d60f6a41af18b675277",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-parent/reconstructed/the-republic/source-the-republic.da.json",
+          "sha256": "77e7f3ae925004b69681fc3c78837ebf093fccb37e59bef638904c3998ca343d",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-parent/reconstructed/the-republic/source-the-republic.json",
+          "sha256": "83dc435456821a93b4ad9813699651695d95facb14c91ea159e8288a9fc57924",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parent/reconstructed/the-republic/source-the-republic-original-en.json",
+          "sha256": "338cc5908ed34b108c6775dad4e437feccb19ba86f6fdcd868ea5821d777b0a6",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "walden",
+      "masterIndex": {
+        "bookId": "walden",
+        "danishCandidate": "recovery-worker-b/reconstructed/walden-replayed/walden-modern-da.json",
+        "englishCandidate": "recovery-worker-b/reconstructed/walden-replayed/walden-modern-en.json",
+        "folder": "recovery-worker-b/reconstructed/walden-replayed",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "1b5d29a2983272e739f25ecdebbb5c44e418e1ebc4d536fd323222ad1fe15749"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-worker-b/reconstructed/walden-replayed/walden-modern-en.json",
+        "danishCandidate": "recovery-worker-b/reconstructed/walden-replayed/walden-modern-da.json",
+        "pairedShape": true,
+        "originalShapeMatches": true,
+        "nonemptyDanish": true,
+        "chapters": 18,
+        "paragraphs": 502,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "walden original-en -> modern-en  (18 chapters)\n  weighted similarity : 0.432   (gate: <= 0.75)\n  light+mechanical    : 0/18 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/484 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 18  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "walden",
+        "guide": "recovery-worker-b/reconstructed/walden-replayed/walden.da.json",
+        "openingMatchesParagraphPrefix": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-worker-b/reconstructed/walden-replayed/walden-modern-da.json",
+          "sha256": "1b5d29a2983272e739f25ecdebbb5c44e418e1ebc4d536fd323222ad1fe15749",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-worker-b/reconstructed/walden-replayed/walden-modern-en.json",
+          "sha256": "9ca0743ccc04a0e17e944a78a5269c6d34f0ef1ddbbc1fe3f3ab42e01f7ad0e6",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-worker-b/reconstructed/walden-replayed/walden.da.json",
+          "sha256": "aad1a8bbbc6a0df81900f0ab69d2953278fca745269d6217dc213dcd4d120108",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-worker-b/reconstructed/walden-replayed/walden.json",
+          "sha256": "1fba4e599856aab1995c4c834981992ef9b10c92ef01222807f7cdb4b3fad4ff",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-worker-b/reconstructed/walden-replayed/source-walden-modern-da.json",
+          "sha256": "a289d165e360133b36b93d897734bdcd46ff440779413d1d6c381ff804aa081a",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-worker-b/reconstructed/walden-replayed/source-walden-modern-en.json",
+          "sha256": "e6bfb94a075f25c959e1e97da77200aef84e40cec89dd9450f4a8f26c0a6ab01",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-worker-b/reconstructed/walden-replayed/source-walden.da.json",
+          "sha256": "64d34b558a0f0798fb91cea04cb0284570801cd9d8787692c93535b31e0e1749",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-worker-b/reconstructed/walden-replayed/source-walden.json",
+          "sha256": "7168dfdb69253fc05bd7369ba694e3baf0876df01c2e0b627cb15a75b3d56bf5",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-worker-b/reconstructed/walden-replayed/source-walden-original-en.json",
+          "sha256": "880a909fb8da73db303b4b2ea43be64a1800bdafd82ffcac7cb2847232ed5cb3",
+          "uploadedSha256Matches": true
+        }
+      ]
+    },
+    {
+      "bookId": "war-and-peace",
+      "masterIndex": {
+        "bookId": "war-and-peace",
+        "danishCandidate": "recovery-parallel/war-and-peace/modern-da.json",
+        "englishCandidate": "recovery-parallel/war-and-peace/modern-en.json",
+        "folder": "recovery-parallel/war-and-peace",
+        "englishGate": 0,
+        "historicalStatus": "recovered_later_editorial_candidate",
+        "alreadySameDanishBody": false,
+        "note": "Recovered ledger/source evidence in candidate folder; no fresh full linguistic read. Claude must reconcile current main and run reader/release checks.",
+        "liveDiscoverable": false,
+        "releaseStatus": "CONTENT_CHECKS_PASS",
+        "danishSha256": "08d8f95861ba8d7155162f03141fe5bbd71ba3157dd7c09e767bc870a44aad4b",
+        "localOriginalDanishSha256": "ece49f19a701d97a8bc3c7f13d4c33f29bfa6a3c590ebf2c557538af5afc8ad3"
+      },
+      "candidateTests": {
+        "englishCandidate": "recovery-parallel/war-and-peace/modern-en.json",
+        "danishCandidate": "recovery-parallel/war-and-peace/modern-da.json",
+        "pairedShape": true,
+        "nonemptyDanish": true,
+        "chapters": 365,
+        "paragraphs": 11340,
+        "originalShapeMatchesGateScope": true,
+        "englishGateExitCode": 0,
+        "englishGateOutput": "war-and-peace original-en -> modern-en  (365 chapters)\n  weighted similarity : 0.686   (gate: <= 0.75)\n  light+mechanical    : 0/365 = 0.0%   (gate: <= 5%)\n  identical long paras: 44/8595 = 0.5%   (gate: <= 5%)\n  buckets: REAL-HEAVY 2  REAL 363  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+      },
+      "guideOpeningCheck": {
+        "bookId": "war-and-peace",
+        "guide": "recovery-parallel/war-and-peace/onboarding-da.json",
+        "openingMatchesParagraphPrefix": false,
+        "excerptFoundAfterWhitespaceNormalization": true
+      },
+      "files": [
+        {
+          "role": "da",
+          "path": "recovery-parallel/war-and-peace/modern-da.json",
+          "sha256": "08d8f95861ba8d7155162f03141fe5bbd71ba3157dd7c09e767bc870a44aad4b",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "en",
+          "path": "recovery-parallel/war-and-peace/modern-en.json",
+          "sha256": "339afb941e00b25a437c5215828d8a162c1e1912790c21fd3f25afc34c794460",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gda",
+          "path": "recovery-parallel/war-and-peace/onboarding-da.json",
+          "sha256": "8b57a0f5d62c7e0734987493baca0957c2e8fdb7cfb602802cff1d436bd22e71",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "gen",
+          "path": "recovery-parallel/war-and-peace/onboarding-en.json",
+          "sha256": "57b121811a6e88d70f535a9318c6cba4b5173d5953a595c6bbc30ad8134c5558",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_da",
+          "path": "recovery-parallel/war-and-peace/upstream/modern-da.json",
+          "sha256": "3bd521471f3a3ecdb6283239b7a031b692f21b34148d41e7fc1e45cec5949c7b",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_en",
+          "path": "recovery-parallel/war-and-peace/upstream/modern-en.json",
+          "sha256": "65c253aa95e1e4cb21112e5d4aec5344364cd658a596264710d5b48d2bacfcd8",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gda",
+          "path": "recovery-parallel/war-and-peace/upstream/war-and-peace.da.json",
+          "sha256": "f519b489be8d0684b4ce21e8c3feb2c6430e6dc44f6183d281fd485713c2ddc9",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_gen",
+          "path": "recovery-parallel/war-and-peace/upstream/war-and-peace.json",
+          "sha256": "49b92377b14efa34db9040d50563d925ec48f9e8189f675417ed73944fa4931f",
+          "uploadedSha256Matches": true
+        },
+        {
+          "role": "src_orig",
+          "path": "recovery-parallel/war-and-peace/upstream/original-en.json",
+          "sha256": "62f69b396f5bdc2719110716bb2031b40080f4a746749f2198f47778418a487b",
+          "uploadedSha256Matches": true
+        }
+      ]
+    }
+  ]
+}
