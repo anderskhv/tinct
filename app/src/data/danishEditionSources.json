@@ -1,4 +1,84 @@
 {
+  "hamlet": {
+    "package": "books/wip/danish-recovered-batch-02/editions/hamlet-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "580be9c5345c8a26bbc5ccb518972d542790b63048d7c4bf826b9b60d2fc45e9",
+    "modernEnglishSha256": "10305a21b6bad2d8b722c0824a6a764dbc34710b59b9cc4fb7121a5f7d30cc9f",
+    "englishSource": "Package modern-en published in this release (recovery-worker-a/reconstructed/hamlet): books/wip/danish-recovered-batch-02/editions/hamlet-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-02/INTEGRATION-2026-11-18.json"
+  },
+  "king-lear": {
+    "package": "books/wip/danish-recovered-batch-02/editions/king-lear-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "7899e7b723876a88d8768fe5f6d841f7dd5a7ac1706b8b535eb43788968ccb4d",
+    "modernEnglishSha256": "8ead3f96e37db56aa6be2b2813b4cec98059804e21d886859044cb20e62a87cf",
+    "englishSource": "Package modern-en published in this release (recovery-parallel/king-lear): books/wip/danish-recovered-batch-02/editions/king-lear-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-02/INTEGRATION-2026-11-18.json"
+  },
+  "othello": {
+    "package": "books/wip/danish-recovered-batch-02/editions/othello-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "e3875ae1d4b92979120380221eef6846a77f06f2aeb1ec46610d3103cc381b10",
+    "modernEnglishSha256": "6dd3299c1f2ee14328e85070b50c6c38b89ac26832aa424f7d58001ddb55ede1",
+    "englishSource": "Package modern-en published in this release (recovery-parallel/othello): books/wip/danish-recovered-batch-02/editions/othello-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-02/INTEGRATION-2026-11-18.json"
+  },
+  "romeo-and-juliet": {
+    "package": "books/wip/danish-recovered-batch-02/editions/romeo-and-juliet-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "8e2afcbef811e606ba4daba0934ff28c567d101c60abf27b87c54e7333ef7506",
+    "modernEnglishSha256": "0815f11eae139a83040026a059212e8e456751385026bd9863f84dc622454bbc",
+    "englishSource": "Package modern-en published in this release (recovery-parallel/romeo-and-juliet): books/wip/danish-recovered-batch-02/editions/romeo-and-juliet-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-02/INTEGRATION-2026-11-18.json"
+  },
+  "midsummer": {
+    "package": "books/wip/danish-recovered-batch-02/editions/midsummer-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "5c50feea901588dcab551a991f0f4f38d7c0b6d973990884b09a69cced035cff",
+    "modernEnglishSha256": "7fb7ccf8ad474d339bc7030763e9b7c71ba601107d7c927b9a288621039ef322",
+    "englishSource": "Package modern-en published in this release (recovery-parallel/midsummer): books/wip/danish-recovered-batch-02/editions/midsummer-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-02/INTEGRATION-2026-11-18.json"
+  },
+  "twelfth-night": {
+    "package": "books/wip/danish-recovered-batch-02/editions/twelfth-night-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "5b4c570d1be703306efc70ecf8016df8f773b20ee11c128c542900278fe87a60",
+    "modernEnglishSha256": "74206f65d14a126d0a2488d0d39f592052afd9562c2977079842156ca7bf70d4",
+    "englishSource": "Package modern-en published in this release (recovery-parallel/twelfth-night): books/wip/danish-recovered-batch-02/editions/twelfth-night-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-02/INTEGRATION-2026-11-18.json"
+  },
+  "the-tempest": {
+    "package": "books/wip/danish-recovered-batch-02/editions/the-tempest-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "129e42daa8d5d7322b45afe8b9fd04e4a5c9a8ffb9cdba7539e3f4fc4e9177d2",
+    "modernEnglishSha256": "1b63b79a3567d466d694aa459f3c36724360b6dd6bf20c66abf7508605b44dcd",
+    "englishSource": "Package modern-en published in this release (recovery-parallel/the-tempest): books/wip/danish-recovered-batch-02/editions/the-tempest-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-02/INTEGRATION-2026-11-18.json"
+  },
+  "comedy-of-errors": {
+    "package": "books/wip/danish-recovered-batch-02/editions/comedy-of-errors-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "deb21de13556e6fa5f9d0d59e3e10df2fa2571f2de5f5d0afe1b8c7a62c9d4a0",
+    "modernEnglishSha256": "2ec8079e148b81879079f732bd403588f7716f8f1cf354cbc99823718aff8d59",
+    "englishSource": "Package modern-en published in this release (recovery-parallel/comedy-of-errors): books/wip/danish-recovered-batch-02/editions/comedy-of-errors-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-02/INTEGRATION-2026-11-18.json"
+  },
+  "coriolanus": {
+    "package": "books/wip/danish-recovered-batch-02/editions/coriolanus-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "9a8679c553ab62af506250cf8e8204fcf24d8c9d67bf43b7253a4fa7f5ff0896",
+    "modernEnglishSha256": "0055e48fe53acb2c0b5ed51aacda203cb26d072ea40950f2ce7fa5cb45689dc8",
+    "englishSource": "Package modern-en published in this release (recovery-parallel/coriolanus): books/wip/danish-recovered-batch-02/editions/coriolanus-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-02/INTEGRATION-2026-11-18.json"
+  },
+  "beyond-good-and-evil": {
+    "package": "books/wip/danish-recovered-batch-02/editions/beyond-good-and-evil-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "289caa432f9c9a10a281233ef2baeec8de417bef4bcbb9c16dd06f2a8904a2e4",
+    "modernEnglishSha256": "d017ff076cbbf10f7aa9002fb77818fbedeaa551ecbc39fa336330d68a4f116a",
+    "englishSource": "Package modern-en published in this release (recovery-worker-a/reconstructed/beyond-good-and-evil): books/wip/danish-recovered-batch-02/editions/beyond-good-and-evil-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-02/INTEGRATION-2026-11-18.json"
+  },
   "moby-dick": {
     "package": "books/wip/moby-dick/editions/moby-dick-modern-da.json",
     "packageCommit": "959296ff926d6fb2b106455074c6227aa1d09600",
@@ -63,6 +143,46 @@
     "packageCommit": "959296ff926d6fb2b106455074c6227aa1d09600",
     "danishSha256": "964adedfdf3613fb95bf14e6b8623092d5d74090ff102933ab9a12afe536a3fa",
     "modernEnglishSha256": "304f7ac56d6def7c254fc2eeae95ce18c75a36329e8a722c484dfe0f5b52182e"
+  },
+  "oresteia": {
+    "package": "books/wip/danish-recovered-batch-03/editions/oresteia-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "d8a3cab5a1f7efcc046d7df901e6959e25e2e0a9ee8ed43d7ff064230f292e93",
+    "modernEnglishSha256": "031fa843b02a5937348da0c84993219ffcf46686dd5ce8d94b8950b98b6e6a2a",
+    "englishSource": "Package modern-en published in this release (recovery-parent/reconstructed/oresteia): books/wip/danish-recovered-batch-03/editions/oresteia-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-03/INTEGRATION-2026-11-18.json"
+  },
+  "the-aeneid": {
+    "package": "books/wip/danish-recovered-batch-03/editions/the-aeneid-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "fe9fba5bf0a06d936c7b2823540ee1bd0c4c4e3347a2d18611351124122ce788",
+    "modernEnglishSha256": "d31476703adeb70dfeab3175b07239a6270dc503fd3a00b96ca9300ef6cf689a",
+    "englishSource": "Package modern-en published in this release (recovery-parallel/the-aeneid/final-release-candidate): books/wip/danish-recovered-batch-03/editions/the-aeneid-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-03/INTEGRATION-2026-11-18.json"
+  },
+  "the-republic": {
+    "package": "books/wip/danish-recovered-batch-03/editions/the-republic-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "6d4b1b65391afec6a14b1e458064042e7eb2706b1ceae9a91cfd67854151aa51",
+    "modernEnglishSha256": "081dfa1a6bb5669e010888f5a1db5c1794412209796d6c693f5216cffe48264d",
+    "englishSource": "Package modern-en published in this release (recovery-parent/reconstructed/the-republic): books/wip/danish-recovered-batch-03/editions/the-republic-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-03/INTEGRATION-2026-11-18.json"
+  },
+  "walden": {
+    "package": "books/wip/danish-recovered-batch-03/editions/walden-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "9c500c2a1d9614ffb719f4e702b47466d8c936fe9871fbaefa34a0535c4e02d3",
+    "modernEnglishSha256": "9ca0743ccc04a0e17e944a78a5269c6d34f0ef1ddbbc1fe3f3ab42e01f7ad0e6",
+    "englishSource": "Package modern-en published in this release (recovery-worker-b/reconstructed/walden-replayed): books/wip/danish-recovered-batch-03/editions/walden-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-03/INTEGRATION-2026-11-18.json"
+  },
+  "war-and-peace": {
+    "package": "books/wip/danish-recovered-batch-03/editions/war-and-peace-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "b88d668b78066fb8c3119bbeaf42313d647fc58143a5f2a5e42aeb94a1cf9749",
+    "modernEnglishSha256": "339afb941e00b25a437c5215828d8a162c1e1912790c21fd3f25afc34c794460",
+    "englishSource": "Package modern-en published in this release (recovery-parallel/war-and-peace): books/wip/danish-recovered-batch-03/editions/war-and-peace-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-03/INTEGRATION-2026-11-18.json"
   },
   "the-art-of-war": {
     "package": "books/wip/modern-da-quality-20261102/editions/the-art-of-war-modern-da.json",
@@ -280,5 +400,83 @@
       "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
     },
     "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
+  },
+  "antigone": {
+    "package": "books/wip/danish-recovered-batch-01/editions/antigone-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "c3f6b3b066f305d3088835e13a148b6b0b0c7882b1594fa175ff7644f29c086d",
+    "modernEnglishSha256": "b6fe87351be805a9f9aa384cd298cf71066e4df1b0f23531eab27c6fe03f4c6b",
+    "englishSource": "Package modern-en published in this release: books/wip/danish-recovered-batch-01/editions/antigone-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-01/INTEGRATION-2026-11-18.json"
+  },
+  "candide": {
+    "package": "books/wip/danish-recovered-batch-01/editions/candide-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "c6216fed5f3e07bf004b74043c2540bfcc641789776a7f9d4d8769a429de10b0",
+    "modernEnglishSha256": "2c4c48b957428ba8a801f224863613127b35684a112778c6c11663ed492de1c6",
+    "englishSource": "Package modern-en published in this release: books/wip/danish-recovered-batch-01/editions/candide-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-01/INTEGRATION-2026-11-18.json"
+  },
+  "frankenstein": {
+    "package": "books/wip/danish-recovered-batch-01/editions/frankenstein-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "e6081d9a3c54cb55edf800d8f56c2573bf881224992ffdcc2255556572d11dff",
+    "modernEnglishSha256": "c497bc60fc7ad0ffc6de74df2c47d7eace252f5c27243c36010183756d706cd0",
+    "englishSource": "Package modern-en published in this release: books/wip/danish-recovered-batch-01/editions/frankenstein-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-01/INTEGRATION-2026-11-18.json"
+  },
+  "frederick-douglass": {
+    "package": "books/wip/danish-recovered-batch-01/editions/frederick-douglass-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "3daadad3e856be1d3eddc253d42e92e5d3b4414726e32517b3b768b4d138bd4b",
+    "modernEnglishSha256": "d2a317207f5b82fd244eeb586063311bf431f57397439f7231424253e90755cc",
+    "englishSource": "Package modern-en published in this release: books/wip/danish-recovered-batch-01/editions/frederick-douglass-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-01/INTEGRATION-2026-11-18.json"
+  },
+  "genealogy-of-morals": {
+    "package": "books/wip/danish-recovered-batch-01/editions/genealogy-of-morals-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "ce64080afa9ae08ae6418eab8b81dcaa56dc799b3cd022b31fe760817b94bd2e",
+    "modernEnglishSha256": "19f61cb36d682f16612d45fad0e21df3efb5374027ce4de3f354d5dfadb3eceb",
+    "englishSource": "Package modern-en published in this release: books/wip/danish-recovered-batch-01/editions/genealogy-of-morals-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-01/INTEGRATION-2026-11-18.json"
+  },
+  "heart-of-darkness": {
+    "package": "books/wip/danish-recovered-batch-01/editions/heart-of-darkness-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "47ec0ed6c5ff447a6c2a2b464a5b107a7414e9121330a6eb43cf76244720191e",
+    "modernEnglishSha256": "e631c9d999c9cfaadd245049f768917beab19374b59c56fede8acf43c8777a76",
+    "englishSource": "Package modern-en published in this release: books/wip/danish-recovered-batch-01/editions/heart-of-darkness-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-01/INTEGRATION-2026-11-18.json"
+  },
+  "notes-from-underground": {
+    "package": "books/wip/danish-recovered-batch-01/editions/notes-from-underground-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "a2b99346d4852b2345442d9bec04538eac00268a566dcbd3d91c015d8ff09a18",
+    "modernEnglishSha256": "401a1e58e4ff88897bf83a999172e8072dc774ca209e5131ce2d31a1a2332530",
+    "englishSource": "Live modern-en kept: the package carries no English body for this book.",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-01/INTEGRATION-2026-11-18.json"
+  },
+  "oedipus-at-colonus": {
+    "package": "books/wip/danish-recovered-batch-01/editions/oedipus-at-colonus-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "0f0138a4c905e8cc093cf39816800ff4451c0c97d6a4a9b16310f63e23c72e09",
+    "modernEnglishSha256": "504bfd4b248fbcd28039960c0317971f749e8ae53c9da2579473313aef55fbdc",
+    "englishSource": "Package modern-en published in this release: books/wip/danish-recovered-batch-01/editions/oedipus-at-colonus-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-01/INTEGRATION-2026-11-18.json"
+  },
+  "oedipus-rex": {
+    "package": "books/wip/danish-recovered-batch-01/editions/oedipus-rex-modern-da.json",
+    "packageCommit": "5e788f4ec84be80f1f62eb0cadd7cb06bf28bbed",
+    "danishSha256": "08d3761beed61d8f6c5c447c4c6947965e608470aab4f5aaa69a85715beed4a6",
+    "modernEnglishSha256": "bff7b3623105bcdab947887fe96a9d345b1f181047babca3d7f98753e3092cb0",
+    "englishSource": "Package modern-en published in this release: books/wip/danish-recovered-batch-01/editions/oedipus-rex-modern-en.json",
+    "integrationAdjustments": "books/wip/danish-recovered-batch-01/INTEGRATION-2026-11-18.json"
+  },
+  "gilgamesh": {
+    "package": "books/wip/gilgamesh-thompson/editions/gilgamesh-modern-da.json",
+    "packageCommit": "dfb495564f5189ecdcf207ff0d5450224e742562",
+    "danishSha256": "3469ed8fc8cc6ccc3f832e01bcf9fa81dfaaa9edac39ddc16c40983535d3aa56",
+    "modernEnglishSha256": "1641d807941a9480512f1324869e8abcb635fb31aaff0d2d659eb88985d896d0"
   }
 }

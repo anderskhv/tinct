@@ -1,0 +1,68 @@
+== build + structural checks (JSON shape, alignment, newlines, no [ ] * (?) ( ) in modern-en, word ratio, ! parity)
+modern-da tablets drafted: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] words 13666
+Tablet I     paras  24  orig words  2359  modern words  2217  ratio 0.94
+Tablet II    paras   8  orig words   854  modern words   838  ratio 0.98
+Tablet III   paras  18  orig words  1963  modern words  1867  ratio 0.95
+Tablet IV    paras   7  orig words   584  modern words   463  ratio 0.79
+Tablet V     paras   8  orig words   909  modern words   757  ratio 0.83
+Tablet VI    paras  17  orig words  1460  modern words  1338  ratio 0.92
+Tablet VII   paras   9  orig words  1063  modern words   836  ratio 0.79
+Tablet VIII  paras   7  orig words   526  modern words   459  ratio 0.87
+Tablet IX    paras   8  orig words   773  modern words   683  ratio 0.88
+Tablet X     paras  18  orig words  1718  modern words  1543  ratio 0.90
+Tablet XI    paras  22  orig words  2849  modern words  2686  ratio 0.94
+Tablet XII   paras  15  orig words  1134  modern words  1094  ratio 0.96
+TOTAL paras 161 orig 16192 modern 14781
+paragraphs under 75% word ratio: [(7, 3, 197, 139, 0.71)]
+no structural problems
+json ok: gilgamesh-modern-da.json
+json ok: gilgamesh-modern-en.json
+json ok: gilgamesh-original-en.json
+shape/alignment ok: 12 chapters, 161 aligned paragraphs
+
+== transcription check: original-en word trigrams vs both OCR layers
+T6.13 0.89 missing: ['heart they remov', 'they remov d', 'remov d unto', 'd unto the']
+T12.13 0.88 missing: ['i saw as', 'saw as a']
+overall trigram hit 0.990
+
+== classify-modern-en.py --gate (repo tool, run from <worktree>)
+<worktree>/books/wip/gilgamesh-thompson/editions/gilgamesh original-en -> modern-en  (12 chapters)
+  weighted similarity : 0.329   (gate: <= 0.75)
+  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/159 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 12  REAL 0  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+== overlap-check (from origin/content/replace-gilgamesh-sonnet:books/wip/replace-gilgamesh-v2/overlap-check.py) modern-en vs OLD live Colavito original+modern, --allow original-en
+N=10: 0/161 paragraphs share a run of >= 10 words with the reference
+exit 0
+N=8: 0/161 paragraphs share a run of >= 8 words with the reference
+exit 0
+-- info: original-en (exempt) vs old live at N=10
+N=10: 0/161 paragraphs share a run of >= 10 words with the reference
+
+== modern-da checks (alignment, Danish quotes, no apparatus, English residue, length vs modern-en)
+modern-da: 12 chapters, 161 paragraphs aligned 1:1; words da 13666 / en 14781 = 0.92
+titles: ['Tavle I', 'Tavle II', 'Tavle III'] ...
+paragraph word ratio outside 0.80-1.25: [('T12.10', 0.76)]
+no Danish structural issues
+== books/danish-lint.py (repo tool, run unmodified via a wrapper that points EDITIONS_DIR at a temp dir: all live *-modern-da.json plus this candidate in place of the live gilgamesh)
+BOOK                      TOTAL  BROKEN  STRAY  DOUBLE  SPACE  BLACK  LIST
+gilgamesh                     0       0      0       0      0      0     0
+TOTAL                         0
+== overlap-check modern-da vs OLD live gilgamesh-modern-da (Colavito-derived)
+N=10: 0/161 paragraphs share a run of >= 10 words with the reference
+exit 0
+N=8: 0/161 paragraphs share a run of >= 8 words with the reference
+exit 0
+-- same with an æøå-aware tokenizer (overlap-check's ASCII tokenizer splits Danish words): shared 8-word spans:
+0
+
+== sha256
+7cca66d5ffc21e33c44696ad37a39d54bc47815713125554fd50e0dbc5ad6f3a  editions/gilgamesh-modern-da.json
+05cb382aad0432e5c211dd558d581903a0e858877a86604a709e5486fe2b8287  editions/gilgamesh-modern-en.json
+ec9136edf0eff6a7cf51806c468c2926b191dddad7ef7c2cd06c1a6a45e302ec  editions/gilgamesh-original-en.json
+9f727ebc8a77895fb9046c13749b9395e8b220ab3be223dc384ee18a708e5c04  provenance-map.json

@@ -23,7 +23,7 @@ const CATALOGUE = new Map<string, CatalogueEntry>([
   ['macbeth', { id: 'macbeth', title: 'Macbeth', author: 'William Shakespeare', readingStructure: chapters(5), discoveryAvailable: false }],
   ['king-lear', { id: 'king-lear', title: 'King Lear', author: 'William Shakespeare', readingStructure: chapters(5) }],
   ['beowulf', { id: 'beowulf', title: 'Beowulf', author: 'Anonymous', readingStructure: chapters(3) }],
-  // On the whole-book hold list (src/data/editionAvailability.json), even if a catalogue says otherwise.
+  // Held as a whole book until 2026-11-18 (rights); published again with Thompson's 1928 text.
   ['gilgamesh', { id: 'gilgamesh', title: 'Gilgamesh', author: 'Anonymous', readingStructure: chapters(12) }],
   // As catalogue.json lists it: no reading structure; places are kept per biblical book.
   ['bible', { id: 'bible', title: 'The Bible', author: 'Various' }],
@@ -160,9 +160,16 @@ describe('lifecycle sweep', () => {
     expect(outbox[0].subject).toMatch(/^Hazlitt on King Lear: ".+"$/)
     expect(outbox[0].html).not.toContain('Recommended by')
 
-    const held = harness({ positions: { [UID]: positionWith({ beowulf: NOW - 4 * DAY }, { beowulf: allOf(3) }) } })
+    // Beowulf's only pairing is Gilgamesh: held from discovery, there is no next book.
+    const withoutGilgamesh = new Map(CATALOGUE).set('gilgamesh', { ...CATALOGUE.get('gilgamesh')!, discoveryAvailable: false })
+    const held = harness({ catalogue: async () => withoutGilgamesh, positions: { [UID]: positionWith({ beowulf: NOW - 4 * DAY }, { beowulf: allOf(3) }) } })
     expect((await runLifecycleSweep(held.deps, [profile()])).skipped['no-next-book']).toBe(1)
     expect(held.outbox).toHaveLength(0)
+    // Published again (2026-11-18): Beowulf leads to Gilgamesh.
+    const released = harness({ positions: { [UID]: positionWith({ beowulf: NOW - 4 * DAY }, { beowulf: allOf(3) }) } })
+    await runLifecycleSweep(released.deps, [profile()])
+    expect(released.outbox).toHaveLength(1)
+    expect(released.outbox[0].html).toContain('Gilgamesh')
 
     const opened = harness({ positions: { [UID]: positionWith({ odyssey: NOW - 4 * DAY, iliad: NOW - 30 * DAY }, { odyssey: allOf(24) }) } })
     await runLifecycleSweep(opened.deps, [profile()])

@@ -93,6 +93,7 @@ import { handleReadingTime } from './worker/routes/readingTime'
 import { handleGoogleAuth, isGoogleAuthPath } from './worker/routes/googleAuth'
 import { BEAT_MIN_GAP_MS } from './readingTime/model'
 import { regionGate, regionResponse, shareRegion } from './worker/lib/regionGate'
+import { resetJwksCacheForTest, verifySupabaseJwtLocally } from './worker/lib/supabaseJwt'
 
 
 interface Env {
@@ -192,6 +193,12 @@ interface Env {
  * successful answers are kept, never past the
  * token's own expiry, and at most a few hundred at a time. Account deletion
  * forgets the token at once (forgetVerifiedUser).
+ *
+ * Most routes now verify the token locally first (verifyUser, lib/supabaseJwt.ts):
+ * the ES256 signature against the project's published JWKS, plus exp, aud, iss
+ * and sub. Supabase is asked (verifyUserRemote) only when that is impossible,
+ * and always by the routes that need the full auth user or a fresh server-side
+ * answer: profiles, account deletion and site-admin checks.
  */
 const VERIFIED_TTL_MS = 60_000
 const VERIFIED_MAX = 500
@@ -212,16 +219,49 @@ function tokenExpiry(token: string): number | null {
   }
 }
 
-export function forgetVerifiedUser(request: Request): void {
+/**
+ * Tokens of accounts deleted on this isolate, until their own expiry: local
+ * verification would otherwise accept them until they lapse (about an hour).
+ * Per isolate only, like the cache above.
+ */
+const revokedTokens = new Map<string, number>()
+
+export function forgetVerifiedUser(request: Request, deleted = false): void {
   const authHeader = request.headers.get('authorization') || ''
   for (const key of verifiedUsers.keys()) if (key.endsWith('|' + authHeader.slice(7))) verifiedUsers.delete(key)
+  if (deleted && authHeader.startsWith('Bearer ')) {
+    const token = authHeader.slice(7)
+    const now = Date.now()
+    for (const [known, until] of revokedTokens) if (until <= now) revokedTokens.delete(known)
+    if (revokedTokens.size >= VERIFIED_MAX) revokedTokens.delete(revokedTokens.keys().next().value!)
+    revokedTokens.set(token, tokenExpiry(token) ?? now + 2 * 60 * 60_000)
+  }
 }
 
 export function resetVerifiedUsersForTest(): void {
   verifiedUsers.clear()
+  revokedTokens.clear()
+  resetJwksCacheForTest()
 }
 
+/**
+ * The signed-in reader as `{ id, email }`, verified locally when the token is
+ * an asymmetrically signed session token, else by Supabase (verifyUserRemote).
+ */
 async function verifyUser(env: Env, request: Request): Promise<{ id: string; email: string } | null> {
+  const authHeader = request.headers.get('authorization')
+  if (!authHeader?.startsWith('Bearer ') || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
+  const token = authHeader.slice(7)
+  const revokedUntil = revokedTokens.get(token)
+  if (revokedUntil !== undefined && revokedUntil > Date.now()) return null
+  const verdict = await verifySupabaseJwtLocally(env.SUPABASE_URL, token)
+  if (verdict.kind === 'user') return verdict.user
+  if (verdict.kind === 'invalid') return null
+  return verifyUserRemote(env, request)
+}
+
+/** The full Supabase auth user from `/auth/v1/user` (cached a minute per isolate). */
+async function verifyUserRemote(env: Env, request: Request): Promise<{ id: string; email: string } | null> {
   const authHeader = request.headers.get('authorization')
   if (!authHeader?.startsWith('Bearer ') || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
   const token = authHeader.slice(7)
@@ -268,7 +308,8 @@ function ledgerUser(env: Env) {
 }
 
 async function verifySiteAdmin(env: Env, request: Request): Promise<boolean> {
-  const user = await verifyUser(env, request)
+  // Admin rights act on other readers' data: Supabase answers, never a local check.
+  const user = await verifyUserRemote(env, request)
   if (!user || !isValidUUID(user.id)) return false
 
   const res = await supabaseGet(env, `site_admins?user_id=eq.${user.id}&select=user_id&limit=1`)
@@ -385,7 +426,8 @@ const worker = {
     const pageRequest = request.method === 'GET' || request.method === 'HEAD'
     if (social && isProfileApiPath(url.pathname)) {
       return handleProfiles(request, env, {
-        verifyUser: req => verifyUser(env, req) as Promise<ProfileAuthUser | null>,
+        // Profiles read identities, metadata and created_at: the full Supabase auth user.
+        verifyUser: req => verifyUserRemote(env, req) as Promise<ProfileAuthUser | null>,
         // The brief's profile events land in the funnel while ship 3 is on.
         track: friends ? (name, userId, props) => recordServerEvent(env, ctx, { name, userId, props }) : undefined,
         // "Send confirmation link": a service email, so LIFECYCLE_EMAILS and the lifecycle test gate do not apply (routes/confirmLink.ts).
@@ -479,9 +521,11 @@ const worker = {
       case '/api/admin/position-history': return handleAdminPositionHistory(request, env, verifySiteAdmin)
       // The reader's own Delete account (Settings → Account): the same erasure, for the caller's own account.
       case ACCOUNT_DELETE_PATH: {
-        const response = await handleAccountDelete(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit })
-        // The deleted account's token is not remembered as verified on this isolate.
-        forgetVerifiedUser(request)
+        // Deletion is irreversible: Supabase confirms the session, not a local check.
+        const response = await handleAccountDelete(request, env, { verifyUser: req => verifyUserRemote(env, req), checkRateLimit })
+        // The deleted account's token is not remembered as verified on this isolate,
+        // and once the account is gone it is refused here until it expires.
+        forgetVerifiedUser(request, response.ok)
         return response
       }
       case '/api/admin/announce-email': if (env.LIFECYCLE_EMAILS === '1') return handleAdminAnnounceEmail(request, env, verifySiteAdmin)

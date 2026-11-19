@@ -42,8 +42,8 @@ describe('reversible edition discovery availability', () => {
     // symposium and second-treatise leave discovery (94 -> 89); 93 with the
     // four books published 2026-10-03; 98 with the five Conjecture books;
     // 100 with Grimm and the Arabian Nights; 101 with The Master and Margarita.
-    // 102 with Pinocchio.
-    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(102)
+    // 102 with Pinocchio. 103 with Gilgamesh back (Thompson's 1928 text, 2026-11-18).
+    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(103)
     for (const id of manifest.held_books) {
       expect(isBookDiscoverable(id)).toBe(id === 'faust-part-1')
       const book = PRE_READER_CATALOGUE.booksById.get(id)!
@@ -68,11 +68,13 @@ describe('reversible edition discovery availability', () => {
     expect(bible.editions.filter(e=>isEditionDiscoverable(bible.id,e)).map(e=>e.key)).toEqual(['bsb-en', 'kjv-en', 'web-en', 'webc-en'])
     expect(isBookDiscoverable('bible')).toBe(true)
   })
-  it('releases repaired Antigone audio while holding only the chapter with a missing recording', () => {
+  it('releases repaired Antigone audio while holding only the chapters whose recording no longer matches', () => {
     expect(isEditionDiscoverable('antigone', { key: 'modern-en', language: 'en' })).toBe(true)
     expect(isAudioHeld('antigone', 'modern-en')).toBe(false)
+    // Chapter 10 lacks p12.mp3 (2026-09-22). The 2026-11-18 English repairs changed text in every
+    // chapter but 8, so those recordings are held too; chapter 8 still plays its recording.
     for (let chapter = 1; chapter <= 11; chapter++) {
-      expect(isAudioHeld('antigone', 'modern-en', chapter)).toBe(chapter === 10)
+      expect(isAudioHeld('antigone', 'modern-en', chapter)).toBe(chapter !== 8)
       expect(isAudioHeld('antigone', 'original-en', chapter)).toBe(false)
     }
     expect(isAudioHeld('apology', 'modern-en', 1)).toBe(true)

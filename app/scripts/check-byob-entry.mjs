@@ -13,7 +13,7 @@
 // 3. The library pop-up (signed in), "Add your own" with its three choices, shows the slim Paste window (a back
 //    chevron, no "Choose a file instead") and adds the text into the reader.
 // 4. Sign-in names why you came for anything else ("Sign in or join Tinct").
-// 5. Signed out, the library hero offers "Add your own book or text" beside Read; it opens the add sheet on the
+// 5. Signed out, the library hero offers "Bring your own text" beside Read; it opens the add sheet on the
 //    library ("Add your own": Upload, Insert link, Paste text into the same slim window; files dropped on it, with
 //    no line saying so), then sign-in naming the
 //    text or file, Preparing and the reader (href="/byob" is the no-script fallback). Signed in it is not shown. The band sits right under Featured; signed out it leads to /byob, signed in it opens the pop-up.
@@ -406,14 +406,14 @@ async function main() {
       await c.close()
     })
     for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE], ['narrow phone', { width: 320, height: 640 }]]) {
-      await run(`library hero, signed out, ${name}: "Add your own book or text" opens the add sheet on tinct.app`, async () => {
+      await run(`library hero, signed out, ${name}: "Bring your own text" opens the add sheet on tinct.app`, async () => {
         const c = await context(browser, origin, supabase, { signedIn: false, viewport }), page = await c.newPage()
         const errors = []; page.on('pageerror', e => errors.push(e.message))
         await page.goto('/library')
         await libraryReady(page)
         const own = page.locator('#hero-own')
         assert(await own.isVisible(), 'the button shows to a signed-out visitor')
-        assert.equal(await own.innerText(), 'Add your own book or text')
+        assert.equal(await own.innerText(), 'Bring your own text')
         assert.equal(await own.getAttribute('href'), '/byob', '/byob stays the no-script fallback')
         const [r, o] = await Promise.all([page.locator('#read-featured').boundingBox(), own.boundingBox()])
         assert(Math.abs(r.height - o.height) < 2, `Read and the new button share a height (${r.height} / ${o.height})`)
@@ -492,7 +492,7 @@ async function main() {
       assert.equal(await page.locator('[data-signin-file] b').innerText(), 'dropped-notes.pdf')
       await c.close()
     })
-    await run('library hero, signed in: no "Add your own book or text"', async () => {
+    await run('library hero, signed in: no "Bring your own text"', async () => {
       const c = await context(browser, origin, supabase, { signedIn: true, viewport: DESKTOP }), page = await c.newPage()
       await page.goto('/library')
       await libraryReady(page)
