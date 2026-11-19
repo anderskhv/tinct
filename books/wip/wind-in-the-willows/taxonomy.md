@@ -16,7 +16,7 @@ Proposal only; no registry or library metadata has been changed.
 | hue | `140` | Optional visual proposal: river green |
 | langs | `["EN","DA"]` | Original, modern English and modern Danish supplied |
 | source words | 58,290 | Whitespace count of the final original JSON |
-| modern words | 58,978 | Whitespace count of the final modern JSON |
+| modern words | 59,049 | Whitespace count of the final modern JSON |
 | reading units | 12 chapters, no sections | Agreed structure |
 
 Suggested blurb: **Mole, Rat, Badger and Toad share a river, a wild wood and one very reckless motor-car.**

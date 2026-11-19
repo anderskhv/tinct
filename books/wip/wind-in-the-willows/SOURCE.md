@@ -17,8 +17,8 @@
 | File | Chapters | Paragraphs | Words | SHA-256 |
 | --- | ---: | ---: | ---: | --- |
 | `editions/wind-in-the-willows-original-en.json` | 12 | 916 | 58,290 | `3d20f6d2711282404ca5a2ce7bcaf8bea31d0ee170d582ee854f46624e23dd21` |
-| `editions/wind-in-the-willows-modern-en.json` | 12 | 916 | 58,978 | `b4e6a668a6ecaef38eb00c6877719fd2243aba38ece1e243a220f126e7b01f41` |
-| `editions/wind-in-the-willows-modern-da.json` | 12 | 916 | 60,184 | `9072d31ea90d9844d3a1449e1a42c1f0cafe17076a834676fc7aa75636aa85ae` |
+| `editions/wind-in-the-willows-modern-en.json` | 12 | 916 | 59,049 | `de3e7fadc27d3f5fff0d263a6f8d19f1333b09e52ffe9d642fe7f712262aba94` |
+| `editions/wind-in-the-willows-modern-da.json` | 12 | 916 | 60,238 | `f2ace210bdc89bbd10ad4b26d3e85df93d775f4a8674ba64aae906a4a980b46e` |
 
 - `original-en` is the Gutenberg English text and the sole baseline for the derived editions.
 - `modern-en` is the Tinct modern-English rendering (US spelling, curly quotes, unspaced em dash), paragraph for paragraph.

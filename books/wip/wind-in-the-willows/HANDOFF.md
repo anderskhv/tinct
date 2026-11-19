@@ -11,8 +11,8 @@
 | File | Chapters | Paragraphs | Words | SHA-256 |
 | --- | ---: | ---: | ---: | --- |
 | `editions/wind-in-the-willows-original-en.json` | 12 | 916 | 58,290 | `3d20f6d2711282404ca5a2ce7bcaf8bea31d0ee170d582ee854f46624e23dd21` |
-| `editions/wind-in-the-willows-modern-en.json` | 12 | 916 | 58,978 | `b4e6a668a6ecaef38eb00c6877719fd2243aba38ece1e243a220f126e7b01f41` |
-| `editions/wind-in-the-willows-modern-da.json` | 12 | 916 | 60,184 | `9072d31ea90d9844d3a1449e1a42c1f0cafe17076a834676fc7aa75636aa85ae` |
+| `editions/wind-in-the-willows-modern-en.json` | 12 | 916 | 59,049 | `de3e7fadc27d3f5fff0d263a6f8d19f1333b09e52ffe9d642fe7f712262aba94` |
+| `editions/wind-in-the-willows-modern-da.json` | 12 | 916 | 60,238 | `f2ace210bdc89bbd10ad4b26d3e85df93d775f4a8674ba64aae906a4a980b46e` |
 
 Also: `onboarding/wind-in-the-willows.json` (draft: About, 3 why-it-matters, 4 angle cards; `acclaim` and `cast` empty), `SOURCE.md`, `taxonomy.md`, `INTEGRATION.md`, `review/REVIEW.md`, `review/DANISH-NOTES.md`, `review/english-fixed-paragraphs.json`, `review/danish-fixed-paragraphs.json`, `review/SHA256SUMS.txt`.
 
@@ -21,7 +21,7 @@ Verify from the repository root: `shasum -a 256 -c books/wip/wind-in-the-willows
 ## Gates run
 
 ```sh
-python3 books/classify-modern-en.py "$PWD/books/wip/wind-in-the-willows/editions/wind-in-the-willows" --gate   # GATE PASS (0.621)
+python3 books/classify-modern-en.py "$PWD/books/wip/wind-in-the-willows/editions/wind-in-the-willows" --gate   # GATE PASS (0.618)
 for f in books/wip/wind-in-the-willows/editions/*.json books/wip/wind-in-the-willows/onboarding/*.json; do python3 -m json.tool "$f" >/dev/null; done
 ```
 
