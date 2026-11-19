@@ -18,18 +18,23 @@
   ]
   // [file, step, milliseconds on screen]. Listen is fourteen frames 280 ms apart, as captured, so the marked word moves
   // word by word (Anders, 19 Nov: it lagged); they cut, not fade, into each other.
+  // A fourth field keeps a frame to one device. The motion follows the launch film (Anders, 19 Nov: "the video
+  // nailed this"): on the phone a press selects the sentence and its menu at once; the Explain answer types itself in
+  // (46-50); the card goes down (51) before the page dissolves into modern English, paragraph band by band.
+  // Desktop keeps its drag, a word a frame (29-45).
+  var PHONE = window.matchMedia('(max-width: 899px)').matches
   var FRAMES = [
-    // 29-45: the selection growing under the finger, a word a frame, quick and even (Anders, 19 Nov).
     ['01', 0, 1300],
-    ['29', 0, 75], ['30', 0, 75], ['31', 0, 75], ['32', 0, 75], ['33', 0, 75], ['34', 0, 75], ['35', 0, 75], ['36', 0, 75], ['37', 0, 75], ['38', 0, 75], ['39', 0, 75], ['40', 0, 75], ['41', 0, 75], ['42', 0, 75], ['43', 0, 75], ['44', 0, 75], ['45', 0, 75],
-    ['02', 0, 1500], ['04', 0, 3600],
-    ['08', 1, 3200],
+    ['29', 0, 75, 'desktop'], ['30', 0, 75, 'desktop'], ['31', 0, 75, 'desktop'], ['32', 0, 75, 'desktop'], ['33', 0, 75, 'desktop'], ['34', 0, 75, 'desktop'], ['35', 0, 75, 'desktop'], ['36', 0, 75, 'desktop'], ['37', 0, 75, 'desktop'], ['38', 0, 75, 'desktop'], ['39', 0, 75, 'desktop'], ['40', 0, 75, 'desktop'], ['41', 0, 75, 'desktop'], ['42', 0, 75, 'desktop'], ['43', 0, 75, 'desktop'], ['44', 0, 75, 'desktop'], ['45', 0, 75, 'desktop'],
+    ['02', 0, 1400],
+    ['46', 0, 260], ['47', 0, 260], ['48', 0, 260], ['49', 0, 260], ['50', 0, 260], ['04', 0, 3000],
+    ['51', 1, 900], ['08', 1, 3400],
     ['11', 2, 280], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
     ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 900],
     ['10', 3, 4200],
-  ]
+  ].filter(function (frame) { return !frame[3] || (frame[3] === 'phone') === PHONE })
   // Bump when the frames are re-captured, so browsers fetch the new ones.
-  var FRAMES_V = '20261119j'
+  var FRAMES_V = '20261119l'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -56,13 +61,15 @@
 
   // ---- The visitor's pointer (Anders, 19 Nov: show the click before each change). Where it goes was recorded when the
   // frames were captured (scripts/capture-try-frames.cjs writes frames/*-pointer.json), as fractions of the frame. ----
-  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "drag29": [0.1794, 0.3289], "drag30": [0.2472, 0.3289], "drag31": [0.2695, 0.3289], "drag32": [0.32, 0.3289], "drag33": [0.3396, 0.3289], "drag34": [0.3976, 0.3289], "drag35": [0.4086, 0.3289], "drag36": [0.4481, 0.3289], "drag37": [0.4885, 0.3289], "drag38": [0.5266, 0.3289], "drag39": [0.555, 0.3289], "drag40": [0.5988, 0.3479], "drag41": [0.1618, 0.367], "drag42": [0.2481, 0.367], "drag43": [0.3204, 0.367], "drag44": [0.3932, 0.367], "drag45": [0.4589, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.131, 0.1657], "selectTo": [0.6907, 0.2793], "drag29": [0.3603, 0.1657], "drag30": [0.5958, 0.1657], "drag31": [0.6793, 0.1657], "drag32": [0.8571, 0.1657], "drag33": [0.9314, 0.1657], "drag34": [0.2355, 0.2036], "drag35": [0.2765, 0.2036], "drag36": [0.4125, 0.2036], "drag37": [0.5519, 0.2036], "drag38": [0.6831, 0.2036], "drag39": [0.7821, 0.2036], "drag40": [0.9314, 0.2225], "drag41": [0.2903, 0.2414], "drag42": [0.5852, 0.2414], "drag43": [0.8333, 0.2414], "drag44": [0.9314, 0.2604], "drag45": [0.4512, 0.2793], "explain": [0.3141, 0.3458], "modern": [0.88, 0.0361], "play": [0.7621, 0.0361], "summary": [0.6317, 0.1074]}}
+  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "drag29": [0.1794, 0.3289], "drag30": [0.2472, 0.3289], "drag31": [0.2695, 0.3289], "drag32": [0.32, 0.3289], "drag33": [0.3396, 0.3289], "drag34": [0.3976, 0.3289], "drag35": [0.4086, 0.3289], "drag36": [0.4481, 0.3289], "drag37": [0.4885, 0.3289], "drag38": [0.5266, 0.3289], "drag39": [0.555, 0.3289], "drag40": [0.5988, 0.3479], "drag41": [0.1618, 0.367], "drag42": [0.2481, 0.367], "drag43": [0.3204, 0.367], "drag44": [0.3932, 0.367], "drag45": [0.4589, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.131, 0.1657], "selectTo": [0.6907, 0.2793], "explain": [0.3141, 0.3458], "modern": [0.88, 0.0361], "play": [0.7621, 0.0361], "summary": [0.6317, 0.1074]}}
   // What happens on a frame before the next one: a drag that selects, or a press on a button.
   var ACTIONS = {
     '01': { drag: ['selectFrom', 'drag29'] },
     '29': { move: 'drag30' }, '30': { move: 'drag31' }, '31': { move: 'drag32' }, '32': { move: 'drag33' }, '33': { move: 'drag34' }, '34': { move: 'drag35' }, '35': { move: 'drag36' }, '36': { move: 'drag37' }, '37': { move: 'drag38' }, '38': { move: 'drag39' }, '39': { move: 'drag40' }, '40': { move: 'drag41' }, '41': { move: 'drag42' }, '42': { move: 'drag43' }, '43': { move: 'drag44' }, '44': { move: 'drag45' },
     '45': { move: 'selectTo', lift: true },
-    '02': { press: 'explain' }, '04': { press: 'modern' }, '08': { press: 'play' }, '24': { press: 'summary' } }
+    '02': { press: 'explain' }, '51': { press: 'modern' }, '08': { press: 'play' }, '24': { press: 'summary' } }
+  // The phone selects with a press and hold (the launch film's way), not a drag.
+  if (PHONE) ACTIONS['01'] = { hold: 'selectFrom' }
   var phoneQuery = window.matchMedia('(max-width: 899px)')
   var layer = document.createElement('div')
   layer.className = 'try-pointer-layer'
@@ -108,6 +115,15 @@
     var action = ACTIONS[frame[0]]
     var marks = POINTER[phoneQuery.matches ? 'phone' : 'desktop']
     if (!action || reduce) return duration
+    if (action.hold) {
+      // The finger lands on the first word and holds; the next frame shows the sentence selected beneath it.
+      var spot = marks[action.hold]
+      if (!spot) return duration
+      var stay = Math.max(duration, 1500)
+      later(function () { place(spot, 0); pointer.className = 'try-pointer is-on' }, stay - 1100)
+      later(function () { pointer.className = 'try-pointer is-on is-down' }, stay - 750)
+      return stay
+    }
     if (action.drag) {
       // The finger lands on the first word, presses, and starts the drag; the frames after it carry it on.
       var from = marks[action.drag[0]], to = marks[action.drag[1]]
@@ -158,28 +174,61 @@
   // The frames that open a card: the card rises from the foot of the screen over the page, as it does in the reader
   // (Anders, 19 Nov: Explain looked jumpy). Every other change fades the new frame in over the old one, never through
   // an empty screen.
-  var RISE = FRAMES.map(function (frame) { return frame[0] === '04' || frame[0] === '10' })
+  var RISE = FRAMES.map(function (frame) { return frame[0] === '46' || frame[0] === '10' })
+  // The card going down again before the switch (phone: the sheet sinks out of the screen).
+  var SINK = FRAMES.map(function (frame) { return PHONE && frame[0] === '51' })
   var shown = -1
   var underTimer = null
+  // The switch to modern English, as in the launch film: the page changes paragraph band by band, top to bottom, each
+  // band a soft cross-fade of old into new, never a hard edge sweeping down.
+  var BANDS = 9, BAND_FROM = 0.08, BAND_FADE = 460, BAND_STEP = 105
+  var dissolveLayer = null
+  function dissolve(incoming, outgoing) {
+    if (dissolveLayer) dissolveLayer.remove()
+    var src = $('img', incoming).currentSrc || $('img', incoming).src
+    incoming.classList.add('is-held')
+    dissolveLayer = document.createElement('div')
+    dissolveLayer.className = 'try-dissolve'
+    dissolveLayer.setAttribute('aria-hidden', 'true')
+    for (var i = 0; i < BANDS; i++) {
+      var top = i === 0 ? 0 : BAND_FROM + (1 - BAND_FROM) * i / BANDS
+      var bottom = BAND_FROM + (1 - BAND_FROM) * (i + 1) / BANDS
+      var band = document.createElement('img')
+      band.src = src; band.alt = ''
+      band.style.clipPath = 'inset(' + (top * 100) + '% 0 ' + ((1 - bottom) * 100) + '% 0)'
+      band.style.animationDelay = (i * BAND_STEP) + 'ms'
+      band.style.animationDuration = BAND_FADE + 'ms'
+      dissolveLayer.appendChild(band)
+    }
+    demo.insertBefore(dissolveLayer, layer)
+    var layerNow = dissolveLayer
+    setTimeout(function () {
+      incoming.classList.remove('is-held')
+      if (layerNow === dissolveLayer) { dissolveLayer.remove(); dissolveLayer = null }
+    }, BANDS * BAND_STEP + BAND_FADE + 60)
+  }
   function paint() {
     var wave = !reduce && shown >= 0 && shown !== index && WAVE[index]
     var rise = !reduce && shown >= 0 && shown !== index && RISE[index]
+    var sink = !reduce && shown >= 0 && shown !== index && SINK[index]
     var under = shown >= 0 && shown !== index ? shown : -1
     // Cut, not fade: word by word in Listen, and the selection growing under the finger.
-    var drag = function (i) { var n = Number(FRAMES[i][0]); return n >= 29 && n <= 45 }
+    // …and the answer typing itself in, which only adds words.
+    var drag = function (i) { var n = Number(FRAMES[i][0]); return (n >= 29 && n <= 50) || (n === 4 && Number(FRAMES[shown][0]) >= 46) }
     demo.classList.toggle('is-cut', shown >= 0 && ((FRAMES[shown][1] === 2 && FRAMES[index][1] === 2) || drag(shown) || drag(index)))
     clearTimeout(underTimer)
     pictures.forEach(function (picture, i) {
-      picture.classList.remove('is-wave', 'is-rise', 'is-under')
+      picture.classList.remove('is-wave', 'is-rise', 'is-under', 'is-sink', 'is-held')
       picture.classList.toggle('is-on', i === index)
       picture.classList.toggle('is-base', i === 0 && isCrop(FRAMES[index][0]))
     })
     if (under >= 0) {
       pictures[under].classList.add('is-under')
       void pictures[index].offsetWidth
-      if (wave) pictures[index].classList.add('is-wave')
+      if (wave) dissolve(pictures[index], pictures[under])
       else if (rise) pictures[index].classList.add('is-rise')
-      underTimer = setTimeout(function () { pictures[under].classList.remove('is-under') }, wave ? 1600 : 800)
+      else if (sink) pictures[under].classList.add('is-sink')
+      underTimer = setTimeout(function () { pictures[under].classList.remove('is-under', 'is-sink') }, wave ? 1700 : 800)
     }
     var newStep = shown < 0 || FRAMES[shown][1] !== FRAMES[index][1]
     shown = index
@@ -201,7 +250,7 @@
   function schedule(opened) {
     clearTimeout(timer)
     var prevAction = ACTIONS[FRAMES[(index + FRAMES.length - 1) % FRAMES.length][0]]
-    clearActions(!!((ACTIONS[FRAMES[index][0]] || {}).move || (prevAction && prevAction.move)))
+    clearActions(!!((ACTIONS[FRAMES[index][0]] || {}).move || (prevAction && (prevAction.move || prevAction.hold))))
     if (reduce || held || !visible) return
     var frame = FRAMES[index]
     var duration = pace(frame[2]) + (opened ? (phoneQuery.matches ? 1100 : 600) : 0)

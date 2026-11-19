@@ -15,11 +15,14 @@ const OUT = path.join(__dirname, '../public/lab/try/frames/')
 // Listen is a run of short frames ('11'…'24'), so the marked word moves word by word (Anders, 19 Nov: it lagged).
 const KEEP = ['01', '02', '04', '08', '10']
 // The selection growing under the finger, one frame per word (Anders, 19 Nov: highlight it, smoothly and quickly):
-// frames 29-45 hold words 1-2 … 1-18; the full selection with its menu is frame 02.
+// frames 29-45 hold words 1-2 … 1-18; the full selection with its menu is frame 02. Desktop only: the phone
+// selects with a press, the sentence and its menu at once, as in the launch film.
 const DRAG_STEPS = Array.from({ length: 17 }, (_, i) => [i + 2, String(i + 29)])
 // The top share of the frame a drag frame keeps: the selection ends at about a third of the way down.
 const DRAG_CROP = { phone: 0.34, desktop: 0.42 }
-const keep = id => KEEP.includes(id) || (Number(id) >= 11 && Number(id) <= 24) || (Number(id) >= 29 && Number(id) <= 45)
+// 46-50: the Explain answer typing itself in; 51: the card closed again, before the switch to modern English.
+const TYPING = ['46', '47', '48', '49', '50']
+const keep = id => KEEP.includes(id) || (Number(id) >= 11 && Number(id) <= 24) || (Number(id) >= 29 && Number(id) <= 51)
 const ORIGIN = process.env.ORIGIN || 'https://tinct.app'
 const only = process.argv[2]
 async function run(kind) {
@@ -88,7 +91,7 @@ async function run(kind) {
   // The book's font must be in before the first frame, or it shows a fallback face and the next frame jumps.
   await page.frame({ url: /\/reader/ }).evaluate(() => document.fonts.ready.then(() => true))
   await page.waitForTimeout(1500)
-  await shot('start')
+  await shot('start', '01')
   await mark('selectFrom', word(1), 'start'); await mark('selectTo', word(19), 'end')
   // 1. Explain the first sentence (the page's scripted answer: no AI call).
   const a = await word(1).boundingBox(), b = await word(19).boundingBox()
@@ -100,7 +103,7 @@ async function run(kind) {
       const ev = (el, type) => el.dispatchEvent(new PointerEvent(type, { pointerId: 9, pointerType: 'touch', isPrimary: true, bubbles: true, button: 0, ...pos(el) }))
       ev(w(1), 'pointerdown'); return new Promise(r => setTimeout(r, 320))
     }, [1, 19])
-    for (const [k, id] of DRAG_STEPS) {
+    for (const [k, id] of []) {
       await fr.evaluate(k => {
         const el = document.querySelector(`[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="${k}"]`)
         const rs = el.getClientRects(), rc = rs[rs.length - 1]
@@ -117,7 +120,7 @@ async function run(kind) {
       el.dispatchEvent(new PointerEvent('pointermove', at)); el.dispatchEvent(new PointerEvent('pointerup', at))
     })
     await page.waitForTimeout(700)
-    await shot('selected')
+    await shot('selected', '02')
     await mark('explain', f.getByTestId('lab-pbar-explain'))
     await f.getByTestId('lab-pbar-explain').click()
   } else {
@@ -137,12 +140,50 @@ async function run(kind) {
     await page.mouse.up()
     await reader0.evaluate(() => document.getElementById('try-hold-menu')?.remove())
     await page.waitForTimeout(700)
-    await shot('selected')
+    await shot('selected', '02')
     await mark('explain', f.locator('.selection-popup').getByRole('button', { name: /^Explain/ }).first())
     await f.locator('.selection-popup').getByRole('button', { name: /^Explain/ }).first().click()
   }
-  await page.waitForTimeout(1600); await shot('explain-typing')
-  await page.waitForTimeout(3500); await peek(); await shot('explain')
+  // The answer typing itself in, as it streams in the reader (the demo's scripted answer arrives whole, so the
+  // frames show its first words, then more): the card is settled first, so it never moves between frames.
+  await page.waitForTimeout(4000); await peek()
+  const cardText = (frac) => page.frame({ url: /\/reader/ }).evaluate(frac => {
+    if (!window.__tryNodes) {
+      // The card: the largest box around its answer that holds none of the page's words.
+      const lead = [...document.querySelectorAll('*')].find(e => !e.children.length && /^Marcus is rehearsing/.test((e.textContent || '').trim()))
+      let card = lead; while (card && card.parentElement && card.parentElement !== document.body && !card.parentElement.querySelector('[data-testid="lab-word"]')) card = card.parentElement
+      if (!card) return 'no card'
+      // The answer's text: from the lead sentence on, not the card's label, buttons or field.
+      const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT)
+      const nodes = []; let started = false
+      for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+        if (lead.contains(n)) started = true
+        if (!started || n.parentElement.closest('button, input, textarea, [contenteditable]') || !n.textContent.trim()) continue
+        nodes.push(n)
+      }
+      window.__tryNodes = nodes; window.__tryText = nodes.map(n => n.textContent)
+    }
+    const nodes = window.__tryNodes, texts = window.__tryText
+    const total = texts.reduce((sum, t) => sum + t.split(/\s+/).filter(Boolean).length, 0)
+    let left = frac >= 1 ? Infinity : Math.round(total * frac)
+    // The words not yet typed stay in place, invisible, so the card keeps its size and nothing around it moves.
+    document.querySelectorAll('[data-try-untyped]').forEach(e => e.remove())
+    nodes.forEach((n, i) => {
+      let out = ''
+      const parts = texts[i].split(/(\s+)/)
+      let j = 0
+      for (; j < parts.length; j++) { if (left <= 0) break; out += parts[j]; if (parts[j].trim()) left-- }
+      n.textContent = out
+      const rest = parts.slice(j).join('')
+      if (rest) { const span = document.createElement('span'); span.setAttribute('data-try-untyped', ''); span.style.visibility = 'hidden'; span.textContent = rest; n.parentNode.insertBefore(span, n.nextSibling) }
+    })
+    if (frac >= 1) { window.__tryNodes = null; window.__tryText = null }
+    return total
+  }, frac)
+  const fractions = [0.08, 0.25, 0.45, 0.65, 0.85]
+  for (let i = 0; i < TYPING.length; i++) { console.log(kind, 'typing words', await cardText(fractions[i])); await page.waitForTimeout(120); await shot('typing', TYPING[i]) }
+  await cardText(1); await page.waitForTimeout(150)
+  await shot('explain', '04')
   // The heading must not move from the Explain frame to Modern (Anders, 19 Nov): note where it sits now, and after
   // the switch scroll the reader so it sits there again.
   const reader = page.frame({ url: /\/reader/ })
@@ -152,6 +193,15 @@ async function run(kind) {
   console.log(kind, 'heading before switch', before)
   // Close the card.
   if (kind === 'phone') { await page.keyboard.press('Escape').catch(() => {}); await page.waitForTimeout(800) }
+  // Phone: the card put away before the switch (Escape does not close the phone's sheet in the demo), so the
+  // switch shows only the page changing, as in the launch film.
+  if (phone) await page.frame({ url: /\/reader/ }).evaluate(() => {
+    const label = [...document.querySelectorAll('*')].find(e => /^Explain · Book 2$/.test((e.textContent || '').trim()) && e.children.length === 0)
+    let sheet = label; while (sheet && sheet !== document.body && getComputedStyle(sheet).position !== 'fixed') sheet = sheet.parentElement
+    if (sheet && sheet !== document.body) sheet.style.visibility = 'hidden'
+  })
+  await page.waitForTimeout(200)
+  await shot('closed', '51')
   // Phone: the page's pointer taps Aa for the switch (Anders, 19 Nov: "just show and click on Aa"); no menu is shown.
   if (phone) await mark('modern', f.getByTestId('lab-header-aa'))
   // 2. Modern (Anders, 19 Nov: the second move, before Listen).
@@ -172,6 +222,20 @@ async function run(kind) {
     console.log(kind, 'heading held: moved', Math.round(after - before), 'now', Math.round(await headingTop() - before))
   }
   await shot('modern', '08')
+  // Where the modern page's paragraphs break, as fractions of the frame: the switch dissolves paragraph by
+  // paragraph, top to bottom, between these lines (the launch film's switch).
+  marks.modernBands = await reader.evaluate(() => {
+    const rows = new Map()
+    for (const w of document.querySelectorAll('[data-testid="lab-word"][data-paragraph-index]')) {
+      const r = w.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight || !r.height) continue
+      const k = w.getAttribute('data-paragraph-index'), cur = rows.get(k) || [r.top, r.bottom]
+      rows.set(k, [Math.min(cur[0], r.top), Math.max(cur[1], r.bottom)])
+    }
+    const paras = [...rows.values()].sort((a, b) => a[0] - b[0])
+    const cuts = []
+    for (let i = 1; i < paras.length; i++) cuts.push(+(((paras[i - 1][1] + paras[i][0]) / 2) / innerHeight).toFixed(4))
+    return cuts
+  })
   // 3. Listen to the modern English (Modern Book 2 is recorded).
   const playBtn = f.locator('[data-testid="lab-v2-play"]').first()
   await mark('play', playBtn)
@@ -198,8 +262,8 @@ async function run(kind) {
   // 4. Summary (scripted).
   await mark('summary', f.locator('[data-testid="margin-start-summary"], [data-testid="lab-unit-summary"]').first())
   await f.locator('[data-testid="margin-start-summary"], [data-testid="lab-unit-summary"]').first().click()
-  await page.waitForTimeout(1500); await shot('summary-typing')
-  await page.waitForTimeout(3000); await peek(); await shot('summary')
+  await page.waitForTimeout(1500); await shot('summary-typing', '09')
+  await page.waitForTimeout(3000); await peek(); await shot('summary', '10')
   await browser.close()
   fs.writeFileSync(`${OUT}${kind}-pointer.json`, JSON.stringify(marks) + '\n')
   console.log(kind, 'pointer', JSON.stringify(marks))

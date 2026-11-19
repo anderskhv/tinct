@@ -403,3 +403,18 @@ html[data-eink="true"] .try-backdrop { display: none; }
 .try-demo picture.is-base img { opacity: 1; transition: none; }
 .try-demo picture.is-crop { bottom: auto; height: auto; }
 .try-demo picture.is-crop img { bottom: auto; height: auto; object-fit: initial; }
+
+/* The modern-English switch: bands of the new page fading in over the old, top to bottom (try.js dissolve()). */
+.try-demo picture.is-held img { opacity: 0 !important; transition: none; }
+.try-dissolve { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.try-dissolve img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; opacity: 0; animation: try-band ease-in-out both; }
+@keyframes try-band { from { opacity: 0; } to { opacity: 1; } }
+/* The card going down: only the sheet's part of the outgoing frame, sliding off the foot of the screen. */
+.try-demo picture.is-sink { z-index: 2; }
+.try-demo picture.is-sink img { opacity: 1; transition: none; clip-path: inset(58% 0 0 0); animation: try-sink .5s cubic-bezier(.4, 0, .9, .6) both; }
+@keyframes try-sink { from { transform: none; } to { transform: translateY(46%); } }
+@media (max-width: 899px) {
+  .try-dissolve { inset: 22px 0 0 0; }
+  .try-dissolve img { height: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .try-dissolve img, .try-demo picture.is-sink img { animation: none; opacity: 1; } }
