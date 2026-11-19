@@ -175,10 +175,10 @@ describe('the reader in demo mode', () => {
 describe('just the reader, with hints (Anders, 18 Nov 2026)', () => {
   const demo = readFileSync('src/lab/tryDemo/tryDemo.ts', 'utf8')
 
-  it('has no Next and no steps: a checklist of five that the visitor ticks by doing', () => {
+  it('has no Next and no steps: a checklist of four that the visitor ticks by doing (no follow-up step: Anders, 19 Nov 2026)', () => {
     expect(page).not.toMatch(/data-try-next|data-try-back|data-try-step\b/)
     const items = [...page.matchAll(/<li data-try-item="(\w+)"/g)].map(match => match[1])
-    expect(items).toEqual(['explain', 'ask', 'modern', 'listen', 'summary', 'explain', 'ask', 'modern', 'listen', 'summary'])
+    expect(items).toEqual(['explain', 'modern', 'listen', 'summary', 'explain', 'modern', 'listen', 'summary'])
     expect(text(page)).toContain("Try it yourself It's the real reader. Do things in any order.")
   })
 
