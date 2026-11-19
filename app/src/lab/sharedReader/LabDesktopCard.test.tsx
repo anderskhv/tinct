@@ -1,6 +1,8 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { LabDesktopCard } from './LabDesktopCard'
 afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); sessionStorage.clear() })
 it('keeps a chapter card visible in the rail without a selection or a dimming layer', () => {
@@ -122,4 +124,16 @@ it('places a chapter action overlay beside its supplied button rather than the p
   render(<LabDesktopCard label="Quiz" kind="quiz" onClose={vi.fn()} getAnchor={() => ({ left: 480, right: 570, top: 600, bottom: 630 })}>Question</LabDesktopCard>)
   const card = screen.getByRole('dialog')
   expect(Number.parseFloat(card.style.top)).toBeGreaterThan(400)
+})
+
+it('a Notebook entry is on the page’s paper, not transparent like a margin response (18 Nov 2026)', () => {
+  const css = readFileSync(resolve(__dirname, 'desktopCard.css'), 'utf8')
+  expect(css).toMatch(/\.lab-pcard\.lab-desktop-card\[data-notebook\]\s*\{\s*background:\s*var\(--lab-paper\);\s*\}/)
+  // After the margin's transparent rule, with the same scope, so it wins.
+  expect(css.lastIndexOf('[data-notebook]')).toBeGreaterThan(css.indexOf('background: transparent;'))
+  render(<LabDesktopCard label="Define · Chapter 1" kind="define" notebook onClose={vi.fn()}>Answer</LabDesktopCard>)
+  expect(screen.getByRole('dialog').hasAttribute('data-notebook')).toBe(true)
+  cleanup()
+  render(<LabDesktopCard label="Define" kind="define" onClose={vi.fn()}>Answer</LabDesktopCard>)
+  expect(screen.getByRole('dialog').hasAttribute('data-notebook')).toBe(false)
 })

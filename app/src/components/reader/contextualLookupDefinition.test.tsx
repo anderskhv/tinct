@@ -3,7 +3,7 @@ import { act, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
 import { cleanup } from '@testing-library/react'
 import { CONTEXTUAL_LOOKUP_DEFINITION_LINE, CONTEXTUAL_LOOKUP_PROMPT, contextualLookupPreview, splitDefinition } from './contextualLookup'
-import { ContextualLookupView, DefinitionWithHeadword, headwordLabel } from './DefinitionFallback'
+import { ContextualLookupView, DefinitionWithHeadword, SavedDefineAnswer, headwordLabel, headwordRepeatsSelection, savedDefineHeadword } from './DefinitionFallback'
 
 afterEach(cleanup)
 
@@ -114,5 +114,68 @@ describe('the headword line names what the word is: "Joanna · Minor character" 
     unmount()
     const placeCard = render(<ContextualLookupView answer={place} />)
     expect(placeCard.container.querySelector('small')?.textContent).toBe('Place')
+  })
+})
+
+describe('a saved Define card in the desktop margin or notebook carries its headword (Anders, 18 Nov 2026)', () => {
+  const person = JSON.stringify({ kind: 'person', name: 'Joanna', importance: 'minor', subtitle: 'One of the women at the tomb', body: 'Named here among the women who found the tomb empty.' })
+  const place = { kind: 'place', name: 'Galilee', description: 'The northern region of Palestine.' } as const
+  const word = JSON.stringify({ kind: 'definition', definition: 'Noun. A tomb cut in rock. Here, the tomb where Jesus’ body had been laid.' })
+  const saved = (selection: string, content: string, first = true) => render(<SavedDefineAnswer selection={selection} content={content} first={first} />).container
+
+  it('a person: the answer’s name and role on one line, no role line in the body', () => {
+    const card = saved('Joanna,', person)
+    const head = card.querySelector('.lab-pcard-headword.popup-define-word')!
+    expect(head.textContent).toBe('Joanna · Minor character')
+    expect(head.querySelector('.popup-define-pos')?.lastElementChild?.textContent).toBe('Minor character')
+    expect(card.querySelector('small')).toBeNull()
+    expect(screen.getByTestId('popup-contextual-character').textContent).not.toContain('Minor character')
+  })
+
+  it('a word: the selection without punctuation or possessive, and its part of speech; the sense drops "Noun."', () => {
+    const card = saved('sepulchre,', word)
+    expect(card.querySelector('.lab-pcard-headword')?.textContent).toBe('sepulchre · Noun')
+    expect(card.querySelector('.popup-define-sense')?.textContent).toBe('A tomb cut in rock.')
+    cleanup()
+    expect(saved('“Peter’s', word).querySelector('.lab-pcard-headword')?.textContent).toBe('Peter · Noun')
+  })
+
+  it('several words: a person or place shows its name; anything else has no headword and keeps its label in the body', () => {
+    expect(savedDefineHeadword('the women from Galilee', place)).toBe('Galilee')
+    expect(saved('Mary the mother of James', person).querySelector('.lab-pcard-headword')?.textContent).toBe('Joanna · Minor character')
+    cleanup()
+    const card = saved('rolled away', word)
+    expect(card.querySelector('.lab-pcard-headword')).toBeNull()
+    expect(card.querySelector('.popup-define-sense')?.textContent).toBe('Noun. A tomb cut in rock.')
+  })
+
+  it('a follow-up answer reads as it always has: no headword, its own text whole', () => {
+    const card = saved('sepulchre,', 'Only in Luke. Mark names Salome among the women.', false)
+    expect(card.querySelector('.lab-pcard-headword')).toBeNull()
+    expect(card.querySelector('.popup-define-sense')?.textContent).toBe('Only in Luke. Mark names Salome among the women.')
+    cleanup()
+    const again = saved('Joanna', person, false)
+    expect(again.querySelector('.lab-pcard-headword')).toBeNull()
+    expect(again.querySelector('small')?.textContent).toBe('Minor character')
+  })
+
+  it('no label to give: the headword alone', () => {
+    const head = saved('sepulchre', JSON.stringify({ kind: 'definition', definition: 'A tomb.' })).querySelector('.lab-pcard-headword')!
+    expect(head.textContent).toBe('sepulchre')
+    expect(head.querySelector('.popup-define-pos')).toBeNull()
+  })
+
+  it('no answer to read: no headword', () => {
+    expect(savedDefineHeadword('sepulchre', null)).toBe('')
+  })
+
+  it('the notebook drops a source line the headword repeats, whatever its case or punctuation, and keeps any other', () => {
+    expect(headwordRepeatsSelection('Joanna,', person)).toBe(true)
+    expect(headwordRepeatsSelection('sepulchre,', word)).toBe(true)
+    expect(headwordRepeatsSelection('Sepulchre', word)).toBe(true)
+    expect(headwordRepeatsSelection('“Peter’s', word)).toBe(true)
+    expect(headwordRepeatsSelection('Mary the mother of James', person)).toBe(false)
+    expect(headwordRepeatsSelection('rolled away', word)).toBe(false)
+    expect(headwordRepeatsSelection('sepulchre', undefined)).toBe(false)
   })
 })
