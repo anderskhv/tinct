@@ -184,10 +184,10 @@ describe('the reader plays itself (Anders, 19 Nov 2026)', () => {
     }
   })
 
-  it('opens Meditations Book 2 in the reader from the frames and from Start reading', () => {
-    const links = [...page.matchAll(/href="(\/reader\?[^"]+)"/g)].map(match => match[1])
-    expect(links.length).toBe(3)
-    expect(new Set(links)).toEqual(new Set(['/reader?book=meditations&amp;chapter=2']))
+  it('opens Meditations Book 2 from the frames, and the library from its action', () => {
+    expect([...page.matchAll(/href="(\/reader\?[^"]+)"/g)].map(match => match[1])).toEqual(['/reader?book=meditations&amp;chapter=2'])
+    expect(page).toContain('<a href="/library" data-try-start>Or browse the library</a>')
+    expect(page).toContain('href="/library">Browse the library</a>')
   })
 
   it('calls nothing and scrolls nothing', () => {

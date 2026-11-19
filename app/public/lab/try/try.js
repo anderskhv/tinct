@@ -94,6 +94,12 @@
   paint()
   schedule()
 
+  // ---- The top bar turns solid once the page scrolls (over the hero it shows the scene) ----
+  var nav = $('.try-nav')
+  function navState() { if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 8) }
+  window.addEventListener('scroll', navState, { passive: true })
+  navState()
+
   // ---- Section links show where you are ----
   var links = $$('.try-sections a')
   if ('IntersectionObserver' in window) {
