@@ -94,6 +94,15 @@ async function run(kind) {
   await page.waitForTimeout(2500); await shot('listen-a')
   await page.waitForTimeout(1500); await shot('listen-b')
   await page.waitForTimeout(1500); await shot('listen-c')
+  // The heading must not move between the last Listen frame and Modern (Anders, 19 Nov): note where it sits now, and
+  // after the switch scroll the reader so it sits there again.
+  const reader = page.frame({ url: /\/reader/ })
+  const headingTop = () => reader.evaluate(() => {
+    const h = [...document.querySelectorAll('body *')].find(e => !e.children.length && e.textContent.trim() === 'Book 2' && e.getBoundingClientRect().top > 60)
+    return h ? h.getBoundingClientRect().top : null
+  })
+  const before = await headingTop()
+  console.log(kind, 'heading before switch', before)
   await playBtn.click().catch(() => {})
   await page.waitForTimeout(800)
   // Close the player so it does not linger in the later frames.
@@ -103,7 +112,21 @@ async function run(kind) {
   // 3. Modern.
   if (phone) await page.evaluate(() => document.querySelector('[data-try-frame]').contentWindow.postMessage({ source: 'tinct-try-page', cmd: 'edition', kind: 'modern' }, location.origin))
   else await f.getByTestId('lab-try-editions').locator('button').last().click()
-  await page.waitForTimeout(2500); await shot('modern')
+  await page.waitForTimeout(2500)
+  const after = await headingTop()
+  if (before != null && after != null && Math.abs(after - before) > 1) {
+    await reader.evaluate(delta => {
+      const h = [...document.querySelectorAll('body *')].find(e => !e.children.length && e.textContent.trim() === 'Book 2' && e.getBoundingClientRect().top > 60)
+      for (let e = h && h.parentElement; e; e = e.parentElement) {
+        const cs = getComputedStyle(e)
+        if (/(auto|scroll)/.test(cs.overflowY) && e.scrollHeight > e.clientHeight) { e.scrollTop += delta; return }
+      }
+      window.scrollBy(0, delta)
+    }, after - before)
+    await page.waitForTimeout(400)
+    console.log(kind, 'heading held: moved', Math.round(after - before), 'now', Math.round(await headingTop() - before))
+  }
+  await shot('modern')
   // 4. Summary (scripted).
   await f.locator('[data-testid="margin-start-summary"], [data-testid="lab-unit-summary"]').first().click()
   await page.waitForTimeout(1500); await shot('summary-typing')

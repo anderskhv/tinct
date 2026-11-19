@@ -22,6 +22,8 @@
     ['08', 2, 3200],
     ['10', 3, 3600],
   ]
+  // Bump when the frames are re-captured, so browsers fetch the new ones.
+  var FRAMES_V = '20261119b'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -35,8 +37,8 @@
   var pictures = [first]
   FRAMES.slice(1).forEach(function (frame) {
     var picture = document.createElement('picture')
-    picture.innerHTML = '<source media="(max-width: 899px)" srcset="/lab/try/frames/phone-' + frame[0] + '.webp">' +
-      '<img src="/lab/try/frames/desktop-' + frame[0] + '.webp" alt="" width="2112" height="1222" loading="lazy" decoding="async">'
+    picture.innerHTML = '<source media="(max-width: 899px)" srcset="/lab/try/frames/phone-' + frame[0] + '.webp?v=' + FRAMES_V + '">' +
+      '<img src="/lab/try/frames/desktop-' + frame[0] + '.webp?v=' + FRAMES_V + '" alt="" width="2112" height="1222" loading="lazy" decoding="async">'
     demo.insertBefore(picture, $('.try-demo-open', demo))
     pictures.push(picture)
   })
