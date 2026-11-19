@@ -246,3 +246,57 @@ html[data-eink="true"] .try-backdrop { display: none; }
 @media (max-width: 359px) {
   .try-account .try-pill--outline.try-only-phone { display: none; }
 }
+
+/* ---- The switch to modern English: a wave that runs down the page, line after line (Anders, 19 Nov, after the
+   launch film). The new frame is unmasked from the top; the old one stays under it until the wave has passed. ---- */
+.try-demo picture.is-wave img {
+  opacity: 1; transition: none;
+  /* A soft edge 30% of the frame tall: it enters at the top as the wave starts and leaves at the foot as it ends. */
+  -webkit-mask-image: linear-gradient(#000 0 41.2%, transparent 58.8%); mask-image: linear-gradient(#000 0 41.2%, transparent 58.8%);
+  -webkit-mask-size: 100% 170%; mask-size: 100% 170%;
+  animation: try-wave 1.4s cubic-bezier(.4, 0, .3, 1) both;
+}
+.try-demo picture.is-under img { opacity: 1; transition: none; filter: blur(.4px); }
+@keyframes try-wave { from { -webkit-mask-position: 0 100%; mask-position: 0 100%; } to { -webkit-mask-position: 0 0; mask-position: 0 0; } }
+
+/* ---- Phone: the reader is the first screen (Anders, 19 Nov). The headline over the top, the reader edge to edge
+   under it, and at the foot the moment, its dots and arrow, then Start reading. Cards only peek (the frames show
+   their top), so the page itself stays readable. ---- */
+@media (max-width: 899px) {
+  .try-hero { position: relative; height: 100svh; min-height: 580px; max-height: 960px; padding: 0; overflow: hidden; }
+  .try-stage { display: block; padding: 0; }
+  .try-intro { display: contents; }
+  .try-headline {
+    position: absolute; z-index: 3; left: 16px; right: 16px; top: calc(max(8px, env(safe-area-inset-top, 0px)) + 58px);
+    margin: 0; font-size: 27px; line-height: 1.08;
+  }
+  .try-show { position: absolute; inset: 0; z-index: 1; }
+  .try-demo {
+    position: absolute; left: 0; right: 0; top: calc(max(8px, env(safe-area-inset-top, 0px)) + 142px); bottom: 0;
+    width: auto; height: auto; aspect-ratio: auto; border-radius: 0; background: transparent; box-shadow: none;
+    /* The reader fades in under the headline and out behind the controls; the scene shows around it. */
+    -webkit-mask-image: linear-gradient(transparent 0, #000 40px, #000 calc(100% - 158px), transparent calc(100% - 146px));
+    mask-image: linear-gradient(transparent 0, #000 40px, #000 calc(100% - 158px), transparent calc(100% - 146px));
+  }
+  /* The reader's foot sits just above the controls, so a card's peek is always in view; on a short phone the
+     reader's top runs under the headline's fade instead. */
+  .try-demo picture { position: absolute; left: 0; right: 0; top: auto; bottom: calc(env(safe-area-inset-bottom, 0px) + 150px); height: auto; }
+  .try-demo img { position: static; width: 100%; height: auto; object-fit: initial; }
+  .try-step {
+    position: absolute; z-index: 3; left: 16px; right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 104px);
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 12px; align-items: center;
+    margin: 0; padding: 0; background: none; border: 0; border-radius: 0;
+  }
+  .try-count { grid-column: 1; grid-row: 1; margin: 0; }
+  .try-step-title { grid-column: 2; grid-row: 1; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .try-step-num { display: none; }
+  .try-next { grid-column: 3; grid-row: 1; background: rgba(244, 239, 228, .14); color: var(--try-cream-ink); }
+  .try-next:hover { color: var(--try-cream-ink); }
+  .try-action {
+    display: flex; position: absolute; z-index: 3; left: 16px; right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 42px);
+    width: auto; max-width: none; min-height: 52px; font-size: 17px;
+  }
+  .try-phone-more { position: absolute; z-index: 3; left: 0; right: 0; bottom: calc(env(safe-area-inset-bottom, 0px) + 12px); margin: 0; }
+}
+@media (max-width: 374px) { .try-headline { font-size: 23px; } .try-step { column-gap: 10px; } .try-step-title { font-size: 14px; white-space: normal; } .try-demo { top: calc(max(8px, env(safe-area-inset-top, 0px)) + 126px); } }
+@media (prefers-reduced-motion: reduce) { .try-demo picture.is-wave img { animation: none; -webkit-mask-image: none; mask-image: none; } }

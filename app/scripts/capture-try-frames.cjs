@@ -37,6 +37,26 @@ async function run(kind) {
   await word(1).waitFor({ timeout: 45000 })
   await page.waitForTimeout(3000)
   let n = 0
+  // Phone: the Explain and Summary cards are shown as a peek, lowered so only their top shows over the page (Anders,
+  // 19 Nov: "too big, just hint them"). The card's fixed sheet is moved down and the dimming behind it lifted.
+  const PEEK = Number(process.env.PEEK || 200)
+  const peek = async () => {
+    if (!phone) return
+    await page.frame({ url: /\/reader/ }).evaluate(px => {
+      const fixed = el => { for (let e = el; e && e !== document.body; e = e.parentElement) { const cs = getComputedStyle(e); if (cs.position === 'fixed') return e } return null }
+      const card = [...document.querySelectorAll('*')].find(e => /^(Explain|Summary) · Book 2$/.test((e.textContent || '').trim()) && e.children.length === 0)
+      const sheet = card && fixed(card)
+      if (!sheet) return 'no sheet'
+      sheet.style.transition = 'none'; sheet.style.transform = `translateY(${px}px)`
+      for (const e of document.querySelectorAll('body *')) {
+        if (e === sheet || sheet.contains(e) || e.contains(sheet)) continue
+        const cs = getComputedStyle(e), r = e.getBoundingClientRect()
+        if (cs.position === 'fixed' && r.width >= innerWidth - 2 && r.height >= innerHeight * .6 && cs.backgroundColor !== 'rgba(0, 0, 0, 0)') e.style.opacity = '0'
+      }
+      return 'ok'
+    }, PEEK).then(r => console.log('peek', r))
+    await page.waitForTimeout(250)
+  }
   const shot = async name => { await frameEl.screenshot({ path: `${RAW}${kind}-${String(++n).padStart(2, '0')}-${name}.png` }) }
   await shot('start')
   // 1. Explain the first sentence (the page's scripted answer: no AI call).
@@ -62,7 +82,7 @@ async function run(kind) {
     await f.locator('.selection-popup').getByRole('button', { name: /^Explain/ }).first().click()
   }
   await page.waitForTimeout(1600); await shot('explain-typing')
-  await page.waitForTimeout(3500); await shot('explain')
+  await page.waitForTimeout(3500); await peek(); await shot('explain')
   // Close the card.
   if (kind === 'phone') { await page.keyboard.press('Escape').catch(() => {}); await page.waitForTimeout(800) }
   // 2. Listen (Original Book 2 is recorded).
@@ -87,7 +107,7 @@ async function run(kind) {
   // 4. Summary (scripted).
   await f.locator('[data-testid="margin-start-summary"], [data-testid="lab-unit-summary"]').first().click()
   await page.waitForTimeout(1500); await shot('summary-typing')
-  await page.waitForTimeout(3000); await shot('summary')
+  await page.waitForTimeout(3000); await peek(); await shot('summary')
   await browser.close()
   for (const file of fs.readdirSync(RAW).filter(f => f.startsWith(kind + '-')).sort()) {
     const number = file.split('-')[1]

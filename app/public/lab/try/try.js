@@ -48,8 +48,23 @@
   var held = false
   var visible = true
 
+  // The frame that switches to modern English arrives as a wave running down the page (the launch film's switch).
+  var WAVE = FRAMES.map(function (frame, i) { return i > 0 && frame[1] === 2 && FRAMES[i - 1][1] !== 2 })
+  var shown = -1
   function paint() {
-    pictures.forEach(function (picture, i) { picture.classList.toggle('is-on', i === index) })
+    var wave = !reduce && shown >= 0 && shown !== index && WAVE[index]
+    var under = wave ? shown : -1
+    pictures.forEach(function (picture, i) {
+      picture.classList.remove('is-wave', 'is-under')
+      picture.classList.toggle('is-on', i === index)
+    })
+    if (wave) {
+      pictures[under].classList.add('is-under')
+      void pictures[index].offsetWidth
+      pictures[index].classList.add('is-wave')
+      setTimeout(function () { pictures[under].classList.remove('is-under') }, 1600)
+    }
+    shown = index
     var step = FRAMES[index][1]
     $$('[data-try-step]').forEach(function (button) {
       if (Number(button.getAttribute('data-try-step')) === step) button.setAttribute('aria-current', 'step')
