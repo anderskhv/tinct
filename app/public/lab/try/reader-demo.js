@@ -14,7 +14,7 @@
  * - Network: every request that would write (any POST/PUT/PATCH/DELETE to /api/ other than the AI routes below,
  *   sendBeacon, Supabase writes) is answered here with 204 and never sent. AI requests carry
  *   `X-Tinct-Surface: try`, which puts them on the page's own daily budget (worker/lib/aiSpend.ts).
- * - Scripted answers: the step 1 Explain of "Begin the morning … unsocial." and the Book 2 Summary are answered from
+ * - Scripted answers: the Explain of the suggested passage ("Begin the morning … unsocial.") and the Book 2 Summary are answered from
  *   meditations-2.json, written ahead of time; nothing is sent for them.
  * - Out of AI (the visitor's free questions, or the page's day): the page is told, and shows its sign-up card; the
  *   request is held, never answered with an error.

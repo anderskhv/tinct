@@ -5,7 +5,7 @@ import { handleSeoAndStaticRequest, withTryDemo, TRY_DEMO_SCRIPT } from './worke
 import { CARDS_COPY } from './cards/cardsCopy'
 import { TRIAL_DAYS } from './worker/lib/aiAllowance'
 import { LAB_COPY } from './lab/labCopy'
-import { firstSentenceWords, revealScrollBy } from './lab/tryDemo/tryDemo'
+import { firstSentenceWords } from './lab/tryDemo/tryDemo'
 import { LAB_EXPLAIN_PROMPT } from './companion/companionRequest'
 import { parseChapterNotesBeats } from './chapterNotes'
 
@@ -170,11 +170,20 @@ describe('the reader in demo mode', () => {
     expect(firstSentenceWords('No number here, and no stop')).toEqual({ fromWord: 0, toWord: 5 })
   })
 
-  it('an open margin card that grows past the frame scrolls in, but never past its own top', () => {
-    const frame = { top: 60, bottom: 600 }
-    expect(revealScrollBy(frame, { top: 300, bottom: 500 })).toBe(0)
-    expect(revealScrollBy(frame, { top: 300, bottom: 700 })).toBe(116)
-    expect(revealScrollBy(frame, { top: 200, bottom: 1200 })).toBe(84)
-    expect(revealScrollBy(frame, { top: 110, bottom: 900 })).toBe(0)
+})
+
+describe('just the reader, with hints (Anders, 18 Nov 2026)', () => {
+  const demo = readFileSync('src/lab/tryDemo/tryDemo.ts', 'utf8')
+
+  it('has no Next and no steps: a checklist of five that the visitor ticks by doing', () => {
+    expect(page).not.toMatch(/data-try-next|data-try-back|data-try-step\b/)
+    const items = [...page.matchAll(/<li data-try-item="(\w+)"/g)].map(match => match[1])
+    expect(items).toEqual(['explain', 'ask', 'modern', 'listen', 'summary', 'explain', 'ask', 'modern', 'listen', 'summary'])
+    expect(text(page)).toContain("Try it yourself It's the real reader. Do things in any order.")
+  })
+
+  it('never makes the reader act or scroll on its own: the page sends only its phone edition switch', () => {
+    expect([...script.matchAll(/send\(\{ cmd: '(\w+)'/g)].map(match => match[1])).toEqual(['edition'])
+    for (const source of [script, demo]) expect(source).not.toMatch(/scrollTo|scrollBy|scrollIntoView|scrollTop\s*=/)
   })
 })

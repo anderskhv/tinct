@@ -23,6 +23,8 @@
   position: absolute; inset: -60px; z-index: -1;
   background: linear-gradient(180deg, rgba(14, 11, 8, .55), rgba(14, 11, 8, .78)), url('/lab/library_2/assets/scene-odyssey-wide.jpg') center 30% / cover no-repeat;
   filter: blur(36px) saturate(.9) brightness(.62);
+  /* Its own layer: without it WebKit painted a white square over the logo where the blur meets the corner. */
+  transform: translateZ(0);
 }
 @media (max-width: 899px) {
   .try-backdrop { background-image: linear-gradient(180deg, rgba(14, 11, 8, .5), rgba(14, 11, 8, .8)), url('/lab/library_2/assets/scene-odyssey-phone.jpg'); }
@@ -62,7 +64,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
   font-family: var(--tui-font-display); font-weight: 700; font-size: clamp(44px, 4.6vw, 70px); line-height: 1.05; letter-spacing: -.01em;
 }
 
-/* ---- The stage: steps beside the reader ---- */
+/* ---- The stage: the checklist beside the reader ---- */
 .try-stage {
   display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 36px; align-items: start;
   padding: 0 22px 0 56px;
@@ -76,18 +78,42 @@ html[data-eink="true"] .try-backdrop { display: none; }
   font: italic 17px/1.3 var(--tui-font-serif); cursor: pointer;
 }
 .try-book select option { color: #111; }
-.try-step { margin-top: 30px; }
-.try-count { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--try-cream-ink); }
-.try-dots { display: inline-flex; gap: 5px; align-items: center; }
-.try-dots i { display: block; width: 6px; height: 6px; border-radius: 3px; background: rgba(244, 239, 228, .35); transition: width var(--tui-dur) var(--tui-ease), background var(--tui-dur); }
-.try-dots i.is-done { background: rgba(244, 239, 228, .8); }
-.try-dots i.is-current { width: 22px; background: var(--try-cream-ink); }
-.try-step-title { margin: 0 0 12px; font-family: var(--tui-font-display); font-weight: 700; font-size: 32px; line-height: 1.12; }
-.try-step-line { margin: 0 0 26px; font-family: var(--tui-font-serif); font-size: 18px; line-height: 1.5; color: var(--try-muted-on-dark); }
-.try-step-actions { display: flex; gap: 10px; }
-.try-step-actions .try-pill { min-height: 44px; padding: 0 20px; font-size: 15px; }
-.try-step-hint { margin: 18px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--try-muted-on-dark); }
-.try-step-card, .try-phone-row { display: none; }
+/* The checklist (desktop): five things that tick as the visitor does them, in any order; the next one says how. */
+.try-todo {
+  margin: 30px -16px 0; padding: 18px 16px 6px;
+  border: 1px solid var(--try-line-on-dark); border-radius: 16px; background: rgba(14, 11, 8, .55);
+}
+.try-todo-title { margin: 0 0 8px; font-family: var(--tui-font-display); font-weight: 700; font-size: 32px; line-height: 1.12; }
+.try-todo-sub { margin: 0 0 22px; font-family: var(--tui-font-serif); font-size: 18px; line-height: 1.4; color: var(--try-muted-on-dark); }
+.try-checks { list-style: none; margin: 0; padding: 0; }
+.try-checks li { display: flex; gap: 12px; align-items: flex-start; padding: 0 0 15px; font-size: 15.5px; line-height: 1.3; color: var(--try-cream-ink); }
+.try-check { flex: none; display: grid; place-items: center; width: 20px; height: 20px; margin-top: -1px; border: 1.5px solid rgba(244, 239, 228, .5); border-radius: 50%; }
+.try-check-text { display: grid; gap: 2px; }
+.try-check-line { display: none; font-size: 13px; color: var(--try-muted-on-dark); }
+.try-checks li.is-next .try-check { border-color: var(--try-cream-ink); }
+.try-checks li.is-next .try-check-title { font-weight: 600; }
+.try-checks li.is-next .try-check-line { display: block; }
+.try-checks li.is-done { color: var(--try-muted-on-dark); }
+.try-checks li.is-done .try-check { border-color: var(--try-cream-ink); background: var(--try-cream-ink); }
+.try-checks li.is-done .try-check::after { content: ''; width: 8px; height: 4.5px; margin-top: -2px; border: solid var(--tui-ink); border-width: 0 0 1.5px 1.5px; transform: rotate(-45deg); }
+.try-chips-card, .try-phone-row { display: none; }
+
+/* The hint: one dark bubble beside its control in the reader (try.js places it; it never moves the page). */
+.try-hint {
+  position: fixed; z-index: 20; max-width: 340px; margin: 0; padding: 10px 34px 10px 14px; border-radius: 10px;
+  background: #1d1a16; color: #f4efe4; box-shadow: 0 6px 24px rgba(0, 0, 0, .28);
+  font: 400 14px/1.35 var(--tui-font-ui); pointer-events: none;
+}
+.try-hint-text { margin: 0; }
+.try-hint-text b { font-weight: 600; }
+.try-hint::after { content: ''; position: absolute; left: var(--try-hint-arrow, 28px); width: 12px; height: 12px; background: #1d1a16; transform: rotate(45deg); }
+.try-hint[data-side="above"]::after { bottom: -6px; }
+.try-hint[data-side="below"]::after { top: -6px; }
+.try-hint-close {
+  position: absolute; top: 4px; right: 4px; width: 26px; height: 26px; padding: 0; border: 0; border-radius: 50%;
+  background: transparent; color: #8d8373; font: 400 16px/1 var(--tui-font-ui); cursor: pointer; pointer-events: auto;
+}
+.try-hint-close:hover { color: #f4efe4; }
 
 .try-reader {
   position: relative; height: var(--try-reader-h); border-radius: 14px; overflow: hidden;
@@ -176,29 +202,83 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-section, .try-peek, .try-footer { padding-left: 40px; padding-right: 40px; }
 }
 
-/* ---- Phone (M1–M10): the step card, the book and edition row, the reader, a text strip ---- */
+/* ---- Between phone and desktop (900–1239px: iPad upright, small laptops, phones sideways) ----
+   Beside a 270px checklist the desktop reader got 150–800px, so its text column shrank to a few words and its top
+   bar ran into itself. Here the checklist is the phone's chips in one row under the book picker, and the reader
+   has the full width (the margin keeps its card column). */
+@media (min-width: 900px) and (max-width: 1239px) {
+  .try-stage { display: block; padding: 0 22px; }
+  .try-panel { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; padding-top: 0; }
+  .try-todo { display: none; }
+  .try-chips-card { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; padding: 6px 8px 6px 16px; border: 1px solid var(--try-line-on-dark); border-radius: var(--tui-radius-pill); background: rgba(244, 239, 228, .06); }
+  .try-chips-title { margin: 0; font: 600 15px/1.3 var(--tui-font-ui); white-space: nowrap; }
+  .try-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; }
+  .try-chips li { display: inline-flex; align-items: center; gap: 3px; min-height: 30px; padding: 0 11px; border: 1px solid rgba(244, 239, 228, .26); border-radius: var(--tui-radius-pill); font-size: 13.5px; color: var(--try-cream-ink); }
+  .try-chips li.is-next { border-color: var(--try-cream-ink); }
+  .try-chips li.is-done { border-color: var(--try-cream-ink); background: var(--try-cream-ink); color: var(--tui-ink); }
+  .try-chips li.is-done::before { content: "✓"; font-size: 11px; }
+  .try-headline { padding: 0 24px; }
+  .try-nav { padding-left: 24px; padding-right: 24px; }
+  .try-sections { gap: 20px; }
+}
+
+/* ---- Short desktop windows (a 13" laptop, a phone sideways): the reader starts and ends on the first screen ----
+   At 1280×593 the 520px reader ran 110px under the fold, and the Explain bar of the first sentence opened there. */
+@media (min-width: 900px) and (max-height: 760px) {
+  .try { --try-reader-h: clamp(360px, calc(100svh - 150px), 760px); }
+  .try-nav { padding-top: 12px; }
+  .try-headline { margin: 14px 0 16px; font-size: clamp(36px, 3.6vw, 52px); }
+  .try-todo { margin-top: 18px; padding-top: 14px; }
+  .try-todo-title { font-size: 28px; }
+  .try-todo-sub { margin-bottom: 16px; }
+  .try-checks li { padding-bottom: 12px; }
+}
+@media (min-width: 900px) and (max-width: 1239px) and (max-height: 760px) {
+  .try { --try-reader-h: clamp(300px, calc(100svh - 200px), 760px); }
+}
+
+/* Touch screens: every control the visitor taps is at least 32px (the hint's ×, the edition switches). */
+@media (hover: none) and (pointer: coarse) {
+  .try-hint-close { top: 3px; right: 2px; width: 32px; height: 32px; }
+  .try-hint { padding-right: 38px; }
+  .try-logo { display: inline-flex; align-items: center; min-height: 32px; }
+}
+
+/* ---- Phone (M1–M10): the checklist chips, the book and edition row, the reader, a text strip ---- */
 @media (max-width: 899px) {
-  .try { --try-reader-h: max(440px, calc(100svh - 342px)); }
-  .try-only-wide, .try-sections, .try-step { display: none !important; }
+  /* The reader ends on the first screen (its top, measured by try.js, plus a 12px gap), never shorter than a usable
+     page: then the Explain card and its follow-up field open on screen. */
+  .try { --try-reader-h: max(var(--try-reader-min, 320px), calc(100svh - var(--try-reader-top, 230px) - 12px)); }
+  .try-only-wide, .try-sections, .try-todo { display: none !important; }
   .try-nav { display: flex; justify-content: space-between; padding: 14px 16px 0; }
   .try-logo { font-size: 22px; }
   .try-account .try-pill { min-height: 34px; padding: 0 14px; font-size: 13.5px; }
   .try-headline { margin: 24px 0 18px; padding: 0 16px; font-size: 31px; }
-  .try-stage { display: block; padding: 0 16px; }
-  .try-step-card {
-    display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto auto; column-gap: 12px; align-items: center;
-    min-height: 102px; /* two lines of the step's line: the reader below keeps its place from step to step (M1–M9) */
-    padding: 12px 14px 12px 16px; border: 1px solid var(--try-line-on-dark); border-radius: 16px; background: rgba(244, 239, 228, .08);
-    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  /* The first screen (QA 19 Nov 2026, Anders): the chips, then the book and edition on the same line where it fits
+     (a phone sideways, an iPad upright) or on the next one, then the reader. No reserved empty row, so the reader
+     starts about 90px higher; try.js sizes the reader to end on the first screen (--try-reader-top). */
+  .try-stage { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 0 16px; }
+  .try-panel { flex: 0 1 auto; min-width: 0; padding-top: 0; }
+  /* The checklist as five chips that tick (✓, filled) as the visitor does each thing (M1–M3). The card's name is
+     read out (aria-label); on screen the chips and the hint say what to do. */
+  .try-chips-card { display: block; }
+  .try-chips-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .try-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 5px; margin: 0; padding: 0; }
+  .try-chips li { position: relative; display: inline-flex; align-items: center; min-height: 30px; padding: 0 8px; border: 1px solid rgba(244, 239, 228, .26); border-radius: var(--tui-radius-pill); font-size: 13px; color: var(--try-cream-ink); }
+  .try-chips li.is-next { border-color: var(--try-cream-ink); }
+  .try-chips li.is-done { border-color: var(--try-cream-ink); background: var(--try-cream-ink); color: var(--tui-ink); }
+  /* The tick sits on the chip's corner, so a ticked chip keeps its width and nothing below it ever moves. */
+  .try-chips li.is-done::before {
+    content: "✓"; position: absolute; top: -6px; left: -4px; display: grid; place-items: center; width: 15px; height: 15px;
+    border: 1px solid var(--try-cream-ink); border-radius: 50%; background: var(--tui-ink); color: var(--try-cream-ink); font-size: 9px; line-height: 1;
   }
-  .try-step-card .try-dots { grid-column: 1; margin-bottom: 7px; }
-  .try-card-title { grid-column: 1; margin: 0 0 3px; font: 600 15px/1.3 var(--tui-font-ui); }
-  .try-card-line { grid-column: 1; margin: 0; font-family: var(--tui-font-serif); font-size: 14.5px; line-height: 1.4; color: var(--try-muted-on-dark); }
-  .try-card-next { grid-column: 2; grid-row: 1 / span 3; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--try-cream-ink); color: var(--tui-ink); font-size: 18px; cursor: pointer; }
-  .try-phone-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 12px 0 10px; }
-  .try-phone-row .try-book select { min-height: 34px; font-size: 16px; }
+  .try-hint { max-width: min(330px, calc(100vw - 48px)); font-size: 13.5px; }
+  .try-phone-row { flex: 1 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 0; }
+  .try-phone-row .try-book { margin-right: auto; }
+  .try-reader { flex: 0 0 100%; }
+  .try-phone-row .try-book select { min-height: 34px; padding-left: 14px; padding-right: 30px; background-position: right 12px center; font-size: 16px; }
   .try-editions { display: inline-flex; padding: 3px; border-radius: var(--tui-radius-pill); background: rgba(244, 239, 228, .08); border: 1px solid var(--try-line-on-dark); }
-  .try-editions button { min-height: 30px; padding: 0 12px; border: 0; border-radius: var(--tui-radius-pill); background: transparent; color: var(--try-cream-ink); font: 500 13.5px/1 var(--tui-font-ui); cursor: pointer; }
+  .try-editions button { min-height: 32px; padding: 0 11px; border: 0; border-radius: var(--tui-radius-pill); background: transparent; color: var(--try-cream-ink); font: 500 13.5px/1 var(--tui-font-ui); cursor: pointer; }
   .try-editions button[aria-pressed="true"] { background: var(--try-cream-ink); color: var(--tui-ink); }
   .try-reader { border-radius: 14px; }
   .try-limit { align-items: flex-end; justify-content: center; padding: 14px; }
@@ -217,4 +297,18 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-closing p { margin-left: 0; }
   .try-footer { padding: 26px 16px 34px; }
   .try-footer nav { margin-left: 0; }
+}
+/* The narrowest phones: the headline, the chips and the book and edition row each on one line ("Modern" alone). */
+@media (max-width: 374px) {
+  .try-edition-more { display: none; }
+  .try-headline { font-size: 28px; }
+  .try-chips { gap: 6px 4px; }
+  .try-chips li { padding: 0 6px; font-size: 12px; }
+}
+/* Phones sideways: a tighter hero, and the chips, the book and the edition on one line, so the reader's first lines
+   show on the first screen. */
+@media (max-width: 899px) and (max-height: 500px) {
+  .try-edition-more { display: none; }
+  .try-nav { padding-top: 8px; }
+  .try-headline { margin: 12px 0 12px; font-size: 26px; }
 }

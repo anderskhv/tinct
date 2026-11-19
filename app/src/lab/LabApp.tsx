@@ -233,7 +233,7 @@ import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { ChatConversation, HighlightColor } from '../types'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
-import { TRY_DEMO, TRY_DEMO_DESKTOP_FONT_SIZE, firstSentenceWords, tryDemoTell, useTryDemo, useTryDemoRevealOpenCard, type TryDemoHandles } from './tryDemo/tryDemo'
+import { TRY_DEMO, TRY_DEMO_DESKTOP_FONT_SIZE, tryDemoTell, useTryDemo, type TryDemoHandles } from './tryDemo/tryDemo'
 import { useLabHighlights } from './useLabHighlights'
 import { labHighlightUndoMessage } from './labHighlightUndo'
 import { useLabAsk } from './useLabAsk'
@@ -6691,48 +6691,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
   })
 
-  // The /try page's reader (tryDemo/tryDemo.ts): each step's Next runs here through the reader's own actions, as
-  // if the visitor had pressed them; what the visitor does by hand is reported back by useTryDemo below.
+  // The /try page's reader (tryDemo/tryDemo.ts): the page's own Original | Modern English switch (phone) runs here
+  // as the reader's own; nothing else is ever done for the visitor. What they do is reported back by useTryDemo.
   const tryDemoHandles = useRef<TryDemoHandles>(null as unknown as TryDemoHandles)
   tryDemoHandles.current = {
-    explain: () => {
-      if (!readerReady || initialResolving || book.chaptersProvisional) return false
-      const words = firstSentenceWords(book.paragraphs[0] || '')
-      const range = words ? buildHighlightRange(book.paragraphs, { paragraphIndex: 0, wordIndex: words.fromWord }, { paragraphIndex: 0, wordIndex: words.toWord }) : null
-      if (!range) return false
-      const chapter = { chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel }
-      const passage: PhonePassage = { text: range.text, paragraphIndex: range.paragraphIndex, ...chapter, editionKey: readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: book.chapterNumber, range }] }
-      // The selection bar first (the page's "Select a passage"), then Explain from it.
-      const word = (marginHost ?? document).querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="${range.fromWord}"]`)
-      // Bring the passage near the top of the reader's own scroller (never scrollIntoView: it would scroll the page too).
-      if (word && marginHost && !showPhoneChrome) {
-        const top = marginHost.scrollTop + word.getBoundingClientRect().top - marginHost.getBoundingClientRect().top - 150
-        if (Math.abs(top - marginHost.scrollTop) > 40) marginHost.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
-      }
-      window.setTimeout(() => {
-        const box = word?.getBoundingClientRect()
-        handleSelectRange(range, box ? box.left + box.width / 2 : window.innerWidth / 2, box ? box.top : window.innerHeight / 3)
-        window.setTimeout(() => { setDraft(''); openPhoneCard({ kind: 'explain', passage, openedAt: Date.now() }) }, 900)
-      }, word ? 350 : 0)
-      return true
-    },
-    followUp: text => {
-      const root = showPhoneChrome ? document : document.querySelector('.source-margin-item[data-open="true"]') ?? document.querySelector('.lab-desktop-card')
-      const field = root?.querySelector<HTMLTextAreaElement>('.lab-pcard-follow-input')
-      if (!phoneCardRef.current || !field) return false
-      setDraft(text)
-      field.focus({ preventScroll: true })
-      requestAnimationFrame(() => { try { field.setSelectionRange(field.value.length, field.value.length) } catch { /* not a text field */ } })
-      return true
-    },
     edition: kind => {
       const target = editionCommand(kind)
       // On the phone the Explain sheet would cover the page that changes (M6): close it; the note stays in the margin.
       if (showPhoneChrome && phoneCardRef.current) closePhoneCard()
       if (target && prefs.primaryEdition !== target.key) updatePrefs({ ...prefs, primaryEdition: target.key, compareOpen: prefs.compareOpen && prefs.compareEdition !== target.key })
     },
-    listen: () => { if (!listen.playing && !listen.pending) handleBarListen() },
-    summary: () => chapterSummaryRef.current(),
   }
   useTryDemo(tryDemoHandles, {
     ready: readerReady && !initialResolving,
@@ -6743,17 +6711,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     selection: selectionPopup !== null,
     chapterCard: chapterNotes ? (chapterNotes.as ?? chapterNotes.request.kind) : null,
   })
-  useTryDemoRevealOpenCard(marginHost, showPhoneChrome)
-  // The page opens on Book 2's heading near the top of the frame (D1), with room below it for the margin's cards.
-  const tryDemoOpenedRef = useRef(false)
-  useEffect(() => {
-    if (!TRY_DEMO || tryDemoOpenedRef.current || !readerReady || initialResolving || showPhoneChrome || !marginHost) return
-    tryDemoOpenedRef.current = true
-    const word = marginHost.querySelector<HTMLElement>('[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="0"]')
-    if (!word) return
-    const top = marginHost.scrollTop + word.getBoundingClientRect().top - marginHost.getBoundingClientRect().top - 110
-    if (top > marginHost.scrollTop + 20) marginHost.scrollTo({ top })
-  }, [readerReady, initialResolving, showPhoneChrome, marginHost])
   useEffect(() => {
     if (!TRY_DEMO || !accountPrompt) return
     // The page shows its own card ("Keep the conversation going"; for Listen, the reader's listening copy).
@@ -7600,7 +7557,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               >
                 {narrationInfo?.loading || listen.loading || listen.buffering ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
               </button>}
-              {!showPhoneChrome && <button type="button" className="lab-v2-aa" data-testid="lab-header-aa"
+              {/* The /try page's phone reader has no menu (demo mode), so Aa stands in for the menu's Appearance there. */}
+              {(!showPhoneChrome || TRY_DEMO) && <button type="button" className="lab-v2-aa" data-testid="lab-header-aa"
                 aria-label="Reading appearance" title="Reading appearance"
                 onClick={() => { setSuperMenuOpen(false); setCompareFromLayout(false); setSuperSheet('reading') }}>Aa</button>}
 {!TRY_DEMO && <LabSuperButton
