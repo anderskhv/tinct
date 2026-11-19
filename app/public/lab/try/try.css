@@ -170,7 +170,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-account .try-only-phone { display: inline-flex; }
   .try-account .try-pill--outline { border-color: transparent; background: transparent; padding: 0 2px; min-height: 34px; color: var(--try-muted-on-dark); }
   .try-sections a { padding: 4px 0; }
-  .try-account .try-only-phone { order: 2; }
+  .try-account .try-pill--cream.try-only-phone { order: 2; }
   .try-logo { font-size: 22px; }
   .try-account .try-pill { min-height: 34px; padding: 0 14px; font-size: 13.5px; }
   .try-hero { padding: 62px 0 30px; }
@@ -178,8 +178,9 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-stage { display: block; padding: 0 16px; }
   .try-step {
     display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: center;
-    padding: 8px 8px 8px 14px; margin-bottom: 10px; border-radius: 14px;
-    background: rgba(244, 239, 228, .07); border: 1px solid var(--try-line-on-dark);
+    padding: 7px 7px 7px 12px; margin-bottom: 10px;
+    /* A subtle box (Anders, 19 Nov): it holds the step apart from the headline without competing with it. */
+    background: rgba(244, 239, 228, .035); border: 1px solid rgba(244, 239, 228, .1); border-radius: 12px;
   }
   .try-count { grid-column: 1; margin: 0 0 4px; }
   .try-count [data-try-count] { display: none; }
@@ -216,4 +217,8 @@ html[data-eink="true"] .try-backdrop { display: none; }
 @media (max-width: 899px) {
   .try-plan .try-pill { white-space: normal; text-align: center; min-height: 44px; height: auto; padding-top: 10px; padding-bottom: 10px; }
   .try-plan { padding: 22px 20px; }
+}
+/* The narrowest phones: Start reading alone (account creation is one step into the library). */
+@media (max-width: 359px) {
+  .try-account .try-pill--outline.try-only-phone { display: none; }
 }
