@@ -31,8 +31,10 @@ async function run(kind) {
   // The phone frame is a phone's own screen (390 wide, tall), so the page can show it in a real phone shape and zoom in
   // on it like the launch film (Anders, 19 Nov).
   const size = phone ? 'width:390px;height:760px' : 'width:1056px;height:611px'
+  // Phone: the frame sits at the page's corner with nothing around it, so it fits the 390-wide phone exactly and the
+  // pointer marks (measured on the page) line up with the screenshots (a 16px pad shifted them, 19 Nov).
   await page.route(ORIGIN + '/try', route => route.fulfill({ contentType: 'text/html', body:
-    `<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="margin:0;padding:16px;background:#ece7db">` +
+    `<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="margin:0;padding:${phone ? 0 : 16}px;background:#ece7db">` +
     `<iframe data-try-frame src="/reader?${params}" style="${size};border:0;display:block"></iframe>` }))
   await page.goto(ORIGIN + '/try', { waitUntil: 'domcontentloaded' })
   const frameEl = page.locator('[data-try-frame]')

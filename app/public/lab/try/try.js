@@ -26,7 +26,7 @@
     ['10', 3, 4200],
   ]
   // Bump when the frames are re-captured, so browsers fetch the new ones.
-  var FRAMES_V = '20261119f'
+  var FRAMES_V = '20261119g'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -133,20 +133,28 @@
 
   // The frame that switches to modern English arrives as a wave running down the page (the launch film's switch).
   var WAVE = FRAMES.map(function (frame) { return frame[0] === '08' })
+  // The frames that open a card: the card rises from the foot of the screen over the page, as it does in the reader
+  // (Anders, 19 Nov: Explain looked jumpy). Every other change fades the new frame in over the old one, never through
+  // an empty screen.
+  var RISE = FRAMES.map(function (frame) { return frame[0] === '04' || frame[0] === '10' })
   var shown = -1
+  var underTimer = null
   function paint() {
     var wave = !reduce && shown >= 0 && shown !== index && WAVE[index]
-    var under = wave ? shown : -1
+    var rise = !reduce && shown >= 0 && shown !== index && RISE[index]
+    var under = shown >= 0 && shown !== index ? shown : -1
     demo.classList.toggle('is-cut', shown >= 0 && FRAMES[shown][1] === 2 && FRAMES[index][1] === 2)
+    clearTimeout(underTimer)
     pictures.forEach(function (picture, i) {
-      picture.classList.remove('is-wave', 'is-under')
+      picture.classList.remove('is-wave', 'is-rise', 'is-under')
       picture.classList.toggle('is-on', i === index)
     })
-    if (wave) {
+    if (under >= 0) {
       pictures[under].classList.add('is-under')
       void pictures[index].offsetWidth
-      pictures[index].classList.add('is-wave')
-      setTimeout(function () { pictures[under].classList.remove('is-under') }, 1600)
+      if (wave) pictures[index].classList.add('is-wave')
+      else if (rise) pictures[index].classList.add('is-rise')
+      underTimer = setTimeout(function () { pictures[under].classList.remove('is-under') }, wave ? 1600 : 800)
     }
     var newStep = shown < 0 || FRAMES[shown][1] !== FRAMES[index][1]
     shown = index
