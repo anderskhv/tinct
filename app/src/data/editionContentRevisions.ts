@@ -442,13 +442,58 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   // Text-only modern-en repairs (2026-10-21): paragraphs unchanged, wording new in the changed paragraphs.
+  oresteia: {
+    revision: 'text-2026-11-18.oresteia.1',
+    releasedAt: Date.parse('2026-11-19T03:00:00Z'),
+    editions: {
+      'modern-en': {
+        // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
+        before: '861b154ade47183257f3bfe4e503fa758404a0e421659baa246840e3eb1aecfd',
+        after: '031fa843b02a5937348da0c84993219ffcf46686dd5ce8d94b8950b98b6e6a2a',
+        releasedAt: Date.parse('2026-11-19T03:00:00Z'),
+      },
+      'modern-da': {
+        // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
+        before: 'c131aa0ae927e741d6f08a78a042aa5c0fee844ab0d9c765b0eb54774c053f3c',
+        after: 'd8a3cab5a1f7efcc046d7df901e6959e25e2e0a9ee8ed43d7ff064230f292e93',
+        releasedAt: Date.parse('2026-11-19T03:00:00Z'),
+      },
+    },
+  },
+  'the-aeneid': {
+    revision: 'text-2026-11-18.the-aeneid.1',
+    releasedAt: Date.parse('2026-11-19T03:00:00Z'),
+    editions: {
+      'modern-en': {
+        // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
+        before: '1e9b6dd64911f96374ae6e9322379d4eb30a9d9dfc8e0a994e717c71f3a05c07',
+        after: 'd31476703adeb70dfeab3175b07239a6270dc503fd3a00b96ca9300ef6cf689a',
+        releasedAt: Date.parse('2026-11-19T03:00:00Z'),
+      },
+      'modern-da': {
+        // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
+        before: 'ed6ef13cbfdd867014f73b37289032705160a65f17e6d116761ee446abc9b9b8',
+        after: 'fe9fba5bf0a06d936c7b2823540ee1bd0c4c4e3347a2d18611351124122ce788',
+        releasedAt: Date.parse('2026-11-19T03:00:00Z'),
+      },
+    },
+  },
   'war-and-peace': {
-    revision: 'text-2026-10-21.6',
+    revision: 'text-2026-11-18.war-and-peace.1',
     releasedAt: Date.parse('2026-10-21T12:00:00Z'),
     editions: {
       'modern-en': {
-        before: '93fb7594ee1e617095818f93da10ed3fbdc0d0e6abcf76280e0fb1ee3097e496',
-        after: '65c253aa95e1e4cb21112e5d4aec5344364cd658a596264710d5b48d2bacfcd8',
+        // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
+        before: '65c253aa95e1e4cb21112e5d4aec5344364cd658a596264710d5b48d2bacfcd8',
+        after: '339afb941e00b25a437c5215828d8a162c1e1912790c21fd3f25afc34c794460',
+        releasedAt: Date.parse('2026-11-19T03:00:00Z'),
+        previous: [{ before: '93fb7594ee1e617095818f93da10ed3fbdc0d0e6abcf76280e0fb1ee3097e496', releasedAt: Date.parse('2026-10-21T12:00:00Z') }],
+      },
+      'modern-da': {
+        // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
+        before: '773c92e1606817232ae7381f79df9a6bb074384397e0583b5b60e6ddd3c9d140',
+        after: 'b88d668b78066fb8c3119bbeaf42313d647fc58143a5f2a5e42aeb94a1cf9749',
+        releasedAt: Date.parse('2026-11-19T03:00:00Z'),
       },
     },
   },
@@ -589,12 +634,21 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   walden: {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-18.walden.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
       'modern-en': {
-        before: 'd2d20614cb168f7dac5413213f98d41a9d21bd90ac3126fa592e52b58571f8ec',
-        after: 'e6bfb94a075f25c959e1e97da77200aef84e40cec89dd9450f4a8f26c0a6ab01',
+        // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
+        before: 'e6bfb94a075f25c959e1e97da77200aef84e40cec89dd9450f4a8f26c0a6ab01',
+        after: '9ca0743ccc04a0e17e944a78a5269c6d34f0ef1ddbbc1fe3f3ab42e01f7ad0e6',
+        releasedAt: Date.parse('2026-11-19T03:00:00Z'),
+        previous: [{ before: 'd2d20614cb168f7dac5413213f98d41a9d21bd90ac3126fa592e52b58571f8ec', releasedAt: Date.parse('2026-10-01T09:00:00Z') }],
+      },
+      'modern-da': {
+        // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
+        before: 'a289d165e360133b36b93d897734bdcd46ff440779413d1d6c381ff804aa081a',
+        after: '9c500c2a1d9614ffb719f4e702b47466d8c936fe9871fbaefa34a0535c4e02d3',
+        releasedAt: Date.parse('2026-11-19T03:00:00Z'),
       },
     },
   },
@@ -662,12 +716,21 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'the-republic': {
-    revision: 'text-2026-10-21.1',
+    revision: 'text-2026-11-18.the-republic.1',
     releasedAt: Date.parse('2026-10-21T12:00:00Z'),
     editions: {
       'modern-en': {
-        before: '02082bbef9bf9026cdcdb11c0bc60e0e518a832d63f19dcbcab65ca794078f57',
-        after: '2bc78ba1f33b207c52ee98dd47954c82c07afb11b3b70d60f6a41af18b675277',
+        // English repairs paired with the recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
+        before: '2bc78ba1f33b207c52ee98dd47954c82c07afb11b3b70d60f6a41af18b675277',
+        after: '081dfa1a6bb5669e010888f5a1db5c1794412209796d6c693f5216cffe48264d',
+        releasedAt: Date.parse('2026-11-19T03:00:00Z'),
+        previous: [{ before: '02082bbef9bf9026cdcdb11c0bc60e0e518a832d63f19dcbcab65ca794078f57', releasedAt: Date.parse('2026-10-21T12:00:00Z') }],
+      },
+      'modern-da': {
+        // Recovered Danish, 18 Nov 2026 (danish-recovered-batch-03).
+        before: '9de2ff16ca374bdbe70339db2067375b7d8c68d6abed6e8edcab10fd50d68859',
+        after: '6d4b1b65391afec6a14b1e458064042e7eb2706b1ceae9a91cfd67854151aa51',
+        releasedAt: Date.parse('2026-11-19T03:00:00Z'),
       },
     },
   },

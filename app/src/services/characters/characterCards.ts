@@ -86,7 +86,9 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'oedipus-at-colonus': { editions: EN, revision: '2026-09-11.2' },
   'oedipus-rex': { editions: EN, revision: '2026-09-11.2' },
   'on-liberty': { editions: EN, revision: 'text-2026-10-01.1' },
-  oresteia: { editions: EN, revision: '2026-09-11.2' },
+  // text-2026-11-18.1 (danish-recovered-batch-03) — Oresteia, Aeneid, Republic, Walden, War and Peace:
+  // modern-en mentions re-anchored after the paired English repairs; card prose unchanged.
+  oresteia: { editions: EN, revision: 'text-2026-11-18.1' },
   othello: { editions: EN, revision: 'text-2026-11-18.1' },
   phaedo: { editions: EN, revision: '2026-09-11.2' },
   phaedrus: { editions: EN, revision: 'text-2026-10-21.1' },
@@ -109,20 +111,20 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'anna-karenina': { editions: EN, revision: '2026-09-12.1' },
   'brothers-karamazov': { editions: EN, revision: 'text-2026-10-21.4' },
   'don-quixote': { editions: EN, revision: '2026-09-12.1' },
-  'war-and-peace': { editions: EN, revision: 'text-2026-10-21.6' },
+  'war-and-peace': { editions: EN, revision: 'text-2026-11-18.1' },
   ulysses: { editions: EN, revision: '2026-09-12.1' },
   'niels-lyhne': { editions: EN, revision: '2026-10-01.1' },
-  walden: { editions: EN, revision: 'text-2026-10-01.1' },
+  walden: { editions: EN, revision: 'text-2026-11-18.1' },
   // 2026-09-12.1 — epics, plays, histories and ancient works
   iliad: { editions: EN, revision: 'text-2026-10-21.3' },
   odyssey: { editions: EN, revision: '2026-09-12.1' },
-  'the-aeneid': { editions: EN, revision: '2026-09-12.1' },
+  'the-aeneid': { editions: EN, revision: 'text-2026-11-18.1' },
   'divine-comedy': { editions: EN, revision: '2026-09-12.1' },
   'paradise-lost': { editions: EN, revision: '2026-09-12.1' },
   'faust-part-1': { editions: EN, revision: '2026-09-30.1' },
   'the-histories': { editions: EN, revision: '2026-09-12.1' },
   'peloponnesian-war': { editions: EN, revision: '2026-09-12.1' },
-  'the-republic': { editions: EN, revision: 'text-2026-10-21.1' },
+  'the-republic': { editions: EN, revision: 'text-2026-11-18.1' },
   // 2026-09-12.2 — re-anchored onto the re-based Meditations text (Long 1862,
   // 487 paragraphs). Figures and descriptions unchanged; hashes, offsets and
   // two spellings recomputed by scripts/reanchor-meditations-characters.py.
