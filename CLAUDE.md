@@ -29,6 +29,8 @@ Project CEO for Tinct. Group CEO is `../../CLAUDE.md` — that handles session p
 
 **On-request advisors:** `../../agents/design.md`, `../../agents/marketing.md`, `../../agents/deutsch.md` (+ `deutsch-condensed.md`). Load when Anders says "consult the design lead" or "what would marketing say?"
 
+**Marketing / SEO / growth memory:** in any marketing, SEO, ads or growth conversation, read `docs/cmo-memory.md` first and update it before the conversation ends.
+
 **Screenshots:** `../../Screenshots/` — Read tool handles images natively. Most recent files first.
 
 **Reference docs:** `STRATEGY.md` (positioning), `BACKLOG.md` (prioritized work), `Design refs/` (current visual specs). `DECISIONS.md` is the live decision log.
