@@ -13,7 +13,7 @@ const RAW = fs.mkdtempSync(path.join(require('os').tmpdir(), 'try-frames-')) + '
 const OUT = path.join(__dirname, '../public/lab/try/frames/')
 // The frames try.js plays (the near-duplicate 'typing' frames 03 and 09 are captured but not kept).
 // Listen is a run of short frames ('11'…'24'), so the marked word moves word by word (Anders, 19 Nov: it lagged).
-const KEEP = ['01', '02', '04', '08', '10']
+const KEEP = ['01', '02', '04', '05', '08', '10']
 const keep = id => KEEP.includes(id) || (Number(id) >= 11 && Number(id) <= 24)
 const ORIGIN = process.env.ORIGIN || 'https://tinct.app'
 const only = process.argv[2]
@@ -52,7 +52,7 @@ async function run(kind) {
   }
   // Phone: the Explain and Summary cards are shown as a peek, lowered so only their top shows over the page (Anders,
   // 19 Nov: "too big, just hint them"). The card's fixed sheet is moved down and the dimming behind it lifted.
-  const PEEK_SHOWN = Number(process.env.PEEK || 140)
+  const PEEK_SHOWN = Number(process.env.PEEK || (phone ? 330 : 140))
   const peek = async () => {
     if (!phone) return
     await page.frame({ url: /\/reader/ }).evaluate(px => {
@@ -115,6 +115,36 @@ async function run(kind) {
   console.log(kind, 'heading before switch', before)
   // Close the card.
   if (kind === 'phone') { await page.keyboard.press('Escape').catch(() => {}); await page.waitForTimeout(800) }
+  // Phone: show the switch being made (Anders, 19 Nov: "click Aa as a cheat"). The demo reader's Appearance sheet has
+  // no edition row, so one is drawn into it for this frame only: Original | Modern English, Modern chosen.
+  if (phone) {
+    for (let tries = 0; tries < 3; tries++) {
+      await f.getByTestId('lab-header-aa').click()
+      try { await f.getByText('Appearance', { exact: true }).first().waitFor({ timeout: 2500 }); break } catch (e) { console.log('aa retry') }
+    }
+    await page.waitForTimeout(700)
+    console.log('aa', await reader.evaluate(() => {
+      const title = [...document.querySelectorAll('h1, h2, h3, [role="heading"], div, span')].reverse().find(e => e.textContent.trim() === 'Appearance' && e.getBoundingClientRect().height > 0)
+      const head = title && (title.parentElement.querySelector('button') ? title.parentElement : title)
+      if (!head) return 'no sheet: ' + document.body.innerText.slice(-200)
+      const row = document.createElement('div')
+      const inset = Math.max(0, Math.round(title.getBoundingClientRect().left - head.parentElement.getBoundingClientRect().left))
+      row.style.cssText = `margin:4px ${inset}px 22px;font-family:system-ui,-apple-system,sans-serif`
+      row.innerHTML = '<div style="font-size:13px;color:#7a7266;margin:0 0 8px">Edition</div>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:999px;background:#e6e0d3">' +
+        '<span style="padding:10px 0;text-align:center;font-size:15px;color:#4a443b;border-radius:999px">Original</span>' +
+        '<span style="padding:10px 0;text-align:center;font-size:15px;font-weight:600;color:#f4efe4;background:#2b2722;border-radius:999px">Modern English</span></div>'
+      head.insertAdjacentElement('afterend', row)
+      return 'ok'
+    }))
+    await page.waitForTimeout(300)
+    await shot('aa', '05')
+    await page.keyboard.press('Escape').catch(() => {})
+    await f.getByRole('button', { name: /close/i }).first().click({ timeout: 2000 }).catch(() => {})
+    await page.waitForTimeout(800)
+    // No focus ring left on Aa once the sheet has closed.
+    await reader.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur())
+  }
   // 2. Modern (Anders, 19 Nov: the second move, before Listen).
   if (phone) await page.evaluate(() => document.querySelector('[data-try-frame]').contentWindow.postMessage({ source: 'tinct-try-page', cmd: 'edition', kind: 'modern' }, location.origin))
   else { await mark('modern', f.getByTestId('lab-try-editions').locator('button').last()); await f.getByTestId('lab-try-editions').locator('button').last().click() }

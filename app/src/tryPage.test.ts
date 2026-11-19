@@ -186,6 +186,12 @@ describe('the reader plays itself (Anders, 19 Nov 2026)', () => {
     expect(page).not.toMatch(/data-try-item|data-try-hint|data-try-limit|<iframe/)
   })
 
+  it('has a phone frame for every phone-only moment', () => {
+    const phoneOnly = [...script.matchAll(/\['(\d\d)', \d, \d+, 'phone'\]/g)].map(match => match[1])
+    expect(phoneOnly.length).toBeGreaterThan(0)
+    for (const file of phoneOnly) expect(statSync(`public/lab/try/frames/phone-${file}.webp`).size, `phone-${file}`).toBeGreaterThan(1000)
+  })
+
   it('has a desktop and a phone frame for every moment it plays', () => {
     for (const { file } of frames) for (const kind of ['desktop', 'phone']) {
       expect(statSync(`public/lab/try/frames/${kind}-${file}.webp`).size, `${kind}-${file}`).toBeGreaterThan(1000)

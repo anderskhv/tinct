@@ -18,15 +18,19 @@
   ]
   // [file, step, milliseconds on screen]. Listen is fourteen frames 280 ms apart, as captured, so the marked word moves
   // word by word (Anders, 19 Nov: it lagged); they cut, not fade, into each other.
+  // A fourth field marks a phone-only frame: the phone shows Aa opened and Modern English chosen before the wave
+  // (Anders, 19 Nov); the desktop's switch is in its own top bar, where the pointer clicks it.
+  var PHONE = window.matchMedia('(max-width: 899px)').matches
   var FRAMES = [
-    ['01', 0, 1300], ['02', 0, 1500], ['04', 0, 3200],
+    ['01', 0, 1300], ['02', 0, 1500], ['04', 0, 3600],
+    ['05', 1, 2200, 'phone'],
     ['08', 1, 3200],
     ['11', 2, 280], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
     ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 900],
-    ['10', 3, 3600],
-  ]
+    ['10', 3, 4200],
+  ].filter(function (frame) { return !frame[3] || PHONE })
   // Bump when the frames are re-captured, so browsers fetch the new ones.
-  var FRAMES_V = '20261119d'
+  var FRAMES_V = '20261119e'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -71,7 +75,7 @@
   // The camera, like the film: it shows the whole phone, then zooms in on what matters (the passage being chosen, the
   // card, the word being read) and back out for the wave. The phone's left edge stays put, so it never runs under
   // the caption; the zoom spills off the right of the screen. Focus: how far down the frame to look, and how close.
-  var FOCUS = { '01': null, '02': [0.2, 1.4], '04': [0.86, 1.35], '08': null, '10': [0.86, 1.35] }
+  var FOCUS = { '01': null, '02': [0.2, 1.4], '04': [0.8, 1.3], '05': null, '08': null, '10': [0.8, 1.3] }
   var LISTEN_FOCUS = [0.2, 1.4]
   function frameCamera(file) {
     var focus = file in FOCUS ? FOCUS[file] : LISTEN_FOCUS
@@ -147,7 +151,7 @@
   var visible = true
 
   // The frame that switches to modern English arrives as a wave running down the page (the launch film's switch).
-  var WAVE = FRAMES.map(function (frame, i) { return i > 0 && frame[1] === 1 && FRAMES[i - 1][1] !== 1 })
+  var WAVE = FRAMES.map(function (frame) { return frame[0] === '08' })
   var shown = -1
   function paint() {
     var wave = !reduce && shown >= 0 && shown !== index && WAVE[index]
