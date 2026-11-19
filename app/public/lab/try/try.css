@@ -178,9 +178,9 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-stage { display: block; padding: 0 16px; }
   .try-step {
     display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: center;
-    padding: 0 0 0 2px; margin-bottom: 12px;
-    /* No box (Anders, 19 Nov): the step is a plain row over the scene. */
-    background: none; border: 0;
+    padding: 7px 7px 7px 12px; margin-bottom: 10px;
+    /* A subtle box (Anders, 19 Nov): it holds the step apart from the headline without competing with it. */
+    background: rgba(244, 239, 228, .035); border: 1px solid rgba(244, 239, 228, .1); border-radius: 12px;
   }
   .try-count { grid-column: 1; margin: 0 0 4px; }
   .try-count [data-try-count] { display: none; }
