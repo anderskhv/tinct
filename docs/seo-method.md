@@ -48,3 +48,35 @@ Never invent volumes, positions or conversion rates. Write "unknown".
 - **Then:** what else was checked, then evidence and dates.
 - **Brief for the coder** as a paste-ready prompt. Site changes are coding tasks that follow `AGENTS.md` release rules.
 - **Log durable findings** in `MARKETING.md` (lessons) or a dated `docs/` brief.
+
+## Strategy (agreed with Anders, 19 Nov 2026)
+
+1. **Goal:** search brings people to the text itself. Every public page either *is* the text or answers a factual question about the book.
+2. **Page types:**
+   - Chapter and scene pages are the core: the full text, Modern English by default, the original one tap away.
+   - The book page opens straight into Chapter 1 (option B), with structure facts and the chapter list.
+   - Hubs (`/modern-english`, `/read/shelf/*`) are navigation only.
+3. **Searcher experience:**
+   - Text first. No onboarding, sign-up or edition prompt before it.
+   - The `Original | Modern | Both` switch: desktop top bar; phone under the heading. Shakespeare is side by side on desktop.
+   - "Chapter N of total". At the end: "Continue reading", and "Your place is saved" (only if true).
+4. **Targets:** reading searches, chapter and scene searches, famous passages (land on their scene, no extra pages), structure searches, category hubs, brand.
+   **Not targeted:** summary, analysis, themes, quiz, PDF, download, "best translation".
+5. **Indexing in waves via `seoIndexAllowlist`:**
+   - Wave 1: 15 novels plus the Shakespeare scenes.
+   - Wave 2: odyssey, oresteia, the-histories, master-and-margarita, beowulf.
+   - After that, 20–30 books at a time, each wave only after the previous one does well in Search Console.
+6. **Content:**
+   - No AI prose. Facts counted from the data are fine.
+   - The approved edition note only.
+   - Titles by intent: Chapter 1 "Read {Book} online free…", other chapters "{Book}, Chapter N of {total}: full text…", book page "{Book}: all {total} chapters…".
+7. **Technical:**
+   - Static HTML with both texts present.
+   - Canonical, a sitemap of indexable pages only, prev/next/contents/related links.
+   - IndexNow on every deploy. Assets not blocked.
+8. **Bing:** IndexNow, the free keyword tool (volumes for choosing waves), Site Scan, crawl control.
+9. **Rhythm:**
+   - Monthly Search Console and Bing review, plus customer-success read and return rates for search visitors.
+   - A decision per wave.
+   - Ads are search research only. Next test in January (see `docs/cmo-memory.md`).
+10. **Not doing:** link buying, mass-generated pages, head-on "read hamlet" fights, PDF or summary pages, "AI" in titles.
