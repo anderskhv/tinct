@@ -65,6 +65,16 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'jekyll-and-hyde/modern-da',
   'aristotle-politics/modern-da',
   'hume-enquiry/modern-da',
+  // Recovered Danish batch 01, 18 Nov 2026 (books/wip/danish-recovered-batch-01).
+  'antigone/modern-da',
+  'candide/modern-da',
+  'frankenstein/modern-da',
+  'frederick-douglass/modern-da',
+  'genealogy-of-morals/modern-da',
+  'heart-of-darkness/modern-da',
+  'notes-from-underground/modern-da',
+  'oedipus-at-colonus/modern-da',
+  'oedipus-rex/modern-da',
   // Published 2026-11-18 without a native-speaker read: Anders's explicit waiver (17 Nov 2026).
   'gilgamesh/modern-da',
 ])

@@ -889,10 +889,12 @@ async function antigoneAudioAvailability(engine,name) {
   let state
   const result={engine:name,layout:'antigone-audio-availability',live}
   try {
-    state=await boot(browser,false,'antigone','modern-en',1,{narrationEnabled:false})
+    // Chapter 8: the one modern-en chapter whose recording still matches the text after the recovered
+    // Danish batch 01 corrected the English (Anders approved moving this from the Prologue, 19 Nov 2026).
+    state=await boot(browser,false,'antigone','modern-en',8,{narrationEnabled:false})
     await state.page.getByRole('button',{name:'Play',exact:true}).click()
     await state.page.getByTestId('lab-desktop-audio-dock').waitFor()
-    assert.equal(await state.page.locator('.lab-audio-unavailable').count(),0,'repaired Prologue is playable')
+    assert.equal(await state.page.locator('.lab-audio-unavailable').count(),0,'an unheld chapter is playable')
     await state.context.close()
     state=await boot(browser,false,'antigone','modern-en',10,{narrationEnabled:false})
     const place=await state.page.getByTestId('lab-root').getAttribute('data-place')

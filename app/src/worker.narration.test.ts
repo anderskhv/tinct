@@ -856,7 +856,7 @@ describe('Grok narration rollout', () => {
     })
     it('narrates only offered Danish editions, and only with Grok', async () => {
       const { h } = danishHarness()
-      expect((await ensure(h, { ...lighthouse, bookId: 'frankenstein', editionKey: 'modern-da' })).status).not.toBe(200)
+      expect((await ensure(h, { ...lighthouse, bookId: 'pride-and-prejudice', editionKey: 'modern-da' })).status).not.toBe(200)
       const fish = danishHarness('fish').h
       expect((await ensure(fish, { ...lighthouse, editionKey: 'modern-da', voice: 'a' })).status).toBe(403)
       expect(h.fish.calls).toHaveLength(0)
