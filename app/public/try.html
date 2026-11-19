@@ -9,9 +9,9 @@
 <meta name="description" content="Read any book with an explanation in the margin, modern English, narration and a summary for every chapter.">
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
 <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel10">
-<link rel="stylesheet" href="/lab/try/try.css?v=20261118b">
+<link rel="stylesheet" href="/lab/try/try.css?v=20261119phone">
 <script type="module" src="/lab/internal-traffic.js"></script>
-<script src="/lab/try/try.js?v=20261118b" defer></script>
+<script src="/lab/try/try.js?v=20261119phone" defer></script>
 </head>
 <body class="try">
 <!-- The Try page (docs/try-page/BRIEF.md): unlisted at /try, noindex, linked from nowhere, later /about. -->
@@ -34,28 +34,34 @@
   <h1 class="try-headline">No text is beyond you.</h1>
 
   <div class="try-stage">
-    <aside class="try-panel" aria-label="Try it in five steps">
+    <aside class="try-panel" aria-label="Try it yourself">
       <label class="try-book try-only-wide">
         <span class="sr-only">Book</span>
         <select data-try-book aria-label="Book"><option value="meditations" selected>Meditations</option></select>
       </label>
-      <div class="try-step" data-try-step aria-live="polite">
-        <p class="try-count"><span data-try-count>1 of 5</span><span class="try-dots" data-try-dots aria-hidden="true"></span></p>
-        <h2 class="try-step-title" data-try-title>Explain anything</h2>
-        <p class="try-step-line" data-try-line>Select a passage. The explanation lands beside it, in the margin, and stays there as a note.</p>
-        <div class="try-step-actions">
-          <button type="button" class="try-pill try-pill--outline" data-try-back hidden>Back</button>
-          <button type="button" class="try-pill try-pill--cream" data-try-next>Next <span aria-hidden="true">→</span></button>
-        </div>
-        <p class="try-step-hint"><span data-try-hint>Next: Keep asking</span><br>Or just read and play.</p>
-      </div>
-      <!-- Phone: one card, the step and its arrow. -->
-      <div class="try-step-card" data-try-card>
-        <span class="try-dots" data-try-dots aria-hidden="true"></span>
-        <p class="try-card-title" data-try-card-title>1. Explain anything</p>
-        <p class="try-card-line" data-try-card-line>Select a passage. The explanation lands beside it, in the margin, and stays there as a note.</p>
-        <button type="button" class="try-card-next" data-try-next aria-label="Next step"><span aria-hidden="true">→</span></button>
-      </div>
+      <!-- The reader is the guide: a checklist that ticks as the visitor does each thing, in any order, and one hint at a time in the reader. -->
+      <section class="try-todo" aria-labelledby="try-todo-title">
+        <h2 class="try-todo-title" id="try-todo-title">Try it yourself</h2>
+        <p class="try-todo-sub">It's the real reader. Do things in any order.</p>
+        <ol class="try-checks" data-try-checks>
+          <li data-try-item="explain"><span class="try-check" aria-hidden="true"></span><span class="try-check-text"><span class="sr-only"></span><span class="try-check-title">Explain a passage</span><span class="try-check-line">Select a sentence</span></span></li>
+          <li data-try-item="ask"><span class="try-check" aria-hidden="true"></span><span class="try-check-text"><span class="sr-only"></span><span class="try-check-title">Ask a follow-up</span><span class="try-check-line">Type a question under the answer</span></span></li>
+          <li data-try-item="modern"><span class="try-check" aria-hidden="true"></span><span class="try-check-text"><span class="sr-only"></span><span class="try-check-title">Read it in today's words</span><span class="try-check-line">Switch to Modern</span></span></li>
+          <li data-try-item="listen"><span class="try-check" aria-hidden="true"></span><span class="try-check-text"><span class="sr-only"></span><span class="try-check-title">Hear it as you read</span><span class="try-check-line">Press play</span></span></li>
+          <li data-try-item="summary"><span class="try-check" aria-hidden="true"></span><span class="try-check-text"><span class="sr-only"></span><span class="try-check-title">Get the gist in a minute</span><span class="try-check-line">Open the chapter's Summary</span></span></li>
+        </ol>
+      </section>
+      <!-- Phone: the same checklist as five chips. -->
+      <section class="try-chips-card" aria-label="Try it yourself">
+        <p class="try-chips-title">Try it yourself</p>
+        <ul class="try-chips" data-try-chips>
+          <li data-try-item="explain"><span class="sr-only"></span>Explain</li>
+          <li data-try-item="ask"><span class="sr-only"></span>Ask</li>
+          <li data-try-item="modern"><span class="sr-only"></span>Modern</li>
+          <li data-try-item="listen"><span class="sr-only"></span>Listen</li>
+          <li data-try-item="summary"><span class="sr-only"></span>Summary</li>
+        </ul>
+      </section>
     </aside>
 
     <div class="try-phone-row">
@@ -65,7 +71,7 @@
       </label>
       <div class="try-editions" role="group" aria-label="Edition">
         <button type="button" data-try-edition="original" aria-pressed="true">Original</button>
-        <button type="button" data-try-edition="modern" aria-pressed="false">Modern English</button>
+        <button type="button" data-try-edition="modern" aria-pressed="false">Modern<span class="try-edition-more"> English</span></button>
       </div>
     </div>
 
@@ -201,5 +207,7 @@
     <a href="/copyright">Copyright</a>
   </nav>
 </footer>
+<!-- One hint at a time, placed beside its control in the reader (try.js). -->
+<div class="try-hint" data-try-hint role="status" hidden><p class="try-hint-text" data-try-hint-text></p><button type="button" class="try-hint-close" data-try-hint-close aria-label="Dismiss hint">×</button></div>
 </body>
 </html>
