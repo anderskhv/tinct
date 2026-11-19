@@ -19,15 +19,17 @@
   // [file, step, milliseconds on screen]. Listen is fourteen frames 280 ms apart, as captured, so the marked word moves
   // word by word (Anders, 19 Nov: it lagged); they cut, not fade, into each other.
   var FRAMES = [
-    // 25-28: the selection growing under the finger, mid-drag (Anders, 19 Nov: highlight it, don't just point).
-    ['01', 0, 1300], ['25', 0, 380], ['26', 0, 380], ['27', 0, 380], ['28', 0, 380], ['02', 0, 1500], ['04', 0, 3600],
+    // 29-45: the selection growing under the finger, a word a frame, quick and even (Anders, 19 Nov).
+    ['01', 0, 1300],
+    ['29', 0, 75], ['30', 0, 75], ['31', 0, 75], ['32', 0, 75], ['33', 0, 75], ['34', 0, 75], ['35', 0, 75], ['36', 0, 75], ['37', 0, 75], ['38', 0, 75], ['39', 0, 75], ['40', 0, 75], ['41', 0, 75], ['42', 0, 75], ['43', 0, 75], ['44', 0, 75], ['45', 0, 75],
+    ['02', 0, 1500], ['04', 0, 3600],
     ['08', 1, 3200],
     ['11', 2, 280], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
     ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 900],
     ['10', 3, 4200],
   ]
   // Bump when the frames are re-captured, so browsers fetch the new ones.
-  var FRAMES_V = '20261119h'
+  var FRAMES_V = '20261119j'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -39,8 +41,11 @@
   // The first frame is in the page; the rest load after it, one picture each (phone and desktop crops).
   var first = $('picture', demo)
   var pictures = [first]
+  // Drag frames hold only the strip the selection grows in, laid over the first frame (kept small to load).
+  var isCrop = function (file) { var n = Number(file); return n >= 29 && n <= 45 }
   FRAMES.slice(1).forEach(function (frame) {
     var picture = document.createElement('picture')
+    if (isCrop(frame[0])) picture.className = 'is-crop'
     picture.innerHTML = '<source media="(max-width: 899px)" srcset="/lab/try/frames/phone-' + frame[0] + '.webp?v=' + FRAMES_V + '">' +
       '<img src="/lab/try/frames/desktop-' + frame[0] + '.webp?v=' + FRAMES_V + '" alt="" width="2112" height="1222" loading="lazy" decoding="async">'
     demo.insertBefore(picture, $('.try-demo-open', demo))
@@ -51,10 +56,12 @@
 
   // ---- The visitor's pointer (Anders, 19 Nov: show the click before each change). Where it goes was recorded when the
   // frames were captured (scripts/capture-try-frames.cjs writes frames/*-pointer.json), as fractions of the frame. ----
-  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "drag25": [0.32, 0.3289], "drag26": [0.4481, 0.3289], "drag27": [0.5988, 0.3479], "drag28": [0.3204, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.131, 0.1657], "selectTo": [0.6907, 0.2793], "drag25": [0.8571, 0.1657], "drag26": [0.4125, 0.2036], "drag27": [0.9314, 0.2225], "drag28": [0.8333, 0.2414], "explain": [0.3141, 0.3458], "modern": [0.88, 0.0361], "play": [0.7621, 0.0361], "summary": [0.6317, 0.1074]}}
+  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "drag29": [0.1794, 0.3289], "drag30": [0.2472, 0.3289], "drag31": [0.2695, 0.3289], "drag32": [0.32, 0.3289], "drag33": [0.3396, 0.3289], "drag34": [0.3976, 0.3289], "drag35": [0.4086, 0.3289], "drag36": [0.4481, 0.3289], "drag37": [0.4885, 0.3289], "drag38": [0.5266, 0.3289], "drag39": [0.555, 0.3289], "drag40": [0.5988, 0.3479], "drag41": [0.1618, 0.367], "drag42": [0.2481, 0.367], "drag43": [0.3204, 0.367], "drag44": [0.3932, 0.367], "drag45": [0.4589, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.131, 0.1657], "selectTo": [0.6907, 0.2793], "drag29": [0.3603, 0.1657], "drag30": [0.5958, 0.1657], "drag31": [0.6793, 0.1657], "drag32": [0.8571, 0.1657], "drag33": [0.9314, 0.1657], "drag34": [0.2355, 0.2036], "drag35": [0.2765, 0.2036], "drag36": [0.4125, 0.2036], "drag37": [0.5519, 0.2036], "drag38": [0.6831, 0.2036], "drag39": [0.7821, 0.2036], "drag40": [0.9314, 0.2225], "drag41": [0.2903, 0.2414], "drag42": [0.5852, 0.2414], "drag43": [0.8333, 0.2414], "drag44": [0.9314, 0.2604], "drag45": [0.4512, 0.2793], "explain": [0.3141, 0.3458], "modern": [0.88, 0.0361], "play": [0.7621, 0.0361], "summary": [0.6317, 0.1074]}}
   // What happens on a frame before the next one: a drag that selects, or a press on a button.
   var ACTIONS = {
-    '01': { drag: ['selectFrom', 'drag25'] }, '25': { move: 'drag26' }, '26': { move: 'drag27' }, '27': { move: 'drag28' }, '28': { move: 'selectTo', lift: true },
+    '01': { drag: ['selectFrom', 'drag29'] },
+    '29': { move: 'drag30' }, '30': { move: 'drag31' }, '31': { move: 'drag32' }, '32': { move: 'drag33' }, '33': { move: 'drag34' }, '34': { move: 'drag35' }, '35': { move: 'drag36' }, '36': { move: 'drag37' }, '37': { move: 'drag38' }, '38': { move: 'drag39' }, '39': { move: 'drag40' }, '40': { move: 'drag41' }, '41': { move: 'drag42' }, '42': { move: 'drag43' }, '43': { move: 'drag44' }, '44': { move: 'drag45' },
+    '45': { move: 'selectTo', lift: true },
     '02': { press: 'explain' }, '04': { press: 'modern' }, '08': { press: 'play' }, '24': { press: 'summary' } }
   var phoneQuery = window.matchMedia('(max-width: 899px)')
   var layer = document.createElement('div')
@@ -90,8 +97,9 @@
   function later(fn, ms) { actionTimers.push(setTimeout(fn, ms)) }
   // keep: the next frame carries the same drag on, so the finger stays down where it is.
   function clearActions(keep) { actionTimers.forEach(clearTimeout); actionTimers = []; if (!keep) pointer.className = 'try-pointer' }
-  function place(at, glide) {
-    pointer.style.transition = glide ? 'left ' + glide + 'ms cubic-bezier(.4, 0, .2, 1), top ' + glide + 'ms cubic-bezier(.4, 0, .2, 1), opacity .25s' : 'opacity .25s'
+  function place(at, glide, ease) {
+    ease = ease || 'cubic-bezier(.4, 0, .2, 1)'
+    pointer.style.transition = glide ? 'left ' + glide + 'ms ' + ease + ', top ' + glide + 'ms ' + ease + ', opacity .25s' : 'opacity .25s'
     pointer.style.left = (at[0] * 100) + '%'
     pointer.style.top = (at[1] * 100) + '%'
   }
@@ -107,7 +115,7 @@
       var total = Math.max(duration, 1800)
       later(function () { place(from, 0); pointer.className = 'try-pointer is-on' }, 400)
       later(function () { pointer.className = 'try-pointer is-on is-down' }, 800)
-      later(function () { place(to, total - 900) }, 900)
+      later(function () { place(to, total - 900, 'ease-in') }, 900)
       return total
     }
     if (action.move) {
@@ -115,7 +123,8 @@
       var target = marks[action.move]
       if (!target) return duration
       pointer.className = 'try-pointer is-on is-down'
-      place(target, duration)
+      // Linear, so the finger's word-to-word glides join into one even movement.
+      place(target, duration, 'linear')
       if (action.lift) later(function () { pointer.className = 'try-pointer is-on' }, duration + 150)
       return duration
     }
@@ -157,12 +166,13 @@
     var rise = !reduce && shown >= 0 && shown !== index && RISE[index]
     var under = shown >= 0 && shown !== index ? shown : -1
     // Cut, not fade: word by word in Listen, and the selection growing under the finger.
-    var drag = function (i) { return /^2[5-8]$/.test(FRAMES[i][0]) }
+    var drag = function (i) { var n = Number(FRAMES[i][0]); return n >= 29 && n <= 45 }
     demo.classList.toggle('is-cut', shown >= 0 && ((FRAMES[shown][1] === 2 && FRAMES[index][1] === 2) || drag(shown) || drag(index)))
     clearTimeout(underTimer)
     pictures.forEach(function (picture, i) {
       picture.classList.remove('is-wave', 'is-rise', 'is-under')
       picture.classList.toggle('is-on', i === index)
+      picture.classList.toggle('is-base', i === 0 && isCrop(FRAMES[index][0]))
     })
     if (under >= 0) {
       pictures[under].classList.add('is-under')

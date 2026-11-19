@@ -13,10 +13,13 @@ const RAW = fs.mkdtempSync(path.join(require('os').tmpdir(), 'try-frames-')) + '
 const OUT = path.join(__dirname, '../public/lab/try/frames/')
 // The frames try.js plays (the near-duplicate 'typing' frames 03 and 09 are captured but not kept).
 // Listen is a run of short frames ('11'…'24'), so the marked word moves word by word (Anders, 19 Nov: it lagged).
-const KEEP = ['01', '02', '04', '08', '10', '25', '26', '27', '28']
-const keep = id => KEEP.includes(id) || (Number(id) >= 11 && Number(id) <= 24)
-// The selection growing under the finger (Anders, 19 Nov: "it should highlight it"): frames 25-28, mid-drag.
-const DRAG_STEPS = [[5, '25'], [9, '26'], [13, '27'], [16, '28']]
+const KEEP = ['01', '02', '04', '08', '10']
+// The selection growing under the finger, one frame per word (Anders, 19 Nov: highlight it, smoothly and quickly):
+// frames 29-45 hold words 1-2 … 1-18; the full selection with its menu is frame 02.
+const DRAG_STEPS = Array.from({ length: 17 }, (_, i) => [i + 2, String(i + 29)])
+// The top share of the frame a drag frame keeps: the selection ends at about a third of the way down.
+const DRAG_CROP = { phone: 0.34, desktop: 0.42 }
+const keep = id => KEEP.includes(id) || (Number(id) >= 11 && Number(id) <= 24) || (Number(id) >= 29 && Number(id) <= 45)
 const ORIGIN = process.env.ORIGIN || 'https://tinct.app'
 const only = process.argv[2]
 async function run(kind) {
@@ -103,7 +106,7 @@ async function run(kind) {
         const rs = el.getClientRects(), rc = rs[rs.length - 1]
         el.dispatchEvent(new PointerEvent('pointermove', { pointerId: 9, pointerType: 'touch', isPrimary: true, bubbles: true, button: 0, clientX: rc.right - 2, clientY: rc.top + rc.height / 2 }))
       }, k)
-      await page.waitForTimeout(260)
+      await page.waitForTimeout(160)
       await mark('drag' + id, word(k), 'end')
       await shot('drag', id)
     }
@@ -118,17 +121,21 @@ async function run(kind) {
     await mark('explain', f.getByTestId('lab-pbar-explain'))
     await f.getByTestId('lab-pbar-explain').click()
   } else {
+    // The selection menu waits for the drag to end, as in a real drag (the reader shows it on any pause).
+    const reader0 = page.frame({ url: /\/reader/ })
+    await reader0.evaluate(() => { const st = document.createElement('style'); st.id = 'try-hold-menu'; st.textContent = '.selection-popup{visibility:hidden!important}'; document.head.appendChild(st) })
     await page.mouse.move(a.x + 2, a.y + a.height / 2)
     await page.mouse.down()
     for (const [k, id] of DRAG_STEPS) {
       const c = await word(k).boundingBox()
-      await page.mouse.move(c.x + c.width - 2, c.y + c.height / 2, { steps: 4 })
-      await page.waitForTimeout(200)
+      await page.mouse.move(c.x + c.width - 2, c.y + c.height / 2, { steps: 2 })
+      await page.waitForTimeout(120)
       await mark('drag' + id, word(k), 'end')
       await shot('drag', id)
     }
     await page.mouse.move(b.x + b.width - 2, b.y + b.height / 2, { steps: 4 })
     await page.mouse.up()
+    await reader0.evaluate(() => document.getElementById('try-hold-menu')?.remove())
     await page.waitForTimeout(700)
     await shot('selected')
     await mark('explain', f.locator('.selection-popup').getByRole('button', { name: /^Explain/ }).first())
@@ -201,7 +208,10 @@ async function run(kind) {
     if (!keep(number)) continue
     const meta = await sharp(RAW + file).metadata()
     const width = kind === 'phone' ? Math.round(meta.width * 2 / 3) : meta.width
-    await sharp(RAW + file).resize({ width }).webp({ quality: 82 }).toFile(`${OUT}${kind}-${number}.webp`)
+    // Drag frames keep only the strip the selection grows in; the page shows them over frame 01 (try.js).
+    const crop = Number(number) >= 29 && Number(number) <= 45 ? DRAG_CROP[kind] : 1
+    const source = crop < 1 ? sharp(RAW + file).extract({ left: 0, top: 0, width: meta.width, height: Math.round(meta.height * crop) }) : sharp(RAW + file)
+    await source.resize({ width }).webp({ quality: 82 }).toFile(`${OUT}${kind}-${number}.webp`)
   }
   console.log(kind, 'frames written to', OUT)
 }

@@ -398,3 +398,8 @@ html[data-eink="true"] .try-backdrop { display: none; }
 }
 @media (max-width: 374px) { .try-caption { font-size: 20px; } }
 @media (max-width: 899px) and (prefers-reduced-motion: reduce) { .try-caption span { transition: none; } }
+
+/* Drag frames: only the top strip, over the first frame, which stays in place beneath them. */
+.try-demo picture.is-base img { opacity: 1; transition: none; }
+.try-demo picture.is-crop { bottom: auto; height: auto; }
+.try-demo picture.is-crop img { bottom: auto; height: auto; object-fit: initial; }
