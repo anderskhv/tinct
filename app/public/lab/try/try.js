@@ -59,6 +59,7 @@
     text('[data-try-num]', (step + 1) + '. ')
     text('[data-try-title]', STEPS[step].title)
     text('[data-try-upnext]', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
+    if (next) next.setAttribute('aria-label', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
   }
   function schedule() {
     clearTimeout(timer)
@@ -78,6 +79,8 @@
   })
   var next = $('[data-try-next]')
   if (next) next.addEventListener('click', function () { show((FRAMES[index][1] + 1) % STEPS.length) })
+  var prev = $('[data-try-prev]')
+  if (prev) prev.addEventListener('click', function () { show((FRAMES[index][1] + STEPS.length - 1) % STEPS.length) })
   demo.addEventListener('mouseenter', function () { held = true; clearTimeout(timer) })
   demo.addEventListener('mouseleave', function () { held = false; schedule() })
   demo.addEventListener('focus', function () { held = true; clearTimeout(timer) })

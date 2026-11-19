@@ -22,9 +22,9 @@
 <link rel="icon" href="/favicon.ico">
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
 <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel10">
-<link rel="stylesheet" href="/lab/try/try.css?v=20261119create">
+<link rel="stylesheet" href="/lab/try/try.css?v=20261119steps">
 <script type="module" src="/lab/internal-traffic.js"></script>
-<script src="/lab/try/try.js?v=20261119act" defer></script>
+<script src="/lab/try/try.js?v=20261119steps" defer></script>
 </head>
 <body class="try">
 <div class="try-backdrop" aria-hidden="true"></div>
@@ -44,18 +44,24 @@
   </div>
 </header>
 <div class="try-hero" id="try">
-  <h1 class="try-headline">Read and listen anywhere, with help always at hand.</h1>
-
   <div class="try-stage">
-    <!-- What the reader beside it is showing. It plays on its own (try.js); Next moves on, the dots jump. -->
+    <!-- Desktop: the headline, Start reading and the step sit beside the reader, the headline level with its top
+         edge (Anders, 19 Nov). Phone: the headline, the step, then the reader. -->
+    <div class="try-intro">
+    <h1 class="try-headline">Read and listen anywhere, with help always at hand.</h1>
+    <a class="try-pill try-pill--cream try-pill--big try-action" href="/library" data-try-start>Start reading</a>
+
+    <!-- What the reader beside it is showing. It plays on its own (try.js); the arrows step, the dots jump. -->
     <section class="try-step" aria-label="What you are watching" aria-live="polite">
+      <p class="try-watching">What you're watching</p>
+      <button type="button" class="try-prev" data-try-prev aria-label="Previous"><span aria-hidden="true">←</span></button>
       <p class="try-count"><span data-try-count>1 of 4</span><span class="try-dots" role="group" aria-label="Moments">
         <button type="button" data-try-step="0" aria-label="Explain anything" aria-current="step"></button><button type="button" data-try-step="1" aria-label="Hear it as you read"></button><button type="button" data-try-step="2" aria-label="Read it in today's words"></button><button type="button" data-try-step="3" aria-label="Get the gist in a minute"></button>
       </span></p>
       <h2 class="try-step-title"><span class="try-step-num" data-try-num>1. </span><span data-try-title>Explain anything</span></h2>
       <button type="button" class="try-pill try-pill--outline try-next" data-try-next aria-label="Next"><span class="try-next-word" data-try-upnext>Next: Hear it as you read</span> <span aria-hidden="true">→</span></button>
-      <a class="try-pill try-pill--cream try-pill--big try-action" href="/library" data-try-start>Start reading</a>
     </section>
+    </div>
 
     <div class="try-show">
       <!-- Frames of the real reader (scripts/capture-try-frames.cjs), Meditations Book 2. The first is in the page; try.js adds the rest. -->

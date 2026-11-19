@@ -73,22 +73,35 @@ html[data-eink="true"] .try-backdrop { display: none; }
 /* ---- Hero: the step beside the playing reader ---- */
 .try-hero { padding: 104px 0 64px; }
 .try-headline {
-  max-width: 1400px; margin: 0 auto 30px; padding: 0 32px 0 56px;
-  font-family: var(--tui-font-display); font-weight: 700; font-size: clamp(36px, 3.6vw, 56px); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance;
+  margin: 0 0 22px;
+  font-family: var(--tui-font-display); font-weight: 700; font-size: clamp(36px, 3.2vw, 48px); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance;
 }
-.try-stage { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 40px; align-items: start; padding: 0 32px 0 56px; }
-.try-step { padding-top: 26px; }
-.try-count { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; font-size: 13.5px; font-weight: 500; font-variant-numeric: tabular-nums; }
+/* Desktop (Anders, 19 Nov): the headline beside the reader, its top level with the reader's; Start reading is the
+   one button; the step under it is quiet: a label, its name, and small arrows around the dots. */
+.try-stage { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 48px; align-items: start; padding: 0 32px 0 56px; }
+.try-intro { display: flex; flex-direction: column; align-items: flex-start; }
+.try-headline { margin-top: -.12em; }
+.try-step { display: grid; grid-template-columns: auto auto auto; justify-content: start; align-items: center; column-gap: 10px; margin-top: 44px; }
+.try-watching { grid-column: 1 / -1; margin: 0 0 10px; font-size: 13px; font-weight: 500; color: var(--try-muted-on-dark); }
+.try-step-title { grid-column: 1 / -1; }
+.try-prev { grid-column: 1; grid-row: 3; }
+.try-count { grid-column: 2; grid-row: 3; display: flex; align-items: center; margin: 0; font-size: 13.5px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.try-count [data-try-count] { display: none; }
+.try-next { grid-column: 3; grid-row: 3; }
+.try-prev, .try-next {
+  width: 30px; height: 30px; min-height: 30px; padding: 0; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid rgba(244, 239, 228, .25); background: transparent; color: rgba(244, 239, 228, .8); font: 500 14px/1 var(--tui-font-ui); cursor: pointer;
+}
+.try-prev:hover, .try-next:hover { border-color: rgba(244, 239, 228, .55); color: var(--try-cream-ink); }
+.try-next-word { display: none; }
 .try-dots { display: inline-flex; gap: 2px; }
 .try-dots button { width: 18px; height: 24px; padding: 0; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; }
 .try-dots button::before { content: ''; width: 7px; height: 7px; border-radius: 4px; background: var(--try-faint-on-dark); transition: width .3s, background .3s; }
 .try-dots button[aria-current="step"] { width: 30px; }
 .try-dots button[aria-current="step"]::before { width: 22px; background: var(--try-cream-ink); }
-.try-step-title { margin: 0 0 12px; font-family: var(--tui-font-display); font-weight: 700; font-size: 32px; line-height: 1.12; text-wrap: balance; }
+.try-step-title { margin: 0 0 12px; font-family: var(--tui-font-ui); font-weight: 500; font-size: 17px; line-height: 1.3; }
 .try-step-num { display: none; }
-.try-step-title { margin-bottom: 22px; }
-.try-next { min-height: 38px; padding: 0 16px; font-size: 14px; }
-.try-action { display: flex; width: 100%; max-width: 260px; margin-top: 14px; }
+.try-action { display: flex; width: 100%; max-width: 240px; }
 .try-phone-more, .try-only-phone { display: none; }
 @keyframes try-nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
 
@@ -151,9 +164,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
 @media (max-width: 1180px) {
   .try-nav { padding-left: 24px; padding-right: 24px; }
   .try-sections { gap: 20px; }
-  .try-headline { padding: 0 24px 0 32px; }
-  .try-stage { grid-template-columns: 230px minmax(0, 1fr); gap: 28px; padding: 0 24px 0 32px; }
-  .try-step-title { font-size: 28px; }
+  .try-stage { grid-template-columns: 280px minmax(0, 1fr); gap: 32px; padding: 0 24px 0 32px; }
   .try-section, .try-footer { padding-left: 40px; padding-right: 40px; }
 }
 
@@ -174,25 +185,28 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-logo { font-size: 22px; }
   .try-account .try-pill { min-height: 34px; padding: 0 14px; font-size: 13.5px; }
   .try-hero { padding: 62px 0 30px; }
-  .try-headline { margin: 0 0 10px; padding: 0 16px; font-size: 24px; }
+  .try-headline { margin: 0 0 10px; font-size: 24px; }
   .try-stage { display: block; padding: 0 16px; }
+  .try-intro { display: block; }
+  .try-watching, .try-prev { display: none; }
   .try-step {
     display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: center;
-    padding: 7px 7px 7px 12px; margin-bottom: 10px;
+    padding: 7px 7px 7px 12px; margin: 0 0 10px;
     /* A subtle box (Anders, 19 Nov): it holds the step apart from the headline without competing with it. */
     background: rgba(244, 239, 228, .035); border: 1px solid rgba(244, 239, 228, .1); border-radius: 12px;
   }
-  .try-count { grid-column: 1; margin: 0 0 4px; }
+  .try-count { grid-column: 1; grid-row: 1; margin: 0 0 4px; }
   .try-count [data-try-count] { display: none; }
   .try-dots button { width: 14px; height: 18px; }
   .try-dots button[aria-current="step"] { width: 26px; }
   .try-dots button::before { width: 6px; height: 6px; }
   .try-dots button[aria-current="step"]::before { width: 18px; }
-  .try-step-title { grid-column: 1; margin: 0; font-family: var(--tui-font-ui); font-size: 15.5px; font-weight: 600; line-height: 1.3; }
+  .try-step-title { grid-column: 1; grid-row: 2; margin: 0; font-family: var(--tui-font-ui); font-size: 15.5px; font-weight: 600; line-height: 1.3; }
   .try-step-num { display: inline; }
   .try-next { grid-column: 2; grid-row: 1 / span 2; width: 36px; height: 36px; min-height: 36px; padding: 0; border-radius: 50%; font-size: 16px; }
   .try-next-word, .try-action { display: none; }
   .try-next { border-color: transparent; background: var(--try-cream-ink); color: var(--tui-ink); }
+  .try-next:hover { border-color: transparent; color: var(--tui-ink); }
   /* The reader takes the full width (never squeezed) and Browse the library ends the first screen (Anders, 19 Nov):
      on a short phone the frame gives up its top edge, never its sides or the answer at its foot. */
   .try-demo { width: 100%; aspect-ratio: auto; height: min(calc((100vw - 32px) * 880 / 716), max(320px, calc(100svh - 230px))); border-radius: 14px; }
