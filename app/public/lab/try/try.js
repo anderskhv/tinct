@@ -58,7 +58,6 @@
     text('[data-try-count]', (step + 1) + ' of ' + STEPS.length)
     text('[data-try-num]', (step + 1) + '. ')
     text('[data-try-title]', STEPS[step].title)
-    text('[data-try-line]', STEPS[step].line)
     text('[data-try-upnext]', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
   }
   function schedule() {
