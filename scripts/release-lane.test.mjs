@@ -7,9 +7,7 @@ const lane = (...files) => laneFor(files).lane
 test('standalone pages, their own tests and docs take the page lane', () => {
   assert.equal(lane('app/public/try.html', 'app/public/lab/try/try.js', 'app/public/lab/try/try.css',
     'app/public/lab/try/frames/phone-01.webp', 'app/public/lab/try/reader-demo.js', 'app/src/tryPage.test.ts'), 'page')
-  assert.equal(lane('app/public/landing.html'), 'page')
   assert.equal(lane('app/public/privacy.html', 'DECISIONS.md'), 'page')
-  assert.equal(lane('app/public/byob.html', 'app/public/byob.js'), 'page')
   assert.equal(lane('app/public/modern-english.html', 'app/public/modern-english/hero.webp'), 'page')
   assert.equal(lane('docs/try-page/BRIEF.md', 'docs/try-page/screenshots/hints-phone-1-arrival.png', 'AGENTS.md'), 'page')
 })
@@ -20,7 +18,7 @@ test('one file outside the pages among page files takes the full lane', () => {
     'app/vite.config.ts', 'app/wrangler.jsonc', 'app/scripts/capture-try-frames.cjs', 'scripts/release-lane.mjs',
     'scripts/ci-suites.mjs', '.github/workflows/deploy.yml', '.github/workflows/helios-warm.yml', 'supabase/migrations/001.sql',
     'workers/narration/index.ts', 'app/public/sw.js', 'app/public/app.html', 'app/public/lab/library_2/app.js',
-    'app/public/data/editions/frankenstein-original-en.json', 'app/public/terms.html', 'app/public/landing2.html',
+    'app/public/data/editions/frankenstein-original-en.json', 'app/public/terms.html', 'app/public/landing2.html', 'app/public/landing.html', 'app/public/byob.html', 'app/public/byob.js',
     'docs/margin/layout-check.mjs', 'docs/margin/BRIEF.md', 'docs/notes.json', 'books/README.md', 'app/README.md'])
     assert.equal(lane('app/public/try.html', other, 'DECISIONS.md'), 'full', other)
 })
