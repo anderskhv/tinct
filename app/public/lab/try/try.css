@@ -418,3 +418,11 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-dissolve img { height: auto; }
 }
 @media (prefers-reduced-motion: reduce) { .try-dissolve img, .try-demo picture.is-sink img { animation: none; opacity: 1; } }
+
+.try-demo picture.is-settle img { transition: none !important; opacity: 1 !important; }
+/* Taps only: a ring where the finger lands, no dot or cursor travelling (Anders, 19 Nov). */
+.try-pointer.is-tap { background: none !important; border-color: transparent !important; box-shadow: none !important; filter: none !important; }
+.try-pointer.is-tap::before { display: none; }
+.try-pointer.is-hold { width: 26px; height: 26px; margin: -13px 0 0 -13px; border: 0 !important; border-radius: 50%; background: rgba(29, 26, 22, .18) !important; box-shadow: none !important; animation: try-hold .35s ease-out both; }
+.try-pointer.is-hold::before { display: none; }
+@keyframes try-hold { from { transform: scale(.5); opacity: 0; } to { transform: none; opacity: 1; } }

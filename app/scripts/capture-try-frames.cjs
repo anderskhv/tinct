@@ -243,7 +243,17 @@ async function run(kind) {
     await playBtn.click()
     try { await f.locator('[data-testid="lab-v2-play"][aria-label="Pause"]').first().waitFor({ timeout: 6000 }); break } catch (e) { console.log(kind, 'play retry', await playBtn.getAttribute('aria-label')) }
   }
-  await page.waitForTimeout(2000)
+  // Start on the first word (Anders, 19 Nov): the frames begin the moment the reader marks a word, which is
+  // the first word read.
+  const reading = page.frame({ url: /\/reader/ })
+  for (let t = 0; t < 60; t++) {
+    const marked = await reading.evaluate(() => [...document.querySelectorAll('[data-testid="lab-word"]')].some(w => {
+      const bg = getComputedStyle(w).backgroundColor
+      return bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent'
+    }))
+    if (marked) break
+    await page.waitForTimeout(50)
+  }
   const listenTimes = []
   for (let i = 1; i <= 14; i++) {
     const t = Date.now()

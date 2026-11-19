@@ -34,7 +34,7 @@
     ['10', 3, 4200],
   ].filter(function (frame) { return !frame[3] || (frame[3] === 'phone') === PHONE })
   // Bump when the frames are re-captured, so browsers fetch the new ones.
-  var FRAMES_V = '20261119l'
+  var FRAMES_V = '20261119m'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
@@ -69,7 +69,7 @@
     '45': { move: 'selectTo', lift: true },
     '02': { press: 'explain' }, '51': { press: 'modern' }, '08': { press: 'play' }, '24': { press: 'summary' } }
   // The phone selects with a press and hold (the launch film's way), not a drag.
-  if (PHONE) ACTIONS['01'] = { hold: 'selectFrom' }
+  var PHONE_ACTIONS = { '01': { hold: 'selectFrom' } }
   var phoneQuery = window.matchMedia('(max-width: 899px)')
   var layer = document.createElement('div')
   layer.className = 'try-pointer-layer'
@@ -112,46 +112,25 @@
   }
   // Plays the frame's action so it ends just as the frame changes; returns how long the frame must stay up for it.
   function act(frame, duration) {
-    var action = ACTIONS[frame[0]]
+    // Only the taps show, as a ripple where the finger lands (Anders, 19 Nov): no cursor travelling between them.
+    var action = (PHONE && PHONE_ACTIONS[frame[0]]) || ACTIONS[frame[0]]
     var marks = POINTER[phoneQuery.matches ? 'phone' : 'desktop']
     if (!action || reduce) return duration
     if (action.hold) {
-      // The finger lands on the first word and holds; the next frame shows the sentence selected beneath it.
+      // A press and hold on the first word: a soft disc where the finger is, then the sentence selected under it.
       var spot = marks[action.hold]
       if (!spot) return duration
       var stay = Math.max(duration, 1500)
-      later(function () { place(spot, 0); pointer.className = 'try-pointer is-on' }, stay - 1100)
-      later(function () { pointer.className = 'try-pointer is-on is-down' }, stay - 750)
+      later(function () { place(spot, 0); pointer.className = 'try-pointer is-on is-hold' }, stay - 800)
+      later(function () { pointer.className = 'try-pointer' }, stay + 250)
       return stay
     }
-    if (action.drag) {
-      // The finger lands on the first word, presses, and starts the drag; the frames after it carry it on.
-      var from = marks[action.drag[0]], to = marks[action.drag[1]]
-      if (!from || !to) return duration
-      var total = Math.max(duration, 1800)
-      later(function () { place(from, 0); pointer.className = 'try-pointer is-on' }, 400)
-      later(function () { pointer.className = 'try-pointer is-on is-down' }, 800)
-      later(function () { place(to, total - 900, 'ease-in') }, 900)
-      return total
-    }
-    if (action.move) {
-      // Mid-drag: glide on to the word this frame's selection reaches next, arriving as the next frame shows.
-      var target = marks[action.move]
-      if (!target) return duration
-      pointer.className = 'try-pointer is-on is-down'
-      // Linear, so the finger's word-to-word glides join into one even movement.
-      place(target, duration, 'linear')
-      if (action.lift) later(function () { pointer.className = 'try-pointer is-on' }, duration + 150)
-      return duration
-    }
+    if (!action.press) return action.drag ? Math.max(duration, 1200) : duration
     var at = marks[action.press]
     if (!at) return duration
-    var whole = Math.max(duration, 1700)
-    later(function () { if (pointer.className.indexOf('is-on') < 0) { place([at[0] + .08, at[1] + .18], 0) } pointer.className = 'try-pointer is-on' }, whole - 1500)
-    later(function () { place(at, 650) }, whole - 1450)
-    later(function () { pointer.className = 'try-pointer is-on is-down is-press' }, whole - 600)
-    later(function () { pointer.className = 'try-pointer is-on is-press' }, whole - 420)
-    later(function () { pointer.className = 'try-pointer' }, whole + 350)
+    var whole = Math.max(duration, 1300)
+    later(function () { place(at, 0); pointer.className = 'try-pointer is-on is-tap is-press' }, whole - 450)
+    later(function () { pointer.className = 'try-pointer' }, whole + 300)
     return whole
   }
   // A new moment opens with its name over the reader for a beat, so a change of scene reads as one.
@@ -202,9 +181,16 @@
     }
     demo.insertBefore(dissolveLayer, layer)
     var layerNow = dissolveLayer
+    // At the end the page underneath becomes the new one at once (no second fade), then the bands go: the text
+    // changes once.
     setTimeout(function () {
+      incoming.classList.add('is-settle')
       incoming.classList.remove('is-held')
-      if (layerNow === dissolveLayer) { dissolveLayer.remove(); dissolveLayer = null }
+      if (outgoing) outgoing.classList.remove('is-under')
+      requestAnimationFrame(function () { requestAnimationFrame(function () {
+        if (layerNow === dissolveLayer) { dissolveLayer.remove(); dissolveLayer = null }
+        incoming.classList.remove('is-settle')
+      }) })
     }, BANDS * BAND_STEP + BAND_FADE + 60)
   }
   function paint() {
@@ -249,8 +235,7 @@
   function pace(ms) { return Math.round(ms * (phoneQuery.matches ? (ms > 400 ? 1.45 : 1.15) : (ms > 400 ? 1.3 : 1.1))) }
   function schedule(opened) {
     clearTimeout(timer)
-    var prevAction = ACTIONS[FRAMES[(index + FRAMES.length - 1) % FRAMES.length][0]]
-    clearActions(!!((ACTIONS[FRAMES[index][0]] || {}).move || (prevAction && (prevAction.move || prevAction.hold))))
+    clearActions()
     if (reduce || held || !visible) return
     var frame = FRAMES[index]
     var duration = pace(frame[2]) + (opened ? (phoneQuery.matches ? 1100 : 600) : 0)
