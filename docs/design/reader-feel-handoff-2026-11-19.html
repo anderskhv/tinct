@@ -1,0 +1,309 @@
+<title>Reader Feel Handoff</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+/* Layout: the three agreed concepts named at the top, then one live reader below that shows all three at once, as a two-page book or on a phone, with a slider for where you are in the book. */
+:root{
+  color-scheme:dark;
+  --desk:#131611; --desk-2:#1b1f19; --ink-ui:#eee7d0; --muted:#b8bea9; --faint:#8e957f; --line:rgba(238,231,208,.16); --accent:#78aabd;
+  --paper:#f4eee1; --text:#1d1a15; --meta:#857a68; --edge-a:#f1ebdf; --edge-b:#d6ccb8;
+  --hl-gold:rgba(232,196,90,.48); --hl-rose:rgba(230,150,150,.42); --hl-sage:rgba(150,190,120,.42); --hl-sky:rgba(130,170,220,.40); --hl-lav:rgba(175,150,220,.40);
+  --serif:'EB Garamond',Georgia,'Times New Roman',serif; --ui:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(120% 80% at 50% 30%,var(--desk-2),var(--desk));color:var(--ink-ui);font-family:var(--ui);min-height:100vh;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 40px}
+.wrap{max-width:1120px;margin:0 auto;display:grid;gap:26px}
+header{display:grid;gap:14px}
+h1{margin:0;font:500 30px/1.15 var(--serif)}
+.concepts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:0;padding:0;list-style:none}
+@media (max-width:820px){.concepts{grid-template-columns:1fr}}
+.concepts li{display:grid;gap:4px;align-content:start;padding-top:12px;border-top:1px solid var(--line)}
+.concepts b{font:500 18px/1.25 var(--serif)}
+.concepts span{font-size:14px;line-height:1.5;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;justify-content:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.seg button{font:13.5px var(--ui);border:0;background:none;color:var(--ink-ui);padding:8px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink-ui);color:#1a2119}
+.where{display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.where input{width:min(320px,60vw);accent-color:var(--accent)}
+.where b{color:var(--ink-ui);font-weight:500;min-width:96px}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.stage{position:relative;display:flex;justify-content:center;align-items:flex-start;touch-action:pan-y}
+.scaler{position:relative;transform-origin:top center;flex:none}
+.hint{text-align:center;font-size:12.5px;color:var(--faint);margin:0}
+.pct{position:absolute;left:0;right:0;top:calc(100% + 22px);text-align:center;font:14px var(--serif);color:var(--muted);font-variant-numeric:tabular-nums;pointer-events:none}
+.phone .pct{top:auto;bottom:12px;font-size:14.5px;color:var(--meta);z-index:6}
+.phone .pg .foot{display:none}
+
+/* pages */
+.pg{position:relative;width:var(--W);height:var(--H);background:var(--paper);color:var(--text);overflow:hidden;flex:none}
+.pg::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(140% 100% at 50% 45%,transparent 60%,rgba(120,100,70,.07))}
+.pgi{position:absolute;inset:0;display:flex;flex-direction:column;padding:var(--pad)}
+.pg.L::after,.pg.R::after{content:"";position:absolute;top:0;bottom:0;width:46px;pointer-events:none}
+.pg.L::after{right:0;background:linear-gradient(90deg,transparent,rgba(60,45,25,.06) 55%,rgba(40,30,15,.2))}
+.pg.R::after{left:0;background:linear-gradient(270deg,transparent,rgba(60,45,25,.06) 55%,rgba(40,30,15,.2))}
+.phone .pg::after{display:none}
+.head{font:500 11px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase;color:var(--meta);text-align:center;height:14px;flex:none}
+.body{flex:1;overflow:hidden;font:400 var(--fs)/1.52 var(--serif);text-align:justify;hyphens:auto;-webkit-hyphens:auto;margin-top:14px}
+.body p{margin:0;text-indent:1.3em}
+.body p.cont,.body p.first{text-indent:0}
+.body p.first::first-letter{float:left;font-size:3.35em;line-height:.86;padding:.05em .08em 0 0;font-weight:500}
+.chap{text-align:center;margin:26px 0 22px}
+.chap small{display:block;font:500 11px var(--serif);letter-spacing:.16em;text-transform:uppercase;color:var(--meta)}
+.chap b{display:block;font:italic 400 25px/1.2 var(--serif);margin-top:8px}
+.foot{flex:none;height:16px;font:13px var(--serif);color:var(--meta);font-variant-numeric:tabular-nums;display:flex}
+.pg.L .foot{justify-content:flex-start}.pg.R .foot{justify-content:flex-end}
+.phone .pg .foot{justify-content:center}
+.body ::selection{background:rgba(31,74,92,.18)}
+mark.hl{color:inherit;background:linear-gradient(transparent 4%,var(--c,var(--hl-gold)) 4%,var(--c,var(--hl-gold)) 97%,transparent 97%);border-radius:3px;padding:0 2px;margin:0 -2px;-webkit-box-decoration-break:clone;box-decoration-break:clone;cursor:pointer}
+mark.hl.fresh{animation:swipe .35s ease-out both}
+@keyframes swipe{from{background-size:0% 100%;background-repeat:no-repeat}to{background-size:100% 100%;background-repeat:no-repeat}}
+@media (prefers-reduced-motion:reduce){mark.hl.fresh{animation:none}}
+
+/* book */
+.cloth{position:absolute;top:-9px;bottom:-11px;left:calc(-1px * (var(--nl,0) + 10));right:calc(-1px * (var(--nr,0) + 10));border-radius:5px;background:linear-gradient(180deg,#24404d,#1a313b);box-shadow:0 30px 60px rgba(0,0,0,.55),0 4px 10px rgba(0,0,0,.4)}
+.block{position:absolute;inset:0;box-shadow:var(--stack,none)}
+.view{position:relative;display:flex}
+.unit{display:flex}
+/* phone */
+.phone{width:calc(var(--W) + 24px);padding:12px;border-radius:56px;background:#0a0a0a;box-shadow:0 0 0 1.5px #3a3f38,0 30px 60px rgba(0,0,0,.5)}
+.screen{position:relative;width:var(--W);height:var(--H);border-radius:46px;overflow:hidden;background:var(--paper)}
+.status{position:absolute;top:0;left:0;right:0;height:50px;display:flex;align-items:center;justify-content:space-between;padding:6px 34px 0;font:600 15px var(--ui);color:#111;z-index:6;pointer-events:none}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:120px;height:34px;border-radius:20px;background:#000;z-index:7}
+.hintedge{position:absolute;top:0;bottom:0;right:0;z-index:5;pointer-events:none;background:repeating-linear-gradient(90deg,var(--edge-b) 0 1px,var(--edge-a) 1px 2px);box-shadow:-2px 0 3px rgba(60,45,25,.14);transition:width .3s}
+/* roll */
+.rolltop,.rollstrip,.rollshade{position:absolute;inset:0}
+.rollstrip{overflow:hidden;background:#f7f2e8}
+.rollstrip .mirror{position:absolute;inset:0;transform-origin:0 0}
+.rollstrip .mirror .pg{background:transparent}
+.rollstrip .mirror .pgi{opacity:.26;filter:blur(.25px)}
+.rollstrip .gloss{position:absolute;inset:0}
+.rollshade{pointer-events:none}
+.zone{position:absolute;top:0;bottom:0;width:56px;z-index:8;cursor:pointer}
+.zone.r{right:-30px}.zone.l{left:-30px}
+.phone .zone.r{right:0;width:44px}.phone .zone.l{left:0;width:44px}
+/* highlight colours */
+.selbar{position:absolute;z-index:20;display:flex;gap:6px;align-items:center;height:40px;padding:0 9px;border-radius:12px;background:#1d1a17;box-shadow:0 10px 28px rgba(0,0,0,.35)}
+.selbar::after{content:"";position:absolute;left:50%;bottom:-6px;width:12px;height:12px;background:#1d1a17;transform:translateX(-50%) rotate(45deg);border-radius:2px}
+.selbar button{width:22px;height:22px;border-radius:50%;border:0;cursor:pointer;box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.2)}
+mark.ink{color:inherit;background-color:transparent;background-repeat:no-repeat;background-size:100% 100%;background-position:0 52%;padding:.04em 3px;margin:0 -3px;border-radius:0;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.ink.fresh{animation:inkin .38s ease-out both}
+@keyframes inkin{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion:reduce){mark.ink.fresh{animation:none}}
+.spec{display:grid;gap:10px;max-width:880px;background:rgba(238,231,208,.04);border:1px solid var(--line);border-radius:16px;padding:22px 26px}
+.spec h2{margin:0;font:500 24px/1.2 var(--serif)}
+.spec h3{margin:12px 0 0;font:500 19px/1.25 var(--serif);color:var(--ink-ui)}
+.spec ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.spec li,.spec .lead2{font-size:14.5px;line-height:1.55;color:var(--muted)}
+.spec .lead2{margin:0}
+.spec code{font-family:inherit;font-size:13.5px;color:var(--ink-ui);background:rgba(238,231,208,.08);padding:1px 5px;border-radius:5px}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Reader feel: handoff</h1>
+    <ul class="concepts">
+      <li><b>A marker, not a box</b><span>Highlights cover the full height of the letters like a real marker: gently uneven edges, slanted ends and ink pooling at the edges, in Tinct's five colours. The letters stay crisp.</span></li>
+      <li><b>Page edges show where you are</b><span>On desktop, read pages stack on the left and the rest on the right, inside a cloth cover. On a phone, only a thin hint on the right. Both run out at the last page, and the exact percentage of the chapter stays below.</span></li>
+      <li><b>The page rolls away</b><span>As in Apple Books on iPhone, the page rolls back from the right edge into a narrow strip with faint mirrored print, then slides off. The same turn on one page and on two.</span></li>
+    </ul>
+  </header>
+<section class="spec" aria-label="Specification">
+  <h2>Handoff spec</h2>
+  <p class="lead2">Everything below the controls is a working reference. This section gives the values and rules to build from. Decided by Anders on 18–19 Nov 2026 (DECISIONS.md). Scope: the book reader in <code>app/src/lab</code>, desktop Two-page layout and the phone reader. The Margin layout and the add-a-book reader are out of scope.</p>
+
+  <h3>1. Highlights: a hand-drawn marker</h3>
+  <ul>
+    <li>Each highlighted line fragment gets one SVG stroke as its background, stretched to the fragment: <code>background-size:100% 100%; background-repeat:no-repeat; box-decoration-break:clone; padding:.04em 3px; margin:0 -3px</code>. Letters are never filtered or distorted.</li>
+    <li>Stroke: <code>viewBox="0 0 200 20" preserveAspectRatio="none"</code>, one of three paths (in <code>INK_PATHS</code> in the script), chosen by a stable hash of the highlight's id, so a highlight never changes shape between renders.</li>
+    <li>Fill: a vertical gradient of the highlight colour. Opacity <code>a</code> from 20% to 80% of the height, <code>1.35a</code> at the top edge and <code>1.3a</code> at the bottom, so ink pools at the edges.</li>
+    <li>Colours (Light and Book papers), as rgb and <code>a</code>: gold 232,186,60 at .40 · rose 226,128,128 at .36 · sage 130,182,100 at .36 · sky 110,158,216 at .34 · lavender 165,135,218 at .34. Map them to the five existing highlight colours.</li>
+    <li>A new highlight sweeps in left to right: <code>clip-path: inset(0 100% 0 0)</code> to <code>inset(0)</code> over 380ms ease-out. No animation under reduced motion.</li>
+    <li>Not designed yet: the Night paper (start from the same hues at about 0.6 of the alpha, without multiply) and e-ink (keep today's e-ink treatment). Show Anders a screenshot of both before shipping.</li>
+  </ul>
+
+  <h3>2. Where you are: page edges plus "% of chapter"</h3>
+  <ul>
+    <li>Position is the book position the reader already estimates (the same source as "% of book"), not the chapter. <code>read = (page − 1) / (pages − 1)</code>, <code>left = 1 − read</code>.</li>
+    <li>Desktop two pages: a block of page edges behind the spread, drawn as stacked box-shadows. Left sheets <code>round(read × 24)</code>, right sheets <code>round(left × 24)</code>, each 1px further out and up to 2px lower, alternating #f1ebdf and #d6ccb8, closed by one <code>rgba(0,0,0,.35)</code> shadow blurred 2px. A side with 0 sheets draws nothing: at page 1 there is no left block, at the last page no right block.</li>
+    <li>Desktop two pages: a cloth cover behind the book, gradient #24404d to #1a313b, radius 5px, 9px above and 11px below the pages, and 10px beyond the outermost sheet on each side, so it grows and shrinks with the edges.</li>
+    <li>Both pages keep a 46px gutter shade toward the spine.</li>
+    <li>Phone, one page: no cover and no left edge. A right-hand hint of 1px lines, <code>round(left × 6)</code> px wide, hidden at 0.</li>
+    <li>Keep the existing "% of chapter" line: under the book on desktop, at the bottom of the phone screen in place of the page number.</li>
+  </ul>
+
+  <h3>3. Turning the page: the roll</h3>
+  <ul>
+    <li>The same turn on one page and on two. The turning unit (one page, or the whole spread) is clipped to the left of a slightly tilted fold line; a narrow strip at the fold shows the back of the page; the next unit is already rendered underneath.</li>
+    <li>Fold at <code>x</code> (0 to unit width <code>Wt</code>), tilt <code>t = 0.035 × page width</code> (fold runs from <code>x − t</code> at the top to <code>x + t</code> at the bottom). Strip width <code>f = clamp((Wt − x) × 0.42, 0, 56)</code>.</li>
+    <li>Strip: solid paper #f7f2e8 holding a mirrored copy of the turning unit (<code>translateX(2x + f) scaleX(−1)</code>, text at 26% opacity, blur 0.25px), with a gloss gradient across it and a 42px shadow cast onto the next page (exact gradients in <code>roll.set</code>).</li>
+    <li>Forward goes from <code>x = Wt</code> to <code>x = −70</code>; back is the reverse with the previous unit on top. A click or key turn takes 480ms on one page and 640ms on two, ease-out cubic.</li>
+    <li>Dragging follows the finger (<code>x = Wt + dx × 1.15</code>); past 50px it finishes the turn, otherwise it settles back in 220ms. A two-finger sideways trackpad swipe drives the same drag (wheel <code>deltaX</code>, finished after 130ms without events, then ignored for 650ms so momentum cannot turn twice). A vertical wheel turns one page. Arrow keys and the existing chevrons play the roll.</li>
+    <li>Animate only <code>clip-path</code>, <code>transform</code> and backgrounds; no layout per frame. Under reduced motion and on e-ink, turn instantly.</li>
+    <li>Turning must not change how or when the reading position is saved (CLAUDE.md invariants and the live reader's position code, <code>src/lab/labPosition*</code>). Text selection for highlights must keep working; the roll starts from the page edges, a click on the side, keys or a swipe, not from a drag across the text.</li>
+  </ul>
+</section>
+
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Device">
+      <button type="button" data-layout="spread" aria-pressed="true">Desktop, two pages</button>
+      <button type="button" data-layout="phone" aria-pressed="false">Phone, one page</button>
+    </div>
+    <label class="where" for="where"><b id="wherelabel">Page 1 of 640</b><input type="range" id="where" min="1" max="640" value="1"></label>
+  </div>
+  <div class="stage" id="stage"><div class="scaler" id="scaler"></div></div>
+  <p class="hint">Turn by swiping, scrolling, clicking or dragging the page edge, or with the arrow keys. Select words to highlight them. Drag the slider to the end to watch the edges run out.</p>
+</div>
+
+<script>
+/* Hand-drawn marker: one SVG stroke per line fragment, stretched to the fragment. Uneven edges, slanted ends, ink pooling at the edges. */
+const INK_PATHS=[
+ 'M3.2,2.4 C40,0.9 92,1.9 140,1.1 S188,1.8 197.6,0.9 C199.6,6 199.8,13 197.2,19.1 C150,19.9 102,18.6 60,19.5 S12,18.8 1.1,19.7 C-0.2,13 0.2,7 3.2,2.4 Z',
+ 'M1.6,1.6 C50,2.3 96,0.8 150,1.7 S192,1.0 198.8,2.0 C199.9,8 199.4,14 198.1,18.6 C148,19.6 96,18.9 48,19.8 S8,19.1 2.6,19.0 C0.4,14 -0.1,6 1.6,1.6 Z',
+ 'M2.4,1.1 C46,1.8 88,1.0 132,1.9 S186,0.8 196.9,1.6 C199.8,7 199.9,12 198.6,19.4 C154,18.8 104,19.7 64,19.0 S14,19.6 0.8,18.8 C0.1,12 0.4,6 2.4,1.1 Z'];
+function inkURI(rgb,alpha,v){
+  const id='g'+v;
+  const svg=`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'><defs><linearGradient id='${id}' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='rgb(${rgb})' stop-opacity='${(alpha*1.35).toFixed(2)}'/><stop offset='.2' stop-color='rgb(${rgb})' stop-opacity='${alpha}'/><stop offset='.8' stop-color='rgb(${rgb})' stop-opacity='${alpha}'/><stop offset='1' stop-color='rgb(${rgb})' stop-opacity='${(alpha*1.3).toFixed(2)}'/></linearGradient></defs><path d='${INK_PATHS[v]}' fill='url(%23${id})'/></svg>`;
+  return `url("data:image/svg+xml,${svg.replace(/</g,'%3C').replace(/>/g,'%3E').replace(/"/g,"'")}")`;
+}
+const INK={gold:['232,186,60',.40],rose:['226,128,128',.36],sage:['130,182,100',.36],sky:['110,158,216',.34],lav:['165,135,218',.34]};
+function inkMark(el,colour){ const t=el.textContent; let h=0; for(const c of t)h=(h*31+c.charCodeAt(0))|0; const v=Math.abs(h)%INK_PATHS.length;
+  const [rgb,a]=INK[colour]||INK.gold; el.style.backgroundImage=inkURI(rgb,a,v); el.classList.add('ink'); }
+
+const CHAPTERS=[{"title": "Loomings", "n": 1, "paras": ["Call me Ishmael. Some years ago\u2014never mind how long precisely\u2014having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people\u2019s hats off\u2014then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.", "There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs\u2014commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.", "Circumambulate the city of a dreamy Sabbath afternoon. Go from Corlears Hook to Coenties Slip, and from thence, by Whitehall, northward. What do you see?\u2014Posted like silent sentinels all around the town, stand thousands upon thousands of mortal men fixed in ocean reveries. Some leaning against the spiles; some seated upon the pier-heads; some looking over the bulwarks of ships from China; some high aloft in the rigging, as if striving to get a still better seaward peep. But these are all landsmen; of week days pent up in lath and plaster\u2014tied to counters, nailed to benches, clinched to desks. How then is this? Are the green fields gone? What do they here?", "But look! here come more crowds, pacing straight for the water, and seemingly bound for a dive. Strange! Nothing will content them but the extremest limit of the land; loitering under the shady lee of yonder warehouses will not suffice. No. They must get just as nigh the water as they possibly can without falling in. And there they stand\u2014miles of them\u2014leagues. Inlanders all, they come from lanes and alleys, streets and avenues\u2014north, east, south, and west. Yet here they all unite. Tell me, does the magnetic virtue of the needles of the compasses of all those ships attract them thither?", "Once more. Say you are in the country; in some high land of lakes. Take almost any path you please, and ten to one it carries you down in a dale, and leaves you there by a pool in the stream. There is magic in it. Let the most absent-minded of men be plunged in his deepest reveries\u2014stand that man on his legs, set his feet a-going, and he will infallibly lead you to water, if water there be in all that region. Should you ever be athirst in the great American desert, try this experiment, if your caravan happen to be supplied with a metaphysical professor. Yes, as every one knows, meditation and water are wedded for ever.", "But here is an artist. He desires to paint you the dreamiest, shadiest, quietest, most enchanting bit of romantic landscape in all the valley of the Saco. What is the chief element he employs? There stand his trees, each with a hollow trunk, as if a hermit and a crucifix were within; and here sleeps his meadow, and there sleep his cattle; and up from yonder cottage goes a sleepy smoke. Deep into distant woodlands winds a mazy way, reaching to overlapping spurs of mountains bathed in their hill-side blue. But though the picture lies thus tranced, and though this pine-tree shakes down its sighs like leaves upon this shepherd\u2019s head, yet all were vain, unless the shepherd\u2019s eye were fixed upon the magic stream before him. Go visit the Prairies in June, when for scores on scores of miles you wade knee-deep among Tiger-lilies\u2014what is the one charm wanting?\u2014Water\u2014there is not a drop of water there! Were Niagara but a cataract of sand, would you travel your thousand miles to see it? Why did the poor poet of Tennessee, upon suddenly receiving two handfuls of silver, deliberate whether to buy him a coat, which he sadly needed, or invest his money in a pedestrian trip to Rockaway Beach? Why is almost every robust healthy boy with a robust healthy soul in him, at some time or other crazy to go to sea? Why upon your first voyage as a passenger, did you yourself feel such a mystical vibration, when first told that you and your ship were now out of sight of land? Why did the old Persians hold the sea holy? Why did the Greeks give it a separate deity, and own brother of Jove? Surely all this is not without meaning. And still deeper the meaning of that story of Narcissus, who because he could not grasp the tormenting, mild image he saw in the fountain, plunged into it and was drowned. But that same image, we ourselves see in all rivers and oceans. It is the image of the ungraspable phantom of life; and this is the key to it all.", "Now, when I say that I am in the habit of going to sea whenever I begin to grow hazy about the eyes, and begin to be over conscious of my lungs, I do not mean to have it inferred that I ever go to sea as a passenger. For to go as a passenger you must needs have a purse, and a purse is but a rag unless you have something in it. Besides, passengers get sea-sick\u2014grow quarrelsome\u2014don\u2019t sleep of nights\u2014do not enjoy themselves much, as a general thing;\u2014no, I never go as a passenger; nor, though I am something of a salt, do I ever go to sea as a Commodore, or a Captain, or a Cook. I abandon the glory and distinction of such offices to those who like them. For my part, I abominate all honorable respectable toils, trials, and tribulations of every kind whatsoever. It is quite as much as I can do to take care of myself, without taking care of ships, barques, brigs, schooners, and what not. And as for going as cook,\u2014though I confess there is considerable glory in that, a cook being a sort of officer on ship-board\u2014yet, somehow, I never fancied broiling fowls;\u2014though once broiled, judiciously buttered, and judgmatically salted and peppered, there is no one who will speak more respectfully, not to say reverentially, of a broiled fowl than I will. It is out of the idolatrous dotings of the old Egyptians upon broiled ibis and roasted river horse, that you see the mummies of those creatures in their huge bake-houses the pyramids.", "No, when I go to sea, I go as a simple sailor, right before the mast, plumb down into the forecastle, aloft there to the royal mast-head. True, they rather order me about some, and make me jump from spar to spar, like a grasshopper in a May meadow. And at first, this sort of thing is unpleasant enough. It touches one\u2019s sense of honor, particularly if you come of an old established family in the land, the Van Rensselaers, or Randolphs, or Hardicanutes. And more than all, if just previous to putting your hand into the tar-pot, you have been lording it as a country schoolmaster, making the tallest boys stand in awe of you. The transition is a keen one, I assure you, from a schoolmaster to a sailor, and requires a strong decoction of Seneca and the Stoics to enable you to grin and bear it. But even this wears off in time.", "What of it, if some old hunks of a sea-captain orders me to get a broom and sweep down the decks? What does that indignity amount to, weighed, I mean, in the scales of the New Testament? Do you think the archangel Gabriel thinks anything the less of me, because I promptly and respectfully obey that old hunks in that particular instance? Who ain\u2019t a slave? Tell me that. Well, then, however the old sea-captains may order me about\u2014however they may thump and punch me about, I have the satisfaction of knowing that it is all right; that everybody else is one way or other served in much the same way\u2014either in a physical or metaphysical point of view, that is; and so the universal thump is passed round, and all hands should rub each other\u2019s shoulder-blades, and be content.", "Again, I always go to sea as a sailor, because they make a point of paying me for my trouble, whereas they never pay passengers a single penny that I ever heard of. On the contrary, passengers themselves must pay. And there is all the difference in the world between paying and being paid. The act of paying is perhaps the most uncomfortable infliction that the two orchard thieves entailed upon us. But _being paid_,\u2014what will compare with it? The urbane activity with which a man receives money is really marvellous, considering that we so earnestly believe money to be the root of all earthly ills, and that on no account can a monied man enter heaven. Ah! how cheerfully we consign ourselves to perdition!", "Finally, I always go to sea as a sailor, because of the wholesome exercise and pure air of the fore-castle deck. For as in this world, head winds are far more prevalent than winds from astern (that is, if you never violate the Pythagorean maxim), so for the most part the Commodore on the quarter-deck gets his atmosphere at second hand from the sailors on the forecastle. He thinks he breathes it first; but not so. In much the same way do the commonalty lead their leaders in many other things, at the same time that the leaders little suspect it. But wherefore it was that after having repeatedly smelt the sea as a merchant sailor, I should now take it into my head to go on a whaling voyage; this the invisible police officer of the Fates, who has the constant surveillance of me, and secretly dogs me, and influences me in some unaccountable way\u2014he can better answer than any one else. And, doubtless, my going on this whaling voyage, formed part of the grand programme of Providence that was drawn up a long time ago. It came in as a sort of brief interlude and solo between more extensive performances. I take it that this part of the bill must have run something like this:", "\u201c_Grand Contested Election for the Presidency of the United States._ \u201cWHALING VOYAGE BY ONE ISHMAEL. \u201cBLOODY BATTLE IN AFFGHANISTAN.\u201d", "Though I cannot tell why it was exactly that those stage managers, the Fates, put me down for this shabby part of a whaling voyage, when others were set down for magnificent parts in high tragedies, and short and easy parts in genteel comedies, and jolly parts in farces\u2014though I cannot tell why this was exactly; yet, now that I recall all the circumstances, I think I can see a little into the springs and motives which being cunningly presented to me under various disguises, induced me to set about performing the part I did, besides cajoling me into the delusion that it was a choice resulting from my own unbiased freewill and discriminating judgment.", "Chief among these motives was the overwhelming idea of the great whale himself. Such a portentous and mysterious monster roused all my curiosity. Then the wild and distant seas where he rolled his island bulk; the undeliverable, nameless perils of the whale; these, with all the attending marvels of a thousand Patagonian sights and sounds, helped to sway me to my wish. With other men, perhaps, such things would not have been inducements; but as for me, I am tormented with an everlasting itch for things remote. I love to sail forbidden seas, and land on barbarous coasts. Not ignoring what is good, I am quick to perceive a horror, and could still be social with it\u2014would they let me\u2014since it is but well to be on friendly terms with all the inmates of the place one lodges in.", "By reason of these things, then, the whaling voyage was welcome; the great flood-gates of the wonder-world swung open, and in the wild conceits that swayed me to my purpose, two and two there floated into my inmost soul, endless processions of the whale, and, mid most of them all, one grand hooded phantom, like a snow hill in the air."]}, {"title": "The Carpet-Bag", "n": 2, "paras": ["I stuffed a shirt or two into my old carpet-bag, tucked it under my arm, and started for Cape Horn and the Pacific. Quitting the good city of old Manhatto, I duly arrived in New Bedford. It was a Saturday night in December. Much was I disappointed upon learning that the little packet for Nantucket had already sailed, and that no way of reaching that place would offer, till the following Monday.", "As most young candidates for the pains and penalties of whaling stop at this same New Bedford, thence to embark on their voyage, it may as well be related that I, for one, had no idea of so doing. For my mind was made up to sail in no other than a Nantucket craft, because there was a fine, boisterous something about everything connected with that famous old island, which amazingly pleased me. Besides though New Bedford has of late been gradually monopolising the business of whaling, and though in this matter poor old Nantucket is now much behind her, yet Nantucket was her great original\u2014the Tyre of this Carthage;\u2014the place where the first dead American whale was stranded. Where else but from Nantucket did those aboriginal whalemen, the Red-Men, first sally out in canoes to give chase to the Leviathan? And where but from Nantucket, too, did that first adventurous little sloop put forth, partly laden with imported cobblestones\u2014so goes the story\u2014to throw at the whales, in order to discover when they were nigh enough to risk a harpoon from the bowsprit?", "Now having a night, a day, and still another night following before me in New Bedford, ere I could embark for my destined port, it became a matter of concernment where I was to eat and sleep meanwhile. It was a very dubious-looking, nay, a very dark and dismal night, bitingly cold and cheerless. I knew no one in the place. With anxious grapnels I had sounded my pocket, and only brought up a few pieces of silver,\u2014So, wherever you go, Ishmael, said I to myself, as I stood in the middle of a dreary street shouldering my bag, and comparing the gloom towards the north with the darkness towards the south\u2014wherever in your wisdom you may conclude to lodge for the night, my dear Ishmael, be sure to inquire the price, and don\u2019t be too particular.", "With halting steps I paced the streets, and passed the sign of \u201cThe Crossed Harpoons\u201d\u2014but it looked too expensive and jolly there. Further on, from the bright red windows of the \u201cSword-Fish Inn,\u201d there came such fervent rays, that it seemed to have melted the packed snow and ice from before the house, for everywhere else the congealed frost lay ten inches thick in a hard, asphaltic pavement,\u2014rather weary for me, when I struck my foot against the flinty projections, because from hard, remorseless service the soles of my boots were in a most miserable plight. Too expensive and jolly, again thought I, pausing one moment to watch the broad glare in the street, and hear the sounds of the tinkling glasses within. But go on, Ishmael, said I at last; don\u2019t you hear? get away from before the door; your patched boots are stopping the way. So on I went. I now by instinct followed the streets that took me waterward, for there, doubtless, were the cheapest, if not the cheeriest inns.", "Such dreary streets! blocks of blackness, not houses, on either hand, and here and there a candle, like a candle moving about in a tomb. At this hour of the night, of the last day of the week, that quarter of the town proved all but deserted. But presently I came to a smoky light proceeding from a low, wide building, the door of which stood invitingly open. It had a careless look, as if it were meant for the uses of the public; so, entering, the first thing I did was to stumble over an ash-box in the porch. Ha! thought I, ha, as the flying particles almost choked me, are these ashes from that destroyed city, Gomorrah? But \u201cThe Crossed Harpoons,\u201d and \u201cThe Sword-Fish?\u201d\u2014this, then must needs be the sign of \u201cThe Trap.\u201d However, I picked myself up and hearing a loud voice within, pushed on and opened a second, interior door.", "It seemed the great Black Parliament sitting in Tophet. A hundred black faces turned round in their rows to peer; and beyond, a black Angel of Doom was beating a book in a pulpit. It was a negro church; and the preacher\u2019s text was about the blackness of darkness, and the weeping and wailing and teeth-gnashing there. Ha, Ishmael, muttered I, backing out, Wretched entertainment at the sign of \u2018The Trap!\u2019", "Moving on, I at last came to a dim sort of light not far from the docks, and heard a forlorn creaking in the air; and looking up, saw a swinging sign over the door with a white painting upon it, faintly representing a tall straight jet of misty spray, and these words underneath\u2014\u201cThe Spouter Inn:\u2014Peter Coffin.\u201d", "Coffin?\u2014Spouter?\u2014Rather ominous in that particular connexion, thought I. But it is a common name in Nantucket, they say, and I suppose this Peter here is an emigrant from there. As the light looked so dim, and the place, for the time, looked quiet enough, and the dilapidated little wooden house itself looked as if it might have been carted here from the ruins of some burnt district, and as the swinging sign had a poverty-stricken sort of creak to it, I thought that here was the very spot for cheap lodgings, and the best of pea coffee.", "It was a queer sort of place\u2014a gable-ended old house, one side palsied as it were, and leaning over sadly. It stood on a sharp bleak corner, where that tempestuous wind Euroclydon kept up a worse howling than ever it did about poor Paul\u2019s tossed craft. Euroclydon, nevertheless, is a mighty pleasant zephyr to any one in-doors, with his feet on the hob quietly toasting for bed. \u201cIn judging of that tempestuous wind called Euroclydon,\u201d says an old writer\u2014of whose works I possess the only copy extant\u2014\u201cit maketh a marvellous difference, whether thou lookest out at it from a glass window where the frost is all on the outside, or whether thou observest it from that sashless window, where the frost is on both sides, and of which the wight Death is the only glazier.\u201d True enough, thought I, as this passage occurred to my mind\u2014old black-letter, thou reasonest well. Yes, these eyes are windows, and this body of mine is the house. What a pity they didn\u2019t stop up the chinks and the crannies though, and thrust in a little lint here and there. But it\u2019s too late to make any improvements now. The universe is finished; the copestone is on, and the chips were carted off a million years ago. Poor Lazarus there, chattering his teeth against the curbstone for his pillow, and shaking off his tatters with his shiverings, he might plug up both ears with rags, and put a corn-cob into his mouth, and yet that would not keep out the tempestuous Euroclydon. Euroclydon! says old Dives, in his red silken wrapper\u2014(he had a redder one afterwards) pooh, pooh! What a fine frosty night; how Orion glitters; what northern lights! Let them talk of their oriental summer climes of everlasting conservatories; give me the privilege of making my own summer with my own coals.", "But what thinks Lazarus? Can he warm his blue hands by holding them up to the grand northern lights? Would not Lazarus rather be in Sumatra than here? Would he not far rather lay him down lengthwise along the line of the equator; yea, ye gods! go down to the fiery pit itself, in order to keep out this frost?", "Now, that Lazarus should lie stranded there on the curbstone before the door of Dives, this is more wonderful than that an iceberg should be moored to one of the Moluccas. Yet Dives himself, he too lives like a Czar in an ice palace made of frozen sighs, and being a president of a temperance society, he only drinks the tepid tears of orphans.", "But no more of this blubbering now, we are going a-whaling, and there is plenty of that yet to come. Let us scrape the ice from our frosted feet, and see what sort of a place this \u201cSpouter\u201d may be."]}];
+const BOOK=640;
+const CFG={spread:{W:380,H:580,fs:'16.5px',pad:'34px 40px 30px'},phone:{W:390,H:844,fs:'18px',pad:'64px 26px 34px'}};
+let layout=innerWidth<760?'phone':'spread', pages=[], idx=0, base=0, busy=false;
+const COLORS={gold:'var(--hl-gold)',rose:'var(--hl-rose)',sage:'var(--hl-sage)',sky:'var(--hl-sky)',lav:'var(--hl-lav)'};
+const SWATCH={gold:'#e8c45a',rose:'#e69696',sage:'#96be78',sky:'#82aadc',lav:'#af96dc'};
+const marks=[{text:'whenever it is a damp, drizzly November in my soul;',c:'gold'}];
+const scaler=document.getElementById('scaler'), stage=document.getElementById('stage');
+function setVars(){ const c=CFG[layout]; const r=document.documentElement.style; r.setProperty('--W',c.W+'px');r.setProperty('--H',c.H+'px');r.setProperty('--fs',c.fs);r.setProperty('--pad',c.pad); }
+const W=()=>CFG[layout].W, H=()=>CFG[layout].H, unit=()=>layout==='spread'?2:1;
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+
+function paginate(){
+  const pg=document.createElement('div');pg.className='pg R'+(layout==='phone'?' inphone':'');pg.style.cssText='position:absolute;left:-9999px;visibility:hidden';
+  pg.innerHTML='<div class="pgi"><div class="head"></div><div class="body"></div><div class="foot"></div></div>';document.body.appendChild(pg);
+  const box=pg.querySelector('.body'),out=[],fits=()=>box.scrollHeight<=box.clientHeight+1;
+  for(const ch of CHAPTERS){
+    let cur={chap:ch.title,html:'',start:true};box.innerHTML=`<div class="chap"><small>Chapter ${ch.n}</small><b>${esc(ch.title)}</b></div>`;cur.html=box.innerHTML;
+    ch.paras.forEach((para,pi)=>{let words=para.split(' '),cls=pi===0?'first':'';
+      while(words.length){const p=document.createElement('p');if(cls)p.className=cls;box.appendChild(p);p.textContent=words.join(' ');
+        if(fits()){cur.html=box.innerHTML;break;}
+        let lo=0,hi=words.length;while(lo<hi){const m=Math.ceil((lo+hi)/2);p.textContent=words.slice(0,m).join(' ');if(fits())lo=m;else hi=m-1;}
+        if(lo>0){p.textContent=words.slice(0,lo).join(' ');cur.html=box.innerHTML;words=words.slice(lo);}else p.remove();
+        out.push(cur);cur={chap:ch.title,html:'',start:false};box.innerHTML='';cls='cont';}});
+    out.push(cur);
+  }
+  pg.remove();return out;
+}
+function applyMarks(root){
+  for(const m of marks){ const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;
+    while((n=w.nextNode())){const k=n.data.indexOf(m.text);if(k<0)continue;if(n.parentElement.closest('mark'))continue;
+      const r=document.createRange();r.setStart(n,k);r.setEnd(n,k+m.text.length);const e=document.createElement('mark');e.className='hl';e.dataset.t=m.text;r.surroundContents(e);inkMark(e,m.c);break;} }
+}
+function pageEl(i,side){
+  const el=document.createElement('div');el.className='pg '+side;
+  if(i<0||i>=pages.length){el.innerHTML='<div class="pgi"></div>';return el;}
+  const p=pages[i];
+  const head=p.start?'':(layout==='phone'?esc(p.chap):(side==='L'?'Moby-Dick':esc(p.chap)));
+  el.innerHTML=`<div class="pgi"><div class="head">${head}</div><div class="body">${p.html}</div><div class="foot">${base+i+1}</div></div>`;
+  applyMarks(el);return el;
+}
+function unitEl(s){const u=document.createElement('div');u.className='unit';if(layout==='spread')u.append(pageEl(s,'L'),pageEl(s+1,'R'));else u.append(pageEl(s,'R'));return u;}
+
+/* edges that run out */
+function pos(){ return Math.min(BOOK,base+idx+1); }
+function sheets(frac){ return Math.round(frac*24); }
+function stackShadow(side,n){ if(n<=0)return ''; const sh=[];for(let i=1;i<=n;i++){const x=side==='R'?i:-i;sh.push(`${x}px ${Math.min(i,4)*.5}px 0 ${i%2?'var(--edge-a)':'var(--edge-b)'}`);}
+  sh.push(`${side==='R'?n+1:-(n+1)}px ${Math.min(n,4)*.5+1}px 2px rgba(0,0,0,.35)`);return sh.join(','); }
+function applyEdges(){
+  const p=pos(), read=(p-1)/(BOOK-1), left=1-read;
+  document.getElementById('wherelabel').textContent=`Page ${p} of ${BOOK}`; document.getElementById('where').value=p;
+  if(layout==='spread'){ const nl=sheets(read), nr=sheets(left); const parts=[stackShadow('L',nl),stackShadow('R',nr)].filter(Boolean).join(',');
+    scaler.style.setProperty('--stack',parts||'none'); scaler.style.setProperty('--nl',nl); scaler.style.setProperty('--nr',nr); }
+  else { const h=document.querySelector('.hintedge'); if(h){ const w=Math.round(left*6); h.style.width=w+'px'; h.style.display=w<1?'none':'block'; } }
+}
+
+/* build */
+let view;
+function build(){
+  scaler.innerHTML=''; setVars();
+  if(layout==='spread'){
+    scaler.innerHTML='<div class="cloth"></div><div class="block"></div><div class="view" id="view"></div><div class="zone l" id="zl"></div><div class="zone r" id="zr"></div><div class="pct" id="pct"></div>';
+  } else {
+    scaler.innerHTML='<div class="phone"><div class="screen"><div class="island"></div><div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="view" id="view"></div><div class="hintedge"></div><div class="zone l" id="zl"></div><div class="zone r" id="zr"></div><div class="pct" id="pct"></div></div></div>';
+  }
+  view=document.getElementById('view'); show(); wireZones(); fit();
+}
+function chapterPct(){ const last=Math.min(pages.length-1,idx+unit()-1); const ch=pages[idx]&&pages[idx].chap; let first=idx,end=idx;
+  while(first>0&&pages[first-1].chap===ch)first--; while(end<pages.length-1&&pages[end+1].chap===ch)end++;
+  return Math.round((last-first+1)/(end-first+1)*100); }
+function show(){ view.innerHTML=''; view.append(unitEl(idx)); applyEdges(); const el=document.getElementById('pct'); if(el)el.textContent=chapterPct()+'% of chapter'; }
+function fit(){ const box=scaler.firstElementChild; const w=layout==='spread'?2*W()+80:W()+24, h=layout==='spread'?H()+64:H()+24;
+  const avail=Math.min(stage.parentElement.clientWidth, innerWidth-32); const top=Math.max(0,stage.getBoundingClientRect().top+scrollY);
+  const availH=Math.max(440,innerHeight-Math.min(top,320)-60); const s=Math.min(layout==='phone'?.9:1.15,avail/w,availH/h);
+  scaler.style.transform=`scale(${s})`; scaler.dataset.s=s; stage.style.height=(h*s)+'px'; }
+addEventListener('resize',fit);
+const S=()=>+scaler.dataset.s||1;
+
+/* roll */
+const roll={
+  prep(dir){ const u=unit(); this.dir=dir; this.Wt=u*W(); view.innerHTML='';
+    view.append(unitEl(dir>0?idx+u:idx));
+    const shade=document.createElement('div');shade.className='rollshade';
+    const top=document.createElement('div');top.className='rolltop';top.append(unitEl(dir>0?idx:idx-u));
+    const strip=document.createElement('div');strip.className='rollstrip';
+    const mir=document.createElement('div');mir.className='mirror';mir.append(unitEl(dir>0?idx:idx-u));
+    const gloss=document.createElement('div');gloss.className='gloss';strip.append(mir,gloss);view.append(shade,top,strip);
+    Object.assign(this,{top,strip,mir,gloss,shade});this.x0=dir>0?this.Wt:-70;this.x1=dir>0?-70:this.Wt;this.set(this.x0);this.ready=true; },
+  set(x){ this.x=x;const Hh=H(),t=W()*.035,f=Math.max(0,Math.min(56,(this.Wt-x)*.42)),a=x-t,b=x+t;
+    this.top.style.clipPath=`polygon(0 0, ${a}px 0, ${b}px ${Hh}px, 0 ${Hh}px)`;
+    this.strip.style.clipPath=`polygon(${a}px 0, ${a+f}px 0, ${b+f}px ${Hh}px, ${b}px ${Hh}px)`;this.strip.style.visibility=f<1?'hidden':'visible';
+    this.mir.style.transform=`translateX(${2*x+f}px) scaleX(-1)`;const ang=90-Math.atan2(2*t,Hh)*180/Math.PI;
+    this.gloss.style.background=`linear-gradient(${ang}deg, transparent ${x-t-2}px, rgba(70,55,35,.18) ${x}px, rgba(255,255,255,.55) ${x+f*.45}px, rgba(244,238,225,.2) ${x+f*.8}px, rgba(70,55,35,.22) ${x+f}px, transparent ${x+f+1}px)`;
+    this.shade.style.background=`linear-gradient(${ang}deg, transparent ${x+f-1}px, rgba(20,14,6,${f<1?0:.22}) ${x+f}px, transparent ${x+f+42}px)`; },
+  tween(to,ms,done){const from=this.x,t0=performance.now(),ez=k=>1-Math.pow(1-k,3);const st=n=>{const k=Math.min(1,(n-t0)/ms);this.set(from+(to-from)*ez(k));if(k<1)requestAnimationFrame(st);else done&&done();};requestAnimationFrame(st);},
+  follow(dx){ const Wt=this.Wt; const x=this.dir>0?Wt+dx*1.15:-70+dx*(Wt+70)/W(); this.set(Math.max(-70,Math.min(Wt,x))); },
+  finish(commit){ busy=true; const to=commit?this.x1:this.x0; const ms=commit?Math.max(200,Math.abs(to-this.x)/(this.Wt+70)*(this.Wt>W()?620:420)):220;
+    this.tween(to,ms,()=>{ if(commit)idx+=this.dir*unit(); this.ready=false; show(); busy=false; }); }
+};
+function canGo(d){const n=idx+d*unit();return n>=0&&n<pages.length;}
+function turn(d){ if(busy||!canGo(d))return; clearBar(); roll.prep(d); busy=true; roll.tween(roll.x1,unit()>1?640:480,()=>{ idx+=d*unit(); roll.ready=false; show(); busy=false; }); }
+function wireZones(){
+  for(const id of ['zl','zr']){ const el=document.getElementById(id); const dir=id==='zr'?1:-1; let d=null;
+    el.addEventListener('pointerdown',e=>{ if(busy)return; d={x:e.clientX,dx:0,moved:false}; el.setPointerCapture(e.pointerId); e.preventDefault(); });
+    el.addEventListener('pointermove',e=>{ if(!d)return; d.dx=(e.clientX-d.x)/S(); if(!d.moved&&Math.abs(d.dx)>5){ if(!canGo(dir)){d=null;return;} d.moved=true; clearBar(); roll.prep(dir);} if(d.moved)roll.follow(d.dx); });
+    el.addEventListener('pointerup',()=>{ if(!d)return; const k=d; d=null; if(!k.moved){turn(dir);return;} roll.finish(dir>0?k.dx<-50:k.dx>50); }); }
+}
+addEventListener('keydown',e=>{ if(e.key==='ArrowRight')turn(1); if(e.key==='ArrowLeft')turn(-1); });
+let wheel=null,lock=false;
+stage.addEventListener('wheel',e=>{ e.preventDefault(); if(busy||lock)return;
+  if(Math.abs(e.deltaX)<=Math.abs(e.deltaY)){ if(Math.abs(e.deltaY)<6||wheel)return; lock=true;setTimeout(()=>lock=false,650); turn(e.deltaY>0?1:-1); return; }
+  const dx=-e.deltaX/S(); if(!wheel){ const dir=dx<0?1:-1; if(!canGo(dir))return; wheel={dx:0,dir}; clearBar(); roll.prep(dir); }
+  wheel.dx+=dx; roll.follow(wheel.dx); clearTimeout(wheel.t);
+  wheel.t=setTimeout(()=>{ const w=wheel;wheel=null;lock=true;setTimeout(()=>lock=false,650); roll.finish(w.dir>0?w.dx<-50:w.dx>50); },130);
+},{passive:false});
+
+/* highlighter */
+let bar=null; function clearBar(){ if(bar){bar.remove();bar=null;} }
+document.addEventListener('mouseup',e=>{ if(e.target.closest('.selbar'))return; setTimeout(()=>{ clearBar(); const sel=getSelection(); if(!sel||sel.isCollapsed||busy)return;
+  const r=sel.getRangeAt(0); if(r.startContainer!==r.endContainer||r.startContainer.nodeType!==3)return; if(!r.startContainer.parentElement.closest('.body'))return;
+  const text=r.toString(); if(text.trim().length<2)return;
+  const rect=r.getBoundingClientRect(); bar=document.createElement('div'); bar.className='selbar';
+  for(const [k,v] of Object.entries(SWATCH)){ const b=document.createElement('button'); b.style.background=v; b.setAttribute('aria-label','Highlight '+k);
+    b.onclick=()=>{ marks.push({text,c:k}); sel.removeAllRanges(); clearBar(); const e2=document.createElement('mark'); e2.className='hl fresh'; e2.dataset.t=text; try{ r.surroundContents(e2); inkMark(e2,k);}catch(_){ show(); } };
+    bar.append(b); }
+  document.body.append(bar); bar.style.left=(rect.left+rect.width/2+scrollX-bar.offsetWidth/2)+'px'; bar.style.top=(rect.top+scrollY-bar.offsetHeight-12)+'px';
+},0); });
+document.addEventListener('click',e=>{ const m=e.target.closest('mark.hl'); if(!m||!getSelection().isCollapsed)return; const t=m.dataset.t; const i=marks.findIndex(x=>x.text===t); if(i>=0)marks.splice(i,1); m.replaceWith(...m.childNodes); });
+
+/* controls */
+document.getElementById('where').addEventListener('input',e=>{ const p=+e.target.value; base=Math.max(0,p-1-idx); if(p-1<idx){ idx=0; base=p-1; } if(busy)return; show(); });
+document.querySelectorAll('[data-layout]').forEach(b=>b.onclick=()=>{ if(busy)return; const p=pos(); layout=b.dataset.layout;
+  document.querySelectorAll('[data-layout]').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); setVars(); pages=paginate(); idx=0; base=p-1; if(layout==='spread'&&base%2){base--;} build(); });
+(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>{ document.querySelectorAll('[data-layout]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.layout===layout))); setVars(); pages=paginate(); build(); });
+</script>
