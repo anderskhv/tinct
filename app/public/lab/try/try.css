@@ -163,12 +163,14 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-nav { display: flex; align-items: center; gap: 14px; padding: 8px 16px; padding-top: max(8px, env(safe-area-inset-top, 0px)); }
   /* The phone's menu: the two sections, beside Sign in (Anders, 19 Nov). */
   .try-sections { margin-left: auto; gap: 14px; font-size: 14px; }
-  /* Phone: a way past the page straight to the books (Anders, 19 Nov); Questions is one scroll away. */
-  .try-sections a[href="#try"], .try-sections a[href="#questions"] { display: none; }
+  /* Phone bar: the logo, a quiet Sign in and one action, Start reading (Anders, 19 Nov). Pricing and
+     Questions are one scroll away (the cue under the reader). */
+  .try-sections { display: none !important; }
+  .try-account { margin-left: auto; gap: 14px; align-items: center; }
   .try-account .try-only-phone { display: inline-flex; }
-  .try-account { gap: 8px; }
+  .try-account .try-pill--outline { border-color: transparent; background: transparent; padding: 0 2px; min-height: 34px; color: var(--try-muted-on-dark); }
   .try-sections a { padding: 4px 0; }
-  .try-account { margin-left: 2px; }
+  .try-account .try-only-phone { order: 2; }
   .try-logo { font-size: 22px; }
   .try-account .try-pill { min-height: 34px; padding: 0 14px; font-size: 13.5px; }
   .try-hero { padding: 62px 0 30px; }
@@ -209,11 +211,6 @@ html[data-eink="true"] .try-backdrop { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .try-demo img { transition: none; }
   .try-phone-more span { animation: none; }
-}
-/* The narrowest phones: the bar keeps Library and Sign in; Pricing is one scroll away. */
-@media (max-width: 359px) {
-  .try-sections { display: none !important; }
-  .try-account { margin-left: auto; }
 }
 /* Long plan buttons wrap on small phones rather than widen the page. */
 @media (max-width: 899px) {

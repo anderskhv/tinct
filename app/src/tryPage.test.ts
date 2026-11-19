@@ -186,9 +186,9 @@ describe('the reader plays itself (Anders, 19 Nov 2026)', () => {
 
   it('opens Meditations Book 2 from the frames, and the library from its action', () => {
     expect([...page.matchAll(/href="(\/reader\?[^"]+)"/g)].map(match => match[1])).toEqual(['/reader?book=meditations&amp;chapter=2'])
-    expect(page).toContain('href="/library" data-try-start>Browse the library</a>')
+    expect(page).toContain('href="/library" data-try-start>Start reading</a>')
     expect(page).not.toContain('try-closing')
-    expect(page).toContain('<a class="try-pill try-pill--cream try-only-phone" href="/library">Library</a>')
+    expect(page).toContain('<a class="try-pill try-pill--cream try-only-phone" href="/library">Start reading</a>')
     expect(page).toContain('<a class="try-phone-more" href="#pricing">')
   })
 
