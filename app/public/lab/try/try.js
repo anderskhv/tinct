@@ -305,7 +305,7 @@
         links.forEach(function (link) { link.setAttribute('aria-current', String(link.getAttribute('href') === '#' + entry.target.id)) })
       })
     }, { rootMargin: '-45% 0px -50% 0px' })
-    ;['try', 'features', 'pricing', 'questions'].forEach(function (id) { var el = document.getElementById(id); if (el) observer.observe(el) })
+    ;['try', 'pricing', 'questions'].forEach(function (id) { var el = document.getElementById(id); if (el) observer.observe(el) })
   }
 
   // ---- Phone: the reader ends on the first screen (try.css --try-reader-h) ----
@@ -323,6 +323,28 @@
   window.addEventListener('resize', measureReaderTop)
   if ('ResizeObserver' in window) new ResizeObserver(measureReaderTop).observe($('.try-stage'))
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureReaderTop)
+
+  // ---- Phone: a field in the reader stays above the keyboard ----
+  // The reader in the frame cannot see the keyboard (its own window keeps its size), so the page scrolls itself until
+  // the focused field's bottom clears the visible area (visualViewport), with a little room under it.
+  var vv = window.visualViewport
+  function keepFieldVisible() {
+    if (!vv || wide) return
+    var doc = frameDoc()
+    var field = doc && doc.activeElement
+    if (!field || !/^(INPUT|TEXTAREA)$/.test(field.tagName)) return
+    var rect = field.getBoundingClientRect()
+    var bottom = frame.getBoundingClientRect().top + rect.bottom
+    var visibleBottom = vv.offsetTop + vv.height - 12
+    if (bottom > visibleBottom) window.scrollBy(0, bottom - visibleBottom)
+  }
+  if (vv) {
+    vv.addEventListener('resize', keepFieldVisible)
+    frame.addEventListener('load', function () {
+      var doc = frameDoc() || (frame.contentDocument)
+      if (doc) doc.addEventListener('focusin', function () { setTimeout(keepFieldVisible, 350) })
+    })
+  }
 
   window.matchMedia(WIDE).addEventListener('change', function (event) {
     // The reader is laid out for the frame it opened in; a phone and a desktop frame are different readers.
