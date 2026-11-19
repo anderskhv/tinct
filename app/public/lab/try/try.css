@@ -21,11 +21,12 @@
 .try-hero { position: relative; }
 /* One scene behind the whole page, never flat dark (Anders, 19 Nov): fixed, so every section sits on it. */
 .try-backdrop {
-  position: fixed; inset: -60px; z-index: -1; pointer-events: none;
+  position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
   /* Warm brown and deep blue, never black: matched to Anders's reference of the step page (19 Nov). */
   background: linear-gradient(180deg, rgba(14, 11, 8, .35), rgba(14, 11, 8, .6)), url('/lab/library_2/assets/scene-odyssey-wide.jpg') center 30% / cover no-repeat;
   filter: blur(36px) saturate(1) brightness(.9);
-  transform: translateZ(0);
+  /* Scaled rather than oversized, so the blur keeps soft edges without widening the page on small phones. */
+  transform: translateZ(0) scale(1.18);
 }
 @media (max-width: 899px) {
   .try-backdrop { background-image: linear-gradient(180deg, rgba(14, 11, 8, .32), rgba(14, 11, 8, .62)), url('/lab/library_2/assets/scene-odyssey-phone.jpg'); }
@@ -88,7 +89,7 @@ html[data-eink="true"] .try-backdrop { display: none; }
 .try-step-title { margin-bottom: 22px; }
 .try-next { min-height: 38px; padding: 0 16px; font-size: 14px; }
 .try-action { display: flex; width: 100%; max-width: 260px; margin-top: 14px; }
-.try-phone-more { display: none; }
+.try-phone-more, .try-only-phone { display: none; }
 @keyframes try-nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
 
 /* ---- The demo: frames of the real reader, crossfading; the whole of it opens the reader ---- */
@@ -162,7 +163,10 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-nav { display: flex; align-items: center; gap: 14px; padding: 8px 16px; padding-top: max(8px, env(safe-area-inset-top, 0px)); }
   /* The phone's menu: the two sections, beside Sign in (Anders, 19 Nov). */
   .try-sections { margin-left: auto; gap: 14px; font-size: 14px; }
-  .try-sections a[href="#try"] { display: none; }
+  /* Phone: a way past the page straight to the books (Anders, 19 Nov); Questions is one scroll away. */
+  .try-sections a[href="#try"], .try-sections a[href="#questions"] { display: none; }
+  .try-account .try-only-phone { display: inline-flex; }
+  .try-account { gap: 8px; }
   .try-sections a { padding: 4px 0; }
   .try-account { margin-left: 2px; }
   .try-logo { font-size: 22px; }
@@ -205,4 +209,14 @@ html[data-eink="true"] .try-backdrop { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .try-demo img { transition: none; }
   .try-phone-more span { animation: none; }
+}
+/* The narrowest phones: the bar keeps Library and Sign in; Pricing is one scroll away. */
+@media (max-width: 359px) {
+  .try-sections { display: none !important; }
+  .try-account { margin-left: auto; }
+}
+/* Long plan buttons wrap on small phones rather than widen the page. */
+@media (max-width: 899px) {
+  .try-plan .try-pill { white-space: normal; text-align: center; min-height: 44px; height: auto; padding-top: 10px; padding-bottom: 10px; }
+  .try-plan { padding: 22px 20px; }
 }
