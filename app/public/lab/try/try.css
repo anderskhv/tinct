@@ -73,22 +73,35 @@ html[data-eink="true"] .try-backdrop { display: none; }
 /* ---- Hero: the step beside the playing reader ---- */
 .try-hero { padding: 104px 0 64px; }
 .try-headline {
-  max-width: 1400px; margin: 0 auto 30px; padding: 0 32px 0 56px;
-  font-family: var(--tui-font-display); font-weight: 700; font-size: clamp(36px, 3.6vw, 56px); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance;
+  margin: 0 0 22px;
+  font-family: var(--tui-font-display); font-weight: 700; font-size: clamp(36px, 3.2vw, 48px); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance;
 }
-.try-stage { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 40px; align-items: start; padding: 0 32px 0 56px; }
-.try-step { padding-top: 26px; }
-.try-count { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; font-size: 13.5px; font-weight: 500; font-variant-numeric: tabular-nums; }
+/* Desktop (Anders, 19 Nov): the headline beside the reader, its top level with the reader's; Start reading is the
+   one button; the step under it is quiet: a label, its name, and small arrows around the dots. */
+.try-stage { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 48px; align-items: start; padding: 0 32px 0 56px; }
+.try-intro { display: flex; flex-direction: column; align-items: flex-start; }
+.try-headline { margin-top: -.12em; }
+.try-step { display: grid; grid-template-columns: auto auto auto; justify-content: start; align-items: center; column-gap: 10px; margin-top: 44px; }
+.try-watching { grid-column: 1 / -1; margin: 0 0 10px; font-size: 13px; font-weight: 500; color: var(--try-muted-on-dark); }
+.try-step-title { grid-column: 1 / -1; }
+.try-prev { grid-column: 1; grid-row: 3; }
+.try-count { grid-column: 2; grid-row: 3; display: flex; align-items: center; margin: 0; font-size: 13.5px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.try-count [data-try-count] { display: none; }
+.try-next { grid-column: 3; grid-row: 3; }
+.try-prev, .try-next {
+  width: 30px; height: 30px; min-height: 30px; padding: 0; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid rgba(244, 239, 228, .25); background: transparent; color: rgba(244, 239, 228, .8); font: 500 14px/1 var(--tui-font-ui); cursor: pointer;
+}
+.try-prev:hover, .try-next:hover { border-color: rgba(244, 239, 228, .55); color: var(--try-cream-ink); }
+.try-next-word { display: none; }
 .try-dots { display: inline-flex; gap: 2px; }
 .try-dots button { width: 18px; height: 24px; padding: 0; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; }
 .try-dots button::before { content: ''; width: 7px; height: 7px; border-radius: 4px; background: var(--try-faint-on-dark); transition: width .3s, background .3s; }
 .try-dots button[aria-current="step"] { width: 30px; }
 .try-dots button[aria-current="step"]::before { width: 22px; background: var(--try-cream-ink); }
-.try-step-title { margin: 0 0 12px; font-family: var(--tui-font-display); font-weight: 700; font-size: 32px; line-height: 1.12; text-wrap: balance; }
+.try-step-title { margin: 0 0 12px; font-family: var(--tui-font-ui); font-weight: 500; font-size: 17px; line-height: 1.3; }
 .try-step-num { display: none; }
-.try-step-title { margin-bottom: 22px; }
-.try-next { min-height: 38px; padding: 0 16px; font-size: 14px; }
-.try-action { display: flex; width: 100%; max-width: 260px; margin-top: 14px; }
+.try-action { display: flex; width: 100%; max-width: 240px; }
 .try-phone-more, .try-only-phone { display: none; }
 @keyframes try-nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
 
@@ -109,7 +122,16 @@ html[data-eink="true"] .try-backdrop { display: none; }
 
 /* ---- Below the fold: cream ---- */
 .try-below { color: var(--try-cream-ink); padding: 56px 0 90px; border-top: 1px solid var(--try-line-on-dark); }
-.try-section { max-width: 1000px; margin: 0 auto; padding: 0 80px; }
+.try-section { max-width: 1400px; margin: 0 auto; padding: 0 32px 0 56px; }
+/* Desktop (Anders, 19 Nov): Pricing and Questions sit on the hero's grid, so the page reads as one: the title in the
+   left column under the headline, the plans and answers on the right under the reader. */
+@media (min-width: 900px) {
+  .try-section { display: grid; grid-template-columns: 340px minmax(0, 1fr); column-gap: 48px; align-items: start; }
+  .try-section-title, .try-section-sub { grid-column: 1; }
+  .try-section-title { margin-top: -.12em; }
+  .try-plans, .try-faq { grid-column: 2; grid-row: 1 / span 3; }
+  .try-section .try-faq { max-width: none; }
+}
 .try-section + .try-section { margin-top: 110px; }
 .try-section-title { margin: 0 0 8px; font-family: var(--tui-font-display); font-weight: 700; font-size: 36px; line-height: 1.1; }
 .try-section-sub { margin: 0 0 30px; font-family: var(--tui-font-serif); font-size: 18px; color: var(--try-muted-on-dark); }
@@ -151,10 +173,9 @@ html[data-eink="true"] .try-backdrop { display: none; }
 @media (max-width: 1180px) {
   .try-nav { padding-left: 24px; padding-right: 24px; }
   .try-sections { gap: 20px; }
-  .try-headline { padding: 0 24px 0 32px; }
-  .try-stage { grid-template-columns: 230px minmax(0, 1fr); gap: 28px; padding: 0 24px 0 32px; }
-  .try-step-title { font-size: 28px; }
-  .try-section, .try-footer { padding-left: 40px; padding-right: 40px; }
+  .try-stage { grid-template-columns: 280px minmax(0, 1fr); gap: 32px; padding: 0 24px 0 32px; }
+  .try-footer { padding-left: 40px; padding-right: 40px; }
+  .try-section { padding: 0 24px 0 32px; grid-template-columns: 280px minmax(0, 1fr); column-gap: 32px; }
 }
 
 /* ---- Phones and narrow windows: the step as a card, then the reader, then Start reading ---- */
@@ -170,28 +191,32 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-account .try-only-phone { display: inline-flex; }
   .try-account .try-pill--outline { border-color: transparent; background: transparent; padding: 0 2px; min-height: 34px; color: var(--try-muted-on-dark); }
   .try-sections a { padding: 4px 0; }
-  .try-account .try-only-phone { order: 2; }
+  .try-account .try-pill--cream.try-only-phone { order: 2; }
   .try-logo { font-size: 22px; }
   .try-account .try-pill { min-height: 34px; padding: 0 14px; font-size: 13.5px; }
   .try-hero { padding: 62px 0 30px; }
-  .try-headline { margin: 0 0 10px; padding: 0 16px; font-size: 24px; }
+  .try-headline { margin: 0 0 10px; font-size: 24px; }
   .try-stage { display: block; padding: 0 16px; }
+  .try-intro { display: block; }
+  .try-watching, .try-prev { display: none; }
   .try-step {
     display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: center;
-    padding: 8px 8px 8px 14px; margin-bottom: 10px; border-radius: 14px;
-    background: rgba(244, 239, 228, .07); border: 1px solid var(--try-line-on-dark);
+    padding: 7px 7px 7px 12px; margin: 0 0 10px;
+    /* A subtle box (Anders, 19 Nov): it holds the step apart from the headline without competing with it. */
+    background: rgba(244, 239, 228, .035); border: 1px solid rgba(244, 239, 228, .1); border-radius: 12px;
   }
-  .try-count { grid-column: 1; margin: 0 0 4px; }
+  .try-count { grid-column: 1; grid-row: 1; margin: 0 0 4px; }
   .try-count [data-try-count] { display: none; }
   .try-dots button { width: 14px; height: 18px; }
   .try-dots button[aria-current="step"] { width: 26px; }
   .try-dots button::before { width: 6px; height: 6px; }
   .try-dots button[aria-current="step"]::before { width: 18px; }
-  .try-step-title { grid-column: 1; margin: 0; font-family: var(--tui-font-ui); font-size: 15.5px; font-weight: 600; line-height: 1.3; }
+  .try-step-title { grid-column: 1; grid-row: 2; margin: 0; font-family: var(--tui-font-ui); font-size: 15.5px; font-weight: 600; line-height: 1.3; }
   .try-step-num { display: inline; }
   .try-next { grid-column: 2; grid-row: 1 / span 2; width: 36px; height: 36px; min-height: 36px; padding: 0; border-radius: 50%; font-size: 16px; }
   .try-next-word, .try-action { display: none; }
   .try-next { border-color: transparent; background: var(--try-cream-ink); color: var(--tui-ink); }
+  .try-next:hover { border-color: transparent; color: var(--tui-ink); }
   /* The reader takes the full width (never squeezed) and Browse the library ends the first screen (Anders, 19 Nov):
      on a short phone the frame gives up its top edge, never its sides or the answer at its foot. */
   .try-demo { width: 100%; aspect-ratio: auto; height: min(calc((100vw - 32px) * 880 / 716), max(320px, calc(100svh - 230px))); border-radius: 14px; }
@@ -217,3 +242,191 @@ html[data-eink="true"] .try-backdrop { display: none; }
   .try-plan .try-pill { white-space: normal; text-align: center; min-height: 44px; height: auto; padding-top: 10px; padding-bottom: 10px; }
   .try-plan { padding: 22px 20px; }
 }
+/* The narrowest phones: Start reading alone (account creation is one step into the library). */
+@media (max-width: 359px) {
+  .try-account .try-pill--outline.try-only-phone { display: none; }
+}
+
+/* ---- The switch to modern English: a wave that runs down the page, line after line (Anders, 19 Nov, after the
+   launch film). The new frame is unmasked from the top; the old one stays under it until the wave has passed. ---- */
+.try-demo picture.is-wave img {
+  opacity: 1; transition: none;
+  /* A soft edge 30% of the frame tall: it enters at the top as the wave starts and leaves at the foot as it ends. */
+  -webkit-mask-image: linear-gradient(#000 0 41.2%, transparent 58.8%); mask-image: linear-gradient(#000 0 41.2%, transparent 58.8%);
+  -webkit-mask-size: 100% 170%; mask-size: 100% 170%;
+  animation: try-wave 1.4s cubic-bezier(.4, 0, .3, 1) both;
+}
+.try-demo picture.is-under img { opacity: 1; transition: none; }
+/* The frame coming in sits over the one going out, whichever comes first in the page. */
+.try-demo picture.is-on { z-index: 1; }
+/* A card frame: the card rises from the foot of the screen, the page under it already in place. */
+.try-demo picture.is-rise img { opacity: 1; transition: none; animation: try-rise .6s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes try-rise { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes try-wave { from { -webkit-mask-position: 0 100%; mask-position: 0 100%; } to { -webkit-mask-position: 0 0; mask-position: 0 0; } }
+
+/* ---- Phone: the reader is the first screen (Anders, 19 Nov). The headline over the top, the reader edge to edge
+   under it, and at the foot the moment, its dots and arrow, then Start reading. Cards only peek (the frames show
+   their top), so the page itself stays readable. ---- */
+@media (max-width: 899px) {
+  .try-hero { position: relative; height: 100svh; min-height: 580px; max-height: 960px; padding: 0; overflow: hidden; }
+  .try-stage { display: block; padding: 0; }
+  .try-intro { display: contents; }
+  .try-headline {
+    position: absolute; z-index: 3; left: 16px; right: 16px; top: calc(max(8px, env(safe-area-inset-top, 0px)) + 58px);
+    margin: 0; font-size: 27px; line-height: 1.08;
+  }
+  .try-show { position: absolute; inset: 0; z-index: 1; }
+  .try-demo {
+    position: absolute; left: 0; right: 0; top: calc(max(8px, env(safe-area-inset-top, 0px)) + 142px); bottom: 0;
+    width: auto; height: auto; aspect-ratio: auto; border-radius: 0; background: transparent; box-shadow: none;
+    /* The reader fades in under the headline and out behind the controls; the scene shows around it. */
+    -webkit-mask-image: linear-gradient(transparent 0, #000 40px, #000 calc(100% - 158px), transparent calc(100% - 146px));
+    mask-image: linear-gradient(transparent 0, #000 40px, #000 calc(100% - 158px), transparent calc(100% - 146px));
+  }
+  /* The reader's foot sits just above the controls, so a card's peek is always in view; on a short phone the
+     reader's top runs under the headline's fade instead. */
+  .try-demo picture { position: absolute; left: 0; right: 0; top: auto; bottom: calc(env(safe-area-inset-bottom, 0px) + 150px); height: auto; }
+  .try-demo img { position: static; width: 100%; height: auto; object-fit: initial; }
+  .try-step {
+    position: absolute; z-index: 3; left: 16px; right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 104px);
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 12px; align-items: center;
+    margin: 0; padding: 0; background: none; border: 0; border-radius: 0;
+  }
+  .try-count { grid-column: 1; grid-row: 1; margin: 0; }
+  .try-step-title { grid-column: 2; grid-row: 1; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .try-step-num { display: none; }
+  .try-next { grid-column: 3; grid-row: 1; background: rgba(244, 239, 228, .14); color: var(--try-cream-ink); }
+  .try-next:hover { color: var(--try-cream-ink); }
+  .try-action {
+    display: flex; position: absolute; z-index: 3; left: 16px; right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 42px);
+    width: auto; max-width: none; min-height: 52px; font-size: 17px;
+  }
+  .try-phone-more { position: absolute; z-index: 3; left: 0; right: 0; bottom: calc(env(safe-area-inset-bottom, 0px) + 12px); margin: 0; }
+}
+@media (max-width: 374px) { .try-headline { font-size: 23px; } .try-step { column-gap: 10px; } .try-step-title { font-size: 14px; white-space: normal; } .try-demo { top: calc(max(8px, env(safe-area-inset-top, 0px)) + 126px); } }
+@media (prefers-reduced-motion: reduce) { .try-demo picture.is-rise img { animation: none; } .try-demo picture.is-wave img { animation: none; -webkit-mask-image: none; mask-image: none; } }
+
+/* Listen's frames cut into each other: a fade between them smears the marked word (Anders, 19 Nov). */
+.try-demo.is-cut img { transition: none; }
+/* Premium needs no card to start (Anders, 19 Nov). */
+.try-plan-note { margin: 10px 0 0; text-align: center; font: 400 13px/1.3 var(--tui-font-ui); color: var(--try-muted-on-dark); }
+/* The top bar on every width (Anders, 19 Nov): a quiet Create account and the cream Start reading, as on the phone. */
+@media (min-width: 900px) {
+  .try-account { align-items: center; gap: 18px; }
+  .try-account .try-only-phone { display: inline-flex; }
+  .try-account .try-pill--cream.try-only-phone { order: 2; }
+  .try-account .try-pill--outline.try-only-phone { border-color: transparent; background: transparent; padding: 0 2px; color: var(--try-muted-on-dark); }
+  .try-account .try-pill--outline.try-only-phone:hover { color: var(--try-cream-ink); }
+}
+
+/* ---- The visitor's pointer and the scene's name (Anders, 19 Nov) ---- */
+.try-pointer-layer { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.try-pointer {
+  position: absolute; left: 50%; top: 50%; width: 22px; height: 22px; margin: -2px 0 0 -3px; opacity: 0;
+  background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 2.5v17.2l4.6-4.3 3 6.6 3.1-1.4-3-6.5 6.3-.4z' fill='%23111' stroke='%23fff' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E");
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .35));
+}
+.try-pointer.is-on { opacity: 1; }
+.try-pointer::after {
+  content: ''; position: absolute; left: -11px; top: -11px; width: 26px; height: 26px; border-radius: 50%;
+  border: 2px solid rgba(216, 181, 106, .9); opacity: 0; transform: scale(.4);
+}
+.try-pointer.is-press::after { animation: try-press .5s ease-out; }
+@keyframes try-press { 0% { opacity: 1; transform: scale(.4); } 100% { opacity: 0; transform: scale(1.5); } }
+.try-scene {
+  position: absolute; left: 50%; top: 18%; transform: translate(-50%, 6px); padding: 9px 16px; border-radius: 999px;
+  background: rgba(29, 26, 22, .9); color: var(--try-cream-ink); font: 500 15px/1.2 var(--tui-font-ui); white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .3); opacity: 0; transition: opacity .3s, transform .3s;
+}
+.try-scene.is-on { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 899px) {
+  /* The layer matches the reader's frame, which sits on the controls. */
+  .try-pointer-layer { inset: auto 0 calc(env(safe-area-inset-bottom, 0px) + 150px) 0; aspect-ratio: 430 / 520; }
+  /* A finger, not an arrow: a soft disc that presses. */
+  .try-pointer { width: 30px; height: 30px; margin: -15px 0 0 -15px; background: rgba(29, 26, 22, .28); border: 2px solid rgba(255, 255, 255, .9); border-radius: 50%; filter: none; box-shadow: 0 2px 8px rgba(0, 0, 0, .25); transition: transform .15s; }
+  .try-pointer.is-down { transform: scale(.82); background: rgba(216, 181, 106, .45); }
+  .try-pointer::after { left: -6px; top: -6px; width: 38px; height: 38px; }
+  .try-scene { top: 30%; font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .try-pointer, .try-scene { display: none; } }
+/* Desktop: the reader names each moment itself (the scene's name, the pointer), so the step control beside it goes
+   (Anders, 19 Nov). The left column is the headline and Start reading. */
+@media (min-width: 900px) { .try-step { display: none; } }
+
+/* ---- Phone: the launch film's way (Anders, 19 Nov). The caption on the left, the reader in a real phone shape on the
+   right (its frames are a phone's own screen), always whole: no zoom (Anders, 19 Nov), a touch dot shows each tap. ---- */
+.try-caption { display: none; }
+@media (max-width: 899px) {
+  .try-show {
+    position: absolute; z-index: 1; left: 0; right: 0; overflow: hidden;
+    top: calc(max(8px, env(safe-area-inset-top, 0px)) + 132px); bottom: calc(env(safe-area-inset-bottom, 0px) + 128px);
+    /* Soft top and bottom edges, so a zoomed-in phone runs out of view rather than into a line. */
+    -webkit-mask-image: linear-gradient(transparent, #000 18px, #000 calc(100% - 18px), transparent);
+    mask-image: linear-gradient(transparent, #000 18px, #000 calc(100% - 18px), transparent);
+    /* The phone's width: a real phone's shape that fits the stage on any height. */
+    --try-pw: min(50vw, 205px, calc((100svh - 300px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 2));
+  }
+  .try-caption {
+    position: absolute; z-index: 2; left: 0; top: 0; bottom: 0; width: 44%; margin: 0;
+    padding: 0 6px 0 16px; display: flex; flex-direction: column; justify-content: center;
+    font-family: var(--tui-font-display); font-weight: 600; font-size: 23px; line-height: 1.18; color: var(--try-cream-ink);
+    text-wrap: balance; pointer-events: none;
+  }
+  .try-caption span { display: block; opacity: 0; transform: translateY(8px); transition: opacity .4s, transform .4s; }
+  .try-caption em { display: block; margin-top: 6px; color: #d8b56a; font-style: italic; font-weight: 500; }
+  .try-caption.is-on span { opacity: 1; transform: none; }
+  .try-demo {
+    position: absolute; inset: auto; z-index: 1; right: 18px; top: 50%; margin-top: calc(var(--try-pw) * -.975 - 4px);
+    display: grid; width: var(--try-pw); height: auto; aspect-ratio: auto;
+    padding: 22px 0 0; border: 7px solid #12100e; border-radius: 34px; background: #ebe6da; overflow: hidden;
+    box-shadow: 0 0 0 1.5px #9a6a45, 0 14px 30px rgba(0, 0, 0, .4);
+    -webkit-mask-image: none; mask-image: none;
+  }
+  .try-demo::before { content: ''; position: absolute; z-index: 3; top: 6px; left: 34%; width: 32%; height: 13px; border-radius: 8px; background: #000; }
+  .try-demo picture { position: static; grid-area: 1 / 1; height: auto; }
+  .try-demo img { position: static; width: 100%; height: auto; }
+  /* The touch dot taps over the screen inside the phone: the layer covers the screen, under the notch strip. */
+  .try-pointer-layer { inset: 22px 0 0 0; aspect-ratio: auto; }
+  .try-pointer { width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+  .try-pointer::after { left: -5px; top: -5px; width: 28px; height: 28px; }
+  .try-scene { display: none; }
+  .try-phone-more { left: 16px; right: auto; justify-content: flex-start; }
+  /* The dots alone, centred; the caption names the moment. */
+  .try-step { left: 0; right: 0; justify-content: center; grid-template-columns: auto; bottom: calc(env(safe-area-inset-bottom, 0px) + 106px); }
+  .try-step-title, .try-next { display: none; }
+  .try-count { grid-column: 1; }
+}
+@media (max-width: 374px) { .try-caption { font-size: 20px; } }
+@media (max-width: 899px) and (prefers-reduced-motion: reduce) { .try-caption span { transition: none; } }
+
+/* Drag frames: only the top strip, over the first frame, which stays in place beneath them. */
+.try-demo picture.is-base img { opacity: 1; transition: none; }
+.try-demo picture.is-crop { bottom: auto; height: auto; }
+.try-demo picture.is-crop img { bottom: auto; height: auto; object-fit: initial; }
+
+/* The modern-English switch: bands of the new page fading in over the old, top to bottom (try.js dissolve()). */
+.try-demo picture.is-held img { opacity: 0 !important; transition: none; }
+.try-dissolve { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.try-dissolve img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; opacity: 0; animation: try-band ease-in-out both; }
+@keyframes try-band { from { opacity: 0; } to { opacity: 1; } }
+/* The card going down: only the sheet's part of the outgoing frame, sliding off the foot of the screen. */
+.try-demo picture.is-sink { z-index: 2; }
+.try-demo picture.is-sink img { opacity: 1; transition: none; clip-path: inset(58% 0 0 0); animation: try-sink .5s cubic-bezier(.4, 0, .9, .6) both; }
+@keyframes try-sink { from { transform: none; } to { transform: translateY(46%); } }
+@media (max-width: 899px) {
+  .try-dissolve { inset: 22px 0 0 0; }
+  .try-dissolve img { height: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .try-dissolve img, .try-demo picture.is-sink img { animation: none; opacity: 1; } }
+
+.try-demo picture.is-settle img { transition: none !important; opacity: 1 !important; }
+/* Taps only: a ring where the finger lands, no dot or cursor travelling (Anders, 19 Nov). */
+.try-pointer.is-tap { background: none !important; border-color: transparent !important; box-shadow: none !important; filter: none !important; }
+.try-pointer.is-tap::before { display: none; }
+.try-pointer.is-hold { width: 26px; height: 26px; margin: -13px 0 0 -13px; border: 0 !important; border-radius: 50%; background: rgba(29, 26, 22, .18) !important; box-shadow: none !important; animation: try-hold .35s ease-out both; }
+.try-pointer.is-hold::before { display: none; }
+@keyframes try-hold { from { transform: scale(.5); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* The phone's frames are a phone screen (390 × 760): the box keeps that shape before any frame has loaded, so the
+   phone never shows small and then grows (Anders, 19 Nov). */
+@media (max-width: 899px) { .try-demo img { aspect-ratio: 390 / 760; } }

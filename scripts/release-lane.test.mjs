@@ -8,6 +8,7 @@ test('standalone pages, their own tests and docs take the page lane', () => {
   assert.equal(lane('app/public/try.html', 'app/public/lab/try/try.js', 'app/public/lab/try/try.css',
     'app/public/lab/try/frames/phone-01.webp', 'app/public/lab/try/reader-demo.js', 'app/src/tryPage.test.ts'), 'page')
   assert.equal(lane('app/public/privacy.html', 'DECISIONS.md'), 'page')
+  assert.equal(lane('app/public/about.html', 'app/public/lab/try/try.js', 'app/src/aboutPage.test.ts'), 'page')
   assert.equal(lane('app/public/modern-english.html', 'app/public/modern-english/hero.webp'), 'page')
   assert.equal(lane('docs/try-page/BRIEF.md', 'docs/try-page/screenshots/hints-phone-1-arrival.png', 'AGENTS.md'), 'page')
 })

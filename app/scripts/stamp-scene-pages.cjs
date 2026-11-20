@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * After `vite build`: give every scene page (dist/read/{bookId}/{scene}.html, scripts/seo/build-scene-pages.mjs)
+ * After `vite build`: give every scene page (dist/read/{bookId}/{scene}.html and the plays' book pages in
+ * dist/seo/book-pages/, scripts/seo/build-scene-pages.mjs)
  * and every chapter page (dist/seo/chapter-packs/{bookId}/{n}.txt, scripts/seo/build-chapter-pages.mjs)
  * the reader's own stylesheets, the exact <link rel="stylesheet"> tags of the built reader page (dist/app.html),
  * so a scene page and the reader are drawn by the same CSS and cannot drift. Fails the build when the reader page
@@ -41,6 +42,16 @@ function stampScenePages(dist = DIST) {
       fs.writeFileSync(page, html.split(PLACEHOLDER).join(tags))
       stamped += 1
     }
+  }
+  // The plays' book pages (/read/{bookId}: the first scene under the play's header), kept outside /read/.
+  const playBookDir = path.join(dist, 'seo', 'book-pages')
+  for (const file of fs.existsSync(playBookDir) ? fs.readdirSync(playBookDir) : []) {
+    if (!file.endsWith('.html')) continue
+    const page = path.join(playBookDir, file)
+    const html = fs.readFileSync(page, 'utf8')
+    if (!html.includes(PLACEHOLDER)) continue
+    fs.writeFileSync(page, html.split(PLACEHOLDER).join(tags))
+    stamped += 1
   }
   // The chapter pages (scripts/seo/build-chapter-pages.mjs) are written in packs; every page in a pack gets the same tags.
   let packs = 0

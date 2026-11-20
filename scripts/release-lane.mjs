@@ -16,13 +16,14 @@ import { pathToFileURL } from 'node:url'
 // Standalone pages: served as-is from app/public, no reader code, no Worker route of their own. Not landing.html
 // (its redirect for signed-in readers is P0) and not /byob (it hands off to sign-in): those keep the full path.
 export const PAGE_FILES = [
-  /^app\/public\/try\.html$/,
+  // /try became /about on 19 Nov 2026 (about.html; the Worker redirects /try there).
+  /^app\/public\/(try|about)\.html$/,
   /^app\/public\/lab\/try\/.+$/,
   /^app\/public\/modern-english[^/]*\.(html|js|css)$/,
   /^app\/public\/modern-english[^/]*\/.+$/,
   /^app\/public\/privacy\.html$/,
   // Those pages' own unit tests (npm test runs them in the deploy job before go-live).
-  /^app\/src\/(try|privacy|modernEnglish)Page\.test\.ts$/,
+  /^app\/src\/(try|about|privacy|modernEnglish)Page\.test\.ts$/,
   // Writing about the code: Markdown at the root (DECISIONS.md, AGENTS.md, …) and docs/ (not docs/margin/, which
   // holds the margin's layout check).
   /^[^/]+\.md$/,

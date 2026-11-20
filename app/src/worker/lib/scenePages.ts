@@ -22,3 +22,11 @@ export function scenePageForChapter(bookId: string, chapter: number): string | n
 export function scenePagesOf(bookId: string): readonly SceneEntry[] {
   return BOOKS[bookId] ?? []
 }
+
+/** Where the plays' book pages are kept (served at /read/{bookId} only; the route answers 404 here). */
+export const PLAY_BOOK_PAGE_PREFIX = '/seo/book-pages/'
+
+/** The play's book page (/read/{bookId}: its first scene under the play's header), or null for a book without scene pages. */
+export function playBookPagePath(bookId: string): string | null {
+  return BOOKS[bookId]?.length ? `${PLAY_BOOK_PAGE_PREFIX}${bookId}.html` : null
+}
