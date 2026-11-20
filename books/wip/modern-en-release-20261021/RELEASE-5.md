@@ -61,3 +61,5 @@ back proper-name misprints from the source text that the live modern-en had corr
 It needs a content correction and a new candidate hash before integration. Its card rulings are prepared: map
 Themistocles 4:1, Pausanias 5:10 and Brasidas 14:7 to the same-sentence names; leave dropped the 4:1, 5:9 and 14:7
 pronoun cases and Brasidas 8:14 if the misprint stays.
+
+Update 2026-10-22: the names were fixed and the book integrated as release `text-2026-10-22.1`; see `RELEASE-7.md`.
