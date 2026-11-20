@@ -43,6 +43,13 @@ describe('direct voice reference', () => {
     expect(result.output).toMatchObject({ok:true,book_id:'bible',edition_key:'kjv-en',chapter_number:1,paragraphs:[{index:0,text:'Let there be light.'}]})
     expect(loadEditionWindow).toHaveBeenLastCalledWith('bible','kjv-en',1)
   })
+  it('a retrieved passage is answered without filling gaps from memory only for a story-so-far book', async () => {
+    const plain = (await retrieveVoicePassage(context,{chapter_title:'Genesis 1'})).responseInstructions ?? ''
+    expect(plain).toMatch(/filling any gap from your knowledge of the book/)
+    const trial = (await retrieveVoicePassage({ ...context, bookId: 'sense-and-sensibility' },{chapter_title:'Genesis 1'})).responseInstructions ?? ''
+    expect(trial).not.toMatch(/from your knowledge of the book/)
+    expect(trial).toMatch(/Do not add events from after the reader's place unless the reader explicitly asked for spoilers/)
+  })
   it('rejects unknown chapters, invalid offsets and future text', async () => {
     for(const args of [{chapter_number:3},{chapter_title:'Does not exist'},{from_paragraph:-1},{from_paragraph:400}]) expect((await retrieveVoicePassage(context,args)).output.ok).toBe(false)
   })
