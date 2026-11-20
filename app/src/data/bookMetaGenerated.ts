@@ -670,4 +670,52 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'The Adventures of Pinocchio',
     author: 'Carlo Collodi',
   },
+  'odyssey-for-boys-and-girls': {
+    title: 'Read The Story of the Odyssey online free, in modern English | Tinct',
+    description: 'The Story of the Odyssey has 25 chapters. Read the full text free online in modern English beside the original. No sign-up, no ads.',
+    bookName: 'The Story of the Odyssey',
+    author: 'Alfred J. Church',
+  },
+  'iliad-for-boys-and-girls': {
+    title: 'Read The Story of the Iliad online free, in modern English | Tinct',
+    description: 'The Story of the Iliad has 24 chapters. Read the full text free online in modern English beside the original. No sign-up, no ads.',
+    bookName: 'The Story of the Iliad',
+    author: 'Alfred J. Church',
+  },
+  'merry-adventures-of-robin-hood': {
+    title: 'Read The Merry Adventures of Robin Hood online free, in modern English | Tinct',
+    description: 'The Merry Adventures of Robin Hood has 23 chapters. Read the full text free online in modern English beside the original. No sign-up, no ads.',
+    bookName: 'The Merry Adventures of Robin Hood',
+    author: 'Howard Pyle',
+  },
+  'wonder-book-and-tanglewood-tales': {
+    title: 'Read A Wonder Book and Tanglewood Tales online free, in modern English | Tinct',
+    description: 'A Wonder Book and Tanglewood Tales has 14 chapters. Read the full text free online in modern English beside the original. No sign-up, no ads.',
+    bookName: 'A Wonder Book and Tanglewood Tales',
+    author: 'Nathaniel Hawthorne',
+  },
+  'beautiful-stories-from-shakespeare': {
+    title: 'Read Beautiful Stories from Shakespeare online free, in modern English | Tinct',
+    description: 'Beautiful Stories from Shakespeare has 22 chapters. Read the full text free online in modern English beside the original. No sign-up, no ads.',
+    bookName: 'Beautiful Stories from Shakespeare',
+    author: 'E. Nesbit',
+  },
+  'wind-in-the-willows': {
+    title: 'Read The Wind in the Willows online free, in modern English | Tinct',
+    description: 'The Wind in the Willows has 12 chapters. Read the full text free online in modern English beside the original. No sign-up, no ads.',
+    bookName: 'The Wind in the Willows',
+    author: 'Kenneth Grahame',
+  },
+  'story-of-king-arthur-and-his-knights': {
+    title: 'Read The Story of King Arthur and His Knights online free, in modern English | Tinct',
+    description: 'The Story of King Arthur and His Knights has 33 chapters. Read the full text free online in modern English beside the original. No sign-up, no ads.',
+    bookName: 'The Story of King Arthur and His Knights',
+    author: 'Howard Pyle',
+  },
+  'the-secret-garden': {
+    title: 'Read The Secret Garden online free, in modern English | Tinct',
+    description: 'The Secret Garden has 27 chapters. Read the full text free online in modern English beside the original. No sign-up, no ads.',
+    bookName: 'The Secret Garden',
+    author: 'Frances Hodgson Burnett',
+  },
 }

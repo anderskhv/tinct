@@ -26,6 +26,15 @@ describe('default editions (approved 2026-09-25)', () => {
     expect(defaults('pride-and-prejudice')).toEqual({ primary: 'modern-en', compare: 'original-en' })
   })
 
+  it('the eight young-reader books: Tinct Modern English, Compare in the English original (20 Nov 2026)', () => {
+    for (const id of ['odyssey-for-boys-and-girls', 'iliad-for-boys-and-girls', 'merry-adventures-of-robin-hood', 'wonder-book-and-tanglewood-tales', 'beautiful-stories-from-shakespeare', 'wind-in-the-willows', 'story-of-king-arthur-and-his-knights', 'the-secret-garden']) {
+      expect(defaults(id), id).toEqual({ primary: 'modern-en', compare: 'original-en' })
+      const book = PRE_READER_CATALOGUE.booksById.get(id)!
+      expect(book.defaultEditionKey, id).toBe('modern-en')
+      expect(book.defaultCompareEditionKey, id).toBe('original-en')
+    }
+  })
+
   it('compares translated and older works with the easiest human translation', () => {
     expect(defaults('odyssey').compare).toBe('original-en')
     // WEB is rated easier than KJV; BSB is the main edition.
