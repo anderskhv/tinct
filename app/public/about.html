@@ -22,9 +22,9 @@
 <link rel="icon" href="/favicon.ico">
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
 <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel10">
-<link rel="stylesheet" href="/lab/try/try.css?v=20261119oilm4">
+<link rel="stylesheet" href="/lab/try/try.css?v=20261120moments3">
 <script type="module" src="/lab/internal-traffic.js"></script>
-<script src="/lab/try/try.js?v=20261119oilm4" defer></script>
+<script src="/lab/try/try.js?v=20261120moments3" defer></script>
 </head>
 <body class="try">
 <div class="try-backdrop" aria-hidden="true"></div>
@@ -48,6 +48,15 @@
     <div class="try-intro">
     <h1 class="try-headline">Read and listen anywhere, with help always at hand.</h1>
     <a class="try-pill try-pill--cream try-pill--big try-action" href="/library" data-try-start>Start reading</a>
+
+    <!-- Desktop: the four moments the reader beside it plays, as the phone's captions name them; the current one lit
+         (Anders, 20 Nov: subtle, shorter than the reader). Each one jumps the reader to its moment. -->
+    <ol class="try-moments" aria-label="What the reader shows">
+      <li><button type="button" data-try-step="0" aria-current="step"><span class="try-moment-q">Stuck on a line? <em>Explain it.</em></span></button></li>
+      <li><button type="button" data-try-step="1"><span class="try-moment-q">Language too hard? <em>Switch to modern English.</em></span></button></li>
+      <li><button type="button" data-try-step="2"><span class="try-moment-q">On the go? <em>Listen.</em></span></button></li>
+      <li><button type="button" data-try-step="3"><span class="try-moment-q">Short on time? <em>Get the gist.</em></span></button></li>
+    </ol>
 
     <!-- What the reader beside it is showing. It plays on its own (try.js); the arrows step, the dots jump. -->
     <section class="try-step" aria-label="What you are watching" aria-live="polite">

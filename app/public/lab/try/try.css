@@ -400,9 +400,6 @@ html[data-eink="true"] .try-backdrop { display: none; }
 @media (max-width: 899px) and (prefers-reduced-motion: reduce) { .try-caption span { transition: none; } }
 
 /* Drag frames: only the top strip, over the first frame, which stays in place beneath them. */
-.try-demo picture.is-base img { opacity: 1; transition: none; }
-.try-demo picture.is-crop { bottom: auto; height: auto; }
-.try-demo picture.is-crop img { bottom: auto; height: auto; object-fit: initial; }
 
 /* The modern-English switch: bands of the new page fading in over the old, top to bottom (try.js dissolve()). */
 .try-demo picture.is-held img { opacity: 0 !important; transition: none; }
@@ -430,3 +427,28 @@ html[data-eink="true"] .try-backdrop { display: none; }
 /* The phone's frames are a phone screen (390 × 760): the box keeps that shape before any frame has loaded, so the
    phone never shows small and then grows (Anders, 19 Nov). */
 @media (max-width: 899px) { .try-demo img { aspect-ratio: 390 / 760; } }
+
+/* ---- Desktop: the moments beside the reader (Anders, 20 Nov: subtle). The phone's captions as four quiet lines, the
+   current one lit; they replace the scene label over the reader. ---- */
+.try-moments { display: none; }
+@media (min-width: 900px) {
+  .try-moments { display: grid; gap: 2px; list-style: none; margin: 40px 0 0; padding: 0; }
+  .try-moments button {
+    display: block; padding: 5px 0 5px 14px; border: 0; border-left: 2px solid transparent; background: none;
+    color: rgba(244, 239, 228, .45); font: 400 16px/1.35 var(--tui-font-serif); text-align: left; cursor: pointer;
+    transition: color .4s, border-color .4s;
+  }
+  .try-moments em { font-style: italic; }
+  .try-moments button[aria-current="step"] { color: var(--try-cream-ink); border-left-color: #d8b56a; }
+  .try-moments button[aria-current="step"] em { color: #d8b56a; }
+  .try-moments button:hover, .try-moments button:focus-visible { color: var(--try-cream-ink); }
+  .try-scene { display: none; }
+}
+
+/* ---- Phone: the top bar is only the logo over the hero; Start reading slides in once the hero has scrolled past
+   (Anders, 20 Nov: too many buttons). Create account lives in Pricing. ---- */
+@media (max-width: 899px) {
+  .try-account .try-pill--outline.try-only-phone { display: none; }
+  .try-account { opacity: 0; transform: translateY(-6px); pointer-events: none; transition: opacity .3s, transform .3s; }
+  .try-nav.is-past-hero .try-account { opacity: 1; transform: none; pointer-events: auto; }
+}
