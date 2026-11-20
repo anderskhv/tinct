@@ -206,7 +206,7 @@ describe('the sitemap', () => {
       expect(locs, id).not.toContain(`https://tinct.app/read/${id}/chapter-1`)
       expect(locs, id).toContain(`https://tinct.app/read/${id}`)
     }
-    expect(locs).toContain('https://tinct.app/modern-english')
+    expect(locs).not.toContain('https://tinct.app/modern-english')
   })
 
   it('lists only the indexable shelf hubs', () => {

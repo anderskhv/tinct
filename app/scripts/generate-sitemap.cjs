@@ -901,9 +901,6 @@ function buildSitemap(books, state = loadLastmodState(), next = {}) {
       }
     }
   }
-  // /modern-english: every book in Modern English (docs/seo-brief-2026-11-19.md §6).
-  const modernHub = path.join(APP_DIR, 'public/modern-english.html')
-  if (fs.existsSync(modernHub)) entry(`${ORIGIN}/modern-english`, { changefreq: 'weekly', priority: 0.8 }, modernHub)
   // Shelf hubs that list an indexable book.
   for (const [shelf, indexable] of Object.entries(loadChapterManifest().hubs)) {
     const file = path.join(READ_DIR, 'shelf', `${shelf}.html`)

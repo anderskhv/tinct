@@ -467,7 +467,6 @@ export function renderShelfHubs(input: {
     .hub-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px max(20px, 2.5vw); }
     .hub-top a { color: var(--tui-ink); text-decoration: none; font-size: var(--tui-text-ui); }
     .hub-top .hub-logo { font-family: var(--tui-font-serif); font-size: 30px; letter-spacing: -1.5px; }
-    .hub-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 20px; }
     main { max-width: 1180px; margin: 0 auto; padding: 24px max(20px, 2.5vw) 80px; }
     /* Two families on the screen: the books' serif (title and book titles) and the system face for the links. */
     h1 { margin: 0 0 32px; font: 500 var(--tui-text-3xl)/1.1 var(--tui-font-serif); letter-spacing: -.01em; }
@@ -480,7 +479,7 @@ export function renderShelfHubs(input: {
   </style>
 </head>
 <body>
-<nav class="hub-top"><a class="hub-logo" href="/">tinct</a><span class="hub-links"><a href="/modern-english">Every classic in modern English</a><a href="/read/">Library</a></span></nav>
+<nav class="hub-top"><a class="hub-logo" href="/">tinct</a><a href="/read/">Library</a></nav>
 <main>
 <h1>${escapeHtml(heading)}</h1>
 <ul class="hub-books">
@@ -493,98 +492,4 @@ ${items}
     hubs.push({ shelfId, heading, indexable, bookIds: books.map(book => book.id), html })
   }
   return hubs
-}
-
-// ===== /modern-english =====
-
-export const MODERN_ENGLISH_PATH = '/modern-english'
-export const MODERN_ENGLISH_TITLE = 'Classics in modern English, free to read | Tinct'
-export const MODERN_ENGLISH_HEADING = 'Every classic in modern English'
-/**
- * The edition note for many books at once: Anders's note with "{translator}'s public-domain translation" and
- * "{author}'s original text" folded into one phrase. New wording, proposed to Anders in the PR (19 Nov 2026).
- */
-export const MODERN_ENGLISH_NOTE = "<strong>How these editions are made.</strong> Tinct's modern English is drafted with AI from each book's public-domain translation or original text, then checked by a separate AI review against it. The original is one tap away, and if you spot a mistake, tell us."
-
-/**
- * `/modern-english` (docs/seo-brief-2026-11-19.md §6): every book with a Modern English edition, grouped by the
- * library's shelves (each book once, under its first shelf), with cover, title, author and a link to its book page;
- * the edition note once. Nothing else written.
- */
-export function renderModernEnglishHub(input: {
-  books: ReadonlyArray<Pick<Book, 'id' | 'title' | 'author'> & { cover: string | null }>
-}): { html: string; bookIds: string[] } {
-  const byId = new Map(input.books.map(book => [book.id, book]))
-  const order = LIBRARY_HOUSES.flatMap(house => house.shelves)
-  const shelfIds = [...order, ...Object.keys(LIBRARY_SHELVES).filter(id => !order.includes(id))]
-  const placed = new Set<string>()
-  const groups: Array<{ title: string; books: typeof input.books[number][] }> = []
-  for (const shelfId of shelfIds) {
-    const shelf = LIBRARY_SHELVES[shelfId]
-    if (!shelf) continue
-    const books = LIBRARY_BOOK_META.filter(meta => meta.shelves.includes(shelfId) && byId.has(meta.id) && !placed.has(meta.id)).map(meta => byId.get(meta.id)!)
-    if (!books.length) continue
-    for (const book of books) placed.add(book.id)
-    groups.push({ title: shelf.title, books })
-  }
-  const rest = input.books.filter(book => !placed.has(book.id))
-  if (rest.length) groups.push({ title: 'More books', books: rest })
-  const canonical = `${CHAPTER_PAGE_ORIGIN}${MODERN_ENGLISH_PATH}`
-  const bookIds = groups.flatMap(group => group.books.map(book => book.id))
-  const jsonLd = {
-    '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${canonical}#page`, url: canonical, name: MODERN_ENGLISH_HEADING,
-    hasPart: groups.flatMap(group => group.books.map(book => ({ '@type': 'Book', name: book.title, author: { '@type': 'Person', name: book.author }, url: `${CHAPTER_PAGE_ORIGIN}/read/${book.id}` }))),
-  }
-  const section = (group: typeof groups[number]) => `<section>
-<h2>${escapeHtml(group.title)}</h2>
-<ul class="hub-books">
-${group.books.map(book => `<li><a href="/read/${book.id}">${book.cover ? `<img src="${escapeHtml(book.cover)}" alt="" width="180" height="270" loading="lazy" decoding="async">` : '<span class="hub-cover-blank" aria-hidden="true"></span>'}<span class="tui-book-title">${escapeHtml(book.title)}</span><span class="hub-author">${escapeHtml(book.author)}</span></a></li>`).join('\n')}
-</ul>
-</section>`
-  const html = `<!doctype html>
-<html lang="en" data-tui-theme="dark">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--tinct:seo-->
-  <title>${escapeHtml(MODERN_ENGLISH_TITLE)}</title>
-  <link rel="canonical" href="${escapeHtml(canonical)}">
-  <meta property="og:title" content="${escapeHtml(MODERN_ENGLISH_HEADING)}">
-  <meta property="og:url" content="${escapeHtml(canonical)}">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Tinct">
-  <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>
-  <!--/tinct:seo-->
-  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
-  <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel10">
-  <style>
-    html, body { margin: 0; background: var(--tui-paper); color: var(--tui-ink); }
-    body { font-family: var(--tui-font-ui); -webkit-font-smoothing: antialiased; }
-    .hub-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px max(20px, 2.5vw); }
-    .hub-top a { color: var(--tui-ink); text-decoration: none; font-size: var(--tui-text-ui); }
-    .hub-top .hub-logo { font-family: var(--tui-font-serif); font-size: 30px; letter-spacing: -1.5px; }
-    main { max-width: 1180px; margin: 0 auto; padding: 24px max(20px, 2.5vw) 80px; }
-    h1 { margin: 0 0 16px; font: 500 var(--tui-text-3xl)/1.1 var(--tui-font-serif); letter-spacing: -.01em; }
-    .hub-note { max-width: 46rem; margin: 0 0 40px; color: var(--tui-ink-muted, var(--tui-ink)); font-size: var(--tui-text-ui); line-height: 1.5; }
-    h2 { margin: 48px 0 20px; font: 500 var(--tui-text-xl, 24px)/1.2 var(--tui-font-serif); }
-    .hub-books { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 32px 24px; }
-    .hub-books a { display: grid; gap: 6px; color: var(--tui-ink); text-decoration: none; }
-    .hub-books img, .hub-cover-blank { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; border-radius: 2px; box-shadow: var(--tui-shadow-sm); background: var(--tui-surface-2); margin-bottom: 4px; }
-    .hub-books .tui-book-title { font-size: var(--tui-text-body); line-height: 1.25; }
-    .hub-books .hub-author { font-size: var(--tui-text-ui); opacity: .7; }
-    .hub-books a:hover .tui-book-title, .hub-books a:focus-visible .tui-book-title { text-decoration: underline; text-underline-offset: 3px; }
-    @media (max-width: 520px) { .hub-books { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; } }
-  </style>
-</head>
-<body>
-<nav class="hub-top"><a class="hub-logo" href="/">tinct</a><a href="/read/">Library</a></nav>
-<main>
-<h1>${escapeHtml(MODERN_ENGLISH_HEADING)}</h1>
-<p class="hub-note">${MODERN_ENGLISH_NOTE}</p>
-${groups.map(section).join('\n')}
-</main>
-</body>
-</html>
-`
-  return { html, bookIds }
 }
