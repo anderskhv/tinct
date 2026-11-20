@@ -3213,7 +3213,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "author": "Howard Pyle",
     "year": "1903",
     "ySort": 1903,
-    "form": "epic",
+    "form": "novel",
     "era": "contemporary",
     "hue": 10,
     "blurb": "A boy draws a sword from a stone, and the knights of the Round Table ride out to prove themselves.",
