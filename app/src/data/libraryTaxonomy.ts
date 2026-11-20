@@ -3061,10 +3061,10 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "id": "odyssey-for-boys-and-girls",
     "title": "The Story of the Odyssey",
     "author": "Alfred J. Church",
-    "year": "1892",
-    "ySort": 1892,
+    "year": "c. 700 BC",
+    "ySort": -700,
     "form": "epic",
-    "era": "modern",
+    "era": "antiquity",
     "hue": 35,
     "blurb": "Alfred Church’s prose retelling of Homer’s Odyssey, from the counsel of Athene to the slaying of the suitors.",
     "themes": [
@@ -3075,7 +3075,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "justice"
     ],
     "shelves": [
-      "ancient-epics"
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -3086,10 +3086,10 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "id": "iliad-for-boys-and-girls",
     "title": "The Story of the Iliad",
     "author": "Alfred J. Church",
-    "year": "1920",
-    "ySort": 1920,
+    "year": "c. 750 BC",
+    "ySort": -750,
     "form": "epic",
-    "era": "contemporary",
+    "era": "antiquity",
     "hue": 35,
     "blurb": "Alfred Church’s prose retelling of Homer’s Iliad, from the quarrel of Achilles and Agamemnon to the ransoming of Hector.",
     "themes": [
@@ -3100,7 +3100,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "grief"
     ],
     "shelves": [
-      "ancient-epics"
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -3125,7 +3125,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "generosity"
     ],
     "shelves": [
-      "adventure"
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -3150,7 +3150,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "greed"
     ],
     "shelves": [
-      "folk-and-fairy-tales"
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -3175,7 +3175,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "disguise"
     ],
     "shelves": [
-      "folk-and-fairy-tales"
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -3200,7 +3200,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "adventure"
     ],
     "shelves": [
-      "adventure"
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -3225,8 +3225,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "loyalty"
     ],
     "shelves": [
-      "medieval-epics",
-      "adventure"
+      "young-readers"
     ],
     "langs": [
       "EN"
@@ -3250,7 +3249,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "nature"
     ],
     "shelves": [
-      "adventure"
+      "young-readers"
     ],
     "langs": [
       "EN"
@@ -3424,6 +3423,11 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
     "sub": "Tales from the oral tradition",
     "hue": 30
   },
+  "young-readers": {
+    "title": "For young readers",
+    "sub": "Classics retold and written for younger readers",
+    "hue": 130
+  },
   "critical-rationalism": {
     "title": "Critical Rationalism",
     "sub": "Popper, Deutsch and how knowledge grows",
@@ -3487,6 +3491,7 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "satirical-novels",
       "adventure",
       "folk-and-fairy-tales",
+      "young-readers",
       "detective-fiction"
     ]
   },

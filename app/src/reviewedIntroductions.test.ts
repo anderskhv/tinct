@@ -17,6 +17,10 @@ const RELEASE_IMAGES: Record<string, string[]> = { 'sense-and-sensibility': ['ja
 // Books published from a book package (books/wip/<id>/package), with their
 // own preface; no reviewed portrait yet, so their flaps show no image.
 const PACKAGE_BOOKS = ['master-and-margarita', 'pinocchio']
+// The eight young-reader books (published 2026-11-20): introductions written for
+// them on 2026-11-20 (books/wip/<id>/intro-data, accepted by Anders). No
+// reviewed portrait yet, so their flaps show no image.
+const YOUNG_READER_BOOKS = ['odyssey-for-boys-and-girls', 'iliad-for-boys-and-girls', 'merry-adventures-of-robin-hood', 'wonder-book-and-tanglewood-tales', 'beautiful-stories-from-shakespeare', 'wind-in-the-willows', 'story-of-king-arthur-and-his-knights', 'the-secret-garden']
 
 describe('reviewed library introductions', () => {
   it('preserves all supplied prose exactly and retains the library’s book identities (ten, plus the Bible since 10 Nov 2026)', () => {
@@ -115,7 +119,7 @@ describe('remaining ninety reviewed introductions', () => {
     const allIds=[...source.books,...batch.books].map(book=>book.id)
     expect(new Set(allIds).size).toBe(101)
     expect([...allIds].sort()).toEqual(images.books.map(book=>book.bookId).filter(id=>!RELEASE_BOOKS.includes(id)).sort())
-    expect(Object.keys(reviewedHooks).sort()).toEqual([...allIds, ...RELEASE_BOOKS, ...PACKAGE_BOOKS].sort())
+    expect(Object.keys(reviewedHooks).sort()).toEqual([...allIds, ...RELEASE_BOOKS, ...PACKAGE_BOOKS, ...YOUNG_READER_BOOKS].sort())
     for(const accepted of batch.books){
       const copy=json('../public/lab/library_2/intro-data/'+accepted.id+'.json')
       expect(copy.id).toBe(accepted.id)
@@ -175,5 +179,23 @@ describe('book-package introductions', () => {
     const book = { id, characters: [] as unknown[] }
     applyReviewedIntroduction(book, copy)
     expect(book).toMatchObject({ reviewedIntroduction: true, hook: accepted.hook.text, preface: accepted.preface.paragraphs })
+  })
+})
+
+describe('young-reader introductions (20 Nov 2026)', () => {
+  it.each(YOUNG_READER_BOOKS)('%s uses its written hook, author note, preface and orientation verbatim', id => {
+    const accepted = json('../../books/wip/' + id + '/intro-data/' + id + '.json')
+    const copy = json('../public/lab/library_2/intro-data/' + id + '.json')
+    expect(copy).toEqual(accepted)
+    expect(Object.keys(copy)).toEqual(['id', 'title', 'author', 'hook', 'preface', 'orientation'])
+    expect(Object.keys(copy.author)).toEqual(['name', 'years', 'occupation', 'biography'])
+    expect(copy.hook.text).toMatch(/\?$/)
+    expect(copy.preface.paragraphs.length).toBeGreaterThanOrEqual(3)
+    expect(copy.preface.paragraphs.length).toBeLessThanOrEqual(4)
+    expect(reviewedHooks[id]).toBe(accepted.hook.text)
+    expect(json('../public/lab/library_2/author-images.json').books.some((book: { bookId: string }) => book.bookId === id)).toBe(false)
+    const book = { id, characters: [] as unknown[] }
+    applyReviewedIntroduction(book, copy)
+    expect(book).toMatchObject({ reviewedIntroduction: true, hook: accepted.hook.text, preface: accepted.preface.paragraphs, orientation: accepted.orientation.text })
   })
 })
