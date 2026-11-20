@@ -10,7 +10,7 @@ import { chapterPageMarker, renderChapterPages, renderShelfHubs } from './seo/ch
 // Chapter pages and shelf hubs (Anders, 16 Nov 2026): /read/{bookId}/chapter-N and /read/shelf/{shelf}, served
 // as static HTML to everyone. The packs are rendered here from the editions, as the build writes them.
 const GOOGLEBOT = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
-type Entry = { chapters: number; packs: number[]; indexable: boolean; original: string | null }
+type Entry = { chapters: number; bookPage?: boolean; packs: number[]; indexable: boolean; original: string | null }
 const books = manifest.books as Record<string, Entry>
 const edition = (id: string, key: string) => JSON.parse(readFileSync(`public/data/editions/${id}-${key}.json`, 'utf8'))
 
@@ -20,7 +20,7 @@ function packsOf(id: string): Map<string, string> {
   const entry = books[id]
   const pages = renderChapterPages({
     book, modern: edition(id, 'modern-en'), original: entry.original ? edition(id, entry.original) : null, originalKey: entry.original,
-    note: (notes.books as Record<string, string>)[id] ?? null, indexable: entry.indexable,
+    note: (notes.books as Record<string, string>)[id] ?? null, indexable: entry.indexable, bookPage: entry.bookPage,
   })
   const packs = new Map<string, string>()
   entry.packs.forEach((start, index) => {
@@ -29,7 +29,7 @@ function packsOf(id: string): Map<string, string> {
   })
   return packs
 }
-const packs = new Map([...packsOf('moby-dick'), ...packsOf('odyssey')])
+const packs = new Map([...packsOf('moby-dick'), ...packsOf('odyssey'), ...packsOf('the-art-of-war')])
 const hubs = renderShelfHubs({
   books: [{ id: 'crime-and-punishment', title: 'Crime and Punishment', modern: true, cover: null }, { id: 'meditations', title: 'Meditations', modern: true, cover: null }],
   indexableBooks: new Set(['crime-and-punishment']),
@@ -57,18 +57,20 @@ const get = (path: string, headers: Record<string, string> = { 'User-Agent': GOO
 const text = (html: string) => html.replace(/<[^>]+>/g, '').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&')
 
 describe('chapter pages', () => {
+  // Since 19 Nov 2026 the first chapter is the book page (/read/{bookId}), its canonical (docs/seo-brief-2026-11-19.md §1);
+  // titles by search intent (§3).
   it('serve an allowlisted book\'s chapter to Googlebot: 200, both texts as HTML, self-canonical, no noindex', async () => {
-    const resp = await get('/read/moby-dick/chapter-1')
+    const resp = await get('/read/moby-dick/chapter-2')
     expect(resp.status).toBe(200)
     expect(resp.headers.get('Content-Type')).toBe('text/html; charset=utf-8')
     expect(resp.headers.get('X-Robots-Tag')).toBeNull()
     expect(resp.headers.get('Cache-Control')).toBe('public, max-age=300, stale-while-revalidate=86400')
     const html = await resp.text()
     expect(html).not.toMatch(/name="robots"/)
-    expect(html).toContain('<title>Moby Dick, Chapter 1 in modern English | Tinct</title>')
-    expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/moby-dick/chapter-1">')
-    expect(text(html)).toContain('Call me Ishmael. Some years ago — never mind exactly how long')
-    expect(text(html)).toContain('Call me Ishmael. Some years ago—never mind how long precisely')
+    expect(html).toContain('<title>Moby Dick, Chapter 2 of 135: full text in modern English | Tinct</title>')
+    expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/moby-dick/chapter-2">')
+    expect(text(html)).toContain('I stuffed a shirt or two into my old carpet-bag')
+    expect(html).toContain('class="chapter-col chapter-col-original"')
     expect(html).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/books/moby-dick.jpg">')
     expect(html.match(/<!--tinct:chapter-page/g)).toBeNull()
   })
@@ -81,13 +83,26 @@ describe('chapter pages', () => {
     }
   })
 
+  it('serve the first chapter with the book page as its canonical', async () => {
+    const html = await (await get('/read/moby-dick/chapter-1')).text()
+    expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/moby-dick">')
+    expect(html).toContain('<title>Moby Dick, Chapter 1 of 135: full text in modern English | Tinct</title>')
+  })
+
+  it('serve the Odyssey (wave 2) as indexable', async () => {
+    const resp = await get('/read/odyssey/chapter-2')
+    expect(resp.status).toBe(200)
+    expect(resp.headers.get('X-Robots-Tag')).toBeNull()
+    expect(await resp.text()).not.toMatch(/name="robots"/)
+  })
+
   it('serve another book\'s chapter live, but noindex, follow (header and meta tag)', async () => {
-    const resp = await get('/read/odyssey/chapter-1')
+    const resp = await get('/read/the-art-of-war/chapter-2')
     expect(resp.status).toBe(200)
     expect(resp.headers.get('X-Robots-Tag')).toBe('noindex, follow')
     const html = await resp.text()
     expect(html).toContain('<meta name="robots" content="noindex, follow">')
-    expect(text(html)).toContain('Tell me, Muse, of that clever hero')
+    expect(text(html)).toContain(edition('the-art-of-war', 'modern-en').chapters[1].paragraphs[0].slice(0, 30))
   })
 
   it('are the same page signed in', async () => {
@@ -124,18 +139,37 @@ describe('chapter pages', () => {
 })
 
 describe('book pages', () => {
-  it('show the edition note, the first paragraph in both versions and every chapter\'s page, without scripts', async () => {
+  // Since 19 Nov 2026 (docs/seo-brief-2026-11-19.md §1) /read/{bookId} opens straight into the first chapter, under
+  // the book's header (title, author, structure pill), with the chapter list below; it was the library page.
+  it('open into the first chapter signed out, both texts in the HTML, the structure pill and the chapter list', async () => {
     const resp = await get('/read/moby-dick')
     expect(resp.status).toBe(200)
+    expect(resp.headers.get('X-Robots-Tag')).toBeNull()
     const html = await resp.text()
-    const about = html.slice(html.indexOf('<section id="book-about"'))
-    expect(about).toContain("<strong>How this edition was made.</strong> Tinct's modern English is drafted with AI from Herman Melville's original text, then checked by a separate AI review against it. The original is always beside it, and if you spot a mistake, tell us.")
-    expect(about).toContain('<p class="opening-label">Modern English</p>')
-    expect(about).toContain('<p class="opening-label">Original (1851)</p>')
-    expect(text(about)).toContain('Call me Ishmael. Some years ago — never mind exactly how long')
-    expect(text(about)).toContain('Call me Ishmael. Some years ago—never mind how long precisely')
-    for (let chapter = 1; chapter <= 136; chapter += 1) expect(about).toContain(`<a href="/read/moby-dick/chapter-${chapter}">`)
-    expect(about).toContain('id="chapters"')
+    expect(html).toContain('<title>Read Moby Dick online free, in modern English | Tinct</title>')
+    expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/moby-dick">')
+    expect(html).toContain('<span class="book-structure" id="book-structure">135 chapters + epilogue</span>')
+    expect(html).toContain("<strong>How this edition was made.</strong> Tinct's modern English is drafted with AI from Herman Melville's original text, then checked by a separate AI review against it. The original is one tap away, and if you spot a mistake, tell us.")
+    expect(html).toContain('<p class="chapter-col-head">Modern English</p>')
+    expect(html).toContain('<p class="chapter-col-head" lang="en">Original (1851)</p>')
+    expect(text(html)).toContain('Call me Ishmael. Some years ago — never mind exactly how long')
+    expect(text(html)).toContain('Call me Ishmael. Some years ago—never mind how long precisely')
+    const list = html.slice(html.indexOf('<section class="book-chapters" id="chapters"'))
+    expect(list).toContain('<a href="/read/moby-dick" data-scene-keep>')
+    for (let chapter = 2; chapter <= 136; chapter += 1) expect(list).toContain(`<a href="/read/moby-dick/chapter-${chapter}" data-scene-keep>`)
+  })
+
+  it('stay indexable for a book whose chapters are not', async () => {
+    const resp = await get('/read/the-art-of-war')
+    expect(resp.status).toBe(200)
+    expect(resp.headers.get('X-Robots-Tag')).toBeNull()
+    expect(await resp.text()).not.toMatch(/name="robots"/)
+  })
+
+  it('still send a signed-in reader to the library', async () => {
+    const resp = await get('/read/moby-dick', { Cookie: 'tinct_auth=1' })
+    expect(resp.status).toBe(302)
+    expect(resp.headers.get('Location')).toBe('/library?book=moby-dick')
   })
 })
 
@@ -163,10 +197,16 @@ describe('the sitemap', () => {
     const indexable = Object.entries(books).filter(([, entry]) => entry.indexable).map(([id]) => id)
     expect([...listed].sort()).toEqual(indexable.sort())
     expect(indexable.every(id => SEO_INDEX_ALLOWLIST.includes(id))).toBe(true)
-    expect(listed.size).toBe(14)
+    expect(listed.size).toBe(18)
     expect(listed.has('ivan-ilyich')).toBe(false)
-    expect(listed.has('odyssey')).toBe(false)
-    for (const id of indexable) expect(chapterLocs.filter(loc => loc.includes(`/read/${id}/chapter-`)), id).toHaveLength(books[id].chapters)
+    expect(listed.has('odyssey')).toBe(true)
+    // The first chapter is the book page, which is listed instead (docs/seo-brief-2026-11-19.md §1).
+    for (const id of indexable) {
+      expect(chapterLocs.filter(loc => loc.includes(`/read/${id}/chapter-`)), id).toHaveLength(books[id].chapters - 1)
+      expect(locs, id).not.toContain(`https://tinct.app/read/${id}/chapter-1`)
+      expect(locs, id).toContain(`https://tinct.app/read/${id}`)
+    }
+    expect(locs).not.toContain('https://tinct.app/modern-english')
   })
 
   it('lists only the indexable shelf hubs', () => {

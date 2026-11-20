@@ -9,7 +9,8 @@
 // file per pack, and the Worker serves one page out of its pack (src/worker/lib/chapterPages.ts).
 //
 // Writes (generated, not committed):
-//   public/seo/chapter-packs/{bookId}/{n}.txt   chapter pages, each after <!--tinct:chapter-page N-->; the reader's
+//   public/seo/chapter-packs/{bookId}/{n}.txt   chapter pages, each after <!--tinct:chapter-page N--> (N = 0: the
+//                                               book page, /read/{bookId}, ahead of chapter 1); the reader's
 //                                               CSS links are stamped in after vite build (stamp-scene-pages.cjs)
 //   public/read/shelf/{shelf}.html              the shelf hubs
 //   public/read/chapter-page.css                the chapter pages' own stylesheet
@@ -80,7 +81,7 @@ for (const plan of plans) {
   const original = plan.originalKey ? readEdition(plan.book.id, plan.originalKey) : null
   const rendered = renderer.renderChapterPages({
     book: plan.book, modern, original, originalKey: plan.originalKey,
-    note: plan.source ? renderer.editionNoteHtml(plan.source) : null, indexable: plan.indexable,
+    note: plan.source ? renderer.editionNoteHtml(plan.source) : null, indexable: plan.indexable, bookPage: true,
   })
   const dir = join(PACK_DIR, plan.book.id)
   mkdirSync(dir, { recursive: true })
@@ -101,10 +102,12 @@ for (const plan of plans) {
     if (Buffer.byteLength(pack) >= PACK_BYTES) flush()
   }
   flush()
+  // The book page (/read/{bookId}) is page 0 of the first pack: the first chapter under the book's header.
+  const chapterCount = rendered.filter(page => page.chapterNumber > 0).length
   pages += rendered.length
   if (plan.indexable) indexablePages += rendered.length
   manifest.books[plan.book.id] = {
-    chapters: rendered.length, packs: starts, indexable: plan.indexable, original: plan.originalKey,
+    chapters: chapterCount, bookPage: rendered.some(page => page.chapterNumber === 0), packs: starts, indexable: plan.indexable, original: plan.originalKey,
     labels: [renderer.editionLabelOf(plan.book, 'modern-en'), plan.originalKey ? renderer.editionLabelOf(plan.book, plan.originalKey) : null],
   }
 }

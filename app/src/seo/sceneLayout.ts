@@ -3,12 +3,23 @@
  * of the page's `.lab` root, so it runs before the text is painted). It picks the reader's own layout and theme,
  * by the reader's own rules (readerBoot.ts, as the reader's boot does): the phone reader's surface on a phone,
  * the desktop margin reader elsewhere; the reader's chosen theme, else the system's. It reads the appearance
- * preferences only, never a reading position, and writes nothing.
+ * preferences only, never a reading position, and writes nothing. Since 19 Nov 2026 it also shows the text the
+ * visitor last chose on this book's pages (Original, Modern or Both; READ_VIEW_KEY), before the text is painted.
  */
 import { LAB_PHONE_QUERY, LAB_THEME_PAPER, READER_BOOT_PREFS_KEY, readerBootProfile, readerBootTheme, type LabResolvedTheme } from '../lab/readerBoot'
 
+export type ReadView = 'modern' | 'original' | 'both'
+/** The text a visitor last chose on a book's chapter or scene pages (scenePageClient writes it). */
+export const READ_VIEW_KEY = (bookId: string) => `tinct-read-view:${bookId}`
+
+/** The text to show: the visitor's choice, else the page's default; a phone has no room for Both. */
+export function resolveReadView(stored: string | null, fallback: string | undefined, phone: boolean): ReadView {
+  const pick = stored === 'modern' || stored === 'original' || stored === 'both' ? stored : fallback === 'original' || fallback === 'both' ? fallback : 'modern'
+  return phone && pick === 'both' ? 'modern' : pick
+}
+
 export function applySceneLayout(lab: HTMLElement, env: {
-  prefs: string | null; systemDark: boolean; phone: boolean
+  prefs: string | null; systemDark: boolean; phone: boolean; view?: string | null
 }): { phone: boolean; theme: LabResolvedTheme } {
   const profile = env.phone ? 'phone' : 'desktop'
   const theme = readerBootTheme(env.prefs, env.systemDark, false, profile) ?? (env.systemDark ? 'dark' : 'light')
@@ -18,6 +29,7 @@ export function applySceneLayout(lab: HTMLElement, env: {
     lab.dataset.labLayout = 'phone'
     lab.dataset.readerControls = 'visible'
   }
+  if (lab.dataset.view) lab.dataset.view = resolveReadView(env.view ?? null, lab.dataset.defaultView, env.phone)
   // The attributes LabApp sets on its root and on <html> for the same theme.
   lab.dataset.theme = theme
   lab.classList.toggle('is-night', theme === 'dark')
@@ -35,7 +47,11 @@ function run(): void {
   const lab = document.currentScript?.parentElement
   if (!lab) return
   let prefs: string | null = null
-  try { prefs = localStorage.getItem(READER_BOOT_PREFS_KEY) } catch { /* storage is optional */ }
+  let view: string | null = null
+  try {
+    prefs = localStorage.getItem(READER_BOOT_PREFS_KEY)
+    view = localStorage.getItem(READ_VIEW_KEY(lab.dataset.bookId || ''))
+  } catch { /* storage is optional */ }
   const media = (query: string) => typeof matchMedia === 'function' && matchMedia(query).matches
   const phone = readerBootProfile({
     userAgent: navigator.userAgent,
@@ -44,7 +60,7 @@ function run(): void {
     screenWidth: typeof screen !== 'undefined' ? screen.width : undefined,
     matchMediaPhone: media(LAB_PHONE_QUERY),
   }) === 'phone'
-  applySceneLayout(lab, { prefs, systemDark: media('(prefers-color-scheme: dark)'), phone })
+  applySceneLayout(lab, { prefs, systemDark: media('(prefers-color-scheme: dark)'), phone, view })
 }
 
 if (typeof document !== 'undefined' && document.currentScript) {

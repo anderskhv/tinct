@@ -1,6 +1,6 @@
 # CMO memory: Tinct marketing state
 
-**Read this first in any marketing, SEO or growth conversation with Anders. Update it at the end of each one** (overwrite stale lines, keep it short). Last updated: 19 Nov 2026.
+**Read this first in any marketing, SEO or growth conversation with Anders. Update it at the end of each one** (overwrite stale lines, keep it short). Last updated: 19 Nov 2026 (evening).
 
 ## How Anders likes to work
 - **Plain language, short answers,** a clear recommendation rather than a survey of options. "Explain like I'm 13" when he asks.
@@ -22,7 +22,8 @@
 - **Allowlist:** odyssey, oresteia, the-histories, master-and-margarita, beowulf. Structure line "38 chapters" on book pages, "Chapter N of total" on chapter pages, plain-HTML chapter lists.
 - **Titles by intent:** "Read {Book} online free" on the first chapter, "all N chapters" on the book page. Curly quotes in the modern column. "Continue reading" at the end of chapters.
 - **`/modern-english` hub** listing every modern edition.
-- **Open decision, landing for search:** A (split by intent), B (book page *is* the Chapter 1 text; my recommendation) or C (smaller hero with text below). Waiting on Anders.
+- **Search landing (decided 19 Nov: option B):** the book page `/read/{book}` opens straight into Chapter 1 text; chapter-1 URL canonical to the book page; the cinematic hero stays in library/app.
+- **Chapter pages (approved mockups 19 Nov):** single column Modern English by default; desktop switch `Original | Modern | Both` in the top bar (italic serif, approved exception); phone `Modern English | Original` under the heading; Shakespeare keeps side by side on desktop; "Chapter N of total"; "Continue reading" + "Your place is saved on this device" (only if true); edition note now says "The original is one tap away". Brief given in chat 19 Nov; not shipped yet.
 
 ## Decisions made (do not reopen)
 - Publish modern-English text openly as crawlable HTML, by allowlist waves.
@@ -30,6 +31,9 @@
 - No AI summaries, FAQs or "themes" pages. Facts counted from data are fine.
 - **Headline:** "No text is beyond you." Subheading built on "Read the books you thought were too hard, with help right on the page…"
 - Keep the name Tinct for now (rename explored: no candidate Anders loved; the naming-story research is in `reports/Tinct naming story.md`).
+
+## Ads test planned
+- January, after the new landing ships: one "read-online" campaign, 8–10 books (one ad group each, chosen from Bing keyword volumes), landing in Chapter 1, DKK 50/day, ~DKK 700. Success: ≥ 25% read ≥ 1 min; rank books by cost per engaged reader. Needs: Anders sends Bing Keyword Research volumes for 15–20 candidates.
 
 ## Open ideas, not yet done
 - **Founding Readers** (first 100 get Premium free for a year, in exchange for feedback). Pricing decision, pending.
@@ -40,4 +44,4 @@
 - **SEO tooling:** the OpenSEO method is adapted in `docs/seo-method.md`. Claude SEO plugin (free) suggested for Anders's Mac. DataForSEO only as a $1 test.
 
 ## Where the details live
-`MARKETING.md` (Reddit rules, review checklist, lessons log §8) · `docs/seo-method.md` · `docs/google-ads-plan-2026-11.md` · `docs/seo-chapter-pages-brief-2026-11-16.md` · `docs/x-post-ideas.md` · `GROWTH-PLAN.md` · `STRATEGY.md`
+`MARKETING.md` (Reddit rules, review checklist, lessons log §8) · `docs/seo-method.md` (method + SEO strategy, see 'Strategy' section) · `docs/google-ads-plan-2026-11.md` · `docs/seo-chapter-pages-brief-2026-11-16.md` · `docs/x-post-ideas.md` · `GROWTH-PLAN.md` · `STRATEGY.md`

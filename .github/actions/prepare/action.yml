@@ -52,7 +52,8 @@ runs:
         mkdir -p "$HOME/apt-archives/partial"
         printf 'Dir::Cache::Archives "%s";\nAPT::Keep-Downloaded-Packages "true";\nBinary::apt::APT::Keep-Downloaded-Packages "true";\n' "$HOME/apt-archives" | sudo tee /etc/apt/apt.conf.d/99tinct-archives > /dev/null
         sudo rm -f /etc/apt/apt.conf.d/docker-clean
-        npx playwright install --with-deps ${{ inputs.browsers }}
+        # One failed apt or browser download rolled a release back on 19 Nov 2026 before any check ran: try once more.
+        npx playwright install --with-deps ${{ inputs.browsers }} || { echo "::warning::browser install failed; retrying in 30 s"; sleep 30; sudo apt-get update -qq || true; npx playwright install --with-deps ${{ inputs.browsers }}; }
         sudo chown -R "$(id -u):$(id -g)" "$HOME/apt-archives"
         rm -rf "$HOME/apt-archives/partial" "$HOME/apt-archives/lock"
         du -sh "$HOME/apt-archives"

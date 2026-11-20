@@ -1,15 +1,22 @@
 # Tinct
 
-Tinct is a deep-reading platform for public-domain classics. It offers free online reading, original texts, modern English editions, context-aware AI help, synced audio, notes, highlights, and spoiler-aware character guides.
+Tinct is a reader for public-domain classics. Most books can be read free online in a modern English edition beside the original text, with AI help for any passage, audio narration, notes and highlights.
 
-## Main Pages
+## How the public pages are organised
+
+- Books: https://tinct.app/read/{book}. A book with a modern English edition opens on its first chapter (or first scene), with the list of all chapters below it.
+- Chapter pages: https://tinct.app/read/{book}/chapter-N, the whole chapter in modern English with the original text in the same page.
+- Shakespeare's plays: https://tinct.app/read/{play}/act-N-scene-M, one page per scene.
+- How the editions are made: each book page carries the note. Tinct's modern English is drafted with AI from a public-domain translation or the original text, then checked by a separate AI review against it. The original is always one tap away.
+
+## Main pages
 
 - Home: https://tinct.app/
 - Library: https://tinct.app/read
 - About: https://tinct.app/about
 - Sitemap: https://tinct.app/sitemap.xml
 
-## Representative Books
+## Representative books
 
 - The Odyssey: https://tinct.app/read/odyssey
 - War and Peace: https://tinct.app/read/war-and-peace
@@ -22,6 +29,6 @@ Tinct is a deep-reading platform for public-domain classics. It offers free onli
 - Frankenstein: https://tinct.app/read/frankenstein
 - The Divine Comedy: https://tinct.app/read/divine-comedy
 
-## Crawling Guidance
+## Crawling guidance
 
-Use the public HTML pages for citations and summaries. Do not crawl `/data/`, `/api/`, `/audio/`, or app-internal assets for bulk extraction. The edition texts are public-domain-derived, but the product experience, alignment, metadata, and reading tools are the canonical Tinct surface.
+Use the public HTML pages for citations and summaries. Do not crawl `/data/`, `/api/`, `/audio/`, or app-internal assets for bulk extraction. The edition texts are public-domain-derived, but the product experience, alignment, metadata and reading tools are the canonical Tinct surface.
