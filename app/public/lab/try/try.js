@@ -1,189 +1,304 @@
 /*
- * The Try page (public/try.html; docs/try-page/BRIEF.md). Five steps beside the real reader, which runs in a frame
- * in demo mode (public/lab/try/reader-demo.js, src/lab/tryDemo/tryDemo.ts). Each step's Next asks the reader to do
- * the step; anything the visitor does in the reader by hand moves the panel too. When the AI runs out (the
- * visitor's free questions, or the page's own day), the sign-up card shows instead of an error, and creating an
- * account carries this conversation over.
+ * The Try page (public/try.html; docs/try-page/BRIEF.md): the reader plays itself (Anders, 19 Nov 2026).
+ * Frames of the real reader, captured by scripts/capture-try-frames.cjs (Meditations Book 2: Explain, Listen,
+ * Modern, Summary), crossfade on a loop beside the step they show (Next moves on, the dots jump). Nothing here asks the visitor to do
+ * anything and nothing calls the server: a click on the frames, or on Start reading, opens the reader itself.
+ * Hover or focus pauses the loop; a step (or a dot on the phone) jumps to its moment; reduced motion shows each
+ * step's last frame and waits for the visitor.
  */
 (function () {
   'use strict'
+  // The step beside the reader: the copy approved for the step page (18 Nov), in the order the frames play. Modern is
+  // the second move (Anders, 19 Nov), and Listen then plays the modern English.
   var STEPS = [
-    { title: 'Explain anything', line: 'Select a passage. The explanation lands beside it, in the margin, and stays there as a note.', command: { cmd: 'explain' } },
-    { title: 'Keep asking', line: 'Follow up in the same note — type, or talk it through out loud.', command: { cmd: 'followup', text: 'Is he saying I should just put up with rude people?' } },
-    { title: "Read it in today's words", line: 'Switch to modern English. Switch back any time; you stay on the line.', command: { cmd: 'edition', kind: 'modern' } },
-    { title: 'Hear it as you read', line: 'Press play. Every word is marked as it is read.', command: { cmd: 'listen' } },
-    { title: 'Get the gist in a minute', line: 'Tap Summary beside the chapter in the margin. It opens as a card there too.', command: { cmd: 'summary' } },
+    { title: 'Explain anything', line: 'Select a passage. The explanation lands beside it, in the margin, and stays there as a note.' },
+    { title: "Read it in today's words", line: 'Switch to modern English. Switch back any time; you stay on the line.' },
+    { title: 'Hear it as you read', line: 'Press play. Every word is marked as it is read.' },
+    { title: 'Get the gist in a minute', line: 'Tap Summary beside the chapter. It opens as a card, four beats long.' },
   ]
-  var READER = { book: 'meditations', chapter: 2 }
-  var WIDE = '(min-width: 900px)'
-  var COPY = {
-    chatTitle: 'Keep the conversation going',
-    chatBody: "That's the free questions for today. Create an account and carry on right here — this conversation comes with you, and your first month of Premium is free.",
-    // The reader's own listening prompt (src/lab/labCopy.ts accountTitleAudio / accountBodyAudio).
-    audioTitle: 'Create a free account to keep listening',
-    audioBody: 'Listen on, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.',
-  }
+  // [file, step, milliseconds on screen]. Listen is fourteen frames 280 ms apart, as captured, so the marked word moves
+  // word by word (Anders, 19 Nov: it lagged); they cut, not fade, into each other.
+  // A fourth field keeps a frame to one device. The motion follows the launch film (Anders, 19 Nov: "the video
+  // nailed this"): on the phone a press selects the sentence and its menu at once; the Explain card rises with its
+  // answer already in it (Anders, 19 Nov: no typing lag); the card goes down (51) before the page dissolves into
+  // modern English, band by band.
+  // Desktop selects the passage in one press too (Anders, 20 Nov: the word-by-word drag grew, shrank and grew again).
+  var PHONE = window.matchMedia('(max-width: 899px)').matches
+  var FRAMES = [
+    ['01', 0, 1300],
+    ['02', 0, 1400],
+    ['04', 0, 3800],
+    ['51', 1, 900], ['08', 1, 3400],
+    ['11', 2, 280], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
+    ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 1500],
+    ['10', 3, 4200],
+  ].filter(function (frame) { return !frame[3] || (frame[3] === 'phone') === PHONE })
+  // Bump when the frames are re-captured, so browsers fetch the new ones.
+  var FRAMES_V = '20261119o'
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
   var $$ = function (selector, root) { return Array.prototype.slice.call((root || document).querySelectorAll(selector)) }
-  var frame = $('[data-try-frame]')
-  var limit = $('[data-try-limit]')
-  var current = 0
-  var done = STEPS.map(function () { return false })
-  var reader = { ready: false, edition: 'original-en', phone: false }
-  var queued = []
-  // Listen waits for the original edition: its narration is recorded, so a guest hears it from the cache (D7/M7).
-  var listenAfterOriginal = false
-  var wide = window.matchMedia(WIDE).matches
+  var demo = $('[data-try-demo]')
+  var text = function (selector, value) { var el = $(selector); if (el) el.textContent = value }
+  if (!demo) return
 
-  function readerSrc() {
-    var params = new URLSearchParams({ book: READER.book, chapter: String(READER.chapter), edition: 'original-en', demo: 'try', layout: wide ? 'desktop' : 'phone' })
-    return '/reader?' + params.toString()
+  // The first frame is in the page; the rest load after it, one picture each (phone and desktop crops).
+  var first = $('picture', demo)
+  var pictures = [first]
+  FRAMES.slice(1).forEach(function (frame) {
+    var picture = document.createElement('picture')
+    picture.innerHTML = '<source media="(max-width: 899px)" srcset="/lab/try/frames/phone-' + frame[0] + '.webp?v=' + FRAMES_V + '" width="780" height="1520">' +
+      '<img src="/lab/try/frames/desktop-' + frame[0] + '.webp?v=' + FRAMES_V + '" alt="" width="2112" height="1222" loading="lazy" decoding="async">'
+    demo.insertBefore(picture, $('.try-demo-open', demo))
+    pictures.push(picture)
+  })
+  // Lazy images in a stack under the first never scroll into view on their own: ask for them once the page is up.
+  window.addEventListener('load', function () { pictures.forEach(function (p) { var img = $('img', p); img.loading = 'eager'; if (img.decode) img.decode().catch(function () {}) }) })
+
+  // ---- The visitor's pointer (Anders, 19 Nov: show the click before each change). Where it goes was recorded when the
+  // frames were captured (scripts/capture-try-frames.cjs writes frames/*-pointer.json), as fractions of the frame. ----
+  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.131, 0.1657], "selectTo": [0.6907, 0.2793], "explain": [0.3141, 0.3458], "modern": [0.88, 0.0361], "play": [0.7621, 0.0361], "summary": [0.6317, 0.1074]}}
+  // What happens on a frame before the next one: a press and hold that selects the passage, or a press on a button.
+  var ACTIONS = {
+    '01': { hold: 'selectFrom' },
+    '02': { press: 'explain' }, '51': { press: 'modern' }, '08': { press: 'play' }, '24': { press: 'summary' } }
+  var phoneQuery = window.matchMedia('(max-width: 899px)')
+  var layer = document.createElement('div')
+  layer.className = 'try-pointer-layer'
+  layer.setAttribute('aria-hidden', 'true')
+  layer.innerHTML = '<span class="try-pointer"></span><span class="try-scene"></span>'
+  demo.appendChild(layer)
+  var pointer = $('.try-pointer', layer)
+  // ---- Phone: the launch film's way (Anders, 19 Nov). One caption per moment, the reader in a phone, and the camera
+  // moving in on what matters (the card, the marked word). ----
+  var CAPTIONS = [
+    ['Stuck on a line?', 'Explain it.'],
+    ['Language too hard?', 'Switch to modern English.'],
+    ['On the go?', 'Listen.'],
+    ['Short on time?', 'Get the gist.'],
+  ]
+  var caption = document.createElement('p')
+  caption.className = 'try-caption'
+  caption.setAttribute('aria-hidden', 'true')
+  demo.parentNode.insertBefore(caption, demo)
+  var captionStep = -1
+  function frameCaption(step) {
+    if (step === captionStep) return
+    captionStep = step
+    caption.classList.remove('is-on')
+    later(function () {
+      caption.innerHTML = '<span>' + CAPTIONS[step][0] + ' <em>' + CAPTIONS[step][1] + '</em></span>'
+      caption.classList.add('is-on')
+    }, caption.innerHTML ? 260 : 0)
   }
-  function loadReader() {
-    reader.ready = false
-    queued = []
-    frame.src = readerSrc()
+  var scene = $('.try-scene', layer)
+  var actionTimers = []
+  function later(fn, ms) { actionTimers.push(setTimeout(fn, ms)) }
+  function clearActions(keep) { actionTimers.forEach(clearTimeout); actionTimers = []; if (!keep) pointer.className = 'try-pointer' }
+  function place(at, glide, ease) {
+    ease = ease || 'cubic-bezier(.4, 0, .2, 1)'
+    pointer.style.transition = glide ? 'left ' + glide + 'ms ' + ease + ', top ' + glide + 'ms ' + ease + ', opacity .25s' : 'opacity .25s'
+    pointer.style.left = (at[0] * 100) + '%'
+    pointer.style.top = (at[1] * 100) + '%'
+  }
+  // Plays the frame's action so it ends just as the frame changes; returns how long the frame must stay up for it.
+  function act(frame, duration) {
+    // Only the taps show, as a ripple where the finger lands (Anders, 19 Nov): no cursor travelling between them.
+    var action = ACTIONS[frame[0]]
+    var marks = POINTER[phoneQuery.matches ? 'phone' : 'desktop']
+    if (!action || reduce) return duration
+    if (action.hold) {
+      // A press and hold on the first word: a soft disc where the finger is, then the sentence selected under it.
+      var spot = marks[action.hold]
+      if (!spot) return duration
+      var stay = Math.max(duration, 1500)
+      later(function () { place(spot, 0); pointer.className = 'try-pointer is-on is-hold' }, stay - 800)
+      later(function () { pointer.className = 'try-pointer' }, stay + 250)
+      return stay
+    }
+    if (!action.press) return duration
+    var at = marks[action.press]
+    if (!at) return duration
+    var whole = Math.max(duration, 1300)
+    later(function () { place(at, 0); pointer.className = 'try-pointer is-on is-tap is-press' }, whole - 450)
+    later(function () { pointer.className = 'try-pointer' }, whole + 300)
+    return whole
+  }
+  // A new moment opens with its name over the reader for a beat, so a change of scene reads as one.
+  function announce(step) {
+    if (reduce) return
+    scene.textContent = STEPS[step].title
+    scene.className = 'try-scene'
+    void scene.offsetWidth
+    scene.className = 'try-scene is-on'
+    later(function () { scene.className = 'try-scene' }, phoneQuery.matches ? 1500 : 1200)
   }
 
-  function send(command) {
-    if (!reader.ready || !frame.contentWindow) { queued.push(command); return }
-    frame.contentWindow.postMessage(Object.assign({ source: 'tinct-try-page' }, command), location.origin)
-  }
+  var index = 0
+  // How long before the tap that starts a moment its headline comes up.
+  var LEAD_MS = 1700
+  var ledStep = -1
+  var timer = null
+  var held = false
+  var visible = true
 
-  // ---- The step panel ----
-  function render() {
-    var step = STEPS[current]
-    var last = current === STEPS.length - 1
-    $$('[data-try-dots]').forEach(function (dots) {
-      dots.innerHTML = ''
-      STEPS.forEach(function (_, index) {
-        var dot = document.createElement('i')
-        if (index === current) dot.className = 'is-current'
-        else if (done[index]) dot.className = 'is-done'
-        dots.appendChild(dot)
-      })
+  // The frame that switches to modern English arrives as a wave running down the page (the launch film's switch).
+  var WAVE = FRAMES.map(function (frame) { return frame[0] === '08' })
+  // The frames that open a card: the card rises from the foot of the screen over the page, as it does in the reader
+  // (Anders, 19 Nov: Explain looked jumpy). Every other change fades the new frame in over the old one, never through
+  // an empty screen.
+  var RISE = FRAMES.map(function (frame) { return frame[0] === '04' || frame[0] === '10' })
+  // The card going down again before the switch (phone: the sheet sinks out of the screen).
+  var SINK = FRAMES.map(function (frame) { return PHONE && frame[0] === '51' })
+  var shown = -1
+  var underTimer = null
+  // The switch to modern English, as in the launch film: the page changes paragraph band by band, top to bottom, each
+  // band a soft cross-fade of old into new, never a hard edge sweeping down.
+  var BANDS = 9, BAND_FROM = 0.08, BAND_FADE = 460, BAND_STEP = 105
+  var dissolveLayer = null
+  function dissolve(incoming, outgoing) {
+    if (dissolveLayer) dissolveLayer.remove()
+    var src = $('img', incoming).currentSrc || $('img', incoming).src
+    incoming.classList.add('is-held')
+    dissolveLayer = document.createElement('div')
+    dissolveLayer.className = 'try-dissolve'
+    dissolveLayer.setAttribute('aria-hidden', 'true')
+    for (var i = 0; i < BANDS; i++) {
+      var top = i === 0 ? 0 : BAND_FROM + (1 - BAND_FROM) * i / BANDS
+      var bottom = BAND_FROM + (1 - BAND_FROM) * (i + 1) / BANDS
+      var band = document.createElement('img')
+      band.src = src; band.alt = ''
+      band.style.clipPath = 'inset(' + (top * 100) + '% 0 ' + ((1 - bottom) * 100) + '% 0)'
+      band.style.animationDelay = (i * BAND_STEP) + 'ms'
+      band.style.animationDuration = BAND_FADE + 'ms'
+      dissolveLayer.appendChild(band)
+    }
+    demo.insertBefore(dissolveLayer, layer)
+    var layerNow = dissolveLayer
+    // At the end the page underneath becomes the new one at once (no second fade), then the bands go: the text
+    // changes once.
+    setTimeout(function () {
+      incoming.classList.add('is-settle')
+      incoming.classList.remove('is-held')
+      if (outgoing) outgoing.classList.remove('is-under')
+      requestAnimationFrame(function () { requestAnimationFrame(function () {
+        if (layerNow === dissolveLayer) { dissolveLayer.remove(); dissolveLayer = null }
+        incoming.classList.remove('is-settle')
+      }) })
+    }, BANDS * BAND_STEP + BAND_FADE + 60)
+  }
+  function paint() {
+    var wave = !reduce && shown >= 0 && shown !== index && WAVE[index]
+    var rise = !reduce && shown >= 0 && shown !== index && RISE[index]
+    var sink = !reduce && shown >= 0 && shown !== index && SINK[index]
+    var under = shown >= 0 && shown !== index ? shown : -1
+    // Cut, not fade: word by word in Listen.
+    demo.classList.toggle('is-cut', shown >= 0 && FRAMES[shown][1] === 2 && FRAMES[index][1] === 2)
+    clearTimeout(underTimer)
+    pictures.forEach(function (picture, i) {
+      picture.classList.remove('is-wave', 'is-rise', 'is-under', 'is-sink', 'is-held')
+      picture.classList.toggle('is-on', i === index)
     })
-    $('[data-try-count]').textContent = (current + 1) + ' of ' + STEPS.length
-    $('[data-try-title]').textContent = step.title
-    $('[data-try-line]').textContent = step.line
-    $('[data-try-card-title]').textContent = (current + 1) + '. ' + step.title
-    $('[data-try-card-line]').textContent = step.line
-    $('[data-try-back]').hidden = current === 0
-    var finished = last && done[current]
-    var next = $('.try-step-actions [data-try-next]')
-    next.innerHTML = (finished ? 'Done' : 'Next') + ' <span aria-hidden="true">→</span>'
-    $('[data-try-hint]').textContent = last ? '' : 'Next: ' + STEPS[current + 1].title
-    var hintBreak = $('.try-step-hint br')
-    if (hintBreak) hintBreak.hidden = last
-  }
-
-  function perform(index) {
-    current = index
-    done[index] = true
-    var command = STEPS[index].command
-    if (command.cmd === 'edition') command = { cmd: 'edition', kind: reader.edition === 'modern-en' ? 'original' : 'modern' }
-    if (command.cmd === 'listen' && reader.edition !== 'original-en') {
-      listenAfterOriginal = true
-      send({ cmd: 'edition', kind: 'original' })
-      render()
-      return
+    if (under >= 0) {
+      pictures[under].classList.add('is-under')
+      void pictures[index].offsetWidth
+      if (wave) dissolve(pictures[index], pictures[under])
+      else if (rise) pictures[index].classList.add('is-rise')
+      else if (sink) pictures[under].classList.add('is-sink')
+      underTimer = setTimeout(function () { pictures[under].classList.remove('is-under', 'is-sink') }, wave ? 1700 : 800)
     }
-    send(command)
-    render()
+    var newStep = shown < 0 || FRAMES[shown][1] !== FRAMES[index][1]
+    shown = index
+    markStep(FRAMES[index][1])
+    return newStep
   }
-
-  function onNext() {
-    var target = done[current] ? current + 1 : current
-    if (target >= STEPS.length) {
-      var below = document.getElementById('features')
-      if (below) below.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      return
-    }
-    perform(target)
-  }
-
-  /** The visitor did a step by hand: it is done, and the panel shows it. */
-  function did(index) {
-    if (done[index]) return
-    done[index] = true
-    current = index
-    render()
-  }
-
-  $$('[data-try-next]').forEach(function (button) { button.addEventListener('click', onNext) })
-  $('[data-try-back]').addEventListener('click', function () { if (current > 0) { current -= 1; render() } })
-
-  // ---- Original | Modern on the phone (on desktop it is in the reader's own top bar) ----
-  $$('[data-try-edition]').forEach(function (button) {
-    button.addEventListener('click', function () { send({ cmd: 'edition', kind: button.getAttribute('data-try-edition') }) })
-  })
-  function paintEdition() {
-    $$('[data-try-edition]').forEach(function (button) {
-      button.setAttribute('aria-pressed', String(reader.edition === button.getAttribute('data-try-edition') + '-en'))
+  function markStep(step) {
+    $$('[data-try-step]').forEach(function (button) {
+      if (Number(button.getAttribute('data-try-step')) === step) button.setAttribute('aria-current', 'step')
+      else button.removeAttribute('aria-current')
     })
+    text('[data-try-count]', (step + 1) + ' of ' + STEPS.length)
+    text('[data-try-num]', (step + 1) + '. ')
+    text('[data-try-title]', STEPS[step].title)
+    text('[data-try-upnext]', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
+    if (next) next.setAttribute('aria-label', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
   }
-
-  // ---- Out of AI: the sign-up card, never an error ----
-  function showLimit(kind) {
-    var audio = kind === 'audio'
-    $('[data-try-limit-title]').textContent = audio ? COPY.audioTitle : COPY.chatTitle
-    $('[data-try-limit-body]').textContent = audio ? COPY.audioBody : COPY.chatBody
-    // Listening can be put aside; the conversation card stays until the visitor chooses.
-    $('[data-try-limit-close]').hidden = !audio
-    limit.hidden = false
-    var first = $('[data-try-create]')
-    if (first) first.focus({ preventScroll: true })
-  }
-  $('[data-try-limit-close]').addEventListener('click', function () { limit.hidden = true })
-  limit.addEventListener('keydown', function (event) { if (event.key === 'Escape' && !$('[data-try-limit-close]').hidden) limit.hidden = true })
-
-  // ---- Account links: this conversation comes along, and the reader opens where it was ----
-  function carryOver() {
-    try {
-      var demo = frame.contentWindow && frame.contentWindow.__TINCT_TRY_DEMO__
-      return !!(demo && demo.carryOver())
-    } catch (e) { return false }
-  }
-  document.addEventListener('click', function (event) {
-    var link = event.target && event.target.closest ? event.target.closest('a[href^="/sign-in"]') : null
-    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return
-    if (!carryOver()) return
-    var url = new URL(link.getAttribute('href'), location.origin)
-    url.searchParams.set('returnTo', '/reader?' + new URLSearchParams({ book: READER.book, chapter: String(READER.chapter), edition: reader.edition }).toString())
-    event.preventDefault()
-    location.assign(url.pathname + url.search)
-  })
-
-  // ---- What the reader says ----
-  window.addEventListener('message', function (event) {
-    if (event.origin !== location.origin || event.source !== frame.contentWindow) return
-    var data = event.data
-    if (!data || data.source !== 'tinct-try-reader') return
-    if (data.type === 'state') {
-      var wasReady = reader.ready
-      reader.ready = !!data.ready
-      reader.phone = !!data.phone
-      if (data.edition && data.edition !== reader.edition) {
-        if (data.edition === 'modern-en' && reader.ready && wasReady) did(2)
-        reader.edition = data.edition
-        paintEdition()
-      }
-      if (listenAfterOriginal && reader.ready && reader.edition === 'original-en') { listenAfterOriginal = false; setTimeout(function () { send({ cmd: 'listen' }) }, 600) }
-      if (data.selection || data.card === 'explain') did(0)
-      if (data.playing) did(3)
-      if (data.chapterCard === 'summary') did(4)
-      if (reader.ready && !wasReady && queued.length) { var waiting = queued; queued = []; waiting.forEach(send) }
-      return
+  // Slower than captured (Anders, 19 Nov: too much, too fast), the phone most: a small screen takes longer to read.
+  // The word-by-word Listen frames slow only a little, so the voice still sounds like reading.
+  function pace(ms) { return Math.round(ms * (phoneQuery.matches ? (ms > 400 ? 1.45 : 1.15) : (ms > 400 ? 1.3 : 1.1))) }
+  function schedule(opened) {
+    clearTimeout(timer)
+    clearActions()
+    if (reduce || held || !visible) return
+    var frame = FRAMES[index]
+    var duration = pace(frame[2]) + (opened ? (phoneQuery.matches ? 1100 : 600) : 0)
+    if (opened && !phoneQuery.matches && ledStep !== frame[1]) announce(frame[1])
+    ledStep = -1
+    if (phoneQuery.matches) frameCaption(frame[1])
+    duration = act(frame, duration)
+    // The headline leads the action (Anders, 19 Nov): when this frame ends in the tap that starts the next moment
+    // (Play, Summary), that moment's headline and dot come up first, and the tap follows a beat later.
+    var nextStep = FRAMES[(index + 1) % FRAMES.length][1]
+    var action = ACTIONS[frame[0]]
+    if (!reduce && action && action.press && nextStep !== frame[1]) {
+      later(function () {
+        ledStep = nextStep
+        if (phoneQuery.matches) frameCaption(nextStep)
+        else announce(nextStep)
+        markStep(nextStep)
+      }, Math.max(0, duration - LEAD_MS))
     }
-    if (data.type === 'ai') {
-      if (data.intent === 'ask' && done[0]) did(1)
-      if (data.intent === 'lab-voice-session') did(1)
-      return
-    }
-    if (data.type === 'limit') { showLimit('chat'); return }
-    if (data.type === 'account') { showLimit(data.action === 'audio' ? 'audio' : 'chat') }
+    timer = setTimeout(function () {
+      // Switch only once the next frame is decoded, so a change never flashes an empty reader.
+      var nextIndex = (index + 1) % FRAMES.length
+      var img = $('img', pictures[nextIndex])
+      var go = function () { if (held || !visible) return; index = nextIndex; var fresh = paint(); schedule(fresh) }
+      if (img && img.decode) img.decode().then(go, go)
+      else go()
+    }, duration)
+  }
+  function show(step) {
+    // A step opens on its first frame and plays on; with reduced motion, its last.
+    var matches = FRAMES.map(function (frame, i) { return frame[1] === step ? i : -1 }).filter(function (i) { return i >= 0 })
+    index = reduce ? matches[matches.length - 1] : matches[0]
+    paint()
+    schedule(true)
+  }
+
+  $$('[data-try-step]').forEach(function (button) {
+    button.addEventListener('click', function () { show(Number(button.getAttribute('data-try-step'))) })
   })
+  var next = $('[data-try-next]')
+  if (next) next.addEventListener('click', function () { show((FRAMES[index][1] + 1) % STEPS.length) })
+  var prev = $('[data-try-prev]')
+  if (prev) prev.addEventListener('click', function () { show((FRAMES[index][1] + STEPS.length - 1) % STEPS.length) })
+  demo.addEventListener('mouseenter', function () { held = true; clearTimeout(timer); clearActions() })
+  demo.addEventListener('mouseleave', function () { held = false; schedule() })
+  demo.addEventListener('focus', function () { held = true; clearTimeout(timer); clearActions() })
+  demo.addEventListener('blur', function () { held = false; schedule() })
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting
+      schedule()
+    }).observe(demo)
+  }
+  document.addEventListener('visibilitychange', function () { visible = !document.hidden; schedule() })
+  if (reduce) index = FRAMES.map(function (frame) { return frame[1] }).lastIndexOf(0)
+  paint()
+  schedule()
+
+  // ---- The top bar turns solid once the page scrolls (over the hero it shows the scene) ----
+  var nav = $('.try-nav')
+  // Phone: Start reading joins the bar only once the hero's own Start reading has scrolled up under it (Anders, 20 Nov).
+  var heroStart = $('[data-try-start]')
+  function navState() {
+    if (!nav) return
+    nav.classList.toggle('is-scrolled', window.scrollY > 8)
+    nav.classList.toggle('is-past-hero', !!heroStart && heroStart.getBoundingClientRect().bottom < nav.getBoundingClientRect().bottom)
+  }
+  window.addEventListener('scroll', navState, { passive: true })
+  navState()
 
   // ---- Section links show where you are ----
   var links = $$('.try-sections a')
@@ -194,15 +309,6 @@
         links.forEach(function (link) { link.setAttribute('aria-current', String(link.getAttribute('href') === '#' + entry.target.id)) })
       })
     }, { rootMargin: '-45% 0px -50% 0px' })
-    ;['try', 'features', 'pricing', 'questions'].forEach(function (id) { var el = document.getElementById(id); if (el) observer.observe(el) })
+    ;['try', 'pricing', 'questions'].forEach(function (id) { var el = document.getElementById(id); if (el) observer.observe(el) })
   }
-
-  window.matchMedia(WIDE).addEventListener('change', function (event) {
-    // The reader is laid out for the frame it opened in; a phone and a desktop frame are different readers.
-    wide = event.matches
-    loadReader()
-  })
-
-  render()
-  loadReader()
 })()

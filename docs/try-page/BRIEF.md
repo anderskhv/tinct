@@ -11,9 +11,7 @@ Mockups:
 
 An about page where the product is the proof. You arrive, read one headline, and use the **real margin reader** right there. Five steps beside it walk you through what Tinct does. Below the fold come features, pricing, questions and the footer (privacy, terms).
 
-It will become `/about` later. For now it lives at **`/try`**:
-- unlisted: not in the sitemap, `noindex`, and nothing links to it;
-- signed-in readers are redirected to the app, the same way `landing.html` does it.
+**Since 19 Nov 2026 (Anders) it is the About page at `/about`** (`app/public/about.html`): indexable, in the sitemap, with no signed-in redirect. `/try` answers with a 301 to `/about` that keeps the query string, so ad links (`?ref=…`) still land. It was built unlisted at `/try` (noindex, signed-in readers redirected); the sections below keep that history.
 
 ## "Not launching" means
 
@@ -52,6 +50,8 @@ It will become `/about` later. For now it lives at **`/try`**:
 **Background:** the Odyssey scene (`public/lab/library_2/assets/scene-odyssey-wide.jpg`, phone version for phones), heavily blurred and darkened.
 
 ## The five steps
+
+> **Superseded 18 Nov 2026 (Anders): hints instead of steps.** No Next, no Back and no scripted actions; the page never scrolls the reader. Desktop: a "Try it yourself" checklist of five (Explain a passage · Ask a follow-up · Read it in today's words · Hear it as you read · Get the gist in a minute) that ticks when the visitor does each thing, in any order, with the next one highlighted and a one-line instruction. Phone: a compact "Try it yourself" card with five chips. One small dark hint at a time sits by the real control in the reader, only while that control is on screen, with × to dismiss. Screenshots: `screenshots/hints-*.png`. The table below is kept as the history of the first version.
 
 The title says what you get; the line under it says how.
 

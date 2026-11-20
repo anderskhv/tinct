@@ -88,3 +88,7 @@
 @media (hover:none) { .source-margin-grip { opacity:.6; } }
 html[data-eink="true"] .source-margin-item.is-lifted { box-shadow:none; outline:1px solid #777; }
 html[data-eink="true"] .source-margin-grip { transition:none; }
+
+/* The note card's Ask link (20 Nov 2026): one quiet line under the note, at the right. */
+.source-margin-content .lab-pcard-note-ask { display:flex; justify-content:flex-end; padding:6px 0 2px; }
+.source-margin-content .lab-pcard-note-ask .lab-pcard-link { min-height:0; font-size:13px !important; }

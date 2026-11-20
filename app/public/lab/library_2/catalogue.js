@@ -1,9 +1,9 @@
-import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20261112bios';
+import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20261120shelf';
 // The production catalogue behind the library_2 design: every discoverable
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
 import { coverAsset, coverSources } from './cover-assets.js?v=20261009owncover';
-import { withPublicBooks } from './add-to-tinct.js?v=20261106mm';
+import { withPublicBooks } from './add-to-tinct.js?v=20261120shelf';
 import { coverToneFor } from './spine.js?v=20261009rel10';
 import { loadRestrictedBookIds, restrictCatalogue } from '../restricted-books.js?v=20261117geo';
 const CATALOGUE_URL = '/lab/catalogue.json';
