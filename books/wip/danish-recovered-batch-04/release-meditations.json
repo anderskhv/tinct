@@ -1,0 +1,26 @@
+{
+  "sourceRef": "5e1d3e503e5fc6e501201881cc408b6bed519c35",
+  "revision": "text-2026-11-18.1",
+  "scope": "Accepted Meditations modern-en repairs shipped with Danish recovered batch 04 (PR #873): six paragraphs (1.17, 5.9, 7.4, 7.14, 8.25, 9.14, 1-based). Supersedes the 2026-09-24 Meditations acceptance. Exact candidate = served bytes; original-en unchanged; card prose unchanged; all 81 mentions re-anchored by exact text. Record: DECISIONS.md 2026-11-19.",
+  "approval": {
+    "by": "Anders",
+    "date": "2026-11-19",
+    "question": "Update the Meditations lock so batch 04's six English repairs ship?",
+    "answer": "yes"
+  },
+  "books": [
+    {
+      "id": "meditations",
+      "before": "4623d1191fbd1c09f9257acf7e73b49d5467e35fa0d9979e35c910bb24b9cc9f",
+      "accepted": "7537097e54b9f2c46514847ad69862cefce2fbfd039368718570644f766eb013",
+      "chapters": 12,
+      "paragraphs": 487,
+      "changed": 6,
+      "mentions": 81,
+      "sourceDirectory": "books/wip/danish-recovered-batch-04/meditations-release",
+      "baselineFile": "baseline-live-modern-en.json",
+      "paragraphHashesFile": "accepted-paragraph-hashes.tsv",
+      "changesFile": "changed-paragraphs.json"
+    }
+  ]
+}
