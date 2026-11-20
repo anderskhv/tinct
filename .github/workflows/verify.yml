@@ -82,8 +82,8 @@ jobs:
         run: python3 ../tools/audio-highlight/gpu/test_preflight_launch.py
       - name: Test pinned audio normalisation and cloud plumbing
         run: python3 ../tools/audio-highlight/aligner/test_normalisation_v3.py
-      - name: Test the CI suite rules
-        run: node --test ../scripts/ci-suites.test.mjs
+      - name: Test the CI suite rules and deploy's page-lane rules
+        run: node --test ../scripts/ci-suites.test.mjs ../scripts/release-lane.test.mjs
       - run: npm test
       - run: npm run build
         env:

@@ -17,9 +17,10 @@ const ALL = SUITES
 // First match wins. `null` suites = everything.
 const FULL = null
 export const RULES = [
-  // Always everything: the reader and its place, dependencies, the workflows and this script, the build, the Worker entry.
+  // Always everything: the reader and its place, dependencies, the workflows and this script (and deploy's page-lane
+  // rules), the build, the Worker entry.
   [/^\.github\//, FULL],
-  [/^scripts\/(ci-suites|cloud-setup)\b/, FULL],
+  [/^scripts\/(ci-suites|cloud-setup|release-lane)\b/, FULL],
   [/(^|\/)package(-lock)?\.json$/, FULL],
   [/^app\/(vite\.config|tsconfig|wrangler\.jsonc|index\.html|vitest)/, FULL],
   [/^app\/src\/worker\.ts$/, FULL],
