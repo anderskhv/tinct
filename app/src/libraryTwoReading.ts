@@ -35,11 +35,12 @@ import { newBooksOpenIn, readingLanguages } from './social/socialClient'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { LAB_CATALOGUE_URL, readReaderOrigin, writeReaderOrigin } from '../public/lab/library-model.js'
-import { readLabLibraryBootSnapshot } from './lab/labLibraryBoot'
+import { forgetLabLibraryBootBook, readLabLibraryBootSnapshot } from './lab/labLibraryBoot'
 import { wholeBookProgress } from '../public/lab/library-2-model.js'
 import { catalogueBookIdForPlace, positionPlacesByBook, heroHeadline, libraryModeFor, type LibraryBookInfo, type LibraryMode, type ReadingListRow } from './preReader/libraryRecap'
 import { mergeReadingNow, readingNowList } from './preReader/readingNow'
 import { bookCoverSrc } from '../public/lab/book-cover.js'
+import { pendingRestrictedBookIds, restrictedBookIdsNow } from '../public/lab/restricted-books.js'
 import { conciseChapterLabel } from './preReader/recapPosition'
 import { hideOwnFromReadingTable, type OwnShelfBook, type OwnShelfReading } from './lab/userBook/ownShelf'
 import { isUserBookId, ownBookHref, userBookHex } from './lab/userBook/userBookId'
@@ -69,6 +70,8 @@ interface CatalogueBook {
   /** The approved default edition (editionDefaults.ts), computed at build time. */
   defaultEditionKey?: string | null
   readingStructure?: { totalParagraphs?: number; chapters?: Array<{ number: number; title: string; paragraphCount?: number }> } | null
+  /** Not served in this visitor's country (public/lab/restricted-books.js restrictCatalogue). */
+  restricted?: boolean
 }
 
 export interface ReadingTableBook {
@@ -113,6 +116,35 @@ export interface ReadingTableFinished {
   ownKey?: string
   kind?: 'pdf' | 'epub'
   href?: string
+}
+
+/**
+ * The desk as a visitor from a country a book is restricted in sees it
+ * (Book.restrictedCountries): the book is left off the table and the finished
+ * shelf. Presentation only: its saved place, progress and shelf membership are
+ * not touched, so it returns where it is served.
+ */
+export function withoutRestrictedBooks(table: ReadingTable, ids: ReadonlySet<string>): ReadingTable {
+  if (!ids.size) return table
+  const keep = (book: { bookId: string }) => !ids.has(book.bookId)
+  const reading = table.reading.filter(keep)
+  const finished = table.finished.filter(keep)
+  if (reading.length === table.reading.length && finished.length === table.finished.length) return table
+  return {
+    ...table,
+    reading,
+    finished,
+    ...(table.shelfReading ? { shelfReading: table.shelfReading.filter(keep) } : {}),
+    mode: reading.length ? table.mode : (table.mode === 'returning' ? 'new' : table.mode),
+  }
+}
+
+/** The restriction for a cached first paint: waits briefly for the signal, then paints with what is known. */
+async function restrictedForFirstPaint(ready: Promise<ReadonlySet<string>>): Promise<ReadonlySet<string>> {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const known = await Promise.race([ready, new Promise<ReadonlySet<string>>(resolve => { timer = setTimeout(() => resolve(restrictedBookIdsNow()), 250) })])
+  clearTimeout(timer)
+  return known
 }
 
 export interface ReadingTable {
@@ -290,6 +322,46 @@ export async function introductionProgress(bookId: string): Promise<{ chapterNum
 }
 
 /**
+ * The edition "Begin reading" opens, the one rule for readerDestination and
+ * the introduction's "Your edition" picker: an explicit pick, else the saved
+ * place's edition, else "New books open in" (and Danish reading languages)
+ * for a book this reader has never opened, else the introduction's default,
+ * else the approved default.
+ */
+async function openingEdition(
+  bookId: string,
+  preferredEdition?: string | null,
+  choice?: { explicit?: boolean },
+) {
+  await ensureNativeBook(bookId)
+  await ensurePublicBook(bookId).catch(() => {})
+  const [books, place] = await Promise.all([loadCatalogue(), placeFor(bookId).catch(() => null)])
+  const book = books.get(bookId)
+  const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)
+  const saved = place?.editionKey ? migrateWithheldEdition(bookId, place.editionKey) : null
+  const preferred = preferredEdition && !editionHold(bookId, preferredEdition) ? preferredEdition : null
+  // "New books open in" (profiles, social ship 2): only a book this reader has
+  // never opened, and only without an explicit pick. Null while profiles are off.
+  const preferredDefault = !place && !choice?.explicit && (newBooksOpenIn() === 'human' || readingLanguages().includes('da'))
+    ? newBookPrimaryEditionKey(bookId, readable.map(edition => ({ key: edition.key, style: edition.style ?? '', language: edition.language ?? '' })) as never, newBooksOpenIn(), readingLanguages()) ?? null
+    : null
+  const order = choice?.explicit ? [preferred, saved] : [saved, preferredDefault, preferred]
+  const edition = order.find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
+  return { book, place, readable, edition }
+}
+
+/**
+ * The edition the introduction's "Your edition" picker shows before the
+ * reader picks one: exactly what Begin reading opens with no explicit pick.
+ * Null for a reader's own book or a book with no readable edition.
+ */
+export async function initialEdition(bookId: string): Promise<string | null> {
+  if (isUserBookId(bookId)) return null
+  const { book, edition } = await openingEdition(bookId, null, { explicit: false })
+  return book && edition ? edition : null
+}
+
+/**
  * Hand a book straight to the production reader, at the reader's place
  * (device merged with the account's cloud copy) in the edition it was read
  * in, else from the beginning in `preferredEdition`. Writes the same session
@@ -305,20 +377,7 @@ export async function readerDestination(
   // A reader's own book opens at its own URL; the reader restores the place kept on this device.
   // A PDF read in its pages opens in Add a book's viewer (pdfEditions.ts).
   if (isUserBookId(bookId)) { const hex = userBookHex(bookId)!; return ownBookHref(hex, null, pdfEditionChoice(hex)) }
-  await ensureNativeBook(bookId)
-  await ensurePublicBook(bookId).catch(() => {})
-  const [books, place] = await Promise.all([loadCatalogue(), placeFor(bookId).catch(() => null)])
-  const book = books.get(bookId)
-  const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)
-  const saved = place?.editionKey ? migrateWithheldEdition(bookId, place.editionKey) : null
-  const preferred = preferredEdition && !editionHold(bookId, preferredEdition) ? preferredEdition : null
-  // "New books open in" (profiles, social ship 2): only a book this reader has
-  // never opened, and only without an explicit pick. Null while profiles are off.
-  const preferredDefault = !place && !choice?.explicit && (newBooksOpenIn() === 'human' || readingLanguages().includes('da'))
-    ? newBookPrimaryEditionKey(bookId, readable.map(edition => ({ key: edition.key, style: edition.style ?? '', language: edition.language ?? '' })) as never, newBooksOpenIn(), readingLanguages()) ?? null
-    : null
-  const order = choice?.explicit ? [preferred, saved] : [saved, preferredDefault, preferred]
-  const edition = order.find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
+  const { book, place, readable, edition } = await openingEdition(bookId, preferredEdition, choice)
   if (!book || !edition) return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
   const compare = choice?.compare && choice.compare !== edition && readable.some(item => item.key === choice.compare) && !editionHold(bookId, choice.compare) ? choice.compare : null
   const intent = {
@@ -358,6 +417,9 @@ interface ReadingTableLoadOptions {
 export async function loadReadingTable(options: ReadingTableLoadOptions = {}): Promise<ReadingTable> {
   const catalogueReady = loadCatalogue(options.catalogue)
   catalogueReady.catch(() => {})
+  // Books not served in this visitor's country stay off the desk (never off the account). The
+  // library page's catalogue asks for them; this engine never adds a request of its own.
+  const restrictedReady: Promise<ReadonlySet<string>> = pendingRestrictedBookIds() ?? Promise.resolve(new Set<string>())
   const auth = await readAuth()
   const cacheKey = 'tinct:library-2-table:' + (auth.userId ?? 'guest')
   // Resolve identity before reading its snapshot. Cached presentation never
@@ -373,8 +435,9 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   // An own book just read (the desktop reader and PDF viewer write it) needs no catalogue entry.
   const justOwn = !!justRead && isUserBookId(justRead.bookId)
   const needsCatalogue = !!justRead && !justOwn && !cached?.reading.some(book => book.bookId === justRead.bookId)
-  if (cached && !needsCatalogue) options.onCached?.(withJustRead(cached, justRead, null))
-  else if (!cached && justOwn) options.onCached?.(withJustRead({ mode: 'returning', reading: [], finished: [] }, justRead, null))
+  const firstPaintRestricted: ReadonlySet<string> = cached || justOwn ? await restrictedForFirstPaint(restrictedReady) : new Set<string>()
+  if (cached && !needsCatalogue) options.onCached?.(withoutRestrictedBooks(withJustRead(cached, justRead, null), firstPaintRestricted))
+  else if (!cached && justOwn) options.onCached?.(withoutRestrictedBooks(withJustRead({ mode: 'returning', reading: [], finished: [] }, justRead, null), firstPaintRestricted))
   // Account reads do not need the catalogue: start them now, alongside its
   // download (1.6 MB), instead of after it. Same reads, same merge below.
   let catalogueBooks: Awaited<typeof catalogueReady> | null = null
@@ -421,7 +484,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   void Promise.allSettled([membershipReady, positionsReady, memoryReady, completionsReady])
   const books = await catalogueReady
   catalogueBooks = books
-  if (needsCatalogue) options.onCached?.(withJustRead(cached ?? { mode: 'returning', reading: [], finished: [] } as ReadingTable, justRead, books.get(justRead!.bookId) ?? null))
+  if (needsCatalogue) options.onCached?.(withoutRestrictedBooks(withJustRead(cached ?? { mode: 'returning', reading: [], finished: [] } as ReadingTable, justRead, books.get(justRead!.bookId) ?? null), await restrictedForFirstPaint(restrictedReady)))
   const [positions, membership] = await Promise.all([positionsReady, membershipReady, memoryReady, completionsReady])
   lastPositions = positionsWithProduction(positions, books)
   // One list for the reading table, My shelf and the reader's book switcher
@@ -468,6 +531,10 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: bookCoverSrc({ bookId: row.bookId, art: book?.art }), finishedAt: row.finishedAt }
     }),
   }
+  // Not served in this visitor's country: off the desk; the place itself stays as it is.
+  const restricted = new Set([...await restrictedReady, ...[...books.values()].filter(book => book.restricted).map(book => book.id)])
+  table.reading = table.reading.filter(book => !restricted.has(book.bookId))
+  table.finished = table.finished.filter(book => !restricted.has(book.bookId))
   // An own book at its end is finished, as Tinct's are: on Finished, not on the reading table.
   const own = await ownReady
   table.reading = withOwnReading(table.reading, own.filter(book => !book.reading.finished))
@@ -686,6 +753,7 @@ export async function removeFromShelf(bookId: string) {
   const at = removalTime(bookId)
   const result = at > Date.now() ? await setSavedBook(bookId, false, { at }) : await setSavedBook(bookId, false)
   storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
+  forgetLabLibraryBootBook(bookId)
   lastRows.delete(bookId)
   return result
 }
@@ -705,6 +773,7 @@ export async function hideFromReadingNow(bookId: string, { saved = true }: { sav
     await setSavedBook(bookId, saved, { tableHidden: true, ...(auth.userId ? { expectedOwner: auth.userId } : {}), at })
     if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
     storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
+    forgetLabLibraryBootBook(bookId)
     return
   }
   const local = readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
@@ -716,6 +785,7 @@ export async function hideFromReadingNow(bookId: string, { saved = true }: { sav
   const stored = writeLabPositionLocal(next)
   // Invalidate only this viewer's fast-paint snapshot before the next fresh load.
   storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
+  forgetLabLibraryBootBook(bookId)
   lastRows.delete(bookId)
   if (auth.token && isOnline()) await putLabPositionCloud(auth.token, stored)
 }
@@ -751,4 +821,4 @@ if (supabase && typeof document !== 'undefined') {
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, removeFromShelf, hideFromReadingNow, introductionProgress, addCatalogueBook }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, initialEdition, loadSavedBooks, setSavedBook, removeFromShelf, hideFromReadingNow, introductionProgress, addCatalogueBook }

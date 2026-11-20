@@ -160,28 +160,49 @@ describe('every removal path uses the motion', () => {
     // bookshelf.js and app.js. The signed-out "Add your own book or text" beside Read (20261105own) changed styles.css.
     // The Master and Margarita's reviewed introduction, taxonomy and browse groups (20261106mm) changed
     // reviewed-introductions.js, taxonomy.js and browse-groups.js without new tags, so returning readers kept
-    // the old files; the new tag goes on them and every module above them on the way to index.html.
+    // the old files; the new tag goes on them and every module above them on the way to index.html. People & ideas drawn like Structure
+    // (20261106people) changed app.js alone. A linked book (?book=) leaving the desk with its × or My shelf
+    // not coming back without its × (20261106deskgone) changed bookshelf.js, so app.js and index.html too.
+    // The signed-out header button saying "Sign in or join" (20261109join) changed app.js, so index.html too.
+    // The leave veil in the White theme's paper (20261109white) changed boot.js.
+    // Adding several own books at once (20261109bulk) changed styles.css (the queue's rows).
+    // The author's biography cut to about three lines with a More (20261112bio) changed app.js and intro-review.css.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261106mm', mm = '20261106mm'
-    expect(lib('index.html')).toContain(`app.js?v=${mm}`)
+    // "Your edition" showing the edition Begin reading opens (20261112pref) changed app.js alone.
+    // The biography's clamp and More/Less removed, one-sentence bios instead (20261112nomore), changed app.js and intro-review.css.
+    // Search by Danish titles and authors' Danish names (20261113dasearch) changed library-search.js, so app.js and index.html too.
+    // The eight young-reader books (20261120young) changed taxonomy.js and browse-groups.js; the new tag goes on them and
+    // every module above them on the way to index.html (book-metadata.js, add-to-tinct.js, catalogue.js, reading-table.js,
+    // bookshelf-view.js, bookshelf.js, app.js), as for 20261106mm.
+    const young = '20261120young'
+    expect(lib('index.html')).toContain(`app.js?v=${young}`)
+    expect(lib('app.js')).toContain(`taxonomy.js?v=${young}`)
+    expect(lib('app.js')).toContain(`browse-groups.js?v=${young}`)
+    expect(lib('book-metadata.js')).toContain(`taxonomy.js?v=${young}`)
+    expect(lib('app.js')).toContain('library-search.js?v=20261113dasearch')
+    expect(lib('index.html')).toContain('library-search.js?v=20261113dasearch')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
-    expect(lib('index.html')).toContain('styles.css?v=20261105own')
-    expect(lib('index.html')).toContain('boot.js?v=20261102empty')
-    expect(lib('app.js')).toContain(`bookshelf.js?v=${mm}`)
-    expect(lib('app.js')).toContain(`catalogue.js?v=${mm}`)
-    expect(lib('app.js')).toContain(`add-to-tinct.js?v=${mm}`)
+    expect(lib('index.html')).toContain('styles.css?v=20261109bulk')
+    expect(lib('index.html')).toContain('boot.js?v=20261109white')
+    // The one-sentence author bios (20261112bios) changed the intro-data tag in reviewed-introductions.js, so every
+    // module importing it, and their importers in turn: catalogue.js, reading-table.js, bookshelf-view.js, bookshelf.js.
+    const bios = '20261112bios'
+    expect(lib('app.js')).toContain(`bookshelf.js?v=${young}`)
+    expect(lib('app.js')).toContain(`catalogue.js?v=${young}`)
+    expect(lib('app.js')).toContain(`add-to-tinct.js?v=${young}`)
     expect(lib('app.js')).toContain(`shelf-motion.js?v=${motion}`)
-    expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${latest}`)
-    expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${latest}`)
-    expect(lib('bookshelf.js')).toContain(`catalogue.js?v=${mm}`)
-    expect(lib('bookshelf-view.js')).toContain(`reading-table.js?v=${latest}`)
+    expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${young}`)
+    expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${young}`)
+    expect(lib('bookshelf.js')).toContain(`catalogue.js?v=${young}`)
+    expect(lib('bookshelf-view.js')).toContain(`reading-table.js?v=${young}`)
     expect(lib('bookshelf-view.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('reading-table.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('reading-table.js')).toContain(`table-window.js?v=${motion}`)
-    expect(lib('reading-table.js')).toContain(`catalogue.js?v=${mm}`)
+    expect(lib('reading-table.js')).toContain(`catalogue.js?v=${young}`)
     expect(lib('reading-table.js')).toContain(`cover-assets.js?v=${tag}`)
     expect(lib('catalogue.js')).toContain(`cover-assets.js?v=${tag}`)
-    expect(lib('catalogue.js')).toContain(`add-to-tinct.js?v=${mm}`)
+    expect(lib('catalogue.js')).toContain(`add-to-tinct.js?v=${young}`)
     expect(lib('catalogue.js')).toContain(`library-2-reading.js?v=${ocr}`)
     expect(lib('boot.js')).toContain(`library-2-reading.js?v=${ocr}`)
     // A module imported under two tags would load twice: every importer names the same one.

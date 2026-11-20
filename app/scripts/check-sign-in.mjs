@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { markInternal } from './lib/internalTraffic.cjs'
+import { trackPending, probeStalled } from './lib/bootStallProbe.mjs'
 
 const live = process.env.AUTH_LIVE === '1'
 const origin = 'https://tinct.app'
@@ -25,6 +26,7 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
         const context = await browser.newContext({ viewport: { width, height }, serviceWorkers: 'block' })
         try {
           const page = await context.newPage()
+          const boot = trackPending(page)
           const errors = [], assets = [], pending = new Map()
           page.on('request', request => pending.set(request, { path: new URL(request.url()).pathname, type: request.resourceType(), started: Date.now() }))
           page.on('response', response => {
@@ -78,7 +80,12 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
             await page.waitForURL('**/reader?book=bible#p12')
             assert.equal(await page.locator('[data-auth-destination]').count(), 1)
           } else {
-            await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true')
+            try {
+              await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true')
+            } catch (error) {
+              console.error('BOOT_STALL ' + JSON.stringify({ engine, size, test, url: page.url(), probes: await probeStalled(boot.pending) }))
+              throw error
+            }
             const root = page.locator('#tinct-lab-sign-in')
             // Live before a release (navigation-diagnostic on a PR): production may not have the code screen yet.
             if (test === 'email-code' && live && await page.locator('[data-code-input]').count() === 0) {

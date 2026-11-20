@@ -1,14 +1,20 @@
 import { forwardRef, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import { PhoneIcon } from '../../lab/marginPhone/LabPhoneCard'
-import { deskBarPlace, deskMorePlace, firstAndLastLine, type DeskBox } from './deskBarPlace'
+import { deskBarPlace, deskMorePlace, firstAndLastLine, leafAt, type DeskBox } from './deskBarPlace'
+import { labKeyboardInsetPx } from '../../lab/labChrome'
+import { deskBarShortcut, deskBarShortcutLabel, type DeskBarShortcut } from './deskBarShortcuts'
 import '../../lab/marginPhone/marginPhone.css'
 import './selectionDeskBar.css'
+
+/** Less than this between the window's foot and what the reader sees is browser chrome, not a keyboard. */
+const DESK_KEYBOARD_MIN_PX = 80
 
 /**
  * The bar's states, as the margin reader names them (margin.js barHtml): a fresh selection ('menu'), its colours once
  * it is highlighted ('colors'), and a saved highlight clicked ('existing').
  */
+
 export type DeskBarState = 'menu' | 'colors' | 'existing'
 export type DeskMoreId = 'define' | 'factcheck' | 'counterpoint' | 'quiz' | 'gallery' | 'copy' | 'share' | 'page'
 
@@ -42,6 +48,8 @@ export interface SelectionDeskBarProps {
   moreRows: DeskMoreId[][]
   /** Where the press ended, used only when no selected word is painted. */
   fallback: { x: number; y: number }
+  /** Where the pointer let go of the selection: the bar stands on that side of it, its tip there (deskBarPlace). */
+  cursor?: { x: number; y: number }
   /** Original PDF geometry; null means that passage is outside the visible reader. */
   getAnchor?: () => DeskBox | null
   onAsk: () => void
@@ -61,6 +69,8 @@ export interface SelectionDeskBarProps {
   onSwatch: (color: HighlightColor) => void
   onNote?: () => void
   onRemove: () => void
+  /** Listen from here: the voice starts at the selection (an own PDF's original pages, while it can be read aloud). */
+  onListen?: () => void
   /** Container props owned by SelectionPopup (keyboard trap, dismissal guards). */
   containerProps?: Record<string, unknown>
 }
@@ -94,6 +104,9 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   const [morePlace, setMorePlace] = useState<{ left: number; top: number } | null>(null)
   const moreRef = useRef<HTMLDivElement | null>(null)
   const observedSelection = useRef({ x: fallback.x, y: fallback.y, seen: false })
+  // Which end of the selection the pointer let go at, and how far along that line: read once per selection, so a
+  // later scroll moves the bar with the passage and never to its other side.
+  const cursorSide = useRef<{ key: string; end: boolean; dx: number } | null>(null)
   const frame = (): DeskBox => ({ left: 0, right: window.innerWidth, top: document.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 60, bottom: window.innerHeight })
   useLayoutEffect(() => {
     const native = window.getSelection()
@@ -105,7 +118,13 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
       if (!el) return
       const bounds = frame()
       if (observedSelection.current.x !== fallback.x || observedSelection.current.y !== fallback.y) observedSelection.current = { x: fallback.x, y: fallback.y, seen: false }
-      const nodes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
+      const painted = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
+      // A passage over both leaves of a spread: the bar stands by the leaf where the pointer let go or tapped (leafAt).
+      const leafOf = (node: Element) => node.closest('.lab-book-col')
+      const leaves = Array.from(new Set(painted.map(leafOf)))
+      const leaf = leaves.length > 1 && leaves.every(Boolean)
+        ? leaves[leafAt(leaves.map(el => boxOf(el!.getBoundingClientRect())), props.cursor?.x)] : null
+      const nodes = leaf ? painted.filter(node => leafOf(node) === leaf) : painted
       const host = nodes[0]?.closest('.continuous-reader')?.getBoundingClientRect()
       if (host) { bounds.top = Math.max(bounds.top, host.top); bounds.bottom = Math.min(bounds.bottom, host.bottom) }
       const supplied = props.getAnchor?.()
@@ -118,7 +137,16 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
         .map(boxOf)
       if (observedSelection.current.seen && !boxes.length) { setPlace(null); return }
       const lines = firstAndLastLine(boxes) ?? { first: { left: fallback.x, right: fallback.x, top: fallback.y, bottom: fallback.y }, last: { left: fallback.x, right: fallback.x, top: fallback.y, bottom: fallback.y } }
-      setPlace(deskBarPlace(lines.first, lines.last, bounds, el.offsetWidth, el.offsetHeight))
+      const mid = (box: DeskBox) => (box.top + box.bottom) / 2
+      const pointer = props.cursor
+      if (!pointer) cursorSide.current = null
+      else if (boxes.length && cursorSide.current?.key !== `${pointer.x},${pointer.y}`) {
+        const end = lines.last.top > lines.first.top && Math.abs(pointer.y - mid(lines.last)) < Math.abs(pointer.y - mid(lines.first))
+        cursorSide.current = { key: `${pointer.x},${pointer.y}`, end, dx: pointer.x - (end ? lines.last : lines.first).left }
+      }
+      const side = cursorSide.current
+      const cursor = side && boxes.length ? { x: (side.end ? lines.last : lines.first).left + side.dx, y: mid(side.end ? lines.last : lines.first) } : null
+      setPlace(deskBarPlace(lines.first, lines.last, bounds, el.offsetWidth, el.offsetHeight, cursor))
     }
     let frameId = 0
     const schedule = () => { if (!frameId) frameId = requestAnimationFrame(() => { frameId = 0; at() }) }
@@ -126,7 +154,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     window.addEventListener('resize', schedule)
     window.addEventListener('scroll', schedule, true)
     return () => { cancelAnimationFrame(frameId); window.removeEventListener('resize', schedule); window.removeEventListener('scroll', schedule, true) }
-  }, [state, marked, askOpen, askLines, fallback.x, fallback.y, props.getAnchor])
+  }, [state, marked, askOpen, askLines, fallback.x, fallback.y, props.cursor?.x, props.cursor?.y, props.getAnchor])
   useLayoutEffect(() => {
     if (!moreOpen || !place) { setMorePlace(null); return }
     const bar = ref.current, menu = moreRef.current
@@ -148,6 +176,25 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     // A typed first character seeds the field: the caret follows it (a textarea starts its caret at 0).
     field.setSelectionRange(field.value.length, field.value.length)
   }, [askOpen])
+  // A touch screen's keyboard (an iPhone held sideways shows this desktop bar): the bar's place by the passage is
+  // measured in the window, which the keyboard covers without shrinking, and iOS then pans the page, so the field
+  // floated over the text at the top left (iPhone, 10 Nov 2026). While the keyboard is up, the open Ask bar stands
+  // on it instead, across the screen, where the question is typed in view.
+  const [keyboardInset, setKeyboardInset] = useState(0)
+  useEffect(() => {
+    const viewport = typeof window !== 'undefined' ? window.visualViewport : null
+    if (!askOpen || !viewport) { setKeyboardInset(0); return }
+    const measure = () => {
+      const inset = labKeyboardInsetPx(window.visualViewport, window.innerHeight)
+      setKeyboardInset(inset >= DESK_KEYBOARD_MIN_PX ? inset : 0)
+    }
+    measure()
+    viewport.addEventListener('resize', measure)
+    viewport.addEventListener('scroll', measure)
+    window.addEventListener('resize', measure)
+    return () => { viewport.removeEventListener('resize', measure); viewport.removeEventListener('scroll', measure); window.removeEventListener('resize', measure) }
+  }, [askOpen])
+  const onKeyboard = askOpen && keyboardInset > 0
   // The Ask field grows with its question, up to three lines, then scrolls (Anders, 30 Oct 2026). The bar is placed
   // again at its new height, so it grows away from the passage.
   useLayoutEffect(() => {
@@ -177,8 +224,20 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     setAskOpen(true)
   }
 
+  // Typing over a shared desktop selection starts a question (type-to-ask).
+  const typeToAsk = !!props.sharedReader && !!(props.onAskQuestion || props.onComposeAsk)
+  // The bar's keys (deskBarShortcuts) run the same handlers as its buttons, and only where the button is shown.
+  const shortcutRef = useRef<(action: DeskBarShortcut) => boolean>(() => false)
+  shortcutRef.current = action => {
+    if (action === 'note') { if (!props.onNote) return false; props.onNote(); return true }
+    if (action === 'highlight') { if (state !== 'menu') return false; props.onHighlight(); return true }
+    if (state === 'colors') return false
+    if (action === 'explain') props.onExplain()
+    else openAsk()
+    return true
+  }
   useEffect(() => {
-    if (!props.sharedReader || askOpen || moreOpen || !place || (!props.onAskQuestion && !props.onComposeAsk)) return
+    if (askOpen || moreOpen || !place) return
     const available = (target: EventTarget | null) => {
       const element = target instanceof Element ? target : null
       if (element?.closest('input,textarea,select,[contenteditable]:not([contenteditable="false"]),[role="textbox"]')) return false
@@ -188,6 +247,9 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
       return ref.current?.style.visibility !== 'hidden'
     }
     const type = (event: KeyboardEvent) => {
+      const shortcut = deskBarShortcut(event, typeToAsk)
+      if (shortcut && available(event.target) && shortcutRef.current(shortcut)) { event.preventDefault(); event.stopPropagation(); return }
+      if (!typeToAsk) return
       if (event.defaultPrevented || event.isComposing || event.keyCode === 229 || event.ctrlKey || event.metaKey || event.altKey
         || Array.from(event.key).length !== 1 || !event.key.trim() || !available(event.target)) return
       event.preventDefault()
@@ -197,7 +259,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     // IME keydowns use Process/229; only the committed composition is text.
     // Editable targets already receive composition normally and are untouched.
     const compose = (event: CompositionEvent) => {
-      if (!event.data || !available(event.target)) return
+      if (!typeToAsk || !event.data || !available(event.target)) return
       event.preventDefault()
       event.stopPropagation()
       openAsk(event.data)
@@ -205,7 +267,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     window.addEventListener('keydown', type, true)
     window.addEventListener('compositionend', compose, true)
     return () => { window.removeEventListener('keydown', type, true); window.removeEventListener('compositionend', compose, true) }
-  }, [props.sharedReader, props.onAskQuestion, props.onComposeAsk, askOpen, moreOpen, place])
+  }, [typeToAsk, props.onAskQuestion, props.onComposeAsk, askOpen, moreOpen, place])
 
   const keep = (event: React.PointerEvent | React.MouseEvent) => { if (!(event.target instanceof Element) || !event.target.closest('input,textarea')) event.preventDefault() }
   const sep = <span className="lab-pbar-sep" aria-hidden="true" />
@@ -214,16 +276,19 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     <button key={item.key} type="button" className="lab-pbar-swatch" data-testid={`lab-dbar-color-${item.key}`} aria-label={item.label}
       aria-pressed={marked && item.key === color} style={{ background: DESK_SWATCH[item.key] }} onClick={() => props.onSwatch(item.key)} />
   ))
-  const note = props.onNote && <button type="button" className="lab-pbar-item" data-testid="lab-dbar-note" aria-label={noted ? 'Edit note' : 'Add note'} onClick={props.onNote}><PhoneIcon name="note" /></button>
+  const keyHint = (action: DeskBarShortcut, label: string) => { const key = deskBarShortcutLabel(action, typeToAsk); return { title: `${label} (${key.hint})`, 'aria-keyshortcuts': key.aria } }
+  const note = props.onNote && <button type="button" className="lab-pbar-item" data-testid="lab-dbar-note" aria-label={noted ? 'Edit note' : 'Add note'} {...keyHint('note', noted ? 'Edit note' : 'Add note')} onClick={props.onNote}><PhoneIcon name="note" /></button>
+  const listen = props.onListen && <><button type="button" className="lab-pbar-item" data-testid="lab-dbar-listen" aria-label="Listen from here" title="Listen from here" onClick={props.onListen}><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8L10.2 6z" fill="currentColor" /></svg></button>{sep}</>
   const more = (rows: DeskMoreId[][]) => rows.some(group => group.length)
     ? <button type="button" className="lab-pbar-item" data-testid="lab-dbar-more" aria-label="More" aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => setMoreOpen(open => !open)}><PhoneIcon name="more" /></button>
     : null
   let body: ReactNode
   if (state === 'existing') {
     body = <>
-      <button ref={askButtonRef} type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-ask" onClick={() => openAsk()}>Ask</button>
+      {listen}
+      <button ref={askButtonRef} type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-ask" {...keyHint('ask', 'Ask')} onClick={() => openAsk()}>Ask</button>
       {sep}
-      <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" onClick={props.onExplain}>Explain</button>
+      <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" {...keyHint('explain', 'Explain')} onClick={props.onExplain}>Explain</button>
       {more(moreRows)}
       {sep}
       {swatches}
@@ -241,13 +306,14 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     </>
   } else {
     body = <>
-      <button ref={askButtonRef} type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" onClick={() => openAsk()}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
+      {listen}
+      <button ref={askButtonRef} type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" {...keyHint('ask', 'Ask')} onClick={() => openAsk()}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
       {sep}
-      <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" onClick={props.onExplain}>Explain</button>
+      <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" {...keyHint('explain', 'Explain')} onClick={props.onExplain}>Explain</button>
       {props.onSimplify && <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-simplify" onClick={props.onSimplify}>Simplify</button>}
       {more(moreRows)}
       {sep}
-      <button type="button" className="lab-pbar-item is-hl" data-testid="lab-dbar-highlight" aria-label={`Highlight in ${current.label}`} onClick={props.onHighlight}>
+      <button type="button" className="lab-pbar-item is-hl" data-testid="lab-dbar-highlight" aria-label={`Highlight in ${current.label}`} {...keyHint('highlight', `Highlight in ${current.label}`)} onClick={props.onHighlight}>
         <span className="lab-pbar-hl"><PhoneIcon name="highlight" /><span className="lab-pbar-dot" style={{ background: DESK_SWATCH[current.key] }} /></span>
       </button>
       {note}
@@ -262,9 +328,12 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
       data-testid="lab-desk-bar"
       data-bar-state={state}
       data-ask-open={askOpen ? 'true' : undefined}
+      data-keyboard={onKeyboard ? 'true' : undefined}
       role="toolbar"
       aria-label={props.ariaLabel ?? "Selection"}
-      style={{ position: 'fixed', top: place?.top ?? -999, left: place?.left ?? 16, ['--tip' as string]: `${place?.tip ?? 40}px`, visibility: place ? undefined : 'hidden' }}
+      style={onKeyboard
+        ? { position: 'fixed', top: 'auto', bottom: keyboardInset + 8, left: 12, right: 12, width: 'auto', maxWidth: 'none' }
+        : { position: 'fixed', top: place?.top ?? -999, left: place?.left ?? 16, ['--tip' as string]: `${place?.tip ?? 40}px`, visibility: place ? undefined : 'hidden' }}
       onPointerDown={keep}
       onMouseDown={keep}
     >
@@ -274,7 +343,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
         if (text && props.onAskQuestion) props.onAskQuestion(text)
       }}>
         <label className="lab-dbar-ask-label" htmlFor="lab-dbar-ask-field">Ask about this passage</label>
-        <textarea ref={askRef} id="lab-dbar-ask-field" data-testid="lab-dbar-ask-field" className="lab-dbar-ask-field" value={question} rows={1}
+        <textarea autoComplete="off" ref={askRef} id="lab-dbar-ask-field" data-testid="lab-dbar-ask-field" className="lab-dbar-ask-field" value={question} rows={1}
           onChange={event => setQuestion(event.target.value)} placeholder="Ask about this passage…" autoComplete="off" enterKeyHint="send"
           onKeyDown={event => {
             if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeAsk(); return }

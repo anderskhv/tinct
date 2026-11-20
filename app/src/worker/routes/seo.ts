@@ -6,6 +6,8 @@ import { htmlEscape } from '../lib/html'
 import { isPublicBookId } from '../../../public/lab/public-books.js'
 import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage, type GeneratedBookPage } from '../lib/bookLibraryPage'
 import { withStaticCache } from '../lib/staticCache'
+import { PLAY_BOOK_PAGE_PREFIX, isScenePage, playBookPagePath, scenePageForChapter } from '../lib/scenePages'
+import { CHAPTER_PACK_PREFIX, bookPageEntry, chapterPageEntry, chapterPageFromPack, hasChapterPages, shelfHubIndexable } from '../lib/chapterPages'
 
 export type SeoEnv = {
   INDEXNOW_KEY?: string
@@ -54,18 +56,10 @@ export function isBlockedBot(request: Request): boolean {
   return false
 }
 
-// Per-book SEO meta tags injected into the SPA shell at /read/{bookId} so that
-// crawlers see a book-specific title and description instead of the generic
-// SPA title. Only listed bookIds get this treatment; everything else falls
-// through to the SPA shell with its default title.
-const BOOK_META: Record<string, BookMetaEntry & { image?: string }> = {
-  odyssey: {
-    title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
-    description: "Read Homer's Odyssey free online. Authoritative English translation paragraph-aligned with a modern English version. Includes a context-aware AI companion, spoiler-aware character tracker, and synced audiobook. No account needed to start.",
-    bookName: 'The Odyssey',
-    author: 'Homer',
-  },
-}
+// Hand-written per-book meta, which wins over the generated entry (bookMetaGenerated.ts). Empty since
+// 16 Nov 2026: the Odyssey's stale entry ("…Modern Translation, AI Companion, Audiobook | Tinct") was
+// removed, so it is titled like every other book.
+const BOOK_META: Record<string, BookMetaEntry & { image?: string }> = {}
 
 const BRAND_IMAGE = 'https://tinct.app/brand/20261105/share-tinct-1200x630.jpg'
 const BRAND_INSTALL = "  <link rel=\"icon\" href=\"/brand/20260921/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"icon\" href=\"/brand/20260921/favicon.ico\" sizes=\"any\">\n  <link rel=\"apple-touch-icon\" href=\"/brand/20260921/apple-touch-icon.png\" sizes=\"180x180\">\n  <link rel=\"manifest\" href=\"/brand/manifest.webmanifest\">\n"
@@ -98,7 +92,7 @@ const CONTENT_BOOK_IDS = new Set([...PUBLIC_BOOK_IDS, ...Object.keys(TEMPORARY_E
 
 /** Static public pages (book pages, the hub, About, Credits, Privacy, Terms): short public cache. Per-user pages stay no-store. */
 const PUBLIC_PAGE_CACHE = 'public, max-age=300, stale-while-revalidate=86400'
-const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/credits', '/credits/', '/story', '/story/', '/privacy', '/privacy/', '/terms', '/terms/', '/byob', '/byob/'])
+const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/credits', '/credits/', '/story', '/story/', '/privacy', '/privacy/', '/terms', '/terms/', '/byob', '/byob/', '/copyright', '/copyright/'])
 
 async function serveStaticHtml(
   requestMethod: string,
@@ -188,13 +182,23 @@ function isLabPathname(pathname: string): boolean {
 // Public page URL -> the static asset page that answers it. The address bar
 // keeps the public URL; the asset folder is never a navigation target.
 const LAB_PRE_READER_PATHS = new Map([
-  ['/featured', '/lab/featured/'],
-  ['/featured/', '/lab/featured/'],
   ['/library', LIBRARY_ENTRY_PATH],
   ['/library/', LIBRARY_ENTRY_PATH],
   ['/sign-in', '/lab/sign-in/'],
   ['/sign-in/', '/lab/sign-in/'],
 ])
+
+/**
+ * An HTML page under /lab (the design-system reference, a demo) answers with X-Robots-Tag: noindex. Its
+ * scripts and styles do not: robots.txt allows /lab/*.js and /lab/*.css so a crawler can render the book pages.
+ */
+function labPageNoindex(url: URL, response: Response): Response {
+  const html = /\.html?$/i.test(url.pathname) || (response.headers.get('Content-Type') || '').includes('text/html')
+  if (!html) return response
+  const result = new Response(response.body, response)
+  result.headers.set('X-Robots-Tag', 'noindex, noarchive')
+  return result
+}
 
 function isLabStaticAssetPath(pathname: string): boolean {
   return /^\/lab\/[^/]+\.[a-z0-9]+$/i.test(pathname)
@@ -272,6 +276,30 @@ async function serveBookLibraryPage(requestMethod: string, url: URL, env: SeoEnv
   return resp
 }
 
+/**
+ * `/read/<id>` for a book with chapter pages (page 0 of its first pack) or scene pages (the play's book page):
+ * the first chapter or scene under the book's header. Null when the book has neither, so the library page answers.
+ */
+async function serveReadingBookPage(requestMethod: string, url: URL, env: SeoEnv, bookId: string): Promise<Response | null> {
+  const entry = bookPageEntry(bookId)
+  let page: string | null = null
+  if (entry) {
+    const packResp = await env.ASSETS.fetch(new Request(`${url.origin}${entry.pack}`))
+    page = packResp.ok ? chapterPageFromPack(await packResp.text(), 0) : null
+  } else {
+    const path = playBookPagePath(bookId)
+    const playResp = path ? await env.ASSETS.fetch(new Request(`${url.origin}${path}`)) : null
+    page = playResp?.status === 200 ? await playResp.text() : null
+  }
+  if (!page) return null
+  const resp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(page, bookId), {
+    status: 200,
+    headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': PUBLIC_PAGE_CACHE, Vary: 'Cookie' },
+  })
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) resp.headers.set(key, value)
+  return resp
+}
+
 async function serveLabDemo(
   requestMethod: string,
   url: URL,
@@ -281,9 +309,9 @@ async function serveLabDemo(
   if (!appResp.ok) return null
 
   const html = await appResp.text()
-  const withRobots = html.includes('name="robots"')
+  const withRobots = withTryDemo(url, html.includes('name="robots"')
     ? html
-    : html.replace(/<head([^>]*)>/i, '<head$1>\n  <meta name="robots" content="noindex, noarchive">')
+    : html.replace(/<head([^>]*)>/i, '<head$1>\n  <meta name="robots" content="noindex, noarchive">'))
   const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(withRobots, url.searchParams.get('book') || undefined, true), {
     status: 200,
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
@@ -297,6 +325,26 @@ async function serveLabDemo(
 }
 
 export const serveLabDemoForTest = serveLabDemo
+
+/**
+ * The /try page's reader (`/reader?demo=try`, docs/try-page/BRIEF.md): its demo-mode script runs first in the head,
+ * before the reader's boot script and bundle, so storage and writes are contained from the first line
+ * (public/lab/try/reader-demo.js; it does nothing unless /try frames it). Any other reader address is unchanged.
+ */
+export const TRY_DEMO_SCRIPT = '/lab/try/reader-demo.js'
+export function withTryDemo(url: URL, html: string): string {
+  if (url.searchParams.get('demo') !== 'try') return html
+  return html.replace(/<head([^>]*)>/i, `<head$1>\n  <script src="${TRY_DEMO_SCRIPT}"></script>`)
+}
+
+/**
+ * The Try page became the About page (Anders, 19 Nov 2026): public/about.html, served at /about like the other static
+ * public pages (indexable, in the sitemap, no signed-in redirect). /try, /try.html and /try/ answer with a permanent
+ * redirect to /about that keeps the query string, so ad and launch links (`?ref=…`) still land and count.
+ */
+function redirectTryToAbout(url: URL): Response {
+  return new Response(null, { status: 301, headers: { Location: '/about' + url.search, 'Cache-Control': 'public, max-age=3600' } })
+}
 export const isLabPathnameForTest = isLabPathname
 
 function editionBookIdFromPath(pathname: string): string | null {
@@ -437,6 +485,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       })
     }
 
+    if (/^\/try(?:\.html|\/)?$/.test(url.pathname)) {
+      return redirectTryToAbout(url)
+    }
+
     // The privacy policy is one page at /privacy (public/privacy.html, served by
     // the assets binding's html_handling). The older /privacy-policy URL, which
     // store listings and old links may still use, redirects there permanently.
@@ -508,7 +560,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       return withStaticCache(url, result)
     }
 
-    // The catalogue-backed library, sign-in and featured preview pages are
+    // The catalogue-backed library and sign-in pages are
     // static assets answered at their public URL. The reader SPA is /reader.
     if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
       const entryPath = LAB_PRE_READER_PATHS.get(url.pathname)!
@@ -524,7 +576,9 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       // a 304 as a miss makes a warm browser fall through to the Lab reader SPA,
       // caching HTML under a JavaScript URL and breaking every later navigation.
       // A 200 for a tagged file gets the browser cache policy (lib/staticCache.ts); a 304 passes untouched.
-      return withStaticCache(url, await env.ASSETS.fetch(request))
+      // robots.txt lets crawlers fetch /lab scripts and styles (the book pages need them to render);
+      // a /lab HTML page itself stays out of the index.
+      return labPageNoindex(url, withStaticCache(url, await env.ASSETS.fetch(request)))
     }
 
     // Private reading-chrome demo. Always noindex, including /lab/*.
@@ -565,17 +619,87 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
     }
 
+    // The chapter packs are read by the chapter route below, never fetched by a visitor.
+    if (url.pathname.startsWith(CHAPTER_PACK_PREFIX) || url.pathname.startsWith(PLAY_BOOK_PAGE_PREFIX)) return missingFileResponse(request.method)
+
+    // Chapter pages (16 Nov 2026): /read/{bookId}/chapter-N, the whole chapter in
+    // Modern English beside its original (scripts/seo/build-chapter-pages.mjs),
+    // for every book with one. The same page for everyone; a chapter the book
+    // does not have is a 404. Only allowlisted books are indexable
+    // (src/data/seoIndexAllowlist.ts); the others answer `noindex, follow`.
+    const chapterMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/chapter-(\d{1,5})(\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && chapterMatch && hasChapterPages(chapterMatch[1].toLowerCase())) {
+      const bookId = chapterMatch[1].toLowerCase()
+      const chapter = Number(chapterMatch[2])
+      const entry = chapterPageEntry(bookId, chapter)
+      if (!entry) return serveNotFound(request.method, url, env)
+      const clean = `/read/${bookId}/chapter-${chapter}`
+      if (url.pathname !== clean) {
+        return new Response(null, { status: 301, headers: { Location: clean + url.search, 'Cache-Control': 'public, max-age=86400' } })
+      }
+      const packResp = await env.ASSETS.fetch(new Request(`${url.origin}${entry.pack}`))
+      const page = packResp.ok ? chapterPageFromPack(await packResp.text(), chapter) : null
+      if (!page) return serveNotFound(request.method, url, env)
+      const resp = new Response(request.method === 'HEAD' ? null : brandedHtml(page, bookId), {
+        status: 200,
+        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': PUBLIC_PAGE_CACHE, Vary: 'Cookie' },
+      })
+      for (const [key, value] of Object.entries(SECURITY_HEADERS)) resp.headers.set(key, value)
+      if (!entry.indexable) resp.headers.set('X-Robots-Tag', 'noindex, follow')
+      return resp
+    }
+
+    // Shelf hubs: /read/shelf/{shelf}, a library shelf's books (titles, covers,
+    // links). Indexable only when the shelf lists an allowlisted book.
+    const hubMatch = url.pathname.match(/^\/read\/shelf\/([a-z0-9-]+?)(\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && hubMatch) {
+      const shelfId = hubMatch[1].toLowerCase()
+      const indexable = shelfHubIndexable(shelfId)
+      if (indexable === null) return serveNotFound(request.method, url, env)
+      const clean = `/read/shelf/${shelfId}`
+      if (url.pathname !== clean) {
+        return new Response(null, { status: 301, headers: { Location: clean + url.search, 'Cache-Control': 'public, max-age=86400' } })
+      }
+      const hubResp = await serveStaticHtml(request.method, request, url, clean, env)
+      if (!hubResp) return serveNotFound(request.method, url, env)
+      if (!indexable) hubResp.headers.set('X-Robots-Tag', 'noindex, follow')
+      return hubResp
+    }
+
     // Retired page types. The AI-written summary, themes, cast, chapters and
     // chapter-N pages under /read/{bookId}/ were removed (2026-10-05); every
     // such URL, with or without .html, answers with one permanent redirect to
     // the book page. The bible-{book} summary folders point at the Bible.
-    const retiredMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(?:summary|chapters|cast|themes|chapter-\d{1,5})(?:\.html|\/)?$/i)
+    // Since 13 Nov 2026 a play with scene pages sends its old chapter-N to the
+    // scene page of that chapter (the same scene, now its own text) instead.
+    // Since 16 Nov 2026 a book with chapter pages answers chapter-N above; the
+    // redirect remains for books without them (the other plays, the Bible).
+    const retiredMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(?:summary|chapters|cast|themes|chapter-(\d{1,5}))(?:\.html|\/)?$/i)
     if ((request.method === 'GET' || request.method === 'HEAD') && retiredMatch) {
       const retiredBook = retiredMatch[1].toLowerCase()
       const bookId = /^bible-[a-z0-9-]+$/.test(retiredBook) ? 'bible' : retiredBook
       if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
-        return new Response(null, { status: 301, headers: { Location: `/read/${bookId}`, 'Cache-Control': 'public, max-age=86400' } })
+        const scene = retiredMatch[2] ? scenePageForChapter(bookId, Number(retiredMatch[2])) : null
+        return new Response(null, { status: 301, headers: { Location: scene ?? `/read/${bookId}`, 'Cache-Control': 'public, max-age=86400' } })
       }
+      return serveNotFound(request.method, url, env)
+    }
+
+    // Scene pages (five plays, 13 Nov 2026): /read/{bookId}/{scene}, the
+    // static page of one scene in modern English (scripts/seo/build-scene-pages.mjs).
+    // The same page for everyone, signed in or not: it is static, reads no
+    // reading position and hands over to the reader only when asked. Its .html
+    // and trailing-slash forms, and capitals, redirect to the one address.
+    const sceneMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/([a-z0-9-]+?)(\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && sceneMatch && isScenePage(sceneMatch[1].toLowerCase(), sceneMatch[2].toLowerCase())) {
+      const bookId = sceneMatch[1].toLowerCase()
+      const slug = sceneMatch[2].toLowerCase()
+      const clean = `/read/${bookId}/${slug}`
+      if (url.pathname !== clean) {
+        return new Response(null, { status: 301, headers: { Location: clean + url.search, 'Cache-Control': 'public, max-age=86400' } })
+      }
+      const sceneResp = await serveStaticHtml(request.method, request, url, clean, env)
+      if (sceneResp) return sceneResp
       return serveNotFound(request.method, url, env)
     }
 
@@ -610,6 +734,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
           return new Response(null, { status: 302, headers: { Location: `/library?book=${encodeURIComponent(bookId)}`, 'Cache-Control': 'no-store' } })
         }
         if (!hasAuthCookie && !addedBook) {
+          // Since 19 Nov 2026 (docs/seo-brief-2026-11-19.md §1) a book with chapter or scene pages opens straight
+          // into its first chapter or scene, under a slim header, with the chapter list below.
+          const readingPage = await serveReadingBookPage(request.method, url, env, bookId)
+          if (readingPage) return readingPage
           const bookPage = await serveBookLibraryPage(request.method, url, env, bookId)
           if (bookPage) return bookPage
           const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
@@ -706,6 +834,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
         newResponse.headers.set(key, value)
       }
+      // /lab demo pages (Add a book, the design system reference): served, never indexed.
+      if (url.pathname === '/lab' || url.pathname.startsWith('/lab/')) newResponse.headers.set('X-Robots-Tag', 'noindex, noarchive')
       return newResponse
     }
     // Content-hashed bundles and cover images are kept by the browser (lib/staticCache.ts).

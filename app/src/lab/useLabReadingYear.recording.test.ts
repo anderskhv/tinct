@@ -48,22 +48,29 @@ function fakeWorker(state: { enabled: boolean; beatStatus?: number }) {
   return { calls, beats: () => calls.filter(call => call.url.includes('/api/reading-time/beat')) }
 }
 
-/** Ticks with the reader active (a key press before each tick). */
+/** The mounted reader's page turn (reading time is credited by turns, 10 Nov 2026). */
+let turnPage: () => void = () => {}
+
+/** Reading: a page turn every 30 seconds, the tick firing on time. */
 async function read(ms: number) {
   for (let elapsed = 0; elapsed < ms; elapsed += 30_000) {
-    window.dispatchEvent(new KeyboardEvent('keydown'))
     await act(async () => { vi.advanceTimersByTime(30_000) })
+    act(() => turnPage())
     await act(async () => { for (let i = 0; i < 10; i += 1) await Promise.resolve() })
   }
 }
 
 function mount() {
   const listeningRef = { current: false }
-  return renderHook(() => useLabReadingYear({ userId: USER, bookId: 'pd-pg-1672', chapter: 1, page: 0, onCover: false, paused: false, listeningRef }))
+  const hook = renderHook(({ page }: { page: number }) => useLabReadingYear({ userId: USER, bookId: 'pd-pg-1672', chapter: 1, page, onCover: false, paused: false, listeningRef }), { initialProps: { page: 0 } })
+  let page = 0
+  turnPage = () => { page += 1; hook.rerender({ page }) }
+  return hook
 }
 
 beforeEach(() => {
   yearRow.reads = 0
+  turnPage = () => {}
   localStorage.clear()
   resetReadingTimeSwitch()
   vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'setTimeout', 'clearTimeout', 'Date'] })
@@ -146,6 +153,7 @@ describe('ledger heartbeats every five minutes (DB IO trim)', () => {
     expect(beats()).toHaveLength(0)
     expect(waiting()).toBe(120)
     hidden.mockRestore()
+    document.dispatchEvent(new Event('visibilitychange'))
     await read(150_000)
     window.dispatchEvent(new Event('pagehide'))
     await settle()
@@ -251,17 +259,18 @@ describe('reading interval boundaries', () => {
     expect(readPending(USER)['2026-10-22']?.['pd-pg-1672']?.read).toBe(10)
   })
 
-  it('retains subsecond time across frequent gestures and stops at the idle boundary', async () => {
-    fakeWorker({ enabled: true })
+  it('credits quick turns from their timestamps, and a page then left open only its typical time (10 Nov 2026)', async () => {
+    const { beats } = fakeWorker({ enabled: true })
     const h = mount()
     await settle()
     for (let i = 0; i < 40; i++) {
-      act(() => { vi.advanceTimersByTime(500); window.dispatchEvent(new KeyboardEvent('keydown')) })
+      act(() => { vi.advanceTimersByTime(3_000); turnPage() })
     }
-    expect(waiting()).toBe(20)
+    expect(waiting()).toBe(120)
+    // Left open 200 s with no turn, then closed: the last page earns the session's median page time (3 s).
     await act(async () => { vi.advanceTimersByTime(200_000) })
     h.unmount()
-    expect(waiting()).toBe(200)
+    expect(sent(beats()) + waiting()).toBe(123)
   })
 })
 

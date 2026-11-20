@@ -18,6 +18,11 @@
 // 3. Reading the book again (a newer place, as the reader writes it) brings it back to Currently
 //    reading, at that place.
 // 4. Throughout, the reading positions are never changed by the library.
+// 5. The desk's × on the front book of a page opened by a book link (/library?book=frankenstein, where a
+//    signed-in reader lands from /read/frankenstein), with that book just read (Anders, 6 Nov 2026): the
+//    book leaves and never comes back, neither as the linked book (no ×, "Read") nor while a reload
+//    paints from the device's snapshots; the next book takes the front with its ×, and the address
+//    loses the link. With the linked book the only one on the desk, the desk gives way to the library.
 //
 // Run after `npm run build` from app/: node scripts/check-library-shelf-remove.mjs
 // SHELF_REMOVE_ARTIFACTS=<dir> also writes screenshots.
@@ -227,6 +232,71 @@ async function scenario(browser, origin, supabase, { label, id, title, shelf, pl
   } finally { await c.close() }
 }
 
+/** The desk as drawn: its books in order, the front one, its ×, and whether the front is a linked book. */
+const deskNow = page => page.evaluate(() => {
+  const t = document.querySelector('.reading-table:not([hidden]):not(.is-placeholder)'), p = document.querySelector('.reading-table.is-placeholder')
+  const books = t => t ? [...t.querySelectorAll('.rt-b[data-i]')].map(b => b.getAttribute('aria-label')) : []
+  return { returning: document.documentElement.classList.contains('returning'), books: books(t), placeholder: books(p), front: t?.querySelector('.rt-b.is-current')?.getAttribute('aria-label') ?? null, x: !!t && !t.querySelector('#rt-remove')?.hidden, linked: !!t?.classList.contains('is-linked'), action: t?.querySelector('#rt-continue')?.firstChild?.textContent ?? null, address: location.pathname + location.search }
+})
+async function watchDesk(page, ms) {
+  const seen = []
+  for (const end = Date.now() + ms; Date.now() < end;) { seen.push(await deskNow(page)); await page.waitForTimeout(100) }
+  return seen
+}
+
+async function linkedDesk(browser, origin, supabase, { label, ids }) {
+  const now = Date.now()
+  const positions = { books: Object.fromEntries(ids.map((id, i) => [id, place(id, 3 + i, 2, now - 10 * 60000 - i * DAY)])), finished: {}, owner: USER, hidden: {}, lastSettledBookId: ids[0], lastSettledAt: now - 10 * 60000, updatedAt: now - 10 * 60000, deviceId: 'device-shelf-check' }
+  const state = { account: account({ shelf: [], positions }), positions }
+  const c = await context(browser, origin, supabase, state)
+  // Frankenstein was just read on this device: the reader's library snapshot names it (labLibraryBoot.ts).
+  await c.addInitScript(({ user, at }) => { if (sessionStorage.getItem('shelf-check-seeded')) return; sessionStorage.setItem('shelf-check-seeded', '1'); localStorage.setItem('tinct:lab-library-boot', JSON.stringify({ v: 1, at, userId: user, readingNow: 1, finished: 0, hero: { bookId: 'frankenstein', title: 'Frankenstein', chapterLabel: 'Chapter 3', headline: 'You’re in the middle of Chapter 3', lastReadAt: at, coverSrc: null }, row: [] })) }, { user: USER, at: now - 10 * 60000 })
+  const page = await c.newPage(), errors = []
+  page.on('pageerror', error => errors.push(error.message))
+  const books = () => page.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-position') || 'null')?.books)
+  try {
+    await page.goto('/library?book=frankenstein', { waitUntil: 'domcontentloaded' })
+    await page.waitForFunction(() => document.querySelector('.reading-table.is-ready:not([hidden]) #rt-remove:not([hidden])') && window.__tinctLibraryTwoReading, null, { timeout: 60000 })
+    await page.waitForLoadState('networkidle').catch(() => {})
+    await page.waitForTimeout(1500)
+    const before = await deskNow(page), placesBefore = await books()
+    assert.equal(before.front, 'Frankenstein', `${label}: Frankenstein, read last, is the front book ${JSON.stringify(before)}`)
+    assert(before.x && !before.linked && before.action === 'Continue', `${label}: as a book being read, with its × ${JSON.stringify(before)}`)
+    if (ARTIFACTS) await page.screenshot({ path: path.join(ARTIFACTS, `${label}-before.png`) })
+    await page.locator('.reading-table:not([hidden]) #rt-remove').click()
+    await page.locator('.reading-table:not([hidden]) #rt-remove-confirm').click()
+    const after = await watchDesk(page, 6000)
+    if (ARTIFACTS) await page.screenshot({ path: path.join(ARTIFACTS, `${label}-removed.png`) })
+    // With other books it leaves at once; the last book stays until its removal is kept (bookshelf.js onRemoveReading).
+    const rest = ids.length - 1, has = d => d.books.includes('Frankenstein') || d.placeholder.includes('Frankenstein')
+    const gone = after.findIndex(d => !has(d))
+    assert(gone >= 0 && gone <= (rest ? 1 : 30), `${label}: Frankenstein leaves the desk after its × ${JSON.stringify(after.slice(0, 2))}`)
+    assert(after.slice(gone).every(d => !has(d)), `${label}: Frankenstein stays off the desk after its × ${JSON.stringify(after.slice(gone).filter(has).slice(0, 2))}`)
+    assert(after.every(d => !d.linked), `${label}: no linked book takes its place`)
+    const last = after.at(-1)
+    assert(!/[?&]book=/.test(last.address), `${label}: the address loses the link ${last.address}`)
+    if (rest) {
+      assert(last.returning && last.books.length === rest && last.x && last.action === 'Continue', `${label}: the next book is at the front, with its × ${JSON.stringify(last)}`)
+    } else {
+      assert(!last.returning && last.books.length === 0, `${label}: an empty desk gives way to the library ${JSON.stringify(last)}`)
+    }
+    // A reload: never Frankenstein, not even for a frame while the desk paints from this device.
+    await page.reload({ waitUntil: 'commit' })
+    const reload = await watchDesk(page, 6000)
+    if (ARTIFACTS) await page.screenshot({ path: path.join(ARTIFACTS, `${label}-reload.png`) })
+    assert(reload.every(d => !d.books.includes('Frankenstein') && !d.placeholder.includes('Frankenstein')), `${label}: Frankenstein stays off the desk after a reload ${JSON.stringify(reload.filter(d => d.books.includes('Frankenstein') || d.placeholder.includes('Frankenstein')).slice(0, 2))}`)
+    const settled = reload.at(-1)
+    if (rest) assert(settled.returning && settled.books.length === rest && settled.x && !settled.linked, `${label}: after a reload the desk shows the reader's books, front with its × ${JSON.stringify(settled)}`)
+    else assert(!settled.returning, `${label}: after a reload the empty desk stays the library ${JSON.stringify(settled)}`)
+    // The desk's × writes the book's hide time to the account's position record (hideFromReadingNow); its places stay as they were.
+    assert.deepEqual(await books(), placesBefore, `${label}: the reading positions are kept`)
+    assert.deepEqual(state.positions.books, positions.books, `${label}: the account's reading positions are kept`)
+    assert(state.positions.hidden?.frankenstein >= positions.books.frankenstein.updatedAt, `${label}: the account records the hide ${JSON.stringify(state.positions.hidden)}`)
+    assert.deepEqual(errors, [], `${label}: no page errors`)
+    console.log('SHELF_REMOVE ' + JSON.stringify({ label, before: before.books, after: last.books, front: last.front, x: last.x, address: last.address, reload: settled.books, hero: settled.returning ? null : await page.evaluate(() => document.getElementById('hero-title')?.textContent) }))
+  } finally { await c.close() }
+}
+
 const server = await serve()
 const origin = `http://127.0.0.1:${server.address().port}`
 const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio', '--disable-dev-shm-usage'], ...(process.env.PW_CHROMIUM_EXECUTABLE ? { executablePath: process.env.PW_CHROMIUM_EXECUTABLE } : {}) }))
@@ -238,8 +308,10 @@ try {
   await scenario(browser, origin, supabase, { label: 'old-tombstone', id: 'the-prince', title: 'The Prince', placeAt: now - 2 * DAY, shelf: [{ key: 'library-shelf:the-prince', value: null, rev: 3, updated_at: new Date(now - 10 * DAY).toISOString() }] })
   // Read on another device whose clock runs a minute ahead of this one; no shelf row yet.
   await scenario(browser, origin, supabase, { label: 'clock-ahead', id: 'the-prince', title: 'The Prince', placeAt: Date.now() + 60000, shelf: [] })
+  await linkedDesk(browser, origin, supabase, { label: 'linked-desk', ids: ['frankenstein', 'the-republic', 'the-prince'] })
+  await linkedDesk(browser, origin, supabase, { label: 'linked-only', ids: ['frankenstein'] })
 } finally {
   await browser.close()
   server.close()
 }
-console.log('Remove from shelf stays removed until the book is read again')
+console.log('Remove from shelf stays removed until the book is read again; the desk × on a linked book keeps it off')

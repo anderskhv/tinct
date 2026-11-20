@@ -107,7 +107,7 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  stage('library '+engine.name());
  const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(engine===webkit?{isMobile:true,hasTouch:true}:{})}),p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
  if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());if(u.pathname==='/api/public-books')return r.fulfill({contentType:'application/json',body:'{"books":[]}'});const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
- await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.locator('#read-featured').waitFor();await p.waitForFunction(()=>document.querySelectorAll('.hero-dots button').length===5);assert.equal(await p.locator('#hero-title').innerText(),'Frankenstein');assert(!(await c.cookies()).some(x=>x.name==='tinct_library_preview'));assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'new library fits viewport');await p.waitForFunction(()=>document.querySelector('[data-metadata-book=frankenstein]')?.textContent.includes('1818'));assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-category').first().innerText(),'FICTION');assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').nth(1).innerText(),/^~[0-9.]+h$/);await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-new.png`});
+ await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.locator('#read-featured').waitFor();await p.waitForFunction(()=>document.querySelectorAll('.hero-dots button').length===6)/* the Bible joined the featured books, 10 Nov 2026 */;assert.equal(await p.locator('#hero-title').innerText(),'Frankenstein');assert(!(await c.cookies()).some(x=>x.name==='tinct_library_preview'));assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'new library fits viewport');await p.waitForFunction(()=>document.querySelector('[data-metadata-book=frankenstein]')?.textContent.includes('1818'));assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-category').first().innerText(),'FICTION');assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').nth(1).innerText(),/^~[0-9.]+h$/);await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-new.png`});
  await p.locator('#menu-toggle').click();
  assert.equal(await p.locator('#library-menu details, #library-menu summary').count(),0,'main menu has top-level categories only');
  await p.locator('#menu-categories button').filter({hasText:/^Philosophy$/}).click();
@@ -258,8 +258,12 @@ async function checkBookOpening(b,engine,w,h,mobile){
 
 // ---- Book links: /library?book=<id> and the shared /read/<id>/ (approved 6 Oct) ----
 async function checkBookLinks(b,engine,w,h,mobile,extended){
- const LINKED='wuthering-heights',TITLE='Wuthering Heights',AUTHOR='Emily Brontë',label=`${engine}-${w}x${h}`,shots=out+'/book-links';
+ const LINKED='wuthering-heights',TITLE='Wuthering Heights',AUTHOR='Emily Brontë',CHAPTER_3='Chapter III of 34',label=`${engine}-${w}x${h}`,shots=out+'/book-links';
  const library=()=>fs.readFileSync(path.join(root,'lab/library_2/index.html'),'utf8');
+ // The page after its `<!--tinct:chapter-page N-->` marker in the book's packs (dist/seo/chapter-packs/{book}/*.txt).
+ const chapterPage=(id,n)=>{const dir=path.join(root,'seo/chapter-packs',id),marker=`<!--tinct:chapter-page ${n}-->\n`;if(!fs.existsSync(dir))return null;
+  for(const name of fs.readdirSync(dir)){const pack=fs.readFileSync(path.join(dir,name),'utf8'),at=pack.indexOf(marker);if(at<0)continue;const end=pack.indexOf('<!--tinct:chapter-page ',at+marker.length);return pack.slice(at+marker.length,end<0?undefined:end);}
+  return null;};
  const generated=id=>{const f=path.join(root,'read',id||'','book.html');return /^[a-z0-9-]+$/.test(id||'')&&fs.existsSync(f)?readGeneratedBookPage(fs.readFileSync(f,'utf8'),id):null;};
  async function open({state=null,raw=false}={}){
   const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(mobile?{isMobile:true,hasTouch:true}:{})}),p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
@@ -274,8 +278,13 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
    await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());
     if(u.pathname.startsWith('/api/'))return r.fulfill({status:404,contentType:'application/json',body:'{}'});
     const read=u.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/)?.[1],entry=['/','/index.html','/library','/library/'].includes(u.pathname);
+    // Since 19 Nov 2026 a signed-out /read/{book} with chapter pages is the book page: page 0 of its first pack.
+    if(read){const page0=chapterPage(read,0);if(page0)return r.fulfill({contentType:'text/html; charset=utf-8',body:page0});}
     if(read||entry){const page=generated(read||u.searchParams.get('book'));if(read&&!page)return r.fulfill({status:404,body:'missing'});return r.fulfill({contentType:'text/html',body:read?composeBookLibraryPage(library(),page):page&&!raw?prefillLibraryHero(library(),page.hero):library()});}
     if(u.pathname==='/reader')return r.fulfill({path:path.join(root,'app.html'),contentType:'text/html'});
+    // A chapter page, cut out of its book's packs as the Worker does (src/worker/lib/chapterPages.ts).
+    const chapter=u.pathname.match(/^\/read\/([a-z0-9-]+)\/chapter-(\d+)$/);
+    if(chapter){const page=chapterPage(chapter[1],Number(chapter[2]));return page?r.fulfill({contentType:'text/html; charset=utf-8',body:page}):r.fulfill({status:404,body:'missing'});}
     const f=path.join(root,u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f});return r.fulfill({status:404,body:''});});
    await p.route(/supabase\.co/,r=>r.fulfill({status:404,contentType:'application/json',body:'{}'}));
   }
@@ -288,8 +297,23 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
   assert(!other,where+': no other book in the hero or on the desk '+JSON.stringify(other));
   assert(!list.some(f=>f.overlay),where+': nothing opens by itself');
  }
+ // The shared /read/{book} link, signed out, opens straight into the first chapter (docs/seo-brief-2026-11-19.md §1):
+ // the book's own page, indexable, with the chapter text and the chapter list; nothing opens by itself.
+ {
+  const {c,p,errors}=await open(),entry='/read/'+LINKED+'/',where=`${label} fresh ${entry}`;
+  await p.goto('https://tinct.app'+entry,{waitUntil:'domcontentloaded'});
+  await p.locator('[data-book-page]').waitFor();
+  const head=await p.evaluate(()=>({title:document.title,canonical:document.querySelector('link[rel=canonical]')?.href,robots:document.querySelector('meta[name=robots]')?.content||null,h1:document.querySelector('h1')?.textContent,text:document.querySelector('.chapter-pairs')?.textContent||'',list:document.querySelectorAll('#chapters ol > li').length}));
+  assert.equal(head.title,'Read Wuthering Heights online free, in modern English | Tinct');assert.equal(head.canonical,'https://tinct.app/read/'+LINKED);assert.equal(head.robots,null,'the shared page is indexable');
+  assert.equal(head.h1,TITLE);assert(head.text.includes('I have just returned from a visit to my landlord'),where+': the first chapter is on the page');assert.equal(head.list,34,where+': every chapter listed');
+  assert.equal(new URL(p.url()).pathname,entry,where+': the address stays the shared link');
+  await p.screenshot({path:`${shots}/${label}-fresh-read.png`});
+  assert.deepEqual(errors,[],where+': no page errors');
+  console.log('BOOK_LINK '+JSON.stringify({where,h1:head.h1,chapters:head.list}));
+  await c.close();
+ }
  // A new reader: that book in the hero from the very first frame; Read opens the usual introduction.
- for(const entry of ['/library?book='+LINKED,'/read/'+LINKED+'/']){
+ for(const entry of ['/library?book='+LINKED]){
   const {c,p,errors}=await open(),where=`${label} fresh ${entry}`,kind=entry.startsWith('/read')?'read':'library';
   await p.goto('https://tinct.app'+entry,{waitUntil:'domcontentloaded'});
   await p.locator('#read-featured').waitFor();
@@ -300,12 +324,6 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
   assert.equal(await p.locator('#hero-author').innerText(),AUTHOR+'’s');
   assert.equal(new URL(p.url()).pathname+new URL(p.url()).search,entry,where+': the address stays the shared link');
   await p.screenshot({path:`${shots}/${label}-fresh-${kind}.png`});
-  if(kind==='read'){
-   const head=await p.evaluate(()=>({title:document.title,canonical:document.querySelector('link[rel=canonical]')?.href,ogTitle:document.querySelector('meta[property="og:title"]')?.content,robots:document.querySelector('meta[name=robots]')?.content||null,about:document.getElementById('book-about')?.innerText||''}));
-   assert.match(head.title,/Wuthering Heights/);assert.equal(head.canonical,'https://tinct.app/read/'+LINKED);assert.match(head.ogTitle,/Wuthering Heights/);assert.equal(head.robots,null,'the shared page is indexable');
-   assert(head.about.includes('I have just returned from a visit to my landlord'),where+': the book text is on the page');
-   if(extended){await p.evaluate(()=>document.getElementById('book-about').scrollIntoView({block:'start',behavior:'instant'}));await p.waitForTimeout(300);await p.screenshot({path:`${shots}/${label}-fresh-read-about.png`});await p.evaluate(()=>scrollTo({top:0,behavior:'instant'}));}
-  }
   await p.locator('#read-featured').click();
   await p.locator('#book-overlay').waitFor().catch(async error=>{
    console.log('BOOK_OPEN_STALL '+JSON.stringify({where,errors,state:await p.evaluate(()=>({url:location.href,readyState:document.readyState,active:document.activeElement?.outerHTML,button:document.getElementById('read-featured')?.outerHTML,overlay:document.getElementById('book-overlay')?.outerHTML.slice(0,1000)})).catch(e=>String(e))}));
@@ -324,16 +342,19 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
   await p.waitForTimeout(2500);onlyLinked(await frames(p),where);assert.deepEqual(errors,[]);await c.close();
  }
  if(extended){
-  // A chapter link goes straight into the reader at that chapter.
+  // A chapter link on the book page (its chapter list since 19 Nov 2026) opens that chapter's own page (/read/{book}/chapter-N, the SEO chapter pages brief of 16 Nov 2026),
+  // which hands over to the reader from there. A local run cuts the page out of the built packs as the Worker does.
+  // The page's heading is the book's own chapter title: Wuthering Heights numbers its chapters "Chapter III", so the
+  // reader-era "Chapter 3" never appears there (the 16 Nov release of #839 timed out waiting for it).
   const {c,p}=await open();
   await p.goto('https://tinct.app/read/'+LINKED+'/',{waitUntil:'domcontentloaded'});
-  const link=p.locator(`#book-about a[href="/reader?book=${LINKED}&chapter=3"]`);
+  const link=p.locator(`#chapters a[href="/read/${LINKED}/chapter-3"]`);
   await link.scrollIntoViewIfNeeded();
-  const reader=p.waitForRequest(r=>r.url()===`https://tinct.app/reader?book=${LINKED}&chapter=3`);
-  await link.click();await reader;
-  // The click navigates: wait for the reader document, which has no body for a moment while it loads.
-  await p.waitForURL(url=>url.pathname==='/reader',{waitUntil:'domcontentloaded'});
-  await p.waitForFunction(()=>/Chapter 3\b/.test(document.body?.innerText||''),null,{timeout:45000});
+  assert(await link.isVisible(),'the book page links chapter 3 to its chapter page');
+  await link.click();
+  await p.waitForURL(url=>url.pathname===`/read/${LINKED}/chapter-3`,{waitUntil:'domcontentloaded'});
+  await p.waitForFunction(([book,heading])=>{const root=document.querySelector('[data-chapter-page]');
+   return root?.dataset.bookId===book&&root.dataset.chapter==='3'&&document.querySelector('h1')?.textContent.trim()===heading;},[LINKED,CHAPTER_3],{timeout:45000});
   await p.screenshot({path:`${shots}/${label}-chapter-link-reader.png`});
   console.log('BOOK_LINK_CHAPTER '+JSON.stringify({engine,url:p.url()}));
   await c.close();
@@ -347,7 +368,7 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
   await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});
   const own=await desk();assert(own.books.length===2&&own.current===own.books[0],'baseline desk '+JSON.stringify(own));
   const before=await p.evaluate(()=>localStorage.getItem('tinct-lab-position'));
-  for(const entry of ['/library?book='+LINKED,'/read/'+LINKED+'/']){
+  for(const entry of ['/library?book='+LINKED]){
    await p.evaluate(()=>sessionStorage.clear());
    await p.goto('https://tinct.app'+entry,{waitUntil:'domcontentloaded'});
    const linked=await desk(),where=`${label} returning ${entry}`;

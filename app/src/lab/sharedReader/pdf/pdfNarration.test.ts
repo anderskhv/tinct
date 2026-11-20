@@ -1,0 +1,383 @@
+import { describe, expect, it } from 'vitest'
+import {
+  isPdfPageNumber, pdfBodySize, pdfEdgeKeys, pdfGraphicBoxes, pdfNarrationPlan, pdfNarrationRenderedWord, pdfNarrationSpokenIndex, pdfRunningKeys,
+  type PdfNarrationBox, type PdfNarrationItem, type PdfNarrationPageInput,
+} from './pdfNarration'
+
+// A synthetic A4-ish page in PDF points: pdf.js's viewport at scale 1 flips y (top-left origin).
+const W = 600, H = 800
+const view = { width: W, height: H, transform: [1, 0, 0, -1, 0, H] }
+/** A text item whose baseline sits `top` points below the page top, `size` points tall, at `x`. */
+const item = (str: string, x: number, top: number, size = 10, width = str.length * size * 0.5): PdfNarrationItem =>
+  ({ str, transform: [size, 0, 0, size, x, H - top], width })
+const page = (items: PdfNarrationItem[], graphics: PdfNarrationBox[] = []): PdfNarrationPageInput => ({ items, view, graphics })
+const words = (text: string) => text.split(/\s+/).filter(Boolean)
+const body = (top: number, lines: string[], x = 50, size = 10, leading = 13) => lines.map((line, i) => item(line, x, top + i * leading, size))
+const footer = (n: number) => [item('ANNUAL REPORT | WHAT WE LEARNED', 50, 780, 7), item(String(n), 540, 780, 7)]
+const prose = ['The first line of the main text runs on here,', 'and the second line carries the thought on', 'to a third line that ends the paragraph.']
+
+/** The rendered word each spoken token maps to, as pdfOriginalFollowRect counts words: /\S+/ per item, in item order. */
+const renderedWords = (input: PdfNarrationPageInput) => input.items.flatMap(it => it.str ? it.str.match(/\S+/gu) ?? [] : [])
+function expectFaithfulMapping(input: PdfNarrationPageInput) {
+  const plan = pdfNarrationPlan(input)
+  const tokens = words(plan.text), rendered = renderedWords(input)
+  expect(plan.words).toHaveLength(tokens.length)
+  plan.words.forEach((index, i) => {
+    if (index < 0) return
+    // A heading's added full stop is the only change a spoken token may carry.
+    expect(tokens[i].replace(/\.$/, '')).toBe(rendered[index].replace(/\.$/, ''))
+  })
+  expect(new Set(plan.words.filter(n => n >= 0)).size).toBe(plan.words.filter(n => n >= 0).length)
+}
+
+describe('rule 1: running headers and footers', () => {
+  const pages = (count: number) => Array.from({ length: count }, (_, i) => page([...body(100, prose), ...footer(i + 1)]))
+
+  it('skips an edge line that repeats on three or more pages, digits normalised', () => {
+    const doc = pages(9)
+    const running = pdfRunningKeys(doc.map(pdfEdgeKeys))
+    const plan = pdfNarrationPlan(doc[4], { running })
+    expect(plan.text).toBe(prose.join(' '))
+    expect(plan.skipped).toEqual([
+      { text: 'ANNUAL REPORT | WHAT WE LEARNED', reason: 'running header/footer' },
+      { text: '5', reason: 'page number' },
+    ])
+  })
+
+  it('keeps an edge line seen on only two of nine pages', () => {
+    const doc = pages(9)
+    for (let i = 2; i < 9; i++) doc[i] = page(body(100, prose))
+    const plan = pdfNarrationPlan(doc[0], { running: pdfRunningKeys(doc.map(pdfEdgeKeys)) })
+    expect(plan.text).toContain('ANNUAL REPORT')
+  })
+
+  it('needs 30% of a short document (at least two pages)', () => {
+    expect(pdfRunningKeys(pages(2).map(pdfEdgeKeys)).size).toBe(1)
+    expect(pdfRunningKeys(pages(1).map(pdfEdgeKeys)).size).toBe(0)
+    const five = pages(5)
+    for (let i = 2; i < 5; i++) five[i] = page(body(100, prose))
+    expect(pdfRunningKeys(five.map(pdfEdgeKeys)).size).toBe(1) // 2 of 5 pages = 40%
+  })
+
+  it('treats a header whose number changes per page ("Chapter 3 · 41") as the same running head', () => {
+    const doc = Array.from({ length: 4 }, (_, i) => page([item(`Chapter 3 · ${40 + i}`, 50, 30, 8), ...body(100, prose)]))
+    const plan = pdfNarrationPlan(doc[1], { running: pdfRunningKeys(doc.map(pdfEdgeKeys)) })
+    expect(plan.skipped).toEqual([{ text: 'Chapter 3 · 41', reason: 'running header/footer' }])
+  })
+
+  it('never takes the same words in body text, or a larger title at the top, for the running head', () => {
+    const doc = Array.from({ length: 4 }, () => page([item('ANNUAL REPORT', 50, 30, 8), ...body(100, prose)]))
+    doc[2] = page([item('ANNUAL REPORT', 50, 60, 24), ...body(100, prose), item('ANNUAL REPORT', 50, 400)])
+    const plan = pdfNarrationPlan(doc[2], { running: pdfRunningKeys(doc.map(pdfEdgeKeys)) })
+    expect(plan.skipped).toEqual([])
+    expect(words(plan.text).filter(w => /^REPORT/.test(w))).toHaveLength(2)
+  })
+})
+
+describe('rule 2: lone page numbers', () => {
+  it('recognises page-number forms', () => {
+    for (const text of ['4', '17', 'iv', 'XII', 'Page 4', 'p. 12', '4 / 48', '4 of 48', '- 4 -', '— 12 —', '1 9']) expect(isPdfPageNumber(text), text).toBe(true)
+    for (const text of ['Page four', 'Chapter 4', '4.2 Results', 'vivid', '2026-11', 'Figure 4']) expect(isPdfPageNumber(text), text).toBe(false)
+  })
+
+  it('skips a number alone at the top or bottom edge, not one in the text', () => {
+    const plan = pdfNarrationPlan(page([item('12', 290, 30, 9), ...body(100, prose), item('42', 50, 400), item('Page 12 of 30', 260, 785, 8)]))
+    expect(plan.text).toBe(`${prose.join(' ')} 42`)
+    expect(plan.skipped.map(s => s.reason)).toEqual(['page number', 'page number'])
+  })
+})
+
+describe('rule 3: two columns', () => {
+  const left = ['Left column opens the argument', 'and carries it down the page', 'to the end of its first part.']
+  const right = ['Right column picks it up again', 'and finishes the whole thought', 'before the page comes to an end.']
+  // pdf.js often gives the lines across the page, left and right interleaved.
+  const interleaved = () => [
+    item('A HEADING OVER BOTH COLUMNS OF THE PAGE', 50, 80, 16),
+    ...left.flatMap((line, i) => [item(line, 50, 120 + i * 13), item(right[i], 320, 120 + i * 13)]),
+    ...left.flatMap((line, i) => [item(line, 50, 170 + i * 13), item(right[i], 320, 170 + i * 13)]),
+  ]
+
+  it('reads the heading first, then the left column top to bottom, then the right', () => {
+    const plan = pdfNarrationPlan(page(interleaved()))
+    expect(plan.text).toBe(['A HEADING OVER BOTH COLUMNS OF THE PAGE.', ...left, ...left, ...right, ...right].join(' '))
+    expectFaithfulMapping(page(interleaved()))
+  })
+
+  it('reads a section heading set after its text in the PDF where it stands on the page', () => {
+    const plan = pdfNarrationPlan(page([...body(140, prose), item('THE CONTEXT', 50, 120, 12)]))
+    expect(plan.text).toBe(`THE CONTEXT. ${prose.join(' ')}`)
+  })
+
+  it('reads a full-width paragraph between two column bands in place', () => {
+    const items = [
+      ...left.flatMap((line, i) => [item(line, 50, 100 + i * 13), item(right[i], 320, 100 + i * 13)]),
+      item('A full-width sentence crosses the gutter between the two columns of text.', 50, 160, 10, 470),
+      ...left.flatMap((line, i) => [item(line, 50, 190 + i * 13), item(right[i], 320, 190 + i * 13)]),
+    ]
+    const plan = pdfNarrationPlan(page(items))
+    expect(plan.text).toBe([...left, ...right, 'A full-width sentence crosses the gutter between the two columns of text.', ...left, ...right].join(' '))
+  })
+
+  it('leaves a single column in its line order', () => {
+    expect(pdfNarrationPlan(page(body(100, prose))).text).toBe(prose.join(' '))
+  })
+})
+
+describe('rule 4: figures', () => {
+  const labels = ['Input', 'Model', 'Output', 'Feedback loop', 'Step 1', 'Step 2']
+  const figure = (extra: PdfNarrationItem[] = []) => page([
+    ...body(80, prose),
+    ...labels.map((label, i) => item(label, 120 + (i % 3) * 120, 220 + Math.floor(i / 3) * 60, 8)),
+    ...extra,
+    ...body(400, ['After the figure the text goes on', 'for another line or two.']),
+  ], [{ x: 100, y: 200, w: 400, h: 120 }])
+
+  it('does not read the labels inside an image or graphics region', () => {
+    const plan = pdfNarrationPlan(figure())
+    expect(plan.text).toBe([...prose, 'After the figure the text goes on', 'for another line or two.'].join(' '))
+    expect(plan.skipped).toEqual([{ text: labels.join(' '), reason: 'figure labels' }])
+  })
+
+  it('reads a "Figure" caption as it is printed', () => {
+    const plan = pdfNarrationPlan(figure([item('Figure 2: How the loop feeds back', 100, 340, 9)]))
+    expect(plan.text).toContain('the paragraph. Figure 2: How the loop feeds back After the figure')
+  })
+
+  it('announces a lone short caption line as "Figure: <caption>", the inserted word mapped to nothing', () => {
+    const input = figure([item('How the loop feeds back', 100, 340, 9)])
+    const plan = pdfNarrationPlan(input)
+    expect(plan.text).toContain('Figure: How the loop feeds back After')
+    const at = words(plan.text).indexOf('Figure:')
+    expect(plan.words[at]).toBe(-1)
+    expect(pdfNarrationRenderedWord(plan, at)).toBeNull()
+    expect(renderedWords(input)[pdfNarrationRenderedWord(plan, at + 1)!]).toBe('How')
+    expectFaithfulMapping(input)
+  })
+
+  it('says nothing for a figure without a caption, and reads the labels when no graphics are known', () => {
+    const noGraphics = { ...figure(), graphics: [] }
+    expect(pdfNarrationPlan(noGraphics).text).toContain('Input Model Output')
+  })
+
+  it('reads sentences set in a diagram\'s boxes: only labels are left out', () => {
+    const sentences = ['Interviews with the companies to', 'understand the challenges they face', 'and to uncover examples of practice']
+    const input = page([...body(80, prose), ...sentences.map((line, i) => item(line, 120, 220 + i * 10, 8))], [{ x: 100, y: 200, w: 300, h: 60 }])
+    expect(pdfNarrationPlan(input).text).toContain(sentences.join(' '))
+  })
+
+  it('does not take a framed panel of text (a line of eight words or more) for a picture', () => {
+    const input = page([...body(220, ['A boxed note with a full sentence of body text in it.', 'Short', 'Bits', 'More']), ...body(80, prose)],
+      [{ x: 40, y: 200, w: 520, h: 80 }])
+    expect(pdfNarrationPlan(input).skipped).toEqual([])
+  })
+})
+
+describe('rule 5: tables', () => {
+  const cells = [['Method', 'Focus', 'Users'], ['ROSI', 'Financial return', 'Retail'], ['VBA', 'Accounting', 'Industry'], ['True Cost', 'Full spectrum', 'Food']]
+  const table = (caption?: PdfNarrationItem) => page([
+    ...body(80, prose),
+    ...(caption ? [caption] : []),
+    ...cells.flatMap((row, r) => row.map((cell, c) => item(cell, 60 + c * 170, 200 + r * 30, 9))),
+    ...body(360, ['The text after the table.']),
+  ])
+
+  it('skips a grid of short, aligned cells', () => {
+    const plan = pdfNarrationPlan(table())
+    expect(plan.text).toBe(`${prose.join(' ')} The text after the table.`)
+    expect(plan.skipped).toEqual([{ text: cells.flat().join(' '), reason: 'table cells' }])
+  })
+
+  it('reads its caption: "Table 3 …" as printed, a lone short line as "Table: …"', () => {
+    expect(pdfNarrationPlan(table(item('Table 3. Valuation methods', 60, 175, 9))).text).toContain('paragraph. Table 3. Valuation methods The text')
+    expect(pdfNarrationPlan(table(item('Valuation methods compared', 60, 175, 9))).text).toContain('paragraph. Table: Valuation methods compared The text')
+  })
+
+  it('reads a grid whose cells are sentences instead of dropping it', () => {
+    const long = ['Incorporating colleagues’ perspectives can', 'forge stronger partnerships and soften', 'barriers to collaboration across teams.']
+    const input = page(['Strategy', 'Insight', 'Action'].flatMap((head, c) => [item(head, 60 + c * 170, 100, 9),
+      ...long.map((line, i) => item(line, 60 + c * 170, 120 + i * 11, 9, 150))]))
+    expect(pdfNarrationPlan(input).skipped).toEqual([])
+  })
+})
+
+describe('rule 6: footnotes and contents pages', () => {
+  it('does not read a raised footnote mark after a word, but reads an exponent', () => {
+    const input = page([item('The study found that over nine', 50, 100), item('1', 205, 96, 5, 3), item('in ten agree; the area is 40 m', 212, 100, 10, 150),
+      item('2', 363, 96, 5, 3), item('in all.', 368, 100, 10, 30)])
+    const plan = pdfNarrationPlan(input)
+    expect(plan.text).toBe('The study found that over nine in ten agree; the area is 40 m 2 in all.')
+    expect(plan.skipped).toEqual([{ text: '1', reason: 'footnote marker' }])
+    expectFaithfulMapping(input)
+  })
+
+  it('skips the footnote block in small type at the page foot', () => {
+    const input = page([...body(100, prose), item('1', 50, 690, 5, 3), item('The study surveyed 844 experts in 72 countries.', 54, 693, 7),
+      item('Published in May 2025.', 50, 702, 7), item('2', 50, 712, 5, 3), item('A second note.', 54, 715, 7)])
+    const plan = pdfNarrationPlan(input)
+    expect(plan.text).toBe(prose.join(' '))
+    expect(plan.skipped).toEqual([{ text: '1 The study surveyed 844 experts in 72 countries. Published in May 2025. 2 A second note.', reason: 'footnote' }])
+  })
+
+  it('keeps small type at the foot that is not a footnote (a source line)', () => {
+    const plan = pdfNarrationPlan(page([...body(100, prose), item('Source: the 2025 survey of experts.', 50, 690, 7)]))
+    expect(plan.text).toContain('Source: the 2025 survey')
+  })
+
+  it('reads only the titles on a contents page (numbers set apart, or after dot leaders)', () => {
+    const apart = page([item('TABLE OF CONTENTS', 50, 80, 20), ...[['Executive Summary', '4'], ['Purpose and Methodology', '5'], ['Appendices', '24'], ['III – Bibliography', '44']]
+      .flatMap(([title, n], i) => [item(title, 50, 130 + i * 30), item(n, 500, 130 + i * 30)])])
+    expect(pdfNarrationPlan(apart).text).toBe('TABLE OF CONTENTS. Executive Summary Purpose and Methodology Appendices III – Bibliography')
+    const leaders = page(['Introduction .......... 1', 'Method .......... 12', 'Results .......... 30'].map((line, i) => item(line, 50, 130 + i * 20)))
+    const plan = pdfNarrationPlan(leaders)
+    expect(plan.text).toBe('Introduction Method Results')
+    expect(plan.skipped.every(s => s.reason === 'contents page number')).toBe(true)
+  })
+
+  it('reads a page number inside a sentence on an ordinary page', () => {
+    const plan = pdfNarrationPlan(page([...body(100, prose), item('See the table on page', 50, 200), item('12', 400, 200)]))
+    expect(plan.text).toContain('See the table on page 12')
+  })
+})
+
+describe('follow mapping and inputs', () => {
+  it('maps every spoken token to the rendered word it is, never to skipped text', () => {
+    const input = page([item('', 50, 20), ...footer(3), item('INTRO', 50, 100, 16), ...body(120, prose)])
+    const plan = pdfNarrationPlan(input, { running: new Set(pdfEdgeKeys(page(footer(3)))) })
+    expectFaithfulMapping(input)
+    // The footer's six words and its page number are rendered words 0–6; none is ever highlighted.
+    expect(plan.words.some(n => n >= 0 && n <= 6)).toBe(false)
+    expect(plan.source).toBe(input.items.map(it => it.str).join(' ').trim())
+    expect(pdfNarrationRenderedWord(plan, 0)).toBe(7)
+    expect(pdfNarrationRenderedWord(plan, 999)).toBeNull()
+  })
+
+  it('keeps rotated text, spoken after the page', () => {
+    const input = page([...body(100, prose), { str: 'arXiv sidebar', transform: [0, 10, -10, 0, 20, 400], width: 60 }])
+    expect(pdfNarrationPlan(input).text).toBe(`${prose.join(' ')} arXiv sidebar`)
+  })
+
+  it('finds the body size across pages', () => {
+    expect(pdfBodySize([page([...body(100, prose), item('Big title', 50, 60, 30)])])).toBe(10)
+  })
+
+  it('reads image and path boxes from a pdf.js operator list in viewport units', () => {
+    const ops = { save: 1, restore: 2, transform: 3, constructPath: 4, fill: 5, endPath: 6, paintImageXObject: 7, paintFormXObjectBegin: 8, paintFormXObjectEnd: 9 }
+    const boxes = pdfGraphicBoxes({
+      fnArray: [1, 3, 4, 5, 2, 4, 6, 1, 3, 7, 2],
+      argsArray: [null, [1, 0, 0, 1, 100, 100], [[], [], [0, 50, 0, 20]], null, null, [[], [], [0, 10, 0, 10]], null, null, [200, 0, 0, 100, 300, 500], null, null],
+    }, ops, view)
+    expect(boxes).toEqual([{ x: 100, y: 680, w: 50, h: 20 }, { x: 300, y: 200, w: 200, h: 100 }])
+  })
+})
+
+// Rules 7–11 (Anders, 16 Nov 2026: a listening check on a real report). Synthetic fixtures only.
+describe('rule 7: pieces of one word', () => {
+  it('joins touching items in the same type into one spoken word, mapped to its first piece', () => {
+    const input = page([item('Released in', 50, 100, 10, 55), item('F', 108, 100, 10, 7), item('e', 115, 100, 10, 6), item('bruary', 121, 100, 10, 34),
+      item('202', 158, 100, 10, 18), item('6', 176, 100, 10, 6), item('after review.', 185, 100, 10, 60)])
+    const plan = pdfNarrationPlan(input)
+    expect(plan.text).toBe('Released in February 2026 after review.')
+    const rendered = renderedWords(input)
+    expect(rendered[plan.words[2]]).toBe('F')
+    expect(rendered[plan.words[3]]).toBe('202')
+    expect(new Set(plan.words).size).toBe(plan.words.length)
+  })
+
+  it('keeps words apart across a space-sized gap, and never joins a raised mark', () => {
+    const plan = pdfNarrationPlan(page([item('Two', 50, 100, 10, 18), item('words', 71, 100, 10, 28), item('and an area of 40 m', 102, 100, 10, 90),
+      item('2', 192.5, 96, 5, 3)]))
+    expect(plan.text).toBe('Two words and an area of 40 m 2')
+  })
+})
+
+describe('rule 8: boxes and tables', () => {
+  const boxLines = (x: number, top: number, lines: string[], size = 8) => lines.map((line, i) => item(line, x, top + i * 10, size, 85))
+  it('reads boxes side by side under a centred heading box by box, after the heading', () => {
+    const callout = ['A centred statement over the boxes', 'set in three short lines of', 'its own, wider than one box.'].map((line, i) => item(line, 210, 100 + i * 12, 9, 180))
+    const titles = ['Growth', 'Efficiency', 'Resilience', 'Trust']
+    const boxes = [0, 1, 2, 3].flatMap(b => [item(titles[b], 60 + b * 120, 200, 9, 60),
+      ...boxLines(60 + b * 120, 215, [`Box ${b + 1} begins its point`, 'and carries it down', 'to its own end.'])])
+    const plan = pdfNarrationPlan(page([...callout, ...boxes]))
+    expect(plan.text).toBe('A centred statement over the boxes set in three short lines of its own, wider than one box. '
+      + titles.map((title, b) => `${title}. Box ${b + 1} begins its point and carries it down to its own end.`).join(' '))
+  })
+
+  it('reads two boxes with their titles on one line each under its own title', () => {
+    const left = ['The left box opens its case', 'and goes on with it here', 'until the case is made.'], right = ['The right box answers it', 'in its own few lines', 'and closes the matter.']
+    const plan = pdfNarrationPlan(page([...body(80, prose), item('The Challenge', 60, 160, 10, 70), item('The Insight', 330, 160, 10, 60),
+      ...left.map((line, i) => item(line, 60, 185 + i * 12, 10, 200)), ...right.map((line, i) => item(line, 330, 185 + i * 12, 10, 200))]))
+    expect(plan.text).toBe(`${prose.join(' ')} The Challenge. ${left.join(' ')} The Insight. ${right.join(' ')}`)
+  })
+
+  it('reads a table of labels and descriptions row by row, a pause after each cell', () => {
+    const rows: Array<[string, string[]]> = [['Revenue', ['The total income a company', 'makes from its sales.']], ['Cost of goods', ['The direct costs of making', 'the goods it sells']],
+      ['Equity', ['The value its owners hold', 'in the company.']], ['Liabilities', ['What the company owes', 'to others']]]
+    const input = page([item('Driver', 60, 100, 9, 40), item('Description', 220, 100, 9, 60),
+      ...rows.flatMap(([label, lines], r) => [item(label, 60, 130 + r * 30, 8, 60), ...lines.map((line, i) => item(line, 220, 130 + r * 30 + i * 9, 7, 160))])])
+    expect(pdfNarrationPlan(input).text).toBe('Driver. Description. Revenue. The total income a company makes from its sales. Cost of goods. The direct costs of making the goods it sells. '
+      + 'Equity. The value its owners hold in the company. Liabilities. What the company owes to others.')
+  })
+
+  it('announces a long table of short cells it leaves out, once', () => {
+    const cells = Array.from({ length: 8 }, (_, r) => [`Method ${r}`, `Focus area ${r}`, `Used for ${r}`, `Users ${r}`])
+    const plan = pdfNarrationPlan(page([...body(80, prose), ...cells.flatMap((row, r) => row.map((cell, c) => item(cell, 60 + c * 130, 200 + r * 30, 9)))]))
+    expect(plan.text).toBe(`${prose.join(' ')} Table, not read aloud.`)
+    expect(plan.words.slice(-4)).toEqual([-1, -1, -1, -1])
+  })
+})
+
+describe('rule 9: chart values', () => {
+  it('leaves out the values of a chart drawn on a panel, reads its labels, and announces its title', () => {
+    const labels = ['Technology and research', 'Better products', 'Supply chains', 'Working culture', 'Investment decisions']
+    const input = page([...body(60, prose), item('Top levers of change', 50, 120, 12, 120),
+      item('Share of experts naming each lever as one that could lead to real change', 60, 160, 9, 400),
+      ...labels.flatMap((label, i) => [item(label, 60, 200 + i * 20, 8, 140), item(`${70 - i * 5}%`, 400, 200 + i * 20, 9, 20)]),
+      item('Source: a survey of experts, 2025', 60, 330, 8, 150), ...body(380, ['After the chart the text goes on.'])],
+    [{ x: 40, y: 140, w: 520, h: 180 }, ...labels.map((_, i) => ({ x: 210, y: 192 + i * 20, w: 180 - i * 15, h: 10 }))])
+    const plan = pdfNarrationPlan(input)
+    expect(plan.text).toBe(`${prose.join(' ')} Figure: Top levers of change. Share of experts naming each lever as one that could lead to real change. `
+      + `${labels.join('. ')}. Source: a survey of experts, 2025. After the chart the text goes on.`)
+    expect(plan.skipped).toEqual(labels.map((_, i) => ({ text: `${70 - i * 5}%`, reason: 'figure labels' })))
+  })
+})
+
+describe('rule 10: links and lists of sources', () => {
+  it('does not read a web address, even one broken over two lines', () => {
+    const plan = pdfNarrationPlan(page(body(100, ['The full study is online at https://www.example.org/', 'reports/2025/the-full-study-of-reading', 'and in print.'])))
+    expect(plan.text).toBe('The full study is online at and in print.')
+    expect(plan.skipped).toEqual([{ text: 'https://www.example.org/ reports/2025/the-full-study-of-reading', reason: 'link' }])
+  })
+
+  it('leaves out a page of numbered sources with addresses, keeping its heading and introduction', () => {
+    const entries = [1, 2, 3, 4, 5].flatMap(n => [`${n}. Some Author. “A report on topic ${n}.”`, `https://www.example.org/reports/topic-${n}`])
+    const plan = pdfNarrationPlan(page([item('Sources', 50, 60, 14), ...body(90, ['The reports below were read for this study:']),
+      ...body(120, entries, 50, 10, 14)]))
+    expect(plan.text).toBe('Sources. The reports below were read for this study: Sources list, not read aloud.')
+    expect(plan.skipped.every(s => s.reason === 'reference list' || s.reason === 'link')).toBe(true)
+  })
+})
+
+describe('rule 11: pauses', () => {
+  it('puts a full stop after a title, a box text or a source line that ends without one', () => {
+    const plan = pdfNarrationPlan(page([item('Company Engagement', 60, 100, 10, 110), ...body(116, ['Interviews with the companies', 'to uncover examples of practice'], 60, 8, 10),
+      item('Literature Review', 60, 160, 10, 100), ...body(176, ['A review of what is written'], 60, 8),
+      item('Source: a study of practice, 2025', 50, 220, 8, 160), ...body(250, ['A review of practice sheds light on it.'])]))
+    expect(plan.text).toBe('Company Engagement. Interviews with the companies to uncover examples of practice. Literature Review. A review of what is written. '
+      + 'Source: a study of practice, 2025. A review of practice sheds light on it.')
+  })
+})
+
+describe('listen from a rendered word', () => {
+  it('starts at the word, at the word a piece belongs to, or at the next word read after one that is not read', () => {
+    const input = page([...footer(3), item('Released in', 50, 100, 10, 55), item('F', 108, 100, 10, 7), item('e', 115, 100, 10, 6), item('bruary', 121, 100, 10, 34),
+      item('after review.', 158, 100, 10, 60)], [])
+    const plan = pdfNarrationPlan(input, { running: new Set(pdfEdgeKeys(page(footer(3)))) })
+    const rendered = renderedWords(input)
+    const at = (word: string) => rendered.indexOf(word)
+    expect(words(plan.text)[pdfNarrationSpokenIndex(plan, at('Released'))!]).toBe('Released')
+    expect(words(plan.text)[pdfNarrationSpokenIndex(plan, at('e'))!]).toBe('February')
+    expect(words(plan.text)[pdfNarrationSpokenIndex(plan, at('bruary'))!]).toBe('February')
+    expect(words(plan.text)[pdfNarrationSpokenIndex(plan, at('ANNUAL'))!]).toBe('Released')
+    expect(pdfNarrationSpokenIndex(plan, rendered.length + 3)).toBeNull()
+  })
+})

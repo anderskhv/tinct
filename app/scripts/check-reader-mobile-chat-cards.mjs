@@ -146,7 +146,7 @@ try {
       const ctx=canvas.getContext('2d',{willReadFrequently:true})
       const lum=color=>{ctx.clearRect(0,0,1,1);ctx.fillStyle=color;ctx.fillRect(0,0,1,1);const rgb=[...ctx.getImageData(0,0,1,1).data].slice(0,3).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722}
       const background=getComputedStyle(card).backgroundColor,bg=lum(background)
-      return {background,inks:[...card.querySelectorAll('.popup-define-word,.popup-define-list li')].map(node=>{const color=getComputedStyle(node).color,ink=lum(color);return {color,ratio:(Math.max(ink,bg)+.05)/(Math.min(ink,bg)+.05)}})}
+      return {background,inks:[...card.querySelectorAll('.popup-define-word,.popup-define-list li,p.popup-define-list')].map(node=>{const color=getComputedStyle(node).color,ink=lum(color);return {color,ratio:(Math.max(ink,bg)+.05)/(Math.min(ink,bg)+.05)}})}
     })
     console.log(JSON.stringify({stage:'define-contrast',theme,standalone,...contrast}))
     await page.screenshot({path:`${output}/${label}-define.png`})

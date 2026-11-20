@@ -147,7 +147,22 @@ export function marginPreviewFigureParagraph(raw: unknown, figures: Chapter['fig
   return { text: String(f?.caption || '').replace(/\s+/g, ' ').trim(), figure }
 }
 
-export function marginPreviewChapters(data: EditionData): MarginPreviewChapter[] {
+/** A verse line never runs past this (labVerseLines.ts MAX_VERSE_LINE). */
+const MAX_VERSE_LINE = 100
+/**
+ * Line breaks inside a paragraph's text. The frame keeps them (tinct-book.js `white-space: pre-line`), which is right
+ * only for verse: a `style: 'verse'` edition's lines (Pope's Odyssey), as the book reader sets them
+ * (labVerseLines registerNewlineVerseLines). Prose that carries its source's hard wraps (Butler's Odyssey: 1,023 of
+ * 1,027 paragraphs) flows: each break becomes a space, one character for one, so emphasis ranges and word counts hold.
+ * A `line` paragraph keeps its breaks, as the frame's own style for it expects.
+ */
+export function marginPreviewLineBreaks(text: string, verse: boolean): string {
+  if (!text.includes('\n')) return text
+  if (verse && text.split('\n').every(line => line.length <= MAX_VERSE_LINE)) return text
+  return text.replace(/\n/g, ' ')
+}
+
+export function marginPreviewChapters(data: EditionData, opts: { verse?: boolean } = {}): MarginPreviewChapter[] {
   const sectionOf = new Map<number, string>()
   for (const section of data.sections ?? []) for (const n of section.chapters ?? []) sectionOf.set(Number(n), section.title)
   return data.chapters
@@ -162,8 +177,9 @@ export function marginPreviewChapters(data: EditionData): MarginPreviewChapter[]
         paragraphs: chapter.paragraphs.map((raw, p) => {
           const figure = marginPreviewFigureParagraph(raw, chapter.figures)
           if (figure) return figure
-          const paragraph = marginPreviewParagraph(raw)
+          const parsed = marginPreviewParagraph(raw)
           const kind = chapter.kinds?.[p]
+          const paragraph = kind === 'line' ? parsed : { ...parsed, text: marginPreviewLineBreaks(parsed.text, opts.verse === true) }
           return kind && PARAGRAPH_KINDS.has(kind) ? { ...paragraph, kind } : paragraph
         }),
       }
@@ -175,11 +191,11 @@ export function marginPreviewChapters(data: EditionData): MarginPreviewChapter[]
  * every chapter's number and title, the text of the chapters around the place) as the preview's chapters. A chapter
  * not in the window is `pending`, with its length estimated from the manifest's counts. -> null when the data is not a window
  */
-export function marginPreviewWindowChapters(data: EditionData): MarginPreviewChapter[] | null {
+export function marginPreviewWindowChapters(data: EditionData, opts: { verse?: boolean } = {}): MarginPreviewChapter[] | null {
   if (data.windowed?.complete !== false) return null
   const loaded = new Set(data.windowed.loadedChapters ?? [])
   const byNumber = new Map(data.chapters.map((c, i) => [Number(c.number) || i + 1, c]))
-  return marginPreviewChapters(data).map(chapter => {
+  return marginPreviewChapters(data, opts).map(chapter => {
     if (loaded.has(chapter.number)) return chapter
     const source = byNumber.get(chapter.number)
     const words = Number(source?.wordCount) || 0, paragraphs = Number(source?.paragraphCount) || 0
@@ -195,6 +211,8 @@ export function newerPlace(a: LabBookPlace | null | undefined, b: LabBookPlace |
 }
 
 const words = (text: string) => text.match(/\S+/g)?.length ?? 0
+/** A paragraph's words as the margin view counts them (a figure is one word; its caption's words are not counted). */
+export const marginParagraphWords = (paragraph: MarginPreviewParagraph): number => (paragraph.figure ? 1 : words(paragraph.text))
 
 /**
  * The book reader's place as a place in the preview's text: the same chapter,

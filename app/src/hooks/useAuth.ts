@@ -1,6 +1,7 @@
 import { LAB_AUTH_CALLBACK_PATH, labOAuthRedirectTo } from '../lab/labSignInProviders'
 import { safeLabReturnTo } from '../lab/labSignInReturn'
 import { authRedirectTo, startNativeOAuth } from '../utils/nativeAuth'
+import { startGoogleSignIn } from '../lab/googleSignIn'
 import { useState, useEffect, useCallback } from 'react'
 import type { User, Session } from '@supabase/supabase-js'
 import { supabase, isSupabaseConfigured } from '../services/supabase'
@@ -11,6 +12,7 @@ import { trackEvent } from '../utils/analytics'
 import { trackShareLinkSignup } from '../utils/shareAttribution'
 import { clearSignedInCookie, hasSignedInCookie, setSignedInCookie } from '../utils/authCookie'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
+import { flushBeforeSignOut } from '../lab/signOutFlush'
 
 interface UseAuthReturn {
   user: User | null
@@ -205,6 +207,9 @@ export function useAuth(): UseAuthReturn {
     const path = window.location.pathname === '/' || window.location.pathname === '/read' ? '/reader' : window.location.pathname
     trackEvent('signup_started', { method: 'google', path })
     if (await startNativeOAuth(supabase, 'google', safeLabReturnTo(path + window.location.search + window.location.hash))) return
+    // Google on tinct.app's own redirect when the Worker is set up for it (lab/googleSignIn.ts); the page
+    // that finishes it is the sign-in page. Supabase's own flow otherwise.
+    if (await startGoogleSignIn({ returnTo: safeLabReturnTo(path + window.location.search + window.location.hash) })) return
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: labOAuthRedirectTo(window.location.origin, safeLabReturnTo(path + window.location.search + window.location.hash)) },
@@ -216,6 +221,8 @@ export function useAuth(): UseAuthReturn {
     // Clear before signOut() and again after it. The Worker and landing.html
     // both 302 `/` to `/app` when `tinct_auth=1` is present, so a leftover
     // cookie after logout locks the marketing page.
+    // Highlights and chat waiting for their debounce reach the account before the device copy is wiped.
+    await flushBeforeSignOut()
     clearSignedInCookie()
     await supabase.auth.signOut()
     clearLocalUserData()

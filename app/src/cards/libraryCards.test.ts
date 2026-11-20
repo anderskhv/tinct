@@ -247,18 +247,47 @@ describe('the library picture from this device\'s copy (Anders, 19 October 2026)
 })
 
 describe('the profile step for an older account (Anders, 15 October 2026)', () => {
-  it('once, for a profile never set up that still has the neutral name', async () => {
+  it('once, for a profile never set up and never offered the step', async () => {
     const { legacyProfileStepDue, legacyProfileStepUrl, LEGACY_SETUP_KEY_PREFIX } = await import('./libraryCards')
-    expect(legacyProfileStepDue({ needsSetup: true, name: 'Reader' }, USER)).toBe(true)
-    // A name the reader has, a profile already set up, or no account: never.
-    expect(legacyProfileStepDue({ needsSetup: true, name: 'Mette' }, USER)).toBe(true)
-    expect(legacyProfileStepDue({ needsSetup: false, name: 'Reader' }, USER)).toBe(false)
-    expect(legacyProfileStepDue({ needsSetup: true, name: 'Reader' }, null)).toBe(false)
+    // shouldPrompt: never set up (auto_created && !set_up_at) and never offered (!prompted_at).
+    expect(legacyProfileStepDue({ shouldPrompt: true, name: 'Reader' }, USER)).toBe(true)
+    expect(legacyProfileStepDue({ shouldPrompt: true, name: 'Mette' }, USER)).toBe(true)
+    // Set up, skipped on any device (prompted_at; Anders, 9 Nov 2026), or no account: never.
+    expect(legacyProfileStepDue({ shouldPrompt: false, name: 'Reader' }, USER)).toBe(false)
+    expect(legacyProfileStepDue({ shouldPrompt: true, name: 'Reader' }, null)).toBe(false)
     // Offered on this device already: not again.
     localStorage.setItem(LEGACY_SETUP_KEY_PREFIX + USER, '1')
-    expect(legacyProfileStepDue({ needsSetup: true, name: 'Reader' }, USER)).toBe(false)
+    expect(legacyProfileStepDue({ shouldPrompt: true, name: 'Reader' }, USER)).toBe(false)
     // The sign-up profile step itself, back where the reader was.
     expect(legacyProfileStepUrl('/library?card=you')).toBe('/sign-in?mode=profile&returnTo=%2Flibrary%3Fcard%3Dyou')
+  })
+
+  it('a new account that skipped the step on another device is not sent to it here (Anders, 9 Nov 2026)', async () => {
+    const { LEGACY_SETUP_KEY_PREFIX } = await import('./libraryCards')
+    const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
+    const visit = async (shouldPrompt: boolean) => {
+      vi.resetModules()
+      localStorage.clear()
+      storeSession(3600)
+      document.head.innerHTML = '<meta name="tinct-social" content="1">'
+      document.documentElement.classList.add('signed-in')
+      const profile = { handle: 'nora', name: 'Reader', visibility: 'only_me', picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, needsSetup: true, shouldPrompt, accountCreatedAt: new Date().toISOString() }
+      vi.stubGlobal('fetch', vi.fn((url: string) => String(url).startsWith('/api/profile')
+        ? Promise.resolve(new Response(JSON.stringify({ enabled: true, available: true, profile }), { status: 200, headers: { 'Content-Type': 'application/json' } }))
+        : new Promise<Response>(() => {})))
+      await import('./libraryCards')
+      await settle()
+      // offerLegacyProfileStep leaves the device mark just before it goes to /sign-in?mode=profile.
+      return localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + USER) !== null
+    }
+    try {
+      // Skipped (prompted_at set), not set up: a fresh device does not offer it.
+      expect(await visit(false)).toBe(false)
+      // Never offered: once.
+      expect(await visit(true)).toBe(true)
+    } finally {
+      document.head.innerHTML = ''
+    }
   })
 
   it('the device mark is reader data: sign-out wipes it with the rest', async () => {

@@ -7,6 +7,8 @@
  *
  * Pride and Prejudice left the set on 2026-09-25: its restructured original
  * (seven paragraph merges) no longer matches the index-keyed recordings.
+ * Gilgamesh left it on 2026-11-18: its text was replaced by Thompson's 1928
+ * translation, so the Bella recordings speak words the page no longer has.
  */
 export const RETAINED_BELLA_ORIGINAL_BOOKS = new Set([
   'midsummer',
@@ -34,7 +36,6 @@ export const RETAINED_BELLA_ORIGINAL_BOOKS = new Set([
   'the-art-of-war',
   'comedy-of-errors',
   'divine-comedy',
-  'gilgamesh',
   'jungle-book',
   'the-manual',
   'the-prince',

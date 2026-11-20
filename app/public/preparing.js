@@ -5,10 +5,10 @@
 // (/lab/added-toast.js). Nothing is taken from the handoff until the book is in: on a failure the
 // message shows with a way back to /byob (the text is still there) or the library (the file is added there).
 // A file here because the site's Content-Security-Policy refuses inline scripts.
-import {peekHandoffEntry,takeHandoff,peekPasteHandoff,clearPasteHandoff} from '/lab/addbook/js/file-handoff.js?v=20261105flow';
+import {peekHandoffEntry,takeHandoff,peekPasteHandoff,clearPasteHandoff,putHandoff} from '/lab/addbook/js/file-handoff.js?v=20261109bulk';
 import {paperCoverUrl} from '/lab/book-cover.js?v=20261009owncover';
-import {cleanPaste} from '/lab/library_2/paste-text.js?v=20261105flow';
-import {addEngine,loadFileEngine,pasteBook,savePastedText,keepOwnFile,noteAdded} from '/lab/library_2/own-add.js?v=20261105flow';
+import {cleanPaste,htmlText} from '/lab/library_2/paste-text.js?v=20261109add3';
+import {addEngine,loadFileEngine,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink,pasteTooLong,isFileLink,importFile} from '/lab/library_2/own-add.js?v=20261111link';
 
 const $=id=>document.getElementById(id);
 const own=new URLSearchParams(location.search).get('own')==='file'?'file':'paste';
@@ -31,7 +31,7 @@ function message(error,fallback){
   return text&&!/^[a-z_]+$/.test(text)?text:fallback;
 }
 function fail(text,{back,backLabel}){
-  $('line').textContent=own==='file'?'Your book is not added yet':'Your text is not added yet';
+  $('line').textContent=own==='file'?'Your book is not added yet':importing?'The article is not added yet':'Your text is not added yet';
   $('bar').hidden=true;$('problem').textContent=text;$('problem').hidden=false;
   $('back').href=back;$('back').textContent=backLabel;$('actions').hidden=false;
   $('retry').focus({preventScroll:true});
@@ -52,14 +52,38 @@ async function ready(){
   return engineApi;
 }
 
+let importing=false;
+const hostOf=url=>{try{return new URL(url).hostname.replace(/^www\./,'');}catch{return '';}};
 async function addText(draft,{fromFile=false}={}){
-  $('line').textContent='Preparing your text…';document.title='Preparing your text · Tinct';
-  cover(draft.title,draft.author);
+  const link=typeof draft.url==='string'&&draft.url?draft.url:'';
+  importing=!!link;
+  $('line').textContent=link?`Importing the article from ${hostOf(link)}…`:'Preparing your text…';
+  document.title=(link?'Importing the article':'Preparing your text')+' · Tinct';
+  cover(draft.title||hostOf(link),draft.author);
   const back=fromFile?{back:'/library?sharedReader=1&own=file',backLabel:'Open the library'}:{back:'/byob',backLabel:'Back to your text'};
   progress(.08);
   let engineApi;
   try{engineApi=await ready();}catch{fail('This text could not be added. Try again.',back);return;}
   if(!engineApi)return;
+  // A link: the article is imported now (own-add.js draftFromLink); a page with no text says so, and the link stays kept.
+  if(link){
+    try{draft=await draftFromLink(draft);}
+    catch(error){
+      // A link to a PDF or EPUB (Anders, 11 Nov 2026): the file is fetched once, kept as /byob keeps a chosen
+      // file, and added on the file path (the library asks for the rights confirmation when it is still owed).
+      if(isFileLink(error)){
+        $('line').textContent=`Downloading the file from ${hostOf(link)}…`;
+        let file;try{file=await importFile(link);}catch(failed){fail(message(failed,'Tinct could not open this file. Download it and add it instead.'),back);return;}
+        if(!await putHandoff(file)){fail('This browser could not keep the file. Download it and add it instead.',back);return;}
+        await clearPasteHandoff();importing=false;
+        await addFile({file});
+        return;
+      }
+      fail(message(error,'Tinct could not import this page. Paste the article text instead.'),back);return;
+    }
+    const tooLong=pasteTooLong(htmlText(draft.html),{imported:true});if(tooLong){fail(tooLong,back);return;}
+    importing=false;$('line').textContent='Preparing your text…';cover(draft.title,draft.author);progress(.2);
+  }
   try{
     const file=pasteBook(draft);
     const added=await savePastedText(engineApi,file,{title:draft.title,author:draft.author,progress});
@@ -106,9 +130,25 @@ async function addFile(entry){
   }catch(error){fail(message(error,'This file could not be opened. Choose another file.'),back);}
 }
 
+/**
+ * Several files kept together (bulk adding, 9 Nov 2026): the library's own queue adds them
+ * (/library?own=file takes them all; add-to-tinct.js), after the same account checks as one file,
+ * with the rights line shown on /byob or sign-in recorded as for one file. It ends on My shelf.
+ */
+async function addFiles(entry){
+  $('line').textContent='Preparing your books…';document.title='Preparing your books · Tinct';
+  progress(.08);
+  let engineApi;
+  try{engineApi=await ready();}catch{fail('These files could not be opened. Choose them again.',{back:'/byob',backLabel:'Choose files again'});return;}
+  if(!engineApi)return;
+  if(!engineApi.rightsConfirmed()&&entry.rights)engineApi.confirmRights();
+  location.replace('/library?sharedReader=1&own=file');
+}
+
 async function main(){
   if(own==='file'){
     const entry=await peekHandoffEntry();
+    if(entry?.files?.length>1){await addFiles(entry);return;}
     if(entry){await addFile(entry);return;}
   }else{
     const draft=await peekPasteHandoff();

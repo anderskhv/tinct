@@ -4,7 +4,7 @@ import type { MutableRefObject } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { bibleFallbackSource, loadLabChapterList, type LabSource } from './labSource'
 import { getBook } from '../data/bookRegistry'
-import { bibleEditions, syncLabAudioEdition, type LabPrefs } from './labPrefs'
+import { bibleEditions, selectableLabEditions, syncLabAudioEdition, type LabPrefs } from './labPrefs'
 import { prefsFromLabResumePlace, resumePlaceForLibrary } from './labReaderHandoff'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import {
@@ -15,6 +15,8 @@ import {
   biblicalBookId,
   createLabPositionController,
   finishedChaptersFor,
+  mergeLabPositionStatesByTime,
+  newerStoredPlace,
   parseBiblicalPlaceTitle,
   placeFromChapterRef,
   resumePlace,
@@ -93,30 +95,68 @@ export interface LabRemoteResumeSelection {
 }
 
 /**
+ * The edition a saved place opens in: the one it was read in, as this device's
+ * own boot reads its local place (`prefsFromLabResumePlace`), wherever it came
+ * from. Undefined when the place names no edition, or one the reader may not
+ * open (withdrawn, held, a Danish edition Tinct no longer offers, unknown), or
+ * a Bible version without the place's chapter: then the reader's current
+ * edition of the book reads it, at the same chapter and paragraph, as before.
+ *
+ * 14 Nov 2026: a KJV place at Luke 13 paragraph 6 word 150, arriving from the
+ * account on a second device, opened in the BSB (this device's default; the
+ * account's preferences carry no edition) and was saved again there at word 22.
+ */
+export function resumePlaceEditionKey(place: Pick<LabBookPlace, 'bookId' | 'sequentialChapter' | 'primaryEditionKey'>): string | undefined {
+  const key = place.primaryEditionKey
+  if (!key) return undefined
+  const registryBook = getBook(place.bookId)
+  const bookId = registryBook && registryBook.id !== 'bible' ? registryBook.id : 'bible'
+  const editions = bookId === 'bible' ? bibleEditions() : selectableLabEditions(bookId, registryBook!.editions)
+  if (!editions.some(edition => edition.key === key)) return undefined
+  if (bookId === 'bible' && !bibleEditionHasChapter(key, place.sequentialChapter)) return undefined
+  return key
+}
+
+/**
+ * The reader can restore this place in the chapter on screen without a reload:
+ * same book and chapter, and the place's words are the words on screen (it
+ * names no edition it would open in, or the one shown).
+ */
+export function placeRestoresInView(
+  place: Pick<LabBookPlace, 'bookId' | 'sequentialChapter' | 'primaryEditionKey'>,
+  current: { bookId: string; chapterNumber: number; primaryEditionKey?: string },
+): boolean {
+  if (place.bookId !== current.bookId || place.sequentialChapter !== current.chapterNumber) return false
+  const edition = resumePlaceEditionKey(place)
+  return !edition || !current.primaryEditionKey || edition === current.primaryEditionKey
+}
+
+/**
  * What a resolved cloud place means for the reader: which library book to
  * load and in which editions. A biblical pin (hebrews) is the Bible; a
- * registry pin (crito) is that book, in the edition it was read in when this
- * book offers it, else its default edition. Never the currently open book's
- * loader for another book's chapter number.
+ * registry pin (crito) is that book. Either opens in the edition the place was
+ * read in (`resumePlaceEditionKey`), in this book or another, and that edition
+ * becomes the reader's main edition on this device, as if chosen; a place
+ * without a usable edition reads in the current edition of this book, else the
+ * book's saved-place default. Never the currently open book's loader for
+ * another book's chapter number.
  */
 export function remoteResumeSelection(place: LabBookPlace, current: { libraryBookId: string; prefs: LabPrefs }): LabRemoteResumeSelection | null {
   const registryBook = getBook(place.bookId)
   const bookId = registryBook && registryBook.id !== 'bible' ? registryBook.id : 'bible'
   const editions = bookId === 'bible' ? bibleEditions() : registryBook!.editions
-  const sameBookPrefs = bookId === current.libraryBookId
-    ? current.prefs
-    : syncLabAudioEdition(prefsFromLabResumePlace(current.prefs, place), editions)
-  // A Bible place in a chapter the current version lacks (Tobit, read in the
-  // Catholic edition) resumes in the version it was read in, never another chapter.
-  const basePrefs = bookId === 'bible' && !bibleEditionHasChapter(sameBookPrefs.primaryEdition, place.sequentialChapter)
-    && place.primaryEditionKey && bibleEditionHasChapter(place.primaryEditionKey, place.sequentialChapter)
-    ? syncLabAudioEdition(prefsFromLabResumePlace(sameBookPrefs, place), editions)
-    : sameBookPrefs
-  const primaryEditionKey = editions.some(edition => edition.key === basePrefs.primaryEdition)
-    ? basePrefs.primaryEdition
-    // A saved place without a usable edition predates edition keys: resume
-    // the old default (the original), never the new-reader default.
-    : savedPlaceFallbackEditionKey(bookId, editions)
+  const savedEdition = resumePlaceEditionKey(place)
+  const basePrefs = savedEdition
+    ? syncLabAudioEdition(prefsFromLabResumePlace(current.prefs, place), editions)
+    : bookId === current.libraryBookId
+      ? current.prefs
+      : syncLabAudioEdition(prefsFromLabResumePlace(current.prefs, place), editions)
+  const primaryEditionKey = savedEdition
+    ?? (editions.some(edition => edition.key === basePrefs.primaryEdition)
+      ? basePrefs.primaryEdition
+      // A saved place without a usable edition predates edition keys: resume
+      // the old default (the original), never the new-reader default.
+      : savedPlaceFallbackEditionKey(bookId, editions))
   if (!primaryEditionKey) return null
   const compareEditionKey = basePrefs.compareOpen
     && basePrefs.compareEdition !== primaryEditionKey
@@ -311,7 +351,8 @@ export function useLabPositionSync(args: {
       persist: (state, cause, reason) => {
         writeLabPositionLocal(state)
         if (cause === 'local') return
-        syncRef.current?.persist(state, { keepalive: reason === 'hide' })
+        // A write without a reason is the dwell settle or a finished chapter.
+        syncRef.current?.persist(state, { keepalive: reason === 'hide', reason: reason ?? cause })
       },
       schedule: (fn, ms) => {
         const id = window.setTimeout(fn, ms)
@@ -446,7 +487,7 @@ export function useLabPositionSync(args: {
         cloudDoneRef.current = true
         writeLabPositionLocal(next, { authoritative: true })
         syncRef.current?.noteWritten(cloud)
-        syncRef.current?.persist(next)
+        syncRef.current?.persist(next, { reason: 'cloud-merge' })
         setFinishedRevision(revision => revision + 1)
         return
       }
@@ -489,7 +530,7 @@ export function useLabPositionSync(args: {
       writeLabPositionLocal(next, { authoritative: true })
       // Nothing to add to the account's record: no write-back of what was just read.
       syncRef.current?.noteWritten(cloud)
-      syncRef.current?.persist(next)
+      syncRef.current?.persist(next, { reason: 'cloud-merge' })
       setFinishedRevision(revision => revision + 1)
       const initial = !initialResolvedRef.current || (paintedInventedPlace && !args.interactedRef?.current)
       settleInitial()
@@ -499,7 +540,8 @@ export function useLabPositionSync(args: {
       const currentBookId = current.bookId && current.bookId !== 'bible'
         ? current.bookId
         : biblicalBookId(current.headerBook)
-      const sameChapter = resume.sequentialChapter === current.chapterNumber && resume.bookId === currentBookId
+      // A place read in another edition reloads in it, never restores its words into this text.
+      const sameChapter = placeRestoresInView(resume, { bookId: currentBookId, chapterNumber: current.chapterNumber, primaryEditionKey: args.readerStateRef?.current.primaryEditionKey })
       if (!initial) {
         // The reader has painted. Follow only forward, inside this book, and
         // only while the reader has not touched the page.
@@ -522,6 +564,42 @@ export function useLabPositionSync(args: {
     return () => { cancelled = true }
   }, [args.authToken, args.book.chapters, args.interactedRef, args.placeRef, args.sourceLocked, args.resumeLibraryBookId, armWrites, cloudRecord, liveToken, ownerId, settleInitial])
 
+  /**
+   * Another reader on this device (a second tab, or the library) stored a
+   * newer place in this book after this reader last wrote or adopted one
+   * (`newerStoredPlace`). Take the device record into memory and return that
+   * place, so the caller moves the page there instead of writing from the
+   * page this reader was still showing. Null when this reader is current.
+   */
+  const adoptNewerStoredPlace = useCallback((): LabBookPlace | null => {
+    const controller = controllerRef.current
+    if (!controller || !initialResolvedRef.current) return null
+    const current = bookRef.current
+    if (current.chaptersProvisional) return null
+    const bookId = current.bookId && current.bookId !== 'bible' ? current.bookId : biblicalBookId(current.headerBook)
+    const own = controller.state()
+    const stored = readLabPositionLocal(deviceIdRef.current)
+    const newer = newerStoredPlace(own, stored, bookId)
+    if (!newer) return null
+    controller.replace({ ...mergeLabPositionStatesByTime(own, stored), owner: own.owner ?? null, deviceId: own.deviceId })
+    revRef.current = Math.max(revRef.current, newer.rev)
+    setFinishedRevision(value => value + 1)
+    return newer
+  }, [])
+
+  /** Show an adopted place: in this chapter without a reload, else load its chapter. */
+  const showAdoptedPlace = useCallback((place: LabBookPlace) => {
+    const current = bookRef.current
+    const bookId = current.bookId && current.bookId !== 'bible' ? current.bookId : biblicalBookId(current.headerBook)
+    if (!placeRestoresInView(place, { bookId, chapterNumber: current.chapterNumber, primaryEditionKey: latestArgsRef.current.readerStateRef?.current.primaryEditionKey })
+      || !current.chapters.some(chapter => chapter.number === place.sequentialChapter)) {
+      if (current.chapters.some(chapter => chapter.number === place.sequentialChapter)) onRemoteResumeRef.current?.(place)
+      return
+    }
+    latestArgsRef.current.placeRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
+    onResolvedPlaceRef.current?.(place)
+  }, [])
+
   const notePlace = useCallback((reason: LabPlaceReason, at?: { sequentialChapter?: number; paragraphIndex?: number; wordIndex?: number }) => {
     // Nothing is painted while the first place is still being resolved; a
     // note now would persist the provisional tuple. And a signed-in reader
@@ -535,6 +613,16 @@ export function useLabPositionSync(args: {
       // Flush genuine pending activity without making tab dismissal a new
       // reading event that can outrank another device's newer bookmark.
       controller.flush('hide')
+      return
+    }
+    // A stale reader never writes from the page it was still showing: a turn
+    // from ¶158 must not outrank the ¶180 another tab saved meanwhile. It
+    // moves to the newer place instead. A chosen destination (Contents, a
+    // book opened at a place) is not derived from the stale page: it is
+    // written, after the device record is taken in.
+    const adopted = adoptNewerStoredPlace()
+    if (adopted && reason !== 'chapter-jump' && reason !== 'open-book') {
+      showAdoptedPlace(adopted)
       return
     }
     activityRevisionRef.current += 1
@@ -557,7 +645,35 @@ export function useLabPositionSync(args: {
           readerState: args.readerStateRef?.current,
         })
     controller.note({ place, reason })
-  }, [args.placeRef, args.readerStateRef, args.writesSuspended])
+  }, [adoptNewerStoredPlace, args.placeRef, args.readerStateRef, args.writesSuspended, showAdoptedPlace])
+
+  // A reader coming back (tab shown, focused, restored from the back/forward
+  // cache) first takes any newer place this device stored while it slept, at
+  // once and before the reader can tap the stale page. The account read below
+  // may still bring a newer one from another device.
+  const storedCheckDeferredRef = useRef(false)
+  const followNewerStoredPlace = useCallback(() => {
+    if (latestArgsRef.current.writesSuspended) { storedCheckDeferredRef.current = true; return }
+    const adopted = adoptNewerStoredPlace()
+    if (adopted) showAdoptedPlace(adopted)
+  }, [adoptNewerStoredPlace, showAdoptedPlace])
+  useEffect(() => {
+    const onVisibility = () => { if (document.visibilityState !== 'hidden') followNewerStoredPlace() }
+    const onPageShow = (event: PageTransitionEvent) => { if (event.persisted) followNewerStoredPlace() }
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('focus', followNewerStoredPlace)
+    window.addEventListener('pageshow', onPageShow)
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('focus', followNewerStoredPlace)
+      window.removeEventListener('pageshow', onPageShow)
+    }
+  }, [followNewerStoredPlace])
+  useEffect(() => {
+    if (args.writesSuspended || !storedCheckDeferredRef.current) return
+    storedCheckDeferredRef.current = false
+    followNewerStoredPlace()
+  }, [args.writesSuspended, followNewerStoredPlace])
 
   useEffect(() => {
     if (!liveToken || !ownerId) return
@@ -609,7 +725,7 @@ export function useLabPositionSync(args: {
           || !chapters.some(chapter => chapter.number === resume.sequentialChapter)) return
         // Returning to a reader follows the latest intentional position,
         // including backwards moves and another Bible book.
-        if (currentId !== resume.bookId || current.chapterNumber !== resume.sequentialChapter) {
+        if (!placeRestoresInView(resume, { bookId: currentId, chapterNumber: current.chapterNumber, primaryEditionKey: latestArgsRef.current.readerStateRef?.current.primaryEditionKey })) {
           onRemoteResumeRef.current?.(resume)
         } else {
           latestArgsRef.current.placeRef.current = { paragraphIndex: resume.paragraphIndex, wordIndex: resume.wordIndex }

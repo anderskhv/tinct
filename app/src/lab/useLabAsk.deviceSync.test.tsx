@@ -12,36 +12,9 @@ import type { ChatConversation } from '../types'
 
 const USER = '11111111-1111-4111-8111-111111111111'
 
-const cloud = vi.hoisted(() => ({
-  row: null as null | { value: unknown; rev: number },
-  reads: 0,
-  hangNextRead: false,
-}))
-
-vi.mock('../services/supabase', () => {
-  const query = () => {
-    const builder = {
-      select: () => builder,
-      eq: () => builder,
-      maybeSingle: () => {
-        cloud.reads += 1
-        if (cloud.hangNextRead) { cloud.hangNextRead = false; return Object.assign(new Promise(() => {}), { abortSignal: () => new Promise(() => {}) }) }
-        const result = Promise.resolve({ data: cloud.row ? { key: 'chat-history:bible', value: cloud.row.value, rev: cloud.row.rev } : null, error: null })
-        return Object.assign(result, { abortSignal: () => result })
-      },
-    }
-    return builder
-  }
-  const rpc = (_name: string, args: { p_value: unknown; p_expected_rev: number | null }) => {
-    const current = cloud.row
-    const conflict = current ? args.p_expected_rev !== null && args.p_expected_rev !== current.rev : args.p_expected_rev !== null && args.p_expected_rev !== 0
-    if (!conflict) cloud.row = { value: args.p_value, rev: (current?.rev ?? 0) + 1 }
-    const row = cloud.row
-    const result = Promise.resolve({ data: [{ key: 'chat-history:bible', value: row?.value ?? null, rev: row?.rev ?? null, applied: !conflict, conflict }], error: null })
-    return Object.assign(result, { abortSignal: () => result })
-  }
-  return { supabase: { from: query, rpc }, isSupabaseConfigured: () => true }
-})
+// The account: a fake `user_data` table with the server's commit rules. Chat is one row per chapter since
+// 14 Nov 2026 (userDataShards.ts); `cloud` (fakeChatAccount) shows the book's rows merged as one thread.
+vi.mock('../services/supabase', async () => ({ supabase: (await import('./fakeUserDataTable.test-helpers')).fakeUserDataTable.client, isSupabaseConfigured: () => true }))
 vi.mock('../hooks/useAuth', () => ({
   useAuth: () => ({ session: { access_token: 'fixture', user: { id: USER } }, likelyAuthenticated: true }),
 }))
@@ -52,6 +25,10 @@ vi.mock('../hooks/useVoiceSession', () => ({
 vi.mock('../utils/analytics', () => ({ trackEvent: vi.fn() }))
 
 import { useLabAsk, type UseLabAskOptions } from './useLabAsk'
+import { fakeUserDataTable as table } from './fakeUserDataTable.test-helpers'
+import { fakeChatAccount } from './fakeChatAccount.test-helpers'
+
+const cloud = fakeChatAccount(table)
 import { LAB_CHAT_CLOUD_TIMEOUT_MS } from './labChatHistory'
 
 const options: UseLabAskOptions = {
@@ -88,8 +65,9 @@ function showTab() {
 beforeEach(() => {
   vi.useFakeTimers({ shouldAdvanceTime: true })
   vi.stubGlobal('fetch', vi.fn(async () => new Response('{}', { status: 404 })))
+  table.clear()
   cloud.row = { value: [desktopTurn], rev: 3 }
-  cloud.reads = 0
+  table.calls.length = 0
   cloud.hangNextRead = false
   localStorage.setItem('tinct:chat-history:bible', JSON.stringify([desktopTurn]))
 })

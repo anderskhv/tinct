@@ -7,6 +7,7 @@ export type EditionDifficulty = 'Easy' | 'Medium' | 'Hard'
 // Ratings are reading guidance, not a measured reading age or a quality judgement.
 const reviewed: Record<string, EditionDifficulty> = {
   "odyssey:original-en": "Medium",
+  "odyssey:verse-en": "Hard",
   "ulysses:original-en": "Hard",
   "war-and-peace:original-en": "Medium",
   "bible:kjv-en": "Hard",
@@ -113,7 +114,8 @@ const reviewed: Record<string, EditionDifficulty> = {
   "essays-montaigne:original-en": "Hard",
   "ivan-ilyich:original-ru": "Medium",
   "ivan-ilyich:original-en": "Medium",
-  "master-and-margarita:original-ru": "Medium"
+  "master-and-margarita:original-ru": "Medium",
+  "pinocchio:original-it": "Medium"
 }
 
 export function editionDifficulty(bookId: string, edition: Edition): EditionDifficulty | undefined {

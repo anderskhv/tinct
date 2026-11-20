@@ -11,7 +11,9 @@ describe('Library 2 published reading structures', () => {
 
   it('gives every published book an honest, non-Danish structure', () => {
     // 113 with The Master and Margarita (2026-11-05).
-    expect(catalogue.books).toHaveLength(113)
+    // 114 with Pinocchio (2026-11-10).
+    // 122 with the eight young-reader books (2026-11-20).
+    expect(catalogue.books).toHaveLength(122)
     for (const book of catalogue.books) {
       expect(book.readingStructure.editionKey).toBeTruthy()
       expect(book.editions.find(edition => edition.key === book.readingStructure.editionKey)?.language).not.toBe('da')
@@ -58,7 +60,10 @@ describe('Library 2 published reading structures', () => {
     expect(original.wordCount).not.toBe(modern.wordCount)
     expect(original.readingStructure?.editionKey).toBe('original-en')
     expect(modern.readingStructure?.editionKey).toBe('modern-en')
-    expect(book.editions.find(edition=>edition.language==='da')?.wordCount).toBeNull()
+    // Frankenstein's Danish is offered since 2026-11-18 and measured; a withdrawn Danish edition is not.
+    expect(book.editions.find(edition=>edition.language==='da')?.wordCount).toBeGreaterThan(60000)
+    const withdrawn=catalogue.books.find(book=>book.id==='pride-and-prejudice')!
+    expect(withdrawn.editions.find(edition=>edition.language==='da')?.wordCount).toBeNull()
   })
 
   it('uses the real chapter extent instead of a chapter-local page percentage', () => {

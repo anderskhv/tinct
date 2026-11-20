@@ -108,7 +108,9 @@ describe('2. Before you start made ahead: the request (fetch mocked)', () => {
     const fn = reader.slice(reader.indexOf('function primerPrefetch() {'), reader.indexOf('/** The primer for `unit`'))
     expect(fn).toContain("if (state.kind !== 'pdf' || !primer.units || !primerHasText() || !window.TinctAI?.session?.().token) return;")
     expect(fn).toContain('if (primerAhead.key === open) return;')
-    expect(fn).toContain('if (store.get(id) || primerMaking.has(id)) return;')
+    // Kept here only when the current prompt made it (v5, 11 Nov 2026: keptPrimer); an older one is made again.
+    expect(fn).toContain('if (keptPrimer(unit) || primerMaking.has(id)) return;')
+    expect(reader).toContain("const keptPrimer = unit => { const p = store.get(primerKey(unit)); return p && typeof p.role === 'string' ? p : null };")
     expect(fn).toContain("const remote = await primerRemote('GET', unit);")
     expect(fn).toContain('makePrimer(unit, { speculative: true })')
   })

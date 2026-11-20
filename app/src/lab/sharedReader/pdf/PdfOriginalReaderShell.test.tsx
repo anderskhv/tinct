@@ -8,6 +8,8 @@ import { readLabPrefs, writeLabPrefs } from '../../labPrefs'
 import type { PdfOriginalUnitRules } from './pdfOriginalUnits'
 
 const readingTimer = vi.hoisted(() => vi.fn())
+/** Every place the shell asked the surface to show, in order. */
+const requestedPages = vi.hoisted(() => [] as number[])
 vi.mock('../../useLabReadingYear', () => ({ useLabReadingYear: readingTimer }))
 
 const require = createRequire(import.meta.url)
@@ -25,13 +27,15 @@ vi.mock('./PdfContinuousSurface', () => ({
     requestedPlace?: { page: number; frac: number }
   }) => {
     useEffect(() => { onScrollHost?.(document.querySelector('.pdf-original__scroll')); onDocument(3); onPageText(1, 'A page with usable text.'); onVisiblePlace({ page: 1, frac: .3 }) }, [])
+    useEffect(() => { if (requestedPlace) requestedPages.push(requestedPlace.page) }, [requestedPlace])
     const openFinal = () => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(30, 'Last text on unit page 30.'); onVisiblePlace({ page: 30, frac: 0 }); onPageEnd?.(30, false) }
     const pageBounds = (node: HTMLElement | null) => { if (node) node.getBoundingClientRect = () => ({ left: 50, right: 950, top: 100, bottom: 1300, width: 900, height: 1200 } as DOMRect) }
-    return <div className="pdf-original__scroll" ref={node => { if (node) node.getBoundingClientRect = () => ({ left: 40, right: 970, top: 90, bottom: 800, width: 930, height: 710 } as DOMRect) }}>{[1, 2, 14, 30].map(page => <div key={page} className="pdf-original__page" data-page={page} ref={pageBounds} />)}<button onClick={() => onSelection({ page: 1, text: 'Selected PDF sentence.', rects: [[1, .1, .2, .3, .04]] })}>Select PDF text</button><button onClick={() => onVisiblePlace({ page: 2, frac: 0 })}>Move to PDF page 2</button><button onClick={() => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(14, 'Real extracted text on page 14.'); onVisiblePlace({ page: 14, frac: 0 }); onPageEnd?.(14, false) }}>Open outlined page 14</button><button onClick={openFinal}>Open final page top</button><button onClick={() => { openFinal(); onPageEnd?.(30, true) }}>Finish outlined unit</button>{headingActions?.map(heading => <div key={heading.key} data-testid="mock-heading-actions" aria-label={`${heading.title} actions`}>{heading.actions.map(action => <button key={action.id} onClick={() => heading.onAction(action.id, { page: heading.page, text: heading.title, rects: [[heading.page, .1, .1, .3, .03]] })}>{action.label} for {heading.title}</button>)}</div>)}<output data-testid="requested-pdf-place">{requestedPlace?.page || 0}</output><output data-testid="requested-pdf-frac">{requestedPlace?.frac ?? 0}</output></div>
+    return <div className="pdf-original__scroll" ref={node => { if (node) node.getBoundingClientRect = () => ({ left: 40, right: 970, top: 90, bottom: 800, width: 930, height: 710 } as DOMRect) }}>{[1, 2, 14, 30].map(page => <div key={page} className="pdf-original__page" data-page={page} ref={pageBounds} />)}<button onClick={() => onSelection({ page: 1, text: 'Selected PDF sentence.', rects: [[1, .1, .2, .3, .04]] })}>Select PDF text</button><button onClick={() => onVisiblePlace({ page: 2, frac: 0 })}>Move to PDF page 2</button><button onClick={() => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(14, 'Real extracted text on page 14.'); onVisiblePlace({ page: 14, frac: 0 }); onPageEnd?.(14, false) }}>Open outlined page 14</button><button onClick={() => { onDocument(12); onOutline?.([{ title: '1 Introduction', page: 2, items: [] }, { title: '2 Method', page: 4, items: [] }]); onPageText(1, 'Title and abstract of the paper.'); onVisiblePlace({ page: 1, frac: 0 }) }}>Open research paper</button><button onClick={openFinal}>Open final page top</button><button onClick={() => { openFinal(); onPageEnd?.(30, true) }}>Finish outlined unit</button>{headingActions?.map(heading => <div key={heading.key} data-testid="mock-heading-actions" aria-label={`${heading.title} actions`}>{heading.actions.map(action => <button key={action.id} onClick={() => heading.onAction(action.id, { page: heading.page, text: heading.title, rects: [[heading.page, .1, .1, .3, .03]] })}>{action.label} for {heading.title}</button>)}</div>)}<output data-testid="requested-pdf-place">{requestedPlace?.page || 0}</output><output data-testid="requested-pdf-frac">{requestedPlace?.frac ?? 0}</output></div>
   },
 }))
 vi.mock('../../../components/reader/SelectionDeskBar', () => ({
-  SelectionDeskBar: ({ onAsk, onAskQuestion, onExplain, onSwatch, onNote, onMore, onHighlight, state, color }: { onHighlight: () => void; state: string; color: string; onAsk: () => void; onAskQuestion: (s: string) => void; onExplain: () => void; onSwatch: (c: 'sage') => void; onNote: () => void; onMore: (id: 'quiz' | 'define') => void }) => <div role="toolbar">
+  SelectionDeskBar: ({ onAsk, onAskQuestion, onExplain, onSwatch, onNote, onMore, onHighlight, onListen, state, color }: { onHighlight: () => void; state: string; color: string; onAsk: () => void; onAskQuestion: (s: string) => void; onExplain: () => void; onSwatch: (c: 'sage') => void; onNote: () => void; onMore: (id: 'quiz' | 'define') => void; onListen?: () => void }) => <div role="toolbar">
+    {onListen && <button onClick={onListen}>Listen from the selection</button>}
     <button onClick={onHighlight}>Apply PDF {color}</button>{state === 'colors' && <span>PDF palette</span>}<button onClick={onAsk}>Compose PDF question</button><button onClick={() => onAskQuestion('Why?')}>Ask this PDF</button><button onClick={onExplain}>Explain this PDF</button>
     <button onClick={() => onSwatch('sage')}>Highlight sage</button><button onClick={onNote}>Note PDF</button><button onClick={() => onMore('quiz')}>Quiz this PDF</button><button onClick={() => onMore('define')}>Define this PDF</button>
   </div>,
@@ -142,8 +146,11 @@ it('uses the existing interactive quiz body and saves only after a completed sou
   await screen.findByText('Exactly.')
   expect(check).toHaveBeenCalledWith({ page: 1, text: 'Selected PDF sentence.', rects: [[1, .1, .2, .3, .04]] },
     { question: 'What was selected?', expected: 'A sentence.', why: undefined, answer: 'A sentence.' })
-  fireEvent.click(screen.getByText('See your score →'))
+  // The last question marked: saved at once, its score and Try another quiz under it (no "See your score", 13 Nov 2026).
   await waitFor(() => expect(saveCard).toHaveBeenCalledOnce())
+  expect(screen.getByTestId('lab-phone-quiz-score').textContent).toBe('1 of 1')
+  expect(screen.getByTestId('lab-phone-quiz-again')).toBeTruthy()
+  expect(screen.queryByText(/See your score/)).toBeNull()
   expect(saveCard.mock.calls[0][1]).toBe('quiz')
   expect(saveCard.mock.calls[0][2]).toContain('What was selected?')
   expect(saveCard.mock.calls[0][3]).toEqual({ data: { generatedQuiz: quiz } })
@@ -254,8 +261,14 @@ it('Copy all exports every PDF mark and ordered card Q/A even when the Notebook 
   }
   render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
   openNotebook()
-  fireEvent.click(screen.getByText('My notes'))
+  // AI · Highlights · Notes · All (Anders, 6 Nov 2026; was All · My notes · AI): a highlight with a note is a Note only.
+  expect(Array.from(document.querySelectorAll('.pdf-original-reader__filters button')).map(b => b.textContent)).toEqual(['AI', 'Highlights', 'Notes', 'All'])
+  fireEvent.click(screen.getByRole('button', { name: 'Notes', exact: true }))
   expect(screen.queryByText('Original PDF page 2 · quiz')).toBeNull()
+  expect(screen.getByText('Original PDF page 1 · Note')).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Highlights', exact: true }))
+  expect(screen.queryByText('Original PDF page 1 · Note')).toBeNull()
+  expect(screen.getByText('No highlights saved for this book.')).toBeTruthy()
   fireEvent.click(screen.getByText('Copy all'))
   await waitFor(() => expect(writeText).toHaveBeenCalledOnce())
   const markdown = writeText.mock.calls[0][0]
@@ -316,8 +329,29 @@ it('requires an explicit owner claim before older unassigned Talk turns appear',
   expect(adoptRecoverableTalk).toHaveBeenCalledOnce()
 })
 
+it('serves a saved Primer for the unit only when the current prompt made it (v5, 11 Nov 2026); an older one is made again', async () => {
+  const unit = { key: 'outline-1', title: 'Chapter One', from: 11, to: 30 }
+  const legacy = JSON.stringify({ gist: 'Old gist.', claims: ['A.', 'B.', 'C.'], keepInMind: ['D.'], map: [{ title: 'x', pages: 'p. 11' }, { title: 'y', pages: 'p. 12' }, { title: 'z', pages: 'p. 13' }] })
+  const current = JSON.stringify({ kind: 'paper', role: 'In Outlined PDF', gist: 'Saved role.', sections: [{ title: "How it's built", items: ['One.', 'Two.'] }, { title: 'Watch for', items: ['Three.'] }] })
+  for (const [saved, made] of [[legacy, true], [current, false]] as const) {
+    const askUnit = vi.fn(async () => current)
+    const services: PdfOriginalReaderServices = {
+      marks: [], cards: [{ id: 'saved-primer', page: 11, text: 'Chapter One', kind: 'primer', at: 1, turns: [{ role: 'user', content: 'Prepare me to read Chapter One.' }, { role: 'assistant', content: saved }], data: { action: 'primer', unit } }],
+      saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), saveCard: vi.fn(() => false), ask: vi.fn(async () => null),
+      getPageText: vi.fn(async page => `Real extracted text on page ${page}.`), askUnit, saveUnitCard: vi.fn(() => true),
+    }
+    const view = render(<PdfOriginalReaderShell title="Outlined PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} unitRules={margin} />)
+    fireEvent.click(screen.getByText('Open outlined page 14'))
+    fireEvent.click(screen.getByRole('button', { name: 'Primer for Chapter One' }))
+    if (made) await waitFor(() => expect(askUnit).toHaveBeenCalledOnce())
+    else { expect(await screen.findByText('Saved role.')).toBeTruthy(); expect(askUnit).not.toHaveBeenCalled() }
+    view.unmount()
+  }
+})
+
 it('grounds Primer and Catch me up in real contiguous unit pages and saves exact page ranges once', async () => {
-  const structuredPrimer = JSON.stringify({ gist: 'These pages introduce the central argument.', claims: ['First claim.', 'Second claim.', 'Third claim.'], keepInMind: ['Watch the distinction.'], map: [{ title: 'Opening', pages: 'p. 11' }, { title: 'Middle', pages: 'p. 12' }, { title: 'Close', pages: 'p. 30' }] })
+  // Prompt v5 (11 Nov 2026): the unit's role in the PDF, How it's built, Watch for.
+  const structuredPrimer = JSON.stringify({ kind: 'paper', role: 'In Outlined PDF', gist: 'These pages introduce the central argument.', sections: [{ title: "How it's built", items: [{ text: 'Opening: the question.', cite: '{p. 11}' }, { text: 'Close: the claim.', cite: '{p. 30}' }] }, { title: 'Watch for', items: [{ text: 'Watch the distinction.', cite: '{p. 12}' }] }] })
   const askUnit = vi.fn(async (_source: Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0], action: string) => action === 'primer' ? structuredPrimer : `${action} from original pages.`)
   const saveUnitCard = vi.fn(() => true)
   const services: PdfOriginalReaderServices = {
@@ -333,12 +367,18 @@ it('grounds Primer and Catch me up in real contiguous unit pages and saves exact
   fireEvent.click(screen.getByRole('button', { name: 'Back to book' }))
   fireEvent.click(screen.getByRole('button', { name: 'Primer for Chapter One' }))
   expect(await screen.findByText('These pages introduce the central argument.')).toBeTruthy()
-  expect(screen.getByText('Key claims')).toBeTruthy()
-  expect(screen.getByText('Keep in mind')).toBeTruthy()
+  expect(screen.getByText('In Outlined PDF')).toBeTruthy()
+  expect(screen.getByText("How it's built")).toBeTruthy()
+  expect(screen.getByText('Watch for')).toBeTruthy()
   expect(screen.queryByText(structuredPrimer)).toBeNull()
   const primer = askUnit.mock.calls[0][0]
+  // The PDF's sections nearest the unit go with it, titles only (the primer's first part: where it sits).
+  const outline = primer.outline!
+  expect(outline.titles).toEqual(expect.arrayContaining(['Chapter One', 'Chapter Two']))
+  expect(outline.titles[outline.at]).toBe('Chapter One')
+  expect(outline).toMatchObject({ first: 1, total: outline.titles.length })
   expect(primer).toEqual({ unit: { key: 'outline-1', title: 'Chapter One', from: 11, to: 30 },
-    atPage: 11, anchor: {page:11,frac:.1}, pages: Array.from({ length: 20 }, (_, index) => ({ n: index + 11, text: `Real extracted text on page ${index + 11}.` })) })
+    atPage: 11, anchor: {page:11,frac:.1}, pages: Array.from({ length: 20 }, (_, index) => ({ n: index + 11, text: `Real extracted text on page ${index + 11}.` })), outline })
   expect(saveUnitCard).toHaveBeenCalledWith(primer, 'primer', structuredPrimer)
   fireEvent.keyDown(window, { key: 'Escape' })
   fireEvent.click(screen.getByTestId('lab-super'))
@@ -349,6 +389,48 @@ it('grounds Primer and Catch me up in real contiguous unit pages and saves exact
   expect(catchup.atPage).toBe(14)
   expect(saveUnitCard).toHaveBeenCalledWith(catchup, 'catchup', 'catchup from original pages.')
   expect(saveUnitCard).toHaveBeenCalledTimes(2)
+})
+
+it('summarizes the whole PDF from the menu, not only the unit the reader is on (tester report, 9 Nov 2026)', async () => {
+  const askUnit = vi.fn(async () => 'A summary of the whole paper.')
+  const saveUnitCard = vi.fn(() => true)
+  const services: PdfOriginalReaderServices = {
+    marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true),
+    removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), saveCard: vi.fn(() => false), ask: vi.fn(async () => null),
+    getPageText: vi.fn(async page => `Paper text on page ${page}.`), askUnit, saveUnitCard,
+  }
+  render(<PdfOriginalReaderShell title="A research paper" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} unitRules={margin} />)
+  fireEvent.click(screen.getByText('Open research paper'))
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
+  expect(await screen.findByText('A summary of the whole paper.')).toBeTruthy()
+  expect(askUnit).toHaveBeenCalledOnce()
+  const [source, action] = askUnit.mock.calls[0] as unknown as [Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0], string]
+  expect(action).toBe('recap')
+  expect(source.pages.map(page => page.n)).toEqual(Array.from({ length: 12 }, (_, index) => index + 1))
+  expect(source.unit).toEqual(expect.objectContaining({ title: 'A research paper', from: 1, to: 12 }))
+  expect(saveUnitCard).toHaveBeenCalledWith(source, 'recap', 'A summary of the whole paper.')
+  // An AI card shows only its answer (30 Oct 2026): no source-range line.
+  expect(screen.queryByText(/Source · Original PDF page/)).toBeNull()
+})
+
+it('summarizes the current unit from the menu when the whole PDF is over the send bound', async () => {
+  const askUnit = vi.fn(async () => 'A summary of these pages.')
+  const services: PdfOriginalReaderServices = {
+    marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true),
+    removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), saveCard: vi.fn(() => false), ask: vi.fn(async () => null),
+    getPageText: vi.fn(async page => page === 10 ? 'x'.repeat(199_000) : page > 3 ? 'y'.repeat(190_000) : `Opening text on page ${page}.`), askUnit, saveUnitCard: vi.fn(() => true),
+  }
+  render(<PdfOriginalReaderShell title="A long book" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} unitRules={margin} />)
+  fireEvent.click(screen.getByText('Open research paper'))
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
+  expect(await screen.findByText('A summary of these pages.')).toBeTruthy()
+  expect(askUnit).toHaveBeenCalledOnce()
+  const source = askUnit.mock.calls[0][0] as unknown as Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0]
+  expect(source.pages.map(page => page.n)).toEqual([1])
+  expect(source.unit).toEqual(expect.objectContaining({ title: 'Page 1', from: 1, to: 1 }))
+  expect(screen.queryByText(/Source · Original PDF page/)).toBeNull()
 })
 
 it('does not send or save a Primer when a later required page exceeds the full-page bound', async () => {
@@ -433,7 +515,30 @@ it('explains why a saved unit follow-up was not sent when its full source is una
   expect(appendCardTurn).not.toHaveBeenCalled()
 })
 
-it('offers after-unit Recap and Note on the finished source unit, retaining its complete page range', async () => {
+it('a section has the library\'s pills (Primer, Summary, Quiz me) and Note; Summary summarises that section, the first included', async () => {
+  const askUnit = vi.fn(async (_source: Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0], _action: string) => 'This section sets out the method.')
+  const services: PdfOriginalReaderServices = {
+    marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true),
+    removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), saveCard: vi.fn(() => false), ask: vi.fn(async () => null),
+    getPageText: vi.fn(async page => `Real extracted text on page ${page}.`), askUnit, saveUnitCard: vi.fn(() => true), saveUnitCardWithId: vi.fn(() => 'summary-1'), saveUnitNote: vi.fn(() => 'note-1'),
+    askUnitQuiz: vi.fn(async () => null), askUnitQuizCheck: vi.fn(async () => null), saveUnitQuizCardWithId: vi.fn(() => 'quiz-1'),
+  }
+  render(<PdfOriginalReaderShell title="Outlined PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} unitRules={margin} />)
+  fireEvent.click(screen.getByText('Open outlined page 14'))
+  for (const heading of ['Introduction', 'Chapter One']) {
+    const words = [...screen.getByLabelText(`${heading} actions`).querySelectorAll('button')].map(button => button.textContent)
+    expect(words).toEqual(['Primer', 'Summary', 'Quiz me', 'Note'].map(label => `${label} for ${heading}`))
+  }
+  // No "what came before" pill and no separate Recap: Catch me up is the t menu's.
+  expect(screen.queryByRole('button', { name: 'Recap for Chapter One' })).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Summary for Chapter One' }))
+  expect(await screen.findByText('This section sets out the method.')).toBeTruthy()
+  expect(askUnit.mock.calls[0][1]).toBe('recap')
+  // The section's own pages (11–30), not the pages before it.
+  expect(askUnit.mock.calls[0][0].pages.map(page => page.n)).toEqual(Array.from({ length: 20 }, (_, index) => index + 11))
+})
+
+it('offers after-unit Summary and Note on the finished source unit, retaining its complete page range', async () => {
   vi.stubGlobal('matchMedia', (query: string) => ({ matches: query === '(max-width: 700px)', addEventListener: vi.fn(), removeEventListener: vi.fn() }))
   const askUnit = vi.fn(async (_source: Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0], _action: string) => 'Complete chapter recap.')
   const saveUnitCardWithId = vi.fn(() => 'recap-1')
@@ -450,7 +555,7 @@ it('offers after-unit Recap and Note on the finished source unit, retaining its 
   expect(screen.queryByRole('complementary', { name: 'After Chapter One' })).toBeNull()
   fireEvent.click(screen.getByText('Finish outlined unit'))
   expect(screen.getByRole('complementary', { name: 'After Chapter One' })).toBeTruthy()
-  fireEvent.click(screen.getByRole('button', { name: 'Recap' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Summary' }))
   expect(await screen.findByText('Complete chapter recap.')).toBeTruthy()
   expect(askUnit.mock.calls[0][0].pages.map(page => page.n)).toEqual(Array.from({ length: 20 }, (_, index) => index + 11))
   expect(askUnit.mock.calls[0][1]).toBe('recap')
@@ -484,8 +589,11 @@ it('checks a finished-unit quiz against its actual full source and saves only th
   fireEvent.click(screen.getByRole('button', { name: 'Send' }))
   expect(await screen.findByText('Correct.')).toBeTruthy()
   expect(askUnitQuizCheck).toHaveBeenCalledOnce()
-  fireEvent.click(screen.getByText('See your score →'))
+  // The last question marked: saved at once, its score and Try another quiz under it (no "See your score", 13 Nov 2026).
   await waitFor(() => expect(saveUnitQuizCardWithId).toHaveBeenCalledOnce())
+  expect(screen.getByTestId('lab-phone-quiz-score').textContent).toBe('1 of 1')
+  expect(screen.getByTestId('lab-phone-quiz-again')).toBeTruthy()
+  expect(screen.queryByText(/See your score/)).toBeNull()
   expect(saveUnitQuizCardWithId.mock.calls[0][1]).toContain('What ends the unit?')
   expect(saveUnitQuizCardWithId.mock.calls[0][2]).toBe(quiz)
 })
@@ -525,11 +633,11 @@ it('renders an after-unit PDF Note as prose in Notebook and export, retaining it
   expect(writeText.mock.calls[0][0]).toMatch(/## Note · Original PDF page 2[\s\S]*Source · Original PDF pages 1–2[\s\S]*My thought about the section\./)
   expect(writeText.mock.calls[0][0]).not.toContain('**Q.** My thought')
   expect(writeText.mock.calls[0][0]).toMatch(/My thought about the section\.[\s\S]*\*\*A\.\*\* A response to the note\.[\s\S]*\*\*Q\.\*\* A later follow-up\.[\s\S]*\*\*A\.\*\* A second response\./)
-  fireEvent.click(screen.getByText('My notes'))
+  fireEvent.click(screen.getByRole('button', { name: 'Notes', exact: true }))
   expect(screen.getByText('Original PDF page 2 · Note')).toBeTruthy()
   fireEvent.click(screen.getByText('AI'))
   expect(screen.queryByText('Original PDF page 2 · Note')).toBeNull()
-  fireEvent.click(screen.getByText('My notes'))
+  fireEvent.click(screen.getByRole('button', { name: 'Notes', exact: true }))
   fireEvent.click(screen.getByText('Original PDF page 2 · Note'))
   expect(screen.getByTestId('lab-phone-card-body').textContent).toContain('My thought about the section.')
   expect(screen.getByTestId('lab-phone-card-body').textContent).toContain('Source · Original PDF pages 1–2')
@@ -599,7 +707,7 @@ it('uses the current chapter in the header and the normal appearance themes with
   fireEvent.click(screen.getByRole('button', { name: 'Go', exact: true }))
   expect(screen.getByTestId('requested-pdf-place').textContent).toBe('15')
   fireEvent.click(screen.getByRole('button', { name: 'Appearance' }))
-  expect(screen.getByRole('group', { name: 'Theme' }).querySelectorAll('.lab-v2-theme')).toHaveLength(3)
+  expect(screen.getByRole('group', { name: 'Theme' }).querySelectorAll('.lab-v2-theme')).toHaveLength(4)
   const appearance = screen.getByRole('dialog', { name: 'Appearance' })
   expect(appearance.classList.contains('lab-v2-sheet')).toBe(true)
   expect(appearance.querySelector('.lab-v2-sheet-body .lab-v2-themes')).toBeTruthy()
@@ -823,7 +931,7 @@ it('uses the normal grouped PDF menu and routes settings without duplicate deskt
   render(<PdfOriginalReaderShell title="Own PDF" bytes={async()=>new ArrayBuffer(4)} onVisiblePlace={()=>{}} />)
   fireEvent.click(screen.getByTestId('lab-super'))
   const menu = screen.getByRole('navigation',{name:'Menu'})
-  expect([...menu.querySelectorAll('.lab-super-row-label')].map(node=>node.textContent)).toEqual(['Chat','Summarize','Appearance','Book settings','Profile'])
+  expect([...menu.querySelectorAll('.lab-super-row-label')].map(node=>node.textContent)).toEqual(['Chat','Summarize','Appearance','Book settings','AI settings','Profile'])
   expect(menu.querySelector('.is-pair')).toBeTruthy()
   expect(screen.queryByRole('dialog',{name:'Reader menu'})).toBeNull()
   expect(screen.getByTestId('lab-header-notebook')).toBeTruthy()
@@ -922,4 +1030,172 @@ it('offers the Tinct book on the desktop when another device last read it so, un
   render(<PdfOriginalReaderShell title="Own PDF" bookId="offer-book" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} unitRules={margin} onOpenText={onOpenText} textOffer />)
   expect(screen.queryByTestId('pdf-text-offer')).toBeNull()
   localStorage.removeItem('tinct-addbook:text-offer-dismissed:offer-book')
+})
+
+it('keeps the offer bar in place as the conversion\'s progress, then its failure, after Read as Tinct book (6 Nov 2026)', () => {
+  localStorage.removeItem('tinct-addbook:text-offer-dismissed:offer-progress')
+  const onOpenText = vi.fn()
+  const props = { title: 'Own PDF', bookId: 'offer-progress', bytes: async () => new ArrayBuffer(4), onVisiblePlace: () => {}, unitRules: margin, onOpenText, textOffer: true }
+  const view = render(<PdfOriginalReaderShell {...props} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Read as Tinct book' }))
+  expect(onOpenText).toHaveBeenCalledOnce()
+  view.rerender(<PdfOriginalReaderShell {...props} textBusy textProgress={{ stage: 'text', done: 3, total: 10 }} />)
+  const bar = screen.getByTestId('pdf-text-offer')
+  expect(bar.textContent).toContain('Preparing the Tinct book.')
+  expect(bar.textContent).toContain('Preparing pages 3 of 10')
+  expect(bar.querySelector('progress')?.getAttribute('value')).toBe('3')
+  expect(bar.querySelector('progress')?.getAttribute('max')).toBe('10')
+  expect(bar.querySelectorAll('button')).toHaveLength(0)
+  view.rerender(<PdfOriginalReaderShell {...props} textError="The Tinct book could not be prepared." />)
+  expect(screen.getByTestId('pdf-text-offer').textContent).toContain('The Tinct book could not be prepared.')
+  fireEvent.click(screen.getByRole('button', { name: 'Try again' }))
+  expect(onOpenText).toHaveBeenCalledTimes(2)
+  expect(onOpenText).toHaveBeenLastCalledWith(onOpenText.mock.calls[0][0])
+  fireEvent.click(screen.getByRole('button', { name: 'Keep pages' }))
+  expect(screen.queryByTestId('pdf-text-offer')).toBeNull()
+  // A PDF without recognised text cannot succeed on a second try: no Try again.
+  view.rerender(<PdfOriginalReaderShell {...props} textBusy />)
+  view.rerender(<PdfOriginalReaderShell {...props} textError="This PDF needs recognised text." textRetry={false} />)
+  expect(screen.getByTestId('pdf-text-offer').textContent).toContain('This PDF needs recognised text.')
+  expect(screen.queryByRole('button', { name: 'Try again' })).toBeNull()
+  localStorage.removeItem('tinct-addbook:text-offer-dismissed:offer-progress')
+})
+
+it('shows conversion started from a pane in the same bar once the pane closes, without an offer', () => {
+  const onOpenText = vi.fn()
+  const props = { title: 'Own PDF', bytes: async () => new ArrayBuffer(4), onVisiblePlace: () => {}, onOpenText }
+  const view = render(<PdfOriginalReaderShell {...props} />)
+  expect(screen.queryByTestId('pdf-text-offer')).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Appearance' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Convert to EPUB' }))
+  view.rerender(<PdfOriginalReaderShell {...props} textBusy textProgress={{ stage: 'scanning' }} />)
+  // The pane shows it while open; one progress, not two.
+  expect(screen.getAllByRole('progressbar')).toHaveLength(1)
+  expect(screen.queryByTestId('pdf-text-offer')).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Close panel' }))
+  expect(screen.getByTestId('pdf-text-offer').textContent).toContain('Checking the text and chapters…')
+  view.rerender(<PdfOriginalReaderShell {...props} />)
+  expect(screen.queryByTestId('pdf-text-offer')).toBeNull()
+})
+
+it('names a paper’s detected sections in Contents and the header, jumps to their headings and offers each its actions', async () => {
+  const sections = [
+    { title: 'Abstract', page: 1, frac: .2, level: 1 }, { title: '1 Introduction', page: 1, frac: .45, level: 1 },
+    { title: '2 Method', page: 2, frac: .5, level: 1 }, { title: '2.1 Setup', page: 2, frac: .7, level: 2 }, { title: '3 Results', page: 3, frac: .1, level: 1 },
+  ]
+  const detector = vi.fn(async () => sections)
+  render(<PdfOriginalReaderShell title="Own paper" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} unitRules={margin} sectionDetector={detector} />)
+  // The place (page 1, 30% down) is under the Abstract's heading, above the Introduction's.
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Contents', exact: true }).textContent).toBe('Abstract'), { timeout: 3000 })
+  expect(detector).toHaveBeenCalledTimes(1)
+  expect(screen.getAllByTestId('mock-heading-actions').map(node => node.getAttribute('aria-label'))).toEqual(['Abstract actions', '1 Introduction actions', '2 Method actions', '3 Results actions'])
+  expect(screen.getByRole('button', { name: 'Quiz me for 2 Method' })).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Contents', exact: true }))
+  const toc = screen.getByTestId('lab-toc')
+  expect(toc.textContent).toContain('1 Introduction')
+  expect(toc.textContent).toContain('3 Results')
+  expect(toc.textContent).not.toContain('2.1 Setup')
+  fireEvent.click(screen.getByRole('button', { name: /^2 Method/ }))
+  expect(screen.getByTestId('requested-pdf-place').textContent).toBe('2')
+  expect(Number(screen.getByTestId('requested-pdf-frac').textContent)).toBeCloseTo(.48)
+  expect(screen.getByRole('button', { name: 'Contents', exact: true }).textContent).toBe('2 Method')
+})
+
+it('keeps page units when section detection finds nothing', async () => {
+  const detector = vi.fn(async () => null)
+  render(<PdfOriginalReaderShell title="Own notes" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} unitRules={margin} sectionDetector={detector} />)
+  await waitFor(() => expect(detector).toHaveBeenCalled(), { timeout: 3000 })
+  expect(screen.getByRole('button', { name: 'Contents', exact: true }).textContent).toBe('Page 1')
+  expect(screen.queryAllByTestId('mock-heading-actions')).toHaveLength(0)
+})
+
+const listenServices = (audio: NonNullable<PdfOriginalReaderServices['audio']>, listen = vi.fn()): PdfOriginalReaderServices => ({ marks: [], cards: [],
+  saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null),
+  ask: vi.fn(async () => ''), saveCard: vi.fn(() => true), listen, audio })
+const idleAudio = (extra: Partial<NonNullable<PdfOriginalReaderServices['audio']>> = {}) => ({ speed: 1, setSpeed: vi.fn(), playing: false, pause: vi.fn(), available: true, ...extra })
+
+it('reads the page aloud from Play, and Play pauses while a page is heard', () => {
+  const listen = vi.fn()
+  const { rerender } = render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={listenServices(idleAudio(), listen)} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Listen' }))
+  expect(listen).toHaveBeenCalledWith(1, 'A page with usable text.')
+  const pause = vi.fn()
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={listenServices(idleAudio({ playing: true, pause }), listen)} />)
+  expect(screen.queryByRole('button', { name: 'Listen' })).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Pause' }))
+  expect(pause).toHaveBeenCalledTimes(1)
+  expect(listen).toHaveBeenCalledTimes(1)
+})
+
+it('takes Play away and says so once when read aloud fails for this PDF, and never shows a dead Play', () => {
+  const listen = vi.fn()
+  const { rerender } = render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={listenServices(idleAudio(), listen)} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Listen' }))
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={listenServices(idleAudio({ available: false, unavailable: true }), listen)} />)
+  expect(screen.queryByRole('button', { name: 'Listen' })).toBeNull()
+  expect(screen.getByText('Read aloud is not available for this book right now.').closest('[role="status"]')).toBeTruthy()
+  cleanup()
+  // Unavailable from the start (never tapped): no Play and nothing said.
+  render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={listenServices(idleAudio({ available: false, unavailable: true }), listen)} />)
+  expect(screen.queryByRole('button', { name: 'Listen' })).toBeNull()
+  expect(screen.queryByText('Read aloud is not available for this book right now.')).toBeNull()
+})
+
+it('goes back to My shelf with the place kept', () => {
+  const assign = vi.fn()
+  vi.stubGlobal('location', { ...window.location, assign })
+  const onBeforeLeave = vi.fn()
+  render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} onBeforeLeave={onBeforeLeave} services={listenServices(idleAudio())} />)
+  const back = screen.getByRole('link', { name: 'Back to library' })
+  expect(back.getAttribute('href')).toBe('/library?sharedReader=1#my-shelf')
+  fireEvent.click(back)
+  expect(onBeforeLeave).toHaveBeenCalledWith({ page: 1, frac: .3 })
+  expect(assign).toHaveBeenCalledWith('/library?sharedReader=1#my-shelf')
+})
+
+it('follows the voice to its next page but never pulls a reader who scrolled away back to it; the pills take them back or move the voice', async () => {
+  requestedPages.length = 0
+  let heard = 2
+  const listenFromScreen = vi.fn(async () => true)
+  const services = (): PdfOriginalReaderServices => ({ ...listenServices(idleAudio({ playing: true })), heardPage: heard, listenFromScreen })
+  const { rerender } = render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services()} />)
+  // Play started the voice on page 2 while page 1 was in view: the view goes with it.
+  await waitFor(() => expect(requestedPages).toEqual([2]))
+  // The reader scrolls on to page 14 while the voice reads page 2: no snap back.
+  fireEvent.wheel(document.querySelector('.pdf-original__scroll')!)
+  fireEvent.click(screen.getByRole('button', { name: 'Open outlined page 14' }))
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services()} />)
+  // The voice turns its page: the view stays with the reader.
+  heard = 3
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services()} />)
+  expect(requestedPages).toEqual([2])
+  // Off the voice for a moment: the two pills.
+  await waitFor(() => expect(screen.getByTestId('lab-listen-pills')).toBeTruthy(), { timeout: 2000 })
+  expect(screen.getByTestId('lab-back-to-voice').textContent).toBe('↑ Back to the voice')
+  fireEvent.click(screen.getByTestId('lab-back-to-voice'))
+  expect(requestedPages).toEqual([2, 3])
+  expect(screen.queryByTestId('lab-listen-pills')).toBeNull()
+  // Back with the voice, its next page turn moves the view again.
+  heard = 4
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services()} />)
+  expect(requestedPages).toEqual([2, 3, 4])
+  // Away again: Listen from here moves the voice to what is on screen and leaves the reader's place alone.
+  fireEvent.wheel(document.querySelector('.pdf-original__scroll')!)
+  fireEvent.click(screen.getByRole('button', { name: 'Open outlined page 14' }))
+  await waitFor(() => expect(screen.getByTestId('lab-listen-from-here')).toBeTruthy(), { timeout: 2000 })
+  fireEvent.click(screen.getByTestId('lab-listen-from-here'))
+  expect(listenFromScreen).toHaveBeenCalledWith(expect.arrayContaining([expect.objectContaining({ page: 14 })]))
+  expect(requestedPages).toEqual([2, 3, 4])
+})
+
+it('offers Listen from here on a selection while the PDF can be read aloud, starting the voice at the selected words', () => {
+  const listenAt = vi.fn(async () => true)
+  const { rerender } = render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={{ ...listenServices(idleAudio()), listenAt }} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Select PDF text' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Listen from the selection' }))
+  expect(listenAt).toHaveBeenCalledWith(1, null)
+  expect(screen.queryByRole('toolbar')).toBeNull()
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={{ ...listenServices(idleAudio({ available: false, unavailable: true })), listenAt }} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Select PDF text' }))
+  expect(screen.queryByRole('button', { name: 'Listen from the selection' })).toBeNull()
 })

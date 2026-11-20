@@ -23,18 +23,19 @@ import type { PictureView } from '../social/profileRules'
 import { fetchFollowRequests, socialFriendsOn } from '../social/friendsClient'
 import { FOLLOW_REQUESTS_SEEN_EVENT, REQUEST_DOT_CLASS, requestDotDue, type RequestRow } from '../social/followRequests'
 
-/** Set on this device once the profile step was offered to an older account (signed-out wipes it with the rest of tinct:*). */
-export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-flow-offered-20261026:'
+import { LEGACY_SETUP_KEY_PREFIX, markProfileStepOffered, profileStepOfferedHere } from '../social/profileStepOffer'
+export { LEGACY_SETUP_KEY_PREFIX }
 
 /**
- * An account from before profiles that never chose anything and still has the
- * neutral name gets the profile step new sign-ups get: once, never in a book.
- * Choosing Continue or Skip there marks the profile set up, so it never comes
- * back; the device mark covers leaving the step without either.
+ * An account that never set up its profile and was never offered the step
+ * gets the profile step new sign-ups get: once, never in a book. Skip there
+ * records the offer on the account (prompted_at) and Continue sets the
+ * profile up, so it does not come back on this or any other device; the
+ * device mark covers leaving the step without either (profileStepOffer.ts).
  */
-export function legacyProfileStepDue(profile: Pick<OwnProfile, 'needsSetup' | 'name'>, userId: string | null): boolean {
-  if (!profile.needsSetup || !userId) return false
-  try { return localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + userId) === null } catch { return false }
+export function legacyProfileStepDue(profile: Pick<OwnProfile, 'shouldPrompt' | 'name'>, userId: string | null): boolean {
+  if (!profile.shouldPrompt || !userId) return false
+  return !profileStepOfferedHere(userId)
 }
 
 /** The sign-up profile step (/sign-in?mode=profile), back to `returnTo` when done. */
@@ -43,7 +44,9 @@ export function legacyProfileStepUrl(returnTo: string): string {
 }
 
 function offerLegacyProfileStep(userId: string, returnTo: string): void {
-  try { localStorage.setItem(LEGACY_SETUP_KEY_PREFIX + userId, '1') } catch { return }
+  markProfileStepOffered(userId)
+  // A browser that cannot keep the mark would be sent to the step on every visit: not at all, then.
+  if (!profileStepOfferedHere(userId)) return
   // The gentle prompt is not shown as well.
   location.assign(legacyProfileStepUrl(returnTo))
 }

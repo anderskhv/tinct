@@ -152,8 +152,10 @@ describe('Design 1 contents', () => {
   it('does not present missing text or pending history as an empty result', async () => {
     vi.mocked(loadEdition).mockRejectedValue(new Error('offline'))
     render(<LabContentsV2 {...props()} historyStatus="loading" />)
-    expect(screen.getByText('Loading saved conversations…')).toBeTruthy()
+    // The chapter tree says nothing about chat history (Anders, 16 Nov 2026); the search over chats does.
+    expect(screen.queryByText('Loading saved conversations…')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: 'Search contents' }))
+    expect(screen.getByText('Loading saved conversations…')).toBeTruthy()
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'missing' } })
     await screen.findByRole('button', { name: 'Retry' })
     expect(screen.queryByText('No matches.')).toBeNull()

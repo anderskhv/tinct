@@ -9,9 +9,13 @@ Disallow: /data/
 Disallow: /api/
 Disallow: /audio/
 
-# Private reading-chrome demo
+# Private reading-chrome demo. Its scripts and styles stay crawlable: every
+# /read/{book} page loads them, and a crawler needs them to render the page.
+# /lab HTML pages also answer with X-Robots-Tag: noindex.
 Disallow: /lab
 Disallow: /lab/
+Allow: /lab/*.js
+Allow: /lab/*.css
 
 # Reputable AI search/training crawlers follow the default policy above:
 # public pages are allowed; /data/, /api/, and /audio/ remain blocked.

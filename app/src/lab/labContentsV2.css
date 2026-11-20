@@ -137,3 +137,6 @@
 .lab-contents-v2 .figure-text{min-width:0;display:flex;flex-direction:column;gap:2px}
 .lab-contents-v2 .figure-text small{font-size:11px;color:var(--muted)}
 .lab-contents-v2 .figure-caption{font:italic 400 15px/1.25 'EB Garamond',Georgia,serif;color:var(--ink);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+/* A note's own lines (notes/NoteMarkdown.tsx): bullets and paragraph lines without the result rows' paragraph spacing. */
+.lab-contents-v2 .result :is(.note, .note-lead) p { margin:0; font:inherit; color:inherit; }
+.lab-contents-v2 .result :is(.note, .note-lead) ul { margin:0; }

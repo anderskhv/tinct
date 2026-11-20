@@ -19,12 +19,29 @@ it('paints one range including internal spaces but excluding outside spaces and 
   expect(range).toHaveLength(1)
   expect(range[0].toString()).toBe('If I')
   expect(first.container.textContent).toBe('before If I after')
+  // One named highlight per colour for the document: each passage contributes its ranges to it.
   const second = render(<Passage />)
-  expect(registry.size).toBe(10)
+  expect(registry.size).toBe(1)
+  expect([...registry.values()][0].ranges).toHaveLength(2)
   first.unmount()
-  expect(registry.size).toBe(5)
+  expect(registry.size).toBe(1)
+  expect([...registry.values()][0].ranges).toHaveLength(1)
+  expect([...registry.values()][0].ranges[0].toString()).toBe('If I')
   second.unmount()
   expect(registry.size).toBe(0)
+})
+
+it('installs one stylesheet for every passage and never removes it, so a passage mounting or leaving restyles nothing', () => {
+  vi.stubGlobal('CSS', { highlights: new Map() })
+  vi.stubGlobal('Highlight', class { ranges: Range[]; constructor(...ranges: Range[]) { this.ranges = ranges } })
+  const sheets = () => document.head.querySelectorAll('style[data-tinct-range-highlights]').length
+  const a = render(<Passage />)
+  const b = render(<Passage />)
+  expect(sheets()).toBe(1)
+  a.unmount(); b.unmount()
+  expect(sheets()).toBe(1)
+  render(<Passage />)
+  expect(sheets()).toBe(1)
 })
 
 it('bridges fractional row cracks only where both rows are highlighted', () => {
@@ -173,6 +190,22 @@ it('paints the generated hyphen of a highlighted page-edge fragment or planned b
   document.body.innerHTML = ''
 })
 
+it('paints the dictionary hyphen of a highlighted word split across two lines, not of one the range only enters', () => {
+  // Anders (14 Nov 2026, iPhone, Luke 15:7): the band stopped before the "-" of "re-|pentance".
+  document.body.innerHTML = '<p class="lab-hearing-line"><span id="a" class="lab-hearing-word">no</span> <span id="w" class="lab-hearing-word">repentance.</span> <span id="x" class="lab-hearing-word">ninety-nine</span></p>'
+  const box = (left: number, right: number, top: number) => ({ left, right, top, bottom: top + 30, width: right - left, height: 30, x: left, y: top, toJSON: () => ({}) }) as DOMRect
+  const split = [box(300, 340, 0), box(0, 100, 40)]
+  ;(document.getElementById('w') as HTMLElement).getClientRects = () => split as unknown as DOMRectList
+  ;(document.getElementById('x') as HTMLElement).getClientRects = () => [box(110, 200, 40), box(0, 50, 80)] as unknown as DOMRectList
+  ;(document.getElementById('a') as HTMLElement).getClientRects = () => [box(250, 290, 0)] as unknown as DOMRectList
+  const line = document.querySelector('.lab-hearing-line')!
+  const range = document.createRange()
+  range.setStart(document.getElementById('a')!.firstChild!, 0)
+  range.setEnd(document.getElementById('x')!.firstChild!, 3)
+  expect(generatedHyphenRects(line, range)).toEqual(split)
+  document.body.innerHTML = ''
+})
+
 it('reveals a committed mark color after applying it, while a fresh drag still previews warm', () => {
   const registry = new Map<string, { ranges: Range[] }>()
   vi.stubGlobal('CSS', { highlights: registry })
@@ -183,7 +216,8 @@ it('reveals a committed mark color after applying it, while a fresh drag still p
     return <article ref={ref}><p className="lab-hearing-line"><span data-testid="lab-word" className="is-selecting is-hl-lavender">Selected</span>{' '}<span data-testid="lab-word" className="is-selecting is-hl-lavender">words</span></p></article>
   }
   const view = render(<Selected applied={false} />)
-  const paint = (color: string) => [...registry].find(([key]) => key.endsWith(`-${color}`))![1].ranges.map(range => range.toString())
+  // A colour no passage paints has no named highlight at all.
+  const paint = (color: string) => ([...registry].find(([key]) => key.endsWith(`-${color}`))?.[1].ranges ?? []).map(range => range.toString())
   expect(paint('warm')).toEqual(['Selected words'])
   expect(paint('lavender')).toEqual([])
   view.rerender(<Selected applied />)

@@ -2,7 +2,7 @@ import { PDF_SOURCE_PAGES, PDF_SOURCE_PAGE_CHARS, PDF_SOURCE_CHARS } from '../sh
 /** Owner-bound Original PDF page geometry, separate from PDF Tinct-text anchors. */
 import type { PdfRegionCapture } from '../sharedReader/pdf/pdfOriginalFigures'
 import { isPdfFreeNoteData, isPdfSourceAnchor } from '../../shared/pdfOriginalCardMetadata'
-import { createElement, useEffect, useRef, useState } from 'react'
+import { createElement, useEffect, useMemo, useRef, useState } from 'react'
 import type { HighlightColor } from '../../types'
 import type { OwnCard, OwnMark, OwnMarkGone } from '../../worker/routes/userBooks'
 import type { PdfOriginalReaderServices } from '../sharedReader/pdf/PdfOriginalReaderShell'
@@ -14,18 +14,32 @@ import { listAccountBooks, ownBookToken, type FetchLike } from './ownAccount'
 import { loadOwnedPdfBytes, readOwnedBookFileId, savePendingOwnedPdf, userBookOwner } from './userBookStore'
 import { openPdfOriginalBytes } from '../sharedReader/pdf/PdfOriginalSurface'
 import { loadPdfEngine } from './pdfEdition'
+import { pdfBodySize, pdfEdgeKeys, pdfGraphicBoxes, pdfNarrationPlan, pdfNarrationRenderedWord, pdfNarrationSpokenIndex, pdfRunningKeys,
+  type PdfNarrationBox, type PdfNarrationPageInput, type PdfNarrationPlan } from '../sharedReader/pdf/pdfNarration'
+import { narrationTokens } from '../../narration/narrationCore'
+import { listeningSentenceStart } from '../labHearing'
 import { useMarginListen, type MarginListenApi } from '../marginPreview/useMarginListen'
 import { userBookId } from './userBookId'
+import { readingAngleForAi } from '../labReadingAngle'
+import { withAiPrefs } from '../labAiPrefs'
+import type { PrimerOutline } from '../../companion/chapterChatPrompt'
 import { PdfOriginalTalkCard, pdfTalkConversations } from './PdfOriginalTalkCard'
 import { OwnTextCardsSync, unassignedOwnTextCardCount } from './ownTextCardsSync'
+import { isSelectionActionKind, markSelectionActionsUsed } from '../labSelectionActions'
 
 type Item = OwnMark | OwnCard | OwnMarkGone
 type SetName = 'marks' | 'cards'
-export type PdfOriginalUnitSource = { unit: { key: string; title: string; from: number; to: number }; pages: Array<{ n: number; text: string }>; atPage: number; anchor?: { page: number; frac: number } }
+export type PdfOriginalUnitSource = { unit: { key: string; title: string; from: number; to: number }; pages: Array<{ n: number; text: string }>; atPage: number; anchor?: { page: number; frac: number }
+  /** A primer's: the PDF's sections nearest the unit, titles only (the Worker bounds it; chapterChatPrompt.ts). */
+  outline?: PrimerOutline }
 export type PdfOriginalUnitAction = 'primer' | 'catchup' | 'recap'
 type SavedSet<T extends Item> = { items: T[]; rev: number; dirty: boolean }
 const FILE_ID = /^[0-9a-f]{32}$/
 const HEX = /^[0-9a-f]{24}$/
+/** Pages on each side whose layout decides running heads and body size for read-aloud. */
+const PDF_NARRATION_WINDOW = 4
+/** How many pages read-aloud passes over looking for one with words to read. */
+const PDF_NARRATION_SKIP_PAGES = 10
 const key = (name: SetName, owner: string, fileId: string, hex: string) => `tinct-addbook:pdf-original-${name}:${owner}:${fileId}:${hex}`
 const gone = (item: Item): item is OwnMarkGone => 'gone' in item
 const updated = (item: Item) => gone(item) ? item.u : item.u ?? item.at
@@ -148,6 +162,11 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   private pages = 0
   private unsubscribePlayer: (() => void) | null = null
   private unsubscribeChat: (() => void) | null = null
+  /** The document's reading angle (labReadingAngle.ts), sent with every request as the text reader's are. */
+  angleContext(): { readingAngle?: string } {
+    const angle = readingAngleForAi(userBookId(this.hex))
+    return angle ? { readingAngle: angle } : {}
+  }
   constructor(readonly hex: string, readonly owner: string, readonly fileId: string,
     private readonly token: () => Promise<string | null> = ownBookToken, private readonly fetchImpl: FetchLike = fetch,
     private readonly player?: Pick<MarginListenApi, 'attachOwn' | 'play' | 'snapshot'> & Partial<Pick<MarginListenApi, 'subscribe' | 'pause' | 'resume' | 'setSpeed'>>,
@@ -169,8 +188,16 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       chapters: () => Array.from({ length: this.pages }, (_, index) => ({ number: index + 1, title: `Original PDF page ${index + 1}` })),
       chapter: async page => {
         if (!this.trusted() || page < 1 || page > this.pages) return null
-        const text = this.pageTexts.get(page) ?? await this.loadPageText(page)
-        return this.trusted() && text ? { number: page, title: `Original PDF page ${page}`, paragraphs: [text] } : null
+        // A page with nothing to read aloud (blank, or only a table, a figure's labels, running heads) is passed
+        // over: the next page with words starts from its top (useMarginListen follows the number returned).
+        for (let n = page; n <= Math.min(this.pages, page + PDF_NARRATION_SKIP_PAGES); n++) {
+          const text = this.pageTexts.get(n) ?? await this.loadPageText(n)
+          if (!this.trusted()) return null
+          const spoken = text ? await this.spokenText(n, text) : ''
+          if (!this.trusted()) return null
+          if (spoken) return { number: n, title: `Original PDF page ${n}`, paragraphs: [spoken] }
+        }
+        return null
       },
     })
     if ('subscribe' in (this.player ?? {})) this.unsubscribePlayer = (this.player as MarginListenApi).subscribe(() => this.changed())
@@ -188,6 +215,61 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       return text
     } finally { await pdf.destroy() }
   }
+  /** Per page, the narration plan whose text the player was handed (null: the page's whole text, as before). */
+  private spokenPlans = new Map<number, PdfNarrationPlan | null>()
+  private narrationLayouts = new Map<number, PdfNarrationPageInput>()
+  /**
+   * What read-aloud speaks for a page (pdfNarration.ts): its main text in reading order, without running heads,
+   * page numbers, footnotes, figure labels or table cells. On the device; nothing new is sent anywhere. When the
+   * page's layout cannot be read, the page's text as before.
+   */
+  private async spokenText(page: number, text: string): Promise<string> {
+    let plan: PdfNarrationPlan | null = null
+    try { plan = await this.narrationPlan(page) } catch { plan = null }
+    // The plan belongs to this page only when it was made from the same extraction as the rendered text.
+    const usable = plan && plan.source === text.trim() ? plan : null
+    // Its words map one to one onto the narrator's tokens unless the narration text drops one (a lone "_"):
+    // then the page is still read, without the follow highlight.
+    this.spokenPlans.set(page, usable && narrationTokens(usable.text).length !== usable.words.length ? { ...usable, words: [] } : usable)
+    return usable ? usable.text : text
+  }
+  private async narrationPlan(page: number): Promise<PdfNarrationPlan | null> {
+    // Running heads repeat on nearby pages: a window of pages around this one decides them (and the body size).
+    const window: number[] = []
+    for (let n = Math.max(1, page - PDF_NARRATION_WINDOW); n <= Math.min(Math.max(page, this.pages), page + PDF_NARRATION_WINDOW); n++) window.push(n)
+    const missing = window.filter(n => !this.narrationLayouts.has(n))
+    if (missing.length) {
+      const read = await this.readNarrationPages(missing)
+      if (!this.trusted()) return null
+      for (const [n, layout] of read) this.narrationLayouts.set(n, layout)
+      for (const n of [...this.narrationLayouts.keys()]) if (Math.abs(n - page) > PDF_NARRATION_WINDOW * 3) this.narrationLayouts.delete(n)
+    }
+    const layout = this.narrationLayouts.get(page)
+    if (!layout) return null
+    const pages = window.flatMap(n => this.narrationLayouts.get(n) ?? [])
+    return pdfNarrationPlan(layout, { running: pdfRunningKeys(pages.map(pdfEdgeKeys)), bodySize: pdfBodySize(pages) })
+  }
+  /** The text items, page size and graphics boxes of these pages, read on the device (tests replace it). */
+  readNarrationPages = async (pages: number[]): Promise<Map<number, PdfNarrationPageInput>> => {
+    const found = new Map<number, PdfNarrationPageInput>()
+    const bytes = await loadOwnedPdfBytes(this.hex, this.owner)
+    if (!bytes || !this.trusted()) return found
+    const engine = await loadPdfEngine()
+    const pdf = await openPdfOriginalBytes(bytes, engine.pdfjs as unknown as Parameters<typeof openPdfOriginalBytes>[1])
+    const ops = (engine.pdfjs as unknown as { OPS?: Record<string, number> }).OPS
+    try {
+      for (const n of pages) {
+        if (n < 1 || n > pdf.numPages || !this.trusted()) continue
+        const page = await pdf.getPage(n) as Awaited<ReturnType<typeof pdf.getPage>> & { getOperatorList?: () => Promise<{ fnArray: number[]; argsArray: unknown[] }> }
+        const view = page.getViewport({ scale: 1 })
+        const content = await page.getTextContent()
+        let graphics: PdfNarrationBox[] = []
+        try { if (ops && page.getOperatorList) graphics = pdfGraphicBoxes(await page.getOperatorList(), ops, view) } catch { /* text rules still apply */ }
+        found.set(n, { items: content.items, view: { width: view.width, height: view.height, transform: view.transform }, graphics })
+      }
+    } finally { await pdf.destroy() }
+    return found
+  }
   setPdfPageText = (page: number, text: string, pages: number) => {
     if (!this.trusted() || !Number.isInteger(page) || page < 1 || !Number.isInteger(pages) || pages < page) return
     this.pages = pages
@@ -197,25 +279,29 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     if (!this.trusted() || !Number.isInteger(page) || page < 1 || page > this.pages) return ''
     return this.pageTexts.get(page) ?? this.loadPageText(page)
   }
+  /** A unit's pages as the margin document; `part` (the prompt's "too long to include whole") only when they are not the whole file. */
+  private unitDocument = (source: PdfOriginalUnitSource) => source.pages.length === this.pages && source.pages[0]?.n === 1
+    ? { kind: 'pdf', units: source.pages }
+    : { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }
   askUnit = async (source: PdfOriginalUnitSource, action: PdfOriginalUnitAction, signal?: AbortSignal, onDelta?: (text: string) => void): Promise<string | null> => {
     this.lastUnitAnswer = null
     if (!this.trusted() || !validUnitSource(source, action)) return null
     const token = await this.token()
     if (!token || !await this.currentGeneration(token)) return null
     for (const page of source.pages) if (await this.getPageText(page.n) !== page.text || !this.trusted()) return null
-    const context = { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+    const context = { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
       pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }
     const question = action === 'primer' ? `Prepare me to read ${source.unit.title}.`
       : action === 'catchup' ? `Catch me up before original PDF page ${source.atPage}.`
         : `Summarize ${source.unit.title}.`
-    const document = { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }
+    const document = this.unitDocument(source)
     const companion = action === 'primer'
-      ? { intent: 'chapter', context, document, chapter: { action: { kind: 'primer', unitKey: source.unit.key, unitTitle: source.unit.title } } }
+      ? { intent: 'chapter', context, document, chapter: { action: { kind: 'primer', unitKey: source.unit.key, unitTitle: source.unit.title, ...(source.outline ? { outline: source.outline } : {}) } } }
       : { intent: 'ask', context, document }
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
-        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: question }], companion }) })
+        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: question }], companion: withAiPrefs(companion, action === 'primer' ? 'primer' : action === 'catchup' ? 'recap' : 'summary') }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)
       if (!answer?.trim() || !this.trusted()) return null
@@ -250,8 +336,8 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: `Quiz me on ${source.unit.title}.` }],
-          companion: { intent: 'quiz', document: { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
-            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false } } }) })
+          companion: withAiPrefs({ intent: 'quiz', document: this.unitDocument(source), context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false } }) }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)
       if (!answer?.trim() || signal?.aborted || !this.trusted()) return null
@@ -267,8 +353,8 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST',
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }],
-          companion: { intent: 'quiz_check', document: { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
-            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }, quiz } }) })
+          companion: withAiPrefs({ intent: 'quiz_check', document: this.unitDocument(source), context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }, quiz }) }) })
       if (!response.ok || !this.trusted()) return null
       return await readAnthropicResponse(response)
     } catch { return null }
@@ -321,10 +407,65 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       this.player?.play({ chapterNumber: page, paragraphIndex: 0, wordIndex: 0 })
     }
   }
+  /** The page's narration plan as the player gets it (made now when the voice has not reached the page yet). */
+  private async planFor(page: number): Promise<{ text: string; plan: PdfNarrationPlan | null } | null> {
+    const text = this.pageTexts.get(page) ?? await this.loadPageText(page)
+    if (!this.trusted() || !text.trim()) return null
+    const spoken = await this.spokenText(page, text)
+    return this.trusted() ? { text: spoken, plan: this.spokenPlans.get(page) ?? null } : null
+  }
+  /** Rendered word to spoken word on a page: through the plan, or one to one when the page's whole text is read. */
+  private spokenAt(found: { text: string; plan: PdfNarrationPlan | null }, rendered: number): number | null {
+    if (found.plan) return found.plan.words.length ? pdfNarrationSpokenIndex(found.plan, rendered) : 0
+    const count = narrationTokens(found.text).length
+    return rendered < count ? rendered : null
+  }
+  private startAt(page: number, wordIndex: number) {
+    if (!this.trusted() || this.player?.snapshot().available === false) return false
+    this.player?.play({ chapterNumber: page, paragraphIndex: 0, wordIndex })
+    return true
+  }
+  /**
+   * Listen from here on a selection (Anders, 16 Nov 2026): the voice starts at the selected word, playing or not; a word
+   * that is not read (a table, a link) starts at the next word read after it, and past the page's last, the next page.
+   */
+  listenAt = async (page: number, rendered: number | null): Promise<boolean> => {
+    if (!this.trusted() || !this.player || this.player.snapshot().available === false || !Number.isInteger(page) || page < 1 || page > this.pages) return false
+    const found = await this.planFor(page)
+    if (!found) return this.startAt(Math.min(this.pages, page + 1), 0)
+    const at = rendered === null ? 0 : this.spokenAt(found, rendered)
+    return at === null ? (page < this.pages ? this.startAt(page + 1, 0) : false) : this.startAt(page, at)
+  }
+  /**
+   * Listen from here when the reader has moved off the voice (the text reader's pills): the first sentence that begins
+   * on screen, in the order the voice reads (pages top to bottom), else the first word read on screen.
+   */
+  listenFromScreen = async (pages: Array<{ page: number; words: number[] }>): Promise<boolean> => {
+    if (!this.trusted() || !this.player || this.player.snapshot().available === false) return false
+    for (const { page, words } of pages) {
+      if (!Number.isInteger(page) || page < 1 || page > this.pages || !words.length) continue
+      const found = await this.planFor(page)
+      if (!found) continue
+      const visible = new Set(words), tokens = narrationTokens(found.text).map(text => ({ text }))
+      const renderedOf = (i: number) => found.plan ? found.plan.words[i] : i
+      // An inserted word ("Figure:") stands where the word after it does.
+      const onScreen = (i: number) => { for (let k = i; k < tokens.length; k++) { const r = renderedOf(k); if (r === undefined) return false; if (r >= 0) return visible.has(r) } return false }
+      if (found.plan && !found.plan.words.length) { if (words.length) return this.startAt(page, 0); continue }
+      let first: number | null = null
+      for (let i = 0; i < tokens.length; i++) {
+        if (!onScreen(i)) continue
+        first ??= i
+        if (listeningSentenceStart(tokens, i) === i) return this.startAt(page, i)
+      }
+      if (first !== null) return this.startAt(page, first)
+    }
+    return false
+  }
   get audio(): PdfOriginalReaderServices['audio'] {
     if (!this.trusted() || !this.player) return undefined
     const snapshot = this.player.snapshot()
-    return { speed: snapshot.speed, playing: snapshot.playing, available: snapshot.available === true,
+    return { speed: snapshot.speed, playing: snapshot.playing, pending: snapshot.pending === true, available: snapshot.available === true,
+      ...(snapshot.available === false ? { unavailable: true } : {}),
       setSpeed: speed => { if (this.trusted() && Number.isFinite(speed) && speed >= .5 && speed <= 2) this.player?.setSpeed?.(speed) },
       pause: () => { if (this.trusted()) this.player?.pause?.() },
       resume: () => this.trusted() && this.player?.resume?.() === true }
@@ -336,9 +477,15 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   }
   get follow(): PdfOriginalFollow | null {
     const page = this.heardPage, snapshot = this.player?.snapshot(), wordIndex = snapshot?.follow?.wordIndex
-    const text = page !== null ? this.pageTexts.get(page) : null
-    return page !== null && snapshot?.follow?.paragraphIndex === 0 && Number.isInteger(wordIndex) && wordIndex! >= 0 && text
-      ? { page, wordIndex: wordIndex!, text } : null
+    if (page === null || snapshot?.follow?.paragraphIndex !== 0 || !Number.isInteger(wordIndex) || wordIndex! < 0) return null
+    // A spoken word maps to its rendered word; an inserted one ("Figure:") or a skipped page part has none.
+    const plan = this.spokenPlans.get(page)
+    if (plan) {
+      const rendered = pdfNarrationRenderedWord(plan, wordIndex!)
+      return rendered === null ? null : { page, wordIndex: rendered, text: plan.source }
+    }
+    const text = this.pageTexts.get(page)
+    return text ? { page, wordIndex: wordIndex!, text } : null
   }
   private trusted() { return this.live && !this.staleGeneration && userBookOwner() === this.owner }
   setBookMetadata(metadata?: { title: string; author: string }) {
@@ -431,6 +578,8 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       rects, text: selection.text, turns,
       at: time, u: time, ...(pageOnly ? { pageOnly: true } : {}), ...(Object.keys(data).length ? { data } : {}) })
     if (saved) this.savedCardId = id
+    // The first answered Ask, Explain or Simplify ends the reader's first visit, here as in the book reader.
+    if (saved && isSelectionActionKind(kind) && answer.trim()) markSelectionActionsUsed()
     return saved
   }
   saveCardWithId: NonNullable<PdfOriginalReaderServices['saveCardWithId']> = (selection, kind, answer, options) =>
@@ -478,11 +627,11 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [...prior, { role: 'user', content: figure ? [figure.block, { type: 'text', text: question }] : question }],
-          companion: { intent: 'ask', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
+          companion: withAiPrefs({ intent: 'ask', context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
             chapterLabel: source ? String((card.data?.unit as { title?: string } | undefined)?.title || `Original PDF pages ${first}–${last}`) : `Original PDF page ${card.page}`,
             pageNumber: card.page, pages: pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false },
             document: { kind: 'pdf', units: pages, part: { toc: [], total: this.pages } },
-            selection: card.pageOnly ? undefined : card.text.slice(0, 4000) } }) })
+            selection: card.pageOnly ? undefined : card.text.slice(0, 4000) }) }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)
       return !signal?.aborted && this.trusted() ? answer : null
@@ -584,9 +733,10 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const request = {
       stream: true,
       messages: [{ role: 'user', content: figure ? [figure.block, { type: 'text', text: question || `Explain this ${selection.region?.kind || 'figure'}.` }] : question || (intent === 'recap' ? `Summarize original PDF page ${selection.page}.` : intent === 'catchup' ? `Catch me up through original PDF page ${selection.page}.` : 'Please answer.') }],
-      companion: { intent: action, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`,
+      // A Recap or Catch me up is sent as a question: its own settings (labAiPrefs.ts).
+      companion: withAiPrefs({ intent: action, context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`,
         pageNumber: selection.page, pages: selectedPages, paragraphIndex: 0, lookups: false },
-        selection: text, ...(region && region.kind !== 'equation' && action === 'explain' ? { figure: true } : {}) },
+        selection: text, ...(region && region.kind !== 'equation' && action === 'explain' ? { figure: true } : {}) }, intent === 'recap' ? 'summary' : intent === 'catchup' ? 'recap' : undefined),
     }
     // Every failure says what happened (Anders, 2 Nov 2026: a bare "No answer was returned." covered six causes).
     // A dropped connection or a server error before any answer is tried once more.
@@ -607,7 +757,9 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       console.warn('[pdf ask] refused', reply.status, said)
       throw new PdfAskError(reply.status === 401 ? 'Sign in again to ask about this PDF.'
         : reply.status === 429 || reply.status === 402 ? said || 'Too many questions at once. Give it a few seconds.'
-          : `Tinct could not answer this time (error ${reply.status}). Try again.`)
+          // The Worker refused the picture itself (chatImages.ts): trying again sends the same one.
+          : said === 'image_rejected' ? 'This figure could not be sent as a picture. Select a smaller part of it.'
+            : `Tinct could not answer this time (error ${reply.status}). Try again.`)
     }
     if (!response) return null
     try {
@@ -625,10 +777,10 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     if (!token || !await this.currentGeneration(token)) return null
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
-        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }], companion: {
-          intent: 'quiz_check', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`, pageNumber: selection.page,
+        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }], companion: withAiPrefs({
+          intent: 'quiz_check', context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`, pageNumber: selection.page,
             pages: selection.pages ?? [{ n: selection.page, text: selection.text }], paragraphIndex: 0, lookups: false }, selection: selection.text.slice(0, 4000), quiz,
-        } }),
+        }) }),
       })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response)
@@ -652,7 +804,15 @@ export function usePdfOriginalServices(hex: string, owner: string | null, enable
   statusRef.current = onStatus
   const metadataRef = useRef(metadata)
   metadataRef.current = metadata
-  const player = useMarginListen({ bookId: userBookId(hex), editionKey: enabled ? 'own' : null, own: enabled ? { hex } : null })
+  // Not Premium (402): the account cards, with their Premium offer, open over the PDF, as for an own EPUB in the
+  // margin reader (MarginOwnBook) and an own book in the Tinct reader (LabApp's account sheet). Without this the
+  // request was put away and Play did nothing at all.
+  const own = useMemo(() => enabled ? { hex, onPremiumRequired: () => {
+    void import('../../cards/openCards').then(cards => cards.accountCardsOpen() || cards.openAccountCards({ start: 'you',
+      dark: typeof document !== 'undefined' && !!document.querySelector('.pdf-original-reader.is-night'), deskTop: 76 }))
+      .catch(() => { /* offline: nothing opened */ })
+  } } : null, [hex, enabled])
+  const player = useMarginListen({ bookId: userBookId(hex), editionKey: enabled ? 'own' : null, own })
   useEffect(() => { service?.setBookMetadata(metadata) }, [service, metadata?.title, metadata?.author])
   useEffect(() => {
     if (!enabled || !owner || !HEX.test(hex) || userBookOwner() !== owner) { setService(null); return }

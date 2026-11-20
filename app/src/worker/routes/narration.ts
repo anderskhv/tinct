@@ -47,6 +47,7 @@ import {
   chunkNarrationTokens,
   isGuestNarrationVoice,
   isPilotScope,
+  narrationLanguage,
   narrationAudioPath,
   narrationBlobKeys,
   narrationChunkTextCandidates,
@@ -67,6 +68,7 @@ import {
   type NarrationMapEntry,
   type NarrationSynthesisSettings,
   type NarrationProvider,
+  type NarrationLanguage,
   type TimingSegment,
   type TokenAlignmentStats,
 } from '../../narration/narrationCore'
@@ -91,6 +93,8 @@ export type NarrationEnv = SupabaseEnv & {
   NARRATION_VOICE_B_LABEL?: string
   /** Spending ceilings in UTF-8 text bytes sent to the provider. */
   NARRATION_DAILY_BYTES?: string
+  /** The background warm runs' own daily ceiling (default: the readers'). */
+  NARRATION_WARM_DAILY_BYTES?: string
   NARRATION_MONTHLY_BYTES?: string
   /** Override for tests and mocks; production uses the Fish API origin. */
   NARRATION_FISH_BASE_URL?: string
@@ -170,6 +174,7 @@ export interface NarrationConfig {
   voices: NarrationVoice[]
   settings: NarrationSynthesisSettings
   dailyBytes: number
+  warmDailyBytes: number
   monthlyBytes: number
   baseUrl: string
 }
@@ -199,6 +204,7 @@ export function narrationConfig(env: NarrationEnv): NarrationConfig {
     voices,
     settings: DEFAULT_NARRATION_SETTINGS,
     dailyBytes: positiveInt(env.NARRATION_DAILY_BYTES, NARRATION_DEFAULT_DAILY_BYTES),
+    warmDailyBytes: positiveInt(env.NARRATION_WARM_DAILY_BYTES, positiveInt(env.NARRATION_DAILY_BYTES, NARRATION_DEFAULT_DAILY_BYTES)),
     monthlyBytes: positiveInt(env.NARRATION_MONTHLY_BYTES, NARRATION_DEFAULT_MONTHLY_BYTES),
     baseUrl: provider === 'grok' ? (env.NARRATION_GROK_BASE_URL || 'https://api.x.ai') : provider === 'google' ? (env.NARRATION_GOOGLE_BASE_URL || GOOGLE_TTS_BASE_URL) : (env.NARRATION_FISH_BASE_URL || FISH_API_BASE_URL),
   }
@@ -334,8 +340,6 @@ interface ChapterText {
  */
 async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId: string, editionKey: string, chapter: number, transitionTo?: number): Promise<ChapterText | null> {
   let entry: { paragraphs?: unknown } | null
-  // Reader-visible text corrections are fetched alongside the text, not after it.
-  const patches = transitionTo === undefined ? readEditionPatches(env, bookId, editionKey, chapter) : Promise.resolve(null)
   if (isPublicBookId(bookId)) {
     // Book transitions are biblical-book cues; an added book has none.
     if (transitionTo !== undefined) return null
@@ -358,26 +362,7 @@ async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId
   }
   if (!entry || !Array.isArray(entry.paragraphs)) return null
   const paragraphs = (entry.paragraphs as unknown[]).map(item => (typeof item === 'string' ? item : ''))
-  // Reader-visible text corrections are applied the same way editionLoader does
-  // (a patch shorter than half the paragraph is ignored as truncated).
-  for (const patch of await patches ?? []) {
-    const index = patch.paragraph_index
-    if (index >= 0 && index < paragraphs.length && typeof patch.patched_text === 'string'
-      && patch.patched_text.length >= paragraphs[index].length * 0.5) {
-      paragraphs[index] = patch.patched_text
-    }
-  }
   return { paragraphs }
-}
-
-async function readEditionPatches(env: NarrationEnv, bookId: string, editionKey: string, chapter: number): Promise<Array<{ paragraph_index: number; patched_text: string }> | null> {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
-  try {
-    const res = await supabaseGet(env, `edition_patches?book_id=eq.${encodeURIComponent(bookId)}&edition_key=eq.${encodeURIComponent(editionKey)}&chapter_number=eq.${chapter}&select=paragraph_index,patched_text`)
-    if (!res.ok) { await res.body?.cancel(); return null }
-    const rows = await res.json() as unknown
-    return Array.isArray(rows) ? rows as Array<{ paragraph_index: number; patched_text: string }> : null
-  } catch { return null /* patches are optional; unpatched text still hashes consistently with an unpatched reader */ }
 }
 
 /** A reader's own uploaded book: never sent to the speech provider (read-aloud for own books is not approved). */
@@ -487,8 +472,8 @@ interface ParagraphState {
  * request: today's identity first, then the pre-dash-rules recording where
  * the rules changed the chunk's spoken text (narrationChunkTextCandidates).
  */
-async function chunkIdentities(chunks: NarrationChunk[], provider: NarrationProvider, model: string, voiceId: string, settings: NarrationSynthesisSettings): Promise<NarrationChunkCandidate[][]> {
-  return Promise.all(chunks.map(chunk => narrationChunkTextCandidates(chunk, { provider, model, voiceId, settings })))
+async function chunkIdentities(chunks: NarrationChunk[], provider: NarrationProvider, model: string, voiceId: string, settings: NarrationSynthesisSettings, language: NarrationLanguage): Promise<NarrationChunkCandidate[][]> {
+  return Promise.all(chunks.map(chunk => narrationChunkTextCandidates(chunk, { provider, model, voiceId, settings, language })))
 }
 
 /** The candidate a listed recording is, if any: only then is the listing trusted. */
@@ -530,11 +515,11 @@ function mapEntryMatches(entry: NarrationMapEntry | null, textHash: string, chun
   return !!entry && entry.textHash === textHash && entry.chunkCount === chunkCount && entry.voiceId === voiceId && entry.model === model
 }
 
-async function readParagraphState(bucket: R2Bucket, provider: NarrationProvider, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string, settings: NarrationSynthesisSettings, identities?: string[]): Promise<ParagraphState> {
+async function readParagraphState(bucket: R2Bucket, provider: NarrationProvider, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string, settings: NarrationSynthesisSettings, language: NarrationLanguage, identities?: NarrationChunkCandidate[][]): Promise<ParagraphState> {
   const state: ParagraphState = { textHash, chunks, ready: [] }
   const entry = await readMapEntry(bucket, mapKey)
   if (!mapEntryMatches(entry, textHash, chunks.length, voiceId, model)) return state
-  const hashes = identities ?? await chunkIdentities(chunks, provider, model, voiceId, settings)
+  const hashes = identities ?? await chunkIdentities(chunks, provider, model, voiceId, settings, language)
   // Every listed chunk is validated side by side (2026-10-20: one chunk after
   // another made a cached three-paragraph ensure 1.4–15 s in production and
   // failed the post-deploy check). The bucket bounds how many run at once.
@@ -680,6 +665,8 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   }
   if (!config.enabled || !env.AUDIO_BUCKET) return jsonResponse({ ...publicConfig(config), paragraphs: [] }, 200, request)
   if (isPrivateBook(scope.bookId) || !isPilotScope(scope.bookId, scope.editionKey, scope.chapter)) return jsonResponse({ error: 'Outside the pilot scope' }, 403, request)
+  const language = narrationLanguage(scope.bookId, scope.editionKey)
+  if (!language || !providerSpeaks(config.provider, language)) return jsonResponse({ error: 'Outside the pilot scope' }, 403, request)
   const voice = config.voices.find(item => item.key === scope.voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
   const text = await loadChapterParagraphs(request, env, scope.bookId, scope.editionKey, scope.chapter)
@@ -691,7 +678,7 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   const present = new Set(listed.objects.map((object: { key: string }) => object.key))
   const paragraphs = await Promise.all(text.paragraphs.map(async (raw, index) => {
     const tokens = narrationTokens(raw)
-    const chunks = chunkNarrationTokens(tokens)
+    const chunks = chunkNarrationTokens(tokens, undefined, language)
     const textHash = await sha256Hex(tokens.join(' '))
     const mapKey = narrationMapKey(scope.bookId, scope.editionKey, scope.chapter, voice.key, index, config.provider)
     if (!present.has(mapKey)) return { paragraph: index, status: 'missing' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
@@ -699,7 +686,7 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
     // settings; it does not open every blob (a 430-paragraph chapter would
     // exceed the Worker's subrequest budget). The ensure path validates the
     // audio and metadata of each chunk before anything plays.
-    const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings)
+    const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings, language)
     const entry = await readMapEntry(bucket, mapKey)
     const listedChunks = listedChunksForMap(entry, [], chunks, identities, textHash, voice.id, config.model)
     if (listedChunks.length === 0) return { paragraph: index, status: 'stale' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
@@ -730,10 +717,16 @@ interface UsageCounters {
 
 const EMPTY_USAGE: UsageCounters = { bytes: 0, requests: 0, generated: 0, failed: 0, cacheHits: 0, providerMs: 0 }
 
-function usageKeys(now: number): { day: string; month: string } {
+/**
+ * Readers and the background warm runs each have their own daily counter, so a warm run can never use up the
+ * readers' day (Anders, 19 Nov 2026: a run hit the shared ceiling and readers saw "Daily narration limit
+ * reached"). The month is one counter for both: it bounds total spend.
+ */
+type UsagePool = 'reader' | 'warm'
+function usageKeys(now: number, pool: UsagePool = 'reader'): { day: string; month: string } {
   const date = new Date(now)
   const day = date.toISOString().slice(0, 10)
-  return { day: `narration:usage:day:${day}`, month: `narration:usage:month:${day.slice(0, 7)}` }
+  return { day: `narration:usage:${pool}-day:${day}`, month: `narration:usage:month:${day.slice(0, 7)}` }
 }
 
 async function readUsage(kv: KVNamespace | undefined, key: string): Promise<UsageCounters> {
@@ -746,9 +739,9 @@ async function readUsage(kv: KVNamespace | undefined, key: string): Promise<Usag
   }
 }
 
-async function addUsage(kv: KVNamespace | undefined, now: number, delta: Partial<UsageCounters>): Promise<void> {
+async function addUsage(kv: KVNamespace | undefined, now: number, delta: Partial<UsageCounters>, pool: UsagePool): Promise<void> {
   if (!kv) return
-  const keys = usageKeys(now)
+  const keys = usageKeys(now, pool)
   for (const [key, ttl] of [[keys.day, 3 * 86400], [keys.month, 40 * 86400]] as const) {
     try {
       const current = await readUsage(kv, key)
@@ -785,11 +778,11 @@ async function handleUsage(request: Request, env: NarrationEnv, deps: NarrationD
   const config = narrationConfig(env)
   const now = (deps.now || Date.now)()
   const keys = usageKeys(now)
-  const [day, month, breaker] = await Promise.all([readUsage(env.RATE_LIMIT, keys.day), readUsage(env.RATE_LIMIT, keys.month), readBreaker(env.RATE_LIMIT)])
+  const [day, warmDay, month, breaker] = await Promise.all([readUsage(env.RATE_LIMIT, keys.day), readUsage(env.RATE_LIMIT, usageKeys(now, 'warm').day), readUsage(env.RATE_LIMIT, keys.month), readBreaker(env.RATE_LIMIT)])
   return jsonResponse({
     ...publicConfig(config),
-    ceilings: { dailyBytes: config.dailyBytes, monthlyBytes: config.monthlyBytes },
-    day, month,
+    ceilings: { dailyBytes: config.dailyBytes, warmDailyBytes: config.warmDailyBytes, monthlyBytes: config.monthlyBytes },
+    day, warmDay, month,
     reservations: config.provider === 'grok' && env.NARRATION_COORDINATOR
       ? await env.NARRATION_COORDINATOR.getByName('budget:' + new Date(now).toISOString().slice(0, 7)).usage() : undefined,
     breaker: { failures: breaker.failures, open: breaker.openUntil > now, openUntil: breaker.openUntil || null },
@@ -1006,8 +999,19 @@ export async function synthesizeWithGoogle(input: {
 
 
 /** Every paid attempt reserves its maximum text cost before sending bytes. */
+/**
+ * Only Grok narrates Danish: Google is asked for an en-US voice and Fish
+ * guesses the language from the text, so a Danish edition stays outside
+ * their scope.
+ */
+export function providerSpeaks(provider: NarrationProvider, language: NarrationLanguage): boolean {
+  return language === 'en' || provider === 'grok'
+}
+
 export async function synthesizeWithGrok(input: {
   apiKey: string; baseUrl: string; voiceId: string; text: string
+  /** The edition's spoken language (narrationLanguage); English when absent (own books). */
+  language?: NarrationLanguage
   settings: NarrationSynthesisSettings; fetchImpl: typeof fetch
   sleep: (ms: number) => Promise<void>; now: () => number; deadlineAt?: number
   reserve: () => Promise<boolean>
@@ -1023,7 +1027,7 @@ export async function synthesizeWithGrok(input: {
     const exchange = fetchWithDeadline(input.fetchImpl, input.baseUrl + '/v1/tts', {
       method: 'POST',
       headers: { Authorization: 'Bearer ' + input.apiKey, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: input.text, voice_id: input.voiceId, language: 'en',
+      body: JSON.stringify({ text: input.text, voice_id: input.voiceId, language: input.language ?? 'en',
         with_timestamps: true, text_normalization: input.settings.normalize, speed: input.settings.speed,
         output_format: { codec: 'mp3', sample_rate: 24000, bit_rate: input.settings.mp3Bitrate * 1000 } }),
     }, PROVIDER_TIMEOUT_MS)
@@ -1125,6 +1129,9 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   }
   if (editionHold(bookId, editionKey)) return heldNarrationResponse(request)
   if (isPrivateBook(bookId) || isEditionWithheld(bookId, editionKey) || !isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
+  // The spoken language comes from the edition on the server's allowlist, never from the request.
+  const language = narrationLanguage(bookId, editionKey)
+  if (!language || !providerSpeaks(config.provider, language)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
   // Guests hear Ara and Helios only (the voices with recorded openings); Orion and Eve need an account.
@@ -1166,6 +1173,8 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   // One accounting write per request: concurrent read-modify-writes of the
   // same KV counters would lose increments.
   const usageDelta: UsageCounters = { ...EMPTY_USAGE }
+  const pool: UsagePool = caller === 'warm' ? 'warm' : 'reader'
+  const dailyLimit = pool === 'warm' ? config.warmDailyBytes : config.dailyBytes
   const bump = (delta: Partial<UsageCounters>) => {
     for (const field of Object.keys(EMPTY_USAGE) as Array<keyof UsageCounters>) usageDelta[field] += delta[field] ?? 0
   }
@@ -1180,7 +1189,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       return { result: { paragraph: index, status: 'failed', textHash: '', reason: 'unknown_paragraph' } as EnsureParagraphResult }
     }
     const tokens = narrationTokens(text.paragraphs[index])
-    const chunks = chunkNarrationTokens(tokens)
+    const chunks = chunkNarrationTokens(tokens, undefined, language)
     const textHash = await sha256Hex(tokens.join(' '))
     const fromChunk = Number.isInteger(item.fromChunk) && Number(item.fromChunk) >= 0 && Number(item.fromChunk) < chunks.length ? Number(item.fromChunk) : 0
     if (typeof item.textHash === 'string' && item.textHash !== textHash) {
@@ -1193,8 +1202,8 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     const mapKey = bookTransition
       ? `narration/grok/announcements/v1/${bookId}/${editionKey}/ch${chapter}/${voice.key}/to${body.nextChapter}.json`
       : narrationMapKey(bookId, editionKey, chapter, voice.key, index, config.provider)
-    const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings)
-    const state = await readParagraphState(bucket, config.provider, mapKey, textHash, chunks, voice.id, config.model, config.settings, identities)
+    const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings, language)
+    const state = await readParagraphState(bucket, config.provider, mapKey, textHash, chunks, voice.id, config.model, config.settings, language, identities)
     return { index, chunks, textHash, fromChunk, mapKey, identities, state }
   }))
   const cacheMs = Date.now() - cacheStartedAt
@@ -1269,13 +1278,13 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       let locked = false
       if (config.provider !== 'grok') { try { locked = !!(kv && await kv.get(lockKey)) } catch { locked = false } }
       if (locked) {
-        const arrived = await waitForChunk(bucket, config.provider, mapKey, state, voice.id, config.model, config.settings, now, sleep)
+        const arrived = await waitForChunk(bucket, config.provider, mapKey, state, voice.id, config.model, config.settings, language, now, sleep)
         if (arrived) { extra.waited = true; countNewReadyDuration(); if (mode === 'next') generationDone = true; continue }
         extra.retryAfterMs = 1500
         break
       }
 
-      const keys = usageKeys(now())
+      const keys = usageKeys(now(), pool)
       // Breaker and ceilings are read side by side: three KV reads, one round trip.
       const [breaker, day, month] = await Promise.all([readBreaker(kv), readUsage(kv, keys.day), readUsage(kv, keys.month)])
       if (breaker.openUntil > now()) {
@@ -1283,7 +1292,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         break
       }
       const textBytes = utf8ByteLength(chunk.text)
-      if (day.bytes + usageDelta.bytes + textBytes > config.dailyBytes || month.bytes + usageDelta.bytes + textBytes > config.monthlyBytes) {
+      if (day.bytes + usageDelta.bytes + textBytes > dailyLimit || month.bytes + usageDelta.bytes + textBytes > config.monthlyBytes) {
         failure = { paragraph: index, status: 'failed', textHash, reason: 'budget_exhausted', retryAfterMs: msUntilNextUtcDay(now()) }
         bump({ requests: 1, failed: 1 })
         break
@@ -1309,12 +1318,18 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         const synthesis = config.provider === 'grok'
           ? await synthesizeWithGrok({
             apiKey: env.XAI_API_KEY as string, baseUrl: config.baseUrl, voiceId: voice.id,
-            text: chunk.text, settings: config.settings, fetchImpl, sleep, now,
+            text: chunk.text, language, settings: config.settings, fetchImpl, sleep, now,
             deadlineAt: requestStartedAt + REQUEST_TIME_BUDGET_MS + PROVIDER_TIMEOUT_MS,
             reserve: async () => {
-              if (!env.NARRATION_COORDINATOR) return false
-              return env.NARRATION_COORDINATOR.getByName('budget:' + new Date(now()).toISOString().slice(0, 7))
-                .reserve(new Date(now()).toISOString().slice(0, 10), textBytes, config.dailyBytes, config.monthlyBytes)
+              const coordinator = env.NARRATION_COORDINATOR
+              if (!coordinator) return false
+              const today = new Date(now()).toISOString().slice(0, 10)
+              // The pool's own day first, then the shared month; a refused month gives the day back.
+              const poolDay = coordinator.getByName(`budget-${pool}-day:${today.slice(0, 7)}`)
+              if (!await poolDay.reserve(today, textBytes, dailyLimit, Number.MAX_SAFE_INTEGER)) return false
+              if (await coordinator.getByName('budget:' + today.slice(0, 7)).reserve(today, textBytes, config.monthlyBytes, config.monthlyBytes)) return true
+              await poolDay.refund(today, textBytes)
+              return false
             },
           })
           : config.provider === 'google'
@@ -1352,6 +1367,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
           voiceId: voice.id,
           voiceKey: voice.key,
           settings: config.settings,
+          ...(language === 'en' ? {} : { language }),
           hash: identity.hash,
           textHash,
           text: chunk.text,
@@ -1449,7 +1465,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   if (cacheOnlyGuest && !(guestResult && 'chunks' in guestResult && guestResult.chunks.some(chunk => chunk.index === guestChunk && chunk.ready))) {
     return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
   }
-  if (usageDelta.requests > 0) ctx.waitUntil(addUsage(kv, now(), usageDelta))
+  if (usageDelta.requests > 0) ctx.waitUntil(addUsage(kv, now(), usageDelta, pool))
   // One free row per request that served recordings from the cache.
   if (cachedChars > 0 && caller === 'reader' && config.provider === 'grok') {
     recordAiUsage(env as LedgerEnv, ctx, ledger, {
@@ -1481,6 +1497,7 @@ async function waitForChunk(
   voiceId: string,
   model: string,
   settings: NarrationSynthesisSettings,
+  language: NarrationLanguage,
   now: () => number,
   sleep: (ms: number) => Promise<void>,
 ): Promise<boolean> {
@@ -1493,7 +1510,7 @@ async function waitForChunk(
     // otherwise cost dozens of subrequests).
     const entry = await readMapEntry(bucket, mapKey)
     if (!entry || entry.chunks.length <= wanted) continue
-    const fresh = await readParagraphState(bucket, provider, mapKey, state.textHash, state.chunks, voiceId, model, settings)
+    const fresh = await readParagraphState(bucket, provider, mapKey, state.textHash, state.chunks, voiceId, model, settings, language)
     if (fresh.ready.length > wanted) {
       state.ready.splice(0, state.ready.length, ...fresh.ready)
       return true

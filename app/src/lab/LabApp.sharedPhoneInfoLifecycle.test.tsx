@@ -139,3 +139,24 @@ it('identifies a device quota failure and copies content-free storage diagnostic
   expect(details).not.toContain('odyssey')
   expect(requests.pending).toHaveLength(1)
 }, 20_000)
+
+it('keeps the reader\'s selection when a cold open\'s Compare edition lands after the first page', async () => {
+  // Release blocker for #840 (16 Nov 2026): on a cold open the Compare edition is fetched after the first page
+  // (labSource compareLater). When it landed after the reader had selected a passage, the selection's bar or card
+  // closed by itself, though nothing of the Compare text had been on screen to select.
+  window.history.replaceState(null, '', '/reader?book=odyssey&sharedReader=1&layout=phone')
+  const source = fallbackLabSource()
+  const text = 'A short chapter has words to select and explain.'
+  let land: (paragraphs: string[]) => void = () => {}
+  const compareLater = new Promise<string[]>(resolve => { land = resolve })
+  render(<LabApp pathname="/reader" search={window.location.search} source={{
+    ...source, bookId: 'odyssey', paragraphs: [text], compareParagraphs: [], followParagraphs: [{ index: 0, text }], compareLater,
+  }} authToken={null} sharedReader marginPhone />)
+  await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-reader-ready')).toBe('true'))
+  tapWord(1, 91)
+  await waitFor(() => expect(requests.pending.map(item => item.word)).toEqual(['short']))
+  expect(screen.getByTestId('lab-phone-card').getAttribute('data-kind')).toBe('define')
+  await act(async () => { land(['The Compare edition of the same chapter.']) ; await compareLater })
+  await act(async () => { await new Promise(resolve => setTimeout(resolve, 0)) })
+  expect(screen.getByTestId('lab-phone-card').getAttribute('data-kind')).toBe('define')
+})

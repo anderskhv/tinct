@@ -982,7 +982,7 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     let resolve!: (yes:boolean)=>void
     const go=vi.fn(), opening=addToTinct.openFileEntry(entry(),{access:()=>new Promise<boolean>(r=>{resolve=r}),go,engine:fakeEngine().engine})
     expect(dialog()?.textContent).not.toContain('Checking your account')
-    expect(dialog()?.querySelector('.own-file-choose')).not.toBeNull()
+    expect(dialog()?.querySelector('.add-choice[data-choice="upload"]')).not.toBeNull()
     await Promise.resolve()
     ;(dialog()!.querySelector('.own-file-close') as HTMLButtonElement).click()
     resolve(true);await opening
@@ -1013,22 +1013,29 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(go).toHaveBeenCalledWith('/reader?userBook=abc&sharedReader=1&convert=1')
   })
 
-  it('shows Add a book’s own wording and a button that opens the file picker, without leaving the page', async () => {
+  it('shows "Add your own" with its three choices, Upload opening the file picker, without leaving the page', async () => {
+    window.history.replaceState(null, '', '/library?sharedReader=1')
     document.documentElement.classList.add('signed-in')
     const go = vi.fn()
     await addToTinct.openFileEntry(entry(), { access: async () => true, go, engine: fakeEngine().engine })
     expect(go).not.toHaveBeenCalled()
     const box = dialog()!
     expect(box.querySelector('[role="dialog"]')?.getAttribute('aria-modal')).toBe('true')
-    expect(box.querySelector('h2')?.textContent).toBe('Your own book')
-    expect(box.textContent).toContain('It stays private to your account.')
-    expect(box.textContent).toContain('DRM-protected files can’t be opened.')
+    // "Add your own" (Anders, 9 Nov 2026): the title and exactly three equal choices, no other links or helper lines.
+    expect(box.querySelector('h2')?.textContent).toBe('Add your own')
+    const choices = [...box.querySelectorAll('.own-file-content .add-choice')] as HTMLButtonElement[]
+    expect(choices.map(b => [b.dataset.choice, b.querySelector('.add-choice__label')?.textContent, b.querySelector('.add-choice__line')?.textContent])).toEqual([
+      ['upload', 'Upload', 'PDF, EPUB, text'], ['link', 'Insert link', 'An article online'], ['paste', 'Paste text', 'Any text you copied'],
+    ])
+    expect(box.querySelector('.own-file-content')?.textContent).toBe('UploadPDF, EPUB, textInsert linkAn article onlinePaste textAny text you copied')
+    expect(box.querySelectorAll('.own-file-content a, .own-file-content p, .paste-quiet-link')).toHaveLength(0)
+    expect(choices[0].getAttribute('aria-labelledby') && document.getElementById(choices[0].getAttribute('aria-labelledby')!)?.textContent).toBe('Upload')
     const input = box.querySelector('input[type="file"]') as HTMLInputElement
     expect(input.accept).toBe('application/pdf,.pdf,application/epub+zip,.epub,text/plain,.txt')
+    expect(input.multiple).toBe(true)
     const picker = vi.spyOn(input, 'click').mockImplementation(() => {})
-    ;(box.querySelector('.own-file-choose') as HTMLButtonElement).click()
+    ;(box.querySelector('.add-choice[data-choice="upload"]') as HTMLButtonElement).click()
     expect(picker).toHaveBeenCalledTimes(1)
-    expect(box.querySelector('.own-file-choose')?.textContent).toBe('Choose a file')
     // From the search field there is no second search to offer.
     expect(box.querySelector('.own-file-search')).toBeNull()
   })
@@ -1055,7 +1062,7 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine })
     choose(new File(['x'], 'book', { type: 'application/octet-stream' }))
     await vi.waitFor(() => expect(dialog()!.querySelector('[role="alert"]')?.textContent).toBe('This file could not be read from this device. If it is stored in the cloud, download it first, then choose it again.'))
-    await vi.waitFor(() => expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull())
+    await vi.waitFor(() => expect(dialog()!.querySelector('.add-choice[data-choice="upload"]')).not.toBeNull())
   })
 
   it('adds an EPUB in place: rights once (the engine records it), kept, saved, then opens in the Tinct reader, never via Add a book’s page', async () => {
@@ -1103,7 +1110,7 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     await addToTinct.openFileEntry(entry(), { access: async () => true, go, engine: fakeEngine({ readError: 'Choose a PDF or EPUB file.' }).engine })
     choose(new File(['x'], 'notes.xyz'))
     await vi.waitFor(() => expect(dialog()!.querySelector('[role="alert"]')?.textContent).toBe('Choose a PDF or EPUB file.'))
-    await vi.waitFor(() => expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull())
+    await vi.waitFor(() => expect(dialog()!.querySelector('.add-choice[data-choice="upload"]')).not.toBeNull())
     await addToTinct.openFileEntry(entry(), { access: async () => true, go, engine: fakeEngine({ epubError: 'This book is protected by DRM.' }).engine })
     choose(new File(['PK'], 'locked.epub'))
     await vi.waitFor(() => expect(dialog()!.querySelector('[role="alert"]')?.textContent).toBe('This book is protected by DRM.'))
@@ -1147,14 +1154,14 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(dialog()).toBeNull()
   })
 
-  it.each(['0', '1'])('closes on its × and Escape, with no Cancel and Paste only for sharedReader=%s', async shared => {
+  it.each(['0', '1'])('closes on its × and Escape, with no Cancel, and Insert link and Paste text only for sharedReader=%s', async shared => {
     window.history.replaceState(null, '', `/library?sharedReader=${shared}`)
     document.documentElement.classList.add('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine: fakeEngine().engine })
     expect(dialog()!.querySelector('.own-file-cancel')).toBeNull()
-    expect([...dialog()!.querySelectorAll('.tui-dialog__actions button')].map(b => b.className)).toEqual(shared === '1'
-      ? ['tui-btn tui-btn--primary own-file-choose', 'tui-btn tui-btn--secondary own-file-paste']
-      : ['tui-btn tui-btn--primary own-file-choose'])
+    expect([...dialog()!.querySelectorAll('.own-file-content button')].map(b => (b as HTMLElement).dataset.choice)).toEqual(shared === '1'
+      ? ['upload', 'link', 'paste']
+      : ['upload'])
     const close = dialog()!.querySelector('.tui-dialog__head .own-file-close') as HTMLButtonElement
     expect(close.getAttribute('aria-label')).toBe('Close')
     close.click()
@@ -1177,7 +1184,7 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     button.click()
     await vi.waitFor(() => expect(dialog()).not.toBeNull())
     expect(search).not.toHaveBeenCalled()
-    await vi.waitFor(() => expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull())
+    await vi.waitFor(() => expect(dialog()!.querySelector('.add-choice[data-choice="upload"]')).not.toBeNull())
     expect(dialog()!.querySelector('.own-file-search')).toBeNull()
     ;(dialog()!.querySelector('.own-file-close') as HTMLButtonElement).click()
     expect(search).not.toHaveBeenCalled()

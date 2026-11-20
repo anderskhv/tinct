@@ -36,10 +36,11 @@ export const LAB_V2_SHEET_HEIGHT_PX = 452
 export const LAB_SHEET_FILL_PAPER = 0.9
 export const LAB_SHEET_FILL_NIGHT = 0.9
 
-/** Aa offers three themes. "Match system" is not one of them. */
+/** Aa offers four themes. "Match system" is not one of them. White sits beside Light, whose page it shares on pure white paper. */
 export const LAB_V2_THEMES: Array<{ theme: LabTheme; label: string }> = [
   { theme: 'book', label: 'Book' },
   { theme: 'light', label: 'Light' },
+  { theme: 'white', label: 'White' },
   { theme: 'dark', label: 'Dark' },
 ]
 

@@ -98,3 +98,7 @@ html[data-eink="true"] .lab[data-continuous-reader="true"] .continuous-reader-pa
   width: min(calc(34rem + 2 * var(--continuous-paper-pad)), calc(100% - var(--tablet-card-column) - 36px));
   margin-left: 0; margin-right: 0;
 }
+/* The left tracker shows the place and moves through the text, so the scroller's own bar is not drawn where the
+   tracker is (Anders, 10 Nov 2026). Rooms without the tracker (tablet portrait) keep the bar. */
+.lab[data-continuous-reader="true"]:not([data-margin-room="tablet-portrait"]) .source-minimap + .continuous-reader { scrollbar-width: none; }
+.lab[data-continuous-reader="true"]:not([data-margin-room="tablet-portrait"]) .source-minimap + .continuous-reader::-webkit-scrollbar { display: none; }

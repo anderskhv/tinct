@@ -101,7 +101,8 @@ it('opens a reviewed name as its released character card and keeps the future ga
   fireEvent.pointerDown(word, { pointerId: 42, pointerType: 'mouse', clientX: 150, clientY: 200 })
   fireEvent.pointerUp(word, { pointerId: 42, pointerType: 'mouse', clientX: 150, clientY: 200 })
   expect(screen.getByTestId('lab-phone-character').getAttribute('data-kind')).toBe('character')
-  expect(screen.getByRole('heading', { name: 'Mrs. Ramsay' })).toBeTruthy()
+  // The role sits on the name's line since 18 Nov 2026 ("Mrs. Ramsay · Major figure"; the dot is aria-hidden).
+  expect(screen.getByRole('heading', { name: 'Mrs. Ramsay Major figure' })).toBeTruthy()
   expect(screen.getByText('A released reminder.')).toBeTruthy()
   expect(screen.queryByText('Future information.')).toBeNull()
   expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
@@ -257,13 +258,8 @@ it('creates and edits a shared desktop passage note in its margin card and persi
   const noteHeader = screen.getAllByTestId('source-margin-open').find(button => button.textContent === 'Note')!
   expect(noteHeader).toBeTruthy()
   fireEvent.click(noteHeader)
-  fireEvent.change(screen.getByRole('textbox', { name: 'Follow up' }), {target:{value:'What does my thought imply?'}})
-  fireEvent.click(screen.getByRole('button', {name:'Send'}))
-  await waitFor(() => expect(document.querySelector('[data-testid="source-margin-item"][data-open="true"]')?.textContent).toContain('Ask'))
-  // A blocked or failed request must never discard the original note.
-  saved = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
-  expect(saved[0]).toMatchObject({id, note:'An edited thought'})
-  fireEvent.change(screen.getByRole('textbox', {name:'Follow up'}), {target:{value:'Private draft for the first account'}})
+  // A note has no Ask field (Anders, 19 Nov 2026): Ask starts from a selection.
+  expect(screen.queryByRole('textbox', { name: 'Follow up' })).toBeNull()
   view.rerender(<LabApp pathname="/reader" search={window.location.search} source={{...source,bookId:'odyssey',paragraphs:['A short chapter has words to select and explain.'],followParagraphs:[{index:0,text:'A short chapter has words to select and explain.'}]}} authToken="second-account-fixture" sharedReader />)
   await waitFor(() => expect(document.querySelectorAll('[data-testid="source-margin-item"][data-open="true"]')).toHaveLength(0))
   for (const word of screen.getAllByTestId('lab-word')) vi.spyOn(word, 'getBoundingClientRect').mockReturnValue({ left:150,right:230,top:200,bottom:220,width:80,height:20 } as DOMRect)

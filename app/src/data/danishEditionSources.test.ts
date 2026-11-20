@@ -5,7 +5,8 @@ import { describe, expect, it } from 'vitest'
 import sources from './danishEditionSources.json'
 import { getBook } from './bookRegistry'
 import { OFFERED_DANISH_EDITIONS, editionHold } from './editionAvailability'
-import { hasRecordedAudio, TEXT_ONLY_EDITIONS } from './audioAvailability'
+import { hasRecordedAudio, STREAMED_ONLY_DANISH_EDITIONS } from './audioAvailability'
+import { narrationLanguage } from '../narration/narrationCore'
 import { isEditionWithheld, migrateWithheldEdition } from './withheldEditions'
 import { defaultPrimaryEditionKey, defaultCompareEditionKey } from './editionDefaults'
 import { selectableLabEditions } from '../lab/labPrefs'
@@ -57,7 +58,10 @@ describe('Danish integration source and reader contract, 2026-10-24', () => {
       expect(isEditionWithheld(id, 'modern-da')).toBe(false)
       expect(migrateWithheldEdition(id, 'modern-da')).toBe('modern-da')
       expect(selectableLabEditions(id, book.editions)).toContain(edition)
-      expect(TEXT_ONLY_EDITIONS.has(id + '/modern-da')).toBe(true)
+      // Design change 2026-11-06 (Anders, after a Grok sample): narrated by
+      // streaming in Danish, never from recordings (it was text-only before).
+      expect(STREAMED_ONLY_DANISH_EDITIONS.has(id + '/modern-da')).toBe(true)
+      expect(narrationLanguage(id, 'modern-da')).toBe('da')
       expect(hasRecordedAudio(id, 'modern-da')).toBe(false)
       expect(defaultPrimaryEditionKey(id, book.editions)).toBe('modern-en')
       expect(defaultCompareEditionKey(id, book.editions, 'modern-en', book.year)).not.toBe('modern-da')

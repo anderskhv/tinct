@@ -6,7 +6,8 @@ import './pdfOriginal.css'
 
 export type PdfOriginalPlace = { page: number; frac: number }
 export type PdfSelectionRect = [page: number, x: number, y: number, width: number, height: number]
-export type PdfOriginalSelection = { page: number; text: string; rects: PdfSelectionRect[]; pages?: Array<{ n: number; text: string }>; region?: { kind: 'figure' | 'table' | 'equation'; label: string; caption: string; identity?: object; image: () => Promise<PdfRegionImage | null> } }
+/** `word`: the rendered word the selection begins at on `page` (pdfOriginalFollowRect's count), for Listen from here. */
+export type PdfOriginalSelection = { page: number; text: string; rects: PdfSelectionRect[]; word?: number; pages?: Array<{ n: number; text: string }>; region?: { kind: 'figure' | 'table' | 'equation'; label: string; caption: string; identity?: object; image: () => Promise<PdfRegionImage | null> } }
 export type PdfOriginalHighlight = { id: string; page: number; rects: number[][]; color: string; box?: boolean; text?: string }
 export type PdfOriginalFollow = { page: number; wordIndex: number; text: string }
 export type PdfOriginalOutlineEntry = { title: string; page: number | null; items: PdfOriginalOutlineEntry[] }

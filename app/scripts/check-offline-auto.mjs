@@ -26,6 +26,9 @@ const dist = path.resolve('dist')
 const BOOKS = {
   frankenstein: { farChapter: 20, laterChapter: 27 },
   odyssey: { farChapter: 18, laterChapter: 23 },
+  // The first book with no original-en: modern-en main, original-ru compare.
+  // Part 2 is folded in Contents until opened: Part 1 holds chapters 1-18.
+  'master-and-margarita': { farChapter: 12, laterChapter: 17 },
   // The Bible's Contents is a tree of its books: its far chapters are opened by link.
   bible: { farChapter: 600, laterChapter: 1100, byLink: true },
 }
@@ -81,16 +84,47 @@ const state = page => page.evaluate(() => {
   const root = document.querySelector('[data-testid="lab-root"]')
   const words = [...document.querySelectorAll('[data-testid="lab-word"]')]
   const visible = words.filter(node => { const r = node.getBoundingClientRect(); return r.width > 0 && r.left >= 0 && r.right <= innerWidth && r.top >= 0 && r.bottom <= innerHeight })
-  return { book: root?.dataset.bookId, chapter: Number(root?.dataset.chapter), first: visible.slice(0, 6).map(n => n.textContent).join(' '), visible: visible.length, error: document.querySelector('[role="alert"]')?.textContent?.trim() || null }
+  const lead = visible[0]
+  return { book: root?.dataset.bookId, chapter: Number(root?.dataset.chapter), first: visible.slice(0, 6).map(n => n.textContent).join(' '), visible: visible.length, error: document.querySelector('[role="alert"]')?.textContent?.trim() || null,
+    lead: lead ? { p: lead.dataset.paragraphIndex, w: lead.dataset.wordIndex, top: Math.round(lead.getBoundingClientRect().top) } : null }
 })
+// Where a word sits on screen now (Margin: the same word within a line counts as the same place).
+const wordTop = (page, lead) => page.evaluate(({ p, w }) => {
+  const node = document.querySelector(`[data-testid="continuous-reader"] [data-testid="lab-word"][data-paragraph-index="${p}"][data-word-index="${w}"]`)
+  return node ? Math.round(node.getBoundingClientRect().top) : null
+}, lead)
+// The desktop default is the Margin reader (29 Oct 2026): one chapter as a
+// native scroller, no page turns; the reader scrolls, and the chapter's end
+// card has Next chapter. The phone and the paged layouts turn pages.
+const continuous = page => page.evaluate(() => document.querySelector('[data-testid="lab-root"]')?.dataset.continuousReader === 'true')
 async function turn(page, times = 1) {
-  for (let i = 0; i < times; i++) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(450) }
+  for (let i = 0; i < times; i++) {
+    if (await continuous(page)) {
+      // At the chapter's end (a short Psalm fits one screen), reading on is Next chapter.
+      const atEnd = await page.getByTestId('continuous-reader').evaluate(host => host.scrollTop + host.clientHeight >= host.scrollHeight - 2)
+      const next = page.getByTestId('lab-chapter-end').getByRole('button', { name: /Next chapter/ })
+      if (atEnd && await next.isVisible()) {
+        const chapter = (await state(page)).chapter
+        await next.click()
+        await page.waitForFunction(n => Number(document.querySelector('[data-testid="lab-root"]')?.dataset.chapter) > n, chapter, { timeout: 20000 })
+        await ready(page)
+        continue
+      }
+      // A reader's scroll: most of a screen, by the wheel over the text.
+      const box = await page.getByTestId('continuous-reader').boundingBox()
+      await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2)
+      await page.mouse.wheel(0, Math.round(box.height * 0.8))
+    } else await page.keyboard.press('ArrowRight')
+    await page.waitForTimeout(450)
+  }
 }
 async function turnToChapter(page, chapter, limit = 120) {
   for (let i = 0; i < limit; i++) {
     // Short chapters (a four-verse Psalm) can share a page with the next one.
     if ((await state(page)).chapter >= chapter) return
-    await turn(page)
+    const next = page.getByTestId('lab-chapter-end').getByRole('button', { name: /Next chapter/ })
+    if (await continuous(page) && await next.isVisible()) { await next.click(); await page.waitForTimeout(600) }
+    else await turn(page)
   }
   throw new Error('never reached chapter ' + chapter + ': ' + JSON.stringify(await state(page)))
 }
@@ -196,7 +230,11 @@ try {
         await page.waitForTimeout(800)
         const reloaded = await state(page)
         assert.equal(reloaded.chapter, beforeReload.chapter, 'offline reload keeps the chapter')
-        assert.equal(reloaded.first, beforeReload.first, 'offline reload keeps the place')
+        if (await continuous(page)) {
+          // A native scroller lands to the pixel only up to rounding: the top line's word stays within a line of where it was.
+          const top = await wordTop(page, beforeReload.lead)
+          assert(top != null && Math.abs(top - beforeReload.lead.top) <= 40, `offline reload keeps the place: ${JSON.stringify(beforeReload.lead)} now at ${top} (${reloaded.first})`)
+        } else assert.equal(reloaded.first, beforeReload.first, 'offline reload keeps the place')
         await turnToChapter(page, book.farChapter + 1)
         await ready(page)
         await turn(page, 2)

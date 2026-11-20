@@ -5,6 +5,7 @@ import { installNativeAuth } from '../utils/nativeAuth'
 import { createClient, navigatorLock, type SupabaseClient } from '@supabase/supabase-js'
 import { createBrowserAuthStorage } from './browserAuthStorage'
 import { serializeBrowserAuthLock } from './browserAuthLock'
+import { leavingAwareFetch } from './leavingFetch'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || ''
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
@@ -24,6 +25,8 @@ function createSupabaseClient(): SupabaseClient | null {
       ...(isNativeCapacitor() ? { flowType: 'pkce' as const } : {}),
       storage: isNativeCapacitor() ? nativeAuthStorage : typeof window !== 'undefined' ? createBrowserAuthStorage(window.localStorage) : undefined,
     },
+    // Highlight and chat commits sent as the page is hidden or left complete after it (leavingFetch.ts).
+    global: { fetch: leavingAwareFetch },
   })
 }
 

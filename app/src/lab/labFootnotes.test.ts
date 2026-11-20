@@ -71,6 +71,31 @@ describe('Fear and Trembling sidecar', () => {
   })
 })
 
+describe('Candide Danish sidecar (historical editor\'s notes, 2026-11-18)', () => {
+  it('places all 32 published notes on the served Danish text, each after its own words, and none on the English', () => {
+    const notes = parseFootnotes(readJson('public/data/footnotes/candide-modern-da.json'))
+    const danish = readJson('public/data/editions/candide-modern-da.json') as { chapters: Array<{ number: number; paragraphs: string[] }> }
+    expect(notes).toHaveLength(32)
+    // Notes 22, 34 and 35 await historical review (books/wip/danish-recovered-batch-01/INTEGRATION-2026-11-18.json).
+    expect(notes.map(note => note.id)).not.toEqual(expect.arrayContaining(['n22']))
+    let total = 0
+    for (const chapter of danish.chapters) {
+      const placed = placeFootnotes(notes, chapter.number, chapter.paragraphs)
+      total += placed.length
+      for (const item of placed) {
+        const source = notes.find(candidate => candidate.id === item.id)!
+        const text = chapter.paragraphs[source.paragraph]
+        expect(text.slice(0, source.offset).endsWith(source.after)).toBe(true)
+        expect(tokenizeHearingWords(text)[item.wordIndex].text).toContain(source.after.split(/\s+/).pop()!)
+        expect(text).not.toMatch(/\[\d+\]/)
+      }
+    }
+    expect(total).toBe(32)
+    expect(hasFootnotes('candide', 'modern-da')).toBe(true)
+    expect(hasFootnotes('candide', 'modern-en')).toBe(false)
+  })
+})
+
 describe('footnote loading', () => {
   it('requests the sidecar only for an edition that has one', async () => {
     const fetchMock = vi.fn(async () => ({ ok: true, json: async () => sidecar() }))

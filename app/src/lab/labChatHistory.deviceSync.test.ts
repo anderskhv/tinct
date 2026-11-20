@@ -20,6 +20,7 @@ import {
   readLabBookChat,
   type LabChatHistoryCloud,
 } from './labChatHistory'
+import { createFakeUserDataTable } from './fakeUserDataTable.test-helpers'
 
 afterEach(() => {
   localStorage.clear()
@@ -109,7 +110,8 @@ describe('phone turns reach the shared chat row', () => {
         : { data: [{ key: 'chat-history:bible', value: args.p_value, rev: 2, applied: true, conflict: false }], error: null }
       return withAbort(Promise.resolve(result))
     })
-    const client = { rpc, from: vi.fn() } as unknown as Parameters<typeof createLabChatHistoryCloud>[1]
+    // The account is read first (empty here), so the commit knows which chapter rows exist (userDataShards.ts).
+    const client = { rpc, from: createFakeUserDataTable().client.from } as unknown as Parameters<typeof createLabChatHistoryCloud>[1]
     const cloud = createLabChatHistoryCloud(USER, client)!
     const poisoned = [{ ...conversation('c', [message({ content: 'Psalm \u0000 19 \ud83d' })]), preview: '\udc4f' }]
     const result = await cloud.commit('bible', poisoned, 1)

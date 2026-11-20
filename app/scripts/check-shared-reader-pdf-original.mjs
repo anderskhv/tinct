@@ -9,7 +9,7 @@ import path from 'node:path'
 import { chromium, webkit } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 import { makePdf } from '../../addbooks/web/test/make-pdf.mjs'
-import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, assertRailScrollsWithSource, sourceRailGeometry, settlePaint, enforceReaderBundle } from './lib/readerParityAssertions.mjs'
+import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, assertRailScrollsWithSource, sourceRailGeometry, settlePaint, enforceReaderBundle, openFoldedCardInPlace } from './lib/readerParityAssertions.mjs'
 
 const dist = path.resolve(process.env.PDF_ORIGINAL_DIST || 'dist')
 const originalBytes = makePdf({ pages: [
@@ -124,9 +124,15 @@ async function sourceParity(page, calls, output) {
   // A chapter's actions live in the margin beside its heading, always shown (Anders, 3 Nov 2026): no hover, the heading stays clear.
   const pills = page.locator(`[data-testid="pdf-heading-actions"][data-unit-key="${key}"]`)
   await pills.waitFor()
-  for (const label of ['Primer', 'Recap', 'Quiz me', 'Note']) await pills.getByRole('button', { name: label, exact: true }).waitFor()
-  assert.equal(await pills.getByRole('button', { name: 'Catch me up', exact: true }).count(), 0, 'first source unit never offers previous-content catch-up')
-  const headingBox = await heading.boundingBox(), pillBox = await pills.boundingBox()
+  // The library's pills, then Note; Summary is the section's own summary, the first section's too (Anders, 11 Nov 2026).
+  for (const label of ['Primer', 'Summary', 'Quiz me', 'Note']) await pills.getByRole('button', { name: label, exact: true }).waitFor()
+  assert.deepEqual(await pills.getByRole('button').allTextContents(), ['Primer', 'Summary', 'Quiz me', 'Note'], 'a section has Primer, Summary, Quiz me and Note, and no separate Recap')
+  // The first heading's actions sit in its "Before you start" card (reading angle, the whole document, then the section).
+  const startCard = page.locator('[data-testid="source-margin-item"]').filter({ has: pills })
+  assert.equal(await startCard.locator('.source-margin-label').innerText(), 'Before you start', 'the first heading carries the Before you start card')
+  await startCard.getByTestId('pdf-reading-angle').waitFor()
+  await startCard.getByTestId('pdf-whole-summary').waitFor()
+  const headingBox = await heading.boundingBox(), pillBox = await startCard.boundingBox()
   const pageRight = await host.locator('.pdf-original__page').evaluateAll(nodes => Math.max(...nodes.map(node => node.getBoundingClientRect().right)))
   assert(headingBox && pillBox && pillBox.x >= pageRight + 10 && Math.abs(pillBox.y - headingBox.y) < 70,
     `PDF chapter actions sit in the margin level with their heading: ${JSON.stringify({ headingBox, pillBox, pageRight })}`)
@@ -134,7 +140,7 @@ async function sourceParity(page, calls, output) {
   await page.mouse.move(3, 3)
   assert(await pills.isVisible(), 'chapter actions stay shown without hovering the heading')
   await page.screenshot({ path: path.join(output, 'pdf-real-heading-hover.png') })
-  await pills.getByRole('button', { name: 'Recap', exact: true }).click()
+  await pills.getByRole('button', { name: 'Summary', exact: true }).click()
   const item = host.locator('[data-testid="source-margin-item"][data-open="true"]:not(.is-actions)')
   await item.waitFor()
   await item.getByText(/A grounded local fixture answer|These printed pages introduce/).first().waitFor()
@@ -148,7 +154,9 @@ async function sourceParity(page, calls, output) {
   await item.getByTestId('source-margin-minimise').click()
   const folded = host.locator(`[data-testid="source-margin-item"][data-card-id="${id}"]`)
   assert.equal(await folded.getAttribute('data-open'), 'false')
-  await folded.getByTestId('source-margin-open').click()
+  await page.screenshot({ path: path.join(output, 'pdf-source-rail-recap-folded.png') })
+  // One place opens and minimises; opening keeps the folded line's type and place (tester, 9 Nov 2026).
+  await openFoldedCardInPlace(page, folded)
   assert.equal(await folded.getAttribute('data-open'), 'true')
   await page.screenshot({ path: path.join(output, 'pdf-source-rail-recap.png') })
   const scrollBefore = await host.evaluate(node => node.scrollTop)
@@ -169,12 +177,12 @@ async function sourceParity(page, calls, output) {
   assert(noteId)
   await noteItem.getByTestId('source-margin-minimise').click()
   const savedNote = host.locator(`[data-testid="source-margin-item"][data-card-id="${noteId}"]`)
-  await savedNote.getByTestId('source-margin-open').click()
+  await openFoldedCardInPlace(page, savedNote)
   // A saved note reopens as the words written; a tap edits them (approved mockup, 2 Nov 2026).
   const savedText = page.getByTestId('pdf-note-saved')
   assert.equal(await savedText.textContent(), 'A free note beside the original printed page.', 'original-PDF free note autosaves and reopens as its words')
   await savedText.click()
-  assert.equal(await noteEditor.inputValue(), 'A free note beside the original printed page.', 'a tap on a saved PDF note edits it')
+  assert.equal(await noteEditor.evaluate(field => field.value), 'A free note beside the original printed page.', 'a tap on a saved PDF note edits it')
   await savedNote.getByRole('button', { name: /^Delete / }).click()
   assert.equal(await savedNote.count(), 0)
   await page.getByRole('button', { name: 'Undo', exact: true }).click()
@@ -199,6 +207,21 @@ async function sourceParity(page, calls, output) {
   await figureCard.getByText(/A grounded local fixture answer\./).waitFor({ timeout: 5000 })
   const hasImage = call => { const messages = JSON.parse(call.body || '{}').messages; return messages?.some(message => Array.isArray(message.content) && message.content.some(block => block.type === 'image' && block.source?.data)) }
   assert(hasImage(calls.filter(call => call.path === '/api/chat').at(-1)), 'rendered figure Explain sends the actual source image block')
+  // The Worker refuses a passage picture over 1568 px on its long side (image_rejected, a 400): the capture stays within it.
+  const sentImageSide = call => {
+    const block = JSON.parse(call.body || '{}').messages.flatMap(message => Array.isArray(message.content) ? message.content : []).find(item => item.type === 'image')
+    const bytes = Buffer.from(block.source.data, 'base64')
+    if (block.source.media_type === 'image/png') return Math.max(bytes.readUInt32BE(16), bytes.readUInt32BE(20))
+    for (let i = 2; i + 9 < bytes.length;) {
+      if (bytes[i] !== 0xff) { i += 1; continue }
+      const marker = bytes[i + 1]
+      if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) return Math.max(bytes.readUInt16BE(i + 5), bytes.readUInt16BE(i + 7))
+      i += 2 + bytes.readUInt16BE(i + 2)
+    }
+    return NaN
+  }
+  const figureSide = sentImageSide(calls.filter(call => call.path === '/api/chat').at(-1))
+  assert(figureSide > 0 && figureSide <= 1568, `the figure's picture is at most 1568 px on its long side (${figureSide})`)
   const figureCardId = await figureCard.getAttribute('data-card-id')
   assert(figureCardId)
   assert.equal(await figureCard.locator('.pdf-original__figure-thumb').count(), 0, 'figure answers do not quote the picture again')
@@ -223,9 +246,36 @@ async function sourceParity(page, calls, output) {
   await secondHeading.waitFor()
   const secondKey = await secondHeading.getAttribute('data-pdf-heading')
   const secondPills = page.locator(`[data-testid="pdf-heading-actions"][data-unit-key="${secondKey}"]`)
-  await secondPills.getByRole('button', { name: 'Catch me up', exact: true }).waitFor()
+  await secondPills.getByRole('button', { name: 'Summary', exact: true }).waitFor()
   assert.equal(await page.locator('canvas').count() <= 3, true, 'heading controls preserve bounded original-page canvases')
   await page.screenshot({ path: path.join(output, 'pdf-second-heading-catch-up.png') })
+  // The start card: the reading angle is the document's one stored value, sent with its requests; the whole
+  // document's Summary asks once for every page and opens as a margin card, the page unmoved (Anders, 9 Nov 2026).
+  await host.evaluate(node => { node.scrollTop = 0; node.dispatchEvent(new Event('scroll')) })
+  await startCard.waitFor({ timeout: 45000 })
+  await startCard.getByTestId('pdf-reading-angle').click()
+  await page.getByTestId('ai-settings-angle').waitFor()
+  assert.equal(await page.evaluate(() => document.activeElement?.getAttribute('data-testid')), 'ai-settings-angle', 'the start card opens AI settings on This book with the caret in the reading angle')
+  await page.getByTestId('ai-settings-angle').fill('What the method assumes')
+  await page.waitForTimeout(300)
+  await page.getByTestId('ai-settings-close').click()
+  await page.getByTestId('ai-settings-layer').waitFor({ state: 'detached' })
+  assert.match(await startCard.getByTestId('pdf-reading-angle').textContent(), /Reading angle.*What the method assumes/, 'the start card shows the angle that was set')
+  assert.equal(await page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('tinct:reading-angle:userbook-')).map(key => JSON.parse(localStorage.getItem(key))).join('|')), 'What the method assumes', 'the PDF reading angle is stored for its book')
+  const beforeWhole = await host.evaluate(node => node.scrollTop), asked = calls.length
+  await startCard.getByTestId('pdf-whole-summary').click()
+  await page.locator('[data-testid="source-margin-item"][data-open="true"]').first().waitFor()
+  // An earlier Summarize already saved the whole-document recap, so it reopens without asking again; the angle goes
+  // with the next request, the section's Quiz me from the same card.
+  assert(calls.slice(asked).every(call => !['/api/chat', '/api/lab-chat'].includes(call.path) || call.body.includes('What the method assumes')), 'any whole-document request carries the reading angle')
+  const quizAsked = calls.length
+  await startCard.locator('[data-testid="pdf-heading-actions"]').getByRole('button', { name: 'Quiz me', exact: true }).click()
+  // The tap lands at once (the card shows its preparing state); the request follows once every page of the section
+  // has its text. After the reload above only drawn pages are cached, so that took 5.0-5.7 s here: wait for it.
+  for (const deadline = Date.now() + 45000; Date.now() < deadline && !calls.slice(quizAsked).some(call => call.path === '/api/chat');) await page.waitForTimeout(50)
+  assert(calls.slice(quizAsked).some(call => call.path === '/api/chat' && call.body.includes('What the method assumes')), `the section's Quiz me carries the reading angle: ${JSON.stringify(calls.slice(quizAsked).map(call => call.path))}`)
+  assert(Math.abs(await host.evaluate(node => node.scrollTop) - beforeWhole) < 2, 'the whole-document Summary leaves the page where it was')
+  await page.screenshot({ path: path.join(output, 'pdf-start-card-whole-summary.png') })
   await fs.writeFile(path.join(output, 'pdf-source-parity.json'), JSON.stringify({ geometry, headingBox, pillBox, calls: calls.map(call => ({ path: call.path, method: call.method })) }, null, 2))
   console.log(`Original PDF source contracts passed: heading-hover/focus, real rail, natural cards, notes/Undo, figure image/follow-up, earlier-unit catch-up. ${output}`)
 }
@@ -330,6 +380,16 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     if(await page.getByTestId('lab-header-notebook').isVisible())await page.getByTestId('lab-header-notebook').click()
     else {await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-notebook').click()}
   }
+  // While this script reloads the reader, the outgoing document may be
+  // constructing a pdf.js worker: WebKit then fails that load and reports it on
+  // the outgoing document as an uncaught "Cannot load …/pdf.worker.min.js due to
+  // access control checks" (deploy run 43939499404, 16 Nov 2026; reproduced
+  // locally against the pre-#838 Worker as well). That one message, during this
+  // script's own reload, is the reload's doing, not the reader's; a worker that
+  // cannot load at any other time still fails the check.
+  let reloading = false
+  // (Playwright's WebKit splits that text at "https:" into name and message; the stack's first line keeps it whole.)
+  const cancelledWorker = error => reloading && /^Cannot load \S+\/vendor\/pdfjs\/pdf\.worker\.min\.js due to access control checks\.?$/.test(String(error.stack || '').split('\n')[0])
   // Let the synthetic account acknowledge the position before replacing its
   // document. WebKit reports intercepted keepalive fetches aborted by reload
   // as page errors even when the application's fetch rejection is caught.
@@ -345,14 +405,18 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       }))
       throw error
     })
-    await page.reload({ waitUntil: 'domcontentloaded' })
+    reloading = true
+    try { await page.reload({ waitUntil: 'domcontentloaded' }) } finally { reloading = false }
   }
   const narrationReady = narrationSuccess
   const visual = process.env.PDF_VISUAL_OUTPUT && name === 'chromium' ? path.resolve(process.env.PDF_VISUAL_OUTPUT) : null
   if (visual) await fs.mkdir(visual, { recursive: true })
   const places = {}
   const sets = { marks: { list: [], rev: 0 }, cards: { list: [], rev: 0 } }
-  page.on('pageerror', error => { console.log(`${name}: page error at ${page.url()}: ${error.message}`); errors.push(error.stack || error.message) })
+  page.on('pageerror', error => {
+    if (cancelledWorker(error)) return console.log(`${name}: reload cancelled a pdf.js worker load: ${error.stack.split('\n')[0]}`)
+    console.log(`${name}: page error at ${page.url()}: ${error.message}`); errors.push(error.stack || error.message)
+  })
   page.on('requestfailed', request => console.log(`${name}: failed ${request.method()} ${request.url()}: ${request.failure()?.errorText}`))
   page.on('console', message => { if (message.type() === 'error') consoleErrors.push(message.text().slice(0, 1200)) })
   // Position writes use keepalive on reload. Keep their synthetic API handler
@@ -537,7 +601,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       const after = page.getByRole('complementary', { name: 'After Chapter One' })
       await after.waitFor()
       const chatBefore = calls.filter(call => call.path === '/api/chat').length
-      await after.getByRole('button', { name: 'Recap' }).click()
+      await after.getByRole('button', { name: 'Summary' }).click()
       await page.getByText('A grounded local fixture answer.', {exact:false}).waitFor()
       assert.equal(calls.filter(call => call.path === '/api/chat').length, chatBefore + 1)
       const recap=JSON.parse(calls.filter(call => call.path === '/api/chat').at(-1).body)
@@ -647,7 +711,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         if (visual) await page.screenshot({ path: path.join(visual, `pdf-appearance-${theme}.png`) })
         await page.getByRole('button', { name: 'Close panel' }).click()
       }
-      for (const width of [1440, 1100]) for (const theme of ['light', 'book', 'dark']) {
+      for (const width of [1440, 1100]) for (const theme of ['light', 'white', 'book', 'dark']) {
         await page.setViewportSize({ width, height: 900 })
         await chooseAppearance(theme)
         await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
@@ -708,7 +772,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         await page.keyboard.press('Home')
         await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 1 of 4"]').waitFor()
       }
-      for (const theme of ['light', 'book', 'dark']) {
+      for (const theme of ['light', 'white', 'book', 'dark']) {
         await page.setViewportSize({ width: 390, height: 844 })
         await chooseAppearance(theme)
         await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
@@ -726,7 +790,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       }
       await page.setViewportSize({ width: 1100, height: 820 })
       await chooseAppearance('light')
-      console.log('chromium: PDF desktop 1440/1100 light/book/dark, source-anchored toolbar, stable page/card margin, minimap navigation and phone cards passed')
+      console.log('chromium: PDF desktop 1440/1100 light/white/book/dark, source-anchored toolbar, stable page/card margin, minimap navigation and phone cards passed')
     }
     await page.locator('.pdf-original__scroll').evaluate(el=>{el.scrollTop=0;el.dispatchEvent(new Event('scroll',{bubbles:true}))})
     const primer=page.locator('[data-testid="pdf-heading-actions"]').first().getByRole('button',{name:'Primer',exact:true})
@@ -756,6 +820,9 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.keyboard.press('Escape')
     // The passage stays painted while its question is typed (Anders, 3 Nov 2026), and only while its card is open.
     const sourceTints = () => page.locator('.pdf-original__page[data-page="1"] .pdf-original__highlight').evaluateAll(nodes => nodes.filter(node => getComputedStyle(node).backgroundColor === 'rgba(100, 150, 230, 0.3)').length)
+    // Folded cards are taller since they take the open card's type (9 Nov 2026), so revealing the Define card
+    // can scroll page 1's passage away; the selection bar only shows for a passage on screen.
+    await page.locator('.pdf-original__scroll').evaluate(el=>{el.scrollTop=0;el.dispatchEvent(new Event('scroll',{bubbles:true}))})
     await selectPdfSource(page, 'First original page with selectable source words.')
     await page.getByTestId('lab-dbar-ask').click()
     await page.keyboard.type('What does this page claim?')
@@ -790,7 +857,12 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.getByRole('button', { name: 'Audio settings' }).click()
     await page.getByLabel('Narration speed').selectOption('1.5')
     assert.equal(await page.getByLabel('Narration speed').inputValue(), '1.5')
-    if (narrationSuccess) await page.getByRole('button', { name: 'Pause', exact: true }).click()
+    if (narrationSuccess) {
+      // The header's Play is Pause while a page is heard; the Audio settings panel has its own Pause.
+      assert.equal(await page.locator('.pdf-original-reader .lab-header .lab-v2-play').getAttribute('aria-label'), 'Pause', 'header Play is Pause while heard')
+      await page.getByRole('dialog', { name: 'Audio settings' }).getByRole('button', { name: 'Pause', exact: true }).click()
+      await page.locator('.pdf-original-reader .lab-header .lab-v2-play[aria-label="Listen"]').waitFor()
+    }
     assert.equal(await page.evaluate(() => window.__speechCalls), 0, 'browser speech voice was not touched')
     await page.getByRole('button', { name: 'Close panel' }).click()
     await page.getByTestId('lab-super').click()
@@ -848,7 +920,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await finishOriginalPage(2)
     const after = page.getByRole('complementary', { name: 'After Chapter One' })
     await after.waitFor()
-    await after.getByRole('button', { name: 'Recap' }).click()
+    await after.getByRole('button', { name: 'Summary' }).click()
     await page.locator('[data-testid="lab-phone-card-body"]:visible').getByText('A grounded local fixture answer.', { exact: false }).waitFor()
     // An AI card shows only its answer (30 Oct 2026): no source-range line, no You/Tinct labels.
     assert.equal(await page.locator('[data-testid="lab-phone-card-body"]:visible').getByText('Source · Original PDF pages', { exact: false }).count(), 0)
@@ -886,8 +958,9 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.getByTestId('lab-phone-quiz-question').getByText('Which page has its own spoken words?').waitFor()
     const quizCall = calls.filter(call => call.path === '/api/chat').map(call => JSON.parse(call.body)).find(call => call.companion?.intent === 'quiz')
     assert.deepEqual(quizCall?.companion.context.pages, recapCall.companion.context.pages, 'unit Quiz uses both exact pages')
+    // Its only question shown: the score at once, saved then (13 Nov 2026: no "See your score").
     await page.getByTestId('lab-phone-quiz-show').click()
-    await page.getByTestId('lab-phone-quiz-next').click()
+    await page.getByTestId('lab-phone-quiz-score').waitFor()
     for (let i = 0; i < 60 && !sets.cards.list.some(item => item.data?.action === 'quiz' && item.data?.source?.to === 2); i++) await page.waitForTimeout(100)
     assert(sets.cards.list.some(item => item.data?.action === 'quiz' && item.data?.source?.from === 1 && item.data?.source?.to === 2),
       'completed Quiz saves one complete-unit card')

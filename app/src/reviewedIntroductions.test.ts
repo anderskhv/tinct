@@ -16,12 +16,12 @@ const RELEASE_BOOKS = ['alice-in-wonderland', 'wuthering-heights', 'middlemarch'
 const RELEASE_IMAGES: Record<string, string[]> = { 'sense-and-sensibility': ['jane-austen'] }
 // Books published from a book package (books/wip/<id>/package), with their
 // own preface; no reviewed portrait yet, so their flaps show no image.
-const PACKAGE_BOOKS = ['master-and-margarita']
+const PACKAGE_BOOKS = ['master-and-margarita', 'pinocchio']
 
 describe('reviewed library introductions', () => {
-  it('preserves all supplied prose exactly and retains the ten existing book identities', () => {
+  it('preserves all supplied prose exactly and retains the library’s book identities (ten, plus the Bible since 10 Nov 2026)', () => {
     expect(source.books).toHaveLength(11)
-    expect(books).toHaveLength(10)
+    expect(books).toHaveLength(11)
     for (const accepted of source.books) {
       const copy = json('../public/lab/library_2/intro-data/' + accepted.id + '.json')
       for (const key of ['author', 'hook', 'preface', 'orientation']) expect(copy[key]).toEqual(accepted[key])

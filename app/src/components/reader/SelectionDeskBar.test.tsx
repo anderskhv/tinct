@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { SelectionPopup, type PopupMode, type SelectionInfo, type SelectionPopupProps } from './SelectionPopup'
-import { deskBarPlace, deskMorePlace, firstAndLastLine } from './deskBarPlace'
+import { deskBarPlace, deskMorePlace, firstAndLastLine, leafAt } from './deskBarPlace'
 
 function selection(overrides: Partial<SelectionInfo> = {}): SelectionInfo {
   return { x: 300, y: 300, text: 'the selected passage', paragraphIndex: 0, startOffset: 0, endOffset: 3, ...overrides }
@@ -164,6 +164,47 @@ describe('where the dark bar sits (margin.js placeBar, desktop)', () => {
     const line = { left: 1400, right: 1430, top: 400, bottom: 424 }
     expect(deskBarPlace(line, line, frame, 340, 44).left).toBe(1440 - 16 - 340)
   })
+  describe('with the cursor: on screen first, then as close to the cursor as it can be (11 Nov 2026)', () => {
+    const first = { left: 500, right: 1100, top: 400, bottom: 424 }, last = { left: 250, right: 540, top: 460, bottom: 484 }
+    it('a forward selection (let go on the last line): below the last line, its tip at the cursor', () => {
+      expect(deskBarPlace(first, last, frame, 340, 44, { x: 520, y: 472 })).toEqual({ left: 480, top: 496, below: true, tip: 40 })
+    })
+    it('a backward selection (let go on the first line): above the first line, its tip at the cursor', () => {
+      expect(deskBarPlace(first, last, frame, 340, 44, { x: 500, y: 412 })).toEqual({ left: 460, top: 344, below: false, tip: 40 })
+    })
+    it('one line: above it, at the cursor rather than the selection’s start', () => {
+      const line = { left: 300, right: 900, top: 400, bottom: 424 }
+      expect(deskBarPlace(line, line, frame, 340, 44, { x: 880, y: 412 })).toEqual({ left: 840, top: 344, below: false, tip: 40 })
+    })
+    it('near the bottom edge a forward selection’s bar goes above instead of off the frame', () => {
+      const f = { left: 500, right: 1100, top: 800, bottom: 824 }, l = { left: 250, right: 540, top: 850, bottom: 874 }
+      const at = deskBarPlace(f, l, frame, 340, 44, { x: 520, y: 862 })
+      expect(at).toMatchObject({ below: false, top: 744 })
+      expect(at.top + 44).toBeLessThanOrEqual(frame.bottom - 16)
+    })
+    it('near the top edge a backward selection’s bar goes below instead of under the header', () => {
+      const f = { left: 500, right: 1100, top: 90, bottom: 114 }, l = { left: 250, right: 540, top: 150, bottom: 174 }
+      expect(deskBarPlace(f, l, frame, 340, 44, { x: 500, y: 102 })).toMatchObject({ below: true, top: 186 })
+    })
+    it('near the right edge it is held 16px inside, the tip still at the cursor', () => {
+      const line = { left: 1000, right: 1420, top: 400, bottom: 424 }
+      expect(deskBarPlace(line, line, frame, 340, 44, { x: 1410, y: 412 })).toEqual({ left: 1440 - 16 - 340, top: 344, below: false, tip: 316 })
+    })
+    it('near the left edge it is held 16px inside', () => {
+      const f = { left: 400, right: 900, top: 400, bottom: 424 }, l = { left: 20, right: 300, top: 460, bottom: 484 }
+      expect(deskBarPlace(f, l, frame, 340, 44, { x: 30, y: 472 })).toEqual({ left: 16, top: 496, below: true, tip: 24 })
+    })
+    it('a cursor past the line’s end (let go in the margin) is held to the line', () => {
+      expect(deskBarPlace(first, last, frame, 340, 44, { x: 1300, y: 472 }).left).toBe(540 - 40)
+    })
+    it('never covers the selection, and stays inside the frame, wherever the cursor is', () => {
+      for (const x of [0, 300, 720, 1439]) for (const y of [70, 412, 440, 472, 890]) {
+        const at = deskBarPlace(first, last, frame, 340, 44, { x, y })
+        expect(at.left).toBeGreaterThanOrEqual(16); expect(at.left + 340).toBeLessThanOrEqual(1440 - 16)
+        expect(at.top + 44 <= first.top || at.top >= last.bottom).toBe(true)
+      }
+    })
+  })
   it('puts ••• above a bar that is above the selection, and below one that is below', () => {
     const dots = { left: 500, right: 534, top: 349, bottom: 383 }
     expect(deskMorePlace({ left: 280, right: 620, top: 344, bottom: 388, below: false }, dots, frame, 300, 250)).toEqual({ left: 380, top: 86, below: false })
@@ -205,6 +246,46 @@ it('follows a nested reader scroll and hides when the selected words leave the v
   await act(async () => { fireEvent.scroll(host); await new Promise(resolve => setTimeout(resolve, 30)) })
   expect(bar.style.visibility).toBe('hidden')
   host.remove()
+})
+
+describe('a passage over both leaves of a two-page spread (iPad, 16 Nov 2026)', () => {
+  it('picks the leaf the pointer is in, else the nearest, else the first', () => {
+    const leaves = [{ left: 30, right: 650, top: 57, bottom: 967 }, { left: 690, right: 1300, top: 57, bottom: 967 }]
+    expect(leafAt(leaves, 1100)).toBe(1)
+    expect(leafAt(leaves, 200)).toBe(0)
+    expect(leafAt(leaves, 675)).toBe(1)
+    expect(leafAt(leaves, null)).toBe(0)
+    expect(leafAt([leaves[0]], 1100)).toBe(0)
+  })
+
+  it('stands by the lines on the right leaf where the finger let go, not under the left leaf\'s foot', () => {
+    const height = window.innerHeight
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 1024 })
+    const lab = document.createElement('div')
+    lab.className = 'lab'
+    const leaf = (left: number, right: number, lines: number[][]) => {
+      const col = document.createElement('div')
+      col.className = 'lab-book-col'
+      vi.spyOn(col, 'getBoundingClientRect').mockImplementation(() => ({ left, right, top: 57, bottom: 967, width: right - left, height: 910 } as DOMRect))
+      for (const [l, r, top] of lines) {
+        const word = document.createElement('span')
+        word.className = 'lab-hearing-word is-selecting'
+        vi.spyOn(word, 'getClientRects').mockImplementation(() => [{ left: l, right: r, top, bottom: top + 42, width: r - l, height: 42 }] as unknown as DOMRectList)
+        col.append(word)
+      }
+      lab.append(col)
+    }
+    // "vil bringe ham held. Jeg har kendt en hel fa-" at the left leaf's foot; "milie af ... at tigge.«" at the right's head.
+    leaf(72, 655, [[72, 655, 862]])
+    leaf(711, 1294, [[711, 1294, 68], [711, 1294, 109], [711, 1294, 150], [711, 1143, 191]])
+    document.body.append(lab)
+    // The finger let go on "tigge.«" (selection.y is the pointer 12px below it, as LabApp gives it).
+    render(<Harness {...props({ selection: selection({ x: 1100, y: 224, showBelow: true }) })} />)
+    const top = parseFloat(screen.getByTestId('lab-desk-bar').style.top)
+    expect(top).toBe(191 + 42 + 12)
+    lab.remove()
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: height })
+  })
 })
 
 it('accepts authoritative PDF ink geometry and hides when its source leaves view', async () => {
@@ -312,5 +393,92 @@ describe('the desktop Ask field: mic, send and Enter (30 Oct 2026)', () => {
     expect(input.onAskQuestion).not.toHaveBeenCalled()
     fireEvent.keyDown(field, { key: 'Enter' })
     expect(input.onAskQuestion).toHaveBeenCalledExactlyOnceWith('Why this phrase?')
+  })
+})
+
+describe('the selection bar\'s keys run its buttons\' actions (E, A, N, H)', () => {
+  const press = (key: string, extra: KeyboardEventInit = {}) => {
+    const event = new KeyboardEvent('keydown', { key, code: /^[a-z]$/i.test(key) ? `Key${key.toUpperCase()}` : undefined, bubbles: true, cancelable: true, ...extra })
+    act(() => { document.body.dispatchEvent(event) })
+    return event
+  }
+
+  it('classic bar: bare letters do what a click does', () => {
+    for (const [key, testId] of [['e', 'lab-dbar-explain'], ['h', 'lab-dbar-highlight']]) {
+      const clicked = props(), keyed = props()
+      render(<Harness {...clicked} />)
+      fireEvent.click(screen.getByTestId(testId))
+      cleanup()
+      render(<Harness {...keyed} />)
+      expect(press(key).defaultPrevented).toBe(true)
+      cleanup()
+      const calls = (input: SelectionPopupProps) => ({
+        mode: vi.mocked(input.setPopupMode).mock.calls,
+        explain: vi.mocked(input.onRequestExplanation!).mock.calls.map(call => call.slice(1)),
+        color: vi.mocked(input.onColorClick).mock.calls,
+      })
+      expect(calls(keyed)).toEqual(calls(clicked))
+      expect(calls(keyed).mode.length + calls(keyed).color.length).toBeGreaterThan(0)
+    }
+  })
+
+  it('classic bar: A asks and N opens the note, like their buttons', () => {
+    const input = props()
+    render(<Harness {...input} />)
+    press('a')
+    expect(input.onExplain).toHaveBeenCalledWith()
+    cleanup()
+    const noted = props()
+    render(<Harness {...noted} />)
+    press('n')
+    expect(noted.onRequestNote).toHaveBeenCalledOnce()
+  })
+
+  it('shared bar: Alt/Option letters act and bare letters still start the question, except N', () => {
+    const input = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...input} />)
+    press('Dead', { altKey: true, code: 'KeyH' })
+    expect(input.onColorClick).toHaveBeenCalledExactlyOnceWith('gold')
+    cleanup()
+    const asking = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...asking} />)
+    press('h')
+    expect(asking.onColorClick).not.toHaveBeenCalled()
+    expect((screen.getByTestId('lab-dbar-ask-field') as HTMLTextAreaElement).value).toBe('h')
+    cleanup()
+    const noting = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...noting} />)
+    press('n')
+    expect(noting.onRequestNote).toHaveBeenCalledOnce()
+    expect(screen.queryByTestId('lab-dbar-ask-field')).toBeNull()
+    cleanup()
+    const opening = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...opening} />)
+    press('å', { altKey: true, code: 'KeyA' })
+    expect((screen.getByTestId('lab-dbar-ask-field') as HTMLTextAreaElement).value).toBe('')
+  })
+
+  it('acts only where the button is shown, and never from a field', () => {
+    const input = props({ selection: selection({ existingHighlightId: 'h1' }), currentHighlightColor: 'rose' })
+    render(<Harness {...input} />)
+    press('h')
+    expect(input.onColorClick).not.toHaveBeenCalled()
+    const field = document.createElement('textarea'); document.body.append(field)
+    fireEvent.keyDown(field, { key: 'e' })
+    expect(input.setPopupMode).not.toHaveBeenCalled()
+    field.remove()
+  })
+
+  it('names each key in its button\'s tooltip and aria-keyshortcuts', () => {
+    render(<Harness {...props()} />)
+    expect(screen.getByTestId('lab-dbar-explain').getAttribute('aria-keyshortcuts')).toBe('E Alt+E')
+    expect(screen.getByTestId('lab-dbar-explain').title).toBe('Explain (E)')
+    expect(screen.getByTestId('lab-dbar-highlight').title).toBe('Highlight in Gold (H)')
+    expect(screen.getByTestId('lab-dbar-note').title).toBe('Add note (N)')
+    cleanup()
+    render(<Harness {...props({ sharedReader: true, onAskQuestion: vi.fn() })} />)
+    expect(screen.getByTestId('lab-dbar-ask').getAttribute('aria-keyshortcuts')).toBe('Alt+A')
+    expect(screen.getByTestId('lab-dbar-ask').title).toMatch(/^Ask \((Alt\+|⌥)A\)$/)
+    expect(screen.getByTestId('lab-dbar-note').getAttribute('aria-keyshortcuts')).toBe('N Alt+N')
   })
 })

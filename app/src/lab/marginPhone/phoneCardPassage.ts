@@ -31,6 +31,18 @@ export function wordInCardPassage(word: Element, ranges: readonly PhoneCardRange
  * (a MutationObserver), and taken off when the card closes. Rules join each visual line
  * across its spaces; word nodes remain untouched. Neither treatment changes text layout.
  */
+/**
+ * Whether these mutations only touch a text field's own contents: React rewrites a controlled textarea's text
+ * (its defaultValue, a child node) on every keystroke. Passage observers skip them, so typing a follow-up does not
+ * repaint every word of the chapter on each key (Anders, 12 Nov 2026: typing in a margin card lagged).
+ */
+export function onlyFieldEdits(records: readonly MutationRecord[]): boolean {
+  return records.every(record => {
+    const target = record.target.nodeType === 1 ? record.target as Element : record.target.parentElement
+    return !!target?.closest('textarea, input, [contenteditable="true"]')
+  })
+}
+
 export function markPhoneCardPassage(root: Element | null, ranges: readonly PhoneCardRange[], chapterOnScreen: number, compare = false): () => void {
   if (!root || !ranges.length) return () => {}
   let lines: HTMLElement[] = []
@@ -74,6 +86,7 @@ export function markPhoneCardPassage(root: Element | null, ranges: readonly Phon
   let frame = 0
   const observer = typeof MutationObserver === 'function' ? new MutationObserver(records => {
     if (records.every(record => record.type === 'childList' && [...record.addedNodes, ...record.removedNodes].every(node => node instanceof Element && node.classList.contains('lab-card-passage-line')))) return
+    if (onlyFieldEdits(records)) return
     if (frame) return
     frame = requestAnimationFrame(() => { frame = 0; paint() })
   }) : null

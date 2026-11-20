@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, type ReactNode } from 'react'
 import { labSuperMenuRows, type LabSuperMenuId, type LabSuperMenuRow } from './labSuperMenu'
 import { ChatIcon, TalkIcon } from './LabReaderIcons'
 
@@ -14,6 +14,10 @@ export interface LabSuperMenuProps {
   sharedReader?: boolean
   /** Someone asks to be friends and this device has not shown it yet (social/followRequests.ts). */
   profileDot?: boolean
+  /** The follow request row (LabMenuRequest), first in the menu while a request was due when it opened. */
+  request?: ReactNode
+  /** The open book's reading angle ('' for none): the Reading angle row (labSuperMenu.ts). Absent: no row. */
+  readingAngle?: string
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
 }
@@ -53,6 +57,8 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       <path d="M11 5h9M11 11h9M11 18h5" />
     </svg>
   )
+  // Explain a figure: the margin reader's Snip glyph (public/lab/addbook/js/reader.js ICONS.snip), two crop corners.
+  if (id === 'snip') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M7 3v14h14" /><path d="M3 7h14v14" /></svg>
   if (id === 'library') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="m10 5-7 7 7 7M3 12h18" /></svg>
   if (id === 'editions') {
     return (
@@ -81,6 +87,10 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       </svg>
     )
   }
+  // AI settings: the ✧ the reader's AI pills carry (Primer, Summary), as a monoline four-point star.
+  if (id === 'ai') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" data-icon="ai-settings"><path d="M12 3.5c.6 5.1 3.4 7.9 8.5 8.5-5.1.6-7.9 3.4-8.5 8.5-.6-5.1-3.4-7.9-8.5-8.5 5.1-.6 7.9-3.4 8.5-8.5z" /></svg>
+  // Reading angle: a target, as the start actions drew it (what the reader wants to notice).
+  if (id === 'angle') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" data-icon="reading-angle"><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="4" /><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" /></svg>
   // Audio settings: a speaker.
   if (id === 'audio') {
     return (
@@ -105,7 +115,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, ownPdf, sharedReader, profileDot, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, ownPdf, sharedReader, profileDot, request, readingAngle, onSelect, onClose }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -132,7 +142,7 @@ export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, own
   }, [open, onClose])
 
   if (!open) return null
-  const rows: LabSuperMenuRow[] = suppliedRows ?? labSuperMenuRows({ phone, privateBook, ownPdf, sharedReader })
+  const rows: LabSuperMenuRow[] = suppliedRows ?? labSuperMenuRows({ phone, privateBook, ownPdf, sharedReader, readingAngle })
 
   return (
     <div ref={layerRef} className="lab-super-layer" data-testid="lab-super-layer">
@@ -144,6 +154,7 @@ export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, own
         onClick={onClose}
       />
       <nav className="lab-super-panel" data-testid="lab-super-menu" aria-label="Menu">
+        {request}
         {/* Chat and Talk keep their existing destinations on every surface. */}
         {rows.map(row => row.modes && row.id === 'conversation' ? (
           // Chat · Talk, one row, each half its own button.
@@ -199,6 +210,7 @@ export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, own
           >
             <span className="lab-super-row-icon" aria-hidden="true"><RowIcon id={row.id} /></span>
             <span className="lab-super-row-label">{row.label}</span>
+            {row.detail && <span className="lab-super-row-detail" data-testid={`lab-super-row-${row.id}-detail`}>{row.detail}</span>}
             {row.id === 'account' && profileDot && <span className="lab-super-row-dot" data-testid="request-dot" aria-hidden="true" />}
             {row.chevron && <span className="lab-super-row-chevron" aria-hidden="true">›</span>}
           </button>

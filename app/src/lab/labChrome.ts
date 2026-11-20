@@ -368,17 +368,25 @@ export function labKeyboardInsetPx(
  * panning it down the (unchanged) layout viewport. The shell is already
  * sized to the visible box, so the pan only hides the header under the URL
  * bar and leaves dead paper above the keyboard. Reset it while the keyboard
- * is up; a pinch-zoom pan with nothing focused is left alone.
+ * is up.
+ *
+ * The shell never scrolls the document, so a document still scrolled once the
+ * keyboard is down is a pan iOS forgot to undo: the header sat above the
+ * screen, the foot rose with blank paper under it, and taps on the selection
+ * bar missed until a reload (iPhone, 10 Nov 2026, after a follow-up typed in
+ * an Explain card). Reset that too. A pinch-zoom pan (scale above 1) with
+ * nothing focused is the reader's own and is left alone.
  */
 export function labShouldResetViewportPan(input: {
   offsetTop?: number
   scrollY?: number
   textEntryFocused: boolean
+  scale?: number
 }): boolean {
-  if (!input.textEntryFocused) return false
   const offsetTop = typeof input.offsetTop === 'number' ? input.offsetTop : 0
   const scrollY = typeof input.scrollY === 'number' ? input.scrollY : 0
-  return offsetTop > 0 || scrollY > 0
+  if (input.textEntryFocused) return offsetTop > 0 || scrollY > 0
+  return scrollY > 0 && (input.scale ?? 1) <= 1.01
 }
 
 /**
@@ -400,6 +408,7 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
       offsetTop: viewport?.offsetTop,
       scrollY: window.scrollY,
       textEntryFocused,
+      scale: viewport?.scale,
     })
     if (panned) window.scrollTo(0, 0)
   }
@@ -427,6 +436,9 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
     window.addEventListener('focus', returned)
   }
   if (typeof document !== 'undefined') document.addEventListener('visibilitychange', returned)
+  // The keyboard going down: iOS may restore (or forget) its pan after the
+  // field loses focus, with no viewport event after it.
+  if (typeof document !== 'undefined') document.addEventListener('focusout', settle)
   return () => {
     viewport?.removeEventListener('resize', apply)
     viewport?.removeEventListener('scroll', apply)
@@ -437,7 +449,10 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
       window.removeEventListener('focus', returned)
     }
     settling.forEach(clearTimeout)
-    if (typeof document !== 'undefined') document.removeEventListener('visibilitychange', returned)
+    if (typeof document !== 'undefined') {
+      document.removeEventListener('visibilitychange', returned)
+      document.removeEventListener('focusout', settle)
+    }
     host.style.removeProperty(LAB_VVH_VAR)
   }
 }
@@ -1026,6 +1041,34 @@ export function labKeyboardPageDirection(key: string): LabPageTurnDirection | nu
   return null
 }
 
+/**
+ * Ctrl+Z (Cmd+Z on a Mac) undoes the reader's last highlight or note action.
+ * Never while typing: a text field keeps its own native undo. Shift (redo)
+ * and Alt are left to the browser. Matched by the key's position too, so a
+ * layout whose Z key types another letter still undoes.
+ */
+export function labUndoShortcut(event: Pick<KeyboardEvent, 'key' | 'code' | 'ctrlKey' | 'metaKey' | 'altKey' | 'shiftKey' | 'isComposing' | 'defaultPrevented' | 'repeat'>, active?: Element | null): boolean {
+  if (event.defaultPrevented || event.isComposing || event.repeat || event.altKey || event.shiftKey) return false
+  if (!(event.ctrlKey || event.metaKey) || (event.ctrlKey && event.metaKey)) return false
+  const key = event.key.toLowerCase()
+  if (key !== 'z' && !(event.code === 'KeyZ' && !/^[a-z]$/.test(key))) return false
+  return !labTextEntryFocused(active) && !active?.closest?.('[contenteditable]:not([contenteditable="false"]),[role="textbox"],select')
+}
+
+/**
+ * Ctrl+F (Cmd+F on a Mac) opens the book's own search (Contents, Search), which
+ * finds text in every chapter; the browser's Find only sees the pages on
+ * screen. Never while typing: a text field keeps the browser's Find. Matched by
+ * the key's position too, so a layout whose F key types another letter works.
+ */
+export function labFindShortcut(event: Pick<KeyboardEvent, 'key' | 'code' | 'ctrlKey' | 'metaKey' | 'altKey' | 'shiftKey' | 'isComposing' | 'defaultPrevented'>, active?: Element | null): boolean {
+  if (event.defaultPrevented || event.isComposing || event.altKey || event.shiftKey) return false
+  if (!(event.ctrlKey || event.metaKey) || (event.ctrlKey && event.metaKey)) return false
+  const key = event.key.toLowerCase()
+  if (key !== 'f' && !(event.code === 'KeyF' && !/^[a-z]$/.test(key))) return false
+  return !labTextEntryFocused(active) && !active?.closest?.('[contenteditable]:not([contenteditable="false"]),[role="textbox"],select')
+}
+
 /** Horizontal swipes turn one page only when horizontal intent is unambiguous. */
 export function labSwipePageDirection(
   deltaX: number,
@@ -1038,20 +1081,44 @@ export function labSwipePageDirection(
 }
 
 /**
- * The Compare swap: a decisive vertical swipe, up or down.
- *
- * Vertical because horizontal already means the next page, and the two must
- * never be able to fire on the same gesture — a swipe that is not clearly one
- * axis is neither. The chrome never says any of this: the swipe is learned in
- * the edition picker, not on the page.
+ * The phone page's vertical page turn: swipe up for the next page, down for
+ * the previous one (Anders, 12 Nov 2026: a Kindle reader swiped up and
+ * nothing happened). Only a clearly vertical, quick swipe counts, so a
+ * diagonal or sideways swipe stays exactly what it was: sideways is
+ * `labSwipePageDirection`, and a swipe that is neither axis turns nothing.
+ * A slow drag is not a swipe (a long press there selects text instead).
  */
-export function labSwipeCompareSwap(
+export const LAB_VERTICAL_SWIPE_MIN_PX = 40
+export const LAB_VERTICAL_SWIPE_RATIO = 1.5
+export const LAB_VERTICAL_SWIPE_MAX_MS = 700
+export function labVerticalSwipePageDirection(
   deltaX: number,
   deltaY: number,
-  threshold = 52,
-): boolean {
-  if (Math.abs(deltaY) < threshold) return false
-  return Math.abs(deltaY) > Math.abs(deltaX) * 1.2
+  durationMs: number,
+): LabPageTurnDirection | null {
+  if (!(durationMs <= LAB_VERTICAL_SWIPE_MAX_MS)) return null
+  if (Math.abs(deltaY) <= LAB_VERTICAL_SWIPE_MIN_PX) return null
+  if (Math.abs(deltaY) <= Math.abs(deltaX) * LAB_VERTICAL_SWIPE_RATIO) return null
+  return deltaY < 0 ? 1 : -1
+}
+
+/**
+ * The page turn a released swipe asks for, if any: sideways everywhere it is
+ * offered, up/down only where `vertical` is on (the paginated phone page,
+ * touch or pen; never a mouse, whose vertical drag selects text, and never a
+ * reader that scrolls).
+ */
+export function labSwipeTurnDirection(input: {
+  deltaX: number
+  deltaY: number
+  durationMs: number
+  vertical: boolean
+  pointerType?: string
+}): LabPageTurnDirection | null {
+  const sideways = labSwipePageDirection(input.deltaX, input.deltaY)
+  if (sideways != null) return sideways
+  if (!input.vertical || input.pointerType === 'mouse') return null
+  return labVerticalSwipePageDirection(input.deltaX, input.deltaY, input.durationMs)
 }
 
 /**
@@ -1100,6 +1167,55 @@ export function labNativeSelectionBlocksTurn(
 ): boolean {
   if (!selection || !surface || selection.isCollapsed || selection.rangeCount === 0) return false
   return surface.contains(selection.anchorNode) || surface.contains(selection.focusNode)
+}
+
+/**
+ * How long a finger rests on a word before it starts a selection. A paginated
+ * page has nothing to scroll, so it can answer quickly. In the Margin reader
+ * the text is a scroller and a finger that settles before it moves is
+ * scrolling, so the press is held about as long as the platform's own long
+ * press (Surface Duo, 6 Nov 2026: every touch on the text was taken).
+ */
+export const LAB_PAGE_LONG_PRESS_MS = 160
+export const LAB_SCROLL_LONG_PRESS_MS = 420
+export function labLongPressMs(touchScroll: boolean): number {
+  return touchScroll ? LAB_SCROLL_LONG_PRESS_MS : LAB_PAGE_LONG_PRESS_MS
+}
+
+/**
+ * Whether the passage cancels a native touch event (which stops the browser
+ * panning and its own long-press selection).
+ *
+ * A paginated page owns every touch on a word: there is nothing to scroll and
+ * the reader's swipes and long press must arrive whole. A passage inside a
+ * scroller (the Margin reader) owns only the drag that extends a selection
+ * its long press already started; every other touch, with a selection on
+ * screen or not, is the browser's scroll.
+ */
+export function labPassageBlocksNativeTouch(input: {
+  type: 'touchstart' | 'touchmove'
+  touchScroll: boolean
+  /** A pointer gesture on this passage is in progress. */
+  dragging: boolean
+  /** That gesture has become a selection (long press fired). */
+  selecting: boolean
+  /** A selection is on screen. */
+  selectionShown: boolean
+  /** The touch landed on a word. */
+  onWord: boolean
+}): boolean {
+  if (input.touchScroll) return input.type === 'touchmove' && input.dragging && input.selecting
+  return input.dragging || input.selectionShown || input.onWord
+}
+
+/**
+ * A touch that moved before its long press fired is not a press. On a page
+ * only a quick flick cancels it (a slow drag still selects when the timer
+ * fires); in a scroller any movement past the slop is a scroll.
+ */
+export function labLongPressCancelledByMove(input: { touchScroll: boolean, distance: number, elapsedMs: number }): boolean {
+  if (input.distance <= 10) return false
+  return input.touchScroll || input.elapsedMs < 100
 }
 
 /** Short taps in the outer thirds turn pages; the centre remains selection-safe. */

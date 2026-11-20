@@ -46,7 +46,7 @@ The sections below document the superseded implementation and historical accepta
 - One persona is resolved for the whole book/edition. Playback never falls between Bella and generated audio inside an edition.
 - The reader exposes Female/Male only. Provider, model and voice IDs are implementation data.
 - The same account preference selects Grok `ursa` for Female and `helios` for Male. Unsupported voices surface as session errors; there is no substitution.
-- Danish generation is disabled. Provider and language are explicit cache dimensions so a future approved localization can add mappings without changing the storage model.
+- Danish narration is enabled for the offered Danish editions (`OFFERED_DANISH_EDITIONS`) since 2026-11-06 (Anders, after a Grok sample): streamed only through `/api/narration/ensure`, Grok with `language: "da"`, the same four Grok voices, no recordings. The language comes from the edition on the server's allowlist (`narrationLanguage` in `narrationCore.ts`), never from the request. Danish is part of the chunk cache identity (English identities are unchanged), Danish sentence groups follow Danish punctuation (»…«, ›…‹, Æ/Ø/Å, `hr.`), and a numeric range reads "til". Other providers do not narrate Danish. Any other Danish edition stays unnarrated.
 
 ## Generation and cache
 

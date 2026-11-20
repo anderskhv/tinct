@@ -1,10 +1,14 @@
 // Final pre-Codex behavior acceptance for catalogue Margin and authorized paged/phone differences.
 // All AI/API traffic is mocked; an isolated muted browser reads the exact local build.
+// Desktop pages open the one-chapter Margin reader with ?bookScroll=0: whole-book scroll is on for every desktop
+// reader since 13 Nov 2026 and has its own check (check-book-scroll.mjs).
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import { chromium, webkit, devices } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, assertRailScrollsWithSource, sourceRailGeometry, settlePaint, enforceReaderBundle } from './lib/readerParityAssertions.mjs'
+// Saved and live cards; the chapter's start actions card (approved mockup, Anders 9 Nov 2026) is not one of them.
+const SAVED_CARDS = '[data-testid="source-margin-item"]:not(.is-start):not(.is-start-later)'
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:5175'
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 const output = process.env.TINCT_PARITY_OUTPUT || '/tmp/tinct-reader-restored-parity'
@@ -51,6 +55,7 @@ try {
         return result
       }
     })
+    await page.addInitScript(() => { localStorage.setItem('tinct:selection-actions-used', '1') }) // a returning reader: the margin's full start actions, not the first-visit hint (16 Nov 2026)
     await page.addInitScript(phone => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ ...(phone ? {fontSize:1.3,fontSizeExplicit:true} : {}), theme: 'book', primaryEdition: 'original-en', audioEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true, compareChosen: true })), phone)
     const ready = () => page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
     const wordSelector = '[data-testid="lab-word"]:visible'
@@ -69,7 +74,7 @@ try {
       await page.mouse.move(a.x + a.width / 2, a.y + a.height / 2); await page.mouse.down()
       await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 12 }); await page.mouse.up()
     }
-    await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=3&word=4&sharedReader=1&layout=${phone ? 'phone' : 'desktop'}${phone ? '' : `&view=${layout}`}`, { waitUntil: 'domcontentloaded' })
+    await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=3&word=4&sharedReader=1&bookScroll=0&layout=${phone ? 'phone' : 'desktop'}${phone ? '' : `&view=${layout}`}`, { waitUntil: 'domcontentloaded' })
     await ready(); await page.evaluate(() => document.fonts.ready); await settlePaint(page)
     const root = page.locator('.lab'), initialPlace = await root.getAttribute('data-place')
     if (!phone) await assertBareDesktopHeader(page)
@@ -159,7 +164,7 @@ try {
       await select(host, 18, 28)
       await page.getByTestId('lab-dbar-explain').click()
       await host.locator('[data-testid="source-margin-item"][data-open="true"]').getByText('A complete local answer remains attached to this source passage.').waitFor()
-      assert.equal(await host.getByTestId('source-margin-item').count(), 2, 'separate answers retain two source cards')
+      assert.equal(await host.locator(SAVED_CARDS).count(), 2, 'separate answers retain two source cards')
       assert.equal(await first.getAttribute('data-open'), 'false')
       await first.getByTestId('source-margin-open').click()
       assert.equal(await first.getAttribute('data-open'), 'true', 'folded row reopens its original answer')
@@ -184,10 +189,10 @@ try {
       assert.equal(await first.getAttribute('data-open'), 'true', 'tapping saved source words reopens that card')
       const requestCountBeforeReload = requests.length
       await page.reload({ waitUntil: 'domcontentloaded' }); await ready()
-      await host.getByTestId('source-margin-item').nth(1).waitFor()
-      assert.equal(await host.getByTestId('source-margin-item').count(), 2, 'source rail restores saved cards after reload')
+      await host.locator(SAVED_CARDS).nth(1).waitFor()
+      assert.equal(await host.locator(SAVED_CARDS).count(), 2, 'source rail restores saved cards after reload')
       assert.equal(requests.length, requestCountBeforeReload, 'reopening saved answers never generates them again')
-      const secondId = await host.getByTestId('source-margin-item').nth(1).getAttribute('data-card-id')
+      const secondId = await host.locator(SAVED_CARDS).nth(1).getAttribute('data-card-id')
       const savedSecond = await page.evaluate(id => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').find(row => row.id === id), secondId)
       assert(savedSecond?.card?.anchor, 'saved explanation retains its exact source anchor')
       const beforeNotebookCard = await root.getAttribute('data-place')
@@ -215,23 +220,30 @@ try {
       await page.mouse.click(room.x + Math.min(100, room.width / 2), 650)
       const freeNote = host.locator('[data-testid="source-margin-item"][data-open="true"]')
       await freeNote.getByRole('textbox', { name: 'Highlight note', exact: true }).fill('A free margin note beside this source.')
-      const freeId = await freeNote.getAttribute('data-card-id')
+      let freeId = await freeNote.getAttribute('data-card-id')
       assert(freeId)
       await freeNote.getByTestId('source-margin-minimise').click()
-      const foldedFree = host.locator(`[data-testid="source-margin-item"][data-card-id="${freeId}"]`)
+      let foldedFree = host.locator(`[data-testid="source-margin-item"][data-card-id="${freeId}"]`)
       await foldedFree.getByTestId('source-margin-open').click()
-      assert.equal(await foldedFree.getByRole('textbox', { name: 'Highlight note', exact: true }).inputValue(), 'A free margin note beside this source.', 'free margin note autosaves and reopens')
+      assert.equal(await foldedFree.getByRole('textbox', { name: 'Highlight note', exact: true }).evaluate(field => field.value), 'A free margin note beside this source.', 'free margin note autosaves and reopens')
       await foldedFree.getByRole('button', { name: /^Delete / }).click()
       assert.equal(await foldedFree.count(), 0, 'delete removes the margin note row')
       await page.getByRole('button', { name: 'Undo', exact: true }).click()
+      // An undone delete returns under a new id with the same creation time: a deletion's tombstone
+      // always beats its id, so the old id would be deleted again at the next sync (#756).
+      const restoredRow = host.locator('[data-testid="source-margin-item"]').filter({ hasText: 'A free margin note beside this source.' })
+      await restoredRow.waitFor()
+      freeId = await restoredRow.getAttribute('data-card-id')
+      assert(freeId, 'Undo restores the free note')
+      foldedFree = host.locator(`[data-testid="source-margin-item"][data-card-id="${freeId}"]`)
       await foldedFree.waitFor()
-      assert.equal(await host.getByTestId('source-margin-item').count(), 3, 'Undo restores the same free note beside both saved answers')
+      assert.equal(await host.locator(SAVED_CARDS).count(), 3, 'Undo restores the same free note beside both saved answers')
       await page.reload({ waitUntil: 'domcontentloaded' }); await ready()
       await foldedFree.getByTestId('source-margin-open').click()
       const restoredFreeEditor = foldedFree.getByRole('textbox', { name: 'Highlight note', exact: true })
-      assert.equal(await restoredFreeEditor.inputValue(), 'A free margin note beside this source.', 'reloaded free note initializes its editor')
+      assert.equal(await restoredFreeEditor.evaluate(field => field.value), 'A free margin note beside this source.', 'reloaded free note initializes its editor')
       await page.waitForTimeout(650)
-      assert.equal(await restoredFreeEditor.inputValue(), 'A free margin note beside this source.', 'free note survives the autosave interval after reload')
+      assert.equal(await restoredFreeEditor.evaluate(field => field.value), 'A free margin note beside this source.', 'free note survives the autosave interval after reload')
       assert.equal(await page.evaluate(id => JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').find(mark => `highlight:${mark.id}` === id)?.note, freeId), 'A free margin note beside this source.', 'persisted free note is not erased by reopening')
       await page.getByTestId('lab-header-notebook').click()
       const notebook = page.getByRole('region', { name: 'Notebook', exact: true })
@@ -289,9 +301,10 @@ try {
       await page.screenshot({ path: `${output}/margin-cross-card-isolation.png` })
       observations.push({ layout, firstGeometry, finalGeometry, wheelRead })
       // Text start/end actions are always visible, unlike PDF heading-hover actions.
-      await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
-      await page.getByTestId('lab-unit-primer').waitFor()
-      await page.getByTestId('lab-unit-catchup').waitFor()
+      await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop&bookScroll=0`, { waitUntil: 'domcontentloaded' }); await ready()
+      // The chapter's start actions sit in the margin's start card (approved mockup, Anders 9 Nov 2026), not by the heading.
+      await page.getByTestId('margin-start-primer').waitFor()
+      await page.getByTestId('margin-start-summary').waitFor()
       const minimap = page.getByRole('slider', { name: 'Book position', exact: true })
       await minimap.waitFor()
       assert(Number(await minimap.getAttribute('aria-valuenow')) < 100, 'whole-book map has later chapters beyond the current source')
@@ -301,7 +314,7 @@ try {
       await page.waitForFunction(() => document.querySelector('.lab')?.dataset.chapter === '1')
       await ready()
       assert.equal(await root.getAttribute('data-chapter'), '1', 'whole-book Home reaches the first chapter')
-      await page.goto(`${origin}/reader?book=bible&edition=kjv-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      await page.goto(`${origin}/reader?book=bible&edition=kjv-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop&bookScroll=0`, { waitUntil: 'domcontentloaded' }); await ready()
       const chapterMap = page.getByRole('slider', { name: 'Chapter position', exact: true })
       await chapterMap.waitFor()
       assert.equal(await root.getAttribute('data-book-id'), 'bible')
@@ -353,15 +366,15 @@ try {
       assert.equal(await root.getAttribute('data-chapter'), '2', 'backward keys cannot leave the Bible chapter')
       assert.equal(await biblePlace(), '2/0:0', 'backward keys clamp at the first source word')
       await page.screenshot({ path: `${output}/bible-chapter-minimap.png` })
-      await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop&bookScroll=0`, { waitUntil: 'domcontentloaded' }); await ready()
       await host.hover()
       for (let step = 0; step < 24 && !(await host.getByTestId('lab-unit-quiz').count()); step++) {
         await page.mouse.wheel(0, await host.evaluate(node => Math.floor(node.clientHeight * .8)))
         await page.waitForTimeout(80)
       }
-      for (const name of ['Recap this chapter', 'Quiz me on this chapter', 'Chapter note']) await host.getByRole('button', { name, exact: true }).waitFor()
+      for (const name of ['Summary of this chapter', 'Quiz me on this chapter', 'Chapter note']) await host.getByRole('button', { name, exact: true }).waitFor()
       await page.screenshot({ path: `${output}/ebook-end-actions.png` })
-      await page.goto(`${origin}/reader?book=bold-conjectures-volume-2&edition=original-en&chapter=7&paragraph=8&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      await page.goto(`${origin}/reader?book=bold-conjectures-volume-2&edition=original-en&chapter=7&paragraph=8&word=0&view=margin&sharedReader=1&layout=desktop&bookScroll=0`, { waitUntil: 'domcontentloaded' }); await ready()
       const reference = host.locator('[data-testid="lab-word"][data-paragraph-index="8"]').filter({ hasText: /^Fig\.?$/ }).first()
       await reference.waitFor()
       const placeBeforePeek = await root.getAttribute('data-place')

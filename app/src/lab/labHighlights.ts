@@ -45,6 +45,47 @@ export interface LabHighlight {
    * lives in the same list, storage and cloud rows as passage highlights.
    */
   kind?: 'chapter'
+  /**
+   * Where the reader moved this note's card in the desktop margin (Anders, 13 Nov 2026): its top at `fraction` of
+   * paragraph `paragraphIndex`'s height (0 its first line's top, 1 its last line's foot), in `editionKey`'s text.
+   * Kept relative to a paragraph, so it holds through a reload, sync, a font or size change and a resize. Absent:
+   * the card sits at its passage. A passage note stays linked to its highlight; a margin note's own paragraph moves
+   * with it.
+   */
+  cardPlace?: LabNoteCardPlace
+}
+
+export interface LabNoteCardPlace {
+  paragraphIndex: number
+  fraction: number
+  editionKey?: string
+}
+
+/** A stored card place, checked (from another device or an older copy): null when it is not one. */
+export function validNoteCardPlace(value: unknown): LabNoteCardPlace | null {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null
+  const v = value as Record<string, unknown>
+  if (typeof v.paragraphIndex !== 'number' || !Number.isInteger(v.paragraphIndex) || v.paragraphIndex < 0 || v.paragraphIndex > 10_000_000) return null
+  if (typeof v.fraction !== 'number' || !Number.isFinite(v.fraction)) return null
+  const fraction = Math.max(-1, Math.min(2, Math.round(v.fraction * 10000) / 10000))
+  return { paragraphIndex: v.paragraphIndex, fraction, ...(typeof v.editionKey === 'string' && v.editionKey && v.editionKey.length <= 80 ? { editionKey: v.editionKey } : {}) }
+}
+
+/**
+ * A note's card moved to `place`. A margin note (a note with no words) moves its own paragraph with it, so it is
+ * listed and found there; a passage note keeps its passage. `place` null: back beside its passage. Stamped `now`.
+ */
+export function withNoteCardPlace(highlight: LabHighlight, place: LabNoteCardPlace | null, now = Date.now()): LabHighlight {
+  const { cardPlace: _old, ...rest } = highlight
+  const checked = place ? validNoteCardPlace(place) : null
+  if (!checked) return { ...rest, updatedAt: Math.max(now, (highlight.updatedAt ?? 0) + 1) }
+  const marginNote = !isLabChapterNote(highlight) && highlight.paragraphIndex === highlight.endParagraphIndex && highlight.fromWord === highlight.toWord
+  return {
+    ...rest,
+    ...(marginNote ? { paragraphIndex: checked.paragraphIndex, endParagraphIndex: checked.paragraphIndex, fromWord: 0, toWord: 0 } : {}),
+    cardPlace: checked,
+    updatedAt: Math.max(now, (highlight.updatedAt ?? 0) + 1),
+  }
 }
 
 const STORAGE_KEY = 'tinct-lab-highlights'

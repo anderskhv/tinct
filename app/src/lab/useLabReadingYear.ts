@@ -4,9 +4,10 @@ import { emptyReadingYear, forwardPagesRead, readLocalReadingYear, readingYearTo
 import { SWITCH_RECHECK_MS, addPending, beatPayload, nextFlush, pendingForBeat, readingTimeSwitch, sendBeat, sendFlush, subtractPending, trackSending, withLedgerSend, type LedgerStatus } from './labReadingTime'
 import { BEAT_MAX_SECONDS, BEAT_MIN_GAP_MS, PRIVATE_BOOK_ID, ledgerBookId, localDay } from '../readingTime/model'
 import { supabase } from '../services/supabase'
+import { isInternalTraffic } from '../utils/internalTraffic'
+import { createReadingTurns, type ReadingCredit, type ReadingTurns } from './labReadingTurns'
 
-/** Reading time counts only while the reader was active this recently (or audio plays). */
-const ACTIVE_WINDOW_MS = 3 * 60_000
+/** Listening is counted on this tick; reading is credited at page turns (labReadingTurns.ts), and the tick only flushes. */
 const TICK_MS = 30_000
 /**
  * The yearly tally's account copy (one versioned user_data row) goes up this
@@ -34,8 +35,10 @@ async function sessionToken(userId: string): Promise<string | null> {
 
 /**
  * Records this device's reading into the year tally: pages for each forward
- * page turn, and time only while the reader is visibly in use (a turn or
- * input within the last three minutes, or narration playing).
+ * page turn, and time by page turns (labReadingTurns.ts, Anders 10 Nov 2026):
+ * each turn credits the visible time since the previous one, at most 15
+ * minutes, and the session's last page its typical page time. Listening counts
+ * while narration plays, as before.
  *
  * While the Worker's reading-time switch is on (labReadingTime.ts), the same
  * counted time goes to the ledger instead: a per-day, per-book pending store,
@@ -56,10 +59,17 @@ export function useLabReadingYear(input: {
   listeningRef: { current: boolean }
   /** The reader's own book: counted only in the ledger, under the private bucket. */
   privateBook?: boolean
+  /**
+   * A turn where `page` does not say one: the Margin reader's newest paragraph in view, a PDF's page. Any change of
+   * `bookId`, `chapter`, `page` or `turn` is a page turn for reading time (pages read still follow `page` only).
+   */
+  turn?: string | number
 }): void {
-  const { userId, bookId, chapter, page, onCover, paused, listeningRef, privateBook = false } = input
+  const { userId, bookId, chapter, page, onCover, paused, listeningRef, privateBook = false, turn } = input
   const previousRef = useRef<{ bookId: string; chapter: number; page: number } | null>(null)
-  const activeAtRef = useRef(Date.now())
+  /** The reading-turns counter of the book on screen (set by the accrual effect below). */
+  const turnsRef = useRef<ReadingTurns | null>(null)
+  const creditRef = useRef<(credit: ReadingCredit | null) => void>(() => {})
   const dirtyRef = useRef(false)
   const userRef = useRef(userId)
   userRef.current = userId
@@ -194,29 +204,41 @@ export function useLabReadingYear(input: {
     if (onCover) return
     const next = { bookId, chapter, page }
     const pages = forwardPagesRead(previousRef.current, next)
-    if (pages > 0) {
-      activeAtRef.current = Date.now()
-      add({ pages, bookId })
-    }
+    if (pages > 0) add({ pages, bookId })
     previousRef.current = next
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bookId, chapter, page, onCover])
 
+  // Every turn credits the page just left; while narration plays, listening counts instead.
+  const turnSeenRef = useRef<string | null>(null)
+  const pausedRef = useRef(paused)
+  pausedRef.current = paused
   useEffect(() => {
-    // Capture the owner and book for this interval. Cleanup must settle the
+    const key = `${bookId}\u0000${chapter}\u0000${page}\u0000${turn ?? ''}`
+    const previous = turnSeenRef.current
+    turnSeenRef.current = key
+    if (previous === null || previous === key || !previous.startsWith(`${bookId}\u0000`)) return
+    const turns = turnsRef.current
+    if (!turns) return
+    // A turn on a visible page while no session runs (a missed visibilitychange): the reader is here; start one.
+    if (!turns.active) { if (document.visibilityState === 'visible' && !pausedRef.current) turns.start(Date.now()); return }
+    if (listeningRef.current) { turns.restart(Date.now()); return }
+    creditRef.current(turns.turn(Date.now()))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bookId, chapter, page, turn])
+
+  useEffect(() => {
+    // Capture the owner and book for this session. Cleanup must settle the
     // outgoing reader even though render has already updated the live refs.
     const countedBook = privateBook ? PRIVATE_BOOK_ID : ledgerBookId(bookId)
     let last = Date.now()
     let visible = document.visibilityState === 'visible'
-    const accrue = () => {
-      const now = Date.now()
-      const end = listeningRef.current ? now : Math.min(now, activeAtRef.current + ACTIVE_WINDOW_MS)
-      const start = Math.max(last, now - 60_000)
-      const seconds = visible && !paused ? Math.max(0, Math.floor((end - start) / 1000)) : 0
-      last = visible && !paused && end === now ? start + seconds * 1000 : now
-      if (!seconds) return
+    const turns = createReadingTurns(Date.now(), visible && !paused)
+    turnsRef.current = turns
+    const record = (start: number, seconds: number, kind: 'read' | 'listen') => {
+      if (seconds <= 0) return
       if (ledgerRef.current === 'on' || ledgerRef.current === 'unavailable') {
-        // Split at local midnight rather than assigning an entire tick to
+        // Split at local midnight rather than assigning an entire stretch to
         // the new day. Date's calendar arithmetic also handles DST changes.
         let cursor = start
         let remaining = seconds
@@ -224,7 +246,7 @@ export function useLabReadingYear(input: {
           const date = new Date(cursor)
           const midnight = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1).getTime()
           const part = Math.min(remaining, Math.ceil((midnight - cursor) / 1000))
-          addPending(userId, localDay(date), countedBook, listeningRef.current ? { listen: part } : { read: part })
+          addPending(userId, localDay(date), countedBook, kind === 'listen' ? { listen: part } : { read: part })
           cursor += part * 1000
           remaining -= part
         }
@@ -234,32 +256,51 @@ export function useLabReadingYear(input: {
         dirtyRef.current = true
       }
     }
-    const mark = () => {
-      accrue()
-      visible = document.visibilityState === 'visible'
-      activeAtRef.current = Date.now()
+    const credit = (reading: ReadingCredit | null) => {
+      if (!reading) return
+      const seconds = Math.round(reading.ms / 1000)
+      record(reading.end - seconds * 1000, seconds, 'read')
     }
-    const events = ['pointerdown', 'keydown', 'wheel', 'touchstart'] as const
-    events.forEach(name => window.addEventListener(name, mark, { passive: true }))
+    creditRef.current = credit
+    // Content-free diagnostics in internal sessions (?internal=1): seconds counted, visible and dropped by reason.
+    const report = () => {
+      if (!isInternalTraffic()) return
+      try { (window as unknown as { __tinctReadingTime?: unknown }).__tinctReadingTime = turns.diagnostics() } catch { /* never throws */ }
+    }
+    // Listening, as before: while narration plays and the page is visible.
+    const accrueListen = () => {
+      const now = Date.now()
+      if (!listeningRef.current) { last = now; return }
+      // Narration owns this stretch: the page's reading time restarts after it.
+      turns.restart(now)
+      const start = Math.max(last, now - 60_000)
+      const seconds = visible && !paused ? Math.max(0, Math.floor((now - start) / 1000)) : 0
+      last = visible && !paused ? start + seconds * 1000 : now
+      record(start, seconds, 'listen')
+    }
+    const endSession = (reason: 'idle' | 'paused' = 'idle') => { accrueListen(); credit(turns.end(Date.now(), reason)); report() }
     const onVisibility = () => {
-      accrue()
-      visible = document.visibilityState === 'visible'
+      const now = document.visibilityState === 'visible'
+      if (now === visible) return
+      if (!now) { endSession(); visible = false; void beat(true); return }
+      visible = true
       last = Date.now()
-      if (!visible) void beat(true)
+      if (!paused) turns.start(Date.now())
     }
-    const leave = () => { accrue(); visible = false; void beat(true) }
-    const resume = () => { last = Date.now(); visible = document.visibilityState === 'visible' }
+    const leave = () => { endSession(); visible = false; void beat(true) }
+    // iOS brings a page back from its cache without a visibilitychange.
+    const resume = () => { visible = document.visibilityState === 'visible'; last = Date.now(); if (visible && !paused) turns.start(Date.now()) }
     document.addEventListener('visibilitychange', onVisibility)
     window.addEventListener('pagehide', leave)
     window.addEventListener('pageshow', resume)
     const timer = window.setInterval(() => {
-      accrue()
+      accrueListen()
       recheck()
       void beat()
     }, TICK_MS)
     return () => {
-      accrue()
-      events.forEach(name => window.removeEventListener(name, mark))
+      endSession(paused ? 'paused' : 'idle')
+      if (turnsRef.current === turns) turnsRef.current = null
       document.removeEventListener('visibilitychange', onVisibility)
       window.removeEventListener('pagehide', leave)
       window.removeEventListener('pageshow', resume)

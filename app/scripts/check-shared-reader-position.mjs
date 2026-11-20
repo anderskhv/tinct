@@ -1,5 +1,7 @@
 // Private desktop reader acceptance against a local Vite server. All service/API
 // calls are isolated; the exact source coordinate is checked in local memory.
+// The one-chapter Margin reader: every page opens with ?bookScroll=0, since whole-book scroll is on for every
+// desktop reader (13 Nov 2026; check-book-scroll.mjs covers it).
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import { chromium } from '@playwright/test'
@@ -64,6 +66,7 @@ await page.route(url => url.origin !== origin || url.pathname.startsWith('/api/'
   return route.continue()
 })
 await page.addInitScript(() => {
+  localStorage.setItem('tinct:selection-actions-used', '1') // a returning reader: the margin's full start actions, not the first-visit hint (16 Nov 2026)
   if (!localStorage.getItem('tinct:reader-desktop-layout')) localStorage.setItem('tinct:reader-desktop-layout', JSON.stringify(Object.fromEntries(['frankenstein', 'bible', 'macbeth', 'lords-of-the-cosmos', 'fear-and-trembling'].map(id => [id, 'margin']))))
   if (!localStorage.getItem('tinct-lab-prefs')) localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'original-en', audioEdition: 'original-en', compareOpen: false, fontSize: 1, fontSizeExplicit: true }))
   if (!localStorage.getItem('tinct-lab-position')) localStorage.setItem('tinct-lab-position', JSON.stringify({
@@ -115,7 +118,7 @@ const openSettings = async () => {
 
 try {
 if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
-  await page.goto(`${origin}/reader?book=frankenstein&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=frankenstein&sharedReader=1&bookScroll=0`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.getByTestId('continuous-reader').waitFor()
   await page.evaluate(() => document.fonts.ready)
@@ -171,7 +174,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
 
   // Genesis 50 -> Exodus 1 crosses the Bible's distinct per-book position keys.
   await page.evaluate(() => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en', compareEdition: 'kjv-en', compareOpen: false, compareChosen: true })))
-  await page.goto(`${origin}/reader?book=bible&chapter=50&paragraph=2&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=bible&chapter=50&paragraph=2&sharedReader=1&bookScroll=0`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelector('.lab')?.dataset.chapter === '50', null, { timeout: 45000 })
   await host.waitFor()
   await observe('genesis-50', 'genesis')
@@ -219,16 +222,18 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await page.keyboard.press('Escape')
   await page.getByTestId('lab-dbar-note').click()
   await page.keyboard.type('A temporary synthetic note')
-  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).inputValue(), 'A temporary synthetic note', 'new desktop note focuses immediately')
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).evaluate(field => field.value), 'A temporary synthetic note', 'new desktop note focuses immediately')
   await page.screenshot({path:`${output}/verse-note-focus.png`})
   await page.getByRole('button', {name:'Delete Note',exact:true}).click()
   assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).count(), 0, 'deleted note leaves no editor')
   const marginRoom = await page.locator('.source-margin-room').boundingBox()
   const sourceFrame = await host.boundingBox()
   assert(marginRoom && sourceFrame, 'blank margin has a hit surface')
-  await page.mouse.click(marginRoom.x + marginRoom.width / 2, sourceFrame.y + 160)
+  // Blank paper: below the chapter's start card (approved mockup, Anders 9 Nov 2026), which now sits at the chapter's top.
+  const cardsBottom = await page.locator('.source-margin-item').evaluateAll(nodes => Math.max(0, ...nodes.map(node => node.getBoundingClientRect().bottom)))
+  await page.mouse.click(marginRoom.x + marginRoom.width / 2, Math.max(sourceFrame.y + 160, cardsBottom + 40))
   await page.keyboard.type('A note on blank paper')
-  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).inputValue(), 'A note on blank paper', 'blank margin focuses its new note')
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).evaluate(field => field.value), 'A note on blank paper', 'blank margin focuses its new note')
   await page.getByRole('button', {name:'Delete Note',exact:true}).click()
   await page.waitForTimeout(600) // Include the note autosave debounce: deletion must remain final.
   assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).count(), 0)
@@ -257,7 +262,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   // A play's lineated verse and a source figure must remain structured after
   // passing through the same continuous window component.
   await page.evaluate(() => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'original-en', audioEdition: 'original-en', compareOpen: false, shakespeareLayout: 'verse' })))
-  await page.goto(`${origin}/reader?book=macbeth&edition=original-en&chapter=1&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=macbeth&edition=original-en&chapter=1&sharedReader=1&bookScroll=0`, { waitUntil: 'domcontentloaded' })
   await host.waitFor({ timeout: 45000 })
   await host.locator('.lab-verse-line').first().waitFor({ timeout: 15000 })
   const verseText = macbethSource.chapters[0].paragraphs[1]
@@ -276,7 +281,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   // BSB stores each poetic half-line as a source paragraph. The visual poem
   // joins those lines while each painted word keeps its original paragraph.
   await page.evaluate(() => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'bsb-en', audioEdition: 'bsb-en', compareOpen: false })))
-  await page.goto(`${origin}/reader?book=bible&edition=bsb-en&chapter=629&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=bible&edition=bsb-en&chapter=629&sharedReader=1&bookScroll=0`, { waitUntil: 'domcontentloaded' })
   await host.waitFor({ timeout: 45000 })
   await page.waitForFunction(() => {
     const lines = document.querySelectorAll('.continuous-reader .lab-hearing-line')
@@ -284,7 +289,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   }, null, { timeout: 15000 })
   assert((await host.locator('.lab-prose-join [data-paragraph-index="1"]').count()) > 0, 'poetry line joins retain second source paragraph coordinates')
   await observe('bsb-proverbs-poetry', 'proverbs')
-  await page.goto(`${origin}/reader?book=lords-of-the-cosmos&edition=original-en&chapter=2&paragraph=2&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=lords-of-the-cosmos&edition=original-en&chapter=2&paragraph=2&sharedReader=1&bookScroll=0`, { waitUntil: 'domcontentloaded' })
   await host.waitFor({ timeout: 45000 })
   await page.getByTestId('lab-figure').first().waitFor()
   await observe('source-figure', 'lords-of-the-cosmos')
@@ -294,7 +299,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
 
   // A real authored footnote sidecar belongs to Fear and Trembling's modern
   // edition. The Lords figure above is its actual catalogue image and caption.
-  await page.goto(`${origin}/reader?book=fear-and-trembling&edition=modern-en&chapter=4&paragraph=2&word=400&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=fear-and-trembling&edition=modern-en&chapter=4&paragraph=2&word=400&sharedReader=1&bookScroll=0`, { waitUntil: 'domcontentloaded' })
   await host.waitFor({ timeout: 45000 })
   const footnote = page.getByTestId('lab-footnote-mark').first()
   await footnote.waitFor({ timeout: 20000 })
@@ -305,7 +310,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
 
   // A long paragraph can be split across several bounded windows in both
   // directions without a blank reader or an invalid source coordinate.
-  await page.goto(`${origin}/reader?book=frankenstein&chapter=2&paragraph=3&word=4&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=frankenstein&chapter=2&paragraph=3&word=4&sharedReader=1&bookScroll=0`, { waitUntil: 'domcontentloaded' })
   await host.waitFor({ timeout: 45000 })
   await host.hover()
   for (let step = 0; step < 6; step++) {
@@ -326,22 +331,18 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   // all remain the same source, including the first chapter's Primer and a
   // later chapter's Catch me up / Recap. Every AI endpoint is a local fixture.
   await page.setViewportSize({ width: 1280, height: 800 })
-  await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=3&word=4&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=3&word=4&sharedReader=1&bookScroll=0`, { waitUntil: 'domcontentloaded' })
   const host = page.getByTestId('continuous-reader')
   await host.waitFor({ timeout: 45000 })
   await observe('frankenstein-1280')
-  await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&sharedReader=1&bookScroll=0`, { waitUntil: 'domcontentloaded' })
   await host.waitFor({ timeout: 45000 })
   await observe('frankenstein-chapter-opening', 'frankenstein', false)
   const beforeActions = await saved('frankenstein')
-  await host.locator('.lab-chapter-preview').first().click()
+  // The chapter's Primer is in its margin start card (approved mockup, Anders 9 Nov 2026), no longer beside the heading.
+  await page.getByTestId('margin-start-primer').click()
   await page.locator('[data-testid="lab-chapter-notes-beat"]:visible').first().waitFor()
   assert(chapterActions.some(item => item.kind === 'notes' && item.request.bookId === 'frankenstein' && item.request.chapterNumber === 2 && item.request.kind === 'primer'), 'Primer request is source/chapter-bound')
-  await host.locator('[data-testid="source-margin-item"][data-open="true"]').getByTestId('source-margin-minimise').click()
-  await page.getByTestId('lab-super').click()
-  await page.getByTestId('lab-super-row-summarize').click()
-  await page.locator('[data-testid="lab-chapter-notes-beat"]:visible').first().waitFor()
-  assert(chapterActions.some(item => item.kind === 'notes' && item.request.bookId === 'frankenstein' && item.request.chapterNumber === 2 && item.request.kind === 'end'), 'Recap request is source/chapter-bound')
   await host.locator('[data-testid="source-margin-item"][data-open="true"]').getByTestId('source-margin-minimise').click()
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-catchup').click()
@@ -352,7 +353,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   assert.deepEqual(await saved('frankenstein'), beforeActions, 'chapter cards never move the semantic source place')
 
   // Exact reported chapter and edition: Romans 2:1 starts with a raised numeral.
-  await page.goto(`${origin}/reader?book=bible&edition=web-en&chapter=1048&paragraph=0&word=0&sharedReader=1`, {waitUntil:'domcontentloaded'})
+  await page.goto(`${origin}/reader?book=bible&edition=web-en&chapter=1048&paragraph=0&word=0&sharedReader=1&bookScroll=0`, {waitUntil:'domcontentloaded'})
   await host.waitFor({timeout:45000})
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelector('.lab')?.dataset.chapter === '1048')
   const numeralBox = await host.locator('.lab-verse-mark').first().boundingBox()
@@ -387,16 +388,21 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-editions').click()
-  await page.getByTestId('lab-v2-show-compare').waitFor({ timeout: 15000 })
-  await page.getByTestId('lab-v2-show-compare').click()
-  await page.waitForFunction(() => document.querySelector('.lab')?.dataset.compareActive === 'true')
-  assert.equal(await page.getByTestId('lab-v2-show-compare').count(), 0, 'phone Compare closes settings and opens paired edition')
+  // No Compare on the phone (10 Nov 2026), even with a stored compare choice: Book settings switch the Main version.
+  await page.getByTestId('lab-v2-main-edition').waitFor({ timeout: 15000 })
+  assert.equal(await page.getByTestId('lab-v2-show-compare').count(), 0, 'the phone offers no Compare')
+  assert.equal(await page.locator('.lab').getAttribute('data-compare-active'), 'false', 'a stored compare choice does not open Compare on the phone')
+  await page.getByTestId('lab-v2-main-edition').click()
+  await page.locator('[data-edition="web-en"]').click()
+  await page.getByTestId('lab-v2-sheet-close').click()
+  await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerEdition === 'web-en')
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-editions').click()
-  assert.equal(await page.getByTestId('lab-v2-show-compare').getAttribute('aria-checked'), 'true', 'phone Compare is selected in book settings')
-  await page.getByTestId('lab-v2-show-compare').click()
-  await page.waitForFunction(() => document.querySelector('.lab')?.dataset.compareActive === 'false')
-  assert.equal(await host.count(), 0, 'phone Read and Compare retain the paged surface')
+  await page.getByTestId('lab-v2-main-edition').click()
+  await page.locator('[data-edition="kjv-en"]').click()
+  await page.getByTestId('lab-v2-sheet-close').click()
+  await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerEdition === 'kjv-en')
+  assert.equal(await host.count(), 0, 'the phone keeps the paged surface across a Main version switch')
   await observe('bible-phone-read-after-compare', 'genesis')
   await page.goto(`${origin}/reader?book=frankenstein&sharedReader=0`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })

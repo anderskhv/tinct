@@ -105,12 +105,27 @@ export async function assertBareDesktopHeader(page) {
   return controls
 }
 
+/**
+ * The runner's connection to production is occasionally reset mid-request (read ECONNRESET twice
+ * on 18 Nov 2026, before any assertion ran). Retry such transport errors; any HTTP answer is
+ * returned as is, so a wrong build still fails.
+ */
+async function fetchWithRetry(route, attempts = 3) {
+  for (let attempt = 1; ; attempt += 1) {
+    try { return await route.fetch() } catch (error) {
+      const transient = /ECONNRESET|ETIMEDOUT|ECONNREFUSED|socket hang up|EPIPE/i.test(String(error?.message))
+      if (!transient || attempt >= attempts) throw error
+      await new Promise(resolve => setTimeout(resolve, 1000 * attempt))
+    }
+  }
+}
+
 /** Refuse stale HTML or another emitted entry when acceptance names an exact build. */
 export async function enforceReaderBundle(route, expected) {
   if (!expected) return false
   const url = new URL(route.request().url())
   if (url.pathname === '/reader') {
-    const response = await route.fetch()
+    const response = await fetchWithRetry(route)
     const html = await response.text()
     const entries = [...html.matchAll(/\/assets\/index-[\w-]+\.js/g)].map(match => match[0])
     assert(response.status() === 200 && entries.length === 1 && entries[0] === expected,
@@ -120,4 +135,53 @@ export async function enforceReaderBundle(route, expected) {
   }
   if (/^\/assets\/index-[\w-]+\.js$/.test(url.pathname)) assert.equal(url.pathname, expected)
   return false
+}
+/**
+ * Open a folded margin card from its header toggle and prove nothing already shown moved or changed type
+ * (tester, 9 Nov 2026: the open click sat apart from the minimise, and opening restyled the preview).
+ * The toggle keeps its box, and each folded line (an Ask's question, the bottom line, a note's words)
+ * reappears in the open card at the same place in the same face, size, weight and style.
+ */
+export async function openFoldedCardInPlace(page, card) {
+  assert.equal(await card.getAttribute('data-open'), 'false', 'card starts folded')
+  const toggle = card.locator('.source-margin-toggle')
+  const before = await toggle.boundingBox()
+  const lines = await card.locator('.source-margin-preview').evaluate(button => [...button.querySelectorAll('.source-margin-preview-question, .source-margin-preview-lead')].map(node => {
+    const text = node.firstChild, range = document.createRange(), probe = Math.min(24, text.textContent.length)
+    range.setStart(text, 0); range.setEnd(text, probe)
+    const box = range.getClientRects()[0], style = getComputedStyle(node)
+    return { needle: text.textContent.slice(0, probe), top: box.top, left: box.left, height: box.height, font: [style.fontFamily, style.fontSize, style.fontWeight, style.fontStyle, style.lineHeight].join('|') }
+  }).filter(line => line.needle.trim() && !line.needle.endsWith('…')))
+  assert(lines.length, 'folded card shows a preview line')
+  await card.getByTestId('source-margin-expand').click()
+  await page.waitForFunction(node => node.dataset.open === 'true', await card.elementHandle())
+  await settlePaint(page)
+  const after = await card.getByTestId('source-margin-minimise').boundingBox()
+  assert(before && after && Math.abs(before.x - after.x) <= 1 && Math.abs(before.y - after.y) <= 1, `open and minimise share one place: ${JSON.stringify({ before, after })}`)
+  const found = await card.locator('.source-margin-content').evaluate((content, lines) => lines.map(line => {
+    const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT)
+    for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+      const at = text.textContent.indexOf(line.needle)
+      if (at < 0 || !text.parentElement?.getClientRects().length) continue
+      const range = document.createRange(); range.setStart(text, at); range.setEnd(text, at + line.needle.length)
+      const box = range.getClientRects()[0], style = getComputedStyle(text.parentElement)
+      return { ...line, openTop: box.top, openLeft: box.left, openFont: [style.fontFamily, style.fontSize, style.fontWeight, style.fontStyle, style.lineHeight].join('|') }
+    }
+    const field = [...content.querySelectorAll('textarea')].find(node => node.value.startsWith(line.needle))
+    if (field) {
+      const style = getComputedStyle(field), box = field.getBoundingClientRect(), lineHeight = parseFloat(style.lineHeight)
+      return { ...line, openTop: box.top + parseFloat(style.borderTopWidth) + parseFloat(style.paddingTop) + (lineHeight - line.height) / 2, openLeft: box.left + parseFloat(style.borderLeftWidth) + parseFloat(style.paddingLeft), openFont: [style.fontFamily, style.fontSize, style.fontWeight, style.fontStyle, style.lineHeight].join('|') }
+    }
+    return { ...line, openTop: null }
+  }), lines)
+  for (const line of found) {
+    assert(line.openTop !== null, `folded line is still shown when open: ${JSON.stringify(line)}`)
+    assert(Math.abs(line.openTop - line.top) <= 1.5 && Math.abs(line.openLeft - line.left) <= 1.5, `opening does not move a folded line: ${JSON.stringify(line)}`)
+    // Family, size, style and line height stay; the weight may rise on opening, because a folded card is
+    // always regular (passive) and an open answer bolds its lead line (Anders, 9 Nov 2026).
+    const face = font => { const [family, size, , style, lineHeight] = font.split('|'); return [family, size, style, lineHeight].join('|') }
+    assert.equal(face(line.openFont), face(line.font), `opening keeps a folded line's type: ${line.needle}`)
+    assert.equal(line.font.split('|')[2], '400', `a folded line is regular weight: ${line.needle}`)
+  }
+  return found
 }

@@ -76,7 +76,7 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   await page.goto(origin+'/library?view=book-detail&book='+id,{waitUntil:'domcontentloaded'})
   await page.locator('#book-overlay').waitFor()
   await page.locator('#page-back').waitFor()
-  assert.equal(await page.locator('.hero-dots button').count(),5,'reviewed copy must not add hero selections')
+  assert.equal(await page.locator('.hero-dots button').count(),6,'reviewed copy must not add hero selections (six featured books since the Bible joined, 10 Nov 2026)')
   const images=manifest.books.find(book=>book.bookId===id).imageIds.map(imageId=>manifest.images.find(image=>image.id===imageId))
   assert.equal(await page.locator('#slip-images img').count(),images.length,id+' complete author attribution')
   await page.waitForFunction(()=>[...document.querySelectorAll('#slip-images img')].every(image=>image.complete&&image.naturalWidth>0))
@@ -128,6 +128,13 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   const rowTitles=(await page.locator('#intro-body .primer-row > summary').allTextContents()).map(t=>t.replace('⌄','').trim())
   for(const retired of ['Background','What to notice','Helpful context'])assert(!rowTitles.includes(retired),id+' has no '+retired+' row: '+rowTitles.join(' | '))
   assert.equal(await page.locator('[data-testid=primer-context], [data-testid=primer-notice]').count(),0,id+' draws no context or notice rows')
+  // People & ideas read like Structure (Anders, 6 Nov 2026): a bold "Name · role:" lead-in, then the text.
+  const peopleRow=page.locator('[data-testid=primer-people]')
+  if(await peopleRow.count()){
+   const leads=await peopleRow.locator('.primer-item > strong').allTextContents()
+   assert(leads.length&&leads.every(t=>/\S: $|[?!:] $/.test(t)),id+' people lead-ins are bold "Name · role:": '+leads.join(' | '))
+   assert.equal(await peopleRow.locator('.primer-item').filter({hasText:' – '}).count(),0,id+' people lines have no dash')
+  }
   const wanted=prerequisites(id)
   assert.equal(rowTitles.filter(t=>t==='Suggested prerequisites').length,wanted.length?1:0,id+' Suggested prerequisites row '+(wanted.length?'present':'absent'))
   if(wanted.length){

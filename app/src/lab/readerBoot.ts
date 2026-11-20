@@ -26,6 +26,7 @@ export const READER_BOOT_BIBLE_EDITIONS: readonly string[] = ['bsb-en', 'kjv-en'
 /** Paper colours per resolved theme; LabApp paints the same values. */
 export const LAB_THEME_PAPER = {
   light: '#ece7db',
+  white: '#ffffff',
   book: '#e7dcc7',
   dark: '#171411',
 } as const
@@ -189,8 +190,11 @@ export function readerBootMarginPreview(search: string, stored: (key: string) =>
 
 type StoredTheme = 'system' | LabResolvedTheme
 
-function storedTheme(value: unknown): StoredTheme | null {
-  return value === 'system' || value === 'light' || value === 'dark' || value === 'book' ? value : null
+/** White is stored as Light plus `paper: 'white'` (labPrefs.ts `labStoredTheme`). */
+function storedTheme(src: Record<string, unknown>): StoredTheme | null {
+  const value = src.theme
+  if (value === 'light' && src.paper === 'white') return 'white'
+  return value === 'system' || value === 'light' || value === 'white' || value === 'dark' || value === 'book' ? value : null
 }
 
 /** Each appearance profile's stored theme and face, as `parseLabStoredPrefs` reads them. */
@@ -207,11 +211,11 @@ function storedAppearances(raw: string | null): Array<{ theme: StoredTheme; font
   if (src.version === 2 && src.shared && typeof src.shared === 'object') {
     return ['phone', 'desktop'].map(profile => {
       const appearance = src[profile] && typeof src[profile] === 'object' ? src[profile] as Record<string, unknown> : {}
-      return { theme: storedTheme(appearance.theme) ?? 'system', fontFamily: appearance.fontFamily }
+      return { theme: storedTheme(appearance) ?? 'system', fontFamily: appearance.fontFamily }
     })
   }
   // Version 1 was one flat object shared by both profiles.
-  const theme = storedTheme(src.theme)
+  const theme = storedTheme(src)
     ?? (Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : 'system')
   return [{ theme, fontFamily: src.fontFamily }]
 }

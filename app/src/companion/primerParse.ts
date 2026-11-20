@@ -12,6 +12,13 @@
  * A primer made before kinds (Anders, 15 Oct 2026), {"gist","claims","keepInMind","map"}, still
  * reads: as a paper's, its claims and cautions the sections Key claims and Keep in mind.
  * A stored primer adds when it was made and the unit it is for: { …, madeAt, unitKey }.
+ *
+ * Since 11 Nov 2026 (prompt v5, the catalogue Primer's v4 structure for own books) the primer is three parts:
+ *   {"kind":"textbook","role":"In Deep Learning","gist":"<its role in the document>",
+ *    "sections":[{"title":"How it's built","items":[…]},{"title":"Watch for","items":[…]}]}
+ * `role` (the first part's title, "In <document>") marks it: "In brief" with what the document is for a unit that is the whole
+ * document. Its map is optional. A primer without `role` was made by an earlier prompt: it still reads
+ * (a saved card), but isCurrentPrimer says it is not to be served as the unit's primer any more.
  * Pure: no browser or Worker APIs.
  */
 
@@ -27,6 +34,9 @@ export interface PrimerSection { title: string; pages: string }
 export type PrimerKind = 'paper' | 'textbook' | 'narrative' | 'practical' | 'other'
 export interface Primer {
   kind: PrimerKind
+  /** Prompt v5 on: the first part's title, "In <document>" ('' when the unit is the whole document). Absent on an older primer. */
+  role?: string
+  /** The first part: the unit's role in its document (v5), or an older primer's gist. '' only with role ''. */
   gist: string
   sections: PrimerPart[]
   map: PrimerSection[]
@@ -51,6 +61,8 @@ export const PRIMER_LIMITS = Object.freeze({
   sections: Object.freeze({ min: 1, max: 4 }),
   items: Object.freeze({ min: 1, max: 8 }),
   map: Object.freeze({ min: 3, max: 8 }),
+  /** A v5 primer's map is optional (How it's built gives the parts). */
+  mapV5: Object.freeze({ min: 0, max: 8 }),
   /** A primer made before kinds: its claims and cautions. */
   claims: Object.freeze({ min: 3, max: 5 }),
   keepInMind: Object.freeze({ min: 1, max: 3 }),
@@ -58,6 +70,7 @@ export const PRIMER_LIMITS = Object.freeze({
   itemChars: 400,
   titleChars: 200,
   sectionTitleChars: 60,
+  roleChars: 60,
   termChars: 120,
   citeChars: 40,
   pagesChars: 40,
@@ -126,22 +139,32 @@ export function normalizePrimer(value: unknown): Primer | null {
   const v = value as Record<string, unknown>
   const L = PRIMER_LIMITS
   const gist = clean(v.gist, L.gistChars)
-  if (!gist) return null
-  const map = list<PrimerSection>(v.map, L.map, entry => {
+  const mapEntry = (entry: unknown): PrimerSection | null => {
     if (!entry || typeof entry !== 'object') return null
     const e = entry as Record<string, unknown>
     const title = clean(e.title, L.titleChars)
     return title ? { title, pages: clean(e.pages, L.pagesChars) } : null
+  }
+  const sectionsOf = () => list<PrimerPart>(v.sections, L.sections, entry => {
+    if (!entry || typeof entry !== 'object') return null
+    const e = entry as Record<string, unknown>
+    const title = clean(e.title, L.sectionTitleChars)
+    const items = list<PrimerItem>(e.items, L.items, x => item(x, L))
+    return title && items ? { title, items } : null
   })
+  if (isRoleShape(v)) {
+    // Prompt v5: its role (the first part, '' for the whole document), How it's built and Watch for; a map only if given.
+    const sections = sectionsOf()
+    if (!sections) return null
+    const role = gist ? clean(v.role, L.roleChars) : ''
+    const map = Array.isArray(v.map) ? list<PrimerSection>(v.map, L.mapV5, mapEntry) ?? [] : []
+    return { kind: kindOf(v.kind), role, gist, sections, map }
+  }
+  if (!gist) return null
+  const map = list<PrimerSection>(v.map, L.map, mapEntry)
   if (!map) return null
   if (Array.isArray(v.sections)) {
-    const sections = list<PrimerPart>(v.sections, L.sections, entry => {
-      if (!entry || typeof entry !== 'object') return null
-      const e = entry as Record<string, unknown>
-      const title = clean(e.title, L.sectionTitleChars)
-      const items = list<PrimerItem>(e.items, L.items, x => item(x, L))
-      return title && items ? { title, items } : null
-    })
+    const sections = sectionsOf()
     return sections ? { kind: kindOf(v.kind), gist, sections, map } : null
   }
   const claims = list<PrimerClaim>(v.claims, L.claims, entry => point(entry, L))
@@ -149,6 +172,24 @@ export function normalizePrimer(value: unknown): Primer | null {
   if (!claims || !keepInMind) return null
   const [claimsTitle, keepTitle] = PRIMER_KINDS.paper
   return { kind: 'paper', gist, sections: [{ title: claimsTitle, items: claims }, { title: keepTitle, items: keepInMind }], map }
+}
+
+/** The second part's title in a v5 primer. */
+export const PRIMER_BUILT_TITLE = "How it's built"
+const BUILT_RE = /^how it['’]s built$/i
+
+/** A v5 answer: it names its role (even ''), or, without one, its parts are How it's built. */
+function isRoleShape(v: Record<string, unknown>): boolean {
+  if (typeof v.role === 'string') return true
+  return Array.isArray(v.sections) && v.sections.some(s => !!s && typeof s === 'object' && BUILT_RE.test(clean((s as Record<string, unknown>).title, 60)))
+}
+
+/**
+ * A primer the current prompt (v5) made: the one to serve as a unit's primer. An older one (no `role`) is
+ * made again when the reader opens the unit, as a catalogue Primer's cache key is bumped (chapterNotes.ts).
+ */
+export function isCurrentPrimer(primer: Primer | null | undefined): boolean {
+  return !!primer && typeof primer.role === 'string'
 }
 
 /** The object that starts at `start` (a "{"), to its matching "}", strings and escapes respected; '' when it never closes. */

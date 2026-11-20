@@ -73,3 +73,20 @@ it('keeps a phone text edition already chosen by its earlier opening rule', asyn
   localStorage.setItem(`tinct-addbook:open-rule:${hex}`, '2')
   expect(await openUserBook(hex, { owner, desktop: false, sharedReader: true })).toMatchObject({ ok: true })
 })
+
+// Book scroll runs a pasted text's sections on with no gap (sharedReader/bookScroll.ts): the opened book says it is one,
+// told from the file Paste text wrote, beside the stored conversion (nothing converted again).
+it('marks a pasted text as pasted, and a book’s EPUB or a PDF as not', async () => {
+  const pastedPackage = new TextEncoder().encode('PK\u0003\u0004mimetype…OEBPS/content.opf<package><manifest><item id="chapter" href="chapter.xhtml" media-type="application/xhtml+xml"/></manifest><spine><itemref idref="chapter"/></spine></package>')
+  const record = records.get(`epub:${hex}`)!
+  record.bytes = pastedPackage.buffer.slice(0) as ArrayBuffer
+  const pasted = await openUserBook(hex, { owner })
+  expect(pasted.ok && pasted.book.pasted).toBe(true)
+  record.bytes = new TextEncoder().encode('PK\u0003\u0004OEBPS/content.opf<spine><itemref idref="c1"/><itemref idref="c2"/></spine>').buffer as ArrayBuffer
+  const book = await openUserBook(hex, { owner })
+  expect(book.ok && book.book.pasted).toBeFalsy()
+  keepPdf(true)
+  localStorage.setItem(`tinct-addbook:edition:${hex}`, JSON.stringify('text'))
+  const pdf = await openUserBook(hex, { owner, desktop: true, sharedReader: true })
+  expect(pdf.ok && pdf.book.pasted).toBeFalsy()
+})

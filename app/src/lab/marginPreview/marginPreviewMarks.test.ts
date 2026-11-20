@@ -13,9 +13,9 @@ const chapters = marginPreviewChapters({
     { number: 2, title: 'Chapter 1', paragraphs: ['I am by birth a Genevese, and my family is one of the most distinguished.', '', 'And so it went on, day after day.'] },
   ],
 } as unknown as EditionData)
-const scope: MarginMarkScope = { bookId: 'frankenstein', editionKey: 'modern-en', chapters }
+const scope: MarginMarkScope = { bookId: 'treasure-island', editionKey: 'modern-en', chapters }
 const text = (page: number) => { const c = chapters[page - 1]; return (c.section ?? '') + c.title + c.paragraphs.map(p => drawnParagraphText(p.text)).join('') }
-const lab = (over: Partial<LabHighlight>): LabHighlight => ({ id: 'hl-1700000000000-abcd', bookId: 'frankenstein', editionKey: 'modern-en', chapterNumber: 2, paragraphIndex: 0, fromWord: 5, endParagraphIndex: 0, toWord: 6, color: 'rose', text: 'Genevese,', updatedAt: 1000, ...over })
+const lab = (over: Partial<LabHighlight>): LabHighlight => ({ id: 'hl-1700000000000-abcd', bookId: 'treasure-island', editionKey: 'modern-en', chapterNumber: 2, paragraphIndex: 0, fromWord: 5, endParagraphIndex: 0, toWord: 6, color: 'rose', text: 'Genevese,', updatedAt: 1000, ...over })
 
 describe('margin marks are the book reader\'s marks', () => {
   it('a book reader highlight shows in the margin on its words, and comes back as the same record', () => {
@@ -34,7 +34,7 @@ describe('margin marks are the book reader\'s marks', () => {
     const m: MarginMark = { id: 'mz1abc', page: 2, start, end, text: 'my family', color: 'sage', at: 2000 }
     const { next, changed } = applyMarginMarks([], [m], { ...scope, contentRevision: 'a'.repeat(64) }, 3000)
     expect(changed).toBe(true)
-    expect(next).toEqual([{ id: 'mz1abc', bookId: 'frankenstein', editionKey: 'modern-en', contentRevision: 'a'.repeat(64), chapterNumber: 2, color: 'sage', paragraphIndex: 0, fromWord: 7, endParagraphIndex: 0, toWord: 9, text: 'my family', updatedAt: 2000 }])
+    expect(next).toEqual([{ id: 'mz1abc', bookId: 'treasure-island', editionKey: 'modern-en', contentRevision: 'a'.repeat(64), chapterNumber: 2, color: 'sage', paragraphIndex: 0, fromWord: 7, endParagraphIndex: 0, toWord: 9, text: 'my family', updatedAt: 2000 }])
     // And back: the same characters.
     expect(marginMarkOf(next[0], scope)).toMatchObject({ start, end })
   })
@@ -74,13 +74,13 @@ describe('margin marks are the book reader\'s marks', () => {
     const ok: MarginMark = { id: 'old1', page: 2, start, end, text: 'Genevese,', color: 'gold', at: 100 }
     const stale: MarginMark = { id: 'old2', page: 2, start, end, text: 'Something else entirely', color: 'gold', at: 100 }
     expect(migratePreviewMarks([ok, stale], [], scope).keep.map(m => m.id)).toEqual(['old2'])
-    localStorage.setItem(previewMarksKey('frankenstein'), JSON.stringify([ok]))
-    localStorage.setItem('tinct-addbook:hl-gone:preview:frankenstein', '[]')
+    localStorage.setItem(previewMarksKey('treasure-island'), JSON.stringify([ok]))
+    localStorage.setItem('tinct-addbook:hl-gone:preview:treasure-island', '[]')
     writeLabHighlights([lab({ id: 'mine', bookId: 'dracula' })])
     expect(migratePreviewMarksLocal(scope).map(h => h.id)).toEqual(['old1'])
     expect(readLabHighlights().map(h => h.id)).toEqual(['mine', 'old1'])
-    expect(localStorage.getItem(previewMarksKey('frankenstein'))).toBeNull()
-    expect(localStorage.getItem('tinct-addbook:hl-gone:preview:frankenstein')).toBeNull()
+    expect(localStorage.getItem(previewMarksKey('treasure-island'))).toBeNull()
+    expect(localStorage.getItem('tinct-addbook:hl-gone:preview:treasure-island')).toBeNull()
     // Again: nothing more.
     expect(migratePreviewMarksLocal(scope)).toEqual([])
   })

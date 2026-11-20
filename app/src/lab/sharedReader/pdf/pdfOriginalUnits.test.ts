@@ -74,3 +74,33 @@ it('does not label pages before the first detected chapter as that chapter', () 
   expect(pdfCompleteUnitPages(pdfUnitAt(units, 36)!)).toEqual([36, 37, 38, 39])
   expect(units.flatMap(unit => Array.from({length: unit.to - unit.from + 1}, (_, i) => unit.from + i))).toEqual(Array.from({length: 512}, (_, i) => i + 1))
 })
+
+it('makes a paper’s detected top-level sections its units, each from its heading, and keeps bookmarks first', async () => {
+  const { pdfSectionUnits, pdfUnitFrac } = await import('./pdfOriginalUnits')
+  const sections = [
+    { title: 'Abstract', page: 1, frac: .3, level: 1 }, { title: '1 Introduction', page: 1, frac: .55, level: 1 },
+    { title: '2 Method', page: 3, frac: .08, level: 1 }, { title: '2.1 Setup', page: 3, frac: .5, level: 2 },
+    { title: '3 Results', page: 4, frac: .6, level: 1 }, { title: 'References', page: 6, frac: .4, level: 1 },
+  ]
+  const units = pdfOriginalUnits(margin, 7, [], { nav: 'headings', pages: 7, entries: [{ id: 'h0', label: '2 Method', page: 3 }] }, sections)
+  expect(units.map(unit => [unit.title, unit.from, unit.start, unit.to, unit.frac, unit.matter ?? null])).toEqual([
+    ['Abstract', 1, 1, 1, .3, null], ['1 Introduction', 1, 1, 2, .55, null],
+    // A heading that opens its page leaves the page before to the section before.
+    ['2 Method', 3, 3, 4, .08, null], ['3 Results', 4, 4, 6, .6, null], ['References', 6, 6, 7, .4, 'back'],
+  ])
+  // A shared page belongs to the section whose heading stands at or above the place.
+  expect(pdfUnitAt(units, 1, .1)?.title).toBe('Abstract')
+  expect(pdfUnitAt(units, 1, .7)?.title).toBe('1 Introduction')
+  expect(pdfUnitAt(units, 4, .2)?.title).toBe('2 Method')
+  expect(pdfUnitAt(units, 4, .8)?.title).toBe('3 Results')
+  expect(pdfUnitFrac(units[2])).toBeCloseTo(.06)
+  expect(pdfCompleteUnitPages(units[3])).toEqual([4, 5, 6])
+  expect(pdfCompleteUnitPages(units[4])).toEqual([])
+  // Bookmarks, when the file has them, still name the units.
+  expect(pdfOriginalUnits(margin, 7, [{ title: 'Bookmarked', page: 1 }, { title: 'Later', page: 4 }], null, sections).map(unit => unit.title)).toEqual(['Bookmarked', 'Later'])
+  // Too few sections, or a long document, keeps today's units.
+  expect(pdfSectionUnits([sections[0]], 7)).toEqual([])
+  expect(pdfSectionUnits(sections, 400)).toEqual([])
+  // A first section after page 1 leaves the opening pages unnamed.
+  expect(pdfOriginalUnits(margin, 7, [], null, sections.slice(2).map(section => ({ ...section, page: section.page })))[0]).toMatchObject({ title: 'Pages 1–2', from: 1, to: 2 })
+})

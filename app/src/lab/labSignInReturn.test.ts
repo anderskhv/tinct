@@ -14,7 +14,6 @@ describe('safeLabReturnTo', () => {
   it('keeps the launch routes', () => {
     expect(safe('/library')).toBe('/library')
     expect(safe('/library/')).toBe('/library/')
-    expect(safe('/featured')).toBe('/featured')
     expect(safe('/admin/metrics')).toBe('/admin/metrics')
     expect(safe('/read/odyssey')).toBe('/read/odyssey')
     expect(safe('/read/odyssey/3')).toBe('/read/odyssey/3')

@@ -27,6 +27,8 @@ const engines = (process.env.OFFLINE_ENGINES || 'webkit,chromium').split(',')
 const BOOKS = {
   frankenstein: { firstChapter: 1, deepChapter: 10, lastChapter: 28 },
   bible: { firstChapter: 1, deepChapter: 500, lastChapter: 1189 },
+  // Modern English main, Russian original for Compare: the first book with no original-en.
+  'master-and-margarita': { firstChapter: 1, deepChapter: 12, lastChapter: 33 },
 }
 const books = (process.env.OFFLINE_BOOKS || 'frankenstein,bible').split(',')
 // OFFLINE_VIEWPORT=1440x900: a desktop window (default: an iPhone, 390x844).

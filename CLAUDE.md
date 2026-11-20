@@ -21,7 +21,18 @@ English is the strategy. Danish is optional, not a launch, QA or marketing requi
 
 ## Deploy
 
-Deploy-after-verify (until Tinct has more than 10 users): build, verify-bundle, merge to `main`, and let the GitHub Actions deploy workflow release it. Do not ask first unless Anders said local-only. Details and the completion checklist are in `AGENTS.md`.
+**Ask before every release (Anders, 20 Nov 2026).** Merging to `main` deploys, so never merge without Anders's go-ahead for that release. The one exception is a clear P0 bug fix: release it, then tell him at once.
+
+- Ready work waits in a **release bucket**: PRs with green CI, listed for Anders with what each changes and its risk. He picks when a bucket ships.
+- One bucket at a time; never release while a deploy runs.
+- **Done means the deploy run is green**: every `checks` group passed and `rollback` was skipped. Never report a release live before that. If it rolled back, say so with the failing check, and release nothing else until that is fixed.
+- When a change alters behaviour a check asserts, update the check in the same PR.
+
+Details and the completion checklist are in `AGENTS.md`.
+
+## Marketing
+
+In any marketing, SEO, ads or growth conversation, read `docs/cmo-memory.md` first and update it before the conversation ends.
 
 ## Data and privacy
 
@@ -68,6 +79,7 @@ Rules live in `docs/design-system.md`. The ones Anders cares about most:
 - Signed-in users never see the landing page (`app/public/landing.html` redirects before render). A regression is P0.
 - Supabase email confirmation is off: sign-up lands straight in the reader.
 - Every book and edition is visually QA'd page by page before shipping.
+- **Own books feel like the Tinct library.** A reader's own PDF, EPUB or pasted text gets the same reading experience as a library book: the same primers, pills, cards, menus, settings, gestures and layout. Build each reader feature for both, or say why not. Expected differences only: library books have extra editions (Modern English, translations, narration), and a PDF opens as its original pages by default.
 
 ## Decisions
 

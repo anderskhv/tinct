@@ -86,17 +86,20 @@ describe('the sheet', () => {
 })
 
 describe('reading settings', () => {
-  it('offers Book, Light and Dark — and no pill row across the top', () => {
+  it('offers Book, Light, White and Dark — and no pill row across the top', () => {
     openSheet()
     for (const { theme } of LAB_V2_THEMES) expect(screen.getByTestId(`lab-v2-theme-${theme}`)).toBeTruthy()
     expect(screen.queryByTestId('lab-v2-theme-system')).toBeNull()
-    expect(LAB_V2_THEMES.map(entry => entry.theme)).toEqual(['book', 'light', 'dark'])
+    expect(LAB_V2_THEMES.map(entry => entry.theme)).toEqual(['book', 'light', 'white', 'dark'])
     // The head carries the title and the ×, and nothing else.
     expect(screen.getByTestId('lab-v2-sheet').querySelectorAll('.lab-v2-head button')).toHaveLength(1)
   })
 
-  it('writes a theme, a size and the two editions straight through to the store', () => {
+  it('writes a theme, a size and the main edition straight through to the store', () => {
     openSheet()
+    fireEvent.click(screen.getByTestId('lab-v2-theme-white'))
+    expect(readLabPrefs().theme).toBe('white')
+    expect(screen.getByTestId('lab-v2-theme-white').getAttribute('aria-pressed')).toBe('true')
     fireEvent.click(screen.getByTestId('lab-v2-theme-dark'))
     expect(readLabPrefs().theme).toBe('dark')
 
@@ -118,15 +121,14 @@ describe('reading settings', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-v2-compare-edition'))
-    const option = screen.getByTestId('lab-v2-sheet').querySelector<HTMLButtonElement>('[data-edition]')!
-    const other = option.dataset.edition
+    // Compare is desktop-only (10 Nov 2026): the phone's Book settings switch the Main version.
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-show-compare')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-main-edition'))
+    const options = [...screen.getByTestId('lab-v2-sheet').querySelectorAll<HTMLButtonElement>('[data-edition]')]
+    const option = options.find(button => !button.disabled && button.dataset.edition !== readLabPrefs().primaryEdition)!
     fireEvent.click(option)
-    expect(readLabPrefs().compareEdition).toBe(other)
-    expect(readLabPrefs().compareOpen).toBe(true)
-    fireEvent.click(screen.getByTestId('lab-v2-compare-edition'))
-    fireEvent.click(screen.getByRole('button', { name: 'None' }))
-    expect(readLabPrefs().compareOpen).toBe(false)
+    expect(readLabPrefs().primaryEdition).toBe(option.dataset.edition)
     expect(localStorage.getItem(LAB_PREFS_KEY)).toBeTruthy()
   })
 })
@@ -283,4 +285,24 @@ describe('the settings groups (22 Oct 2026): the same on the phone and the deskt
     render(<LabV2Sheet {...base} layer="editions" />)
     expect(screen.getByLabelText('Shakespeare layout')).toBeTruthy()
   })
+})
+
+it('Book settings points to AI settings for the reading angle: the row opens This book with the caret in the field (Anders, 11 Nov 2026)', async () => {
+  render(<LabApp pathname="/lab/phone" source={{ ...fallbackLabSource(), bookId: 'the-histories', bookTitle: 'The Histories', editions: THE_HISTORIES.editions }} authToken={null} />)
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+  // No field here any more: one quiet row.
+  expect(screen.queryByTestId('lab-reading-angle')).toBeNull()
+  const row = screen.getByTestId('lab-reading-angle-link')
+  expect(row.textContent).toContain('Reading angle')
+  expect(row.textContent).toContain('In AI settings')
+  fireEvent.click(row)
+  const angle = await screen.findByTestId('ai-settings-angle', undefined, { timeout: 5000 })
+  expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
+  expect(screen.getByRole('tab', { name: 'This book' }).getAttribute('aria-selected')).toBe('true')
+  expect(screen.getByTestId('ai-settings-book-scope').textContent).toContain('The Histories.')
+  await waitFor(() => expect(document.activeElement).toBe(angle))
+  fireEvent.change(angle, { target: { value: 'Who tells the story' } })
+  expect(JSON.parse(localStorage.getItem('tinct:reading-angle:the-histories') || 'null')).toBe('Who tells the story')
+  fireEvent.click(screen.getByTestId('ai-settings-close'))
 })

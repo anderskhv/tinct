@@ -40,8 +40,11 @@ describe('reader boot script', () => {
   it('is a small content-hashed classic script, never an index-* bundle', () => {
     expect(fileName).toMatch(/^assets\/reader-boot-[0-9a-f]{10}\.js$/)
     expect(script).not.toMatch(/\bimport\b|\bexport\b/)
-    // Owner-scoped resume adds under 1 KB; keep the synchronous head script bounded.
-    expect(script.length).toBeLessThan(8500)
+    // Owner-scoped resume adds under 1 KB; keep the synchronous head script bounded. The inlined
+    // catalogue tables (sharded editions, books with no English original) grow with each book: main was
+    // at 8,488 when Pinocchio (no English original, three sharded editions) took it to 8,581 (10 Nov 2026).
+    // The eight young-reader books (22 sharded editions) took it to 9,267 (20 Nov 2026).
+    expect(script.length).toBeLessThan(9500)
   })
 
   it('preloads the handoff’s opening text and leaves the handoff for the app', () => {
@@ -57,7 +60,7 @@ describe('reader boot script', () => {
 
   it('the compact boot table preserves every registered shard identity', () => {
     for (const id of CHAPTER_SHARDED_EDITION_IDS) {
-      const match = id.match(/^(.*)-((?:original|modern|kjv|web|webc|bsb)-[a-z]+)$/)!
+      const match = id.match(/^(.*)-((?:original|modern|verse|kjv|web|webc|bsb)-[a-z]+)$/)!
       page()
       const handoff = { kind: 'open-reader', bookId: match[1], primaryEditionKey: match[2], savedPlace: { chapterNumber: 1 } }
       sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify(handoff))

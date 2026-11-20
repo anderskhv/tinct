@@ -18,7 +18,6 @@ import type { PdfConversionProgress } from './pdfEdition'
  */
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { LabApp } from '../LabApp'
-import { LabWait } from '../LabWait'
 import { ownBookFrameUrl, USER_BOOKS_SHELF_URL } from './userBookId'
 import { MARGIN_PREVIEW_KEY, MARGIN_PREVIEW_PARAM } from '../marginPreview/marginPreviewFlag'
 import { registerUserBook } from './userBookSource'
@@ -141,6 +140,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
   const [textProgress,setTextProgress] = useState<PdfConversionProgress | undefined>()
   const [textBusy,setTextBusy] = useState(false)
   const [textError,setTextError] = useState<string | undefined>()
+  const [textRetry,setTextRetry] = useState(true)
   const [state, setState] = useState<ReaderState>({ status: 'opening' })
   // The phone's margin mode, decided once for the page (the link's choice is kept as the device's).
   const [marginPhone] = useState(() => phone && (sharedReader || typeof window !== 'undefined' && ownMarginPhone(window.location.search)))
@@ -394,10 +394,10 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     bytes={() => loadOwnedPdfBytes(hex, owner)} initialPlace={state.place} initialZoom={readPdfOriginalZoom(hex, owner)} onZoom={zoom => notePdfOriginalZoom(hex, owner, zoom)}
     onBeforeLeave={place => { notePdfOriginalPlace(hex, owner, place, pdfPages, true) }}
     onDocument={setPdfPages} onVisiblePlace={place => notePdfOriginalPlace(hex, owner, place, pdfPages)}
-    autoConvert={new URLSearchParams(window.location.search).get('convert') === '1'} textAvailable={state.hasText} textOffer={!!state.readAsText} textProgress={textProgress} textBusy={textBusy} textError={textError}
+    autoConvert={new URLSearchParams(window.location.search).get('convert') === '1'} textAvailable={state.hasText} textOffer={!!state.readAsText} textProgress={textProgress} textBusy={textBusy} textError={textError} textRetry={textRetry}
     onOpenText={async place => {
       if (textBusy) return
-      setTextBusy(true); setTextError(undefined); setTextProgress({ stage: 'loading' })
+      setTextBusy(true); setTextError(undefined); setTextRetry(true); setTextProgress({ stage: 'loading' })
       const epoch=conversionEpoch.current
       const stillHere=()=>conversionEpoch.current===epoch && conversionIdentity.current.hex===hex && conversionIdentity.current.owner===owner
       try {
@@ -411,6 +411,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
         if (!stillHere()) return
         if (!converted.ok) {
           localStorage.setItem(PDF_EDITION_PREFIX+hex,JSON.stringify('pages'))
+          setTextRetry(converted.reason!=='pages_only')
           setTextError(converted.reason==='pages_only' ? 'This PDF needs recognised text before it can become a Tinct book. You can keep reading its original pages.' : 'The Tinct book could not be prepared. Your original pages and reading place are safe; please try again.')
           return
         }
@@ -428,10 +429,10 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
           <a href={USER_BOOKS_SHELF_URL}>Return to your books</a>
         </div>
       ) : (
-        // The whole page is what is loading: the reader's ring on the paper, no card (Anders, 10 Oct:
-        // no pop-up saying "Opening…"); the wording stays for screen readers (LabWait).
+        // The paper alone until the page is there: no ring (Anders, 10 Nov 2026; on 10 Oct no "Opening…" card).
+        // The wording stays for screen readers.
         <div className="lab-reader-load-wait">
-          <LabWait label="Opening…" testId="user-book-opening" />
+          <span className="lab-visually-hidden" role="status" data-testid="user-book-opening">Opening…</span>
         </div>
       )}
     </div>

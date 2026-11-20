@@ -101,9 +101,10 @@ button.tc-av { padding: 0; }
 .tc-cam { position: absolute; right: -2px; bottom: 2px; width: 26px; height: 26px; border-radius: 50%; background: var(--tc-ink); color: var(--tc-cell); display: grid; place-items: center; box-shadow: 0 0 0 3px var(--tc-ground); }
 .tc-cam svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
 .tc-nm { padding-bottom: 6px; line-height: 1.2; min-width: 0; flex: 1 1 auto; }
-.tc-nm b { font-family: var(--tc-play); font-weight: 700; font-size: 24px; display: block; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: lining-nums; }
+/* A long name wraps to a second line before it is cut (tester, 9 Nov 2026: "Christian Vester…"). */
+.tc-nm b { font-family: var(--tc-play); font-weight: 700; font-size: 24px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; letter-spacing: -.01em; overflow: hidden; overflow-wrap: break-word; text-wrap: balance; font-variant-numeric: lining-nums; }
 .tc-nm span { font-size: 15px; color: var(--tc-sec); }
-/* The name and its pencil on one line (onboarding v3, Anders 2 Nov 2026): a long name ellipsises, the pencil stays. */
+/* The name and its pencil side by side (onboarding v3, Anders 2 Nov 2026): a long name takes two lines, then ellipsises; the pencil stays. */
 .tc-nm-b { display: flex; align-items: center; max-width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: text; }
 .tc-nm-b b { min-width: 0; }
 .tc-nm-b .tc-name-pencil { flex: none; }
@@ -133,6 +134,13 @@ button.tc-av { padding: 0; }
 .tc-r.is-center { justify-content: center; }
 .tc-r.is-center .tc-l { flex: none; font-weight: 500; }
 .tc-r.is-me .tc-l, .tc-r.is-me .tc-v { font-weight: 600; color: var(--tc-ink); }
+/* Leaderboard (17 Nov 2026): a thin "···" between the top five and the viewer's own row further down, and the quiet
+   centred Show all / Show top 5 row under the list. */
+.tc-r.is-gap { min-height: 18px; justify-content: center; padding: 0 16px 4px; font-size: 13px; line-height: 1; letter-spacing: .2em; color: var(--tc-ter); }
+.tc-r.is-av + .tc-r.is-gap::before { left: 0; }
+.tc-r.is-more { min-height: 44px; font-size: 15px; color: var(--tc-sec); }
+.tc-r.is-more .tc-l { font-weight: 400; }
+.tc-r.is-av + .tc-r.is-more::before { left: 0; }
 .tc-info { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--tc-ter); color: var(--tc-sec); display: inline-grid; place-items: center; font: italic 700 11px Georgia, serif; flex: none; position: relative; }
 .tc-info::after { content: ""; position: absolute; inset: -13px; }
 .tc-sw { width: 51px; height: 31px; border-radius: 16px; background: var(--tc-track); position: relative; flex: none; transition: background .15s; }

@@ -218,6 +218,13 @@ export const RELATED_PROMPT = [
 export const ASK_DOCUMENT_LINE = 'Answer from the document where it speaks to the question; where it does not, answer from your reliable knowledge directly, without saying that the document is silent.'
 
 /**
+ * Ask in the margin (a passage question, a follow-up, the whole file; PDF and own EPUB alike): the card shows the first
+ * sentence in bold as the answer's bottom line (margin.js answerHtml), so it is the answer (9 Nov 2026: an own EPUB's
+ * bold line was "That line comes from later in the talk than this chapter reaches", a remark about place).
+ */
+export const ASK_LEAD_RULE = 'Open with the answer itself in one sentence: never with a remark about where the passage, the reader or the text is.'
+
+/**
  * Ask with the source search as a tool (Anders, 20 Oct 2026: no "Web" toggle, the model decides): one search, only when
  * the question needs current facts or facts from outside the document; the sources then listed as Fact-check lists them,
  * which the card shows as Fact-check's (margin.js factcheckHtml's links).

@@ -38,6 +38,8 @@ import {
   type LabAskTurn,
   type LabPlaybackSkip,
 } from './labAsk'
+import { useReadingAngle } from './labReadingAngle'
+import { readAiSettings, withAiPrefs } from './labAiPrefs'
 import {
   LabChatError,
   labChatErrorType,
@@ -80,6 +82,8 @@ import { isUserBookId } from './userBook/userBookId'
 import { chapterWindow, passageWindow } from './userBook/userBookContext'
 import { catalogueCardConversation, upsertCatalogueCard, tombstoneCatalogueCard, type SharedReaderCard } from './sharedReader/sharedReaderCards'
 import type { OwnTextCardsSync } from './userBook/ownTextCardsSync'
+import { registerSignOutFlush } from './signOutFlush'
+import { isSelectionActionKind, markSelectionActionsUsed } from './labSelectionActions'
 
 export type CardSaveFailure = 'book-mismatch' | 'invalid-card' | 'stale-card' | 'private-storage' | 'quota' | 'access' | 'write' | 'readback'
 
@@ -328,7 +332,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       editionLabel: current.editionLabel,
       paragraphs: scoped.paragraphs,
       paragraphIndex: scoped.paragraphIndex,
-      readingAngle: labReadingAngle(),
+      readingAngle: labReadingAngle(current.bookId),
       // A reader's own book is named by its text only: no id, no edition, so
       // the Worker never looks it up (or meters it) and answers from the
       // paragraphs sent here, as Add a book does.
@@ -380,13 +384,16 @@ export function useLabAsk(options: UseLabAskOptions) {
   // and the writer being replaced (account change) or unmounted.
   useEffect(() => {
     if (!cloudWriter) return
-    const flush = () => cloudWriter.flush()
+    const flush = () => { void cloudWriter.flush() }
     const onVisibility = () => { if (document.visibilityState === 'hidden') flush() }
     document.addEventListener('visibilitychange', onVisibility)
     window.addEventListener('pagehide', flush)
+    // Sign-out wipes the device copy: turns still waiting go to the account first.
+    const unregister = registerSignOutFlush(() => cloudWriter.flush())
     return () => {
       document.removeEventListener('visibilitychange', onVisibility)
       window.removeEventListener('pagehide', flush)
+      unregister()
       flush()
     }
   }, [cloudWriter])
@@ -457,7 +464,17 @@ export function useLabAsk(options: UseLabAskOptions) {
     cloudWriterRef.current?.push(bookId, next, { now: !saved })
     return saved
   }, [failCardSave])
+  // The first answered Ask, Explain or Simplify ends the reader's first visit (labSelectionActions.ts).
+  const noteSelectionAction = (card: SharedReaderCard) => {
+    if (isSelectionActionKind(card.kind) && card.turns.some(turn => turn.role === 'assistant' && turn.content.trim())) markSelectionActionsUsed()
+  }
   const saveCard = useCallback((card: SharedReaderCard): boolean => {
+    const saved = saveCardNow(card)
+    if (saved) noteSelectionAction(card)
+    return saved
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [storeCardHistory, failCardSave])
+  const saveCardNow = useCallback((card: SharedReaderCard): boolean => {
     const bookId = chatBookIdRef.current
     const owned = optionsRef.current.ownCardController
     if (owned && card.source.kind === 'own-text' && card.source.bookId === bookId) {
@@ -534,8 +551,11 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (cancelled) return
       let unavailable = false
       const merged = await cloudWriter.sync(chatBookId, () => { unavailable = true }, () => !cancelled)
-      if (cancelled || loadedForBookRef.current !== chatBookId) return
+      if (cancelled) return
+      // The read has ended: settle the status even when another book's chats are on the page meanwhile, or it
+      // stayed "Loading saved conversations…" for the rest of the visit (Anders, 16 Nov 2026).
       setHistoryStatus(unavailable ? 'unavailable' : 'ready')
+      if (loadedForBookRef.current !== chatBookId) return
       // Never lose what this page holds that the read did not (a turn saved
       // after the read began, or one whose save failed).
       const kept = mergeChatConversations(merged, conversationsRef.current)
@@ -581,6 +601,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const askEditionKey = options.bookId && options.editionKey
     ? migrateWithheldEdition(options.bookId, options.editionKey)
     : options.editionKey
+  // The book's reading angle, kept current when the reader edits it (Book settings, the desktop's start card).
+  const [readingAngle] = useReadingAngle(options.bookId)
   const askContext = useMemo(() => ({
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
@@ -590,7 +612,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     editionLabel: options.editionLabel,
     paragraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
-    readingAngle: labReadingAngle(),
+    readingAngle: readingAngle.trim() || undefined,
     bookId: privateBook ? undefined : options.bookId,
     editionKey: privateBook ? undefined : askEditionKey,
   }), [
@@ -605,6 +627,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     options.paragraphs,
     options.bookId,
     options.editionKey,
+    readingAngle,
   ])
   const selectedConversationTurns = useMemo(() => {
     const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookId) : null
@@ -699,7 +722,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     authorship: askContext.authorship,
     chapterNumber: options.chapterNumber ?? 1,
     chapterTitle: options.chapterLabel,
-    readingObjective: labReadingAngle(),
+    readingObjective: readingAngle.trim() || undefined,
     chapterParagraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
     visibleText: '',
@@ -992,7 +1015,8 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (!stillHere()) return
       let assistantId = nextId()
       // Structured context only: the Worker builds the prompt from it.
-      const companion: CompanionRequest = chapterRequest
+      // The reader's AI settings ride with every request (labAiPrefs.ts), as the reading angle does in the context.
+      const companion: CompanionRequest = withAiPrefs<CompanionRequest>(chapterRequest
         ? {
             intent: 'chapter',
             context,
@@ -1006,7 +1030,7 @@ export function useLabAsk(options: UseLabAskOptions) {
             intent: 'ask',
             context: { ...context, ...(personalEvidence ? { personalHistory: personalEvidence } : {}) },
             ...(shownSplit?.shown.length ? { shownExplanations: shownSplit.shown } : {}),
-          }
+          })
       const messages: Array<{ role: string; content: string | unknown[] }> = history.map((message, index) => index === history.length - 1 && !chapterRequest ? { ...message, content: `[Current reading location for this question: ${context.bookTitle}, ${context.chapterLabel}, edition ${context.editionLabel || context.editionKey}. Historical messages do not change this location.]\n\n${message.content}` } : message)
       // A figure asked about goes with the question, signed in only (the
       // Worker's picture path: images in the latest user turn; chatImages.ts).
@@ -1123,6 +1147,7 @@ export function useLabAsk(options: UseLabAskOptions) {
           dumpLabTalkTurns(next)
           return next
         })
+        if (!chapterRequest && (attachment?.highlightedText || retry?.attachment?.highlightedText || retry?.userTurn.highlightedText)) markSelectionActionsUsed()
         recordTurn({
           id: assistantTurn.id,
           role: 'assistant',
@@ -1216,10 +1241,15 @@ export function useLabAsk(options: UseLabAskOptions) {
   }, onDelta: (text: string) => void): Promise<string> => {
     const text = input.text.trim()
     const textless = input.intent === 'quiz' || input.intent === 'quiz_check'
+    // An answered Explain or Simplify the reader asked for ends their first visit (labSelectionActions.ts); a speculative fetch does not.
+    const noteExplained = (answer: string) => {
+      if (!input.speculative && (!input.intent || input.intent === 'simplify') && answer.trim()) markSelectionActionsUsed()
+      return answer
+    }
     if ((!text && !textless) || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
     const requestBookId = chatBookIdRef.current
     const requestChapter = input.chapterNumber ?? optionsRef.current.chapterNumber
-    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent, input.quiz])
+    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(requestBookId), readAiSettings(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent, input.quiz])
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
       // The reader asked for it: this is the moment the action is charged,
@@ -1230,7 +1260,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       }
       if (cached.text) onDelta(cached.text)
       cached.listeners.add(onDelta)
-      try { return await cached.promise } finally { cached.listeners.delete(onDelta) }
+      try { return noteExplained(await cached.promise) } finally { cached.listeners.delete(onDelta) }
     }
     // Speculation is on the house: it fires as a selection settles and is
     // never charged. Only a tap on Explain goes through the gate.
@@ -1278,10 +1308,11 @@ export function useLabAsk(options: UseLabAskOptions) {
         // The Worker builds the prompt and the question from this context.
         body: JSON.stringify({
           stream: true,
-          companion: input.intent && input.intent !== 'define'
+          // The reader's AI settings ride with every request (labAiPrefs.ts), as the reading angle does in the context.
+          companion: withAiPrefs(input.intent && input.intent !== 'define'
             // The margin's actions: the Worker builds each prompt from its intent (companionRequest.ts).
             ? { intent: input.intent, context, ...(text && input.intent !== 'quiz_check' ? { selection: text } : {}), ...(input.intent === 'quiz_check' && input.quiz ? { quiz: input.quiz } : {}) }
-            : { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest,
+            : { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest),
         }),
       })
       progress()
@@ -1295,7 +1326,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     work.catch(() => { /* settled through the race below */ })
     entry.promise = Promise.race([work, stall]).finally(() => clearTimeout(stallTimer))
     try {
-      return await entry.promise
+      return noteExplained(await entry.promise)
     } catch (error) {
       if (explanationRef.current === entry) explanationRef.current = null
       throw error

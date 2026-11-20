@@ -273,3 +273,13 @@
   letter-spacing: 0.04em;
   color: var(--lab-v2-quiet);
 }
+
+/* The whole book's Primer (start actions, 9 Nov 2026): the library's introduction for the book, in the book face. */
+.lab-book-primer { font-family: 'EB Garamond', Georgia, serif; }
+.lab-book-primer-opening { margin: 0 0 14px; font-size: 17px; line-height: 1.45; }
+.lab-book-primer-parts { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 12px; }
+.lab-book-primer-parts h3, .lab-book-primer-head { margin: 0 0 3px; font: 600 14px/1.35 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+.lab-book-primer-parts p { margin: 0; font-size: 16px; line-height: 1.42; }
+.lab-book-primer-people { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 16px; line-height: 1.35; }
+.lab-book-primer-people strong { font-weight: 600; }
+.lab-book-primer-none { margin: 0; font: 15px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; opacity: .75; }

@@ -67,11 +67,21 @@ export interface OwnCatchUpDeps {
 
 /** The ledger's book_id for every own-book row: a marker, never the book (as own-book narration). */
 export const OWN_CATCH_UP_LEDGER_BOOK_ID = 'userbook'
-/** About 120 words plus the structured entry call's own tokens. */
-export const OWN_CATCH_UP_MAX_TOKENS = 400
+/**
+ * About 120 words plus the structured entry call's own tokens, with room to spare: a cut-off
+ * answer is unusable (readRecapEntry), and a running recap late in a long book can run past 120 words.
+ */
+export const OWN_CATCH_UP_MAX_TOKENS = 600
 export const OWN_CATCH_UP_LOOKUP_RATE_PER_MINUTE = 120
-/** Requests that reach the model, per account per minute. */
-export const OWN_CATCH_UP_GENERATE_RATE_PER_MINUTE = 20
+/**
+ * Requests that reach the model, per account per minute. One whole-book Summary is one request
+ * per section, front and back matter included (24 for a 14-chapter Penguin edition), and the fast
+ * model answers a section in a second or two: at 20 a minute the 21st section of a long book was
+ * refused (13 Nov 2026). The allowance and the AI spend ceiling still bound the cost.
+ */
+export const OWN_CATCH_UP_GENERATE_RATE_PER_MINUTE = 60
+/** Sent with a refused (429) request: the client waits this long and carries on with the same section. */
+export const OWN_CATCH_UP_RETRY_AFTER_SECONDS = 15
 /** A chapter's characters can be up to 3 UTF-8 bytes each, plus the recap and the envelope. */
 export const OWN_CATCH_UP_MAX_BODY_BYTES = 3 * (OWN_CATCH_UP_MAX_CHAPTER_CHARS + OWN_CATCH_UP_MAX_RECAP_CHARS) + 4_096
 
@@ -108,6 +118,12 @@ const HEX = /^[0-9a-f]{24,64}$/
 
 function reply(data: unknown, status: number, request: Request): Response {
   return Response.json(data, { status, headers: { ...corsHeaders(request), 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } })
+}
+
+function rateLimited(request: Request): Response {
+  return Response.json({ error: 'Rate limit exceeded. Try again in a minute.' }, {
+    status: 429, headers: { ...corsHeaders(request), 'Retry-After': String(OWN_CATCH_UP_RETRY_AFTER_SECONDS) },
+  })
 }
 
 /** Where a step is kept: one file per finished chapter, one slot for the chapter in progress. */
@@ -191,7 +207,7 @@ export async function handleOwnCatchUp(request: Request, env: OwnCatchUpEnv, ctx
   const user = await deps.verifyUser(env, request)
   if (!user || !isValidUUID(user.id)) return jsonResponse({ error: 'Authentication required' }, 401, request)
   if (!await deps.checkRateLimit(`own-catch-up:${user.id}`, env.RATE_LIMIT, OWN_CATCH_UP_LOOKUP_RATE_PER_MINUTE)) {
-    return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+    return rateLimited(request)
   }
 
   if (request.method === 'GET') {
@@ -234,7 +250,7 @@ export async function handleOwnCatchUp(request: Request, env: OwnCatchUpEnv, ctx
   }
 
   if (!await deps.checkRateLimit(`own-catch-up-model:${user.id}`, env.RATE_LIMIT, OWN_CATCH_UP_GENERATE_RATE_PER_MINUTE)) {
-    return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+    return rateLimited(request)
   }
   const where = [parsed.bookTitle, parsed.chapterTitle].filter(Boolean).join(', ') || `Chapter ${parsed.chapter}`
   const status = parsed.complete

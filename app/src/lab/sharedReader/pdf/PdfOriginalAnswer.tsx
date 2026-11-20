@@ -1,5 +1,5 @@
 import { ContextualLookupView } from '../../../components/reader/DefinitionFallback'
-import { parseContextualLookup, parsePartialContextualLookup } from '../../../components/reader/contextualLookup'
+import { parseContextualLookup, parsePartialContextualLookup, splitDefinition } from '../../../components/reader/contextualLookup'
 import { parsePrimer } from '../../../companion/primerParse'
 import { LabInlineMarkdown } from '../../LabMarkdown'
 import { LabChapterNotesEntries } from '../../LabChapterNotesSheet'
@@ -9,10 +9,14 @@ import { answerLead } from '../cardPreview'
 
 /** Folded source entries show prose, while their full structured answer stays unchanged in storage. */
 export function pdfOriginalAnswerPreview(kind: string, raw: string): string {
-  if (kind === 'primer') return parsePrimer(raw)?.gist || 'Open saved Primer'
+  if (kind === 'primer') {
+    // A whole document's primer (v5) has no first part: its first part of How it's built instead.
+    const primer = parsePrimer(raw), item = primer?.sections[0]?.items[0]
+    return primer?.gist || (item && ('term' in item ? item.term : item.text.replace(/\s*\{[^}]*\}\s*/g, ' ').trim())) || 'Open saved Primer'
+  }
   if (kind === 'define') {
     const answer = parseContextualLookup(raw)
-    return answer ? answer.kind === 'person' ? answer.subtitle : answer.kind === 'place' ? answer.description : answer.definition : 'Open saved definition'
+    return answer ? answer.kind === 'person' ? answer.subtitle : answer.kind === 'place' ? answer.description : splitDefinition(answer.definition).sense : 'Open saved definition'
   }
   // A plain answer folds to its bottom line, whole (cardPreview.ts).
   return /^[\s]*(?:\{|\[|```)/.test(raw) ? 'Open saved answer' : answerLead(raw)
@@ -32,7 +36,8 @@ export function PdfOriginalAnswer({ kind, raw, busy = false }: { kind: string; r
       : busy ? null : /^[\s]*(?:\{|```)/.test(raw) ? <UnreadableAnswer label="primer" raw={raw} /> : <LabInlineMarkdown>{raw}</LabInlineMarkdown>
   }
   // An answer reads as the text reader's cards do: its first sentence bold, then paragraphs, lists and headings.
-  return <PhoneAnswer text={raw} />
+  // Simplify is the passage rewritten: no sentence of it is bold.
+  return <PhoneAnswer text={raw} plain={kind === 'simplify'} />
 }
 
 function UnreadableAnswer({ label, raw }: { label: string; raw: string }) {

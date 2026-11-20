@@ -40,4 +40,9 @@ describe('recorded audio availability', () => {
     expect(hasRecordedAudio('frankenstein', 'original-en')).toBe(true)
     expect(hasRecordedAudio('bible', 'kjv-en')).toBe(true)
   })
+  it('never asks for the recordings of a replaced text (Gilgamesh, Thompson 1928, 2026-11-18)', () => {
+    expect(hasRecordedAudio('gilgamesh', 'original-en')).toBe(false)
+    expect(hasRecordedAudio('gilgamesh', 'modern-en')).toBe(false)
+    expect(hasRecordedAudio('gilgamesh', 'modern-da')).toBe(false)
+  })
 })

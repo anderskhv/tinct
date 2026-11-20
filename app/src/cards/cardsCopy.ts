@@ -16,6 +16,7 @@ export const CARDS_COPY = {
   topUp: 'Top up',
   findReaders: 'Find readers',
   settings: 'Settings',
+  aiSettings: 'AI settings',
   premium: 'Premium',
   free: 'Free',
   uploadPicture: 'Upload a picture',
@@ -42,6 +43,9 @@ export const CARDS_COPY = {
   finishedHeading: 'Finished',
   everyone: 'Everyone',
   lastSevenDays: 'Last 7 days',
+  /** Under a folded Leaderboard: no count (Anders, 17 Nov 2026, not "Show all 13"). */
+  boardShowAll: 'Show all',
+  boardShowTop: 'Show top 5',
   me: 'You',
   searchPlaceholder: 'Name or tinct.app link',
   readingYourBooks: 'Reading your books',

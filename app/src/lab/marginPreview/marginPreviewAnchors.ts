@@ -214,3 +214,17 @@ export function fractionOfParagraph(chapter: MarginPreviewChapter, paragraphInde
   const start = layout.starts[Math.max(0, Math.min(paragraphIndex, layout.starts.length - 1))] ?? 0
   return layout.length ? Math.min(1, Math.ceil(((start + 0.5) / layout.length) * 1e6) / 1e6) : 0
 }
+
+/** Where a paragraph starts, as an offset in its chapter's text (a moved note's card place in the margin's terms). */
+export function offsetOfParagraph(chapter: MarginPreviewChapter, paragraphIndex: number): number | null {
+  const layout = layoutOf(chapter)
+  if (!Number.isInteger(paragraphIndex) || paragraphIndex < 0 || paragraphIndex >= layout.starts.length) return null
+  return layout.starts[paragraphIndex]
+}
+
+/** The paragraph an offset in the chapter's text falls in (the inverse of offsetOfParagraph). */
+export function paragraphOfOffset(chapter: MarginPreviewChapter, offset: number): number {
+  const layout = layoutOf(chapter)
+  if (!layout.starts.length) return 0
+  return Math.max(0, paragraphAt(layout, Math.max(0, Math.min(layout.length, Math.floor(Number(offset) || 0)))))
+}

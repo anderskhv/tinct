@@ -7,7 +7,7 @@ import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import type { DictResult } from '../../services/dictionary'
 import type { SelectionSegment } from './selectionGeometry'
 import { defaultPopupMode, type SelectionPopupHomeMode } from './selectionPopupMode'
-import { DefinitionFallback } from './DefinitionFallback'
+import { ContextualLookupView, DefinitionFallback, HeadwordLabel } from './DefinitionFallback'
 import { useReaderWindow } from '../../lab/useReaderWindow'
 import { ContextualExplainCard } from './ContextualExplainCard'
 import { useReaderSelectionCopy } from './useReaderSelectionCopy'
@@ -430,6 +430,9 @@ export function SelectionPopup({
     return () => { window.removeEventListener('pointerdown', outside, true); window.removeEventListener('keydown', onKey, true) }
   }, [popupRef, sharedReader])
   const headword = defineResult?.word || defineQuery
+  // What the word is, shown after it: "sepulchre · Noun", "Joanna · Minor character" (Anders, 17 Nov 2026).
+  const [defineLabel, setDefineLabel] = useState({ word: '', label: '' })
+  const headwordLabel = defineLabel.word === defineQuery ? defineLabel.label : ''
   const contextualLookup = !character && contextualExplain
     && (typeof navigator === 'undefined' || navigator.onLine !== false)
     && (defineNotFound || /^[A-Z]/.test(defineQuery))
@@ -477,6 +480,7 @@ export function SelectionPopup({
         noted={!!selection.existingNote}
         moreRows={moreRows}
         fallback={{ x: selection.x, y: selection.y }}
+        cursor={{ x: selection.x, y: selection.y + (selection.showBelow ? -12 : 12) }}
         containerProps={{ tabIndex: -1, onKeyDown: trapKeys, 'data-popup-home': homeMode, onClick: (e: React.MouseEvent) => e.stopPropagation(), onMouseUp: (e: React.MouseEvent) => e.stopPropagation(), onTouchEnd: (e: React.TouchEvent) => e.stopPropagation() }}
         onAsk={() => onExplain()}
         onAskQuestion={sharedReader ? onAskQuestion : undefined}
@@ -543,8 +547,8 @@ export function SelectionPopup({
         <div className="popup-character">
           <div className="popup-character-heading"><button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button></div>
           {popupMode === 'character' && card && <>
-            <h2>{card.name}</h2>
-            {roleLabel && <small>{roleLabel}</small>}
+            {/* "Mary Magdalene · Major figure": the name and its role on one line, as a definition's headword (Anders, 18 Nov 2026). */}
+            <h2 className="popup-character-name">{card.name}<HeadwordLabel label={roleLabel ?? ''} /></h2>
             {card.subtitle && !subtitleRepeatsBody(card.subtitle, card.body) && <p className="popup-character-subtitle">{card.subtitle}</p>}
             <p>{card.body}</p>
 
@@ -565,7 +569,7 @@ export function SelectionPopup({
       {showDefinePanel && (
         <div className="popup-define">
           <header className="lab-reader-window-head" data-reader-window-handle>
-            <span className="lab-reader-window-title popup-define-word">{headword}</span>
+            <span className="lab-reader-window-title popup-define-word">{headword}<HeadwordLabel label={headwordLabel} /></span>
             <button className="lab-window-control" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button>
             {lab && <button className="lab-window-control" type="button" aria-label="Close definition" onClick={dismissPopup}>×</button>}
           </header>
@@ -587,17 +591,11 @@ export function SelectionPopup({
           )}
           {defineLoading && !contextualLookup && <div className="popup-define-status">Looking up…</div>}
           {!defineLoading && defineResult && !contextualLookup && (
-            <div className="popup-define-result">
-              <ol className="popup-define-list">
-                {defineResult.definitions.slice(0, 3).map((d, i) => (
-                  <li key={i}>{d}</li>
-                ))}
-              </ol>
-            </div>
+            <ContextualLookupView answer={null} dictionaryDefinitions={defineResult.definitions} />
           )}
           {/* The passage lookup starts with the dictionary, not after it (Anders, 2026-10-06). */}
           {contextualLookup ? (
-            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} dictionaryDefinitions={defineLoading ? undefined : defineResult?.definitions} onChat={text => onExplain(text)} onTalk={onTalkExplanation} namesakes={selection.namesakes} />
+            <DefinitionFallback word={defineQuery} onHeadwordLabel={label => setDefineLabel({ word: defineQuery, label })} request={onRequestExplanation!} dictionaryDefinitions={defineLoading ? undefined : defineResult?.definitions} onChat={text => onExplain(text)} onTalk={onTalkExplanation} namesakes={selection.namesakes} />
           ) : !defineLoading && defineNotFound && (
             <div className="popup-define-status popup-define-empty">
               No definition found for &ldquo;{defineQuery}&rdquo;.
@@ -617,7 +615,7 @@ export function SelectionPopup({
               >{tag}</button>
             ))}
           </div>
-          <textarea
+          <textarea autoComplete="off"
             className="popup-note-input"
             value={issueComment}
             onChange={e => setIssueComment(e.target.value)}
@@ -646,7 +644,7 @@ export function SelectionPopup({
         <div className="lab-dnote">
           <div className="lab-dnote-body">
             {selection.text && <p className="lab-dnote-quote">“{cutQuote(selection.text)}”</p>}
-            <textarea
+            <textarea autoComplete="off"
               ref={noteFieldRef}
               className="lab-dnote-field"
               value={noteInput}
@@ -688,7 +686,7 @@ export function SelectionPopup({
             <button type="button" className="popup-add-note is-pressed" aria-label="Close note" aria-pressed="true" onClick={() => { setNoteInput(selection.existingNote || ''); setPopupMode(homeMode) }}><span aria-hidden="true">+</span></button>
           </div>}
           <div className={contextualExplain ? 'popup-note-body' : undefined}>
-            <textarea
+            <textarea autoComplete="off"
               ref={noteFieldRef}
               className="popup-textarea"
               value={noteInput}

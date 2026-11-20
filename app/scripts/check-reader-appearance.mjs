@@ -14,7 +14,8 @@ const browser = await markInternal(await chromium.launch({ headless: true,
   args: ['--mute-audio', '--autoplay-policy=user-gesture-required'] }))
 const observations = []
 try {
-  for (const theme of ['light', 'book', 'dark']) {
+  // White (9 Nov 2026) is stored as Light on white paper (labPrefs.ts labStoredTheme).
+  for (const theme of ['light', 'white', 'book', 'dark']) {
     const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
     const page = await context.newPage(), errors = []
     page.on('pageerror', error => errors.push(error.message))
@@ -26,7 +27,7 @@ try {
       return route.continue()
     })
     await page.addInitScript(theme => {
-      if (!localStorage.getItem('tinct-lab-prefs')) localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme, primaryEdition: 'original-en', audioEdition: 'original-en', compareOpen: false, compareChosen: true }))
+      if (!localStorage.getItem('tinct-lab-prefs')) localStorage.setItem('tinct-lab-prefs', JSON.stringify({ ...(theme === 'white' ? { theme: 'light', paper: 'white' } : { theme }), primaryEdition: 'original-en', audioEdition: 'original-en', compareOpen: false, compareChosen: true }))
     }, theme)
     const ready = () => page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
     const place = () => page.locator('.lab').getAttribute('data-place')
@@ -92,5 +93,5 @@ try {
   await page.screenshot({ path: `${output}/appearance-phone.png` })
   await context.close()
   await fs.writeFile(`${output}/observations.json`, JSON.stringify(observations, null, 2))
-  console.log(`Appearance browser acceptance passed: three themes, defaults, Margin/Two-page reload, Compare and exact source word; phone chooser unchanged. ${output}`)
+  console.log(`Appearance browser acceptance passed: four themes, defaults, Margin/Two-page reload, Compare and exact source word; phone chooser unchanged. ${output}`)
 } finally { await browser.close() }

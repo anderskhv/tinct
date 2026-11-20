@@ -115,7 +115,23 @@ html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-origi
 .pdf-rotate-hint p { flex:1 1 auto; min-width:0; margin:0; font:14px/1.35 system-ui,-apple-system,sans-serif; }
 .pdf-rotate-hint button { flex:none; display:grid; place-items:center; width:44px; height:44px; margin:0; padding:0; border:0; background:none; color:var(--lab-ink-muted); cursor:pointer; }
 
-/* Read as Tinct book, offered on the desktop when another device read the book so (3 Nov 2026). */
-.pdf-original-reader__text-offer { position:fixed; z-index:6; bottom:54px; left:50%; transform:translateX(-50%); max-width:calc(100vw - 40px); display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:8px 12px; border:1px solid var(--lab-border); border-radius:9px; background:var(--lab-paper); color:var(--lab-ink); box-shadow:0 5px 18px #0002; font:13px system-ui,sans-serif; }
+/* Read as Tinct book, offered on the desktop when another device read the book so (3 Nov 2026). The same bar
+   shows the conversion's progress and any failure, on the desktop and the phone (6 Nov 2026). */
+.pdf-original-reader__text-offer { box-sizing:border-box; position:fixed; z-index:6; bottom:54px; left:50%; transform:translateX(-50%); max-width:calc(100vw - 40px); display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:8px 12px; border:1px solid var(--lab-border); border-radius:9px; background:var(--lab-paper); color:var(--lab-ink); box-shadow:0 5px 18px #0002; font:13px system-ui,sans-serif; }
 .pdf-original-reader__text-offer button { border:1px solid var(--lab-border); border-radius:99px; background:var(--lab-surface); color:var(--lab-ink); padding:6px 12px; cursor:pointer; font:inherit; }
 .pdf-original-reader__text-offer button.is-primary { background:var(--lab-ink); color:var(--lab-paper); border-color:var(--lab-ink); }
+.pdf-original-reader__text-offer-stage { color:var(--lab-ink-muted); font-variant-numeric:tabular-nums; }
+.pdf-original-reader__text-offer progress { width:96px; height:6px; accent-color:var(--lab-ink-muted); }
+.pdf-original-reader.is-phone .pdf-original-reader__text-offer { left:calc(16px + env(safe-area-inset-left,0px)); right:calc(16px + env(safe-area-inset-right,0px)); bottom:calc(54px + env(safe-area-inset-bottom,0px)); transform:none; max-width:none; }
+/* Explain a figure (PdfSnipLayer): a crosshair layer over the pages; the box is drawn while dragging. */
+.pdf-original-snip { position:fixed; z-index:105; cursor:crosshair; touch-action:none; user-select:none; -webkit-user-select:none; background:color-mix(in srgb,var(--lab-ink) 5%,transparent); }
+.pdf-original-snip__hint { position:absolute; left:50%; top:12px; transform:translateX(-50%); margin:0; display:flex; align-items:center; gap:10px; width:max-content; max-width:calc(100% - 32px); box-sizing:border-box; padding:6px 6px 6px 14px; border-radius:999px; background:var(--lab-ink); color:var(--lab-surface); font:14px system-ui,sans-serif; box-shadow:0 6px 18px rgba(0,0,0,.18); cursor:default; }
+.pdf-original-snip__hint button { min-height:32px; border:0; border-radius:999px; padding:0 14px; background:var(--lab-surface); color:var(--lab-ink); font:inherit; cursor:pointer; }
+.pdf-original-snip__box { position:absolute; pointer-events:none; border:1.5px solid var(--lab-ink); border-radius:3px; background:color-mix(in srgb,var(--lab-ink) 6%,transparent); box-shadow:0 0 0 9999px color-mix(in srgb,var(--lab-ink) 14%,transparent); }
+/* A folded PDF note's words in the place and type its saved note reopens in (.pdf-note-field__saved, 17px/1.45,
+   measured 10px below the header), so opening only reveals more (tester, 9 Nov 2026). */
+.pdf-original-reader .source-margin-preview[data-preview="note"] { padding-top:10px!important; line-height:1.45!important; }
+
+/* Listen from here's pills (the text reader's .lab-listen-pills, LabApp): above the page's foot, or the phone's page rail. */
+.pdf-original-reader .pdf-original-reader__listen-pills { position:fixed; left:0; right:0; bottom:16px; height:0; z-index:7; pointer-events:none; }
+.pdf-original-reader.is-phone .pdf-original-reader__listen-pills { bottom:calc(42px + env(safe-area-inset-bottom,0px)); }

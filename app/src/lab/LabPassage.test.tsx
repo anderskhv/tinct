@@ -684,6 +684,75 @@ describe('mouse word lookup and dragging', () => {
     })
   })
 
+  // Phone: swipe up/down turns pages like left/right (Anders, 12 Nov 2026).
+  describe('vertical swipe on the phone page', () => {
+    const swipe = (target: Element, from: [number, number], to: [number, number], pointerType = 'touch') => {
+      fireEvent.pointerDown(target, { pointerType, button: 0, clientX: from[0], clientY: from[1] })
+      fireEvent.pointerMove(target, { pointerType, clientX: (from[0] + to[0]) / 2, clientY: (from[1] + to[1]) / 2 })
+      fireEvent.pointerUp(target, { pointerType, clientX: to[0], clientY: to[1] })
+    }
+
+    it('turns forward on a swipe up and back on a swipe down, through onPageTurn', () => {
+      const select = vi.fn(), turn = vi.fn(), toggle = vi.fn()
+      render(<LabPassage {...props()} verticalSwipeTurns onSelectRange={select} onPageTurn={turn} onToggleControls={toggle} />)
+      expect(screen.getByTestId('lab-book').classList.contains('has-vertical-swipe')).toBe(true)
+      const word = screen.getAllByTestId('lab-word')[1]
+      swipe(word, [200, 400], [205, 300])
+      expect(turn).toHaveBeenLastCalledWith(1)
+      swipe(word, [200, 300], [196, 400])
+      expect(turn).toHaveBeenLastCalledWith(-1)
+      // In the margin, off any word, too.
+      swipe(screen.getByTestId('lab-book'), [200, 400], [200, 320])
+      expect(turn).toHaveBeenLastCalledWith(1)
+      expect(turn).toHaveBeenCalledTimes(3)
+      expect(select).not.toHaveBeenCalled()
+      expect(toggle).not.toHaveBeenCalled()
+    })
+
+    it('leaves sideways, diagonal, short and mouse drags as they were', () => {
+      const turn = vi.fn(), toggle = vi.fn()
+      render(<LabPassage {...props()} verticalSwipeTurns onPageTurn={turn} onToggleControls={toggle} />)
+      const surface = screen.getByTestId('lab-book')
+      swipe(surface, [300, 400], [200, 410])
+      expect(turn).toHaveBeenLastCalledWith(1)
+      turn.mockClear()
+      swipe(surface, [300, 400], [240, 330])
+      swipe(surface, [200, 400], [200, 375])
+      swipe(surface, [200, 400], [200, 300], 'mouse')
+      expect(turn).not.toHaveBeenCalled()
+    })
+
+    it('is off without the flag, inside a scroller and on a desktop spread', () => {
+      const turn = vi.fn()
+      const { unmount } = render(<LabPassage {...props()} onPageTurn={turn} />)
+      swipe(screen.getByTestId('lab-book'), [200, 400], [200, 300])
+      unmount()
+      const scroller = render(<LabPassage {...props()} verticalSwipeTurns touchScroll onPageTurn={turn} />)
+      expect(screen.getByTestId('lab-book').classList.contains('has-vertical-swipe')).toBe(false)
+      swipe(screen.getByTestId('lab-book'), [200, 400], [200, 300])
+      scroller.unmount()
+      render(<LabPassage {...props()} verticalSwipeTurns desktopSpread onPageTurn={turn} />)
+      swipe(screen.getByTestId('lab-book'), [200, 400], [200, 300])
+      expect(turn).not.toHaveBeenCalled()
+    })
+
+    it('never turns while a long press is selecting', () => {
+      vi.useFakeTimers()
+      try {
+        const select = vi.fn(), turn = vi.fn()
+        render(<LabPassage {...props()} verticalSwipeTurns onSelectRange={select} onPageTurn={turn} />)
+        const word = screen.getAllByTestId('lab-word')[1]
+        fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 200, clientY: 400 })
+        act(() => vi.advanceTimersByTime(200))
+        expect(word.classList.contains('is-selecting')).toBe(true)
+        fireEvent.pointerMove(word, { pointerType: 'touch', clientX: 200, clientY: 300 })
+        fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 200, clientY: 300 })
+        expect(turn).not.toHaveBeenCalled()
+        expect(select).toHaveBeenCalledOnce()
+      } finally { vi.useRealTimers() }
+    })
+  })
+
   it('leaves short touch taps and secondary mouse buttons out of lookup', () => {
     const select = vi.fn()
     render(<LabPassage {...props()} onSelectRange={select} />)
@@ -747,15 +816,35 @@ describe('tap to move while listening', () => {
     expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'one two three' }), 85, 30, undefined)
     expect(seek).not.toHaveBeenCalled()
   })
+  // A cold open's Compare edition lands after the first page (labSource compareLater), possibly mid-drag (#840 release, 16 Nov 2026).
+  it('keeps a drag through the main text when Compare text arrives where there was none, and ends it when Compare text is replaced', () => {
+    const select = vi.fn()
+    const drag = (rerenderWith: string[], rerender: (ui: React.ReactElement) => void) => {
+      const words = screen.getAllByTestId('lab-word')
+      words.forEach((word, i) => vi.spyOn(word, 'getBoundingClientRect').mockReturnValue({ left: i * 40, right: i * 40 + 30, top: 20, bottom: 40, width: 30, height: 20 } as DOMRect))
+      fireEvent.pointerDown(words[0], { pointerType: 'mouse', button: 0, clientX: 5, clientY: 30 })
+      fireEvent.pointerMove(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 45, clientY: 30 })
+      rerender(<LabPassage {...props()} compareParagraphs={rerenderWith} onSelectRange={select} />)
+      fireEvent.pointerMove(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 85, clientY: 30 })
+      fireEvent.pointerUp(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 85, clientY: 30 })
+    }
+    const { rerender } = render(<LabPassage {...props()} onSelectRange={select} />)
+    const compare = ['uno dos tres cuatro']
+    drag(compare, rerender)
+    expect(select).toHaveBeenCalledOnce()
+    expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'one two three' }), 85, 30, undefined)
+    drag(['A different Compare edition'], rerender)
+    expect(select).toHaveBeenCalledOnce()
+  })
 })
 
 describe('touch selection owns the gesture', () => {
-  it('blocks native selection/panning and never turns or swaps at a page edge', () => {
+  it('blocks native selection/panning and never turns at a page edge', () => {
     vi.useFakeTimers()
     try {
-      const select = vi.fn(), turn = vi.fn(), swap = vi.fn()
+      const select = vi.fn(), turn = vi.fn()
       render(<LabPassage {...passageProps(['one two three four'], { paragraphIndex: 0, from: 0, to: 4 })}
-        onSelectRange={select} onPageTurn={turn} onCompareSwap={swap} />)
+        onSelectRange={select} onPageTurn={turn} />)
       const word = screen.getAllByTestId('lab-word')[0]
       const surface = screen.getByTestId('lab-book')
       vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 390, top: 0, bottom: 700, width: 390, height: 700 } as DOMRect)
@@ -771,20 +860,59 @@ describe('touch selection owns the gesture', () => {
       fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 100, clientY: 400 })
       expect(select).toHaveBeenCalledOnce()
       expect(turn).not.toHaveBeenCalled()
-      expect(swap).not.toHaveBeenCalled()
       expect(fireEvent(word, new Event('selectstart', { bubbles: true, cancelable: true }))).toBe(true)
     } finally { vi.useRealTimers() }
   })
 
-  it('still permits a quick swipe starting on a word', () => {
-    const swap = vi.fn(), select = vi.fn()
+  // The Margin reader's text is a scroller (Surface Duo / iPad, 6 Nov 2026):
+  // a finger on a word scrolls the book; only a long press selects.
+  it('leaves a finger on a word to the browser scroll in a touch-scroll passage', () => {
+    vi.useFakeTimers()
+    try {
+      const select = vi.fn()
+      render(<LabPassage {...passageProps(['one two three four'], { paragraphIndex: 0, from: 0, to: 4 })} onSelectRange={select} touchScroll />)
+      const word = screen.getAllByTestId('lab-word')[1]
+      expect(screen.getByTestId('lab-book').classList.contains('is-touch-scroll')).toBe(true)
+      fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 100, clientY: 200 })
+      expect(fireEvent.touchStart(word, { touches: [{ clientX: 100, clientY: 200 }] })).toBe(true)
+      // A rest longer than the page's 160 ms press is still not a selection here.
+      act(() => vi.advanceTimersByTime(250))
+      expect(word.classList.contains('is-selecting')).toBe(false)
+      fireEvent.pointerMove(word, { pointerType: 'touch', clientX: 100, clientY: 140 })
+      expect(fireEvent.touchMove(word, { touches: [{ clientX: 100, clientY: 140 }] })).toBe(true)
+      act(() => vi.advanceTimersByTime(1000))
+      expect(word.classList.contains('is-selecting')).toBe(false)
+      fireEvent.pointerCancel(word, { pointerType: 'touch' })
+      expect(select).not.toHaveBeenCalled()
+    } finally { vi.useRealTimers() }
+  })
+
+  it('selects by long press in a touch-scroll passage and then owns the drag that extends it', () => {
+    vi.useFakeTimers()
+    try {
+      const select = vi.fn()
+      render(<LabPassage {...passageProps(['one two three four'], { paragraphIndex: 0, from: 0, to: 4 })} onSelectRange={select} touchScroll />)
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 100, clientY: 200 })
+      expect(fireEvent.touchStart(word, { touches: [{ clientX: 100, clientY: 200 }] })).toBe(true)
+      act(() => vi.advanceTimersByTime(430))
+      expect(word.classList.contains('is-selecting')).toBe(true)
+      expect(fireEvent.touchMove(word, { touches: [{ clientX: 104, clientY: 200 }] })).toBe(false)
+      fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 100, clientY: 200 })
+      expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 100, 200, undefined)
+    } finally { vi.useRealTimers() }
+  })
+
+  it('treats a quick vertical swipe on a word as neither a selection nor a page turn', () => {
+    // The vertical Compare swap was removed (Anders, 2026-11-06).
+    const turn = vi.fn(), select = vi.fn()
     render(<LabPassage {...passageProps(['one two'], { paragraphIndex: 0, from: 0, to: 2 })}
-      onSelectRange={select} onCompareSwap={swap} />)
+      onSelectRange={select} onPageTurn={turn} />)
     const word = screen.getAllByTestId('lab-word')[0]
     fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 100, clientY: 200 })
     fireEvent.pointerMove(word, { pointerType: 'touch', clientX: 100, clientY: 310 })
     fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 100, clientY: 310 })
-    expect(swap).toHaveBeenCalledOnce()
+    expect(turn).not.toHaveBeenCalled()
     expect(select).not.toHaveBeenCalled()
   })
 })
@@ -1092,4 +1220,62 @@ it('recognizes committed colours in Compare and a next chapter opening, retainin
   rerender(<LabPassage {...common} openingOnly chapterNumber={1} highlights={[highlight]} selectingRange={range} />)
   expect(container.querySelector('.lab-opening-passage.has-applied-selection')).toBeTruthy()
   expect(container.querySelector('.lab-opening-passage .is-selecting.is-hl-rose')).toBeTruthy()
+})
+
+describe('book scroll: a chapter changing role keeps its page (stableWords)', () => {
+  const text = ['First paragraph of the chapter here.', 'A second paragraph follows it.', 'And a third one to close.']
+  const page = (): ChapterHearingPage => ({ paragraphIndex: 0, from: 0, to: 6, segments: text.map((paragraph, paragraphIndex) => ({ paragraphIndex, from: 0, to: tokenizeHearingWords(paragraph).length })) })
+  const readingPage = page()
+  const base = { ...passageProps(text, readingPage), chapterNumber: 4, stableWords: true }
+  const words = (container: HTMLElement) => [...container.querySelectorAll<HTMLElement>('[data-word-index]')]
+
+  it('keeps every word node when the chapter becomes the reader\'s own, and only its words\' test ids change', () => {
+    const { container, rerender } = render(<LabPassage {...base} inertWords chapterEnd={<p>end</p>} />)
+    const before = words(container)
+    expect(before.every(word => word.dataset.testid === 'lab-opening-word')).toBe(true)
+    expect(container.querySelector('[data-testid="lab-book"]')).toBeNull()
+    expect(container.querySelector('#lab-p-0')).toBeNull()
+    rerender(<LabPassage {...base} chapterEnd={<p>end</p>} onSelectRange={() => {}} />)
+    const after = words(container)
+    expect(after).toHaveLength(before.length)
+    expect(after.every((word, index) => word === before[index])).toBe(true)
+    expect(after.every(word => word.dataset.testid === 'lab-word')).toBe(true)
+    expect(container.querySelector('[data-testid="lab-book"]')).not.toBeNull()
+    expect(container.querySelector('#lab-p-1')).not.toBeNull()
+    // And back: a neighbour again, the same nodes, inert.
+    rerender(<LabPassage {...base} inertWords chapterEnd={<p>end</p>} />)
+    expect(words(container).every((word, index) => word === before[index] && word.dataset.testid === 'lab-opening-word')).toBe(true)
+  })
+
+  it('paints a mark, the selection and footnotes on the lines they touch, as without stable words', () => {
+    const mark = { id: 'm1', chapterNumber: 4, paragraphIndex: 1, fromWord: 1, endParagraphIndex: 1, toWord: 3, color: 'rose' as const }
+    const footnotes = [{ id: 'f1', number: 1, paragraphIndex: 2, wordIndex: 1, text: 'A note.' }]
+    const both = (props: Record<string, unknown>) => {
+      const stable = render(<LabPassage {...base} {...props} />)
+      const html = stable.container.innerHTML
+      stable.unmount()
+      const plain = render(<LabPassage {...base} stableWords={false} {...props} />)
+      const expected = plain.container.innerHTML
+      plain.unmount()
+      return [html, expected]
+    }
+    for (const props of [
+      { highlights: [mark] },
+      { selectingRange: { paragraphIndex: 0, fromWord: 1, endParagraphIndex: 1, toWord: 2, text: 'x' } },
+      { footnotes, onFootnote: () => {} },
+      { inertWords: true, footnotes, highlights: [mark] },
+    ]) {
+      const [html, expected] = both(props)
+      expect(html).toBe(expected)
+    }
+    // A mark added to a chapter already painted reaches its words.
+    const { container, rerender } = render(<LabPassage {...base} />)
+    const nodes = words(container)
+    rerender(<LabPassage {...base} highlights={[mark]} />)
+    expect(words(container).filter(word => word.className.includes('is-hl-rose')).map(word => `${word.dataset.paragraphIndex}:${word.dataset.wordIndex}`)).toEqual(['1:1', '1:2'])
+    expect(words(container).every((word, index) => word === nodes[index])).toBe(true)
+    rerender(<LabPassage {...base} highlights={[]} footnotes={footnotes} />)
+    expect(container.querySelectorAll('.is-hl-rose')).toHaveLength(0)
+    expect(container.querySelectorAll('[data-testid="lab-footnote-mark"]')).toHaveLength(1)
+  })
 })

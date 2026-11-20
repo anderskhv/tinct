@@ -17,9 +17,10 @@ const ALL = SUITES
 // First match wins. `null` suites = everything.
 const FULL = null
 export const RULES = [
-  // Always everything: the reader and its place, dependencies, the workflows and this script, the build, the Worker entry.
+  // Always everything: the reader and its place, dependencies, the workflows and this script (and deploy's page-lane
+  // rules), the build, the Worker entry.
   [/^\.github\//, FULL],
-  [/^scripts\/(ci-suites|cloud-setup)\b/, FULL],
+  [/^scripts\/(ci-suites|cloud-setup|release-lane)\b/, FULL],
   [/(^|\/)package(-lock)?\.json$/, FULL],
   [/^app\/(vite\.config|tsconfig|wrangler\.jsonc|index\.html|vitest)/, FULL],
   [/^app\/src\/worker\.ts$/, FULL],
@@ -32,10 +33,10 @@ export const RULES = [
   [/^docs\/margin\//, ['margin']],
   [/^app\/scripts\/margin-check\.mjs$/, ['margin']],
   [/^app\/src\/addbook[A-Za-z0-9]*\.test\.ts$/, ['margin']],
-  // The library: its browser checks, the featured preview, sign-in (which starts there) and the margin reader
+  // The library: its browser checks, the compact reader menu (the `featured` suite), sign-in (which starts there) and the margin reader
   // (its add engine reads the library's models).
-  [/^app\/public\/lab\/(library_2|featured)\//, ['library', 'featured', 'signin', 'margin']],
-  [/^app\/public\/lab\/(library-model|library-2-model|featured-preview)\.(js|css)$/, ['library', 'featured', 'signin', 'margin']],
+  [/^app\/public\/lab\/library_2\//, ['library', 'featured', 'signin', 'margin']],
+  [/^app\/public\/lab\/(library-model|library-2-model)\.(js|css)$/, ['library', 'featured', 'signin', 'margin']],
   // The Worker (not its entry): everything but the margin and the library's browser checks. Before a deploy the
   // browser checks run the built client without the Worker, so these are kept only as a margin of safety.
   [/^app\/src\/worker\//, ['signin', 'panels', 'audio', 'shakespeare', 'typeset']],
@@ -43,11 +44,10 @@ export const RULES = [
   // A check's own script: that check.
   [/^app\/scripts\/check-sign-in\.mjs$/, ['signin']],
   [/^app\/scripts\/check-reader-panels\.mjs$/, ['panels', 'featured']],
-  [/^app\/scripts\/check-(reader-feedback|book-transition)\.mjs$/, ['panels']],
+  [/^app\/scripts\/check-(reader-feedback|book-transition|follow-request-t-dot)\.mjs$/, ['panels']],
   [/^app\/scripts\/check-library-(public|shelf-remove)\.mjs$/, ['library']],
   // /byob (the page about reading your own books) leads into the library's own-book pop-up.
   [/^app\/(public\/byob\.(html|js)|scripts\/check-byob-entry\.mjs)$/, ['library']],
-  [/^app\/scripts\/check-featured-preview\.mjs$/, ['featured']],
   [/^app\/scripts\/check-inline-audio-loading\.mjs$/, ['audio']],
   [/^app\/scripts\/check-shakespeare-layout\.mjs$/, ['shakespeare']],
   [/^app\/scripts\/check-(hyphenation-hardening|page-break-lines)\.mjs$/, ['typeset']],

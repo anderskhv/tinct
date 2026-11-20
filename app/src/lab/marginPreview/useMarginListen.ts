@@ -30,6 +30,7 @@ import { readLabDeviceId, readLabPositionLocal, writeLabPositionLocal } from '..
 import { readNarrationReplay, storeNarrationReplay } from '../narrationReplayCache'
 import { narrationBridgeUrls, useLabListen } from '../useLabListen'
 import { useLabListenReport } from '../useLabListenReport'
+import { narrationLanguage } from '../../narration/narrationCore'
 import { heardPlace, marginListenSnapshot, marginNarrationPlan, marginOwnNarrationPlan, marginOwnSource, marginVoiceChoices, withAudioPlace, withMarginVoice, type MarginListenAt, type MarginListenSnapshot, type MarginOwnChapter, type MarginVoiceChoices } from './marginListenModel'
 
 /**
@@ -164,7 +165,9 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
     if (!signal.aborted) storeNarrationReplay(c, results)
     return results
   }, [ownHex])
-  const narration = useMemo(() => (plan?.narration && voice ? { voice, ensure, prepared } : null), [plan?.narration, voice, ensure, prepared])
+  // Sentence groups are cut in the edition's language, as the Worker cuts them (own books: English rules).
+  const language = !ownHex && editionKey ? narrationLanguage(bookId, editionKey) ?? 'en' : 'en'
+  const narration = useMemo(() => (plan?.narration && voice ? { voice, ensure, prepared, language } : null), [plan?.narration, voice, ensure, prepared, language])
 
   const chapterCompleteRef = useRef<() => boolean>(() => false)
   const nextChapterAudioRef = useRef<() => { chapterNumber: number; urls: string[] } | null>(() => null)

@@ -542,6 +542,19 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     try { host()?.own?.opened() } catch {}
   }, 300);
   for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) addEventListener(type, active, { capture: true, passive: true });
+  // Reading time is credited by page turns (Anders, 10 Nov 2026). This reader scrolls: a turn is each three quarters
+  // of a screen the text moves (forward or back), on the element that holds the book. The framing page counts them.
+  let lastTurn = null;
+  const onScroll = e => {
+    if (!opened) return;
+    const el = e.target === document ? document.scrollingElement : e.target;
+    if (!el || !(el.scrollHeight > el.clientHeight * 1.5) || el.clientHeight < 200) return;
+    const key = Math.floor(el.scrollTop / (el.clientHeight * 0.75));
+    if (key === lastTurn) return;
+    lastTurn = key;
+    try { host()?.own?.turn?.(key) } catch {}
+  };
+  addEventListener('scroll', onScroll, { capture: true, passive: true });
   // Reading aloud is reading too, without a tap (the book reader counts its narration as time).
   setInterval(() => { try { if (document.querySelector('.lab')?.dataset.playing === 'true') { lastActive = 0; active() } } catch {} }, 20000);
 })();

@@ -1,10 +1,11 @@
-import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20261106mm';
+import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20261112bios';
 // The production catalogue behind the library_2 design: every discoverable
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
 import { coverAsset, coverSources } from './cover-assets.js?v=20261009owncover';
-import { withPublicBooks } from './add-to-tinct.js?v=20261106mm';
+import { withPublicBooks } from './add-to-tinct.js?v=20261120young';
 import { coverToneFor } from './spine.js?v=20261009rel10';
+import { loadRestrictedBookIds, restrictCatalogue } from '../restricted-books.js?v=20261117geo';
 const CATALOGUE_URL = '/lab/catalogue.json';
 
 let catalogue = null;
@@ -23,10 +24,12 @@ export function loadCatalogueData() {
     const native = window.Capacitor?.isNativePlatform?.()
       ? import('/lab/native-books.js').then(() => window.__tinctNativeBooks.catalogue())
       : null;
+    // Books not served in this visitor's country leave discovery, search and the shelves (restricted-books.js).
+    const restricted = loadRestrictedBookIds();
     catalogueData = (native || early || fetch(CATALOGUE_URL).then(response => {
       if (!response.ok) throw new Error(`Catalogue ${response.status}`);
       return response.json();
-    })).then(data => (native ? data : withPublicBooks(data))).catch(error => { catalogueData = null; window.__library2CatalogueShared = null; throw error; });
+    })).then(data => (native ? data : withPublicBooks(data))).then(async data => restrictCatalogue(data, await restricted)).catch(error => { catalogueData = null; window.__library2CatalogueShared = null; throw error; });
     window.__library2CatalogueShared = catalogueData;
   }
   return catalogueData;

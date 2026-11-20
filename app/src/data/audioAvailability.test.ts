@@ -20,23 +20,34 @@ describe('reversible edition discovery availability', () => {
     // because their editions carry no hasAudio); 221 with Grimms' Fairy Tales and
     // The Arabian Nights (streamed narration, 2026-10-19); 222 with The Master and
     // Margarita (modern-en only, streamed narration, 2026-11-05).
-    expect(new Set(reviewed).size).toBe(222)
+    // 223 with Pinocchio (modern-en, streamed narration, 2026-11-10).
+    // 224 with Pope's verse Odyssey (2026-11-11: listed so it stays discoverable; no hasAudio, so no narration).
+    // 240 with the eight young-reader books (2026-11-20: listed so they stay discoverable; no hasAudio, so no narration).
+    expect(new Set(reviewed).size).toBe(240)
     // Art of War modern-en text changed on 2026-11-02; its old recording is held.
     // 174 with The Master and Margarita modern-en (2026-11-05).
-    expect(manifest.eligible_editions).toHaveLength(174)
-    expect(manifest.held_editions).toHaveLength(48)
+    // 175 with Pinocchio modern-en (2026-11-10).
+    // 176 with Pope's verse Odyssey (2026-11-11).
+    // Medea modern-en text repaired 2026-11-13; its old recording is held.
+    // 191 with the eight young-reader books' English editions (2026-11-20).
+    expect(manifest.eligible_editions).toHaveLength(191)
+    expect(manifest.held_editions).toHaveLength(49)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
     // 105 with the four books published 2026-10-03; 110 with the five
     // Conjecture books (2026-10-08); 112 with Grimm and the Arabian Nights (2026-10-19);
     // 113 with The Master and Margarita (2026-11-05).
-    expect(PRE_READER_CATALOGUE.books).toHaveLength(113)
+    // 114 with Pinocchio (2026-11-10).
+    // 122 with the eight young-reader books (2026-11-20).
+    expect(PRE_READER_CATALOGUE.books).toHaveLength(122)
     // 2026-10-02 rights holds: gilgamesh, social-contract, discourse-on-inequality,
     // symposium and second-treatise leave discovery (94 -> 89); 93 with the
     // four books published 2026-10-03; 98 with the five Conjecture books;
     // 100 with Grimm and the Arabian Nights; 101 with The Master and Margarita.
-    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(101)
+    // 102 with Pinocchio. 103 with Gilgamesh back (Thompson's 1928 text, 2026-11-18).
+    // 111 with the eight young-reader books (2026-11-20).
+    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(111)
     for (const id of manifest.held_books) {
       expect(isBookDiscoverable(id)).toBe(id === 'faust-part-1')
       const book = PRE_READER_CATALOGUE.booksById.get(id)!
@@ -61,11 +72,13 @@ describe('reversible edition discovery availability', () => {
     expect(bible.editions.filter(e=>isEditionDiscoverable(bible.id,e)).map(e=>e.key)).toEqual(['bsb-en', 'kjv-en', 'web-en', 'webc-en'])
     expect(isBookDiscoverable('bible')).toBe(true)
   })
-  it('releases repaired Antigone audio while holding only the chapter with a missing recording', () => {
+  it('releases repaired Antigone audio while holding only the chapters whose recording no longer matches', () => {
     expect(isEditionDiscoverable('antigone', { key: 'modern-en', language: 'en' })).toBe(true)
     expect(isAudioHeld('antigone', 'modern-en')).toBe(false)
+    // Chapter 10 lacks p12.mp3 (2026-09-22). The 2026-11-18 English repairs changed text in every
+    // chapter but 8, so those recordings are held too; chapter 8 still plays its recording.
     for (let chapter = 1; chapter <= 11; chapter++) {
-      expect(isAudioHeld('antigone', 'modern-en', chapter)).toBe(chapter === 10)
+      expect(isAudioHeld('antigone', 'modern-en', chapter)).toBe(chapter !== 8)
       expect(isAudioHeld('antigone', 'original-en', chapter)).toBe(false)
     }
     expect(isAudioHeld('apology', 'modern-en', 1)).toBe(true)

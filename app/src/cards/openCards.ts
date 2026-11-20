@@ -224,6 +224,11 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
       location.assign(landing)
     },
     // The sign-in page's reset flow (labSignIn.ts 'forgot'): the same email, the same return link.
+    // Profile › AI settings (approved mock, 10 Nov 2026): the cards close and the settings open over the page.
+    openAiSettings: () => {
+      stack?.closeAll()
+      void import('../lab/openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark: options.dark, userId: session.userId }))
+    },
     resetPassword: async () => {
       if (!supabase || !session.email) return CARDS_COPY.actionFailed
       try {

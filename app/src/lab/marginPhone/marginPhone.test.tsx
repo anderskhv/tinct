@@ -8,7 +8,8 @@ import { LabChapterHeading } from '../LabChapterHeading'
 import { LabChapterEnd } from '../LabChapterEnd'
 import { MarginPhoneContext, catchUpAvailable, isFrontMatter } from './marginPhoneContext'
 import { labSuperMenuRows } from '../labSuperMenu'
-import { LabPhoneCard, PHONE_CARD_TYPING_ATTR, phoneCardRoom, splitLead } from './LabPhoneCard'
+import { LabPhoneCard, PHONE_CARD_TYPING_ATTR, PhoneAnswer, phoneCardRoom, splitLead } from './LabPhoneCard'
+import { PdfOriginalAnswer } from '../sharedReader/pdf/PdfOriginalAnswer'
 import { LabPhoneBar, PHONE_MORE_ROWS, phoneBarLeft, phoneMorePlace } from './LabPhoneBar'
 import { PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, parsePhoneQuiz, parsePhoneQuizMark, parsePhoneQuizPartial } from './LabPhoneCards'
 import { PHONE_CARD_PASSAGE_CLASS, markPhoneCardPassage } from './phoneCardPassage'
@@ -19,7 +20,7 @@ const appSource = readFileSync(resolve(__dirname, '../LabApp.tsx'), 'utf8')
 afterEach(cleanup)
 
 describe('the chapter pills in the phone margin mode', () => {
-  it('without the mode the heading keeps its Primer chip and the end its Recap and Note', () => {
+  it('without the mode the heading keeps its Primer chip and the end its Summary and Note', () => {
     const { container } = render(<><LabChapterHeading title="Chapter 1" preview onPreview={() => {}} /><LabChapterEnd chapterTitle="Chapter 1" hasNext onDiscuss={() => {}} onNote={() => {}} /></>)
     expect(container.querySelector('.lab-passage-header > .lab-chapter-preview')).not.toBeNull()
     expect(container.querySelector('.lab-unit-pills, .lab-unit-k')).toBeNull()
@@ -44,10 +45,10 @@ describe('the chapter pills in the phone margin mode', () => {
     expect(onCatchUp).toHaveBeenCalledTimes(1)
   })
 
-  it('at a chapter end: ✧ Recap, ✧ Quiz me and Note, with no "End of" label', () => {
+  it('at a chapter end: ✧ Summary, ✧ Quiz me and Note, with no "End of" label', () => {
     const onQuiz = vi.fn()
     render(<MarginPhoneContext.Provider value={{ onQuiz }}><LabChapterEnd chapterTitle="Chapter 3" hasNext onDiscuss={() => {}} onNote={() => {}} /></MarginPhoneContext.Provider>)
-    expect(screen.getByTestId('lab-chapter-end').textContent).toMatch(/^✧Recap✧Quiz meNoteNext chapter/)
+    expect(screen.getByTestId('lab-chapter-end').textContent).toMatch(/^✧Summary✧Quiz meNoteNext chapter/)
     expect(screen.queryByTestId('lab-unit-end')).toBeNull()
     const trigger = screen.getByTestId('lab-unit-quiz')
     const anchor = { left: 500, right: 590, top: 640, bottom: 670 } as DOMRect
@@ -92,6 +93,29 @@ describe('the cards', () => {
     expect(splitLead('The point is simple. Then more follows.')).toEqual({ lead: 'The point is simple.', tail: 'Then more follows.' })
     expect(splitLead('One sentence only')).toEqual({ lead: 'One sentence only', tail: '' })
     expect(splitLead('“Quoted.” And after.')).toEqual({ lead: '“Quoted.”', tail: 'And after.' })
+  })
+  it('Simplify has no bold first sentence: it is the passage rewritten, live and saved (Anders, 11 Nov 2026)', () => {
+    const text = 'Call me Ishmael. Some years ago I went to sea.\n\nIt keeps me from killing myself.'
+    const answer = render(<PhoneAnswer text={text} />)
+    expect(answer.container.querySelector('.lab-pcard-lead')?.textContent).toBe('Call me Ishmael.')
+    answer.unmount()
+    const plain = render(<PhoneAnswer text={text} plain />)
+    expect(plain.container.querySelector('.lab-pcard-lead')).toBeNull()
+    expect(plain.container.querySelector('strong')).toBeNull()
+    expect(plain.container.textContent).toContain('Call me Ishmael. Some years ago I went to sea.')
+    expect(plain.container.textContent).toContain('It keeps me from killing myself.')
+    plain.unmount()
+    // A saved rewrite whose first paragraph was wrapped in ** loses the bold too.
+    const saved = render(<PhoneAnswer text={'**Call me Ishmael.**\n\nMore.'} plain />)
+    expect(saved.container.querySelector('strong')).toBeNull()
+    expect(saved.container.textContent).toContain('Call me Ishmael.')
+    saved.unmount()
+    const pdf = render(<PdfOriginalAnswer kind="simplify" raw={text} />)
+    expect(pdf.container.querySelector('.lab-pcard-lead')).toBeNull()
+    pdf.unmount()
+    const explain = render(<PdfOriginalAnswer kind="explain" raw={text} />)
+    expect(explain.container.querySelector('.lab-pcard-lead')?.textContent).toBe('Call me Ishmael.')
+    explain.unmount()
   })
   it('Quiz me reads its questions and a marked answer', () => {
     expect(parsePhoneQuiz('```json\n{"questions":[{"q":"Q1","answer":"A1","why":"W"},{"q":2}]}\n```')).toEqual([{ q: 'Q1', answer: 'A1', why: 'W' }])
@@ -250,6 +274,8 @@ describe('the cards', () => {
     const onTalk = vi.fn(), onMic = vi.fn(), onSend = vi.fn()
     const { rerender } = render(<div className="lab"><PhoneFollowField value="" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)
     expect(screen.getByTestId('lab-phone-card-input').getAttribute('placeholder')).toBe('Ask a follow-up')
+    // iOS offered "AutoFill Contact" (a home address) over the keyboard (Anders, 14 Nov 2026).
+    expect(screen.getByTestId('lab-phone-card-input').getAttribute('autocomplete')).toBe('off')
     fireEvent.click(screen.getByTestId('lab-phone-card-talk'))
     fireEvent.click(screen.getByTestId('lab-phone-card-mic'))
     rerender(<div className="lab"><PhoneFollowField value="Why?" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)
@@ -295,7 +321,11 @@ describe('Quiz me arrives fast (iPhone feedback, 21 Oct 2026)', () => {
     const follow = vi.fn((summary: string) => <p data-testid="follow">{summary.split('\n')[0]}</p>)
     render(<div className="lab"><PhoneQuizBody request={async onDelta => { onDelta(quiz); return quiz }} mark={async () => ''} draft="" setDraft={() => {}} follow={follow} /></div>)
     await act(async () => {})
-    for (let i = 0; i < 3; i++) { fireEvent.click(screen.getByTestId('lab-phone-quiz-show')); fireEvent.click(screen.getByTestId('lab-phone-quiz-next')) }
+    for (let i = 0; i < 2; i++) { fireEvent.click(screen.getByTestId('lab-phone-quiz-show')); fireEvent.click(screen.getByTestId('lab-phone-quiz-next')) }
+    // The last question's answer shown: the score at once, no "See your score" (Anders, 13 Nov 2026).
+    fireEvent.click(screen.getByTestId('lab-phone-quiz-show'))
+    expect(screen.queryByTestId('lab-phone-quiz-next')).toBeNull()
+    expect(screen.getByTestId('lab-phone-quiz-score').textContent).toBe('3 of 3 shown')
     expect(screen.getByTestId('follow').textContent).toBe('1. Q1 {braces} "quoted"?')
     expect(screen.getByTestId('lab-phone-quiz-again')).toBeTruthy()
   })

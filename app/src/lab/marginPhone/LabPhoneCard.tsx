@@ -3,6 +3,9 @@ import { consumeDismissGesture } from '../../utils/consumeDismissGesture'
 import { LAB_KEYBOARD_SHEET_ATTR } from '../labChrome'
 import { LabInlineMarkdown, LabMarkdown } from '../LabMarkdown'
 import { TalkIcon } from '../LabReaderIcons'
+import type { AiLength } from '../../aiSettings'
+import { PHONE_CARD_MAX_SHARE, type PhoneCardHeights, phoneCardExpectedHeight, phoneCardHoldStep, phoneCardLength, readPhoneCardHeights, recordPhoneCardHeight } from './phoneCardHeight'
+import { leadSentenceEnd } from './leadSentence'
 import './marginPhone.css'
 
 /** The margin reader's card icons (public/lab/addbook/js/margin.js ICONS), drawn on an 18px grid. */
@@ -31,21 +34,128 @@ export interface LabPhoneCardProps {
   children: ReactNode
   /** The follow-up line, kept above the keyboard. */
   foot?: ReactNode
+  /**
+   * A Notebook entry opened over the reader. On desktop it floats over the margin's cards, so it is on paper, not
+   * transparent like a margin response (desktopCard.css). A phone card is always on its own sheet.
+   */
+  notebook?: boolean
   /** A tall card (Chat, Talk) takes a fixed share of the screen; the rest grow with their content. */
   tall?: boolean
+  /**
+   * An answer is on its way or streaming in (the PDF reader says so here; the book reader's bodies mark it with
+   * aria-busy or PHONE_CARD_BUSY_ATTR). The card is then held at its kind's expected height and never shrinks (phoneCardHeight.ts).
+   */
+  busy?: boolean
   testId?: string
 }
+
+/** Set on an element in a card's body while an answer is on its way (a follow-up, Quiz me's questions). */
+export const PHONE_CARD_BUSY_ATTR = 'data-pcard-busy'
+const PHONE_CARD_BUSY_SELECTOR = `[aria-busy="true"], [${PHONE_CARD_BUSY_ATTR}]`
+/** The reader's own follow-up questions in a card's body. */
+const PHONE_CARD_QUESTION_SELECTOR = '.lab-pcard-you'
+/** An answer shown in the card (a saved card's, or one that arrived): the card then keeps its kind's height. */
+const PHONE_CARD_ANSWER_SELECTOR = '.lab-pcard-answer, .tc-answer, [data-testid="lab-phone-card-answer"]'
 
 /**
  * The phone's bottom card (the margin reader's `.mr-sheet`): a drag handle, the
  * label, the body and the follow-up line. One at a time; it slides up, closes
  * on a drag down or on a tap outside it, and stands on the bottom of the visual
  * viewport, so it rides above the software keyboard. As tall as its content, at
- * most 70% of the visible height. It is fixed over the page and never moves it.
+ * most 70% of the visible height; an AI card opens at the height its kind's answers reach on this device (or its
+ * content, if taller) and keeps that height until it closes: a shorter answer leaves blank space at its foot, a
+ * longer one or a follow-up scrolls inside it (phoneCardHeight.ts). It is fixed over the page and never moves it.
  */
-export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', closeLabel, children, foot, tall = false, testId = 'lab-phone-card' }: LabPhoneCardProps) {
+export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', closeLabel, children, foot, tall = false, busy = false, testId = 'lab-phone-card' }: LabPhoneCardProps) {
   const ref = useRef<HTMLElement | null>(null)
   const dockRef = useRef<HTMLDivElement | null>(null)
+  const kindRef = useRef(kind)
+  kindRef.current = kind
+  const busyRef = useRef(busy)
+  busyRef.current = busy
+  const tallRef = useRef(tall)
+  tallRef.current = tall
+  // The height the card is held at (null: as tall as its content), the visible height the expected height is a
+  // share of, whether the card opened with its answer on its way, and whether that first answer has been measured.
+  // `questions`: the reader's questions shown in the body (-1 until the first look), so a new one is seen arriving.
+  const holdRef = useRef<{ held: number | null; base: number; openedBusy: boolean | null; measured: boolean; plan: { kind: string; length: AiLength | null; store: PhoneCardHeights } | null; questions: number; pin: HTMLElement | null; pinning: boolean }>({ held: null, base: 0, openedBusy: null, measured: false, plan: null, questions: -1, pin: null, pinning: false })
+  const holdNow = useRef<() => void>(() => {})
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el || typeof window === 'undefined') return
+    const state = holdRef.current
+    const apply = (height: number | null) => {
+      state.held = height
+      if (height === null) { el.style.height = ''; el.removeAttribute('data-held'); return }
+      el.setAttribute('data-held', '')
+      // While the keyboard is up the room is small: blank space may take at most PHONE_CARD_MAX_SHARE of it, so the
+      // page above stays in view and a tap there still closes the card. The text itself may use the whole room.
+      // The held height is kept and comes back when the keyboard goes.
+      // A share of the room, not of the content: the card does not follow the text streaming in while the keyboard is up.
+      const shown = el.hasAttribute('data-keyboard') && state.base > 0 ? Math.min(height, Math.round(state.base * PHONE_CARD_MAX_SHARE)) : height
+      el.style.height = `${shown}px`
+    }
+    // As tall as its content (at most its max-height), measured in the same frame: no paint between.
+    // Unsetting the height shrinks the card for that one layout, and the browser clamps every scroll inside it to the
+    // smaller box; putting the height back does not undo that. Keep each scroll where it was (16 Nov 2026: a chat
+    // opened at its latest message slipped 34px up on a slow phone, and the deploy check caught it).
+    const naturalHeight = () => {
+      if (state.held === null) return el.offsetHeight
+      const scrolled = Array.from(el.querySelectorAll<HTMLElement>('.lab-pcard-body, .tc-thread, .lab-ask-thread'))
+        .filter(node => node.scrollTop > 0).map(node => [node, node.scrollTop] as const)
+      el.style.height = ''
+      const natural = el.offsetHeight
+      el.style.height = `${state.held}px`
+      for (const [node, top] of scrolled) if (node.scrollTop !== top) node.scrollTop = top
+      return natural
+    }
+    const hold = () => {
+      const kind = kindRef.current
+      const sized = !tallRef.current && !el.closest('.is-desktop')
+      // The reader's length and this device's measured heights, read once per card kind (not on every streamed word).
+      if (state.plan?.kind !== kind) state.plan = { kind, length: phoneCardLength(kind), store: readPhoneCardHeights() }
+      const { length, store } = state.plan
+      const expected = sized ? phoneCardExpectedHeight(kind, state.base, length, store) : null
+      const answering = busyRef.current || !!el.querySelector(PHONE_CARD_BUSY_SELECTOR)
+      if (state.openedBusy === null && expected !== null) state.openedBusy = answering
+      const natural = expected !== null && (state.held !== null || !answering) ? naturalHeight() : undefined
+      // The card's first answer has ended: remember how tall it was, so the next card of this kind opens closer to it.
+      if (!answering && state.openedBusy && !state.measured && typeof natural === 'number' && natural > 0 && state.base > 0) {
+        state.measured = true
+        recordPhoneCardHeight(kind, length, natural / state.base)
+      }
+      const cap = parseFloat(window.getComputedStyle(el).maxHeight)
+      const step = phoneCardHoldStep(state.held, {
+        expected, busy: answering, current: el.offsetHeight, natural,
+        cap: Number.isFinite(cap) ? cap : undefined,
+        empty: !el.querySelector(PHONE_CARD_ANSWER_SELECTOR),
+      })
+      if (step.held !== state.held || step.held !== null || el.hasAttribute('data-held')) apply(step.held)
+      const body = el.querySelector<HTMLElement>('.lab-pcard-body')
+      // A follow-up just sent: the card keeps its height, so bring the new question to the top of the body and
+      // let its answer fill in below it (16 Nov 2026). Chat keeps its own thread position.
+      // Until its answer is long enough the body cannot scroll that far, so the question stays pinned while the
+      // answer streams in; the reader's own scroll lets it go.
+      const questions = body ? body.querySelectorAll<HTMLElement>(PHONE_CARD_QUESTION_SELECTOR) : []
+      if (body && state.questions >= 0 && questions.length > state.questions && kind !== 'chat') state.pin = questions[questions.length - 1]
+      state.questions = questions.length
+      if (body && state.pin) {
+        if (!state.pin.isConnected) state.pin = null
+        else {
+          const want = body.scrollTop + state.pin.getBoundingClientRect().top - body.getBoundingClientRect().top - 8
+          if (Math.abs(want - body.scrollTop) > 1) { state.pinning = true; body.scrollTop = want }
+          if (!answering && Math.abs(body.scrollTop - want) <= 1) state.pin = null
+        }
+      }
+      markMore(body)
+    }
+    holdNow.current = hold
+    const observer = typeof MutationObserver === 'undefined' ? null : new MutationObserver(hold)
+    observer?.observe(el, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['aria-busy', PHONE_CARD_BUSY_ATTR] })
+    return () => { observer?.disconnect(); holdNow.current = () => {} }
+  }, [])
+  // A change of kind or of the busy prop is a render, not a mutation in the card.
+  useLayoutEffect(() => { holdNow.current() })
   useLayoutEffect(() => {
     const el = ref.current
     const dock = dockRef.current
@@ -57,6 +167,9 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
     const fit = () => {
       const typing = phoneCardTyping(el)
       const room = phoneCardRoom(window.visualViewport, window.innerHeight, document.documentElement?.clientHeight, typing)
+      // The expected height is a share of what the reader sees (above the keyboard while it is up). A held
+      // height never drops when the keyboard comes; the card's max-height keeps it inside the room left.
+      holdRef.current.base = room.height
       dock.style.setProperty('--lab-pcard-top', `${room.top}px`)
       dock.style.setProperty('--lab-pcard-room', `${room.height}px`)
       el.toggleAttribute('data-keyboard', room.keyboard)
@@ -69,6 +182,7 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
         el.querySelectorAll<HTMLElement>('.tc-thread, .lab-ask-thread').forEach(node => { node.scrollTop = node.scrollHeight })
       }
       keyboard = room.keyboard
+      holdNow.current()
     }
     // While a field in the card has the focus, the narration bar is put away (it would sit on the keyboard).
     const root = document.documentElement
@@ -104,24 +218,91 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
     window.addEventListener('keydown', onKey)
     return () => { window.removeEventListener('pointerdown', outside, true); window.removeEventListener('keydown', onKey) }
   }, [])
-  // A drag down on the handle or the label closes it.
-  const drag = useRef<{ y: number; id: number } | null>(null)
+  // The card follows a pull down and closes past PHONE_CARD_SWIPE (or on a flick); otherwise it springs back.
+  const follow = (dy: number) => { if (ref.current) { ref.current.style.transition = 'none'; ref.current.style.transform = dy > 0 ? `translateY(${dy}px)` : '' } }
+  const release = (dy: number, velocity: number) => {
+    const el = ref.current
+    if (!el) return
+    const closes = phoneCardSwipeCloses(dy, velocity, el.offsetHeight)
+    el.style.transition = closes || dy <= 0 ? '' : 'transform .18s cubic-bezier(.2, .8, .2, 1)'
+    el.style.transform = ''
+    if (closes) closeRef.current()
+  }
+  // A drag down on the header row (the grip, the title and the empty space beside it) closes it.
+  const drag = useRef<{ y: number; id: number; track: SwipeTrack } | null>(null)
   const onPointerDown = (event: React.PointerEvent) => {
-    drag.current = { y: event.clientY, id: event.pointerId }
+    drag.current = { y: event.clientY, id: event.pointerId, track: swipeTrack(event.clientY) }
     try { (event.currentTarget as Element).setPointerCapture(event.pointerId) } catch { /* a synthetic pointer */ }
   }
   const onPointerMove = (event: React.PointerEvent) => {
     const start = drag.current
     if (!start || !ref.current) return
-    const dy = Math.max(0, event.clientY - start.y)
-    ref.current.style.transform = dy ? `translateY(${dy}px)` : ''
+    start.track.move(event.clientY)
+    follow(Math.max(0, event.clientY - start.y))
   }
   const onPointerEnd = (event: React.PointerEvent) => {
     const start = drag.current
     drag.current = null
-    if (ref.current) ref.current.style.transform = ''
-    if (start && event.clientY - start.y > 60) onClose()
+    if (!start) { follow(0); return }
+    start.track.move(event.clientY)
+    release(event.clientY - start.y, start.track.velocity())
   }
+  // A swipe down anywhere else on the card closes it as an iOS sheet does (Anders, 17 Nov 2026), but only while what
+  // is under the finger is scrolled to its top: further down the same swipe scrolls the content. Touch events, not
+  // pointer events: iOS takes a touch that pans the body for its own scroll (pointercancel) unless the first move is
+  // cancelled. A field (the follow-up, a note), a long press (a text selection) and an upward or sideways move are
+  // left to the browser.
+  const releaseRef = useRef(release)
+  releaseRef.current = release
+  const followRef = useRef(follow)
+  followRef.current = follow
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    let swipe: { x: number; y: number; at: number; scrolled: boolean; state: 'pending' | 'drag' | 'off'; track: SwipeTrack; dy: number } | null = null
+    const start = (event: TouchEvent) => {
+      swipe = null
+      const touch = event.touches[0]
+      const target = event.target as Element | null
+      if (event.touches.length !== 1 || !touch || !target?.closest) return
+      if (target.closest('.lab-pcard-drag, textarea, input, select, [contenteditable=""], [contenteditable="true"]')) return
+      const selection = typeof window.getSelection === 'function' ? window.getSelection() : null
+      if (selection && !selection.isCollapsed && selection.anchorNode && el.contains(selection.anchorNode)) return
+      swipe = { x: touch.clientX, y: touch.clientY, at: performance.now(), scrolled: scrolledFromTop(target, el), state: 'pending', track: swipeTrack(touch.clientY), dy: 0 }
+    }
+    const move = (event: TouchEvent) => {
+      const touch = event.touches[0]
+      if (!swipe || swipe.state === 'off' || !touch) return
+      const dx = touch.clientX - swipe.x, dy = touch.clientY - swipe.y
+      if (swipe.state === 'pending') {
+        if (Math.abs(dx) < SWIPE_SLOP_PX && Math.abs(dy) < SWIPE_SLOP_PX) return
+        const held = performance.now() - swipe.at > SWIPE_LONG_PRESS_MS
+        if (held || dy <= 0 || Math.abs(dx) > Math.abs(dy) || swipe.scrolled) { swipe.state = 'off'; return }
+        swipe.state = 'drag'
+      }
+      if (event.cancelable) event.preventDefault()
+      swipe.track.move(touch.clientY)
+      swipe.dy = dy
+      followRef.current(Math.max(0, dy))
+    }
+    const end = (event: TouchEvent) => {
+      const current = swipe
+      swipe = null
+      if (!current || current.state !== 'drag') return
+      const touch = event.changedTouches[0]
+      if (event.type === 'touchcancel' || !touch) { releaseRef.current(0, 0); return }
+      current.track.move(touch.clientY)
+      releaseRef.current(touch.clientY - current.y, current.track.velocity())
+    }
+    el.addEventListener('touchstart', start, { passive: true })
+    el.addEventListener('touchmove', move, { passive: false })
+    el.addEventListener('touchend', end)
+    el.addEventListener('touchcancel', end)
+    return () => {
+      el.removeEventListener('touchstart', start); el.removeEventListener('touchmove', move)
+      el.removeEventListener('touchend', end); el.removeEventListener('touchcancel', end)
+    }
+  }, [])
   return (<>
     {/* The page behind the card is dimmed, so none of its words read beside or under the card. */}
     <div className="lab-pcard-scrim" data-testid="lab-phone-card-scrim" aria-hidden="true" />
@@ -144,11 +325,51 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
             onPointerDown={event => event.stopPropagation()} onClick={onDelete}><PhoneIcon name="trash" /></button>}
         </header>
       </div>
-      <div className="lab-pcard-body" data-testid="lab-phone-card-body">{children}</div>
+      <div className="lab-pcard-body" data-testid="lab-phone-card-body" onScroll={event => { const body = event.currentTarget; body.toggleAttribute('data-scrolled', body.scrollTop > 2); markMore(body); if (holdRef.current.pinning) holdRef.current.pinning = false; else holdRef.current.pin = null }}
+        onTouchStart={() => { holdRef.current.pin = null }} onWheel={() => { holdRef.current.pin = null }}>{children}</div>
       {foot}
     </section>
     </div>
   </>)
+}
+
+/** A move this small is still a tap. */
+const SWIPE_SLOP_PX = 6
+/** A finger held this long before it moves is selecting text, not pulling the card. */
+const SWIPE_LONG_PRESS_MS = 450
+
+/**
+ * Whether a pull down by `dy` px, leaving at `velocity` px/ms, closes a card `height` px tall: past a fifth of the
+ * card (at least 60px, at most 120px), or a flick down of at least 20px.
+ */
+export function phoneCardSwipeCloses(dy: number, velocity: number, height: number): boolean {
+  if (dy <= 0) return false
+  const distance = Math.min(120, Math.max(60, (height || 0) * 0.2))
+  return dy > distance || (velocity > 0.6 && dy >= 20)
+}
+
+interface SwipeTrack { move(y: number): void; velocity(): number }
+/** The finger's speed down the screen over its last ~100 ms (px/ms). */
+function swipeTrack(y: number): SwipeTrack {
+  const points: Array<{ y: number; t: number }> = [{ y, t: performance.now() }]
+  return {
+    move(next) { const t = performance.now(); points.push({ y: next, t }); while (points.length > 2 && t - points[0].t > 100) points.shift() },
+    velocity() { const a = points[0], b = points[points.length - 1]; return b.t > a.t ? (b.y - a.y) / (b.t - a.t) : 0 },
+  }
+}
+
+/** Whether anything that scrolls between the finger and the card (the body, Chat's thread) is scrolled down from its top. */
+function scrolledFromTop(target: Element, card: Element): boolean {
+  for (let node: Element | null = target; node && node !== card.parentElement; node = node.parentElement) {
+    if ((node as HTMLElement).scrollTop > 1) return true
+    if (node === card) break
+  }
+  return false
+}
+
+/** The card keeps its height, so a longer answer runs on below its foot: the body fades out there while it does. */
+function markMore(body: HTMLElement | null) {
+  if (body) body.toggleAttribute('data-more', body.scrollHeight - body.clientHeight - body.scrollTop > 4)
 }
 
 /** Less than this between the window and what the reader sees is the software keyboard, not the browser's bars. */
@@ -181,25 +402,33 @@ export function phoneCardRoom(
   return { top: Math.round(top), height: Math.round(visible), keyboard: typing || layout - visible > KEYBOARD_MIN_PX }
 }
 
-/** The first sentence of the first paragraph, and what follows it. */
+/**
+ * The first sentence of the first paragraph, and what follows it (leadSentence.ts says where a sentence ends).
+ * No clean first sentence (a bracket or quotation left open): no lead, the paragraph is all tail.
+ */
 export function splitLead(paragraph: string): { lead: string; tail: string } {
-  const match = /^(.+?[.!?][”"’')\]]*)(\s+|$)/s.exec(paragraph.trim())
-  if (!match) return { lead: paragraph.trim(), tail: '' }
-  return { lead: match[1], tail: paragraph.trim().slice(match[0].length).trim() }
+  const text = paragraph.trim()
+  const end = leadSentenceEnd(text)
+  if (end === null) return { lead: '', tail: text }
+  return { lead: text.slice(0, end).trim(), tail: text.slice(end).trim() }
 }
 
 /**
  * An answer: its first sentence bold when more follows (the margin reader's
  * bottom line), then the rest as the reader's small Markdown vocabulary.
+ * `plain`: no bottom line (Simplify, which is the passage rewritten, not an answer with a point to lead with).
  */
-export function PhoneAnswer({ text }: { text: string }) {
+export function PhoneAnswer({ text, plain = false }: { text: string; plain?: boolean }) {
   const blocks = text.trim().split(/\n{2,}/).filter(Boolean)
   if (!blocks.length) return null
+  // A rewrite of the passage (Simplify) has no bottom line: no sentence of it is bold, a saved one's own ** included
+  // (Anders, 11 Nov 2026: Simplify bolded an arbitrary first sentence).
+  if (plain) return <div className="lab-pcard-answer" data-testid="lab-phone-card-answer" data-plain="true"><LabMarkdown>{blocks.map((block, index) => index ? block : block.replace(/^\*\*(.+)\*\*$/s, '$1')).join('\n\n')}</LabMarkdown></div>
   const { lead, tail } = splitLead(blocks[0].replace(/^\*\*(.+)\*\*$/s, '$1'))
-  const more = tail || blocks.length > 1
+  const more = !!lead && (tail || blocks.length > 1)
   return (
     <div className="lab-pcard-answer" data-testid="lab-phone-card-answer">
-      <p>{more ? <strong className="lab-pcard-lead"><LabInlineMarkdown>{lead.replace(/\*\*/g, '')}</LabInlineMarkdown></strong> : <LabInlineMarkdown>{lead}</LabInlineMarkdown>}{tail ? <> <LabInlineMarkdown>{tail}</LabInlineMarkdown></> : null}</p>
+      <p>{more ? <strong className="lab-pcard-lead"><LabInlineMarkdown>{lead.replace(/\*\*/g, '')}</LabInlineMarkdown></strong> : lead ? <LabInlineMarkdown>{lead}</LabInlineMarkdown> : null}{tail ? <>{lead ? ' ' : null}<LabInlineMarkdown>{tail}</LabInlineMarkdown></> : null}</p>
       {blocks.length > 1 && <LabMarkdown>{blocks.slice(1).join('\n\n')}</LabMarkdown>}
     </div>
   )
@@ -245,11 +474,20 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
     observer?.observe(el.closest('.lab-pcard-follow-box') ?? el)
     return () => observer?.disconnect()
   }, [value, field])
-  const send = () => { const text = value.trim(); if (text && !disabled) onSend(text) }
+  // On the phone the keyboard goes once the question is sent, so the card has its room back for the answer
+  // (Anders, 16 Nov 2026: with the keyboard left up "you don't really see the response").
+  const send = () => {
+    const text = value.trim()
+    if (!text || disabled) return
+    onSend(text)
+    // The focused field, not `field`: a shared input ref can name another card's field.
+    const active = typeof document !== 'undefined' ? document.activeElement as HTMLElement | null : null
+    if (active?.closest('.lab-pcard-follow') && !active.closest('.lab.is-desktop, .source-margin-item')) active.blur()
+  }
   return (
     <div className="lab-pcard-follow">
-      <div className="lab-pcard-follow-box" onClick={() => field.current?.focus({ preventScroll: true })}>
-        <textarea
+      <div className="lab-pcard-follow-box" onClick={event => { if (!(event.target as Element).closest?.('button')) field.current?.focus({ preventScroll: true }) }}>
+        <textarea autoComplete="off"
           ref={field}
           className="lab-pcard-follow-input"
           data-testid="lab-phone-card-input"

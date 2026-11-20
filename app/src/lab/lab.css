@@ -32,6 +32,10 @@
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
 }
 
+/* The header is chrome: a long press on the book's title must not select it and raise iOS's copy menu, which
+   then could not be dismissed (Anders, 16 Nov 2026). */
+.lab .lab-header, .lab .lab-header * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+
 .lab-header {
   position: relative;
   z-index: 60;
@@ -566,6 +570,13 @@
   color: inherit;
   background: none;
 }
+
+/* Transcripts (labTranscript, 11 Nov 2026): the time muted, the speaker bold. Display
+   only; the paginators measure the same classes. */
+.lab .lab-transcript-time,
+.lab .lab-passage .lab-hearing-word.lab-transcript-time { color: var(--lab-ink-muted); font-variant-numeric: tabular-nums; }
+.lab .lab-transcript-speaker,
+.lab .lab-passage .lab-hearing-word.lab-transcript-speaker { font-weight: 600; }
 
 .lab-passage.is-reading.is-hearing .lab-hearing-word.is-current,
 .lab-passage.is-reading.is-hearing .lab-hearing-word.is-line {
@@ -1234,6 +1245,25 @@
 .lab .lab-passage.owns-text-selection * {
   touch-action: pinch-zoom;
   -webkit-touch-callout: none;
+}
+/* The Margin reader's text is a scroller: a finger on it scrolls the book, as
+   the margin beside it does; a long press still selects (LabPassage
+   touchScroll). Surface Duo spanned and iPad upright, 6 Nov 2026. */
+.lab .lab-passage.owns-text-selection.is-touch-scroll,
+.lab .lab-passage.owns-text-selection.is-touch-scroll * {
+  touch-action: pan-y pinch-zoom;
+}
+/* The phone page turns on a vertical swipe too (Anders, 12 Nov 2026), so the
+   browser must not claim the vertical drag as a pan: that ends the gesture in
+   pointercancel and, on iOS, pulls the page down with it. The page is
+   paginated to fit and never scrolls; pinch zoom stays the reader's. Listening
+   drops `owns-text-selection` (and the stage's own rule says pan-y), so this
+   reaches every element of the page, words included. */
+.lab .lab-passage.is-reading.has-vertical-swipe,
+.lab .lab-passage.is-reading.has-vertical-swipe *,
+.lab .lab-chapter-cover.has-vertical-swipe,
+.lab .lab-chapter-cover.has-vertical-swipe * {
+  touch-action: pinch-zoom;
 }
 /* The collapsed card is as tall as its opener: no clamp, no inner scroll,
    never a cut sentence. Only the expanded card scrolls. */
@@ -3071,6 +3101,48 @@
   color: var(--lab-ink);
 }
 
+/* White (9 Nov 2026): Light's page on pure white paper. Near-black ink and neutral greys,
+   a touch warm so the accents and highlight tints still sit on it. */
+.lab.is-white-theme {
+  --lab-paper: #ffffff;
+  --lab-ink: #1a1a1a;
+  --lab-ink-muted: #5f5a52;
+  --lab-ink-faint: #757067;
+  --lab-surface: #f3f1ed;
+  --lab-border: #dcd8d0;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+}
+
+.lab.is-white-theme .lab-header,
+.lab.is-white-theme .lab-page-turn,
+.lab.is-white-theme .lab-phone-bar,
+.lab.is-white-theme .lab-ask,
+.lab.is-white-theme .lab-ask-composer,
+.lab.is-white-theme .lab-body,
+.lab.is-white-theme .lab-page-wrap,
+.lab.is-white-theme .lab-book,
+.lab.is-white-theme .lab-passage,
+.lab.is-white-theme .lab-hearing,
+.lab.is-white-theme .lab-hearing-stage,
+.lab.is-white-theme .lab-passage-header {
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+}
+
+.lab.is-white-theme .lab-header-chapter,
+.lab.is-white-theme .lab-speed-popover,
+.lab.is-white-theme .lab-speed-popover::after {
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+}
+
+.lab.is-white-theme .lab-passage-headline,.lab.is-white-theme h1.lab-passage-headline,.lab.is-white-theme .lab-hearing-line,.lab.is-white-theme .lab-hearing-line > span,.lab.is-white-theme .lab-header-work,.lab.is-white-theme .lab-page-turn-btn,.lab.is-white-theme .lab-ask-input,.lab.is-white-theme .lab-ask-send,.lab.is-white-theme .lab-ask-voice-status{
+  color: var(--lab-ink);
+}
+
 /* Terminal night ink — reading words must not stay on paper black (#0b0b0b). */
 .lab.is-night .lab-passage .lab-hearing-line,
 .lab.is-night .lab-passage .lab-hearing-line > span:not(.lab-mark-btn),
@@ -3301,11 +3373,6 @@
 .lab.is-phone .lab-phone-bar-row.has-3,
 .lab.has-phone-chrome .lab-phone-bar-row.has-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.lab.is-phone .lab-phone-bar-row.has-4,
-.lab.has-phone-chrome .lab-phone-bar-row.has-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .lab.is-phone .lab-phone-bar-row.has-5,
@@ -3643,6 +3710,17 @@ html[data-eink="true"] .lab .lab-audio-speed-popover::after { background: #fff; 
   align-items: center;
   max-width: min(720px, 78vw);
   gap: 8px;
+}
+
+/* The right column holds up to four 42px discs (Notebook, Play, Aa, t), not 48px: on a narrow desktop or a
+   landscape iPad the centred title ran under them (Pinocchio, 16 Nov 2026). Both sides reserve that width so the
+   title stays centred and ends in an ellipsis before the first disc. */
+.lab[data-chrome-version="v2"].is-desktop .lab-header {
+  grid-template-columns: minmax(200px, 1fr) minmax(0, auto) minmax(200px, 1fr);
+}
+.lab[data-chrome-version="v2"].is-desktop .lab-header-brand {
+  min-width: 0;
+  max-width: min(720px, 100%);
 }
 
 .lab.is-desktop .lab-header-work {
@@ -4663,8 +4741,8 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   background: color-mix(in srgb, var(--lab-paper) 88%, var(--lab-ink) 8%);
 }
 
-.lab.has-phone-chrome.has-page-buttons [data-testid="lab-page-prev"] { left: 8px; }
-.lab.has-phone-chrome.has-page-buttons [data-testid="lab-page-next"] { right: 8px; }
+.lab.has-phone-chrome.has-page-buttons .lab-page-prev { left: 8px; }
+.lab.has-phone-chrome.has-page-buttons .lab-page-next { right: 8px; }
 
 /* Selection palette: no note form until the explicit + action. */
 .lab .selection-popup.is-lab[data-popup-mode="colors"]{width:max-content!important;min-width:0!important;max-width:calc(100vw - 24px);padding:5px 10px!important;border-radius:16px}
@@ -4748,7 +4826,7 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
    (`.is-continued[data-tail-full]`; nightly QA, New Life notes). Sizes
    stay the body size so line metrics stay the reader's; small capitals and
    italics carry the distinction. */
-.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index)[class][class] {
+.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index).lab-hearing-line.lab-hearing-line {
   text-align: left;
   text-align-last: auto;
 }
@@ -4761,11 +4839,11 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 }
 /* Words are set smaller inside the block (the block keeps the reader's line
    height, so the page's rhythm and measurement are unchanged). */
-.lab .lab-hearing-line.is-kind-heading[class] {
+.lab .lab-hearing-line.is-kind-heading.lab-hearing-line {
   margin-top: .9em;
   font-weight: 600;
 }
-.lab .lab-hearing-line.is-kind-heading[class] > span {
+.lab .lab-hearing-line.is-kind-heading.lab-hearing-line > span {
   font-size: .8em;
   letter-spacing: .07em;
   text-transform: uppercase;
@@ -4773,16 +4851,16 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 .lab .lab-hearing-stage > .lab-hearing-line.is-kind-heading:first-child { margin-top: 0; }
 /* A sub-section's heading ("i. …", "a) …"; labParagraphStyle isSubheading): lighter than a
    section's, italic in the author's own case, never in capitals, so its "i." stays "i.". */
-.lab .lab-hearing-line.is-kind-heading.is-kind-subheading[class] {
+.lab .lab-hearing-line.is-kind-heading.is-kind-subheading.lab-hearing-line {
   font-weight: 400;
   font-style: italic;
 }
-.lab .lab-hearing-line.is-kind-heading.is-kind-subheading[class] > span {
+.lab .lab-hearing-line.is-kind-heading.is-kind-subheading.lab-hearing-line > span {
   font-size: .92em;
   letter-spacing: 0;
   text-transform: none;
 }
-.lab .lab-hearing-line:is(.is-kind-label, .is-kind-byline)[class] > span {
+.lab .lab-hearing-line:is(.is-kind-label, .is-kind-byline).lab-hearing-line > span {
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
   font-size: .56em;
   font-weight: 500;
@@ -4790,17 +4868,17 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   text-transform: uppercase;
   opacity: .72;
 }
-.lab .lab-hearing-line.is-kind-label[class] { margin-top: .6em; }
-.lab .lab-hearing-line.is-kind-label[class] + .lab-hearing-line { margin-top: 0; }
+.lab .lab-hearing-line.is-kind-label.lab-hearing-line { margin-top: .6em; }
+.lab .lab-hearing-line.is-kind-label.lab-hearing-line + .lab-hearing-line { margin-top: 0; }
 /* A chapter's subtitle: italic and a step smaller, under the heading. */
-.lab .lab-hearing-line.is-kind-subtitle[class] {
+.lab .lab-hearing-line.is-kind-subtitle.lab-hearing-line {
   font-style: italic;
 }
-.lab .lab-hearing-line.is-kind-subtitle[class] > span {
+.lab .lab-hearing-line.is-kind-subtitle.lab-hearing-line > span {
   font-size: .82em;
 }
-.lab .lab-hearing-line.is-kind-byline[class] { margin-bottom: .6em; }
-.lab .lab-hearing-line.is-kind-item[class] {
+.lab .lab-hearing-line.is-kind-byline.lab-hearing-line { margin-bottom: .6em; }
+.lab .lab-hearing-line.is-kind-item.lab-hearing-line {
   position: relative;
   padding-left: 1.15em;
   text-indent: 0;
@@ -4810,14 +4888,38 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   position: absolute;
   left: .3em;
 }
+/* The prose argument a verse translation opens a book with (Pope's Odyssey;
+   labParagraphStyle registerArgument): italic and a step smaller under a
+   small "Argument" label, as print editions set it apart from the verse.
+   The label is chrome, not book text: no word, index or position is its. */
+.lab .lab-hearing-line.is-kind-argument.lab-hearing-line {
+  font-style: italic;
+  text-indent: 0;
+  margin-bottom: .7em;
+}
+.lab .lab-hearing-line.is-kind-argument.lab-hearing-line > span {
+  font-size: .94em;
+}
+.lab .lab-hearing-line.is-kind-argument:not(.is-kind-resumed)::before {
+  content: 'Argument';
+  display: block;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: .62em;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: .01em;
+  text-align: left;
+  text-indent: 0;
+  opacity: .62;
+}
 /* Lines set apart by breaks (verse, addresses, credits): ragged, close
    together, a wrapped line indented under its start. */
-.lab .lab-hearing-line.is-kind-line[class] {
+.lab .lab-hearing-line.is-kind-line.lab-hearing-line {
   padding-left: 1em;
   text-indent: -1em;
 }
-.lab .lab-hearing-line.is-kind-line.is-kind-resumed[class] { text-indent: 0; }
-.lab .lab-hearing-line.is-kind-line[class] + .lab-hearing-line.is-kind-line { margin-top: 0; }
+.lab .lab-hearing-line.is-kind-line.is-kind-resumed.lab-hearing-line { text-indent: 0; }
+.lab .lab-hearing-line.is-kind-line.lab-hearing-line + .lab-hearing-line.is-kind-line { margin-top: 0; }
 /* Keep with next in the phone's column preflight too (the measured paginator
    carries the heading itself; see measuredDesktopPages). */
 .lab-native-page-flow .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle) {
@@ -4830,7 +4932,7 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
    labFigures, so the measuring copy and the page agree), caption beneath in
    italic. Strip: a 64px thumbnail, "FIGURE N ↗" and the caption. The same
    rules style the page's buttons and the measuring copy's spans. */
-.lab .lab-hearing-line.is-figure[class][class] {
+.lab .lab-hearing-line.is-figure.lab-hearing-line.lab-hearing-line {
   text-align: left;
   text-align-last: auto;
   text-indent: 0;
@@ -5076,6 +5178,9 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   --lab-v2-disc: rgba(232, 214, 185, 0.2);
   --lab-v2-disc-open: rgba(232, 214, 185, 0.12);
 }
+
+/* White: the panels take the page's own white. */
+.lab[data-chrome-version="v2"].is-white-theme { --lab-v2-panel-ink: 255, 255, 255; }
 
 /* The one surface. Panel, transport and compare card all draw on it: a fill
    of the paper colour over a blur the panel carries itself, denser at the top
@@ -5345,6 +5450,21 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   line-height: 1;
 }
 
+/* Reading angle's state (16 Nov 2026): "Not set", or the book's angle cut to one line, quiet, before the chevron. */
+.lab[data-chrome-version="v2"] .lab-super-row:has(.lab-super-row-detail) .lab-super-row-label { flex: 0 0 auto; white-space: nowrap; }
+.lab[data-chrome-version="v2"] .lab-super-row-detail {
+  flex: 0 1 auto;
+  min-width: 0;
+  text-align: right;
+  margin: 0 4px 0 auto;
+  padding-left: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 400 13px/1.2 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--lab-ink-muted, #6a6256);
+}
+
 /* The Profile row's dot: someone asks to be friends (20 Oct 2026). */
 .lab[data-chrome-version="v2"] .lab-super-row-dot {
   flex: 0 0 auto;
@@ -5354,6 +5474,82 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   border-radius: 50%;
   background: var(--lab-accent, #1f4a5c);
 }
+
+/* The t button's dot (Anders, 16 Nov 2026): the library's request dot (followRequests REQUEST_DOT_CLASS: teal,
+   9px) laid over the button's top-right corner. Absolute inside the 44px button, so the header and the page never
+   move; a ring of the page's own colour keeps it apart from the letter. E-ink: ink, no ring. */
+.lab[data-chrome-version="v2"] .lab-super-dot {
+  position: absolute;
+  top: 8px;
+  right: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lab-request-teal);
+  box-shadow: 0 0 0 2px var(--lab-paper, #ece7db);
+  pointer-events: none;
+}
+/* The teal of both: the reader's accent, the library's lighter teal at night (phone night has no accent of its own). */
+.lab[data-chrome-version="v2"] { --lab-request-teal: var(--lab-accent, #1f4a5c); }
+.lab[data-chrome-version="v2"].is-night { --lab-request-teal: #78aabd; }
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-super-dot { background: #111; box-shadow: none; }
+
+/* The menu's follow request row, first while a request is due: picture, one line, Follow back (one request) or a
+   chevron to Following you (several). System UI, like every control in the chrome. */
+.lab[data-chrome-version="v2"] .lab-super-request {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  margin: 0 0 6px;
+  padding: 12px 14px 12px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--lab-v2-hairline);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: 400 14px/1.3 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab[data-chrome-version="v2"] .lab-super-request.is-many { align-items: center; min-height: 56px; cursor: pointer; }
+.lab[data-chrome-version="v2"] .lab-super-request-av {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-color: var(--lab-v2-hairline);
+  background-repeat: no-repeat;
+  color: inherit;
+  font: 600 14px/1 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+.lab[data-chrome-version="v2"] .lab-super-request-body { flex: 1 1 auto; min-width: 0; display: grid; justify-items: start; gap: 8px; }
+.lab[data-chrome-version="v2"] .lab-super-request-line { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+.lab[data-chrome-version="v2"] .lab-super-request-button {
+  position: relative;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--lab-request-teal);
+  border-radius: 999px;
+  background: var(--lab-request-teal);
+  color: var(--lab-paper, #ece7db);
+  font: 500 14px/1 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  cursor: pointer;
+}
+/* A 44px tap area around the 34px pill. */
+.lab[data-chrome-version="v2"] .lab-super-request-button::before { content: ''; position: absolute; inset: -5px -2px; }
+.lab[data-chrome-version="v2"] .lab-super-request-button.is-done {
+  background: transparent;
+  color: inherit;
+  border-color: var(--lab-v2-hairline);
+  cursor: default;
+}
+.lab[data-chrome-version="v2"] .lab-super-request-status { font-size: 13px; color: var(--lab-ink-muted, #6a6256); }
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-super-request-button { background: #111; border-color: #111; color: #fff; }
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-super-request-button.is-done { background: transparent; color: #111; border-color: #111; }
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-super-request-av { background-color: #eee; color: #111; }
 
 /* The menu's Librarian row: the body opens the default mode, the two icons
    open Chat or Talk directly. Same 44px row and 40px gutter as every row. */
@@ -5561,10 +5757,11 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   padding: 8px 16px 14px;
 }
 
-/* Theme cards. Book, Light and Dark — the reader picks a page, not a system. */
+/* Theme cards. Book, Light, White and Dark (and E-ink on e-readers) in one row — the reader picks a page, not a system. */
 .lab[data-chrome-version="v2"] .lab-v2-themes {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   gap: 10px;
   padding: 2px 0 12px;
 }
@@ -5595,6 +5792,7 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-book .lab-v2-theme-face { background: #d8c8a7; color: #201a13; }
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-light .lab-v2-theme-face { background: #f4f0e7; color: #201a13; }
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-white .lab-v2-theme-face { background: #ffffff; color: #1a1a1a; box-shadow: inset 0 0 0 1px rgba(32, 26, 19, 0.2); }
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-dark .lab-v2-theme-face { background: #2e2a24; color: #faf6ee; }
 
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-active .lab-v2-theme-face {
@@ -6637,6 +6835,94 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   white-space: nowrap;
   cursor: pointer;
 }
+/* Listen from here (Anders approved the mockups, 16 Nov 2026): two pills, centred just above the audio player, where
+   "Back to audio" sat. Back to the voice is the light one, Listen from here the dark one. System UI, sentence case. */
+.lab[data-chrome-version="v2"] .lab-listen-pills {
+  pointer-events: none;
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+.lab[data-chrome-version="v2"] .lab-listen-pill {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  border: 1px solid var(--lab-v2-hairline, var(--lab-border));
+  border-radius: 999px;
+  padding: 0 16px;
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  font: 500 14px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(32, 26, 19, .1);
+}
+.lab[data-chrome-version="v2"] .lab-listen-pill.is-primary {
+  border-color: var(--lab-ink);
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+}
+.lab[data-chrome-version="v2"] .lab-listen-pill span { font-size: 12px; line-height: 1; }
+/* 36 px to the eye, a 44 px tap area. */
+.lab[data-chrome-version="v2"] .lab-listen-pill { position: relative; }
+.lab[data-chrome-version="v2"] .lab-listen-pill::after { content: ''; position: absolute; inset: -4px 0; }
+.lab[data-chrome-version="v2"].is-phone .lab-listen-pill { min-height: 44px; }
+/* Listen from here's gutter ▶ (desktop, a hovering mouse): an overlay beside the paragraph's first line, with a faint
+   tint on the paragraph. Fixed, so it shifts nothing; only the button takes the pointer. */
+.lab[data-chrome-version="v2"] .lab-paragraph-listen-tint {
+  position: fixed;
+  z-index: 4;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--lab-ink) 3.5%, transparent);
+  pointer-events: none;
+}
+.lab[data-chrome-version="v2"] .lab-paragraph-listen {
+  position: fixed;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0 0 0 2px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(32, 26, 19, .18);
+}
+/* Just after Play: a faint ▶ beside every paragraph on screen, a chance to choose where the voice starts. */
+.lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer {
+  opacity: .32;
+  box-shadow: none;
+  transition: opacity .15s;
+  animation: lab-paragraph-listen-offer .25s ease-out;
+}
+.lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer:hover,
+.lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer:focus-visible { opacity: 1; }
+@keyframes lab-paragraph-listen-offer { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .lab[data-chrome-version="v2"] .lab-paragraph-listen.is-offer { animation: none; transition: none; } }
+.lab[data-chrome-version="v2"] .lab-paragraph-listen:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: 2px; }
+.lab[data-chrome-version="v2"] .lab-paragraph-listen-tip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 6px);
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+  font: 400 13px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+}
 
 
 
@@ -6860,8 +7146,8 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   color: var(--lab-ink); z-index: 190; font-size: 32px;
 }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] [data-testid="lab-page-prev"] { left: 8px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] [data-testid="lab-page-next"] { right: 8px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-prev { left: 8px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-next { right: 8px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-header-title { overflow: visible; line-height: 1.3; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock {
   left: 50%; right: auto; transform: translateX(-50%); width: min(580px, calc(100% - 80px));
@@ -6948,29 +7234,20 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
   border: 0; border-radius: 0; background: transparent;
 }
 /* 8px between pills, as at the chapter's head (iPhone feedback, 21 Oct 2026); each keeps its 44px tap height. */
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: flex; flex-wrap: wrap; gap: 0 8px; }
+/* Plain ink text, no pills (Anders, 14 Nov 2026: black, subtle, plain text; approved mockup). */
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: flex; flex-wrap: wrap; gap: 0 22px; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button {
   display: inline-flex; align-items: center; gap: 6px;
   min-height: 44px; padding: 8px 0; border: 0; border-radius: 0;
-  background: transparent; color: var(--lab-ink-muted);
+  background: transparent; color: var(--lab-ink);
   font: 16px/1.4 'EB Garamond', Georgia, serif; text-align: left; cursor: pointer;
 }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions button:hover { color: var(--lab-ink); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions button:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--lab-ink) 35%, transparent); }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button:disabled { opacity: .5; cursor: wait; }
 /* Recap is the companion's, like Primer at the chapter's head: the same pill and mark. */
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap { font-size: 14px; }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap > span {
-  border: 1px solid color-mix(in srgb, var(--lab-border) 70%, transparent);
-  border-radius: 999px; padding: 2px 10px;
-}
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap:hover > span { background: var(--lab-surface); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap > span { padding: 0; }
 /* The chapter note: the same quiet pill, without the companion's mark (a note is the reader's, never the AI's). */
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-note { font-size: 14px; }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-note > span {
-  border: 1px solid color-mix(in srgb, var(--lab-border) 70%, transparent);
-  border-radius: 999px; padding: 2px 10px;
-}
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-note:hover > span { background: var(--lab-surface); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-note > span { padding: 0; }
 /* Social ship 3: the end of a book offers the "Finished {book}" reading card (only while SOCIAL_FRIENDS is on). */
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-finished-card { color: var(--lab-ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--lab-ink) 35%, transparent); }
 .lab[data-chrome-version="v2"] .lab-chapter-finished-note { margin: 0; font: italic 15px/1.4 'EB Garamond', Georgia, serif; color: var(--lab-ink-muted); }
@@ -7313,6 +7590,19 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 
 /* Definitions use the headword itself as the draggable title. */
 .lab[data-chrome-version="v2"] .popup-define .lab-reader-window-title.popup-define-word { margin:0; font-family:var(--lab-font-reader); font-style:italic; font-size:1em; font-weight:400; }
+/* The definition's text starts where the headword does, as a person card's does (Anders, 12 Nov 2026: "tetrarch"). */
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define :is(.popup-define-result, .popup-define-status, .popup-define-note) { padding-left:18px; padding-right:18px; }
+/* One sense is not numbered: its meaning, then its sense here, each a paragraph flush with the headword. */
+.lab[data-chrome-version="v2"] .popup-define-result > p.popup-define-list { margin:0; padding-left:0; list-style:none; }
+/* "sepulchre · Noun", "Joanna · Minor character", "Galilee · Place": what the word is, on its line, quieter than it (Anders,
+   17 Nov 2026). The card's own serif, upright and regular, in sentence case; kept whole, it wraps below as one unit. */
+.lab[data-chrome-version="v2"] .popup-define-pos { font-family:inherit; font-size:0.8em; font-style:normal; font-weight:400; letter-spacing:normal; text-transform:none; color:var(--lab-ink-muted); white-space:nowrap; }
+/* "Mary Magdalene · Major figure": a character's name is a headword too, in the card's own serif, italic and regular,
+   not a third typeface in bold (Anders, 18 Nov 2026). */
+.lab[data-chrome-version="v2"] .popup-character h2.popup-character-name { font-family:inherit; font-style:italic; font-weight:400; }
+/* The header's own controls sit beside the title, so the old popup's room for a floating More button is not needed. */
+.lab[data-chrome-version="v2"] .selection-popup.is-compact .popup-define .lab-reader-window-title.popup-define-word { padding-right:0; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab.is-dark .popup-define-pos { color:var(--lab-pbar-soft); }
 
 /* Dark paper needs a quiet curved edge, not a luminous halo around black.
    Inset the painted fold within the existing gutter; measured leaves and
@@ -7394,6 +7684,20 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 /* Long chapter subtitles must leave room for the opening prose on a phone. */
 .lab[data-chrome-version="v2"] .lab-passage-header.is-long-title .lab-passage-headline {
   font-size: calc(1.35rem * (var(--lab-font-size, 1.3) / 1.3));
+}
+/* On a desktop or iPad page there is room: a long title stays a little larger than the prose under it
+   (Pinocchio's chapter summaries were set below the body size, Anders 16 Nov 2026). */
+.lab[data-chrome-version="v2"].is-desktop .lab-passage-header.is-long-title .lab-passage-headline {
+  font-size: calc(1.6875rem * (var(--lab-font-size, 1.3) / 1.3));
+  line-height: 1.25;
+}
+/* An upright iPad uses the phone chrome with 1.5rem prose (the 700-1024px block); its long title sits above that too. */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .lab[data-chrome-version="v2"].is-phone .lab-passage-header.is-long-title .lab-passage-headline,
+  .lab[data-chrome-version="v2"].has-phone-chrome .lab-passage-header.is-long-title .lab-passage-headline {
+    font-size: calc(1.6875rem * (var(--lab-font-size, 1.3) / 1.3));
+    line-height: 1.25;
+  }
 }
 
 /* A full final leaf keeps its prose. Its controls use the reserved footer
@@ -7800,3 +8104,33 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] { --lab-call-end: #111; --
   font: 14px/1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-variant-numeric: tabular-nums;
 }
+
+/* Book settings' reading angle (and the desktop's "Before you start" card): the reader's own words, in the UI face. */
+.lab[data-chrome-version="v2"] .lab-reading-angle { display: flex; flex-direction: column; gap: 6px; padding: 6px 0 4px; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-label { font: 500 14px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+/* One soft box (approved mockup): the field without its own frame, the mic inside on the right; the box takes the focus ring. */
+.lab[data-chrome-version="v2"] .lab-reading-angle-box { display: flex; align-items: flex-start; gap: 4px; border: 1px solid var(--lab-v2-hairline, rgba(0,0,0,.14));
+  border-radius: 12px; background: color-mix(in srgb, currentColor 3%, transparent); padding: 2px 4px 2px 0; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-box:focus-within { border-color: var(--tui-accent, #1f6f78); }
+.lab[data-chrome-version="v2"] .lab-reading-angle-input { flex: 1; min-width: 0; width: 100%; box-sizing: border-box; min-height: 52px; padding: 10px 12px; border: 0;
+  border-radius: 12px; background: transparent; color: inherit; font: 16px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; resize: none; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-input::placeholder { color: inherit; opacity: .5; }
+/* The desktop sheet's own text size (Anders, 11 Nov 2026: "too big font"); a phone keeps 16px, under which iOS zooms the page on focus. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-reading-angle-input { font-size: 14px; min-height: 48px; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+/* "Saved", a moment after the last keystroke (LabSavedNote.tsx): quiet, in the chrome face, never moving the row. */
+.lab[data-chrome-version="v2"] .lab-saved-note { font: 400 12px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; opacity: 0; transition: opacity .2s ease; min-width: 2.6em; text-align: right; }
+.lab[data-chrome-version="v2"] .lab-saved-note[data-shown="true"] { opacity: .6; }
+@media (prefers-reduced-motion: reduce) { .lab[data-chrome-version="v2"] .lab-saved-note { transition: none; } }
+.lab[data-chrome-version="v2"] .lab-reading-angle-input:focus { outline: 0; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-mic { flex: none; display: grid; place-items: center; width: 36px; height: 36px; margin: 6px 0 0; padding: 0; border: 0; border-radius: 50%;
+  background: none; color: inherit; opacity: .6; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-mic[aria-pressed="true"] { opacity: 1; color: var(--tui-accent, #1f6f78); }
+.lab[data-chrome-version="v2"] .lab-reading-angle-mic .lab-picon { width: 18px; height: 18px; }
+
+/* Compare: the heading belongs to the left page. It spanned both columns, so a long title's Primer chip sat on the
+   right page (Anders, 10 Nov 2026, Hamlet 1.1); held to the left column, the chip wraps under the title. */
+.lab[data-chrome-version="v2"] .lab-passage.is-compare > .lab-passage-header,
+.lab[data-chrome-version="v2"] .lab-book.is-aligned-compare .lab-passage-header,
+.lab[data-chrome-version="v2"] .lab-desktop-measure.is-paired .lab-desktop-measure-page > .lab-passage-header { max-width: calc((100% - var(--desktop-gutter, 56px)) / 2); }
+

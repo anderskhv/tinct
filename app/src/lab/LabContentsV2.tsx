@@ -1,11 +1,12 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { NoteView } from './notes/NoteView'
 import type { ChatConversation, EditionData, Section } from '../types'
 import { loadEdition } from '../data/editionLoader'
 import { registeredUserBook, userBookEditionKey } from './userBook/userBookSource'
 import { isUserBookId } from './userBook/userBookId'
 import type { LabChapter } from './labSource'
 import { isLabChapterNote, type LabHighlight } from './labHighlights'
-import { highlightCreatedAt, labNotesOnly, orderLabHighlights, type LabHighlightOrder } from './labHighlightOrder'
+import { highlightCreatedAt, highlightHasNote, labNotesOnly, orderLabHighlights, type LabHighlightOrder } from './labHighlightOrder'
 import { LAB_NOTEBOOK_LABEL } from './labSuperMenu'
 import { isCardTombstone } from './labChatHistory'
 import type { LabChapterStatus } from './labChapterStatus'
@@ -21,9 +22,16 @@ import { sharedNotebookFilename, sharedNotebookMarkdown } from './sharedReader/s
 import { contentsTree, flattenContents, contentsPercent, type ContentsNode } from './labContentsTree'
 
 type View = 'search' | 'highlights' | 'chats' | 'highlight' | 'older' | 'notebook'
-/** The Notebook's filters, named as the desktop margin reader's (public/lab/addbook/js/notebook.js FILTERS). */
-type NotebookFilter = 'all' | 'mine' | 'ai'
-const NOTEBOOK_FILTERS: Array<[NotebookFilter, string]> = [['all', 'All'], ['mine', 'My notes'], ['ai', 'AI']]
+/**
+ * The Notebook's filters, named and ordered as the desktop margin reader's (public/lab/addbook/js/notebook.js FILTERS):
+ * AI (the companion's answers), Highlights (marked passages with no written note), Notes (anything the reader wrote:
+ * a highlight with a note, a chapter note), All. Anders 6 Nov 2026: "so notes are notes".
+ */
+type NotebookFilter = 'ai' | 'highlights' | 'notes' | 'all'
+const NOTEBOOK_FILTERS: Array<[NotebookFilter, string]> = [['ai', 'AI'], ['highlights', 'Highlights'], ['notes', 'Notes'], ['all', 'All']]
+/** A Notebook entry is a note when the reader wrote something: a chapter note, or a highlight carrying note text. */
+const isNotebookNote = (h: LabHighlight) => isLabChapterNote(h) || highlightHasNote(h)
+const NOTEBOOK_EMPTY: Record<NotebookFilter, string> = { ai: 'No saved conversations.', highlights: 'No highlights saved for this edition.', notes: 'No notes saved for this edition.', all: 'Nothing saved in this book yet.' }
 type Scope = 'all' | 'book' | 'chats'
 /** A saved item from the original EPUB whose old page coordinate cannot safely map into the converted text. */
 export interface LegacyOwnEpubNotebookItem {
@@ -54,9 +62,11 @@ interface Props {
   /**
    * Opened as the phone's Notebook (t menu, 22 Oct 2026): one list, newest first, of this book's cards (its saved
    * conversations) and the reader's highlights and notes, as the desktop margin reader's Notebook lists them, with
-   * its filters (All · My notes · AI). Closing it returns to the book.
+   * its filters (AI · Highlights · Notes · All). Closing it returns to the book.
    */
   notebook?: boolean
+  /** Open straight into Search (Ctrl+F / Cmd+F in the reader). */
+  search?: boolean
   /** Owner-gated legacy records, shown only in this book's Notebook without inventing a converted-text anchor. */
   legacyOwnEpubItems?: LegacyOwnEpubNotebookItem[]
   notebookRecovery?: ReactNode
@@ -166,12 +176,13 @@ export function LabContentsV2(props: Props) {
 
   useEffect(() => {
     if (!open) return
-    setExpanded(new Set(current?.parents.map(n => n.id))); setView(props.notebook ? 'notebook' : null); setChapterFilter(null)
+    setExpanded(new Set(current?.parents.map(n => n.id))); setView(props.notebook ? 'notebook' : props.search ? 'search' : null); setChapterFilter(null)
+    if (props.search && !props.notebook) { setQuery(''); setScope('all') }
     if (!props.sharedNotebook) setNotebookFilter('all')
     setCrumbs([]); reveal.current = true
     const settle = window.setTimeout(() => { reveal.current = false }, CONTENTS_REVEAL_MS)
     return () => window.clearTimeout(settle)
-  }, [open, bookId, currentChapter, props.chaptersReady, props.notebook])
+  }, [open, bookId, currentChapter, props.chaptersReady, props.notebook, props.search])
   useEffect(() => { if (open) { setHiddenNotebook(new Set()); setUndoNotebook(null); setNotebookFeedback('') } }, [open, bookId])
   useEffect(() => { setLoadedText(null); setLoadError(false); setView(open && props.notebook ? 'notebook' : null); setTab('chapters'); setNotebookFilter('all') }, [bookId, editionKey])
   useLayoutEffect(() => { if (open && view === 'notebook' && props.sharedNotebook && resultsRef.current) resultsRef.current.scrollTop = notebookScroll.current }, [open, view])
@@ -319,9 +330,10 @@ export function LabContentsV2(props: Props) {
     <p className="excerpt"><Match text={contentsExcerpt((view === 'search' && query.trim() ? chat.messages.find(m => m.content.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()))?.content : null) || chat.messages.find(m => m.role === 'assistant')?.content || chat.summary || '', query)} query={view === 'search' ? query : ''} /></p>
   </button>
   // The note is the reader's own words, shown whole beneath the book's.
-  const noteText = (h: LabHighlight) => h.note?.trim() ? <p className="note">{h.note.trim()}</p> : null
+  // A note keeps its formatting (bullets, bold, italic; notes/NoteView.tsx).
+  const noteText = (h: LabHighlight) => h.note?.trim() ? <NoteView className="note" testId="contents-note">{h.note.trim()}</NoteView> : null
   // Notes only (approved mockup, 12 Oct): the reader's takeaway leads, the passage it came from beneath it.
-  const noteLead = (h: LabHighlight) => <p className="note-lead">{h.note?.trim()}</p>
+  const noteLead = (h: LabHighlight) => <NoteView className="note-lead" testId="contents-note">{h.note?.trim() ?? ''}</NoteView>
   const highlightRow = (h: LabHighlight) => isLabChapterNote(h)
     ? <button className="result is-chapter-note" key={h.id} data-testid={'contents-chapter-note-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
       <small>{chapterTitle(h.chapterNumber)} · Chapter note</small>{notesFilter ? noteLead(h) : noteText(h)}
@@ -336,7 +348,7 @@ export function LabContentsV2(props: Props) {
   const legacyOwnEpubRow = (item: LegacyOwnEpubNotebookItem) => <article className="result" key={'legacy-epub-' + item.id} data-testid={'contents-legacy-epub-' + item.id}>
     <small>Original EPUB page {item.page} · {item.kind === 'card' ? 'Saved AI card' : 'Saved highlight'}</small>
     <p>{item.text}</p>
-    {item.note?.trim() && <p className="note">{item.note.trim()}</p>}
+    {item.note?.trim() && <NoteView className="note" testId="contents-note">{item.note.trim()}</NoteView>}
     {item.turns?.map((turn, index) => <p className="legacy-turn" key={index}><strong>{turn.role === 'assistant' ? 'A.' : 'Q.'}</strong> {turn.content}</p>)}
     {savedCardDetails(item.data) && <details className="legacy-card-state"><summary>Saved card details</summary><pre>{savedCardDetails(item.data)}</pre></details>}
   </article>
@@ -374,10 +386,10 @@ export function LabContentsV2(props: Props) {
   }
   // The Notebook: the same rows as Chats and Highlights & notes, in one list, newest first.
   const notebookRows = view !== 'notebook' ? [] : [
-    ...(notebookFilter !== 'ai' ? [...highlights, ...chapterNotes].map(h => ({ at: highlightCreatedAt(h), id: 'highlight:' + h.id, deleteItem: { kind: 'highlight' as const, id: h.id }, row: () => highlightRow(h) })) : []),
-    ...(notebookFilter !== 'mine' ? chats.filter(chat => !isCardTombstone(chat)).map(chat => ({ at: chat.endTimestamp, id: 'card:' + chat.id,
+    ...(notebookFilter !== 'ai' ? [...highlights, ...chapterNotes].filter(h => notebookFilter === 'all' || (notebookFilter === 'notes') === isNotebookNote(h)).map(h => ({ at: highlightCreatedAt(h), id: 'highlight:' + h.id, deleteItem: { kind: 'highlight' as const, id: h.id }, row: () => highlightRow(h) })) : []),
+    ...(notebookFilter === 'all' || notebookFilter === 'ai' ? chats.filter(chat => !isCardTombstone(chat)).map(chat => ({ at: chat.endTimestamp, id: 'card:' + chat.id,
       deleteItem: chat.card ? { kind: 'card' as const, id: chat.id } : null, row: () => chatRow(chat) })) : []),
-    ...(props.legacyOwnEpubItems ?? []).filter(item => notebookFilter === 'all' || (notebookFilter === 'ai') === (item.kind === 'card')).map(item => ({ at: item.at, id: 'legacy:' + item.id, deleteItem: null, row: () => legacyOwnEpubRow(item) })),
+    ...(props.legacyOwnEpubItems ?? []).filter(item => notebookFilter === 'all' || notebookFilter === (item.kind === 'card' ? 'ai' : item.note?.trim() ? 'notes' : 'highlights')).map(item => ({ at: item.at, id: 'legacy:' + item.id, deleteItem: null, row: () => legacyOwnEpubRow(item) })),
   ].filter(item => !hiddenNotebook.has(item.id)).sort((a, b) => b.at - a.at)
   const more = (count: number) => count > limit && <button className="more" onClick={() => setLimit(n => n + 30)}>Show more · {count - limit} remaining</button>
   const textStatus = needsText && !data && (loadError
@@ -411,7 +423,6 @@ export function LabContentsV2(props: Props) {
       {crumbs.length > 0 && !view && <nav className="crumbs" aria-label="Visible chapter path">{crumbs.map((node,index) => <span key={node.id}>{index > 0 && <Icon name="next" />}<button onClick={() => showBranch(node.id)}>{node.label}</button></span>)}</nav>}
       <div className="viewport" ref={bodyRef} onScroll={breadcrumb} onPointerDown={settleReveal} onWheel={settleReveal} onTouchStart={settleReveal} onKeyDown={settleReveal} inert={view ? true : undefined}>
         {props.chaptersReady ? <nav className="tree" aria-label="Chapters">{props.onOpenIntroduction && <div className="front-matter"><div className="node"><button className="label" onClick={props.onOpenIntroduction}><span className="text">Introduction</span><Icon name="next" /></button></div></div>}{tree(nodes)}</nav> : <p className="status"><LabWait label="Loading contents…" size={18} testId="lab-contents-loading" /></p>}
-        {historyStatus}
         {props.navigationFooter}
       </div>
       </>}
@@ -440,7 +451,7 @@ export function LabContentsV2(props: Props) {
           </>)}
           {view === 'notebook' && <>{props.notebookRecovery}{props.sharedNotebook && notebookFeedback && <p className="status" role="status">{notebookFeedback} {undoNotebook && <button onClick={undoNotebookDelete}>Undo</button>}</p>}{notebookRows.slice(0, limit).map(item => props.sharedNotebook && item.deleteItem && props.onDeleteNotebookItem
             ? <div className="notebook-entry" key={item.id}>{item.row()}<button className="notebook-delete" aria-label={'Delete Notebook entry ' + item.deleteItem.id} onClick={() => deleteNotebook(item.deleteItem!)}><PhoneIcon name="trash" /></button></div>
-            : item.row())}{more(notebookRows.length)}{!notebookRows.length && props.historyStatus !== 'loading' && <p className="status">{notebookFilter === 'ai' ? 'No saved conversations.' : notebookFilter === 'mine' ? 'No highlights or notes saved for this edition.' : 'Nothing saved in this book yet.'}</p>}</>}
+            : item.row())}{more(notebookRows.length)}{!notebookRows.length && props.historyStatus !== 'loading' && <p className="status">{NOTEBOOK_EMPTY[notebookFilter]}</p>}</>}
           {view === 'chats' && <>{relevantChats.slice(0,limit).map(chatRow)}{more(relevantChats.length)}{!relevantChats.length && props.historyStatus === 'ready' && <p className="status">No saved conversations.</p>}</>}
           {view === 'highlights' && <>{relevantHighlights.slice(0,limit).map(highlightRow)}{more(relevantHighlights.length)}{notesFilter && relevantHighlights.length > 0 && <p className="status note-count">{relevantHighlights.length === 1 ? '1 note' : `${relevantHighlights.length} notes`} in {title}</p>}{!relevantHighlights.length && <p className="status">{notesFilter ? 'No notes saved for this edition.' : 'No highlights saved for this edition.'}</p>}{props.unassignedHighlights.length > 0 && <button className="more" onClick={() => setView('older')}>Older highlights · book not recorded</button>}</>}
           {view === 'older' && <><p className="status">These older marks have no saved book or edition. They are preserved here; their quotations cannot be identified safely.</p>{props.unassignedHighlights.map(h => <article className="result" key={h.id}><small>Chapter {h.chapterNumber} · paragraph {h.paragraphIndex + 1}</small><p>{h.note || 'Highlighted passage'}</p></article>)}</>}

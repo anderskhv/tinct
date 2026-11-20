@@ -293,3 +293,18 @@ describe('keys', () => {
     expect(catchUpStaticKey({ unitId: 'book-2-kings', throughChapter: 324 })).toBe('book-2-kings@324')
   })
 })
+
+describe('the whole book\'s Summary (start actions, 9 Nov 2026)', () => {
+  it('covers every chapter, the last included, and carries no reader place', () => {
+    const chapters = Array.from({ length: 12 }, (_, i) => ({ number: i + 1, title: `Chapter ${i + 1}`, wordCount: 4000 }))
+    const units = catchUpUnits({ title: 'Book', chapters, bible: false })
+    const entries = catchUpPlan({ bookId: 'b', editionKey: 'original-en', units, chapters, chapterNumber: 12, wholeBook: true })
+    const covered = entries.flatMap(entry => entry.kind === 'unit' ? entry.chapters : [])
+    expect(covered).toEqual(chapters.map(chapter => chapter.number))
+    expect(entries.every(entry => entry.request.placeChapter === undefined)).toBe(true)
+    // The ordinary timeline still stops before the reader's chapter and carries it.
+    const before = catchUpPlan({ bookId: 'b', editionKey: 'original-en', units, chapters, chapterNumber: 12 })
+    expect(before.flatMap(entry => entry.kind === 'unit' ? entry.chapters : [])).not.toContain(12)
+    expect(before.every(entry => entry.request.placeChapter === 12)).toBe(true)
+  })
+})

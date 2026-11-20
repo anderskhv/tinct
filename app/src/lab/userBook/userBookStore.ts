@@ -25,6 +25,7 @@ import { canDrawCover, drawCover } from './userBookCover'
 import type { UserBookImage } from './epubEdition'
 import { fetchAccountCopy, fetchOcrEdition, listAccountBooks, ownBookToken, type AccountCopy, type FetchLike } from './ownAccount'
 import { cachedStoredCover, offerCoverToAccount } from './ownCovers'
+import { isPastedEpub } from './pastedText'
 import { isImageScan, recogniseScan, type PdfOps } from './scanRecognition'
 
 const STORE = 'books'
@@ -62,6 +63,8 @@ export interface LoadedUserBook {
   kind?: 'epub' | 'pdf'
   /** A PDF's page count. */
   pdfPages?: number
+  /** A pasted text (pastedText.ts): its chapters are sections of one piece of writing. */
+  pasted?: true
   edition: UserBookEdition
   /** The book's pictures, by figure id, read from this device only. */
   images: Map<string, Blob>
@@ -473,7 +476,7 @@ export async function openUserBook(hex: string, options: { onProgress?: (progres
   }
   const storedCoverPending = cover ? undefined : cachedStoredCover(owner, hex).catch(() => null)
   return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition), cover,
-    storedCover: null, ...(storedCoverPending ? { storedCoverPending } : {}) } }
+    storedCover: null, ...(isPastedEpub(record.bytes) ? { pasted: true as const } : {}), ...(storedCoverPending ? { storedCoverPending } : {}) } }
 }
 
 /**

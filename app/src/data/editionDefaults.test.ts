@@ -26,6 +26,15 @@ describe('default editions (approved 2026-09-25)', () => {
     expect(defaults('pride-and-prejudice')).toEqual({ primary: 'modern-en', compare: 'original-en' })
   })
 
+  it('the eight young-reader books: Tinct Modern English, Compare in the English original (20 Nov 2026)', () => {
+    for (const id of ['odyssey-for-boys-and-girls', 'iliad-for-boys-and-girls', 'merry-adventures-of-robin-hood', 'wonder-book-and-tanglewood-tales', 'beautiful-stories-from-shakespeare', 'wind-in-the-willows', 'story-of-king-arthur-and-his-knights', 'the-secret-garden']) {
+      expect(defaults(id), id).toEqual({ primary: 'modern-en', compare: 'original-en' })
+      const book = PRE_READER_CATALOGUE.booksById.get(id)!
+      expect(book.defaultEditionKey, id).toBe('modern-en')
+      expect(book.defaultCompareEditionKey, id).toBe('original-en')
+    }
+  })
+
   it('compares translated and older works with the easiest human translation', () => {
     expect(defaults('odyssey').compare).toBe('original-en')
     // WEB is rated easier than KJV; BSB is the main edition.
@@ -58,6 +67,17 @@ describe('default editions (approved 2026-09-25)', () => {
     expect(savedPlaceFallbackEditionKey('fear-and-trembling', getBook('fear-and-trembling')!.editions)).toBe('modern-en')
     expect(continueHandoff({ bookId: 'fear-and-trembling', editionKey: null, chapterNumber: 1, chapterLabel: 'Preface', pageIndex: 0, paragraphIndex: 0, wordIndex: 0, paragraphCount: null, source: 'memory', at: 1 })?.primaryEditionKey).toBe('modern-en')
     expect(savedPlaceFallbackEditionKey('crito', getBook('crito')!.editions)).toBe('original-en')
+  })
+
+  it('Pinocchio: Tinct Modern English, Compare in the Italian original (10 Nov 2026)', () => {
+    // No human English translation is offered, so Collodi's Italian is the first comparable edition.
+    expect(defaults('pinocchio')).toEqual({ primary: 'modern-en', compare: 'original-it' })
+    const editions = getBook('pinocchio')!.editions
+    expect(humanPrimaryEditionKey('pinocchio', editions)).toBe('modern-en')
+    expect(savedPlaceFallbackEditionKey('pinocchio', editions)).toBe('modern-en')
+    const book = PRE_READER_CATALOGUE.booksById.get('pinocchio')!
+    expect(book.defaultEditionKey).toBe('modern-en')
+    expect(book.defaultCompareEditionKey).toBe('original-it')
   })
 
   it('The Master and Margarita: Tinct Modern English, Compare in the Russian original (Anders, 5 Nov 2026)', () => {

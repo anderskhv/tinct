@@ -142,3 +142,6 @@ html[data-eink="true"] .lab[data-shared-reader="true"] .lab-dmore { box-shadow: 
 html[data-eink="true"] .lab[data-shared-reader="true"] .selection-popup.is-lab.is-compact.is-shared-reader[data-popup-mode="main"] {
   box-shadow: none; border-color: #fff;
 }
+/* On the keyboard (SelectionDeskBar, data-keyboard): across the screen, no tip pointing at the passage. */
+.lab .lab-pbar.is-desk[data-keyboard="true"][data-ask-open="true"] { width: auto; max-width: none; }
+.lab .lab-pbar.is-desk[data-keyboard="true"]::after { display: none; }

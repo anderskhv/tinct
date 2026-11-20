@@ -895,6 +895,25 @@ describe('lab passage headline pages', () => {
       Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
     })
 
+    it('a saved highlight\u2019s menu (its colours) goes at once on a scroll or a turn of the wheel (Anders, 11 Nov 2026)', async () => {
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+      const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); fireEvent.scroll(window) }
+      await selectWords(1, 3, 71)
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
+      await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
+      expect(document.querySelector('.selection-popup, [role="toolbar"]')).not.toBeNull()
+      scrollTo(0)
+      scrollTo(2)
+      await waitFor(() => expect(document.querySelector('.selection-popup, [role="toolbar"]')).toBeNull())
+      // The wheel alone, before the page reports a scroll.
+      clickWord(2, 72)
+      await waitFor(() => expect(document.querySelector('.selection-popup, [role="toolbar"]')).not.toBeNull())
+      fireEvent.wheel(document.body, { deltaY: 40 })
+      await waitFor(() => expect(document.querySelector('.selection-popup, [role="toolbar"]')).toBeNull())
+      expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1)
+      Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
+    })
+
     it('takes the whole highlight for copy and ask, and the clicked word for define', async () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
@@ -1995,10 +2014,10 @@ it('returns from V2 audio browsing without seeking or restarting playback', asyn
   fireEvent.click(screen.getByTestId('lab-v2-play'))
   await waitFor(() => expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing'))
   fireEvent.click(screen.getByTestId('lab-page-next'))
-  await waitFor(() => expect(screen.getByTestId('lab-back-to-audio')).toBeTruthy())
+  await waitFor(() => expect(screen.getByTestId('lab-back-to-voice')).toBeTruthy())
   const time = audio.currentTime
-  fireEvent.click(screen.getByTestId('lab-back-to-audio'))
-  expect(screen.queryByTestId('lab-back-to-audio')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-back-to-voice'))
+  expect(screen.queryByTestId('lab-back-to-voice')).toBeNull()
   expect(audio.currentTime).toBe(time)
   expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing')
 })

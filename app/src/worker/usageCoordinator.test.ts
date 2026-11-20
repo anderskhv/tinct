@@ -8,7 +8,7 @@ vi.mock('cloudflare:workers', () => ({
 }))
 import { UsageCoordinator } from './usageCoordinator'
 import { createRateLimiter, RateLimitUnavailableError } from './lib/rateLimit'
-import { createGuestSpendHolder, createGuestSpendReserver, estimateAiCostMicros, guestAiDailyMicros } from './lib/aiSpend'
+import { aiSpendSurface, createGuestSpendHolder, createGuestSpendReserver, estimateAiCostMicros, guestAiDailyMicros, guestSpendBudgetName, releaseGuestSpend } from './lib/aiSpend'
 
 const { DatabaseSync } = createRequire(import.meta.url)('node:sqlite') as { DatabaseSync: new (path: string) => any }
 
@@ -149,5 +149,40 @@ describe('rate limiter and ceiling fail closed', () => {
     expect(guestAiDailyMicros({ GUEST_AI_DAILY_CENTS: 'nope' })).toBe(5_000_000)
     expect(estimateAiCostMicros({ inputChars: 4_000, maxTokens: 100 })).toBe(1_000 * 3 + 100 * 15)
     expect(estimateAiCostMicros({ inputChars: 4_000, maxTokens: 100, tools: true })).toBe(1_500 * 3 + 100 * 15)
+  })
+
+  it('the /try page draws on its own day, apart from the guest ceiling (docs/try-page/BRIEF.md)', async () => {
+    const rows = new Map<string, ReturnType<typeof coordinator>>()
+    const names: string[] = []
+    const namespace = { getByName: (name: string) => { names.push(name); if (!rows.has(name)) rows.set(name, coordinator()); return rows.get(name)! } }
+    const at = () => Date.parse('2026-11-18T12:00:00Z')
+    // A try day of 1 cent (10,000 micro-dollars): spent out, the guest budget is untouched and still answers.
+    const tryHold = createGuestSpendHolder({ USAGE_COORDINATOR: namespace as any, TRY_AI_DAILY_CENTS: '1', GUEST_AI_DAILY_CENTS: '1' }, at, 'try')
+    const guestHold = createGuestSpendHolder({ USAGE_COORDINATOR: namespace as any, TRY_AI_DAILY_CENTS: '1', GUEST_AI_DAILY_CENTS: '1' }, at)
+    expect(await tryHold(10_000)).not.toBeNull()
+    expect(await tryHold(1)).toBeNull()
+    expect(await guestHold(10_000)).not.toBeNull()
+    expect(names).toEqual(['spend:try-ai:2026-11', 'spend:try-ai:2026-11', 'spend:guest-ai:2026-11'])
+    // Releasing a try reservation gives it back to the try day only.
+    await releaseGuestSpend({ USAGE_COORDINATOR: namespace as any }, '2026-11-18', 10_000, 'try')
+    expect(names.at(-1)).toBe('spend:try-ai:2026-11')
+    expect(await tryHold(10_000)).not.toBeNull()
+    expect(guestSpendBudgetName('2026-11-18')).toBe('spend:guest-ai:2026-11')
+    expect(guestSpendBudgetName('2026-11-18', 'try')).toBe('spend:try-ai:2026-11')
+  })
+
+  it('a zero try day refuses at once; the default is $3', async () => {
+    const reserve = vi.fn(async (_day: string, units: number, limit: number) => units <= limit)
+    const namespace = { getByName: () => ({ reserve }) }
+    expect(await createGuestSpendReserver({ USAGE_COORDINATOR: namespace as any, TRY_AI_DAILY_CENTS: '0' }, Date.now, 'try')(1)).toBe(false)
+    expect(guestAiDailyMicros({}, 'try')).toBe(3_000_000)
+    expect(guestAiDailyMicros({ TRY_AI_DAILY_CENTS: '120' }, 'try')).toBe(1_200_000)
+    expect(guestAiDailyMicros({ TRY_AI_DAILY_CENTS: '120' })).toBe(5_000_000)
+  })
+
+  it('only the try header picks the try budget', () => {
+    expect(aiSpendSurface(new Request('https://tinct.app/api/lab-chat', { headers: { 'X-Tinct-Surface': 'try' } }))).toBe('try')
+    expect(aiSpendSurface(new Request('https://tinct.app/api/lab-chat', { headers: { 'X-Tinct-Surface': 'other' } }))).toBe('guest')
+    expect(aiSpendSurface(new Request('https://tinct.app/api/lab-chat'))).toBe('guest')
   })
 })

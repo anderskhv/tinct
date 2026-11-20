@@ -9,6 +9,8 @@ import { toggleReadingLanguage, type ReadingLanguage } from '../social/readingLa
  * on You and Your reading comes from one readingTimeStats.
  */
 import { CARDS_COPY } from './cardsCopy'
+// Highlights and chat waiting for their debounce reach the account before the device is wiped.
+import { flushBeforeSignOut } from '../lab/signOutFlush'
 import { croppedPicture, hasAvatarCrop, type AvatarCropSize } from '../social/avatarCrops'
 import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights, weekRange } from './cardsFormat'
 import { addDays, localDay } from '../readingTime/model'
@@ -30,7 +32,7 @@ import {
   type ProfilePicture,
   type ReadingLoad,
 } from './cardsApi'
-import { boardHiddenLine, chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
+import { boardHiddenLine, boardRows, chapterFraction, followBackCount, followButton, followingYouRows, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
 import { COVER_BOOK_IDS, EMAIL_CONSENT_TEXT, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
 import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, rememberReadingLanguages, uploadProfileImage } from '../social/socialClient'
@@ -97,6 +99,8 @@ export interface CardsEnv {
   clipboard?: (text: string) => Promise<boolean>
   /** Send this device's pending reading time and read Your reading again (openCards syncOwnTime); the board does not wait for it. */
   syncOwnTime?: () => void
+  /** Profile › AI settings: closes the cards and opens AI settings over the page (lab/openAiSettingsLayer.tsx). */
+  openAiSettings?: () => void
 }
 
 // ===== Pictures =====
@@ -425,6 +429,7 @@ export function youCard(env: CardsEnv): CardSpec {
       const moreGroup = group(
         env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' })
           : env.social && waitingProfile ? row({ label: CARDS_COPY.findReaders, testid: 'you-find-skeleton' }) : null,
+        env.openAiSettings ? row({ label: CARDS_COPY.aiSettings, chevron: true, onClick: env.openAiSettings, testid: 'you-ai-settings' }) : null,
         row({ label: CARDS_COPY.settings, chevron: true, onClick: () => card.stack.push(settingsCard(env)), testid: 'you-settings' }),
       )
       body.append(...[requestsGroup(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
@@ -777,7 +782,11 @@ function shownRank(env: CardsEnv): string | null {
 /** How many rows a board still loading will have: the last count this page saw for the tab, else its friends, else five. */
 function expectedRows(env: CardsEnv, tab: BoardTab): number {
   const known = knownBoard(env.session.userId, tab)
-  if (known) return Math.max(1, known.entries.length + (known.me && !known.entries.some(entry => entry.me) ? 1 : 0))
+  if (known) {
+    // As many rows as the folded board will draw (boardRows), its Show all row included.
+    const view = boardRows(known.me && !known.entries.some(entry => entry.me) ? [...known.entries, known.me] : known.entries, false)
+    return Math.max(1, view.rows.length + (view.toggle ? 1 : 0))
+  }
   const friends = env.data.board?.friends
   return tab === 'friends' && typeof friends === 'number' ? Math.min(BOARD_SKELETON_MAX, friends + 1) : 5
 }
@@ -812,6 +821,8 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
   let tab: BoardTab = tabOf(first)
   /** undefined: not asked yet; 'loading'; null: not available. */
   let board: BoardData | null | 'loading' | undefined
+  // Every time the board opens it starts folded (top five); the tab switch folds it too.
+  let expanded = false
   // Known before any board from Find readers' answer, so the tabs show from the first frame.
   let everyoneOpen = first ? first.everyoneOpen === true || tabOf(first) === 'everyone' : env.data.find?.everyoneOpen === true
   let handle: CardHandle | null = null
@@ -888,6 +899,7 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
           env.data.rank = shownRank(env)
           env.data.board = knownBoard(userId, value) ?? env.data.board
           board = undefined
+          expanded = false
           card.refresh()
         }, { wide: true, testid: 'board-tabs' }))
       }
@@ -896,7 +908,15 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         // Your own row and rank always show.
         if (board.me && !rows.some(entry => entry.me)) rows.push(board.me)
         body.append(heading(CARDS_COPY.lastSevenDays, { marginBottom: '-16px' }))
-        const list = group(...rows.map(entry => boardRow(env, card, entry)))
+        // Top five, then the viewer; readers with no time are left out (cardsRules boardRows, 17 Nov 2026).
+        const view = boardRows(rows, expanded)
+        const toggle = view.toggle && row({
+          label: view.toggle === 'expand' ? CARDS_COPY.boardShowAll : CARDS_COPY.boardShowTop, className: 'is-center is-more', testid: 'board-toggle',
+          onClick: () => { expanded = view.toggle === 'expand'; card.refresh() },
+        })
+        const list = group(...view.rows.map(item => item === 'gap'
+          ? el('div', { className: 'tc-r is-gap', 'aria-hidden': 'true', text: '···', dataset: { testid: 'board-gap' } })
+          : boardRow(env, card, item)), toggle)
         if (list) { list.dataset.testid = 'board-rows'; body.append(list) }
         const hidden = boardHiddenLine(board.meShown, env.data.profile)
         if (hidden) body.append(el('p', { className: 'tc-foot', text: hidden, dataset: { testid: 'board-hidden' } }))
@@ -1012,7 +1032,7 @@ export function findCard(env: CardsEnv): CardSpec {
       })
       const search = el('label', { className: 'tc-search', dataset: { testid: 'find-search' } }, el('span', { html: ICONS.search, style: { display: 'contents' } }), input)
 
-      const followingYou = (data?.followingYou ?? []).filter(person => !removed.has(person.handle))
+      const followingYou = followingYouRows(data?.followingYou).filter(person => !removed.has(person.handle))
       // Listed here, the requests count as seen on this device (the dot on the reader's picture clears).
       if (data) markRequestsSeen(env.session.userId, data.followingYou)
       if (followingYou.length) {
@@ -1299,7 +1319,7 @@ export function settingsCard(env: CardsEnv): CardSpec {
         line.dataset.testid = 'settings-password-status'
         body.append(line)
       }
-      body.append(group(row({ label: CARDS_COPY.signOut, className: 'is-center', onClick: () => void env.signOut(), testid: 'settings-sign-out' }))!)
+      body.append(group(row({ label: CARDS_COPY.signOut, className: 'is-center', onClick: () => void flushBeforeSignOut().then(() => env.signOut()), testid: 'settings-sign-out' }))!)
       body.append(statusLine(status))
       status = ''
       return [navBar(card, CARDS_COPY.settings), body]

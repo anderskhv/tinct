@@ -1,6 +1,7 @@
 import { registerLoadedChapter } from './labPoetry'
+import { leadingPreface, noteChapterEdition } from './labEditionSwitch'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
-import type { Edition, Section, ThreadCharacter } from '../types'
+import { setsNewlineVerse, type Edition, type Section, type ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
 import { ensurePublicBook, isPublicBookId } from '../utils/publicBooks'
 import { loadPublicModernEdition, modernChapterPending, modernChapterWritten, MODERN_EDITION_KEY } from './labModernEdition'
@@ -13,8 +14,8 @@ import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
 import { hasRecordedAudio } from '../data/audioAvailability'
 import { bookHasThreads } from '../data/threadsAvailability'
 import { LAB_COPY } from './labCopy'
-import { loadVerseLines, registerVerseLines, registerShakespeareSpeakers } from './labVerseLines'
-import { registerChapterStructure } from './labParagraphStyle'
+import { loadVerseLines, registerVerseLines, registerNewlineVerseLines, registerShakespeareSpeakers } from './labVerseLines'
+import { registerChapterStructure, registerArgument } from './labParagraphStyle'
 import { bookFigures, type LabFigure } from './labFigures'
 import { isUserBookId } from './userBook/userBookId'
 import { loadUserBookSource } from './userBook/userBookSource'
@@ -635,6 +636,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
       const chapter = later?.chapters.find(item => item.number === entry.number)
       const paragraphs = chapter?.paragraphs ?? []
       registerChapterStructure(chapter)
+      if (setsNewlineVerse(compareEdition)) registerNewlineVerseLines(paragraphs)
       if (primaryData.speakers || later?.speakers) {
         registerShakespeareSpeakers(entry.paragraphs)
         registerShakespeareSpeakers(paragraphs)
@@ -654,6 +656,11 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     [primaryEdition.key, entry.paragraphs],
     ...(compareEdition ? [[compareEdition.key, compareParagraphs] as const] : []),
   ])
+  // A verse edition ends each verse line with a newline in its own text.
+  if (setsNewlineVerse(primaryEdition)) registerNewlineVerseLines(entry.paragraphs)
+  if (setsNewlineVerse(compareEdition)) registerNewlineVerseLines(compareParagraphs)
+  // ... and opens each book with a prose argument, set apart from the verse (labParagraphStyle registerArgument).
+  if (primaryEdition.style === 'verse' && leadingPreface(entry.paragraphs)) registerArgument(entry.paragraphs[0])
   const supplement = onceCalled(() => Promise.all([
     audioEdition
       ? loadAudioFollowMetadata(entry.paragraphs, entry.number, audioEdition.key, registryBook.id)
@@ -664,7 +671,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     ? { followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })), cast: [] }
     : await supplement()
 
-  return houseStyleSource({
+  const loaded = houseStyleSource({
     bookId: registryBook.id,
     editions: registryBook.editions,
     bookTitle: registryBook.title,
@@ -697,6 +704,9 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     ...(selection.readingFirst ? { supplement } : {}),
     ...(pendingCompare ? { compareLater: pendingCompare } : {}),
   }, primaryEdition.language)
+  // An edition switch carries the place from the text on screen: which edition that text is (labEditionSwitch.ts).
+  noteChapterEdition(loaded.paragraphs, primaryEdition.key)
+  return loaded
 }
 
 /** Bible chapter titles and biblical-book sections, for reading-history summaries. */

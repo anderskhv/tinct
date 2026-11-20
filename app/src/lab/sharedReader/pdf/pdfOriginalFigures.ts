@@ -1,6 +1,7 @@
 import { loadPdfEngine, type PdfRegion } from '../../userBook/pdfEdition'
 import type { LabImageBlock } from '../../labFigureImage'
 import type { PdfOriginalDocument, PdfOriginalPage } from './PdfOriginalSurface'
+import { pdfRegionCaptureSize } from './pdfRegionCaptureSize'
 export type PdfFigureRegion = PdfRegion
 export type PdfRegionImage = { src: string; block: LabImageBlock }
 export type PdfRegionCapture = (page: number, region: Pick<PdfRegion, 'x' | 'y' | 'w' | 'h'>) => Promise<PdfRegionImage | null>
@@ -32,10 +33,11 @@ export async function detectPdfFigures(canvas: HTMLCanvasElement, items: Awaited
 export async function capturePdfRegion(pdf: PdfOriginalDocument, pageNumber: number, region: Parameters<PdfRegionCapture>[1]): Promise<PdfRegionImage | null> {
   if (![region.x, region.y, region.w, region.h].every(Number.isFinite) || region.x < 0 || region.y < 0 || region.w <= 0 || region.h <= 0 || region.x + region.w > 1.01 || region.y + region.h > 1.01) return null
   const page = await pdf.getPage(pageNumber), base = page.getViewport({ scale: 1 })
-  const scale = Math.min(1568 / Math.max(region.w * base.width, region.h * base.height), Math.sqrt(12e6 / (base.width * base.height)))
-  const view = page.getViewport({ scale }), raw = document.createElement('canvas'), crop = document.createElement('canvas')
-  raw.width = Math.ceil(view.width); raw.height = Math.ceil(view.height)
-  crop.width = Math.max(1, Math.round(region.w * raw.width)); crop.height = Math.max(1, Math.round(region.h * raw.height))
+  // The picture's size, held to what the Worker accepts (pdfRegionCaptureSize.ts).
+  const size = pdfRegionCaptureSize(region, base)
+  const view = page.getViewport({ scale: size.scale }), raw = document.createElement('canvas'), crop = document.createElement('canvas')
+  raw.width = size.raw.width; raw.height = size.raw.height
+  crop.width = size.crop.width; crop.height = size.crop.height
   const context = raw.getContext('2d'), cg = crop.getContext('2d')
   if (!context || !cg) return null
   try {

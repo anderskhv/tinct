@@ -2,7 +2,7 @@
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import { PdfOriginalGeometry } from './usePdfOriginalServices'
 import type { PdfOriginalSelection } from '../sharedReader/pdf/PdfOriginalSurface'
-import { parseCompanionRequest } from '../../companion/companionRequest'
+import { buildMarginSystemParts, parseCompanionRequest } from '../../companion/companionRequest'
 import { appendLabChatTurnTo } from '../labChatHistory'
 import { userBookId } from './userBookId'
 
@@ -214,6 +214,111 @@ it('hands real visible page text to the existing own-book narration player witho
   auth('owner-b')
   service.listen?.(1, 'Printed first page.')
   expect(play).toHaveBeenCalledTimes(1)
+  service.dispose()
+})
+
+it('reads aloud only the main text of a PDF page, and the follow highlight lands only on words it reads', async () => {
+  let snap: Record<string, unknown> = { available: true, playing: false }
+  let source: { chapter: (page: number) => Promise<{ number: number; paragraphs: string[] } | null> } | undefined
+  const player = { attachOwn: vi.fn(value => { source = value }), play: vi.fn(), snapshot: vi.fn(() => snap) }
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null, vi.fn() as typeof fetch, player as never)
+  const view = { width: 600, height: 800, transform: [1, 0, 0, -1, 0, 800] }
+  const item = (str: string, x: number, top: number, size = 10) => ({ str, transform: [size, 0, 0, size, x, 800 - top], width: str.length * size * 0.5 })
+  const foot = (n: number) => [item('THE REPORT | ITS TITLE', 50, 780, 7), item(String(n), 540, 780, 7)]
+  const layouts = new Map([1, 2, 3].map(n => [n, { view, graphics: [], items: n === 2
+    // Page 2 holds only a table of short cells: nothing on it is read aloud.
+    ? [...foot(2), ...['Method', 'Focus', 'Users', 'ROSI', 'Return', 'Retail', 'VBA', 'Accounting', 'Industry', 'TCA', 'Full cost', 'Food']
+      .map((cell, i) => item(cell, 60 + (i % 3) * 170, 200 + Math.floor(i / 3) * 30, 9))]
+    : [...foot(n), item(`Page ${n} opens here and`, 50, 100), item('carries on below.', 50, 113)] }]))
+  const asked: number[][] = []
+  service.readNarrationPages = async pages => { asked.push(pages); return new Map(pages.flatMap(n => layouts.has(n) ? [[n, layouts.get(n)!] as const] : [])) }
+  const extraction = (n: number) => layouts.get(n)!.items.map(it => it.str).join(' ').trim()
+  for (const n of [1, 2, 3]) service.setPdfPageText(n, extraction(n), 3)
+  expect(await source?.chapter(1)).toMatchObject({ number: 1, paragraphs: ['Page 1 opens here and carries on below.'] })
+  // The page's own text for the companion is untouched.
+  expect(await service.getPageText(1)).toBe('THE REPORT | ITS TITLE 1 Page 1 opens here and carries on below.')
+  expect(await source?.chapter(2)).toMatchObject({ number: 3, paragraphs: ['Page 3 opens here and carries on below.'] })
+  expect(asked.flat().sort()).toEqual([1, 2, 3])
+  // The heard word 0 ("Page") is rendered word 6, after the footer's five words and its number.
+  snap = { available: true, playing: true, chapterNumber: 1, follow: { paragraphIndex: 0, wordIndex: 0 } }
+  expect(service.follow).toEqual({ page: 1, wordIndex: 6, text: extraction(1) })
+  snap = { ...snap, follow: { paragraphIndex: 0, wordIndex: 7 } }
+  expect(service.follow).toMatchObject({ wordIndex: 13 })
+  snap = { ...snap, follow: { paragraphIndex: 0, wordIndex: 8 } }
+  expect(service.follow).toBeNull()
+  // A lone "_" leaves the narrator's text: the page is still read, the highlight would no longer line up and is off.
+  layouts.get(3)!.items.push(item('Post _ Feed _ LinkedIn', 50, 126))
+  service.setPdfPageText(3, extraction(3), 3)
+  const fresh = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null, vi.fn() as typeof fetch, player as never)
+  fresh.readNarrationPages = service.readNarrationPages
+  for (const n of [1, 2, 3]) fresh.setPdfPageText(n, extraction(n), 3)
+  expect(await source?.chapter(3)).toMatchObject({ paragraphs: ['Page 3 opens here and carries on below. Post _ Feed _ LinkedIn'] })
+  snap = { available: true, playing: true, chapterNumber: 3, follow: { paragraphIndex: 0, wordIndex: 0 } }
+  expect(fresh.follow).toBeNull()
+  fresh.dispose()
+  service.dispose()
+})
+
+it('starts the voice at a selected word, or at the first sentence that begins on screen (Listen from here)', async () => {
+  const play = vi.fn()
+  const player = { attachOwn: vi.fn(), play, snapshot: vi.fn(() => ({ available: true })) }
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null, vi.fn() as typeof fetch, player as never)
+  const view = { width: 600, height: 800, transform: [1, 0, 0, -1, 0, 800] }
+  const item = (str: string, x: number, top: number, size = 10, width = str.length * size * 0.5) => ({ str, transform: [size, 0, 0, size, x, 800 - top], width })
+  const foot = (n: number) => [item('THE REPORT | ITS TITLE', 50, 780, 7), item(String(n), 540, 780, 7)]
+  // Each page: footer (rendered words 0–5), then "First sentence here. Second one starts" (6–11) / "on this line, Feb" "ruary." (12–16).
+  const layouts = new Map([1, 2, 3].map(n => [n, { view, graphics: [], items: [...foot(n), item('First sentence here. Second one starts', 50, 100, 10, 190),
+    item('on this line, Feb', 50, 113, 10, 85), item('ruary.', 135, 113, 10, 30)] }]))
+  service.readNarrationPages = async pages => new Map(pages.flatMap(n => layouts.has(n) ? [[n, layouts.get(n)!] as const] : []))
+  const extraction = (n: number) => layouts.get(n)!.items.map(it => it.str).join(' ').trim()
+  for (const n of [1, 2, 3]) service.setPdfPageText(n, extraction(n), 3)
+  // "Second" is rendered word 9 and spoken word 3.
+  expect(await service.listenAt(1, 9)).toBe(true)
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 3 })
+  // "Feb" (rendered 15) and its piece "ruary." (16) are the one spoken word "February.", spoken word 9.
+  await service.listenAt(1, 15)
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 9 })
+  await service.listenAt(1, 16)
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 9 })
+  // A footer word is not read: the voice starts at the first word read after it ("First").
+  await service.listenAt(1, 2)
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 })
+  // On screen: the second line of page 2 only; no sentence begins there, so its first word read ("on").
+  await service.listenFromScreen([{ page: 2, words: [12, 13, 14, 15] }])
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 6 })
+  // Both lines of page 3 on screen: "First" begins a sentence.
+  await service.listenFromScreen([{ page: 3, words: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15] }])
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 3, paragraphIndex: 0, wordIndex: 0 })
+  // From the middle of the first line: the sentence that begins at "Second".
+  await service.listenFromScreen([{ page: 3, words: [8, 9, 10, 11] }])
+  expect(play).toHaveBeenLastCalledWith({ chapterNumber: 3, paragraphIndex: 0, wordIndex: 3 })
+  service.dispose()
+})
+
+it('reads the page as before when its layout cannot be read', async () => {
+  let source: { chapter: (page: number) => Promise<{ paragraphs: string[] } | null> } | undefined
+  let snap: Record<string, unknown> = { available: true }
+  const player = { attachOwn: vi.fn(value => { source = value }), play: vi.fn(), snapshot: vi.fn(() => snap) }
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null, vi.fn() as typeof fetch, player as never)
+  service.readNarrationPages = async () => { throw new Error('no engine') }
+  service.setPdfPageText(1, 'HEADER 1 Printed first page.', 1)
+  expect(await source?.chapter(1)).toMatchObject({ paragraphs: ['HEADER 1 Printed first page.'] })
+  snap = { available: true, playing: true, chapterNumber: 1, follow: { paragraphIndex: 0, wordIndex: 2 } }
+  expect(service.follow).toEqual({ page: 1, wordIndex: 2, text: 'HEADER 1 Printed first page.' })
+  service.dispose()
+})
+
+it('tells the shell when read aloud is starting, and when this PDF cannot be read aloud at all', () => {
+  let snap: Record<string, unknown> = { available: true, playing: false, pending: true, speed: 1 }
+  const player = { attachOwn: vi.fn(), play: vi.fn(), snapshot: vi.fn(() => snap) }
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null, vi.fn() as typeof fetch, player as never)
+  expect(service.audio).toMatchObject({ available: true, pending: true })
+  expect(service.audio?.unavailable).toBeUndefined()
+  snap = { available: null, playing: false, pending: false, speed: 1 }
+  expect(service.audio?.unavailable).toBeUndefined()
+  snap = { available: false, playing: false, pending: false, speed: 1 }
+  expect(service.audio).toMatchObject({ available: false, unavailable: true })
+  expect(service.listen).toBeUndefined()
   service.dispose()
 })
 
@@ -514,6 +619,31 @@ it('sends every page of a long chapter through the complete document context', a
   service.dispose()
 })
 
+it('sends a whole-file Summarize as the whole document, not as a part of a longer one (9 Nov 2026)', async () => {
+  const requests: unknown[] = []
+  const api = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
+    if (String(url) === '/api/user-books') return json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] })
+    requests.push(JSON.parse(String(init?.body)).companion)
+    return json({ content: [{ text: 'Whole paper summary.' }], stop_reason: 'end_turn' })
+  })
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  const pages = Array.from({ length: 12 }, (_, i) => ({ n: i + 1, text: `Paper page ${i + 1}.` }))
+  for (const page of pages) service.setPdfPageText(page.n, page.text, 12)
+  const whole = { unit: { key: 'document-1-12', title: 'A research paper', from: 1, to: 12 }, pages, atPage: 1 }
+  expect(await service.askUnit(whole, 'recap')).toBe('Whole paper summary.')
+  const parsed = parseCompanionRequest(requests[0])!
+  expect(parsed.document?.units.map(unit => unit.label)).toEqual(pages.map(page => String(page.n)))
+  expect(parsed.document?.part).toBeUndefined()
+  const system = buildMarginSystemParts(parsed)!
+  expect(system.stable).toContain('Paper page 12.')
+  expect(system.stable).not.toContain('too long to include whole')
+  expect(service.saveUnitCard(whole, 'recap', 'Whole paper summary.')).toBe(true)
+  const section = { unit: { key: 'outline-1', title: '2 Method', from: 4, to: 12 }, pages: pages.slice(3), atPage: 4 }
+  expect(await service.askUnit(section, 'recap')).toBe('Whole paper summary.')
+  expect(parseCompanionRequest(requests[1])?.document?.part).toMatchObject({ total: 12 })
+  service.dispose()
+})
+
 it('marks a figure Explain as a figure, so the Worker asks for its point rather than a description (2 Nov 2026)', async () => {
   const requests: Array<{ companion: Record<string, unknown> }> = []
   const api = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
@@ -556,6 +686,10 @@ it('says why a question failed instead of returning nothing, and retries a dropp
 
   chat = () => json({ error: 'Invalid message content' }, 400)
   expect(await reason(service.ask(selection, 'explain'))).toBe('Tinct could not answer this time (error 400). Try again.')
+
+  // The Worker refused the picture: the reason, not a bare status (a second try sends the same picture).
+  chat = () => json({ error: 'image_rejected' }, 400)
+  expect(await reason(service.ask(selection, 'explain'))).toBe('This figure could not be sent as a picture. Select a smaller part of it.')
 
   chat = () => json({ content: [], stop_reason: 'end_turn' })
   expect(await reason(service.ask(selection, 'explain'))).toBe('The answer stopped before it was finished. Try again.')

@@ -1,12 +1,15 @@
 import type { QuizTurn } from '../../companion/companionRequest'
+import { NoteField } from '../notes/NoteField'
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type MutableRefObject } from 'react'
 import type { LabAskTurn } from '../labAsk'
 import { isAiRestingError, LabChatError } from '../labCompanion'
 import { LAB_COPY } from '../labCopy'
-import { PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
+import { useDraft, type DraftStore } from '../labDraftStore'
+import { PHONE_CARD_BUSY_ATTR, PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
 import type { PhoneCardRange } from './phoneCardPassage'
 import type { CharacterSelection, NamesakeNotice, ReleasedCard } from '../../services/characters/characterCards'
 import { subtitleRepeatsBody } from '../../services/characters/cardSubtitle'
+import { HeadwordLabel } from '../../components/reader/DefinitionFallback'
 
 /** The streamed lead already displays this initial saved projection. Keep it
  * in storage/chat, but omit the duplicate below the live card's answer. */
@@ -69,8 +72,8 @@ export function PhoneCharacterBody({ character, renderFollow }: { character: Cha
       </div>
       <button type="button" onClick={() => { setGalleryId(null); setGallery(false) }}>Back to selected name</button>
     </> : card && <>
-      <h2>{card.name}</h2>
-      {roleLabel && <small>{roleLabel}</small>}
+      {/* "Mary Magdalene · Major figure", as the desktop popup (Anders, 18 Nov 2026). */}
+      <h2 className="popup-character-name">{card.name}<HeadwordLabel label={roleLabel ?? ''} /></h2>
       {card.subtitle && !subtitleRepeatsBody(card.subtitle, card.body) && <p className="popup-character-subtitle">{card.subtitle}</p>}
       <p>{card.body}</p>
       <button type="button" onClick={() => setGallery(true)}>Character gallery</button>
@@ -84,7 +87,7 @@ export function PhoneCharacterBody({ character, renderFollow }: { character: Cha
  * An answer that streams in from the companion, shown as it arrives. `onReady`
  * hears the whole answer once (it is then carried into a follow-up).
  */
-export function PhoneStreamAnswer({ request, onReady }: { request: (onDelta: (text: string) => void) => Promise<string>; onReady?: (answer: string) => void }) {
+export function PhoneStreamAnswer({ request, onReady, plain = false }: { request: (onDelta: (text: string) => void) => Promise<string>; onReady?: (answer: string) => void; /** No bold first sentence (Simplify). */ plain?: boolean }) {
   const [answer, setAnswer] = useState('')
   const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error' | 'resting'>('loading')
   const [attempt, setAttempt] = useState(0)
@@ -104,7 +107,7 @@ export function PhoneStreamAnswer({ request, onReady }: { request: (onDelta: (te
   }, [attempt])
   return (
     <div className="lab-pcard-stream" data-state={status} data-testid="lab-phone-card-stream" aria-live="polite" aria-busy={status === 'loading' || status === 'streaming'}>
-      {answer ? <PhoneAnswer text={answer} /> : status === 'loading' ? <PhoneWait /> : null}
+      {answer ? <PhoneAnswer text={answer} plain={plain} /> : status === 'loading' ? <PhoneWait /> : null}
       {status === 'resting' && <p className="lab-pcard-status">{LAB_COPY.aiResting}</p>}
       {status === 'error' && <p className="lab-pcard-status">{failure} <button type="button" className="lab-pcard-link" data-testid="lab-phone-card-retry" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>}
     </div>
@@ -141,13 +144,26 @@ export function PhonePassageBody({ lead, turns, pending }: { lead?: ReactNode; t
     <>
       {lead}
       <PhoneThread turns={turns} pending={pending} />
-      <div ref={end} />
+      {/* While a follow-up is answered, the card holds its height (LabPhoneCard, phoneCardHeight.ts). */}
+      <div ref={end} {...(pending ? { [PHONE_CARD_BUSY_ATTR]: '' } : {})} />
     </>
   )
 }
 
-export function PhoneFollowField(props: PhoneFollowProps) {
-  return <PhoneFollow {...props} />
+/**
+ * The follow-up field with its draft: given as `value`, or read from the reader's draft store (`draft`), so a
+ * keystroke renders this field and not the reader around it (labDraftStore). `active` false: another card's
+ * field, shown empty.
+ */
+export function PhoneFollowField(props: PhoneFollowProps | (Omit<PhoneFollowProps, 'value'> & { draft: DraftStore; active?: boolean })) {
+  if (!('draft' in props)) return <PhoneFollow {...props} />
+  const { draft, active, ...rest } = props
+  return <StoreFollow store={draft} active={active !== false} {...rest} />
+}
+
+function StoreFollow({ store, active, ...rest }: Omit<PhoneFollowProps, 'value'> & { store: DraftStore; active: boolean }) {
+  const value = useDraft(store)
+  return <PhoneFollow {...rest} value={active ? value : ''} />
 }
 
 interface QuizQuestion { q: string; answer: string; why?: string }
@@ -212,9 +228,12 @@ export const PHONE_QUIZ_LENGTH = 3
 /**
  * Quiz me (the margin reader's quiz card): three questions, one at a time.
  * The reader answers in the field (marked by the companion) or shows the
- * answer, then goes on; the end line counts the right answers. The card opens
- * at once ("Writing questions…") and the first question shows as soon as it
- * is whole in the stream. The end ends with the follow-up field, as every card.
+ * answer, then goes on. Once the last question has its result, the score and
+ * "Try another quiz" show under it at once (no "See your score" step: Anders,
+ * 13 Nov 2026). The card opens at once ("Writing questions…") and the first
+ * question shows as soon as it is whole in the stream. The end ends with the
+ * follow-up field, as every card; while the last answer can still be discussed,
+ * that question's own field stands in for it, above the score.
  */
 export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, inputRef, follow, thread, onComplete }: {
   request: (onDelta: (text: string) => void) => Promise<string>
@@ -228,7 +247,7 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   follow?: (summary: string) => ReactNode
   /** The follow-ups asked from the end and their answers. */
   thread?: ReactNode
-  /** One completed result, after the reader has marked or revealed every question. */
+  /** One completed result, as soon as the last question is marked or revealed (once per quiz). */
   onComplete?: (summary: string) => void
 }) {
   const [questions, setQuestions] = useState<QuizQuestion[] | null>(null)
@@ -263,14 +282,19 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   // While the quiz is still being written its length is the one it will have.
   const total = writing ? PHONE_QUIZ_LENGTH : questions?.length ?? 0
   const waitingNext = !!questions && writing && index >= questions.length
-  const done = !!questions && !writing && index >= questions.length
-  const result = results[index] ?? null
+  // The question on show. Writing that stopped early, after the reader went on, ends with the last that arrived.
+  const at = questions && !writing && index >= questions.length ? questions.length - 1 : index
+  const result = results[at] ?? null
+  const last = !!questions && !writing && at === questions.length - 1
+  // The quiz is done as soon as its last question has a result: the score shows under it at once.
+  const done = last && !!result
+  const canReply = !!result && result.verdict !== 'right' && result.verdict !== 'shown' && (result.replies ?? 0) < 3
   const right = results.filter(item => item?.verdict === 'right').length
   const answered = results.filter(item => item && item.verdict !== 'shown').length
   const submit = (answer: string) => {
-    const question = questions?.[index]
+    const question = questions?.[at]
     if (!question || markingRef.current || !answer.trim()) return
-    const previous = results[index]
+    const previous = results[at]
     if (previous && (previous.verdict === 'right' || previous.verdict === 'shown' || (previous.replies ?? 0) >= 3)) return
     markingRef.current = true
     setMarking(true)
@@ -283,7 +307,7 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
     void checked.then(text => {
       const parsed = parsePhoneQuizMark(text)
       if (!parsed) { failed(); return }
-      setResults(current => { const next = [...current]; next[index] = { ...parsed,
+      setResults(current => { const next = [...current]; next[at] = { ...parsed,
         replies: previous ? (previous.replies ?? 0) + 1 : 0,
         turns: [...(previous?.turns ?? []), { role: 'reader', text: answer.slice(0, 600) }, { role: 'grader', text: parsed.feedback.slice(0, 600), verdict: parsed.verdict }],
       }; return next })
@@ -303,19 +327,18 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done, attempt])
   const body = status === 'loading' || waitingNext
-    ? <div className="lab-pcard-quiz-writing" data-testid="lab-phone-quiz-writing"><p className="lab-pcard-status">Writing questions…</p><PhoneWait /></div>
+    ? <div className="lab-pcard-quiz-writing" data-testid="lab-phone-quiz-writing" {...{ [PHONE_CARD_BUSY_ATTR]: '' }}><p className="lab-pcard-status">Writing questions…</p><PhoneWait /></div>
     : status === 'error' || !questions ? <p className="lab-pcard-status"><button type="button" className="lab-pcard-link" data-testid="lab-phone-card-retry" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>
-    : done ? <div className="lab-pcard-answer"><p><strong className="lab-pcard-lead">{answered ? `${right} of ${answered}` : `${questions.length} of ${questions.length} shown`}</strong></p></div>
     : (
       <div className="lab-pcard-quiz" data-testid="lab-phone-quiz">
-        <p className="lab-pcard-count">{index + 1} of {total}</p>
-        <p className="lab-pcard-question" data-testid="lab-phone-quiz-question">{questions[index].q}</p>
+        <p className="lab-pcard-count">{at + 1} of {total}</p>
+        <p className="lab-pcard-question" data-testid="lab-phone-quiz-question">{questions[at].q}</p>
         {result && (result.turns?.length ?? 0) > 0 && <div className="lab-pcard-quiz-history" data-testid="lab-phone-quiz-history">
           {result.turns!.slice(0, -1).map((turn, turnIndex) => <p key={turnIndex} className={turn.role === 'reader' ? 'lab-pcard-question' : undefined}>{turn.text}</p>)}
         </div>}
         {result && <div className="lab-pcard-answer">
           {result.verdict === 'shown'
-            ? <p><strong className="lab-pcard-lead">{questions[index].answer}</strong>{questions[index].why ? ` ${questions[index].why}` : ''}</p>
+            ? <p><strong className="lab-pcard-lead">{questions[at].answer}</strong>{questions[at].why ? ` ${questions[at].why}` : ''}</p>
             : <p><strong className="lab-pcard-lead">{VERDICT_WORD[result.verdict]}</strong>{result.feedback ? ` ${result.feedback}` : ''}</p>}
         </div>}
         {pendingAnswer && <p className="lab-pcard-question" data-testid="lab-phone-quiz-pending-answer">{pendingAnswer}</p>}
@@ -323,47 +346,46 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
         {markError && <p role="status">Couldn’t check that answer. Please try again.</p>}
       </div>
     )
-  const asking = (status === 'ready' || writing) && !!questions && index < questions.length
+  const asking = (status === 'ready' || writing) && !!questions && at < questions.length
   return (
     <>
       <div className="lab-pcard-body-inner">
         {body}
-        {done && thread}
       </div>
-      {asking && (
+      {asking && (!done || canReply) && (
         <div className="lab-pcard-quiz-foot">
           {!result
             ? <>
                 <PhoneFollow value={draft} onChange={setDraft} onSend={submit} onMic={onMic} micOn={micOn} placeholder="Your answer" label="Your answer" inputRef={inputRef} disabled={marking} />
-                <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-show" disabled={marking} onClick={() => setResults(current => { const next = [...current]; next[index] = { verdict: 'shown', feedback: '' }; return next })}>Show answer</button>
+                <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-show" disabled={marking} onClick={() => setResults(current => { const next = [...current]; next[at] = { verdict: 'shown', feedback: '' }; return next })}>Show answer</button>
               </>
-            : <>{result.verdict !== 'right' && result.verdict !== 'shown' && (result.replies ?? 0) < 3 && <PhoneFollow value={draft} onChange={setDraft} onSend={submit} onMic={onMic} micOn={micOn} placeholder="Ask about your answer" label="Ask about your answer" inputRef={inputRef} disabled={marking} />}
-              <button type="button" disabled={marking} className="lab-pcard-link" data-testid="lab-phone-quiz-next" onClick={() => { setIndex(value => value + 1); setDraft(''); setMarkError(false) }}>{index + 1 < total ? 'Next question →' : 'See your score →'}</button></>}
+            : <>{canReply && <PhoneFollow value={draft} onChange={setDraft} onSend={submit} onMic={onMic} micOn={micOn} placeholder="Ask about your answer" label="Ask about your answer" inputRef={inputRef} disabled={marking} />}
+              {!last && <button type="button" disabled={marking} className="lab-pcard-link" data-testid="lab-phone-quiz-next" onClick={() => { setIndex(value => value + 1); setDraft(''); setMarkError(false) }}>Next question →</button>}</>}
         </div>
       )}
+      {done && questions && <div className="lab-pcard-body-inner">
+        <div className="lab-pcard-answer" data-testid="lab-phone-quiz-score"><p><strong className="lab-pcard-lead">{answered ? `${right} of ${answered}` : `${questions.length} of ${questions.length} shown`}</strong></p></div>
+        {thread}
+      </div>}
       {done && <div className="lab-pcard-quiz-foot">
-        {follow?.(summary())}
-        <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-again" onClick={() => setAttempt(value => value + 1)}>Try another quiz</button>
+        {!canReply && follow?.(summary())}
+        <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-again" onClick={() => {
+          // Cleared in the same render as the new attempt, so the finished one is not completed again under its number.
+          setStatus('loading'); setQuestions(null); setIndex(0); setResults([]); setMarkError(false); setDraft(''); setAttempt(value => value + 1)
+        }}>Try another quiz</button>
       </div>}
     </>
   )
 }
 
-/** A note: the reader's words in an always editable field (the passage stays underlined on the page). */
-export function PhoneNoteBody({ value, onChange, inputRef, chapter = false }: { value: string; onChange: (text: string) => void; inputRef?: MutableRefObject<HTMLTextAreaElement | null>; chapter?: boolean }) {
-  const own = useRef<HTMLTextAreaElement | null>(null)
-  const field = inputRef ?? own
-  useEffect(() => {
-    const el = field.current
-    if (!el) return
-    el.style.height = 'auto'
-    el.style.height = `${Math.max(72, el.scrollHeight)}px`
-  }, [value, field])
+/**
+ * A note: the reader's words in an always editable field (the passage stays underlined on the page), with bullets,
+ * bold and italic (notes/NoteField.tsx, Anders 13 Nov 2026). On the phone its B / I / • row sits above the keyboard.
+ */
+export function PhoneNoteBody({ value, onChange, inputRef, chapter = false, phone = false }: { value: string; onChange: (text: string) => void; inputRef?: MutableRefObject<HTMLElement | null>; chapter?: boolean; phone?: boolean }) {
   return (
-    <>
-      <textarea ref={field} className="lab-pcard-note" data-testid="lab-phone-card-note" rows={3} placeholder={chapter ? 'A note on this chapter' : 'Add a note…'} aria-label={chapter ? 'Chapter note' : 'Highlight note'}
-        value={value} onChange={event => onChange(event.target.value)} />
-    </>
+    <NoteField value={value} onChange={onChange} inputRef={inputRef} keyboardBar={phone}
+      placeholder={chapter ? 'A note on this chapter' : 'Add a note…'} ariaLabel={chapter ? 'Chapter note' : 'Highlight note'} />
   )
 }
 

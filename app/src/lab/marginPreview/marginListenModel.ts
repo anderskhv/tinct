@@ -11,6 +11,7 @@
 import { editionHold } from '../../data/editionAvailability'
 import { isAudioHeld } from '../../data/audioAvailability'
 import { usesRetainedBella } from '../../narration/bellaRetention'
+import { narrationLanguage } from '../../narration/narrationCore'
 import { resolvedAudioIsAvailable } from '../../utils/audioEditionSelection'
 import { narrationPilotApplies, resolveNarrationVoice, type NarrationPilotInfo } from '../labNarration'
 import { effectiveLabAudioEdition, type LabPrefs } from '../labPrefs'
@@ -60,7 +61,7 @@ export function marginNarrationPlan(input: {
   const held = Boolean(editionHold(bookId, editionKey))
   const kokoroHeld = Boolean(editionHold(bookId, kokoro)) || isAudioHeld(bookId, kokoro, chapterNumber)
   const kokoroUnavailable = kokoroHeld || !resolvedAudioIsAvailable(kokoro, editionKey, editions)
-  const unavailable = held || (info?.provider === 'grok' && editionKey.endsWith('-en')
+  const unavailable = held || (info?.provider === 'grok' && narrationLanguage(bookId, editionKey) !== null
     ? !narration
     : narration || retainedBella ? false : kokoroUnavailable)
   return {

@@ -79,7 +79,9 @@ describe('paragraph kinds', () => {
     // The ragged, unhyphenated rules name every set-apart kind but never the list item.
     const { readFileSync } = await import('node:fs')
     const css = readFileSync(new URL('./lab.css', import.meta.url), 'utf8')
-    const ragged = css.match(/\.lab \.lab-hearing-line:is\(([^)]*)\)\[class\]\[class\] \{\s*text-align: left;\s*text-align-last: auto;/)
+    // (Its specificity comes from repeating the line's class, not from `[class]`: an attribute selector on `class` restyled
+    // every word under any element whose class changed, 13 Nov 2026.)
+    const ragged = css.match(/\.lab \.lab-hearing-line:is\(([^)]*)\)\.lab-hearing-line\.lab-hearing-line \{\s*text-align: left;\s*text-align-last: auto;/)
     expect(ragged?.[1]).toContain('.is-kind-heading')
     expect(ragged?.[1]).not.toContain('.is-kind-item')
     const manual = css.match(/\.lab \.lab-hearing-line:is\(([^)]*)\) \* \{\s*-webkit-hyphens: manual !important;/)
