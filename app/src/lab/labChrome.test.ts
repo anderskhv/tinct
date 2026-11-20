@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+import { LAB_PAGE_LONG_PRESS_MS, LAB_SCROLL_LONG_PRESS_MS, labLongPressMs, labPassageBlocksNativeTouch, labLongPressCancelledByMove, LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSwipeTurnDirection, labVerticalSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
   labShouldAutofocusComposer,
 } from './labChrome'
 
@@ -118,12 +118,18 @@ describe('lab keyboard pan reset', () => {
     expect(labTextEntryFocused(null)).toBe(false)
   })
 
-  it('resets the pan only while a text field owns the keyboard', () => {
+  it('resets the keyboard pan, and a document scroll iOS left behind once the keyboard is down, but not a pinch-zoom pan', () => {
     expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 0, textEntryFocused: true })).toBe(true)
     expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 300, textEntryFocused: true })).toBe(true)
     expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 0, textEntryFocused: true })).toBe(false)
-    expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 300, textEntryFocused: false })).toBe(false)
     expect(labShouldResetViewportPan({ textEntryFocused: true })).toBe(false)
+    // Keyboard down, document still scrolled (iPhone, 10 Nov 2026): the header above the screen, taps missing.
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 62, textEntryFocused: false, scale: 1 })).toBe(true)
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 62, textEntryFocused: false })).toBe(true)
+    // The reader's own pinch-zoom pan stays.
+    expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 300, textEntryFocused: false, scale: 2 })).toBe(false)
+    expect(labShouldResetViewportPan({ offsetTop: 120, scrollY: 0, textEntryFocused: false, scale: 1.6 })).toBe(false)
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 0, textEntryFocused: false })).toBe(false)
   })
 
   it('measures the height again when the page comes back to the front, and takes the window over a stale shorter visual viewport', () => {
@@ -237,6 +243,39 @@ describe('lab page gestures', () => {
     expect(labSwipePageDirection(70, -8)).toBe(-1)
     expect(labSwipePageDirection(30, 2)).toBeNull()
     expect(labSwipePageDirection(70, 65)).toBeNull()
+  })
+
+  // Phone: swipe up/down turns pages like left/right (Anders, 12 Nov 2026).
+  it('maps a clear, quick vertical swipe: up is next, down is previous', () => {
+    expect(labVerticalSwipePageDirection(4, -80, 200)).toBe(1)
+    expect(labVerticalSwipePageDirection(-4, 80, 200)).toBe(-1)
+    // Too short, too slow, or not clearly vertical: nothing.
+    expect(labVerticalSwipePageDirection(0, -40, 200)).toBeNull()
+    expect(labVerticalSwipePageDirection(0, 41, 200)).toBe(-1)
+    expect(labVerticalSwipePageDirection(0, -120, 701)).toBeNull()
+    expect(labVerticalSwipePageDirection(60, -90, 200)).toBeNull()
+    expect(labVerticalSwipePageDirection(59, -90, 200)).toBe(1)
+    expect(labVerticalSwipePageDirection(0, -120, Number.NaN)).toBeNull()
+  })
+
+  it('keeps sideways and diagonal swipes exactly as before, and vertical only where offered', () => {
+    const turn = (deltaX: number, deltaY: number, vertical = true, pointerType = 'touch', durationMs = 200) =>
+      labSwipeTurnDirection({ deltaX, deltaY, durationMs, vertical, pointerType })
+    for (const [dx, dy] of [[-70, 8], [70, -8], [30, 2], [70, 65], [-200, 0], [60, 0], [80, 80]]) {
+      expect(turn(dx, dy)).toBe(labSwipePageDirection(dx, dy))
+    }
+    // A slow sideways swipe still turns, as it always has.
+    expect(turn(-70, 8, true, 'touch', 3000)).toBe(1)
+    // Diagonal: neither axis.
+    expect(turn(-60, -70)).toBeNull()
+    expect(turn(60, 85)).toBeNull()
+    expect(turn(0, -90)).toBe(1)
+    expect(turn(0, 90)).toBe(-1)
+    expect(turn(0, -90, true, 'pen')).toBe(1)
+    // Off the phone page, and for a mouse (a vertical drag selects text).
+    expect(turn(0, -90, false)).toBeNull()
+    expect(turn(0, -90, true, 'mouse')).toBeNull()
+    expect(turn(-70, 8, true, 'mouse')).toBe(1)
   })
 
   it('turns only from the outer thirds', () => {
@@ -411,13 +450,14 @@ describe('lab chrome inset invariant', () => {
     expect(labScrollportOverflows(wrap)).toBe(true)
   })
 
-  it('clamps chrome top to the visible visualViewport, never 100vh', () => {
+  it('clamps chrome top to the visualViewport while an ordinary composer owns the keyboard', () => {
     expect(labVisibleBottomPx({ height: 628, offsetTop: 0 }, 844)).toBe(628)
     expect(labVisibleBottomPx({ height: 628, offsetTop: 12 }, 844)).toBe(640)
     expect(labVisibleBottomPx(undefined, 844)).toBe(844)
     document.body.innerHTML = `
-      <footer class="lab-phone-bar"></footer>
+      <footer class="lab-phone-bar"></footer><input id="composer">
     `
+    document.getElementById('composer')!.focus()
     const phone = document.querySelector('.lab-phone-bar') as HTMLElement
     phone.getBoundingClientRect = () => ({ top: 720, bottom: 800, height: 80, width: 390, left: 0, right: 390, x: 0, y: 720, toJSON() {} })
     const original = window.visualViewport
@@ -597,3 +637,33 @@ describe('labNeedsGestureAudioUnlock (opening Chat must not take a phone\'s head
     expect(labNeedsGestureAudioUnlock({ userAgent: WIN, primaryHoverNone: true })).toBe(true)
   })
 })
+
+// Surface Duo / iPad, 6 Nov 2026: the Margin reader's text is a scroller.
+describe('touch on a scrolling passage', () => {
+  const base = { dragging: false, selecting: false, selectionShown: false, onWord: true }
+  it('keeps every touch on a paginated word for the reader', () => {
+    expect(labPassageBlocksNativeTouch({ ...base, type: 'touchstart', touchScroll: false })).toBe(true)
+    expect(labPassageBlocksNativeTouch({ ...base, onWord: false, selectionShown: true, type: 'touchmove', touchScroll: false })).toBe(true)
+    expect(labPassageBlocksNativeTouch({ ...base, onWord: false, type: 'touchstart', touchScroll: false })).toBe(false)
+  })
+  it('leaves a scroller touch to the browser unless it extends a long-press selection', () => {
+    expect(labPassageBlocksNativeTouch({ ...base, type: 'touchstart', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, type: 'touchmove', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, selectionShown: true, type: 'touchmove', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, selecting: true, type: 'touchstart', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, selecting: true, type: 'touchmove', touchScroll: true })).toBe(true)
+  })
+  it('holds the long press about as long as the platform does in a scroller', () => {
+    expect(labLongPressMs(false)).toBe(LAB_PAGE_LONG_PRESS_MS)
+    expect(LAB_PAGE_LONG_PRESS_MS).toBe(160)
+    expect(labLongPressMs(true)).toBe(LAB_SCROLL_LONG_PRESS_MS)
+    expect(LAB_SCROLL_LONG_PRESS_MS).toBeGreaterThanOrEqual(400)
+  })
+  it('cancels a pending press on any movement past the slop in a scroller, only a quick flick on a page', () => {
+    expect(labLongPressCancelledByMove({ touchScroll: true, distance: 8, elapsedMs: 50 })).toBe(false)
+    expect(labLongPressCancelledByMove({ touchScroll: true, distance: 14, elapsedMs: 300 })).toBe(true)
+    expect(labLongPressCancelledByMove({ touchScroll: false, distance: 14, elapsedMs: 50 })).toBe(true)
+    expect(labLongPressCancelledByMove({ touchScroll: false, distance: 14, elapsedMs: 300 })).toBe(false)
+  })
+})
+

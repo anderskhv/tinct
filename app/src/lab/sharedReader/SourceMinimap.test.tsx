@@ -1,0 +1,130 @@
+// @vitest-environment jsdom
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { afterEach, expect, it, vi } from 'vitest'
+import { SourceMinimap } from './SourceMinimap'
+afterEach(cleanup)
+it('navigates real source paragraphs by keyboard without inventing pages', () => {
+  const jump = vi.fn()
+  render(<SourceMinimap paragraphs={['one two', 'three four five', 'six']} visible={{ paragraphIndex: 1, wordIndex: 0 }} onJump={jump} />)
+  const map = screen.getByRole('slider', { name: 'Chapter position' })
+  expect(map.getAttribute('aria-valuenow')).toBe('33')
+  expect(screen.getByTestId('source-map-progress').textContent).toBe('33%')
+  fireEvent.keyDown(map, { key: 'ArrowDown' })
+  expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 2, wordIndex: 0 })
+  fireEvent.keyDown(map, { key: 'Home' })
+  expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 0, wordIndex: 0 })
+})
+it('maps a click in a long paragraph to an exact word rather than a fake page', () => {
+  const jump = vi.fn()
+  render(<SourceMinimap paragraphs={['one two three four five six seven eight']} visible={{ paragraphIndex: 0, wordIndex: 0 }} onJump={jump} />)
+  const map = screen.getByRole('slider')
+  vi.spyOn(map, 'getBoundingClientRect').mockReturnValue({ top: 100, height: 600 } as DOMRect)
+  fireEvent.pointerDown(map, { clientY: 400, pointerId: 1 })
+  expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 0, wordIndex: 4 })
+})
+it('represents the whole book and routes other chapters through chapter navigation', () => {
+  const jump = vi.fn(), chapter = vi.fn()
+  render(<SourceMinimap paragraphs={['one two', 'three four']} visible={{ paragraphIndex: 0, wordIndex: 0 }} onJump={jump}
+    bookMap={{ chapterNumber: 2, chapters: [{ number: 1, title: 'First', wordCount: 4 }, { number: 2, title: 'Second', wordCount: 4 }, { number: 3, title: 'Third', wordCount: 4 }], onJumpChapter: chapter }} />)
+  const map = screen.getByRole('slider', { name: 'Book position' })
+  expect(map.getAttribute('aria-valuenow')).toBe('33')
+  expect(map.querySelectorAll('circle')).toHaveLength(0)
+  expect(map.querySelectorAll('[data-map-chapter]')).toHaveLength(2)
+  fireEvent.keyDown(map, { key: 'Home' })
+  expect(chapter).toHaveBeenLastCalledWith(1)
+  fireEvent.keyDown(map, { key: 'End' })
+  expect(chapter).toHaveBeenLastCalledWith(3)
+  vi.spyOn(map, 'getBoundingClientRect').mockReturnValue({ top: 0, height: 600 } as DOMRect)
+  fireEvent.pointerDown(map, { clientY: 500, pointerId: 1 })
+  expect(chapter).toHaveBeenLastCalledWith(3)
+  expect(jump).not.toHaveBeenCalled()
+  fireEvent.pointerDown(map, { clientY: 300, pointerId: 1 })
+  expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 1, wordIndex: 0 })
+})
+
+it('keeps chapter-only pointer and keyboard navigation within the current chapter, with chapter-relative aria', () => {
+  const jump = vi.fn()
+  const { rerender } = render(<SourceMinimap paragraphs={['one two', 'three four five']} visible={{ paragraphIndex: 1, wordIndex: 1 }} visibleEnd={{ paragraphIndex: 1, wordIndex: 2 }} onJump={jump} />)
+  const map = screen.getByRole('slider', { name: 'Chapter position' })
+  expect(screen.getByTestId('source-minimap').getAttribute('viewBox')).toBe('0 0 34 140')
+  expect(screen.getByTestId('source-map-progress').getAttribute('y')).toBe('160')
+  expect(map.getAttribute('aria-valuenow')).toBe('100')
+  expect(map.getAttribute('aria-valuetext')).toBe('100% through this chapter')
+  expect(map.querySelectorAll('circle,[data-map-chapter]')).toHaveLength(0)
+  expect(map.querySelector('.source-minimap-window')?.getAttribute('y')).toBe('84')
+  expect(map.querySelector('.source-minimap-window')?.getAttribute('height')).toBe('56')
+  vi.spyOn(map, 'getBoundingClientRect').mockReturnValue({ top: 100, height: 600 } as DOMRect)
+  fireEvent.pointerDown(map, { clientY: -20, pointerId: 1 })
+  expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 0, wordIndex: 0 })
+  fireEvent.pointerMove(map, { clientY: 900, pointerId: 1 })
+  expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 1, wordIndex: 2 })
+  fireEvent.pointerUp(map)
+  fireEvent.keyDown(map, { key: 'ArrowDown' })
+  expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 1, wordIndex: 2 })
+  fireEvent.keyDown(map, { key: 'End' })
+  expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 1, wordIndex: 2 })
+  fireEvent.keyDown(map, { key: 'Home' })
+  expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 0, wordIndex: 0 })
+  rerender(<SourceMinimap paragraphs={['one two', 'three four five']} visible={{ paragraphIndex: 0, wordIndex: 0 }} onJump={jump} />)
+  for (const key of ['ArrowUp', 'PageUp']) {
+    fireEvent.keyDown(map, { key })
+    expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 0, wordIndex: 0 })
+  }
+})
+
+it('shows passage highlights at their source words and jumps there without a second slider jump', () => {
+  const jump = vi.fn()
+  render(<SourceMinimap paragraphs={['one two three four', 'five six seven eight']} visible={{ paragraphIndex: 0, wordIndex: 0 }} onJump={jump}
+    highlights={[{ id: 'h1', chapterNumber: 1, paragraphIndex: 1, fromWord: 1, endParagraphIndex: 1, toWord: 3, color: 'gold', text: 'six seven' }]} />)
+  const mark = screen.getByRole('button', { name: 'Highlight: six seven' })
+  expect(mark.closest('[role=slider]')).toBeNull()
+  expect(mark.querySelector('.source-minimap-activity-ink')?.getAttribute('y')).toBe('87.5')
+  fireEvent.pointerDown(mark, { clientY: 0 })
+  expect(jump).toHaveBeenCalledExactlyOnceWith({ paragraphIndex: 1, wordIndex: 1 })
+  fireEvent.keyDown(mark, { key: 'Enter' })
+  expect(jump).toHaveBeenCalledTimes(2)
+})
+
+it('keeps an explanation and highlight at the same source position independently reachable', () => {
+  const jump = vi.fn(), open = vi.fn()
+  render(<SourceMinimap paragraphs={['one two three four']} visible={{ paragraphIndex: 0, wordIndex: 0 }} onJump={jump}
+    cards={[{ id: 'answer', paragraphIndex: 0, wordIndex: 1, label: 'Explain: two three', onOpen: open }]}
+    highlights={[{ id: 'h1', chapterNumber: 1, paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 3, color: 'gold', text: 'two three' }]} />)
+  const card = screen.getByRole('button', { name: 'Explain: two three' }), mark = screen.getByRole('button', { name: 'Highlight: two three' })
+  expect(card.querySelector('rect')?.getAttribute('x')).toBe('26')
+  expect(Number(mark.querySelector('rect')?.getAttribute('x')) + Number(mark.querySelector('rect')?.getAttribute('width'))).toBeLessThan(26)
+  fireEvent.keyDown(card, { key: 'Enter' })
+  expect(open).toHaveBeenCalledOnce()
+  expect(jump).toHaveBeenCalledExactlyOnceWith({ paragraphIndex: 0, wordIndex: 1 })
+  fireEvent.keyDown(mark, { key: 'Enter' })
+  expect(jump).toHaveBeenCalledTimes(2)
+  expect(open).toHaveBeenCalledOnce()
+})
+
+
+it('does not jump forward when the chapter end is visible above an earlier top paragraph', () => {
+  const jump = vi.fn()
+  render(<SourceMinimap paragraphs={['one two', 'three four', 'five six']}
+    visible={{ paragraphIndex: 0, wordIndex: 1 }} visibleEnd={{ paragraphIndex: 2, wordIndex: 1 }} onJump={jump} />)
+  const map = screen.getByRole('slider', { name: 'Chapter position' })
+  for (const key of ['ArrowDown', 'PageDown', 'End']) fireEvent.keyDown(map, { key })
+  expect(jump).not.toHaveBeenCalled()
+  fireEvent.keyDown(map, { key: 'Home' })
+  expect(jump).toHaveBeenCalledExactlyOnceWith({ paragraphIndex: 0, wordIndex: 0 })
+})
+it('book scroll: marks highlights and cards in the unit\'s other chapters and goes to them at their word', () => {
+  const chapter = vi.fn(), jump = vi.fn()
+  const bookMap = { chapterNumber: 2, chapters: [{ number: 1, title: 'First', wordCount: 100 }, { number: 2, title: 'Second', wordCount: 4 }, { number: 3, title: 'Third', wordCount: 100 }], onJumpChapter: chapter }
+  const { container } = render(<SourceMinimap paragraphs={['one two', 'three four']} visible={{ paragraphIndex: 0, wordIndex: 0 }} onJump={jump} bookMap={bookMap}
+    unitMarks={[
+      { id: 'h:a', kind: 'highlight', chapterNumber: 1, from: .5, to: .6, color: 'green', label: 'Highlight: in the first', anchor: { paragraphIndex: 3, wordIndex: 2 } },
+      { id: 'c:b', kind: 'card', chapterNumber: 3, from: .25, to: .25, label: 'Explain · in the third', anchor: { paragraphIndex: 1, wordIndex: 7 } },
+      { id: 'h:own', kind: 'highlight', chapterNumber: 2, from: 0, to: .5, label: 'Highlight: own chapter, drawn from its own highlights', anchor: { paragraphIndex: 0, wordIndex: 0 } },
+    ]} />)
+  expect([...container.querySelectorAll('[data-map-unit-mark]')].map(node => node.getAttribute('data-map-unit-mark'))).toEqual(['1', '3'])
+  fireEvent.pointerDown(screen.getByRole('button', { name: 'Explain · in the third' }))
+  expect(chapter).toHaveBeenLastCalledWith(3, { paragraphIndex: 1, wordIndex: 7 })
+  fireEvent.keyDown(screen.getByRole('button', { name: 'Highlight: in the first' }), { key: 'Enter' })
+  expect(chapter).toHaveBeenLastCalledWith(1, { paragraphIndex: 3, wordIndex: 2 })
+  expect(jump).not.toHaveBeenCalled()
+})

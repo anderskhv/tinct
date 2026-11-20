@@ -1,3 +1,4 @@
+import { fetchExplainResponse } from './explainFetch'
 import { parseContextualLookup } from '../components/reader/contextualLookup'
 import type { CompanionRequest } from '../companion/companionRequest'
 import { withAuthorship, type Authorship } from '../companion/authorship'
@@ -37,6 +38,8 @@ import {
   type LabAskTurn,
   type LabPlaybackSkip,
 } from './labAsk'
+import { useReadingAngle } from './labReadingAngle'
+import { readAiSettings, withAiPrefs } from './labAiPrefs'
 import {
   LabChatError,
   labChatErrorType,
@@ -51,12 +54,17 @@ import { gateLabAiAction, markTalkTrialUsed, talkTrialUsedToday, type LabAccount
 import { dumpLabTalkTurns, fetchLabChatHistoryCloud, LAB_CHAT_BOOK_ID } from './labTalkHistory'
 import {
   appendLabChatTurn,
+  appendLabChatTurnTo,
   createLabChatCloudWriter,
+  LAB_CHAT_COMMIT_COALESCE_MS,
+  labBookChatStored,
   createLabChatHistoryCloud,
   mergeChatConversations,
+  sameChatConversations,
   migrateLegacyLabChatHistoryCloud,
   migrateLegacyLabChatHistoryLocal,
   readLabBookChat,
+  writeLabBookChat,
   reconcileTurns,
   turnsFromConversations,
 } from './labChatHistory'
@@ -72,6 +80,12 @@ import {
 import { internalTrafficHeaders } from '../utils/internalTraffic'
 import { isUserBookId } from './userBook/userBookId'
 import { chapterWindow, passageWindow } from './userBook/userBookContext'
+import { catalogueCardConversation, upsertCatalogueCard, tombstoneCatalogueCard, type SharedReaderCard } from './sharedReader/sharedReaderCards'
+import type { OwnTextCardsSync } from './userBook/ownTextCardsSync'
+import { registerSignOutFlush } from './signOutFlush'
+import { isSelectionActionKind, markSelectionActionsUsed } from './labSelectionActions'
+
+export type CardSaveFailure = 'book-mismatch' | 'invalid-card' | 'stale-card' | 'private-storage' | 'quota' | 'access' | 'write' | 'readback'
 
 let labAskId = 0
 /** Visible + focus fire together on a tab switch; one refresh serves both. */
@@ -89,6 +103,9 @@ function nextId() {
 
 /** What a question carries beside its text: a highlighted passage, or a figure's picture. */
 export interface LabAskAttachment {
+  sourceLocation?: { chapterNumber: number; chapterLabel: string; paragraphIndex: number }
+  /** null starts ordinary chat; a string continues an existing saved discussion. */
+  conversationId?: string | null
   highlightedText?: string
   onAccepted?: () => void
   /** The picture to send with the question (signed in only), drawn as the companion takes pictures. */
@@ -124,6 +141,12 @@ export interface UseLabAskOptions {
   editionKey?: string
   /** Signed-in user id for the versioned cloud row; defaults to the live Supabase user. `null` = signed out. */
   userId?: string | null
+  /** Owner-qualified private Talk mirror and source-word cards. */
+  ownCardController?: OwnTextCardsSync | null
+  /** Shared private entry fails closed when owner storage cannot be verified. */
+  privateChatGuard?: boolean
+  /** A shared-reader card needs an end-turn response before it can be saved. */
+  sharedReader?: boolean
   chapterCount?: number
   /** Rendered page for the trail's "Now:" line; read at send time. */
   getPage?: () => { pageNumber: number; totalPages: number } | null
@@ -156,6 +179,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   // (`chat-history:{bookId}`). The Bible is one book, as in the registry.
   const chatBookId = options.bookId || ''
   const privateBook = isUserBookId(chatBookId)
+  const readBookChat = (bookId: string) => options.privateChatGuard && isUserBookId(bookId)
+    ? options.ownCardController?.read() ?? [] : readLabBookChat(bookId)
   const [typedLoading, setTypedLoading] = useState(false)
   /** What the companion is looking up before its answer begins ("Reading Jeremiah 32…"), or null. */
   const [typedStatus, setTypedStatus] = useState<string | null>(null)
@@ -165,7 +190,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   // open, then the live turns as they stream. Storage writes run alongside.
   const [conversations, setConversations] = useState<ChatConversation[]>(() => {
     migrateLegacyLabChatHistoryLocal()
-    return readLabBookChat(chatBookId)
+    return readBookChat(chatBookId)
   })
   const [turns, setTurns] = useState<LabAskTurn[]>(() => turnsFromConversations(conversations))
   // The thread as this page last knew it, for recordTurn: a turn whose local
@@ -174,13 +199,23 @@ export function useLabAsk(options: UseLabAskOptions) {
   const loadedForBookRef = useRef(chatBookId)
   if (loadedForBookRef.current !== chatBookId) {
     loadedForBookRef.current = chatBookId
-    const stored = readLabBookChat(chatBookId)
+    const stored = readBookChat(chatBookId)
     const hydrated = turnsFromConversations(stored)
     conversationsRef.current = stored
     setConversations(stored)
     setTurns(hydrated)
     dumpLabTalkTurns(hydrated)
   }
+  const [cardSaveFailure, setCardSaveFailure] = useState<CardSaveFailure | null>(null)
+  const [cardAccountSaved, setCardAccountSaved] = useState(false)
+  const failedCardHistoryRef = useRef<{ bookId: string; viewerId: string | null; conversations: ChatConversation[] } | null>(null)
+  const failCardSave = useCallback((reason: CardSaveFailure) => {
+    setCardSaveFailure(reason)
+    setCardAccountSaved(false)
+    failedCardHistoryRef.current = null
+    console.warn('Card save failed:', reason)
+    return false
+  }, [])
   const [notice, setNotice] = useState<string | null>(null)
   const dismissNotice = useCallback(() => setNotice(null), [])
   const [starting, setStarting] = useState(false)
@@ -211,6 +246,17 @@ export function useLabAsk(options: UseLabAskOptions) {
   } | null>(null)
   const optionsRef = useRef(options)
   optionsRef.current = options
+  useEffect(() => {
+    const controller = options.ownCardController
+    if (!controller || !privateBook) return
+    const receive = (rows: ChatConversation[]) => {
+      conversationsRef.current = rows
+      setConversations(rows)
+      setTurns(current => reconcileTurns(current, turnsFromConversations(rows)))
+    }
+    receive(controller.read())
+    return controller.subscribe(receive)
+  }, [options.ownCardController, privateBook])
   const chatBookIdRef = useRef(chatBookId)
   chatBookIdRef.current = chatBookId
 
@@ -223,7 +269,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   const baseViewerRef = useRef(viewerId)
   if (baseViewerRef.current !== viewerId) {
     baseViewerRef.current = viewerId
-    conversationsRef.current = readLabBookChat(chatBookId)
+    conversationsRef.current = readBookChat(chatBookId)
   }
 
   // Chapters the reader visited during this session, with their opening
@@ -247,7 +293,7 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   const readTrail = useCallback(async (): Promise<LabReadingTrailEntry[]> => {
     const current = optionsRef.current
-    if (!current.bookId || isUserBookId(current.bookId)) return []
+    if (!current.bookId || !current.editionKey || isUserBookId(current.bookId)) return []
     try {
       return await buildLabReadingTrail({
         bookId: current.bookId,
@@ -286,7 +332,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       editionLabel: current.editionLabel,
       paragraphs: scoped.paragraphs,
       paragraphIndex: scoped.paragraphIndex,
-      readingAngle: labReadingAngle(),
+      readingAngle: labReadingAngle(current.bookId),
       // A reader's own book is named by its text only: no id, no edition, so
       // the Worker never looks it up (or meters it) and answers from the
       // paragraphs sent here, as Add a book does.
@@ -317,12 +363,40 @@ export function useLabAsk(options: UseLabAskOptions) {
   // Signed in: the same versioned `user_data` row the classic reader
   // writes (commit_user_data with an expected rev). One writer per account.
   const cloudWriter = useMemo(() => {
-    if (!viewerId) return null
+    if (!viewerId || privateBook) return null
     const cloud = createLabChatHistoryCloud(viewerId)
-    return cloud ? createLabChatCloudWriter(cloud) : null
-  }, [viewerId])
+    if (!cloud) return null
+    const writer = createLabChatCloudWriter(cloud, undefined, {
+      coalesceMs: LAB_CHAT_COMMIT_COALESCE_MS,
+      onCloudHolds: (bookId, conversations) => {
+        const failed = failedCardHistoryRef.current
+        if (cloudWriterRef.current !== writer || viewerRef.current !== viewerId || chatBookIdRef.current !== bookId
+          || failed?.bookId !== bookId || failed.viewerId !== viewerId) return
+        // A queued request or a different/older answer is not proof of backup.
+        if (sameChatConversations(mergeChatConversations(conversations, failed.conversations), conversations)) setCardAccountSaved(true)
+      },
+    })
+    return writer
+  }, [viewerId, privateBook])
   const cloudWriterRef = useRef(cloudWriter)
   cloudWriterRef.current = cloudWriter
+  // Turns waiting for their shared commit leave with the page: hide, pagehide,
+  // and the writer being replaced (account change) or unmounted.
+  useEffect(() => {
+    if (!cloudWriter) return
+    const flush = () => { void cloudWriter.flush() }
+    const onVisibility = () => { if (document.visibilityState === 'hidden') flush() }
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('pagehide', flush)
+    // Sign-out wipes the device copy: turns still waiting go to the account first.
+    const unregister = registerSignOutFlush(() => cloudWriter.flush())
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('pagehide', flush)
+      unregister()
+      flush()
+    }
+  }, [cloudWriter])
 
   const voiceSourcesRef = useRef<VoiceSource[]>([])
   const voiceResearchTurnRef = useRef(0)
@@ -332,17 +406,119 @@ export function useLabAsk(options: UseLabAskOptions) {
   }
 
   /** Record a finalized turn: local mirror first, then the cloud row when signed in. */
-  const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => {
+  const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number, conversationId = optionsRef.current.conversationId, startConversation = false) => {
     const bookId = chatBookIdRef.current
     if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return
+    const owned = optionsRef.current.ownCardController
+    if (isUserBookId(bookId) && optionsRef.current.privateChatGuard && !owned?.isTrusted()) return
     const base = loadedForBookRef.current === bookId ? conversationsRef.current : undefined
-    const next = appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined, base)
+    const next = owned && isUserBookId(bookId)
+      ? appendLabChatTurnTo(base ?? owned.read(), bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined, startConversation)
+      : appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined, base, startConversation)
+    if (owned && isUserBookId(bookId) && !owned.persist(next)) {
+      setNotice('This reply could not be saved on this device. Copy it before leaving the reader.')
+      return
+    }
     if (loadedForBookRef.current === bookId) {
       conversationsRef.current = next
       setConversations(next)
     }
-    cloudWriterRef.current?.push(bookId, next)
+    // A turn the device could not store (a full localStorage on a phone) has
+    // no other copy: it goes to the account row at once.
+    let stored = false
+    try { stored = labBookChatStored(bookId, next) } catch { stored = false }
+    cloudWriterRef.current?.push(bookId, next, { now: !stored })
   }, [])
+
+  /** Cards share this hook's local mirror and cloud writer with ordinary chat turns. */
+  const storeCardHistory = useCallback((bookId: string, next: ChatConversation[], retainUnsaved = false) => {
+    if (bookId !== chatBookIdRef.current) return failCardSave('book-mismatch')
+    // The local writer rejects mixed-book rows. Apply the same boundary before
+    // retaining an unsaved value or offering it to the account writer.
+    if (next.some(row => row.bookId !== bookId || row.messages.some(message => message.bookId && message.bookId !== bookId))) return failCardSave('book-mismatch')
+    const owned = optionsRef.current.ownCardController
+    if (isUserBookId(bookId) && optionsRef.current.privateChatGuard && !owned?.isTrusted()) return failCardSave('private-storage')
+    let saved = false
+    let failure: CardSaveFailure | null = null
+    if (owned && isUserBookId(bookId)) { saved = owned.persist(next); if (!saved) failure = 'private-storage' }
+    else {
+      failure = writeLabBookChat(bookId, next)
+      try { saved = !failure && labBookChatStored(bookId, next) } catch { saved = false; failure ??= 'access' }
+    }
+    if (!saved) failCardSave(failure ?? 'readback')
+    else setCardSaveFailure(null)
+    if (!saved && !retainUnsaved) {
+      setNotice('This card could not be saved on this device. Copy it before leaving the reader.')
+      return false
+    }
+    // A completed catalogue answer still belongs in this page's history when
+    // storage is full. Like ordinary turns, offer its only copy to the account
+    // writer immediately. Neither memory nor a queued write proves it is saved.
+    // saveCard's caller owns the contextual failure notice; delete/undo keep
+    // their prior state on failure and use the hook notice above.
+    failedCardHistoryRef.current = saved ? null : { bookId, viewerId: viewerRef.current, conversations: next }
+    setCardAccountSaved(false)
+    conversationsRef.current = next
+    loadedForBookRef.current = bookId
+    setConversations(next)
+    cloudWriterRef.current?.push(bookId, next, { now: !saved })
+    return saved
+  }, [failCardSave])
+  // The first answered Ask, Explain or Simplify ends the reader's first visit (labSelectionActions.ts).
+  const noteSelectionAction = (card: SharedReaderCard) => {
+    if (isSelectionActionKind(card.kind) && card.turns.some(turn => turn.role === 'assistant' && turn.content.trim())) markSelectionActionsUsed()
+  }
+  const saveCard = useCallback((card: SharedReaderCard): boolean => {
+    const saved = saveCardNow(card)
+    if (saved) noteSelectionAction(card)
+    return saved
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [storeCardHistory, failCardSave])
+  const saveCardNow = useCallback((card: SharedReaderCard): boolean => {
+    const bookId = chatBookIdRef.current
+    const owned = optionsRef.current.ownCardController
+    if (owned && card.source.kind === 'own-text' && card.source.bookId === bookId) {
+      const next = owned.saveCard(card)
+      if (!next) return failCardSave('private-storage')
+      conversationsRef.current = next; setConversations(next)
+      setCardSaveFailure(null)
+      return true
+    }
+    if (card.source.kind !== 'catalogue' || card.source.bookId !== bookId || !bookId || isUserBookId(bookId)) return failCardSave('book-mismatch')
+    if (!catalogueCardConversation(card)) return failCardSave('invalid-card')
+    const current = loadedForBookRef.current === bookId ? conversationsRef.current : readBookChat(bookId)
+    const next = upsertCatalogueCard(current, card)
+    if (!next.some(item => item.card?.id === card.id && !item.card.gone && item.card.u >= card.u)) return failCardSave('stale-card')
+    // An identical in-memory card may be a failed write. Retry persistence
+    // instead of reporting success merely because the upsert was a no-op.
+    return storeCardHistory(bookId, next, true)
+  }, [storeCardHistory, failCardSave])
+  const revealConversation = useCallback((id: string) => {
+    const row = conversationsRef.current.find(item => item.id === id && item.bookId === chatBookIdRef.current)
+    if (!row) return null
+    setTurns(current => reconcileTurns(current, turnsFromConversations([row])))
+    return row
+  }, [])
+  const deleteCard = useCallback((conversationId: string): (() => boolean) | null => {
+    const bookId = chatBookIdRef.current
+    const owned = optionsRef.current.ownCardController
+    if (owned && isUserBookId(bookId)) return owned.deleteCard(conversationId)
+    if (!bookId || isUserBookId(bookId)) return null
+    const current = loadedForBookRef.current === bookId ? conversationsRef.current : readBookChat(bookId)
+    const prior = current.find(item => item.id === conversationId && item.card && !item.card.gone)
+    if (!prior?.card) return null
+    const next = tombstoneCatalogueCard(current, prior.card.id, Date.now())
+    if (next === current) return null
+    if (!storeCardHistory(bookId, next)) return null
+    return () => {
+      if (bookId !== chatBookIdRef.current) return false
+      const now = loadedForBookRef.current === bookId ? conversationsRef.current : readBookChat(bookId)
+      const deleted = now.find(item => item.id === conversationId)
+      const { gone: _gone, ...card } = prior.card!
+      const restored = mergeChatConversations(now, [{ ...prior, card: { ...card, u: Math.max(Date.now(), (deleted?.card?.u || 0) + 1) } }])
+      return storeCardHistory(bookId, restored)
+    }
+  }, [storeCardHistory])
 
   // Open / sign-in / book change: fold the retired KV blob in once per
   // account, then merge this book's cloud row with the local mirror. The
@@ -375,8 +551,11 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (cancelled) return
       let unavailable = false
       const merged = await cloudWriter.sync(chatBookId, () => { unavailable = true }, () => !cancelled)
-      if (cancelled || loadedForBookRef.current !== chatBookId) return
+      if (cancelled) return
+      // The read has ended: settle the status even when another book's chats are on the page meanwhile, or it
+      // stayed "Loading saved conversations…" for the rest of the visit (Anders, 16 Nov 2026).
       setHistoryStatus(unavailable ? 'unavailable' : 'ready')
+      if (loadedForBookRef.current !== chatBookId) return
       // Never lose what this page holds that the read did not (a turn saved
       // after the read began, or one whose save failed).
       const kept = mergeChatConversations(merged, conversationsRef.current)
@@ -422,6 +601,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const askEditionKey = options.bookId && options.editionKey
     ? migrateWithheldEdition(options.bookId, options.editionKey)
     : options.editionKey
+  // The book's reading angle, kept current when the reader edits it (Book settings, the desktop's start card).
+  const [readingAngle] = useReadingAngle(options.bookId)
   const askContext = useMemo(() => ({
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
@@ -431,7 +612,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     editionLabel: options.editionLabel,
     paragraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
-    readingAngle: labReadingAngle(),
+    readingAngle: readingAngle.trim() || undefined,
     bookId: privateBook ? undefined : options.bookId,
     editionKey: privateBook ? undefined : askEditionKey,
   }), [
@@ -446,6 +627,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     options.paragraphs,
     options.bookId,
     options.editionKey,
+    readingAngle,
   ])
   const selectedConversationTurns = useMemo(() => {
     const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookId) : null
@@ -540,7 +722,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     authorship: askContext.authorship,
     chapterNumber: options.chapterNumber ?? 1,
     chapterTitle: options.chapterLabel,
-    readingObjective: labReadingAngle(),
+    readingObjective: readingAngle.trim() || undefined,
     chapterParagraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
     visibleText: '',
@@ -693,7 +875,21 @@ export function useLabAsk(options: UseLabAskOptions) {
       && text === CHAPTER_CHAT_MESSAGES[gated.action.kind]) chapterRequest = gated
     const requestBookId = chapterRequest?.action.bookId ?? retry?.userTurn.bookId ?? chatBookIdRef.current
     if (!text || sendingRef.current || requestBookId !== chatBookIdRef.current) return
-    const requestContext = chapterRequest?.context ?? retry?.context ?? askContextNow([])
+    let requestConversationId = (retry ? retry.userTurn.conversationId : attachment?.conversationId !== undefined ? attachment.conversationId : optionsRef.current.conversationId) ?? null
+    const startConversation = !retry && !requestConversationId && !!attachment?.sourceLocation
+    if (startConversation) requestConversationId = `conv_${nextId()}`
+    const discussion = requestConversationId ? conversationsRef.current.find(row => row.id === requestConversationId && row.bookId === requestBookId) : null
+    const visibleContext = askContextNow([])
+    const selectedSource = attachment?.sourceLocation
+    const currentContext = selectedSource ? { ...visibleContext, ...selectedSource,
+      paragraphs: selectedSource.chapterNumber === visibleContext.chapterNumber ? visibleContext.paragraphs : [] } : visibleContext
+    // Discussing saved work must not move the reader or attach an unrelated
+    // currently open chapter as if it were the historical passage's context.
+    const discussionContext = discussion && discussion.chapterNumber !== currentContext.chapterNumber
+      ? { ...currentContext, chapterNumber: discussion.chapterNumber, chapterLabel: `Chapter ${discussion.chapterNumber}`,
+          paragraphIndex: discussion.paragraphIndex ?? 0, paragraphs: [] }
+      : discussion ? { ...currentContext, paragraphIndex: discussion.paragraphIndex ?? currentContext.paragraphIndex } : currentContext
+    const requestContext = chapterRequest?.context ?? retry?.context ?? discussionContext
     const requestChapter = requestContext.chapterNumber ?? 1
     const requestParagraph = requestContext.paragraphIndex
     const stillHere = () => requestBookId === chatBookIdRef.current && viewerId === viewerRef.current
@@ -716,6 +912,7 @@ export function useLabAsk(options: UseLabAskOptions) {
 
     const userTurn: LabAskTurn = retry?.userTurn ?? {
       bookId: requestBookId,
+      conversationId: requestConversationId,
       chapterAction: chapterRequest?.action,
       id: nextId(),
       role: 'user',
@@ -744,7 +941,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         source: 'text',
         highlightedText: userTurn.highlightedText,
         chapterAction: chapterRequest?.action,
-      }, requestChapter, requestParagraph)
+      }, requestChapter, requestParagraph, requestConversationId, startConversation)
     }
     if (!retry) attachment?.onAccepted?.()
     setNotice(null)
@@ -781,8 +978,10 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (!stillHere()) return
       const authToken = await resolveLabVoiceToken({ override: options.authToken, sessionToken, readSession: readSupabaseAccessToken })
       if (!stillHere()) return
-      const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookIdRef.current) : null
-      const contextTurns = selected ? turnsFromConversations([selected]) : turns
+      // A card can be saved immediately before send, ahead of React rendering.
+      // Use the same current-writer snapshot captured with this request’s source.
+      const selected = discussion
+      const contextTurns = selected ? turnsFromConversations([selected]) : requestConversationId ? turns.filter(turn => turn.conversationId === requestConversationId) : turns
       const previousAssistant = [...contextTurns].reverse().find(turn => turn.role === 'assistant' && !turn.cancelled)?.content ?? null
       // "Yes!!" after "we could go back a few chapters and have a look?" is
       // consent to the lookup. The model gets the tools; the app ignores any
@@ -816,7 +1015,8 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (!stillHere()) return
       let assistantId = nextId()
       // Structured context only: the Worker builds the prompt from it.
-      const companion: CompanionRequest = chapterRequest
+      // The reader's AI settings ride with every request (labAiPrefs.ts), as the reading angle does in the context.
+      const companion: CompanionRequest = withAiPrefs<CompanionRequest>(chapterRequest
         ? {
             intent: 'chapter',
             context,
@@ -830,7 +1030,7 @@ export function useLabAsk(options: UseLabAskOptions) {
             intent: 'ask',
             context: { ...context, ...(personalEvidence ? { personalHistory: personalEvidence } : {}) },
             ...(shownSplit?.shown.length ? { shownExplanations: shownSplit.shown } : {}),
-          }
+          })
       const messages: Array<{ role: string; content: string | unknown[] }> = history.map((message, index) => index === history.length - 1 && !chapterRequest ? { ...message, content: `[Current reading location for this question: ${context.bookTitle}, ${context.chapterLabel}, edition ${context.editionLabel || context.editionKey}. Historical messages do not change this location.]\n\n${message.content}` } : message)
       // A figure asked about goes with the question, signed in only (the
       // Worker's picture path: images in the latest user turn; chatImages.ts).
@@ -885,6 +1085,7 @@ export function useLabAsk(options: UseLabAskOptions) {
                 : [...current, {
                     bookId: requestBookId,
                     chapterAction: chapterRequest?.action,
+                    conversationId: requestConversationId,
                     id: assistantId,
                     role: 'assistant' as const,
                     content,
@@ -928,6 +1129,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         const assistantTurn: LabAskTurn = {
           bookId: requestBookId,
           chapterAction: chapterRequest?.action,
+          conversationId: requestConversationId,
           id: assistantId || nextId(),
           role: 'assistant',
           content: skipped.text,
@@ -945,6 +1147,7 @@ export function useLabAsk(options: UseLabAskOptions) {
           dumpLabTalkTurns(next)
           return next
         })
+        if (!chapterRequest && (attachment?.highlightedText || retry?.attachment?.highlightedText || retry?.userTurn.highlightedText)) markSelectionActionsUsed()
         recordTurn({
           id: assistantTurn.id,
           role: 'assistant',
@@ -955,7 +1158,7 @@ export function useLabAsk(options: UseLabAskOptions) {
           isComplete: true,
           source: 'text',
           chapterAction: chapterRequest?.action,
-        }, requestChapter, requestParagraph)
+        }, requestChapter, requestParagraph, requestConversationId)
       }
       if (!chapterRequest && parsed.speed != null) {
         optionsRef.current.onSetPlaybackSpeed?.(parsed.speed)
@@ -1034,14 +1237,19 @@ export function useLabAsk(options: UseLabAskOptions) {
      * the whole chapter) and a quiz answer marked (`quiz`).
      */
     intent?: 'define' | 'simplify' | 'factcheck' | 'counterpoint' | 'quiz' | 'quiz_check'
-    quiz?: { question: string; expected: string; why?: string; answer: string }
+    quiz?: { question: string; expected: string; why?: string; answer: string; turns?: import('../companion/companionRequest').QuizTurn[] }
   }, onDelta: (text: string) => void): Promise<string> => {
     const text = input.text.trim()
     const textless = input.intent === 'quiz' || input.intent === 'quiz_check'
+    // An answered Explain or Simplify the reader asked for ends their first visit (labSelectionActions.ts); a speculative fetch does not.
+    const noteExplained = (answer: string) => {
+      if (!input.speculative && (!input.intent || input.intent === 'simplify') && answer.trim()) markSelectionActionsUsed()
+      return answer
+    }
     if ((!text && !textless) || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
     const requestBookId = chatBookIdRef.current
     const requestChapter = input.chapterNumber ?? optionsRef.current.chapterNumber
-    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent, input.quiz])
+    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(requestBookId), readAiSettings(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent, input.quiz])
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
       // The reader asked for it: this is the moment the action is charged,
@@ -1052,7 +1260,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       }
       if (cached.text) onDelta(cached.text)
       cached.listeners.add(onDelta)
-      try { return await cached.promise } finally { cached.listeners.delete(onDelta) }
+      try { return noteExplained(await cached.promise) } finally { cached.listeners.delete(onDelta) }
     }
     // Speculation is on the house: it fires as a selection settles and is
     // never charged. Only a tap on Explain goes through the gate.
@@ -1093,22 +1301,24 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (requestBookId !== chatBookIdRef.current) throw new LabChatError('unavailable')
       const headers: Record<string, string> = { 'Content-Type': 'application/json', ...internalTrafficHeaders() }
       if (authToken) headers.Authorization = `Bearer ${authToken}`
-      const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
+      const response = await fetchExplainResponse(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
         method: 'POST',
         headers,
         signal: entry.abort.signal,
         // The Worker builds the prompt and the question from this context.
         body: JSON.stringify({
           stream: true,
-          companion: input.intent && input.intent !== 'define'
+          // The reader's AI settings ride with every request (labAiPrefs.ts), as the reading angle does in the context.
+          companion: withAiPrefs(input.intent && input.intent !== 'define'
             // The margin's actions: the Worker builds each prompt from its intent (companionRequest.ts).
             ? { intent: input.intent, context, ...(text && input.intent !== 'quiz_check' ? { selection: text } : {}), ...(input.intent === 'quiz_check' && input.quiz ? { quiz: input.quiz } : {}) }
-            : { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest,
+            : { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest),
         }),
       })
       progress()
       if (!response.ok) throw new LabChatError(await labChatErrorType(response))
-      const answer = await readAnthropicResponse(response, value => { progress(); entry.text = value; entry.listeners.forEach(listener => listener(value)) })
+      const answer = await readAnthropicResponse(response, value => { progress(); entry.text = value; entry.listeners.forEach(listener => listener(value)) },
+        { requireComplete: !!optionsRef.current.sharedReader })
       // Reject before caching so Try again makes a fresh request.
       if (input.intent === 'define' && !parseContextualLookup(answer)) throw new LabChatError('unavailable')
       return answer
@@ -1116,7 +1326,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     work.catch(() => { /* settled through the race below */ })
     entry.promise = Promise.race([work, stall]).finally(() => clearTimeout(stallTimer))
     try {
-      return await entry.promise
+      return noteExplained(await entry.promise)
     } catch (error) {
       if (explanationRef.current === entry) explanationRef.current = null
       throw error
@@ -1136,6 +1346,11 @@ export function useLabAsk(options: UseLabAskOptions) {
     askAboutChapter,
     /** This book's stored history (classic shape), for the chapter picker. */
     conversations,
+    saveCard,
+    cardSaveFailure,
+    cardAccountSaved: cardAccountSaved && failedCardHistoryRef.current?.viewerId === viewerId && failedCardHistoryRef.current?.bookId === chatBookId,
+    revealConversation,
+    deleteCard,
     historyStatus,
     notice,
     dismissNotice,

@@ -1,6 +1,6 @@
 /**
- * Recognising the text of a scanned PDF, the device's side (addbooks/web/src/js/pdf-ocr.js,
- * installed as public/lab/addbook/js/pdf-ocr.js): when it is offered and to whom, what the
+ * Recognising the text of a scanned PDF, the device's side (public/lab/addbook/js/pdf-ocr.js):
+ * when it is offered and to whom, what the
  * reader is told at each step (the approved copy), which pages are sent and how an upload
  * resumes, and the edition a recognised text opens in. The account is a fake; nothing is sent.
  */
@@ -33,17 +33,14 @@ interface OcrApi {
 
 let ocr: OcrApi
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-ocr.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-ocr.js')
   ocr = (globalThis as unknown as { TinctPdfOcr: OcrApi }).TinctPdfOcr
 })
 
 const month = { used: 40, limit: 1500 }
 const status = (state: string, extra: Record<string, unknown> = {}): Status => ({ state, pages: 250, uploaded: 0, done: 0, failed: 0, blank: 0, month, tier: 'premium', ...extra })
 
-describe('pdf-ocr.js: the installed copy is this one', () => {
-  it('is identical in the app’s static files', () => {
-    expect(readFileSync(ROOT + 'app/public/lab/addbook/js/pdf-ocr.js', 'utf8')).toBe(readFileSync(ROOT + 'addbooks/web/src/js/pdf-ocr.js', 'utf8'))
-  })
+describe('pdf-ocr.js', () => {
   it('makes pages as the plan says: 1600 px long edge, JPEG quality 0.75, blank under 0.3% ink, four at a time, status every 5 s', () => {
     expect([ocr.RENDER_EDGE, ocr.JPEG_QUALITY, ocr.BLANK_INK, ocr.PARALLEL, ocr.POLL_MS]).toEqual([1600, 0.75, 0.003, 4, 5000])
   })

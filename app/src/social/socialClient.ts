@@ -1,3 +1,5 @@
+import { croppedPicture, type AvatarCropSize } from './avatarCrops'
+import { validReadingLanguages, type ReadingLanguage } from './readingLanguages'
 /**
  * Profiles (social ship 2) in the browser: the switch, the API calls, the
  * picture drawing and the photo resize. Shared by the sign-up page, the You
@@ -35,6 +37,8 @@ export interface OwnProfile {
   showReading: boolean
   showTime: boolean
   onLeaderboard: boolean
+  readingLanguages?: ReadingLanguage[]
+  accountCreatedAt?: string | null
   newBooksOpenIn: NewBooksOpenIn
   setUp: boolean
   needsSetup: boolean
@@ -68,6 +72,7 @@ async function readResult(res: Response): Promise<ProfileResult> {
   const profile = data.profile as OwnProfile | undefined
   if (!profile || typeof profile.handle !== 'string') return { ok: false, reason: 'failed' }
   rememberNewBooksOpenIn(profile.newBooksOpenIn)
+  rememberReadingLanguages(profile.readingLanguages ?? ['en'])
   return { ok: true, profile }
 }
 
@@ -120,12 +125,30 @@ export async function chooseGooglePhoto(token: string, fetchImpl: FetchLike = fe
 const blobUrls = new Map<string, Promise<string | null>>()
 
 export function privateImageUrl(token: string, url: string): Promise<string | null> {
-  const known = blobUrls.get(url)
+  // A stale session must not poison the same image after auth refresh, or
+  // share an authenticated result with another account on this page.
+  const key = JSON.stringify([token, url])
+  const known = blobUrls.get(key)
   if (known) return known
-  const loading = fetch(url, { headers: auth(token) })
-    .then(async res => (res.ok ? URL.createObjectURL(await res.blob()) : null))
-    .catch(() => null)
-  blobUrls.set(url, loading)
+  const controller = new AbortController()
+  let timer: ReturnType<typeof setTimeout>
+  const timeout = new Promise<null>(resolve => {
+    timer = setTimeout(() => { controller.abort(); resolve(null) }, 10000)
+  })
+  const request = Promise.resolve().then(() => fetch(url, { headers: auth(token), signal: controller.signal }))
+    .then(async res => {
+      if (!res.ok) return null
+      const blob = await res.blob()
+      return controller.signal.aborted ? null : URL.createObjectURL(blob)
+    }).catch(() => null)
+  const loading = Promise.race([request, timeout]).then(src => {
+    clearTimeout(timer)
+    // Keep successful and in-flight reuse, but let the next render retry a
+    // failed request. An older completion cannot evict a newer request.
+    if (!src && blobUrls.get(key) === loading) blobUrls.delete(key)
+    return src
+  })
+  blobUrls.set(key, loading)
   return loading
 }
 
@@ -138,10 +161,12 @@ export function ownBackground(profile: Pick<OwnProfile, 'background'>): { src: s
 }
 
 /** Draw a round picture into an element (vanilla pages). Stored photos load with the token. */
-export function paintAvatar(el: HTMLElement, view: PictureView, token: string | null): void {
+export function paintAvatar(el: HTMLElement, view: PictureView, token: string | null, size?: AvatarCropSize): void {
   el.classList.add('tinct-avatar')
   el.textContent = ''
   el.style.backgroundImage = ''
+  // A painted picture at disc size (avatarCrops.ts), not the whole 0.5-0.7 MB cover (scan 2 Nov 2026: 2.9 MB).
+  if (size && view.kind === 'image') view = croppedPicture(view, size)
   if (view.kind === 'initial') {
     el.dataset.kind = 'initial'
     el.textContent = view.initial
@@ -202,6 +227,16 @@ export function newBooksOpenIn(doc: Document | null = typeof document === 'undef
   } catch {
     return null
   }
+}
+
+export const READING_LANGUAGES_KEY = 'tinct:reading-languages'
+export function rememberReadingLanguages(value: ReadingLanguage[]): void {
+  if (!validReadingLanguages(value)) return
+  try { localStorage.setItem(READING_LANGUAGES_KEY, JSON.stringify(value)) } catch { /* preference still saved on the account */ }
+}
+export function readingLanguages(): ReadingLanguage[] {
+  if (!socialProfilesOn()) return ['en']
+  try { const value = JSON.parse(localStorage.getItem(READING_LANGUAGES_KEY) || 'null'); return validReadingLanguages(value) ? value : ['en'] } catch { return ['en'] }
 }
 
 // ===== Photos: resized in the browser; re-encoding drops location data =====

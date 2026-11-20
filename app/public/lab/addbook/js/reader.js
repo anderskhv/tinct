@@ -8,8 +8,8 @@ const $ = id => document.getElementById(id);
 const root = document.querySelector('.lab');
 const STORE_PREFIX = 'tinct-addbook:';
 const store = {
-  get(k) { try { return JSON.parse(localStorage.getItem(STORE_PREFIX + k)) } catch { return null } },
-  set(k, v) { try { localStorage.setItem(STORE_PREFIX + k, JSON.stringify(v)) } catch {} },
+  get(k) { if (/^(hl|cards):epub:[0-9a-f]{24}$/.test(k)) return window.TinctAddEngine?.legacyEpubAnnotations.get(k); try { return JSON.parse(localStorage.getItem(STORE_PREFIX + k)) } catch { return null } },
+  set(k, v) { if (/^(hl|cards):epub:[0-9a-f]{24}$/.test(k)) return window.TinctAddEngine?.legacyEpubAnnotations.set(k, v); try { localStorage.setItem(STORE_PREFIX + k, JSON.stringify(v)) } catch {} },
   del(k) { try { localStorage.removeItem(STORE_PREFIX + k) } catch {} },
 };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -32,7 +32,7 @@ addEventListener('pointerdown', () => { document.documentElement.dataset.mrInput
 /* What a press found open before anything folded it (registered first, so it sees the margin as it was): a click on the
    empty margin column then only folds what was open (a card, Before you start, the bar), and writes no note. */
 const marginPress = { busy: false };
-const marginBusy = () => { try { return !!(col.open || primer.open || mr || document.querySelector('.byob-aa-panel, .lab-super-layer')) } catch { return false } };
+const marginBusy = () => { try { return !!(col.open || primer.open || mr || document.querySelector('.byob-settings, .lab-super-layer')) } catch { return false } };
 addEventListener('keydown', e => { if (!e.metaKey && !e.ctrlKey) document.documentElement.dataset.mrInput = 'keys' }, true);
 // The figure view (figureView) closes on Escape before anything else hears it (an open card under it stays open).
 addEventListener('keydown', e => { const v = e.key === 'Escape' && document.querySelector('.mr-figview'); if (v) { e.preventDefault(); e.stopImmediatePropagation(); v.close?.() } }, true);
@@ -66,6 +66,7 @@ function readTheme() {
 function themeHost(el, theme) {
   el.classList.toggle('is-night', theme === 'dark');
   el.classList.toggle('is-book-theme', theme === 'book');
+  el.classList.toggle('is-white-theme', theme === 'white');
   el.dataset.theme = theme === 'dark' ? 'dark' : 'light';
 }
 function applyTheme() {
@@ -158,7 +159,10 @@ async function chooseFile(file) {
 // `known`: the record already read from this device (openFromUrl), so a large file is read once (FIXES item 12).
 async function openStored(key, known = null) {
   if (needsAccount()) return false;
-  await pdfReady();
+  // pdf.js and the PDF scripts are a PDF's: an EPUB opens without waiting for them (D's trace, 22 Oct 2026: they held
+  // an own EPUB's first text by seconds); they still come, after the EPUB is open, for what may use them later.
+  const epub = String(key).startsWith('epub:');
+  if (!epub) await pdfReady();
   let rec = known || await library.get(key);
   if (!rec) {
     // On the account but not on this device yet: download it, then keep it here too.
@@ -183,6 +187,7 @@ async function openStored(key, known = null) {
   const pending = !rec.cloudId && cloud.usable() ? new Blob([rec.bytes]) : null;
   if (rec.kind === 'epub' && !epubHere(key) && (rec.opened ? (await library.touch(key, { openedAt: rec.opened }), true) : await library.get(key))) { await openInTinct(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
   await openBook(rec.kind, new Uint8Array(rec.bytes), rec.name, key, rec);
+  if (epub) setTimeout(() => pdfReady().catch(() => {}), 1500);
   // An EPUB read here: named and drawn on the shelf, and its account copy sent, as the Tinct reader's way does (once).
   if (rec.kind === 'epub') { if (pending || !(Number(rec.coverV) >= 2)) epubShelved(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
   if (!pending) return true;
@@ -279,7 +284,7 @@ addEventListener('pageshow', () => { leavingToShelf = false });
 // /lab/addbook/?userBook=<hex>: this book, from this device, else from the account.
 async function openFromUrl(hex) {
   if (needsAccount()) return false;
-  await pdfReady();
+  // pdf.js only for a PDF (openStored waits for it there).
   showReader();
   waitStatus('Opening…');
   for (const kind of ['pdf', 'epub']) { const rec = await library.get(kind + ':' + hex); if (rec) return openStored(kind + ':' + hex, rec) }
@@ -288,13 +293,28 @@ async function openFromUrl(hex) {
   $('column').innerHTML = `<div class="pdf-status" role="alert">That book is no longer on this device or in your account. <a href="${SHELF_URL}">Go to My shelf</a></div>`;
   return false;
 }
-$('fileInput').onchange = e => { chooseFile(e.target.files[0]); e.target.value = '' };
-$('bookBtn').onclick = () => (state.preview ? openContents() : openSwitcher());
+// Several files at once (bulk adding, 9 Nov 2026): kept for the library, whose queue on My shelf adds them one
+// after another (/library?own=file, add-to-tinct.js); one file opens here as before.
+async function chooseFiles(list) {
+  const files = [...(list || [])].filter(Boolean);
+  if (files.length < 2) return chooseFile(files[0]);
+  if (needsAccount()) return;
+  try {
+    const { putHandoffFiles } = await import('/lab/addbook/js/file-handoff.js?v=__TINCT_BUILD__');
+    if (await putHandoffFiles(files)) { location.assign('/library?sharedReader=1&own=file'); return }
+  } catch { /* below */ }
+  toast('This browser could not keep these files. Add them from My shelf.');
+}
+$('fileInput').multiple = true;
+$('fileInput').onchange = e => { const files = [...(e.target.files || [])]; e.target.value = ''; chooseFiles(files) };
+// In the reader's frame (a Tinct book, or a reader's own book at /reader?userBook=): the book reader's Reading now
+// (previewNav); this page on its own (a phone's PDF pages): its switcher here.
+$('bookBtn').onclick = () => (navHost() ? previewNav('switcher') : openSwitcher());
 let dragDepth = 0;
 addEventListener('dragenter', e => { if ([...(e.dataTransfer?.types || [])].includes('Files')) { dragDepth++; $('drop').hidden = false } });
 addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; $('drop').hidden = true } });
 addEventListener('dragover', e => e.preventDefault());
-addEventListener('drop', e => { e.preventDefault(); dragDepth = 0; $('drop').hidden = true; if (e.target.closest?.('.lab-ask')) return; chooseFile(e.dataTransfer?.files?.[0]) });
+addEventListener('drop', e => { e.preventDefault(); dragDepth = 0; $('drop').hidden = true; if (e.target.closest?.('.lab-ask')) return; chooseFiles(e.dataTransfer?.files) });
 
 /* ---------- Reader ↔ start page ---------- */
 const readerShown = () => document.body.dataset.view === 'reader';
@@ -348,7 +368,7 @@ async function openEpub(bytes, name, key, rec = null) {
   state.zoom = saved?.zoom || 1;
   state.lastPlace = saved?.page ? { page: saved.page, frac: saved.frac || 0 } : { page: 1, frac: 0 };
   $('bookTitle').textContent = state.title;
-  $('bookBtn').setAttribute('aria-label', `Contents of ${state.title}`);
+  $('bookBtn').setAttribute('aria-label', state.preview ? `Switch books, currently ${state.title}` : `Contents of ${state.title}`);
   document.title = `${state.title} · Tinct`;
   $('column').innerHTML = '';
   applyEpubScale();
@@ -371,6 +391,7 @@ async function openEpub(bytes, name, key, rec = null) {
   }
   toc.entries = book.toc.slice().sort((a, b) => a.page - b.page || 0);
   toc.ready = true;
+  ownListenChanged();
   strip?.open();
   noteSession();
   renderEpubHighlights();
@@ -453,7 +474,7 @@ async function downloadChecked(id, key) {
  * no PDF and leaves them out (round 2: the phone's first page came about 0.3 s later with them); a PDF opened
  * there after all loads them here first, in the same order, with the same cache tags (scripts/check-margin-preview.mjs).
  */
-const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261020pdfspeed', 'js/pdf-text.js?v=20261020pdfspeed', 'js/pdf-ocr.js?v=20261020epub', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth', 'js/pdf-text-view.js?v=20261021dpolish'];
+const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=__TINCT_BUILD__', 'js/pdf-regions.js?v=__TINCT_BUILD__', 'js/pdf-text.js?v=__TINCT_BUILD__', 'js/pdf-ocr.js?v=__TINCT_BUILD__', 'js/reading-order.js?v=__TINCT_BUILD__', 'js/printed-pages.js?v=__TINCT_BUILD__', 'js/doc-search.js?v=__TINCT_BUILD__', 'js/pdf-text-view.js?v=__TINCT_BUILD__'];
 let pdfScripts = null;
 function pdfReady() {
   if (window.pdfjsLib && window.TinctPdfScan) return Promise.resolve();
@@ -650,6 +671,7 @@ function buildSheets(count) {
     for (const e of entries) { const p = state.pages[e.target.dataset.page - 1]; e.isIntersecting ? renderPage(p) : releasePage(p) }
   }, { root: $('scroll'), rootMargin: '150% 0px' });
   state.pages.forEach(p => state.observer.observe(p.sheet));
+  ownListenChanged();
 }
 /* A page's text, as everything the companion reads and a selection takes it: the body in the PDF's
    order, with a figure's labels and caption kept out of its flow (js/reading-order.js, FIXES long
@@ -661,6 +683,8 @@ function textOf(items, view) {
   return { roles, text: RO.pageText(items, roles) };
 }
 async function pageText(n) {
+  // A Tinct book opened at its chapter first: the other chapters' text is waited for, never sent empty (openRegistered).
+  if (state.whole && state.whole.key === state.key) await state.whole.done.catch(() => null);
   if (state.texts.has(n)) return state.texts.get(n);
   if (isEpub()) return { text: '', items: [] };
   // A recognised scan's page: its recognised text; its items are laid out once the page is drawn (ocrItems).
@@ -737,7 +761,6 @@ async function renderPage(p) {
   // Found again whenever the page's text layer is built again (a zoom, a redraw): a page's figures are only ever
   // found from its complete text laid over its drawing, never kept from a layer that did not match it (19 Oct 2026).
   setTimeout(() => detectFigures(p), 0);
-  if (narr.active && narr.page === p.n) paintNarration();
 }
 // The drawn page, as printed: what snips, figure detection and sketches read.
 const drawn = p => p.source || p.canvas;
@@ -1404,14 +1427,14 @@ function savePlaceNow() {
   const moved = !sameSpot(place, state.lastPlace) || (isEpub() && !Number.isInteger(prev.para) && epubSpot().para != null);
   if (moved) state.lastPlace = place;
   // A move in a PDF is read in Original pages, at this spot in its Tinct text when this device has it.
-  const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : moved && isEpub() ? epubSpot() : {};
+  const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : moved && isEpub() ? epubPlace() : {};
   // A PDF's zoom on a phone is kept apart (phoneZoom), and only once the reader chose it: until then the column fit is worked out again.
   const zoom = state.kind === 'pdf' && isPhone() ? (state.fit ? {} : { phoneZoom: state.zoom }) : { zoom: state.zoom };
   store.set('pos:' + state.key, moved ? { ...prev, ...place, ...read, ...zoom, pages: state.pages.length, at: Date.now() } : { ...prev, ...zoom, pages: state.pages.length });
   const hist = store.get('read:' + state.key) || { furthest: 1 };
   if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
   if (moved && state.kind === 'pdf') placeSync.note(hexOf(state.key));
-  if (moved && isEpub()) { if (isPdfText()) pdfTextShare(); else epubShare() }
+  if (moved && isEpub()) { if (isPdfText()) pdfTextShare(); else { epubShare(); epubPlaceSync.note(state.key) } }
   if (moved) justRead.note();
 }
 // The same spot in the PDF's Tinct text (js/pdf-text.js placeOf), or none (the Tinct reader
@@ -1591,7 +1614,7 @@ function pdfTextConvert(token, scan, page, { idle = false } = {}) {
   const job = { key, pdf, images, crops, hurry() { slow = false; for (const r of waiting) r(); waiting.clear() } };
   job.done = (async () => {
     let edition = null;
-    try { edition = await TinctPdfText.convert(pdf, { scan, ...(crops ? { regions: crops } : {}), live: () => state.pdf === pdf, pace, ...(idle ? { concurrency: 2 } : {}) }) } catch (e) { console.warn('[addbook] Tinct text', e) }
+    try { edition = await TinctPdfText.convert(pdf, { scan, ...(crops ? { regions: crops } : {}), pixels: TinctPdfText.drawnPixels?.(pdf) ?? null, live: () => state.pdf === pdf, pace, ...(idle ? { concurrency: 2 } : {}) }) } catch (e) { console.warn('[addbook] Tinct text', e) }
     if (!edition) { crops?.stop(); if (pdfTextJob === job) pdfTextJob = null; return null }
     if (state.key === key) state.textEdition = edition;
     // Kept, it is read from the record from now on: this one lets go of its pictures.
@@ -1664,7 +1687,7 @@ async function openPdfText() {
 /** The PDF's place from the text view's: the page and how far down it, with the spot in the text (the Tinct reader's too). */
 function pdfTextShare() {
   const t = state.pdfText; if (!t) return;
-  const place = currentPlace(), spot = epubSpot();
+  const place = currentPlace(), spot = epubPlace();
   const pg = PT().pageAt(t.edition, place.page, spot.para || 0, spot.word || 0); if (!pg) return;
   pdfTextCrops?.near(pg.page);
   const c = t.edition.chapters[place.page - 1], prev = store.get('pos:' + t.key) || {};
@@ -1748,7 +1771,7 @@ function textHighlightsOn(p) {
   }
   return out;
 }
-// The Tinct text is offered in the Aa panel (openDisplay) as "Convert to Tinct book": under Layout, or as its own row (TinctReaderLayout.TINCT_TEXT).
+// The Tinct text is offered in Book settings (openBookSettings) as "Convert to Tinct book": under Layout, or as its own row (TinctReaderLayout.TINCT_TEXT).
 // A PDF's text known after the panel opened (the scan, a recognised scan) shows there at once.
 function showEditions() { drawLayoutChoices() }
 
@@ -1950,7 +1973,7 @@ function ocrShow(status, token) {
 }
 
 // Leaving or hiding the page: the place now, and what is waiting sent at once (keepalive).
-function leavePlace() { if (!hasBook()) return; savePlaceNow(); justRead.leave(); placeSync.flush(); marksSync.push({ keepalive: true }); cardsSync.push({ keepalive: true }) }
+function leavePlace() { if (!hasBook()) return; savePlaceNow(); justRead.leave(); placeSync.flush(); epubPlaceSync.flush(); marksSync.push({ keepalive: true }); cardsSync.push({ keepalive: true }) }
 addEventListener('pagehide', leavePlace);
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') leavePlace() });
 
@@ -1989,6 +2012,24 @@ const placeSync = {
     const adopted = await Promise.race([late, new Promise(r => setTimeout(() => r(null), PLACE_SYNC_WAIT_MS))]);
     return { adopted: adopted === true, late: adopted === null ? late : Promise.resolve(false) };
   },
+};
+/* ---------- An EPUB's place on the reader's other devices (Margin view) ----------
+   Signed in, a move in an own EPUB is named in the book's Tinct text as its Tinct reader place and saved
+   to the account a moment later (src/lab/userBook/ownSync.ts noteEpubMarginPlace through /lab/library-add.js),
+   so the account's other devices list it as being read and open it here (4 Nov 2026: a phone that never
+   heard of a book read in Margin view led with the Bible). A Tinct book's preview (`preview:`) never syncs. */
+const epubPlaceSync = {
+  api: null,
+  load() {
+    if (!window.TinctAI?.session?.().userId) return Promise.resolve(null);
+    return switcherApi().then(api => (this.api = api.epubPlaces || null), () => null);
+  },
+  note(key, now = false) {
+    if (!String(key).startsWith('epub:') || state.preview) return;
+    const hex = hexOf(key);
+    if (this.api) this.api.note(hex, now); else this.load().then(api => api?.note(hex, now));
+  },
+  flush() { this.api?.flush() },
 };
 /* ---------- A PDF's highlights and notes on the reader's other devices ----------
    Signed in, a PDF's highlights and their notes are kept privately with the book in the account
@@ -2342,25 +2383,53 @@ const ICON = {
 };
 /*
  * The t menu, Tinct's normal menu (Anders, 21 Oct 2026; the approved design of 20 Oct, the phone's
- * src/lab/labSuperMenu.ts): Chat · Talk on one row, Summarize, Catch me up (not on a book's first unit), Reading
- * settings; then this reader's own, Snip a figure (a PDF), Export notes and Open another book (a reader's own book);
- * then Library and Profile. Text, theme and layout are the Aa panel's. Each group after the first opens with a rule.
+ * src/lab/labSuperMenu.ts): Chat · Talk on one row, Summarize, Catch me up; the settings
+ * groups (Anders, 22 Oct 2026, named and filled as the book reader's): Aa (the phone's; the desktop has its own button),
+ * Book settings and Audio settings, each shown where it has something to offer; then this reader's own, Snip a figure
+ * (a PDF), Export notes and Open another book (a reader's own book); then Library and Profile. Each group after the
+ * first opens with a rule.
  */
-const MENU_GROUPS = [['chat', 'summarize', 'catchup'], ['settings'], ['snip', 'export', 'open'], ['library', 'account']];
-const MENU_LABEL = { summarize: 'Summarize', catchup: 'Catch me up', settings: 'Reading settings', snip: 'Snip a figure', export: 'Export notes', open: 'Open another book', library: 'Library', account: 'Profile' };
-const MENU_CHEVRON = new Set(['settings', 'account']);
+const MENU_GROUPS = [['chat', 'summarize', 'catchup'], ['aa', 'book', 'audio', 'ai'], ['snip', 'export', 'open'], ['library', 'account']];
+const MENU_LABEL = { summarize: 'Summarize', catchup: 'Catch me up', aa: 'Appearance', book: 'Book settings', audio: 'Audio settings', ai: 'AI settings', snip: 'Snip a figure', export: 'Export notes', open: 'Open another book', library: 'Library', account: 'Profile' };
+const MENU_CHEVRON = new Set(['aa', 'book', 'audio', 'ai', 'account']);
+// The settings groups' glyphs, as the book reader's t menu draws them (src/lab/LabSuperMenu.tsx RowIcon): a small and a large A
+// (the row's own name is Aa), Book editions' books, a speaker.
+ICON.aa = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 19 8 5l5.5 14M4.6 14h6.8"></path><path d="m14.5 19 3.5-9 3.5 9M15.7 16h4.6"></path></svg>';
+ICON.book = ICON.editions;
+ICON.audio = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z"></path><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.6a7.6 7.6 0 0 1 0 10.8"></path></svg>';
+// AI settings: the ✧ of the reader's AI pills as a monoline four-point star (LabSuperMenu.tsx RowIcon 'ai').
+ICON.ai = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3.5c.6 5.1 3.4 7.9 8.5 8.5-5.1.6-7.9 3.4-8.5 8.5-.6-5.1-3.4-7.9-8.5-8.5 5.1-.6 7.9-3.4 8.5-8.5z"></path></svg>';
 ICON.account = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.2-3.2 3.8-4.8 7-4.8s5.8 1.6 7 4.8"></path></svg>';
 /** The page that frames this one (src/lab/marginPreview/MarginPreview.tsx), for a Tinct book's preview: its menu and player. */
 function previewHost() {
   if (!state.preview) return null;
   try { const p = window.parent !== window && window.parent.TinctMarginPreview; return p && p.bookId === state.preview.bookId ? p : null } catch { return null }
 }
-/** Reading settings has something to offer: a Tinct book's editions and voice, a PDF's voice and speed or its Tinct text. */
-const readingSettingsApply = () => !!state.preview || !isEpub() || isPdfText();
+/** AI settings (Anders, 11 Nov 2026): the dialog the framing page opens over the book (a Tinct book's preview: its menu;
+    a reader's own book: its own bridge). Not framed, no row. */
+function aiSettingsHost() {
+  try {
+    const p = window.parent !== window && window.parent.TinctMarginPreview;
+    if (!p) return null;
+    if (state.preview && p.bookId === state.preview.bookId && p.menu?.openAiSettings) return p.menu;
+    return p.own?.openAiSettings ? p.own : null;
+  } catch { return null }
+}
+/** Book settings has something to offer: a layout to choose (Margin view, Focus view, Convert to Tinct book; a Tinct text's
+    Original pages; a preview's views) or a Tinct book's editions. An EPUB on a phone has none. */
+const bookSettingsApply = () => !!state.preview || layoutOptions().length > 0 || (RL.TINCT_TEXT === 'row' && hasText());
+/** Audio settings has something to offer: read aloud's voice and speed (a reader's own PDF or EPUB), or a Tinct book's
+    narration (the preview's). */
+function audioSettingsApply() {
+  const listen = listenHost()?.listen, snap = listen?.snapshot?.();
+  return !!(listen?.voices && snap && snap.available !== false);
+}
 function menuShows(id) {
-  // Not on a book's first unit (nor, without units, on its first page): nothing has been read to catch up on.
-  if (id === 'catchup') { const u = currentUnit(); return u ? !nothingBefore(u) : placePage() > 1 }
-  if (id === 'settings') return readingSettingsApply();
+  // Aa is the top bar's own button on the desktop, a t menu row on the phone (Anders, 22 Oct 2026).
+  if (id === 'aa') return isPhone();
+  if (id === 'book') return bookSettingsApply();
+  if (id === 'audio') return audioSettingsApply();
+  if (id === 'ai') return !!aiSettingsHost();
   if (id === 'snip') return state.kind === 'pdf';
   if (id === 'open') return !state.preview;
   return true;
@@ -2376,7 +2445,7 @@ function openMenu() {
   const half = (id, label, second) => `<button type="button" class="lab-super-row-half${second ? ' is-second' : ''}" data-row="${id}"><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${label}</span></button>`;
   layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close menu"></button><nav class="lab-super-panel" aria-label="Menu">${menuItems().map(([id, rule]) => id === 'chat'
     ? `<div class="lab-super-row is-pair" data-row="conversation" role="group" aria-label="Chat or Talk">${half('chat', 'Chat')}${half('talk', 'Talk', true)}</div>`
-    : `<button type="button" class="lab-super-row${rule ? ' has-rule' : ''}" data-row="${id}"${textless && (id === 'summarize' || id === 'catchup') ? ' disabled aria-disabled="true"' : ''}><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${MENU_LABEL[id]}</span>${MENU_CHEVRON.has(id) ? '<span class="lab-super-row-chevron" aria-hidden="true">›</span>' : ''}</button>`).join('')}</nav>`;
+    : `<button type="button" class="lab-super-row${rule ? ' has-rule' : ''}" data-row="${id}"${textless && (id === 'summarize' || id === 'catchup') ? ' disabled aria-disabled="true"' : ''}><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${MENU_LABEL[id]}</span>${MENU_CHEVRON.has(id) ? '<span class="lab-super-row-chevron" aria-hidden="true">›</span>' : ''}</button>`).join('')}${isEpub() && engine.legacyEpubAnnotations.needsReview(hexOf(state.key)) ? '<button type="button" class="lab-super-row has-rule" data-row="review-epub"><span class="lab-super-row-icon" aria-hidden="true"></span><span class="lab-super-row-label">Review older annotations</span><span class="lab-super-row-chevron" aria-hidden="true">›</span></button>' : ''}</nav>`;
   layer.querySelector('.lab-super-scrim').onclick = closeMenu;
   layer.querySelectorAll('button[data-row]').forEach(b => b.onclick = () => { closeMenu(); menuAction(b.dataset.row) });
   root.appendChild(layer);
@@ -2390,9 +2459,16 @@ function closeMenu() {
 }
 $('superBtn').onclick = openMenu;
 function menuAction(id) {
+  if (id === 'review-epub') {
+    const target = '/reader?userBook=' + encodeURIComponent(hexOf(state.key)) + '&sharedReader=1';
+    leavePlace();
+    location.assign(accountId() ? target : '/sign-in?returnTo=' + encodeURIComponent(target));
+    return;
+  }
   if (id === 'library') { leaveToShelf(); return }
   if (id === 'account') return openProfile();
-  if (!hasBook() && id !== 'open' && id !== 'settings') { toast('Open a book first.'); return }
+  if (id === 'ai') { aiSettingsHost()?.openAiSettings({ dark: root.classList.contains('is-night') }); return }
+  if (!hasBook() && !['open', 'aa', 'book', 'audio'].includes(id)) { toast('Open a book first.'); return }
   if (id === 'chat') return openChat();
   // Talk: Chat with Talk on (answers read aloud), the margin's whole-file Chat where the margin is on (as a card's Talk).
   if (id === 'talk') { setTalk(true); return openChat() }
@@ -2401,7 +2477,9 @@ function menuAction(id) {
   if (id === 'catchup') return catchUp();
   if (id === 'snip') return startSnip();
   if (id === 'export') return exportNotes();
-  if (id === 'settings') return openSettings();
+  if (id === 'aa') return openDisplay();
+  if (id === 'book') return openBookSettings();
+  if (id === 'audio') return openAudioSettings();
   if (id === 'open') return $('fileInput').click();
 }
 /** Profile: the account cards. In a Tinct book's preview the framing page opens them over the reader; here, the library does. */
@@ -2409,6 +2487,78 @@ function openProfile() {
   const host = previewHost();
   if (host?.menu?.openProfile) { host.menu.openProfile({ dark: root.classList.contains('is-night') }); return }
   leaveToShelf(PROFILE_URL);
+}
+/**
+ * A Tinct book's title and chapter pill do what the book reader's do (Anders, 22 Oct 2026): the framing page
+ * (src/lab/marginPreview/MarginPreviewNav.tsx) draws the book reader's Reading now (`switcher`) or Contents over this
+ * reader. A chapter or passage picked there comes back as `go`; a book picked has this place written first (`leave`).
+ * -> it opened (false: not a preview, or no framing page)
+ */
+/**
+ * The page that frames this one and draws Reading now and Contents over it: a Tinct book's preview (previewHost), or
+ * a reader's own book at its one address (/reader?userBook=<hex>, src/lab/marginPreview/MarginPreview.tsx
+ * MarginOwnBook; Anders, 22 Oct 2026, "One Tinct"). -> it, or null (this page on its own)
+ */
+function navHost() {
+  const preview = previewHost();
+  if (preview || state.preview || !hasBook()) return preview;
+  try { const p = window.parent !== window && window.parent.TinctMarginPreview; return p && p.bookId === 'userbook-' + hexOf(state.key) ? p : null } catch { return null }
+}
+/**
+ * Where a contents entry of an own EPUB starts, as a place: its page (the file) and the first paragraph at or after
+ * its anchor (a split heading inside a file), else the file's first. -> { page, para } | null (not an EPUB's page)
+ */
+function ownEntrySpot(e) {
+  const p = isEpub() ? state.pages[e.page - 1] : null; if (!p) return null;
+  const el = e.anchor && document.getElementById('c' + (e.page - 1) + '-' + e.anchor.replace(/[^\w-]/g, '_'));
+  if (!el) return { page: e.page, para: 0 };
+  const paras = epubParas(p);
+  const i = paras.findIndex(q => q === el || q.contains(el) || el.contains(q) || !!(el.compareDocumentPosition(q) & Node.DOCUMENT_POSITION_FOLLOWING));
+  return { page: e.page, para: Math.max(0, i) };
+}
+/** An own book's chapters as Reading now and Contents show them: its contents' entries, numbered 1, 2, … in order. */
+function ownNavChapters() {
+  const leaves = leafEntries();
+  return { leaves, chapters: leaves.map((e, i) => ({ number: i + 1, title: e.label, ...(e.parent ? { section: toc.entries.find(p => p.id === e.parent)?.label || undefined } : {}) })) };
+}
+function previewNav(kind) {
+  const host = navHost();
+  if (!host?.nav?.open || !hasBook()) return false;
+  // An own book's Contents is the book reader's where it reads as text (an EPUB, a PDF's Tinct text) and has
+  // chapters; a PDF's pages keep this page's own, with Go to page and the page list.
+  const own = !state.preview;
+  if (own && kind === 'contents' && (!isEpub() || !toc.ready || !leafEntries().length)) return false;
+  closeAllPopups();
+  savePlaceNow();
+  // The chapter the pill names (readingPage: the next one once its heading has passed the upper third).
+  const place = currentPlace(), reading = readingPage(place), ch = toc.ready ? chapterAt(reading) : null;
+  const theme = root.classList.contains('is-night') ? 'dark' : root.classList.contains('is-book-theme') ? 'book' : root.classList.contains('is-white-theme') ? 'white' : 'light';
+  if (own) {
+    const { leaves, chapters } = ownNavChapters(), at = ch ? leaves.indexOf(ch) + 1 : 1;
+    const label = ch ? ch.label : isEpub() ? '' : `p. ${place.page} of ${state.pages.length}`;
+    library.get(state.key).then(rec => rec, () => null).then(rec => host.nav.open({
+      kind, theme, page: Math.max(1, at), percent: reading === place.page ? Math.round((place.frac || 0) * 100) : 0, chapterLabel: label,
+      book: { title: state.title, chapters, cover: rec?.cover || '' },
+      // A chapter of the contents: its first paragraph (an anchor inside a file, a split heading: the paragraph it
+      // marks), held as a restore holds it, its heading in view (epubGoSpot). Scrolled to (goToEntry), the view's top
+      // sat in the room above the chapter and the place read back as the end of the one before (D, 22 Oct 2026).
+      go: to => { const e = leaves[to.page - 1]; if (!e) return; primer.held = false; const at = ownEntrySpot(e); if (!at || !epubGoSpot(at.page, at.para, 0)) goToEntry(e) },
+      leave: () => { leavePlace(); stopNarration() },
+      library: () => leaveToShelf(),
+      closed: () => $(kind === 'switcher' ? 'bookBtn' : 'pageBtn').focus({ preventScroll: true }),
+    }));
+    return true;
+  }
+  host.nav.open({
+    kind, theme, page: reading, percent: reading === place.page ? Math.round((place.frac || 0) * 100) : 0, chapterLabel: ch ? ch.label : '',
+    // A chapter: its top, the heading in view and inside the chapter (goTo's room above a page would read back as the
+    // chapter before's end, and that would be the place kept); a passage: its word, held as a restore holds it.
+    go: at => { primer.held = false; if (!(at.para || at.word) || !epubGoSpot(at.page, at.para, at.word)) goTo({ page: at.page, frac: 0.0001 }) },
+    leave: () => { leavePlace(); stopNarration() },
+    library: () => leaveToShelf(),
+    closed: () => $(kind === 'switcher' ? 'bookBtn' : 'pageBtn').focus({ preventScroll: true }),
+  });
+  return true;
 }
 
 /* Page jump: the chapter pill becomes the page pill */
@@ -2428,24 +2578,32 @@ function openJump() {
   box.querySelector('form').onsubmit = e => { e.preventDefault(); const v = input.value; closeJump(); jumpToLabel(v) };
 }
 function closeJump() { document.querySelector('.byob-jumpbox')?.remove() }
-$('pageBtn').onclick = () => openContents();
+$('pageBtn').onclick = () => { if (!previewNav('contents')) openContents() };
 
 /* The Aa panel (Anders, 15 Oct 2026): every setting for how the book looks, in one sheet from the top
-   bar's Aa. Layout first (a PDF: Margin view or Focus view, and Convert to Tinct book, its Tinct text, which leaves for the Tinct
-   reader; an EPUB has one way to read here, so no Layout), then the reader's themes (src/lab/LabV2Sheet.tsx),
-   the page or text size, full width, page-margin trim and full screen. Settings (the t menu) keeps
-   read aloud's voice and speed. The theme is the reader's own setting (applyTheme). */
+   bar's Aa. Since 22 Oct 2026 it is one of the settings groups, named and filled as the book reader's (the model:
+   src/lab/labSuperMenu.ts LAB_SETTINGS_GROUPS; MENU_LABEL above holds the same names):
+   Aa: how the text looks, from the top bar's Aa on the desktop and the t menu on the phone: the reader's themes, the
+   page or text size, page-margin trim, full screen and the passage mark (the Aa panel of 15 Oct 2026, its Layout gone
+   to Book settings). The theme is the reader's own setting (applyTheme).
+   Book settings (the t menu): Layout (a PDF: Margin view or Focus view, and Convert to Tinct book, its Tinct text, which
+   leaves for the Tinct reader; a Tinct text: its Original pages; a preview: its views) and a Tinct book's Main version
+   and Compare version.
+   Audio settings (the t menu): read aloud's voice and speed, or a Tinct book's narration's.
+   On the desktop each hangs from its button (Aa) or the t menu's (the other two); on the phone each is the sheet. */
 const toggleRow = (id, label, on, hidden) => `<button type="button" class="lab-v2-row is-toggle" role="switch" aria-checked="${on}" data-t="${id}"${hidden ? ' hidden' : ''}><span class="lab-v2-row-label">${label}</span><span class="lab-v2-switch" aria-hidden="true"><span class="lab-v2-switch-knob"></span></span></button>`;
 const selectRow = (id, label, value, options) => `<div class="lab-v2-row is-select"><span class="lab-v2-row-label">${label}</span><span class="lab-v2-value"><span data-value="${id}">${esc((options.find(o => o[0] === value) || options[0])[1])}</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></span><select class="lab-v2-row-select" id="${id}" aria-label="${label}">${options.map(([v, l]) => `<option value="${esc(v)}"${v === value ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select></div>`;
 const RL = window.TinctReaderLayout;
 /** The layout this book reads in on this device: Margin view (the default) or Focus view; an EPUB, its one way. */
 const viewLayout = () => RL.layoutOf(prefs, state.kind);
 const layoutChoice = o => `<button type="button" class="lab-v2-edition-option" data-layout="${o.id}" aria-pressed="${o.on}"><span class="lab-v2-edition-name">${esc(o.label)}</span><span class="lab-v2-edition-check" aria-hidden="true">${o.on ? '✓' : ''}</span></button>`;
-/** The panel's Layout choices, drawn (again) into an open panel: Tinct text appears once the PDF's text is known. */
+/** The Layout choices this book offers here (Book settings). */
+const layoutOptions = () => previewLayouts() || RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn(), pdfText: isPdfText() }).map(o => (state.preview && o.id === 'text' ? { ...o, label: PREVIEW_NORMAL } : o));
+/** Book settings' Layout choices, drawn (again) into an open panel: Tinct text appears once the PDF's text is known. */
 function drawLayoutChoices() {
-  const panel = document.querySelector('.byob-aa-panel'); if (!panel) return;
-  const opts = previewLayouts() || RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn(), pdfText: isPdfText() }).map(o => (state.preview && o.id === 'text' ? { ...o, label: PREVIEW_NORMAL } : o));
-  const box = panel.querySelector('[data-aa="layout"]'), row = panel.querySelector('[data-t="text"]');
+  const panel = document.querySelector('.byob-book-settings'); if (!panel) return;
+  const opts = layoutOptions();
+  const box = panel.querySelector('[data-bs="layout"]'), row = panel.querySelector('[data-bs-text]');
   if (box) { box.hidden = !opts.length; box.querySelector('.lab-v2-edition-choices').innerHTML = opts.map(layoutChoice).join('') }
   if (row) row.hidden = !(RL.TINCT_TEXT === 'row' && hasText());
 }
@@ -2459,9 +2617,10 @@ function setLayout(next) {
     save: () => { savePlaceNow(); if (marginOn()) marginLayout({ fresh: true }) },
   });
 }
-/** The Aa panel's right edge under the Aa button's (the desktop; css/reader.css), again as the window resizes. */
-function hangAa(layer) { const r = $('aaBtn')?.getBoundingClientRect(); if (r?.width) layer.style.setProperty('--aa-right', Math.max(12, Math.round(innerWidth - r.right - 8)) + 'px') }
-addEventListener('resize', () => { const l = document.querySelector('.byob-aa-panel'); if (l) hangAa(l) });
+/** A settings panel's right edge under its button's: Aa's, or the t menu's for Book settings and Audio settings (the
+    desktop; css/reader.css), again as the window resizes. */
+function hangAa(layer) { const r = $(layer.dataset.hang || 'aaBtn')?.getBoundingClientRect(); if (r?.width) layer.style.setProperty('--aa-right', Math.max(12, Math.round(innerWidth - r.right - 8)) + 'px') }
+addEventListener('resize', () => { for (const l of document.querySelectorAll('.byob-settings')) hangAa(l) });
 function openDisplay() {
   if (document.querySelector('.byob-aa-panel')) return closeDisplay();
   closeAllPopups();
@@ -2471,17 +2630,15 @@ function openDisplay() {
   // The desktop: the panel hangs from the Aa button, its right edge under the button's (css/reader.css).
   hangAa(layer);
   layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
-    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="Layout and themes">
-      <div class="lab-v2-head"><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
+    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="${MENU_LABEL.aa}">
+      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">${MENU_LABEL.aa}</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
       <div class="lab-v2-sheet-body">
-        <div class="byob-aa-layout" data-aa="layout" role="group" aria-labelledby="aaLayoutLabel"><p class="lab-v2-group-label" id="aaLayoutLabel">Layout</p><div class="lab-v2-edition-choices"></div></div>
-        <div class="lab-v2-themes" data-testid="lab-v2-themes">${[['book', 'Book'], ['light', 'Light'], ['dark', 'Dark']].map(([t, l]) => `<button type="button" class="lab-v2-theme is-${t}${!eink && pageTheme === t ? ' is-active' : ''}" data-theme-choice="${t}" data-testid="lab-v2-theme-${t}" aria-pressed="${!eink && pageTheme === t}"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">${l}</span></button>`).join('')}${eink ? '<button type="button" class="lab-v2-theme is-eink is-active" aria-pressed="true" data-testid="lab-v2-theme-eink"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">E-ink</span></button>' : ''}</div>
+        <div class="lab-v2-themes" data-testid="lab-v2-themes">${[['book', 'Book'], ['light', 'Light'], ['white', 'White'], ['dark', 'Dark']].map(([t, l]) => `<button type="button" class="lab-v2-theme is-${t}${!eink && pageTheme === t ? ' is-active' : ''}" data-theme-choice="${t}" data-testid="lab-v2-theme-${t}" aria-pressed="${!eink && pageTheme === t}"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">${l}</span></button>`).join('')}${eink ? '<button type="button" class="lab-v2-theme is-eink is-active" aria-pressed="true" data-testid="lab-v2-theme-eink"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">E-ink</span></button>' : ''}</div>
         ${zoomPanel() ? zoomRowHtml() : typePanel() ? typeRowsHtml() : `<div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>`}
         <div class="lab-v2-rows">
           ${toggleRow('trim', 'Trim page margins', !!state.trim, isEpub())}
           ${toggleRow('screen', 'Full screen', !!document.fullscreenElement)}
           ${marginOn() ? selectRow('passageMarkSel', 'Passage mark', passageMark(), [['underline', 'Underline'], ['tint', 'Highlight'], ['off', 'Off']]) : ''}
-          <button type="button" class="lab-v2-row is-link" data-t="text" hidden><span class="lab-v2-row-label">Convert to Tinct book</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></button>
         </div>
       </div>
     </section>`;
@@ -2489,15 +2646,6 @@ function openDisplay() {
   layer.querySelector('.lab-v2-dismiss').onclick = () => closeDisplay({ focus: true });
   // Escape closes it from anywhere in it, the size slider too (the page's own Escape skips inputs).
   layer.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeDisplay({ focus: true }) } });
-  layer.querySelector('[data-aa="layout"]').addEventListener('click', e => {
-    const b = e.target.closest('[data-layout]'); if (!b) return;
-    if (b.dataset.layout === 'text') { closeDisplay(); readAsText(); return }
-    if (isPdfText()) { if (b.dataset.layout === 'pages') { closeDisplay(); pdfTextToPages() } return }
-    if (state.preview && PREVIEW_VIEWS[b.dataset.layout]) { closeDisplay(); previewView(b.dataset.layout); return }
-    keepPagesHere();
-    setLayout(b.dataset.layout);
-    drawLayoutChoices();
-  });
   layer.querySelectorAll('[data-theme-choice]').forEach(b => b.onclick = () => {
     setTheme(b.dataset.themeChoice);
     layer.querySelectorAll('[data-theme-choice]').forEach(o => { const on = o.dataset.themeChoice === pageTheme; o.classList.toggle('is-active', on); o.setAttribute('aria-pressed', String(on)) });
@@ -2518,7 +2666,6 @@ function openDisplay() {
   layer.querySelector("[data-convert]")?.addEventListener('click', () => { closeDisplay(); readAsText() });
   layer.querySelectorAll('[data-t]').forEach(b => b.onclick = () => {
     const t = b.dataset.t;
-    if (t === 'text') { closeDisplay(); readAsText(); return }
     if (t === 'screen') { toggleFullscreen().then(on => b.setAttribute('aria-checked', String(on))); return }
     if (t === 'trim') setTrim(!state.trim);
     b.setAttribute('aria-checked', String(t === 'trim' ? state.trim : !!prefs[t]));
@@ -2527,78 +2674,90 @@ function openDisplay() {
   const markSel = layer.querySelector('#passageMarkSel');
   if (markSel) markSel.onchange = e => { prefs.passageMark = e.target.value; savePrefs(); layer.querySelector('[data-value="passageMarkSel"]').textContent = e.target.selectedOptions[0]?.textContent || ''; marginLayout({ fresh: true }) };
   root.appendChild(layer);
-  drawLayoutChoices(); syncZoomRow(); syncTypeRows();
+  syncZoomRow(); syncTypeRows();
   $('aaBtn').setAttribute('aria-expanded', 'true');
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
 function closeDisplay({ focus = false } = {}) {
   const panel = document.querySelector('.byob-aa-panel');
-  // Closed from inside it (Escape, ×, the scrim): focus goes back to the Aa button.
+  // Closed from inside it (Escape, ×, the scrim): focus goes back to the Aa button (the phone's: the t menu's).
   const inside = !!panel && panel.contains(document.activeElement);
   panel?.remove();
   $('aaBtn').setAttribute('aria-expanded', 'false');
-  if (panel && (focus || inside)) $('aaBtn').focus({ preventScroll: true });
+  if (panel && (focus || inside) && isPhone()) $('superBtn').focus({ preventScroll: true });
+  else if (panel && (focus || inside)) $('aaBtn').focus({ preventScroll: true });
 }
 $('aaBtn').onclick = openDisplay;
-/* Reading settings (the t menu): the reader's Reading settings sheet (src/lab/LabV2Sheet.tsx), with the rows that
-   apply here (the look is the Aa panel's, above). A reader's own PDF: its edition (Margin view or its Tinct text, when
-   it has text) and read aloud's voice and speed. A Tinct book's preview: the book reader's Main version and Compare
-   version, and its narration's voice and speed (the framing page's, previewHost). */
-async function openSettings() {
+/** A settings panel from the t menu (Book settings, Audio settings): the Aa panel's look, hung from the t button on the
+    desktop, the sheet on the phone. Escape, × and the scrim close it; focus goes back to the t button. -> the layer */
+function settingsPanel(kind, title, body) {
   closeAllPopups();
+  const layer = document.createElement('div');
+  layer.className = `lab-v2-sheet-layer byob-settings byob-anchored byob-${kind}-settings`; layer.dataset.testid = 'lab-v2-sheet-layer';
+  layer.dataset.hang = 'superBtn'; hangAa(layer);
+  layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
+    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="${kind}" aria-label="${esc(title)}">
+      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">${esc(title)}</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
+      <div class="lab-v2-sheet-body">${body}</div>
+    </section>`;
+  const close = ({ focus = false } = {}) => { const inside = layer.contains(document.activeElement); layer.remove(); if (focus || inside) $('superBtn')?.focus({ preventScroll: true }) };
+  layer.close = close;
+  layer.querySelector('.lab-super-scrim').onclick = () => close({ focus: true });
+  layer.querySelector('.lab-v2-dismiss').onclick = () => close({ focus: true });
+  layer.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close({ focus: true }) } });
+  return layer;
+}
+/** Wire a select row: its value shown beside its label as it changes. */
+function syncSelect(layer, sel, fn) { const el = layer.querySelector('#' + sel); if (!el) return; el.onchange = e => { fn(e.target.value); const v = layer.querySelector(`[data-value="${sel}"]`); if (v) v.textContent = e.target.selectedOptions[0]?.textContent || '' } }
+/* Book settings (the t menu): Layout (Margin view or Focus view, Convert to Tinct book; a Tinct text's Original pages; a
+   preview's views) and a Tinct book's preview's Main version and Compare version (the framing page's, previewHost). */
+async function openBookSettings() {
   const host = previewHost();
   const rows = [];
-  let note = '';
   if (state.preview) {
     const ed = await host?.menu?.reading?.().catch(() => null);
     if (ed && ed.editions.length > 1) {
       rows.push(selectRow('editionSel', 'Main version', ed.edition, ed.editions.map(o => [o.value, o.label])));
       rows.push(selectRow('compareSel', 'Compare version', ed.compareEdition, ed.compareEditions.map(o => [o.value, o.label])));
     }
-    const listen = host?.listen, snap = listen?.snapshot?.();
-    if (listen?.voices && snap && snap.available !== false) {
-      const v = listen.voices(), speed = Number(snap.speed) || 1;
-      rows.push(selectRow('voiceSel', 'Voice', v.value, v.options.map(o => [o.value, o.label])));
-      rows.push(selectRow('rateSel', 'Speed', String(speed), [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, speed])].sort((a, b) => a - b).map(r => [String(r), r + '×'])));
-    }
-  } else {
-    if ((state.kind === 'pdf' && hasText()) || isPdfText()) rows.push(selectRow('editionSel', 'Edition', isPdfText() ? 'text' : 'pages', [['pages', 'Margin view'], ['text', 'Tinct text']]));
-    if (!isEpub()) {
-      const voices = bookVoices();
-      const rates = [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.rate])].sort((a, b) => a - b);
-      rows.push(selectRow('voiceSel', 'Voice', prefs.voice, [['', 'Device voice'], ...voices.map(v => [v.name, v.name])]));
-      rows.push(selectRow('rateSel', 'Speed', String(prefs.rate), rates.map(r => [String(r), r + '×'])));
-      note = 'Read aloud uses this device’s own voice; nothing is recorded. ';
-    }
-    note += imgNote;
   }
-  document.querySelector('.byob-reading-settings')?.remove();
-  const layer = document.createElement('div');
-  layer.className = 'lab-v2-sheet-layer byob-settings byob-reading-settings'; layer.dataset.testid = 'lab-v2-sheet-layer';
-  layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
-    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="Reading settings">
-      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">Reading settings</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
-      <div class="lab-v2-sheet-body">
-        <div class="lab-v2-rows">${rows.join('')}</div>
-        ${note ? `<p class="lab-v2-note">${esc(note)}</p>` : ''}
-      </div>
-    </section>`;
-  const close = () => layer.remove();
-  layer.querySelector('.lab-super-scrim').onclick = close;
-  layer.querySelector('.lab-v2-dismiss').onclick = close;
-  layer.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close() } });
-  const sync = (sel, fn) => { const el = layer.querySelector('#' + sel); if (!el) return; el.onchange = e => { fn(e.target.value); layer.querySelector(`[data-value="${sel}"]`).textContent = e.target.selectedOptions[0]?.textContent || '' } };
-  if (state.preview) {
-    // Another main version: the preview opens again at this chapter, paragraph and word (the place kept first).
-    sync('editionSel', v => { close(); const at = previewSpot(); leavePlace(); stopNarration(); host?.menu?.setEdition(v, at) });
-    sync('compareSel', v => host?.menu?.setCompareEdition(v));
-    sync('voiceSel', v => host?.listen?.setVoice?.(v));
-    sync('rateSel', v => host?.listen?.setSpeed?.(Number(v)));
-  } else {
-    sync('editionSel', v => { close(); if (v === 'text') readAsText(); else if (isPdfText()) pdfTextToPages() });
-    sync('rateSel', v => { prefs.rate = Number(v); savePrefs(); renderTransport() });
-    sync('voiceSel', v => { prefs.voice = v; savePrefs() });
+  const layer = settingsPanel('book', MENU_LABEL.book, `
+        <div class="byob-layout" data-bs="layout" role="group" aria-labelledby="bsLayoutLabel"><p class="lab-v2-group-label" id="bsLayoutLabel">Layout</p><div class="lab-v2-edition-choices"></div></div>
+        ${rows.length ? `<div class="lab-v2-rows">${rows.join('')}</div>` : ''}
+        <div class="lab-v2-rows" data-bs-text hidden><button type="button" class="lab-v2-row is-link"><span class="lab-v2-row-label">Convert to Tinct book</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></button></div>
+        ${!state.preview && imgNote ? `<p class="lab-v2-note">${esc(imgNote)}</p>` : ''}`);
+  const close = () => layer.close();
+  layer.querySelector('[data-bs="layout"]').addEventListener('click', e => {
+    const b = e.target.closest('[data-layout]'); if (!b) return;
+    if (b.dataset.layout === 'text') { close(); readAsText(); return }
+    if (isPdfText()) { if (b.dataset.layout === 'pages') { close(); pdfTextToPages() } return }
+    if (state.preview && PREVIEW_VIEWS[b.dataset.layout]) { close(); previewView(b.dataset.layout); return }
+    keepPagesHere();
+    setLayout(b.dataset.layout);
+    drawLayoutChoices();
+  });
+  layer.querySelector('[data-bs-text] button').onclick = () => { close(); readAsText() };
+  // Another main version: the preview opens again at this chapter, paragraph and word (the place kept first).
+  syncSelect(layer, 'editionSel', v => { close(); const at = previewSpot(); leavePlace(); stopNarration(); host?.menu?.setEdition(v, at) });
+  syncSelect(layer, 'compareSel', v => host?.menu?.setCompareEdition(v));
+  root.appendChild(layer);
+  drawLayoutChoices();
+  layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
+}
+/* Audio settings (the t menu): the narration's voice and speed, the book reader's own (the framing page's player,
+   listenHost), for a Tinct book's preview and a reader's own book alike. */
+function openAudioSettings() {
+  const listen = listenHost()?.listen, snap = listen?.snapshot?.();
+  const rows = [];
+  const rateRows = rate => [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, rate])].sort((a, b) => a - b).map(r => [String(r), r + '×']);
+  if (listen?.voices && snap && snap.available !== false) {
+    const v = listen.voices(), speed = Number(snap.speed) || 1;
+    rows.push(selectRow('voiceSel', 'Voice', v.value, v.options.map(o => [o.value, o.label])));
+    rows.push(selectRow('rateSel', 'Speed', String(speed), rateRows(speed)));
   }
+  const layer = settingsPanel('audio', MENU_LABEL.audio, `<div class="lab-v2-rows">${rows.join('')}</div>`);
+  syncSelect(layer, 'voiceSel', v => listen?.setVoice?.(v));
+  syncSelect(layer, 'rateSel', v => listen?.setSpeed?.(Number(v)));
   root.appendChild(layer);
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
@@ -2663,7 +2822,7 @@ const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages', task
 let chapterTitles = null;
 /** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
 function chapterTitleStyle() {
-  chapterTitles ??= import('/lab/chapter-title.js?v=20261009rel10').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
+  chapterTitles ??= import('/lab/chapter-title.js?v=__TINCT_BUILD__').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
   return chapterTitles;
 }
 async function buildContents() {
@@ -2794,7 +2953,7 @@ function openContents() {
   const tops = toc.entries.filter(e => !e.parent);
   // The wide column: the unit the reader is in, marked, with its Recap, Quiz me and Catch me up (as its marks offer them).
   const unit = marginMode() === 'column' && primerHasText() ? currentUnit() : null;
-  const unitNow = unit ? `<section class="mr byob-unit-now" aria-label="The part you are reading"><p class="byob-unit-now__name" aria-current="true">${esc(TinctMargin.html.unitName(unit, state.title))}${unitPagesLabel(unit) ? ` · ${esc(unitPagesLabel(unit))}` : ''}</p><div class="byob-unit-now__acts">${[['recap', 'Recap'], ['quiz', 'Quiz me'], ...(nothingBefore(unit) ? [] : [['catchup', 'Catch me up']])].map(([id, w]) => `<button type="button" class="mr-pill" data-unit-act="${id}"><span><span class="mr-pill__mark" aria-hidden="true">✧</span>${w}</span></button>`).join('')}</div></section>` : '';
+  const unitNow = unit ? `<section class="mr byob-unit-now" aria-label="The part you are reading"><p class="byob-unit-now__name" aria-current="true">${esc(TinctMargin.html.unitName(unit, state.title))}${unitPagesLabel(unit) ? ` · ${esc(unitPagesLabel(unit))}` : ''}</p><div class="byob-unit-now__acts">${[['recap', 'Summary'], ['quiz', 'Quiz me']].map(([id, w]) => `<button type="button" class="mr-pill" data-unit-act="${id}"><span><span class="mr-pill__mark" aria-hidden="true">✧</span>${w}</span></button>`).join('')}</div></section>` : '';
   layer.innerHTML = `<button class="lc-scrim" aria-label="Close contents" tabindex="-1"></button>
     <div class="menu" role="dialog" aria-modal="true" aria-label="Contents">
       <header><button class="title" aria-label="${esc(state.title)}, close contents">${esc(state.title)}</button><div class="actions"><button aria-label="Back to book" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg></button></div></header>${unitNow}
@@ -2832,7 +2991,7 @@ function pageList(current) {
 /* ---------- Switch books: the reader's book switcher (src/lab/LabBookSwitcher.tsx) ---------- */
 // Reading now: Tinct's books and the reader's own, from this device (/lab/library-add.js,
 // src/lab/userBook/ownSwitcher.ts); Library goes to My shelf.
-const SWITCHER_ENGINE = '/lab/library-add.js?v=20261014talkwake';
+const SWITCHER_ENGINE = '/lab/library-add.js?v=__TINCT_BUILD__';
 let switcherEngine = null;
 function switcherApi() {
   switcherEngine ??= import(SWITCHER_ENGINE).then(() => { const api = window.__tinctLibraryAdd; if (!api?.switcherRows) throw new Error('switcher unavailable'); return api });
@@ -2842,7 +3001,7 @@ function switcherApi() {
 function closeSwitcher() { const el = document.querySelector('.byob-switcher'); if (!el) return; el.remove(); $('bookBtn').focus({ preventScroll: true }) }
 // The switcher's covers and titles follow the library's rules (/lab/book-cover.js, /lab/book-title.js):
 // a book's image (a painting's small file at 32 px), else its paper cover; the short title in the one-line row.
-const SWITCHER_LOOKS = '?v=20261009owncover';
+const SWITCHER_LOOKS = '?v=__TINCT_BUILD__';
 let switcherLooks = null;
 function loadSwitcherLooks() {
   switcherLooks ??= Promise.all([import('/lab/book-cover.js' + SWITCHER_LOOKS), import('/lab/book-title.js' + SWITCHER_LOOKS)])
@@ -2930,60 +3089,8 @@ function makeWindow(el, handle, key) {
   grip.addEventListener('pointerdown', ev => drag(ev, 'resize'));
 }
 
-/* ---------- Tinct's audio controls for read-aloud ---------- */
+/* ---------- Tinct's audio controls for read-aloud (js/tinct-listen.js draws them with this icon) ---------- */
 const SKIP = dir => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${dir === 'back' ? 'M8.25 7.15H4.7v-3.5M4.9 7.05A8 8 0 1 1 4.15 15' : 'M15.75 7.15h3.55v-3.5M19.1 7.05A8 8 0 1 0 19.85 15'}"></path><text x="12" y="14.15" text-anchor="middle" fill="currentColor" stroke="none" font-size="6.5" font-family="system-ui, sans-serif">15</text></svg>`;
-function renderTransport() {
-  let bar = document.querySelector('.byob-transport');
-  const show = narr.active || narr.paused;
-  if (!show) { bar?.remove(); document.querySelector('.lab-audio-speed-popover')?.remove(); root.dataset.transport = 'closed'; return }
-  root.dataset.transport = 'open';
-  const playing = narr.active;
-  const ch = chapterAt(narr.page), r = ch ? chapterRange(ch) : { from: 1, to: state.pages.length };
-  const pos = Math.max(0, Math.min(1, (narr.page - r.from + (narr.prep ? narr.index / Math.max(1, narr.prep.sentences.length) : 0)) / Math.max(1, r.to - r.from + 1)));
-  const playIcon = playing ? ICON.pause.replace(/20\.7/g, '22') : ICON.play.replace(/20\.7/g, '22');
-  if (isPhone()) {
-    if (!bar || bar.tagName !== 'FOOTER') { bar?.remove(); bar = document.createElement('footer'); bar.className = 'lab-phone-bar byob-transport'; root.appendChild(bar) }
-    bar.innerHTML = `<div class="lab-phone-bar-row is-audio has-5">
-      <button type="button" class="lab-phone-fat lab-audio-control lab-audio-speed" data-a="speed" aria-label="Playback speed ${prefs.rate} times. Open speed control">${prefs.rate}×</button>
-      <button type="button" class="lab-phone-fat lab-audio-control" data-a="back" aria-label="Back 15 seconds">${SKIP('back')}</button>
-      <button type="button" class="lab-phone-fat lab-audio-control is-active" data-a="play" aria-label="${playing ? 'Pause audiobook' : 'Resume audiobook'}">${playIcon}</button>
-      <button type="button" class="lab-phone-fat lab-audio-control" data-a="forward" aria-label="Forward 15 seconds">${SKIP('forward')}</button>
-      <button type="button" class="lab-phone-fat lab-audio-control" data-a="chat" aria-label="Chat">${ICON.chat}</button></div>`;
-  } else {
-    if (!bar || bar.tagName !== 'SECTION') { bar?.remove(); bar = document.createElement('section'); bar.className = 'lab-desktop-audio-dock byob-transport'; bar.setAttribute('aria-label', 'Audio player'); root.appendChild(bar) }
-    bar.innerHTML = `<button type="button" class="lab-desktop-audio-speed" data-a="speed" aria-label="Playback speed ${prefs.rate} times">${prefs.rate}×</button>
-      <button type="button" data-a="back" aria-label="Back 15 seconds">${SKIP('back')}</button>
-      <button type="button" class="is-primary" data-a="play" aria-label="${playing ? 'Pause' : 'Resume audiobook'}">${playIcon}</button>
-      <button type="button" data-a="forward" aria-label="Forward 15 seconds">${SKIP('forward')}</button>
-      <div class="lab-desktop-audio-track"><strong>${esc(state.title)}</strong><span>${esc(ch ? ch.label : 'p. ' + narr.page)} · device voice</span>
-        <i role="slider" tabindex="0" aria-label="Chapter position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(pos * 100)}" aria-valuetext="${Math.round(pos * 100)}% of ${esc(ch ? ch.label : 'the book')}"><b style="width:${(pos * 100).toFixed(1)}%"></b></i></div>
-      <button type="button" data-a="chat" aria-label="Chat about this book">${ICON.chat.replace(/18/g, '22')}</button>
-      ${playing ? '' : '<button type="button" class="lab-desktop-audio-dismiss" data-a="close" aria-label="Close audio controls"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"></path></svg></button>'}`;
-    const slider = bar.querySelector('[role="slider"]');
-    slider.onpointerdown = ev => { const rr = slider.getBoundingClientRect(); seekChapter((ev.clientX - rr.left) / rr.width) };
-    slider.onkeydown = ev => { if (ev.key === 'ArrowLeft') { ev.preventDefault(); skip(-1) } if (ev.key === 'ArrowRight') { ev.preventDefault(); skip(1) } };
-  }
-  bar.querySelectorAll('[data-a]').forEach(b => b.onclick = () => {
-    const a = b.dataset.a;
-    if (a === 'play') togglePlay();
-    if (a === 'back') skip(-1);
-    if (a === 'forward') skip(1);
-    if (a === 'chat') openChat();
-    if (a === 'speed') speedPopover();
-    if (a === 'close') { narr.paused = false; renderTransport() }
-  });
-}
-function speedPopover() {
-  const old = document.querySelector('.lab-audio-speed-popover'); if (old) { old.remove(); return }
-  const pop = document.createElement('section');
-  pop.className = 'lab-audio-speed-popover'; pop.setAttribute('aria-label', 'Playback speed');
-  pop.innerHTML = `<div class="lab-audio-speed-heading"><span>Playback speed</span><output>${prefs.rate}×</output><button type="button" class="lab-audio-speed-done">Done</button></div>
-    <input class="lab-v2-slider" type="range" min="0.5" max="3" step="0.25" value="${prefs.rate}" aria-label="Playback speed">
-    <div class="lab-audio-speed-scale" aria-hidden="true"><span>0.5×</span><span>1×</span><span>2×</span><span>3×</span></div>`;
-  root.appendChild(pop);
-  pop.querySelector('input').oninput = e => { prefs.rate = Number(e.target.value); savePrefs(); pop.querySelector('output').textContent = prefs.rate + '×'; renderTransport() };
-  pop.querySelector('.lab-audio-speed-done').onclick = () => pop.remove();
-}
 
 /* ---------- Claude: on the reader's own account ---------- */
 // Tinct's reading companion through the page's Tinct account (js/tinct-api.js). Signed in,
@@ -2993,7 +3100,7 @@ function speedPopover() {
 let sample = null, sampleImages = null, imgNote = 'Pictures you attach or snip are sent to the reading companion when you are signed in.';
 function aiBook() {
   const pl = hasBook() ? currentPlace() : null, ch = pl && toc.ready ? chapterAt(pl.page) : null;
-  return { title: state.title, author: state.author, chapter: ch?.label || (pl ? (isEpub() ? state.title : 'Page ' + pl.page) : ''), page: pl?.page, pages: state.pages.length };
+  return { id: state.preview ? state.preview.bookId : 'userbook-' + hexOf(state.key), title: state.title, author: state.author, chapter: ch?.label || (pl ? (isEpub() ? state.title : 'Page ' + pl.page) : ''), page: pl?.page, pages: state.pages.length };
 }
 async function ai() {
   if (sample) return sample;
@@ -3138,7 +3245,7 @@ function snapWords() {
   } catch { /* the selection stays as made */ }
 }
 const sameRange = (r, n) => r.startContainer === n.sc && r.startOffset === n.so && r.endContainer === n.ec && r.endOffset === n.eo;
-document.addEventListener('pointerup', e => { if (e.button > 0 || gesture.inUi) return; setTimeout(selectionMade, 30) }, true);
+document.addEventListener('pointerup', e => { if (e.button > 0 || gesture.inUi) return; gesture.up = { x: e.clientX, y: e.clientY, at: Date.now() }; setTimeout(selectionMade, 30) }, true);
 document.addEventListener('touchend', () => setTimeout(selectionMade, 60), { passive: true, capture: true });
 document.addEventListener('keyup', e => {
   if (e.target?.closest?.('input, textarea, select, [contenteditable="true"]')) return;
@@ -3413,6 +3520,8 @@ function marginOpen(info, { existing = null, asking = false, own: ownSel = false
   const anchor = existing ? existing.rects.map(([x, y, w, h]) => ({ n: existing.page, x, y, w, h })) : anchorOf(info.rects || [info.box]);
   // A highlight clicked (Anders, 19 Oct 2026): its own bar, Ask and Explain, its colours, its note, Remove highlight.
   mr = { info, anchor, ids: existing ? [existing.id] : [], held: !!existing, own: ownSel, mode: null, el: null, moreEl: null, base: existing ? 'existing' : null, before: word && info.range ? textBefore(info.range) : '' };
+  // Where the pointer let go of this selection: the bar stands on that side of it (mrPlace, TinctMargin.placeBar).
+  if (!existing && !ownSel && gesture.up && Date.now() - gesture.up.at < 600) mr.up = { x: gesture.up.x, y: gesture.up.y };
   sel = info;
   if (word && !asking) { mrDefine(word); return }
   mrShow(mr.base || 'menu');
@@ -3421,15 +3530,16 @@ function marginClose() {
   if (!mr) return;
   const m = mr;
   clearTimeout(m.press); dictation.stop();
-  const field = m.el?.querySelector('.mr-note__field');
+  const field = noteFieldReady(m.el?.querySelector('.mr-note__field'));
   if (field && m.ids[0] && field.value.trim() !== (highlights().find(h => h.id === m.ids[0])?.note || '')) noteDrafts.set(m.ids[0], field.value);
+  m.leaveStop?.();
   m.el?.remove(); m.moreEl?.remove();
   mr = null;
   paintSelection();
 }
 function mrPiece() {
   const el = document.createElement('div');
-  el.addEventListener('mousedown', e => { if (!e.target.closest('textarea')) e.preventDefault() });
+  el.addEventListener('mousedown', e => { if (!e.target.closest('textarea, [contenteditable="true"]')) e.preventDefault() });
   el.addEventListener('click', e => {
     const b = e.target.closest('[data-m], [data-color]'); if (!b || b.disabled || !mr) return;
     if (b.dataset.color) mrPick(b.dataset.color); else mrAction(b.dataset.m);
@@ -3474,8 +3584,9 @@ function mrShow(mode, { question = '' } = {}) {
     el.innerHTML = MH.barHtml(mode, mrOpts({ question }));
   }
   mrPlace();
+  if (savedBar()) watchBarLeave(); else mr.leaveStop?.();
   if (mode === 'asking') { const t = el.querySelector('.mr-ask'); t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length); fitAsk() }
-  if (mode === 'note') { const t = el.querySelector('.mr-note__field'); t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length) }
+  if (mode === 'note') { const t = noteFieldReady(el.querySelector('.mr-note__field')); t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length) }
   paintSelection();
 }
 function mrPlace() {
@@ -3488,7 +3599,15 @@ function mrPlace() {
     pos = TinctMargin.placeCard({ first, last, frame, w: 360, h: el.offsetHeight, phone });
   } else {
     if (phone) el.style.width = (frame.right - frame.left - TinctMargin.PHONE.edge * 2) + 'px';
-    pos = TinctMargin.placeBar({ first, last, frame, w: el.offsetWidth, h: el.offsetHeight, phone });
+    // Read once per selection (which end the pointer let go at, how far along that line), so a scroll or a zoom
+    // moves the bar with the passage and never to its other side.
+    const mid = b => (b.top + b.bottom) / 2;
+    if (mr.up && !mr.side) {
+      const end = last.top > first.top && Math.abs(mr.up.y - mid(last)) < Math.abs(mr.up.y - mid(first));
+      mr.side = { end, dx: mr.up.x - (end ? last : first).left };
+    }
+    const cursor = mr.side && !phone ? { x: (mr.side.end ? last : first).left + mr.side.dx, y: mid(mr.side.end ? last : first) } : null;
+    pos = TinctMargin.placeBar({ first, last, frame, w: el.offsetWidth, h: el.offsetHeight, phone, cursor });
   }
   el.style.left = pos.left + 'px'; el.style.top = pos.top + 'px';
   el.classList.toggle('is-below', !!pos.below);
@@ -3498,7 +3617,53 @@ function mrPlace() {
   if (mr.moreEl) placeMoreEl();
 }
 let mrFrameReq = 0;
-$('scroll').addEventListener('scroll', () => { if (!mr || mrFrameReq) return; mrFrameReq = requestAnimationFrame(() => { mrFrameReq = 0; mrPlace() }) }, { passive: true });
+/*
+ * A saved highlight's bar (its colours and note, waiting for a change; a highlight clicked in the text) goes at the
+ * reader's first scroll or turn of the wheel, and on the desktop when the mouse leaves it (Anders, 11 Nov 2026), as in
+ * the book reader (src/lab/labHighlightMenuLeave.ts). A fresh selection's bar still follows its passage. Never while a
+ * finger or the mouse is down (dragging a selection's handle scrolls the page too), never while the keyboard is in it.
+ */
+const savedBar = () => !!mr?.el && mr.ids.length > 0 && (mr.mode === 'menu' || mr.mode === 'colors' || mr.mode === 'existing');
+let mrPointerDown = false;
+addEventListener('pointerdown', () => { mrPointerDown = true }, true);
+for (const t of ['pointerup', 'pointercancel']) addEventListener(t, () => { mrPointerDown = false }, true);
+$('scroll').addEventListener('scroll', () => {
+  if (!mr) return;
+  if (savedBar() && !mrPointerDown) { marginClose(); return }
+  if (mrFrameReq) return;
+  mrFrameReq = requestAnimationFrame(() => { mrFrameReq = 0; mrPlace() });
+}, { passive: true });
+$('scroll').addEventListener('wheel', e => {
+  if (!savedBar() || mrPointerDown || !(e.deltaY || e.deltaX)) return;
+  if (e.target?.closest?.('.mr-bar, .mr-pbar, .mr-more')) return;
+  marginClose();
+}, { passive: true });
+function barBoxes() {
+  return [mr?.el, mr?.moreEl].filter(Boolean).map(n => n.getBoundingClientRect()).map(r => ({ left: r.left, top: r.top, right: r.right, bottom: r.bottom }));
+}
+function barHasKeyboard() {
+  const a = document.activeElement;
+  if (!a || !(mr?.el?.contains(a) || mr?.moreEl?.contains(a))) return false;
+  if (a.matches('input, textarea, [contenteditable="true"]')) return true;
+  try { return a.matches(':focus-visible') } catch { return false }
+}
+/** Watches the mouse while a saved highlight's bar is up (armed by mrShow, stopped by marginClose). */
+function watchBarLeave() {
+  if (mr.leaveStop || isPhone() || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const m = mr, { ms, slack } = TinctMargin.MENU_LEAVE;
+  let entered = false, timer = 0, buttons = 0;
+  const cancel = () => { clearTimeout(timer); timer = 0 };
+  const see = e => {
+    if (e.pointerType !== 'mouse') return;
+    buttons = e.type === 'pointerup' ? 0 : e.buttons;
+    if (TinctMargin.insideMenu(e.clientX, e.clientY, barBoxes(), slack)) { entered = true; cancel(); return }
+    if (!entered || buttons || timer) return;
+    timer = setTimeout(() => { timer = 0; if (mr === m && savedBar() && !buttons && !barHasKeyboard()) marginClose() }, ms);
+  };
+  const types = ['pointermove', 'pointerdown', 'pointerup'];
+  for (const t of types) addEventListener(t, see, true);
+  m.leaveStop = () => { cancel(); for (const t of types) removeEventListener(t, see, true); m.leaveStop = null };
+}
 addEventListener('resize', () => { if (mr && mr.mode !== 'asking' && mr.mode !== 'note') marginClose() });
 function mrAction(m) {
   // The phone: Ask is the bottom card, the passage quoted and its field ready above the keyboard (phoneAsk).
@@ -3597,7 +3762,7 @@ function dropPhoneDraft(id, { mark = false } = {}) {
   return true;
 }
 function mrSaveNote() {
-  const t = mr.el.querySelector('.mr-note__field'), id = mr.ids[0];
+  const t = noteFieldReady(mr.el.querySelector('.mr-note__field')), id = mr.ids[0];
   const list = highlights(), h = list.find(x => x.id === id); if (!h) return marginClose();
   const v = t.value.trim();
   if (v) { if (!h.note && mr.noteMade) h.withNote = true; h.note = v.slice(0, 4000) } else { delete h.note; delete h.withNote }
@@ -3779,7 +3944,7 @@ addEventListener('keydown', e => {
     e.preventDefault(); e.stopImmediatePropagation();
     if (mr.moreEl) { const had = mr.moreEl.contains(document.activeElement); closeMore(); if (had) mr.el.querySelector('[data-m="more"]')?.focus({ preventScroll: true }); return }
     if (mr.mode === 'asking' || mr.mode === 'colors' || mr.mode === 'note') {
-      if (mr.mode === 'note') { const f = mr.el.querySelector('.mr-note__field'); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) }
+      if (mr.mode === 'note') { const f = noteFieldReady(mr.el.querySelector('.mr-note__field')); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) }
       dictation.stop(); mrShow(mr.base || (mr.def ? 'define' : 'menu'))
       // Ask and the note took the focus, and with it the page's selection: select the passage again,
       // so a late selectionchange finds it and the bar stays (it closed the bar on a slow machine).
@@ -3991,7 +4156,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261020epub').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=__TINCT_BUILD__').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false }, draft: null, defs: new Map(), defToken: null, pills: new Map(), heads: new Map() };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -4067,12 +4232,31 @@ async function jumpToLabel(value) {
   if (!n) n = pageOfLabel(value);
   if (n) goTo({ page: n, frac: 0 });
 }
-/** The pages around `focus` as the companion receives a PDF: [{ n: printed label, text }] and the focus's index. */
-async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
+/**
+ * `text` cut to `budget` characters: around `near` (the selected passage) when it is found in it, else from its start.
+ * "[…]" marks each cut, so the companion reads it as an excerpt (labAskPrompt LAB_EXCERPT_CHAPTER_LEAD).
+ */
+function excerptAround(text, budget, near) {
+  if (text.length <= budget) return text;
+  const at = near ? passageOffset(text, near) : -1;
+  if (at < 0) return text.slice(0, budget) + ' […]';
+  const from = Math.max(0, Math.min(text.length - budget, at - Math.floor((budget - Math.min(near.length, budget)) / 2)));
+  return (from > 0 ? '[…] ' : '') + text.slice(from, from + budget) + (from + budget < text.length ? ' […]' : '');
+}
+/** Where `near` starts in `text`, white space aside (a selection's line breaks are not the text's); -1 when not found. */
+function passageOffset(text, near) {
+  const words = String(near).trim().split(/\s+/).slice(0, 12).filter(Boolean);
+  if (!words.length) return -1;
+  const esc = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const m = new RegExp(words.map(esc).join('\\s+')).exec(text);
+  return m ? m.index : -1;
+}
+/** The pages around `focus` as the companion receives a PDF: [{ n: printed label, text }] and the focus's index. `near`: the passage asked about, which the focus's window is centred on. */
+async function pdfPages(focus, { before = 1, after = 1, budget = 9000, near = '' } = {}) {
   const from = Math.max(1, focus - before), to = Math.min(state.pages.length || focus, focus + after);
   const pages = []; let at = 0, used = 0;
   for (let n = from; n <= to && used < budget * (to - from + 1); n++) {
-    const text = (await pageText(n)).text.slice(0, budget);
+    const text = excerptAround((await pageText(n)).text, budget, n === focus ? near : '');
     if (n === focus) at = pages.length;
     pages.push({ n: pageLabel(n), text: text || ' ' }); used += text.length;
   }
@@ -4189,6 +4373,19 @@ function readDocument() {
     let chars = 0;
     for (let n = 1; n <= t.pages; n++) { const text = texts.get(n) || ''; chars += text.length; pages.push({ n: pdfTextLabel(n), text }) }
     return Promise.resolve(chars > limit ? { pages: null, limit, label: pdfTextLabel } : { pages, limit, label: pdfTextLabel });
+  }
+  if (isEpub()) {
+    // A reader's own EPUB: its chapters as this reader holds them (state.texts, every chapter's text from the open), the
+    // whole book when it fits, else the long-EPUB part (marginDocument). Until 9 Nov 2026 readBook (a PDF's read) gave
+    // an EPUB nothing, so its Ask had no document and only the first 9,000 characters of the chapter (pdfPages).
+    const limit = window.TinctAI?.DOCUMENT_CHARS || 560000, pages = [];
+    let chars = 0;
+    for (let n = 1; n <= state.pages.length; n++) {
+      const text = state.texts.get(n)?.text || '';
+      if ((chars += text.length) > limit) return Promise.resolve({ pages: null, limit, label: pageLabel });
+      pages.push({ n: pageLabel(n), text });
+    }
+    return Promise.resolve({ pages, limit, label: pageLabel });
   }
   if (docCache.key === state.key && docCache.task) return docCache.task;
   const key = state.key, limit = window.TinctAI?.DOCUMENT_CHARS || 560000;
@@ -4606,11 +4803,13 @@ function drawCard(el, card, open) {
   const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
   const before = card.kind === 'quiz' && open ? el.offsetHeight : 0, kept = open ? bodyTop(el) : null;
   // A margin note's field being written keeps its words, caret and focus through a redraw (and is not kept meanwhile).
-  const noteField = el.querySelector('.mr-note-edit'), noteText = noteField?.value, noteFocus = noteField && document.activeElement === noteField ? [noteField.selectionStart, noteField.selectionEnd] : null;
+  const noteField = noteFieldReady(el.querySelector('.mr-note-edit')), noteText = noteField?.value, noteFocus = noteField && document.activeElement === noteField ? [noteField.selectionStart, noteField.selectionEnd] : null;
   if (noteFocus) noteCommitting = true;
   try {
     el.innerHTML = cardHtmlSafe(card, open);
-    const nf = el.querySelector('.mr-note-edit');
+    // A note's card on the wide column can be moved (its ⋮⋮ handle); one being written cannot yet.
+    if (card.kind === 'note' && card.mark && !card.draft && col.doc && el.parentElement === col.doc) el.insertAdjacentHTML('afterbegin', NOTE_GRIP);
+    const nf = noteFieldReady(el.querySelector('.mr-note-edit'));
     if (nf) { if (noteText != null) nf.value = noteText; fitNote(nf); if (noteFocus) { nf.focus({ preventScroll: true }); nf.setSelectionRange(...noteFocus) } }
   } finally { if (noteFocus) noteCommitting = false }
   if (card.kind === 'quiz') holdQuizHeight(el, before);
@@ -4660,7 +4859,7 @@ function layoutNow() {
     if (mode !== 'column') { col.els.forEach(e => e.remove()); col.els.clear(); col.leads.replaceChildren(); dropDocLayer() }
     if (mode !== 'marks') { col.marks?.replaceChildren(); closeFloat() }
     if (mode !== 'phone') closeSheet2();
-    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null; for (const el of col.pills.values()) el.remove(); col.pills.clear(); dropHeadPills(); paraSparkHide(true) }
+    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null; for (const el of col.pills.values()) el.remove(); col.pills.clear(); dropHeadPills() }
     if (primer.el && (mode === 'phone' || !mode)) { primer.el.remove(); primer.el = null }
     if (mode === 'phone' && primer.open) openSheet2('primer');
     if (col.el) col.el.hidden = mode !== 'column';
@@ -4736,6 +4935,7 @@ function docLayer() {
     const el = col.doc = document.createElement('div');
     el.className = 'mr mr-col mr-doc is-reader'; el.setAttribute('role', 'complementary'); el.setAttribute('aria-label', 'Margin');
     bindCardEvents(el);
+    bindNoteMoves(el);
     const svg = col.docLeads = document.createElementNS(SVGNS, 'svg');
     svg.setAttribute('class', 'mr mr-leads mr-doc-leads'); svg.setAttribute('aria-hidden', 'true');
     col.docLines = '';
@@ -4744,6 +4944,100 @@ function docLayer() {
   if (col.doc.parentElement !== s) s.append(col.doc);
   if (col.docLeads.parentElement !== col.doc) col.doc.prepend(col.docLeads);
   return col.doc;
+}
+/* -- Moving a note's card (Anders, 13 Nov 2026; the wide desktop column only, never the phone) --
+   A ⋮⋮ handle on a note's card drags it to any height in the margin, and ⌥↑ / ⌥↓ on a focused card nudge it. The card
+   stays where it is dropped (neighbours are pushed as always). Its place is kept on its highlight record (`place`):
+   in an EPUB or Tinct text, the paragraph beside it (its start as an offset in the chapter's text) and a fraction of
+   that paragraph's height; on a PDF page, a fraction of the page. Never pixels: it holds through a reload, sync, a
+   font or size change and a resize. A note with no passage moves its own box there too. */
+const NOTE_GRIP = '<button type="button" class="mr-grip" aria-label="Move note" title="Drag to move (⌥↑ ⌥↓)" aria-keyshortcuts="Alt+ArrowUp Alt+ArrowDown"><svg viewBox="0 0 10 16" aria-hidden="true"><circle cx="2.5" cy="3" r="1.4"/><circle cx="7.5" cy="3" r="1.4"/><circle cx="2.5" cy="8" r="1.4"/><circle cx="7.5" cy="8" r="1.4"/><circle cx="2.5" cy="13" r="1.4"/><circle cx="7.5" cy="13" r="1.4"/></svg></button>';
+const NOTE_BLOCKS = 'p, li, h1, h2, h3, h4, h5, h6, blockquote, pre, figure, figcaption, dd, dt, td, th';
+const NOTE_NUDGE = 24;
+const r4 = v => Math.round(v * 10000) / 10000;
+/** Where a moved note's card top is now (viewport y), or null: not moved, or its paragraph is not drawn. */
+function notePlaceY(card) {
+  const pl = card?.place; if (!pl || !Number.isFinite(pl.f)) return null;
+  const p = state.pages[(card.page || 0) - 1]; if (!p) return null;
+  if (p.kind === 'epub') {
+    if (!isNear(p) || !Number.isInteger(pl.at)) return null;
+    const range = rangeFromOffsets(p.pg, pl.at + 1, pl.at + 1); if (!range) return null;
+    const node = range.startContainer.nodeType === 1 ? range.startContainer : range.startContainer.parentElement;
+    const block = node?.closest?.(NOTE_BLOCKS); if (!block || !p.pg.contains(block)) return null;
+    const b = block.getBoundingClientRect();
+    return b.top + pl.f * Math.max(1, b.height);
+  }
+  const b = p.pg.getBoundingClientRect();
+  return b.height ? b.top + pl.f * b.height : null;
+}
+/** The place a card's top at viewport y keeps, on its own page (chapter): the paragraph there, or the page. */
+function notePlaceAt(page, y) {
+  const p = state.pages[page - 1]; if (!p) return null;
+  const f = (top, height) => r4(Math.max(-1, Math.min(2, (y - top) / Math.max(1, height))));
+  if (p.kind === 'epub') {
+    const blocks = [...p.pg.querySelectorAll(NOTE_BLOCKS)].filter(b => !b.querySelector(NOTE_BLOCKS) && b.textContent.length && b.getBoundingClientRect().height);
+    if (!blocks.length) return null;
+    const block = blocks.find(b => b.getBoundingClientRect().bottom >= y) || blocks[blocks.length - 1];
+    const first = document.createTreeWalker(block, NodeFilter.SHOW_TEXT).nextNode(); if (!first) return null;
+    const b = block.getBoundingClientRect();
+    return { at: textOffset(p.pg, first, 0), f: f(b.top, b.height) };
+  }
+  const b = p.pg.getBoundingClientRect();
+  return { f: f(b.top, b.height) };
+}
+/** A note's card moved so its top is at viewport y: its highlight keeps the place, and is synced as every change. */
+function moveNote(cardId, top) {
+  const card = viewCards().find(c => c.id === cardId); if (!card || card.kind !== 'note' || !card.mark) return;
+  const place = notePlaceAt(card.page, top); if (!place) return;
+  const spot = pagePoint(top);
+  const apply = h => {
+    const next = { ...h, place, u: Date.now() };
+    // A note with no passage keeps its box at the same height (TinctMargin.noteBox).
+    const own = TinctMargin.noteSpot(h);
+    if (own && !own.unit && spot && spot.n === h.page) next.rects = [TinctMargin.noteBox(spot.frac)];
+    return next;
+  };
+  if (changeTextHighlight(card.mark, list => list.map(x => (x.id === card.mark ? apply(x) : x)))) { col.view = null; marginLayout({ fresh: true }); return }
+  const list = highlights(), k = list.findIndex(h => h.id === card.mark); if (k < 0) return;
+  list[k] = apply(list[k]);
+  col.view = null;
+  putHighlights(list); strip?.marksChanged();
+}
+function bindNoteMoves(host) {
+  let drag = null;
+  host.addEventListener('pointerdown', e => {
+    const grip = e.target.closest?.('.mr-grip'); if (!grip || (e.pointerType === 'mouse' && e.button !== 0)) return;
+    const el = grip.closest('.mr-card'); if (!el?.dataset.id) return;
+    e.preventDefault(); e.stopPropagation();
+    grip.setPointerCapture?.(e.pointerId);
+    drag = { el, id: el.dataset.id, pointerId: e.pointerId, y0: e.clientY, top0: el.getBoundingClientRect().top, moved: false };
+  });
+  host.addEventListener('pointermove', e => {
+    if (!drag || e.pointerId !== drag.pointerId) return;
+    const dy = e.clientY - drag.y0;
+    if (!drag.moved && Math.abs(dy) <= 3) return;
+    drag.moved = true;
+    drag.el.classList.add('is-lifted');
+    drag.el.style.transform = `translateY(${dy}px)`;
+  });
+  const end = e => {
+    if (!drag || e.pointerId !== drag.pointerId) return;
+    const d = drag; drag = null;
+    d.el.classList.remove('is-lifted'); d.el.style.transform = '';
+    if (d.moved && e.type === 'pointerup') moveNote(d.id, d.top0 + (e.clientY - d.y0));
+  };
+  host.addEventListener('pointerup', end);
+  host.addEventListener('pointercancel', end);
+  // The handle is not the card: a press on it never opens or folds the card.
+  host.addEventListener('click', e => { if (e.target.closest?.('.mr-grip')) { e.preventDefault(); e.stopPropagation() } }, true);
+  host.addEventListener('keydown', e => {
+    if (!e.altKey || e.metaKey || e.ctrlKey || (e.key !== 'ArrowUp' && e.key !== 'ArrowDown')) return;
+    if (e.target.closest?.('input, textarea, [contenteditable="true"]')) return;
+    const el = e.target.closest?.('.mr-card.is-note'); if (!el?.dataset.id || !el.querySelector('.mr-grip')) return;
+    e.preventDefault(); e.stopPropagation();
+    moveNote(el.dataset.id, el.getBoundingClientRect().top + (e.key === 'ArrowUp' ? -NOTE_NUDGE : NOTE_NUDGE));
+    requestAnimationFrame(() => col.els.get(el.dataset.id)?.querySelector('.mr-grip')?.focus({ preventScroll: true }));
+  });
 }
 function dropDocLayer() { col.doc?.remove(); col.docLeads?.remove(); col.docLines = ''; if (col.docLeads) col.docLeads.innerHTML = '' }
 /** The pages' right edge for the column: the widest page's (kept per zoom and width, so it never moves with a scroll). */
@@ -4811,7 +5105,7 @@ function layoutColumn() {
     if (!pr) continue;
     const ey = Y(pr.top + at.head.y * pr.height);
     if (u.key === BOOK_UNIT) { const el = unitMark(u, 'start', doc); seenMarks.add(el); items.push({ el, ey, top: ey, order: -1 }) }
-    else { const hp = headPills(u, p, at); if (hp) seenHeads.add(hp) }
+    else headPills(u, p, at, seenHeads)
     if (primer.open && primer.unit?.key === u.key) {
       const pe = primerEl(); pe.classList.remove('is-floating');
       if (pe.parentElement !== doc) { pe.removeAttribute('style'); doc.appendChild(pe) }
@@ -4820,7 +5114,10 @@ function layoutColumn() {
     }
     if (u.key === BOOK_UNIT) continue;
     const notes = viewCards().filter(c => c.unitNote && (c.page === u.to || c.unit === u.key));
-    [...['catchup', 'recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id); drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey, top: ey, order: -0.8 + k * 0.001 }) });
+    // A text unit's Recap, Quiz me and notes open level with its end's pills (22 Oct 2026: they belong to the chapter's
+    // end, and the view never leaves the place the reader pressed them); its catch-up with its heading.
+    const endEl = col.heads.get(u.key + ':end'), endY = endEl?.isConnected ? Y(endEl.getBoundingClientRect().top) : ey;
+    [...['catchup', 'recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id), placed = c.kind === 'note' ? notePlaceY(c) : null, y = placed != null ? Y(placed) : c.data?.pill === 'catchup' ? ey : endY; drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey: y, top: y, order: -0.8 + k * 0.001 }) });
   }
   for (const [k, el] of col.pills) if (!seenMarks.has(el)) { el.remove(); col.pills.delete(k) }
   for (const [k, el] of col.heads) if (!seenHeads.has(el)) dropHeadPill(k);
@@ -4836,7 +5133,9 @@ function layoutColumn() {
     const mid = lab ? Math.round(lab.offsetTop + lab.offsetHeight / 2) : 12;
     // The passage's line; a figure's card starts level with the figure's top (less 4px), its line at its label.
     const ey = card.kind === 'figure' ? Y(b.top + f[2] * b.height) - 4 + mid : Y(b.top + f[2] * b.height + h / 2);
-    items.push({ el, ey, top: ey - mid, mid, card, x0: X(Math.min(pageEdge(p), sr.left + area)) + C.dot, order: 1 });
+    // A moved note sits where it was put (notePlaceY); its leader still starts at its passage.
+    const placed = card.kind === 'note' ? notePlaceY(card) : null;
+    items.push({ el, ey, top: placed != null ? Y(placed) : ey - mid, ...(placed != null ? { key: Y(placed) + mid } : {}), mid, card, x0: X(Math.min(pageEdge(p), sr.left + area)) + C.dot, order: 1 });
   }
   // "Deleted · Undo" keeps the deleted card's place for a few seconds.
   if (undo.el && undo.rect && !undo.el.classList.contains('is-float')) {
@@ -4845,7 +5144,7 @@ function layoutColumn() {
   }
   for (const [id, el] of col.els) if (!keep.has(id)) { el.remove(); col.els.delete(id) }
   // Pushed down in page order, never over the card before.
-  items.sort((a, b) => a.ey - b.ey || a.order - b.order);
+  items.sort((a, b) => (a.key ?? a.ey) - (b.key ?? b.ey) || a.order - b.order);
   let floor = 0;
   const lines = [];
   for (let i = 0; i < items.length; i++) {
@@ -5030,13 +5329,13 @@ function drawSheet() {
   if (el.dataset.sig === sig) return;
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
   const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
-  const nf0 = el.querySelector('.mr-note-edit'), noteText = nf0?.value, noteFocus = nf0 && document.activeElement === nf0;
+  const nf0 = noteFieldReady(el.querySelector('.mr-note-edit')), noteText = nf0?.value, noteFocus = nf0 && document.activeElement === nf0;
   el.dataset.sig = sig;
   const before = card.kind === 'quiz' ? el.offsetHeight : 0, keptTop = bodyTop(el);
   if (noteFocus) noteCommitting = true;
   try {
     el.innerHTML = TinctMargin.html.sheetHtml(cardHtmlSafe(card, true));
-    const nf = el.querySelector('.mr-note-edit');
+    const nf = noteFieldReady(el.querySelector('.mr-note-edit'));
     if (nf) { if (noteText != null) nf.value = noteText; fitNote(nf); if (noteFocus) nf.focus({ preventScroll: true }) }
   } finally { if (noteFocus) noteCommitting = false }
   if (card.kind === 'quiz') holdQuizHeight(el, before);
@@ -5073,7 +5372,7 @@ function closeSheet2() {
 function sheetSwipe(el) {
   let y0 = null, full = false;
   // A drag in a body that scrolls is the body's (as the browser's pan always made it), never the card's.
-  el.addEventListener('pointerdown', e => { if (e.target.closest('textarea, a, .mr-card__body button, .mr-follow') || ownScroll(e.target, el.parentElement)) return; y0 = e.clientY; full = el.classList.contains('is-full') });
+  el.addEventListener('pointerdown', e => { if (e.target.closest('textarea, [contenteditable="true"], tinct-note, a, .mr-card__body button, .mr-follow') || ownScroll(e.target, el.parentElement)) return; y0 = e.clientY; full = el.classList.contains('is-full') });
   el.addEventListener('pointerup', e => {
     if (y0 == null) return;
     const dy = e.clientY - y0; y0 = null;
@@ -5187,7 +5486,7 @@ function openWhole(opts = {}) {
 
 /* -- What a card does: open, close, copy, follow up, quiz, citations, dictation -- */
 function bindCardEvents(host) {
-  host.addEventListener('mousedown', e => { if (e.target.closest('.mr-cite, [data-c]') && !e.target.closest('textarea')) e.preventDefault() });
+  host.addEventListener('mousedown', e => { if (e.target.closest('.mr-cite, [data-c]') && !e.target.closest('textarea, [contenteditable="true"]')) e.preventDefault() });
   host.addEventListener('click', e => {
     // A host inside another (the primer in the column) handles its click once.
     if (e.mrDone) return; e.mrDone = true;
@@ -5298,7 +5597,11 @@ function followUp(id, text) {
     return;
   }
   const card = cardById(id); if (!card) return;
-  if (card.kind === 'quiz') return card.data?.done ? chatAbout(cardShown(card), { question: text }) : quizCheck(card, text);
+  if (card.kind === 'quiz') {
+    // The end's field asks Chat about the quiz; the last question's reply field (above its score) still marks the reply.
+    const q = col.quiz.get(id) || card.data || {}, r = q.results?.[Math.min(q.i || 0, (q.questions?.length || 1) - 1)];
+    return (q.done && !r) || (r && !TinctMargin.quizCanReply(r)) ? chatAbout(cardShown(card), { question: text }) : quizCheck(card, text);
+  }
   if (card.kind === 'note' || id.startsWith('n-')) {
     // A follow-up on a note asks about its passage: an Ask card for it.
     const v = viewCards().find(c => c.id === id); if (!v) return;
@@ -5345,7 +5648,8 @@ function primerShown() {
   const p = primer.data; if (!p) return null;
   const sections = TinctMargin.html.primerSections(p).map(sec => `${sec.title}\n${sec.items.map(it => '- ' + (it.term ? `${it.term} — ${it.meaning}` : it.text)).join('\n')}`).join('\n\n');
   const unit = primer.unit && primer.unit.key !== 'all' ? unitTitle(primer.unit) : '';
-  return { key: `primer:${primer.unit?.key}:${p.madeAt || ''}`, label: `Before you start${unit ? ' · ' + unit : ''}`, text: `${p.gist || ''}\n\n${sections}`.trim() };
+  const first = p.gist ? (p.role ? `${p.role}\n${p.gist}` : p.gist) : '';
+  return { key: `primer:${primer.unit?.key}:${p.madeAt || ''}`, label: `Before you start${unit ? ' · ' + unit : ''}`, text: `${first}\n\n${sections}`.trim() };
 }
 /** Talk in a card's field: Chat with Talk on, about what the card shows (the whole file's Chat: Talk on there). */
 function talkAbout(id) {
@@ -5403,13 +5707,15 @@ function newMarginNote(y, { unit = null } = {}) {
   requestAnimationFrame(() => requestAnimationFrame(focus));
   return id;
 }
+/** A note field from margin.js's HTML, made the formatted field now when it is not yet (js/note-md.js; <tinct-note>). */
+function noteFieldReady(f) { if (f && !f.noteEditor) { const host = f.closest?.('tinct-note'); if (host) self.TinctNoteMd?.upgrade(host) } return f }
 /** The note field drawn again keeps its words, its caret and its focus. */
-function fitNote(t) { t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight, 320) + 'px' }
+function fitNote(t) { if (!t || t.tagName !== 'TEXTAREA') return; t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight, 320) + 'px' }
 let noteCommitting = false;
 /** Keep (or let go) the open margin note's words: a new one becomes a note; an emptied one goes. */
 function commitNoteEdit(field = null) {
   if (noteCommitting) return;
-  const t = field || document.querySelector('.mr-card.is-open .mr-note-edit, .mr-sheet .mr-note-edit');
+  const t = field || noteFieldReady(document.querySelector('.mr-card.is-open .mr-note-edit, .mr-sheet .mr-note-edit'));
   const host = t?.closest('[data-id]'); if (!t || !host) return;
   noteCommitting = true;
   try {
@@ -5445,7 +5751,7 @@ function commitNoteEdit(field = null) {
 function noteAsk(id) {
   holdPlace();
   const view = viewCards().find(c => c.id === id) || (col.draft?.id === id ? col.draft : null); if (!view) return;
-  const t = document.querySelector(`[data-id="${CSS.escape(id)}"] .mr-note-edit`), v = (t ? t.value : view.note || '').trim();
+  const t = noteFieldReady(document.querySelector(`[data-id="${CSS.escape(id)}"] .mr-note-edit`)), v = (t ? t.value : view.note || '').trim();
   if (!v) { t?.focus({ preventScroll: true }); return }
   const [n, x, y] = view.rects[0];
   const card = TinctMargin.newCard({ kind: 'ask', page: n, anchor: [{ n, x, y, w: 0, h: 0 }], text: '', turns: [{ role: 'user', content: v, at: Date.now() }], data: { fromNote: true } });
@@ -5542,10 +5848,10 @@ function cardTurns(card, image, fig = {}) {
   const imageLine = !image ? '' : fig.named ? ` The attached image is ${fig.named.label} on page ${pageLabel(fig.named.page)}, as printed, which the passage or question refers to: look at it carefully (axes, labels, curves, colours, notation) and answer about it first, using the text for context.` : ' ' + MP.P.PASSAGE_IMAGE_LINE;
   // A chat that began as a note in the margin has no passage: the note is its first message.
   const about = card.text ? `\n\nThe passage they selected on ${at}:\n${card.text.slice(0, 3000)}` : `\n\nThis conversation began as a note they wrote in the margin beside ${at}; the note is their first message.`;
-  const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not in it. Plain prose only.${imageLine}${about}`;
+  const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text. Plain prose only.${imageLine}${about}`;
   const what = card.data?.region === 'formula' ? 'formula' : 'figure';
   const pill = card.data?.pill;
-  const lead = pill ? { recap: 'Recap this chapter.', catchup: 'Catch me up.' }[pill] : { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Fact-check this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
+  const lead = pill ? { recap: 'Summarise this chapter.', catchup: 'Catch me up.' }[pill] : { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Evaluate this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
   const turns = (card.turns || []).slice(-11).map(t => ({ role: t.role, content: t.content }));
   if (lead && (turns[0]?.role === 'assistant' || ((card.kind === 'figure' || pill) && !turns.length))) turns.unshift({ role: 'user', content: lead });
   return [{ role: 'user', content: pill ? pillRules(card) : rules }, ...turns];
@@ -5563,7 +5869,7 @@ function pillRules(card) {
   const head = `You are Tinct's reading companion. ${bookLine()}`;
   // The reader's words for the text: what it is or its title, never our word "unit" (Anders, 20 Oct 2026).
   const form = `Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. ${isEpub() && !isPdfText() ? 'Ground it in the book and cite no pages; say nothing that is not in it.' : 'Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.'} ${NAME_THE_TEXT}`;
-  if (card.data.pill === 'recap') return `${head} They have just finished ${name} (${pages(unit)}).\nRecap it for them: its main points and how they connect, then what it leaves open or sets up for what follows. ${form}`;
+  if (card.data.pill === 'recap') return `${head} The reader asks for a summary of ${name} (${pages(unit)}).\nSummarise it for them: its main points and how they connect, then what it leaves open or sets up for what follows. ${form}`;
   const before = catchRange(unit);
   // The book reader's Catch me up rules (TinctMargin.catchUpSpan, catchUpParts): only what the reader has read, a
   // paragraph for each part it runs through, the most recent reading in the most detail, and the chat's grounding.
@@ -5584,7 +5890,7 @@ function figureRules(card, image, sketch) {
     ? `The attached image is that ${what} as printed: look at it carefully (axes, labels, curves, colours, notation) and answer about it first, using the document for context.`
     : `You cannot see it. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain it from these and from where the text refers to it. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows; do not guess.`;
   const parts = [card.text ? 'Caption: ' + card.text.slice(0, 600) : '', d.labels ? 'Labels and text inside it: ' + String(d.labels).slice(0, 600) : '', !image && sketch ? 'Rough sketch of its shape (# dark ink, + grey, . faint; unreliable for drawings and photos):\n```\n' + sketch + '\n```' : ''].filter(Boolean).join('\n');
-  return `You are Tinct's reading companion. ${bookLine()} They are on page ${at} of ${state.pages.length}.\nThis conversation is about one ${what} on page ${at}${d.label ? ` (${d.label})` : ''}. ${seen} Only this ${what} has been asked about in this conversation: never say another figure was asked about earlier.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the document; say when something is not in it. Plain prose only.${parts ? '\n\n' + parts : ''}`;
+  return `You are Tinct's reading companion. ${bookLine()} They are on page ${at} of ${state.pages.length}.\nThis conversation is about one ${what} on page ${at}${d.label ? ` (${d.label})` : ''}. ${seen} Only this ${what} has been asked about in this conversation: never say another figure was asked about earlier.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the document. Plain prose only.${parts ? '\n\n' + parts : ''}`;
 }
 /* The passage's picture: cropped to the passage, grown to take in a table or a displayed formula it touches or a table on
    its page it names (TinctMargin.mathBox; morning retest 16 Oct, superscripts lost from Table 1). */
@@ -5699,7 +6005,7 @@ async function runCardNow(id, question, run) {
   if (!s) { setLive(id, { status: AI_OFF, done: true }); return }
   // Quiz me on a whole unit (from the primer): the unit's pages, no passage and no picture.
   const unit = card.data?.unit ? (unitByKey(card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
-  const pdf = unit ? await unitPages(card.data?.pill === 'catchup' ? catchRange(unit) : unit) : await pdfPages(card.page);
+  const pdf = unit ? await unitPages(card.data?.pill === 'catchup' ? catchRange(unit) : unit) : await pdfPages(card.page, { near: card.text || '' });
   // One picture of the passage, cropped to it (FIXES-2026-10-15 A4); none for a whole unit, or when the page is not drawn.
   // A figure's card sends its figure; a selected caption, or a question naming "Figure N" on the card's page, sends that figure (items 4, 7).
   const figBox = card.kind === 'figure' ? TinctMargin.anchorOfCard(card)[0] : null;
@@ -5793,7 +6099,8 @@ async function runCardNow(id, question, run) {
 function quizEnded(live, questions, stopped) {
   const i = Math.min(live.i || 0, questions.length);
   const ideas = live.ideas?.length ? { ideas: live.ideas } : {}, asked = live.asked?.length ? { asked: live.asked } : {}, thesis = live.thesis ? { thesis: live.thesis } : {};
-  return { ...(live.unit ? { unit: live.unit } : {}), ...ideas, ...thesis, ...asked, questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length ? { done: true } : {}), ...(stopped && questions.length < quizTotal(live, true) ? { ended: true } : {}) };
+  // Done once the last question that arrived has its result (13 Nov 2026: the score shows under it, no "See your score").
+  return { ...(live.unit ? { unit: live.unit } : {}), ...ideas, ...thesis, ...asked, questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length || i === questions.length - 1 && live.results[i] ? { done: true } : {}), ...(stopped && questions.length < quizTotal(live, true) ? { ended: true } : {}) };
 }
 /** How many questions a quiz has: one per key idea once they are known; while it streams without them, as many as may come. */
 const quizTotal = (q, streaming = false) => (q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : streaming ? TinctMargin.QUIZ_MAX_QUESTIONS : q.questions?.length || 0);
@@ -5837,8 +6144,10 @@ function quizStep(id, step) {
     saveCard(card); openCard(id); runCard(id);
     return;
   }
-  if (step === 'show') q.results[i] = { shown: true };
-  else if (i + 1 >= (live ? quizTotal(live, true) : q.questions.length)) q.done = true;
+  const last = i + 1 >= (live ? quizTotal(live, true) : q.questions.length);
+  // The last question's result ends the quiz at once: its score shows under it (Anders, 13 Nov 2026: no "See your score").
+  if (step === 'show') { q.results[i] = { shown: true }; if (last) q.done = true }
+  else if (last) q.done = true;
   else q.i = i + 1;
   if (live) marginLayout(); else saveCard(card);
   if (step === 'next') openCard(id, { focus: !q.done && !!q.questions[q.i || 0] });
@@ -5861,11 +6170,13 @@ async function quizCheck(card, answer) {
     const result = { answer, verdict: mark.verdict, feedback: mark.feedback };
     // A reply joins its question's thread; the question's own verdict (its score) stays the first answer's.
     const keep = results => { if (prior) { const r = results[i]; if (r) { r.thread = [...(r.thread || []), { reply: answer, verdict: mark.verdict, feedback: mark.feedback }] } } else results[i] = result };
+    // The last question's first mark ends the quiz at once (its score under it, 13 Nov 2026); a reply changes nothing.
+    const end = d => { if (!prior && (d.i || 0) === i && i + 1 >= (d === live ? quizTotal(live, true) : d.questions.length)) d.done = true };
     // Still streaming: the mark joins the quiz in memory; else the saved card takes it.
     const live = col.quiz.get(card.id);
-    if (live) { keep(live.results); col.pending.delete(card.id); marginLayout(); return }
+    if (live) { keep(live.results); end(live); col.pending.delete(card.id); marginLayout(); return }
     const c = cardById(card.id); if (!c) return;
-    c.data.results = c.data.results || []; keep(c.data.results); quizFit(c.data, i);
+    c.data.results = c.data.results || []; keep(c.data.results); end(c.data); quizFit(c.data, i);
     col.pending.delete(card.id); saveCard(c);
   } catch (e) {
     // The error shows in the card, and the reader's answer goes back into its field to send again.
@@ -5938,9 +6249,9 @@ document.addEventListener('pointerdown', e => {
   const mode = marginMode();
   // Before you start folds back to its pill the same way (Anders, 21 Oct 2026); it is kept, one click from open. Like a
   // card, it stays open for a press on a heading's pills or a paragraph's ✧ and its menu (#542).
-  if (primer.open && mode && mode !== 'phone' && e.button <= 0 && !e.target.closest?.('.mr-primer, .mr-pill, .mr-hp, .mr-pspark, .mr-pmenu, .mr-mark, .mr-trigger, .mr-card, .mr-float, .mr-more, .mr-pmore, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) closePrimer();
+  if (primer.open && mode && mode !== 'phone' && e.button <= 0 && !e.target.closest?.('.mr-primer, .mr-pill, .mr-hp, .mr-mark, .mr-trigger, .mr-card, .mr-float, .mr-more, .mr-pmore, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) closePrimer();
   if (!col.open || col.open === 'whole' || !mode || mode === 'phone' || e.button > 0) return;
-  if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-unit, .mr-hp, .mr-pspark, .mr-pmenu, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
+  if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-unit, .mr-hp, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
   openCard(null);
 }, true);
 // "/" opens Chat (about the whole PDF), its field ready; Escape folds the open card (after the bar and its menus).
@@ -5972,7 +6283,7 @@ addEventListener('keydown', e => {
    book (/api/user-books/primers/{bookHex}?unit=…), so reopening never makes it again. Redo makes
    a new one and stores it. "Quiz me on this chapter" is Quiz me on the whole unit, as a quiz card. */
 const primer = { units: null, parts: null, places: new Map(), unitsTask: null, open: false, anchor: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false, held: false };
-const ppReady = import('/lab/margin/primer-parse.js?v=20261015kinds').catch(() => null);
+const ppReady = import('/lab/margin/primer-parse.js?v=__TINCT_BUILD__').catch(() => null);
 function primerReset() {
   primer.token++;
   Object.assign(primer, { units: null, parts: null, book: null, open: false, unit: null, data: null, wait: false, status: '' });
@@ -6100,13 +6411,20 @@ async function primerRemote(method, unit, content = null) {
       method, credentials: 'same-origin', cache: 'no-store',
       headers: { Authorization: 'Bearer ' + TinctAI.session().token, ...(content ? { 'Content-Type': 'application/json' } : {}) },
       // Its content only (a primer kept here before kinds has claims and keepInMind; the Worker reads both shapes).
-      body: content ? JSON.stringify({ primer: Object.fromEntries(['kind', 'gist', 'sections', 'claims', 'keepInMind', 'map'].filter(k => k in content).map(k => [k, content[k]])) }) : undefined,
+      body: content ? JSON.stringify({ primer: Object.fromEntries(['kind', 'role', 'gist', 'sections', 'claims', 'keepInMind', 'map'].filter(k => k in content).map(k => [k, content[k]])) }) : undefined,
     });
     if (!r.ok) return null;
-    return PP.normalizeStoredPrimer((await r.json().catch(() => ({}))).primer);
+    const kept = PP.normalizeStoredPrimer((await r.json().catch(() => ({}))).primer);
+    // A primer an earlier prompt made (before v5, 11 Nov 2026) is not served: the unit's primer is made again.
+    return method === 'GET' && !PP.isCurrentPrimer(kept) ? null : kept;
   } catch { return null }
 }
 const primerKey = unit => 'primer:' + state.key + ':' + unit.key;
+/**
+ * The unit's primer kept on this device, when the current prompt made it (v5, 11 Nov 2026: it has a `role`; as
+ * primer-parse.js isCurrentPrimer). One made before is not served: opening the unit makes it again.
+ */
+const keptPrimer = unit => { const p = store.get(primerKey(unit)); return p && typeof p.role === 'string' ? p : null };
 /* Making a primer (the Gloss test, 15 Oct 2026: 2 failures in 3). One request per unit at a time:
    reopening while it is made waits for the same one. A reply that does not parse, or a failed
    one, is asked for once more. It gives up after 45 s in all ("taking too long"). What it makes is
@@ -6119,6 +6437,16 @@ const primerMaking = new Map();
 const primerStoring = new Set();
 // A cut-off primer is asked for once more, as one that does not parse.
 const PRIMER_RETRY = new Set(['failed', 'busy', 'unparsed', 'cut_off']);
+/**
+ * The document's contents for a unit's primer (its first part: where the unit sits; 11 Nov 2026): the units'
+ * titles in order, the nearest 60, titles only. None for a unit that is the whole document or book, for blocks
+ * of pages (no contents to go by), or when the document sent already carries its table of contents (a long file's part).
+ */
+function primerOutlineFor(unit, doc) {
+  const units = primer.units || [];
+  if (unit.key === 'all' || unit.key === BOOK_UNIT || units.length < 2 || units.some(u => u.pages) || doc?.part?.toc?.length) return null;
+  return TinctMargin.primerOutline(units.map(unitTitle), units.findIndex(u => u.key === unit.key));
+}
 function makePrimer(unit, { speculative = false } = {}) {
   const id = primerKey(unit);
   if (primerMaking.has(id)) return primerMaking.get(id);
@@ -6128,10 +6456,11 @@ function makePrimer(unit, { speculative = false } = {}) {
     if (!PP || !window.TinctAI?.companion) throw Object.assign(new Error('offline'), { code: 'offline' });
     const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), PRIMER_WAIT_MS);
     const pdf = await unitPages(unit), title = unitTitle(unit), wholeDoc = await marginDocument(unit.from);
+    const outline = primerOutlineFor(unit, wholeDoc);
     try {
       for (let attempt = 0; ; attempt++) {
         try {
-          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title, unitKind: unitKind(unit) } }, stream: false, signal: ctl.signal, retry: false, speculative });
+          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title, unitKind: unitKind(unit), ...(outline ? { outline } : {}) } }, stream: false, signal: ctl.signal, retry: false, speculative });
           const content = PP.parsePrimer(res.text);
           if (!content) throw Object.assign(new Error('unparsed'), { code: 'unparsed' });
           return { content, kept: { ...content, madeAt: new Date().toISOString(), unitKey: unit.key } };
@@ -6180,11 +6509,11 @@ function primerPrefetch() {
       const key = state.key, unit = currentUnit();
       if (!unit || state.key + '#' + state.token !== open) return;
       const id = primerKey(unit);
-      if (store.get(id) || primerMaking.has(id)) return;
+      if (keptPrimer(unit) || primerMaking.has(id)) return;
       const remote = await primerRemote('GET', unit);
       if (state.key !== key) return;
       if (remote) { store.set(id, remote); return }
-      if (store.get(id) || primerMaking.has(id)) return;
+      if (keptPrimer(unit) || primerMaking.has(id)) return;
       await makePrimer(unit, { speculative: true }).catch(() => { /* opened later, it is made then */ });
       // Done once the account holds its copy as well (a check, or a second device, then sees it there).
       await Promise.all([...primerStoring]);
@@ -6195,7 +6524,7 @@ function primerPrefetch() {
 async function loadPrimer(unit, { redo = false } = {}) {
   const token = ++primer.token, key = state.key;
   const live = () => token === primer.token && state.key === key && primer.open && primer.unit?.key === unit.key;
-  const before = store.get(primerKey(unit));
+  const before = keptPrimer(unit);
   const show = patch => { Object.assign(primer, { data: null, wait: false, status: '' }, patch); marginLayout() };
   if (!redo) {
     if (before) {
@@ -6360,10 +6689,56 @@ function unitMark(unit, where, doc) {
   if (el.parentElement !== doc) doc.appendChild(el);
   return el;
 }
-/** An EPUB's (or a Tinct text's) unit heading: the chapter's title, else its first heading; none for the whole book. */
+// A title's numbering ("1", "1.", "IV", "Chapter 3:", "Part One –"): the words the number line of a split heading holds.
+const TITLE_NUMBER = /^\s*(?:(?:chapter|part|book|section|lecture|essay)\s+[\p{L}\p{N}]+|\p{N}{1,3}(?!\p{N})|(?=[ivxlcdm])m{0,3}(?:cm|cd|d?c{0,3})(?:xc|xl|l?x{0,3})(?:ix|iv|v?i{0,3})(?=[.:)]|\s*$))\s*[.:)]?\s*[-–—:]?\s*/iu;
+/*
+ * An EPUB's (or a Tinct text's) unit heading: a Tinct book's or text's chapter title; in an EPUB of the reader's own, the
+ * line its contents names (Anders, 22 Oct 2026: a trade book's "1" over "The Reach of Explanations", set as two paragraphs
+ * with no <h1>, showed no pills at all). A heading split into its number and its title gives the title's line; else the
+ * chapter's first heading element. None for the whole book, or when nothing reads as its heading (its end pills stay).
+ */
 function unitHeadEl(u) {
   const p = state.pages[u.start - 1]; if (!p || u.key === BOOK_UNIT) return null;
-  return p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head') || p.pg.querySelector('.epub-body :is(h1, h2, h3)');
+  const tb = p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head'); if (tb) return tb;
+  p.heads ??= new Map();
+  const had = p.heads.get(u.key); if (had?.isConnected) return had;
+  const el = epubTitleLine(p, u.head || u.title) || headLine(p, p.pg.querySelector('.epub-body :is(h1, h2, h3, h4, h5, h6)'))
+    || headLine(p, epubParas(p).find(b => !b.closest('.mr-hp, .epub-sheet.is-front, .epub-sheet.is-toc')) || null, true);
+  if (el) p.heads.set(u.key, el);
+  return el;
+}
+/** A heading line (`el`); a number line alone ("1", "IV") gives the title's line under it. `strict`: a chapter's first line, taken only when it reads as a heading (short, no closing stop). */
+function headLine(p, el, strict = false) {
+  const short = b => { const t = b?.textContent.trim() || ''; return !!t && t.length <= 120 && !/[.!?;,"”’]$/.test(t) };
+  if (!el || (strict && !short(el))) return null;
+  if (String(el.textContent).replace(TITLE_NUMBER, '').trim()) return el;
+  const paras = epubParas(p), next = paras[paras.indexOf(el) + 1];
+  return short(next) ? next : el;
+}
+/** The block naming `title` in a chapter (its contents' label): the line itself, or the last of the two or three short lines that spell it together. */
+function epubTitleLine(p, title) {
+  const full = compactText(title), bare = compactText(String(title || '').replace(TITLE_NUMBER, ''));
+  if (!full) return null;
+  const blocks = epubParas(p).filter(el => !el.closest('.mr-hp') && el.textContent.length <= 200);
+  for (let i = 0; i < blocks.length; i++) {
+    const t = compactText(blocks[i].textContent); if (!t) continue;
+    if (t === full || (bare && t === bare)) return headLine(p, blocks[i]);
+    // A heading set as lines ("1", then the title): together they spell the label; the title's line is the last.
+    if (full.startsWith(t)) {
+      let run = t;
+      for (let j = i + 1; j < Math.min(blocks.length, i + 3) && full.startsWith(run); j++) {
+        run += compactText(blocks[j].textContent);
+        if (run === full) return blocks[j];
+      }
+    }
+  }
+  // A heading longer than its label ("Introduction: the long evening" for "Introduction"), among the chapter's first lines.
+  const longer = blocks.slice(0, 4).find(el => (bare || full).length >= 4 && compactText(el.textContent).startsWith(bare || full));
+  if (longer) return longer;
+  // A label that is its number alone ("Chapter 1", "1"): its number's line, then the title's under it (headLine).
+  const num = !bare && compactText(String(title).match(/[\p{N}]+|\b[ivxlcdm]{1,7}\b/iu)?.[0] || '');
+  const line = num && blocks.slice(0, 4).find(el => compactText(el.textContent) === num || compactText(el.textContent) === full);
+  return line ? headLine(p, line) : null;
 }
 /*
  * A unit's pills beside its heading (Anders, 21 Oct 2026; the desktop's wide column): Primer · Catch me up · Recap ·
@@ -6372,27 +6747,57 @@ function unitHeadEl(u) {
  * them all the time (CSS, hover: none). In an EPUB they sit inside the heading (no text of their own); on a PDF's page,
  * over it at the end of the heading's line, shown by the pointer's place (headHover).
  */
-function headPills(u, p, at) {
-  let el = col.heads.get(u.key);
-  if (!el) { el = document.createElement('span'); el.className = 'mr mr-hp'; el.setAttribute('role', 'group'); el.dataset.unit = u.key; col.heads.set(u.key, el) }
+function headPills(u, p, at, seen) {
+  // Text (an EPUB, a Tinct text or book; Anders, 22 Oct 2026): as on the phone, Primer · Catch me up on the heading's
+  // line and Recap · Quiz me · Note after the chapter's last paragraph, both always shown. A PDF's page: all five over
+  // its heading's line, shown by the pointer (headHover).
+  if (isEpub()) {
+    // Its end pills never wait on its heading: a chapter whose heading is not found still has its end (22 Oct 2026).
+    const end = endPills(u); if (end) seen?.add(end);
+    const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); return end }
+    const el = headPillEl(u, ['primer'], u.key);
+    if (el.parentElement !== head) { el.classList.remove('is-page'); el.classList.add('is-inline'); head.append(el) }
+    head.classList.add('mr-hp-head'); // (position: relative: the pills are placed in the heading's own box)
+    placeHeadPills(el, head);
+    seen?.add(el);
+    return el;
+  }
+  const el = headPillEl(u, ['primer', 'recap', 'quiz', 'note'], u.key);
+  if (el.parentElement !== p.pg) { el.classList.add('is-page'); p.pg.append(el) }
+  placePagePills(el, p, at.head.y);
+  seen?.add(el);
+  return el;
+}
+/** A unit's pills (its group, drawn again only when what it shows changed). key: its unit's, or its end's (unit:end). */
+function headPillEl(u, ids, key) {
+  let el = col.heads.get(key);
+  if (!el) { el = document.createElement('span'); el.className = 'mr mr-hp'; el.setAttribute('role', 'group'); el.dataset.unit = u.key; col.heads.set(key, el) }
   const open = primer.open && primer.unit?.key === u.key ? 'primer' : ['catchup', 'recap', 'quiz'].find(k => col.open && unitCard(u, k)?.id === col.open)
     || (col.open && viewCards().some(c => c.id === col.open && c.unitNote && (c.page === u.to || c.unit === u.key)) ? 'note' : '');
-  const ids = nothingBefore(u) ? ['primer', 'recap', 'quiz', 'note'] : ['primer', 'catchup', 'recap', 'quiz', 'note'];
-  const phrase = TinctMargin.unitPhrase(u), sig = JSON.stringify([ids, open, phrase]);
+  const phrase = TinctMargin.unitPhrase(u), sig = JSON.stringify([ids, ids.includes(open) ? open : '', phrase]);
   if (el.dataset.sig !== sig) {
     el.dataset.sig = sig;
-    el.setAttribute('aria-label', `${TinctMargin.html.unitName(u, state.title)}: Primer, Recap, Quiz me, Note`);
+    el.setAttribute('aria-label', `${TinctMargin.html.unitName(u, state.title)}: ${ids.map(id => TinctMargin.html.PILLS[id]).join(', ')}`);
     el.innerHTML = TinctMargin.html.headPillsHtml(ids, { open, name: phrase, line: TinctMargin.triggerLine(u) });
   }
-  if (isEpub()) {
-    const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); return null }
-    if (el.parentElement !== head) { el.classList.remove('is-page'); head.append(el) }
-    if (!head.classList.contains('mr-hp-head')) { head.classList.add('mr-hp-head'); if (!head.hasAttribute('tabindex')) { head.tabIndex = 0; head.dataset.mrTab = '1' } }
-    placeHeadPills(el, head);
-  } else {
-    if (el.parentElement !== p.pg) { el.classList.add('is-page'); p.pg.append(el) }
-    placePagePills(el, p, at.head.y);
-  }
+  return el;
+}
+/*
+ * A text unit's end (Anders, 22 Oct 2026: "quiz and potentially recap … should belong to the previous chapter"): Recap ·
+ * Quiz me · Note just under its last paragraph, in the room before the next chapter (placed over it: the text never
+ * moves, so the reader's place does not). No text of its own: an EPUB's places are character offsets in its text.
+ */
+function endPills(u) {
+  const q = state.pages[u.to - 1]; if (!q) { dropHeadPill(u.key + ':end'); return null }
+  const last = epubParas(q).filter(e => !e.closest('.mr-hp')).at(-1); if (!last) { dropHeadPill(u.key + ':end'); return null }
+  const el = headPillEl(u, ['recap', 'quiz', 'note'], u.key + ':end');
+  el.classList.add('is-inline', 'is-end');
+  const host = last.closest('.epub-pg') || q.pg;
+  if (el.parentElement !== host) host.append(el);
+  const r = document.createRange(); r.selectNodeContents(last);
+  const lines = textRects(r).filter(b => b.height > 0 && b.width > 0), hb = host.getBoundingClientRect(), lb = last.getBoundingClientRect();
+  const bottom = lines.length ? Math.max(...lines.map(b => b.bottom)) : lb.bottom, left = lines.length ? Math.min(...lines.map(b => b.left)) : lb.left;
+  setPos(el, Math.min(left, lb.left) - hb.left, bottom - hb.top + 8);
   return el;
 }
 const setPos = (el, left, top) => { const l = Math.round(left) + 'px', t = Math.round(top) + 'px'; if (el.style.left !== l) el.style.left = l; if (el.style.top !== t) el.style.top = t };
@@ -6430,7 +6835,7 @@ function dropHeadPill(key) {
 }
 function dropHeadPills() { for (const k of [...col.heads.keys()]) dropHeadPill(k) }
 // A pill beside a heading: its unit's card (pillAction); the press never starts a selection in the heading.
-$('scroll').addEventListener('mousedown', e => { if (e.target.closest?.('.mr-hp, .mr-pspark, .mr-pmenu')) e.preventDefault() });
+$('scroll').addEventListener('mousedown', e => { if (e.target.closest?.('.mr-hp')) e.preventDefault() });
 $('scroll').addEventListener('click', e => {
   const pill = e.target.closest?.('.mr-hp .mr-pill'); if (!pill) return;
   e.preventDefault(); e.stopPropagation();
@@ -6447,72 +6852,13 @@ function headHover(e) {
     el.classList.toggle('is-shown', over || el.contains(e.target));
   }
 }
-/*
- * A paragraph's ✧ (Anders, 21 Oct 2026; the desktop's wide column, a pointer that hovers): at the paragraph's left edge,
- * in the margin beside the text, while the pointer is over it. Clicked, it offers Quiz me and Recap on that paragraph,
- * the selection's own Quiz me and Explain (cardAction) with the paragraph as the passage: the quiz asks as many questions
- * as the paragraph holds key ideas (one or two for most), the recap is an Explain card named Recap.
- */
-const spark = { el: null, menu: null, para: null, timer: 0 };
-const SPARK_PARAS = 'p, li, blockquote, dd';
 const hoverPointer = matchMedia('(hover: hover) and (pointer: fine)');
-function paraSparkHide(now = false) {
-  clearTimeout(spark.timer);
-  const go = () => { spark.el?.classList.remove('is-shown'); spark.el?.setAttribute('aria-expanded', 'false'); spark.menu?.remove(); spark.menu = null; spark.para = null };
-  if (now) go(); else spark.timer = setTimeout(() => { if (!spark.menu) go() }, 450);
-}
-function paraSparkAt(para) {
-  clearTimeout(spark.timer);
-  if (spark.para === para && spark.el?.classList.contains('is-shown')) return;
-  spark.menu?.remove(); spark.menu = null;
-  const sc = $('scroll'); if (!para.closest('.epub-pg')) return;
-  if (!spark.el) {
-    spark.el = document.createElement('button'); spark.el.type = 'button'; spark.el.className = 'mr mr-pspark';
-    spark.el.setAttribute('aria-label', 'Quiz me or Recap on this paragraph'); spark.el.setAttribute('aria-haspopup', 'menu');
-    spark.el.addEventListener('click', e => { e.stopPropagation(); if (spark.menu) { spark.menu.remove(); spark.menu = null; spark.el.setAttribute('aria-expanded', 'false') } else paraMenu() });
-  }
-  // In the scroller (the page's sheet clips what leaves it), in its coordinates: it scrolls with the paragraph.
-  if (spark.el.parentElement !== sc) sc.append(spark.el);
-  spark.para = para;
-  const r = document.createRange(); r.selectNodeContents(para);
-  const first = textRects(r).find(b => b.height > 0) || para.getBoundingClientRect(), sr = sc.getBoundingClientRect(), h = spark.el.offsetHeight || 28;
-  setPos(spark.el, para.getBoundingClientRect().left - sr.left + sc.scrollLeft - 34, first.top - sr.top + sc.scrollTop + (first.height - h) / 2);
-  spark.el.classList.add('is-shown');
-}
-function paraMenu() {
-  if (!spark.para || !spark.el) return;
-  const m = spark.menu = document.createElement('div');
-  m.className = 'mr mr-pmenu'; m.setAttribute('role', 'menu');
-  m.innerHTML = '<button type="button" role="menuitem" data-pa="quiz">Quiz me</button><span class="mr-pmenu__sep" aria-hidden="true"></span><button type="button" role="menuitem" data-pa="recap">Recap</button>';
-  m.addEventListener('click', e => { const b = e.target.closest('[data-pa]'); if (!b) return; e.stopPropagation(); paraAction(spark.para, b.dataset.pa) });
-  spark.el.after(m); spark.el.setAttribute('aria-expanded', 'true');
-  setPos(m, parseFloat(spark.el.style.left), parseFloat(spark.el.style.top) + spark.el.offsetHeight + 6);
-  m.querySelector('button').focus({ preventScroll: true });
-}
-/** Quiz me or Recap on a whole paragraph: the selection's path (cardAction), the paragraph as the passage. */
-function paraAction(para, what) {
-  const r = document.createRange(); r.selectNodeContents(para);
-  const info = rangeInfo(r); paraSparkHide(true);
-  if (!info) return;
-  marginClose();
-  mr = { info, anchor: anchorOf(info.rects), ids: [], held: false, own: true, mode: null, el: null, moreEl: null, base: null, before: '' };
-  sel = info;
-  cardAction(what === 'quiz' ? 'quiz' : 'explain', what === 'recap' ? { data: { recap: true } } : {});
-}
+// No paragraph ✧ (Anders, 22 Oct 2026: "paragraph by paragraph should be left to the highlight motion"): a paragraph's
+// Quiz me and Explain are the selection bar's. Only a PDF page's heading pills follow the pointer.
 document.addEventListener('pointermove', e => {
   if (e.pointerType !== 'mouse' || e.buttons || marginMode() !== 'column') return;
   headHover(e);
-  if (!isEpub() || !hoverPointer.matches) return;
-  const t = e.target;
-  if (t.closest?.('.mr-pspark, .mr-pmenu')) { clearTimeout(spark.timer); return }
-  const para = t.closest?.(SPARK_PARAS);
-  const ok = para && para.closest('.epub-pg') && !para.closest('.epub-sheet.is-front, .epub-sheet.is-toc, .mr-hp-head, figure') && para.textContent.trim().length >= 40;
-  if (ok) paraSparkAt(para); else if (spark.para) paraSparkHide();
 }, { passive: true });
-$('scroll').addEventListener('scroll', () => { if (spark.para && !spark.menu) paraSparkHide(true) }, { passive: true });
-// The paragraph's menu closes on a press elsewhere or Escape (the focus back on its ✧).
-document.addEventListener('pointerdown', e => { if (spark.menu && !e.target.closest?.('.mr-pspark, .mr-pmenu')) paraSparkHide(true) }, true);
-addEventListener('keydown', e => { if (e.key === 'Escape' && spark.menu) { e.preventDefault(); e.stopImmediatePropagation(); spark.menu.remove(); spark.menu = null; spark.el?.setAttribute('aria-expanded', 'false'); spark.el?.focus({ preventScroll: true }) } }, true);
 /** A unit's pages as printed: "pp. 10–18", "p. 4"; none for a band, whose name says them. */
 function unitPagesLabel(unit) {
   // An EPUB's units are its chapters (the preview's too): no pages to name.
@@ -7240,7 +7586,7 @@ document.addEventListener('mousemove', e => {
 });
 // Touch (and a plain click): tap a figure or formula to get the same chip.
 document.addEventListener('click', e => {
-  if (e.target.closest('.byob-hot-chip, .selection-popup, .lab-ask, .lab-header, button') || !getSelection().isCollapsed || narr.active) return;
+  if (e.target.closest('.byob-hot-chip, .selection-popup, .lab-ask, .lab-header, button') || !getSelection().isCollapsed || listening()) return;
   if (highlightAt(e.clientX, e.clientY)) return;
   const reg = regionAt(e.clientX, e.clientY);
   if (reg) showHot(reg, true); else hideHot();
@@ -7378,7 +7724,7 @@ function saveTurns() { store.set('chat:' + state.key, chat.turns.slice(-40)) }
    docs/chat/mockup.html): no header, the reader's words in a bubble, answers as
    plain text, one divider when the page or the day changes, copy and time on hover
    or press, a hairline-and-caret composer. */
-const CHAT_THREAD = '/lab/chat-thread.js?v=20261012latest';
+const CHAT_THREAD = '/lab/chat-thread.js?v=__TINCT_BUILD__';
 let TC = null;
 const tcReady = import(CHAT_THREAD).then(m => (TC = m)).catch(() => null);
 function openChat(opts = {}) {
@@ -7391,7 +7737,7 @@ function openChat(opts = {}) {
     const el = document.createElement('aside');
     el.setAttribute('aria-label', 'Chat');
     el.innerHTML = `<button type="button" class="tc-back" data-reader-window-control data-x>${TC.BACK_TO_BOOK_HTML}</button>
-      <div class="tc-body"><div class="tc-thread" id="thread"></div><div class="tc-fade" aria-hidden="true"></div><button type="button" class="tc-latest" id="latest" hidden>${TC.ICONS.down}Latest</button></div>
+      <div class="tc-body"><div class="tc-thread" id="thread"></div><div class="tc-fade" aria-hidden="true"></div></div>
       <p class="tc-status" id="chatNotice" hidden></p>
       <form class="tc-compose" id="composer">
         <div class="byob-tray" id="tray" hidden></div>
@@ -7403,7 +7749,6 @@ function openChat(opts = {}) {
           <button type="button" class="tc-mark byob-attach" id="attachBtn" aria-label="Attach an image" title="Attach an image (or paste one)" hidden>${TC.ICONS.attach}</button>
           <button type="submit" class="tc-mark tc-send" aria-label="Send" hidden>${TC.ICONS.send}</button>
         </div>
-        <p class="tc-hint" id="chatHint" hidden>${esc(TC.HINT_TEXT)}</p>
       </form>`;
     el.querySelector('[data-x]').onmousedown = e => e.preventDefault();
     el.querySelector('[data-x]').onclick = closeChat;
@@ -7419,29 +7764,27 @@ function openChat(opts = {}) {
     // An attached picture in the thread (at most 120px tall): the picture large.
     el.addEventListener('click', e => { const b = e.target.closest('[data-chatimg]'); if (b) { e.preventDefault(); openChatImage(b.dataset.chatimg) } });
     el.querySelector('.tc-compose').addEventListener('pointerdown', e => { if (e.target.closest('button, a, input, textarea, .tc-attached, .byob-tray')) return; e.preventDefault(); input.focus() });
-    const thread = el.querySelector('#thread'), latest = el.querySelector('#latest');
+    const thread = el.querySelector('#thread');
     TC.bindPress(thread);
     // A scroll the reader made (not one we made) lets go of the held question's place.
-    thread.addEventListener('scroll', () => { if (chat.pinTop != null && Math.abs(thread.scrollTop - chat.pinTop) > 1) chat.pinTop = null; latestState() }, { passive: true });
-    latest.onclick = () => TC.scrollToLatest(thread);
+    thread.addEventListener('scroll', () => { if (chat.pinTop != null && Math.abs(thread.scrollTop - chat.pinTop) > 1) chat.pinTop = null }, { passive: true });
     // The clean window stays a full screen while the sheet settles (phone chrome, keyboard);
     // a held question stays where it was put (the keyboard closing after send), unless the reader scrolled.
     if (typeof ResizeObserver !== 'undefined') new ResizeObserver(() => {
       if (holdQuestion(chat.pinTop != null)) return;
-      const space = thread.querySelector('.tc-spacer'); if (!space || !chat.fresh) return; const atEnd = thread.scrollHeight - thread.scrollTop - thread.clientHeight < 8; space.style.height = thread.clientHeight + 'px'; if (atEnd) { thread.scrollTop = thread.scrollHeight; latestPill().placed(thread) }
+      const space = thread.querySelector('.tc-spacer'); if (!space || !chat.fresh) return; const atEnd = thread.scrollHeight - thread.scrollTop - thread.clientHeight < 8; space.style.height = thread.clientHeight + 'px'; if (atEnd) thread.scrollTop = thread.scrollHeight;
     }).observe(thread);
     el.querySelector('#attachBtn').onclick = () => el.querySelector('#attachInput').click();
     el.querySelector('#attachInput').onchange = e => { addAttachments([...e.target.files]); e.target.value = '' };
     el.addEventListener('dragover', e => { if ([...(e.dataTransfer?.items || [])].some(i => i.kind === 'file')) { e.preventDefault(); el.classList.add('byob-drop-over') } });
     el.addEventListener('dragleave', e => { if (!el.contains(e.relatedTarget)) el.classList.remove('byob-drop-over') });
     el.addEventListener('drop', e => { el.classList.remove('byob-drop-over'); const files = [...(e.dataTransfer?.files || [])].filter(f => f.type.startsWith('image/')); if (files.length) { e.preventDefault(); addAttachments(files) } });
-    el.querySelector('form').onsubmit = e => { e.preventDefault(); const q = input.value.trim() || (chat.attach.length ? (chat.attach.length > 1 ? 'Explain these images.' : chat.attach[0].snip ? 'Explain this figure.' : 'Explain this image.') : ''); if (!q) return; input.value = ''; input.dispatchEvent(new Event('input')); el.querySelector('#chatHint').hidden = true; ask(q) };
+    el.querySelector('form').onsubmit = e => { e.preventDefault(); const q = input.value.trim() || (chat.attach.length ? (chat.attach.length > 1 ? 'Explain these images.' : chat.attach[0].snip ? 'Explain this figure.' : 'Explain this image.') : ''); if (!q) return; input.value = ''; input.dispatchEvent(new Event('input')); ask(q) };
     chat.el = el;
   }
   const el = chat.el;
   el.className = `lab-ask tc ${isPhone() ? 'is-phone-sheet byob-phone-chat' : 'is-desktop-companion is-chat byob-dock'}`;
   // The keyboard hint, once per session, on the desktop.
-  if (!isPhone() && TC.takeHint((() => { try { return sessionStorage } catch { return null } })())) el.querySelector('#chatHint').hidden = false;
   el.removeAttribute('style');
   if (isPhone()) el.removeAttribute('data-reader-window'); else { el.dataset.readerWindow = 'true'; el.dataset.companion = 'chat' }
   if (!el.isConnected) root.appendChild(el);
@@ -7468,15 +7811,15 @@ function openChat(opts = {}) {
 }
 function closeChat() {
   if (marginOn()) { if (col.open === 'whole') { if (col.sheet) closeSheet2(); else openCard(null) } return }
-  chat.ctl?.abort(); chat.live = null; speechSynthesis?.cancel?.(); chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
+  chat.ctl?.abort(); chat.live = null; chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
 function setTalk(on) {
   chat.talk = on;
   if (!chat.el) return;
   chat.el.classList.toggle('byob-talk-on', on);
   const note = chat.el.querySelector('#chatNotice');
   note.hidden = !on;
-  note.textContent = on ? (isPhone() ? 'Talk: use your keyboard’s microphone to speak; answers are read aloud.' : 'Talk: answers are read aloud. Speak with your system’s dictation, or type.') : '';
-  if (!on) speechSynthesis?.cancel?.();
+  // Answers come in text: never the browser's voice (Anders, 22 Oct 2026).
+  note.textContent = on ? (isPhone() ? 'Talk: use your keyboard’s microphone to speak.' : 'Talk: speak with your system’s dictation, or type.') : '';
 }
 function placeOf(t) { return t.page ? (isEpub() ? (toc.entries.find(e => e.page === t.page)?.label || 'Section ' + t.page) : 'Page ' + t.page) : null }
 function renderAttached() {
@@ -7487,9 +7830,8 @@ function renderAttached() {
 }
 /* After a question is sent the thread scrolls once, so the question sits near the top
    with a little of the previous answer above it; the answer then grows downward under
-   it and nothing follows it (Anders, 10 Oct 2026). The "Latest" pill shows only once the
-   reader scrolled up and more arrived below (TC.latestPill, Anders, 12 Oct 2026), never
-   right after a send. A scroll the reader makes is never undone. */
+   it and nothing follows it (Anders, 10 Oct 2026). No "Latest" pill (Anders, 17 Nov 2026).
+   A scroll the reader makes is never undone. */
 function heldRow() {
   const thread = chat.el?.querySelector('#thread');
   return chat.anchor == null || !thread ? null : thread.querySelector(`[data-turn="${chat.anchor}"]`);
@@ -7500,15 +7842,8 @@ function holdQuestion(place) {
   const thread = chat.el.querySelector('#thread');
   const top = TC.questionTop(thread, row);
   TC.fitSpacer(thread, top);
-  if (place) { thread.scrollTop = top; chat.pinTop = thread.scrollTop; latestPill().placed(thread) }
-  latestState();
+  if (place) { thread.scrollTop = top; chat.pinTop = thread.scrollTop }
   return true;
-}
-function latestPill() { return chat.pill || (chat.pill = TC.latestPill()) }
-function latestState() {
-  const thread = chat.el?.querySelector('#thread'); if (!thread) return;
-  // Under a held question, the reader has scrolled once its place was let go (pinTop).
-  chat.el.querySelector('#latest').hidden = !latestPill().shows(thread, chat.anchor == null || chat.pinTop == null);
 }
 function renderThread() {
   if (marginOn()) { marginLayout(); if (col.sheet?.dataset.id === 'whole') drawWhole(col.sheet, { sheet: true }); return }
@@ -7533,12 +7868,10 @@ function renderThread() {
     // Held: place the question once; after that the view stays where it is.
     const place = chat.placeAnchor; chat.placeAnchor = false;
     holdQuestion(place);
-    if (!place) { thread.scrollTop = kept; latestState() }
+    if (!place) thread.scrollTop = kept;
     return;
   }
   thread.scrollTop = thread.scrollHeight;
-  latestPill().placed(thread);
-  el.querySelector('#latest').hidden = true;
 }
 /** An answer arriving: its text so far, the new words fading in; the view does not follow it. */
 function liveText(text) {
@@ -7555,8 +7888,8 @@ function liveText(text) {
   const kept = thread.scrollTop;
   md_.innerHTML = md(text); thread.querySelector('.tc-a.is-streaming .tc-wait')?.remove();
   TC.fadeInWords(md_, chat.live.seen || (chat.live.seen = []));
-  if (!holdQuestion(false) && !TC.isAway(thread)) { thread.scrollTop = thread.scrollHeight; latestPill().placed(thread) }
-  else { thread.scrollTop = kept; latestState() }
+  if (!holdQuestion(false) && !TC.isAway(thread)) thread.scrollTop = thread.scrollHeight;
+  else thread.scrollTop = kept;
 }
 async function ask(question, display) {
   const s = await ai();
@@ -7611,23 +7944,12 @@ async function ask(question, display) {
     chat.live = null;
     chat.turns.push({ role: 'assistant', content: res.text + note, at: Date.now() });
     saveTurns(); renderThread();
-    if (chat.talk) speak(res.text);
   } catch (e) {
     chat.live = null;
     if (e?.code === 'cancelled') return;
     chat.turns[chat.turns.length - 1].failed = errorCopy(e);
     if (e?.text) chat.turns.push({ role: 'assistant', content: e.text + '\n\n(Interrupted.)', at: Date.now() });
     saveTurns(); renderThread();
-  }
-}
-function speak(text) {
-  if (!('speechSynthesis' in window)) return;
-  speechSynthesis.cancel();
-  for (const part of text.replace(/[*_#`]/g, '').split(/(?<=[.!?])\s+/)) {
-    if (!part.trim()) continue;
-    const u = new SpeechSynthesisUtterance(part);
-    u.rate = prefs.rate; const v = pickVoice(); if (v) u.voice = v;
-    speechSynthesis.speak(u);
   }
 }
 
@@ -7657,7 +7979,6 @@ async function askSummary(display, prompt, pdf = null) {
     const res = await s(`You are Tinct's reading companion. ${bookLine()}\n\n${prompt}`, { signal: ctl.signal, cache: { gcTime: 86400000 }, ...(pdf ? { pdf } : {}), onText: ({ text }) => liveText(text) });
     chat.live = null;
     chat.turns.push({ role: 'assistant', content: res.text, at: Date.now() }); saveTurns(); renderThread();
-    if (chat.talk) speak(res.text);
   } catch (e) {
     chat.live = null;
     if (e?.code === 'cancelled') return;
@@ -7720,19 +8041,13 @@ async function catchUp() {
   for (let i = blocks.length - 1; i >= 0; i--) if (i >= recent || store.get(`catchup:${state.key}:${blocks[i].from}-${blocks[i].to}`)) await load(i);
 }
 
-/* ---------- Read aloud: streamed by the device, nothing stored ---------- */
-const narr = { active: false, page: 1, sentences: [], index: 0, spans: [], word: null, gen: 0 };
-// A voice for the book's language: the chosen one when it speaks it, else the device's own for it.
-const speaks = lang => v => String(v.lang || '').toLowerCase().split(/[-_]/)[0] === lang;
-function bookVoices() {
-  const vs = speechSynthesis?.getVoices?.() || [], fits = vs.filter(speaks(bookLang()));
-  return fits.length ? fits : vs.filter(speaks('en'));
-}
-function pickVoice() {
-  const vs = speechSynthesis.getVoices(), fits = speaks(bookLang());
-  const chosen = vs.find(v => v.name === prefs.voice);
-  return (chosen && fits(chosen) ? chosen : null) || vs.find(v => fits(v) && v.default) || vs.find(fits) || chosen || null;
-}
+/* ---------- Read aloud: Tinct's narration for every book (Anders, 22 Oct 2026: never the browser's own voice) ----------
+   A reader's own EPUB or PDF is read aloud as Tinct's books are in the margin view: by the book reader's player in the
+   page that frames this one (src/lab/marginPreview/useMarginListen.ts, the own-book route with the reader's Audio
+   settings voice), with js/tinct-listen.js drawing Play, the transport and the word-by-word highlight. This file hands
+   it the book's text (ownListen): its chapters (an EPUB's, or a PDF's pages) and their paragraphs, each with the text
+   nodes it is drawn in, so the word heard is highlighted where it stands (the Custom Highlight API; the page's DOM is
+   not touched). Without that page (a phone opening the frame by itself) there is no read aloud. */
 const furniture = new Map();
 // A line's text with its numbers as one mark: "Page 3 of 7" and "Page 4 of 7" are the same footer.
 const numberless = s => s.replace(/\d+/g, '#');
@@ -7765,6 +8080,14 @@ function joinItems(text, prev, it) {
   if (/\p{L}-$/u.test(text) && /^\p{Ll}/u.test(it.str)) return { text: text.slice(0, -1), join: '' };
   return { text, join: ' ' };
 }
+// A sentence ends at . ! or ? followed by a space (so 2.5 and e.g. stay whole), or at the end of the text.
+// -> [{ from, to, text }] of `text` from `base` on, without the ones that are not prose (a table's numbers)
+function splitSentences(text, base = 0) {
+  const sentences = [], re = /[\s\S]+?(?:[.!?]+["’”)\]]*(?=\s+[^a-z0-9\s])|$)/g; let m;
+  const spoken = t => { const toks = t.split(/\s+/).filter(Boolean); return toks.length < 4 || toks.filter(w => /[A-Za-z]{3,}/.test(w)).length / toks.length >= 0.4 };
+  while ((m = re.exec(text))) { const s = m[0]; if (s.trim().length > 1 && spoken(s)) sentences.push({ from: base + m.index, to: base + m.index + s.length, text: s.trim() }) ; if (m.index === re.lastIndex) re.lastIndex++ }
+  return sentences;
+}
 async function preparePage(n) {
   const { items } = await pageText(n);
   const skip = await Promise.all(items.map(it => isFurniture(n, it.str)));
@@ -7779,92 +8102,76 @@ async function preparePage(n) {
     text += it.str; prev = it;
   });
   text += ' ';
-  const sentences = [];
-  // A sentence ends at . ! or ? followed by a space (so 2.5 and e.g. stay whole), or at the end of the page.
-  const re = /[\s\S]+?(?:[.!?]+["’”)\]]*(?=\s+[^a-z0-9\s])|$)/g; let m;
-  const spoken = t => { const toks = t.split(/\s+/).filter(Boolean); return toks.length < 4 || toks.filter(w => /[A-Za-z]{3,}/.test(w)).length / toks.length >= 0.4 };
-  while ((m = re.exec(text))) { const s = m[0]; if (s.trim().length > 1 && spoken(s)) sentences.push({ from: m.index, to: m.index + s.length, text: s.trim() }) ; if (m.index === re.lastIndex) re.lastIndex++ }
-  return { text, offsets, sentences };
+  return { text, offsets, sentences: splitSentences(text) };
 }
-function setPlay(playing) { $('playBtn').innerHTML = playing ? ICON.pause : ICON.play; $('playBtn').setAttribute('aria-label', playing ? 'Pause' : 'Play'); root.dataset.playing = String(playing) }
-function clearPaint() { document.querySelectorAll('.text-layer .is-reading, .text-layer .is-word').forEach(s => s.classList.remove('is-reading', 'is-word')) }
-function paintNarration(charIndex) {
-  clearPaint();
-  const p = state.pages[narr.page - 1]; if (!p?.spans || !narr.prep) return;
-  const s = narr.prep.sentences[narr.index]; if (!s) return;
-  for (const o of narr.prep.offsets) {
-    if (o.to <= s.from || o.from >= s.to) continue;
-    const span = p.spans[o.i]; if (!span) continue;
-    span.classList.add('is-reading');
-    if (charIndex != null) { const abs = s.from + charIndex; if (abs >= o.from && abs < o.to) span.classList.add('is-word') }
+// An EPUB chapter's paragraphs: its blocks' shown text (a heading, a caption, an epigraph's line are each one), with
+// the text nodes they are drawn in. The book's own contents page (hidden) and a note's superscript number are not read.
+const NARR_BLOCK = 'p, h1, h2, h3, h4, h5, h6, li, blockquote, figcaption, caption, dt, dd, td, th, pre, div, section, aside, header, footer, figure, body';
+const spokenText = t => /[\p{L}\p{N}]/u.test(t);
+function epubParagraphs(p) {
+  if (p.sheet.classList.contains('is-toc')) return [];
+  const walker = document.createTreeWalker(p.pg, NodeFilter.SHOW_TEXT), out = [];
+  let cur = null, block = null;
+  for (let node; (node = walker.nextNode());) {
+    const el = node.parentElement, v = node.nodeValue;
+    if (!el || !v || el.closest('script, style, rt, [hidden], [aria-hidden="true"]') || el.checkVisibility?.() === false) continue;
+    if (el.closest('sup') && /^\W*[\dívxlc*†‡§]+\W*$/i.test(v)) continue;
+    const b = el.closest(NARR_BLOCK) || p.pg;
+    if (b !== block) { if (!v.trim()) continue; block = b; cur = { text: '', list: [] }; out.push(cur) }
+    cur.list.push({ node, at: cur.text.length }); cur.text += v;
   }
+  return out.filter(x => spokenText(x.text)).map(x => ({ text: x.text, nodes: () => x.list }));
 }
-async function startNarration() {
-  if (!('speechSynthesis' in window)) { toast('Read-aloud is not available in this browser.'); return }
-  const gen = ++narr.gen;
-  narr.active = true; narr.paused = false; setPlay(true); renderTransport();
-  if (!narr.prep) { const place = currentPlace(); narr.page = place.page; narr.index = 0 }
-  while (narr.active && gen === narr.gen && narr.page <= state.pages.length) {
-    if (!narr.prep) narr.prep = await preparePage(narr.page);
-    if (gen !== narr.gen) return;
-    if (narr.index >= narr.prep.sentences.length) { narr.page++; narr.index = 0; narr.prep = null; if (narr.page <= state.pages.length) goTo({ page: narr.page, frac: 0 }, true); renderTransport(); continue }
-    const s = narr.prep.sentences[narr.index];
-    const pg = state.pages[narr.page - 1];
-    const span = pg?.spans?.[narr.prep.offsets.find(o => o.to > s.from)?.i];
-    if (span) { const r = span.getBoundingClientRect(), sr = $('scroll').getBoundingClientRect(); if (r.top < sr.top + 40 || r.bottom > sr.bottom - 120) $('scroll').scrollBy({ top: r.top - sr.top - sr.height * 0.3, behavior: 'smooth' }) }
-    paintNarration();
-    const ok = await new Promise(resolve => {
-      const u = new SpeechSynthesisUtterance(s.text);
-      u.rate = prefs.rate; u.lang = bookLang(); const v = pickVoice(); if (v) u.voice = v;
-      const offsetInText = narr.prep.text.slice(s.from, s.to).indexOf(s.text[0]);
-      u.onboundary = e => { if (gen === narr.gen) paintNarration(e.charIndex + Math.max(0, offsetInText)) };
-      u.onend = () => resolve(true); u.onerror = () => resolve(false);
-      speechSynthesis.speak(u);
-    });
-    if (!ok || gen !== narr.gen || !narr.active) return;
-    narr.index++;
-    renderTransport();
+// A PDF page's paragraphs: its read-aloud text (preparePage: running heads and page numbers left out, words broken
+// over a line joined), in runs of whole sentences of at most about 700 characters, drawn in its text layer's spans
+// (found when the page is drawn: a page far from the view has none until it is).
+const PDF_PARAGRAPH = 700;
+async function pdfParagraphs(p) {
+  const prep = await preparePage(p.n), out = [];
+  let run = null;
+  for (const s of prep.sentences) {
+    if (run && run.to === s.from && s.to - run.from <= PDF_PARAGRAPH) { run.to = s.to; continue }
+    run = { from: s.from, to: s.to }; out.push(run);
   }
-  if (gen === narr.gen) { narr.active = false; setPlay(false); renderTransport() }
+  return out.map(({ from, to }) => ({ text: prep.text.slice(from, to), nodes: () => (p.spans ? prep.offsets.filter(o => o.to > from && o.from < to).map(o => ({ node: p.spans[o.i]?.firstChild, at: o.from - from })).filter(x => x.node) : []) }))
+    .filter(x => spokenText(x.text));
 }
-function pauseNarration() { narr.active = false; narr.paused = true; narr.gen++; try { speechSynthesis.cancel() } catch {}; setPlay(false); renderTransport() }
-function stopNarration() { narr.active = false; narr.paused = false; narr.prep = null; narr.gen++; try { speechSynthesis.cancel() } catch {}; setPlay(false); clearPaint(); renderTransport() }
-function togglePlay() {
-  if (!hasBook()) { toast('Open a book first.'); return }
-  if (isEpub()) { toast('Read aloud works in PDFs for now.'); return }
-  if (hasNoText() && !narr.active) return;
-  if (narr.active) return pauseNarration();
-  // Resume where it paused while the page is still in view; otherwise start at the page on screen.
-  if (narr.prep) { const place = currentPlace(); if (Math.abs(place.page - narr.page) > 1) { narr.prep = null } }
-  startNarration();
+const ownParas = new WeakMap();
+/** A page's (an EPUB's chapter's) paragraphs as read aloud, kept for the page as drawn. */
+function ownParagraphs(n) {
+  const p = state.pages[n - 1]; if (!p) return Promise.resolve([]);
+  if (!ownParas.has(p)) ownParas.set(p, p.kind === 'epub' ? Promise.resolve(epubParagraphs(p)) : pdfParagraphs(p).catch(() => []));
+  return ownParas.get(p);
 }
-async function jumpNarration(page, index) {
-  const wasPlaying = narr.active || narr.paused;
-  narr.gen++; try { speechSynthesis.cancel() } catch {}
-  narr.page = page; narr.prep = await preparePage(page); narr.index = Math.max(0, Math.min(index, narr.prep.sentences.length - 1));
-  goTo({ page, frac: 0 }, true);
-  if (wasPlaying) startNarration(); else { paintNarration(); renderTransport() }
+/** The page that frames this one, when it plays this book: a Tinct book's preview (previewHost) or a reader's own book. */
+function listenHost() {
+  if (state.preview) return previewHost();
+  const hex = new URLSearchParams(location.search).get('userBook');
+  try { const p = window.parent !== window && window.parent.TinctMarginPreview; return hex && p?.own && p.listen && String(p.bookId || '').endsWith(hex) ? p : null } catch { return null }
 }
-async function skip(dir) {
-  // About 15 seconds of speech: ~14 characters a second at 1×.
-  if (!narr.prep) return;
-  let budget = 15 * 14 * prefs.rate, page = narr.page, prep = narr.prep, i = narr.index;
-  while (budget > 0) {
-    i += dir;
-    if (i < 0) { if (page <= 1) { i = 0; break } page--; prep = await preparePage(page); i = prep.sentences.length - 1; if (i < 0) { i = 0; continue } }
-    if (i >= prep.sentences.length) { if (page >= state.pages.length) { i = prep.sentences.length - 1; break } page++; prep = await preparePage(page); i = 0; if (!prep.sentences.length) continue }
-    budget -= prep.sentences[i]?.text.length || 0;
-  }
-  jumpNarration(page, i);
+/** Leaving the book, or its text changing (a PDF's pages and its Tinct text): an own book's narration is put away. */
+function stopNarration() { if (!state.preview) try { listenHost()?.listen?.stop?.() } catch {} }
+/** For js/tinct-listen.js: an own book's chapters and paragraphs. `version` changes when another text is opened. */
+window.TinctOwnListen = {
+  version: 0,
+  ready: () => hasBook() && !state.preview && !!state.pages.length,
+  canPlay: () => !hasNoText(),
+  title: () => state.title,
+  chapters: () => state.pages.filter(p => p.kind !== 'epub' || !p.sheet.classList.contains('is-toc')).map(p => ({ number: p.n, title: ownChapterTitle(p.n) })),
+  paragraphs: ownParagraphs,
+  sheet: n => state.pages[n - 1]?.sheet || null,
+  pageAt: () => currentPlace().page,
+  pageOf: node => { const sheet = (node?.nodeType === 1 ? node : node?.parentElement)?.closest?.('.epub-sheet, .pdf-sheet'); return sheet ? Number(sheet.dataset.page) : null },
+  lastPage: () => state.pages.length,
+};
+function ownChapterTitle(n) {
+  if (isEpub()) return chapterAt(n)?.label || state.title;
+  const ch = chapterAt(n);
+  return `${ch ? ch.label + ' · ' : ''}p. ${pageLabel(n)}`;
 }
-async function seekChapter(frac) {
-  const ch = chapterAt(narr.page) || chapterAt(currentPlace().page);
-  const r = ch ? chapterRange(ch) : { from: 1, to: state.pages.length };
-  const exact = r.from + frac * (r.to - r.from + 1), page = Math.min(r.to, Math.floor(exact));
-  const prep = await preparePage(page);
-  jumpNarration(page, Math.floor((exact - page) * prep.sentences.length));
-}
-$('playBtn').onclick = togglePlay;
+const ownListenChanged = () => { window.TinctOwnListen.version++; dispatchEvent(new Event('tinct-own-listen')) };
+// While a book is read aloud, a click on the page does not open its cards (as before, for an own book).
+const listening = () => !state.preview && root.dataset.playing === 'true';
 // Clicking a saved highlight offers Explain, Chat, Remove highlight and Copy.
 // Where the click began, not where its target is now: a click on the bar's note redraws the bar as
 // the note editor, so by the time the click reaches here its button has left the page. Read from
@@ -7872,7 +8179,7 @@ $('playBtn').onclick = togglePlay;
 // and closed the editor (notes lost on crowded pages, the Gloss test, 15 Oct 2026).
 const clickedIn = (e, sel) => e.composedPath().some(n => n instanceof Element && n.matches(sel));
 document.addEventListener('click', e => {
-  if (!getSelection().isCollapsed || narr.active || clickedIn(e, '.selection-popup, .lab-ask, .lab-header, .mr-float, .byob-hot-chip')) return;
+  if (!getSelection().isCollapsed || listening() || clickedIn(e, '.selection-popup, .lab-ask, .lab-header, .mr-float, .byob-hot-chip')) return;
   // A PDF's highlight opens the margin's bar for it: its colour, its note.
   // A passage with a card opens that card (and folds the others); a highlight's note opens its note card.
   if (marginOn()) {
@@ -7899,12 +8206,6 @@ function tapPage(x, y, { click = false, inScroll = !click } = {}) {
   // Focus view: a click on the page away from the pop-up window closes it, as the book reader's does.
   else if (!card && col.open && marginMode() === 'focus' && inScroll) openCard(null);
 }
-// Tapping a word while reading aloud moves the narration there.
-document.addEventListener('click', e => {
-  const span = e.target.closest?.('.text-layer span'); if (!span || !(narr.active || narr.paused) || !getSelection().isCollapsed) return;
-  const page = Number(span.closest('.pdf-sheet').dataset.page), i = Number(span.dataset.i);
-  preparePage(page).then(prep => { const o = prep.offsets.find(x => x.i === i); jumpNarration(page, Math.max(0, prep.sentences.findIndex(s => s.to > (o?.from || 0)))) });
-});
 
 /* ---------- Files out ---------- */
 // A picture of the selected passage goes with every passage action on a PDF (Anders, 15 Oct 2026;
@@ -7976,6 +8277,24 @@ function epubSpot() {
   const word = el.getBoundingClientRect().top >= top ? 0 : Math.min(words.length - 1, firstPast(wordSpans(el).length, k => wordRect(el, k)?.bottom ?? -Infinity, top));
   return { para: i, word: Math.max(0, word), quote: words.slice(Math.max(0, word), Math.max(0, word) + 14).join(' ').slice(0, 120) };
 }
+/*
+ * The place to keep (pos:<key>, the Tinct text's place, the margin view's): epubSpot, but the word the view was brought
+ * to while it is still on the top line (the same rule as epubHoldNow). epubSpot alone reads a line's first word, and a
+ * paragraph whose first line is at the top as its word 0: a restore to word 4 of a paragraph was kept as word 0, and a
+ * reload opened there and wrote 3:0 back to the account (22 Oct 2026).
+ */
+function epubPlace() {
+  const s = epubSpot(); if (s.para == null) return s;
+  const page = currentPlace().page, h = epubHold, x = h.exact;
+  const held = x && x.top != null && x.page === page && x.para === s.para && Math.abs($('scroll').scrollTop - x.top) <= 2 ? x
+    : h.spot && h.page === page && h.spot.para === s.para ? h.spot : null;
+  const word = held ? held.word || 0 : 0;
+  if (!held || word <= s.word) return s;
+  const a = epubSpotTop(page, { para: s.para, word }), b = epubSpotTop(page, s);
+  if (a == null || b == null || Math.abs(a - b) >= 2) return s;
+  const el = state.pages[page - 1] && epubParas(state.pages[page - 1])[s.para], words = el ? wordsOf(el.textContent) : [];
+  return { para: s.para, word, quote: words.slice(word, word + 14).join(' ').slice(0, 120) };
+}
 /** Scroll until `measure()` (a client y, or null) stands `at` of the way down the view; the chapters measure as they come near. */
 function epubSettle(measure, at = 0, tries = 6) {
   return new Promise(resolve => {
@@ -7998,13 +8317,19 @@ function epubGoSpot(n, para, word = 0) {
   // A little room above the paragraph, never as much as reaches the paragraph before (the phone's gap is small): its
   // last line would then be at the top, and the place read back as that paragraph's end.
   const room = () => { const prev = epubParas(p)[para - 1], top = el.getBoundingClientRect().top; return prev ? Math.max(0, Math.min(10, top - prev.getBoundingClientRect().bottom - 2)) : 10 };
+  // A chapter's start (paragraph 0, word 0): its heading and its pills stay in view above it, as a first open shows
+  // them (a reload at "Letter 1" came back with the heading under the top bar). A Tinct book's heading is the
+  // chapter's .tb-head, above paragraph 0; an EPUB's own heading is paragraph 0 itself. The place still reads back as
+  // paragraph 0, word 0: that paragraph is the first one in view.
+  const head = !para && !word ? p.pg.querySelector('.tb-head') : null;
+  const headTop = () => { const r = head?.isConnected ? head.getBoundingClientRect() : null; return r && r.height && r.top < el.getBoundingClientRect().top ? r.top - 24 : null };
   // The word itself, while the view stays where it was brought (the preview hands it on: previewSpot).
   const exact = state.preview ? (epubHold.exact = { page: n, para, word, top: null }) : null;
   // While the view is on its way there, the spot held is this one: the settle's own scrolls (through chapters still
   // measuring as they come near) never stand in for it, so a reflow meanwhile (text size, width, a late font) comes
   // back here, not to a line passed on the way.
   epubHold.settling++;
-  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - room())).then(() => { if (exact && epubHold.exact === exact) exact.top = $('scroll').scrollTop })
+  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : headTop() ?? el.getBoundingClientRect().top - room())).then(() => { if (exact && epubHold.exact === exact) exact.top = $('scroll').scrollTop })
     .finally(() => { epubHold.settling = Math.max(0, epubHold.settling - 1) });
   return true;
 }
@@ -8131,7 +8456,7 @@ function epubShare() {
 async function epubToTinct() {
   const hex = hexOf(state.key);
   savePlaceNow();
-  store.set('pos:' + state.key, { ...(store.get('pos:' + state.key) || {}), ...currentPlace(), ...epubSpot(), at: Date.now() });
+  store.set('pos:' + state.key, { ...(store.get('pos:' + state.key) || {}), ...currentPlace(), ...epubPlace(), at: Date.now() });
   epubShare();
   store.set('epub-view:' + hex, 'text');
   leavePlace(); stopNarration();
@@ -8147,14 +8472,66 @@ async function epubToTinct() {
    place, highlights, notes and cards. EPUBs never sync, so nothing reaches the account, the book reader's
    place or its highlights. Its units are the book's chapters; each request sends the passage with its chapter
    and the contents (marginDocument's EPUB part). Leaving goes through the top window. */
-const PREVIEW_NORMAL = 'Back to normal reader';
+// The book reader, named as the book reader's Book settings names it (its Classic reader switch, 22 Oct 2026).
+const PREVIEW_NORMAL = 'Classic reader';
 const previewWindow = () => (state.preview && window.top) || window;
 /** `book`: TinctEpub.parse's shape (js/tinct-book.js builds it); `preview`: { bookId, editionLabel, normalHref }. -> opened */
 async function openRegistered(book, preview) {
   showReader();
+  // The first chapter first: the chapters still on their way are waited for by what reads their text (pageText).
+  state.whole = preview.whole ? { key: 'preview:' + preview.bookId, done: preview.whole } : null;
   await openEpub(null, book.title, 'preview:' + preview.bookId, { parsed: book, preview });
   return hasBook() && state.preview === preview;
 }
+/*
+ * The first chapter first (Anders, 22 Oct 2026: "when we do the switch we also need to do the first chapter trick"):
+ * a Tinct book opens with the chapters at its place (js/tinct-book.js), the others drawn as placeholders of about
+ * their length, and they are drawn in here as the whole book arrives, a few at a time. The view holds to the pixel:
+ * the paragraph at its top stands where it stood (a chapter above it that grows or shrinks moves the scroll by as
+ * much, before anything is painted), so neither the place nor the page moves. `list`: [{ page, node, text }].
+ */
+function viewAnchor() {
+  const top = $('scroll').getBoundingClientRect().top + 1, p = state.pages[currentPlace().page - 1]; if (!p) return null;
+  const paras = epubParas(p), i = firstPast(paras.length, k => paras[k].getBoundingClientRect().bottom, top);
+  return paras[i] || p.sheet;
+}
+const fillHold = { el: null, top: 0, scroll: -1 };
+function fillRegistered(list) {
+  if (!state.preview || !isEpub() || !state.pages.length) return false;
+  const s = $('scroll'), anchor = viewAnchor();
+  // Held across the batches while the view is still where the last one left it: a scroll is whole pixels in Safari,
+  // and the fractions left by each batch would add up.
+  const before = !anchor ? 0 : anchor === fillHold.el && s.scrollTop === fillHold.scroll ? fillHold.top : anchor.getBoundingClientRect().top;
+  // The word a restore brought the view to stays the place while the view stays there (previewSpot): its scroll moves
+  // with the view, whether moved here or by the browser's own scroll anchoring (Chrome) as the chapters grow.
+  const x = epubHold.exact, held = x?.top != null && Math.abs(s.scrollTop - x.top) <= 2;
+  epubHold.reflow++;
+  for (const { page, node, text } of list) {
+    const p = state.pages[page - 1]; if (!p) continue;
+    p.pg.replaceChildren(node);
+    delete p.paras; delete p.paraStarts;
+    state.texts.set(page, { text, items: [] });
+  }
+  if (anchor?.isConnected) {
+    const d = anchor.getBoundingClientRect().top - before;
+    if (Math.abs(d) >= 0.5) s.scrollTop += d;
+    Object.assign(fillHold, { el: anchor, top: before, scroll: s.scrollTop });
+  }
+  if (held && epubHold.exact === x) x.top = s.scrollTop;
+  setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 150);
+  return true;
+}
+/** Every chapter drawn in: the marks, the margin and the strip see the whole book. */
+function wholeRegistered() {
+  if (!state.preview) return;
+  state.whole = null;
+  flowMarks();
+  try { renderEpubHighlights() } catch {}
+  strip?.open();
+  marginLayout({ fresh: true });
+}
+window.TinctReader.fillRegistered = fillRegistered;
+window.TinctReader.wholeRegistered = wholeRegistered;
 /** Before you start, Catch me up, Recap and Quiz me work on chapters: one unit per chapter. */
 for (const type of ['touchmove', 'wheel', 'keydown']) addEventListener(type, () => { if (primer.held) { primer.held = false; requestAnimationFrame(marginLayout) } }, { capture: true, passive: true });
 function previewUnits() {
@@ -8210,8 +8587,8 @@ function flowMarks() {
       el.className = 'tb-mark is-' + where; el.setAttribute('role', 'group'); el.dataset.unit = u.key;
       el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${phrase}`);
       el.dataset.k = where === 'start' ? 'Starting' : 'End of'; el.dataset.n = name;
-      const said = { primer: `Before you start: ${TinctMargin.triggerLine(u)}`, catchup: `Catch me up on what came before ${phrase}`, recap: `Recap ${phrase}`, quiz: `Quiz me on ${phrase}`, note: `Note on ${phrase}` };
-      el.innerHTML = (where === 'start' ? (nothingBefore(u) ? ['primer'] : ['primer', 'catchup']) : ['recap', 'quiz', 'note']).map(id => `<button type="button" class="tb-pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(said[id])}"></button>`).join('');
+      const said = { primer: `Before you start: ${TinctMargin.triggerLine(u)}`, catchup: `Catch me up on what came before ${phrase}`, recap: `Summary of ${phrase}`, quiz: `Quiz me on ${phrase}`, note: `Note on ${phrase}` };
+      el.innerHTML = (where === 'start' ? ['primer'] : ['recap', 'quiz', 'note']).map(id => `<button type="button" class="tb-pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(said[id])}"></button>`).join('');
       return el;
     };
     const head = ch.querySelector(':scope > .tb-head');
@@ -8331,7 +8708,6 @@ applyLayout();
 document.fonts?.ready.then(applyLayout);
 applyTheme(); state.trim = !!prefs.trim;
 pdfWorker();
-if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => {};
 if (window.TinctAI) TinctAI.onSignedOut = () => toast('Your Tinct sign-in has expired, so this answer used the guest allowance. Sign in again to use your own.');
 document.body.dataset.view = 'start';
 // A book's own address opens straight into the reader (start.js boot opens the book).

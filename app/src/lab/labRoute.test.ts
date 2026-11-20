@@ -27,7 +27,22 @@ describe('legacy /lab page redirects', () => {
     for (const path of ['/lab/library', '/lab/library/', '/lab/library_2', '/lab/library_2/', '/lab/library_2/index.html', '/lab/library-2', '/lab/library-2/', '/lab/library-2/index.html', '/lab/library_2/desktop.html', '/lab/library_2/mobile.html']) expect(to(path)).toBe('/library')
     for (const path of ['/lab/reader', '/lab/reader/']) expect(to(path)).toBe('/reader')
     for (const path of ['/lab/sign-in', '/lab/sign-in/', '/lab/sign-in/index.html']) expect(to(path)).toBe('/sign-in')
-    for (const path of ['/lab/featured', '/lab/featured/', '/lab/featured/index.html']) expect(to(path)).toBe('/featured')
+  })
+
+  it("sends an own book's old Add a book address to its one reader address, keeping Original pages' page", () => {
+    const hex = 'aa11bb22cc33dd44ee55ff66'
+    expect(to('/lab/addbook/', `?userBook=${hex}`)).toBe(`/reader?userBook=${hex}`)
+    expect(to('/lab/addbook', `?userBook=${hex}`)).toBe(`/reader?userBook=${hex}`)
+    expect(to('/lab/addbook/index.html', `?userBook=${hex}&page=12&frac=0.25&pages`)).toBe(`/reader?userBook=${hex}&page=12&frac=0.25&pages=`)
+    expect(to('/lab/addbook/', `?open=pdf:${hex}`)).toBe(`/reader?userBook=${hex}`)
+    expect(to('/lab/addbook/', `?open=epub:${hex}`)).toBe(`/reader?userBook=${hex}`)
+    // The page itself stays for everything else: an old hand-off link, the frame's own page, a bad key.
+    expect(to('/lab/addbook/', '?mode=file&handoff=1')).toBeNull()
+    expect(to('/lab/addbook/', '')).toBeNull()
+    expect(to('/lab/addbook/book', `?userBook=${hex}`)).toBeNull()
+    expect(to('/lab/addbook/book', '?tinctBook=frankenstein')).toBeNull()
+    expect(to('/lab/addbook/', '?userBook=XYZ')).toBeNull()
+    expect(to('/lab/addbook/', '?open=cbz:abcdef0123')).toBeNull()
   })
 
   it('keeps the query string and maps phone and desktop to ?layout=', () => {

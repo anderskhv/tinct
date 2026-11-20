@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   changes:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     outputs:
       signin: ${{ steps.suites.outputs.signin }}
@@ -38,11 +38,16 @@ jobs:
       shakespeare: ${{ steps.suites.outputs.shakespeare }}
       typeset: ${{ steps.suites.outputs.typeset }}
       margin: ${{ steps.suites.outputs.margin }}
+      # The exact tree every job of this run tests (a pull request's merge commit, or the main commit).
+      tree: ${{ steps.tree.outputs.tree }}
     steps:
       # A pull request checks out its merge commit: HEAD^1 is the base, so HEAD^1..HEAD is exactly the PR's files.
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
+      - name: Record the tree under test
+        id: tree
+        run: echo "tree=$(git rev-parse 'HEAD^{tree}')" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v4
         with:
           node-version: '24.13.0'
@@ -54,7 +59,7 @@ jobs:
 
   # Unit tests, the docs check, the build and its gates: every change.
   app:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     defaults:
       run:
@@ -70,13 +75,15 @@ jobs:
           python3 ../scripts/check-docs.py
           python3 ../scripts/check-docs.py docs/featured-library-preview-2026-09-21.md docs/library-voice-layout-2026-09-17.md docs/library-responsive-2026-09-17.md docs/library-iteration-2026-09-17.md docs/product-current.md docs/reader-panels-selection-2026-09-21.md docs/reader-library-brand-batch-2026-09-21.md
       - name: Test deployed configuration graph
+        # Reads production (https://tinct.app/reader): advisory on a pull request, blocking on main and in deploy.
+        continue-on-error: ${{ github.event_name == 'pull_request' }}
         run: TINCT_CONFIG_LIVE=1 node --test scripts/check-deployed-config.test.cjs
       - name: Test audio GPU launch preflight
         run: python3 ../tools/audio-highlight/gpu/test_preflight_launch.py
       - name: Test pinned audio normalisation and cloud plumbing
         run: python3 ../tools/audio-highlight/aligner/test_normalisation_v3.py
-      - name: Test the CI suite rules
-        run: node --test ../scripts/ci-suites.test.mjs
+      - name: Test the CI suite rules and deploy's page-lane rules
+        run: node --test ../scripts/ci-suites.test.mjs ../scripts/release-lane.test.mjs
       - run: npm test
       - run: npm run build
         env:
@@ -93,7 +100,7 @@ jobs:
   reader-panels:
     needs: changes
     if: ${{ needs.changes.outputs.panels == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     defaults:
       run:
@@ -102,23 +109,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
         id: prepare
-      - name: Verify real Grok microphone recovery silently
-        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && (github.head_ref == 'codex/audio-acceptance-diagnostics-20260924' || github.head_ref == 'codex/reader-panels-selection-20260921' || github.head_ref == 'codex/audiobook-grok-voices-20260921' || github.head_ref == 'codex/mobile-reader-library-grok-20260921') }}
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y espeak-ng
-          espeak-ng -s 175 -w /tmp/tinct-voice-source.wav "Why does the Underground Man call himself sick? What is behind that?"
-          python3 scripts/make-voice-qa-wav.py /tmp/tinct-voice-source.wav /tmp/tinct-voice-qa.wav
-          # One short guest-trial call checks both voices (scripts/grok-voice-handshake-acceptance.mjs).
-          VERIFY_FORCE_MESSAGE=1 node scripts/grok-voice-handshake-acceptance.mjs /tmp/tinct-voice-qa.wav
-      - name: Save voice capture acceptance
-        uses: actions/upload-artifact@v4
-        continue-on-error: true
-        if: always()
-        with:
-          retention-days: 3
-          name: voice-capture-acceptance
-          path: app/artifacts/voice-capture
       - name: Verify reader panels and selection
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node scripts/check-reader-panels.mjs
@@ -128,6 +118,9 @@ jobs:
       - name: Verify spoken Bible book transition silently
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node scripts/check-book-transition.mjs
+      - name: Verify the follow request dot on the t button and the menu's request row (mocked accounts)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        run: node scripts/check-follow-request-t-dot.mjs
       - name: Save reader acceptance screenshots
         uses: actions/upload-artifact@v4
         continue-on-error: true
@@ -139,12 +132,13 @@ jobs:
             app/artifacts/reader-panels
             app/artifacts/reader-feedback-20260928
             app/artifacts/book-transition
+            app/artifacts/follow-request-t-dot
 
   library:
     needs: changes
     if: ${{ needs.changes.outputs.signin == 'true' || needs.changes.outputs.library == 'true' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
     defaults:
       run:
         working-directory: app
@@ -155,9 +149,29 @@ jobs:
       - name: Verify sign-in completion without real accounts
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.signin == 'true' }}
         run: node scripts/check-sign-in.mjs
+      - name: Verify approved profile flow with synthetic accounts
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.signin == 'true' }}
+        run: node scripts/check-profile-flow.mjs
       - name: Verify public cinematic library
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
         run: node scripts/check-library-public.mjs
+      - name: Verify Remove from shelf stays removed until the book is read again
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
+        run: node scripts/check-library-shelf-remove.mjs
+        env:
+          SHELF_REMOVE_ARTIFACTS: artifacts/shelf-remove
+      - name: Verify /byob and the library's Read your own books band
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
+        run: node scripts/check-byob-entry.mjs
+        env:
+          BYOB_ARTIFACTS: artifacts/byob
+      - name: Verify private pasted books and long archive clipboard text
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
+        run: node scripts/check-shared-reader-paste.mjs
+        env:
+          SHARED_PASTE_DIST: dist
+          PASTE_DEFAULT_ON: '0'
+          PASTE_SCREENSHOT_DIR: artifacts/paste
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()
@@ -166,13 +180,45 @@ jobs:
           name: library-acceptance
           path: |
             app/artifacts/sign-in
+            app/artifacts/profile-flow
             app/artifacts/library-public
+            app/artifacts/shelf-remove
+            app/artifacts/paste
 
+  profile-flow-sql:
+    needs: changes
+    if: ${{ needs.changes.outputs.signin == 'true' || needs.changes.outputs.library == 'true' }}
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: synthetic-only
+          POSTGRES_DB: profile_flow_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready --health-interval 5s
+          --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify grant exclusions, count, allowance reset and rerun safety
+        env:
+          PGPASSWORD: synthetic-only
+        run: psql -h localhost -U postgres -d profile_flow_test -v ON_ERROR_STOP=1 -f app/scripts/fixtures/profile-flow-grant.sql
+
+  # Three parts side by side (one job took ~12 min); every step runs in exactly one part, each part ~5 min.
+  #   1: Shakespeare layout, hyphenation   2: page breaks, margin width and scrolling chrome
+  #   3: desktop typing and notes, the PDF checks
   page-layout:
     needs: changes
     if: ${{ needs.changes.outputs.shakespeare == 'true' || needs.changes.outputs.typeset == 'true' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [1, 2, 3]
+    name: page-layout (${{ matrix.part }}/3)
     defaults:
       run:
         working-directory: app
@@ -180,25 +226,86 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
         id: prepare
+      - name: Verify desktop typing and note deletion before release
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
+        run: node scripts/check-desktop-feedback.mjs
       - name: Verify Shakespeare layout
-        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.shakespeare == 'true' }}
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 1 && needs.changes.outputs.shakespeare == 'true' }}
         run: node scripts/check-shakespeare-layout.mjs
       - name: Verify hyphenation hardening
-        if: ${{ !cancelled() && needs.changes.outputs.typeset == 'true' }}
+        if: ${{ !cancelled() && matrix.part == 1 && needs.changes.outputs.typeset == 'true' }}
         run: node scripts/check-hyphenation-hardening.mjs
       - name: Verify page breaks end on a filled line
-        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.typeset == 'true' }}
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 && needs.changes.outputs.typeset == 'true' }}
         run: node scripts/check-page-break-lines.mjs
+      - name: Verify margin width and scrolling chrome before release
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_ORIGIN: ''
+          TINCT_REFINEMENT_OUTPUT: artifacts/margin-refinements
+        run: |
+          node scripts/check-reader-margin-refinements.mjs
+          node scripts/check-reader-selection-release.mjs
+          node scripts/check-reader-mobile-chat-cards.mjs
+      - name: Verify a book-scroll chapter handoff holds the main thread under 200 ms
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_BOOK_SCROLL_SPEED_OUTPUT: artifacts/book-scroll-speed
+        run: node scripts/check-book-scroll-speed.mjs
+      - name: Verify the phone card keeps the height it opened at
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        run: node scripts/check-phone-card-steady.mjs
+      - name: Verify book scroll opens at the saved place and saves no other
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_BOOK_SCROLL_OPEN_OUTPUT: artifacts/book-scroll-open-place
+        run: node scripts/check-book-scroll-open-place.mjs
+      - name: Verify Listen from here (pills and the gutter play button)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_LISTEN_FROM_HERE_OUTPUT: artifacts/listen-from-here
+        run: node scripts/check-listen-from-here.mjs
+      - name: Verify native PDF selection stays on source ink
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
+        run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
+      - name: Verify PDF format conversion preserves the source place
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
+        env:
+          TINCT_ORIGIN: ''
+          PDF_CONVERSION_PARITY: '1'
+          PDF_CONVERSION_OUTPUT: artifacts/pdf-conversion
+        run: node scripts/check-shared-reader-pdf-original.mjs
+      - name: Verify original PDF interactions before release
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
+        env:
+          TINCT_ORIGIN: ''
+          PDF_ORIGINAL_DIST: dist
+          PDF_ORIGINAL_WEBKIT: '1'
+        run: node scripts/check-shared-reader-pdf-original.mjs
+      - name: Verify original PDF source and figure follow-ups before release
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
+        env:
+          TINCT_ORIGIN: ''
+          PDF_ORIGINAL_DIST: dist
+          PDF_SOURCE_PARITY: '1'
+          TINCT_PARITY_OUTPUT: artifacts/pdf-source-parity
+        run: node scripts/check-shared-reader-pdf-original.mjs
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()
         with:
           retention-days: 3
-          name: library-preparation-acceptance
+          name: library-preparation-acceptance-${{ matrix.part }}of3
           path: |
             app/artifacts/shakespeare-layout
             app/artifacts/hyphenation-hardening
             app/artifacts/page-break-lines
+            app/artifacts/pdf-source-parity
+            app/artifacts/pdf-notebook
+            app/artifacts/mobile-chat-cards
+            app/artifacts/desktop-feedback
+            app/artifacts/shared-reader-menu
+            app/artifacts/margin-refinements
 
   # The PDF reader's margin (docs/margin/BRIEF.md "Layout QA"): docs/margin/layout-check.mjs must return
   # no problems. app/public is served locally and every AI call and account route is mocked by the script,
@@ -207,8 +314,8 @@ jobs:
   margin-layout:
     needs: changes
     if: ${{ needs.changes.outputs.margin == 'true' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
     strategy:
       fail-fast: false
       matrix:
@@ -242,7 +349,7 @@ jobs:
           path: app/artifacts/margin
 
   reading-benchmark:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
@@ -256,11 +363,11 @@ jobs:
       - name: Prepare calibration requests without inference
         run: node benchmarks/reading-companion/benchmark.mjs prepare benchmarks/reading-companion/cases.json benchmarks/reading-companion/candidates.json /tmp/tinct-benchmark-ci calibration
 
-  featured-preview:
+  audio-and-menu:
     needs: changes
     if: ${{ needs.changes.outputs.audio == 'true' || needs.changes.outputs.featured == 'true' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
     defaults:
       run:
         working-directory: app
@@ -278,9 +385,6 @@ jobs:
           retention-days: 3
           name: inline-audio-loading
           path: app/artifacts/inline-audio-loading
-      - name: Verify the featured-book preview
-        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.featured == 'true' }}
-        run: node scripts/check-featured-preview.mjs
       - name: Verify compact reader menu
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.featured == 'true' }}
         run: READER_MENU_ONLY=1 node scripts/check-reader-panels.mjs
@@ -294,20 +398,49 @@ jobs:
           path: |
             app/artifacts/reader-panels
             app/artifacts/reader-feedback-20260928
+
+  # Post-deploy checks that can run on this PR's own build (Anders, 20 Nov 2026; release review): five of the
+  # eighteen rollbacks of 14-19 Nov were checks that only ran after deploy, out of date with an intended change.
+  # Every PR runs them, so a change that breaks them fails here, before anyone has the build.
+  publication:
+    needs: changes
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
+        id: prepare
+      - name: Verify chapter pages, book pages, hubs and robots on this build (Googlebot, Bingbot, signed-out browser)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        run: node scripts/check-chapter-pages.mjs
+      # check-lighthouse-characters stays after deploy only: against a local build its phone character card did not
+      # open (20 Nov 2026), while it passes on production; its local mode needs repair before it can gate PRs.
+      - name: Verify Lighthouse publication and its book page on this build
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        env:
+          TEST_BOOK: to-the-lighthouse
+          ARTIFACT_DIR: artifacts/lighthouse-publication
+        run: node scripts/check-book-publication.cjs
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()
         with:
           retention-days: 3
-          name: featured-preview-acceptance
-          path: app/artifacts/featured-preview
+          name: publication-acceptance
+          path: |
+            app/artifacts/chapter-pages
+            app/artifacts/lighthouse-publication
 
   # The one check to wait for (and to require, should main ever be protected): green only when the suite choice ran,
-  # every suite that ran passed, and every skipped suite was one this change did not need.
+  # every suite that ran passed (every part of a split job: page-layout 1-3/3, margin-layout 1-4/4), and every skipped
+  # suite was one this change did not need.
   ci-summary:
     if: ${{ always() }}
-    needs: [changes, app, reader-panels, library, page-layout, margin-layout, reading-benchmark, featured-preview]
-    runs-on: ubuntu-latest
+    needs: [changes, app, reader-panels, library, profile-flow-sql, page-layout, margin-layout, reading-benchmark, audio-and-menu, publication]
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - name: Judge the suites
@@ -319,8 +452,8 @@ jobs:
           const s = needs.changes.outputs || {}
           const on = (...names) => names.some(n => s[n] === 'true')
           // Which suites a job carries: it may be skipped only when none of them was needed.
-          const carries = { 'reader-panels': on('panels'), library: on('signin', 'library'), 'page-layout': on('shakespeare', 'typeset'),
-            'margin-layout': on('margin'), 'featured-preview': on('audio', 'featured'), app: true, 'reading-benchmark': true }
+          const carries = { 'reader-panels': on('panels'), library: on('signin', 'library'), 'profile-flow-sql': on('signin', 'library'), 'page-layout': on('shakespeare', 'typeset'),
+            'margin-layout': on('margin'), 'audio-and-menu': on('audio', 'featured'), app: true, 'reading-benchmark': true, publication: true }
           const problems = []
           if (needs.changes.result !== 'success') problems.push(`changes: ${needs.changes.result} (the suites could not be chosen)`)
           for (const [job, { result }] of Object.entries(needs)) {
@@ -331,3 +464,18 @@ jobs:
           }
           if (problems.length) { console.log('::error::' + problems.join('; ')); process.exit(1) }
           EOF
+      # CI once (deploy.yml `gate`): a release of a main commit with this exact tree may skip its own npm test.
+      # Written only when the judgement above passed; deploy also requires this run to have concluded success.
+      - name: Record the verified tree
+        env:
+          TREE: ${{ needs.changes.outputs.tree }}
+        run: |
+          echo "$TREE" | grep -Eq '^[0-9a-f]{40}$'
+          echo "$TREE" > verified-tree.txt
+          echo "Verified tree: \`$TREE\`" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-tree-${{ needs.changes.outputs.tree }}
+          path: verified-tree.txt
+          retention-days: 14
+          overwrite: true

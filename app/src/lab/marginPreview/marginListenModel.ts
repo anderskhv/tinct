@@ -11,6 +11,7 @@
 import { editionHold } from '../../data/editionAvailability'
 import { isAudioHeld } from '../../data/audioAvailability'
 import { usesRetainedBella } from '../../narration/bellaRetention'
+import { narrationLanguage } from '../../narration/narrationCore'
 import { resolvedAudioIsAvailable } from '../../utils/audioEditionSelection'
 import { narrationPilotApplies, resolveNarrationVoice, type NarrationPilotInfo } from '../labNarration'
 import { effectiveLabAudioEdition, type LabPrefs } from '../labPrefs'
@@ -60,7 +61,7 @@ export function marginNarrationPlan(input: {
   const held = Boolean(editionHold(bookId, editionKey))
   const kokoroHeld = Boolean(editionHold(bookId, kokoro)) || isAudioHeld(bookId, kokoro, chapterNumber)
   const kokoroUnavailable = kokoroHeld || !resolvedAudioIsAvailable(kokoro, editionKey, editions)
-  const unavailable = held || (info?.provider === 'grok' && editionKey.endsWith('-en')
+  const unavailable = held || (info?.provider === 'grok' && narrationLanguage(bookId, editionKey) !== null
     ? !narration
     : narration || retainedBella ? false : kokoroUnavailable)
   return {
@@ -68,6 +69,33 @@ export function marginNarrationPlan(input: {
     narration,
     audioEdition: narration || retainedBella ? editionKey : kokoro,
     unavailable,
+  }
+}
+
+/**
+ * An own book's narration in the margin reader (Anders, 22 Oct 2026: every book is read aloud with Tinct's voice):
+ * the book reader's own-book rule (LabApp ownNarration), so the margin reader hears what the book reader would.
+ * The server must read own books (`ownBooks`), and only a signed-in reader can ask it; the voice is the reader's
+ * Audio settings choice. A reader without Premium is told by the route (402), as in the book reader.
+ */
+export function marginOwnNarrationPlan(input: { prefs: LabPrefs; info: NarrationPilotInfo | null; signedIn: boolean }): MarginNarrationPlan {
+  const { info, signedIn } = input
+  const voice = info ? resolveNarrationVoice(input.prefs, info.voices, { signedIn }) : null
+  const narration = info?.enabled === true && info.ownBooks === true && signedIn && voice != null
+  return { voice: narration ? voice : null, narration, audioEdition: 'own', unavailable: !narration }
+}
+
+/** One chapter of an own book as the margin reader hands it over (reader.js ownListen): its title and paragraphs. */
+export interface MarginOwnChapter { number: number; title: string; paragraphs: string[] }
+
+/** What the player needs of an own book's chapter, in the shape the book reader's source has (userBookSource.ts). */
+export function marginOwnSource(chapter: MarginOwnChapter, chapters: Array<{ number: number; title: string }>) {
+  return {
+    chapterNumber: chapter.number,
+    chapterLabel: chapter.title,
+    paragraphs: chapter.paragraphs,
+    followParagraphs: chapter.paragraphs.map((text, index) => ({ index, text })),
+    chapters: chapters.map(c => ({ number: c.number, title: c.title })),
   }
 }
 

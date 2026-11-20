@@ -20,6 +20,34 @@
 }
 html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar-soft: #ccc; --lab-pcard-fill: #fff; }
 
+/* The shared-reader candidate uses the colours measured in the actual reader previews.
+   The switch is URL-only; production's unflagged bars retain their established palette. */
+.lab[data-shared-reader="true"][data-theme="light"] {
+  --lab-pbar: #252525; --lab-pbar-ink: #f4f2ed; --lab-pbar-soft: #b5b0a8;
+  --lab-pbar-sep: rgba(244, 242, 237, .19); --lab-selection-tint: #e4d4a9;
+}
+.lab[data-shared-reader="true"][data-theme="white"] {
+  --lab-pbar: #252525; --lab-pbar-ink: #f4f2ed; --lab-pbar-soft: #b5b0a8;
+  --lab-pbar-sep: rgba(244, 242, 237, .19); --lab-selection-tint: #ecdfb8;
+}
+.lab[data-shared-reader="true"][data-theme="book"] {
+  --lab-pbar: #382a20; --lab-pbar-ink: #f2e5ce; --lab-pbar-soft: #c2b4a0;
+  --lab-pbar-sep: rgba(242, 229, 206, .2); --lab-selection-tint: #d9bf86;
+}
+.lab[data-shared-reader="true"][data-theme="dark"] {
+  --lab-pbar: #363431; --lab-pbar-ink: #f3eee5; --lab-pbar-soft: #c0b8ae;
+  --lab-pbar-sep: rgba(243, 238, 229, .18); --lab-selection-tint: #5c4a2e;
+}
+html[data-eink="true"] .lab[data-shared-reader="true"] {
+  --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar-soft: #ccc;
+  --lab-pbar-sep: #fff; --lab-selection-tint: #ddd;
+}
+.lab[data-shared-reader="true"] .lab-passage.is-reading .lab-hearing-word.is-selecting,
+.lab[data-shared-reader="true"] .lab-passage.is-reading .lab-highlight-gap.is-selecting { background: var(--lab-selection-tint); }
+.lab[data-shared-reader="true"] .lab-passage ::selection { background: var(--lab-selection-tint); color: var(--lab-ink); }
+html[data-eink="true"] .lab[data-shared-reader="true"] .lab-pbar,
+html[data-eink="true"] .lab[data-shared-reader="true"] .lab-pmore { box-shadow: none; border: 1px solid #fff; }
+
 /* ---------- the bar ---------- */
 .lab .lab-pbar {
   /* Only as wide as its buttons (LabPhoneBar places it at the selection), never past the window less 10px a side. */
@@ -91,13 +119,25 @@ html[data-eink="true"] .lab .lab-pcard-scrim { background: rgba(255, 255, 255, .
 /* Under the card, down past the window's foot: its own paper, so nothing of the page shows below it while it rides
    on the keyboard or slides up. */
 .lab .lab-pcard::after { content: ""; position: absolute; left: 0; right: 0; top: calc(100% - 1px); height: 100vh; background: inherit; pointer-events: none; }
+/* The shared reader reuses the passage card service for Quiz on desktop.
+   Keep its existing phone sheet on phones; on desktop it is a contained card. */
+.lab[data-shared-reader="true"].is-desktop .lab-pcard-dock { padding: 24px; box-sizing: border-box; align-items: flex-end; }
+.lab[data-shared-reader="true"].is-desktop .lab-pcard {
+  width: min(440px, 100%); max-height: min(70vh, 680px); margin: 0; border: 1px solid var(--lab-pcard-hair);
+  border-radius: 18px; padding: 12px 20px 18px;
+}
+.lab[data-shared-reader="true"].is-desktop .lab-pcard::after { content: none; }
+html[data-eink="true"] .lab[data-shared-reader="true"].is-desktop .lab-pcard { box-shadow: none; }
 .lab .lab-pcard.is-tall { height: min(78dvh, calc(var(--lab-pcard-room, 100dvh) - 96px)); max-height: none; }
 .lab .lab-pcard.is-tall[data-keyboard] { height: calc(var(--lab-pcard-room, 100dvh) - 12px); }
 /* A field in a card has the focus: the narration bar is put away (it sat on the keyboard, over the card's room). */
 html[data-pcard-typing] .lab .lab-phone-bar { visibility: hidden; }
+/* An AI card opens at its kind's expected height (learnt on this device) and never shrinks on its own
+   (LabPhoneCard, inline height, data-held): the text fills it downward from the top, a shorter answer leaves blank
+   space above the follow-up field, which stays at the foot, and a longer one grows the card up to its cap. */
 @keyframes lab-pcard-up { from { transform: translateY(100%); } to { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .lab .lab-pcard { animation: none; } }
-html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: none; }
+html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: none; transition: none; }
 .lab .lab-pcard button { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .lab .lab-pcard-drag { flex: none; touch-action: none; cursor: grab; }
 .lab .lab-pcard-grab { width: 36px; height: 5px; margin: 0 auto 8px; border-radius: 3px; background: var(--lab-pcard-hair); }
@@ -105,7 +145,20 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; font-style: italic; color: var(--lab-ink-muted); }
 .lab .lab-pcard .lab-pcard-bin { display: grid; place-items: center; min-width: 32px; min-height: 32px; color: var(--lab-ink-faint); }
 .lab .lab-picon { width: 16px; height: 16px; fill: none !important; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; display: block; }
-.lab .lab-pcard-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 12px; -webkit-overflow-scrolling: touch; }
+/* Every card's top is one slim row, as Chat's (Anders, 11 Nov 2026: Explain's top still "ate" the card): the grip, the
+   title and its bin on 28px, the answer right under it. The bin keeps a 44px tap area around its 28px row. */
+.lab .lab-pcard { padding-top: 6px; }
+.lab .lab-pcard .lab-pcard-grab { margin-bottom: 2px; }
+.lab .lab-pcard:not([data-kind="chat"]) > .lab-pcard-drag { margin-bottom: -6px; }
+.lab .lab-pcard .lab-pcard-head .lab-pcard-bin { position: relative; min-height: 28px; }
+.lab .lab-pcard .lab-pcard-head .lab-pcard-bin::before { content: ""; position: absolute; inset: -8px -6px; }
+/* Text scrolled up under the title fades out instead of showing a half-cut line (LabPhoneCard sets data-scrolled). */
+.lab .lab-pcard-body[data-scrolled] { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22px); mask-image: linear-gradient(to bottom, transparent 0, #000 22px); }
+.lab .lab-pcard-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 12px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+/* More of the answer below the card's foot (the card keeps its height, 14 Nov 2026): the last lines fade out. */
+.lab .lab-pcard-body[data-more] { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 36px), transparent); }
+/* No scroll bar over the answer: iOS drew its indicator into the text (iPhone, 10 Nov 2026). The card still scrolls. */
+.lab .lab-pcard-body::-webkit-scrollbar, .lab .lab-pcard-body *::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .lab .lab-pcard-body-inner { display: flex; flex-direction: column; gap: 12px; }
 .lab .lab-pcard-answer { font-size: 17px; line-height: 1.5; overflow-wrap: anywhere; }
 .lab .lab-pcard-answer p, .lab .lab-pcard-answer .lab-markdown p { margin: 0 0 .55em; }
@@ -147,8 +200,11 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard-follow .lab-pcard-mic[aria-pressed="true"] { color: var(--lab-ink); }
 .lab .lab-pcard-follow .lab-pcard-talkbtn { display: grid; place-items: center; width: 30px; height: 30px; color: var(--lab-ink-muted); }
 .lab .lab-pcard-follow .lab-pcard-talkbtn svg { display: block; }
-.lab .lab-pcard-send { display: grid !important; place-items: center; width: 30px; height: 30px; border-radius: 8px !important; background: var(--lab-ink) !important; color: var(--lab-pcard-fill) !important; }
-.lab .lab-pcard-send:disabled { opacity: .3; cursor: default; }
+/* One send control everywhere: the plain arrow, in ink when there is something to send, dimmed when not (2 Nov 2026). */
+.lab .lab-pcard-send { display: grid !important; place-items: center; width: 30px; height: 30px; border-radius: 0 !important; background: transparent !important; color: var(--lab-ink) !important; }
+.lab .lab-pcard-send:disabled { color: var(--lab-ink-muted) !important; opacity: .5; cursor: default; }
+/* The field is width:100%, so the buttons keep their 30px square instead of shrinking beside it (iPhone, 29 Oct 2026). */
+.lab .lab-pcard-follow-box > button { flex: none; }
 
 /* A note: always editable, no box until it has the focus; its words upright, as written (Anders, 20 Oct 2026). */
 .lab .lab-pcard-note {
@@ -159,16 +215,32 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard-note:focus { box-shadow: inset 0 -1.5px 0 var(--lab-accent, #1f4a5c); outline: 0 !important; }
 .lab .lab-pcard-note::placeholder { color: var(--lab-ink-faint); opacity: 1; }
 
-/* Define: the dictionary's and the passage's senses, in the card's type. */
+/* Define: the dictionary's and the passage's senses, in the card's type and ink. A card open in the desktop margin or
+   the notebook too: lab.css's popup inks are fixed near-black, unreadable on dark paper (18 Nov 2026). */
+.lab :is(.lab-pcard, .source-margin-content) :is(.popup-define-word, .popup-define-list, .popup-define-result, .popup-define-status, .popup-define-note, .popup-define-empty) { color: var(--lab-ink); }
 .lab .lab-pcard .popup-define-list { margin: 0; padding-left: 18px; font-size: 17px; line-height: 1.45; display: grid; gap: 4px; }
 .lab .lab-pcard .popup-character, .lab .lab-pcard .popup-define-result, .lab .lab-pcard .popup-define-status { font-size: 17px; line-height: 1.45; }
 .lab .lab-pcard .popup-character small { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; color: var(--lab-ink-faint); }
 .lab .lab-pcard .popup-character p { margin: 4px 0 0; }
+/* A person or place card under its headword is flush with it, as a word's is (Anders, 17 Nov 2026): the role or
+   "Place" sits on the headword's line, so the body needs no indent. The card body scrolls and fades itself, so a
+   definition does not scroll or fade again inside it and its last line is never cut off. The same holds for a card
+   open in the desktop margin. */
+.lab :is(.lab-pcard, .source-margin-content) .popup-character { padding: 0; }
+.lab :is(.lab-pcard, .source-margin-content) .popup-define-result { flex: none; overflow: visible; padding-bottom: 0; -webkit-mask-image: none; mask-image: none; }
+.lab .lab-pcard .lab-pcard-character { padding: 0; }
+.lab .lab-pcard .lab-pcard-character .popup-character-heading button,
+.lab .lab-pcard .lab-pcard-character > button { font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+.lab .lab-pcard .lab-pcard-character .popup-character-gallery section > button { padding: 8px 0; }
 
 /* Chat in the card: the chat's own thread and composer. */
 .lab .lab-pcard.is-tall .lab-pcard-body { overflow: hidden; gap: 0; }
 .lab .lab-pcard .lab-ask.is-phone-sheet { flex: 1 1 auto; min-height: 0; background: transparent; }
-.lab .lab-pcard .lab-ask.is-phone-sheet .lab-ask-chrome { background: transparent; padding-bottom: 0; }
+/* The card keeps the home-indicator inset at its own foot (and drops it on the keyboard), so the chat's own
+   v2 sheet inset, max(14px, safe area), would float the field ~34px above the keys (Anders, 4 Nov 2026:
+   "text sits weirdly here, too low", Wisdom 12, keyboard up). Same weight as that v2 rule, and later. */
+.lab .lab-pcard .lab-ask.is-phone-sheet .lab-ask-chrome,
+.lab[data-chrome-version="v2"] .lab-pcard .lab-ask.is-phone-sheet .lab-ask-chrome { background: transparent; padding-bottom: 0; }
 .lab .lab-pcard .lab-ask.is-phone-sheet .lab-ask-composer { padding-bottom: 0; }
 .lab .lab-pcard .lab-ask .tc-fade { display: none; }
 .lab .lab-pcard .tc { --tc-paper: var(--lab-pcard-fill); --tc-pad: 0px; }
@@ -206,3 +278,85 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 /* Pills sit 8px apart everywhere (iPhone feedback, 21 Oct 2026: "too much spacing between the pills"); each keeps a
    44px tap height from its own padding (lab.css .lab-chapter-preview, .lab-chapter-end-actions button). */
 .lab[data-chrome-version="v2"] .lab-unit-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; }
+
+/* Desktop's typing hint is quiet; touch cards keep their existing layout. */
+
+/* Desktop source marks span each visual line, including inter-word spaces. */
+.lab .lab-passage .lab-hearing-word.is-card-passage { text-decoration: none; }
+.lab .lab-passage .lab-hearing-line:has(.is-card-passage) { position: relative; }
+.lab-card-passage-line { position: absolute; height: 0; border-bottom: 1.5px solid color-mix(in srgb, var(--lab-ink) 45%, transparent); pointer-events: none; user-select: none; }
+
+/* Chat lives in the same paper card as Explain. Its thread scrolls within
+   that card; it does not bring a second panel or a blank screen of padding. */
+.lab .lab-pcard[data-kind="chat"] > .lab-pcard-body { overflow: hidden; gap: 0; }
+/* Chat's top is one slim row: the grip, then the title and close on 28px (Anders, 10 Nov 2026: the top "eats too
+   much"). Typing, the grip goes: the card is not dragged then. The thread's opening chapter divider stays: without it
+   the thread's spacer sizing loops (ResizeObserver, check-reader-mobile-chat-cards). */
+.lab .lab-pcard[data-kind="chat"] { gap: 4px; }
+.lab .lab-pcard[data-kind="chat"][data-keyboard] .lab-pcard-grab { display: none; }
+.lab .lab-pcard[data-kind="chat"] .lab-ask.tc.tc.is-phone-card-chat {
+  --tc-paper: var(--lab-pcard-fill); --tc-ink: var(--lab-ink); --tc-muted: var(--lab-ink-muted);
+  --tc-faint: var(--lab-ink-faint); --tc-pad: 0px; --tc-answer: 17px; --tc-question: 16px;
+  --tc-hair: var(--lab-pcard-hair); --tc-bubble: var(--lab-pcard-field);
+  position: relative; inset: auto; width: 100%; height: auto !important; min-height: 0 !important;
+  max-height: none; flex: 1 1 auto; border-radius: 0; background: transparent !important; box-shadow: none !important;
+}
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-body { flex: 0 1 auto; min-height: 0; clip-path: none; }
+/* The thread's scroll bar sits in the card's side margin, not over the last letters of a line
+   ("skeptics" was cut by it; Anders, 2 Nov 2026). The text column keeps its width. */
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-body { margin-right: -12px; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat.is-empty .tc-body { display: none; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-thread { flex: 0 1 auto; max-height: calc(var(--lab-pcard-room, 100dvh) * .5); padding: 4px 12px 8px 0; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-thread > :first-child { margin-top: 0; }
+/* Held while an answer streams (LabPhoneCard): the thread takes the card's height, the composer stays at its foot,
+   and the answer fills downward under the held question (LabAskPane's spacer) instead of raising the card. */
+.lab .lab-pcard[data-kind="chat"][data-held] .is-phone-card-chat .tc-body { flex: 1 1 auto; }
+.lab .lab-pcard[data-kind="chat"][data-held] .is-phone-card-chat .tc-thread { flex: 1 1 auto; max-height: none; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-fade { display: none; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-chrome { flex: none; padding: 0; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-compose { padding: 8px 0 0; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-field { gap: 4px; min-height: 42px; padding: 5px 5px 5px 12px; border: 1px solid var(--lab-pcard-hair); border-radius: 12px; background: var(--lab-pcard-field); }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input { align-self: center; min-height: 22px; padding: 0; font: 400 16px/22px 'EB Garamond', Georgia, serif; }
+/* One line of text sits in the middle of the field, as in a card's follow-up box; it sat on the field's foot under the 30px icons (iPhone, 10 Nov 2026). */
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input::placeholder { color: var(--lab-ink-muted); opacity: .8; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-field .tc-mark { margin-bottom: 2px; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-latest { bottom: 8px; }
+
+/* ---------- the start actions (approved option C, Anders 9 Nov 2026) ---------- */
+/* One soft pill under the book's title and author (Primer · Summary · Reading angle) and a smaller, lighter one under
+   each chapter heading (Primer · Summary · Quiz): paper-tone fill, no border, hairlines between segments, full width.
+   Measured with the heading by the paginators (the same markup in their copies), so the page never reflows. */
+.lab[data-chrome-version="v2"] .lab-start-pill {
+  display: flex; align-items: stretch; width: 100%; box-sizing: border-box; margin: 14px 0 0;
+  border-radius: 999px; overflow: hidden;
+  background: color-mix(in srgb, var(--lab-ink, #1b1712) 6%, transparent);
+}
+.lab[data-chrome-version="v2"] .lab-start-seg {
+  flex: 1 1 auto; min-width: 0; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  padding: 0 8px; border: 0; background: transparent; color: var(--lab-ink, #1b1712);
+  font: 500 14px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: normal; text-transform: none;
+  cursor: pointer; -webkit-tap-highlight-color: transparent; white-space: nowrap;
+}
+.lab[data-chrome-version="v2"] .lab-start-seg + .lab-start-seg { box-shadow: inset 1px 0 0 color-mix(in srgb, var(--lab-ink, #1b1712) 12%, transparent); }
+.lab[data-chrome-version="v2"] .lab-start-seg:active { background: color-mix(in srgb, var(--lab-ink, #1b1712) 6%, transparent); }
+.lab[data-chrome-version="v2"] .lab-start-seg:focus-visible { outline: 2px solid var(--tui-accent, #1f6f78); outline-offset: -2px; }
+.lab[data-chrome-version="v2"] .lab-start-seg:disabled { opacity: .5; cursor: wait; }
+.lab[data-chrome-version="v2"] .lab-start-seg > span { white-space: nowrap; }
+.lab[data-chrome-version="v2"] .lab-start-icon { flex: 0 0 auto; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.lab[data-chrome-version="v2"] .lab-start-icon circle[r=".6"], .lab[data-chrome-version="v2"] .lab-start-icon circle[r=".5"] { fill: currentColor; }
+/* A Tinct book's opening on the phone: its title and author over the pill, as an own book's opening is drawn. */
+.lab[data-chrome-version="v2"] .lab-book-opening.is-tinct .lab-book-opening-title { font-family: 'EB Garamond', Georgia, serif; }
+
+/* ---------- the simple first page (Anders, 16 Nov 2026) ---------- */
+/* Under the first chapter's heading, until the reader first uses Ask, Explain or Simplify: one quiet line on how to,
+   in the UI face. It is part of the heading, so the paginators measure it with the page (LabChapterHeading). */
+.lab[data-chrome-version="v2"] .lab-first-hint-line {
+  flex: 1 0 100%; box-sizing: border-box; margin: 4px 0 10px; padding: 8px 12px; border-radius: 12px;
+  background: color-mix(in srgb, var(--lab-ink, #1b1712) 5%, transparent);
+  font: 400 14px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: normal; text-transform: none;
+  color: var(--lab-ink-muted, #6a6256); text-align: left; user-select: none; -webkit-user-select: none;
+}
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-first-hint-line { background: transparent; box-shadow: inset 0 0 0 1px currentColor; }
+/* The first chapter's end offers the reading angle (16 Nov 2026): quieter than Summary and Quiz me beside it. */
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-angle { color: var(--lab-ink-muted); }
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-angle > span { padding: 0; }

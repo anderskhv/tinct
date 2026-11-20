@@ -16,8 +16,8 @@
  * fields); a changed one is stamped now. Pure.
  */
 import { highlightOffCurrentText } from '../labHighlightContentMigration'
-import { isLabChapterNote, type LabHighlight, type LabHighlightColor } from '../labHighlights'
-import { chapterOfPage, fractionOfParagraph, offsetsOfRange, pageOfChapter, paragraphAtFraction, rangeOfOffsets, rangeText } from './marginPreviewAnchors'
+import { isLabChapterNote, validNoteCardPlace, type LabHighlight, type LabHighlightColor, type LabNoteCardPlace } from '../labHighlights'
+import { chapterOfPage, fractionOfParagraph, offsetOfParagraph, offsetsOfRange, pageOfChapter, paragraphAtFraction, paragraphOfOffset, rangeOfOffsets, rangeText } from './marginPreviewAnchors'
 import type { MarginPreviewChapter } from './marginPreviewModel'
 
 export interface MarginMark {
@@ -33,6 +33,11 @@ export interface MarginMark {
   note?: string
   withNote?: boolean
   gone?: boolean
+  /**
+   * A moved note's card (reader.js moveNote; Anders, 13 Nov 2026): its top at fraction `f` of the paragraph that starts
+   * at offset `at` in the chapter's text. The book reader keeps it as `cardPlace` (that paragraph, the same fraction).
+   */
+  place?: { at?: number; f: number }
 }
 
 export interface MarginMarkScope {
@@ -54,6 +59,20 @@ function noteSpot(m: MarginMark): { y: number; unit: boolean } | null {
 }
 const stamp = (h: LabHighlight) => (typeof h.updatedAt === 'number' ? h.updatedAt : Date.now())
 
+/** A book reader card place in the margin's terms (in this edition only), or none. */
+function marginPlaceOf(h: LabHighlight, chapter: MarginPreviewChapter, scope: MarginMarkScope): { place: { at: number; f: number } } | Record<string, never> {
+  const place = validNoteCardPlace(h.cardPlace)
+  if (!place || (place.editionKey && place.editionKey !== scope.editionKey)) return {}
+  const at = offsetOfParagraph(chapter, place.paragraphIndex)
+  return at == null ? {} : { place: { at, f: place.fraction } }
+}
+/** The margin's card place as the book reader's, or null. */
+function labPlaceOf(m: MarginMark, chapter: MarginPreviewChapter, scope: MarginMarkScope): LabNoteCardPlace | null {
+  const p = m.place
+  if (!p || typeof p !== 'object' || typeof p.at !== 'number' || !Number.isFinite(p.at) || typeof p.f !== 'number') return null
+  return validNoteCardPlace({ paragraphIndex: paragraphOfOffset(chapter, p.at), fraction: p.f, editionKey: scope.editionKey })
+}
+
 /** Is this book reader mark one the margin view shows (this book; this edition, or a chapter note; current text)? */
 export function marginShows(h: LabHighlight, scope: MarginMarkScope): boolean {
   if (h.bookId !== scope.bookId || highlightOffCurrentText(h)) return false
@@ -68,10 +87,11 @@ export function marginMarkOf(h: LabHighlight, scope: MarginMarkScope): MarginMar
   const chapter = chapterOfPage(scope.chapters, page)!
   const at = stamp(h)
   const base = { id: h.id, page, color: colorOf(h.color), at, u: at }
-  if (isLabChapterNote(h)) return h.note ? { ...base, rects: [[2, 1, 0, 0]], text: '', note: h.note, withNote: true } : null
+  const placed = marginPlaceOf(h, chapter, scope)
+  if (isLabChapterNote(h)) return h.note ? { ...base, rects: [[2, 1, 0, 0]], text: '', note: h.note, withNote: true, ...placed } : null
   if (isMarginNote(h) || (h.fromWord === h.toWord && h.paragraphIndex === h.endParagraphIndex)) {
     if (!h.note) return null
-    return { ...base, rects: [[1, fractionOfParagraph(chapter, h.paragraphIndex), 0, 0]], text: '', note: h.note, withNote: true }
+    return { ...base, rects: [[1, fractionOfParagraph(chapter, h.paragraphIndex), 0, 0]], text: '', note: h.note, withNote: true, ...placed }
   }
   const offsets = offsetsOfRange(chapter, h)
   if (!offsets) return null
@@ -82,6 +102,7 @@ export function marginMarkOf(h: LabHighlight, scope: MarginMarkScope): MarginMar
     text: (h.text || rangeText(chapter, h)).slice(0, 2000),
     ...(h.note ? { note: h.note } : {}),
     ...((h as LabHighlight & { withNote?: boolean }).withNote ? { withNote: true } : {}),
+    ...placed,
   }
 }
 
@@ -94,11 +115,14 @@ export function labMarkOf(m: MarginMark, scope: MarginMarkScope): Omit<LabHighli
   const common = { id: m.id, bookId: scope.bookId, chapterNumber: chapter.number, color: colorOf(m.color) }
   const note = typeof m.note === 'string' && m.note.trim() ? m.note.slice(0, 4000) : undefined
   const spot = m.start == null ? noteSpot(m) : null
+  const cardPlace = labPlaceOf(m, chapter, scope)
+  const placed = cardPlace ? { cardPlace } : {}
   if (spot) {
     if (!note) return null
-    if (spot.unit) return { ...common, editionKey: scope.editionKey, kind: 'chapter', paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 0, note }
-    const p = paragraphAtFraction(chapter, spot.y)
-    return { ...common, editionKey: scope.editionKey, ...revision, paragraphIndex: p, fromWord: 0, endParagraphIndex: p, toWord: 0, text: '', note, margin: 'note' } as unknown as Omit<LabHighlight, 'updatedAt'>
+    if (spot.unit) return { ...common, editionKey: scope.editionKey, kind: 'chapter', paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 0, note, ...placed }
+    // A moved margin note is at the paragraph it was put beside.
+    const p = cardPlace ? cardPlace.paragraphIndex : paragraphAtFraction(chapter, spot.y)
+    return { ...common, editionKey: scope.editionKey, ...revision, paragraphIndex: p, fromWord: 0, endParagraphIndex: p, toWord: 0, text: '', note, margin: 'note', ...placed } as unknown as Omit<LabHighlight, 'updatedAt'>
   }
   const range = rangeOfOffsets(chapter, Number(m.start), Number(m.end))
   if (!range) return null
@@ -113,6 +137,7 @@ export function labMarkOf(m: MarginMark, scope: MarginMarkScope): Omit<LabHighli
     text: rangeText(chapter, range).slice(0, 2000),
     ...(note ? { note } : {}),
     ...(m.withNote ? { withNote: true } : {}),
+    ...placed,
   } as Omit<LabHighlight, 'updatedAt'>
 }
 
@@ -133,13 +158,15 @@ export function applyMarginMarks(all: LabHighlight[], incoming: MarginMark[], sc
   const added: LabHighlight[] = []
   for (const m of incoming || []) {
     if (!m || m.gone || seen.has(m.id)) continue
-    const lab = labMarkOf(m, scope)
+    let lab = labMarkOf(m, scope)
     if (!lab) continue
     seen.add(m.id)
     const before = shown.get(m.id)
+    // A place made in another edition is not the margin's to show or to drop: it stays.
+    if (before?.cardPlace?.editionKey && before.cardPlace.editionKey !== scope.editionKey && !lab.cardPlace) lab = { ...lab, cardPlace: before.cardPlace }
     if (before) {
       if (sameMark(before, lab)) continue
-      const { note: _n, withNote: _w, ...rest } = before as LabHighlight & { withNote?: boolean }
+      const { note: _n, withNote: _w, cardPlace: _p, ...rest } = before as LabHighlight & { withNote?: boolean }
       replaced.set(m.id, { ...rest, ...lab, updatedAt: Math.max(now, stamp(before) + 1) } as LabHighlight)
       continue
     }
@@ -157,8 +184,10 @@ function sameMark(a: LabHighlight, b: Omit<LabHighlight, 'updatedAt'>): boolean 
   return a.chapterNumber === b.chapterNumber && a.paragraphIndex === b.paragraphIndex && a.fromWord === b.fromWord
     && a.endParagraphIndex === b.endParagraphIndex && a.toWord === b.toWord && a.color === b.color
     && (a.note || '') === (b.note || '') && !!(a as { withNote?: boolean }).withNote === !!(b as { withNote?: boolean }).withNote
-    && !!a.kind === !!b.kind
+    && !!a.kind === !!b.kind && samePlace(a.cardPlace, b.cardPlace)
 }
+
+const samePlace = (a: LabNoteCardPlace | undefined, b: LabNoteCardPlace | undefined) => (!a && !b) || (!!a && !!b && a.paragraphIndex === b.paragraphIndex && a.fraction === b.fraction && (a.editionKey ?? '') === (b.editionKey ?? ''))
 
 /**
  * The preview's own marks from before the margin view shared the book reader's (`tinct-addbook:hl:preview:<id>`),

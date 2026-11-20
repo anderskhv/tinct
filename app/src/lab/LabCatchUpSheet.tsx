@@ -8,7 +8,10 @@ import { LAB_COPY } from './labCopy'
 import { RowIcon } from './LabSuperMenu.tsx'
 import {
   CATCH_UP_COOLDOWN_MS,
+  CATCH_UP_RETRY_MS,
   catchUpContextText,
+  catchUpEntryWords,
+  catchUpReserveText,
   CATCH_UP_INITIAL_WANTED,
   catchUpShouldCoolDown,
   fetchCatchUpEntry,
@@ -21,6 +24,8 @@ import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
 import { LabPhoneCard } from './marginPhone/LabPhoneCard'
 
 export const CATCH_UP_TITLE = 'Catch me up'
+/** The whole book's Summary, from the book's start actions. */
+export const BOOK_SUMMARY_TITLE = 'Summary'
 
 export interface LabCatchUpSheetProps {
   bookId: string
@@ -45,6 +50,8 @@ export interface LabCatchUpSheetProps {
   onTopUp?: () => void
   /** The phone's margin mode: shown as the bottom card (marginPhone/LabPhoneCard), with this label. */
   card?: { label: string }
+  embedded?: boolean
+  onReady?: (text: string) => void
   /**
    * The last row: the follow-up field with mic, Talk and send, given what the card shows; in
    * place of the sheet's Chat and Talk buttons (iPhone feedback, 21 Oct 2026).
@@ -52,6 +59,11 @@ export interface LabCatchUpSheetProps {
   follow?: (shown: () => string) => ReactNode
   /** The follow-ups asked from the card and their answers, under the timeline (margin card or phone sheet). */
   thread?: ReactNode
+  /**
+   * The whole book's Summary (start actions, Anders 9 Nov 2026): the same timeline over every chapter, the last ones
+   * included, ending at the book's end instead of "You are here". The reader chose it, so it is not held to their place.
+   */
+  wholeBook?: boolean
 }
 
 /**
@@ -67,16 +79,22 @@ interface EntryState { state: CatchUpLoadState; summary?: string; allowanceUsed?
  * move the reader.
  */
 export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
-  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onChat, onTalk, onTopUp, card, follow, thread } = props
+  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onChat, onTalk, onTopUp, card, follow, thread, embedded = false, onReady, wholeBook = false } = props
   // The place is captured once, when the sheet opens.
-  const [entries] = useState<CatchUpEntry[]>(() => catchUpPlan({
-    bookId, editionKey, bookTitle,
-    units: catchUpUnits({ title: bookTitle || bookId, chapters, sections, bible: bookId === 'bible' }),
-    chapters, chapterNumber, paragraphIndex, completed,
-    currentParagraphs: paragraphs ?? null,
-    separateWorks: catchUpSeparateWorks({ bookId, form }),
-  // Never anything at or past the reader's chapter, whatever the plan says.
-  }).filter(entry => catchUpBeforePlace(entry, chapterNumber)))
+  const [entries] = useState<CatchUpEntry[]>(() => {
+    const units = catchUpUnits({ title: bookTitle || bookId, chapters, sections, bible: bookId === 'bible' })
+    if (wholeBook) {
+      const last = chapters[chapters.length - 1]
+      return last ? catchUpPlan({ bookId, editionKey, bookTitle, units, chapters, chapterNumber: last.number, wholeBook: true }) : []
+    }
+    return catchUpPlan({
+      bookId, editionKey, bookTitle, units,
+      chapters, chapterNumber, paragraphIndex, completed,
+      currentParagraphs: paragraphs ?? null,
+      separateWorks: catchUpSeparateWorks({ bookId, form }),
+    // Never anything at or past the reader's chapter, whatever the plan says.
+    }).filter(entry => catchUpBeforePlace(entry, chapterNumber))
+  })
   const keys = useMemo(() => entries.map(entry => entry.key), [entries])
   const [states, setStates] = useState<Record<string, EntryState>>(() => {
     const initial: Record<string, EntryState> = {}
@@ -105,6 +123,7 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
   }, [])
 
   useEffect(() => {
+    if (embedded) return
     const onKey = (event: KeyboardEvent) => {
       if (event.key !== 'Escape') return
       event.preventDefault()
@@ -112,7 +131,7 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [onClose])
+  }, [onClose, embedded])
 
   // Entries near the visible part of the timeline are the ones worth asking for.
   useEffect(() => {
@@ -140,7 +159,12 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
         tokenRef.current ??= readToken().catch(() => null)
         token = await tokenRef.current
       }
-      const result = await fetchCatchUpEntry(entry, { token })
+      let result = await fetchCatchUpEntry(entry, { token })
+      // A summary that failed for no reason the reader can act on (a 502) is asked for once more before Retry shows.
+      if (!result.ok && result.status === 502 && mounted.current) {
+        await new Promise(resolve => setTimeout(resolve, CATCH_UP_RETRY_MS))
+        if (mounted.current) result = await fetchCatchUpEntry(entry, { token })
+      }
       inflight.current.delete(entry.key)
       if (!mounted.current) return
       if (!result.ok && catchUpShouldCoolDown(result.status)) setCoolUntil(Date.now() + CATCH_UP_COOLDOWN_MS)
@@ -200,15 +224,19 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
                     {status.resting && <p className="lab-catch-up-balance" data-testid="lab-catch-up-resting">{LAB_COPY.aiResting}</p>}
                     <button type="button" className="lab-catch-up-retry" data-testid="lab-catch-up-retry" onClick={() => { setCoolUntil(0); load(entry) }}>Retry</button>
                   </>) : (
-                    <span className="lab-catch-up-placeholder" aria-hidden="true"><i /><i /><i /></span>
+                    // Every entry's slot, in reading order, from the start: a quiet placeholder the size of the
+                    // longest entry it can hold, so nothing below moves when the text arrives (Anders, 4 Nov 2026).
+                    <span className="lab-catch-up-placeholder is-reserved" aria-hidden="true" data-testid="lab-catch-up-placeholder" data-words={catchUpEntryWords(entry)}>
+                      <span className="lab-catch-up-reserve">{catchUpReserveText(catchUpEntryWords(entry))}</span>
+                    </span>
                   )}
                 </li>
               )
             })}
-            <li className="lab-catch-up-here" data-testid="lab-catch-up-here">
+            {!wholeBook && <li className="lab-catch-up-here" data-testid="lab-catch-up-here">
               <span className="lab-catch-up-dot" aria-hidden="true" />
               You are here
-            </li>
+            </li>}
           </ol>
           {thread}
         </div>
@@ -219,13 +247,17 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-talk" aria-label="Talk" onClick={() => onTalk(shownText())}><RowIcon id="talk" /></button>
         </div>
   )
-  if (card) return <LabPhoneCard label={card.label} kind="catchup" onClose={onClose} foot={follow?.(shownText)} testId="lab-phone-card">{timeline}</LabPhoneCard>
+  const readyText = shownText()
+  const readyRef = useRef(onReady); readyRef.current = onReady
+  useEffect(() => { if (readyText) readyRef.current?.(readyText) }, [readyText])
+  if (embedded) return <>{timeline}{follow?.(shownText)}</>
+  if (card) return <LabPhoneCard label={card.label} kind={wholeBook ? 'book-summary' : 'catchup'} onClose={onClose} foot={follow?.(shownText)} testId="lab-phone-card">{timeline}</LabPhoneCard>
   return (
     <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
       <button type="button" className="lab-super-scrim" data-testid="lab-catch-up-scrim" aria-label="Close" onClick={onClose} />
-      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-catch-up" data-layer="catchup" aria-label={CATCH_UP_TITLE}>
+      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-catch-up" data-layer="catchup" aria-label={wholeBook ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE}>
         <div className="lab-v2-head is-titled" data-reader-window-handle>
-          <h2 className="lab-v2-title">{CATCH_UP_TITLE}</h2>
+          <h2 className="lab-v2-title">{wholeBook ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE}</h2>
           <button type="button" className="lab-v2-dismiss" data-testid="lab-catch-up-close" aria-label="Close" onClick={onClose}>×</button>
         </div>
         {timeline}

@@ -94,9 +94,9 @@ describe('a user book in the Tinct reader', () => {
     expect(document.title).toBe('My Own Notebook · Tinct')
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...document.querySelectorAll('.lab-super-row')].map(row => row.getAttribute('data-row'))
-    // Book editions: an EPUB on the desktop has Margin view too (19 Oct 2026, epubView.ts).
-    expect(rows).toEqual(['librarian', 'summarize', 'catchup', 'editions', 'settings', 'account'])
-    // The Librarian row offers Chat and Talk, as for any book (2026-10-08).
+    // Book settings: an EPUB on the desktop has Margin view too (19 Oct 2026, epubView.ts).
+    expect(rows).toEqual(['conversation', 'catchup', 'text', 'editions', 'audio', 'ai', 'account'])
+    // Chat and Talk share the same menu row as the standard reader.
     expect(screen.getByTestId('lab-super-row-chat')).toBeTruthy()
     expect(screen.getByTestId('lab-super-row-talk')).toBeTruthy()
   })
@@ -223,23 +223,19 @@ describe('a user book in the Tinct reader', () => {
     expect(localStorage.getItem(`tinct:chat-history:${BOOK_ID}`)).toContain('What is lit?')
   })
 
-  it('Summarize recaps the chapter in the chat instead of the server-cached notes', async () => {
-    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
-    fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
-    await waitFor(() => expect(requests.some(request => request.url.endsWith('/api/lab-chat'))).toBe(true))
-    expect(requests.some(request => /chapter-notes|catch-up/.test(request.url))).toBe(false)
-    const body = requests.find(request => request.url.endsWith('/api/lab-chat'))!.body as { companion: { intent: string }; messages: Array<{ content: string }> }
-    expect(body.companion.intent).toBe('ask')
-    expect(body.messages[body.messages.length - 1].content).toContain('Recap this chapter.')
-  })
-
-  it('goes back to the library\'s reading table, as from Tinct\'s books (Anders, 12 Oct)', () => {
+  it('goes back to My shelf, where the reader\'s own books are', () => {
     render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
     const back = screen.getByTestId('lab-library-back')
     expect(back.getAttribute('aria-label')).toBe('Back to library')
+    expect(back.getAttribute('title')).toBe('Your books')
     fireEvent.click(back)
-    expect(leave).toHaveBeenCalledWith('/library')
+    expect(leave).toHaveBeenCalledWith('/library#my-shelf')
+  })
+
+  it('keeps the shared reader flag on the way back to My shelf', () => {
+    render(<LabApp pathname="/reader" authToken={null} userBook={loaded()} sharedReader />)
+    fireEvent.click(screen.getByTestId('lab-library-back'))
+    expect(leave).toHaveBeenCalledWith('/library?sharedReader=1#my-shelf')
   })
 
   it('names its chapters and text only from this device', async () => {
@@ -284,15 +280,6 @@ describe('what of a user book reaches the companion', () => {
     expect(context.paragraphs[context.paragraphIndex]).toBe(long[0])
   })
 
-  it('Recap this chapter sends the chapter, capped at 120,000 characters', async () => {
-    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={longBook()} />)
-    fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
-    await waitFor(() => expect(sent().length).toBe(1))
-    const context = sent()[0].companion.context
-    expect(size(context.paragraphs)).toBe(USER_BOOK_CHAPTER_CHARS)
-    expect(context.paragraphs[0]).toBe(long[0])
-  })
 })
 
 describe('Listen for a user book', () => {
@@ -369,13 +356,13 @@ function pdfBook(place: { chapterNumber: number; paragraphIndex: number; wordInd
 }
 
 describe('a PDF read as its Tinct text', () => {
-  it('offers Book editions with its two editions, and nothing else of an edition', async () => {
+  it('offers Book settings with its two editions, and nothing else of an edition', async () => {
     render(<LabApp pathname="/lab/desktop" authToken={null} userBook={pdfBook({ chapterNumber: 1, paragraphIndex: 2, wordIndex: 45 })} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...document.querySelectorAll('.lab-super-row')].map(row => row.getAttribute('data-row'))
-    expect(rows).toEqual(['librarian', 'summarize', 'catchup', 'editions', 'settings', 'account'])
+    expect(rows).toEqual(['conversation', 'catchup', 'text', 'editions', 'audio', 'ai', 'account'])
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
-    const sheet = await screen.findByText('Book editions')
+    const sheet = await screen.findByRole('heading', { name: 'Book settings' })
     const body = sheet.closest('section, [role="dialog"], .lab-v2-sheet') ?? document.body
     expect(screen.getByTestId('lab-v2-main-edition').textContent).toContain('Tinct text')
     expect(screen.queryByTestId('lab-v2-audio-edition')).toBeNull()
@@ -395,7 +382,8 @@ describe('a PDF read as its Tinct text', () => {
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     fireEvent.click(await screen.findByTestId('lab-v2-main-edition'))
     fireEvent.click([...document.querySelectorAll('.lab-v2-edition-option')].find(option => option.textContent?.includes('Margin view (original pages)'))!)
-    expect(assign).toHaveBeenCalledWith(`/lab/addbook/?userBook=${HEX}&page=4`)
+    // One address (22 Oct 2026): the reader there opens the margin reader's pages at that page.
+    expect(assign).toHaveBeenCalledWith(`/reader?userBook=${HEX}&page=4`)
     expect(JSON.parse(localStorage.getItem(`tinct-addbook:pos:pdf:${HEX}`) || 'null')).toMatchObject({ page: 4, chapterNumber: 2, paragraphIndex: 1, wordIndex: 0, converter: 1, edition: 'p' })
     expect(JSON.parse(localStorage.getItem(`tinct-addbook:edition:${HEX}`) || 'null')).toBe('pages')
     expect(ownSync.notePdf).toHaveBeenCalledWith(HEX, { now: true })
@@ -417,8 +405,8 @@ describe('a PDF read as its Tinct text', () => {
   })
 
   // Anders, 19 Oct 2026: on the desktop an EPUB reads in Add a book's margin reader unless the reader chose the
-  // Tinct reader there; from here, "Margin view" goes back. A phone keeps one edition and no Book editions row.
-  it('an EPUB on a phone keeps one edition and no Book editions row', () => {
+  // Tinct reader there; from here, "Margin view" goes back. A phone keeps one edition and no Book settings row.
+  it('an EPUB on a phone keeps one edition and no Book settings row', () => {
     const width = window.innerWidth
     Object.defineProperty(window, 'innerWidth', { configurable: true, value: 390 })
     try {
@@ -441,7 +429,7 @@ describe('a PDF read as its Tinct text', () => {
     expect(options).toEqual([['EPUB', 'true'], ['Margin view', 'false']])
     expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
     fireEvent.click([...document.querySelectorAll('.lab-v2-edition-option')].find(option => option.textContent?.includes('Margin view'))!)
-    expect(assign).toHaveBeenCalledWith(`/lab/addbook/?userBook=${HEX}`)
+    expect(assign).toHaveBeenCalledWith(`/reader?userBook=${HEX}`)
     expect(JSON.parse(localStorage.getItem(`tinct-addbook:epub-view:${HEX}`) || 'null')).toBe('margin')
     const words = book.edition.chapters.find(chapter => chapter.number === 2)!.paragraphs[0].split(/\s+/).slice(0, 14).join(' ')
     expect(JSON.parse(localStorage.getItem(`tinct-addbook:pos:epub:${HEX}`) || 'null')).toMatchObject({ via: 't', quote: words })
@@ -450,22 +438,127 @@ describe('a PDF read as its Tinct text', () => {
 })
 
 describe('UserBookReader', () => {
-  it('sends a PDF read in its pages, or one without text to reflow, on to the viewer (a scan never back here)', async () => {
-    const forward = vi.fn()
-    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'pages', message: '' })} forward={forward} />)
-    await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/?userBook=' + HEX))
-    cleanup()
-    const scan = vi.fn()
-    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'pages_only', message: '' })} forward={scan} />)
-    await waitFor(() => expect(scan).toHaveBeenCalledWith('/lab/addbook/?userBook=' + HEX + '&pages=1'))
+  // Margin is the desktop default since 4 Nov 2026 (Anders); Two-page was before.
+  it('opens a new own EPUB in Margin and keeps desktop layout choices off the phone', async () => {
+    const book = { ...loaded({ chapterNumber: 1, paragraphIndex: 2, wordIndex: 7 }), kind: 'epub' as const, images: new Map() }
+    const view = render(<UserBookReader hex={HEX} owner="me" sharedReader open={async () => ({ ok: true, book })} reconcile={async () => {}} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+    expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBe('true')
+    fireEvent.click(screen.getByTestId('lab-header-aa'))
+    expect(screen.getByTestId('lab-v2-layout-margin').getAttribute('aria-pressed')).toBe('true')
+    expect(screen.queryByTestId('lab-v2-layout-compare')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-layout-two-page'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('2:7')
+    view.unmount()
+    window.history.replaceState(null, '', '/reader?layout=phone')
+    render(<UserBookReader hex={HEX} owner="me" phone sharedReader open={async () => ({ ok: true, book })} reconcile={async () => {}} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+    expect(screen.queryByTestId('lab-header-aa')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-layout-margin')).toBeNull()
   })
 
-  it('opens a PDF\u2019s Tinct text at the place last read in its pages, found from the page', async () => {
+  it('hides the old private source synchronously when the mounted reader changes account', async () => {
+    const book = { ...loaded(), kind: 'epub' as const, images: new Map<string, string>() }
+    let resolveNext: ((value: { ok: true; book: typeof book }) => void) | undefined
+    const open = vi.fn((_hex: string, options: { owner?: string | null }) => options.owner === 'account-a'
+      ? Promise.resolve({ ok: true as const, book })
+      : new Promise<{ ok: true; book: typeof book }>(resolve => { resolveNext = resolve }))
+    const { rerender } = render(<UserBookReader hex={HEX} owner="account-a" sharedReader open={open} reconcile={async () => {}} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+    rerender(<UserBookReader hex={HEX} owner="account-b" sharedReader open={open} reconcile={async () => {}} />)
+    expect(screen.queryByTestId('lab-root')).toBeNull()
+    expect(screen.getByTestId('user-book-opening')).toBeTruthy()
+    resolveNext?.({ ok: true, book })
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+  })
+
+  it('opens a stored Margin EPUB in the shared React reader without changing the stored view preference', async () => {
+    localStorage.setItem(`tinct-addbook:epub-view:${HEX}`, '"margin"')
+    localStorage.setItem('tinct:margin-preview', '1')
+    const open = vi.fn(async () => ({ ok: true as const, book: { ...loaded(), images: new Map() } }))
+    render(<UserBookReader hex={HEX} owner="me" sharedReader open={open} reconcile={async () => {}} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+    expect(open).toHaveBeenCalledWith(HEX, expect.objectContaining({ epubView: 'text', sharedReader: true }))
+    expect(open.mock.lastCall?.[1]).toHaveProperty('desktop', true)
+    expect(screen.queryByTestId('margin-preview-frame')).toBeNull()
+    expect(localStorage.getItem(`tinct-addbook:epub-view:${HEX}`)).toBe('"margin"')
+    expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBe('true')
+    expect(localStorage.getItem('tinct:margin-preview')).toBe('1')
+  })
+
+  it('opens selected PDF Tinct text in the shared reader and reconciles its PDF place first', async () => {
+    const reconcile = vi.fn(async () => {})
+    const open = vi.fn(async () => ({ ok: true as const, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) }))
+    render(<UserBookReader hex={HEX} sharedReader open={open} reconcile={reconcile} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+    expect(open).toHaveBeenCalledWith(HEX, expect.objectContaining({ sharedReader: true }))
+    expect(open.mock.lastCall?.[1]).toHaveProperty('desktop', true)
+    expect(reconcile).toHaveBeenCalledOnce()
+    expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBe('true')
+    expect(screen.queryByTestId('margin-preview-frame')).toBeNull()
+  })
+
+  // One Tinct (22 Oct 2026): the margin reader's books open at /reader?userBook=<hex> in the reader's shell on a
+  // desktop (the frame); a phone goes on to the margin reader's page, as before.
+  it('opens a PDF read in its pages, or one without text to reflow, in the margin reader: framed on a desktop, its page on a phone (a scan never back here)', async () => {
+    const forward = vi.fn()
+    render(<UserBookReader hex={HEX} phone open={async () => ({ ok: false, reason: 'pages', message: '' })} forward={forward} />)
+    await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/book?userBook=' + HEX))
+    cleanup()
+    const scan = vi.fn()
+    render(<UserBookReader hex={HEX} phone open={async () => ({ ok: false, reason: 'pages_only', message: '' })} forward={scan} />)
+    await waitFor(() => expect(scan).toHaveBeenCalledWith('/lab/addbook/book?userBook=' + HEX + '&pages=1'))
+    cleanup()
+    const desk = vi.fn()
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'pages_only', message: '' })} forward={desk} />)
+    const frame = await screen.findByTestId('margin-preview-frame', {}, { timeout: 8000 })
+    expect(frame.getAttribute('src')).toBe('/lab/addbook/book?userBook=' + HEX + '&pages=1')
+    expect(desk).not.toHaveBeenCalled()
+  })
+
+  it('frames an EPUB in Margin view on a desktop at the reader\u2019s address, writing no place of its own', async () => {
+    const before = JSON.stringify({ ...localStorage })
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'margin', message: '' })} forward={() => { throw new Error('no forward') }} />)
+    const frame = await screen.findByTestId('margin-preview-frame', {}, { timeout: 8000 })
+    expect(frame.getAttribute('src')).toBe('/lab/addbook/book?userBook=' + HEX)
+    await waitFor(() => expect(window.TinctMarginPreview?.bookId).toBe('userbook-' + HEX))
+    expect(Object.keys(localStorage).filter(key => key.includes(HEX))).toEqual(Object.keys(JSON.parse(before)).filter(key => key.includes(HEX)))
+  })
+
+  it('carries a link\u2019s Original pages request (&page, &frac, &pages) to the margin reader without opening the book here', async () => {
+    vi.stubGlobal('location', { ...window.location, search: `?userBook=${HEX}&page=7&frac=0.5&pages`, href: `http://localhost/reader?userBook=${HEX}&page=7&frac=0.5&pages` })
+    const open = vi.fn(async () => ({ ok: true as const, book: loaded() }))
+    render(<UserBookReader hex={HEX} owner="me" open={open} />)
+    const frame = await screen.findByTestId('margin-preview-frame', {}, { timeout: 8000 })
+    expect(frame.getAttribute('src')).toBe(`/lab/addbook/book?userBook=${HEX}&page=7&frac=0.5&pages=`)
+    expect(open).not.toHaveBeenCalled()
+    // The host tidies the address it was opened at (page and frac only); this test's own address goes back.
+    window.history.replaceState(null, '', '/')
+  })
+
+  it('opens a PDF\u2019s Tinct text (a phone\u2019s reader) at the place last read in its pages, found from the page', async () => {
     // Read in Original pages later than the Tinct text: the top of page 4 is chapter 2.
     writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, updatedAt: 100, converter: 1 })
     localStorage.setItem(`tinct-addbook:pos:pdf:${HEX}`, JSON.stringify({ page: 4, frac: 0, at: 5_000, edition: 'p' }))
-    render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) })} reconcile={async () => {}} />)
+    render(<UserBookReader hex={HEX} phone open={async () => ({ ok: true, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) })} reconcile={async () => {}} />)
     await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
+  })
+
+  it('opens at a link\u2019s page once: the page leaves the address, so a reload opens at the kept place', async () => {
+    window.history.replaceState(null, '', `/reader?userBook=${HEX}&page=4&margin=1`)
+    try {
+      render(<UserBookReader hex={HEX} phone open={async () => ({ ok: true, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) })} reconcile={async () => {}} />)
+      await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+      expect(window.location.search).toBe(`?userBook=${HEX}&margin=1`)
+    } finally { window.history.replaceState(null, '', '/') }
+  })
+
+  it('frames a PDF read as its Tinct text on a desktop: it reads beside the margin there, from the same place', async () => {
+    const reconcile = vi.fn(async () => {})
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) })} reconcile={reconcile} forward={() => { throw new Error('no forward') }} />)
+    expect((await screen.findByTestId('margin-preview-frame', {}, { timeout: 8000 })).getAttribute('src')).toBe('/lab/addbook/book?userBook=' + HEX)
+    // The frame is the place's only writer: it reconciles a PDF's place itself as it opens.
+    expect(reconcile).not.toHaveBeenCalled()
   })
 
   it('says why a book cannot be opened and links back to My shelf', async () => {
@@ -474,17 +567,17 @@ describe('UserBookReader', () => {
     expect(screen.getByRole('link').getAttribute('href')).toBe('/library#my-shelf')
   })
 
-  it('sends a book that is not an EPUB on this device (a PDF, an account copy) on to Add a book’s page for it', async () => {
+  it('sends a book that is not on this device yet (a PDF, an account copy) on to the margin reader, which fetches it', async () => {
     const forward = vi.fn()
-    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'missing', message: 'That book is no longer on this device. Open the file again.' })} forward={forward} />)
-    await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/?userBook=' + HEX))
+    render(<UserBookReader hex={HEX} phone open={async () => ({ ok: false, reason: 'missing', message: 'That book is no longer on this device. Open the file again.' })} forward={forward} />)
+    await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/book?userBook=' + HEX))
   })
 
   it('opens at the place read later on another device of the account, taken before the first page is drawn', async () => {
     const reconcile = vi.fn(async (hex: string) => { writeUserBookPlace(hex, { chapterNumber: 2, paragraphIndex: 1, wordIndex: 0, updatedAt: 9_000 }) })
     render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: { ...loaded({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }), images: new Map() } })} reconcile={reconcile} />)
     await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
-    expect(reconcile).toHaveBeenCalledWith(HEX, expect.objectContaining({ hex: HEX }))
+    expect(reconcile).toHaveBeenCalledWith(HEX, expect.objectContaining({ hex: HEX }), undefined)
   })
 
   it('opens at this device\'s place when the account cannot be asked', async () => {
@@ -496,4 +589,23 @@ describe('UserBookReader', () => {
     render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: loaded() })} />)
     await waitFor(() => expect(screen.getByTestId('lab-header-book').textContent).toBe('My Own Notebook'))
   })
+})
+
+it('offers Original pages directly in shared Tinct-book Appearance and preserves the exact source spot',async()=>{
+  const assign=vi.fn()
+  vi.stubGlobal('location',{...window.location,assign,search:`?userBook=${HEX}&sharedReader=1`,href:`http://localhost/reader?userBook=${HEX}&sharedReader=1`})
+  render(<LabApp pathname="/reader" search={window.location.search} authToken={null} userBook={pdfBook({chapterNumber:2,paragraphIndex:1,wordIndex:0})} sharedReader />)
+  fireEvent.click(await screen.findByTestId('lab-header-aa'))
+  const original=await screen.findByTestId('lab-v2-original-pages')
+  expect(screen.getByRole('group',{name:'Book format'}).textContent).toContain('Tinct book')
+  fireEvent.click(original)
+  expect(assign).toHaveBeenCalledTimes(1)
+  const destination=new URL(assign.mock.calls[0][0],'http://localhost')
+  const stored=JSON.parse(localStorage.getItem(`tinct-addbook:pos:pdf:${HEX}`)||'null')
+  expect(destination.pathname).toBe('/reader')
+  expect(destination.searchParams.get('sharedReader')).toBe('1')
+  expect(destination.searchParams.get('pages')).toBe('1')
+  expect(destination.searchParams.get('page')).toBe(String(stored.page))
+  expect(Number(destination.searchParams.get('frac'))).toBe(stored.frac)
+  expect(stored).toMatchObject({page:4,chapterNumber:2,paragraphIndex:1,wordIndex:0,edition:'p'})
 })

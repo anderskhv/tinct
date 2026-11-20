@@ -1,6 +1,6 @@
 /**
  * The Notebook of the margin reader (Anders, 19 Oct 2026, after Gloss's): the pure part of
- * public/lab/addbook/js/notebook.js (its entries from the margin's own store, the All · My notes · AI
+ * public/lab/addbook/js/notebook.js (its entries from the margin's own store, the AI · Highlights · Notes · All
  * filter, the count line, relative times, the Markdown of Copy all and Download), and how the reader
  * wires it (no new storage; desktop only; a mirror byte for byte). No DOM, no network, no AI.
  */
@@ -59,12 +59,12 @@ describe('the margin batch\'s cards in the Notebook (19 Oct 2026)', () => {
   it('names a unit\'s pill cards by their pill, under AI, their chip the unit', () => {
     const ai = N.filterEntries(list, 'ai')
     expect(ai.map(e => e.id)).toEqual(['p1', 'p2'])
-    expect(N.toMarkdown(ai)).toContain('## Recap · Chapter 2')
+    expect(N.toMarkdown(ai)).toContain('## Summary · Chapter 2')
     expect(N.toMarkdown(ai)).toContain('## Catch me up · Chapter 2')
     expect(ai.map(e => e.unit)).toEqual(['Chapter 2', 'Chapter 2'])
   })
-  it('lists a margin note under My notes, with no passage', () => {
-    expect(N.filterEntries(list, 'mine')).toMatchObject([{ id: 'n-mn', kind: 'note', quote: '', note: 'A thought in the margin.' }])
+  it('lists a margin note under Notes, with no passage', () => {
+    expect(N.filterEntries(list, 'notes')).toMatchObject([{ id: 'n-mn', kind: 'note', quote: '', note: 'A thought in the margin.' }])
   })
 })
 
@@ -72,7 +72,7 @@ describe('the entries, from the margin\'s own store', () => {
   const list = N.entriesOf({ cards, marks })
   it('are every answered card and every highlight, newest first', () => {
     expect(list.map(e => e.id)).toEqual(['n-m1', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'h-m2'])
-    expect(list.map(e => N.KINDS[e.kind])).toEqual(['Note', 'Explain', 'Ask', 'Define', 'Quiz', 'Fact-check', 'Counterpoint', 'Simplify', 'Highlight'])
+    expect(list.map(e => N.KINDS[e.kind])).toEqual(['Note', 'Explain', 'Ask', 'Define', 'Quiz', 'Evaluate', 'Counterpoint', 'Simplify', 'Highlight'])
   })
   it('have their question and answer, in plain prose, and the follow-ups under them', () => {
     const [note, explain, ask, define, quiz] = list
@@ -82,8 +82,13 @@ describe('the entries, from the margin\'s own store', () => {
     expect(quiz).toMatchObject({ unit: 'Chapter 2', quote: '', q: 'First?', a: 'Ideas. Named first.', follow: [{ q: 'Second?', a: 'Facts' }] })
     expect(note).toMatchObject({ source: 'mark', mark: 'm1', kind: 'note', mine: true, quote: 'A noted line.', note: 'My note.' })
   })
-  it('filter as All, My notes (the reader\'s own notes and highlights) and AI (the answers)', () => {
+  // Anders, 6 Nov 2026: AI · Highlights · Notes · All replaces All · My notes · AI ("so notes are notes").
+  it('filter as AI (the answers), Highlights (plain highlights), Notes (highlights with a note) and All, in that order', () => {
+    expect(N.FILTERS).toEqual([['ai', 'AI'], ['highlights', 'Highlights'], ['notes', 'Notes'], ['all', 'All']])
     expect(N.filterEntries(list, 'all')).toHaveLength(9)
+    expect(N.filterEntries(list, 'highlights').map(e => e.id)).toEqual(['h-m2'])
+    expect(N.filterEntries(list, 'notes').map(e => e.id)).toEqual(['n-m1'])
+    // 'mine' stays an alias for older callers: notes and highlights together.
     expect(N.filterEntries(list, 'mine').map(e => e.kind)).toEqual(['note', 'highlight'])
     expect(N.filterEntries(list, 'ai').every(e => !['note', 'highlight'].includes(e.kind))).toBe(true)
     expect(N.filterEntries(list, 'ai')).toHaveLength(7)
@@ -137,10 +142,5 @@ describe('how the reader wires it', () => {
     expect(html.indexOf('js/notebook.js')).toBeLessThan(html.indexOf('js/reader.js'))
     expect(css).toContain('.lab.byob.is-phone .byob-nb, .lab.byob.is-phone .nb { display: none !important; }')
     expect(css).not.toMatch(/monospace|uppercase|letter-spacing:\s*[1-9]/)
-  })
-  it('ships byte for byte in the mirror', () => {
-    for (const f of ['js/notebook.js', 'css/notebook.css', 'js/reader.js', 'js/reader-layout.js', 'js/add-engine.js', 'index.html']) {
-      expect(readFileSync(ROOT + 'addbooks/web/src/' + f, 'utf8')).toBe(readFileSync(ROOT + 'app/public/lab/addbook/' + f, 'utf8'))
-    }
   })
 })

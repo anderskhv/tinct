@@ -1,0 +1,6 @@
+.lab-figure-preview { position: fixed; z-index: 150; pointer-events: none; width: min(320px, calc(100vw - 24px)); max-height: min(430px, 65vh); overflow: hidden; padding: 12px; box-sizing: border-box; color: var(--lab-ink); background: var(--lab-paper); border-block: 1px solid var(--lab-border, var(--tui-line)); box-shadow: var(--tui-shadow-pop); }
+.lab-figure-preview .lab-figure-thumb { display: block; width: 100%; height: auto; max-height: 300px; aspect-ratio: auto; }
+.lab-figure-preview .lab-figure-thumb img { display: block; width: 100%; height: auto; max-height: 300px; object-fit: contain; }
+.lab-figure-preview p { margin: 10px 0 0; font-size: 14px; line-height: 1.45; }
+
+html[data-eink="true"] .lab-figure-preview { box-shadow: none; }

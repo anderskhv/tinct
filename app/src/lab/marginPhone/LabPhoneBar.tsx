@@ -7,7 +7,8 @@ import './marginPhone.css'
 
 export type PhoneMoreId = 'define' | 'factcheck' | 'counterpoint' | 'quiz' | 'copy'
 /** The margin reader's ••• on a phone (margin.js MORE_ROWS, names only); Related is a PDF's alone. */
-export const PHONE_MORE_ROWS: [PhoneMoreId, string][] = [['define', 'Define'], ['factcheck', 'Fact-check'], ['counterpoint', 'Counterpoint'], ['quiz', 'Quiz me'], ['copy', 'Copy']]
+// No Define: a word is defined by a single tap on it (Anders, 30 Oct 2026).
+export const PHONE_MORE_ROWS: [PhoneMoreId, string][] = [['factcheck', 'Evaluate'], ['counterpoint', 'Counterpoint'], ['quiz', 'Quiz me'], ['copy', 'Copy']]
 
 /** The part of the window the reader can see (above the software keyboard), in layout coordinates. */
 function visibleWindow(): { top: number; bottom: number; width: number } {
@@ -61,11 +62,13 @@ function rememberColor(color: HighlightColor) {
 export interface LabPhoneBarProps {
   /** The selected words (copy, and where the bar sits). */
   text: string
-  /** A saved highlight was tapped, or the selection was just highlighted: its colours, its note and ✕ (remove it). */
+  /** The selected passage is highlighted. A fresh save keeps its icon until the next press opens colours. */
   existingColor?: HighlightColor
   noted?: boolean
   /** Where the press ended, used only when no selected word is painted. */
   fallbackY: number
+  /** PDF text-layer selections provide a native rect rather than painted lab-hearing-word nodes. */
+  fallbackX?: number
   onAsk: () => void
   onExplain: () => void
   onSimplify: () => void
@@ -73,7 +76,13 @@ export interface LabPhoneBarProps {
   onHighlight: (color: HighlightColor) => void
   onNote: () => void
   onRemove: () => void
+  /** A reader's own PDF text can return to the page containing this selection. */
+  onShowPage?: () => void
+  /** Keep Define in •••: the original-pages PDF view, where a tap does not define a word. */
+  withDefine?: boolean
   onDismiss: () => void
+  /** Listen from here: the voice starts at the selection (an own PDF's original pages, while it can be read aloud). */
+  onListen?: () => void
 }
 
 /**
@@ -87,6 +96,10 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
   const { text, existingColor, noted = false, fallbackY } = props
   const ref = useRef<HTMLDivElement | null>(null)
   const [moreOpen, setMoreOpen] = useState(false)
+  const [paletteOpen, setPaletteOpen] = useState(!!existingColor)
+  // A newly applied mark keeps the same toolbar; only its next highlighter
+  // press opens colours. Opening a different saved mark may show them directly.
+  useEffect(() => { setPaletteOpen(!!existingColor) }, [text, props.fallbackX, fallbackY])
   const [place, setPlace] = useState<{ top: number; left: number; tip: number; below: boolean } | null>(null)
   useReaderSelectionCopy(text)
   useLayoutEffect(() => {
@@ -99,7 +112,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
       const top = boxes.length ? Math.min(...boxes.map(box => box.top)) : fallbackY
       const bottom = boxes.length ? Math.max(...boxes.map(box => box.bottom)) : fallbackY
       const first = boxes[0]
-      const tip = first ? first.left + Math.min(first.width / 2, 24) : window.innerWidth / 2
+      const tip = first ? first.left + Math.min(first.width / 2, 24) : props.fallbackX ?? window.innerWidth / 2
       const low = window.innerHeight - 16
       const below = bottom + 12 + height <= low || top - 12 - height < header + 8
       const across = phoneBarLeft(tip, Math.ceil(ref.current?.getBoundingClientRect().width || 0), window.innerWidth)
@@ -108,7 +121,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
     at()
     window.addEventListener('resize', at)
     return () => window.removeEventListener('resize', at)
-  }, [text, existingColor, fallbackY])
+  }, [text, existingColor, fallbackY, props.fallbackX])
   // The ••• menu: as wide as its longest name, under the ••• when it fits below the bar, else above it, and
   // never past an edge of the visible window.
   const moreRef = useRef<HTMLDivElement | null>(null)
@@ -150,14 +163,14 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
       ref={ref}
       className={`lab-pbar${place?.below === false ? ' is-above' : ''}`}
       data-testid="lab-phone-bar"
-      data-state={existingColor ? 'existing' : 'menu'}
+      data-state={existingColor && paletteOpen ? 'existing' : 'menu'}
       role="toolbar"
       aria-label="Selection"
       style={{ top: place?.top ?? -999, left: place?.left ?? 10, ['--tip' as string]: `${place?.tip ?? 0}px` }}
       onPointerDown={keep}
       onMouseDown={keep}
     >
-      {existingColor ? (
+      {existingColor && paletteOpen ? (
         <>
           <button type="button" className="lab-pbar-item is-text" data-testid="lab-pbar-ask" onClick={props.onAsk}>Ask</button>
           {sep}
@@ -170,10 +183,12 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
           ))}
           {sep}
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-note" aria-label={noted ? 'Edit note' : 'Add note'} onClick={props.onNote}><PhoneIcon name="note" /></button>
+          {props.onShowPage && <button type="button" className="lab-pbar-item" data-testid="lab-pbar-more" aria-label="More" aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => setMoreOpen(open => !open)}><PhoneIcon name="more" /></button>}
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-remove" aria-label="Remove highlight" title="Remove highlight" onClick={props.onRemove}><PhoneIcon name="close" /></button>
         </>
       ) : (
         <>
+          {props.onListen && <><button type="button" className="lab-pbar-item" data-testid="lab-pbar-listen" aria-label="Listen from here" title="Listen from here" onClick={props.onListen}><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8L10.2 6z" fill="currentColor" /></svg></button>{sep}</>}
           <button type="button" className="lab-pbar-item is-ask" data-testid="lab-pbar-ask" onClick={props.onAsk}>Ask</button>
           {sep}
           <button type="button" className="lab-pbar-item is-text" data-testid="lab-pbar-explain" onClick={props.onExplain}>Explain</button>
@@ -181,18 +196,19 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-more" aria-label="More" aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => setMoreOpen(open => !open)}><PhoneIcon name="more" /></button>
           {sep}
           <button type="button" className="lab-pbar-item is-hl" data-testid="lab-pbar-highlight" aria-label={`Highlight in ${current.label}`}
-            onClick={() => props.onHighlight(current.key)}>
+            onClick={() => { if (existingColor) setPaletteOpen(true); else { rememberColor(current.key); props.onHighlight(current.key) } }}>
             <span className="lab-pbar-hl"><PhoneIcon name="highlight" /><span className="lab-pbar-dot" style={{ background: current.hex }} /></span>
           </button>
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-note" aria-label={noted ? 'Edit note' : 'Add note'} onClick={props.onNote}><PhoneIcon name="note" /></button>
         </>
       )}
-      {moreOpen && !existingColor && (
+      {moreOpen && (!(existingColor && paletteOpen) || props.onShowPage) && (
         <div ref={moreRef} className={`lab-pmore${morePlace?.above ? ' is-above' : ''}`} role="menu" data-testid="lab-phone-more"
           style={{ left: morePlace?.left ?? 0, visibility: morePlace ? undefined : 'hidden' }}>
-          {PHONE_MORE_ROWS.map(([id, name]) => (
+          {!existingColor && (props.withDefine ? [['define', 'Define'] as [PhoneMoreId, string], ...PHONE_MORE_ROWS] : PHONE_MORE_ROWS).map(([id, name]) => (
             <button key={id} type="button" role="menuitem" data-testid={`lab-pmore-${id}`} onClick={() => { setMoreOpen(false); props.onMore(id) }}>{name}</button>
           ))}
+          {props.onShowPage && <button type="button" role="menuitem" data-testid="lab-pmore-page" onClick={() => { setMoreOpen(false); props.onShowPage?.() }}>Show page</button>}
         </div>
       )}
     </div>

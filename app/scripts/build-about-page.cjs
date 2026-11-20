@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /**
- * build-about-page.cjs — writes app/public/about.html (tinct.app/about) and
- * app/public/credits.html (tinct.app/credits).
+ * build-about-page.cjs — writes app/public/credits.html (tinct.app/credits).
+ *
+ * It wrote app/public/about.html too until 19 Nov 2026, when Anders made the
+ * Try page the About page (public/about.html is now that page, edited by hand;
+ * docs/try-page/BRIEF.md). The notes below describe the old About text.
  *
  * The text is the approved About mockup (docs/about-mockup.html on
  * claude/gracious-mayer-t2imki, 2026-10-05) without its undecided parts:
@@ -17,7 +20,6 @@ const path = require('path')
 
 const APP_DIR = path.resolve(__dirname, '..')
 const IMAGES = path.join(APP_DIR, 'public/lab/library_2/author-images.json')
-const OUT = path.join(APP_DIR, 'public/about.html')
 const CREDITS_OUT = path.join(APP_DIR, 'public/credits.html')
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -27,7 +29,6 @@ function creditRows(images) {
   return images.map(image => `<tr><td>${esc(image.authorName)}</td><td>${esc(image.creator)}</td><td>${link(image.licence, image.licenceUrl)}</td><td>${link('Source', image.sourcePage)}${image.attributionRequired && image.changes ? `<br><span class="muted">${esc(image.changes)}</span>` : ''}</td></tr>`).join('\n')
 }
 
-const ABOUT_DESCRIPTION = "Tinct's mission is to deliver the world's best reading experience. What Tinct costs, where its books come from and how it handles your data."
 const CREDITS_DESCRIPTION = "Where Tinct's original texts and author portraits come from."
 
 /** The page head and styles /about and /credits share, up to the opening <body>. */
@@ -44,12 +45,12 @@ const head = ({ title, path, description }) => `<!doctype html>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tinct">
 <meta property="og:description" content="${description}">
-<meta property="og:image" content="https://tinct.app/og-image-v2.jpg">
+<meta property="og:image" content="https://tinct.app/og-image-v3.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://tinct.app/og-image-v2.jpg">
+<meta name="twitter:image" content="https://tinct.app/og-image-v3.jpg">
 <link rel="icon" href="/favicon.ico">
 <script type="module" src="/lab/internal-traffic.js"></script>
 <style>
@@ -98,53 +99,6 @@ ${table(creditRows(others))}
 `
 }
 
-function build() {
-  return `${head({ title: 'About Tinct', path: '/about', description: ABOUT_DESCRIPTION })}<div class="page">
-<a class="logo" href="/">tinct</a>
-<h1>About Tinct</h1>
-
-<h2>Our mission</h2>
-<p>Deliver the world's best reading experience.</p>
-
-<h2>Pricing</h2>
-<div class="table-scroll"><table>
-<thead><tr><th></th><th class="c">Free</th><th class="c">Premium</th></tr></thead>
-<tbody>
-<tr><th>Price</th><td class="c">$0</td><td class="c">$5 / month</td></tr>
-<tr><td>Every book in Tinct's public library</td><td class="c">✓</td><td class="c">✓</td></tr>
-<tr><td>Original and modern editions, side by side</td><td class="c">✓</td><td class="c">✓</td></tr>
-<tr><td>AI chat, Talk, chapter recaps and audiobooks</td><td class="c">–</td><td class="c">✓</td></tr>
-<tr><td>Add any book: your own or from Gutenberg and other free libraries</td><td class="c">–</td><td class="c">✓</td></tr>
-</tbody></table></div>
-<p class="muted">Prices are in US dollars, and local taxes may apply. You can cancel any time and keep access until the end of the period you've paid for.</p>
-
-<h2>The library</h2>
-<p><strong>Public library.</strong> The books Tinct provides to every reader. We aim to publish only texts that are in the public domain in the United States and in the European Union, including Denmark. For a translation, the translation itself must also be in the public domain. Every book goes through a rights check before we publish it. Tinct's modern editions, introductions and narration are our own work.</p>
-<p><strong>Copyright exceptions.</strong> Copyright rules differ between countries and we can't rule out every exception. If you believe a text in the public library is still protected anywhere, or that you hold rights in it, write to <a href="mailto:contact@tinct.app">contact@tinct.app</a> with the title and the reason. We'll restrict the text while we look into it.</p>
-
-<h2>Privacy</h2>
-<p>No ads, no tracking cookies, no selling of data, and no training AI on your notes or messages. The full policy is at <a href="/privacy">tinct.app/privacy</a>.</p>
-<div class="table-scroll"><table>
-<thead><tr><th>Service</th><th>What it does for Tinct</th></tr></thead>
-<tbody>
-<tr><td>Supabase</td><td>Accounts and reading data, hosted in the EU</td></tr>
-<tr><td>Cloudflare</td><td>Hosting, audio storage, and synced chat history and reading positions</td></tr>
-<tr><td>Stripe</td><td>Payments</td></tr>
-<tr><td>Brevo</td><td>Email</td></tr>
-<tr><td>Google</td><td>Optional sign-in</td></tr>
-<tr><td>Anthropic</td><td>AI chat, recaps and chapter notes</td></tr>
-<tr><td>xAI</td><td>Talk and narration</td></tr>
-<tr><td>OpenAI</td><td>Source checks only</td></tr>
-</tbody></table></div>
-
-
-<p class="footer"><a href="/library">Library</a><a href="/credits">Credits</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:contact@tinct.app">contact@tinct.app</a></p>
-</div>
-</body>
-</html>
-`
-}
-
 function buildCredits() {
   return `${head({ title: 'Tinct credits', path: '/credits', description: CREDITS_DESCRIPTION })}<div class="page">
 <a class="logo" href="/">tinct</a>
@@ -152,7 +106,7 @@ function buildCredits() {
 
 <h2>Credits</h2>
 ${creditsSection()}
-<p class="footer"><a href="/library">Library</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:contact@tinct.app">contact@tinct.app</a></p>
+<p class="footer"><a href="/library">Library</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:contact@tinct.app">contact@tinct.app</a><a href="/copyright">Copyright</a></p>
 </div>
 </body>
 </html>
@@ -160,10 +114,8 @@ ${creditsSection()}
 }
 
 if (require.main === module) {
-  fs.writeFileSync(OUT, build())
-  console.log(`[about] Wrote ${path.relative(APP_DIR, OUT)}`)
   fs.writeFileSync(CREDITS_OUT, buildCredits())
   console.log(`[about] Wrote ${path.relative(APP_DIR, CREDITS_OUT)}`)
 }
 
-module.exports = { build, buildCredits }
+module.exports = { buildCredits }

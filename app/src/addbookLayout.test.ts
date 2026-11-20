@@ -149,7 +149,4 @@ describe('the Aa panel', () => {
     expect(html.indexOf('js/reader-layout.js?v=')).toBeLessThan(html.indexOf('js/reader.js?v='))
     expect(READER).not.toContain("['editions', 'Book editions'")
   })
-  it('the source copy (addbooks/web/src) matches the installed layout script', () => {
-    expect(readFileSync(ROOT + 'addbooks/web/src/js/reader-layout.js', 'utf8')).toBe(readFileSync(ROOT + 'app/public/lab/addbook/js/reader-layout.js', 'utf8'))
-  })
 })

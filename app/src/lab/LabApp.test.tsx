@@ -866,6 +866,8 @@ describe('lab passage headline pages', () => {
   /**
    * A click inside an existing highlight is a question about the thing the
    * reader marked, not about the word under the cursor.
+   * (Design change, 22 Oct 2026: on desktop the menu is the margin reader's dark bar, so the highlighter is
+   * "Highlight in <colour>" and Copy is under •••; what each action takes is unchanged.)
    */
   describe('a click inside an existing highlight acts on the whole highlight', () => {
     const selectWords = async (from: number, to: number, id: number) => {
@@ -880,12 +882,44 @@ describe('lab passage headline pages', () => {
       fireEvent.pointerUp(word, { pointerId: id, pointerType: 'mouse', clientX: 190, clientY: 200 })
     }
 
+    it('the highlight menu stays while the reader is still and goes once they scroll on (Anders, 2 Nov 2026)', async () => {
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+      await selectWords(1, 3, 61)
+      await waitFor(() => expect(document.querySelector('.selection-popup')).not.toBeNull())
+      const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); fireEvent.scroll(window) }
+      scrollTo(0)
+      scrollTo(20)
+      expect(document.querySelector('.selection-popup')).not.toBeNull()
+      scrollTo(200)
+      await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
+      Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
+    })
+
+    it('a saved highlight\u2019s menu (its colours) goes at once on a scroll or a turn of the wheel (Anders, 11 Nov 2026)', async () => {
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+      const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); fireEvent.scroll(window) }
+      await selectWords(1, 3, 71)
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
+      await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
+      expect(document.querySelector('.selection-popup, [role="toolbar"]')).not.toBeNull()
+      scrollTo(0)
+      scrollTo(2)
+      await waitFor(() => expect(document.querySelector('.selection-popup, [role="toolbar"]')).toBeNull())
+      // The wheel alone, before the page reports a scroll.
+      clickWord(2, 72)
+      await waitFor(() => expect(document.querySelector('.selection-popup, [role="toolbar"]')).not.toBeNull())
+      fireEvent.wheel(document.body, { deltaY: 40 })
+      await waitFor(() => expect(document.querySelector('.selection-popup, [role="toolbar"]')).toBeNull())
+      expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1)
+      Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
+    })
+
     it('takes the whole highlight for copy and ask, and the clicked word for define', async () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       const whole = [1, 2, 3].map(i => words[i].textContent?.trim()).join(' ')
       await selectWords(1, 3, 51)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 52, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -903,7 +937,8 @@ describe('lab passage headline pages', () => {
       })
       // The subject the actions operate on is the whole highlight.
       expect(popup.textContent).toBeTruthy()
-      fireEvent.click(screen.getByRole('button', { name: /copy/i }))
+      fireEvent.click(screen.getByRole('button', { name: 'More' }))
+      fireEvent.click(screen.getByRole('menuitem', { name: /copy/i }))
       await waitFor(() => expect(copied).toHaveLength(1))
       expect(copied[0]).toBe(whole)
       expect(copied[0].split(/\s+/).length).toBeGreaterThan(1)
@@ -915,7 +950,7 @@ describe('lab passage headline pages', () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       await selectWords(1, 2, 61)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 62, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -939,7 +974,7 @@ describe('lab passage headline pages', () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       await selectWords(1, 2, 71)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 72, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -951,7 +986,8 @@ describe('lab passage headline pages', () => {
       })
       await selectWords(0, 4, 73)
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeTruthy())
-      fireEvent.click(screen.getByRole('button', { name: /copy/i }))
+      fireEvent.click(screen.getByRole('button', { name: 'More' }))
+      fireEvent.click(screen.getByRole('menuitem', { name: /copy/i }))
       await waitFor(() => expect(copied).toHaveLength(1))
       expect(copied[0]).toBe([0, 1, 2, 3, 4].map(i => words[i].textContent?.trim()).join(' '))
     })
@@ -1978,32 +2014,54 @@ it('returns from V2 audio browsing without seeking or restarting playback', asyn
   fireEvent.click(screen.getByTestId('lab-v2-play'))
   await waitFor(() => expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing'))
   fireEvent.click(screen.getByTestId('lab-page-next'))
-  await waitFor(() => expect(screen.getByTestId('lab-back-to-audio')).toBeTruthy())
+  await waitFor(() => expect(screen.getByTestId('lab-back-to-voice')).toBeTruthy())
   const time = audio.currentTime
-  fireEvent.click(screen.getByTestId('lab-back-to-audio'))
-  expect(screen.queryByTestId('lab-back-to-audio')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-back-to-voice'))
+  expect(screen.queryByTestId('lab-back-to-voice')).toBeNull()
   expect(audio.currentTime).toBe(time)
   expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing')
 })
 
 
-it('dismisses V2 speed controls with Done, outside tap and Escape without changing speed', async () => {
+it('steps V2 playback speed by 0.25 within 0.5–3 and closes on outside tap and Escape, focus back on the button', async () => {
   const audio = new FakeAudio()
   vi.stubGlobal('Audio', class { constructor() { return audio } })
   render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
   fireEvent.click(screen.getByTestId('lab-v2-play'))
   await waitFor(() => expect(audio.paused).toBe(false))
   fireEvent.click(screen.getByTestId('lab-hearing-speed'))
-  fireEvent.change(screen.getByTestId('lab-audio-speed-slider'), { target: { value: '1.75' } })
-  fireEvent.click(screen.getByRole('button', { name: 'Done', exact: true }))
-  expect(screen.queryByTestId('lab-audio-speed-popover')).toBeNull()
+  const popover = screen.getByTestId('lab-audio-speed-popover')
+  expect(popover.getAttribute('role')).toBe('group')
+  expect(screen.getByRole('group', { name: 'Playback speed' })).toBe(popover)
+  expect(screen.queryByRole('button', { name: 'Done' })).toBeNull()
+  expect(screen.queryByRole('slider', { name: 'Playback speed' })).toBeNull()
+  const value = screen.getByTestId('lab-audio-speed-value')
+  expect(value.getAttribute('aria-live')).toBe('polite')
+  expect(value.textContent).toBe('1×')
+  const faster = screen.getByRole('button', { name: 'Faster' })
+  const slower = screen.getByRole('button', { name: 'Slower' })
+  fireEvent.click(faster); fireEvent.click(faster); fireEvent.click(faster)
+  expect(value.textContent).toBe('1.75×')
   expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1.75×')
-  fireEvent.click(screen.getByTestId('lab-hearing-speed'))
+  for (let i = 0; i < 10; i++) fireEvent.click(screen.getByTestId('lab-audio-speed-faster'))
+  expect(value.textContent).toBe('3×')
+  expect((screen.getByTestId('lab-audio-speed-faster') as HTMLButtonElement).disabled).toBe(true)
+  for (let i = 0; i < 12; i++) fireEvent.click(slower)
+  expect(value.textContent).toBe('0.5×')
+  expect((screen.getByTestId('lab-audio-speed-slower') as HTMLButtonElement).disabled).toBe(true)
+  expect((screen.getByTestId('lab-audio-speed-faster') as HTMLButtonElement).disabled).toBe(false)
+  fireEvent.click(faster); fireEvent.click(faster)
+  expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1×')
   fireEvent.pointerDown(document.body)
+  fireEvent.click(document.body) // the rest of the dismissing tap, which is swallowed
   expect(screen.queryByTestId('lab-audio-speed-popover')).toBeNull()
+  expect(document.activeElement).toBe(screen.getByTestId('lab-hearing-speed'))
   fireEvent.click(screen.getByTestId('lab-hearing-speed'))
+  screen.getByTestId('lab-audio-speed-faster').focus()
   fireEvent.keyDown(document, { key: 'Escape' })
   expect(screen.queryByTestId('lab-audio-speed-popover')).toBeNull()
+  expect(document.activeElement).toBe(screen.getByTestId('lab-hearing-speed'))
+  expect(screen.getByTestId('lab-hearing-speed').textContent).toBe('1×')
   expect(audio.paused).toBe(false)
 })
 

@@ -15,10 +15,12 @@ import { VoiceOrb } from './VoiceOrb'
 import { LabTalkSpeedControl } from './LabTalkSpeedControl'
 
 /**
- * The phone call surface (minimal Talk, 2026-10-09): the dotted orb, one
- * status line (Connecting to AI… / Listening. / Speaking. …, announced through
- * aria-live) and the round icon buttons, centred together on the screen.
- * Nothing else is drawn: no book line, captions or transcript.
+ * The phone call surface (Talk, approved mockup B, 4 Nov 2026): the dotted
+ * orb, one status line (Connecting to AI… / Listening / Speaking …, announced
+ * through aria-live) and Mute, Speed and End as equal round controls with
+ * their words beneath. Full screen it is titled Talk over the book and
+ * chapter (`context`); in the margin phone's card the card's own label does
+ * that. No captions or transcript.
  *
  * Every indicator here is driven by the view it is handed, and that view is a
  * pure function of session events. The one thing this surface reads for
@@ -41,6 +43,8 @@ interface LabVoiceCallProps {
   /** Talk's saved speaking speed; the control shows when a setter is given. */
   talkSpeed?: number
   onTalkSpeedChange?: (speed: number) => void
+  /** Full screen: the line under the Talk title, the book and chapter ("The Prince · Chapter 5"). */
+  context?: string
 }
 
 /** Two short tones, made in the browser: nothing to fetch, nothing to cache. */
@@ -94,6 +98,7 @@ export function LabVoiceCall({
   talkSpeed = 1,
   onTalkSpeedChange,
   orbSize = LAB_CALL_ORB_PX,
+  context,
 }: LabVoiceCallProps) {
   const previousRef = useRef<LabCallView | null>(null)
   useEffect(() => {
@@ -112,6 +117,12 @@ export function LabVoiceCall({
       role="dialog"
       aria-label={LAB_CALL_COPY.callLabel}
     >
+      {context && (
+        <div className="lab-call-head">
+          <h2 className="lab-call-title">{LAB_CALL_COPY.title}</h2>
+          <p className="lab-call-context" data-testid="lab-call-context">{context}</p>
+        </div>
+      )}
       <div className="lab-call-stage">
         <VoiceOrb
           status={view.status}
@@ -145,7 +156,6 @@ export function LabVoiceCall({
             icon={<VoiceMicIcon off={view.micOff} />}
             on={view.micOff}
             pressed={view.micOff}
-            iconOnly
             onClick={onMuteToggle}
           />
         )}
@@ -154,10 +164,10 @@ export function LabVoiceCall({
         )}
         <VoiceControl
           testId="lab-call-end"
-          word={LAB_CALL_COPY.end}
+          word={LAB_CALL_COPY.endWord}
+          label={LAB_CALL_COPY.end}
           icon={<VoiceEndIcon />}
           filled
-          iconOnly
           onClick={onEnd}
         />
       </div>

@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest'
 // (books/wip/<book>/editions). The published copy must be the package copy byte
 // for byte, so a reviewed package merged without copying its file fails here.
 // Refresh: cp books/wip/<book>/editions/<book>-modern-da.json app/public/data/editions/
-const BOOKS = ['grimms-fairy-tales', 'arabian-nights']
+const BOOKS = ['grimms-fairy-tales', 'arabian-nights', 'master-and-margarita']
 const read = (path: string) => readFileSync(resolve(__dirname, path))
 
 describe('Danish editions published from their content packages', () => {

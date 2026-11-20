@@ -1,0 +1,26 @@
+{
+  "sourceRef": "b6b747328dc6ffbf2d7b0c2c85531962dafc74e3",
+  "revision": "2026-11-03.1",
+  "scope": "Accepted The Prince modern-en meaning repairs shipped with the Danish retranslation train (PR #817; source PR #713). Supersedes the 2026-09-24 Prince acceptance. Exact candidate = live bytes; original-en unchanged; card prose unchanged; all 501 mentions re-anchored by exact text. Stylistic edits from #713 (1.3, 1.5) are not part of this release. Record: DECISIONS.md 2026-11-13 and books/wip/modern-da-quality-20261102/PRINCE-REVIEW.json.",
+  "approval": {
+    "by": "Anders",
+    "date": "2026-11-13",
+    "question": "Publish the Danish updates (Medea, Bacchae, Prince)?",
+    "answer": "let's publish the Danish updates too so we have a fuller Danish library"
+  },
+  "books": [
+    {
+      "id": "the-prince",
+      "before": "d99629fa3c3e1a345c92e1b9749115111985bfdff520fd7a37037d6a3731d582",
+      "accepted": "14393ff56819809a54f9f69662249b0182771339103f977092a817510aaae9a5",
+      "chapters": 27,
+      "paragraphs": 254,
+      "changed": 25,
+      "mentions": 501,
+      "sourceDirectory": "books/wip/modern-da-train-20261113/the-prince",
+      "baselineFile": "baseline-live-modern-en.json",
+      "paragraphHashesFile": "accepted-paragraph-hashes.tsv",
+      "changesFile": "changed-paragraphs.json"
+    }
+  ]
+}

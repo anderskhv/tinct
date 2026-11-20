@@ -83,21 +83,21 @@ describe('the call surface', () => {
 
   it('breathes and says Listening once the microphone is live', () => {
     renderCall()
-    expect(screen.getByTestId('lab-call-status').textContent).toBe('Listening.')
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Listening')
     expect(circle().getAttribute('data-motion')).toBe('breathe')
     expect(circle().getAttribute('data-broken')).toBe('false')
   })
 
   it('turns a broken ring and says Thinking', () => {
     renderCall({ activity: 'thinking' })
-    expect(screen.getByTestId('lab-call-status').textContent).toBe('Thinking.')
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Thinking')
     expect(circle().getAttribute('data-motion')).toBe('rotate')
     expect(circle().getAttribute('data-broken')).toBe('true')
   })
 
   it('says Speaking while she speaks', () => {
     renderCall({ activity: 'speaking' })
-    expect(screen.getByTestId('lab-call-status').textContent).toBe('Speaking.')
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Speaking')
     expect(screen.getByTestId('lab-call').getAttribute('data-connection')).toBe('connected')
   })
 
@@ -107,13 +107,13 @@ describe('the call surface', () => {
       expect(screen.getByTestId('lab-call-status').textContent).toBe('Microphone off')
       expect(screen.getByTestId('lab-call').getAttribute('data-connection')).toBe('connected')
       expect(screen.getByTestId('lab-call-mute').getAttribute('aria-label')).toBe('Unmute')
-      expect(screen.getByTestId('lab-call-mute').textContent).toBe('')
+      expect(screen.getByTestId('lab-call-mute').textContent).toBe('Unmute')
       expect(screen.getByTestId('lab-call-mute').getAttribute('aria-pressed')).toBe('true')
     })
 
     it('keeps the closed microphone visible on Mute while the assistant speaks', () => {
       renderCall({ micMuted: true, activity: 'speaking' })
-      expect(screen.getByTestId('lab-call-status').textContent).toBe('Speaking.')
+      expect(screen.getByTestId('lab-call-status').textContent).toBe('Speaking')
       expect(screen.getByTestId('lab-call-mute').getAttribute('aria-pressed')).toBe('true')
       expect(screen.getByTestId('lab-call-mute').getAttribute('aria-label')).toBe('Unmute')
     })
@@ -130,7 +130,7 @@ describe('the call surface', () => {
     it('is unmistakable, motionless, and never says Listening', () => {
       renderCall({ connection: 'disconnected', activity: 'listening' })
       expect(screen.getByTestId('lab-call-status').textContent).toBe('Disconnected')
-      expect(screen.queryByText('Listening.')).toBeNull()
+      expect(screen.queryByText('Listening')).toBeNull()
       expect(circle().getAttribute('data-motion')).toBe('still')
       expect(circle().getAttribute('data-broken')).toBe('true')
       expect(screen.getByTestId('lab-call').getAttribute('data-connection')).toBe('lost')
@@ -152,6 +152,17 @@ describe('the call surface', () => {
     expect(screen.getByTestId('lab-call-end')).toBeTruthy()
   })
 
+  it('full screen, titles itself Talk over the book and chapter (mockup B); in a card it leaves that to the card', () => {
+    const { unmount } = renderCall({}, { context: 'The Prince · Chapter 5' })
+    expect(screen.getByRole('heading', { name: 'Talk' })).toBeTruthy()
+    expect(screen.getByTestId('lab-call-context').textContent).toBe('The Prince · Chapter 5')
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Listening')
+    unmount()
+    renderCall()
+    expect(screen.queryByRole('heading', { name: 'Talk' })).toBeNull()
+    expect(screen.queryByTestId('lab-call-context')).toBeNull()
+  })
+
   it('offers an obvious End conversation control in every state', () => {
     for (const input of [
       {},
@@ -163,7 +174,7 @@ describe('the call surface', () => {
       const onEnd = vi.fn()
       const { unmount } = renderCall(input, { onEnd })
       // The word beneath the filled X is "End"; the full action is its name.
-      expect(screen.getByTestId('lab-call-end').textContent).toBe('')
+      expect(screen.getByTestId('lab-call-end').textContent).toBe('End')
       expect(screen.getByTestId('lab-call-end').getAttribute('title')).toBe('End conversation')
       expect(screen.getByTestId('lab-call-end').getAttribute('aria-label')).toBe('End conversation')
       fireEvent.click(screen.getByTestId('lab-call-end'))
@@ -188,7 +199,7 @@ describe('the call surface', () => {
 
     it('still says exactly what is happening', () => {
       renderCall({ activity: 'speaking' }, { reducedMotion: true })
-      expect(screen.getByTestId('lab-call-status').textContent).toBe('Speaking.')
+      expect(screen.getByTestId('lab-call-status').textContent).toBe('Speaking')
     })
 
     it("never reads the assistant level", () => {

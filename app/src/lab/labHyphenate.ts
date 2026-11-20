@@ -27,11 +27,13 @@ const loading = new Map<HyphenLang, Promise<void>>()
 let guessBreaks: ((word: string) => number[]) | null = null
 
 /** The reading language of an edition key such as `modern-da` / `original-en`. */
-export function hyphenLangForEdition(editionKey: string | null | undefined): HyphenLang | null {
-  if (!editionKey) return null
-  if (/-da$/.test(editionKey)) return 'da'
-  if (/-en$/.test(editionKey)) return 'en'
-  return null
+export function hyphenLangForEdition(editionKey: string | null | undefined, language?: string | null): HyphenLang | null {
+  if (editionKey && /-da$/.test(editionKey)) return 'da'
+  if (editionKey && /-en$/.test(editionKey)) return 'en'
+  // A reader's own book ('own', a converted PDF) carries its language separately: without it the
+  // reader planned no hyphens and justified lines opened wide gaps (Anders, iPhone, 2 Nov 2026).
+  const subtag = (language || '').toLowerCase().split(/[-_]/)[0]
+  return subtag === 'da' || subtag === 'en' ? subtag : null
 }
 
 /**

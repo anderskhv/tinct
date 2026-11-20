@@ -14,7 +14,7 @@ const ROOT = resolve(__dirname, '../..') + '/'
 type Rect = { left: number; top: number; right: number; bottom: number }
 type Mark = { id: string; u?: number; at?: number; gone?: boolean; page?: number; note?: string; color?: string }
 interface MarginApi {
-  placeBar(o: { first: Rect; last?: Rect; frame: Rect; w: number; h?: number; phone?: boolean }): { left: number; top: number; width: number; below: boolean; tip: number }
+  placeBar(o: { first: Rect; last?: Rect; frame: Rect; w: number; h?: number; phone?: boolean; cursor?: { x: number; y: number } | null }): { left: number; top: number; width: number; below: boolean; tip: number }
   placeMore(o: { bar: Rect & { below: boolean }; dots: Rect; frame: Rect; w: number; h: number; phone?: boolean }): { left: number; top: number; below: boolean }
   placeCard(o: { first: Rect; last?: Rect; frame: Rect; w: number; h: number; phone?: boolean }): { left: number; top: number; width: number; below: boolean }
   typedChar(e: Partial<KeyboardEvent>, o?: { inField?: boolean }): string | null
@@ -56,6 +56,14 @@ describe('the selection bar’s place', () => {
   it('clamps 16px inside the reader on both sides', () => {
     expect(M.placeBar({ first: box(5, 400, 50, 420), frame: FRAME, w: 360 }).left).toBe(16)
     expect(M.placeBar({ first: box(1200, 400, 1270, 420), frame: FRAME, w: 360 }).left).toBe(1280 - 16 - 360)
+  })
+  it('with the cursor, the desktop bar stands on the cursor\u2019s side of the selection, its tip there (11 Nov 2026)', () => {
+    const first = box(500, 400, 1100, 420), last = box(250, 440, 540, 460)
+    expect(M.placeBar({ first, last, frame: FRAME, w: 360, h: 44, cursor: { x: 520, y: 450 } })).toMatchObject({ left: 480, top: 472, below: true, tip: 40 })
+    expect(M.placeBar({ first, last, frame: FRAME, w: 360, h: 44, cursor: { x: 500, y: 410 } })).toMatchObject({ left: 460, top: 344, below: false, tip: 40 })
+    // No room below: above, never off the frame.
+    const low = M.placeBar({ first: box(500, 700, 1100, 720), last: box(250, 740, 540, 760), frame: { ...FRAME, bottom: 800 }, w: 360, h: 44, cursor: { x: 520, y: 750 } })
+    expect(low.below).toBe(false)
   })
   it('with less than 64px above the selection: 12px below its last line, tip up', () => {
     const p = M.placeBar({ first: box(300, 100, 600, 118), last: box(100, 140, 400, 160), frame: FRAME, w: 360, h: 44 })
@@ -161,11 +169,11 @@ describe('the highlight dot’s colour', () => {
     expect(colors.match(/class="mr-swatch"/g)).toHaveLength(5)
     expect(colors).toContain('data-color="sage" style="background:#a9d0a3" aria-label="Sage" aria-pressed="true"')
   })
-  it('PR 2: Simplify is in the bar and Fact-check, Counterpoint and Quiz me in More; Share as image stays out of the reader', () => {
+  it('PR 2: Simplify is in the bar and Evaluate, Counterpoint and Quiz me in More; Share as image stays out of the reader', () => {
     const reader = M.html.barHtml('menu', { colors: COLORS, current: 'gold' }) + M.html.moreHtml({})
-    for (const name of ['Simplify', 'Fact-check', 'Counterpoint', 'Quiz me']) expect(reader).toContain(name)
+    for (const name of ['Simplify', 'Evaluate', 'Counterpoint', 'Quiz me']) expect(reader).toContain(name)
     expect(reader).not.toContain('Share as image')
-    expect(reader).toMatch(/Define[\s\S]*Fact-check[\s\S]*Counterpoint[\s\S]*Quiz me[\s\S]*<hr>[\s\S]*>Copy</)
+    expect(reader).toMatch(/Define[\s\S]*Evaluate[\s\S]*Counterpoint[\s\S]*Quiz me[\s\S]*<hr>[\s\S]*>Copy</)
     expect(reader).not.toContain('Copy quote')
     expect(M.html.moreHtml({ all: true })).toContain('Share as image')
     expect(M.html.moreHtml({ phone: true })).not.toContain('The word, as this text uses it')
@@ -215,9 +223,10 @@ describe('the note editor', () => {
   it('quotes the passage (cut), offers Remove highlight and Save note; Save waits for words', () => {
     const empty = M.html.noteHtml({ quote: 'an approximation for the factorial function' })
     expect(empty).toContain('“an approximation for the factorial function”')
-    expect(empty).toContain('placeholder="Add a note…"')
+    // The field is the formatted note field (js/note-md.js, 13 Nov 2026): its placeholder is drawn from data-placeholder.
+    expect(empty).toContain('data-placeholder="Add a note…"')
     expect(empty).toMatch(/data-m="remove">Remove highlight<\/button><button type="button" class="mr-bar__item" data-m="save" disabled>Save note/)
-    expect(M.html.noteHtml({ quote: 'x', note: 'Try <b>' })).toContain('>Try &lt;b&gt;</textarea>')
+    expect(M.html.noteHtml({ quote: 'x', note: 'Try <b>' })).toContain('data-note-field data-placeholder="Add a note…" aria-label="Highlight note">Try &lt;b&gt;</div></tinct-note>')
   })
 })
 
@@ -288,10 +297,6 @@ describe('the offline dictionary loader (mirrors services/dictionary.ts)', () =>
 })
 
 describe('the installed copy', () => {
-  it('app/public/lab/addbook ships the margin files of addbooks/web/src unchanged', () => {
-    for (const file of ['js/margin.js', 'js/dictionary.js', 'js/margin-fixture.js', 'css/margin.css', 'margin-fixture.html'])
-      expect(readFileSync(ROOT + 'app/public/lab/addbook/' + file, 'utf8'), file).toBe(readFileSync(ROOT + 'addbooks/web/src/' + file, 'utf8'))
-  })
   it('css/margin.css keeps the reference stylesheet, its values and its guards block, unchanged', () => {
     const css = readFileSync(ROOT + 'app/public/lab/addbook/css/margin.css', 'utf8')
     const reference = readFileSync(ROOT + 'docs/margin/margin-reference.css', 'utf8')

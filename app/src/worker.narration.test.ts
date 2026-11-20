@@ -1,3 +1,4 @@
+import { createRateLimiter } from './worker/lib/rateLimit'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { narrationCostUsd } from './worker/lib/aiUsage'
 import { handleNarration, narrationConfig, synthesizeWithGoogle, synthesizeWithGrok, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
@@ -204,6 +205,21 @@ describe('Google SSML timing synthesis', () => {
 })
 
 describe('POST /api/narration/ensure', () => {
+  it('returns unavailable, not rate exceeded, when the coordinator fails; never generates', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const h = makeHarness()
+    const hit = vi.fn().mockRejectedValue(Object.assign(new Error('private IP and key'), { retryable: true }))
+    h.deps.checkRateLimit = createRateLimiter({ USAGE_COORDINATOR: { getByName: () => ({ hit }) } as any }, { throwOnUnavailable: true })
+    const response = await ensure(h, { paragraphs: [{ index: 0 }] })
+    expect(response.status).toBe(503)
+    expect(response.json.reason).toBe('rate_limit_unavailable')
+    expect(hit).toHaveBeenCalledTimes(1)
+    expect(h.fish.calls).toHaveLength(0)
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('"retryable":true'))
+    expect(JSON.stringify(warn.mock.calls)).not.toContain('private IP and key')
+    warn.mockRestore()
+  })
+
   it('requires configuration, a signed-in reader, and the narration scope', async () => {
     const off = makeHarness({ FISH_AUDIO_API_KEY: '' })
     expect((await ensure(off, {})).status).toBe(503)
@@ -249,7 +265,7 @@ describe('POST /api/narration/ensure', () => {
     expect(audio.status).toBe(206)
     expect(audio.headers.get('Content-Type')).toBe('audio/mpeg')
 
-    const usage = await h.env.RATE_LIMIT.get('narration:usage:day:2026-09-18', 'json') as Record<string, number>
+    const usage = await h.env.RATE_LIMIT.get('narration:usage:reader-day:2026-09-18', 'json') as Record<string, number>
     expect(usage).toMatchObject({ generated: 1, cacheHits: 1, requests: 2 })
     expect(usage.bytes).toBeGreaterThan(0)
   })
@@ -373,11 +389,23 @@ describe('POST /api/narration/ensure', () => {
 
   it('stops at the spending ceiling without calling the provider', async () => {
     const h = makeHarness({ NARRATION_DAILY_BYTES: '150' })
-    await h.env.RATE_LIMIT.put('narration:usage:day:2026-09-18', JSON.stringify({ bytes: 100, requests: 1, generated: 1, failed: 0, cacheHits: 0, providerMs: 0 }))
+    await h.env.RATE_LIMIT.put('narration:usage:reader-day:2026-09-18', JSON.stringify({ bytes: 100, requests: 1, generated: 1, failed: 0, cacheHits: 0, providerMs: 0 }))
     const result = await ensure(h, { paragraphs: [{ index: 0 }] })
     expect(result.json.paragraphs[0]).toMatchObject({ status: 'failed', reason: 'budget_exhausted' })
     expect(result.json.paragraphs[0].retryAfterMs).toBeGreaterThan(0)
     expect(h.fish.calls.length).toBe(0)
+  })
+
+  it('keeps the readers\' day apart from the warm runs\' day', async () => {
+    // A warm run that used its whole day must not stop readers (Anders, 19 Nov 2026).
+    const reader = makeHarness({ NARRATION_DAILY_BYTES: '150' })
+    await reader.env.RATE_LIMIT.put('narration:usage:warm-day:2026-09-18', JSON.stringify({ bytes: 5000, requests: 9, generated: 9, failed: 0, cacheHits: 0, providerMs: 0 }))
+    const read = await ensure(reader, { paragraphs: [{ index: 0 }] })
+    expect(read.json.paragraphs[0]).toMatchObject({ status: 'ready' })
+    expect(reader.fish.calls.length).toBe(1)
+    const readerDay = await reader.env.RATE_LIMIT.get('narration:usage:reader-day:2026-09-18', 'json') as Record<string, number>
+    expect(readerDay.bytes).toBeGreaterThan(0)
+    expect(await reader.env.RATE_LIMIT.get('narration:usage:month:2026-09', 'json')).toMatchObject({ bytes: readerDay.bytes })
   })
 
   it('retries overloads a bounded number of times and opens the breaker after repeated failures', async () => {
@@ -707,7 +735,8 @@ describe('Grok narration rollout', () => {
       NARRATION_COORDINATOR: { getByName: (name: string) => ({
         claim: async (token: string) => { if (held.has(name)) return false; held.set(name, token); return true },
         release: async (token: string) => { if (held.get(name) === token) held.delete(name) },
-        reserve: async (_day: string, bytes: number) => { reservations.push(bytes); return true },
+        // One reservation per chunk against the shared month (each pool's own day is reserved alongside it).
+        reserve: async (_day: string, bytes: number) => { if (name.startsWith('budget:')) reservations.push(bytes); return true },
         usage: async () => [],
       }) } as unknown as DurableObjectNamespace,
     })
@@ -773,6 +802,79 @@ describe('Grok narration rollout', () => {
     h.deps.verifyUser = async () => null
     expect((await ensure(h, catholic)).status).toBe(200)
     expect(h.fish.calls).toHaveLength(1)
+  })
+  // Design change (Anders, 2026-11-06, after a Grok sample in Danish): the offered
+  // Danish editions are narrated in Danish. Until then they were text-only and
+  // the Worker refused them; these pin the new contract instead.
+  describe('Danish narration of the offered Danish editions', () => {
+    const DANISH = ['»Ja, selvfølgelig, hvis det er fint i morgen,« sagde fru Ramsay. »Men du må stå op med lærken,« tilføjede hun.']
+    function danishHarness(provider: 'grok' | 'fish' = 'grok') {
+      const result = grokHarness()
+      if (provider === 'fish') { result.h.env.NARRATION_PROVIDER = 'fish' }
+      result.h.env.ASSETS = { fetch: async (request: Request) => {
+        const path = new URL(request.url).pathname
+        // The same characters in both editions: only the language tells them apart.
+        if (path === '/data/editions/to-the-lighthouse-modern-da.json' || path === '/data/editions/to-the-lighthouse-modern-en.json'
+          || path === '/data/editions/frankenstein-modern-da.json') {
+          return Response.json({ chapters: [{ number: 1, title: '1', paragraphs: DANISH }] })
+        }
+        return new Response('Not found', { status: 404 })
+      } }
+      return result
+    }
+    const lighthouse = { bookId: 'to-the-lighthouse', chapter: 1, voice: 'f', mode: 'all', paragraphs: [{ index: 0 }] }
+    it('sends language "da" to Grok for a Danish edition and "en" for an English one', async () => {
+      const { h } = danishHarness()
+      const da = await ensure(h, { ...lighthouse, editionKey: 'modern-da' })
+      expect(da.status).toBe(200)
+      expect(da.json.paragraphs[0].status).toBe('ready')
+      const daCalls = h.fish.calls.length
+      expect(daCalls).toBeGreaterThan(0)
+      for (const call of h.fish.calls) expect(JSON.parse(call.body).language).toBe('da')
+      await ensure(h, { ...lighthouse, editionKey: 'modern-en' })
+      const enCalls = h.fish.calls.slice(daCalls)
+      expect(enCalls.length).toBeGreaterThan(0)
+      for (const call of enCalls) expect(JSON.parse(call.body).language).toBe('en')
+    })
+    it('derives the language from the edition, never from the request', async () => {
+      const { h } = danishHarness()
+      await ensure(h, { ...lighthouse, editionKey: 'modern-da', language: 'en' })
+      await ensure(h, { ...lighthouse, editionKey: 'modern-en', language: 'da' })
+      expect(h.fish.calls.map(call => JSON.parse(call.body).language)).toEqual(['da', 'en'])
+    })
+    it('never lets Danish and English share a recording, even for the same characters', async () => {
+      const { h } = danishHarness()
+      const da = await ensure(h, { ...lighthouse, editionKey: 'modern-da' })
+      const en = await ensure(h, { ...lighthouse, editionKey: 'modern-en' })
+      // Each edition paid for its own recording: nothing was adopted across languages.
+      expect(h.fish.calls).toHaveLength(2)
+      const daHash = String((da.json.paragraphs[0] as Result).chunks![0].hash)
+      const enHash = String((en.json.paragraphs[0] as Result).chunks![0].hash)
+      expect(daHash).toMatch(/^[a-f0-9]{64}$/)
+      expect(daHash).not.toBe(enHash)
+      const daMeta = await (await h.env.AUDIO_BUCKET.get(narrationBlobKeys(daHash, 'grok').meta))!.json()
+      const enMeta = await (await h.env.AUDIO_BUCKET.get(narrationBlobKeys(enHash, 'grok').meta))!.json()
+      expect(daMeta).toMatchObject({ language: 'da', editionKey: 'modern-da', text: enMeta.text })
+      expect(enMeta.language).toBeUndefined()
+      // A second Danish request is a cache hit.
+      await ensure(h, { ...lighthouse, editionKey: 'modern-da' })
+      expect(h.fish.calls).toHaveLength(2)
+    })
+    it('lists a Danish chapter like an English one', async () => {
+      const { h } = danishHarness()
+      await ensure(h, { ...lighthouse, editionKey: 'modern-da' })
+      const listing = await chapter(h, 'bookId=to-the-lighthouse&editionKey=modern-da&chapter=1&voice=f')
+      expect(listing.status).toBe(200)
+      expect(listing.json.paragraphs[0]).toMatchObject({ status: 'ready' })
+    })
+    it('narrates only offered Danish editions, and only with Grok', async () => {
+      const { h } = danishHarness()
+      expect((await ensure(h, { ...lighthouse, bookId: 'pride-and-prejudice', editionKey: 'modern-da' })).status).not.toBe(200)
+      const fish = danishHarness('fish').h
+      expect((await ensure(fish, { ...lighthouse, editionKey: 'modern-da', voice: 'a' })).status).toBe(403)
+      expect(h.fish.calls).toHaveLength(0)
+      expect(fish.fish.calls).toHaveLength(0)
+    })
   })
   it('offers only the four approved voices and keeps provider identities separate', () => {
     const { h } = grokHarness()

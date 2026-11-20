@@ -1,3 +1,4 @@
+import { transcriptTurnClass, type TranscriptTurn } from './labTranscript'
 import { HARD_BREAK_FRAGMENT_RE } from './labHyphenate'
 import { isLabVerseMarker, LAB_VERSE_SEPARATOR, labVerseMarkerDisplay } from './labHearing'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
@@ -11,6 +12,22 @@ import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVer
  */
 export function labFragmentClass(text: string): string {
   return HARD_BREAK_FRAGMENT_RE.test(text) ? 'lab-word-fragment is-hard-break' : 'lab-word-fragment'
+}
+
+/**
+ * `parent.replaceChildren(...nodes)` without the spread: a spread passes every
+ * node as a call argument, and a whole pasted book in one measured paragraph
+ * (the desktop capacity probe paints a chapter's every word) is ~200k nodes,
+ * past the engine's argument limit ("Maximum call stack size exceeded").
+ */
+export function replaceChildrenWith(parent: Element, nodes: Iterable<Node>): void {
+  const fragment = document.createDocumentFragment()
+  for (const node of nodes) fragment.appendChild(node)
+  parent.replaceChildren(fragment)
+}
+
+function appendAll(parent: Element, nodes: Iterable<Node>): void {
+  for (const node of nodes) parent.appendChild(node)
 }
 
 export interface MeasurableWord {
@@ -60,6 +77,8 @@ export interface LabMeasureOptions {
   plans?: boolean
   /** This plan instead of the stored one (while a plan is being made). */
   plan?: HyphenPlan
+  /** A transcript turn's time and speaker (labTranscript): measured with the weight they paint in. */
+  turn?: TranscriptTurn
 }
 
 /**
@@ -104,7 +123,7 @@ export function labMeasureParagraphInto(
       span.append(figureElement(figure))
       return span
     }
-    span.className = 'lab-hearing-word'
+    span.className = `lab-hearing-word${transcriptTurnClass(options.turn, (lineation?.from ?? 0) + index)}`
     // A link paints its label (a bare address shows its domain and an arrow),
     // so it is measured as painted.
     const link = lineation ? wordLink(lineation.text, lineation.from + index, word.text) : null
@@ -177,11 +196,11 @@ export function labMeasureParagraphInto(
     ? presentationLineRanges(lineation.text, lineation.from, lineation.from + ownedCount)
     : null
   if (!ranges) {
-    p.replaceChildren(...children.map(child => child.node))
+    replaceChildrenWith(p, children.map(child => child.node))
     return p
   }
   const base = lineation!.from
-  p.replaceChildren(...ranges.map(([start, end]) => {
+  replaceChildrenWith(p, ranges.map(([start, end]) => {
     const line = document.createElement('span')
     line.className = verseLineStarts(lineation?.text) ? 'lab-verse-line' : 'lab-speech-run'
     const items = children.filter(child => base + child.at >= start && base + child.at < end)
@@ -189,12 +208,12 @@ export function labMeasureParagraphInto(
     if (start < speakerEnd) {
       const speaker = document.createElement('span')
       speaker.className = 'lab-verse-speaker'
-      speaker.append(...items.filter(child => base + child.at < speakerEnd).map(child => child.node))
+      appendAll(speaker, items.filter(child => base + child.at < speakerEnd).map(child => child.node))
       line.append(speaker)
     }
     const dialogue = document.createElement('span')
     dialogue.className = 'lab-verse-dialogue'
-    dialogue.append(...items.filter(child => base + child.at >= speakerEnd).map(child => child.node))
+    appendAll(dialogue, items.filter(child => base + child.at >= speakerEnd).map(child => child.node))
     line.append(dialogue)
     if (isInternalVerseBreak(lineation?.text, end)) {
       const marker = document.createElement('span')
@@ -279,7 +298,7 @@ export const LAB_CONTINUED_TAIL_MAX_GAP_EM = 1.5
 export function continuedTailJustifiedGap(contentRight: number, words: LabTailRect[], fontSize: number): number {
   const painted = words.filter(rect => rect.height > 0 && rect.right > rect.left)
   if (painted.length < 2 || !(fontSize > 0)) return 0
-  const lastBottom = Math.max(...painted.map(rect => rect.bottom))
+  const lastBottom = painted.reduce((max, rect) => Math.max(max, rect.bottom), -Infinity)
   const line = painted
     .filter(rect => Math.abs(rect.bottom - lastBottom) < Math.max(8, rect.height / 2))
     .sort((a, b) => a.left - b.left)

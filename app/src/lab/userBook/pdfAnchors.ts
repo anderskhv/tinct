@@ -1,7 +1,7 @@
 /**
  * A place in a PDF's Tinct text and the same place on its pages, both ways.
  * Pure: the same rules as `TinctPdfText.pageOf` / `placeOf` in
- * addbooks/web/src/js/pdf-text.js (Add a book's viewer uses that copy; the
+ * public/lab/addbook/js/pdf-text.js (Add a book's viewer uses that copy; the
  * tests hold the two to each other).
  *
  * Each paragraph of a converted PDF knows the page it starts on

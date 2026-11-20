@@ -1,5 +1,5 @@
 /**
- * A recognised scan's text laid over its page images (addbooks/web/src/js/pdf-ocr.js, the scans test
+ * A recognised scan's text laid over its page images (public/lab/addbook/js/pdf-ocr.js, the scans test
  * of 15 Oct 2026): the page's printed lines found in its ink, the recognised blocks placed on them
  * (by each block's box from recognition, else in reading order), and the lines turned into pdf.js
  * text items that the PDF viewer's text layer positions exactly where the ink is.
@@ -23,7 +23,7 @@ interface Layer {
 }
 let L: Layer
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-ocr.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-ocr.js')
   L = (globalThis as unknown as { TinctPdfOcr: Layer }).TinctPdfOcr
 })
 

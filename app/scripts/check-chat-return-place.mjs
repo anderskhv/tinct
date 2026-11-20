@@ -171,23 +171,7 @@ async function openAskAbout(page) {
   await page.waitForTimeout(400)
 }
 
-async function openSummarizeChat(page) {
-  await showControls(page)
-  await page.getByTestId('lab-super').click()
-  await page.getByTestId('lab-super-row-summarize').click()
-  await page.getByTestId('lab-chapter-notes-beat').first().waitFor()
-  // The summary ends with the follow-up field (21 Oct 2026): a question asked there joins the chat's conversation,
-  // answered in the sheet; Chat then opens on it.
-  await page.getByTestId('lab-phone-card-input').fill('What changes here?')
-  await page.getByTestId('lab-phone-card-send').click()
-  await page.getByTestId('lab-phone-card-question').waitFor()
-  await page.waitForTimeout(400)
-  await page.keyboard.press('Escape')
-  await page.getByTestId('lab-chapter-notes').waitFor({ state: 'detached' })
-  await openChat(page)
-}
-
-const entries = { menu: openChat, 'ask-about-selection': openAskAbout, 'summarize-follow-up': openSummarizeChat }
+const entries = { menu: openChat, 'ask-about-selection': openAskAbout }
 const returns = {
   done: async page => page.getByTestId('lab-ask-done').click(),
   escape: async page => page.keyboard.press('Escape'),
@@ -204,20 +188,25 @@ const browser = await markInternal(await chromium.launch({ executablePath, args:
 const results = []
 let failed = false
 try {
-  // Read, and Compare (swiped to the other edition). Every Chat entry point
-  // returns by "Back to book"; the menu entry also by Escape and after a reply.
-  const views = process.env.TEST_VIEWS ? process.env.TEST_VIEWS.split(',') : ['read', 'compare']
+  // Read, and the other edition read as the Main version (the phone has no Compare
+  // since 10 Nov 2026). Every Chat entry point returns by "Back to book"; the menu
+  // entry also by Escape and after a reply. TEST_VIEWS=compare is an alias for edition.
+  const views = (process.env.TEST_VIEWS ? process.env.TEST_VIEWS.split(',') : ['read', 'edition']).map(view => view === 'compare' ? 'edition' : view)
   const cases = views.flatMap(view => Object.entries(entries).flatMap(([entry, open]) => Object.entries(returns)
     .filter(([back]) => entry === 'menu' || back === 'done')
     .map(([back, close]) => [`${view}/${entry}/${back}`, view, open, close])))
   for (const [name, view, open, close] of cases) {
     const { context, page, errors, cspViolations } = await boot(browser)
     try {
-      if (view === 'compare') {
-        await page.getByTestId('lab-book').evaluate(el => {
-          el.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerId: 71, pointerType: 'touch', clientX: 190, clientY: 400 }))
-          el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerId: 71, pointerType: 'touch', clientX: 190, clientY: 270 }))
-        })
+      if (view === 'edition') {
+        // No Compare on the phone (10 Nov 2026): Book settings switch the Main version instead.
+        await page.getByTestId('lab-super').click()
+        await page.getByTestId('lab-super-row-editions').click()
+        assert.equal(await page.getByTestId('lab-v2-show-compare').count(), 0, 'The phone offers no Compare')
+        await page.getByTestId('lab-v2-main-edition').click()
+        await page.locator(`[data-edition="${compareEdition}"]`).click()
+        await page.getByTestId('lab-v2-sheet-close').click()
+        await page.waitForFunction(edition => document.querySelector('[data-testid="lab-root"]')?.dataset.readerEdition === edition, compareEdition)
         await page.waitForTimeout(1500)
       }
       await turnForward(page, turns)

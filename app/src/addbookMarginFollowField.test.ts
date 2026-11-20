@@ -90,9 +90,4 @@ describe('the follow-up field', () => {
     expect(reader).toMatch(/if \(e\.key !== 'Enter' \|\| e\.shiftKey \|\| e\.isComposing\) return;\n {4}e\.preventDefault\(\);\n {4}sendFollow\(e\.target\);/)
     expect(reader).toContain("if (send) send.disabled = !t.value.trim();")
   })
-  it('is mirrored to addbooks/web/src', () => {
-    for (const f of ['css/margin.css', 'js/margin.js', 'js/reader.js', 'index.html', 'margin-fixture.html']) {
-      expect(readFileSync(ROOT + 'addbooks/web/src/' + f, 'utf8'), f).toBe(readFileSync(ROOT + 'app/public/lab/addbook/' + f, 'utf8'))
-    }
-  })
 })

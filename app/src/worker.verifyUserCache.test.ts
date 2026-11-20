@@ -1,8 +1,7 @@
 /**
  * A token verified with Supabase is remembered for a minute per isolate, so
- * the several requests a page makes at once (the account cards make seven) do
- * not each pay a Supabase round trip before their own work (10 Oct 2026, each
- * /auth/v1/user call measured at 300-700 ms). Failures are never remembered,
+ * later requests can reuse completed verification data. Pending fetches are
+ * never shared between requests. Failures are never remembered,
  * a token past its own expiry is not, and account deletion forgets the token.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -36,21 +35,68 @@ afterEach(() => vi.unstubAllGlobals())
 const ask = (token: string) => worker.fetch(new Request('https://tinct.app/api/subscription-info', { headers: { Authorization: `Bearer ${token}` } }), env as never, ctx)
 
 describe('verifyUser cache', () => {
-  it('verifies a token once for several requests, and each token separately', async () => {
+  it('does not make a new request wait for an unrelated pending verification', async () => {
+    const token = jwt(Math.floor(Date.now() / 1000) + 3600)
+    let release!: (response: Response) => void
+    const fetcher = vi.mocked(fetch)
+    fetcher.mockImplementationOnce(() => new Promise(resolve => { release = resolve }))
+    const first = ask(token)
+    let secondDone = false
+    const second = ask(token).then(response => { secondDone = true; return response })
+    try {
+      await new Promise(resolve => setTimeout(resolve, 30))
+      expect(secondDone).toBe(true)
+    } finally {
+      release(Response.json(USER))
+      await Promise.all([first, second])
+    }
+  })
+
+  it('reports an authentication service outage as unavailable, never an invalid login', async () => {
+    vi.mocked(fetch).mockResolvedValueOnce(Response.json({ error: 'service detail' }, { status: 503 }))
+    const response = await ask(jwt(Math.floor(Date.now() / 1000) + 3600))
+    expect(response.status).toBe(503)
+    expect(response.headers.get('Cache-Control')).toBe('no-store')
+    expect(await response.json()).toEqual({ error: 'Authentication is temporarily unavailable', reason: 'auth_unavailable' })
+  })
+
+  it('bounds a stalled authentication lookup and allows a later request to recover', async () => {
+    vi.useFakeTimers()
+    try {
+      let signal: AbortSignal | undefined
+      vi.mocked(fetch).mockImplementationOnce((_input, init) => {
+        signal = init?.signal as AbortSignal
+        return new Promise((_resolve, reject) => signal?.addEventListener('abort', () => reject(new Error('private detail'))))
+      })
+      const token = jwt(Math.floor(Date.now() / 1000) + 3600)
+      let settled = false
+      const pending = ask(token).then(response => { settled = true; return response })
+      await vi.advanceTimersByTimeAsync(10_000)
+      expect(settled).toBe(true)
+      expect((await pending).status).toBe(503)
+      expect(signal?.aborted).toBe(true)
+      vi.mocked(fetch)
+        .mockResolvedValueOnce(Response.json(USER))
+        .mockResolvedValueOnce(Response.json([{ created_at: '2026-10-01T00:00:00Z' }]))
+      expect((await ask(token)).status).toBe(200)
+    } finally { vi.useRealTimers() }
+  })
+  it('reuses completed verification data, while concurrent requests own their I/O', async () => {
     const a = jwt(Math.floor(Date.now() / 1000) + 3600), b = jwt(Math.floor(Date.now() / 1000) + 3601)
-    // Seven at once, as the account cards send them: one Supabase call.
+    // Concurrent requests do not share a request-owned pending fetch.
     await Promise.all(Array.from({ length: 7 }, () => ask(a)))
-    expect(authCalls).toEqual([`Bearer ${a}`])
+    expect(authCalls).toEqual(Array(7).fill(`Bearer ${a}`))
     await ask(a)
-    expect(authCalls.length).toBe(1)
+    expect(authCalls.length).toBe(7)
     await ask(b)
-    expect(authCalls).toEqual([`Bearer ${a}`, `Bearer ${b}`])
+    expect(authCalls).toEqual([...Array(7).fill(`Bearer ${a}`), `Bearer ${b}`])
   })
 
   it('never remembers a refused token, nor one past its own expiry', async () => {
     authOk = false
     const bad = jwt(Math.floor(Date.now() / 1000) + 3600)
-    await ask(bad); await ask(bad)
+    expect((await ask(bad)).status).toBe(401)
+    expect((await ask(bad)).status).toBe(401)
     expect(authCalls.length).toBe(2)
     authOk = true
     const expired = jwt(Math.floor(Date.now() / 1000) - 10)

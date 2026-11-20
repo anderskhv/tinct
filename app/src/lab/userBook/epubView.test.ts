@@ -8,7 +8,7 @@
 import { createRequire } from 'node:module'
 import { resolve } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
-import { chooseEpubMargin, epubView, epubViewHere, findQuote, quoteKey, readEpubPlace, writeEpubViewChoice } from './epubView'
+import { chooseEpubMargin, epubView, epubViewHere, findQuote, findUniqueQuote, quoteKey, readEpubPlace, writeEpubViewChoice } from './epubView'
 import { ownBookHref } from './userBookId'
 import { fakeIndexedDb } from './fakeIndexedDb.test-helpers'
 import { openUserBook } from './userBookStore'
@@ -54,11 +54,11 @@ describe('where an EPUB opens (epubView)', () => {
     expect(epubViewHere(HEX)).toBe('text')
   })
 
-  it('links an EPUB to its view: the margin reader, else the Tinct reader (a PDF as before)', () => {
-    expect(ownBookHref(HEX, 'epub', 'margin')).toBe(`/lab/addbook/?userBook=${HEX}`)
+  it('links every own book to its one address, whatever its view (22 Oct 2026: the reader opens the margin reader there)', () => {
+    expect(ownBookHref(HEX, 'epub', 'margin')).toBe(`/reader?userBook=${HEX}`)
     expect(ownBookHref(HEX, 'epub', 'text')).toBe(`/reader?userBook=${HEX}`)
     expect(ownBookHref(HEX, 'epub', null)).toBe(`/reader?userBook=${HEX}`)
-    expect(ownBookHref(HEX, 'pdf', 'pages')).toBe(`/lab/addbook/?userBook=${HEX}`)
+    expect(ownBookHref(HEX, 'pdf', 'pages')).toBe(`/reader?userBook=${HEX}`)
     expect(ownBookHref(HEX, 'pdf', 'text')).toBe(`/reader?userBook=${HEX}`)
   })
 
@@ -109,6 +109,20 @@ describe('the place, by its words', () => {
     expect(readEpubPlace(HEX, edition)).toMatchObject({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 3 })
   })
 
+  it('the private entry retains a saved place if the old Margin quote could name several passages', () => {
+    const repeated: UserBookEdition = { ...edition, chapters: [
+      { number: 1, title: 'A', paragraphs: ['Repeated words in this same passage again.', 'Other text'] },
+      { number: 2, title: 'B', paragraphs: ['Repeated words in this same passage again.'] },
+    ] }
+    expect(findUniqueQuote(repeated.chapters.map(chapter => chapter.paragraphs), 'Repeated words in this same passage again.')).toBeNull()
+    expect(findUniqueQuote([['foo foo foo']], 'foo foo')).toBeNull()
+    writeUserBookPlace(HEX, { chapterNumber: 2, paragraphIndex: 0, wordIndex: 3, updatedAt: 100, converter: 6 })
+    localStorage.setItem(`tinct-addbook:pos:epub:${HEX}`, JSON.stringify({ quote: 'Repeated words in this same passage again.', at: 5000 }))
+    expect(readEpubPlace(HEX, repeated, undefined, { requireUniqueQuote: true })).toMatchObject({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 3, updatedAt: 100 })
+    expect(JSON.parse(localStorage.getItem(`tinct-addbook:place:${HEX}`)!)).toMatchObject({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 3, updatedAt: 100 })
+    expect(localStorage.getItem(`tinct-addbook:pos:epub:${HEX}`)).toContain('Repeated words')
+  })
+
   it('"Margin view" in the Tinct reader: chosen on this device, the words of the place sent for the margin reader to take at once', () => {
     localStorage.setItem(`tinct-addbook:pos:epub:${HEX}`, JSON.stringify({ page: 1, frac: 0.2, zoom: 1.2, para: 0, word: 0, quote: 'old', at: 10 }))
     chooseEpubMargin(HEX, edition, { chapterNumber: 2, paragraphIndex: 1, wordIndex: 2 })
@@ -126,6 +140,7 @@ describe('the Tinct reader sends an EPUB read in Margin view on to the margin re
     const records = new Map<string, Record<string, unknown>>([[`epub:${HEX}`, { key: `epub:${HEX}`, kind: 'epub', owner: 'me', name: 'a.epub', edition }]])
     ;(globalThis as { indexedDB?: unknown }).indexedDB = fakeIndexedDb(records)
     expect(await openUserBook(HEX, { owner: 'me', epubView: 'margin' })).toEqual({ ok: false, reason: 'margin', message: '' })
+    expect((await openUserBook(HEX, { owner: 'me', epubView: 'margin', sharedReader: true })).ok).toBe(true)
     expect(await openUserBook('ef'.repeat(12), { owner: 'me', epubView: 'margin', account: async () => null })).toEqual({ ok: false, reason: 'margin', message: '' })
     const read = await openUserBook(HEX, { owner: 'me', epubView: 'text' })
     expect(read.ok && read.book.edition.title).toBe('Lamplight Essays')

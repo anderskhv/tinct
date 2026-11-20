@@ -5,6 +5,8 @@ import { authorshipNote, bookByline, type Authorship } from '../companion/author
 import { LAB_COPY } from './labCopy'
 import type { LabReadingTrailEntry } from './labReadingTrail'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
+import { aiPrefsPromptLines } from '../aiSettings'
+import { aiPrefsFor } from './labAiPrefs'
 
 export interface LabTalkContext {
   bookTitle: string
@@ -182,6 +184,8 @@ export function buildLabTalkInstructions(input: LabTalkContext): string {
   if (authorship) lines.push(authorship)
 
   if (input.readingAngle) lines.push(`Reading angle: ${input.readingAngle}`)
+  // The reader's own instructions (AI settings), after the angle; Talk keeps its spoken length.
+  lines.push(...aiPrefsPromptLines(aiPrefsFor(null), { length: false }))
   if (current) lines.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
   if (nearby.length > 0) {
     lines.push(`Nearby paragraphs:\n${nearby.map(text => `- "${text}"`).join('\n')}`)
@@ -292,7 +296,9 @@ export type AnthropicStreamResult = {
 /** A reader-facing failure, without raw provider messages or request contents. */
 export class LabChatError extends Error {
   constructor(public readonly type = 'interrupted') {
-    super(type === AI_RESTING_ERROR_TYPE
+    super(type === 'allowance_used' || type === 'insufficient_balance'
+      ? 'Not enough AI credits for this request. Top up to continue.'
+      : type === AI_RESTING_ERROR_TYPE
       ? LAB_COPY.aiResting
       : type === 'rate_limit_error'
       ? 'Chat is busy. Please try again in a minute.'
@@ -314,7 +320,8 @@ export function isAiRestingError(error: unknown): boolean {
 
 /** The structured error type of a failed companion response, else `http_<status>`. */
 export async function labChatErrorType(response: { status: number; json?: () => Promise<unknown> }): Promise<string> {
-  const data = await response.json?.().catch(() => null) as { error?: { type?: unknown } } | null
+  const data = await response.json?.().catch(() => null) as { error?: { type?: unknown } | string } | null
+  if (response.status === 402 && (data?.error === 'allowance_used' || (typeof data?.error === 'object' && data.error?.type === 'insufficient_balance'))) return 'allowance_used'
   const type = data && typeof data.error === 'object' && data.error ? data.error.type : null
   return type === AI_RESTING_ERROR_TYPE ? AI_RESTING_ERROR_TYPE : `http_${response.status}`
 }
@@ -339,6 +346,8 @@ export const TINCT_STATUS_EVENT = 'tinct_status'
 export interface AnthropicStreamOptions {
   /** A lookup started; the text is a short reader-facing status line. Readers without it ignore the event. */
   onStatus?: (text: string) => void
+  /** Saving a reader card requires an end turn; a token ceiling leaves a visible but incomplete draft. */
+  requireComplete?: boolean
 }
 
 export async function readAnthropicStream(
@@ -407,7 +416,9 @@ export async function readAnthropicResponse(
   options: AnthropicStreamOptions = {},
 ): Promise<string> {
   const result = await readAnthropicStream(response, onDelta, options)
-  if (result.stopReason === 'error' || !result.sawStop || !result.text.trim()) throw result.error ?? new LabChatError()
+  if (result.stopReason === 'error' || !result.sawStop || !result.text.trim()
+    || (options.requireComplete && result.stopReason != null && result.stopReason !== 'end_turn' && result.stopReason !== 'stop_sequence'))
+    throw result.error ?? new LabChatError()
   return result.text
 }
 

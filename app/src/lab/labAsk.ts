@@ -3,13 +3,15 @@ import type { VoiceModeState } from '../voice/types'
 import { VOICE_TOOLS } from '../voice/context'
 import { parseHearingSpeed } from './labHearing'
 import { nextLabChapter, prevLabChapter, type LabChapter } from './labSource'
-import { storage } from '../services/storage'
+import { readingAngleForAi } from './labReadingAngle'
 import { LAB_ASK_COMPANION_TOOL } from './labCompanion'
 
 /** `checking` and `preparing` are Voice V2 only; V1 never produces them. */
 export type LabConversationState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing'
 
 export interface LabAskTurn {
+  /** Source conversation captured when the request starts, independent of later UI focus. */
+  conversationId?: string | null
   bookId?: string
   chapterAction?: ChapterChatAction
   id: string
@@ -137,10 +139,9 @@ export {
   type LabAskContext,
 } from '../companion/labAskPrompt'
 
-export function labReadingAngle(): string | undefined {
-  const prefs = storage.get<{ readingObjective?: string }>('preferences')
-  const angle = prefs?.readingObjective?.trim()
-  return angle || undefined
+/** The book's own reading angle (labReadingAngle.ts); a book with none sends none. */
+export function labReadingAngle(bookId: string | null | undefined): string | undefined {
+  return readingAngleForAi(bookId)
 }
 
 /**

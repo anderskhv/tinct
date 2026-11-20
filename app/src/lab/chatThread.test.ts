@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
-  bindPress, composerKey, cutQuote, dayLabel, fadeInWords, fitSpacer, HINT_TEXT, isAway, isBelow, keptCopyIndex, lastQuestion, latestPill, PRESS_FADE_MS, PRESS_HOLD_MS,
+  bindPress, composerKey, cutQuote, dayLabel, fadeInWords, fitSpacer, HINT_TEXT, isAway, keptCopyIndex, lastQuestion, PRESS_FADE_MS, PRESS_HOLD_MS,
   QUESTION_PEEK, questionTop, QUOTE_LIMIT, TOP_CLEAR, BACK_TO_BOOK_HTML, takeHint, threadHtml, threadRows, timeLabel, WORD_FADE_MS,
 } from '../../public/lab/chat-thread.js'
 
@@ -99,7 +99,7 @@ describe('composer keys', () => {
     const storage = { getItem: (k: string) => store.get(k) ?? null, setItem: (k: string, v: string) => { store.set(k, v) } }
     expect(takeHint(storage)).toBe(true)
     expect(takeHint(storage)).toBe(false)
-    expect(HINT_TEXT).toBe('Return sends · Shift-Return new line · ↑ last question · Esc closes')
+    expect(HINT_TEXT).toBe('Return sends · Shift-Return new line · ↑ last question')
   })
   it('the Latest pill shows only more than a screen up', () => {
     expect(isAway({ scrollHeight: 3000, scrollTop: 1000, clientHeight: 500 })).toBe(true)
@@ -149,49 +149,6 @@ describe('calm answer (Anders, 10 Oct 2026): the question near the top once, the
     const long = threadOf(4000)
     fitSpacer(long, 1900)
     expect((long.querySelector('.tc-spacer') as HTMLElement).style.height).toBe('0px')
-  })
-  it('the Latest pill shows once the answer runs past the foot of the window', () => {
-    const thread = threadOf(2400)
-    thread.scrollTop = 1900
-    fitSpacer(thread, 1900)
-    expect(isBelow(thread)).toBe(false)
-    const long = threadOf(2700)
-    long.scrollTop = 1900
-    expect(isBelow(long)).toBe(true)
-  })
-  it('the Latest pill (latestPill): never where the view was put, only after the reader scrolled up and more arrived below', () => {
-    let height = 2400
-    const thread = { scrollTop: 0, clientHeight: 600, get scrollHeight() { return height } }
-    const pill = latestPill()
-    // Placed: a question held near the top, its answer running past the foot.
-    thread.scrollTop = 1800
-    pill.placed(thread)
-    height = 3200
-    expect(pill.shows(thread, false)).toBe(false)
-    // The reader follows the answer down: no pill.
-    thread.scrollTop = 2000
-    height = 3400
-    expect(pill.shows(thread, true)).toBe(false)
-    // Scrolled up above where the view was put: nothing new yet.
-    thread.scrollTop = 1200
-    expect(pill.shows(thread, true)).toBe(false)
-    // More arrives below: the pill, and it stays while they read up there.
-    height = 3600
-    expect(pill.shows(thread, true)).toBe(true)
-    expect(pill.shows(thread, true)).toBe(true)
-    // At the newest line: gone.
-    thread.scrollTop = 3000
-    expect(pill.shows(thread, true)).toBe(false)
-    // Placed again (a new question sent): gone even if more arrives.
-    thread.scrollTop = 1200
-    pill.placed(thread)
-    height = 4000
-    expect(pill.shows(thread, false)).toBe(false)
-  })
-  it('the PDF reader uses the same pill rule', () => {
-    const reader = readFileSync(resolve(__dirname, '../../public/lab/addbook/js/reader.js'), 'utf8')
-    expect(reader).toMatch(/latestPill\(\)\.shows\(thread, chat\.anchor == null \|\| chat\.pinTop == null\)/)
-    expect(reader).not.toMatch(/TC\.isBelow\(thread\)/)
   })
   it('the PDF reader holds the question too: no follow while the answer arrives, and the reader’s own scroll lets go', () => {
     const reader = readFileSync(resolve(__dirname, '../../public/lab/addbook/js/reader.js'), 'utf8')

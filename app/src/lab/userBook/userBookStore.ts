@@ -15,16 +15,18 @@ import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { userBookId } from './userBookId'
 import { readUserBookPlace, storedPlaceConverter, type UserBookPlace } from './userBookPlace'
 import { CURRENT_CONVERTER, EDITION_CONVERTERS, LEGACY_EDITION_CONVERTER, USER_EDITION_FORMAT, editionSource, usableUserEdition, type UserBookEdition, type UserEditionSource } from './userEdition'
-import { adoptOcrEditionChoice, pdfEditionChoice, pdfEditionUntold, readPdfTextPlace } from './pdfEditions'
+import { adoptOcrEditionChoice, applyPhoneOpenRule, keptPdfPrimerKind, pdfEditionChoice, pdfEditionUntold, phoneNow, readPdfTextPlace } from './pdfEditions'
 import type { EpubView } from './epubView'
 import { ocrDefaultEdition } from './ocrEdition'
-import type { ConvertedPdf } from './pdfEdition'
+import type { ConvertedPdf, PdfScan, PdfConversionProgress } from './pdfEdition'
 import { healUserEdition } from './chapterAuthors'
 import { OWN_COVER_VERSION } from './ownShelf'
 import { canDrawCover, drawCover } from './userBookCover'
 import type { UserBookImage } from './epubEdition'
-import { fetchAccountCopy, fetchOcrEdition, ownBookToken, type AccountCopy } from './ownAccount'
+import { fetchAccountCopy, fetchOcrEdition, listAccountBooks, ownBookToken, type AccountCopy, type FetchLike } from './ownAccount'
 import { cachedStoredCover, offerCoverToAccount } from './ownCovers'
+import { isPastedEpub } from './pastedText'
+import { isImageScan, recogniseScan, type PdfOps } from './scanRecognition'
 
 const STORE = 'books'
 
@@ -61,6 +63,8 @@ export interface LoadedUserBook {
   kind?: 'epub' | 'pdf'
   /** A PDF's page count. */
   pdfPages?: number
+  /** A pasted text (pastedText.ts): its chapters are sections of one piece of writing. */
+  pasted?: true
   edition: UserBookEdition
   /** The book's pictures, by figure id, read from this device only. */
   images: Map<string, Blob>
@@ -70,6 +74,8 @@ export interface LoadedUserBook {
   cover?: string | null
   /** Without one here: the account's stored copy of it, as this device kept it (ownCovers.ts), or null. */
   storedCover?: string | null
+  /** An optional cover cache lookup; the converted text opens without waiting for this other database. */
+  storedCoverPending?: Promise<string | null>
 }
 
 export type UserBookOpenResult =
@@ -108,6 +114,164 @@ async function readRecord(key: string, owner: string): Promise<UserBookRecord | 
       request.onerror = () => reject(request.error)
     })
   } finally { db.close() }
+}
+
+/** Only the current file owner can inspect bytes to verify legacy static EPUB annotations. */
+export async function readOwnedEpubBytes(hex: string, owner: string): Promise<ArrayBuffer | null> {
+  if (userBookOwner() !== owner) return null
+  const record = await readRecord('epub:' + hex, owner).catch(() => null)
+  return record?.kind === 'epub' && record.bytes instanceof ArrayBuffer ? record.bytes : null
+}
+
+/** Parsed labels may replace filename defaults, never a reader's edit. */
+function scannedPdfLabels(record: UserBookRecord, scan = record.scan): { title?: string; author?: string } {
+  if (record.kind !== 'pdf' || (record.metadataRev ?? 0) > 0 || !scan) return {}
+  const fallback = (record.name || '').replace(/\.pdf$/i, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim()
+  // The file name's default in any of its spellings ("scan_0042", "Scan 0042", "report (1)"): not a title the reader gave.
+  const named = (value: string) => value.toLowerCase().replace(/\.pdf$/i, '').replace(/\(\d+\)/g, '').replace(/[^\p{L}\p{N}]+/gu, '')
+  const metadataOnly = (scan.source as { title?: string } | undefined)?.title === 'metadata'
+  // A descriptive filename is better than uncorroborated PDF metadata (scanned
+  // anthologies often retain a title from a different document). Printed-page
+  // evidence can still replace it; generic filenames can use metadata.
+  const descriptiveFilename = fallback.split(/\s+/).filter(word => /\p{L}{2}/u.test(word)).length >= 5
+  const title = !metadataOnly || !descriptiveFilename ? typeof scan.title === 'string' ? scan.title.trim() : '' : ''
+  const author = typeof scan.author === 'string' ? scan.author.trim() : ''
+  return { ...((!record.title || record.title === fallback || named(record.title) === named(record.name || '')) && title && title.length <= 200 ? { title } : {}),
+    ...(!record.author && author && author.length <= 200 ? { author } : {}) }
+}
+
+/** Display-only locally edited labels, always read through the account-bound file record. */
+export async function readOwnedBookMetadata(hex: string, owner: string): Promise<{ type: 'pdf' | 'epub'; id: string; name: string; title: string; author: string; metadataRev: number } | null> {
+  if (userBookOwner() !== owner) return null
+  for (const type of ['epub', 'pdf'] as const) {
+    const record = await readRecord(type + ':' + hex, owner).catch(() => null)
+    if (record?.kind === type && userBookOwner() === owner) return {
+      type, id: typeof record.cloudId === 'string' ? record.cloudId : '', name: record.name ?? '', title: scannedPdfLabels(record).title ?? record.title ?? '', author: scannedPdfLabels(record).author ?? record.author ?? '', metadataRev: typeof record.metadataRev === 'number' ? record.metadataRev : 0,
+    }
+  }
+  return null
+}
+
+/** Finish the private upload skipped by the retired PDF viewer. Never recreate a deleted generation. */
+const pendingPdfUploads = new Map<string, Promise<string | null>>()
+export function savePendingOwnedPdf(hex: string, owner: string, token: string, fetchImpl: FetchLike = fetch): Promise<string | null> {
+  const key = owner + ':' + hex
+  const pending = pendingPdfUploads.get(key)
+  if (pending) return pending
+  const task = uploadPendingOwnedPdf(hex, owner, token, fetchImpl).finally(() => {
+    if (pendingPdfUploads.get(key) === task) pendingPdfUploads.delete(key)
+  })
+  pendingPdfUploads.set(key, task)
+  return task
+}
+async function uploadPendingOwnedPdf(hex: string, owner: string, token: string, fetchImpl: FetchLike): Promise<string | null> {
+  if (userBookOwner() !== owner || !/^[0-9a-f]{24}$/.test(hex)) return null
+  const record = await readRecord('pdf:' + hex, owner).catch(() => null)
+  if (!record || record.kind !== 'pdf' || record.cloudId || !(record.bytes instanceof ArrayBuffer)) return null
+  if (record.bytes.byteLength > 50 * 1024 * 1024) throw new Error('This PDF is over 50 MB. Its original pages are available, but account highlights and AI require a smaller file.')
+  const digest = await crypto.subtle.digest('SHA-256', record.bytes)
+  const sha = Array.from(new Uint8Array(digest), n => n.toString(16).padStart(2, '0')).join('')
+  if (!sha.startsWith(hex) || userBookOwner() !== owner) return null
+  const scan = record.scan as { title?: string; author?: string } | undefined
+  const enc = (value: unknown) => encodeURIComponent(String(value || '').slice(0, 300))
+  let rights: { v?: string; at?: string } = {}
+  try { rights = JSON.parse(localStorage.getItem('tinct-addbook:rights:' + owner) || '{}') } catch { /* no invented attestation */ }
+  const response = await fetchImpl('/api/user-books', { method: 'POST', credentials: 'same-origin', cache: 'no-store',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/pdf', 'X-Book-Name': enc(record.name),
+      'X-Book-Title': enc(scan?.title || record.title), 'X-Book-Author': enc(scan?.author || record.author),
+      ...(rights.v ? { 'X-Rights-Version': enc(rights.v), 'X-Rights-At': enc(rights.at) } : {}) }, body: record.bytes.slice(0) })
+  if (!response.ok) throw new Error('This PDF could not be saved to your account. Your original file is safe. Try again to enable highlights and AI.')
+  const { book } = await response.json() as { book?: { id?: string; sha256?: string; type?: string } }
+  if (!book || book.type !== 'pdf' || book.sha256 !== sha || !/^[0-9a-f]{32}$/.test(book.id || '') || userBookOwner() !== owner) return null
+  await keepFields('pdf:' + hex, owner, { cloudId: book.id })
+  return book.id!
+}
+
+/** The account file generation, verified against the owner-qualified cached record. */
+export async function readOwnedBookFileId(hex: string, owner: string): Promise<string | null> {
+  if (userBookOwner() !== owner) return null
+  for (const type of ['epub', 'pdf'] as const) {
+    const record = await readRecord(type + ':' + hex, owner).catch(() => null)
+    if (record?.kind === type && typeof record.cloudId === 'string' && record.cloudId && userBookOwner() === owner) return record.cloudId
+  }
+  return null
+}
+
+/** The existing PDF scan's verified heading provenance for Original-page navigation. */
+export async function readOwnedPdfScanEntries(hex: string, owner: string): Promise<{ entries: Array<{ id: string; label: string; page: number; kind?: string; parent?: string | null }>; nav: string; pages: number } | null> {
+  if (userBookOwner() !== owner) return null
+  const record = await readRecord('pdf:' + hex, owner).catch(() => null)
+  if (record?.kind !== 'pdf' || userBookOwner() !== owner) return null
+  const scan = record.scan as { v?: number; pages?: unknown; nav?: unknown; entries?: unknown } | null | undefined
+  if (scan?.nav === 'headings' && (scan.v ?? 0) < 7) return null
+  const pages = Number.isInteger(scan?.pages) && (scan!.pages as number) > 0 ? scan!.pages as number
+    : Number.isInteger(record.pages) && (record.pages as number) > 0 ? record.pages as number : 0
+  if (!pages || pages > 1_000_000 || !scan || !Array.isArray(scan.entries)) return null
+  const entries: Array<{ id: string; label: string; page: number; kind?: string; parent?: string | null }> = []
+  for (const raw of scan.entries) {
+    if (!raw || typeof raw !== 'object') return null
+    const entry = raw as Record<string, unknown>
+    if (typeof entry.id !== 'string' || !entry.id || entry.id.length > 120
+      || typeof entry.label !== 'string' || !entry.label.trim() || entry.label.length > 240
+      || !Number.isInteger(entry.page) || (entry.page as number) < 1 || (entry.page as number) > pages
+      || entry.kind !== undefined && (typeof entry.kind !== 'string' || entry.kind.length > 80)
+      || entry.parent !== undefined && entry.parent !== null && (typeof entry.parent !== 'string' || entry.parent.length > 120)) return null
+    entries.push({ id: entry.id, label: entry.label, page: entry.page as number,
+      ...(typeof entry.kind === 'string' ? { kind: entry.kind } : {}),
+      ...(entry.parent !== undefined ? { parent: entry.parent as string | null } : {}) })
+  }
+  return { entries, nav: ['outline', 'contents', 'headings'].includes(String(scan.nav)) ? String(scan.nav) : 'pages', pages }
+}
+
+/** Cache discovered navigation only for the same owned source generation. */
+export async function cacheOwnedPdfScan(hex: string, owner: string, scan: PdfScan, expectedFileId: string | null): Promise<void> {
+  if (userBookOwner() !== owner) return
+  const db = await openDb()
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction(STORE, 'readwrite'), store = tx.objectStore(STORE)
+      const request = store.get('pdf:' + hex)
+      request.onsuccess = () => {
+        const record = request.result as UserBookRecord | undefined
+        if (userBookOwner() !== owner || record?.kind !== 'pdf' || record.owner !== owner || (record.cloudId || null) !== expectedFileId) return
+        store.put({ ...record, ...scannedPdfLabels(record, scan), scan, pages: scan.pages })
+      }
+      tx.oncomplete = () => resolve()
+      tx.onerror = () => reject(tx.error)
+      tx.onabort = () => reject(tx.error)
+    })
+  } finally { db.close() }
+}
+
+/** Only a real converted PDF/OCR edition enables the Original→Tinct text switch. */
+export async function hasOwnedPdfText(hex: string, owner: string): Promise<boolean> {
+  if (userBookOwner() !== owner) return false
+  const record = await readRecord('pdf:' + hex, owner).catch(() => null)
+  return record?.kind === 'pdf' && usableUserEdition(record.edition, 'pdf') && userBookOwner() === owner
+}
+
+/** PDF page source in the shared shell: owned local file, or a verified account copy cached on this device. */
+export async function loadOwnedPdfBytes(hex: string, owner: string, options: { token?: string | null; fetchImpl?: FetchLike } = {}): Promise<ArrayBuffer | null> {
+  if (userBookOwner() !== owner) return null
+  const local = await readRecord('pdf:' + hex, owner).catch(() => null)
+  if (local?.kind === 'pdf' && local.bytes instanceof ArrayBuffer) return local.bytes.slice(0)
+  const token = options.token !== undefined ? options.token : await ownBookToken()
+  if (!token || userBookOwner() !== owner) return null
+  const fetchImpl = options.fetchImpl ?? fetch
+  const account = await listAccountBooks(token, fetchImpl)
+  const book = account?.find(item => item.type === 'pdf' && item.sha256.slice(0, 24) === hex)
+  if (!book || userBookOwner() !== owner) return null
+  try {
+    const response = await fetchImpl(`/api/user-books/${encodeURIComponent(book.id)}`, { credentials: 'same-origin', cache: 'no-store', headers: { Authorization: `Bearer ${token}` } })
+    if (!response.ok) return null
+    const bytes = await response.arrayBuffer()
+    const hash = await crypto.subtle.digest('SHA-256', bytes)
+    const prefix = [...new Uint8Array(hash)].map(n => n.toString(16).padStart(2, '0')).join('').slice(0, 24)
+    if (prefix !== hex || userBookOwner() !== owner) return null
+    await putRecord({ key: 'pdf:' + hex, kind: 'pdf', owner, cloudId: book.id, name: book.name, title: book.title, author: book.author,
+      ...(book.metadataRev ? { metadataRev: book.metadataRev } : {}), bytes }).catch(() => {})
+    return bytes.slice(0)
+  } catch { return null }
 }
 
 /** Keep the conversion and its pictures on the book's own record (read and written in one transaction). */
@@ -156,7 +320,8 @@ async function putRecord(record: UserBookRecord): Promise<void> {
 
 /** The account copy of one EPUB (ownAccount.ts); injectable for tests. */
 export type AccountCopyLoader = (hex: string) => Promise<AccountCopy>
-const loadAccountCopy: AccountCopyLoader = async hex => fetchAccountCopy(hex, await ownBookToken())
+const loadAccountCopy: AccountCopyLoader = async hex => fetchAccountCopy(hex, await ownBookToken(), fetch,
+  () => { void import('./epubEdition').catch(() => {}) })
 
 /**
  * The account's copy as this device's record: downloaded, checked against the
@@ -203,6 +368,26 @@ async function convertRecord(record: UserBookRecord, rules: number): Promise<Con
   }
 }
 
+/**
+ * The Tinct text of an EPUB this device keeps, so a place read in Margin view (Add a book's margin reader,
+ * which reads the file its own way) can be named in it and saved to the account (ownSync.ts
+ * noteEpubMarginPlace). The stored conversion, else the file converted now under the rules its place was
+ * read under, as openUserBook would, and kept on the record so the Tinct reader opens it without converting.
+ * Null: not this account's EPUB on this device, or not readable as one.
+ */
+export async function ownEpubEdition(hex: string, owner: string, convert: (record: UserBookRecord, rules: number) => Promise<Converted> = convertRecord): Promise<UserBookEdition | null> {
+  if (typeof indexedDB === 'undefined') return null
+  const key = 'epub:' + hex
+  const record = await readRecord(key, owner).catch(() => null)
+  if (!record || record.kind !== 'epub') return null
+  if (usableUserEdition(record.edition, 'epub')) return record.edition
+  if (!record.bytes) return null
+  const converted = await convert(record, conversionRules(record.edition, storedPlaceConverter(hex)))
+  if ('error' in converted) return null
+  await keepEdition(key, owner, converted.edition, converted.images).catch(() => {})
+  return converted.edition
+}
+
 const refusalCode = (result: Converted): string | undefined => 'error' in result ? (result.error as { code?: string } | null)?.code : undefined
 
 /**
@@ -212,7 +397,7 @@ const refusalCode = (result: Converted): string | undefined => 'error' in result
  * account's private copy is downloaded and kept here instead; only a book in
  * neither place (or a PDF, which Add a book's viewer opens) is 'missing'.
  */
-export async function openUserBook(hex: string, options: { owner?: string | null; account?: AccountCopyLoader; convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null; epubView?: EpubView } = {}): Promise<UserBookOpenResult> {
+export async function openUserBook(hex: string, options: { onProgress?: (progress: PdfConversionProgress) => void; owner?: string | null; account?: AccountCopyLoader; convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null; epubView?: EpubView; desktop?: boolean; sharedReader?: boolean } = {}): Promise<UserBookOpenResult> {
   const owner = options.owner !== undefined ? options.owner : userBookOwner()
   if (!owner) return { ok: false, reason: 'signed_out', message: MISSING_MESSAGE }
   if (typeof indexedDB === 'undefined') return { ok: false, reason: 'storage', message: STORAGE_MESSAGE }
@@ -228,7 +413,7 @@ export async function openUserBook(hex: string, options: { owner?: string | null
   }
   // An EPUB read in Margin view on this device (epubView.ts; the desktop's default): on to Add a book's
   // margin reader before any conversion. A book not on this device yet is fetched there too.
-  if (options.epubView === 'margin' && (!record || record.kind === 'epub')) return { ok: false, reason: 'margin', message: '' }
+  if (!options.sharedReader && options.epubView === 'margin' && (!record || record.kind === 'epub')) return { ok: false, reason: 'margin', message: '' }
   if (record && record.kind !== 'epub') return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
   let fromAccount = false
   // Under the rules it was first converted with: a book already read keeps its chapters, paragraphs and places.
@@ -240,7 +425,10 @@ export async function openUserBook(hex: string, options: { owner?: string | null
   if (!record || (!edition && !record.bytes)) {
     // Not on this device (added on another device of the account), or kept without its file.
     const downloaded = await recordFromAccount(key, owner, hex, record, account)
-    if (!downloaded || downloaded === 'pdf') return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
+    // The account lookup already identified a PDF. Preserve that result so
+    // the shared reader does not depend on a second, optional metadata race.
+    if (downloaded === 'pdf') return { ok: false, reason: 'pages', message: '' }
+    if (!downloaded) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
     record = downloaded
     fromAccount = true
     edition = null
@@ -263,6 +451,7 @@ export async function openUserBook(hex: string, options: { owner?: string | null
     }
     edition = converted.edition
     data = converted.images
+    options.onProgress?.({ stage: 'saving' })
     // A browser that cannot keep it converts again next time; reading goes on.
     await keepEdition(key, owner, edition, data).catch(() => {})
   }
@@ -285,8 +474,9 @@ export async function openUserBook(hex: string, options: { owner?: string | null
     offered.add(hex)
     setTimeout(() => { void offerCoverToAccount(hex, cover).catch(() => false) }, COVER_HEAL_DELAY_MS)
   }
-  const storedCover = cover ? null : await cachedStoredCover(owner, hex).catch(() => null)
-  return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition), cover, storedCover } }
+  const storedCoverPending = cover ? undefined : cachedStoredCover(owner, hex).catch(() => null)
+  return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition), cover,
+    storedCover: null, ...(isPastedEpub(record.bytes) ? { pasted: true as const } : {}), ...(storedCoverPending ? { storedCoverPending } : {}) } }
 }
 
 /**
@@ -312,7 +502,7 @@ const PAGES_ONLY_MESSAGE = ''
 /** The account's recognised (OCR) Tinct text of a scanned PDF (ownAccount.ts fetchOcrEdition); injectable for tests. */
 export type OcrEditionLoader = (hex: string) => Promise<UserBookEdition | null>
 const loadOcrEdition: OcrEditionLoader = async hex => fetchOcrEdition(hex, await ownBookToken())
-export type PdfConverter = (bytes: ArrayBuffer, options: { fileName?: string; stored?: unknown }) => Promise<ConvertedPdf>
+export type PdfConverter = (bytes: ArrayBuffer, options: { onProgress?: (progress: PdfConversionProgress) => void; fileName?: string; stored?: unknown; phoneKind?: { primer: (kinds: readonly string[]) => string | null } }) => Promise<ConvertedPdf>
 const convertPdfBytes: PdfConverter = async (bytes, options) => (await import('./pdfEdition')).convertPdf(bytes, options)
 
 /**
@@ -328,10 +518,126 @@ const convertPdfBytes: PdfConverter = async (bytes, options) => (await import('.
  * from now on (adoptOcrEditionChoice): Tinct text, unless the job found a
  * paper (ocrDefaultEdition).
  */
-async function openPdfBook(hex: string, owner: string, record: UserBookRecord, options: { convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null } = {}): Promise<UserBookOpenResult> {
+/**
+ * Scanning errors ("J&sus") fixed once, before a converted PDF is stored (ownTextRepair.ts):
+ * only flagged paragraphs are sent, and any failure keeps the text as converted.
+ */
+async function repairScanErrors(hex: string, edition: UserBookEdition, options: { keepWordCount?: boolean; fromChapter?: number; onRepaired?: (edition: UserBookEdition) => void } = {}): Promise<UserBookEdition> {
+  try {
+    const { repairOwnEdition, OWN_TEXT_REPAIR_VERSION } = await import('./ownTextRepair')
+    const result = await repairOwnEdition(edition, { book: hex, token: await ownBookToken(), ...options })
+    // Marked only when every flagged paragraph was answered: signed out or offline, it is tried again next time.
+    return result.complete ? { ...result.edition, textRepair: OWN_TEXT_REPAIR_VERSION } : result.edition
+  } catch {
+    return edition
+  }
+}
+
+/**
+ * A PDF converted before the repair pass (Anders, 3 Nov 2026: "run it on the books I've added"):
+ * repaired once in the background after it opens, keeping each paragraph's word count so the
+ * reader's place and highlights stay on their words; the next open reads the repaired text.
+ */
+const repairing = new Set<string>()
+function repairStoredInBackground(key: string, owner: string, hex: string, edition: UserBookEdition, place: { chapterNumber?: number } | null): void {
+  if (edition.textRepair || editionSource(edition) === 'epub' || repairing.has(key)) return
+  repairing.add(key)
+  const bookId = userBookId(hex)
+  const fromChapter = Math.max(0, edition.chapters.findIndex(chapter => chapter.number === place?.chapterNumber))
+  // Each answered batch goes into the open book at once (Anders, 3 Nov 2026: "fix the chapters in front of
+  // you"): the chapter the reader turns to next is read from the registry already repaired. The page on screen
+  // is not repainted under them; word counts are kept, so a return to it lands on the same words.
+  // Loaded on first use: the reader's source registry (figures, verse lines) stays out of the library page.
+  const registry = () => import('./userBookSource')
+  const onRepaired = (repaired: UserBookEdition) => { void registry().then(({ registerRepairedText }) => registerRepairedText(bookId, repaired.chapters.map(chapter => chapter.paragraphs))).catch(() => {}) }
+  void repairScanErrors(hex, edition, { keepWordCount: true, fromChapter, onRepaired })
+    .then(repaired => repaired !== edition ? keepFields(key, owner, { edition: repaired }) : undefined)
+    .catch(() => {})
+    .finally(() => repairing.delete(key))
+}
+
+/**
+ * A scanned PDF's text read from its page images by the account, started by itself (scanRecognition.ts):
+ * in the background after the book opens, in whichever view. Its text replaces the text layer's
+ * conversion on the record when ready; the next open reads it at the same page.
+ */
+const SCAN_RECOGNITION_DELAY_MS = 4000
+const OCR_LOCAL_PREFIX = 'tinct-addbook:ocr:'
+const recognisingScans = new Set<string>()
+function recogniseScanInBackground(key: string, owner: string, hex: string, record: UserBookRecord): void {
+  const textPages = (record.scan as { textPages?: unknown } | null | undefined)?.textPages
+  const bytes = record.bytes
+  if (typeof document === 'undefined' || recognisingScans.has(key) || !(bytes instanceof ArrayBuffer)) return
+  if (editionSource(record.edition as UserBookEdition | undefined) === 'ocr') return
+  // A PDF with text of its own was found not to be a scan. Not scanned yet (a book just added, read as its
+  // pages): its page images decide, as for a scan with a text layer.
+  const noTextLayer = textPages === 0
+  if (!noTextLayer && record.imageScan === false) return
+  recognisingScans.add(key)
+  setTimeout(() => {
+    void (async () => {
+      const token = await ownBookToken()
+      if (!token) return
+      const { loadPdfEngine, loadPdfOcr } = await import('./pdfEdition')
+      const [engine, job] = await Promise.all([loadPdfEngine(), loadPdfOcr()])
+      const pdfjs = engine.pdfjs as typeof engine.pdfjs & { OPS: PdfOps }
+      const pdf = await pdfjs.getDocument({ data: new Uint8Array(bytes.slice(0)), isEvalSupported: false, verbosity: 0 }).promise as unknown as { numPages: number; destroy(): Promise<void> }
+      try {
+        if (!noTextLayer && record.imageScan !== true) {
+          const image = await isImageScan(pdf as never, pdfjs.OPS)
+          await keepFields(key, owner, { imageScan: image }).catch(() => {})
+          if (!image) return
+        }
+        const api = job.api({ token: () => token })
+        const local = {
+          get: (): Record<string, unknown> => { try { return JSON.parse(localStorage.getItem(OCR_LOCAL_PREFIX + hex) || '{}') || {} } catch { return {} } },
+          set(patch: Record<string, unknown>) { try { localStorage.setItem(OCR_LOCAL_PREFIX + hex, JSON.stringify({ ...this.get(), ...patch })) } catch { /* full or private */ } },
+        }
+        const waitVisible = () => document.visibilityState !== 'hidden' ? Promise.resolve() : new Promise<void>(resolve => {
+          const on = () => { if (document.visibilityState !== 'hidden') { document.removeEventListener('visibilitychange', on); resolve() } }
+          document.addEventListener('visibilitychange', on)
+        })
+        await recogniseScan(hex, {
+          api,
+          run: async () => {
+            let recognised: UserBookEdition | null = null
+            await job.run({
+              hex, pages: pdf.numPages, api, local, live: () => true, waitVisible,
+              sleep: ms => new Promise<void>(resolve => setTimeout(resolve, ms)).then(waitVisible),
+              render: n => job.renderPage(pdf, n),
+              onEdition: edition => { recognised = edition },
+            })
+            return recognised
+          },
+          keep: async edition => {
+            // The text layer's crops belong to its conversion: the recognised text names none of them.
+            await keepFields(key, owner, { edition }, ['figureData'])
+            // A scan without a text layer opened as its pages: from now on, the recognised text's own default.
+            if (noTextLayer) adoptOcrEditionChoice(hex, ocrDefaultEdition(edition))
+          },
+        })
+      } finally { await pdf.destroy().catch(() => {}) }
+    })().catch(() => {}).finally(() => recognisingScans.delete(key))
+  }, SCAN_RECOGNITION_DELAY_MS)
+}
+
+async function openPdfBook(hex: string, owner: string, record: UserBookRecord, options: { onProgress?: (progress: PdfConversionProgress) => void; convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null; desktop?: boolean; sharedReader?: boolean } = {}): Promise<UserBookOpenResult> {
   const key = 'pdf:' + hex
   const scan = record.scan as { v?: unknown; layout?: { default?: string }; textPages?: unknown; pages?: unknown } | null | undefined
+  recogniseScanInBackground(key, owner, hex, record)
   let layout = (record.layout as { default?: string } | undefined)?.default ?? scan?.layout?.default ?? null
+  // The desktop reads every PDF in the margin reader (its pages, or its Tinct text beside the margin, made there when
+  // the reader picks it): on to it at once, nothing converted here (D's trace, 22 Oct 2026: the whole PDF was
+  // converted first, then the margin reader loaded pdf.js again). A scan without text keeps its pages.
+  if (options.desktop && !options.sharedReader) return scan?.textPages === 0 || layout === 'pages-only' ? { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE } : { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  const phone = options.desktop === undefined ? phoneNow() : !options.desktop
+  const sourceOptions = { phone, desktopPages: true }
+  // An unchosen PDF opens its original pages immediately in the shared reader,
+  // including phones. Whole-file conversion must not block first paint or the
+  // viewer's account upload. Existing text choices/defaults still win.
+  if (options.sharedReader && pdfEditionChoice(hex, layout, undefined, sourceOptions) !== 'text') {
+    return { ok: false, reason: scan?.textPages === 0 || layout === 'pages-only' ? 'pages_only' : 'pages', message: PAGES_ONLY_MESSAGE }
+  }
   let edition = usableUserEdition(record.edition, 'pdf') ? record.edition : null
   let figureData = storedImages(record.figureData)
   // A conversion kept under earlier rules: converted again below; the place read in it moves by its page.
@@ -347,16 +653,21 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
   if (!edition && (scan?.textPages === 0 || layout === 'pages-only')) {
     edition = await recognised()
     if (!edition) return { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE }
+    edition = await repairScanErrors(hex, edition)
     await keepFields(key, owner, { edition }).catch(() => {})
   }
   // Read in Original pages: on to the viewer at once (its Tinct text is made when the reader picks it).
-  // The desktop's own rule (its pages, 19 Oct 2026) is applied below, after the Tinct text is made and kept for a switch.
-  const beforeOpen = { desktopPages: false }
-  if (!edition && (pdfEditionChoice(hex, layout, undefined, beforeOpen) === 'pages' || pdfEditionUntold(hex, layout, undefined, beforeOpen))) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  // The shared desktop default was resolved above; conversion here requires its selected Tinct text.
+  const beforeOpen = { phone, desktopPages: false }
+  // Not told yet on a phone: converted here, and the phone's rule told with it (below), rather than in the viewer.
+  if (!edition && (pdfEditionChoice(hex, layout, undefined, beforeOpen) === 'pages' || (!phone && pdfEditionUntold(hex, layout, undefined, beforeOpen)))) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   if (!edition) {
     if (!record.bytes) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
     let made: ConvertedPdf | null = null
-    try { made = await (options.convert ?? convertPdfBytes)(record.bytes, { fileName: record.name, stored: record.scan }) } catch { made = null }
+    // On a phone with nothing told yet, the converter tells the document's kind too (the viewer's rule), so the
+    // phone's open rule is applied below without a trip to the viewer and back.
+    const tell = phone && pdfEditionUntold(hex, layout ?? 'text', undefined, sourceOptions) ? { phoneKind: { primer: (kinds: readonly string[]) => keptPdfPrimerKind(hex, kinds) } } : {}
+    try { made = await (options.convert ?? convertPdfBytes)(record.bytes, { fileName: record.name, stored: record.scan, ...tell, ...(options.onProgress ? { onProgress: options.onProgress } : {}) }) } catch { made = null }
     // Its pages still open in the viewer, which says what it can of a damaged file.
     if (!made) return { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE }
     layout = made.scan.layout?.default ?? layout
@@ -366,20 +677,26 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
       if (made.fresh) await keepFields(key, owner, { scan: made.scan, layout: made.scan.layout, pages: made.scan.pages }).catch(() => {})
       return { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE }
     }
+    options.onProgress?.({ stage: 'saving' })
+    edition = await repairScanErrors(hex, edition)
     // A browser that cannot keep it converts again next time; reading goes on.
     // Its crops (formulas, figures, tables drawn from its pages) are kept beside it, as an EPUB's pictures are: on this device, for this owner.
     figureData = made.images ?? new Map()
     await keepFields(key, owner, { edition, layout: made.scan.layout, figureData: Object.fromEntries(figureData), ...(made.fresh ? { scan: made.scan, pages: made.scan.pages } : {}) }).catch(() => {})
+    // The phone's open rule, as the viewer applies it (reader.js phoneKind, openKind): its pages go on to the viewer.
+    if (made.phone && editionSource(edition) !== 'ocr' && phone && pdfEditionUntold(hex, layout, undefined, sourceOptions)) applyPhoneOpenRule(hex, made.phone)
   }
   // Recognised text opens by its own default (the scan's is its pages only).
   if (editionSource(edition) === 'ocr') layout = ocrDefaultEdition(edition)
   // Not yet told on this device under the current open rule (pdfEditions.ts): the viewer decides, and forwards back when it is Tinct text.
-  if (pdfEditionChoice(hex, layout) === 'pages' || pdfEditionUntold(hex, layout)) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  if (pdfEditionChoice(hex, layout, undefined, sourceOptions) === 'pages' || pdfEditionUntold(hex, layout, undefined, sourceOptions)) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   edition = healUserEdition(edition)
   const pages = Number.isInteger(pageCount) && (pageCount as number) > 0 ? pageCount as number : undefined
   const cover = typeof record.cover === 'string' && /^data:image\/(jpeg|png|webp);base64,/.test(record.cover) ? record.cover : null
   const images = new Map<string, Blob>([...figureData].map(([id, image]) => [id, new Blob([image.data], { type: image.type })]))
-  return { ok: true, book: { hex, bookId: userBookId(hex), kind: 'pdf', ...(pages ? { pdfPages: pages } : {}), edition, images, place: readPdfTextPlace(hex, edition, { page: options.page, previous }), cover } }
+  const place = readPdfTextPlace(hex, edition, { page: options.page, previous })
+  repairStoredInBackground(key, owner, hex, edition, place)
+  return { ok: true, book: { hex, bookId: userBookId(hex), kind: 'pdf', ...(pages ? { pdfPages: pages } : {}), edition, images, place, cover } }
 }
 
 const COVER_HEAL_DELAY_MS = 1500

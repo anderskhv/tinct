@@ -314,3 +314,46 @@ export function makeEssayEpub({ title = 'Lamplit Conjectures, Volume II', essays
     ['OEBPS/Images/logo.png', png(240, 220, [235, 235, 235])],
   ]);
 }
+
+// 22 Oct 2026: a book of the reader's own shaped like a trade non-fiction EPUB (Anders's case, own text invented here):
+// an Introduction, then numbered chapters whose heading is two lines, the number and then the title, followed by an
+// italic epigraph and its source. `heads`: 'p' (both lines paragraphs with the book's classes, no heading element, as
+// many publishers set them) or 'h' (the number an <h1>, the title an <h2>). The contents name each chapter "1. Title".
+export function makeNumberedEpub({ title = 'The Span of Accounts', heads = 'p', chapters = 3 } = {}) {
+  const sentence = [
+    'An account of the evening is a claim about what the lamp is doing when nobody is looking at it, and such claims can be wrong in ways that matter.',
+    'The better accounts are hard to vary: change any detail of them and they stop explaining the room, which is exactly why they are worth having.',
+    'Most of what we take for granted about light was once a bold guess, criticised and improved by people who did not expect to be right the first time.',
+    'There is no limit in principle to how far such improvement can go, though every step of it has to be made by someone, somewhere, with a lamp in hand.',
+  ];
+  const para = n => `<p class="para">${sentence[n % 4]} ${sentence[(n + 1) % 4]} ${sentence[(n + 2) % 4]}</p>`;
+  const paras = (from, count) => Array.from({ length: count }, (_, i) => para(from + i)).join('');
+  const names = ['The Span of Accounts', 'Nearer the Lamp', 'The Patient Wick', 'Lanterns All the Way Down'];
+  const head = (num, name) => heads === 'h'
+    ? `<h1 class="chapter-number">${num}</h1><h2 class="chapter-title">${name}</h2>`
+    : `<p class="chapter-number">${num}</p><p class="chapter-title">${name}</p>`;
+  const epigraph = i => `<div class="epigraph"><p class="epigraph-text"><i>Every room is lit by a lamp that nobody remembers lighting.</i></p><p class="epigraph-source">Ada Example, ${['On Wicks', 'The Long Evening', 'Moths'][i % 3]}</p></div>`;
+  const chapterDocs = Array.from({ length: chapters }, (_, i) => [`ch${i + 1}`, `Text/chapter${i + 1}.xhtml`,
+    `<section epub:type="chapter">${head(i + 1, names[i])}${epigraph(i)}${paras(i * 2, 14)}</section>`, `${i + 1}. ${names[i]}`]);
+  const intro = heads === 'h' ? '<h1 class="chapter-title">Introduction</h1>' : '<p class="chapter-title">Introduction</p>';
+  const docs = [
+    ['titlepage', 'Text/title.xhtml', `<p class="title">${title.toUpperCase()}</p><p class="subtitle">Accounts That Light the Room</p><p class="author">Gale Editor</p>`, null],
+    ['nav', 'Text/nav.xhtml', null, null],
+    ['intro', 'Text/introduction.xhtml', `<section epub:type="introduction">${intro}${paras(1, 12)}</section>`, 'Introduction'],
+    ...chapterDocs,
+    ['biblio', 'Text/bibliography.xhtml', `<section epub:type="bibliography"><p class="chapter-title">Bibliography</p><p class="bib">Example, Ada. <i>On Wicks</i>. Lamp Press, 2026.</p><p class="bib">Placeholder, Ben. <i>The Long Evening</i>. Lamp Press, 2026.</p></section>`, 'Bibliography'],
+  ];
+  const x = body => `<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title>x</title><link rel="stylesheet" type="text/css" href="../Styles/book.css"/></head><body>${body}</body></html>`;
+  const toc = docs.filter(d => d[3]);
+  const nav = `<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title>Contents</title></head><body><nav epub:type="toc" id="toc"><h1>Contents</h1><ol>${toc.map(([, path, , label]) => `<li><a href="${path.slice('Text/'.length)}">${label}</a></li>`).join('')}</ol></nav></body></html>`;
+  const css = '.chapter-number{font-size:2.4em;text-align:center;margin:2em 0 .2em}.chapter-title{font-size:1.5em;text-align:center;margin:0 0 1.5em}.epigraph{margin:0 3em 2em}.epigraph-text{font-style:italic}.epigraph-source{text-align:right}.para{text-indent:1.2em;margin:0}.title{text-align:center;font-size:2em}';
+  const manifest = ['<item id="css" href="Styles/book.css" media-type="text/css"/>', ...docs.map(([id, path]) => `<item id="${id}" href="${path}" media-type="application/xhtml+xml"${id === 'nav' ? ' properties="nav"' : ''}/>`)].join('');
+  const opf = `<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">span-of-accounts-${heads}</dc:identifier><dc:title>${title}</dc:title><dc:creator>Gale Editor</dc:creator><dc:language>en</dc:language></metadata><manifest>${manifest}</manifest><spine>${docs.map(([id]) => `<itemref idref="${id}"/>`).join('')}</spine></package>`;
+  return zip([
+    ['mimetype', 'application/epub+zip'],
+    ['META-INF/container.xml', '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'],
+    ['OEBPS/content.opf', opf],
+    ['OEBPS/Styles/book.css', css],
+    ...docs.map(([id, path, body]) => [`OEBPS/${path}`, id === 'nav' ? nav : x(body), { deflate: true }]),
+  ]);
+}

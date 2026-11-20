@@ -19,7 +19,8 @@ import {
   type ChapterNotesKind,
   type ChapterNotesResponse,
 } from '../../chapterNotes'
-import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
+import { aiPrefsPromptLines, aiShorterLength, parseAiRequestPrefs, type AiRequestPrefs } from '../../aiSettings'
+import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterEntry, type ChapterText, type SectionNode } from '../lib/bookRetrieval'
 import { AI_RESTING_TYPE, aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { allowanceUsedBody } from '../lib/aiAllowance'
 import { jsonResponse } from '../lib/responses'
@@ -66,12 +67,13 @@ export const CHAPTER_NOTES_MODEL: Readonly<Record<ChapterNotesKind, string>> = O
 export const CHAPTER_NOTES_MAX_TOKENS: Readonly<Record<ChapterNotesKind, number>> = Object.freeze({
   sofar: 480,
   end: 600,
-  primer: 600,
+  primer: 700,
 })
 export const CHAPTER_NOTES_MAX_PASSAGE_CHARS = 28_000
 export const CHAPTER_NOTES_LOOKUP_RATE_LIMIT_PER_MINUTE = 60
 export const CHAPTER_NOTES_GENERATE_RATE_LIMIT_PER_MINUTE = 10
-const MAX_BODY_BYTES = 2_048
+// Room for the reader's AI settings: two instruction boxes of 400 characters.
+const MAX_BODY_BYTES = 4_096
 const MAX_TITLE_CHARS = 120
 const MAX_PARAGRAPH_INDEX = 100_000
 
@@ -108,26 +110,64 @@ export const CHAPTER_NOTES_SYSTEM: Record<ChapterNotesKind, string> = {
     'Write declaratively. No praise, no advice, no morals or aphorisms, no "we" or "us", no rhetorical questions, no balanced flourishes such as "not X but Y".',
     'Example beat (from a different book, for tone only): {"title":"The Letter in the Drawer","text":"Anna finds her husband\'s unsent letter while looking for string. It is dated the morning of their wedding, and the only word crossed out is her name."}',
   ].join('\n'),
-  // Prompt v3 (Anders, 2026-10-08): the primer prepares the reader for the
-  // chapter instead of recapping the last one. Beat one says why the chapter
-  // is worth reading and what kind of reading to expect, with at most one
-  // short line on what came before; beat two is "Watch for". Strictly
-  // spoiler-free. Bump CHAPTER_NOTES_PROMPT_VERSIONS.primer when this changes.
+  // Prompt v4 (Anders, 2026-11-11: "what is Luke 14 doing for the Book of
+  // Luke", and the structure of the chapter). Three beats: the chapter's role
+  // in its book (for the Bible, the biblical book it belongs to,
+  // named in WHERE THIS CHAPTER SITS), how the chapter is built, and "Watch
+  // for". v3 was two beats: why the chapter is interesting, and "Watch for".
+  // Spoilers: a story's coming chapter is still never given away (its role
+  // and parts are described by kind, never by outcome); scripture and
+  // non-fiction have no surprise to protect, so their content is named.
+  // Bump CHAPTER_NOTES_PROMPT_VERSIONS.primer when this changes.
   primer: [
-    'You write a spoiler-free primer a reader sees just before starting a chapter. Its job is to prepare them to read it: why this chapter is interesting, what to expect, and what to watch for. It is not a recap.',
-    'Give exactly two beats, in this order. Never more than two beats.',
-    'The first beat is about the coming chapter. Its title is two to five words naming what makes this chapter worth reading: a person, place, situation or question from its opening, never a generic label such as "A New Chapter" or "Setting the Scene". Its text says why the chapter is interesting and what to expect from it: who is at the centre as it opens, where and when it is set, and what kind of chapter it is (a dialogue, a letter, a journey, a crowd scene, an argument, a list, a quiet interior passage, a change of narrator or place).',
-    'The first beat may open with at most one short sentence, at most 15 words, on where the story stands, taken from the PREVIOUS chapter only. Leave it out when it adds nothing, and always when there is no previous chapter. Never more than one sentence about what came before.',
-    'The second beat is titled "Watch for" and gives one or two concrete things to notice while reading: a person, object, place, phrase, contrast or question, named specifically.',
-    'Strictly spoiler-free: never state or hint at any event, outcome, turn, decision or discovery in the coming chapter. Describe how it opens and what kind of chapter it is, never how it develops or ends. Point at what to notice, never at what happens to it. For example (from a different book, for tone only), write "Watch the borrowed umbrella Anna leaves by the door", never "The umbrella\'s importance is revealed".',
-    'Answer with JSON only, no prose around it: {"beats":[{"title":"…","text":"…"},{"title":"Watch for","text":"…"}]}.',
-    'The first text is two or three plain sentences in the present tense, at most 45 words. The second is one or two plain sentences in the present tense, at most 35 words.',
-    'Ground both beats in the text given. Do not invent meaning, motives or symbolism.',
-    'State only facts the text gives; when unsure of a name or number, leave it out.',
+    'You write a primer a reader sees just before starting a chapter. Its job is to orient them: what this chapter does for the book it belongs to, how the chapter is built, and what to watch for. It is not a recap.',
+    'Give exactly three beats, in this order. Never more than three beats.',
+    'The first beat is the chapter\'s role in its book. "The book" is the work named under WHERE THIS CHAPTER SITS: for a collection such as the Bible it is the single book the chapter belongs to (Luke, not the whole Bible). Its title is "In" followed by that book\'s short name, for example "In Luke" or "In Frankenstein". Its text says where the chapter stands in the book (opening, turn, middle of a journey, a new part, the close) and what it does for the whole: what it takes up from the chapters before, what it adds, sets up or answers. It may open with at most one short sentence, at most 15 words, on where things stand, taken from the PREVIOUS chapter.',
+    'Ground the first beat in what you are given: the chapter list under WHERE THIS CHAPTER SITS, the previous chapter and the coming chapter. For a widely known work you may also use what is generally known of its overall shape. Never guess at chapters you have not been given: when the list and the text do not show the chapter\'s place, say only where it comes in the order and what it takes up, and claim nothing about later chapters.',
+    'The second beat is titled "How it\'s built" and lays the chapter out as two to four parts, in order. Name each part by its kind and subject, and give its range when the text carries numbers (verses, sections, numbered paragraphs), for example "Verses 1–6", "Verses 7–14". Write it as running sentences, one part after another.',
+    'The third beat is titled "Watch for" and gives one or two concrete things to notice while reading: a person, object, place, phrase, contrast or question, named specifically.',
+    'Spoilers. For a story (a novel, a play, a narrative poem) stay strictly spoiler-free: never state or hint at any event, outcome, turn, decision or discovery in the coming chapter or later ones. Say what kind of chapter it is and what kind of parts it has (a letter, a journey, a night scene, a long dialogue, a change of narrator or place), never what happens in them. Point at what to notice, never at what happens to it. For example (from a different book, for tone only), write "Watch the borrowed umbrella Anna leaves by the door", never "The umbrella\'s importance is revealed".',
+    'Scripture, history, philosophy, essays, laws, letters, proverbs, poems and other non-fiction have no surprise to protect: name the chapter\'s actual content, its claims, episodes and parts, plainly.',
+    'Answer with JSON only, no prose around it: {"beats":[{"title":"In …","text":"…"},{"title":"How it\'s built","text":"…"},{"title":"Watch for","text":"…"}]}.',
+    'The first text is two or three plain sentences in the present tense, at most 50 words. The second is two to four plain sentences, at most 60 words. The third is one or two plain sentences, at most 35 words.',
+    'Do not invent meaning, motives or symbolism. State only facts the text gives or that are generally known of the work; when unsure of a name or number, leave it out.',
     'Never use the verbs list, record, document, establish, detail, reveal or examine to describe the text; say what the text actually shows.',
     'Write declaratively. No praise, no selling, no advice, no morals or aphorisms, no "we" or "us" in the text, no rhetorical questions, no balanced flourishes such as "not X but Y".',
-    'For non-narrative text (proverbs, letters, essays, laws, poems) say what the chapter takes up and how it is built, and what in it to keep an eye on.',
   ].join('\n'),
+}
+
+/**
+ * A card's length in the reader's AI settings, in its own beats (the generic line would fight the JSON).
+ * Detailed is the kind's prompt as written; Standard is about 30% shorter; Brief shorter still. The JSON
+ * shape stays.
+ */
+const CARD_LENGTH_TAIL = 'This replaces any other beat count or length above; keep the JSON shape.'
+export const CHAPTER_NOTES_LENGTH_LINES: Readonly<Record<ChapterNotesKind, Readonly<Record<'brief' | 'standard', string>>>> = Object.freeze({
+  sofar: Object.freeze({
+    brief: `Length, as the reader set it: brief. Two beats, each text one sentence of at most 20 words. ${CARD_LENGTH_TAIL}`,
+    standard: `Length, as the reader set it: standard. Two or three beats, never more; each text one or two sentences, at most 28 words. ${CARD_LENGTH_TAIL}`,
+  }),
+  end: Object.freeze({
+    brief: `Length, as the reader set it: brief. Two beats, each text one sentence of at most 20 words. ${CARD_LENGTH_TAIL}`,
+    standard: `Length, as the reader set it: standard. Three beats, never more; each text one or two sentences, at most 28 words together. ${CARD_LENGTH_TAIL}`,
+  }),
+  primer: Object.freeze({
+    brief: `Length, as the reader set it: brief. Three beats, each text one sentence of at most 20 words; "How it's built" names two or three parts. ${CARD_LENGTH_TAIL}`,
+    standard: `Length, as the reader set it: standard. Three beats: the first text at most 35 words, the second at most 42 words with two or three parts, the third one sentence of at most 25 words. ${CARD_LENGTH_TAIL}`,
+  }),
+})
+const PRIMER_LAST_BEAT = 'The card keeps the primer\'s order: the first beat is still the chapter\'s role in its book, the second is still titled "How it\'s built", and the last is still titled "Watch for". The spoiler rule above still holds.'
+
+/** The kind's system prompt with the reader's settings after it (unchanged for Detailed without instructions). */
+export function chapterNotesSystem(kind: ChapterNotesKind, ai: AiRequestPrefs | undefined): string {
+  const base = CHAPTER_NOTES_SYSTEM[kind]
+  if (!ai) return base
+  const length = aiShorterLength(ai)
+  const lines = [
+    ...(length ? [CHAPTER_NOTES_LENGTH_LINES[kind][length], ...(kind === 'primer' ? [PRIMER_LAST_BEAT] : [])] : []),
+    ...aiPrefsPromptLines(ai, { length: false }),
+  ]
+  return lines.length ? `${base}\n${lines.join('\n')}` : base
 }
 
 export interface ParsedChapterNotesRequest {
@@ -137,6 +177,7 @@ export interface ParsedChapterNotesRequest {
   kind: ChapterNotesKind
   paragraphIndex: number
   bookTitle: string | null
+  ai?: AiRequestPrefs
 }
 
 export function parseChapterNotesRequest(raw: unknown): ParsedChapterNotesRequest | null {
@@ -152,7 +193,8 @@ export function parseChapterNotesRequest(raw: unknown): ParsedChapterNotesReques
     : 0
   if (paragraphIndex < 0) return null
   const bookTitle = typeof value.bookTitle === 'string' && value.bookTitle.trim() ? value.bookTitle.trim().slice(0, MAX_TITLE_CHARS) : null
-  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, kind, paragraphIndex, bookTitle }
+  const ai = parseAiRequestPrefs(value.ai)
+  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, kind, paragraphIndex, bookTitle, ...(ai ? { ai } : {}) }
 }
 
 function cleanParagraph(text: string): string {
@@ -169,6 +211,49 @@ function sample(text: string, maxChars: number): string {
 function chapterBody(chapter: ChapterText, through?: number, maxChars = CHAPTER_NOTES_MAX_PASSAGE_CHARS): string {
   const paragraphs = through === undefined ? chapter.paragraphs : chapter.paragraphs.slice(0, through + 1)
   return `${chapter.title}\n\n${sample(paragraphs.map(cleanParagraph).filter(Boolean).join('\n\n'), maxChars)}`
+}
+
+/** At most this many chapter titles in a primer's WHERE THIS CHAPTER SITS: the ones nearest the chapter. */
+export const CHAPTER_PLACE_MAX_TITLES = 60
+
+/** The innermost section holding the chapter, and the sections above it (outermost first). */
+function sectionPath(sections: SectionNode[] | undefined, chapterNumber: number, above: string[] = []): { titles: string[]; chapters: number[] } | null {
+  for (const section of sections ?? []) {
+    const titles = section.title ? [...above, section.title] : above
+    const inner = sectionPath(section.sections, chapterNumber, titles)
+    if (inner) return inner
+    if (Array.isArray(section.chapters) && section.chapters.includes(chapterNumber)) return { titles, chapters: section.chapters }
+  }
+  return null
+}
+
+/** Collections whose innermost section is itself a book: the Bible's Luke is "the book" of Luke 14, never the whole Bible. */
+const COLLECTION_BOOK_IDS: ReadonlySet<string> = new Set(['bible'])
+
+/**
+ * Where a chapter sits, for a primer's first beat: the book it belongs to and
+ * that book's chapter titles in order. A collection's chapter (the Bible's
+ * Luke 14) is placed in its own book (Luke, 24 chapters), never the whole
+ * edition; any other book is its whole chapter list, with the chapter's part
+ * named ("Volume 1 › Part 2"). Titles only: nothing of the chapters' text, so
+ * nothing later is given away.
+ */
+export function chapterPlace(index: { chapters: ChapterEntry[]; sections?: SectionNode[] }, chapterNumber: number, bookTitle: string | null, bookId = ''): string {
+  const path = sectionPath(index.sections, chapterNumber)
+  const unit = path && path.titles.length > 0 && COLLECTION_BOOK_IDS.has(bookId) ? path.titles[path.titles.length - 1] : null
+  const numbers = unit && path ? path.chapters : index.chapters.map(chapter => chapter.number)
+  const titleOf = new Map(index.chapters.map(chapter => [chapter.number, chapter.title]))
+  const at = Math.max(0, numbers.indexOf(chapterNumber))
+  const book = unit ? `${unit}${bookTitle ? ` (a book of ${bookTitle})` : ''}` : bookTitle ?? 'this book'
+  const part = path && !unit && path.titles.length > 0 ? ` It is in the part "${path.titles.join(' › ')}".` : ''
+  const from = Math.max(0, Math.min(at - Math.floor(CHAPTER_PLACE_MAX_TITLES / 2), numbers.length - CHAPTER_PLACE_MAX_TITLES))
+  const shown = numbers.slice(from, from + CHAPTER_PLACE_MAX_TITLES)
+  const lines = shown.map(number => `${number === chapterNumber ? '> ' : '  '}${titleOf.get(number) ?? `Chapter ${number}`}${number === chapterNumber ? '  (the coming chapter)' : ''}`)
+  return [
+    `WHERE THIS CHAPTER SITS: the book is ${book}. The coming chapter is number ${at + 1} of ${numbers.length} in it.${part}`,
+    `Its chapters in order${shown.length < numbers.length ? ` (${shown.length} of ${numbers.length} shown)` : ''}:`,
+    ...lines,
+  ].join('\n')
 }
 
 /**
@@ -256,7 +341,9 @@ export async function handleLabChapterNotes(
   let passage: string
   if (parsed.kind === 'primer') {
     const previous = parsed.chapterNumber > 1 ? await retrieval.chapterText(parsed.chapterNumber - 1) : null
+    const index = await retrieval.editionIndex().catch(() => null)
     passage = [
+      ...(index ? [chapterPlace(index, parsed.chapterNumber, parsed.bookTitle, parsed.bookId)] : []),
       previous ? `PREVIOUS CHAPTER (what the reader has read):\n\n${chapterBody(previous, undefined, 12_000)}` : 'PREVIOUS CHAPTER: none — this is the opening.',
       `COMING CHAPTER (not yet read — never reveal its events):\n\n${chapterBody(chapter, undefined, 14_000)}`,
     ].join('\n\n')
@@ -265,8 +352,9 @@ export async function handleLabChapterNotes(
   }
   const where = parsed.bookTitle ? `${parsed.bookTitle}, ${chapter.title}` : chapter.title
   const content = `Location: ${where}.\n\n${passage}\n\nWrite the card as JSON.`
-  const system = CHAPTER_NOTES_SYSTEM[parsed.kind]
+  const system = chapterNotesSystem(parsed.kind, parsed.ai)
   const model = CHAPTER_NOTES_MODEL[parsed.kind]
+  // No length setting raises the bound: Detailed is the prompt as written.
   const maxTokens = CHAPTER_NOTES_MAX_TOKENS[parsed.kind]
   const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
   // Cached and prepared entries above cost nothing and are always served.

@@ -25,6 +25,8 @@
     // NARRATION_ADMIN_TOKEN (warm route) is a Worker secret, never a var.
     "NARRATION_PILOT": "1",
     "NARRATION_PROVIDER": "grok",
+    // Readers' own day. The owner-run warm workflow has a separate day (NARRATION_WARM_DAILY_BYTES, default the
+    // same), so a warm run can never leave readers at "Daily narration limit reached". The month is shared.
     "NARRATION_DAILY_BYTES": "2000000",
     "NARRATION_MONTHLY_BYTES": "10000000",
     // Read-aloud of readers' own books (src/worker/routes/ownBookNarration.ts), Premium only.
@@ -45,6 +47,8 @@
     "OCR_MAX_PAGES": "1000",
     // Daily ceiling for signed-out AI, in whole US cents (see src/worker/lib/aiSpend.ts).
     "GUEST_AI_DAILY_CENTS": "500",
+    // The /try page's own daily AI budget, apart from the guest ceiling, in whole US cents (aiSpend.ts; $3 default).
+    "TRY_AI_DAILY_CENTS": "300",
     // Added public-domain books (src/worker/routes/publicBooks.ts). Approved by Anders 2026-10-07.
     // Paid Modern English editions: offers checkout and runs xAI generation (prices are
     // STRIPE_PRICE_MODERN_T1..T4 secrets). The client offers it to Premium readers (MODERN_EDITIONS_FOR_EVERYONE).

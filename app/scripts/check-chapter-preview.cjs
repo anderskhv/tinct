@@ -132,7 +132,7 @@ for(const config of configs){
   assert.equal(await p.getByRole('heading',{name:'End of chapter',exact:true}).count(),0)
   assert.equal(await p.getByRole('button',{name:'Prep for next',exact:true}).count(),0)
   await p.evaluate(()=>localStorage.removeItem('tinct:lab-ai-actions'))
-  await p.locator('.lab-page-wrap').getByRole('button',{name:'Recap this chapter',exact:true}).click()
+  await p.locator('.lab-page-wrap').getByRole('button',{name:'Summary of this chapter',exact:true}).click()
   await p.waitForFunction(()=>document.querySelector('[data-testid="lab-chapter-notes"]')?.dataset.kind==='end'&&document.querySelector('[data-testid="lab-chapter-notes-beat"]'))
   assert.equal(notes.length,2);assert.equal(notes[1].kind,'end')
   assert.equal(notes[1].chapterNumber,config.chapter)

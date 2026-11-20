@@ -31,6 +31,8 @@ import {
   readLabPrefs,
   syncLabAudioEdition,
   writeLabPrefs,
+  markLabSeenOnce,
+  labStoredTheme,
 } from './labPrefs'
 
 afterEach(() => {
@@ -212,11 +214,12 @@ describe('lab prefs', () => {
     expect(LAB_LIBRARY_URL).not.toBe('/read?view=library')
   })
 
+  // view=book-detail: the library opens the 3D book on its introduction, not only the hero (Anders, 6 Nov 2026).
   it('links a book introduction to the library book overlay for the reader edition', () => {
-    expect(labLibraryIntroductionUrl('to-the-lighthouse', 'original-en')).toBe('/library?book=to-the-lighthouse&edition=original-en')
-    expect(labLibraryIntroductionUrl('bible', '')).toBe('/library?book=bible')
-    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?voiceTrial=mini')).toBe('/library?book=crito&edition=modern-en&voiceTrial=mini')
-    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?book=bible')).toBe('/library?book=crito&edition=modern-en')
+    expect(labLibraryIntroductionUrl('to-the-lighthouse', 'original-en')).toBe('/library?book=to-the-lighthouse&view=book-detail&edition=original-en')
+    expect(labLibraryIntroductionUrl('bible', '')).toBe('/library?book=bible&view=book-detail')
+    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?voiceTrial=mini')).toBe('/library?book=crito&view=book-detail&edition=modern-en&voiceTrial=mini')
+    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?book=bible')).toBe('/library?book=crito&view=book-detail&edition=modern-en')
   })
 
   it('defaults to page of chapter and persists every knob', () => {
@@ -431,6 +434,49 @@ describe('lab prefs', () => {
       metric: 'time',
       scope: 'book',
     })).toBe('Chapter 643 — 4 / 7')
+  })
+})
+
+describe('the White theme (9 Nov 2026)', () => {
+  const stored = () => JSON.parse(localStorage.getItem(LAB_PREFS_KEY) || 'null')
+
+  it('round-trips through the store, stored as Light on white paper', () => {
+    writeLabPrefs({ ...readLabPrefs('desktop'), theme: 'white' }, 'desktop')
+    expect(readLabPrefs('desktop')).toMatchObject({ theme: 'white', darkMode: false })
+    expect(readLabPrefs('phone').theme).toBe('system')
+    expect(stored().desktop).toMatchObject({ theme: 'light', paper: 'white' })
+    expect(stored().phone.paper).toBeUndefined()
+    // Another write of either profile keeps it; a one-shot mark too.
+    writeLabPrefs({ ...readLabPrefs('phone'), theme: 'dark' }, 'phone')
+    markLabSeenOnce('intro', null)
+    expect(stored().desktop).toMatchObject({ theme: 'light', paper: 'white' })
+    expect(readLabPrefs('desktop').theme).toBe('white')
+    // Leaving White drops the paper.
+    writeLabPrefs({ ...readLabPrefs('desktop'), theme: 'light' }, 'desktop')
+    expect(stored().desktop.paper).toBeUndefined()
+    expect(readLabPrefs('desktop').theme).toBe('light')
+  })
+
+  it('reads as Light to a client that predates it, and only Light on white paper reads as White', () => {
+    expect(labStoredTheme('white')).toEqual({ theme: 'light', paper: 'white' })
+    expect(labStoredTheme('book')).toEqual({ theme: 'book' })
+    // What an older client checks: the stored theme alone, one of the four it knows.
+    writeLabPrefs({ ...readLabPrefs('phone'), theme: 'white' }, 'phone')
+    expect(['system', 'light', 'dark', 'book']).toContain(stored().phone.theme)
+    expect(stored().phone.theme).toBe('light')
+    // An older client's write drops the paper: the reader is back on Light, not on something unknown.
+    const older = { version: 2, shared: {}, phone: { theme: 'light' }, desktop: { theme: 'light' } }
+    expect(parseLabPrefs(older, 'phone').theme).toBe('light')
+    expect(parseLabPrefs({ version: 2, shared: {}, phone: { theme: 'dark', paper: 'white' }, desktop: {} }, 'phone').theme).toBe('dark')
+    expect(parseLabPrefs({ version: 2, shared: {}, phone: { theme: 'light', paper: 'cream' }, desktop: {} }, 'phone').theme).toBe('light')
+    // A raw 'white' (never written by Tinct) still reads, and version 1's flat shape too.
+    expect(parseLabPrefs({ version: 2, shared: {}, phone: { theme: 'white' }, desktop: {} }, 'phone').theme).toBe('white')
+    expect(parseLabPrefs({ theme: 'light', paper: 'white' }, 'desktop').theme).toBe('white')
+    expect(parseLabStoredPrefs({ theme: 'sepia', darkMode: false }).phone.theme).toBe('light')
+  })
+
+  it('restoring the appearance leaves White for the default', () => {
+    expect(restoreLabAppearance({ ...DEFAULT_LAB_PREFS, theme: 'white' }).theme).toBe(DEFAULT_LAB_PREFS.theme)
   })
 })
 

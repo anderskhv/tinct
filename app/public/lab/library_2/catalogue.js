@@ -1,10 +1,11 @@
-import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260930fix';
+import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20261112bios';
 // The production catalogue behind the library_2 design: every discoverable
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
 import { coverAsset, coverSources } from './cover-assets.js?v=20261009owncover';
-import { withPublicBooks } from './add-to-tinct.js?v=20261014talkwake';
+import { withPublicBooks } from './add-to-tinct.js?v=20261120young';
 import { coverToneFor } from './spine.js?v=20261009rel10';
+import { loadRestrictedBookIds, restrictCatalogue } from '../restricted-books.js?v=20261117geo';
 const CATALOGUE_URL = '/lab/catalogue.json';
 
 let catalogue = null;
@@ -23,10 +24,12 @@ export function loadCatalogueData() {
     const native = window.Capacitor?.isNativePlatform?.()
       ? import('/lab/native-books.js').then(() => window.__tinctNativeBooks.catalogue())
       : null;
+    // Books not served in this visitor's country leave discovery, search and the shelves (restricted-books.js).
+    const restricted = loadRestrictedBookIds();
     catalogueData = (native || early || fetch(CATALOGUE_URL).then(response => {
       if (!response.ok) throw new Error(`Catalogue ${response.status}`);
       return response.json();
-    })).then(data => (native ? data : withPublicBooks(data))).catch(error => { catalogueData = null; window.__library2CatalogueShared = null; throw error; });
+    })).then(data => (native ? data : withPublicBooks(data))).then(async data => restrictCatalogue(data, await restricted)).catch(error => { catalogueData = null; window.__library2CatalogueShared = null; throw error; });
     window.__library2CatalogueShared = catalogueData;
   }
   return catalogueData;
@@ -77,6 +80,45 @@ export function attachCatalogue(book, entry) {
 }
 
 /** Preface paragraphs and cast for a catalogue book, loaded once when it is opened. */
+// The authored book opening (Codex-written in the desktop app, imported verbatim from book-openers.json; never
+// generated or rewritten here) and the book's supporting rows (primer-data/<id>.<lang>.json, the same authored
+// source). A book without either keeps its title and Begin reading: no stand-in text is made.
+let openersReady = null;
+function loadOpeners() {
+  openersReady ||= fetch('book-openers.json').then(r => (r.ok ? r.json() : null)).then(data => {
+    const byId = new Map();
+    for (const entry of data?.books ?? []) if (typeof entry?.workId === 'string' && typeof entry.opening === 'string') byId.set(entry.workId, entry.opening);
+    return byId;
+  }).catch(() => new Map());
+  return openersReady;
+}
+const text = value => (typeof value === 'string' && value.trim() ? value.trim() : null);
+const list = (value, max) => (Array.isArray(value) ? value.slice(0, max) : []);
+/** The supporting rows as the page draws them; anything malformed is left out, never guessed. */
+export function primerRows(data) {
+  if (!data || data.schemaVersion !== 1) return null;
+  return {
+    opening: text(data.opening),
+    structure: list(data.structure, 6).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), text: item.text.trim() }] : [])),
+    people: list(data.people, 8).flatMap(item => (text(item?.name) && text(item?.text) ? [{ name: item.name.trim(), role: text(item.role), text: item.text.trim() }] : [])),
+    // Suggested prerequisites (Anders, 5 Nov 2026): only books with a strong one carry the list. `bookId` names a
+    // catalogue book whose introduction the title opens. The files' older `context` and `notice` rows (Background,
+    // What to notice) are no longer drawn and are not read here.
+    prerequisites: list(data.prerequisites, 3).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), text: item.text.trim(), bookId: text(item.bookId) }] : [])),
+  };
+}
+export async function loadPrimer(book, language = 'en') {
+  const id = encodeURIComponent(book.id);
+  const [openers, data] = await Promise.all([
+    loadOpeners(),
+    fetch(`primer-data/${id}.${language}.json`).then(r => (r.ok ? r.json() : null)).catch(() => null),
+  ]);
+  const rows = primerRows(data);
+  // The English opening is book-openers.json's (it wins over a copy in the rows file); another language's is its own file's.
+  book.opening = (language === 'en' ? openers.get(book.id) : rows?.opening) ?? rows?.opening ?? null;
+  book.primer = rows;
+}
+
 export async function loadIntroduction(book) {
   await loadReviewedIntroduction(book);
   if (book.preface && book.characters) return;

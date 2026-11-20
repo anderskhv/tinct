@@ -101,9 +101,13 @@ button.tc-av { padding: 0; }
 .tc-cam { position: absolute; right: -2px; bottom: 2px; width: 26px; height: 26px; border-radius: 50%; background: var(--tc-ink); color: var(--tc-cell); display: grid; place-items: center; box-shadow: 0 0 0 3px var(--tc-ground); }
 .tc-cam svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
 .tc-nm { padding-bottom: 6px; line-height: 1.2; min-width: 0; flex: 1 1 auto; }
-.tc-nm b { font-family: var(--tc-play); font-weight: 700; font-size: 24px; display: block; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: lining-nums; }
+/* A long name wraps to a second line before it is cut (tester, 9 Nov 2026: "Christian Vester…"). */
+.tc-nm b { font-family: var(--tc-play); font-weight: 700; font-size: 24px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; letter-spacing: -.01em; overflow: hidden; overflow-wrap: break-word; text-wrap: balance; font-variant-numeric: lining-nums; }
 .tc-nm span { font-size: 15px; color: var(--tc-sec); }
-.tc-nm-b { display: block; max-width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: text; }
+/* The name and its pencil side by side (onboarding v3, Anders 2 Nov 2026): a long name takes two lines, then ellipsises; the pencil stays. */
+.tc-nm-b { display: flex; align-items: center; max-width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: text; }
+.tc-nm-b b { min-width: 0; }
+.tc-nm-b .tc-name-pencil { flex: none; }
 .tc-nm-in { display: block; width: 100%; box-sizing: border-box; margin: 0 0 2px; padding: 2px 8px; border: 1px solid var(--tc-sec); border-radius: 8px; background: transparent; color: inherit; font-family: var(--tc-play); font-weight: 700; font-size: 22px; letter-spacing: -.01em; line-height: 1.2; outline: none; }
 .tc-nm-in:focus { border-color: currentColor; }
 .tcards .tc-nm-in:focus-visible { outline: none; }
@@ -130,6 +134,13 @@ button.tc-av { padding: 0; }
 .tc-r.is-center { justify-content: center; }
 .tc-r.is-center .tc-l { flex: none; font-weight: 500; }
 .tc-r.is-me .tc-l, .tc-r.is-me .tc-v { font-weight: 600; color: var(--tc-ink); }
+/* Leaderboard (17 Nov 2026): a thin "···" between the top five and the viewer's own row further down, and the quiet
+   centred Show all / Show top 5 row under the list. */
+.tc-r.is-gap { min-height: 18px; justify-content: center; padding: 0 16px 4px; font-size: 13px; line-height: 1; letter-spacing: .2em; color: var(--tc-ter); }
+.tc-r.is-av + .tc-r.is-gap::before { left: 0; }
+.tc-r.is-more { min-height: 44px; font-size: 15px; color: var(--tc-sec); }
+.tc-r.is-more .tc-l { font-weight: 400; }
+.tc-r.is-av + .tc-r.is-more::before { left: 0; }
 .tc-info { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--tc-ter); color: var(--tc-sec); display: inline-grid; place-items: center; font: italic 700 11px Georgia, serif; flex: none; position: relative; }
 .tc-info::after { content: ""; position: absolute; inset: -13px; }
 .tc-sw { width: 51px; height: 31px; border-radius: 16px; background: var(--tc-track); position: relative; flex: none; transition: background .15s; }
@@ -138,6 +149,10 @@ button.tc-av { padding: 0; }
 .tc-sw[aria-checked="true"]::after { left: 22px; }
 .tcards.is-dark .tc-sw[aria-checked="true"]::after { background: #1c1c1c; }
 .tc-seg { display: flex; flex: none; background: var(--tc-seg); border-radius: 9px; padding: 2px; margin-left: auto; }
+/* Labelled choices that can both be on (Settings › Languages, onboarding v3). */
+.tc-chips { display: flex; gap: 6px; flex: none; margin-left: auto; }
+.tc-chip { min-height: 34px; padding: 0 12px; border: 0; border-radius: 17px; background: var(--tc-seg); color: var(--tc-sec); font: inherit; font-size: 14px; cursor: pointer; }
+.tc-chip[aria-pressed="true"] { background: var(--tc-fill); color: var(--tc-ground); font-weight: 600; }
 .tc-seg button { padding: 6px 8px; border-radius: 7px; font-size: 13.5px; color: var(--tc-ink); white-space: nowrap; line-height: 1.2; letter-spacing: normal; }
 .tc-seg button[aria-checked="true"] { background: var(--tc-thumb); font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,.15); }
 .tcards.is-dark .tc-seg button[aria-checked="true"] { color: #fff; }
@@ -174,6 +189,22 @@ button.tc-av { padding: 0; }
 .tc-week { position: relative; }
 .tc-week::before { content: ""; position: absolute; top: 0; left: 16px; right: 16px; height: 1px; background: var(--tc-sep); }
 .tc-r.is-head .tc-v { color: var(--tc-ink); font-weight: 600; }
+/* Days · Weeks · Months (Anders, 2 Nov 2026). */
+.tc-sum > .tc-seg { margin-bottom: 18px; }
+.tc-weeknav { display: flex; align-items: center; gap: 4px; }
+.tc-weeknav button { width: 28px; height: 28px; margin: -4px 0; border-radius: 14px; font-size: 20px; line-height: 1; color: var(--tc-ink); }
+.tc-weeknav button:first-child { margin-left: -8px; }
+.tc-weeknav button:disabled { color: var(--tc-ter); }
+.tc-axis.is-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; text-align: center; }
+.tc-axis.is-days .is-today { color: var(--tc-ink); font-weight: 600; }
+.tc-axis.is-values { margin: 18px 0 -12px; font-size: 11px; white-space: nowrap; letter-spacing: -.01em; }
+.tc-days-chart .tc-bars { margin-top: 18px; }
+/* In Days the dark bar is today's, not the last one. */
+.tc-bars.is-days button:last-child i { background: var(--tc-bar); }
+.tc-bars.is-days button.is-today i { background: var(--tc-fill); }
+.tc-bars.is-days.is-picked button i { background: var(--tc-bar); }
+.tc-bars.is-days.is-picked button[aria-pressed="true"] i { background: var(--tc-fill); }
+.tc-bars button:disabled { cursor: default; }
 .tc-three { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
 .tc-three.is-ruled::before { content: ""; position: absolute; top: 0; left: 16px; right: 16px; height: 1px; background: var(--tc-sep); }
 .tc-three > div { padding: 14px 8px 16px; text-align: center; position: relative; min-width: 0; }
@@ -209,3 +240,7 @@ button.tc-av { padding: 0; }
 .tc-tip b { font-weight: 600; }
 .tc-tip::before { content: ""; position: absolute; top: -6px; left: var(--arrow, 120px); width: 12px; height: 12px; background: var(--tc-ink); transform: rotate(45deg); }
 .tc-file { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.tc-name-pencil { display:inline-flex; width:14px; margin-left:7px; vertical-align:middle; opacity:.7; }
+.tc-name-pencil svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:1.4; }
+
+.tc-top-up-status { font-size: 13px; color: var(--tc-sec); line-height: 1.45; margin: 12px 16px; }

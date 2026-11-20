@@ -42,7 +42,8 @@ for(const {fontSize,chapter,height} of [
  },{chapter,fontSize,note});
  const p=await context.newPage();p.setDefaultTimeout(30000);const states=[];
  try{
-  await p.goto(origin+'/reader');await ready(p);
+  // Select the paginated Classic contract rather than relying on the build's default layout.
+  await p.goto(origin+'/reader?view=two-page');await ready(p);
   const seen=[];let last;
   for(let i=0;i<40;i++){
    const s=await state(p);states.push(s);assert.equal(s.chapter,chapter);seen.push(...s.keys);
@@ -85,7 +86,7 @@ for(const {fontSize,chapter,height} of [
  if(built)await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));return f.startsWith(path.resolve('dist')+'/')&&fs.existsSync(f)&&fs.statSync(f).isFile()?r.fulfill({path:f}):r.fulfill({status:404,body:'{}'});});
  await context.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await context.route('**/*supabase.co/**',r=>r.abort());
  await context.addInitScript(()=>{HTMLMediaElement.prototype.play=async()=>{};localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,fontSizeExplicit:true,theme:'dark'}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'to-the-lighthouse',primaryEditionKey:'original-en',savedPlace:{bookId:'to-the-lighthouse',chapterNumber:1,paragraphIndex:3,wordIndex:145,page:0}}));});
- const p=await context.newPage();await p.goto(origin+'/reader');await ready(p);
+ const p=await context.newPage();await p.goto(origin+'/reader?view=two-page');await ready(p);
  await p.screenshot({path:path.join(out,engine.name()+'-lighthouse.png')});
  const evidence=await p.evaluate(()=>{
   const root=document.querySelector('.lab'),paragraph=document.querySelector('.lab-passage .lab-hearing-line');

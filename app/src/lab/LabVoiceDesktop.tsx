@@ -13,11 +13,11 @@ import { useReaderWindow } from './useReaderWindow'
 import { useDraggableSurface } from './useDraggableSurface'
 
 /**
- * The desktop voice surface (minimal Talk, 2026-10-09): a compact window with
- * the orb, one status line (Connecting to AI… / Listening. / Speaking. …,
- * announced through aria-live) and the controls row: Mute or Reconnect,
- * speed and End as icons (their names are aria-labels and tooltips; only the
- * speed shows its value). The transcript is kept by the session for history
+ * The desktop voice surface (Talk, approved mockup B, 4 Nov 2026): a compact
+ * window titled Talk over the book and chapter, the orb, one status line
+ * (Connecting to AI… / Listening / Speaking …, announced through aria-live)
+ * and three equal round controls with their words beneath: Mute (or
+ * Reconnect), Speed (the disc shows the figure) and End (red). The transcript is kept by the session for history
  * and usage but not drawn here. A minimize control collapses it to a pill in
  * the corner of the page while the call keeps running.
  *
@@ -62,7 +62,6 @@ function MuteOrReconnect({
       on={view.micOff}
       pressed={view.micOff}
       compact={compact}
-      iconOnly
       onClick={onMuteToggle}
     />
   )
@@ -81,10 +80,13 @@ interface LabVoiceDesktopPanelProps {
   /** Talk's saved speaking speed; the control shows when a setter is given. */
   talkSpeed?: number
   onTalkSpeedChange?: (speed: number) => void
+  /** The line under the title: the book and the chapter the reader shows ("The Prince · Chapter 5"). */
+  context?: string
 }
 
 export function LabVoiceDesktopPanel({
   view,
+  context,
   getAssistantLevel,
   reducedMotion = false,
   notice,
@@ -108,7 +110,10 @@ export function LabVoiceDesktopPanel({
     >
       <button type="button" data-reader-window-resize aria-label="Resize voice panel" />
       <div className="lab-voice-panel-head" data-reader-window-handle>
-        <strong>Talk</strong>
+        <div className="lab-voice-panel-heading">
+          <h2 className="lab-voice-panel-title">{LAB_CALL_COPY.title}</h2>
+          {context && <p className="lab-voice-panel-context" data-testid="lab-voice-panel-context">{context}</p>}
+        </div>
         <button
           type="button"
           className="lab-voice-panel-minimize"
@@ -138,14 +143,14 @@ export function LabVoiceDesktopPanel({
       <div className="lab-voice-panel-controls">
         <MuteOrReconnect view={view} testIdPrefix="lab-voice-panel" onMuteToggle={onMuteToggle} onReconnect={onReconnect} />
         {onTalkSpeedChange && (
-          <LabTalkSpeedControl speed={talkSpeed} onChange={onTalkSpeedChange} testIdPrefix="lab-voice-panel" iconSize={22} />
+          <LabTalkSpeedControl speed={talkSpeed} onChange={onTalkSpeedChange} testIdPrefix="lab-voice-panel" />
         )}
         <VoiceControl
           testId="lab-voice-panel-end"
-          word={LAB_CALL_COPY.end}
+          word={LAB_CALL_COPY.endWord}
+          label={LAB_CALL_COPY.end}
           icon={<VoiceEndIcon size={22} />}
           filled
-          iconOnly
           onClick={onEnd}
         />
       </div>

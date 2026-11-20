@@ -12,13 +12,14 @@ export const READER_WINDOW_EDGE = 8
  * 312 x 390, 8px from the viewport's right edge, its foot level with the foot
  * of the pages (Anders, 9 Oct 2026). A reader's own move or resize still wins. */
 export const READER_COMPANION_WINDOW = { width: 312, height: 390, right: 8 } as const
-/** Talk holds only the orb, one status line and the controls (Anders, 9 Oct
- * 2026), so it opens shorter than Chat at the same anchor; lab.css sizes it. */
-export const READER_TALK_WINDOW = { width: 312, height: 252, right: READER_COMPANION_WINDOW.right } as const
+/** Talk holds its title and book line, the orb, one status line and the
+ * controls with their words (mockup B, 4 Nov 2026), so it opens shorter than
+ * Chat at the same anchor; lab.css sizes it. */
+export const READER_TALK_WINDOW = { width: 312, height: 336, right: READER_COMPANION_WINDOW.right } as const
 const COMPANION_KEYS = new Set(['chat', 'talk'])
 /** The smallest a reader can make a window; Chat and Talk keep room for their controls. */
 export function readerWindowMinimum(key: string): { width: number; height: number } {
-  if (key === 'talk') return { width: 260, height: 180 }
+  if (key === 'talk') return { width: 260, height: 220 }
   return key === 'chat' ? { width: 280, height: 300 } : { width: 260, height: 160 }
 }
 
@@ -64,6 +65,7 @@ export function useReaderWindow<T extends HTMLElement>(
       if (value && Number.isFinite(value.x) && Number.isFinite(value.y)) saved = value
     } catch { /* unavailable storage */ }
     node.dataset.readerWindow = 'true'
+    if (saved) node.dataset.readerWindowPositioned = 'true'
     const set = (property: string, value: string) => node.style.setProperty(property, value, 'important')
     const topInset = () => Math.max(8, (node.closest('.lab')?.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 0) + 8)
     const place = (x: number, y: number) => {
@@ -103,6 +105,7 @@ export function useReaderWindow<T extends HTMLElement>(
       const box = node.getBoundingClientRect()
       saved = { ...(saved ?? {}), x: box.left, y: box.top,
         ...(!collapsed && node.style.height ? { width: box.width, height: box.height } : {}) }
+      node.dataset.readerWindowPositioned = 'true'
       try { sessionStorage.setItem(storageKey, JSON.stringify(saved)) } catch { /* private mode */ }
     }
     let drag: { id: number; x: number; y: number; box: DOMRect; resize: Edges | null; moved: boolean } | null = null
@@ -133,6 +136,9 @@ export function useReaderWindow<T extends HTMLElement>(
       const dx = event.clientX - drag.x, dy = event.clientY - drag.y
       if (!drag.moved && Math.max(Math.abs(dx), Math.abs(dy)) < 4) return
       drag.moved = true
+      // Source-anchored cards may remeasure while a reply streams. Ownership
+      // transfers at the first real movement, not only when the pointer lifts.
+      node.dataset.readerWindowPositioned = 'true'
       event.preventDefault()
       const { box, resize } = drag
       if (!resize) { place(box.left + dx, box.top + dy); return }
@@ -178,6 +184,7 @@ export function useReaderWindow<T extends HTMLElement>(
       window.removeEventListener('pointercancel', up)
       window.removeEventListener('resize', clamp)
       delete node.dataset.readerWindow
+      delete node.dataset.readerWindowPositioned
       delete node.dataset.readerWindowEdge
       for (const property of ['left', 'top', 'right', 'bottom', 'transform', 'width', 'height']) node.style.removeProperty(property)
     }

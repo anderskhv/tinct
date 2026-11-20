@@ -1,7 +1,6 @@
 import type { ReaderPositionCoordinator } from './worker/readerPositionCoordinator'
 import { handleRecapPreparation } from './worker/routes/recapPreparation'
 import type { RecapPreparationCoordinator } from './worker/recapPreparationCoordinator'
-import { handleFeaturedPreview } from './worker/routes/featuredPreview'
 import { handleVoiceResearch } from './worker/routes/voiceResearch'
 /**
  * Cloudflare Worker entry point.
@@ -10,7 +9,7 @@ import { handleVoiceResearch } from './worker/routes/voiceResearch'
 
 import { handleOptions, jsonResponse } from './worker/lib/responses'
 import { createRateLimiter } from './worker/lib/rateLimit'
-import { createGuestSpendHolder, createGuestSpendReserver } from './worker/lib/aiSpend'
+import { aiSpendSurface, createGuestSpendHolder, createGuestSpendReserver } from './worker/lib/aiSpend'
 import { createAllowanceGate, loadPremiumAccess, loadPremiumTier, requestAllowsAiFeature } from './worker/lib/aiAllowance'
 import { handleAiAllowance } from './worker/routes/aiAllowance'
 import type { UsageCoordinator } from './worker/usageCoordinator'
@@ -23,6 +22,7 @@ import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/r
 import { handleNarration } from './worker/routes/narration'
 import { handleOwnAudio, handleOwnEnsure } from './worker/routes/ownBookNarration'
 import { handleOwnCatchUp } from './worker/routes/ownCatchUp'
+import { handleOwnTextRepair } from './worker/routes/ownTextRepair'
 import {
   handleBalance,
   handleCancelSubscription,
@@ -34,10 +34,12 @@ import {
 import { handleAdminIssues } from './worker/routes/adminIssues'
 import { handleEvents, recordServerEvent } from './worker/routes/events'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
-import { handleAdminDeleteUser, handleAdminExportUser } from './worker/routes/adminAccounts'
+import { handleAdminDeleteUser, handleAdminExportUser, handleAdminPositionHistory } from './worker/routes/adminAccounts'
 import { ACCOUNT_DELETE_PATH, handleAccountDelete } from './worker/routes/accountDelete'
 import { handleChat, handleLabChat } from './worker/routes/chat'
 import { handleDictation } from './worker/routes/dictation'
+import { handleImportArticle } from './worker/routes/importArticle'
+import { handleImportFile } from './worker/routes/importFile'
 import { handleLabVoiceRelay, handleLabVoiceSession, handleVoiceSession, handleVoiceUsage, LAB_VOICE_RELAY_PATH } from './worker/routes/voice'
 import { handleLabPosition } from './worker/routes/labPosition'
 import { handleLabChatHistory } from './worker/routes/labChatHistory'
@@ -88,7 +90,10 @@ import {
   serveNotFoundPage,
 } from './worker/routes/seo'
 import { handleReadingTime } from './worker/routes/readingTime'
+import { handleGoogleAuth, isGoogleAuthPath } from './worker/routes/googleAuth'
 import { BEAT_MIN_GAP_MS } from './readingTime/model'
+import { regionGate, regionResponse, shareRegion } from './worker/lib/regionGate'
+import { resetJwksCacheForTest, verifySupabaseJwtLocally } from './worker/lib/supabaseJwt'
 
 
 interface Env {
@@ -100,6 +105,8 @@ interface Env {
   SHARE_STORE?: DurableObjectNamespace<ShareStore>
   /** Whole US cents per UTC day for signed-out AI; see lib/aiSpend.ts. */
   GUEST_AI_DAILY_CENTS?: string
+  /** The /try page's own daily AI budget in whole US cents (lib/aiSpend.ts DEFAULT_TRY_AI_DAILY_CENTS when unset). */
+  TRY_AI_DAILY_CENTS?: string
   ANTHROPIC_API_KEY: string
   OPENAI_API_KEY?: string
   XAI_API_KEY?: string
@@ -114,6 +121,9 @@ interface Env {
   /** The $10 top-up under the name the Cloudflare secret was created with; read as STRIPE_PRICE_TOP_UP_10. */
   STRIPE_PRICE_TOPUP_10?: string
   STRIPE_AUTOMATIC_TAX?: string
+  /** Google sign-in on tinct.app (routes/googleAuth.ts). Both set turns it on; the secret never leaves the Worker. */
+  GOOGLE_OAUTH_CLIENT_ID?: string
+  GOOGLE_OAUTH_CLIENT_SECRET?: string
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string
@@ -178,17 +188,26 @@ interface Env {
 
 /**
  * A token verified with Supabase is remembered for a minute per isolate, so
- * the several requests a page makes at once (the account cards make seven)
- * do not each pay a Supabase round trip (300-700 ms, 10 Oct 2026 measurement)
- * before their own work. Only successful answers are kept, never past the
+ * later requests can reuse completed verification data without another
+ * Supabase round trip. Concurrent cold requests keep their own I/O. Only
+ * successful answers are kept, never past the
  * token's own expiry, and at most a few hundred at a time. Account deletion
  * forgets the token at once (forgetVerifiedUser).
+ *
+ * Most routes now verify the token locally first (verifyUser, lib/supabaseJwt.ts):
+ * the ES256 signature against the project's published JWKS, plus exp, aud, iss
+ * and sub. Supabase is asked (verifyUserRemote) only when that is impossible,
+ * and always by the routes that need the full auth user or a fresh server-side
+ * answer: profiles, account deletion and site-admin checks.
  */
 const VERIFIED_TTL_MS = 60_000
 const VERIFIED_MAX = 500
 const verifiedUsers = new Map<string, { until: number; user: { id: string; email: string } }>()
-/** Verifications under way, so requests arriving together share one Supabase call. */
-const verifying = new Map<string, Promise<{ id: string; email: string } | null>>()
+class AuthUnavailableError extends Error {
+  constructor(readonly reason: 'timeout' | 'upstream' | 'network') {
+    super('Authentication is temporarily unavailable')
+  }
+}
 
 /** The JWT's own expiry in ms, or null when unreadable. */
 function tokenExpiry(token: string): number | null {
@@ -200,17 +219,49 @@ function tokenExpiry(token: string): number | null {
   }
 }
 
-export function forgetVerifiedUser(request: Request): void {
+/**
+ * Tokens of accounts deleted on this isolate, until their own expiry: local
+ * verification would otherwise accept them until they lapse (about an hour).
+ * Per isolate only, like the cache above.
+ */
+const revokedTokens = new Map<string, number>()
+
+export function forgetVerifiedUser(request: Request, deleted = false): void {
   const authHeader = request.headers.get('authorization') || ''
   for (const key of verifiedUsers.keys()) if (key.endsWith('|' + authHeader.slice(7))) verifiedUsers.delete(key)
+  if (deleted && authHeader.startsWith('Bearer ')) {
+    const token = authHeader.slice(7)
+    const now = Date.now()
+    for (const [known, until] of revokedTokens) if (until <= now) revokedTokens.delete(known)
+    if (revokedTokens.size >= VERIFIED_MAX) revokedTokens.delete(revokedTokens.keys().next().value!)
+    revokedTokens.set(token, tokenExpiry(token) ?? now + 2 * 60 * 60_000)
+  }
 }
 
 export function resetVerifiedUsersForTest(): void {
   verifiedUsers.clear()
-  verifying.clear()
+  revokedTokens.clear()
+  resetJwksCacheForTest()
 }
 
+/**
+ * The signed-in reader as `{ id, email }`, verified locally when the token is
+ * an asymmetrically signed session token, else by Supabase (verifyUserRemote).
+ */
 async function verifyUser(env: Env, request: Request): Promise<{ id: string; email: string } | null> {
+  const authHeader = request.headers.get('authorization')
+  if (!authHeader?.startsWith('Bearer ') || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
+  const token = authHeader.slice(7)
+  const revokedUntil = revokedTokens.get(token)
+  if (revokedUntil !== undefined && revokedUntil > Date.now()) return null
+  const verdict = await verifySupabaseJwtLocally(env.SUPABASE_URL, token)
+  if (verdict.kind === 'user') return verdict.user
+  if (verdict.kind === 'invalid') return null
+  return verifyUserRemote(env, request)
+}
+
+/** The full Supabase auth user from `/auth/v1/user` (cached a minute per isolate). */
+async function verifyUserRemote(env: Env, request: Request): Promise<{ id: string; email: string } | null> {
   const authHeader = request.headers.get('authorization')
   if (!authHeader?.startsWith('Bearer ') || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
   const token = authHeader.slice(7)
@@ -219,13 +270,17 @@ async function verifyUser(env: Env, request: Request): Promise<{ id: string; ema
   const known = verifiedUsers.get(key)
   if (known && known.until > now) return known.user
   verifiedUsers.delete(key)
-  const underWay = verifying.get(key)
-  if (underWay) return underWay
-  const check = (async () => {
+  // Only completed data may be shared across Worker invocations. A pending
+  // fetch belongs to this request and must never block another request.
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 10_000)
+  try {
     const res = await fetch(`${env.SUPABASE_URL}/auth/v1/user`, {
       headers: { 'Authorization': `Bearer ${token}`, 'apikey': env.SUPABASE_SERVICE_ROLE_KEY },
+      signal: controller.signal,
     })
-    if (!res.ok) return null
+    if (res.status === 401 || res.status === 403) return null
+    if (!res.ok) throw new AuthUnavailableError('upstream')
     const user = await res.json() as { id: string; email: string }
     if (user && typeof user.id === 'string') {
       const until = Math.min(now + VERIFIED_TTL_MS, tokenExpiry(token) ?? Infinity)
@@ -235,12 +290,11 @@ async function verifyUser(env: Env, request: Request): Promise<{ id: string; ema
       }
     }
     return user
-  })()
-  verifying.set(key, check)
-  try {
-    return await check
+  } catch (error) {
+    if (error instanceof AuthUnavailableError) throw error
+    throw new AuthUnavailableError(controller.signal.aborted ? 'timeout' : 'network')
   } finally {
-    verifying.delete(key)
+    clearTimeout(timeout)
   }
 }
 
@@ -254,7 +308,8 @@ function ledgerUser(env: Env) {
 }
 
 async function verifySiteAdmin(env: Env, request: Request): Promise<boolean> {
-  const user = await verifyUser(env, request)
+  // Admin rights act on other readers' data: Supabase answers, never a local check.
+  const user = await verifyUserRemote(env, request)
   if (!user || !isValidUUID(user.id)) return false
 
   const res = await supabaseGet(env, `site_admins?user_id=eq.${user.id}&select=user_id&limit=1`)
@@ -270,7 +325,7 @@ export const validateCorrectedParagraphForTest = validateCorrectedParagraph
 
 // ===== Router =====
 
-export default {
+const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url)
     const forwardedProto = request.headers.get('x-forwarded-proto') || url.protocol.replace(':', '')
@@ -306,8 +361,10 @@ export default {
 
     // Atomic and fail-closed (see lib/rateLimit.ts).
     const checkRateLimit = createRateLimiter(env)
-    const reserveGuestSpend = createGuestSpendReserver(env)
-    const holdGuestSpend = createGuestSpendHolder(env)
+    // Signed-out AI spend: the guest day, or the /try page's own day for its reader (X-Tinct-Surface: try).
+    const spendSurface = aiSpendSurface(request)
+    const reserveGuestSpend = createGuestSpendReserver(env, Date.now, spendSurface)
+    const holdGuestSpend = createGuestSpendHolder(env, Date.now, spendSurface)
     // The AI allowance (lib/aiAllowance.ts); with the switch off it reads nothing.
     const allowanceGate = createAllowanceGate(env)
     const allowsAi = (feature: 'recap' | 'chapter_notes' | 'catch_up') => (req: Request) => requestAllowsAiFeature(allowanceGate, ledgerUser(env), req, feature)
@@ -315,11 +372,13 @@ export default {
     // Signed unsubscribe / confirm links from lifecycle emails. Without
     // EMAIL_LINK_SECRET (no such link was ever sent) this never matches.
     if (isEmailLinkRequest(url, env)) return handleEmailLink(request, env)
+    // Google sign-in on tinct.app: config switch, Google's redirect_uri, and the code exchange.
+    if (isGoogleAuthPath(url.pathname)) return handleGoogleAuth(request, env, { checkRateLimit })
 
     if (url.pathname === '/api/share' || url.pathname.startsWith('/api/share/')) {
       return handleShareApi(request, env, ctx, { verifyUser: req => verifyUser(env, req), checkRateLimit })
     }
-    const sharePage = url.pathname.startsWith('/q/') ? await handleSharePage(request, env, ctx) : null
+    const sharePage = url.pathname.startsWith('/q/') ? await handleSharePage(request, env, ctx, shareRegion(request)) : null
     if (sharePage) return sharePage
 
     if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) {
@@ -367,7 +426,8 @@ export default {
     const pageRequest = request.method === 'GET' || request.method === 'HEAD'
     if (social && isProfileApiPath(url.pathname)) {
       return handleProfiles(request, env, {
-        verifyUser: req => verifyUser(env, req) as Promise<ProfileAuthUser | null>,
+        // Profiles read identities, metadata and created_at: the full Supabase auth user.
+        verifyUser: req => verifyUserRemote(env, req) as Promise<ProfileAuthUser | null>,
         // The brief's profile events land in the funnel while ship 3 is on.
         track: friends ? (name, userId, props) => recordServerEvent(env, ctx, { name, userId, props }) : undefined,
         // "Send confirmation link": a service email, so LIFECYCLE_EMAILS and the lifecycle test gate do not apply (routes/confirmLink.ts).
@@ -403,18 +463,23 @@ export default {
     if (url.pathname === '/api/narration/own/audio') return handleOwnAudio(request, env, Date.now())
     // Catch me up on a reader's own book: one chapter per request, recap kept privately (ownCatchUp.ts).
     if (url.pathname === '/api/own-catch-up') return handleOwnCatchUp(request, env, ctx, { verifyUser, checkRateLimit, reserveGuestSpend, allowsAi: allowsAi('catch_up') })
+    // Scanning errors in a converted own PDF: flagged paragraphs only, fixed by small edits (ownTextRepair.ts).
+    if (url.pathname === '/api/own-text-repair') return handleOwnTextRepair(request, env, ctx, { verifyUser, checkRateLimit, reserveGuestSpend })
     if (url.pathname.startsWith('/api/narration/')) {
-      return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
+      return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit: createRateLimiter(env, { throwOnUnavailable: true }) })
     }
 
     switch (url.pathname) {
-      case '/api/featured-preview': return handleFeaturedPreview(request, env, verifySiteAdmin)
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit, { allowanceGate })
       case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit, reserveGuestSpend, holdGuestSpend)
       case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit, ctx, allowanceGate)
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit, allowanceGate)
       case '/api/events': return handleEvents(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/dictation': return handleDictation(request, env, ctx, verifyUser, checkRateLimit)
+      // A link pasted into Paste text: the article's text, fetched once and not kept (importArticle.ts).
+      case '/api/import-article': return handleImportArticle(request, env, { verifyUser, checkRateLimit })
+      // A link to a PDF or EPUB: the file, fetched once and not kept; the browser adds it as a chosen file (importFile.ts).
+      case '/api/import-file': return handleImportFile(request, env, { verifyUser, checkRateLimit })
       case '/api/voice-usage': return handleVoiceUsage(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-voice-session': return handleLabVoiceSession(request, env, checkRateLimit, holdGuestSpend)
       case LAB_VOICE_RELAY_PATH: return handleLabVoiceRelay(request, env, ctx, checkRateLimit)
@@ -453,11 +518,14 @@ export default {
       case '/api/admin/modern-diagnostics': return handleModernDiagnostics(request, env, verifySiteAdmin)
       case '/api/admin/export-user': return handleAdminExportUser(request, env, verifySiteAdmin)
       case '/api/admin/delete-user': return handleAdminDeleteUser(request, env, verifySiteAdmin)
+      case '/api/admin/position-history': return handleAdminPositionHistory(request, env, verifySiteAdmin)
       // The reader's own Delete account (Settings → Account): the same erasure, for the caller's own account.
       case ACCOUNT_DELETE_PATH: {
-        const response = await handleAccountDelete(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit })
-        // The deleted account's token is not remembered as verified on this isolate.
-        forgetVerifiedUser(request)
+        // Deletion is irreversible: Supabase confirms the session, not a local check.
+        const response = await handleAccountDelete(request, env, { verifyUser: req => verifyUserRemote(env, req), checkRateLimit })
+        // The deleted account's token is not remembered as verified on this isolate,
+        // and once the account is gone it is refused here until it expires.
+        forgetVerifiedUser(request, response.ok)
         return response
       }
       case '/api/admin/announce-email': if (env.LIFECYCLE_EMAILS === '1') return handleAdminAnnounceEmail(request, env, verifySiteAdmin)
@@ -492,5 +560,23 @@ export default {
       if (socialFriendsOn(env)) ctx.waitUntil(runLeaderboardCron(env, event.scheduledTime).catch(() => false))
     }
     else ctx.waitUntil(handleScheduled(env))
+  },
+}
+
+export default {
+  ...worker,
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    try {
+      // Books not served in the request's country (lib/regionGate.ts): decided per request, never stored.
+      const gated = await regionGate(request, env)
+      if (gated instanceof Response) return gated
+      return await regionResponse(request, await worker.fetch(gated ?? request, env, ctx))
+    } catch (error) {
+      if (!(error instanceof AuthUnavailableError)) throw error
+      console.warn(JSON.stringify({ event: 'auth_unavailable', reason: error.reason }))
+      const response = jsonResponse({ error: error.message, reason: 'auth_unavailable' }, 503, request)
+      response.headers.set('Cache-Control', 'no-store')
+      return response
+    }
   },
 }

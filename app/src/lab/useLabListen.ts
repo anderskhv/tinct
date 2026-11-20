@@ -21,7 +21,7 @@ import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
 import { LAB_COPY } from './labCopy'
 import { CLIP_BUFFER_DRY_SECONDS, CLIP_BUFFER_WEAK_FACTOR, NarrationClipBuffer, repeatWhilePlaying, clipBufferSeconds, clipsToBuffer, connectionSavesData, sourcePlaysClip, type BufferCandidate } from './narrationClipBuffer'
 import { NarrationEnsureError, narrationFailureMessage, type NarrationEnsureRequest, type NarrationParagraphNotReady, type NarrationParagraphResult } from './labNarration'
-import { chunkNarrationTokens, narrationTextForParagraph, narrationTokens, sha256Hex } from '../narration/narrationCore'
+import { chunkNarrationTokens, narrationTextForParagraph, narrationTokens, sha256Hex, type NarrationLanguage } from '../narration/narrationCore'
 import {
   alignTimedWordsToText,
   followParagraphFromManifest,
@@ -235,6 +235,8 @@ export interface UseLabListenOptions {
 }
 
 export interface LabNarrationOption {
+  /** Spoken language of the narrated edition (narrationLanguage): the sentence groups are cut as the Worker cuts them. English when absent. */
+  language?: NarrationLanguage
   /** Audio-only tail, prepared by the ordinary bounded look-ahead after Play. */
   endingCue?: {
     text: string
@@ -411,10 +413,22 @@ function publishPlaybackState(playing: boolean): void {
 
 export function useLabListen(options: UseLabListenOptions) {
   const [playing, setPlayingState] = useState(false)
+  const playbackSessionRef = useRef<(() => void) | null>(null)
+  const acquirePlaybackSession = useCallback(() => {
+    // Configure the output session before play(), inside the same gesture or
+    // media event. A React effect runs after playback has already started.
+    playbackSessionRef.current ??= acquireBrowserAudioSession('playback')
+  }, [])
+  const releasePlaybackSession = useCallback(() => {
+    playbackSessionRef.current?.()
+    playbackSessionRef.current = null
+  }, [])
   const setPlaying = useCallback((value: boolean) => {
+    if (value) acquirePlaybackSession()
+    else releasePlaybackSession()
     setPlayingState(value)
     publishPlaybackState(value)
-  }, [])
+  }, [acquirePlaybackSession, releasePlaybackSession])
   const [pending, setPendingState] = useState(false)
   const [loading, setLoading] = useState(false)
   /**
@@ -434,7 +448,6 @@ export function useLabListen(options: UseLabListenOptions) {
   const loadingTimerRef = useRef<ReturnType<typeof setTimeout>>()
   const loadingDeadlineRef = useRef<ReturnType<typeof setTimeout>>()
   const retryPlaybackRef = useRef<() => void>(() => {})
-  useEffect(() => playing ? acquireBrowserAudioSession('playback') : undefined, [playing])
   const [follow, setFollow] = useState<FollowTarget>({ kind: 'none' })
   const [src, setSrc] = useState<string | null>(null)
   const [clipIndex, setClipIndex] = useState(0)
@@ -637,7 +650,7 @@ export function useLabListen(options: UseLabListenOptions) {
       const textHash = hashes.get(paragraph.index)
       if (textHash == null) continue
       const entry = narrationPreparedRef.current.get(paragraph.index)
-      const layout = chunkNarrationTokens(narrationTokens(paragraph.text))
+      const layout = chunkNarrationTokens(narrationTokens(paragraph.text), undefined, optionsRef.current.narration?.language)
       for (const expected of layout) {
         const chunk = entry?.textHash === textHash ? entry.chunks[expected.index] : undefined
         clips.push({
@@ -1459,6 +1472,7 @@ export function useLabListen(options: UseLabListenOptions) {
       try { audio.removeAttribute('src') } catch { /* jsdom */ }
     }
     audioRef.current = null
+    releasePlaybackSession()
     clipBufferRef.current?.clear()
     endNativeNarration()
   }, [])
@@ -1518,6 +1532,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const audio = ensureAudio()
     const clip = clipsRef.current[index]
     if (!clip) { setPending(false); return false }
+    if (andPlay) acquirePlaybackSession()
     setPending(andPlay)
     if (andPlay) {
       narrationRetryRef.current = null
@@ -1656,7 +1671,7 @@ export function useLabListen(options: UseLabListenOptions) {
         message: narrationFailureMessage('playback'), reason: 'playback' })
     })
     return true
-  }, [setPending, applyRate, downloadAhead, ensureAudio, enterPreparing, prepareThenRun, scheduleNarrationLookAhead, speed, syncFollow])
+  }, [acquirePlaybackSession, setPending, applyRate, downloadAhead, ensureAudio, enterPreparing, prepareThenRun, scheduleNarrationLookAhead, speed, syncFollow])
   playClipRef.current = playClip
 
   const playPlace = useCallback((
@@ -1795,6 +1810,7 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     audio.autoplay = true
     if (audio.paused || audio.ended) {
+      acquirePlaybackSession()
       let played: Promise<void>
       try { played = Promise.resolve(audio.play()) } catch (error) { played = Promise.reject(error) }
       played.catch(() => {
@@ -1895,6 +1911,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const request = ++playRequestRef.current
     playingRef.current = true
     applyRate(audio, speedRef.current)
+    acquirePlaybackSession()
     let played: Promise<void>
     try { played = Promise.resolve(audio.play()) } catch (error) { played = Promise.reject(error) }
     played.then(() => {
@@ -1910,7 +1927,10 @@ export function useLabListen(options: UseLabListenOptions) {
       if (current?.kind === 'paragraph' && current.narration) scheduleNarrationLookAhead()
     }, () => {
       // Still interrupted; the next retry (or the reader) tries again.
-      if (request === playRequestRef.current) playingRef.current = false
+      if (request === playRequestRef.current) {
+        playingRef.current = false
+        releasePlaybackSession()
+      }
     })
   }
 
@@ -2344,6 +2364,7 @@ export function useLabListen(options: UseLabListenOptions) {
     retryPlaybackRef.current = () => { playClipRef.current(clipIndexRef.current, positionRef.current.time) }
     playingRef.current = true
     applyRate(audio, speed)
+    acquirePlaybackSession()
     const played = playReaderAudio(audio, () => requestIsCurrent(request) && playingRef.current)
     publishPlaybackState(true)
     played.then(() => {
@@ -2361,7 +2382,7 @@ export function useLabListen(options: UseLabListenOptions) {
       playingRef.current = false
       setPlaying(false)
     })
-  }, [applyRate, playClip, setPending, speed, start, syncFollow])
+  }, [acquirePlaybackSession, applyRate, playClip, setPending, speed, start, syncFollow])
 
   /**
    * Lock-screen / Control Center / AirPods Play. iOS counts the action as the

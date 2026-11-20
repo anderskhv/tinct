@@ -13,7 +13,7 @@
 // detection itself (the chip, PR E) is separate; this only orders text.
 (function (global) {
   // "Figure 16.1:", "Fig. 3.", "Table 2 —", "Algorithm 1:" at the start of a line.
-  const CAPTION = /^(?:Figure|Fig\.|FIGURE|Table|TABLE|Algorithm|Exhibit|Plate)\s*(?:[A-Z]\.)?\d+(?:[.\-–]\d+)*[a-z]?\s*(?:[:|—–]|\.(?!\d)|-(?=\s))/;
+  const CAPTION = /^(?:Figure|Figur|FIGUR|Fig\.|FIGURE|Table|TABLE|Tabel|TABEL|Algorithm|Exhibit|Plate)\s*(?:[A-Z]\.)?\d+(?:[.\-–]\d+)*[a-z]?\s*(?:[:|—–]|\.(?!\d)|-(?=\s)|(?=\p{Lu}|$))/u;
   const sizeOf = it => Math.hypot(it.transform[2], it.transform[3]) || it.height || 0;
   const rotated = it => Math.abs(it.transform[1]) > 0.01 * Math.abs(it.transform[0]) || Math.abs(it.transform[2]) > 0.01 * Math.abs(it.transform[3]);
   const median = list => { const s = [...list].sort((a, b) => a - b); return s.length ? s[Math.floor(s.length / 2)] : 0 };

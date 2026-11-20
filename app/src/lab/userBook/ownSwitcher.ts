@@ -6,7 +6,7 @@
  * titles and covers from /lab/catalogue.json, less the books taken off My shelf
  * (preReader/readingNow.ts, as the library); the reader's own books (EPUB and
  * PDF) from Add a book's IndexedDB and the account's private copies
- * (ownSync.ts, as the library). Own-book ids never leave the device.
+ * (ownSync.ts, as the library). Shelf visibility is synced privately by opaque id; titles and text stay out of the shelf store.
  */
 import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { readLabPositionLocal } from '../labPositionStore'

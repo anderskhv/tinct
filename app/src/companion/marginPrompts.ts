@@ -38,12 +38,19 @@ export const PDF_EXPLAIN_OPENING_RULE = 'Start with the meaning itself. Never de
 export const PDF_EXPLAIN_PROMPT = `Explain the passage the reader selected: what it says and what it means here, in plain language for a careful reader. ${PDF_EXPLAIN_FORMAT} Write any maths inline as plain text. ${PDF_EXPLAIN_TEXT_RULE} ${PDF_EXPLAIN_OPENING_RULE}`
 
 /**
+ * Explain on a selected chart, diagram or table in a PDF (Anders, 2 Nov 2026: a slide's bar chart came back as
+ * "The bars show quarterly figures in NOK million … Each bar is stacked in layers: a dark base, a light blue
+ * middle…"; he wanted the point, not a description, and the months were read as quarters).
+ */
+export const PDF_FIGURE_EXPLAIN_PROMPT = 'Explain the figure or table the reader selected; it is the attached image. First paragraph: its main point in one sentence, at most 25 words, with the number or comparison that carries it, the way a good headline for it would read. Then a blank line, then at most two short paragraphs: what else in it matters, and what it means in this document. Read every label, period, unit and value exactly as printed; never guess one you cannot read. Never describe the chart type, colours, layout, axes or legend unless one is needed to read a value. Write any maths inline as plain text. About 100 words or fewer in all. No preamble, no headings.'
+
+/**
  * Simplify (round 3, 16 Oct; Anders: "exactly one plain rewrite"): one rewrite as long as the selection, the same
  * meaning in everyday words, and nothing else. recheck-1 found the old two-part answer (a restatement, then the
  * rewrite) repeating its first line and, on a fragment, finishing the sentence with a changed meaning.
  */
 export const SIMPLIFY_PROMPT = [
-  'Rewrite the selected passage once, in plain everyday English, for a reader meeting it for the first time.',
+  'Rewrite the selected passage once, in plain everyday language, for a reader meeting it for the first time.',
   'Give exactly one rewrite and nothing else: no preamble, no heading, no second version, no explanation or note after it.',
   'Match the length of the selection: a sentence becomes one plain sentence, a fragment a plain fragment, a paragraph one short paragraph. Never more than 120 words.',
   'Rewrite only the selected words. If the selection is a fragment, rewrite that fragment alone: never finish its sentence from the words that follow it in the document.',
@@ -121,6 +128,7 @@ export function factcheckPrompt(today: string): string {
  */
 export const COUNTERPOINT_PROMPT = [
   'Give one sharp objection to the claim or argument in the selected passage: the one a careful, well-informed critic would raise first.',
+  'The selected passage alone defines the claim to challenge. Use surrounding text only to interpret that claim or support an objection to it; do not substitute a broader thesis, a nearby claim, or implications the selection does not assert. If the selected claim is defensible, explain its precise limitation rather than inventing a stronger claim to attack.',
   'First paragraph: the objection itself in one sentence, at most 25 words. Then a blank line.',
   'Then one paragraph that makes it concrete with a page, table, figure, equation, number or quoted line of the document, cited. Look first for the document\'s own inconsistencies: a table or result that cuts against a claim in the text, or numbers that disagree between sections. Name a school of thought or a critic only when the objection is documented as theirs.',
   'Never a generic objection that would fit any work, such as that a method or metric is unreliable in general.',
@@ -202,8 +210,19 @@ export const RELATED_PROMPT = [
   'Plain prose only: no Markdown, no bullet characters, no em dashes.',
 ].join('\n')
 
-/** Ask in the PDF reader's margin (a passage question, a follow-up, the whole file): the document first, then our own explanation. */
-export const ASK_DOCUMENT_LINE = 'When the document does not explain something, say so before offering an explanation of your own.'
+/**
+ * Ask in the PDF reader's margin (a passage question, a follow-up, the whole file): the document first, then our own
+ * explanation. Until 3 Nov 2026 it said to announce the document's silence first, against NO_META_RULE; Anders: answers
+ * opening "The document doesn't discuss this. From general knowledge…" read "worse and more meta".
+ */
+export const ASK_DOCUMENT_LINE = 'Answer from the document where it speaks to the question; where it does not, answer from your reliable knowledge directly, without saying that the document is silent.'
+
+/**
+ * Ask in the margin (a passage question, a follow-up, the whole file; PDF and own EPUB alike): the card shows the first
+ * sentence in bold as the answer's bottom line (margin.js answerHtml), so it is the answer (9 Nov 2026: an own EPUB's
+ * bold line was "That line comes from later in the talk than this chapter reaches", a remark about place).
+ */
+export const ASK_LEAD_RULE = 'Open with the answer itself in one sentence: never with a remark about where the passage, the reader or the text is.'
 
 /**
  * Ask with the source search as a tool (Anders, 20 Oct 2026: no "Web" toggle, the model decides): one search, only when
@@ -232,7 +251,11 @@ export const STANDS_ALONE_RULE = 'Each answer stands alone: never refer to your 
  * Shared by every margin action (Anders, 15 Oct): a whole-PDF answer opened "Only the titles and
  * placement of these chapters are supplied, not their text…". An answer never talks about its input.
  */
-export const NO_META_RULE = 'Never mention what text you were or were not given; say plainly when the document doesn\'t cover something, and say "from general knowledge" when you go beyond it.'
+/**
+ * Anders (30 Oct): an Ask answer opened "The page gives only the end of the question… What follows is from
+ * general knowledge, not this page." Answers stop narrating their sources.
+ */
+export const NO_META_RULE = 'Never mention what text you were or were not given, or what the page or document does or does not show, and never label where a point comes from (no "from general knowledge", no "the page doesn\'t say"): answer directly from the document and your reliable knowledge together, naming a scholar or source only when the point is theirs. Only when the reader asks what the document itself says, and it does not say it, say so in one short clause. Never comment on the selection itself (that it is short, "only" a few words, a fragment, a label or a page marker): whatever the reader selected is worth explaining, so say what it means where it stands. Never comment on the question either (no "it\'s a natural question", "good question", "this isn\'t addressed here"): when the reader asks beyond the book, answer it from your reliable knowledge, opening with the answer itself.'
 
 /** Shared by every margin action (marginContext.ts MARGIN_RULES; 15 Oct deep test): two answers read the passage picture aloud. */
 export const PICTURE_RULE = 'The picture is the passage itself; never describe or read out the picture, never say what it shows or confirms, and never mention an image. Answer about the passage.'

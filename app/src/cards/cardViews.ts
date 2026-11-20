@@ -1,3 +1,4 @@
+import { toggleReadingLanguage, type ReadingLanguage } from '../social/readingLanguages'
 /**
  * The six account cards (and the small cards behind their rows), as
  * cards.html draws them: You, Your reading, Leaderboard, Find readers, a
@@ -8,8 +9,11 @@
  * on You and Your reading comes from one readingTimeStats.
  */
 import { CARDS_COPY } from './cardsCopy'
+// Highlights and chat waiting for their debounce reach the account before the device is wiped.
+import { flushBeforeSignOut } from '../lab/signOutFlush'
 import { croppedPicture, hasAvatarCrop, type AvatarCropSize } from '../social/avatarCrops'
 import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights, weekRange } from './cardsFormat'
+import { addDays, localDay } from '../readingTime/model'
 import {
   blockedReaderId,
   deleteOwnAccount,
@@ -28,14 +32,13 @@ import {
   type ProfilePicture,
   type ReadingLoad,
 } from './cardsApi'
-import { boardHiddenLine, chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
+import { boardHiddenLine, boardRows, chapterFraction, followBackCount, followButton, followingYouRows, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
-import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
-import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, uploadProfileImage } from '../social/socialClient'
+import { COVER_BOOK_IDS, EMAIL_CONSENT_TEXT, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
+import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, rememberReadingLanguages, uploadProfileImage } from '../social/socialClient'
 import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
 import { markRequestsSeen, pendingRequests, requestsLine } from '../social/followRequests'
-import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, checkFindableNoticeAccount, dismissFindableNotice, findableNoticeDue, findableNoticeFor, findableNoticeText, markFindableNoticeShown, recordFindableNoticeSeen } from '../social/findableNotice'
 import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, onBoardsChanged, rememberPickedBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
@@ -51,6 +54,7 @@ export interface CardsData {
   reading: ReadingLoad | null
   allowance: AiAllowance | null
   plan: 'premium' | 'free' | null
+  firstMonthFreeUntil?: string | null
   /** Premium intervals on sale to this reader (free readers only). */
   intervals: PremiumInterval[]
   /** "3rd of 5" among friends (/api/social/rank). */
@@ -95,6 +99,8 @@ export interface CardsEnv {
   clipboard?: (text: string) => Promise<boolean>
   /** Send this device's pending reading time and read Your reading again (openCards syncOwnTime); the board does not wait for it. */
   syncOwnTime?: () => void
+  /** Profile › AI settings: closes the cards and opens AI settings over the page (lab/openAiSettingsLayer.tsx). */
+  openAiSettings?: () => void
 }
 
 // ===== Pictures =====
@@ -191,6 +197,7 @@ function ownName(env: CardsEnv): string {
 }
 
 function planWord(env: CardsEnv): string {
+  if (env.data.firstMonthFreeUntil && Date.parse(env.data.firstMonthFreeUntil) > Date.now()) return 'Premium · first month free'
   return env.data.plan === 'premium' ? CARDS_COPY.premium : env.data.plan === 'free' ? CARDS_COPY.free : ''
 }
 
@@ -216,6 +223,11 @@ function segmented<T extends string>(label: string, options: Array<{ value: T; l
     }))
   }
   return seg
+}
+
+/** A choice that names itself, on or off (aria-pressed). */
+function chip(label: string, on: boolean, flip: () => void, testid: string): HTMLElement {
+  return el('button', { type: 'button', className: 'tc-chip', 'aria-pressed': String(on), text: label, dataset: { testid }, onclick: flip })
 }
 
 function toggle(label: string, on: boolean, enabled: boolean, flip: () => void, testid: string): HTMLElement {
@@ -314,7 +326,7 @@ export function cardSpec(id: CardId, env: CardsEnv): CardSpec {
 export function youCard(env: CardsEnv): CardSpec {
   let status = ''
   /** The AI credits row's reset line, open or not; kept across refreshes. */
-  const credits = { resets: false }
+  const credits = { resets: false, buying: false, status: '' }
   /** Editing the name in place (tap the name); the draft survives refreshes. */
   const naming = { open: false, draft: '', saving: false }
   // One file field per slot for the card's life, so a re-render while the
@@ -417,9 +429,10 @@ export function youCard(env: CardsEnv): CardSpec {
       const moreGroup = group(
         env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' })
           : env.social && waitingProfile ? row({ label: CARDS_COPY.findReaders, testid: 'you-find-skeleton' }) : null,
+        env.openAiSettings ? row({ label: CARDS_COPY.aiSettings, chevron: true, onClick: env.openAiSettings, testid: 'you-ai-settings' }) : null,
         row({ label: CARDS_COPY.settings, chevron: true, onClick: () => card.stack.push(settingsCard(env)), testid: 'you-settings' }),
       )
-      body.append(...[requestsGroup(env, card), findableNotice(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
+      body.append(...[requestsGroup(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
       status = ''
       return [hero, body]
     },
@@ -445,36 +458,6 @@ function requestsGroup(env: CardsEnv, card: CardHandle): HTMLElement | null {
 }
 
 /**
- * The one-time notice about findable profiles (social/findableNotice.ts) at
- * the top of the You card, unless the account has seen it already: shown, it
- * is marked seen for the account; Settings opens the Settings card; either
- * row ends it.
- */
-function findableNotice(env: CardsEnv, card: CardHandle): HTMLElement | null {
-  const userId = env.session.userId
-  const profile = env.data.profile
-  if (!env.social || !profile || !userId || !findableNoticeFor(profile)) return null
-  const text = findableNoticeText(profile.visibility)
-  if (!text) return null
-  if (!findableNoticeDue(profile, userId)) {
-    // Not known yet on this device: ask the account, and paint it if it was never seen.
-    void checkFindableNoticeAccount(userId).then(() => { if (findableNoticeDue(env.data.profile, userId)) env.changed() })
-    return null
-  }
-  markFindableNoticeShown(userId)
-  const notice = group(
-    el('p', { text, style: { margin: '0', padding: '12px 16px', fontSize: '15px', lineHeight: '1.4' } }),
-    row({ label: FINDABLE_NOTICE_COPY.settings, chevron: true, testid: 'findable-notice-settings', onClick: () => { dismissFindableNotice(userId); card.stack.push(settingsCard(env)); env.changed() } }),
-    row({ label: FINDABLE_NOTICE_COPY.dismiss, testid: 'findable-notice-dismiss', onClick: () => { dismissFindableNotice(userId); env.changed() } }),
-  )!
-  notice.setAttribute(FINDABLE_NOTICE_ATTR, '')
-  notice.setAttribute('role', 'note')
-  notice.setAttribute('aria-label', FINDABLE_NOTICE_COPY.label)
-  notice.dataset.testid = 'findable-notice'
-  return notice
-}
-
-/**
  * The You card's name: tap it to change it in place. Saved through the
  * profile save path (POST /api/profile { name }), so the rules are the
  * sign-up profile step's: at most 40 characters, and the Worker's
@@ -493,7 +476,7 @@ function nameField(env: CardsEnv, card: CardHandle, naming: { open: boolean; dra
         field?.focus()
         field?.select()
       },
-    }, el('b', { text: name }))
+    }, el('b', { text: name }), el('span', { className: 'tc-name-pencil', html: ICONS.pencil, 'aria-hidden': 'true' }))
   }
   const input = el('input', {
     type: 'text', className: 'tc-nm-in', name: 'profileName', value: naming.draft, maxLength: '40', autocomplete: 'name', enterkeyhint: 'done',
@@ -536,7 +519,7 @@ function fileField(): HTMLInputElement {
 /** At or above this share of the month's credits used, the Top up (or Get Premium) row shows (Anders, 14 Oct 2026). */
 export const TOP_UP_ROW_FROM_PERCENT = 90
 
-function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean }): HTMLElement {
+function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean; buying: boolean; status: string }): HTMLElement {
   const allowance = env.data.allowance!
   // A free account after its trial has no allowance this month: nothing was
   // used, so no bar and no percentage, only the row and Get Premium (15 Oct 2026).
@@ -581,19 +564,25 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean }
   // and always once the trial's allowance is over.
   const nearlyGone = !noAllowance && used >= TOP_UP_ROW_FROM_PERCENT
   const topUpRow = nearlyGone && env.data.plan === 'premium' && packs.length ? row({
-    label: CARDS_COPY.topUp,
+    label: open.buying ? 'Opening checkout…' : CARDS_COPY.topUp,
     value: resets ? CARDS_COPY.orWaitUntil(resets) : null,
     chevron: true,
     testid: 'you-top-up',
     onClick: () => {
+      if (open.buying) return
       const rowNode = card.element.querySelector<HTMLElement>('[data-testid="you-top-up"]')
       const cardBox = card.element.getBoundingClientRect()
       const top = rowNode ? rowNode.getBoundingClientRect().bottom - cardBox.top + card.element.scrollTop + 4 : 180
       const buy = (pack: TopUpPack) => async () => {
+        if (open.buying) return
+        open.buying = true
+        open.status = ''
+        card.refresh()
         const url = await startTopUpCheckout(env.session.token, pack)
         if (url) { env.navigate(url); return }
-        const line = card.element.querySelector('.tc-status')
-        if (line) line.textContent = CARDS_COPY.topUpFailed
+        open.buying = false
+        open.status = CARDS_COPY.topUpFailed
+        card.refresh()
       }
       popMenu(card.element, top, [
         ...(packs.includes('chat_pack_200') ? [{ label: CARDS_COPY.buyTopUp, run: buy('chat_pack_200'), testid: 'menu-top-up' }] : []),
@@ -610,13 +599,30 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean }
     creditsRow,
     topUpLeft !== null ? meter(CARDS_COPY.topUpBar, Math.round((1 - Math.max(0, Math.min(1, topUpLeft))) * 100), CARDS_COPY.used, true, 'you-top-up-bar') : null,
     topUpRow,
+    open.status ? el('p', { className: 'tc-top-up-status', role: 'status', 'aria-live': 'polite', text: open.status, dataset: { testid: 'top-up-status' } }) : null,
   )!
 }
 
 /** 2 · Your reading */
+const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const
+
+type ReadingView = 'days' | 'weeks' | 'months'
+
+/** "October 2026", or "Oct" for an axis. */
+function monthName(start: string, short = false): string {
+  const [y, m] = start.split('-').map(Number)
+  const names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  const name = names[m - 1] ?? ''
+  return short ? name.slice(0, 3) : `${name} ${y}`
+}
+
 export function readingCard(env: CardsEnv): CardSpec {
-  /** The week (its Monday) whose books show under the chart; null: none. Kept across refreshes. */
+  /** The bar (a day, a week's Monday or a month) whose books show under the chart; null: none. Kept across refreshes. */
   let picked: string | null = null
+  /** Days, Weeks or Months; Days first. */
+  let view: ReadingView = 'days'
+  /** The Monday of the week the Days view shows. */
+  let shownWeek: string | null = null
   return {
     id: 'reading',
     label: CARDS_COPY.yourReading,
@@ -628,51 +634,110 @@ export function readingCard(env: CardsEnv): CardSpec {
         const { stats } = reading
         const seconds = new Map(stats.books.map(book => [book.bookId, book]))
         const figures = readingFigures(stats)
-        const figure = el('div', { className: 'tc-figure', dataset: { testid: 'reading-total' } })
-        for (const [n, unit] of figures.total) figure.append(n, el('small', { text: unit }))
-        // One bar per week (Monday to Sunday), from the first reading week;
-        // the dates under the first and last bar say what a bar is. A bar
-        // opens that week's books under the chart; tapping it again closes them.
+        // The chart reads by Days, Weeks or Months (Anders, 2 Nov 2026): one chart at a time. Days is this week's
+        // seven days, stepped back week by week; Weeks the twelve weekly bars; Months every month since the first.
+        // A bar opens its books under the chart; tapping it again closes them. Without the day and month figures
+        // (a cache written before 2 Nov 2026) only Weeks shows, as before.
         const weeks = chartWeeks(stats.weeks, stats.firstDay)
-        if (picked && !weeks.some(week => week.start === picked)) picked = null
         const booksOf = new Map((reading.weeks ?? []).map(week => [week.start, week.books]))
+        const secondsOfDays = new Map((reading.weeks ?? []).flatMap(week => week.days?.length === 7 ? [[week.start, week.days] as const] : []))
+        const booksOfDay = new Map((reading.days ?? []).map(day => [day.day, day.books]))
+        const months = (reading.months ?? []).slice(-12)
+        const views = reading.days && reading.months && secondsOfDays.size > 0
+        // Only the views that say something yet (Anders, 2 Nov 2026): Weeks once the chart spans more than one week,
+        // Months once reading spans more than one month; with Days alone there is no control at all.
+        const offered: ReadingView[] = views ? ['days', ...(weeks.length > 1 ? ['weeks' as const] : []), ...(months.length > 1 ? ['months' as const] : [])] : ['weeks']
+        if (!offered.includes(view)) view = offered[0]
+        const today = localDay()
+        const thisWeek = weeks[weeks.length - 1]?.start ?? today
+        if (!shownWeek || !weeks.some(week => week.start === shownWeek)) shownWeek = thisWeek
+        const sum = el('div', { className: 'tc-sum' })
         const detail = el('div', { className: 'tc-week', id: 'tc-week-books', dataset: { testid: 'reading-week' } })
-        const bars = el('div', { className: 'tc-bars', dataset: { testid: 'reading-weeks' } })
-        bars.style.setProperty('--tc-weeks', String(weeks.length))
-        const buttons = weekHeights(weeks).map((height, index) => {
-          const week = weeks[index]
-          const bar = el('i')
-          bar.style.height = `${height}%`
-          return el('button', {
-            type: 'button',
-            'aria-label': `${weekRange(week.start)}, ${durationShort(week.seconds)}`,
-            'aria-controls': detail.id,
-            dataset: { week: week.start },
-            onclick: () => { picked = picked === week.start ? null : week.start; paint() },
-          }, bar)
-        })
-        bars.append(...buttons)
+        const chartBars = (items: Array<{ key: string; seconds: number; label: string; className?: string; empty?: boolean }>, className: string) => {
+          const bars = el('div', { className: `tc-bars ${className}${picked && items.some(item => item.key === picked) ? ' is-picked' : ''}`, dataset: { testid: 'reading-weeks' } })
+          bars.style.setProperty('--tc-weeks', String(items.length))
+          const heights = weekHeights(items.map(item => ({ seconds: item.empty ? 0 : item.seconds })))
+          bars.append(...items.map((item, index) => {
+            const on = item.key === picked
+            const bar = el('i')
+            if (!item.empty) bar.style.height = `${heights[index]}%`
+            return el('button', {
+              type: 'button', className: item.className, disabled: item.empty || undefined,
+              'aria-label': item.label, 'aria-controls': detail.id, 'aria-pressed': String(on), 'aria-expanded': String(on),
+              dataset: { week: item.key },
+              onclick: () => { picked = on ? null : item.key; paint() },
+            }, item.empty ? null : bar)
+          }))
+          return bars
+        }
         const paint = () => {
-          bars.classList.toggle('is-picked', picked !== null)
-          for (const button of buttons) {
-            const on = button.dataset.week === picked
-            button.setAttribute('aria-pressed', String(on))
-            button.setAttribute('aria-expanded', String(on))
+          const total = view === 'days'
+            ? (secondsOfDays.get(shownWeek!) ?? []).reduce((a, b) => a + b, 0)
+            : view === 'weeks' ? weeks.reduce((a, week) => a + week.seconds, 0) : stats.totalSeconds
+          const figure = el('div', { className: 'tc-figure', dataset: { testid: 'reading-total' } })
+          for (const [n, unit] of readingFigures({ totalSeconds: total, last7Seconds: 0 }).total) figure.append(n, el('small', { text: unit }))
+          const since = dayMonth(stats.firstDay)
+          let sub: HTMLElement | null
+          let bars: HTMLElement
+          let axis: HTMLElement
+          let rows: HTMLElement[] = []
+          if (view === 'days') {
+            const at = weeks.findIndex(week => week.start === shownWeek)
+            const step = (by: number) => { shownWeek = weeks[at + by]?.start ?? shownWeek; picked = null; paint() }
+            const label = el('span', { text: shownWeek === thisWeek ? CARDS_COPY.thisWeek : weekRange(shownWeek) })
+            // Arrows only when there is another week to step to.
+            sub = weeks.length > 1
+              ? el('div', { className: 'tc-sub tc-weeknav' },
+                el('button', { type: 'button', 'aria-label': CARDS_COPY.previousWeek, disabled: at <= 0 || undefined, text: '‹', onclick: () => step(-1) }),
+                label,
+                el('button', { type: 'button', 'aria-label': CARDS_COPY.nextWeek, disabled: at >= weeks.length - 1 || undefined, text: '›', onclick: () => step(1) }))
+              : el('div', { className: 'tc-sub' }, label)
+            const values = secondsOfDays.get(shownWeek!) ?? [0, 0, 0, 0, 0, 0, 0]
+            const items = WEEKDAYS.map((name, index) => {
+              const day = addDays(shownWeek!, index)
+              const future = day > today
+              return { key: day, seconds: values[index], empty: future, className: day === today ? 'is-today' : undefined, label: future ? `${name} ${dayMonthShortDate(day)}` : `${name} ${dayMonthShortDate(day)}, ${durationShort(values[index])}` }
+            })
+            bars = chartBars(items, 'is-days')
+            // Each day's time over its bar, as asked on 2 Nov ("–" under a minute; nothing over the days to come).
+            const dayValues = el('div', { className: 'tc-axis is-days is-values', 'aria-hidden': 'true', dataset: { testid: 'reading-day-values' } },
+              ...items.map(item => el('span', { text: item.empty ? '' : item.seconds >= 60 ? durationShort(item.seconds) : '–' })))
+            bars = el('div', { className: 'tc-days-chart' }, dayValues, bars)
+            axis = el('div', { className: 'tc-axis is-days', 'aria-hidden': 'true' }, ...items.map(item => el('span', { className: item.className, text: WEEKDAYS[items.indexOf(item)] })))
+            const pickedDay = items.find(item => item.key === picked)
+            if (pickedDay) {
+              const name = WEEKDAYS[items.indexOf(pickedDay)]
+              rows = [row({ label: `${name} ${dayMonthShortDate(pickedDay.key)}`, value: durationShort(pickedDay.seconds), className: 'is-head' }),
+                ...(booksOfDay.get(pickedDay.key) ?? []).map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row'))]
+            }
+          } else if (view === 'weeks') {
+            sub = since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null
+            bars = chartBars(weeks.map(week => ({ key: week.start, seconds: week.seconds, label: `${weekRange(week.start)}, ${durationShort(week.seconds)}` })), 'is-weeks')
+            axis = el('div', { className: 'tc-axis', 'aria-hidden': 'true' },
+              el('span', { text: weeks.length > 1 ? dayMonthShortDate(weeks[0].start) : '' }),
+              el('span', { text: CARDS_COPY.thisWeek }))
+            const week = weeks.find(item => item.start === picked)
+            if (week) rows = [row({ label: weekRange(week.start), value: durationShort(week.seconds), className: 'is-head' }),
+              ...(booksOf.get(week.start) ?? []).map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row'))]
+          } else {
+            sub = since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null
+            bars = chartBars(months.map(month => ({ key: month.start, seconds: month.seconds, label: `${monthName(month.start)}, ${durationShort(month.seconds)}` })), 'is-months')
+            axis = el('div', { className: 'tc-axis', 'aria-hidden': 'true' },
+              el('span', { text: months.length > 1 ? monthName(months[0].start, true) : '' }),
+              el('span', { text: CARDS_COPY.thisMonth }))
+            const month = months.find(item => item.start === picked)
+            if (month) rows = [row({ label: monthName(month.start), value: durationShort(month.seconds), className: 'is-head' }),
+              ...month.books.map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row'))]
           }
-          const week = weeks.find(item => item.start === picked)
-          detail.hidden = !week
-          detail.replaceChildren(...(week ? [
-            row({ label: weekRange(week.start), value: durationShort(week.seconds), className: 'is-head' }),
-            ...(booksOf.get(week.start) ?? []).map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row')),
-          ] : []))
+          const labels: Record<ReadingView, string> = { days: CARDS_COPY.byDays, weeks: CARDS_COPY.byWeeks, months: CARDS_COPY.byMonths }
+          const control = offered.length > 1 ? segmented(CARDS_COPY.readingBy, offered.map(value => ({ value, label: labels[value] })), view, next => { view = next; picked = null; shownWeek = thisWeek; paint() }, { wide: true, testid: 'reading-view' }) : null
+          sum.replaceChildren(...[control, figure, sub, bars, axis].filter((node): node is HTMLElement => !!node))
+          detail.hidden = rows.length === 0
+          detail.replaceChildren(...rows)
         }
         paint()
-        const axis = el('div', { className: 'tc-axis', 'aria-hidden': 'true' },
-          el('span', { text: weeks.length > 1 ? dayMonthShortDate(weeks[0].start) : '' }),
-          el('span', { text: CARDS_COPY.thisWeek }))
-        const since = dayMonth(stats.firstDay)
         body.append(el('div', { className: 'tc-g' },
-          el('div', { className: 'tc-sum' }, figure, since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null, bars, axis),
+          sum,
           detail,
           factsRow([
             { value: figures.last7, label: CARDS_COPY.last7 },
@@ -717,7 +782,11 @@ function shownRank(env: CardsEnv): string | null {
 /** How many rows a board still loading will have: the last count this page saw for the tab, else its friends, else five. */
 function expectedRows(env: CardsEnv, tab: BoardTab): number {
   const known = knownBoard(env.session.userId, tab)
-  if (known) return Math.max(1, known.entries.length + (known.me && !known.entries.some(entry => entry.me) ? 1 : 0))
+  if (known) {
+    // As many rows as the folded board will draw (boardRows), its Show all row included.
+    const view = boardRows(known.me && !known.entries.some(entry => entry.me) ? [...known.entries, known.me] : known.entries, false)
+    return Math.max(1, view.rows.length + (view.toggle ? 1 : 0))
+  }
   const friends = env.data.board?.friends
   return tab === 'friends' && typeof friends === 'number' ? Math.min(BOARD_SKELETON_MAX, friends + 1) : 5
 }
@@ -752,6 +821,8 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
   let tab: BoardTab = tabOf(first)
   /** undefined: not asked yet; 'loading'; null: not available. */
   let board: BoardData | null | 'loading' | undefined
+  // Every time the board opens it starts folded (top five); the tab switch folds it too.
+  let expanded = false
   // Known before any board from Find readers' answer, so the tabs show from the first frame.
   let everyoneOpen = first ? first.everyoneOpen === true || tabOf(first) === 'everyone' : env.data.find?.everyoneOpen === true
   let handle: CardHandle | null = null
@@ -828,6 +899,7 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
           env.data.rank = shownRank(env)
           env.data.board = knownBoard(userId, value) ?? env.data.board
           board = undefined
+          expanded = false
           card.refresh()
         }, { wide: true, testid: 'board-tabs' }))
       }
@@ -836,7 +908,15 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         // Your own row and rank always show.
         if (board.me && !rows.some(entry => entry.me)) rows.push(board.me)
         body.append(heading(CARDS_COPY.lastSevenDays, { marginBottom: '-16px' }))
-        const list = group(...rows.map(entry => boardRow(env, card, entry)))
+        // Top five, then the viewer; readers with no time are left out (cardsRules boardRows, 17 Nov 2026).
+        const view = boardRows(rows, expanded)
+        const toggle = view.toggle && row({
+          label: view.toggle === 'expand' ? CARDS_COPY.boardShowAll : CARDS_COPY.boardShowTop, className: 'is-center is-more', testid: 'board-toggle',
+          onClick: () => { expanded = view.toggle === 'expand'; card.refresh() },
+        })
+        const list = group(...view.rows.map(item => item === 'gap'
+          ? el('div', { className: 'tc-r is-gap', 'aria-hidden': 'true', text: '···', dataset: { testid: 'board-gap' } })
+          : boardRow(env, card, item)), toggle)
         if (list) { list.dataset.testid = 'board-rows'; body.append(list) }
         const hidden = boardHiddenLine(board.meShown, env.data.profile)
         if (hidden) body.append(el('p', { className: 'tc-foot', text: hidden, dataset: { testid: 'board-hidden' } }))
@@ -952,7 +1032,7 @@ export function findCard(env: CardsEnv): CardSpec {
       })
       const search = el('label', { className: 'tc-search', dataset: { testid: 'find-search' } }, el('span', { html: ICONS.search, style: { display: 'contents' } }), input)
 
-      const followingYou = (data?.followingYou ?? []).filter(person => !removed.has(person.handle))
+      const followingYou = followingYouRows(data?.followingYou).filter(person => !removed.has(person.handle))
       // Listed here, the requests count as seen on this device (the dot on the reader's picture clears).
       if (data) markRequestsSeen(env.session.userId, data.followingYou)
       if (followingYou.length) {
@@ -1147,8 +1227,6 @@ export function settingsCard(env: CardsEnv): CardSpec {
         env.changed()
       }
       if (profile) {
-        // Profile visibility is chosen here, so the findable-profiles notice has done its job.
-        if (env.social && findableNoticeFor(profile)) void recordFindableNoticeSeen(env.session.userId)
         const setPrivacy = (change: Partial<PrivacyFields>) => {
           const before = env.data.profile
           if (!before) return
@@ -1180,6 +1258,21 @@ export function settingsCard(env: CardsEnv): CardSpec {
             extra: [toggle(CARDS_COPY.leaderboard, allowed && profile.onLeaderboard, allowed, () => setPrivacy({ onLeaderboard: !profile.onLeaderboard }), 'settings-leaderboard')],
           }),
         )!)
+        const languages = profile.readingLanguages ?? ['en']
+        const chooseLanguage = (language: ReadingLanguage) => {
+          const before = env.data.profile
+          if (!before) return
+          const next = toggleReadingLanguage(languages, language)
+          if (next.join() === languages.join()) return
+          env.data.profile = { ...before, readingLanguages: next }
+          rememberReadingLanguages(next)
+          env.changed()
+          void post({ readingLanguages: next }, () => { env.data.profile = before; rememberReadingLanguages(before.readingLanguages ?? ['en']) })
+        }
+        // Labelled chips (onboarding v3): two bare switches read "I read in ◯ ◯" (scan 2 Nov 2026).
+        body.append(group(row({ label: CARDS_COPY.languages, className: 'is-seg', extra: [el('span', { className: 'tc-chips', role: 'group', 'aria-label': CARDS_COPY.languages },
+          chip('English', languages.includes('en'), () => chooseLanguage('en'), 'settings-language-en'),
+          chip('Dansk', languages.includes('da'), () => chooseLanguage('da'), 'settings-language-da'))] }))!)
         const chooseNewBooks = (value: NewBooksOpenIn) => {
           const before = env.data.profile
           if (!before) return
@@ -1190,6 +1283,16 @@ export function settingsCard(env: CardsEnv): CardSpec {
         }
         body.append(group(row({ label: CARDS_COPY.newBooksOpenIn, className: 'is-seg', extra: [segmented<NewBooksOpenIn>(CARDS_COPY.newBooksOpenIn, [{ value: 'modern', label: CARDS_COPY.modern }, { value: 'human', label: CARDS_COPY.original }], profile.newBooksOpenIn, chooseNewBooks, { testid: 'settings-new-books' })] }))!,
           el('p', { className: 'tc-foot', text: CARDS_COPY.newBooksFoot }))
+        // Reading emails: asked here now, not on the sign-in sheet (onboarding v3). Never on by default.
+        const chooseEmails = () => {
+          const before = env.data.profile
+          if (!before) return
+          env.data.profile = { ...before, emailOptIn: !before.emailOptIn }
+          env.changed()
+          void post({ emailOptIn: !before.emailOptIn }, () => { env.data.profile = before })
+        }
+        body.append(group(row({ label: CARDS_COPY.readingEmails, className: 'is-seg', extra: [toggle(CARDS_COPY.readingEmails, profile.emailOptIn === true, true, chooseEmails, 'settings-reading-emails')] }))!,
+          el('p', { className: 'tc-foot', text: EMAIL_CONSENT_TEXT }))
       }
       const password = env.session.email ? row({
         label: CARDS_COPY.password, chevron: true, testid: 'settings-password', onClick: async () => {
@@ -1216,7 +1319,7 @@ export function settingsCard(env: CardsEnv): CardSpec {
         line.dataset.testid = 'settings-password-status'
         body.append(line)
       }
-      body.append(group(row({ label: CARDS_COPY.signOut, className: 'is-center', onClick: () => void env.signOut(), testid: 'settings-sign-out' }))!)
+      body.append(group(row({ label: CARDS_COPY.signOut, className: 'is-center', onClick: () => void flushBeforeSignOut().then(() => env.signOut()), testid: 'settings-sign-out' }))!)
       body.append(statusLine(status))
       status = ''
       return [navBar(card, CARDS_COPY.settings), body]
@@ -1256,26 +1359,30 @@ export function accountCard(env: CardsEnv): CardSpec {
             try { env.navigate(await startPremiumCheckout(token, interval)) } catch { status = CARDS_COPY.paymentFailed; card.refresh() }
           },
         }))
-      body.append(group(row({ label: premium ? CARDS_COPY.premiumAccount : CARDS_COPY.freeAccount, testid: 'account-plan' }), ...plans)!)
+      body.append(group(row({ label: env.data.firstMonthFreeUntil && Date.parse(env.data.firstMonthFreeUntil) > Date.now() ? planWord(env) : premium ? CARDS_COPY.premiumAccount : CARDS_COPY.freeAccount, testid: 'account-plan' }), ...plans)!)
       if (confirming) {
         body.append(
           el('p', { className: 'tc-foot', style: { margin: '0 16px -16px' }, text: CARDS_COPY.deleteConfirm }),
           group(
-            row({ label: CARDS_COPY.cancel, className: 'is-center', onClick: () => { confirming = false; card.refresh() }, testid: 'account-delete-cancel' }),
+            row({ label: CARDS_COPY.cancel, className: 'is-center', onClick: () => { if (deleting) return; confirming = false; card.refresh() }, testid: 'account-delete-cancel' }),
             // Deleted at once (privacy notice, "Data retention and deletion"), then signed out to the front page.
+            // The deletion takes several seconds: the row says so at once, and nothing can be tapped twice
+            // (Anders, 2 Nov 2026: "nothing happened when I clicked it").
             row({
-              label: CARDS_COPY.deleteAccount, className: 'is-center', testid: 'account-delete-confirm', onClick: async () => {
+              label: deleting ? CARDS_COPY.deletingAccount : CARDS_COPY.deleteAccount, className: 'is-center', testid: 'account-delete-confirm', onClick: async () => {
                 if (deleting || !env.session.userId) return
                 deleting = true
+                card.refresh()
                 const deleted = await deleteOwnAccount(token, env.session.userId)
-                deleting = false
                 if (deleted) { await env.signOut('/'); return }
+                deleting = false
                 status = CARDS_COPY.actionFailed
                 card.refresh()
               },
             }),
           )!,
         )
+        if (deleting) body.querySelectorAll<HTMLButtonElement>('[data-testid="account-delete-confirm"], [data-testid="account-delete-cancel"]').forEach(button => { button.disabled = true; button.setAttribute('aria-busy', 'true') })
       } else {
         body.append(group(row({ label: CARDS_COPY.deleteAccount, className: 'is-center', onClick: () => { confirming = true; card.refresh() }, testid: 'account-delete' }))!)
       }

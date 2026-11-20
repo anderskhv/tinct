@@ -26,6 +26,7 @@ export const READER_BOOT_BIBLE_EDITIONS: readonly string[] = ['bsb-en', 'kjv-en'
 /** Paper colours per resolved theme; LabApp paints the same values. */
 export const LAB_THEME_PAPER = {
   light: '#ece7db',
+  white: '#ffffff',
   book: '#e7dcc7',
   dark: '#171411',
 } as const
@@ -72,9 +73,10 @@ export function readerBootHandoff(raw: string | null): ReaderBootHandoff | null 
  * (`/reader?book=<id>&chapter=<n>[&edition=<key>]`, see
  * `readerHandoffFromUrlParams`), for the boot preload; null when the boot
  * cannot know it exactly and the app is left to ask. `primaryExceptions` is
- * the build's table of books whose new-reader default is not Modern English
- * (`readerBootPrimaryExceptions`, computed from `defaultPrimaryEditionKey`);
- * an empty value means nothing is offered to open. A link without a chapter
+ * the build's table of books whose new-reader default is not Modern English,
+ * or that have no English original to name (`readerBootPrimaryExceptions`,
+ * computed from `defaultPrimaryEditionKey`); an empty value means nothing is
+ * offered to open. A link without a chapter
  * resumes the reader's own place, so it is the app's to resolve.
  */
 export function readerBootDeepLink(search: string, primaryExceptions: Readonly<Record<string, string>>): ReaderBootHandoff | null {
@@ -105,6 +107,24 @@ export function readerBootDeepLink(search: string, primaryExceptions: Readonly<R
     : (knownByName ? named : '')
   if (!primaryEditionKey || !ID.test(primaryEditionKey)) return null
   return { bookId, primaryEditionKey, chapterNumber }
+}
+
+/** Read-only hint for a plain resume: never redirects or changes the saved place.
+ * Restrict to owner-matched sessions and chapter-sharded editions so a hint
+ * cannot download an entire book or another account's saved reading choice. */
+export function readerBootResume(search: string, raw: string | null, sessions: Array<[string, string | null]>, sharded: readonly string[], now = Date.now()): ReaderBootHandoff | null {
+  if (['book', 'chapter', 'edition', 'heldBook', 'modern', 'userBook'].some(key => new URLSearchParams(search).has(key))) return null
+  try {
+    const state = JSON.parse(raw || 'null')
+    if (!state?.owner || !sessions.some(entry => {
+      try { return readerBootPositionToken([entry], now / 1000) && JSON.parse(entry[1] || 'null')?.user?.id === state.owner } catch { return false }
+    })) return null
+    const place = state.books?.[state.lastSettledBookId]
+    if (!place || place.bookId !== state.lastSettledBookId || !ID.test(place.bookId) || !ID.test(place.primaryEditionKey)) return null
+    if (!Number.isSafeInteger(place.chapterNumber) || place.chapterNumber < 1 || place.chapterNumber > 99999) return null
+    if (!sharded.includes(`${place.bookId}-${place.primaryEditionKey}`)) return null
+    return { bookId: place.bookId, primaryEditionKey: place.primaryEditionKey, chapterNumber: place.chapterNumber }
+  } catch { return null }
 }
 
 export interface ReaderBootPreloadOptions {
@@ -161,7 +181,7 @@ export function readerBootMarginPreview(search: string, stored: (key: string) =>
   if (flag === '0' || (flag !== '1' && stored('tinct:margin-preview') !== '1') || !ID.test(bookId)) return []
   try {
     const place = (JSON.parse(stored('tinct-lab-position') || '{}').books || {})[bookId]
-    const key = place ? place.primaryEditionKey || '' : (primaryExceptions[bookId] || /"primaryEdition":"(?!modern-en")/.test(prefs || '')) ? '' : 'modern-en'
+    const key = place ? place.primaryEditionKey || '' : ((primaryExceptions[bookId] && primaryExceptions[bookId] !== 'modern-en') || /"primaryEdition":"(?!modern-en")/.test(prefs || '')) ? '' : 'modern-en'
     return ID.test(key) ? [editionWholeUrl(bookId, key, version), editionPatchesPath(bookId, key)] : []
   } catch {
     return []
@@ -170,8 +190,11 @@ export function readerBootMarginPreview(search: string, stored: (key: string) =>
 
 type StoredTheme = 'system' | LabResolvedTheme
 
-function storedTheme(value: unknown): StoredTheme | null {
-  return value === 'system' || value === 'light' || value === 'dark' || value === 'book' ? value : null
+/** White is stored as Light plus `paper: 'white'` (labPrefs.ts `labStoredTheme`). */
+function storedTheme(src: Record<string, unknown>): StoredTheme | null {
+  const value = src.theme
+  if (value === 'light' && src.paper === 'white') return 'white'
+  return value === 'system' || value === 'light' || value === 'white' || value === 'dark' || value === 'book' ? value : null
 }
 
 /** Each appearance profile's stored theme and face, as `parseLabStoredPrefs` reads them. */
@@ -188,11 +211,11 @@ function storedAppearances(raw: string | null): Array<{ theme: StoredTheme; font
   if (src.version === 2 && src.shared && typeof src.shared === 'object') {
     return ['phone', 'desktop'].map(profile => {
       const appearance = src[profile] && typeof src[profile] === 'object' ? src[profile] as Record<string, unknown> : {}
-      return { theme: storedTheme(appearance.theme) ?? 'system', fontFamily: appearance.fontFamily }
+      return { theme: storedTheme(appearance) ?? 'system', fontFamily: appearance.fontFamily }
     })
   }
   // Version 1 was one flat object shared by both profiles.
-  const theme = storedTheme(src.theme)
+  const theme = storedTheme(src)
     ?? (Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : 'system')
   return [{ theme, fontFamily: src.fontFamily }]
 }

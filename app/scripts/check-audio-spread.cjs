@@ -58,7 +58,8 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   // actual mixed spread, without assuming a fixed page count.
   for(const height of [813,879,940,740]){
    await p.setViewportSize({width:1450,height});
-   await p.goto(origin+'/reader');await ready(p);
+   // Spread assertions exercise Classic explicitly; the shared reader defaults to continuous Margin.
+   await p.goto(origin+'/reader?view=two-page');await ready(p);
    for(let i=0;i<30 && !await p.getByTestId('lab-next-chapter-opening').count();i++){
     if(await p.locator('.lab-page-wrap > .lab-passage .lab-chapter-end').count())break;
     await p.keyboard.press('ArrowRight');await ready(p);
@@ -87,7 +88,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   assert(!openingKeys.includes(after[0].p+':'+after[0].w),'Next spread starts beyond the heard opening');
   await p.keyboard.press('ArrowLeft');await ready(p);
   assert.deepEqual(await geometry(p),before,'Back returns to the same mixed spread');
-  await p.goto(origin+'/reader?character-test=1');await ready(p);
+  await p.goto(origin+'/reader?character-test=1&view=two-page');await ready(p);
   const name=p.locator('.lab-page-wrap > .lab-passage [data-testid="lab-word"]').filter({hasText:/^Jehohanan[,.;]?$/}).first();
   for(let i=0;i<20 && !await name.count();i++){await p.keyboard.press('ArrowRight');await ready(p);}
   assert.equal(await p.locator('.lab').getAttribute('data-chapter'),'413');

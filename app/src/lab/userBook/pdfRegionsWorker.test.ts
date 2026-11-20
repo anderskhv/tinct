@@ -17,8 +17,8 @@ const G = globalThis as unknown as { Worker?: unknown; TinctPdfRegions: Api; Tin
 const realWorker = G.Worker
 
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-regions.js')
-  require(ROOT + 'addbooks/web/src/js/margin.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-regions.js')
+  require(ROOT + 'app/public/lab/addbook/js/margin.js')
   api = G.TinctPdfRegions
   margin = G.TinctMargin
 })

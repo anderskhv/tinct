@@ -1,6 +1,5 @@
 /**
- * The PDF viewer's fast scan (addbooks/web/src/js/pdf-scan.js, installed as
- * public/lab/addbook/js/pdf-scan.js): title, author and chapters from the
+ * The PDF viewer's fast scan (public/lab/addbook/js/pdf-scan.js): title, author and chapters from the
  * document itself, on small PDFs written by addbooks/web/test/make-pdf.mjs and
  * read with the same pdf.js the viewer ships (public/lab/addbook/vendor/pdfjs).
  */
@@ -18,6 +17,7 @@ interface ScanResult { v: number; title: string; author: string; pages: number; 
 interface PdfScanApi {
   SCAN_VERSION: number
   scan: (pdf: unknown, options: { fileName: string }) => Promise<ScanResult>
+  titleOf: (pdf: unknown, options: { fileName: string }) => Promise<{ title: string; author: string; source: { title: string; author: string } }>
   current: (scan: unknown) => boolean
   cleanFileName: (name: string) => string
   metaTitle: (raw: unknown, name: string) => string | null
@@ -43,7 +43,7 @@ beforeAll(async () => {
   require(VENDOR + 'pdf.min.js')
   console.log = quiet
   pdfjs = (globalThis as unknown as { pdfjsLib: typeof pdfjs }).pdfjsLib
-  require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
   scanApi = (globalThis as unknown as { TinctPdfScan: PdfScanApi }).TinctPdfScan
   const maker = await import(/* @vite-ignore */ pathToFileURL(ROOT + 'addbooks/web/test/make-pdf.mjs').href) as { makePdf: MakePdf; prose: Prose; pdfFixtures: () => Record<string, Buffer> }
   makePdf = maker.makePdf
@@ -57,6 +57,28 @@ async function scanOf(bytes: Buffer, fileName: string): Promise<ScanResult> {
 }
 
 describe('PDF scan: title, author, chapters', () => {
+  it('does not append a large drop-cap paragraph opening to a chapter heading', async () => {
+    const scan = await scanOf(makePdf({ pages: [
+      { lines: [{ y: 730, size: 24, font: 'Times-Roman', text: 'A Novel' }, ...prose(670, 28)] },
+      { lines: [{ x: 136, y: 268, size: 15.5, font: 'Times-Roman', text: 'CHAPTER II.' },
+        { x: 131, y: 241, size: 15.5, font: 'Times-Roman', text: 'A reader was among the ear-' },
+        { x: 142, y: 226, size: 9.5, font: 'Times-Roman', text: 'liest of those who entered the room.' }, ...prose(210, 12, { size: 9.5 })] },
+      { lines: [{ x: 136, y: 733, size: 24, font: 'Times-Roman', text: 'CHAPTER III.' }, ...prose(680, 28)] },
+    ] }), 'novel.pdf')
+    expect(scan.entries.find(e => e.page === 2)?.label).toBe('CHAPTER II.')
+  })
+
+  it('keeps lowercase continuation lines in a wrapped heading without absorbing body text', async () => {
+    const scan = await scanOf(makePdf({ pages: [
+      { lines: [{ y: 730, size: 24, font: 'Times-Bold', text: 'Annual Report' }, ...prose(670, 28)] },
+      { lines: [{ x: 55, y: 733, size: 32, font: 'Times-Bold', text: 'Report on the bank' },
+        { x: 55, y: 699, size: 32, font: 'Times-Bold', text: 'and its activities' },
+        { x: 55, y: 665, size: 32, font: 'Times-Bold', text: 'during the year' }, ...prose(600, 26)] },
+      { lines: [{ x: 55, y: 733, size: 24, font: 'Times-Bold', text: 'Financial Stability' }, ...prose(680, 28)] },
+    ] }), 'report.pdf')
+    expect(scan.entries.map(e => e.label)).toEqual(['Report on the bank and its activities during the year', 'Financial Stability'])
+  })
+
   it('takes title and author from the metadata and chapters from the outline', async () => {
     const s = await scanOf(fixtures['scan_0042.pdf'], 'scan_0042.pdf')
     expect(s).toMatchObject({ v: scanApi.SCAN_VERSION, title: 'Notes on Natural Philosophy', author: 'Mary Somerville', pages: 4, nav: 'outline', source: { title: 'metadata', author: 'metadata' } })
@@ -100,6 +122,34 @@ describe('PDF scan: title, author, chapters', () => {
     expect(s.title).toBe('On Thinking Machines')
     expect(s.entries).toEqual([])
     expect(s.nav).toBe('pages')
+  })
+
+  it('joins a heading across a face change and interleaved text in another column', async () => {
+    const bytes = makePdf({ pages: [
+      { lines: [{ y: 700, size: 20, font: 'Times-Bold', text: 'Annual Report' }, ...prose(650, 30)] },
+      { lines: [
+        { x: 55, y: 735, size: 13, font: 'Times-Bold', text: 'Monetary policy, financial' },
+        { x: 310, y: 735, size: 9, text: 'Other column continues on its own printed line.' },
+        { x: 55, y: 720, size: 13, text: 'markets and the economy' },
+        { x: 310, y: 720, size: 9, text: 'This paragraph must not enter the heading.' },
+        ...prose(680, 30, { size: 9 }),
+      ] },
+      { lines: [{ y: 720, size: 18, font: 'Times-Bold', text: 'Financial Stability' }, ...prose(680, 30, { size: 9 })] },
+    ] })
+    const scan = await scanOf(bytes, 'annual-report.pdf')
+    expect(scan.entries.map(entry => entry.label)).toEqual(['Monetary policy, financial markets and the economy', 'Financial Stability'])
+  })
+
+  it('does not turn a separate figure caption title into a chapter heading', async () => {
+    const bytes=makePdf({pages:[
+      {lines:[{y:700,size:20,font:'Times-Bold',text:'Annual Report'},...prose(650,30)]},
+      {lines:[{y:720,size:18,font:'Times-Bold',text:'Monetary Policy'},...prose(680,12),
+        {y:460,size:9,font:'Times-Bold',text:'Figur 1'},
+        {y:440,size:16,font:'Times-Bold',text:'Exchange Rates Remain Stable'}]},
+      {lines:[{y:720,size:18,font:'Times-Bold',text:'Financial Stability'},...prose(680,30)]}
+    ]})
+    const scan=await scanOf(bytes,'annual-report.pdf')
+    expect(scan.entries.map(e=>e.label)).toEqual(['Monetary Policy','Financial Stability'])
   })
 
   it('gives a short note with no headings page navigation and a cleaned file name', async () => {
@@ -231,6 +281,8 @@ describe('PDF scan: the rules', () => {
     expect(scanApi.metaTitle('PossibleMinds Deutsch (1)', 'PossibleMinds Deutsch (1).pdf')).toBeNull()
     expect(scanApi.metaTitle('Microsoft Word - essay.docx', 'x.pdf')).toBeNull()
     expect(scanApi.metaTitle('untitled', 'x.pdf')).toBeNull()
+    expect(scanApi.metaTitle('arXiv:math/0211159v1 [math.DG] 11 Nov 2002', 'perelman.pdf')).toBeNull()
+    expect(scanApi.metaTitle('arXiv:1512.03385v1  [cs.CV]  10 Dec 2015', 'paper.pdf')).toBeNull()
     expect(scanApi.metaTitle('scan0042', 'x.pdf')).toBeNull()
     expect(scanApi.metaTitle('Notes on Natural Philosophy', 'scan_0042.pdf')).toBe('Notes on Natural Philosophy')
   })
@@ -255,10 +307,51 @@ describe('PDF scan: the rules', () => {
   })
 })
 
-describe('PDF scan: the installed copy', () => {
-  it('ships the scan and theme scripts the tests cover', () => {
-    for (const file of ['pdf-scan.js', 'pdf-theme.js']) {
-      expect(readFileSync(ROOT + 'app/public/lab/addbook/js/' + file, 'utf8')).toBe(readFileSync(ROOT + 'addbooks/web/src/js/' + file, 'utf8'))
-    }
+// The uploads QA named by their file names on production (29 Oct 2026): each case as the real file has it.
+describe('PDF title picker: the real uploads of 29 Oct 2026', () => {
+  async function titleOf(bytes: Buffer, fileName: string) {
+    const pdf = await pdfjs.getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true, verbosity: 0 }).promise
+    try { return await scanApi.titleOf(pdf, { fileName }) } finally { await pdf.destroy() }
+  }
+  const T = 'Times-Roman', B = 'Times-Bold'
+  it('MacKay, book.pdf: no metadata, so the title page’s largest type and its author', async () => {
+    const notice = { y: 784, size: 8, font: T, text: 'Copyright Cambridge University Press 2003. On-screen viewing permitted.' }
+    const got = await titleOf(makePdf({ pages: [
+      { lines: [notice, { y: 632, size: 13, font: T, text: 'Information Theory, Inference, and Learning Algorithms' }, { y: 555, size: 13, font: T, text: 'David J.C. MacKay' }] },
+      ...[1, 2].map(() => ({ lines: [notice, ...prose(700, 30)] })),
+    ] }), 'book.pdf')
+    expect(got).toMatchObject({ title: 'Information Theory, Inference, and Learning Algorithms', author: 'David J.C. MacKay', source: { title: 'printed' } })
+  })
+  it('Berkshire Hathaway 2023, report.pdf: refuses the print driver’s “printmgr file” and takes the cover’s name, though every page repeats it', async () => {
+    const head = { y: 760, size: 9, font: T, text: 'BERKSHIRE HATHAWAY INC.' }
+    const got = await titleOf(makePdf({ info: { Title: 'printmgr file' }, pages: [
+      { lines: [{ y: 504, size: 18.5, font: B, text: 'BERKSHIRE HATHAWAY INC.' }, { y: 254, size: 13.5, font: T, text: '2023' }, { y: 236, size: 13.5, font: T, text: 'ANNUAL REPORT' }] },
+      { lines: [head, ...prose(700, 30)] }, { lines: [head, ...prose(700, 30)] },
+    ] }), 'report.pdf')
+    expect(got.title).toBe('BERKSHIRE HATHAWAY INC.')
+  })
+  it('an archive.org scan, scan.pdf: the metadata title and the catalogue’s author without the dates', async () => {
+    const got = await titleOf(makePdf({ info: { Title: 'The origin of species', Author: 'Darwin, Charles, 1809-1882' }, pages: [
+      { size: [432, 648], images: [{ x: 0, y: 0, w: 432, h: 648, pw: 90, ph: 135 }] },
+    ] }), 'scan.pdf')
+    expect(got).toEqual({ title: 'The origin of species', author: 'Charles Darwin', source: { title: 'metadata', author: 'metadata' } })
+  })
+  it('arXiv, paper.pdf: empty metadata, so the printed title and authors', async () => {
+    const got = await titleOf(makePdf({ info: { Title: '', Author: '' }, pages: [
+      { lines: [{ y: 700, size: 17, font: B, text: 'Attention Is All You Need' }, { y: 660, size: 10, font: T, text: 'Ashish Vaswani' }, ...prose(600, 30, { size: 10 })] },
+    ] }), 'paper.pdf')
+    expect(got).toMatchObject({ title: 'Attention Is All You Need', author: 'Ashish Vaswani' })
+  })
+  it('a deck without a title anywhere, deck.pdf: the file name made readable, the metadata author', async () => {
+    const got = await titleOf(makePdf({ info: { Author: 'Geoffrey Hinton' }, pages: [{ lines: prose(700, 20) }] }), 'deck (1).pdf')
+    expect(got).toMatchObject({ title: 'Deck', author: 'Geoffrey Hinton', source: { title: 'file' } })
+  })
+  it('refuses tools’ job names and reads catalogue authors', () => {
+    for (const raw of ['printmgr file', 'PDFCreator job 12', 'Layout 1', 'doc04512320231120', 'Microsoft Word - report.docx', 'untitled', '2023', 'ab'])
+      expect(scanApi.metaTitle(raw, 'x.pdf')).toBeNull()
+    expect(scanApi.metaTitle('The origin of species', 'scan.pdf')).toBe('The origin of species')
+    expect(scanApi.metaAuthor('Darwin, Charles, 1809-1882')).toBe('Charles Darwin')
+    expect(scanApi.metaAuthor('Woolf, Virginia, 1882-1941.')).toBe('Virginia Woolf')
+    expect(scanApi.metaAuthor('Geoffrey Hinton')).toBe('Geoffrey Hinton')
   })
 })

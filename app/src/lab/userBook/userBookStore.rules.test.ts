@@ -45,6 +45,19 @@ afterEach(() => {
   localStorage.clear()
 })
 
+describe('a PDF found only in the account', () => {
+  it('preserves the known PDF type for the shared reader without a second metadata lookup', async () => {
+    const account = vi.fn(async () => ({ status: 'pdf' as const }))
+    const before = JSON.stringify({ page: 761, frac: 0.25, at: 100 })
+    localStorage.setItem(`tinct-addbook:pos:pdf:${HEX}`, before)
+    const result = await openUserBook(HEX, { owner: OWNER, sharedReader: true, account })
+    expect(result).toMatchObject({ ok: false, reason: 'pages' })
+    expect(account).toHaveBeenCalledOnce()
+    expect(records.size).toBe(0)
+    expect(localStorage.getItem(`tinct-addbook:pos:pdf:${HEX}`)).toBe(before)
+  })
+})
+
 describe('openUserBook keeps every book already converted as it was', () => {
   it('opens a conversion stored under rules 5 as it is, healed in memory only', async () => {
     const stored: UserBookEdition = {
@@ -103,8 +116,8 @@ describe('openUserBook: a PDF as its Tinct text', () => {
     require(ROOT + 'app/public/lab/addbook/vendor/pdfjs/pdf.worker.min.js')
     require(ROOT + 'app/public/lab/addbook/vendor/pdfjs/pdf.min.js')
     console.log = quiet
-    require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
-    require(ROOT + 'addbooks/web/src/js/pdf-text.js')
+    require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
+    require(ROOT + 'app/public/lab/addbook/js/pdf-text.js')
     const g = globalThis as unknown as Record<string, never>
     engine = async () => ({ pdfjs: g.pdfjsLib, scan: g.TinctPdfScan, text: g.TinctPdfText })
     fixtures = (pdfFixtures as () => Record<string, Buffer>)()
@@ -130,7 +143,7 @@ describe('openUserBook: a PDF as its Tinct text', () => {
     expect(result.book).toMatchObject({ kind: 'pdf', pdfPages: 21, place: null, edition: { source: 'pdf', converter: PDF_TEXT_CONVERTER, title: 'A Treatise of Small Things' } })
     expect(result.book.edition.chapters.map(chapter => chapter.title)).toEqual(['Chapter 1. Of Ideas', 'Chapter 2. Of Impressions', 'Chapter 3. Of Custom', 'Chapter 4. Of Belief', 'Chapter 5. Of Necessity'])
     const record = records.get(`pdf:${HEX}`)!
-    expect(record).toMatchObject({ layout: { default: 'text' }, scan: { v: 6, layout: { default: 'text' } }, pages: 21 })
+    expect(record).toMatchObject({ layout: { default: 'text' }, scan: { v: 11, layout: { default: 'text' } }, pages: 21 })
     expect((record.edition as UserBookEdition).chapters).toEqual(result.book.edition.chapters)
     // The next open reads what is kept.
     const again = await openUserBook(HEX, { owner: OWNER, convert })
@@ -148,6 +161,18 @@ describe('openUserBook: a PDF as its Tinct text', () => {
     expect((await openUserBook(HEX, { owner: OWNER })).ok).toBe(true)
   })
 
+  it('opens selected text in the shared reader on desktop while preserving original pages and scans', async () => {
+    keep('prose_book.pdf')
+    localStorage.setItem(`tinct-addbook:edition:${HEX}`, '"text"')
+    const text = await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true, convert: converter() })
+    expect(text).toMatchObject({ ok: true, book: { kind: 'pdf', pdfPages: 21 } })
+    localStorage.setItem(`tinct-addbook:edition:${HEX}`, '"pages"')
+    expect(await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true })).toMatchObject({ ok: false, reason: 'pages' })
+    keep('IMG_20240512_scan.pdf')
+    localStorage.removeItem(`tinct-addbook:edition:${HEX}`)
+    expect(await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true, convert: converter() })).toMatchObject({ ok: false, reason: 'pages' })
+  })
+
   it('keeps a PDF read in its pages before Tinct text existed in its pages, prose or not', async () => {
     keep('prose_book.pdf')
     localStorage.setItem(`tinct-addbook:pos:pdf:${HEX}`, JSON.stringify({ page: 7, frac: 0.4, zoom: 1, at: 99 }))
@@ -157,7 +182,7 @@ describe('openUserBook: a PDF as its Tinct text', () => {
   it('has no Tinct text for a scan: its pages only; and a PDF kept without its file is downloaded by the viewer', async () => {
     keep('IMG_20240512_scan.pdf')
     expect(await openUserBook(HEX, { owner: OWNER, convert: converter() })).toMatchObject({ ok: false, reason: 'pages_only' })
-    expect(records.get(`pdf:${HEX}`)).toMatchObject({ scan: { v: 6, textPages: 0, layout: { default: 'pages-only' } } })
+    expect(records.get(`pdf:${HEX}`)).toMatchObject({ scan: { v: 11, textPages: 0, layout: { default: 'pages-only' } } })
     expect(records.get(`pdf:${HEX}`)!.edition).toBeUndefined()
     records.set(`pdf:${HEX}`, { key: `pdf:${HEX}`, kind: 'pdf', owner: OWNER, name: 'x.pdf' })
     expect(await openUserBook(HEX, { owner: OWNER, convert: converter() })).toMatchObject({ ok: false, reason: 'missing' })

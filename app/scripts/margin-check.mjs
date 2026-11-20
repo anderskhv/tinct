@@ -102,12 +102,14 @@
 //                                                     page hidden; links readable; Tinct paper (no sheets) with the margin column
 //   node scripts/margin-check.mjs epub-units          20 Oct 2026: one unit per essay, Starting / End of marks at the heading and last line,
 //                                                     a whole-book Before you start at the very top, its primer the whole book's
+//   node scripts/margin-check.mjs epub-heads          22 Oct 2026: a trade book's split numbered headings ("1", then the title, an epigraph):
+//                                                     start pills on the title's line, end pills under the last paragraph, no text added
 //   node scripts/margin-check.mjs epub-marks          20 Oct 2026: a passage mark over a heading and whole paragraphs sits under each line's
 //                                                     words, never through a line or past its last word
 //   node scripts/margin-check.mjs epub-quiz           20 Oct 2026: the quiz card named by the chapter, no page references, "2/3" and Try new
 //                                                     questions, a retry sending the questions asked, one card per quiz
-//   node scripts/margin-check.mjs epub-ask            20 Oct 2026: the Ask pill (Gloss's), Enter in Ask, a follow-up, Explain's and a quiz
-//                                                     answer never moving the reading place, an answer's sources as Fact-check's
+//   node scripts/margin-check.mjs epub-ask            20 Oct 2026: the Ask field (A3, 22 Oct), Enter in Ask, a follow-up, Explain's and a quiz
+//                                                     answer never moving the reading place, an answer's sources as Evaluate's
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -128,6 +130,11 @@ const PUBLIC = join(APP, 'public')
 const require = createRequire(join(APP, 'package.json'))
 const { chromium } = require('@playwright/test')
 const { checkLayout, DEFAULT_SELECTORS } = await import(pathToFileURL(join(REPO, 'docs/margin/layout-check.mjs')).href)
+// A primer as the current prompt makes it (v5, 11 Nov 2026): the chapter's role under its label, How it's built (its parts in
+// order), Watch for. A reply without `role` is an older primer's: the reader makes it again rather than serve it.
+const mockPrimer = (title, n = 1, gist = `MOCK gist of ${title}. It says what the unit sets out to do.`) => ({ kind: 'paper', role: 'In MOCK book', gist,
+  sections: [{ title: "How it's built", items: [1, 2, 3].map(i => ({ text: `MOCK part ${i} of the unit.`, cite: `{p. ${n}}` })) }, { title: 'Watch for', items: [{ text: 'MOCK caution: a convention that changes later.', cite: `{p. ${n}}` }] }] })
+const PRIMER_HEADS = ['In MOCK book', "How it's built", 'Watch for']
 const OUT = process.env.OUT || join(APP, 'artifacts/margin')
 mkdirSync(OUT, { recursive: true })
 const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined)
@@ -197,8 +204,9 @@ const asideOutOfView = () => {
   return n
 }
 const restoreAside = () => { for (const el of document.querySelectorAll('[data-mc-aside]')) { el.style.visibility = el.dataset.mcAside; delete el.dataset.mcAside } }
-// 21 Oct 2026: a unit's pills sit beside its heading in the text, shown while the pointer is over the heading (an EPUB's
-// heading element; a PDF's heading line, its band on the page) or the pills. hoverHead puts the pointer there (the unit
+// 21 Oct 2026: a unit's pills sit beside its heading in the text, shown while the pointer is over the heading's line (a PDF's
+// heading line, its band on the page) or the pills. Since 22 Oct 2026 a text unit's (EPUB, Tinct text or book) are inline
+// and always shown: Primer · Catch me up on the heading's line, Recap · Quiz me · Note under the last paragraph. hoverHead puts the pointer there (the unit
 // `key`'s, else the first heading in view); clickPill then clicks one of its pills, as a reader does.
 async function hoverHead(page, key = null) {
   const found = await page.evaluate(key => {
@@ -225,11 +233,14 @@ async function hoverHead(page, key = null) {
   for (let i = 0; i < 3; i++) {
     const pt = await page.evaluate(sel => {
       const el = document.querySelector(sel); if (!el) return null
+      // (22 Oct 2026: a text unit's pills are inline and always shown, as on the phone: nothing to hover.)
+      if (el.classList.contains('is-inline')) return 'inline'
       if (el._p) placePagePills(el, el._p, el._y) // (its line measured now that the page's text is drawn)
       if (el._band) { const b = el.parentElement.getBoundingClientRect(), f = el._band; return [b.left + f.x0 * b.width + 3, b.top + (f.y0 + f.y1) / 2 * b.height] }
       const h = el.closest('.mr-hp-head').getBoundingClientRect(); return [h.left + 6, h.top + Math.min(h.height / 2, 12)]
     }, sel)
     if (!pt) return false
+    if (pt === 'inline') return true
     await page.mouse.move(pt[0] + i, pt[1]); await page.waitForTimeout(120)
     // Until its fade-in has ended (a slow runner: the transition still under way when read, CI 21 Oct 2026).
     const shown = await page.waitForFunction(sel => { const el = document.querySelector(sel), cs = el && getComputedStyle(el); return !el || (cs.visibility === 'visible' && Number(cs.opacity) > 0.95) }, sel, { timeout: i < 2 ? 1500 : 3000 }).then(() => true, () => false)
@@ -311,12 +322,12 @@ const EPUB = anthologyEpub()
 // 20 Oct 2026: an essay collection shaped like Anders's "Bold Conjectures, Volume II" (make-epub.mjs makeEssayEpub): cover,
 // half title and title in the book's own small caps, copyright, dedication, supporters, its own contents page, a preface
 // and essays with author lines.
-const { makeEssayEpub } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-epub.mjs')).href)
+const { makeEssayEpub, makeNumberedEpub } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-epub.mjs')).href)
 const ESSAYS = makeEssayEpub()
 const json = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) }
 const readBody = req => new Promise(r => { const parts = []; req.on('data', c => parts.push(c)); req.on('end', () => r(Buffer.concat(parts))) })
 // A mocked companion, per intent, streamed as the Worker relays it: a definition for `define`, the
-// sense number for `define_sense`, Quiz me's JSON and its marking, Fact-check with its "Checking
+// sense number for `define_sense`, Quiz me's JSON and its marking, Evaluate with its "Checking
 // sources…" status before the answer, and an answer with a bottom line and a citation otherwise.
 // `mock.next` (set by a check) replaces the next answer's text, for the long and odd answers.
 // `mock.primers`: the next primer replies, in order, each { text } | { status, body } with an optional
@@ -327,7 +338,7 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // `mock.nextFor[intent]` replaces the next answer of that intent only, and `mock.delayFor[intent]` delays an
 // unstreamed answer of that intent (Define's two requests run at once, so `next` alone could go to either).
 export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null, stall: false }
-/** The mocked Fact-check's text before its search, streamed before "Checking sources…" as the doc-first Worker streamed it
+/** The mocked Evaluate's text before its search, streamed before "Checking sources…" as the doc-first Worker streamed it
     (off since 19 Oct 2026): a restating opening and a first round's Sources line, which the card never shows. */
 export const FACTCHECK_OPENING = 'The passage claims that MOCK opening restates what it says {p. 1}.\n\nSources: none searched yet.'
 function mockText(body) {
@@ -342,12 +353,12 @@ function mockText(body) {
     { q: 'MOCK Q3. Where would a new case go?', answer: 'Matters of fact', why: 'It depends on experience.', cite: '{p. 2}' } ] })
   if (intent === 'quiz_check') { const a = String(c.quiz?.answer || '').toLowerCase(); return JSON.stringify(a.includes(String(c.quiz?.expected || '').toLowerCase().split(' ')[0]) ? { verdict: 'right', feedback: 'MOCK: that is the key step.' } : { verdict: 'not_yet', feedback: 'MOCK: reread how the two kinds differ.' }) }
   // Before you start (chapter action `primer`): the primer's JSON, with citations to the unit's first page.
-  if (intent === 'chapter' && c.chapter?.action?.kind === 'primer') { const n = c.context?.pages?.[0]?.n ?? 1; return JSON.stringify(mock.primer || { gist: `MOCK gist of ${c.chapter.action.unitTitle}. It says what the unit sets out to do.`, claims: [1, 2, 3].map(i => ({ text: `MOCK claim ${i} of the unit.`, cite: `{p. ${n}}` })), keepInMind: ['MOCK caution: a convention that changes later.'], map: [1, 2, 3].map(i => ({ title: `MOCK section ${i}`, pages: `p. ${n}` })) }) }
+  if (intent === 'chapter' && c.chapter?.action?.kind === 'primer') { const n = c.context?.pages?.[0]?.n ?? 1; return JSON.stringify(mock.primer || mockPrimer(c.chapter.action.unitTitle, n)) }
   // Related: the thread, then its places (a PDF cites pages; an EPUB quotes a few words of the fixture's chapters).
   if (intent === 'related') return c.document?.kind === 'epub'
     ? 'MOCK thread. The evening runs through the book.\n\n“Modern lamps consist of two pillars” The second essay opens on it.\n“Wax, Wick and the Long Evening” The third takes it up again.'
     : 'MOCK thread. The idea runs through the document.\n\n{p. 1} Where it is first named.\n{p. 2} Where it is used again.\n{p. 3} Where it is qualified.'
-  // Fact-check as a model answered on 19 Oct 2026 (Anders): a restating opening and a first round's Sources line before the
+  // Evaluate as a model answered on 19 Oct 2026 (Anders): a restating opening and a first round's Sources line before the
   // verdict, "From general knowledge," and an italic "Note." label; the card shows the verdict first, a plain caveat, the links.
   if (intent === 'factcheck') return `${FACTCHECK_OPENING}\n\nHolds. MOCK verdict line for the passage. From general knowledge, the figure still stands.\n\n*Note.* MOCK caveat in one plain sentence. The claim is about apes today.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)`
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
@@ -371,7 +382,7 @@ async function mockChat(body, res) {
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store' })
   // `mock.stall`: the stream opens and then sends nothing more, never ending (16 Oct: a card that waited for ever).
   if (mock.stall) { mock.stall = false; res.write(`event: message_start\ndata: ${JSON.stringify({ type: 'message_start', message: { usage: {} } })}\n\n`); return }
-  // Fact-check, as the Worker streams it (doc-first, 15 Oct): the opening at once, then the status while the search runs, then the rest.
+  // Evaluate, as the Worker streams it (doc-first, 15 Oct): the opening at once, then the status while the search runs, then the rest.
   if (body?.companion?.intent === 'factcheck' && !mock.chunks && text.startsWith(FACTCHECK_OPENING)) {
     res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: FACTCHECK_OPENING } })}\n\n`)
     res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`)
@@ -483,6 +494,16 @@ function start(port) {
 /* ---------- The reader, signed in, with a PDF from the account ---------- */
 const SESSION = { access_token: 'test-token', refresh_token: 'x', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 36000, user: { id: '00000000-0000-4000-8000-000000000001', email: 'reader@example.com', user_metadata: {} } }
 // `at`: open the PDF at that page (the reader's ?page= link), for a book whose first pages carry little text.
+/* The settings groups (22 Oct 2026): Aa is the top bar's button on the desktop and a t menu row on the phone; Book
+   settings (the Layout choices, Convert to Tinct book, Original pages) and Audio settings are t menu rows. */
+async function openAa(page) {
+  if (await page.evaluate(() => (document.getElementById('aaBtn')?.getBoundingClientRect().width || 0) > 0)) return page.click('#aaBtn')
+  await page.click('#superBtn'); await page.waitForSelector('.lab-super-row[data-row="aa"]'); await page.click('.lab-super-row[data-row="aa"]')
+}
+async function openBookPanel(page, wait = '.lab-v2-sheet') {
+  await page.click('#superBtn'); await page.waitForSelector('.lab-super-row[data-row="book"]'); await page.click('.lab-super-row[data-row="book"]')
+  await page.waitForSelector('.byob-book-settings ' + wait, { timeout: 5000 })
+}
 async function readerPage(browser, origin, hex, { width, height, look, startPage = 1, zoom = 1, minSpans = 20, at = 0 }) {
   // Browser zoom: the CSS viewport shrinks by the zoom and each CSS pixel takes `zoom` device pixels.
   const phone = width < 700
@@ -706,7 +727,7 @@ async function behaviour(browser, origin) {
   await a.click('.mr-card.is-open .mr-cite >> nth=1').catch(() => {}); await a.waitForTimeout(900)
   ok('citation tags ({p. 3}) show as tags and scroll the PDF to that page', JSON.stringify(tag) === JSON.stringify([['p. 1', '1'], ['p. 3', '3']]) && (await a.evaluate(() => currentPlace().page)) === 3, { tag, page: await a.evaluate(() => currentPlace().page) })
   await fresh(a)
-  // Simplify in the bar; Fact-check, Counterpoint and Quiz me in More: each a Worker intent on the passage, kind "pdf".
+  // Simplify in the bar; Evaluate, Counterpoint and Quiz me in More: each a Worker intent on the passage, kind "pdf".
   for (const [intent, from] of [['simplify', 'bar'], ['counterpoint', 'more'], ['factcheck', 'more'], ['related', 'more'], ['quiz', 'more']]) {
     await a.evaluate(() => { goTo({ page: 1, frac: 0 }); col.open = null }); await a.waitForTimeout(300)
     await selectText(a); await a.waitForSelector('.mr-bar'); const k = account.requests.length
@@ -715,15 +736,15 @@ async function behaviour(browser, origin) {
     if (intent === 'factcheck') {
       await a.waitForTimeout(700)
       const during = await a.innerText('.mr-card.is-open')
-      ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(during))
+      ok('Evaluate shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(during))
       // 19 Oct 2026: nothing before the verdict reaches the card (no restating opening, no first round's Sources line); the dots wait below the status.
-      ok('12. Fact-check: while the search runs only "Checking sources…" and the waiting dots show; no text from before the search, no verdict yet', !/MOCK opening|none searched/.test(during) && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')) && !!(await a.$('.mr-card.is-open .tc-wait')), { during, dots: !!(await a.$('.mr-card.is-open .tc-wait')) })
+      ok('12. Evaluate: while the search runs only "Checking sources…" and the waiting dots show; no text from before the search, no verdict yet', !/MOCK opening|none searched/.test(during) && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')) && !!(await a.$('.mr-card.is-open .tc-wait')), { during, dots: !!(await a.$('.mr-card.is-open .tc-wait')) })
     }
     await a.waitForTimeout(intent === 'factcheck' ? 1800 : 900); mock.delay = 0
     const req = account.requests.slice(k).find(r => r.body?.companion?.intent === intent)
     ok(`${intent}: the Worker intent with the selection and the PDF's pages`, req && req.body.companion.selection && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length >= 1 && !req.body.system, req?.body?.companion && { ...req.body.companion, context: undefined })
     const label = await a.innerText('.mr-card.is-open .mr-card__label').catch(() => '')
-    ok(`${intent}: its answer opens as a card labelled with the action`, label.startsWith({ simplify: 'Simplify', counterpoint: 'Counterpoint', factcheck: 'Fact-check', related: 'Related', quiz: 'Quiz me' }[intent]), label)
+    ok(`${intent}: its answer opens as a card labelled with the action`, label.startsWith({ simplify: 'Simplify', counterpoint: 'Counterpoint', factcheck: 'Evaluate', related: 'Related', quiz: 'Quiz me' }[intent]), label)
     if (intent === 'related') {
       // PR C, Related (A5): no web search, the whole document, a passage picture; rows that scroll there and underline the place.
       const rows = await a.evaluate(() => [...document.querySelectorAll('.mr-card.is-open .mr-related__row')].map(r => [r.tagName, r.dataset.page, r.querySelector('.mr-related__tag')?.textContent, r.querySelector('.mr-related__line')?.textContent]))
@@ -739,9 +760,9 @@ async function behaviour(browser, origin) {
     await fresh(a)
   }
   const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ labels: document.querySelectorAll('.mr-card.is-open .mr-verdict').length, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize, sourceRows: document.querySelectorAll('.mr-card.is-open .mr-sources').length })))
-  ok('12. Fact-check: no "Note." label; the only sources are the real links, as plain links in 12px', fcText.labels === 0 && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px' && fcText.sourceRows === 1, fcText)
+  ok('12. Evaluate: no "Note." label; the only sources are the real links, as plain links in 12px', fcText.labels === 0 && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px' && fcText.sourceRows === 1, fcText)
   const fcOrder = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open .mr-card__body'); const t = c.innerText; return { text: t, first: c.querySelector('.mr-answer')?.innerText.trim(), opening: /MOCK opening|passage claims|none searched/i.test(t), meta: /general knowledge|claim is about|Note\./i.test(t), caveat: t.indexOf('MOCK caveat in one plain sentence.'), verdict: t.indexOf('Holds. MOCK verdict'), sources: t.indexOf('Mock source one'), bottom: c.querySelector('.is-bottom-line')?.textContent, verdicts: (t.match(/\bHolds\./g) || []).length } })
-  ok('12. Fact-check: the verdict first as the bottom line, then the caveat as a plain sentence, then the sources; no restating opening, no remarks on the check', !fcOrder.opening && !fcOrder.meta && fcOrder.verdict === 0 && fcOrder.first.startsWith('Holds. MOCK verdict line for the passage.') && fcOrder.text.indexOf('The figure still stands.') > fcOrder.verdict && fcOrder.text.indexOf('The figure still stands.') < fcOrder.caveat && fcOrder.caveat > fcOrder.verdict && fcOrder.sources > fcOrder.caveat && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1, fcOrder)
+  ok('12. Evaluate: the verdict first as the bottom line, then the caveat as a plain sentence, then the sources; no restating opening, no remarks on the check', !fcOrder.opening && !fcOrder.meta && fcOrder.verdict === 0 && fcOrder.first.startsWith('Holds. MOCK verdict line for the passage.') && fcOrder.text.indexOf('The figure still stands.') > fcOrder.verdict && fcOrder.text.indexOf('The figure still stands.') < fcOrder.caveat && fcOrder.caveat > fcOrder.verdict && fcOrder.sources > fcOrder.caveat && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1, fcOrder)
   await shot(a, 'factcheck-card-1440x900')
   // Quiz me: "1 of 3", answered in the follow-up line (quiz_check), Show answer without a call, then the score.
   await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'quiz'); openCard(c.id) }); await a.waitForTimeout(300)
@@ -761,12 +782,11 @@ async function behaviour(browser, origin) {
   mock.fail = null
   ok('a failed marking shows its error and keeps the typed answer', /could not be loaded/.test(await a.innerText('.mr-card.is-open')) && (await a.inputValue('.mr-card.is-open .mr-follow__input')) === 'a failed try', { card: await a.innerText('.mr-card.is-open'), field: await a.inputValue('.mr-card.is-open .mr-follow__input').catch(() => null) })
   await a.fill('.mr-card.is-open .mr-follow__input', ''); await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('no idea'); await a.keyboard.press('Enter'); await a.waitForTimeout(900)
-  ok('the last question\'s link reads "See your score →"', (await a.innerText('.mr-card.is-open [data-c="next"]')) === 'See your score →')
-  await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(300)
-  const score = await a.innerText('.mr-card.is-open')
-  // Q1 right, Q2 shown, Q3 not yet. Since 20 Oct 2026 (Anders: "maybe could just say 2/3, try new questions?") the end card
-  // is the score alone, right answers of all the questions (a shown answer is not right), and Try new questions.
-  ok('after question 3: the score alone, "1/3", and Try new questions', /^Quiz me · p\. \S+\s*1\/3\s*Try new questions\s*$/.test(score.replace(/\n+/g, '\n')) && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600', score)
+  // Q1 right, Q2 shown, Q3 not yet. Since 13 Nov 2026 (Anders: "I think we should skip 'see your score'") the last
+  // question's marking shows the score at once under it: right answers of all the questions (a shown answer is not
+  // right), and Try new questions; Q3's reply field stays above the score while it is not right.
+  const score = await a.evaluate(() => { const el = document.querySelector('.mr-card.is-open'), field = el.querySelector('.mr-follow__input'), line = el.querySelector('.mr-quiz-score'); return { next: !!el.querySelector('[data-c="next"]'), text: el.innerText, score: line?.innerText.trim(), weight: line && getComputedStyle(line.querySelector('.is-bottom-line')).fontWeight, again: el.querySelector('[data-c="again"]')?.textContent, reply: field?.getAttribute('aria-label'), fieldAbove: !!(field && line && field.compareDocumentPosition(line) & Node.DOCUMENT_POSITION_FOLLOWING) } })
+  ok('after question 3 is marked: no "See your score"; the question, its marking, the reply field, then "1/3" and Try new questions', !score.next && !/See your score/.test(score.text) && /no idea[\s\S]*Not quite\./.test(score.text) && score.score === '1/3' && score.weight === '600' && score.again === 'Try new questions' && score.reply === 'Your reply' && score.fieldAbove, score)
   if (!process.env.NO_SHOTS) await shot(a, 'prc-quiz-end-1440x900')
   const q2 = account.requests.length
   await a.click('.mr-card.is-open [data-c="again"]'); await a.waitForTimeout(1200)
@@ -820,10 +840,9 @@ async function behaviour(browser, origin) {
     await a.waitForTimeout(700)
     const cut = (await saved()).slice(before)
     const txt = await a.innerText('.mr-card.is-open').catch(() => '')
-    ok('stopped after question 1: it stays, "1 of 1", "See your score", no error; saved with one question', cut.length === 1 && cut[0].n === 1 && cut[0].ended && /MOCK streamed Q1/.test(txt) && /1 of 1/.test(txt) && !/could not be loaded/.test(txt), { cut, txt })
+    ok('stopped after question 1: it stays, "1 of 1", no error; saved with one question', cut.length === 1 && cut[0].n === 1 && cut[0].ended && /MOCK streamed Q1/.test(txt) && /1 of 1/.test(txt) && !/could not be loaded/.test(txt), { cut, txt })
     await a.click('.mr-card.is-open [data-c="show"]').catch(() => {}); await a.waitForTimeout(200)
-    ok('"See your score" on the last question that arrived', /See your score/.test(await a.innerText('.mr-card.is-open')))
-    await a.click('.mr-card.is-open [data-c="next"]').catch(() => {}); await a.waitForTimeout(300)
+    ok('the last question that arrived, shown: its score at once, no "See your score" and no "Next question"', !/See your score/.test(await a.innerText('.mr-card.is-open')) && !(await a.$('.mr-card.is-open [data-c="next"]')))
     // PR C: a "Show answer" question is not scored, and the end card says so.
     ok('the score counts right answers of all the questions (a shown answer is not right): "0/1", and "Try new questions"', /(^|\s)0\/1(\s|$)/.test(await a.innerText('.mr-card.is-open')) && !!(await a.$('.mr-card.is-open [data-c="again"]')), await a.innerText('.mr-card.is-open'))
     await fresh(a)
@@ -918,7 +937,7 @@ async function behaviour(browser, origin) {
   // Removed on B (the note editor's Remove highlight), gone on A after its next open.
   await B.page.evaluate(id => { const rec = JSON.parse(localStorage.getItem('tinct-addbook:hl:pdf:' + location.search.slice(10, 34))).find(h => h.id === id); marginOpen({ text: rec.text, page: rec.page, box: { left: 0, top: 0, right: 0, bottom: 0 } }, { existing: rec }) }, noted.id)
   await B.page.click('.mr-float [data-m="note"]'); await B.page.waitForSelector('.mr-note')
-  ok('an existing note opens in the editor', (await B.page.inputValue('.mr-note__field')) === 'Try it with x = 10 before the exercises.')
+  ok('an existing note opens in the editor', (await B.page.$eval('.mr-note__field', el => el.value)) === 'Try it with x = 10 before the exercises.')
   await B.page.click('.mr-note [data-m="remove"]'); await B.page.waitForTimeout(2500)
   ok('a removal is kept as a tombstone in the account', account.marks.get(hex).marks.some(m => m.id === noted.id && m.gone))
   await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(1500)
@@ -936,7 +955,7 @@ async function behaviour(browser, origin) {
   await selectText(a); await a.waitForSelector('.mr-bar'); const sel = (await a.evaluate(() => getSelection().toString())).replace(/\s+/g, ' ').trim()
   await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
   const moreText = (await a.innerText('.mr-more')).replace(/\s+/g, ' ').trim()
-  ok('More shows Define, Fact-check, Related, Counterpoint and Quiz me, then Copy, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Fact-check Does it still hold? Searches the web Related Where else the text takes this up Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy With the title and page number', moreText)
+  ok('More shows Define, Evaluate, Related, Counterpoint and Quiz me, then Copy, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Evaluate Does it still hold? Searches the web Related Where else the text takes this up Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy With the title and page number', moreText)
   await a.click('.mr-more [data-m="copy"]'); await a.waitForTimeout(300)
   const clip = await a.evaluate(() => navigator.clipboard.readText())
   const printed = await a.evaluate(() => pageLabel(mr?.info?.page || currentPlace().page))
@@ -1097,7 +1116,7 @@ async function primerBehaviour(browser, origin) {
     const hr = head?.getBoundingClientRect(), br = row.getBoundingClientRect()
     return { text: t.getAttribute('aria-label'), words: span.content, mid: (br.top + br.bottom) / 2, headMid: hr ? (hr.top + hr.bottom) / 2 : NaN, after: hr ? br.left - hr.right : NaN, top: br.top, bottom: br.bottom, tip: t.title, radius: span.borderRadius, border: span.borderTopWidth, font: getComputedStyle(t).fontFamily }
   })
-  ok('at the PDF\'s start its Primer (Before you start) is beside the unit\'s heading, on its line, after it (21 Oct): "✧ Primer", named for the unit ("Before you start: The gist and a map of chapter 1."), "Before you start (B)" in its title, the book reader\'s pill', trig && trig.text === 'Before you start: The gist and a map of chapter 1.' && /✧\s*"\s*attr\(data-label\)|"✧ " attr\(data-label\)|✧/.test(trig.words) && Math.abs(trig.mid - trig.headMid) <= 6 && trig.after >= 0 && trig.tip === 'Before you start (B)' && trig.radius === '999px' && trig.border === '1px' && /EB Garamond/.test(trig.font), trig)
+  ok('at the PDF\'s start its Primer (Before you start) is beside the unit\'s heading, on its line, after it (21 Oct): "✧ Primer", named for the unit ("Before you start: Where chapter 1 fits, how it is built, what to watch for."), "Before you start (B)" in its title, the book reader\'s pill', trig && trig.text === 'Before you start: Where chapter 1 fits, how it is built, what to watch for.' && /✧\s*"\s*attr\(data-label\)|"✧ " attr\(data-label\)|✧/.test(trig.words) && Math.abs(trig.mid - trig.headMid) <= 6 && trig.after >= 0 && trig.tip === 'Before you start (B)' && trig.radius === '999px' && trig.border === '1px' && /EB Garamond/.test(trig.font), trig)
   // Made ahead as the file opens (Anders, 19 Oct 2026): one request, for the reader's unit, marked speculative (never charged).
   const req = primers(0)[0]
   ok('as the file opens (signed in), the primer of the reader\'s unit is made once, ahead, marked speculative', primers(0).length === 1 && req.body.companion.speculative === true, { requests: primers(0).length, speculative: req?.body?.companion?.speculative })
@@ -1107,7 +1126,7 @@ async function primerBehaviour(browser, origin) {
   ok('B opens the primer in place, made nothing more: the one chapter request (ahead), action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 0 && primers(0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === unitPages(units[0]) && units.length === 5 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
   const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.getBoundingClientRect().top, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, pressed: document.querySelector('.mr-hp .mr-pill[data-pill="primer"]')?.getAttribute('aria-expanded') } })
   // (Since 19 Oct 2026 the column is part of the page: the primer opens in place, under its unit's pills, its Primer pill pressed.)
-  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, in the column level with its heading (21 Oct)', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter →' && shown.foot === 'Redo' && shown.cards === 0 && shown.top >= (trig?.top ?? 1e9) - 16 && shown.top <= (trig?.bottom ?? 0) + 4 && shown.pressed === 'true', { ...shown, trig })
+  ok('the primer: its role and gist, How it\'s built (numbered, cite tags), Watch for, no Map, the quiz row and its footer, in the column level with its heading (21 Oct; three parts since 11 Nov)', JSON.stringify(shown.heads) === JSON.stringify(PRIMER_HEADS) && shown.claims === 3 && shown.cites === 3 && shown.rows === 0 && shown.quiz === 'Quiz me on this chapter →' && shown.foot === 'Redo' && shown.cards === 0 && shown.top >= (trig?.top ?? 1e9) - 16 && shown.top <= (trig?.bottom ?? 0) + 4 && shown.pressed === 'true', { ...shown, trig })
   await a.waitForTimeout(600)
   const stored = account.primers.get(hex + '?outline-0')
   ok('signed in with the book in the account, the primer is stored with it (PUT /api/user-books/primers)', stored && /MOCK gist/.test(stored.gist) && stored.unitKey === 'outline-0' && !!stored.madeAt, stored)
@@ -1125,10 +1144,10 @@ async function primerBehaviour(browser, origin) {
   await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
   ok('on another device (opened there, and B) the account\'s primer opens; nothing is made again', primers(r1).length === 0 && /MOCK gist/.test(await a.innerText('.mr-col .mr-primer')))
   // Redo: a new one, stored again.
-  mock.primer = { gist: 'MOCK redone gist. Second sentence.', claims: [1, 2, 3, 4, 5].map(i => ({ text: `Redone claim ${i}.`, cite: '{p. 2}' })), keepInMind: ['One', 'Two'], map: [1, 2, 3, 4, 5, 6, 7, 8].map(i => ({ title: `Redone section ${i}`, pages: `p. ${i + 1}` })) }
+  mock.primer = { ...mockPrimer('', 2, 'MOCK redone gist. Second sentence.'), sections: [{ title: "How it's built", items: [1, 2, 3, 4].map(i => ({ text: `Redone part ${i}.`, cite: '{p. 2}' })) }, { title: 'Watch for', items: [{ text: 'One' }, { text: 'Two' }] }], map: [1, 2, 3, 4, 5, 6, 7, 8].map(i => ({ title: `Redone section ${i}`, pages: `p. ${i + 1}` })) }
   await a.click('.mr-col .mr-primer [data-c="redo"]'); await a.waitForTimeout(1200); mock.primer = null
   ok('Redo makes a new one (one request) and stores it with the book', primers(r1).length === 1 && /redone gist/.test(await a.innerText('.mr-col .mr-primer')) && /redone gist/.test(account.primers.get(hex + '?outline-0')?.gist || ''))
-  ok('a long primer (five claims, eight map rows) has no layout problems in the column', (await checkMargin(a)).length === 0, await checkMargin(a))
+  ok('a long primer (four parts, eight map rows) has no layout problems in the column', (await checkMargin(a)).length === 0, await checkMargin(a))
   // A map row scrolls the PDF to its page.
   // The scroll is smooth; newer Chromium takes about 1.2 s, so wait for it to settle, then check where it landed.
   await a.click('.mr-col .mr-map__row[data-page="6"]'); await a.waitForFunction(() => { const s = document.getElementById('scroll'), t = s.scrollTop, settled = window.__mrLastTop === t; window.__mrLastTop = t; return settled }, null, { polling: 300, timeout: 5000 }).catch(() => {})
@@ -1148,7 +1167,7 @@ async function primerBehaviour(browser, origin) {
   await a.evaluate(n => goTo({ page: n, frac: 0.3 }), units[1].start + 1); await a.waitForTimeout(700)
   // (The trigger is part of the page at its unit's start since 19 Oct 2026: in the middle of a unit none is in view.)
   const t6 = await a.evaluate(() => { const t = [...document.querySelectorAll('.mr-hp .mr-pill[data-pill="primer"]')].find(x => { const r = x.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom }); if (!t) return false; const r = t.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom })
-  ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none in view', /map of chapter 2\.$/.test(t5 || '') && !t6, { t5, t6 })
+  ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none in view', /^Before you start: Where chapter 2 fits, /.test(t5 || '') && !t6, { t5, t6 })
   const r3 = chats().length
   await a.keyboard.press('b'); await a.waitForTimeout(1000)
   const req3 = primers(r3)[0]
@@ -1166,7 +1185,7 @@ async function primerBehaviour(browser, origin) {
   const ts = await S.page.evaluate(() => ({ trig: document.querySelector('.mr-hp .mr-pill[data-pill="primer"]')?.getAttribute('aria-label'), units: primer.units.map(u => u.key), pages: primer.units[0].to - primer.units[0].start + 1 }))
   await S.page.keyboard.press('b'); await S.page.waitForTimeout(1000)
   const reqs = primers(rs)[0]
-  ok('a PDF under 40 pages with chapters: its chapters are its units; the first chapter\'s pages go', /map of chapter 1\.$/.test(ts.trig || '') && ts.units.join() === 'outline-0,outline-1,outline-2,outline-3,outline-4' && reqs?.body?.companion?.chapter?.action?.unitKey === 'outline-0' && reqs.body.companion.context.pages.length === ts.pages, { ts, action: reqs?.body?.companion?.chapter, pages: reqs?.body?.companion?.context?.pages?.length })
+  ok('a PDF under 40 pages with chapters: its chapters are its units; the first chapter\'s pages go', /^Before you start: Where chapter 1 fits, /.test(ts.trig || '') && ts.units.join() === 'outline-0,outline-1,outline-2,outline-3,outline-4' && reqs?.body?.companion?.chapter?.action?.unitKey === 'outline-0' && reqs.body.companion.context.pages.length === ts.pages, { ts, action: reqs?.body?.companion?.chapter, pages: reqs?.body?.companion?.context?.pages?.length })
   await S.ctx.close()
   // A PDF without an outline is one unit, "all".
   const rb = chats().length
@@ -1179,7 +1198,7 @@ async function primerBehaviour(browser, origin) {
   const reqb = primers(rb)[0]
   // Since 19 Oct 2026, night (TinctMargin.sizeUnits), a short paper's headings found by the scan are its units too (the
   // two-column paper's numbered sections); one with none is one unit, "all" (unit sizing's tests).
-  ok('a PDF without an outline: its scanned headings as units, the first unit\'s pages sent', ub.length > 1 && /map of chapter 1\.$/.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === ub[0].key && reqb.body.companion.context.pages.length === ub[0].pages, { tb, ub, action: reqb?.body?.companion?.chapter, pages: reqb?.body?.companion?.context?.pages?.length })
+  ok('a PDF without an outline: its scanned headings as units, the first unit\'s pages sent', ub.length > 1 && /^Before you start: Where chapter 1 fits, /.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === ub[0].key && reqb.body.companion.context.pages.length === ub[0].pages, { tb, ub, action: reqb?.body?.companion?.chapter, pages: reqb?.body?.companion?.context?.pages?.length })
   // Not in the account (signed out): kept in this browser only; reopening uses it.
   await B.ctx.close()
   const C = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'paper' })
@@ -1209,7 +1228,7 @@ async function primerBehaviour(browser, origin) {
 }
 
 /* ---------- Before you start per kind (Anders, 15 Oct, option A): the model names the document's kind
-   and writes that kind's sections; a primer stored before kinds still shows; and on a long book without
+   and writes that kind's sections; a primer stored by an earlier prompt (no role) is made again, not served; and on a long book without
    an outline, the chapter (MacKay's 640 pages: "a map of the whole PDF", chapters 1 and 2 blended). ---------- */
 const KIND_PRIMERS = {
   paper: { kind: 'paper', gist: 'MOCK paper gist. The paper argues one thing and tests it.', sections: [
@@ -1266,15 +1285,16 @@ async function primerKinds(browser, origin) {
       ok(`${tag}: a ${kind}'s primer has no layout problems`, problems.length === 0, problems.slice(0, 5))
       if (look === 'paper' || !SAMPLE) await shot(a, `${tag}-${kind}`)
     }
-    // A primer made before kinds, in this browser and in the account: shown as it was (Key claims, Keep in mind).
+    // A primer an earlier prompt made (no `role`), in this browser and in the account: made again in the three parts, never
+    // served as the unit's primer (Anders, 11 Nov 2026: the old primers go; reader.js keptPrimer, primerParse.ts isCurrentPrimer).
     const old = { gist: 'MOCK old gist. Made before kinds.', claims: [1, 2, 3].map(i => ({ text: `MOCK old claim ${i}.`, cite: `{p. ${i}}` })), keepInMind: ['MOCK old caution.'], map: [1, 2, 3].map(i => ({ title: `Old section ${i}`, pages: `p. ${i}` })) }
     await a.evaluate(o => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); closePrimer(); store.set(primerKey(currentUnit()), { ...o, madeAt: '2026-10-14T09:30:00.000Z', unitKey: currentUnit().key }) }, old)
     account.primers.set(hex + '?outline-0', { ...old, madeAt: '2026-10-14T09:30:00.000Z', unitKey: 'outline-0' })
     const r1 = account.requests.length
     await a.evaluate(() => openPrimer(currentUnit())); await a.waitForSelector(`${where} .mr-primer__gist`, { timeout: 8000 }).catch(() => {}); await a.waitForTimeout(500)
     const oldShown = await a.evaluate(sel => { const p = document.querySelector(sel); return p && { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), text: p.innerText } }, where)
-    ok(`${tag}: a primer stored before kinds still shows, as Key claims and Keep in mind, and is not made again`, oldShown && JSON.stringify(oldShown.heads) === '["Key claims","Keep in mind","Map"]' && /MOCK old claim 3/.test(oldShown.text) && /MOCK old caution/.test(oldShown.text) && !chats(r1).some(r => r.body?.companion?.chapter), oldShown?.heads)
-    ok(`${tag}: no layout problems with the old primer`, (await checkMargin(a)).length === 0, await checkMargin(a))
+    ok(`${tag}: a primer stored by an earlier prompt is made again (one request), in the three parts; the old one is not shown`, oldShown && JSON.stringify(oldShown.heads) === JSON.stringify(PRIMER_HEADS) && !/MOCK old/.test(oldShown.text) && chats(r1).filter(r => r.body?.companion?.chapter).length === 1, oldShown?.heads)
+    ok(`${tag}: no layout problems with the primer made again`, (await checkMargin(a)).length === 0, await checkMargin(a))
     ok(`${tag}: no page errors`, !A.problems.length, A.problems)
     await A.ctx.close()
   }
@@ -1293,7 +1313,7 @@ async function primerKinds(browser, origin) {
     const units = await a.evaluate(() => primer.units.map(u => ({ key: u.key, title: u.title, label: u.label || null, from: u.from, start: u.start, to: u.to, matter: u.matter || null })))
     ok(`${tag}: no outline: the units are the printed contents' chapters, not one unit for the whole PDF`, units.length >= 17 && units.every(u => u.key !== 'all') && units.some(u => u.label === 'Chapter 1: Introduction' && u.start === ch1.from && u.to === ch1.to), units.slice(0, 3))
     const lines = await a.evaluate(n => { const out = []; for (let p = 1; p <= n; p += 9) out.push(TinctMargin.triggerLine(TinctMargin.primerUnitAt(primer.units, p))); return out }, m.pages)
-    ok(`${tag}: the trigger names its chapter on every page, never "the whole PDF"`, lines.every(l => /^The gist and a map of chapter \d+\.$/.test(l)), [...new Set(lines)].slice(0, 6))
+    ok(`${tag}: the trigger names its chapter on every page, never "the whole PDF"`, lines.every(l => /^Where chapter \d+ fits, how it is built, what to watch for\.$/.test(l)), [...new Set(lines)].slice(0, 6))
     await a.evaluate(() => { goTo({ page: 8, frac: 0.1 }); onScroll() }); await a.waitForTimeout(600)
     // The phone has no B key: the same call.
     if (phone) await a.evaluate(() => openPrimer()); else await a.keyboard.press('b')
@@ -1322,10 +1342,12 @@ async function primerReliability(browser, origin) {
   const hex = addBook(PDFS[1])
   const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
   const primers = from => chats().slice(from).filter(r => r.body?.companion?.intent === 'chapter')
-  // A primer of the size the paper's real one had: five claims, three cautions, eight map rows of the paper's own headings.
-  const real = { gist: 'The paper introduces the Transformer, a sequence model built on attention alone, and shows it trains faster and translates better than recurrent and convolutional models.',
-    claims: ['Recurrence precludes parallel training within a sequence.', 'Attention alone can draw global dependencies in a constant number of steps.', 'Scaled dot-product attention divides by the square root of the key size.', 'Multi-head attention attends to several subspaces at once.', 'The big model reaches 28.4 BLEU on English-to-German.'].map((text, i) => ({ text, cite: `{p. ${i + 2}}` })),
-    keepInMind: ['The prose and Table 2 give different English-to-French BLEU.', 'Training costs are estimates from GPU time.', 'Positional encodings are one of two variants tried.'],
+  // A primer of the size the paper's real one had, in the current three parts (role and gist, How it's built, Watch for),
+  // with the eight map rows of the paper's own headings (a map is still drawn when a reply gives one).
+  const realParts = { claims: ['Recurrence precludes parallel training within a sequence.', 'Attention alone can draw global dependencies in a constant number of steps.', 'Scaled dot-product attention divides by the square root of the key size.', 'Multi-head attention attends to several subspaces at once.', 'The big model reaches 28.4 BLEU on English-to-German.'].map((text, i) => ({ text, cite: `{p. ${i + 2}}` })),
+    keepInMind: ['The prose and Table 2 give different English-to-French BLEU.', 'Training costs are estimates from GPU time.', 'Positional encodings are one of two variants tried.'] }
+  const real = { kind: 'paper', role: 'In Attention Is All You Need', gist: 'The paper introduces the Transformer, a sequence model built on attention alone, and shows it trains faster and translates better than recurrent and convolutional models.',
+    sections: [{ title: "How it's built", items: realParts.claims }, { title: 'Watch for', items: realParts.keepInMind.map(text => ({ text })) }],
     map: ['Abstract', '1 Introduction', '2 Background', '3 Model Architecture', '4 Why Self-Attention', '5 Training', '6 Results', '7 Conclusion'].map((title, i) => ({ title, pages: `p. ${i + 1}` })) }
   const good = JSON.stringify(real), pretty = JSON.stringify(real, null, 2)
   const cases = [
@@ -1335,7 +1357,7 @@ async function primerReliability(browser, origin) {
     ['prose with braces of its own before the JSON', [{ text: 'Citations are written {p. n} as asked.\n' + good }]],
     ['a reply cut off by the output limit, then a whole one (one retry)', [{ text: pretty.slice(0, Math.floor(pretty.length * 0.6)), stop: 'max_tokens' }, { text: good }]],
     ['an empty reply (502), then a whole one (one retry)', [{ status: 502, body: { error: 'The answer stopped.' } }, { text: good }]],
-    ['a reply of the wrong shape, then a whole one (one retry)', [{ text: JSON.stringify({ gist: real.gist, claims: real.claims }) }, { text: good }]],
+    ['a reply of the wrong shape, then a whole one (one retry)', [{ text: JSON.stringify({ gist: real.gist, claims: realParts.claims }) }, { text: good }]],
     ['a slow reply (4 s)', [{ text: good, delay: 4000 }]],
     ['closed while it was made: kept, and reopening shows it without a new request', [{ text: good, delay: 1500 }], 'close'],
     ['another card opened while it was made: kept, and reopening shows it without a new request', [{ text: good, delay: 1500 }], 'card'],
@@ -1443,7 +1465,7 @@ async function keysAndAccess(browser, origin) {
   ok('Left and Right move along the bar', (await a.evaluate(() => document.activeElement?.dataset.m)) === 'more')
   await a.keyboard.press('Enter'); await a.waitForSelector('.mr-more'); await a.waitForTimeout(100)
   ok('Return on the dots opens More with its first row focused', (await a.evaluate(() => document.activeElement?.dataset.m)) === 'define' && (await a.getAttribute('.mr-bar [data-m="more"]', 'aria-expanded')) === 'true')
-  // Define, Fact-check, Related (PR C), Counterpoint.
+  // Define, Evaluate, Related (PR C), Counterpoint.
   await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown')
   const at = await a.evaluate(() => document.activeElement?.dataset.m)
   await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp')
@@ -1520,11 +1542,15 @@ const COLUMN_VIEWPORTS = (process.env.COLUMN_VIEWPORTS || '1440x900,1280x800,118
 const ZOOMS = (process.env.ZOOMS || '1,1.25').split(',').map(Number)
 const LONG = Array.from({ length: 60 }, (_, i) => `Sentence ${i + 1} of a long answer runs on with several more words in it.`).join(' ').split(' ').slice(0, 600).join(' ')
 const WORD60 = 'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'
-// The longest primer PROMPTS.md allows: a 45-word gist, five 25-word claims, three cautions (one a 60-character word), eight map rows.
+// A long primer in the current three parts (11 Nov 2026): a long role, a 45-word gist, five long parts under How it's built,
+// three things to watch for (one a 60-character word), and a reply's own map of eight rows (still drawn when given).
 const LONG_PRIMER = {
+  kind: 'textbook', role: 'In Information Theory, Inference, and Learning Algorithms',
   gist: 'The chapter sets up the two tools the rest of the book leans on, the binomial distribution for counting outcomes and Stirling’s approximation for the factorials it produces, and shows why both return in every later chapter on inference and coding.',
-  claims: Array.from({ length: 5 }, (_, i) => ({ text: `Claim ${i + 1} runs to its full length of twenty-five words so that the primer is as long as a primer can be, with its page.`, cite: '{p. 1}' })),
-  keepInMind: ['The exercises use natural logs throughout, but later chapters switch to base 2.', 'The text writes f for a probability where many courses write p.', `${'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'}: long words still wrap.`],
+  sections: [
+    { title: "How it's built", items: Array.from({ length: 5 }, (_, i) => ({ text: `Part ${i + 1} runs to its full length of twenty-five words so that the primer is as long as a primer can be, with its page.`, cite: '{p. 1}' })) },
+    { title: 'Watch for', items: ['The exercises use natural logs throughout, but later chapters switch to base 2.', 'The text writes f for a probability where many courses write p.', `${'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'}: long words still wrap.`].map(text => ({ text })) },
+  ],
   map: Array.from({ length: 8 }, (_, i) => ({ title: i === 6 ? 'Further reading and a note on the notation used in the later chapters of the book' : `Section ${i + 1}`, pages: `pp. ${i + 1}–${i + 2}` })),
 }
 const LONG_URL = 'https://example.org/a-very-long-path/without-any-breaks/stirling-approximation-error-bounds-for-small-x-values'
@@ -1739,7 +1765,7 @@ async function columnMatrix(browser, origin) {
         // A wide display equation scrolls sideways inside the answer only.
         await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['explain'], answer: 'The bottom line.\n\n```\nP(r | f, N) = (N choose r) f^r (1 - f)^(N - r) = N! / (r! (N - r)!) f^r (1 - f)^(N - r) summed over every r from 0 to N\n```\n\nAfter the equation.' })
         await state('equation', () => { const pre = document.querySelector('.mr-card.is-open pre, .mr-sheet pre'), card = pre?.closest('.mr-card, .mr-sheet'); return { ok: !!pre && pre.scrollWidth > pre.clientWidth && card.scrollWidth <= card.clientWidth + 1 && getComputedStyle(pre).overflowX === 'auto' && !/mono/i.test(getComputedStyle(pre).fontFamily) } })
-        // Quiz me and Fact-check while it searches.
+        // Quiz me and Evaluate while it searches.
         await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['quiz'] }); await state('quiz')
         await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['factcheck'] })
         await page.evaluate(() => { const c = cardById(col.open); c.turns = []; store.set('cards:' + state.key, [c]); col.live.set(c.id, { text: '', status: 'Checking sources…' }); marginLayout({ fresh: true }) })
@@ -2281,8 +2307,8 @@ async function scanChecks(browser, origin) {
   }, made.recognised[0].blocks.filter(b => b.t === 'p'))
   const off = placed.filter(q => q.missing || q.dl > 0.01 || q.dt > 0.012 || q.dr > 0.015)
   ok('every recognised line of page 1 sits over its printed words: left, top and right within about 1% of the page', placed.length > 10 && !off.length, off.slice(0, 5))
-  // Tinct text is offered in the Aa panel (under Layout, or its own row: TinctReaderLayout.TINCT_TEXT).
-  ok('the scan now reads aloud and summarizes (its recognised text), and the Tinct text is in the Aa panel', await page.evaluate(() => { openDisplay(); const offered = !!document.querySelector('.byob-aa-panel [data-layout="text"], .byob-aa-panel [data-t="text"]:not([hidden])'); closeDisplay(); return !document.getElementById('playBtn').disabled && !hasNoText() && offered }))
+  // Tinct text is offered in Book settings (under Layout, or its own row: TinctReaderLayout.TINCT_TEXT).
+  ok('the scan now reads aloud and summarizes (its recognised text), and the Tinct text is in Book settings', await page.evaluate(async () => { await openBookSettings(); const offered = !!document.querySelector('.byob-book-settings [data-layout="text"], .byob-book-settings [data-bs-text]:not([hidden])'); document.querySelector('.byob-book-settings')?.close(); return !document.getElementById('playBtn').disabled && !hasNoText() && offered }))
   // Selection on the scan opens the margin's bar.
   const selected = await selectText(page)
   const bar = await page.waitForSelector('.mr-bar, .mr-pbar', { timeout: 8000 }).then(() => true).catch(() => false)
@@ -2764,18 +2790,19 @@ async function focusMatrix(browser, origin) {
         await page.evaluate(seedCards, { lines: 3, pairs: false, open: 1 }); await settle(page)
         const margin0 = await page.evaluate(focusState)
         await snap('margin')
-        // The Aa panel: inside the screen, Layout first with the two PDF layouts, Margin view chosen.
-        await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="focus"]', { timeout: 4000 })
+        // Book settings (22 Oct 2026; the Aa panel's Layout of 15 Oct): inside the screen, Layout first with the two PDF
+        // layouts, Margin view chosen, and none of Aa's themes.
+        await openBookPanel(page, '[data-layout="focus"]')
         await check('panel', () => {
-          const s = document.querySelector('.byob-aa-panel .lab-v2-sheet').getBoundingClientRect(), body = document.querySelector('.byob-aa-panel .lab-v2-sheet-body')
-          const names = [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => b.querySelector('.lab-v2-edition-name').textContent)
-          const first = body.firstElementChild.dataset.aa
-          const on = document.querySelector('.byob-aa-panel [data-layout][aria-pressed="true"]')?.dataset.layout
-          return { ok: s.left >= 0 && s.right <= innerWidth + 0.5 && s.top >= 0 && s.bottom <= innerHeight + 0.5 && first === 'layout' && names[0] === 'Margin view (default)' && names[1] === 'Focus view' && on === 'margin' && !!document.querySelector('.byob-aa-panel [data-testid="lab-v2-themes"]'), names, first, on }
+          const s = document.querySelector('.byob-book-settings .lab-v2-sheet').getBoundingClientRect(), body = document.querySelector('.byob-book-settings .lab-v2-sheet-body')
+          const names = [...document.querySelectorAll('.byob-book-settings [data-layout]')].map(b => b.querySelector('.lab-v2-edition-name').textContent)
+          const first = body.firstElementChild.dataset.bs
+          const on = document.querySelector('.byob-book-settings [data-layout][aria-pressed="true"]')?.dataset.layout
+          return { ok: s.left >= 0 && s.right <= innerWidth + 0.5 && s.top >= 0 && s.bottom <= innerHeight + 0.5 && first === 'layout' && names[0] === 'Margin view (default)' && names[1] === 'Focus view' && on === 'margin' && !document.querySelector('.byob-book-settings [data-testid="lab-v2-themes"]'), names, first, on }
         })
         const place0 = await page.evaluate(() => currentPlace())
-        await page.click('.byob-aa-panel [data-layout="focus"]'); await page.waitForTimeout(250)
-        await page.click('.byob-aa-panel .lab-v2-dismiss')
+        await page.click('.byob-book-settings [data-layout="focus"]'); await page.waitForTimeout(250)
+        await page.click('.byob-book-settings .lab-v2-dismiss')
         // On the phone a tap outside the bottom card (here, in the panel) closes it, as it always has: the card opens again.
         await page.evaluate(() => { if (!col.open) openCard((store.get('cards:' + state.key) || [])[1]?.id) })
         // Focus view: centred, as wide as in Margin view, nothing beside it, the open card in the pop-up, the place kept.
@@ -2817,9 +2844,9 @@ async function focusMatrix(browser, origin) {
         if (!near(placeR, placeR2)) found.push({ state: 'reload', kind: 'place moved', el: JSON.stringify([placeR, placeR2]) })
         // Back to Margin view: the place stays, the cards are there again, the default is stored as no choice.
         const place1 = await page.evaluate(() => currentPlace())
-        await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="margin"]', { timeout: 4000 })
-        await page.click('.byob-aa-panel [data-layout="margin"]'); await page.waitForTimeout(250)
-        await page.click('.byob-aa-panel .lab-v2-dismiss')
+        await openBookPanel(page, '[data-layout="margin"]')
+        await page.click('.byob-book-settings [data-layout="margin"]'); await page.waitForTimeout(250)
+        await page.click('.byob-book-settings .lab-v2-dismiss')
         await check('margin-again', () => { const f = focusState(), cards = (store.get('cards:' + state.key) || []).length; return { ok: f.mode !== 'focus' && f.layout === 'margin' && f.stored === null && cards > 0 && (f.mode !== 'column' || (f.colShown && visibleCards().length > 0)), cards, ...f } })
         const place2 = await page.evaluate(() => currentPlace())
         if (!near(place1, place2)) found.push({ state: 'margin-again', kind: 'place moved', el: JSON.stringify([place1, place2]) })
@@ -2858,7 +2885,7 @@ function headerState() {
   const chevron = btn.querySelector('.lab-header-chevron')
   return {
     title: box('bookTitle'), titleWhole: t.scrollWidth <= t.clientWidth + 1, pill: box('pageBtn'), label: label.textContent.trim(), labelWhole: label.scrollWidth <= label.clientWidth + 1,
-    chevron: !!chevron && getComputedStyle(chevron).display !== 'none', aa: box('aaBtn'), pillShown: getComputedStyle(btn).display !== 'none' && btn.getBoundingClientRect().width > 0,
+    chevron: !!chevron && getComputedStyle(chevron).display !== 'none', controls: (() => { const c = [...document.querySelectorAll('.lab-header-controls > *')].find(n => n.getBoundingClientRect().width > 0)?.getBoundingClientRect(); return c ? { left: c.left, right: c.right, w: c.width } : null })(), pillShown: getComputedStyle(btn).display !== 'none' && btn.getBoundingClientRect().width > 0,
   }
 }
 async function phoneUi(browser, origin) {
@@ -2902,7 +2929,7 @@ async function phoneUi(browser, origin) {
     // 3. The header: a long title gets the room, the pill shortens and is never empty.
     await a.evaluate(t => { setBookTitle(t, ''); onScroll() }, TITLE); await a.waitForTimeout(300)
     const h = await a.evaluate(headerState)
-    const overlap = h.title.right > h.pill.left + 0.5 || h.pill.right > h.aa.left + 0.5
+    const overlap = h.title.right > h.pill.left + 0.5 || h.pill.right > h.controls.left + 0.5
     ok(`${tag}: the header gives the title its room (${Math.round(h.title.w)}px), the pill shows "${h.label}", never empty, nothing overlapping`, h.pillShown && h.label.length > 0 && h.labelWhole && /^p\. \S+$/.test(h.label) && h.title.w >= (width >= 390 ? 125 : 95) && !overlap, h)
     await a.evaluate(() => { setBookTitle('Short', ''); onScroll() }); await a.waitForTimeout(300)
     const hs = await a.evaluate(headerState)
@@ -2920,11 +2947,13 @@ async function phoneUi(browser, origin) {
     const d = await D.page.evaluate(() => ({ zoom: state.zoom, fit: state.fit, cls: document.querySelector('.lab').classList.contains('is-page-zoomed'), progress: getComputedStyle(document.getElementById('progress')).display, chevron: document.getElementById('pageBtn').dataset.chevron }))
     ok(`phone-ui-${label}-1440x900: the desktop opens at fit as before (no column fit, the pill as before)`, d.zoom === 1 && !d.fit && !d.cls && d.progress !== 'none' && d.chevron === undefined, d)
     // 1. The t menu is Tinct's normal menu (21 Oct 2026): Chat · Talk on one row (Chat opens the whole-document
-    // chat), Summarize, Catch me up off on the first unit, Reading settings, this reader's own rows, Library, Profile.
+    // chat), Summarize, Catch me up on the first unit, Book settings and Audio settings (22 Oct 2026; Aa is the top
+    // bar's button here), this reader's own rows, Library, Profile.
     await D.page.click('#superBtn'); await D.page.waitForSelector('.lab-super-panel')
     const rows = await D.page.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row + ':' + r.textContent.trim()))
-    const want = ['conversation:ChatTalk', 'summarize:Summarize', 'settings:Reading settings›', 'snip:Snip a figure', 'export:Export notes', 'open:Open another book', 'library:Library', 'account:Profile›']
-    ok('the t menu is Chat · Talk, Summarize, Reading settings, Snip, Export, Open another book, Library, Profile (no Catch me up on page 1, no Librarian)', JSON.stringify(rows) === JSON.stringify(want), rows)
+    // (Audio settings are the framing page's player's: none on this page on its own; see settingsCheck.)
+    const want = ['conversation:ChatTalk', 'summarize:Summarize', 'catchup:Catch me up', 'book:Book settings›', 'snip:Snip a figure', 'export:Export notes', 'open:Open another book', 'library:Library', 'account:Profile›']
+    ok('the t menu is Chat · Talk, Summarize, Book settings, Snip, Export, Open another book, Library, Profile (Catch me up on page 1, no Librarian)', JSON.stringify(rows) === JSON.stringify(want), rows)
     const sel = await D.page.evaluate(() => getComputedStyle(document.getElementById('aaBtn')).userSelect)
     ok('the top bar\'s Aa is never selected as text', sel === 'none', sel)
     await D.page.click('.lab-super-row-half[data-row="chat"]'); await D.page.waitForTimeout(500)
@@ -2932,7 +2961,7 @@ async function phoneUi(browser, origin) {
     // 4. Escape closes the Aa panel, from its close button and from the size slider; focus returns to Aa.
     // (A PDF's size control on the desktop is Zoom's − and + since 19 Oct 2026, evening; the phone keeps the slider.)
     for (const from of ['.byob-aa-panel .lab-v2-dismiss', '.byob-aa-panel [data-z="-"]']) {
-      await D.page.keyboard.press('Escape'); await D.page.click('#aaBtn'); await D.page.waitForSelector('.byob-aa-panel')
+      await D.page.keyboard.press('Escape'); await openAa(D.page); await D.page.waitForSelector('.byob-aa-panel')
       await D.page.focus(from); await D.page.keyboard.press('Escape'); await D.page.waitForTimeout(200)
       const esc = await D.page.evaluate(() => ({ open: !!document.querySelector('.byob-aa-panel'), focus: document.activeElement?.id, expanded: document.getElementById('aaBtn').getAttribute('aria-expanded') }))
       ok(`Escape closes the Aa panel (focus in ${from.includes('data-z') ? 'Zoom' : 'the panel'}) and focus returns to Aa`, !esc.open && esc.focus === 'aaBtn' && esc.expanded === 'false', esc)
@@ -3480,7 +3509,7 @@ async function waitDots(browser, origin) {
     await a.evaluate(() => chat.ctl?.abort()); mock.stall = false; await a.waitForTimeout(300)
     // Before you start being made.
     await a.evaluate(() => { closeChat?.(); openCard(null); closePrimer(); for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k) })
-    account.primers.clear(); mock.primers = [{ text: JSON.stringify({ gist: 'MOCK gist. Second.', claims: [1, 2, 3].map(i => ({ text: `Claim ${i}.`, cite: '{p. 1}' })), keepInMind: ['One.'], map: [{ title: 'One', pages: 'p. 1' }] }), delay: 1500 }]
+    account.primers.clear(); mock.primers = [{ text: JSON.stringify(mockPrimer('the unit', 1, 'MOCK gist. Second.')), delay: 1500 }]
     await prefetchSettled(a)
     await a.evaluate(() => openPrimer(currentUnit())); await a.waitForTimeout(400)
     const primerDots = await dots(a, '.mr-primer .tc-wait')
@@ -3992,7 +4021,7 @@ async function cardsGloss(browser, origin) {
 }
 
 /* pause-dots (19 Oct 2026, evening, item 11): a card still waiting for more of its answer after words have appeared
-   (Fact-check's search, Counterpoint, a follow-up) shows the main chat's dots below its last text until more text
+   (Evaluate's search, Counterpoint, a follow-up) shows the main chat's dots below its last text until more text
    arrives or the request ends, including on error; Minimise shows its focus ring for the keyboard only. */
 async function pauseDots(browser, origin) {
   const results = [], ok = okList(results)
@@ -4099,7 +4128,7 @@ async function passageMark(browser, origin) {
     await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
     // The Aa panel: Passage mark → Highlight (a soft tint of each line's band), then Off.
     await openOn(a)
-    await a.click('#aaBtn'); await a.waitForSelector('#passageMarkSel', { timeout: 4000 }).catch(() => {})
+    await openAa(a); await a.waitForSelector('#passageMarkSel', { timeout: 4000 }).catch(() => {})
     const row = await a.evaluate(() => { const s = document.querySelector('#passageMarkSel'); return s && { value: s.value, options: [...s.options].map(o => o.textContent), label: s.closest('.lab-v2-row')?.querySelector('.lab-v2-row-label')?.textContent } })
     ok(`10. ${label}: the Aa panel has "Passage mark": Underline (default), Highlight, Off`, row && row.value === 'underline' && row.options.join('|') === 'Underline|Highlight|Off' && row.label === 'Passage mark', row)
     await a.selectOption('#passageMarkSel', 'tint'); await a.waitForTimeout(400)
@@ -4357,6 +4386,88 @@ async function highlightBar(browser, origin) {
   return results
 }
 
+/* highlight-leave (Anders, 11 Nov 2026): a saved highlight's bar goes at the first scroll or turn of the wheel, and on
+   the desktop when the mouse leaves it (280 ms, 12 px of slack, only once the mouse has been on it), as in the book
+   reader (src/lab/labHighlightMenuLeave.ts). A PDF and an EPUB on the desktop; on the phone a scroll still closes it. */
+async function highlightLeave(browser, origin) {
+  const results = [], ok = okList(results)
+  for (const [kind, width, height] of [['pdf', 1440, 900], ['epub', 1440, 900], ['pdf', 390, 844]]) {
+    const tag = `highlight-leave-${kind}-${width}x${height}`, phone = width < 700
+    account.marks.clear(); account.cards.clear()
+    const A = kind === 'epub' ? await openEpubHere(browser, origin, { width, height, look: 'paper' }) : await readerPage(browser, origin, addBook(PDFS[0]), { width, height, look: 'paper', startPage: 3 })
+    const a = A.page
+    if (kind === 'pdf') await prefetchSettled(a)
+    const barUp = () => a.evaluate(() => !!document.querySelector('.mr-float.mr-bar, .mr-float.mr-pbar'))
+    const barBox = () => a.evaluate(() => { const r = document.querySelector('.mr-float.mr-bar, .mr-float.mr-pbar').getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height } })
+    const select = () => kind === 'epub' ? a.evaluate(selectEpub) : selectText(a)
+    // Highlight a fresh selection with the bar's dot: the bar stays, now a saved highlight's.
+    const make = async () => {
+      await select(); await a.waitForSelector('.mr-float [data-m="dot"]', { timeout: 5000 }).catch(() => {})
+      const dot = await a.$('.mr-float [data-m="dot"]'); if (!dot) return false
+      const r = await dot.boundingBox(); await a.mouse.move(r.x + r.width / 2, r.y + r.height / 2, { steps: 3 }); await a.mouse.down(); await a.mouse.up()
+      await a.waitForTimeout(250); return true
+    }
+    const clickHl = async () => { const p = await a.evaluate(() => { let r = [...document.querySelectorAll('.hl-layer i')].at(-1)?.getBoundingClientRect(); if (!r && window.CSS?.highlights) for (const [k, h] of CSS.highlights) if (k.startsWith('tinct-hl-')) for (const range of h) r = range.getClientRects()[0] || r; if (!r) return null; return { x: r.left + Math.min(20, r.width / 2), y: r.top + r.height / 2 } }); if (!p) return false; await a.mouse.click(p.x, p.y); await a.waitForTimeout(400); return true }
+    // A point 160 px off the bar, inside the window (a pointer outside the window sends no events).
+    const away = (r, by = 160) => ({ x: r.x + r.w / 2, y: r.y - by > 60 ? r.y - by : Math.min(height - 10, r.y + r.h + by) })
+    const clear = async () => { await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => { getSelection().removeAllRanges(); if (typeof marginClose === 'function') marginClose() }); await a.waitForTimeout(200) }
+    if (!phone) {
+      // 1. Made with the mouse on the bar, the mouse leaves: gone after the grace, not before.
+      ok(`${tag}: a highlight made from the bar keeps the bar`, await make() && await barUp())
+      const b = await barBox()
+      await a.mouse.move(b.x + b.w / 2, b.y + b.h + 8, { steps: 2 })
+      await a.waitForTimeout(350)
+      ok(`${tag}: inside the 12 px of slack it stays`, await barUp())
+      { const p = away(b); await a.mouse.move(p.x, p.y, { steps: 3 }) }
+      await a.waitForTimeout(120)
+      const early = await barUp()
+      await a.waitForTimeout(400)
+      ok(`${tag}: once the mouse leaves it goes after a short grace (still there at 120 ms, gone by 520 ms)`, early && !(await barUp()), { early })
+      if (kind === 'epub') {
+        // An EPUB: the same bar on a fresh highlight goes with a turn of the wheel (clicking an EPUB highlight is
+        // the epub-marks check's).
+        await clear(); ok(`${tag}: a second highlight keeps its bar`, await make() && await barUp())
+        { const e = await barBox(), p = away(e); await a.mouse.move(p.x, p.y) }
+        await a.mouse.wheel(0, 60); await a.waitForTimeout(80)
+        ok(`${tag}: a turn of the wheel closes it at once`, !(await barUp()))
+        ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+        await A.ctx.close(); continue
+      }
+      // 2. Coming back within the grace cancels it.
+      await clear(); ok(`${tag}: a click on the highlight opens its bar`, await clickHl() && await barUp())
+      const c = await barBox()
+      await a.mouse.move(c.x + c.w / 2, c.y + c.h / 2, { steps: 3 })
+      { const p = away(c); await a.mouse.move(p.x, p.y, { steps: 2 }) } await a.waitForTimeout(120)
+      await a.mouse.move(c.x + c.w / 2, c.y + c.h / 2, { steps: 2 }); await a.waitForTimeout(500)
+      ok(`${tag}: coming back within the grace keeps it`, await barUp())
+      // 3. A highlight clicked in the text: the mouse never on the bar, it stays (not armed).
+      await clear(); await clickHl()
+      const d = await barBox()
+      { const p = away(d, 220); await a.mouse.move(Math.min(width - 10, p.x + 300), p.y, { steps: 3 }) } await a.waitForTimeout(600)
+      ok(`${tag}: a clicked highlight's bar waits for the mouse to come to it first`, await barUp())
+      // 5. A turn of the wheel closes it at once.
+      await a.mouse.move(d.x + d.w / 2, d.y - 140 > 80 ? d.y - 140 : d.y + d.h + 140)
+      await a.mouse.wheel(0, 60); await a.waitForTimeout(80)
+      ok(`${tag}: a turn of the wheel closes it at once`, !(await barUp()))
+      // 6. A fresh selection's bar still follows its passage on a small scroll.
+      await clear(); await select(); await a.waitForSelector('.mr-float.mr-bar', { timeout: 5000 }).catch(() => {})
+      await a.evaluate(() => { $('scroll').scrollTop += 20 }); await a.waitForTimeout(200)
+      ok(`${tag}: a fresh selection's bar is not closed by a small scroll`, await barUp())
+    } else {
+      // The phone: no mouse; a saved highlight's bar goes at the first scroll.
+      await clear(); const made = await make()
+      ok(`${tag}: a highlight made from the bar keeps it`, made && await barUp())
+      await a.waitForTimeout(700)
+      ok(`${tag}: on the phone it never closes by itself`, await barUp())
+      await a.evaluate(() => { $('scroll').scrollTop += 30 }); await a.waitForTimeout(150)
+      ok(`${tag}: the first scroll closes it`, !(await barUp()))
+    }
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
 /* zoom-panel (19 Oct 2026, evening, item 6): a PDF's Aa panel on the desktop has Zoom (−, the percentage, +, Fit width,
    100% by default) instead of the A—A slider, and a line pointing to Convert to Tinct book; the page never grows past
    its room (never under the margin column, no sideways scroll), by the buttons, the keys or a pinch; "Full width" is
@@ -4372,7 +4483,7 @@ async function zoomPanel(browser, origin) {
     const a = A.page
     await prefetchSettled(a)
     if (layout === 'focus') { await a.evaluate(() => setLayout('focus')); await a.waitForTimeout(700) }
-    await a.click('#aaBtn'); await a.waitForSelector('.byob-aa-panel', { timeout: 4000 }).catch(() => {})
+    await openAa(a); await a.waitForSelector('.byob-aa-panel', { timeout: 4000 }).catch(() => {})
     const panel = await a.evaluate(() => { const p = document.querySelector('.byob-aa-panel'); return p && { zoom: !!p.querySelector('.byob-zoom'), label: p.querySelector('.byob-zoom-label')?.textContent, slider: !!p.querySelector('[data-testid="lab-v2-size"]'), full: [...p.querySelectorAll('.lab-v2-row-label')].some(l => /Full width/.test(l.textContent)), fit: p.querySelector('[data-z="fit"]')?.getAttribute('aria-pressed'), note: p.querySelector('.byob-zoom-note')?.textContent.trim() || null, pct: p.querySelector('.byob-zoom-pct')?.textContent } })
     ok(`${tag}: 6. Zoom (−, 100%, +, Fit width pressed) replaces the size slider; no "Full width"`, panel && panel.zoom && panel.label === 'Zoom' && !panel.slider && !panel.full && panel.fit === 'true' && panel.pct === '100%', panel)
     ok(`${tag}: 6. one line points to Convert to Tinct book for larger text that reflows`, panel?.note === 'For larger text that reflows, use Convert to Tinct book.', panel?.note)
@@ -4389,7 +4500,7 @@ async function zoomPanel(browser, origin) {
     const keys = await room(a)
     ok(`${tag}: 6. Ctrl + and a pinch never take it further`, keys.right <= keys.colLeft + 1 && keys.sideways <= 1 && Math.abs(keys.zoom - most.zoom) < 0.011, { most, keys })
     // − and Fit width.
-    await a.click('#aaBtn'); await a.waitForSelector('.byob-zoom'); await a.click('[data-z="-"]'); await a.waitForTimeout(300)
+    await openAa(a); await a.waitForSelector('.byob-zoom'); await a.click('[data-z="-"]'); await a.waitForTimeout(300)
     const less = await room(a)
     await a.click('[data-z="fit"]'); await a.waitForTimeout(400)
     const fit = await room(a)
@@ -4399,13 +4510,13 @@ async function zoomPanel(browser, origin) {
   }
   // A phone keeps its size slider.
   const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
-  await P.page.click('#aaBtn'); await P.page.waitForTimeout(400)
+  await openAa(P.page); await P.page.waitForTimeout(400)
   ok('zoom-panel-390x844: 6. the phone keeps its size slider (phones unchanged)', await P.page.evaluate(() => !!document.querySelector('.byob-aa-panel [data-testid="lab-v2-size"]') && !document.querySelector('.byob-zoom')))
   await P.ctx.close()
   // Tinct text (an EPUB here) on the desktop: text controls, never Zoom (since 20 Oct 2026, desk-polish D1: Text size and
   // Line width in place of the size slider).
   const E = await openEpubHere(browser, origin, { width: 1440, height: 900, look: 'paper', margin: false })
-  await E.page.click('#aaBtn'); await E.page.waitForTimeout(400)
+  await openAa(E.page); await E.page.waitForTimeout(400)
   ok('zoom-panel-epub: 6. in Tinct text the Aa panel has text controls (Text size, Line width), no Zoom', await E.page.evaluate(() => JSON.stringify([...document.querySelectorAll('.byob-aa-panel .byob-type .lab-v2-row-label')].map(l => l.textContent)) === '["Text size","Line width"]' && !document.querySelector('.byob-zoom')))
   await E.ctx.close()
   return results
@@ -4512,7 +4623,7 @@ async function unitMarks(browser, origin) {
   await hoverHead(a, units[0].key)
   const s1 = await a.evaluate(k => ({ pills: __pills(k), head: __spanTop(1, '1 Introduction'), headH: [...state.pages[0].layer.querySelectorAll('span')].find(sp => /Introduction/.test(sp.textContent))?.getBoundingClientRect().height }), units[0].key)
   // The first unit offers no Catch me up (Anders, 20 Oct 2026: "there shouldnt be a 'catch me up' on the first page").
-  ok('1. hovered: ✧ Primer · ✧ Recap · ✧ Quiz me · Note (nothing to catch up on yet), shown, on the heading\'s line', s1.pills && s1.pills.shown && s1.pills.words.join('|') === 'Primer|Recap|Quiz me|Note' && s1.head != null && Math.abs(s1.pills.mid - (s1.head + s1.headH / 2)) <= 6, s1)
+  ok('1. hovered: ✧ Primer · ✧ Summary · ✧ Quiz me · Note (the library\'s pills), shown, on the heading\'s line', s1.pills && s1.pills.shown && s1.pills.words.join('|') === 'Primer|Summary|Quiz me|Note' && s1.head != null && Math.abs(s1.pills.mid - (s1.head + s1.headH / 2)) <= 6, s1)
   await shot(a, 'unit-marks-start-1440x900')
   // The pills are part of the page: they scroll with it.
   const scroll = await a.evaluate(async k => { const s = document.getElementById('scroll'), t0 = __pills(k).top; s.scrollBy({ top: 200 }); await new Promise(r => setTimeout(r, 300)); const t1 = __pills(k).top; s.scrollBy({ top: -200 }); await new Promise(r => setTimeout(r, 300)); return { moved: Math.round(t0 - t1) } }, units[0].key)
@@ -4524,27 +4635,23 @@ async function unitMarks(browser, origin) {
   await a.evaluate(() => goTo({ page: 4, frac: 0.25 })); await a.waitForTimeout(900)
   await hoverHead(a, units[1].key)
   const s2 = await a.evaluate(k => ({ pills: __pills(k), head: __spanTop(4, '2 Motivations'), col: __colMarks() }), units[1].key)
-  ok('2. a heading mid-page: ✧ Primer · ✧ Catch me up · ✧ Recap · ✧ Quiz me · Note beside it; no marks or rules in the column', s2.pills && s2.pills.shown && s2.pills.words.join('|') === 'Primer|Catch me up|Recap|Quiz me|Note' && s2.head != null && s2.pills.mid > s2.head && s2.pills.mid - s2.head <= 30 && s2.col.marks === 0 && s2.col.rules === 0, s2)
+  ok('2. a heading mid-page: ✧ Primer · ✧ Summary · ✧ Quiz me · Note beside it (Catch me up is the t menu\'s); no marks or rules in the column', s2.pills && s2.pills.shown && s2.pills.words.join('|') === 'Primer|Summary|Quiz me|Note' && s2.head != null && s2.pills.mid > s2.head && s2.pills.mid - s2.head <= 30 && s2.col.marks === 0 && s2.col.rules === 0, s2)
   await shot(a, 'unit-marks-end-1440x900')
   // 3. Cards from the pills open in the column level with the heading; their requests carry the unit's pages.
   const cardAt = () => a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), sr = document.getElementById('scroll').getBoundingClientRect(), r = el?.getBoundingClientRect(); return el && { label: el.querySelector('.mr-card__name')?.textContent, answer: el.querySelector('.mr-answer')?.innerText || '', top: r.top, inView: r.top < sr.bottom && r.bottom > sr.top } })
   const r1 = account.requests.length
   await clickPill(a, 'recap', units[1].key); await a.waitForTimeout(1300)
   const rc = await cardAt(), headNow = await a.evaluate(() => __spanTop(4, '2 Motivations'))
-  const rcReq = chatsOf(r1).find(r => /Recap it for them/.test(JSON.stringify(r.body.messages || '')))
-  ok('3. Recap opens its card level with the heading, answered on tap, about the unit\'s pages (4–8)', rc && /^Recap · /.test(rc.label || '') && /MOCK ANSWER/.test(rc.answer) && Math.abs(rc.top - headNow) <= 16 && !!rcReq && /\(pages 4–8\)/.test(JSON.stringify(rcReq.body.messages)), { rc, headNow, sent: !!rcReq })
+  const rcReq = chatsOf(r1).find(r => /Summarise it for them/.test(JSON.stringify(r.body.messages || '')))
+  ok('3. Summary opens its card level with the heading, answered on tap, about the unit\'s pages (4–8)', rc && /^Summary · /.test(rc.label || '') && /MOCK ANSWER/.test(rc.answer) && Math.abs(rc.top - headNow) <= 16 && !!rcReq && /\(pages 4–8\)/.test(JSON.stringify(rcReq.body.messages)), { rc, headNow, sent: !!rcReq })
   // Quiz me in the same row while Recap is open (a hand's click, its pause): the quiz opens (21 Oct 2026, item A).
   const press = async sel => { const bx = await (await a.$(sel)).boundingBox(); await a.mouse.move(bx.x + bx.width / 2, bx.y + bx.height / 2); await a.mouse.down(); await a.waitForTimeout(160); await a.mouse.up() }
   await hoverHead(a, units[1].key); await press(`.mr-hp[data-unit="${units[1].key}"] .mr-pill[data-pill="quiz"]`); await a.waitForTimeout(1300)
   const qz = await a.evaluate(() => { const c = cardById(col.open || ''), el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { kind: c.kind, unit: c.data?.unit?.key, count: el?.querySelector('.mr-card__count')?.textContent } })
   ok('3. Quiz me (Recap still open) opens the unit\'s quiz', qz && qz.kind === 'quiz' && qz.unit === units[1].key && qz.count === '1 of 3', qz)
   await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
-  const r2 = account.requests.length
-  await clickPill(a, 'catchup', units[1].key); await a.waitForTimeout(1300)
-  const cu = await cardAt()
-  const cuReq = chatsOf(r2).find(r => /Catch them up/.test(JSON.stringify(r.body.messages || '')))
-  ok('3. Catch me up opens its card level with the heading, on the pages before the unit (1–3)', cu && /^Catch me up · /.test(cu.label || '') && Math.abs(cu.top - headNow) <= 16 && !!cuReq && /\(pages 1–3\)/.test(JSON.stringify(cuReq.body.messages)), { cu, headNow, sent: !!cuReq })
-  await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
+  // No Catch me up pill by a heading (Anders, 11 Nov 2026: own books carry the library's pills; Catch me up is the t menu's).
+  ok('3. no Catch me up pill beside the heading', !(await a.$(`.mr-hp[data-unit="${units[1].key}"] [data-pill="catchup"]`)))
   await clickPill(a, 'primer', units[1].key); await a.waitForTimeout(500)
   const pm = await a.evaluate(k => { const p = document.querySelector('.mr-doc .mr-primer'); return p && { top: p.getBoundingClientRect().top, unit: primer.unit?.key, pressed: document.querySelector(`.mr-hp[data-unit="${k}"] [data-pill="primer"]`).getAttribute('aria-expanded') } }, units[1].key)
   ok('3. Primer opens Before you start for the unit, level with its heading, its button pressed', pm && Math.abs(pm.top - headNow) <= 16 && pm.unit === units[1].key && pm.pressed === 'true', { pm, headNow })
@@ -4552,19 +4659,19 @@ async function unitMarks(browser, origin) {
   ok('3. Primer again folds it', !(await a.$('.mr-doc .mr-primer')))
   await clickPill(a, 'note', units[1].key); await a.waitForTimeout(500)
   const nt = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), f = el?.querySelector('.mr-note-edit'); return el && { field: !!f, focused: document.activeElement === f, top: el.getBoundingClientRect().top } })
-  ok('3. Note opens the reader\'s own note on the unit, with its cards from the heading down (after the folded recap, quiz, catch-up), its field ready, in view', nt && nt.field && nt.focused && nt.top >= headNow - 16 && nt.top < 860, { nt, headNow })
+  ok('3. Note opens the reader\'s own note on the unit, with its cards from the heading down (after the folded summary and quiz), its field ready, in view', nt && nt.field && nt.focused && nt.top >= headNow - 16 && nt.top < 860, { nt, headNow })
   await a.keyboard.press('Escape'); await a.waitForTimeout(300)
   // 4. The chapter menu: the unit the reader is in, marked, with Recap, Quiz me and Catch me up.
   await a.evaluate(() => { openCard(null); goTo({ page: 6, frac: 0.3 }) }); await a.waitForTimeout(800)
   await a.evaluate(() => openContents()); await a.waitForTimeout(300)
   const menu = await a.evaluate(() => { const s = document.querySelector('.lab-contents-v2 .byob-unit-now'); return s && { name: s.querySelector('[aria-current]')?.textContent, acts: [...s.querySelectorAll('[data-unit-act]')].map(b => b.textContent.trim()) } })
-  ok('4. the chapter menu marks the unit being read and offers ✧ Recap · ✧ Quiz me · ✧ Catch me up', menu && menu.name === '2 Motivations · pp. 4–8' && menu.acts.join('|') === '✧Recap|✧Quiz me|✧Catch me up', menu)
+  ok('4. the chapter menu marks the unit being read and offers ✧ Summary · ✧ Quiz me', menu && menu.name === '2 Motivations · pp. 4–8' && menu.acts.join('|') === '✧Summary|✧Quiz me', menu)
   await shot(a, 'unit-marks-menu-1440x900')
   const r3 = account.requests.length
   await a.click('.lab-contents-v2 [data-unit-act="recap"]'); await a.waitForTimeout(1500)
   const fromMenu = { ...await cardAt(), unit: await a.evaluate(() => cardById(col.open || '')?.data?.unit?.key) }
   // (The unit's recap made from its pills above: the same card, opened again, nothing asked again.)
-  ok('4. Recap from the menu opens the unit\'s recap, brought into view', fromMenu.label && /^Recap · /.test(fromMenu.label) && fromMenu.inView && fromMenu.unit === units[1].key && !chatsOf(r3).some(r => /Recap it for them/.test(JSON.stringify(r.body.messages || ''))), fromMenu)
+  ok('4. Summary from the menu opens the unit\'s summary, brought into view', fromMenu.label && /^Summary · /.test(fromMenu.label) && fromMenu.inView && fromMenu.unit === units[1].key && !chatsOf(r3).some(r => /Summarise it for them/.test(JSON.stringify(r.body.messages || ''))), fromMenu)
   ok('no page errors', !A.problems.length, A.problems)
   await A.ctx.close()
   // 5. The long book's chapters start at a page's top: the pills beside the chapter's heading there.
@@ -4734,7 +4841,7 @@ async function notebookCheck(browser, origin) {
     let s = await a.evaluate(nbState)
     ok(`${tag}: it opens with "Notebook", the count line and copy, download and close`, s && s.title === 'Notebook' && s.count === `${seeded} entries` && s.icons.join() === 'Copy all,Download,Close' && s.button === 'true' && s.inside, s)
     ok(`${tag}: All lists every entry newest first, each a rounded card with its chip, kind, time and bin`, s.entries.length === seeded && s.entries.every(e => e.chip && e.kind && e.time && e.bin && e.radius >= 12) && s.entries[0].kind === 'Note' && s.entries[0].time === '2 min ago' && s.entries[s.entries.length - 1].kind === 'Highlight' && s.entries[s.entries.length - 1].time === '2 days ago', s.entries)
-    ok(`${tag}: the kinds are named: Explain, Ask, Simplify, Define, Fact-check, Counterpoint, Quiz, Note, Highlight`, ['Explain', 'Ask', 'Simplify', 'Define · variance', 'Fact-check', 'Counterpoint', 'Quiz', 'Note', 'Highlight'].every(k => s.entries.some(e => e.kind === k)), s.entries.map(e => e.kind))
+    ok(`${tag}: the kinds are named: Explain, Ask, Simplify, Define, Evaluate, Counterpoint, Quiz, Note, Highlight`, ['Explain', 'Ask', 'Simplify', 'Define · variance', 'Evaluate', 'Counterpoint', 'Quiz', 'Note', 'Highlight'].every(k => s.entries.some(e => e.kind === k)), s.entries.map(e => e.kind))
     const ex = s.entries.find(e => e.kind === 'Explain'), ask = s.entries.find(e => e.kind === 'Ask')
     ok(`${tag}: a quoted passage with an accent rule; Q and A rows; a long answer cut at four lines with "Read the whole answer"; follow-ups under a rule`, s.rule?.[0] === '2px' && s.rule[1] === 'solid' && ex.quote && ex.cut && ex.more && ex.follow && ask.q === 1 && ask.a === 1 && !ask.cut, { rule: s.rule, ex, ask })
     ok(`${tag}: no mono, no capitals`, s.mono === 0 && s.caps === 0, s)
@@ -4745,10 +4852,17 @@ async function notebookCheck(browser, origin) {
     const whole = await a.evaluate(id => { const e = document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`); return { full: e.classList.contains('is-full'), h: e.getBoundingClientRect().height, sh: e.scrollHeight } }, exId)
     ok(`${tag}: "Read the whole answer" shows all of it`, whole.full && Math.abs(whole.h - whole.sh) < 2, whole)
     // The filter.
-    await a.click('.nb [data-f="mine"]'); await a.waitForTimeout(150)
+    // The filter: AI · Highlights · Notes · All (Anders, 6 Nov 2026; was All · My notes · AI). A noted highlight is a Note only.
+    const seg = await a.evaluate(() => [...document.querySelectorAll('.nb [data-f]')].map(b => b.dataset.f + ':' + b.textContent))
+    ok(`${tag}: the filter reads AI · Highlights · Notes · All, in that order`, seg.join('|') === 'ai:AI|highlights:Highlights|notes:Notes|all:All', seg)
+    await a.click('.nb [data-f="highlights"]'); await a.waitForTimeout(150)
     s = await a.evaluate(nbState)
-    ok(`${tag}: My notes: the reader's own notes and highlights only`, s.filter === 'My notes' && s.entries.length === 2 && s.entries.every(e => ['Note', 'Highlight'].includes(e.kind)) && s.count === '2 entries', s)
-    await shot(a, `${tag}-mine`)
+    ok(`${tag}: Highlights: the reader's plain highlights only`, s.filter === 'Highlights' && s.entries.length === 1 && s.entries.every(e => e.kind === 'Highlight') && s.count === '1 entry', s)
+    await shot(a, `${tag}-highlights`)
+    await a.click('.nb [data-f="notes"]'); await a.waitForTimeout(150)
+    s = await a.evaluate(nbState)
+    ok(`${tag}: Notes: the reader's written notes only`, s.filter === 'Notes' && s.entries.length === 1 && s.entries.every(e => e.kind === 'Note') && s.count === '1 entry', s)
+    await shot(a, `${tag}-notes`)
     await a.click('.nb [data-f="ai"]'); await a.waitForTimeout(150)
     s = await a.evaluate(nbState)
     ok(`${tag}: AI: the companion's answers only`, s.filter === 'AI' && s.entries.length === seeded - 2 && s.entries.every(e => !['Note', 'Highlight'].includes(e.kind)) && s.count === `${seeded - 2} entries`, s)
@@ -4819,7 +4933,7 @@ async function notebookCheck(browser, origin) {
     await A.ctx.close()
   }
   // The margin batch (19 Oct 2026): the core branch's new cards in the Notebook. A margin note and a unit's note under
-  // "My notes"; a unit's pill cards (Catch me up, Recap, its quiz) and a Fact-check under "AI", Fact-check as its card shows it.
+  // "Notes"; a unit's pill cards (Catch me up, Recap, its quiz) and a Evaluate under "AI", Evaluate as its card shows it.
   {
     const tag = 'notebook-batch-1440x900'
     const hexL = addBook(LONG_BOOK)
@@ -4827,11 +4941,6 @@ async function notebookCheck(browser, origin) {
     const B = await readerPage(browser, origin, hexL, { width: 1440, height: 900, look: 'paper' })
     const b = B.page
     await prefetchSettled(b)
-    // Catch me up from the second unit's start (the first has none since 20 Oct 2026: nothing to catch up on yet).
-    await b.evaluate(() => { openCard(null); closePrimer(); goTo({ page: primer.units[1].start, frac: 0 }) }); await b.waitForTimeout(800)
-    // (Since 21 Oct 2026 a unit's pills sit beside its heading, shown on hover.)
-    await clickPill(b, 'catchup', await b.evaluate(() => primer.units[1].key)); await b.waitForTimeout(1300)
-    await b.evaluate(() => openCard(null)); await b.waitForTimeout(200)
     await b.evaluate(() => { const u = primer.units[0]; goTo({ page: u.start, frac: 0 }) }); await b.waitForTimeout(900)
     const k0 = await b.evaluate(() => primer.units[0].key)
     await clickPill(b, 'recap', k0); await b.waitForTimeout(1300)
@@ -4844,39 +4953,38 @@ async function notebookCheck(browser, origin) {
     await b.mouse.click(x, 560); await b.waitForTimeout(500)
     await b.keyboard.type('My margin thought for the Notebook.')
     await b.evaluate(() => { const p = state.pages.find(q => q.pg.getBoundingClientRect().bottom > 400).pg.getBoundingClientRect(); return { x: p.left + 30, y: 640 } }).then(p => b.mouse.click(p.x, p.y)); await b.waitForTimeout(500)
-    // A Fact-check kept with a restating opening and an empty Sources line (as before the verdict-first prompt).
+    // A Evaluate kept with a restating opening and an empty Sources line (as before the verdict-first prompt).
     await b.evaluate(() => { const card = TinctMargin.newCard({ kind: 'factcheck', page: 2, anchor: [{ n: 2, x: 0.12, y: 0.3, w: 0.6, h: 0.02 }], text: 'A passage that makes a claim.', turns: [{ role: 'assistant', content: 'The passage claims that MOCK opening restates it {p. 2}.\n\nHolds. MOCK verdict first.\n\nSources: none searched yet.' }], at: Date.now() - 60000 }); store.set('cards:' + state.key, [...keptCards(), card]); col.view = null; marginLayout({ fresh: true }) })
     await b.click('#notebookBtn'); await b.waitForSelector('.nb .nb-entry'); await b.waitForTimeout(200)
     const all = await b.evaluate(nbState)
     const named = k => all.entries.filter(e => e.kind === k)
     const unitLabel = await b.evaluate(() => TinctMargin.unitPhrase(primer.units[0]))
-    ok(`${tag}: All lists the margin note, the unit's note, Catch me up, Recap, the unit's quiz and the Fact-check`, named('Note').length === 2 && named('Catch me up').length === 1 && named('Recap').length === 1 && named('Quiz').length === 1 && named('Fact-check').length === 1 && all.count === '6 entries', all.entries.map(e => [e.kind, e.chip]))
-    // (Catch me up is the second unit's since 20 Oct 2026: the first has none.)
-    ok(`${tag}: a pill card's place chip is its unit`, named('Recap')[0]?.chip && named('Recap')[0].chip === named('Quiz')[0]?.chip && !!named('Catch me up')[0]?.chip && named('Catch me up')[0].chip !== named('Recap')[0].chip, { chip: named('Recap')[0]?.chip, catchup: named('Catch me up')[0]?.chip, unitLabel })
-    const fc = await b.evaluate(id => document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`)?.innerText || '', named('Fact-check')[0]?.id)
-    ok(`${tag}: Fact-check is listed as its card shows it: the verdict first, no restating opening, no empty Sources line`, /^(Answer:\s*)?Holds\. MOCK verdict first\./.test(fc) && !/passage claims|none searched/i.test(fc), fc)
-    await b.click('.nb [data-f="mine"]'); await b.waitForTimeout(150)
+    ok(`${tag}: All lists the margin note, the unit's note, Summary, the unit's quiz and the Evaluate`, named('Note').length === 2 && named('Summary').length === 1 && named('Quiz').length === 1 && named('Evaluate').length === 1 && all.count === '5 entries', all.entries.map(e => [e.kind, e.chip]))
+    ok(`${tag}: a pill card's place chip is its unit`, named('Summary')[0]?.chip && named('Summary')[0].chip === named('Quiz')[0]?.chip, { chip: named('Summary')[0]?.chip, unitLabel })
+    const fc = await b.evaluate(id => document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`)?.innerText || '', named('Evaluate')[0]?.id)
+    ok(`${tag}: Evaluate is listed as its card shows it: the verdict first, no restating opening, no empty Sources line`, /^(Answer:\s*)?Holds\. MOCK verdict first\./.test(fc) && !/passage claims|none searched/i.test(fc), fc)
+    await b.click('.nb [data-f="notes"]'); await b.waitForTimeout(150)
     const mine = await b.evaluate(nbState)
     const notes = await b.evaluate(() => [...document.querySelectorAll('.nb-entry .nb-note')].map(n => n.textContent))
     const noteStyles = await b.evaluate(() => [...document.querySelectorAll('.nb-entry .nb-note')].map(n => getComputedStyle(n).fontStyle))
     ok(`${tag}: the Notebook sets every note's text upright (font-style normal)`, noteStyles.length >= 2 && noteStyles.every(v => v === 'normal'), noteStyles)
-    ok(`${tag}: My notes: the margin note and the unit's note (no passage quoted)`, mine.entries.length === 2 && mine.entries.every(e => e.kind === 'Note' && !e.quote) && notes.includes('My margin thought for the Notebook.') && notes.includes('My note on the whole chapter.'), { entries: mine.entries, notes })
-    await shot(b, `${tag}-mine`)
+    ok(`${tag}: Notes: the margin note and the unit's note (no passage quoted)`, mine.entries.length === 2 && mine.entries.every(e => e.kind === 'Note' && !e.quote) && notes.includes('My margin thought for the Notebook.') && notes.includes('My note on the whole chapter.'), { entries: mine.entries, notes })
+    await shot(b, `${tag}-notes`)
     await b.click('.nb [data-f="ai"]'); await b.waitForTimeout(150)
     const ai = await b.evaluate(nbState)
-    ok(`${tag}: AI: Catch me up, Recap, Quiz and Fact-check, no notes`, ai.entries.length === 4 && ['Catch me up', 'Recap', 'Quiz', 'Fact-check'].every(k => ai.entries.some(e => e.kind === k)) && !ai.entries.some(e => e.kind === 'Note'), ai.entries.map(e => e.kind))
+    ok(`${tag}: AI: Summary, Quiz and Evaluate, no notes`, ai.entries.length === 3 && ['Summary', 'Quiz', 'Evaluate'].every(k => ai.entries.some(e => e.kind === k)) && !ai.entries.some(e => e.kind === 'Note'), ai.entries.map(e => e.kind))
     await shot(b, `${tag}-ai`)
     // Jump: a Recap entry opens its card under the unit's end pills; a margin note's entry opens the note.
     await b.evaluate(() => goTo({ page: 1, frac: 0 })); await b.waitForTimeout(500)
-    const recapId = ai.entries.find(e => e.kind === 'Recap').id
+    const recapId = ai.entries.find(e => e.kind === 'Summary').id
     await b.click(`.nb-entry[data-id="${recapId}"] .nb-kind`); await b.waitForTimeout(1400)
     const seenCard = id => b.evaluate(id => { const el = document.querySelector(`.mr-card.is-open[data-id="${id}"]`), r = el?.getBoundingClientRect(), sr = document.getElementById('scroll').getBoundingClientRect(), top = r && document.elementFromPoint(r.left + r.width / 2, Math.max(r.top, sr.top) + 10); return { open: col.open, shown: !!r && r.width > 0 && r.top < sr.bottom - 40 && r.bottom > sr.top + 40, seen: !!top && el.contains(top), panel: !!document.querySelector('.nb'), name: el?.querySelector('.mr-card__name')?.textContent } }, id)
     const rj = await seenCard(recapId)
-    ok(`${tag}: a Recap entry jumps to the unit's end and opens its card there, seen`, rj.open === recapId && rj.shown && rj.seen && !rj.panel && /^Recap · /.test(rj.name || ''), rj)
+    ok(`${tag}: a Recap entry jumps to the unit's end and opens its card there, seen`, rj.open === recapId && rj.shown && rj.seen && !rj.panel && /^Summary · /.test(rj.name || ''), rj)
     await shot(b, `${tag}-jump-recap`)
     await b.evaluate(() => { openCard(null); goTo({ page: 1, frac: 0 }) }); await b.waitForTimeout(500)
     await b.click('#notebookBtn'); await b.waitForSelector('.nb .nb-entry')
-    await b.click('.nb [data-f="mine"]'); await b.waitForTimeout(150)
+    await b.click('.nb [data-f="notes"]'); await b.waitForTimeout(150)
     const noteId = await b.evaluate(() => [...document.querySelectorAll('.nb-entry')].find(e => /My margin thought/.test(e.textContent))?.dataset.id)
     await b.click(`.nb-entry[data-id="${noteId}"] .nb-kind`); await b.waitForTimeout(1400)
     const nj = await seenCard(noteId)
@@ -4979,9 +5087,9 @@ async function pdfTextCheck(browser, origin) {
       if (!prepared) await page.waitForTimeout(250)
     }
     ok(`${tag}: read in its pages, its Tinct text is prepared in idle time and kept before Tinct text is chosen`, prepared)
-    await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="text"]')
+    await openBookPanel(page, '[data-layout="text"]')
     const chosen = Date.now()
-    await page.click('.byob-aa-panel [data-layout="text"]')
+    await page.click('.byob-book-settings [data-layout="text"]')
     const shown = await page.waitForFunction(() => isPdfText() && document.querySelector('.pt-chapter') && marginOn(), null, { timeout: 30000 }).then(() => true).catch(() => false)
     console.log(`     ${tag}: Tinct text shown ${Date.now() - chosen} ms after it was chosen (prepared)`)
     await page.waitForTimeout(1500)
@@ -4994,6 +5102,18 @@ async function pdfTextCheck(browser, origin) {
     ok(`${tag}: Tinct paper (one sheet edged at its sides, 21 Oct), the reader's font, the margin's column beside it, chapter titles as headings`, view.paper && SHEET_SIDES(view.sheetBg, view.shadow) && !/mono/i.test(view.font) && view.column === 'column' && view.heads >= 1, view)
     ok(`${tag}: it opens at the same place: the PDF's page ${before.page} at the top of the view`, view.pdfPage?.page === before.page, { before, pdfPage: view.pdfPage, spot: view.spot })
     if (marked) ok(`${tag}: the highlight made on the PDF's page shows in the Tinct text (found by its words)`, view.hl.includes(marked.text) && await page.evaluate(() => [...CSS.highlights.keys()].some(k => k.startsWith('tinct-hl-'))), { marked, hl: view.hl })
+    // 22 Oct 2026: a Tinct text's chapters carry their pills in the text, as an EPUB's and a Tinct book's do: Primer on the
+    // heading's line, Recap · Quiz me · Note under the last paragraph (a PDF's pages keep the pills on heading hover).
+    const unitPills = await page.evaluate(async () => {
+      const u = (primer.units || []).find(x => !x.matter && state.pages[x.start - 1]); if (!u) return { units: (primer.units || []).length }
+      const wait = () => new Promise(r => setTimeout(r, 700))
+      goTo({ page: u.start, frac: 0 }); await wait()
+      const s = document.querySelector(`.mr-hp:not(.is-end)[data-unit="${u.key}"]`), head = s?.closest('.mr-hp-head')
+      epubParas(state.pages[u.to - 1]).at(-1)?.scrollIntoView({ block: 'center' }); await wait()
+      const e = document.querySelector(`.mr-hp.is-end[data-unit="${u.key}"]`)
+      return { unit: u.title, start: s && [...s.querySelectorAll('.mr-pill')].map(b => b.dataset.label), head: head?.textContent.trim().slice(0, 60), inline: !!s?.classList.contains('is-inline'), end: e && [...e.querySelectorAll('.mr-pill')].map(b => b.dataset.label) }
+    })
+    ok(`${tag}: a chapter of the Tinct text: Primer on its heading's line, Summary · Quiz me · Note under its last paragraph`, unitPills.start?.[0] === 'Primer' && unitPills.inline && !!unitPills.head && unitPills.end?.join('|') === 'Summary|Quiz me|Note', unitPills)
     if (label === 'figures') ok(`${tag}: the PDF's figures stand in the text as crisp crops of the page`, view.figs.length >= 1 && view.figs.every(f => f.w >= f.shown && f.w > 0), view.figs)
     // A request from here reads the document as the PDF's pages, and its answer cites them.
     const r0 = account.requests.length
@@ -5016,13 +5136,13 @@ async function pdfTextCheck(browser, origin) {
     await page.keyboard.press('Escape'); await page.mouse.click(5, 895)
     // Back: "Original pages", at the same place.
     const spotNowText = await page.evaluate(() => { const at = currentPlace(), s = epubSpot(); return PT().pageAt(state.pdfText.edition, at.page, s.para || 0, s.word || 0) })
-    await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="pages"]')
-    const aa = await page.evaluate(() => [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => b.dataset.layout))
-    await page.click('.byob-aa-panel [data-layout="pages"]')
+    await openBookPanel(page, '[data-layout="pages"]')
+    const aa = await page.evaluate(() => [...document.querySelectorAll('.byob-book-settings [data-layout]')].map(b => b.dataset.layout))
+    await page.click('.byob-book-settings [data-layout="pages"]')
     const back = await page.waitForFunction(() => state.kind === 'pdf' && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }).then(() => true).catch(() => false)
     await page.waitForTimeout(1200)
     const after = await page.evaluate(() => ({ at: currentPlace(), edition: store.get('edition:' + hexOf(state.key)), url: location.pathname + location.search }))
-    ok(`${tag}: the Aa panel offers Tinct text (chosen) and Original pages, and Original pages goes back to the same page`, JSON.stringify(aa) === '["margin","pages"]' && back && after.at.page === spotNowText?.page && Math.abs(after.at.frac - spotNowText.frac) < 0.2 && after.edition === 'pages', { aa, spotNowText, after })
+    ok(`${tag}: Book settings offers Tinct text (chosen) and Original pages, and Original pages goes back to the same page`, JSON.stringify(aa) === '["margin","pages"]' && back && after.at.page === spotNowText?.page && Math.abs(after.at.frac - spotNowText.frac) < 0.2 && after.edition === 'pages', { aa, spotNowText, after })
     ok(`${tag}: no page errors`, !problems.length, problems)
     await ctx.close()
   }
@@ -5096,10 +5216,10 @@ async function epubViewCheck(browser, origin) {
     await epubSettled(e); await e.waitForFunction(() => col.mode != null, null, { timeout: 10000 }).catch(() => {})
     const opened = await e.evaluate(() => ({ url: location.pathname + location.search, kind: state.kind, margin: marginOn(), mode: col.mode, dock: !!document.querySelector('.byob-dock'), nb: getComputedStyle(document.getElementById('notebookBtn')).display !== 'none' }))
     ok(`${tag}: the EPUB opens here, in Margin view (its column), at its own address, with the Notebook`, opened.url === `/lab/addbook/?userBook=${hex}` && opened.kind === 'epub' && opened.margin && opened.mode === 'column' && !opened.dock && opened.nb, opened)
-    // The Aa panel: Margin view, and Convert to Tinct book.
-    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel')
-    const aa = await e.evaluate(() => [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => [b.dataset.layout, b.textContent.trim(), b.getAttribute('aria-pressed')]))
-    ok(`${tag}: the Aa panel offers Margin view (chosen) and Convert to Tinct book`, JSON.stringify(aa) === JSON.stringify([['margin', 'Margin view (default)✓', 'true'], ['text', 'Convert to Tinct book', 'false']]), aa)
+    // Book settings: Margin view, and Convert to Tinct book.
+    await openBookPanel(e)
+    const aa = await e.evaluate(() => [...document.querySelectorAll('.byob-book-settings [data-layout]')].map(b => [b.dataset.layout, b.textContent.trim(), b.getAttribute('aria-pressed')]))
+    ok(`${tag}: Book settings offers Margin view (chosen) and Convert to Tinct book`, JSON.stringify(aa) === JSON.stringify([['margin', 'Margin view (default)✓', 'true'], ['text', 'Convert to Tinct book', 'false']]), aa)
     await e.keyboard.press('Escape')
     // A place: chapter 3's third paragraph, some way in.
     await e.evaluate(() => { const p = state.pages[2], el = epubParas(p)[3]; goTo({ page: 3, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.4; r() }))) })
@@ -5125,8 +5245,8 @@ async function epubViewCheck(browser, origin) {
     // The view switch: Convert to Tinct book leaves for the Tinct reader at this place, and is this device's choice.
     await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await epubSettled(e)
     await e.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
-    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel [data-layout="text"]')
-    await Promise.all([e.waitForURL(`**/reader?userBook=${hex}`), e.click('.byob-aa-panel [data-layout="text"]')])
+    await openBookPanel(e, '[data-layout="text"]')
+    await Promise.all([e.waitForURL(`**/reader?userBook=${hex}`), e.click('.byob-book-settings [data-layout="text"]')])
     const left = await e.evaluate(([k, h]) => ({ view: JSON.parse(localStorage.getItem('tinct-addbook:epub-view:' + h)), pos: JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)) }), [key, hex])
     ok(`${tag}: Convert to Tinct book opens the Tinct reader, kept as this device's choice, the place sent by its words`, left.view === 'text' && left.pos.quote === here.quote && left.pos.para === here.para, left)
     // With that choice, this address goes on to the Tinct reader; the Tinct reader's "Margin view" comes back to the same words.
@@ -5283,6 +5403,22 @@ async function epubOpenCheck(browser, origin) {
   ok('4. Tinct paper: one sheet edged at its sides (21 Oct), Margin view\'s text size and measure inside it, the margin column beside it', SHEET_SIDES(paper.bg, paper.shadow) && paper.sheet > paper.width + 40 && Math.abs(paper.width - paper.measure) <= 1 && Math.abs(paper.size - paper.want) < 0.05 && paper.mode === 'column' && paper.paper && /EB Garamond/.test(paper.h1), paper)
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()
+  // A pre-owner static record cannot be shown as this account's annotation.
+  // The Classic menu offers a deliberate handoff to the shared Attach flow.
+  const R = await epubPage(browser, origin, E.hex, { width: 1440, height: 900, look: 'night', init: () => {
+    const hex = new URLSearchParams(location.search).get('userBook')
+    if (hex) localStorage.setItem(`tinct-addbook:hl:epub:${hex}`, JSON.stringify([{ id: 'unclaimed', page: 1, text: 'Older words' }]))
+  } })
+  await R.page.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 })
+  await R.page.click('#superBtn')
+  const review = R.page.locator('.lab-super-panel [data-row="review-epub"]')
+  ok('older unclaimed EPUB annotation offers Review instead of silently adopting it', await review.isVisible()
+    && await R.page.evaluate(h => TinctAddEngine.legacyEpubAnnotations.get('hl:epub:' + h) === null, E.hex))
+  await review.click()
+  ok('Review older annotations hands the current file to the shared reader attach flow', new URL(R.page.url()).pathname === '/reader'
+    && new URL(R.page.url()).searchParams.get('userBook') === E.hex
+    && new URL(R.page.url()).searchParams.get('sharedReader') === '1', R.page.url())
+  await R.ctx.close()
   return results
 }
 
@@ -5298,70 +5434,56 @@ async function epubUnitsCheck(browser, origin) {
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   // (Since 21 Oct 2026 a unit's pills sit beside its heading, shown while the pointer is over it; no marks in the column.)
   const pillsOf = ([n, k]) => { const m = document.querySelector(`.mr-hp[data-unit="${k}"]`), h = state.pages[n - 1].pg.querySelector('h1'); if (!m) return null; const r = m.getBoundingClientRect(), hr = document.createRange(); hr.selectNodeContents(h); const line = textRects(hr).filter(b => b.width).at(-1), cs = getComputedStyle(m); return { mid: (r.top + r.bottom) / 2, lineMid: (line.top + line.bottom) / 2, after: r.left - line.right, inHead: h.contains(m), headText: h.textContent, shown: cs.visibility === 'visible', pills: [...m.querySelectorAll('.mr-pill')].map(b => b.dataset.label), marks: document.querySelectorAll('.mr-doc .mr-unit:not(.is-book)').length, rules: document.querySelectorAll('.mr-doc-leads path.is-rule').length } }
+  // 22 Oct 2026 (Anders: "place chapter pills in the text like we do on mobile"): replaces 21 Oct's hover-only pills. The
+  // start's Primer (and Catch me up) on the heading's line, shown with the pointer away; the end's under the last paragraph.
+  const endOf = ([n, k]) => { const m = document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`), paras = epubParas(state.pages[n - 1]), last = paras.at(-1); if (!m || !last) return null; const r = m.getBoundingClientRect(), lr = document.createRange(); lr.selectNodeContents(last); const lines = textRects(lr).filter(b => b.width), cs = getComputedStyle(m); return { top: r.top, lastBottom: Math.max(...lines.map(b => b.bottom)), left: r.left, textLeft: Math.min(...lines.map(b => b.left)), shown: cs.visibility === 'visible' && Number(cs.opacity) > 0.95, bottom: r.bottom, sheetBottom: m.closest('.epub-sheet')?.getBoundingClientRect().bottom, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.dataset.label), textFree: !m.textContent.trim(), paraCount: epubParas(state.pages[n - 1]).length } }
   await e.mouse.move(1300, 700); await e.waitForTimeout(1100)
-  const hidden = await e.evaluate(pillsOf, [n, key])
-  await hoverHead(e, key)
   const start = await e.evaluate(pillsOf, [n, key])
   // The first section offers no Catch me up (item l, Anders, 20 Oct 2026): nothing has been read before it.
-  ok('3/l. the first essay\'s heading, hovered: ✧ Primer · ✧ Recap · ✧ Quiz me · Note right after its last word, on its line (hidden before); no marks or rules in the column', hidden && !hidden.shown && start && start.shown && start.pills.join('|') === 'Primer|Recap|Quiz me|Note' && Math.abs(start.mid - start.lineMid) <= 3 && start.after >= 6 && start.after <= 20 && start.marks === 0 && start.rules === 0, { hidden, start })
+  ok('3/l. the first essay\'s heading: ✧ Primer alone right after its last word, on its line, shown with the pointer away; no marks or rules in the column', start && start.shown && start.pills.join('|') === 'Primer' && Math.abs(start.mid - start.lineMid) <= 3 && start.after >= 6 && start.after <= 20 && start.marks === 0 && start.rules === 0, { start })
   ok('3. the pills add no text to the heading (an EPUB\'s places are offsets in its text)', start && start.inHead && start.headText === '1 The Fate of Lamplight', start?.headText)
-  await epubShot(e, 'unit-pills-hover')
+  const paras0 = await e.evaluate(n => { const p = state.pages[n - 1]; p.paras = null; return epubParas(p).length }, n)
+  await e.evaluate(n => { const p = state.pages[n - 1]; const last = epubParas(p).at(-1); last.scrollIntoView({ block: 'center' }) }, n); await e.waitForTimeout(700)
+  const end = await e.evaluate(endOf, [n, key])
+  ok('1. the first essay\'s end: ✧ Summary · ✧ Quiz me · Note just under its last paragraph (4–20 px), at the text\'s left edge, inside its sheet (never clipped), shown with the pointer away', end && end.shown && end.sheetBottom != null && end.bottom <= end.sheetBottom - 2 && end.pills.join('|') === 'Summary|Quiz me|Note' && end.top - end.lastBottom >= 4 && end.top - end.lastBottom <= 20 && Math.abs(end.left - end.textLeft) <= 2, end)
+  ok('1. the end pills add no text and no paragraph to the chapter', end && end.textFree && end.paraCount === paras0, { end, paras0 })
+  await epubShot(e, 'unit-pills-end')
+  await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
+  await epubShot(e, 'unit-pills-start')
   await e.evaluate(() => openContents()); await e.waitForTimeout(300)
   const menu1 = await e.evaluate(() => [...document.querySelectorAll('.lab-contents-v2 [data-unit-act]')].map(b => b.dataset.unitAct))
   await e.keyboard.press('Escape'); await e.evaluate(() => document.querySelector('.lab-contents-v2')?.remove())
   ok('l. the chapter menu offers no Catch me up in the first section', menu1.length > 0 && !menu1.includes('catchup'), menu1)
   const n2 = await essayPage(e, '2 Controversial'), key2 = await e.evaluate(n => primer.units.find(u => u.start === n).key, n2)
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n2); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
-  await hoverHead(e, key2)
   const second = await e.evaluate(pillsOf, [n2, key2])
-  ok('3. the next essay\'s heading offers ✧ Primer · ✧ Catch me up · ✧ Recap · ✧ Quiz me · Note', second?.shown && second.pills.join('|') === 'Primer|Catch me up|Recap|Quiz me|Note', second)
-  // Keyboard: the heading takes the focus (Tab) and shows its pills; the next Tab is its Primer.
-  await e.mouse.move(1300, 700); await e.waitForTimeout(1100)
-  await e.evaluate(k => document.querySelector(`.mr-hp[data-unit="${k}"]`).closest('.mr-hp-head').focus(), key2); await e.waitForTimeout(200)
-  const focused = await e.evaluate(pillsOf, [n2, key2])
-  await e.keyboard.press('Tab')
+  ok('1. the next essay\'s heading offers ✧ Primer alone (Catch me up is the t menu\'s), shown with the pointer away', second?.shown && second.pills.join('|') === 'Primer', second)
+  // Keyboard: the pill is in the tab order (the heading no longer needs the focus to show it).
+  await e.evaluate(k => document.querySelector(`.mr-hp[data-unit="${k}"] [data-pill="primer"]`).focus(), key2); await e.waitForTimeout(100)
   const tabbed = await e.evaluate(() => document.activeElement?.dataset?.pill || document.activeElement?.tagName)
-  ok('3. a focused heading shows its pills; Tab goes on to its Primer', focused?.shown && tabbed === 'primer', { shown: focused?.shown, tabbed })
+  ok('1. its Primer takes the keyboard focus', tabbed === 'primer', { tabbed })
   await e.evaluate(() => document.activeElement?.blur())
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   // 21 Oct 2026 (A): Recap, then Quiz me in the same row, clicked as a hand does (a pause between press and release):
-  // the press never folds Recap first and moves the pills away from under the pointer (Quiz me did nothing).
+  // the press never folds Recap first and moves the pills away from under the pointer (Quiz me did nothing). Since 22
+  // Oct 2026 the row is the chapter's end, under its last paragraph; its cards still open in the column.
   const press = async sel => { const b = await (await e.$(sel)).boundingBox(); await e.mouse.move(b.x + b.width / 2, b.y + b.height / 2); await e.mouse.down(); await e.waitForTimeout(160); await e.mouse.up() }
-  const rowSel = `.mr-hp[data-unit="${key}"]`
-  await hoverHead(e, key)
+  const rowSel = `.mr-hp.is-end[data-unit="${key}"]`
+  await e.evaluate(n => epubParas(state.pages[n - 1]).at(-1).scrollIntoView({ block: 'center' }), n); await e.waitForTimeout(700)
   await press(`${rowSel} [data-pill="recap"]`); await e.waitForFunction(() => /MOCK/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 8000 }).catch(() => {})
-  const recap = await e.evaluate(([n, k]) => { const el = document.querySelector('.mr-card.is-open'), h = state.pages[n - 1].pg.querySelector('h1'); return { name: el?.querySelector('.mr-card__name')?.textContent || '', top: el?.getBoundingClientRect().top, head: h.getBoundingClientRect().top, pills: document.querySelector(`.mr-hp[data-unit="${k}"]`).getBoundingClientRect().top } }, [n, key])
-  ok('3. Recap from the heading opens its card in the column level with the heading (within 12 px)', /^Recap/.test(recap.name) && Math.abs(recap.top - recap.head) <= 12, recap)
+  const recap = await e.evaluate(k => { const el = document.querySelector('.mr-card.is-open'); return { name: el?.querySelector('.mr-card__name')?.textContent || '', top: el?.getBoundingClientRect().top, pills: document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`).getBoundingClientRect().top, unit: cardById(col.open || '')?.data?.unit?.key } }, key)
+  ok('1. Summary from the chapter\'s end opens that chapter\'s card in the column level with its end pills (within 12 px); the view stays', /^Summary/.test(recap.name) && recap.unit === key && Math.abs(recap.top - recap.pills) <= 12 && recap.pills > 0 && recap.pills < 900, recap)
   await press(`${rowSel} [data-pill="quiz"]`); await e.waitForTimeout(1200)
-  const quiz = await e.evaluate(k => ({ name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent || '', pills: document.querySelector(`.mr-hp[data-unit="${k}"]`).getBoundingClientRect().top }), key)
-  ok('A. Recap, then Quiz me (a hand\'s click): the quiz card opens; the pills never moved', /^Quiz me/.test(quiz.name) && Math.abs(quiz.pills - recap.pills) <= 0.5, { recap, quiz })
+  const quiz = await e.evaluate(k => ({ name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent || '', pills: document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`).getBoundingClientRect().top, unit: cardById(col.open || '')?.data?.unit?.key }), key)
+  ok('A. Recap, then Quiz me (a hand\'s click): the quiz card opens, on that chapter; the pills never moved', /^Quiz me/.test(quiz.name) && quiz.unit === key && Math.abs(quiz.pills - recap.pills) <= 0.5, { recap, quiz })
   await epubShot(e, 'recap-then-quiz')
   await e.evaluate(() => openCard(null)); await e.waitForTimeout(300)
-  // 21 Oct 2026: a paragraph's ✧ in the margin beside its first line while the pointer is over it; clicked, Quiz me or
-  // Recap on the paragraph: the selection's own Quiz me and Explain (named Recap), the paragraph as the passage.
-  await e.evaluate(() => openCard(null)); await e.waitForTimeout(300)
+  // 22 Oct 2026 (Anders: "paragraph by paragraph should be left to the highlight motion"): replaces 21 Oct's paragraph ✧
+  // checks. A paragraph hovered (the pointer still, then scrolling over it) shows no ✧ and no menu.
   const paraBox = await e.evaluate(n => { const el = epubParas(state.pages[n - 1]).find(p => p.tagName === 'P' && p.textContent.length > 300); el.scrollIntoView({ block: 'center' }); const r = el.getBoundingClientRect(); return { x: r.left + 200, y: r.top + 12 } }, n)
-  await e.waitForTimeout(400); await e.mouse.move(paraBox.x, paraBox.y + 1); await e.waitForTimeout(300)
-  const sp = await e.evaluate(() => { const s = document.querySelector('.mr-pspark'), cs = s && getComputedStyle(s), r = s?.getBoundingClientRect(), p = window.spark?.para || null; const pr = document.elementFromPoint(r.right + 60, r.top + r.height / 2)?.closest('p'); return s && { shown: cs.visibility === 'visible', right: r.right, mid: (r.top + r.bottom) / 2, paraLeft: pr?.getBoundingClientRect().left, text: pr?.textContent.slice(0, 40) } })
-  ok('¶. a paragraph hovered shows its ✧ in the margin at its left edge, level with its first line', sp && sp.shown && sp.paraLeft != null && sp.right <= sp.paraLeft - 4 && sp.paraLeft - sp.right <= 20, sp)
-  await epubShot(e, 'para-spark')
-  const ask = async what => {
-    const r0 = account.requests.length
-    const b = await (await e.$('.mr-pspark')).boundingBox(); await e.mouse.move(b.x + 12, b.y + 12); await e.mouse.click(b.x + 12, b.y + 12); await e.waitForTimeout(200)
-    const menu = await e.evaluate(() => [...document.querySelectorAll('.mr-pmenu [data-pa]')].map(x => x.textContent))
-    if (what === 'quiz') await epubShot(e, 'para-menu')
-    await e.click(`.mr-pmenu [data-pa="${what}"]`); await e.waitForTimeout(1300)
-    const card = await e.evaluate(() => { const c = cardById(col.open || ''); return c && { kind: c.kind, name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent, text: c.text } })
-    const req = account.requests.slice(r0).find(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
-    return { menu, card, sel: req?.body?.companion?.selection?.text || req?.body?.companion?.selection || '' }
-  }
-  const pq = await ask('quiz')
-  const paraText = await e.evaluate(() => [...document.querySelectorAll('p')].find(p => p.matches(':hover'))?.textContent.replace(/\s+/g, ' ').trim() || '')
-  ok('¶. its menu: Quiz me · Recap; Quiz me opens a quiz on the whole paragraph', pq.menu.join('|') === 'Quiz me|Recap' && pq.card?.kind === 'quiz' && pq.card.text.length > 300 && JSON.stringify(pq.sel).includes(pq.card.text.slice(0, 60)), { ...pq, paraText: paraText.slice(0, 60) })
-  await e.evaluate(() => openCard(null)); await e.mouse.move(1300, 700); await e.waitForTimeout(300); await e.mouse.move(paraBox.x, paraBox.y); await e.waitForTimeout(300)
-  const pr = await ask('recap')
-  ok('¶. Recap opens an Explain card on the paragraph, named Recap', pr.card?.kind === 'explain' && /^Recap · /.test(pr.card.name || '') && pr.card.text === pq.card?.text, pr)
-  await epubShot(e, 'para-recap')
+  await e.waitForTimeout(400); await e.mouse.move(paraBox.x, paraBox.y + 1); await e.waitForTimeout(300); await e.mouse.wheel(0, 120); await e.waitForTimeout(400)
+  const sp = await e.evaluate(() => ({ spark: document.querySelectorAll('.mr-pspark').length, menu: document.querySelectorAll('.mr-pmenu').length, hp: [...document.querySelectorAll('.mr-hp')].filter(m => m.closest('p') && !m.closest('.mr-hp-head')).length }))
+  ok('4. a paragraph hovered or scrolled under the pointer shows no ✧ and no paragraph menu', sp.spark === 0 && sp.menu === 0 && sp.hp === 0, sp)
   // The whole book: Before you start at the very top.
   await e.evaluate(() => { document.getElementById('scroll').scrollTop = 0 }); await e.waitForTimeout(800)
   const book = await e.evaluate(() => { const m = document.querySelector('.mr-doc .mr-unit.is-book'), pg = state.pages[0].pg.getBoundingClientRect(); return m && { k: m.querySelector('.mr-unit__k').textContent, name: m.querySelector('.mr-unit__n').textContent, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.textContent.trim()), top: Math.round(m.getBoundingClientRect().top - pg.top) } })
@@ -5375,6 +5497,74 @@ async function epubUnitsCheck(browser, origin) {
   await epubShot(e, 'book-primer')
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()
+  return results
+}
+
+/* epub-heads (22 Oct 2026; Anders's own EPUB showed no chapter pills at all): a trade book's numbered chapters, each heading two
+   lines (the number, then the title) and an italic epigraph, set as paragraphs with the book's classes (no <h1>) or as an
+   <h1> number over an <h2> title. Each unit's start pills sit on its title's line, its end pills under its last paragraph,
+   as a Tinct book's do; the pills add no text, move no paragraph and leave the reader's place where it was. */
+async function epubHeadsCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  for (const heads of ['p', 'h']) {
+    const bytes = makeNumberedEpub({ heads }), sha256 = createHash('sha256').update(bytes).digest('hex'), hex = sha256.slice(0, 24), tag = `heads-${heads}`
+    if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: `span-of-accounts-${heads}.epub`, title: 'The Span of Accounts', author: 'Gale Editor', type: 'epub', size: bytes.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes })
+    const E = await epubPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' }), e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await epubSettled(e)
+    await e.waitForFunction(() => primer.units?.length > 1, null, { timeout: 8000 }).catch(() => {})
+    const units = await e.evaluate(() => (primer.units || []).map(u => ({ key: u.key, title: u.title, start: u.start, to: u.to, matter: u.matter || '' })))
+    ok(`${tag}: the units are the Introduction and each numbered chapter`, ['Introduction', '1. The Span of Accounts', '2. Nearer the Lamp', '3. The Patient Wick'].every(t => units.some(u => u.title === t && !u.matter)), units)
+    const texts0 = await e.evaluate(() => state.pages.map(p => { p.paras = null; return epubParas(p).map(el => el.textContent) }))
+    const go = async (n, end) => {
+      await e.evaluate(([n, end]) => { const p = state.pages[n - 1]; if (end) epubParas(p).at(-1).scrollIntoView({ block: 'center' }); else { goTo({ page: n, frac: 0 }); document.getElementById('scroll').scrollBy(0, -200) } }, [n, end])
+      await e.waitForTimeout(900)
+    }
+    const startOf = k => e.evaluate(k => {
+      const m = document.querySelector(`.mr-hp:not(.is-end)[data-unit="${k}"]`); if (!m) return null
+      const h = m.closest('.mr-hp-head'), r = m.getBoundingClientRect(), hr = document.createRange(); hr.selectNodeContents(h)
+      const line = textRects(hr).filter(b => b.width).at(-1), cs = getComputedStyle(m)
+      return { headText: h.textContent, tag: h.tagName, mid: (r.top + r.bottom) / 2, lineMid: (line.top + line.bottom) / 2, after: r.left - line.right, shown: cs.visibility === 'visible' && Number(cs.opacity) > 0.95, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.dataset.label), textFree: !m.textContent.trim() }
+    }, k)
+    const endOf = ([n, k]) => e.evaluate(([n, k]) => {
+      const m = document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`), last = epubParas(state.pages[n - 1]).at(-1); if (!m || !last) return null
+      const r = m.getBoundingClientRect(), lr = document.createRange(); lr.selectNodeContents(last); const lines = textRects(lr).filter(b => b.width), cs = getComputedStyle(m)
+      return { gap: r.top - Math.max(...lines.map(b => b.bottom)), left: r.left - Math.min(...lines.map(b => b.left)), shown: cs.visibility === 'visible' && Number(cs.opacity) > 0.95, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.dataset.label), inSheet: r.bottom <= (m.closest('.epub-sheet')?.getBoundingClientRect().bottom ?? -1) - 2, textFree: !m.textContent.trim() }
+    }, [n, k])
+    const intro = units.find(u => u.title === 'Introduction'), ch1 = units.find(u => u.title === '1. The Span of Accounts'), ch2 = units.find(u => u.title === '2. Nearer the Lamp')
+    if (intro && ch1 && ch2) {
+      await go(intro.start, false)
+      const s0 = await startOf(intro.key)
+      ok(`${tag}: the Introduction's heading${heads === 'p' ? ' (a paragraph, no <h1>)' : ''}: ✧ Primer on its line`, s0 && s0.shown && s0.headText === 'Introduction' && s0.pills[0] === 'Primer' && Math.abs(s0.mid - s0.lineMid) <= 3 && s0.textFree, s0)
+      await go(intro.to, true)
+      const e0 = await endOf([intro.to, intro.key])
+      ok(`${tag}: the Introduction's end: Summary · Quiz me · Note just under its last paragraph, at the text's left edge, inside its sheet`, e0 && e0.shown && e0.pills.join('|') === 'Summary|Quiz me|Note' && e0.gap >= 4 && e0.gap <= 20 && Math.abs(e0.left) <= 2 && e0.inSheet && e0.textFree, e0)
+      await epubShot(e, `${tag}-intro-end`)
+      await go(ch1.start, false)
+      const s1 = await startOf(ch1.key)
+      ok(`${tag}: chapter 1's split heading ("1", then its title): ✧ Primer after the title's last word, on its line, never beside the number or the epigraph`, s1 && s1.shown && s1.headText === 'The Span of Accounts' && s1.pills.join('|') === 'Primer' && Math.abs(s1.mid - s1.lineMid) <= 3 && s1.after >= 6 && s1.after <= 20 && s1.textFree, s1)
+      await epubShot(e, `${tag}-chapter1-start`)
+      await go(ch1.to, true)
+      const e1 = await endOf([ch1.to, ch1.key])
+      ok(`${tag}: chapter 1's end pills under its last paragraph`, e1 && e1.shown && e1.pills.join('|') === 'Summary|Quiz me|Note' && e1.gap >= 4 && e1.gap <= 20 && Math.abs(e1.left) <= 2 && e1.inSheet, e1)
+      // The place: the reader's spot at chapter 2's start, read before and after its pills are drawn again (a layout).
+      await go(ch2.start, false)
+      const spot0 = await e.evaluate(() => JSON.stringify(epubSpot()))
+      await e.evaluate(() => { marginLayout() }); await e.waitForTimeout(400)
+      const spot1 = await e.evaluate(() => JSON.stringify(epubSpot()))
+      ok(`${tag}: drawing the pills leaves the reader's place where it was`, spot0 === spot1, { spot0, spot1 })
+      // Clicked, chapter 1's Recap opens that chapter's card.
+      await go(ch1.to, true)
+      await e.click(`.mr-hp.is-end[data-unit="${ch1.key}"] [data-pill="recap"]`, { timeout: 5000 }).catch(() => {})
+      await e.waitForFunction(() => /MOCK/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 8000 }).catch(() => {})
+      const recap = await e.evaluate(() => ({ name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent || '', unit: cardById(col.open || '')?.data?.unit?.key }))
+      ok(`${tag}: chapter 1's Recap opens that chapter's recap card`, /^Summary/.test(recap.name) && recap.unit === ch1.key, recap)
+      await e.evaluate(() => openCard(null))
+    }
+    const texts1 = await e.evaluate(() => state.pages.map(p => { p.paras = null; return epubParas(p).map(el => el.textContent) }))
+    ok(`${tag}: the pills add no text and no paragraph to any chapter (an EPUB's places are offsets in its text)`, JSON.stringify(texts0) === JSON.stringify(texts1), { chapters: texts0.length })
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
   return results
 }
 
@@ -5438,9 +5628,9 @@ async function epubQuizCheck(browser, origin) {
   await answer('They are known in different ways')
   await e.click('.mr-card.is-open [data-c="next"]'); await e.waitForTimeout(300)
   await answer('no idea at all')
-  await e.click('.mr-card.is-open [data-c="next"]'); await e.waitForTimeout(400)
-  const endCard = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { body: el.querySelector('.mr-card__body').innerText.trim(), links: [...el.querySelectorAll('.mr-follow__link')].map(b => b.textContent), count: !!el.querySelector('.mr-card__count') } })
-  ok('6/c. the end screen: "2/3" and "Try new questions", nothing else (two right of three)', endCard.body === '2/3' && endCard.links.join('|') === 'Try new questions' && !endCard.count, endCard)
+  // The last question marked: its score at once under it (13 Nov 2026: no "See your score").
+  const endCard = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { score: el.querySelector('.mr-quiz-score')?.innerText.trim(), links: [...el.querySelectorAll('.mr-follow__link')].map(b => b.textContent), count: !!el.querySelector('.mr-card__count') } })
+  ok('6/c. the end: "2/3" and "Try new questions" under the last question, no other link (two right of three)', endCard.score === '2/3' && endCard.links.join('|') === 'Try new questions' && !endCard.count, endCard)
   await epubShot(e, 'quiz-end')
   const r1 = account.requests.length
   await e.click('.mr-card.is-open [data-c="again"]'); await e.waitForTimeout(1300)
@@ -5471,7 +5661,7 @@ async function epubQuizCheck(browser, origin) {
 }
 
 /* epub-ask (items 7, 8, 9): the Ask pill (Gloss's), Enter in every card's field never moves the reading place, and an
-   answer that searched sources shows them as Fact-check does. */
+   answer that searched sources shows them as Evaluate does. */
 async function epubAskCheck(browser, origin) {
   const results = [], ok = okList(results)
   for (const look of ['night', 'paper']) {
@@ -5485,19 +5675,20 @@ async function epubAskCheck(browser, origin) {
       const lum = c => { const [r, g, b] = c.match(/[\d.]+/g).slice(0, 3).map(Number).map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4 }); return 0.2126 * r + 0.7152 * g + 0.0722 * b }
       const cr = (a, b) => Math.round((Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05) * 10) / 10
       const below = [...document.querySelectorAll('body *')].filter(el => { const r = el.getBoundingClientRect(), b = bar.getBoundingClientRect(); return r.top >= b.bottom - 1 && r.top < b.bottom + 30 && r.left < b.right && r.right > b.left && /×/.test(el.textContent || '') && el.children.length === 0 })
-      return { radius: parseFloat(cs.borderTopLeftRadius), h: Math.round(bar.getBoundingClientRect().height), bg: cs.backgroundColor, ink: ts.color, contrast: cr(ts.color, cs.backgroundColor), outline: ts.outlineStyle, border: ts.borderTopWidth, spell: t.getAttribute('spellcheck'), autocorrect: t.getAttribute('autocorrect'), placeholder: t.getAttribute('placeholder'), font: ts.fontFamily, upper: ts.textTransform, sendRound: ss.borderRadius, sendBg: ss.backgroundColor, sendSize: Math.round(send.getBoundingClientRect().width), chip: below.length, tip: getComputedStyle(bar, '::after').backgroundColor === cs.backgroundColor }
+      return { radius: parseFloat(cs.borderTopLeftRadius), h: Math.round(bar.getBoundingClientRect().height), bg: cs.backgroundColor, ink: ts.color, contrast: cr(ts.color, cs.backgroundColor), outline: ts.outlineStyle, border: ts.borderTopWidth, spell: t.getAttribute('spellcheck'), autocorrect: t.getAttribute('autocorrect'), placeholder: t.getAttribute('placeholder'), font: ts.fontFamily, upper: ts.textTransform, sendRound: ss.borderRadius, sendBg: ss.backgroundColor, sendSize: Math.round(send.getBoundingClientRect().width), chip: below.length, tip: getComputedStyle(bar, '::after').backgroundColor === cs.backgroundColor, w: Math.round(bar.getBoundingClientRect().width), esc: bar.querySelector('.mr-bar__esc')?.textContent || '' }
     })
-    ok(`${look}: 8. Ask is Gloss's pill: one rounded field with the passage tip, a placeholder, the mic, a round accent send; no box, no spelling chip, no mono, no capitals`, pill.radius >= 20 && pill.h <= 56 && pill.contrast >= 7 && pill.outline === 'none' && pill.border === '0px' && pill.spell === 'false' && pill.autocorrect === 'off' && pill.placeholder === 'Ask about this passage' && !/mono/i.test(pill.font) && pill.upper === 'none' && pill.sendRound === '50%' && pill.sendSize >= 32 && pill.chip === 0 && pill.tip && (look === 'paper' ? lum255(pill.bg) > 200 : lum255(pill.bg) < 90), pill)
+    // The dark bar becomes the field; Escape still works without a visible hint.
+    ok(`${look}: 8. Ask is the dark bar become the field (A3): 440px, the bar's radius and tip, a placeholder, no Escape hint, the mic, a round send; no box, no spelling chip, no mono, no capitals`, pill.radius === 12 && pill.h <= 46 && pill.w === 440 && pill.esc === '' && pill.contrast >= 7 && pill.outline === 'none' && pill.border === '0px' && pill.spell === 'false' && pill.autocorrect === 'off' && pill.placeholder === 'Ask about this passage' && !/mono/i.test(pill.font) && pill.upper === 'none' && pill.sendRound === '50%' && pill.sendSize >= 26 && pill.chip === 0 && pill.tip && lum255(pill.bg) < 90, pill)
     await e.keyboard.type('is this a big debate? also today?')
     if (look === 'night') await e.evaluate(() => { const b = document.querySelector('.mr-bar').getBoundingClientRect(); window.__askClip = { x: Math.max(0, b.left - 120), y: Math.max(0, b.top - 60), width: 900, height: 280 } })
     if (look === 'night') await e.screenshot({ path: join(EPUB_SHOTS, 'ask-composer.png'), clip: await e.evaluate(() => window.__askClip) })
-    // 9. The model searched: its Sources line shows as Fact-check's links.
+    // 9. The model searched: its Sources line shows as Evaluate's links.
     mock.nextFor.ask = 'Yes, still debated: Bell tests show the correlations, and what they mean is argued over.\n\nSources: [Loophole-free Bell test](https://example.org/bell) · [Locality, SEP](https://example.org/sep)'
     const s0 = await scrollTop(e)
     await e.keyboard.press('Enter'); await e.waitForTimeout(1500)
     const s1 = await scrollTop(e)
     const src = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return el && { links: [...el.querySelectorAll('.mr-sources a')].map(a => a.textContent), raw: /Sources:/.test(el.querySelector('.mr-card__body').innerText) } })
-    ok(`${look}: 9. an Ask answer that searched sources shows them as Fact-check does (a row of links, never a raw "Sources:" line)`, src && src.links.length === 2 && !src.raw, src)
+    ok(`${look}: 9. an Ask answer that searched sources shows them as Evaluate does (a row of links, never a raw "Sources:" line)`, src && src.links.length === 2 && !src.raw, src)
     ok(`${look}: 7. Enter in the bar's Ask leaves the reading place where it was`, Math.abs(s1 - s0) <= 1, { s0, s1 })
     // 7. Enter on a follow-up, with a long answer and a web font arriving meanwhile: the place never moves.
     mock.nextFor.ask = Array.from({ length: 8 }, (_, i) => `Paragraph ${i + 1}. Entangled particles show correlations that no local account explains, and the debate is about what that means.`).join('\n\n')
@@ -5566,7 +5757,7 @@ async function deskPolishCheck(browser, origin) {
     ok(`${tag}: D1 the default text is larger and its column wider, about 65–80 characters a line`, t0.size >= want.size && t0.width >= want.width && t0.cpl >= 65 && t0.cpl <= 80, t0)
     await shotTo(e, `desk-${tag}-D1-default`)
     // The Aa panel: Text size and Line width, each "100%" with − and +.
-    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel .byob-type')
+    await openAa(e); await e.waitForSelector('.byob-aa-panel .byob-type')
     const rows = await e.evaluate(typeRows)
     ok(`${tag}: D1 the Aa panel has Text size and Line width (100%), no size slider`, JSON.stringify(rows) === JSON.stringify([['Text size', '100%'], ['Line width', '100%']]) && !(await e.$('.byob-aa-panel [data-testid="lab-v2-size"]')), rows)
     await shotTo(e, `desk-${tag}-D1-aa-panel`)
@@ -5574,10 +5765,11 @@ async function deskPolishCheck(browser, origin) {
     // in a short window its rows scroll inside it.
     const aaAt = () => e.evaluate(() => { const s = document.querySelector('.byob-aa-panel .lab-v2-sheet').getBoundingClientRect(), b = document.getElementById('aaBtn').getBoundingClientRect(), body = document.querySelector('.byob-aa-panel .lab-v2-sheet-body'); return { top: s.top - b.bottom, right: s.right - b.right, bottom: innerHeight - s.bottom, scrolls: body.scrollHeight > body.clientHeight + 1 && getComputedStyle(body).overflowY === 'auto' } })
     const aa1 = await aaAt()
-    await e.setViewportSize({ width, height: 460 }); await e.waitForTimeout(400)
+    // 360px tall: shorter than the panel since its Layout went to Book settings (22 Oct 2026; 460px fitted it then).
+    await e.setViewportSize({ width, height: 360 }); await e.waitForTimeout(400)
     const aa2 = await aaAt()
     await e.setViewportSize({ width, height }); await e.waitForTimeout(600)
-    ok(`${tag}: D the Aa panel hangs just below the Aa button (its right edge under it), whole in the window; 460px tall, its rows scroll inside`, aa1.top >= 4 && aa1.top <= 24 && Math.abs(aa1.right - 8) <= 2 && aa1.bottom >= 8 && aa2.bottom >= 8 && aa2.scrolls, { aa1, aa2 })
+    ok(`${tag}: D the Aa panel hangs just below the Aa button (its right edge under it), whole in the window; 360px tall, its rows scroll inside`, aa1.top >= 4 && aa1.top <= 24 && Math.abs(aa1.right - 8) <= 2 && aa1.bottom >= 8 && aa2.bottom >= 8 && aa2.scrolls, { aa1, aa2 })
     const here = await e.evaluate(spotNow)
     await e.click('.byob-type[data-type="size"] [data-type-step="1"]'); await e.waitForTimeout(500)
     await e.click('.byob-type[data-type="width"] [data-type-step="1"]'); await e.waitForTimeout(500)
@@ -5591,7 +5783,7 @@ async function deskPolishCheck(browser, origin) {
     const t2 = await e.evaluate(typeNow), back = await e.evaluate(spotNow)
     ok(`${tag}: D1 a reload keeps this device's Text size and Line width, at the same place`, Math.abs(t2.size - t1.size) < 0.1 && Math.abs(t2.width - t1.width) <= 1 && near(back), { t1, t2, here, back })
     // Back to the default for what follows (the − steps).
-    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel .byob-type')
+    await openAa(e); await e.waitForSelector('.byob-aa-panel .byob-type')
     await e.click('.byob-type[data-type="size"] [data-type-step="-1"]'); await e.click('.byob-type[data-type="width"] [data-type-step="-1"]'); await e.waitForTimeout(400)
     const rows2 = await e.evaluate(typeRows), prefs2 = await e.evaluate(() => JSON.parse(localStorage.getItem('tinct-addbook:prefs')))
     ok(`${tag}: D1 − steps back to 100%, the default stored as no choice; the other per-device choices kept`, JSON.stringify(rows2) === JSON.stringify([['Text size', '100%'], ['Line width', '100%']]) && !('textSize' in prefs2) && !('lineWidth' in prefs2) && prefs2.dock === 'docked', { rows2, prefs2 })
@@ -5785,11 +5977,6 @@ async function cardsRound2(browser, origin) {
   await a.click('.mr-doc .mr-card.is-open [data-c="talk"]'); await a.waitForTimeout(800)
   ok('Recap: Talk in the field opens Chat with Talk on', await a.evaluate(() => chat.talk === true))
   await a.evaluate(() => { setTalk(false); openCard(null) }); await a.waitForTimeout(300)
-  // Catch me up.
-  await clickPill(a, 'catchup', units[1].key); await a.waitForTimeout(1500)
-  s = await shape('.mr-doc .mr-card.is-open')
-  ok(`Catch me up: as tall as its answer (${s?.height}px, ${s?.gap}px), the field, minimise and bin, no copy, no ×`, fieldRow(s) && s.gap <= 24, s)
-  await outside()
   // Primer: sized to its content, the field, minimise and bin; a click outside minimises it.
   await clickPill(a, 'primer', units[1].key); await a.waitForTimeout(900)
   s = await shape('.mr-doc .mr-primer')
@@ -5825,6 +6012,126 @@ async function cardsRound2(browser, origin) {
   return results
 }
 function lum255(c) { const v = String(c).match(/[\d.]+/g)?.slice(0, 3).map(Number) || [0, 0, 0]; return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2] }
+
+/* settings (Anders, 22 Oct 2026): "Aa (desktop its own button, mobile part of t), Book settings, Audio settings. And do that
+   consistently." The three groups, named as the book reader names them (src/lab/labSuperMenu.ts): on the desktop Aa is the
+   top bar's button and Book settings and Audio settings are t menu rows; on the phone all three are t menu rows. Every
+   panel opens in place (the desktop: hung from its button or the t button, never at the screen's foot; the phone: its
+   sheet), holds its group's controls and no other's, and opening or closing it never moves the reading place. A group
+   with nothing to offer is not shown (an EPUB has no read aloud; a phone's EPUB no layout). Screenshots to OUT. */
+const SETTINGS_SECTIONS = {
+  aa: { title: 'Appearance', panel: '.byob-aa-panel' },
+  book: { title: 'Book settings', panel: '.byob-book-settings' },
+  audio: { title: 'Audio settings', panel: '.byob-audio-settings' },
+}
+async function settingsCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  const rowsOf = page => page.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row + ':' + r.textContent.trim()))
+  // The place as the reader keeps it, and the scroller's offset: neither may move while a menu or panel opens or closes.
+  const where = page => page.evaluate(() => { const p = currentPlace(); return { page: p.page, frac: Math.round(p.frac * 1e4) / 1e4, top: Math.round($('scroll').scrollTop), left: Math.round($('scroll').scrollLeft) } })
+  const panelState = (page, sel) => page.evaluate(sel => {
+    const layer = document.querySelector(sel), s = layer?.querySelector('.lab-v2-sheet')
+    if (!s) return null
+    const r = s.getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect(), t = $('superBtn').getBoundingClientRect(), aa = $('aaBtn').getBoundingClientRect()
+    return {
+      title: s.querySelector('.lab-v2-title')?.textContent, label: s.getAttribute('aria-label'), top: Math.round(r.top), bottom: Math.round(r.bottom), right: Math.round(r.right), left: Math.round(r.left),
+      hdr: Math.round(hdr.bottom), tRight: Math.round(t.right), aaRight: Math.round(aa.right), vh: innerHeight, vw: innerWidth,
+      layout: [...s.querySelectorAll('[data-layout]')].map(b => b.dataset.layout),
+      rows: [...s.querySelectorAll('.lab-v2-row:not([hidden]) .lab-v2-row-label, .byob-zoom-label')].map(l => l.textContent),
+      themes: !!s.querySelector('.lab-v2-themes'), size: !!s.querySelector('[data-testid="lab-v2-size"], .byob-zoom, .byob-type'),
+    }
+  }, sel)
+  const openFromMenu = async (page, id) => { await page.click('#superBtn'); await page.waitForSelector('.lab-super-panel'); await page.click(`.lab-super-row[data-row="${id}"]`); await page.waitForSelector(SETTINGS_SECTIONS[id].panel + ' .lab-v2-sheet', { timeout: 5000 }); await page.waitForTimeout(250) }
+  // Each group's own controls, and none of another's.
+  const holdsItsOwn = (id, p) => id === 'aa' ? p.themes && p.size && !p.layout.length && !p.rows.some(l => /Voice|Speed|Convert/.test(l))
+    : id === 'book' ? !p.themes && !p.size && p.layout.length > 0 && !p.rows.some(l => /Voice|Speed/.test(l))
+    : !p.themes && !p.size && !p.layout.length && p.rows.includes('Voice') && p.rows.includes('Speed')
+  const hex = addBook(PDFS[0])
+  for (const [width, height] of [[1440, 900], [390, 844]]) {
+    const phone = width < 700, tag = `settings-pdf-${width}x${height}`
+    const R = await readerPage(browser, origin, hex, { width, height, look: 'paper', startPage: 3 })
+    const a = R.page
+    await prefetchSettled(a)
+    await a.waitForTimeout(500)
+    const before = await where(a)
+    // The t menu.
+    await a.click('#superBtn'); await a.waitForSelector('.lab-super-panel')
+    const rows = await rowsOf(a)
+    await shot(a, `${tag}-t-menu`)
+    // Audio settings are the framing page's player's (Tinct's narration for every book, never the browser's voice, Anders
+    // 22 Oct 2026: /reader?userBook= frames this page; check-margin-listen-own.mjs checks them there). This page runs on
+    // its own here, with no player, so it offers none.
+    const want = phone ? ['aa:Appearance›', 'book:Book settings›'] : ['book:Book settings›']
+    const groups = rows.filter(r => /^(aa|book|audio|settings):/.test(r))
+    ok(`${tag}: the t menu's settings are ${want.map(w => w.split(':')[1].replace('›', '')).join(', ')}, in that order, after Chat · Talk, Summarize and Catch me up`, JSON.stringify(groups) === JSON.stringify(want) && rows.indexOf(groups[0]) === rows.findIndex(r => r.startsWith('summarize:')) + 1 + (rows.some(r => r.startsWith('catchup:')) ? 1 : 0), rows)
+    ok(`${tag}: no Reading settings, Text and theme or Book editions anywhere in the t menu`, !rows.some(r => /Reading settings|Text and theme|Book editions/.test(r)), rows)
+    ok(`${tag}: the first settings row opens the group with a rule`, await a.evaluate(id => document.querySelector(`.lab-super-row[data-row="${id}"]`)?.classList.contains('has-rule'), phone ? 'aa' : 'book'))
+    await a.keyboard.press('Escape'); await a.click('#superBtn').catch(() => {}); await a.evaluate(() => closeMenu()); await a.waitForTimeout(200)
+    const aaShown = await a.evaluate(() => getComputedStyle($('aaBtn')).display !== 'none' && $('aaBtn').getBoundingClientRect().width > 0)
+    ok(`${tag}: the top bar's Aa is ${phone ? 'not there (Aa is a t menu row)' : 'its own button'}`, aaShown === !phone, { aaShown })
+    for (const id of ['aa', 'book']) {
+      if (id === 'aa' && !phone) { await openAa(a); await a.waitForSelector('.byob-aa-panel .lab-v2-sheet'); await a.waitForTimeout(250) }
+      else await openFromMenu(a, id)
+      const p = await panelState(a, SETTINGS_SECTIONS[id].panel)
+      await shot(a, `${tag}-${id}`)
+      ok(`${tag}: ${SETTINGS_SECTIONS[id].title} opens, named "${SETTINGS_SECTIONS[id].title}"`, p && p.title === SETTINGS_SECTIONS[id].title && p.label === SETTINGS_SECTIONS[id].title, p)
+      ok(`${tag}: ${SETTINGS_SECTIONS[id].title} holds its own controls and no other group's`, p && holdsItsOwn(id, p), p)
+      if (!phone) ok(`${tag}: ${SETTINGS_SECTIONS[id].title} hangs just under ${id === 'aa' ? 'Aa' : 'the t button'}, its right edge under the button's, never at the screen's foot`,
+        p && p.top >= p.hdr - 1 && p.top <= p.hdr + 24 && Math.abs(p.right - ((id === 'aa' ? p.aaRight : p.tRight) + 8)) <= 2 && p.bottom < p.vh - 40, p)
+      else ok(`${tag}: ${SETTINGS_SECTIONS[id].title} is the phone's sheet, whole on screen`, p && p.left >= -0.5 && p.right <= p.vw + 0.5 && p.bottom <= p.vh + 0.5 && p.top >= 0, p)
+      const open = await where(a)
+      // Closed with Escape: focus goes back to the button it came from (the phone's Aa: the t button).
+      await a.keyboard.press('Escape'); await a.waitForTimeout(250)
+      const closed = await a.evaluate(sel => ({ gone: !document.querySelector(sel), focus: document.activeElement?.id }), SETTINGS_SECTIONS[id].panel)
+      ok(`${tag}: Escape closes ${SETTINGS_SECTIONS[id].title}; focus returns to ${id === 'aa' && !phone ? 'Aa' : 't'}`, closed.gone && closed.focus === (id === 'aa' && !phone ? 'aaBtn' : 'superBtn'), closed)
+      const after = await where(a)
+      ok(`${tag}: opening and closing ${SETTINGS_SECTIONS[id].title} never moves the reading place`, JSON.stringify(open) === JSON.stringify(before) && JSON.stringify(after) === JSON.stringify(before), { before, open, after })
+    }
+    // A tap on the page behind closes a panel too, the place kept.
+    await openFromMenu(a, 'book')
+    await a.click('.byob-book-settings .lab-super-scrim', { position: { x: 20, y: phone ? 120 : height - 20 } }); await a.waitForTimeout(250)
+    ok(`${tag}: a tap beside Book settings closes it, the place kept`, !(await a.$('.byob-book-settings')) && JSON.stringify(await where(a)) === JSON.stringify(before), await where(a))
+    // Book settings' Layout still works: Focus view and back, the place kept (the Aa panel's Layout of 15 Oct, moved here).
+    if (!phone) {
+      await openFromMenu(a, 'book'); await a.click('.byob-book-settings [data-layout="focus"]'); await a.waitForTimeout(600)
+      const focus = await a.evaluate(() => ({ layout: root.dataset.readerLayout, open: !!document.querySelector('.byob-book-settings'), on: document.querySelector('.byob-book-settings [data-layout][aria-pressed="true"]')?.dataset.layout }))
+      await a.click('.byob-book-settings [data-layout="margin"]'); await a.waitForTimeout(600)
+      const back = await a.evaluate(() => root.dataset.readerLayout)
+      await a.keyboard.press('Escape'); await a.waitForTimeout(250)
+      const kept = await where(a)
+      ok(`${tag}: Book settings' Focus view and Margin view switch the layout in place, the panel open, the page kept`, focus.layout === 'focus' && focus.open && focus.on === 'focus' && back === 'margin' && kept.page === before.page && Math.abs(kept.frac - before.frac) < 0.02, { focus, back, before, kept })
+    }
+    ok(`${tag}: no page errors`, !R.problems.length, R.problems)
+    await R.ctx.close()
+  }
+  // A reader's own EPUB on the desktop: Book settings holds Margin view and Convert to Tinct book. Its Audio settings are the
+  // framing page's player's (Tinct's narration, 22 Oct 2026), checked there (check-margin-listen-own.mjs): this page on its
+  // own has none. (A phone opens an EPUB in the Tinct reader, whose groups are labSuperMenu.ts's.)
+  const ehex = addEpub()
+  for (const [width, height] of [[1440, 900]]) {
+    const phone = width < 700, tag = `settings-epub-${width}x${height}`
+    const E = await epubPage(browser, origin, ehex, { width, height })
+    const e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1200)
+    await epubSettled(e)
+    await e.click('#superBtn'); await e.waitForSelector('.lab-super-panel')
+    const groups = (await rowsOf(e)).filter(r => /^(aa|book|audio|settings):/.test(r))
+    const want = ['book:Book settings›']
+    ok(`${tag}: the t menu's settings are Book settings (Audio settings come with the framing page's player)`, JSON.stringify(groups) === JSON.stringify(want), groups)
+    if (!phone) {
+      const before = await e.evaluate(spotNow)
+      await e.click('.lab-super-row[data-row="book"]'); await e.waitForSelector('.byob-book-settings .lab-v2-sheet'); await e.waitForTimeout(250)
+      const p = await panelState(e, '.byob-book-settings')
+      ok(`${tag}: Book settings holds Margin view and Convert to Tinct book`, JSON.stringify(p?.layout) === '["margin","text"]', p)
+      await e.keyboard.press('Escape'); await e.waitForTimeout(250)
+      const after = await e.evaluate(spotNow)
+      ok(`${tag}: opening and closing Book settings keeps the paragraph and word at the top`, after.page === before.page && after.para === before.para && after.word === before.word, { before, after })
+    }
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
+  return results
+}
 
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
@@ -5867,16 +6174,19 @@ const RUNS = {
   'define-card': [defineCard, rows => rows.some(r => !r.pass)],
   'figure-chip': [figureChip, rows => rows.some(r => !r.pass)],
   'highlight-bar': [highlightBar, rows => rows.some(r => !r.pass)],
+  'highlight-leave': [highlightLeave, rows => rows.some(r => !r.pass)],
   'zoom-panel': [zoomPanel, rows => rows.some(r => !r.pass)],
   'margin-notes': [marginNotes, rows => rows.some(r => !r.pass)],
   'unit-marks': [unitMarks, rows => rows.some(r => !r.pass)],
   'cards-round2': [cardsRound2, rows => rows.some(r => !r.pass)],
   'table-crop': [tableCrop, rows => rows.some(r => !r.pass)],
   notebook: [notebookCheck, rows => rows.some(r => !r.pass)],
+  settings: [settingsCheck, rows => rows.some(r => !r.pass)],
   'epub-view': [epubViewCheck, rows => rows.some(r => !r.pass)],
   // 20 Oct 2026 (Anders, "Bold Conjectures, Volume II"): an essay collection of the reader's own on the desktop.
   'epub-open': [epubOpenCheck, rows => rows.some(r => !r.pass)],
   'epub-units': [epubUnitsCheck, rows => rows.some(r => !r.pass)],
+  'epub-heads': [epubHeadsCheck, rows => rows.some(r => !r.pass)],
   'epub-marks': [epubMarksCheck, rows => rows.some(r => !r.pass)],
   'epub-quiz': [epubQuizCheck, rows => rows.some(r => !r.pass)],
   'epub-ask': [epubAskCheck, rows => rows.some(r => !r.pass)],
@@ -5938,7 +6248,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish', 'cards-round2'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'highlight-leave', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-heads', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish', 'cards-round2', 'settings'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { readAnthropicResponse, readAnthropicStream } from './labCompanion'
+import { LabChatError, labChatErrorType, readAnthropicResponse, readAnthropicStream } from './labCompanion'
 
 function stream(events: unknown[]) {
   return new Response(events.map(event => `data: ${JSON.stringify(event)}\n\n`).join(''), {
@@ -51,3 +51,9 @@ describe('typed answer stream recovery', () => {
     expect(shown).toEqual(['A partial answer.'])
   })
 })
+
+ it('explains an allowance refusal even when a little top-up credit remains', async () => {
+   const type = await labChatErrorType(new Response(JSON.stringify({ error: 'allowance_used' }), { status: 402 }))
+   expect(new LabChatError(type).message).toBe('Not enough AI credits for this request. Top up to continue.')
+   expect(await labChatErrorType(new Response('{}', { status: 502 }))).toBe('http_502')
+ })

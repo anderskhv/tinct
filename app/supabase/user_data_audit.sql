@@ -1,5 +1,8 @@
 -- Audit trail for critical user_data writes.
 -- Run in Supabase SQL editor before relying on client-side audit inserts.
+-- Since 22 Oct 2026 (migrations/20261022_disk_io_audit.sql) the rows are
+-- written by a trigger on user_data, hold only what a write changed, and
+-- clients can no longer insert them; they are kept for one month.
 
 CREATE TABLE IF NOT EXISTS public.user_data_audit (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

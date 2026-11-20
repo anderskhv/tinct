@@ -71,11 +71,11 @@ function keptDefault(prefix: string, hex: string, read: Read): PdfEditionChoice 
   } catch { return null }
 }
 
-const phoneNow = () => typeof window !== 'undefined' && window.innerWidth < PHONE_MAX_WIDTH
+export const phoneNow = () => typeof window !== 'undefined' && window.innerWidth < PHONE_MAX_WIDTH
 
 /**
  * The edition a PDF opens in (see above), or null when nothing is known yet.
- * The same rule as `TinctPdfText.choice` in addbooks/web/src/js/pdf-text.js.
+ * The same rule as `TinctPdfText.choice` in public/lab/addbook/js/pdf-text.js.
  * On the desktop (Anders, 19 Oct 2026: Margin view is the main desktop
  * experience) every PDF opens in its pages unless the reader chose Tinct
  * text on this device: a kept default (phone-edition / desk-edition, such as
@@ -115,6 +115,41 @@ export function pdfEditionUntold(hex: string, layoutDefault?: PdfLayoutDefault |
   if (pdfEditionChoice(hex, layoutDefault, read, options) !== null) return false
   const pos = readPos(hex, read)
   return layoutDefault === 'text' || (!layoutDefault && !!pos && Number.isInteger(pos.page))
+}
+
+/** The phone's kept kind's version (reader.js KIND_V). */
+export const PDF_PHONE_KIND_V = 1
+export const PDF_PHONE_EDITION_PREFIX = DEVICE_DEFAULT_PREFIXES[0]
+
+/**
+ * The kind a primer kept on this device names for the PDF (reader.js keptPrimerKind: the newest
+ * `tinct-addbook:primer:pdf:<hex>:<unit>`), which wins over the text's signs; null when none or not a known kind.
+ */
+export function keptPdfPrimerKind(hex: string, kinds: readonly string[], storage: Pick<Storage, 'length' | 'key' | 'getItem'> | null = typeof localStorage === 'undefined' ? null : localStorage): string | null {
+  let best: { kind: string; madeAt: string } | null = null
+  try {
+    const prefix = `tinct-addbook:primer:pdf:${hex}:`
+    for (let i = 0; i < (storage?.length ?? 0); i++) {
+      const key = storage!.key(i)
+      if (!key || !key.startsWith(prefix)) continue
+      const primer = JSON.parse(storage!.getItem(key) || 'null') as { kind?: unknown; madeAt?: unknown } | null
+      if (primer && typeof primer.kind === 'string' && kinds.includes(primer.kind) && (!best || String(primer.madeAt || '') > best.madeAt)) best = { kind: primer.kind, madeAt: String(primer.madeAt || '') }
+    }
+  } catch { /* storage unavailable */ }
+  return best?.kind ?? null
+}
+
+/**
+ * The phone's open rule, applied by the Tinct reader (D's trace, 22 Oct 2026: told only by the viewer, a phone's
+ * first open went reader → viewer → reader, 3 s of a 9.5 s open). Writes what the viewer writes for it (reader.js
+ * phoneKind, then openKind): this device's kept default (`phone-edition`), its edition, and the open rule's version.
+ * -> the edition the PDF opens in on this phone
+ */
+export function applyPhoneOpenRule(hex: string, phone: { kind: string; by: string; edition: PdfEditionChoice }, write: (key: string, value: string) => void = (key, value) => { try { localStorage.setItem(key, value) } catch { /* full or private */ } }): PdfEditionChoice {
+  write(PDF_PHONE_EDITION_PREFIX + hex, JSON.stringify({ edition: phone.edition, kind: phone.kind, by: phone.by, v: PDF_PHONE_KIND_V }))
+  write(PDF_EDITION_PREFIX + hex, JSON.stringify(phone.edition))
+  write(PDF_OPEN_RULE_PREFIX + hex, JSON.stringify(PDF_OPEN_RULE))
+  return phone.edition
 }
 
 export function writePdfEditionChoice(hex: string, choice: PdfEditionChoice): void {

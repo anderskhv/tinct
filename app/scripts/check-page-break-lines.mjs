@@ -79,6 +79,9 @@ function readPage() {
   const result = {
     place: root?.dataset.place ?? null,
     chapter: root?.dataset.chapter ?? null,
+    readerReady: root?.dataset.readerReady ?? null,
+    activeElement: document.activeElement?.tagName ?? null,
+    rootState: root ? { ...root.dataset } : null,
     keys: words.map(word => `${word.dataset.paragraphIndex}:${word.dataset.wordIndex}`),
     firstWord: first ? { text: first.textContent.trim(), width: first.getBoundingClientRect().width, key: `${first.dataset.paragraphIndex}:${first.dataset.wordIndex}` } : null,
     tail: null,
@@ -157,14 +160,28 @@ for (const viewport of viewports) for (const item of chapters) {
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(1500)
   const pages = []
+  let stopped = null
   let state = await settle(page)
   for (let index = 0; index < pagesPerChapter; index += 1) {
     pages.push(state)
     await page.keyboard.press('ArrowRight')
-    await page.waitForTimeout(250)
+    // The opening leaf can paint before the rest of its map. Its requested
+    // turn is queued until that map finishes; a fixed delay samples the same
+    // leaf on slower CI machines and mistakes it for the chapter's end.
+    let turnCompleted = true
+    await page.waitForFunction(before => {
+      const root = document.querySelector('[data-testid="lab-root"]')
+      if (!root) return false
+      if (root.dataset.chapter !== before.chapter) return true
+      return root.dataset.readerReady === 'true' && root.dataset.place !== before.place
+    }, { chapter: state.chapter, place: state.place }, { timeout: 30000 }).catch(() => { turnCompleted = false })
+    if (!turnCompleted) failures += 1
     const next = await settle(page)
     // Past the chapter's last page the reader opens the next chapter: stop.
-    if (next.keys.length === 0 || next.chapter !== state.chapter || JSON.stringify(next.keys) === JSON.stringify(state.keys)) break
+    if (next.keys.length === 0 || next.chapter !== state.chapter || JSON.stringify(next.keys) === JSON.stringify(state.keys)) {
+      stopped = { reason: next.keys.length === 0 ? 'empty' : next.chapter !== state.chapter ? 'chapter-change' : 'unchanged', before: state, after: next }
+      break
+    }
     state = next
   }
   const short = []
@@ -181,7 +198,7 @@ for (const viewport of viewports) for (const item of chapters) {
     if (tail.maxGap > 1.6 * tail.fontSize) gappy.push(label)
   })
   const continuing = pages.filter((current, index) => current.tail && pages[index + 1]).length
-  report.push({ chapter: item.name, viewport: `${viewport.width}x${viewport.height}`, pages: pages.length, continuing, short, gappy, errors })
+  report.push({ chapter: item.name, viewport: `${viewport.width}x${viewport.height}`, pages: pages.length, continuing, short, gappy, errors, stopped })
   console.log(`${item.name} @${viewport.width}: ${pages.length} pages, ${continuing} continuing last lines, ${short.length} short, ${gappy.length} gappy`)
   for (const entry of short) console.log(`  SHORT page ${entry.page}: "…${entry.last}" | "${entry.next}" (fill ${entry.fill}, room ${entry.room}px)`)
   for (const entry of gappy) console.log(`  GAPPY page ${entry.page}: "…${entry.last}" | "${entry.next}" (fill ${entry.fill}, largest gap ${entry.maxGapEm}em)`)

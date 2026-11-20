@@ -102,6 +102,8 @@
 .lab[data-chrome-version="v2"] .lab-catch-up-fold[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
 .lab[data-chrome-version="v2"] .lab-catch-up-fold:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 
+.lab[data-chrome-version="v2"] .lab-catch-up-items { display: grid; gap: 4px; padding: 0; list-style: none; }
+
 .lab[data-chrome-version="v2"] .lab-catch-up-text.is-line {
   overflow: hidden;
   white-space: nowrap;
@@ -185,8 +187,36 @@
   cursor: pointer;
 }
 
+/* Catch me up's placeholder holds the room its entry can take: invisible stand-in text in the entry's own type
+   (catchUpReserveText, as many words as the entry's limit), with one faint bar per line drawn over it. */
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder.is-reserved {
+  position: relative;
+  display: block;
+  padding: 0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder.is-reserved .lab-catch-up-reserve { display: block; visibility: hidden; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder.is-reserved::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 0.44em, currentColor 0.44em 1em, transparent 1em 1.42em);
+  opacity: 0.08;
+}
+
+/* A folded part shows one line, so its placeholder is one line too. */
+.lab[data-chrome-version="v2"] .lab-catch-up-entry.is-folded[data-expanded="false"] .lab-catch-up-reserve {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .lab[data-chrome-version="v2"] .lab-catch-up-entry[data-state="loading"] .lab-catch-up-placeholder i {
+  .lab[data-chrome-version="v2"] .lab-catch-up-entry[data-state="loading"] .lab-catch-up-placeholder i,
+  .lab[data-chrome-version="v2"] .lab-catch-up-entry[data-state="loading"] .lab-catch-up-placeholder.is-reserved::before {
     animation: lab-catch-up-breathe 1.6s ease-in-out infinite;
   }
 }
@@ -243,3 +273,13 @@
   letter-spacing: 0.04em;
   color: var(--lab-v2-quiet);
 }
+
+/* The whole book's Primer (start actions, 9 Nov 2026): the library's introduction for the book, in the book face. */
+.lab-book-primer { font-family: 'EB Garamond', Georgia, serif; }
+.lab-book-primer-opening { margin: 0 0 14px; font-size: 17px; line-height: 1.45; }
+.lab-book-primer-parts { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 12px; }
+.lab-book-primer-parts h3, .lab-book-primer-head { margin: 0 0 3px; font: 600 14px/1.35 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+.lab-book-primer-parts p { margin: 0; font-size: 16px; line-height: 1.42; }
+.lab-book-primer-people { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 16px; line-height: 1.35; }
+.lab-book-primer-people strong { font-weight: 600; }
+.lab-book-primer-none { margin: 0; font: 15px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; opacity: .75; }

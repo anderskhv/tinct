@@ -17,7 +17,7 @@ interface Ocr {
 }
 let ocr: Ocr
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-ocr.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-ocr.js')
   ocr = (globalThis as unknown as { TinctPdfOcr: Ocr }).TinctPdfOcr
 })
 const status = (state: string, extra: Record<string, unknown> = {}): Status => ({ state, pages: 250, uploaded: 0, done: 0, failed: 0, blank: 0, tier: 'premium', ...extra })

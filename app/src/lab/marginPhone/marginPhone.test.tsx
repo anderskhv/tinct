@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { useState } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -7,7 +8,8 @@ import { LabChapterHeading } from '../LabChapterHeading'
 import { LabChapterEnd } from '../LabChapterEnd'
 import { MarginPhoneContext, catchUpAvailable, isFrontMatter } from './marginPhoneContext'
 import { labSuperMenuRows } from '../labSuperMenu'
-import { LabPhoneCard, PHONE_CARD_TYPING_ATTR, phoneCardRoom, splitLead } from './LabPhoneCard'
+import { LabPhoneCard, PHONE_CARD_TYPING_ATTR, PhoneAnswer, phoneCardRoom, splitLead } from './LabPhoneCard'
+import { PdfOriginalAnswer } from '../sharedReader/pdf/PdfOriginalAnswer'
 import { LabPhoneBar, PHONE_MORE_ROWS, phoneBarLeft, phoneMorePlace } from './LabPhoneBar'
 import { PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, parsePhoneQuiz, parsePhoneQuizMark, parsePhoneQuizPartial } from './LabPhoneCards'
 import { PHONE_CARD_PASSAGE_CLASS, markPhoneCardPassage } from './phoneCardPassage'
@@ -18,7 +20,7 @@ const appSource = readFileSync(resolve(__dirname, '../LabApp.tsx'), 'utf8')
 afterEach(cleanup)
 
 describe('the chapter pills in the phone margin mode', () => {
-  it('without the mode the heading keeps its Primer chip and the end its Recap and Note', () => {
+  it('without the mode the heading keeps its Primer chip and the end its Summary and Note', () => {
     const { container } = render(<><LabChapterHeading title="Chapter 1" preview onPreview={() => {}} /><LabChapterEnd chapterTitle="Chapter 1" hasNext onDiscuss={() => {}} onNote={() => {}} /></>)
     expect(container.querySelector('.lab-passage-header > .lab-chapter-preview')).not.toBeNull()
     expect(container.querySelector('.lab-unit-pills, .lab-unit-k')).toBeNull()
@@ -43,13 +45,16 @@ describe('the chapter pills in the phone margin mode', () => {
     expect(onCatchUp).toHaveBeenCalledTimes(1)
   })
 
-  it('at a chapter end: ✧ Recap, ✧ Quiz me and Note, with no "End of" label', () => {
+  it('at a chapter end: ✧ Summary, ✧ Quiz me and Note, with no "End of" label', () => {
     const onQuiz = vi.fn()
     render(<MarginPhoneContext.Provider value={{ onQuiz }}><LabChapterEnd chapterTitle="Chapter 3" hasNext onDiscuss={() => {}} onNote={() => {}} /></MarginPhoneContext.Provider>)
-    expect(screen.getByTestId('lab-chapter-end').textContent).toMatch(/^✧Recap✧Quiz meNoteNext chapter/)
+    expect(screen.getByTestId('lab-chapter-end').textContent).toMatch(/^✧Summary✧Quiz meNoteNext chapter/)
     expect(screen.queryByTestId('lab-unit-end')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-unit-quiz'))
-    expect(onQuiz).toHaveBeenCalledTimes(1)
+    const trigger = screen.getByTestId('lab-unit-quiz')
+    const anchor = { left: 500, right: 590, top: 640, bottom: 670 } as DOMRect
+    vi.spyOn(trigger, 'getBoundingClientRect').mockReturnValue(anchor)
+    fireEvent.click(trigger)
+    expect(onQuiz).toHaveBeenCalledExactlyOnceWith(anchor)
   })
 
   it('measuring copies lay out the same pills (pagination) and never act', () => {
@@ -76,10 +81,9 @@ describe('no Catch me up before there is anything to catch up on', () => {
     expect(isFrontMatter("Translator's Note")).toBe(true)
     expect(isFrontMatter('Prologue')).toBe(false)
   })
-  it('the start pill shows only ✧ Primer, and the t menu has no Catch me up row', () => {
+  it('the start pill shows only ✧ Primer, while the t menu keeps Catch me up', () => {
     render(<MarginPhoneContext.Provider value={{ catchUp: false }}><LabChapterHeading title="Chapter 1" preview onPreview={() => {}} /></MarginPhoneContext.Provider>)
     expect(screen.getByTestId('lab-unit-start').textContent).toBe('✧Primer')
-    expect(labSuperMenuRows({ phone: true, noCatchUp: true }).some(row => row.id === 'catchup')).toBe(false)
     expect(labSuperMenuRows({ phone: true }).some(row => row.id === 'catchup')).toBe(true)
   })
 })
@@ -89,6 +93,29 @@ describe('the cards', () => {
     expect(splitLead('The point is simple. Then more follows.')).toEqual({ lead: 'The point is simple.', tail: 'Then more follows.' })
     expect(splitLead('One sentence only')).toEqual({ lead: 'One sentence only', tail: '' })
     expect(splitLead('“Quoted.” And after.')).toEqual({ lead: '“Quoted.”', tail: 'And after.' })
+  })
+  it('Simplify has no bold first sentence: it is the passage rewritten, live and saved (Anders, 11 Nov 2026)', () => {
+    const text = 'Call me Ishmael. Some years ago I went to sea.\n\nIt keeps me from killing myself.'
+    const answer = render(<PhoneAnswer text={text} />)
+    expect(answer.container.querySelector('.lab-pcard-lead')?.textContent).toBe('Call me Ishmael.')
+    answer.unmount()
+    const plain = render(<PhoneAnswer text={text} plain />)
+    expect(plain.container.querySelector('.lab-pcard-lead')).toBeNull()
+    expect(plain.container.querySelector('strong')).toBeNull()
+    expect(plain.container.textContent).toContain('Call me Ishmael. Some years ago I went to sea.')
+    expect(plain.container.textContent).toContain('It keeps me from killing myself.')
+    plain.unmount()
+    // A saved rewrite whose first paragraph was wrapped in ** loses the bold too.
+    const saved = render(<PhoneAnswer text={'**Call me Ishmael.**\n\nMore.'} plain />)
+    expect(saved.container.querySelector('strong')).toBeNull()
+    expect(saved.container.textContent).toContain('Call me Ishmael.')
+    saved.unmount()
+    const pdf = render(<PdfOriginalAnswer kind="simplify" raw={text} />)
+    expect(pdf.container.querySelector('.lab-pcard-lead')).toBeNull()
+    pdf.unmount()
+    const explain = render(<PdfOriginalAnswer kind="explain" raw={text} />)
+    expect(explain.container.querySelector('.lab-pcard-lead')?.textContent).toBe('Call me Ishmael.')
+    explain.unmount()
   })
   it('Quiz me reads its questions and a marked answer', () => {
     expect(parsePhoneQuiz('```json\n{"questions":[{"q":"Q1","answer":"A1","why":"W"},{"q":2}]}\n```')).toEqual([{ q: 'Q1', answer: 'A1', why: 'W' }])
@@ -109,14 +136,29 @@ describe('the selection bar (iPhone feedback, 20 Oct 2026)', () => {
     expect(css).not.toMatch(/lab-pbar-caret|lab-pbar-blink/)
   })
 
-  it('••• lists Define, Fact-check, Counterpoint, Quiz me and Copy (not "Copy quote")', () => {
-    expect(PHONE_MORE_ROWS.map(([, name]) => name)).toEqual(['Define', 'Fact-check', 'Counterpoint', 'Quiz me', 'Copy'])
+  it('••• lists Evaluate, Counterpoint, Quiz me and Copy (no Define: a tap defines; not "Copy quote")', () => {
+    expect(PHONE_MORE_ROWS.map(([, name]) => name)).toEqual(['Evaluate', 'Counterpoint', 'Quiz me', 'Copy'])
     bar()
     fireEvent.click(screen.getByTestId('lab-pbar-more'))
-    expect(screen.getByTestId('lab-phone-more').textContent).toBe('DefineFact-checkCounterpointQuiz meCopy')
+    expect(screen.getByTestId('lab-phone-more').textContent).toBe('EvaluateCounterpointQuiz meCopy')
     // As wide as its longest name: no fixed width.
     expect(css).toMatch(/\.lab \.lab-pmore \{[^}]*width: max-content/)
     expect(css).not.toMatch(/\.lab \.lab-pmore \{[^}]*width: 210px/)
+  })
+
+  it('keeps Show page available for a selected PDF passage and an existing mark', () => {
+    const onShowPage = vi.fn()
+    const props = { text: 'passage', fallbackY: 300, onAsk: vi.fn(), onExplain: vi.fn(), onSimplify: vi.fn(),
+      onMore: vi.fn(), onHighlight: vi.fn(), onNote: vi.fn(), onRemove: vi.fn(), onDismiss: vi.fn(), onShowPage }
+    const view = render(<div className="lab"><LabPhoneBar {...props} /></div>)
+    fireEvent.click(screen.getByTestId('lab-pbar-more'))
+    fireEvent.click(screen.getByTestId('lab-pmore-page'))
+    expect(onShowPage).toHaveBeenCalledTimes(1)
+    view.rerender(<div className="lab"><LabPhoneBar {...props} text="saved passage" existingColor="gold" /></div>)
+    fireEvent.click(screen.getByTestId('lab-pbar-more'))
+    expect(screen.queryByTestId('lab-pmore-define')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-pmore-page'))
+    expect(onShowPage).toHaveBeenCalledTimes(2)
   })
 })
 
@@ -230,10 +272,15 @@ describe('the cards', () => {
 
   it('end with the follow-up field: mic, Talk and send', () => {
     const onTalk = vi.fn(), onMic = vi.fn(), onSend = vi.fn()
-    render(<div className="lab"><PhoneFollowField value="Why?" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)
+    const { rerender } = render(<div className="lab"><PhoneFollowField value="" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)
     expect(screen.getByTestId('lab-phone-card-input').getAttribute('placeholder')).toBe('Ask a follow-up')
+    // iOS offered "AutoFill Contact" (a home address) over the keyboard (Anders, 14 Nov 2026).
+    expect(screen.getByTestId('lab-phone-card-input').getAttribute('autocomplete')).toBe('off')
     fireEvent.click(screen.getByTestId('lab-phone-card-talk'))
     fireEvent.click(screen.getByTestId('lab-phone-card-mic'))
+    rerender(<div className="lab"><PhoneFollowField value="Why?" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)
+    expect(screen.queryByTestId('lab-phone-card-talk')).toBeNull()
+    expect(screen.queryByTestId('lab-phone-card-mic')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-phone-card-send'))
     expect(onTalk).toHaveBeenCalledTimes(1)
     expect(onMic).toHaveBeenCalledTimes(1)
@@ -274,7 +321,11 @@ describe('Quiz me arrives fast (iPhone feedback, 21 Oct 2026)', () => {
     const follow = vi.fn((summary: string) => <p data-testid="follow">{summary.split('\n')[0]}</p>)
     render(<div className="lab"><PhoneQuizBody request={async onDelta => { onDelta(quiz); return quiz }} mark={async () => ''} draft="" setDraft={() => {}} follow={follow} /></div>)
     await act(async () => {})
-    for (let i = 0; i < 3; i++) { fireEvent.click(screen.getByTestId('lab-phone-quiz-show')); fireEvent.click(screen.getByTestId('lab-phone-quiz-next')) }
+    for (let i = 0; i < 2; i++) { fireEvent.click(screen.getByTestId('lab-phone-quiz-show')); fireEvent.click(screen.getByTestId('lab-phone-quiz-next')) }
+    // The last question's answer shown: the score at once, no "See your score" (Anders, 13 Nov 2026).
+    fireEvent.click(screen.getByTestId('lab-phone-quiz-show'))
+    expect(screen.queryByTestId('lab-phone-quiz-next')).toBeNull()
+    expect(screen.getByTestId('lab-phone-quiz-score').textContent).toBe('3 of 3 shown')
     expect(screen.getByTestId('follow').textContent).toBe('1. Q1 {braces} "quoted"?')
     expect(screen.getByTestId('lab-phone-quiz-again')).toBeTruthy()
   })
@@ -299,5 +350,67 @@ describe('the open card\u2019s passage stays underlined on the page', () => {
     expect(marked()).toEqual([])
     expect(css).toMatch(/\.is-card-passage \{[^}]*text-decoration: underline/)
     document.body.innerHTML = ''
+  })
+})
+
+it('applies the phone highlighter color immediately and opens colours only on the second press', () => {
+  localStorage.setItem('tinct-highlight-color', 'lavender')
+  const save = vi.fn()
+  function HighlightBar() {
+    const [color, setColor] = useState<'gold' | 'rose' | 'sage' | 'sky' | 'lavender' | undefined>()
+    return <div className="lab"><LabPhoneBar text="Selected words" fallbackY={300} existingColor={color} onAsk={vi.fn()} onExplain={vi.fn()} onSimplify={vi.fn()} onMore={vi.fn()}
+      onHighlight={next => { save(next); setColor(next) }} onNote={vi.fn()} onRemove={vi.fn()} onDismiss={vi.fn()} /></div>
+  }
+  render(<HighlightBar />)
+  fireEvent.click(screen.getByRole('button', { name: 'Highlight in Lavender' }))
+  expect(save).toHaveBeenCalledExactlyOnceWith('lavender')
+  expect(screen.queryByTestId('lab-pbar-color-sage')).toBeNull()
+  expect(screen.getByRole('button', { name: 'Highlight in Lavender' })).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Highlight in Lavender' }))
+  expect(save).toHaveBeenCalledOnce()
+  expect(screen.getByTestId('lab-pbar-color-lavender').getAttribute('aria-pressed')).toBe('true')
+  fireEvent.click(screen.getByTestId('lab-pbar-color-sage'))
+  expect(save).toHaveBeenLastCalledWith('sage')
+})
+
+
+it('keeps an older Chat reply in place when its composer gains focus and the keyboard resizes', () => {
+  const viewport = new EventTarget() as EventTarget & { height: number; offsetTop: number }
+  viewport.height = 844; viewport.offsetTop = 0
+  const real = Object.getOwnPropertyDescriptor(window, 'visualViewport')
+  Object.defineProperty(window, 'visualViewport', { configurable: true, get: () => viewport })
+  try {
+    render(<LabPhoneCard label="Chat" kind="chat" onClose={vi.fn()}><div className="tc-thread" data-testid="history" /><textarea aria-label="Chat question" /></LabPhoneCard>)
+    const history = screen.getByTestId('history')
+    Object.defineProperty(history, 'scrollHeight', { configurable: true, value: 3000 })
+    history.scrollTop = 120
+    act(() => screen.getByLabelText('Chat question').focus())
+    expect(history.scrollTop).toBe(120)
+    viewport.height = 420
+    act(() => { viewport.dispatchEvent(new Event('resize')) })
+    expect(history.scrollTop).toBe(120)
+    expect(screen.getByTestId('lab-phone-card').hasAttribute('data-keyboard')).toBe(true)
+  } finally {
+    if (real) Object.defineProperty(window, 'visualViewport', real)
+    else delete (window as { visualViewport?: unknown }).visualViewport
+  }
+})
+
+describe('isApparatus (30 Oct 2026)', () => {
+  it('marks acknowledgments, contents and an index, never an introduction or a chapter', async () => {
+    const { isApparatus } = await import('./marginPhoneContext')
+    for (const title of ['Acknowledgments', 'ACKNOWLEDGEMENTS', 'Contents', 'Table of Contents', 'Index', 'Notes', 'List of Illustrations', 'About the Author', 'Also by Lee Strobel']) expect(isApparatus(title), title).toBe(true)
+    for (const title of ['Introduction', 'Preface', 'The Eyewitness Evidence', 'Notes from Underground', 'Chapter 1']) expect(isApparatus(title), title).toBe(false)
+  })
+})
+
+describe('the chat card sits on the keyboard (Anders, 4 Nov 2026: "too low")', () => {
+  it('drops the v2 sheet inset inside the card, at the v2 rule\'s own weight', () => {
+    // lab.css gives a v2 chat sheet `padding-bottom: max(14px, env(safe-area-inset-bottom))`; inside the card
+    // that floated the field ~34px above the keys. The card keeps the inset at its own foot instead.
+    const lab = readFileSync(resolve(__dirname, '../lab.css'), 'utf8')
+    expect(lab).toMatch(/\.lab\[data-chrome-version="v2"\] \.lab-ask\.is-phone-sheet \.lab-ask-chrome \{\s*padding-bottom: max\(14px, env\(safe-area-inset-bottom\)\)/)
+    expect(css).toMatch(/\.lab\[data-chrome-version="v2"\] \.lab-pcard \.lab-ask\.is-phone-sheet \.lab-ask-chrome \{[^}]*padding-bottom: 0;/)
+    expect(css).toMatch(/\.lab \.lab-pcard\[data-keyboard\] \{[^}]*padding-bottom: 10px;/)
   })
 })

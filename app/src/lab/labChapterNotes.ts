@@ -56,13 +56,18 @@ export async function fetchChapterNotes(request: ChapterNotesRequest, options: {
     }
     const beats = parseChapterNotesBeats(await response.json())
     if (!beats) return { ok: false, status: response.status }
-    const map = readMap<{ beats: ChapterNotesBeat[]; at: number }>(CHAPTER_NOTES_STORAGE_KEY)
-    map[chapterNotesKey(request)] = { beats, at: Date.now() }
-    writeMap(CHAPTER_NOTES_STORAGE_KEY, map, NOTES_MAX)
+    keepChapterNotes(request, beats)
     return { ok: true, beats }
   } catch {
     return { ok: false, status: 0 }
   }
+}
+
+/** Keep a chapter's notes on this device, so a reopen is instant (also an own book's: userBook/ownChapterNotes.ts). */
+export function keepChapterNotes(request: ChapterNotesRequest, beats: ChapterNotesBeat[]): void {
+  const map = readMap<{ beats: ChapterNotesBeat[]; at: number }>(CHAPTER_NOTES_STORAGE_KEY)
+  map[chapterNotesKey(request)] = { beats, at: Date.now() }
+  writeMap(CHAPTER_NOTES_STORAGE_KEY, map, NOTES_MAX)
 }
 
 export interface StoredExplanation { bookId: string; chapterNumber: number; paragraphIndex: number; passage: string; answer: string; at: number }
@@ -82,4 +87,18 @@ export function chapterNotesText(title: string, beats: ChapterNotesBeat[]): stri
 /** The card as plain text for Copy: its title, then each beat's title and text, blocks separated by blank lines. */
 export function chapterNotesPlainText(title: string, beats: ChapterNotesBeat[]): string {
   return [title, ...beats.map(beat => `${beat.title}\n${beat.text}`)].join('\n\n')
+}
+
+/**
+ * The chapter pill's Summary (the phone's ✧ Summary chip, the desktop margin's start card): a summary of that
+ * chapter, the whole of it, wherever the reader is in it (Anders, 11 Nov 2026). It is the chapter-end card's request
+ * (`end`) under the pill's own name; never the chapter "so far", and never Catch me up's "what came before".
+ */
+export const CHAPTER_SUMMARY_KIND = 'end' as const
+
+/** A chapter card's title: the page's own names for them (✧ Primer, ✧ Recap, ✧ Summary). */
+export function chapterNotesTitle(kind: 'primer' | 'end' | 'sofar', label: string, as?: 'summary'): string {
+  if (kind === 'primer') return `Primer · ${label}`
+  if (kind === 'end') return `${as === 'summary' ? 'Summary' : 'Recap'} · ${label}`
+  return `Summary · ${label} so far`
 }

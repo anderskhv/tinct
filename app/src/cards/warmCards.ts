@@ -51,7 +51,8 @@ export function warmAccountCards(): void {
         profile: profile?.ok ? profile.profile : known?.profile ?? null,
         reading: reading ?? known?.reading ?? null,
         rank: board ? rankOf(me?.rank, board.total) : known?.rank ?? null,
-        plan: info ? (paying ? 'premium' : 'free') : known?.plan ?? null,
+        firstMonthFreeUntil: info ? info.first_month_free_until ?? null : known?.firstMonthFreeUntil ?? null,
+        plan: info ? (info.premium || paying ? 'premium' : 'free') : known?.plan ?? null,
         billing: info ? Boolean(info.stripe) : known?.billing ?? false,
         allowance: allowance ?? known?.allowance ?? null,
       })

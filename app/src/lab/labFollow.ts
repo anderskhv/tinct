@@ -138,9 +138,17 @@ function regroupSpokenWords(tokens: EmphasisWord[], words: TimedWord[]): TimedWo
       continue
     }
     const first = next
-    let glued = ''
-    while (next < spoken.length && glued.length < key.length) glued += spoken[next++].key
-    if (glued !== key) return undefined
+    // A painted numeric range is spoken with a word between its numbers
+    // ("1914 to 1918", Danish "1914 til 1918"): either reading spells it.
+    const keys = key === alignmentKey(token.text, 'da') ? [key] : [key, alignmentKey(token.text, 'da')]
+    let matchedKey = false
+    for (const candidate of keys) {
+      let glued = ''
+      next = first
+      while (next < spoken.length && glued.length < candidate.length) glued += spoken[next++].key
+      if (glued === candidate) { matchedKey = true; break }
+    }
+    if (!matchedKey) return undefined
     const word = { text: token.text, start: spoken[first].word.start, end: spoken[next - 1].word.end }
     out.push(token.emphasis ? { ...word, emphasis: true } : word)
   }

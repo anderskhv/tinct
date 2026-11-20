@@ -51,7 +51,7 @@ export function cardQuestion(card: MarginCard): string {
     case 'explain': return 'Explain this passage.'
     case 'simplify': return 'Simplify this passage.'
     case 'define': return `Define “${String(card.text || '').trim().slice(0, 80)}”.`
-    case 'factcheck': return 'Fact-check this passage.'
+    case 'factcheck': return 'Evaluate this passage.'
     case 'counterpoint': return 'Give a counterpoint to this passage.'
     case 'related': return 'What does this relate to elsewhere?'
     case 'quiz': return `Quiz me${of ? ' on' + of : ''}.`
@@ -61,6 +61,23 @@ export function cardQuestion(card: MarginCard): string {
     case 'figure': return 'Explain this figure.'
     default: return 'About this passage.'
   }
+}
+
+/**
+ * A saved card's messages as its card shows them: without the question the card was saved with
+ * ("Explain this passage.", cardQuestion), which the reader never typed (Anders, 30 Oct 2026). An Ask card keeps
+ * its first message: that question is the reader's own.
+ */
+export function cardShownMessages<T extends { role: string }>(kind: string, messages: T[]): T[] {
+  return kind !== 'ask' && messages[0]?.role === 'user' ? messages.slice(1) : messages
+}
+
+/**
+ * Whether a saved card keeps a place in the margin. A definition is looked up, read and left: it joins the
+ * margin only once the reader has written on it (a follow-up question), as a conversation does (Anders, 2 Nov 2026).
+ */
+export function cardInMargin<T extends { role: string }>(kind: string, messages: T[]): boolean {
+  return kind !== 'define' || cardShownMessages(kind, messages).some(message => message.role === 'user')
 }
 
 function boundedData(data: unknown): unknown {

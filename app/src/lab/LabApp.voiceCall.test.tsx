@@ -62,19 +62,18 @@ describe('Talk on the phone with Chrome V2', () => {
     expect(screen.queryByTestId('lab-voice-gate')).toBeNull()
   })
 
-  it('shows Mute and End as icons, named for screen readers, beside the speed value', async () => {
+  it('shows Mute, Speed and End as equal round controls with their words beneath (mockup B)', async () => {
     await openCall()
     const mute = screen.getByTestId('lab-call-mute')
     const end = screen.getByTestId('lab-call-end')
-    expect(mute.textContent).toBe('')
-    expect(end.textContent).toBe('')
-    expect(mute.querySelector('.lab-voice-control-word')).toBeNull()
-    expect(end.querySelector('.lab-voice-control-word')).toBeNull()
+    expect(mute.querySelector('.lab-voice-control-word')?.textContent).toBe('Mute')
+    expect(end.querySelector('.lab-voice-control-word')?.textContent).toBe('End')
     expect(mute.getAttribute('aria-label')).toBe('Mute')
     expect(mute.getAttribute('title')).toBe('Mute')
     expect(end.getAttribute('aria-label')).toBe('End conversation')
     expect(end.getAttribute('title')).toBe('End conversation')
-    expect(screen.getByTestId('lab-call-speed').querySelector('.lab-voice-control-word')?.textContent).toBe('1×')
+    expect(screen.getByTestId('lab-call-speed').querySelector('.lab-voice-control-disc')?.textContent).toBe('1×')
+    expect(screen.getByTestId('lab-call-speed').querySelector('.lab-voice-control-word')?.textContent).toBe('Speed')
     // Minimal Talk: orb, one status line, controls. The AI Act disclosure is
     // the connecting status line itself; no separate AI line, hint or book line.
     expect(screen.queryByTestId('lab-call-ai')).toBeNull()
@@ -146,7 +145,7 @@ describe('Talk on the phone with Chrome V2', () => {
       expect(screen.getByTestId('lab-call-status').textContent).toBe('Disconnected')
     })
     expect(screen.getByTestId('lab-call-reconnect')).toBeTruthy()
-    expect(screen.queryByText('Listening.')).toBeNull()
+    expect(screen.queryByText('Listening')).toBeNull()
   })
 })
 
@@ -184,9 +183,11 @@ describe('Talk on the desktop with Chrome V2', () => {
     // Mute and End are in the panel; no transcript, AI line or hint is drawn.
     expect(screen.getByTestId('lab-voice-panel-mute')).toBeTruthy()
     expect(screen.getByTestId('lab-voice-panel-end')).toBeTruthy()
-    // Icons only, still named for screen readers and tooltips.
-    expect(screen.getByTestId('lab-voice-panel-mute').textContent).toBe('')
-    expect(screen.getByTestId('lab-voice-panel-end').textContent).toBe('')
+    // Mockup B: words under the discs, names for screen readers and tooltips.
+    expect(screen.getByTestId('lab-voice-panel-mute').textContent).toBe('Mute')
+    expect(screen.getByTestId('lab-voice-panel-end').textContent).toBe('End')
+    // The line under the title names the book and the chapter the reader shows.
+    expect(screen.getByTestId('lab-voice-panel-context').textContent).toMatch(/ · /)
     expect(screen.getByTestId('lab-voice-panel-mute').getAttribute('aria-label')).toBe('Mute')
     expect(screen.getByTestId('lab-voice-panel-end').getAttribute('aria-label')).toBe('End conversation')
     expect(screen.queryByTestId('lab-voice-panel-ai')).toBeNull()
@@ -279,7 +280,7 @@ describe('Talk on the desktop with Chrome V2', () => {
     })
     expect(screen.getByTestId('lab-voice-panel-reconnect')).toBeTruthy()
     expect(screen.queryByTestId('lab-voice-panel-mute')).toBeNull()
-    expect(screen.queryByText('Listening.')).toBeNull()
+    expect(screen.queryByText('Listening')).toBeNull()
   })
 
   it('hands over to Chat when the reader picks it during a call', async () => {

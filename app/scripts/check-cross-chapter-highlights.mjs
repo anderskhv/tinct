@@ -8,7 +8,7 @@ const results=[]
 await fs.mkdir(output,{recursive:true})
 const edition=JSON.parse(await fs.readFile('public/data/editions/bible-kjv-en.json','utf8'))
 for(const engine of [chromium,webkit]){
- const browser=await markInternal(await engine.launch({headless:true}))
+ const browser=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})}))
  try{for(const reverse of [false,true]){
   const context=await browser.newContext({viewport:{width:1440,height:950},serviceWorkers:'block'})
   const page=await context.newPage()
@@ -30,7 +30,10 @@ for(const engine of [chromium,webkit]){
     localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:1.3,fontSizeExplicit:true,theme:'book',compareOpen:false}))
     sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'kjv-en',savedPlace:{bookId:'bible',chapterNumber:595,paragraphIndex:0,wordIndex:0,page:0}}))
    })
-   await page.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
+   // Desktop opens in the Margin reader by default (#721, 4 Nov 2026), which shows one chapter at a time.
+   // A selection can cross into the next chapter only in the two-page spread, whose right column previews
+   // the next chapter's opening, so open that view explicitly.
+   await page.goto(origin+'/reader?view=two-page',{waitUntil:'domcontentloaded'})
    await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true',null,{timeout:45000})
    await page.evaluate(()=>document.fonts.ready)
    if(await page.getByTestId('lab-chapter-cover').isVisible())await page.keyboard.press('ArrowRight')
@@ -47,7 +50,7 @@ for(const engine of [chromium,webkit]){
    await page.mouse.down()
    await page.mouse.move(end.x+end.width/2,end.y+end.height/2,{steps:20})
    await page.mouse.up()
-   await page.getByRole('button',{name:'Highlight',exact:true}).click()
+   await page.getByTestId('lab-dbar-highlight').click()
    await page.waitForFunction(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]').length===2)
    const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')))
    assert.deepEqual(saved.map(h=>h.chapterNumber),[a.chapter,b.chapter])

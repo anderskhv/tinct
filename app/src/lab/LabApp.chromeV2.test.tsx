@@ -260,20 +260,23 @@ describe('the super-menu', () => {
     await waitFor(() => expect(screen.queryByTestId('lab-super-menu')).toBeNull())
   })
 
-  it('lists Chat · Talk, Summarize, Text and theme, Reading settings, Library and Profile — and no Play row', () => {
+  it('lists Chat · Talk, Catch me up, Notebook, Aa, Book settings, Audio settings, Library and Profile — and no Play row', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
-    // The fixture is the book's first chapter: no Catch me up there (20 Oct 2026).
-    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Text and theme', 'Reading settings', 'Library', 'Profile'])
+    // The fixture is the book's first chapter: Catch me up stays available.
+    expect(labels).toEqual(['Chat', 'Talk', 'Catch me up', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'AI settings', 'Library', 'Profile'])
     expect(labels).not.toContain('Librarian')
     // Chat and Talk are one row, each half a button with its own icon and name.
     const pair = screen.getByTestId('lab-super-menu').querySelector('[data-row="conversation"]')!
     expect([...pair.querySelectorAll('button')].map(button => button.getAttribute('data-testid'))).toEqual(['lab-super-row-chat', 'lab-super-row-talk'])
     expect(screen.getByTestId('lab-super-row-chat').querySelector('svg[data-icon="chat"]')).toBeTruthy()
-    // Text and theme wears the theme buttons' Aa.
-    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-icon')?.textContent).toBe('Aa')
+    // Aa wears a small and a large A, so the row reads "Aa" once.
+    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-icon svg[data-icon="text-size"]')).toBeTruthy()
+    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-label')?.textContent).toBe('Appearance')
+    // Audio settings wears a speaker, not Talk's bars.
+    expect(screen.getByTestId('lab-super-row-audio').querySelector('.lab-super-row-icon svg path')).toBeTruthy()
     // Talk wears the audio bar's "ılı" bars (TalkIcon), not a microphone.
     const talkGlyph = screen.getByTestId('lab-super-row-talk').querySelector('svg')!
     expect(talkGlyph.querySelectorAll('rect')).toHaveLength(3)
@@ -283,16 +286,27 @@ describe('the super-menu', () => {
     expect(screen.getByTestId('lab-super-menu').querySelectorAll('h1, h2, h3, h4')).toHaveLength(0)
   })
 
+  it('AI settings is a settings row with a chevron, and opens the AI settings dialog over the reader (11 Nov 2026)', async () => {
+    renderPhone()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    const row = screen.getByTestId('lab-super-row-ai')
+    expect(row.querySelector('svg[data-icon="ai-settings"]')).toBeTruthy()
+    fireEvent.click(row)
+    await waitFor(() => expect(document.querySelector('[data-testid="ai-settings-host"]')).toBeTruthy())
+    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+    fireEvent.keyDown(window, { key: 'Escape' })
+  })
+
   it('has no Compare row, with or without a compare edition', () => {
     expect(labSuperMenuRows({ phone: true }).map(row => row.id))
-      .toEqual(['conversation', 'summarize', 'catchup', 'text', 'reading', 'library', 'account'])
+      .toEqual(['conversation', 'catchup', 'notebook', 'text', 'editions', 'audio', 'ai', 'library', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
   })
 
-  it('keeps Compare out of the menu once a second version is picked; the switch is in Reading settings', () => {
+  it('keeps Compare off the phone even with a stored compare choice: no row, no switch', () => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
     render(<LabApp
       pathname="/lab/phone"
@@ -306,55 +320,114 @@ describe('the super-menu', () => {
     />)
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-super-row-reading'))
-    expect(screen.getByTestId('lab-v2-show-compare').getAttribute('aria-checked')).toBe('false')
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+    expect(screen.queryByTestId('lab-v2-show-compare')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
   })
 
-  it('opens Text and theme (themes, size, Advanced) and Reading settings (editions, voice, speed) from their rows', () => {
+  it('opens Aa (themes, size, Advanced), Book settings (editions) and Audio settings (voice, speed) from their rows', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-text'))
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
     const sheet = screen.getByTestId('lab-v2-sheet')
     expect(sheet.getAttribute('data-layer')).toBe('reading')
-    expect(sheet.getAttribute('aria-label')).toBe('Text and theme')
+    expect(sheet.getAttribute('aria-label')).toBe('Appearance')
     expect(screen.getByTestId('lab-v2-themes')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-size')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-advanced')).toBeTruthy()
     expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-v2-advanced'))
-    expect(screen.getByTestId('lab-v2-sheet-back').textContent).toBe('‹ Text and theme')
+    expect(screen.getByTestId('lab-v2-sheet-back').textContent).toBe('‹ Appearance')
     fireEvent.click(screen.getByTestId('lab-v2-sheet-confirm'))
 
     fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-reading'))
-    const reading = screen.getByTestId('lab-v2-sheet')
-    expect(reading.getAttribute('data-layer')).toBe('editions')
-    expect(reading.getAttribute('aria-label')).toBe('Reading settings')
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+    const book = screen.getByTestId('lab-v2-sheet')
+    expect(book.getAttribute('data-layer')).toBe('editions')
+    expect(book.getAttribute('aria-label')).toBe('Book settings')
     expect(screen.getByTestId('lab-v2-main-edition')).toBeTruthy()
-    expect(screen.getByTestId('lab-v2-compare-edition')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-audio'))
+    const audio = screen.getByTestId('lab-v2-sheet')
+    expect(audio.getAttribute('data-layer')).toBe('audio')
+    expect(audio.getAttribute('aria-label')).toBe('Audio settings')
+    expect(screen.getByTestId('lab-v2-audio-edition')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-narration-voice')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-audio-speed')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
     expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
   })
 
-  it('has no Catch me up on a book\u2019s first chapter on the phone; the desktop menu is unchanged', () => {
+  it('the desktop Notebook uses an accessible icon and opens notes without moving the passage', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    const notebook = screen.getByTestId('lab-header-notebook')
+    expect(notebook.getAttribute('aria-label')).toBe('Notebook')
+    expect(notebook.textContent).toBe('')
+    expect(notebook.querySelector('svg')).toBeTruthy()
+    fireEvent.click(notebook)
+    expect(screen.getByTestId('contents-notebook-all')).toBeTruthy()
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+  })
+
+  it('the phone’s Notebook opens the Contents’ Notebook list (cards, highlights and notes); its close goes straight back to the book', () => {
+    renderPhone()
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-notebook'))
+    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+    expect(screen.getByTestId('lab-toc')).toBeTruthy()
+    expect(screen.getByLabelText('Notebook')).toBeTruthy()
+    expect(screen.getByTestId('contents-notebook-all').getAttribute('aria-pressed')).toBe('true')
+    fireEvent.click(screen.getByLabelText('Close overlay'))
+    expect(screen.queryByTestId('lab-toc')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+    // The chapter's own way into Contents still opens the tree, not the notebook.
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    expect(screen.getByTestId('lab-toc')).toBeTruthy()
+    expect(screen.queryByLabelText('Notebook')).toBeNull()
+  })
+
+  it('the desktop opens the same three groups, with the same names and contents, from its t menu', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const open = (row: string) => {
+      fireEvent.click(screen.getByTestId('lab-super'))
+      fireEvent.click(screen.getByTestId(`lab-super-row-${row}`))
+      const sheet = screen.getByTestId('lab-v2-sheet')
+      return { layer: sheet.getAttribute('data-layer'), label: sheet.getAttribute('aria-label'), themes: !!screen.queryByTestId('lab-v2-themes'), main: !!screen.queryByTestId('lab-v2-main-edition'), voice: !!screen.queryByTestId('lab-v2-narration-voice') }
+    }
+    expect(open('text')).toEqual({ layer: 'reading', label: 'Appearance', themes: true, main: false, voice: false })
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+    expect(open('editions')).toEqual({ layer: 'editions', label: 'Book settings', themes: false, main: true, voice: false })
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+    expect(open('audio')).toEqual({ layer: 'audio', label: 'Audio settings', themes: false, main: false, voice: true })
+  })
+
+  it('keeps Catch me up on a book\u2019s first chapter on the phone; the desktop menu is unchanged', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
-    expect(screen.queryByTestId('lab-super-row-catchup')).toBeNull()
-    expect(screen.getByTestId('lab-super-row-summarize')).toBeTruthy()
+    expect(screen.getByTestId('lab-super-row-catchup')).toBeTruthy()
+    // No Summarize (Anders, 10 Nov 2026): the start and chapter pills hold Summary.
+    expect(screen.queryByTestId('lab-super-row-summarize')).toBeNull()
     cleanup()
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     expect([...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')].map(node => node.textContent))
-      .toEqual(['Librarian', 'Summarize', 'Catch me up', 'Book editions', 'Settings', 'Profile'])
+      .toEqual(['Chat', 'Talk', 'Catch me up', 'Appearance', 'Book settings', 'Audio settings', 'AI settings', 'Profile'])
   })
 
-  it('puts Catch me up right under Summarize, with its timeline icon', () => {
+  it('puts Catch me up right under Chat · Talk, with its timeline icon', () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...screen.getByTestId('lab-super-menu').querySelectorAll('[data-row]')].map(node => node.getAttribute('data-row'))
-    expect(rows.indexOf('catchup')).toBe(rows.indexOf('summarize') + 1)
+    expect(rows.indexOf('catchup')).toBe(rows.indexOf('conversation') + 1)
     const icon = screen.getByTestId('lab-super-row-catchup').querySelector('svg')!
     expect(icon.getAttribute('viewBox')).toBe('0 0 24 24')
     expect(icon.getAttribute('stroke-width')).toBe('1.6')
@@ -392,20 +465,6 @@ describe('the super-menu', () => {
     expect(screen.getByTestId('lab-super').closest('.lab')?.querySelector('.lab-header')?.textContent).toBe(before.header)
   })
 
-  it('summarizes the whole current chapter, not the reading so far (Catch me up does that)', async () => {
-    const fetchMock = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => ({ ok: false, status: 502, json: async () => ({}) }))
-    vi.stubGlobal('fetch', fetchMock)
-    renderPhone()
-    fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
-    const card = await screen.findByTestId('lab-chapter-notes')
-    expect(card.textContent).toMatch(/Recap · /)
-    await waitFor(() => expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-chapter-notes'))).toBe(true))
-    const bodies = fetchMock.mock.calls.filter(call => String(call[0]).includes('/api/lab-chapter-notes')).map(call => JSON.parse(String(call[1]?.body)))
-    expect(bodies.every(body => body.kind === 'end')).toBe(true)
-    expect(bodies.some(body => 'paragraphIndex' in body)).toBe(false)
-  })
-
   it('opens the account cards over the book (Profile) rather than leaving it', async () => {
     renderPhone()
     accountCards.open.mockClear()
@@ -438,7 +497,7 @@ describe('the foot', () => {
 })
 
 describe('Escape on the phone', () => {
-  it('closes the Chat sheet, leaves the menu shut, and keeps the draft', () => {
+  it('closes the Chat sheet, leaves the menu shut, and discards the draft', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-chat'))
@@ -452,10 +511,10 @@ describe('Escape on the phone', () => {
     expect(root().getAttribute('data-super-menu')).toBe('closed')
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
 
-    // The half-typed line is still there when Chat is opened again.
+    // Leaving Chat discards an unsent line.
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-chat'))
-    expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('half a thought')
+    expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
   })
 })
 
@@ -473,7 +532,7 @@ describe('the desktop', () => {
 
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.getByTestId('lab-super-menu')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
   })
 
@@ -643,6 +702,15 @@ describe('the first view', () => {
 describe('the V2 surface', () => {
   const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
 
+  it('gives iOS a solid top-edge header without taking it out of reader flow', () => {
+    const header = css.match(/\.lab\[data-chrome-version="v2"\]:is\(\.is-phone, \.has-phone-chrome\) \.lab-header\s*\{([^}]+)\}/)?.[1]
+    expect(header).toBeDefined()
+    expect(header).toMatch(/position:\s*sticky/)
+    expect(header).toMatch(/top:\s*0/)
+    expect(header).toMatch(/background:\s*var\(--lab-paper\)/)
+    expect(header).not.toMatch(/(?:height|padding|filter):/)
+  })
+
   it('blurs in the panel and only dims the page', () => {
     expect(css).toContain('--lab-v2-panel-blur: 16px')
     expect(css).toContain('--lab-v2-panel-fill: 0.86')
@@ -683,7 +751,7 @@ describe('the Margins preference on the desktop leaves', () => {
 
   function openAdvanced() {
     fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     fireEvent.click(screen.getByTestId('lab-v2-advanced'))
   }
 
@@ -707,4 +775,37 @@ describe('the Margins preference on the desktop leaves', () => {
     expect(css).toMatch(/lab-page-wrap > \.lab-passage \{\s*padding: var\(--desktop-pad-top\) var\(--desktop-pad-x\)/)
     expect(css).toMatch(/lab-desktop-measure \{\s*\n?\s*position: absolute; inset: var\(--desktop-pad-top\) var\(--desktop-pad-x\)/)
   })
+})
+
+it('opens desktop menu Chat in the existing focused companion and discards its draft', async () => {
+  vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false, json: async () => ({}) })))
+  render(<LabApp pathname="/reader" search="?sharedReader=1&view=margin" source={fallbackLabSource()} authToken={null} sharedReader />)
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  const field = await screen.findByTestId('lab-ask-input')
+  expect(field.closest('.lab-ask')).toBeTruthy()
+  expect(document.activeElement).toBe(field)
+  expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('chat')
+  fireEvent.change(field, { target: { value: 'An unsent current-position question.' } })
+  fireEvent.keyDown(field, { key: 'Escape' })
+  fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
+})
+
+
+it('uses the compact Explain card surface for mobile Chat and discards its draft when closed', () => {
+  renderPhone('?chrome=v2', { marginPhone: true, sharedReader: true })
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  const card = document.querySelector('.lab-pcard[data-kind="chat"]')!
+  expect(card).toBeTruthy()
+  expect(card.className).not.toContain('is-tall')
+  expect(card.querySelector('.lab-pcard-label')?.textContent).toBe('Chat')
+  expect(screen.getByTestId('lab-ask-input').getAttribute('placeholder')).toMatch(/^Ask about /)
+  fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'My unfinished question' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Close chat' }))
+  expect(document.querySelector('.lab-pcard[data-kind="chat"]')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
 })

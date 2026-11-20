@@ -67,3 +67,12 @@ export function LoadingIcon({ size = 21 }: { size?: number }) {
     <path d="M12 3a9 9 0 1 1-8.1 5.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
   </svg>
 }
+
+/** The desktop reader's way back to the library (the top bar's arrow). The static scene pages draw it too. */
+export function LibraryBackIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M19 12H5.6M11 6.2 5.2 12l5.8 5.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}

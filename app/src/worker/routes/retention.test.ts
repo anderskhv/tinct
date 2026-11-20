@@ -18,6 +18,8 @@ const NOW = new Date('2026-10-06T03:17:00.000Z')
 const CUTOFF = '2024-10-06T03:17:00.000Z'
 /** Profile reports are kept for up to 12 months (privacy notice). */
 const REPORT_CUTOFF = '2025-10-06T03:17:00.000Z'
+/** The history of changes to reader data is kept for one month (privacy notice, 22 Oct 2026). */
+const AUDIT_CUTOFF = '2026-09-06T03:17:00.000Z'
 const REST = 'https://example.supabase.co/rest/v1/'
 
 type Call = { method: string; path: string }
@@ -80,11 +82,11 @@ describe('runRetentionCleanup', () => {
     vi.unstubAllGlobals()
   })
 
-  it('covers profile reports (12 months) first, then the small email log and reader-data audit, then the analytics and usage tables (24 months)', () => {
+  it('covers profile reports (12 months) first, then the small email log (24 months) and reader-data audit (1 month), then the analytics and usage tables (24 months)', () => {
     expect(RETENTION_TABLES).toEqual([
       { table: 'profile_reports', column: 'created_at', months: 12 },
       { table: 'email_log', column: 'sent_at', months: 24 },
-      { table: 'user_data_audit', column: 'created_at', months: 24 },
+      { table: 'user_data_audit', column: 'created_at', months: 1 },
       { table: 'analytics_events', column: 'created_at', months: 24 },
       { table: 'ai_usage_events', column: 'created_at', months: 24 },
       { table: 'token_usage', column: 'created_at', months: 24 },
@@ -113,7 +115,7 @@ describe('runRetentionCleanup', () => {
     expect(table).toMatch(/\bcreated_at TIMESTAMPTZ NOT NULL DEFAULT NOW\(\)/)
   })
 
-  it('deletes email_log rows older than 24 months by sent_at, and user_data_audit rows by created_at', async () => {
+  it('deletes email_log rows older than 24 months by sent_at, and user_data_audit rows older than one month by created_at', async () => {
     const { calls } = mockSupabase({ email_log: 2, user_data_audit: 1 })
     const result = await runRetentionCleanup(env, NOW)
     expect(calls.filter(call => call.path.startsWith('email_log'))).toEqual([
@@ -121,12 +123,12 @@ describe('runRetentionCleanup', () => {
       { method: 'DELETE', path: `email_log?id=in.(1,2)&sent_at=lt.${CUTOFF}` },
     ])
     expect(calls.filter(call => call.path.startsWith('user_data_audit'))).toEqual([
-      { method: 'GET', path: `user_data_audit?select=id&created_at=lt.${CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
-      { method: 'DELETE', path: `user_data_audit?id=in.(${uuid(1)})&created_at=lt.${CUTOFF}` },
+      { method: 'GET', path: `user_data_audit?select=id&created_at=lt.${AUDIT_CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
+      { method: 'DELETE', path: `user_data_audit?id=in.(${uuid(1)})&created_at=lt.${AUDIT_CUTOFF}` },
     ])
     expect(result?.tables.slice(1, 3)).toEqual([
       { table: 'email_log', cutoff: CUTOFF, deleted: 2, batches: 1, complete: true },
-      { table: 'user_data_audit', cutoff: CUTOFF, deleted: 1, batches: 1, complete: true },
+      { table: 'user_data_audit', cutoff: AUDIT_CUTOFF, deleted: 1, batches: 1, complete: true },
     ])
   })
 
@@ -156,8 +158,9 @@ describe('runRetentionCleanup', () => {
     // No filter on resolved_at: the notice promises 12 months for every report.
     expect(reportCalls.every(call => !call.path.includes('resolved_at'))).toBe(true)
     expect(result?.tables[0]).toEqual({ table: 'profile_reports', cutoff: REPORT_CUTOFF, deleted: 3, batches: 1, complete: true })
-    // The 24-month tables keep their own, older cutoff.
-    expect(calls.filter(call => !call.path.startsWith('profile_reports')).every(call => call.path.includes(`_at=lt.${CUTOFF}&`))).toBe(true)
+    // The 24-month tables keep their own, older cutoff; the audit its one-month one.
+    expect(calls.filter(call => !/^(profile_reports|user_data_audit)\?/.test(call.path)).every(call => call.path.includes(`_at=lt.${CUTOFF}&`))).toBe(true)
+    expect(calls.filter(call => call.path.startsWith('user_data_audit')).every(call => call.path.includes(`_at=lt.${AUDIT_CUTOFF}&`))).toBe(true)
   })
 
   it('a failed profile report cleanup does not stop the other tables', async () => {
@@ -175,7 +178,7 @@ describe('runRetentionCleanup', () => {
     expect(calls).toEqual([
       { method: 'GET', path: `profile_reports?select=id&created_at=lt.${REPORT_CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
       { method: 'GET', path: `email_log?select=id&sent_at=lt.${CUTOFF}&order=sent_at.asc,id.asc&limit=${RETENTION_BATCH}` },
-      { method: 'GET', path: `user_data_audit?select=id&created_at=lt.${CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
+      { method: 'GET', path: `user_data_audit?select=id&created_at=lt.${AUDIT_CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
       { method: 'GET', path: `analytics_events?select=id&created_at=lt.${CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
       { method: 'GET', path: `ai_usage_events?select=id&created_at=lt.${CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
       { method: 'GET', path: `token_usage?select=id&created_at=lt.${CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
@@ -199,12 +202,12 @@ describe('runRetentionCleanup', () => {
     }
     expect(deletes[0].path.split('id=in.(')[1].split(')')[0].split(',')).toHaveLength(RETENTION_BATCH)
     expect(deletes[2].path).toBe(`ai_usage_events?id=in.(1,2)&created_at=lt.${CUTOFF}`)
-    expect(calls.filter(call => call.method === 'GET' && !call.path.startsWith('profile_reports')).every(call => call.path.includes(`_at=lt.${CUTOFF}&`))).toBe(true)
+    expect(calls.filter(call => call.method === 'GET' && !/^(profile_reports|user_data_audit)\?/.test(call.path)).every(call => call.path.includes(`_at=lt.${CUTOFF}&`))).toBe(true)
 
     expect(result?.tables).toEqual([
       { table: 'profile_reports', cutoff: REPORT_CUTOFF, deleted: 0, batches: 0, complete: true },
       { table: 'email_log', cutoff: CUTOFF, deleted: 0, batches: 0, complete: true },
-      { table: 'user_data_audit', cutoff: CUTOFF, deleted: 0, batches: 0, complete: true },
+      { table: 'user_data_audit', cutoff: AUDIT_CUTOFF, deleted: 0, batches: 0, complete: true },
       { table: 'analytics_events', cutoff: CUTOFF, deleted: RETENTION_BATCH + 3, batches: 2, complete: true },
       { table: 'ai_usage_events', cutoff: CUTOFF, deleted: 2, batches: 1, complete: true },
       { table: 'token_usage', cutoff: CUTOFF, deleted: 0, batches: 0, complete: true },

@@ -87,5 +87,33 @@ export function requestsLine(rows: readonly RequestRow[]): string | null {
   return others === 0 ? `${first} wants to be friends` : `${first} and ${others} other${others === 1 ? '' : 's'} want to be friends`
 }
 
-/** The dot's class, on the library's picture and the reader menu's Profile row. */
+/** The dot's class, on the library's picture, the reader's t button and the reader menu's Profile row. */
 export const REQUEST_DOT_CLASS = 'tinct-request-dot'
+
+/**
+ * The reader's t menu row (Anders, 16 Nov 2026): the newest requester and how
+ * many others wait. Only pending requests count (a blocked or removed follower
+ * is never `followed`, so never named). The one named is a request this device
+ * has not shown yet, if any: those arrived since the reader last looked, and
+ * the Worker's list carries no follow times.
+ */
+export interface MenuRequest<T extends RequestRow = RequestRow> {
+  first: T
+  others: number
+  line: string
+}
+
+export function menuRequest<T extends RequestRow>(rows: readonly T[] | null | undefined, seen: ReadonlySet<string> = new Set()): MenuRequest<T> | null {
+  const pending = pendingRequests(rows)
+  if (!pending.length) return null
+  const first = pending.find(row => !seen.has(row.handle)) ?? pending[0]
+  const others = pending.length - 1
+  const name = first.name.trim() || first.handle
+  const line = others === 0 ? `${name} wants to follow you` : `${name} and ${others} other${others === 1 ? '' : 's'} want to follow you`
+  return { first, others, line }
+}
+
+/** The rows after a follow back answered: that reader's relation as the Worker gave it. */
+export function withRelation<T extends RequestRow>(rows: readonly T[], handle: string, relation: RequestRow['relation']): T[] {
+  return rows.map(row => (row.handle === handle ? { ...row, relation } : row))
+}

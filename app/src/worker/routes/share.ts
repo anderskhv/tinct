@@ -23,6 +23,7 @@ import type { Book } from '../../types'
 import { createBookRetrieval, type AssetsBinding } from '../lib/bookRetrieval'
 import { htmlEscape } from '../lib/html'
 import { jsonResponse } from '../lib/responses'
+import { privateToCountry, regionRefusalJson, regionRefusalPage, type ShareRegion } from '../lib/regionGate'
 import { SHARE_ID_PATTERN, type ShareRecord, type ShareRecordInput } from '../shareRecord'
 import type { ShareStore } from '../shareStore'
 
@@ -261,7 +262,7 @@ export async function handleShareApi(request: Request, env: ShareEnv, ctx: Execu
 }
 
 /** `/q/{id}` and its images. Returns null for paths it does not own. */
-export async function handleSharePage(request: Request, env: ShareEnv, ctx: ExecutionContext): Promise<Response | null> {
+export async function handleSharePage(request: Request, env: ShareEnv, ctx: ExecutionContext, region?: ShareRegion): Promise<Response | null> {
   const url = new URL(request.url)
   const match = url.pathname.match(/^\/q\/([a-z0-9]+)(?:\/(image|og)\.png)?\/?$/)
   if (!match) return null
@@ -270,11 +271,14 @@ export async function handleSharePage(request: Request, env: ShareEnv, ctx: Exec
   if (!SHARE_ID_PATTERN.test(match[1])) return notFound()
   const record = await storeOf(env)?.get(match[1])
   if (!record) return notFound()
+  // A book not served in this request's country (lib/regionGate.ts): checked before the image cache.
+  if (region?.refuses(record.bookId)) return match[2] ? regionRefusalJson(request) : regionRefusalPage(request, record.bookId)
+  const regional = (response: Response) => region?.varies(record.bookId) ? privateToCountry(response) : response
   const kind = match[2]
   if (kind) {
     const format: ShareFormat = kind === 'og' ? 'og' : record.format
     const key = `${url.origin}/__share/v${SHARE_RENDER_VERSION}/${record.id}/${format}.png`
-    return pngResponse(env, request, ctx, key, () => renderInput(env, url.origin, record, format))
+    return regional(await pngResponse(env, request, ctx, key, () => renderInput(env, url.origin, record, format)))
   }
   const loaded = await loadShareContent(env, url.origin, record)
   if (!loaded) return notFound()
@@ -290,7 +294,7 @@ export async function handleSharePage(request: Request, env: ShareEnv, ctx: Exec
     credit: loaded.credit, licence: loaded.licence,
     quote: series ? quote : undefined,
   })
-  return new Response(request.method === 'HEAD' ? null : html, {
+  return regional(new Response(request.method === 'HEAD' ? null : html, {
     headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=300' },
-  })
+  }))
 }

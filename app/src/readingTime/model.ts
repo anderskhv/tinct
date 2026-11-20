@@ -306,6 +306,74 @@ export function weekBooks(rows: LedgerRow[], starts: readonly string[]): Map<str
 }
 
 /**
+ * Seconds read per day, Monday to Sunday, of each week starting on a Monday in
+ * `starts`: the same rows and rules as weekBooks and readingTimeStats' weeks
+ * (earlier time and invalid days skipped, read plus listen), so the seven days
+ * add up to the week's bar. Weeks with no reading map to seven zeros. Shown as
+ * the opened week's day strip on the You card (Anders, 2 Nov 2026).
+ */
+export function weekDays(rows: LedgerRow[], starts: readonly string[]): Map<string, number[]> {
+  const byWeek = new Map(starts.map(start => [start, [0, 0, 0, 0, 0, 0, 0]]))
+  for (const row of rows) {
+    if (row.bookId === EARLIER_BOOK_ID || !isDay(row.day)) continue
+    const total = seconds(row.read) + seconds(row.listen)
+    const start = weekStart(row.day)
+    const week = total > 0 ? byWeek.get(start) : undefined
+    if (week) week[daysBetween(start, row.day)] += total
+  }
+  return byWeek
+}
+
+/**
+ * Seconds per book on each day from `from` on (a day with no reading is left out), by the same rows and rules as
+ * weekBooks: the Days view's books for a tapped day. Most time first.
+ */
+export function dayBooks(rows: LedgerRow[], from: string): Map<string, Array<{ bookId: string; seconds: number }>> {
+  const byDay = new Map<string, Map<string, number>>()
+  for (const row of rows) {
+    if (row.bookId === EARLIER_BOOK_ID || !isDay(row.day) || row.day < from) continue
+    const total = seconds(row.read) + seconds(row.listen)
+    if (total <= 0) continue
+    const books = byDay.get(row.day) ?? new Map<string, number>()
+    const bookId = ledgerBookId(row.bookId)
+    books.set(bookId, (books.get(bookId) ?? 0) + total)
+    byDay.set(row.day, books)
+  }
+  return new Map([...byDay].sort(([a], [b]) => a.localeCompare(b)).map(([day, books]) => [day, [...books]
+    .map(([bookId, total]) => ({ bookId, seconds: total }))
+    .sort((a, b) => b.seconds - a.seconds || a.bookId.localeCompare(b.bookId))]))
+}
+
+/**
+ * Each calendar month from the first month read (or `today`'s, without reading) to `today`'s, oldest first: its
+ * seconds and books, by the same rows and rules as the weeks (earlier time left out). The Months view.
+ */
+export function monthTotals(rows: LedgerRow[], today: string = localDay()): Array<{ start: string; seconds: number; books: Array<{ bookId: string; seconds: number }> }> {
+  const byMonth = new Map<string, Map<string, number>>()
+  let first = today.slice(0, 7)
+  for (const row of rows) {
+    if (row.bookId === EARLIER_BOOK_ID || !isDay(row.day) || row.day > today) continue
+    const total = seconds(row.read) + seconds(row.listen)
+    if (total <= 0) continue
+    const month = row.day.slice(0, 7)
+    if (month < first) first = month
+    const books = byMonth.get(month) ?? new Map<string, number>()
+    const bookId = ledgerBookId(row.bookId)
+    books.set(bookId, (books.get(bookId) ?? 0) + total)
+    byMonth.set(month, books)
+  }
+  const months: Array<{ start: string; seconds: number; books: Array<{ bookId: string; seconds: number }> }> = []
+  for (let [y, m] = first.split('-').map(Number); `${y}-${String(m).padStart(2, '0')}` <= today.slice(0, 7); m === 12 ? (y++, m = 1) : m++) {
+    const start = `${y}-${String(m).padStart(2, '0')}`
+    const books = [...(byMonth.get(start) ?? new Map<string, number>())]
+      .map(([bookId, total]) => ({ bookId, seconds: total }))
+      .sort((a, b) => b.seconds - a.seconds || a.bookId.localeCompare(b.bookId))
+    months.push({ start, seconds: books.reduce((sum, book) => sum + book.seconds, 0), books })
+  }
+  return months
+}
+
+/**
  * Books the position record's finished chapters say are finished, by the
  * shared rule (preReader/bookFinished.ts): every chapter, or the last chapter
  * plus 90% of them. Finishing only the last chapter is not finishing the book.

@@ -29,6 +29,7 @@ import type { ChapterFigure } from '../../types'
 import { figureToken } from '../labFigures'
 import { isPlayText } from '../labVerseLines'
 import { bylineName, chapterAuthors, nameLike, personName, sameWriter, type AuthorCandidate, type BookCreators } from './chapterAuthors'
+import { archiveChapters, isArchiveEpub } from './archiveEpub'
 import { MAX_STORED_PICTURE_BYTES, imageSize, pictureType, preparePicture, sniffImageType } from './epubPictures'
 
 export { imageSize }
@@ -381,11 +382,22 @@ function opensOnName(line: string): boolean {
   return !!match && !VERSE_OPENERS.has(match[1].toLowerCase())
 }
 
-function documentBlocks(source: string, base = '', v6 = false): DocumentBlocks {
+function documentBlocks(source: string, base = '', v6 = false, v8 = false, v9 = false): DocumentBlocks {
   let wikisourceStamp = false
   let doc = new DOMParser().parseFromString(source, 'application/xhtml+xml')
   if (doc.getElementsByTagName('parsererror').length) doc = new DOMParser().parseFromString(source, 'text/html')
   const body = byLocal(doc, 'body')[0] || doc.documentElement
+  // Only join a printed split when this document independently spells the
+  // whole word without a hyphen. Keep ambiguous and authored compounds.
+  const wordEvidence = new Set<string>()
+  if (v9 && byLocal(body, 'br').length) {
+    const copy = body.cloneNode(true) as Element
+    for (const br of byLocal(copy, 'br')) br.replaceWith(doc.createTextNode(' '))
+    const walker = doc.createTreeWalker(copy, NodeFilter.SHOW_TEXT)
+    const pieces: string[] = []
+    while (walker.nextNode()) pieces.push(walker.currentNode.textContent || '')
+    for (const token of pieces.join(' ').match(/\p{L}+(?:-\p{L}+)*/gu) || []) wordEvidence.add(token.toLowerCase())
+  }
   const firstSection = [...body.children].find(child => /^(section|div|article)$/i.test(child.localName))
   const docType = [body, firstSection].filter((el): el is Element => !!el)
     .map(el => `${epubType(el)} ${(el.getAttribute('role') || '').toLowerCase()}`).join(' ')
@@ -442,7 +454,7 @@ function documentBlocks(source: string, base = '', v6 = false): DocumentBlocks {
    */
   const flush = () => {
     gather()
-    if (pending.length) { blocks.push(...pending.map(pictureBlock)); pending = [] }
+    if (pending.length) { for (const picture of pending) blocks.push(pictureBlock(picture)); pending = [] }
   }
   const gather = () => {
     const gathered = segments
@@ -472,12 +484,53 @@ function documentBlocks(source: string, base = '', v6 = false): DocumentBlocks {
     // lower case is the page's wrapping, not the author's. Then it is one paragraph.
     const lineText = (run: Segment[]) => run.map(segment => segment.text).join('').replace(INVISIBLE, '').replace(/\s+/g, ' ').trim()
     const lines = runs.map(lineText)
+    // Plain-text verse uses hanging indentation for a long line's continuation.
+    // Require multiple lines at the base indentation and a deeper continuation;
+    // ordinary print-wrapped prose (including a first-line indent) is unchanged.
+    const indents = runs.map(run => (run.map(segment => segment.text).join('').match(/^[ \t]*/)?.[0] || '').replace(/\t/g, '    ').length)
+    const baseIndent = indents.reduce((min, indent) => Math.min(min, indent), Infinity)
+    const continuation = (index: number) => index > 0 && indents[index] >= baseIndent + 2
+      && /\p{L}$/u.test(lines[index - 1]) && /^\p{Ll}/u.test(lines[index])
+    const hanging = v8 && indents.filter(indent => indent === baseIndent).length >= 2
+      && indents.some((_indent, index) => continuation(index))
+    if (hanging) {
+      const groups: Segment[][] = []
+      for (let index = 0; index < runs.length; index++) {
+        if (groups.length && continuation(index)) groups[groups.length - 1].push({ text: ' ', em: false }, ...runs[index])
+        else groups.push([...runs[index]])
+      }
+      for (const group of groups) emit(group, true)
+      return
+    }
+    // Earlier conversions keep their paragraph coordinates on every device.
     const wrapped = lines.some((line, index) => index > 0 && ((/\p{L}$/u.test(lines[index - 1]) && /^\p{Ll}/u.test(line))
-      // A list of names wrapped by the print ("… Ayush Modi, / Anders Hvelplund, and …"):
-      // a line ending in a comma before one that opens on a name.
-      || (/,$/.test(lines[index - 1]) && opensOnName(line))))
-    if (wrapped) { emit(gathered); return }
+      || (/,$/.test(lines[index - 1]) && opensOnName(line))
+      // A title at the printed line end continues into the following name.
+      || (v8 && /\b(?:Mr|Mrs|Ms|Dr)\.$/.test(lines[index - 1]) && /^\p{Lu}/u.test(line))))
+    if (wrapped) {
+      if (!v9) { emit(gathered); return }
+      const joined = gathered.map(segment => ({ ...segment }))
+      for (let index = 0; index < joined.length; index++) {
+        if (!joined[index].br) continue
+        let before = index - 1, after = index + 1
+        while (before >= 0 && !joined[before].br && !joined[before].text.trim()) before--
+        while (after < joined.length && !joined[after].br && !joined[after].text.trim()) after++
+        const last = joined[before], first = joined[after]
+        if (!last || !first || last.br || first.br) continue
+        const left = last.text.match(/(\p{L}+)-\s*$/u)?.[1]
+        const right = first.text.match(/^\s*(\p{Ll}+)/u)?.[1]
+        if (left && right && wordEvidence.has((left + right).toLowerCase())
+          && !wordEvidence.has((left + '-' + right).toLowerCase())) {
+          last.text = last.text.replace(/-\s*$/, '')
+          for (let gap = before + 1; gap < after; gap++) joined[gap].text = ''
+          first.text = first.text.trimStart()
+        }
+      }
+      emit(joined)
+      return
+    }
     for (const run of runs) emit(run, true)
+
   }
 
   const emit = (segments: Segment[], line = false) => {
@@ -981,7 +1034,7 @@ interface Piece {
  * carry the story; an epigraph set before its essay's own heading joins the
  * essay; and a book without a usable contents is cut at its own headings.
  */
-function piecesFromContents(stream: Block[], placed: PlacedEntry[], docs: Array<{ at: number; title: string; docType: string }>, book: { title: string; author: string }): Piece[] {
+function piecesFromContents(stream: Block[], placed: PlacedEntry[], docs: Array<{ at: number; title: string; docType: string }>, book: { title: string; author: string; rules: number }): Piece[] {
   const starts = new Map<number, PlacedEntry[]>()
   for (const entry of placed) starts.set(entry.at, [...(starts.get(entry.at) ?? []), entry])
   if (starts.size < 2) {
@@ -1090,17 +1143,49 @@ function piecesFromContents(stream: Block[], placed: PlacedEntry[], docs: Array<
   return pieces
 }
 
+/** Rules 12: a piece shorter than this stays one chapter, its headings inside it. */
+const SHORT_PIECE_WORDS = 2500
+/** Rules 12: a section shorter than this under its heading opens the chapter after it. */
+const SHORT_SECTION_WORDS = 300
+/** A sub-section's number ("i.", "ii)", "a)", "(b)"): under the level its heading is set at. */
+const SUB_NUMBER = /^\s*(?:\(?[ivxlc]{1,6}[.)]|\(?[a-z]\)|\([a-z]\)|[a-h]\.)\s+\S/
+
 /**
  * A book without a usable contents, cut at its own headings (an old
  * table-set poetry book with its poems' titles in a larger type). Only when it
  * has three or more; the book's title and author set as headings are not
  * cuts, and a heading with almost nothing under it opens the next piece.
+ *
+ * Rules 12 (4 Nov 2026), for prose (an article pasted from the web, an essay
+ * in one document): a piece under SHORT_PIECE_WORDS stays one chapter; only
+ * headings at the top level the text uses start chapters (h2 over h3; "I." over
+ * "i." at one level), the lower ones stay in their chapter as headings; and a
+ * heading with under SHORT_SECTION_WORDS before the next one opens the chapter
+ * after it (named by it), the next heading kept inside. Verse keeps the cuts above.
  */
-function splitAtHeadings(stream: Block[], book: { title: string; author: string }): Array<Piece & { at: number }> | null {
+function splitAtHeadings(stream: Block[], book: { title: string; author: string; rules?: number }): Array<Piece & { at: number }> | null {
   const titled = (block: Block | undefined) => !!block?.heading
     && !namesBook(block.text, book.title) && !(book.author && norm(block.text).replace(/^by\s+/, '') === norm(book.author))
-  // A run of headings is one cut, at its first.
-  const cuts = stream.map((block, index) => titled(block) && !titled(stream[index - 1]) ? index : -1).filter(index => index > 0)
+  const body = stream.filter(block => !block.heading && !block.figure)
+  const prose = (book.rules ?? 0) >= 12 && body.filter(block => block.kind === 'line').length * 2 <= body.length
+  if (prose && blockWords(body) < SHORT_PIECE_WORDS) return null
+  // How deep a heading stands: its element's level (a styled paragraph under every h1–h6), a sub-number under that.
+  const rank = (block: Block) => (block.level ?? 7) * 2 + (SUB_NUMBER.test(plain(block.text)) ? 1 : 0)
+  let top = Infinity
+  if (prose) {
+    const counts = new Map<number, number>()
+    stream.forEach((block, index) => { if (index > 0 && titled(block)) counts.set(rank(block), (counts.get(rank(block)) ?? 0) + 1) })
+    const ranks = [...counts.keys()].sort((a, b) => a - b)
+    top = ranks.find(value => (counts.get(value) ?? 0) >= 2) ?? ranks[0] ?? Infinity
+  }
+  // A run of headings is one cut, at its first; in prose, a run holding a top-level heading.
+  const opens = (index: number) => {
+    if (!titled(stream[index]) || titled(stream[index - 1])) return false
+    if (!prose) return true
+    for (let at = index; titled(stream[at]); at++) if (rank(stream[at]) <= top) return true
+    return false
+  }
+  const cuts = stream.map((_, index) => opens(index) ? index : -1).filter(index => index > 0)
   if (cuts.length < 3) return null
   const at = [0, ...cuts]
   const pieces: Array<Piece & { at: number }> = []
@@ -1110,6 +1195,20 @@ function splitAtHeadings(stream: Block[], book: { title: string; author: string 
     const title = index === 0 ? book.title : bareNumeral(headings[0] ?? '') && headings[1] ? `${headings[0]} ${headings[1]}` : headings[0] ?? ''
     pieces.push({ at: start, title, blocks })
   })
+  if (prose) {
+    // Rules 12: a short section opens the chapter after it, under its own heading; the last joins the one before.
+    for (let i = pieces.length - 2; i >= 1; i--) {
+      if (blockWords(pieces[i].blocks.filter(block => !block.heading)) >= SHORT_SECTION_WORDS) continue
+      pieces[i] = { ...pieces[i], blocks: [...pieces[i].blocks, ...pieces[i + 1].blocks] }
+      pieces.splice(i + 1, 1)
+    }
+    const last = pieces.length - 1
+    if (last >= 2 && blockWords(pieces[last].blocks.filter(block => !block.heading)) < SHORT_SECTION_WORDS) {
+      pieces[last - 1] = { ...pieces[last - 1], blocks: [...pieces[last - 1].blocks, ...pieces[last].blocks] }
+      pieces.pop()
+    }
+    return pieces
+  }
   // A title with almost nothing under it ("POEMS." over an epigraph) opens the piece after it.
   for (let i = pieces.length - 2; i >= 1; i--) {
     if (blockWords(pieces[i].blocks.filter(block => !block.heading)) >= 25) continue
@@ -1400,6 +1499,28 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   const spine = (linear.length ? linear : refs).map(ref => ref.item)
   if (!spine.length) throw new EpubError('bad_epub', 'This EPUB has no readable chapters.')
 
+  // Rules 10: an Internet Archive scan's EPUB (hocr-to-epub) is rebuilt from its pages (archiveEpub.ts).
+  if (rules >= 10) {
+    const noticeItem = [...manifest.values()].find(item => /(?:^|\/)notice\.x?html$/.test(item.href))
+    const notice = noticeItem ? await zip.readText(noticeItem.href) : null
+    if (isArchiveEpub(opfText, spine.map(item => item.href), notice)) {
+      const texts: string[] = []
+      for (const item of spine) {
+        if (item === noticeItem) continue
+        const source = await zip.readText(item.href)
+        let text = ''
+        try { text = source ? clean(byLocal(parseXml(source), 'body')[0]?.textContent) : '' } catch { text = '' }
+        texts.push(text)
+      }
+      const built = archiveChapters(texts, rules)
+      const bookTitle = textOf(meta, 'title') || built.title || clean(options.fallbackTitle) || 'Untitled book'
+      const pieces: UserBookChapter[] = built.chapters.map((chapter, index) => ({ number: index + 1, title: chapter.title || shortTitle(bookTitle), paragraphs: chapter.paragraphs }))
+      if (pieces.length) {
+        const chapters = options.sourceTitles ? pieces : normalizeChapterTitles(pieces, { language })
+        return { edition: { format: USER_EDITION_FORMAT, converter: rules, title: bookTitle, author: author || personName(built.author), bylines: true, language, chapters, droppedImages: 0 }, images: new Map() }
+      }
+    }
+  }
   const toc = await readToc(zip, manifest, spineEl)
   // The cover picture is the book's cover (Add a book shows it), never a figure.
   const coverId = byLocal(meta, 'meta').find(item => item.getAttribute('name') === 'cover')?.getAttribute('content') || ''
@@ -1421,7 +1542,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   let droppedImages = 0
   for (const item of spine) {
     const source = await zip.readText(item.href)
-    const parsed = documentBlocks(source || '', item.href, v6)
+    const parsed = documentBlocks(source || '', item.href, v6, rules >= 8, rules >= 9)
     for (const id of parsed.dropped) droppedPlaces.add(`${item.href}#${id}`)
     if (parsed.libraryOnly || wikisourceMatter(parsed.blocks)) { droppedPlaces.add(item.href); continue }
     // Rules 6: Wikisource's title page (title, author, year and its export stamp).
@@ -1447,7 +1568,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     for (const [id, index] of parsed.anchors) anchorAt.set(`${item.href}#${id}`, stream.length + index)
     const firstHeading = parsed.blocks.find(block => block.heading)?.text
     docTitles.push({ at: stream.length, title: firstHeading ? clean(firstHeading.replace(/(^|\s)_|_(\s|$)/g, '$1$2')) : '', docType: parsed.docType })
-    stream.push(...parsed.blocks)
+    for (const block of parsed.blocks) stream.push(block)
     droppedImages += parsed.images
   }
   // Without the marked-up header and footer, Project Gutenberg's text markers bound the book.
@@ -1504,7 +1625,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     }
     return out
   }
-  if (v6) pieces = piecesFromContents(stream, placedEntries(), docTitles, { title, author })
+  if (v6) pieces = piecesFromContents(stream, placedEntries(), docTitles, { title, author, rules })
   else {
     // Chapter starts: the contents' entries in reading order, else every document.
     const starts = new Map<number, string>()

@@ -101,7 +101,13 @@ async function inspect(page, scenario) {
   return state
 }
 for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
-  const browser = await markInternal(await browserType.launch({ headless: true, args: engine === 'chromium' ? ['--mute-audio'] : [] }))
+  // Capture bounded transport evidence without changing acceptance behavior.
+  // Default NetLog privacy mode excludes cookies and raw response bytes.
+  const args = engine === 'chromium' ? ['--mute-audio'] : []
+  if (engine === 'chromium' && process.env.SHAKESPEARE_NETLOG === '1') {
+    args.push(`--log-net-log=${path.resolve(output, 'chromium-netlog.json')}`, '--net-log-max-size-mb=50')
+  }
+  const browser = await markInternal(await browserType.launch({ headless: true, args }))
   try {
     const scenarios = []
     for (const width of [320, 390]) for (const layout of ['verse', 'flowing']) for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ width, layout, size, alignment, explicit: true, phone: true, book: 'macbeth', chapter: 1, paragraph: 0 })
@@ -120,6 +126,14 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       page.on('console', message => { if (message.type() === 'error') note('console.error', message.text().slice(0, 300), message.location()?.url || '') })
       page.on('framenavigated', frame => { if (frame === page.mainFrame()) note('navigated', frame.url()) })
       page.on('crash', () => note('crash'))
+      const pending = new Map()
+      page.on('request', request => pending.set(request, { url: request.url(), type: request.resourceType(), started: Date.now() }))
+      page.on('response', response => {
+        const entry = pending.get(response.request())
+        if (entry) Object.assign(entry, { responseAt: Date.now(), status: response.status(), contentType: response.headers()['content-type'], cacheStatus: response.headers()['cf-cache-status'] })
+      })
+      page.on('requestfinished', request => pending.delete(request))
+      page.on('requestfailed', request => { note('requestfailed', request.url(), request.failure()?.errorText); pending.delete(request) })
       try {
         await boot(page, scenario)
         // Liveness: a page that cannot answer a trivial evaluate after ready
@@ -147,9 +161,8 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         if (index === 0 || tablet || scenario.width === 1440) {
           await page.getByTestId('lab-super').click({ force: true })
           await page.getByTestId('lab-super-menu').waitFor()
-          // The phone's t menu (20 Oct 2026): Text and theme holds the themes, size and Advanced settings; the desktop keeps Settings.
-          await page.getByTestId((await page.getByTestId('lab-super-row-text').count() ? 'lab-super-row-text' : 'lab-super-row-settings')).click()
-          await page.getByTestId('lab-v2-advanced').click()
+          // A play's layout is Book settings' (22 Oct 2026), on the phone only.
+          await page.getByTestId('lab-super-row-editions').click()
           const choice = page.getByLabel('Shakespeare layout')
           assert.equal(await choice.count(), scenario.phone ? 1 : 0)
           if (scenario.phone) {
@@ -173,8 +186,9 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         console.log('PASS', engine, index, scenario.book, scenario.width, scenario.layout, scenario.size, scenario.alignment)
       } catch (error) {
         try {
+          console.log('FAIL pending requests', JSON.stringify([...pending.entries()].map(([handle, request]) => ({ ...request, elapsedMs: Date.now() - request.started, timing: handle.timing() }))))
           console.log('FAIL', engine, index, JSON.stringify(scenario), String(error?.message).split('\n')[0])
-          const state = await settle(page.evaluate(() => { const root = document.querySelector('[data-testid="lab-root"]'); return { labRoot: !!root, readerReady: root?.dataset.readerReady ?? null, href: location.href, diag: window.__shakespeareDiag ?? null } }), 5000)
+          const state = await settle(page.evaluate(() => { const root = document.querySelector('[data-testid="lab-root"]'); return { readyState: document.readyState, labRoot: !!root, readerReady: root?.dataset.readerReady ?? null, href: location.href, diag: window.__shakespeareDiag ?? null } }), 5000)
           console.log('FAIL page', state.timedOut ? 'no answer in 5 s (main thread busy?)' : JSON.stringify(state.value ?? state.error))
           console.log('FAIL events', events.length ? '\n' + events.join('\n') : 'none')
           await page.screenshot({ path: `${output}/${engine}-${index}-failure.png`, timeout: 5000 }).catch(shot => console.log('FAIL screenshot skipped:', String(shot?.message).split('\n')[0]))

@@ -104,8 +104,6 @@ describe('worker SEO routing', () => {
     ['/lab/sign-in', '/sign-in'],
     ['/lab/sign-in/', '/sign-in'],
     ['/lab/sign-in/index.html', '/sign-in'],
-    ['/lab/featured', '/featured'],
-    ['/lab/featured/', '/featured'],
   ])('redirects the old page URL %s permanently to %s', async (pathname, target) => {
     for (const method of ['GET', 'HEAD']) {
       const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`, { method }), routerEnv() as never, ctx)
@@ -327,12 +325,12 @@ describe('worker SEO routing', () => {
       expect(resp.headers.get('X-Robots-Tag')).toBeNull()
       const html = await resp.text()
       expect(html).not.toMatch(/name="robots"/)
-      expect(html).toContain('<title>Read Wuthering Heights Free Online | Tinct</title>')
+      expect(html).toContain('<title>Read Wuthering Heights online free, in modern English | Tinct</title>')
       expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/wuthering-heights">')
-      expect(html).toContain('<meta property="og:title" content="Read Wuthering Heights Free Online | Tinct">')
+      expect(html).toContain('<meta property="og:title" content="Read Wuthering Heights online free, in modern English | Tinct">')
       expect(html).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/books/wuthering-heights.jpg">')
       expect(html).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20260921/books/wuthering-heights.jpg">')
-      expect(html).not.toContain('og-image-v2.jpg')
+      expect(html).not.toContain('og-image-v3.jpg')
       expect(html.match(/<title>/g)).toHaveLength(1)
       expect(html).toContain('"@type":"Book"')
       // The library experience, with this book from the first paint.
@@ -342,11 +340,12 @@ describe('worker SEO routing', () => {
       expect(html).toContain('src="/covers/v2/wuthering-heights.webp"')
       expect(html).not.toContain('Frankenstein</h1>')
       expect(html).toContain('<script src="boot.js')
-      // Its crawlable text: the book's own opening and chapter links straight into the reader; no AI-written blurb.
+      // Its crawlable text: the book's own opening and chapter links to its chapter pages (since 16 Nov 2026; they
+      // went straight into the reader before); no AI-written blurb.
       expect(html).toContain('id="book-about"')
       expect(html).not.toContain('A tenant&#39;s curiosity and a housekeeper&#39;s memory tell the story')
       expect(html).toContain('I have just returned from a visit to my landlord')
-      expect(html).toContain('href="/reader?book=wuthering-heights&amp;chapter=3"')
+      expect(html).toContain('href="/read/wuthering-heights/chapter-3"')
       expect(html.match(/<main\b/g)).toHaveLength(1)
     })
 
@@ -392,12 +391,12 @@ describe('worker SEO routing', () => {
       expect(resp.headers.get('Vary')).toBe('Cookie')
     })
 
-    // The AI-written summary, themes, cast, chapters and chapter-N pages were
-    // removed: every old URL is one permanent redirect to the indexable book page.
+    // The AI-written summary, themes, cast and chapters pages were removed: every
+    // old URL is one permanent redirect to the indexable book page. (chapter-N is a
+    // chapter page again since 16 Nov 2026: worker.chapterPages.test.ts.)
     it.each([
       '/read/wuthering-heights/summary', '/read/wuthering-heights/summary/', '/read/wuthering-heights/summary.html',
       '/read/wuthering-heights/themes', '/read/wuthering-heights/cast.html', '/read/wuthering-heights/chapters',
-      '/read/wuthering-heights/chapter-3', '/read/wuthering-heights/chapter-3.html',
     ])('sends the retired page %s to the book page in one 301', async pathname => {
       const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`, { headers: { 'User-Agent': 'Googlebot' } }), env as never, ctx)
       expect(resp.status).toBe(301)
@@ -481,10 +480,10 @@ describe('worker SEO routing', () => {
       expect(body).toContain('approved cinematic library')
       expect(body).not.toContain('noindex')
       expect(body).toContain('href="https://tinct.app/"')
-      expect(body).toContain('<meta property="og:image" content="https://tinct.app/brand/20261001/share-tinct-1200x630.jpg">')
-      expect(body).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20261001/share-tinct-1200x630.jpg">')
-      expect(body).toContain('<meta property="og:description" content="Read, listen and talk with the world&#39;s great books. The original and a modern English edition side by side, narration, and a companion you can ask anything.">')
-      expect(body).toContain('<title>Tinct — Fall in love with the books that matter</title>')
+      expect(body).toContain('<meta property="og:image" content="https://tinct.app/brand/20261105/share-tinct-1200x630.jpg">')
+      expect(body).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20261105/share-tinct-1200x630.jpg">')
+      expect(body).toContain('<meta property="og:description" content="Read, listen and talk with the world&#39;s great books, or your own PDFs and articles. The original beside a modern edition, narration, and a companion you can ask anything.">')
+      expect(body).toContain('<title>Tinct — No text is beyond you</title>')
       for (const tag of ['twitter:card', 'og:image"', 'twitter:image"']) expect(body.split(tag).length - 1, tag).toBe(1)
     }
   })
@@ -607,6 +606,26 @@ describe('approved brand entry metadata', () => {
 })
 
 describe('temporary edition direct links', () => {
+  it('opens an offered Danish edition through the canonical reader query', async () => {
+    const response = await worker.fetch(new Request('https://tinct.app/reader?book=grimms-fairy-tales&edition=modern-da&chapter=11&paragraph=0'), routerEnv() as never, ctx)
+    const html = await response.text()
+    expect(response.status).toBe(200)
+    expect(html).toContain('app shell')
+    expect(html).not.toContain('Temporarily unavailable')
+  })
+
+  it('retains the requested book and coordinates for a withdrawn reader edition', async () => {
+    const response = await worker.fetch(new Request('https://tinct.app/reader?book=macbeth&edition=modern-da&chapter=8&paragraph=2&word=4'), routerEnv() as never, ctx)
+    const html = await response.text()
+    expect(html).toContain('Temporarily unavailable')
+    expect(html).toContain('heldBook=macbeth')
+    expect(html).not.toContain('heldBook=reader')
+    expect(html).toContain('heldEdition=modern-da')
+    expect(html).toContain('chapter=8')
+    expect(html).toContain('paragraph=2')
+    expect(html).toContain('word=4')
+  })
+
   it('explains holds before serving cached pages and retains exact recovery coordinates', async () => {
     // Only the withdrawn Danish editions remain held; no whole book is held.
     for (const path of ['/read/macbeth/chapter-8?edition=modern-da', '/read/jerusalem?edition=modern-da&chapter=6&paragraph=59&word=2', '/library?book=faust-part-1&edition=modern-da', '/jerusalem?edition=modern-da']) {

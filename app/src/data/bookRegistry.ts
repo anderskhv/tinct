@@ -36,6 +36,18 @@ export const ODYSSEY: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      // Optional verse translation (re-added at Anders's request, 5 Nov 2026).
+      // Pope's verse paragraphs do not match Butler's prose (1,047 against
+      // Butler's 1,027), so it is never paired in Compare or chosen as a default.
+      key: 'verse-en',
+      language: 'en',
+      style: 'verse',
+      label: 'Pope (Verse, 1726)',
+      translator: 'Alexander Pope',
+      year: 1726,
+      aligned: false,
+    },
   ],
 }
 
@@ -111,7 +123,7 @@ export const WAR_AND_PEACE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -176,7 +188,7 @@ export const GILGAMESH: Book = {
   author: 'Anonymous',
   description: 'The oldest surviving great work of literature. A king and a wild man become brothers, slay monsters, and defy the gods — then face the one enemy no mortal can defeat.',
   year: -2100,
-  wordCount: 30000,
+  wordCount: 14500,
   coverColor: '#4a3728',
   coverAccent: '#c9963a',
   editions: [
@@ -184,9 +196,21 @@ export const GILGAMESH: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Prose Compilation',
+      // Replaced 2026-11-18 (rights): R. Campbell Thompson, The Epic of Gilgamish: a new translation
+      // from a collation of the cuneiform tablets in the British Museum rendered literally into English
+      // hexameters (London: Luzac, 1928), transcribed from the page images (archive.org
+      // thompson-1928-gilgamesh). Thompson died 1941. His three paragraphs of the Hittite version,
+      // which he credits as translated from Friedrich (d. 1972) and Ungnad, are left out (Anders,
+      // 17 Nov 2026). Modern English and Moderne Dansk are Tinct renderings of this text.
+      // Package and provenance: books/wip/gilgamesh-thompson.
+      label: 'Thompson (1928)',
+      translator: 'R. Campbell Thompson',
+      year: 1928,
       aligned: true,
       hasAudio: true,
+      // Thompson's verse lines, one per text line, as printed (restored 18 Nov 2026 from the page
+      // layout of the archive.org scan); the paragraphs and their words are unchanged.
+      newlineVerse: true,
     },
     {
       key: 'modern-en',
@@ -196,14 +220,7 @@ export const GILGAMESH: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -240,7 +257,7 @@ export const HAMLET: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -316,7 +333,7 @@ export const MIDSUMMER: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -353,7 +370,7 @@ export const ROMEO_AND_JULIET: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -390,7 +407,7 @@ export const THE_TEMPEST: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -427,7 +444,7 @@ export const OTHELLO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -445,7 +462,7 @@ export const KING_LEAR: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1608)', year: 1608, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -481,7 +498,7 @@ export const TWELFTH_NIGHT: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -625,7 +642,7 @@ export const CORIOLANUS: Book = {
       hasAudio: true,
     },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -662,7 +679,7 @@ export const COMEDY_OF_ERRORS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Shakespeare (1623)', year: 1623, aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -777,6 +794,7 @@ export const THE_ART_OF_WAR: Book = {
       aligned: true,
       hasAudio: true,
     },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -808,13 +826,7 @@ export const CRIME_AND_PUNISHMENT: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -852,6 +864,7 @@ export const THE_REPUBLIC: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -891,6 +904,7 @@ export const MEDITATIONS: Book = {
       label: 'Modern English',
       aligned: true,
     },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -964,7 +978,7 @@ export const JANE_EYRE: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      // Keeps the pre-2026-09-25 paragraphing; the English editions were restructured.
+      // Reviewed Danish replacement matches the current English paragraphing (2026-10-24).
       aligned: false,
     },
   ],
@@ -1004,6 +1018,7 @@ export const THE_AENEID: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1078,6 +1093,7 @@ export const FRANKENSTEIN: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1116,7 +1132,7 @@ export const THE_MANUAL: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1149,14 +1165,7 @@ export const CONFESSIONS: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1280,7 +1289,7 @@ export const APOLOGY: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1358,6 +1367,7 @@ export const PHAEDO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1396,7 +1406,7 @@ export const POETICS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1435,7 +1445,7 @@ export const CRITO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1473,7 +1483,7 @@ export const PHAEDRUS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1505,13 +1515,7 @@ export const MOBY_DICK: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1748,6 +1752,7 @@ export const NOTES_FROM_UNDERGROUND: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1862,6 +1867,7 @@ export const ORESTEIA: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1897,6 +1903,7 @@ export const BACCHAE: Book = {
       aligned: true,
       hasAudio: true,
     },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1931,6 +1938,7 @@ export const MEDEA: Book = {
       aligned: true,
       hasAudio: true,
     },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1968,7 +1976,7 @@ export const COMMUNIST_MANIFESTO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2217,7 +2225,7 @@ export const ARISTOTLE_POLITICS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2258,14 +2266,7 @@ export const THE_PRINCE: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -2303,7 +2304,7 @@ export const CANDIDE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2381,7 +2382,7 @@ export const BEYOND_GOOD_AND_EVIL: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2419,7 +2420,7 @@ export const GENEALOGY_OF_MORALS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2458,7 +2459,7 @@ export const DESCARTES_MEDITATIONS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2495,7 +2496,7 @@ export const ON_LIBERTY: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2532,7 +2533,7 @@ export const UTILITARIANISM: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2570,7 +2571,7 @@ export const OEDIPUS_REX: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2609,6 +2610,7 @@ export const OEDIPUS_AT_COLONUS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2647,7 +2649,7 @@ export const ANTIGONE: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2721,7 +2723,8 @@ export const MAGNA_CARTA: Book = {
       aligned: true,
       hasAudio: true,
     },
-],
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
 }
 
 export const US_FOUNDING_DOCUMENTS: Book = {
@@ -2756,7 +2759,7 @@ export const US_FOUNDING_DOCUMENTS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2830,7 +2833,7 @@ export const A_LITTLE_PRINCESS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: false, // Text only: Danish narration is disabled.
+      hasAudio: false, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
     },
   ],
 }
@@ -2867,7 +2870,7 @@ export const THE_JUNGLE_BOOK: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: false, // Text only: Danish narration is disabled.
+      hasAudio: false, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
     },
   ],
 }
@@ -2905,7 +2908,7 @@ export const AROUND_THE_WORLD_IN_80_DAYS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: false, // Text only: Danish narration is disabled.
+      hasAudio: false, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
     },
   ],
 }
@@ -2941,6 +2944,7 @@ export const WALDEN: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2978,7 +2982,7 @@ export const HEART_OF_DARKNESS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -3095,7 +3099,7 @@ export const JEKYLL_AND_HYDE: Book = {
       hasAudio: true,
     },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -3144,7 +3148,7 @@ export const HUME_ENQUIRY: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Hume (1748)', year: 1748, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3161,7 +3165,7 @@ export const KANT_GROUNDWORK: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Abbott (1879)', translator: 'Thomas Kingsmill Abbott', year: 1879, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3193,7 +3197,7 @@ export const WERTHER: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Boylan (1779)', translator: 'R. D. Boylan', year: 1779, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3225,7 +3229,7 @@ export const FREDERICK_DOUGLASS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Douglass (1845)', year: 1845, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3266,7 +3270,56 @@ export const IVAN_ILYICH: Book = {
     { key: 'original-ru', language: 'ru', style: 'original', label: 'Смерть Ивана Ильича (1886)', year: 1886, aligned: false },
     { key: 'original-en', language: 'en', style: 'original', label: 'Maude', translator: 'Louise & Aylmer Maude', aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+// Translated by Tinct from the Russian (L. M. Yanovskaya's 1990 text), with no
+// human English edition: Compare defaults to the Russian original (Anders,
+// 5 Nov 2026). Package: books/wip/master-and-margarita/package.
+export const MASTER_AND_MARGARITA: Book = {
+  id: 'master-and-margarita',
+  title: 'The Master and Margarita',
+  author: 'Mikhail Bulgakov',
+  altTitles: ['Master i Margarita', 'Мастер и Маргарита'],
+  description: 'Bulgakov\'s great comic novel: the devil and his retinue spend a few spring days turning 1930s Moscow upside down, while a persecuted writer\'s novel tells how Pontius Pilate judged a wandering philosopher. A love story, a satire and a fable about cowardice and mercy.',
+  year: 1967,
+  wordCount: 150000,
+  coverColor: '#17151f',
+  coverAccent: '#c9a45c',
+  // Public domain in Denmark/EU (Bulgakov d. 1940), but probably protected in the
+  // US (posthumous 1966–67 publication, URAA restoration, ~2062) and Russia
+  // (~2037), where our translations and narration are derivative works. Not
+  // served where the request's country is known to be one of these (Anders,
+  // 16 Nov 2026; DECISIONS.md). Unknown country: served.
+  restrictedCountries: ['US', 'RU'],
+  editions: [
+    // Listed first: with no human English edition, defaultCompareEditionKey takes the first comparable edition.
+    { key: 'original-ru', language: 'ru', style: 'original', label: 'Мастер и Маргарита (1940)', year: 1990, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
+  ],
+}
+
+// Translated by Tinct from Collodi's Italian (the 1902 Bemporad text, Project
+// Gutenberg #52484), with no human English edition: Compare defaults to the
+// Italian original, listed first. Three illustrations, shared by every edition
+// as figure paragraphs. Package: books/wip/pinocchio.
+export const PINOCCHIO: Book = {
+  id: 'pinocchio',
+  title: 'The Adventures of Pinocchio',
+  author: 'Carlo Collodi',
+  altTitles: ['Pinocchio', 'Le avventure di Pinocchio'],
+  description: 'Collodi\'s tale of a wooden puppet carved by a poor old woodcarver, who runs away on his first day, lies, boasts, trusts every swindler on the road and keeps promising to do better. Funny, fast and often frightening, it follows Pinocchio through hunger, prison, a Field of Miracles and the belly of a shark, toward the day he stops being a puppet.',
+  year: 1883,
+  wordCount: 41000,
+  coverColor: '#1f2a24',
+  coverAccent: '#c8a35a',
+  editions: [
+    // Listed first: with no human English edition, defaultCompareEditionKey takes the first comparable edition.
+    { key: 'original-it', language: 'it', style: 'original', label: 'Le avventure di Pinocchio (1883)', year: 1902, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration (narrationLanguage); no recorded audio.
   ],
 }
 
@@ -3283,7 +3336,7 @@ export const TO_THE_LIGHTHOUSE: Book = {
     { key: 'original-en', language: 'en', style: 'original', label: 'Woolf (1927)', year: 1927, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
     // The only Danish edition Tinct offers (Anders, 2026-10-10; OFFERED_DANISH_EDITIONS).
-    // Translated 1:1 from modern-en. Text only: Danish narration is disabled.
+    // Translated 1:1 from modern-en. Streamed Danish narration since 2026-11-06; no recorded audio.
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
@@ -3309,6 +3362,7 @@ export const ALICE_IN_WONDERLAND: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Carroll (Original)', year: 1865, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3324,6 +3378,7 @@ export const WUTHERING_HEIGHTS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Original (1847)', year: 1847, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3345,6 +3400,7 @@ export const MIDDLEMARCH: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Original (1871–72)', year: 1871, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3476,7 +3532,7 @@ export const THE_FARTHEST_REACHES: Book = {
 // Grimms' Fairy Tales and The Arabian Nights (Lang), integrated 2026-10-19 from the
 // content packages in books/wip/grimms-fairy-tales and books/wip/arabian-nights
 // (branch claude/inspiring-ritchie-zi00fu, 6f4ab42cf). Danish (modern-da) is an
-// offered text-only edition (OFFERED_DANISH_EDITIONS, Anders 2026-10-19). No cast. Chapters
+// offered edition (OFFERED_DANISH_EDITIONS, Anders 2026-10-19), narrated in Danish by streaming since 2026-11-06. No cast. Chapters
 // are numbered 1-65 and 1-35, one reading unit per tale (Lang's preface is 1).
 export const GRIMMS_FAIRY_TALES: Book = {
   id: 'grimms-fairy-tales',
@@ -3491,7 +3547,7 @@ export const GRIMMS_FAIRY_TALES: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Taylor & Edwardes', translator: 'Edgar Taylor and Marian Edwardes', aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Text only: Danish narration is disabled.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
   ],
 }
 
@@ -3508,14 +3564,144 @@ export const ARABIAN_NIGHTS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Lang (1898)', year: 1898, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Text only: Danish narration is disabled.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
+  ],
+}
+
+// Eight books for young readers (Anders, 20 Nov 2026), from their content packages
+// (books/wip/<id>). English originals with Tinct Modern English; six with Moderne Dansk.
+// Text only: no recorded audio, no character cards, no Cast.
+
+export const STORY_OF_THE_ODYSSEY: Book = {
+  id: 'odyssey-for-boys-and-girls',
+  title: 'The Story of the Odyssey',
+  author: 'Alfred J. Church',
+  description: 'Alfred John Church (1829–1912) retold Homer’s Odyssey for young readers. The story opens with Telemachus searching for news of his father while suitors consume the household of Ulysses on Ithaca. It then follows Ulysses himself, held on Calypso’s island, wrecked near the Phaeacians, and telling the tale of his ten years of wandering: the Cyclops, Circe, the dead, the Sirens, Scylla, and the cattle of the Sun.',
+  year: 1892,
+  wordCount: 43000,
+  coverColor: '#1c2a3a',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Story of the Odyssey (1892)', year: 1892, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const STORY_OF_THE_ILIAD: Book = {
+  id: 'iliad-for-boys-and-girls',
+  title: 'The Story of the Iliad',
+  author: 'Alfred J. Church',
+  description: 'This is a prose retelling of Homer’s Iliad for young readers by Alfred John Church (1829–1912), in the Macmillan edition of 1920 that Project Gutenberg digitised. It follows the story of the last year of the siege of Troy: the quarrel between Agamemnon and Achilles, the duels and battles, the death of Patroclus, the killing of Hector, and the ransom of his body by his father Priam.',
+  year: 1920,
+  wordCount: 41000,
+  coverColor: '#3a2418',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Story of the Iliad (1920)', year: 1920, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const MERRY_ADVENTURES_OF_ROBIN_HOOD: Book = {
+  id: 'merry-adventures-of-robin-hood',
+  title: 'The Merry Adventures of Robin Hood',
+  author: 'Howard Pyle',
+  description: 'Howard Pyle (1853–1911) gathered the old ballads of Robin Hood into a single connected story, first published in 1883. Robin becomes an outlaw, wins Little John, Will Scarlet and Friar Tuck to his band, outwits the Sheriff of Nottingham, helps a sorrowful knight, and finally meets King Richard in Sherwood Forest.',
+  year: 1883,
+  wordCount: 108000,
+  coverColor: '#1e2e1c',
+  coverAccent: '#c8a35a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Merry Adventures of Robin Hood (1883)', year: 1883, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const WONDER_BOOK_AND_TANGLEWOOD_TALES: Book = {
+  id: 'wonder-book-and-tanglewood-tales',
+  title: 'A Wonder Book and Tanglewood Tales',
+  author: 'Nathaniel Hawthorne',
+  description: 'In 1851 and 1853 Nathaniel Hawthorne retold Greek myths for children. This edition (illustrated by Maxfield Parrish) combines A Wonder Book and Tanglewood Tales. The first half tells Perseus and the Gorgon, King Midas, Pandora, Hercules, Baucis and Philemon, and Bellerophon. In the second half, after a short introduction, come Theseus and the Minotaur, the Pygmies (Hercules and Antaeus), Cadmus and the dragon’s teeth, Circe, Proserpina and Jason.',
+  year: 1851,
+  wordCount: 112000,
+  coverColor: '#2e2614',
+  coverAccent: '#d4b25a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'A Wonder Book and Tanglewood Tales (1851–1853)', year: 1851, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const BEAUTIFUL_STORIES_FROM_SHAKESPEARE: Book = {
+  id: 'beautiful-stories-from-shakespeare',
+  title: 'Beautiful Stories from Shakespeare',
+  author: 'E. Nesbit',
+  description: 'Edith Nesbit (1858–1924), the author of The Railway Children, retold twenty of Shakespeare’s plays as short prose stories. This volume opens with a preface and a brief life of Shakespeare. It then tells, in turn, A Midsummer Night’s Dream, The Tempest, As You Like It, The Winter’s Tale, King Lear, Twelfth Night, Much Ado About Nothing, Romeo and Juliet and twelve more, ending with All’s Well That Ends Well.',
+  year: 1907,
+  wordCount: 43000,
+  coverColor: '#2a1f3a',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Beautiful Stories from Shakespeare (1907)', year: 1907, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const WIND_IN_THE_WILLOWS: Book = {
+  id: 'wind-in-the-willows',
+  title: 'The Wind in the Willows',
+  author: 'Kenneth Grahame',
+  description: 'Kenneth Grahame (1859–1932) published The Wind in the Willows in 1908. Mole leaves his spring-cleaning for the river, where he meets Rat, who takes him boating and picnicking. The two visit gruff Badger in the Wild Wood and try, again and again, to keep their friend Toad out of trouble as he moves from caravans to motor-cars to prison to a bold return to Toad Hall.',
+  year: 1908,
+  wordCount: 59000,
+  coverColor: '#1c3024',
+  coverAccent: '#c8a35a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Wind in the Willows (1908)', year: 1908, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const STORY_OF_KING_ARTHUR: Book = {
+  id: 'story-of-king-arthur-and-his-knights',
+  title: 'The Story of King Arthur and His Knights',
+  author: 'Howard Pyle',
+  description: 'Howard Pyle (1853–1911) wrote and illustrated this retelling of the Arthurian legend, published in 1903. It follows Arthur from the sword in the stone to the founding of the Round Table, then tells the stories of Merlin, Sir Pellias and Sir Gawaine.',
+  year: 1903,
+  wordCount: 99000,
+  coverColor: '#2a1c1c',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Story of King Arthur and His Knights (1903)', year: 1903, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+  ],
+}
+
+export const THE_SECRET_GARDEN: Book = {
+  id: 'the-secret-garden',
+  title: 'The Secret Garden',
+  author: 'Frances Hodgson Burnett',
+  description: 'Frances Hodgson Burnett (1849–1924) published The Secret Garden in 1911. Mary Lennox, a sour and neglected child, is sent from India to her uncle’s great house on the Yorkshire moor. There she finds a garden that has been locked for ten years, a servant boy who understands animals, and a hidden cousin who believes he is dying.',
+  year: 1911,
+  wordCount: 79000,
+  coverColor: '#1f3324',
+  coverAccent: '#d4a872',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Secret Garden (1911)', year: 1911, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
   ],
 }
 
 /** The five Conjecture books, in publication order (shelf Critical Rationalism). */
 export const CONJECTURE_BOOKS: Book[] = [THE_SOVEREIGN_CHILD, LORDS_OF_THE_COSMOS, BOLD_CONJECTURES_VOLUME_1, BOLD_CONJECTURES_VOLUME_2, THE_FARTHEST_REACHES]
 
-export const BOOKS: Book[] = [TO_THE_LIGHTHOUSE, ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, KANT_GROUNDWORK, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, HUME_ENQUIRY, SOCIAL_CONTRACT, WEALTH_OF_NATIONS, WERTHER, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, FREDERICK_DOUGLASS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE, IVAN_ILYICH, ALICE_IN_WONDERLAND, WUTHERING_HEIGHTS, MIDDLEMARCH, SENSE_AND_SENSIBILITY, THE_SOVEREIGN_CHILD, LORDS_OF_THE_COSMOS, BOLD_CONJECTURES_VOLUME_1, BOLD_CONJECTURES_VOLUME_2, THE_FARTHEST_REACHES, GRIMMS_FAIRY_TALES, ARABIAN_NIGHTS]
+export const BOOKS: Book[] = [TO_THE_LIGHTHOUSE, ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, KANT_GROUNDWORK, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, HUME_ENQUIRY, SOCIAL_CONTRACT, WEALTH_OF_NATIONS, WERTHER, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, FREDERICK_DOUGLASS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE, IVAN_ILYICH, ALICE_IN_WONDERLAND, WUTHERING_HEIGHTS, MIDDLEMARCH, SENSE_AND_SENSIBILITY, THE_SOVEREIGN_CHILD, LORDS_OF_THE_COSMOS, BOLD_CONJECTURES_VOLUME_1, BOLD_CONJECTURES_VOLUME_2, THE_FARTHEST_REACHES, GRIMMS_FAIRY_TALES, ARABIAN_NIGHTS, MASTER_AND_MARGARITA, PINOCCHIO, STORY_OF_THE_ODYSSEY, STORY_OF_THE_ILIAD, MERRY_ADVENTURES_OF_ROBIN_HOOD, WONDER_BOOK_AND_TANGLEWOOD_TALES, BEAUTIFUL_STORIES_FROM_SHAKESPEARE, WIND_IN_THE_WILLOWS, STORY_OF_KING_ARTHUR, THE_SECRET_GARDEN]
 
 export const ALL_BOOKS: Book[] = BOOKS
 

@@ -22,7 +22,7 @@
 .nb-icon:hover, .nb-bin:hover { background: var(--mr-wash); color: var(--mr-ink); }
 .nb-icon:focus-visible, .nb-bin:focus-visible, .nb-seg button:focus-visible, .nb-more:focus-visible, .nb-undo button:focus-visible { outline: 2px solid var(--mr-accent); outline-offset: 1px; }
 
-/* All · My notes · AI: one pill split in three; the chosen one filled with the card's own colour. */
+/* AI · Highlights · Notes · All: one pill split in four; the chosen one filled with the card's own colour. */
 .nb-seg { display: flex; margin: 0 20px 12px; padding: 3px; border-radius: 999px; background: var(--mr-wash); box-shadow: inset 0 0 0 1px var(--mr-hair); }
 .nb-seg button { flex: 1; min-height: 30px; padding: 0 10px; border: 0; border-radius: 999px; background: none; color: var(--mr-muted); font: 500 13px var(--mr-ui); cursor: pointer; }
 .nb-seg button[aria-checked="true"] { background: var(--mr-card); color: var(--mr-ink); box-shadow: 0 0 0 1px var(--mr-hair), 0 1px 2px rgba(0, 0, 0, .06); }

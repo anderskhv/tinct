@@ -4,13 +4,14 @@
  * A put honours `onlyIf.etagMatches` (null when the stored etag differs, as R2).
  * Every delete call is appended to `log` so tests can assert ordering.
  */
+import { createHash } from 'node:crypto'
+
 type Stored = { key: string; bytes: Uint8Array; uploaded: Date; customMetadata: Record<string, string>; httpMetadata?: R2HTTPMetadata; etag?: string }
 
 export function fakeUserBooksBucket(options: { pageSize?: number; log?: string[] } = {}) {
   const objects = new Map<string, Stored>()
   const pageSize = options.pageSize ?? 1000
   const calls = { list: 0, delete: 0, put: 0 }
-  let etags = 0
   const head = (s: Stored) => ({ key: s.key, etag: s.etag, size: s.bytes.byteLength, uploaded: s.uploaded, customMetadata: { ...s.customMetadata }, httpMetadata: s.httpMetadata ?? {} })
 
   const bucket = {
@@ -19,7 +20,9 @@ export function fakeUserBooksBucket(options: { pageSize?: number; log?: string[]
       const wanted = (opts.onlyIf as R2Conditional | undefined)?.etagMatches
       if (wanted !== undefined && objects.get(key)?.etag !== wanted) return null
       const bytes = typeof value === 'string' ? new TextEncoder().encode(value) : new Uint8Array(value instanceof ArrayBuffer ? value : value.slice())
-      const stored: Stored = { key, bytes, uploaded: new Date(), customMetadata: { ...(opts.customMetadata as Record<string, string> ?? {}) }, httpMetadata: opts.httpMetadata as R2HTTPMetadata, etag: `e${++etags}` }
+      // R2's single-part ETag is derived from the body. Metadata-only rewrites
+      // and an identical JSON list cannot advance an ETag for optimistic CAS.
+      const stored: Stored = { key, bytes, uploaded: new Date(), customMetadata: { ...(opts.customMetadata as Record<string, string> ?? {}) }, httpMetadata: opts.httpMetadata as R2HTTPMetadata, etag: createHash('md5').update(bytes).digest('hex') }
       objects.set(key, stored)
       return head(stored)
     },

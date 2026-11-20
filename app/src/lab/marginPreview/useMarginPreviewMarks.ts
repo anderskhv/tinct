@@ -11,6 +11,7 @@ import {
   applyLabHighlightSet,
   createLabHighlightCloud,
   createLabHighlightCloudWriter,
+  LAB_HIGHLIGHT_COMMIT_DEBOUNCE_MS,
   labHighlightSetFor,
   LAB_HIGHLIGHTS_UNASSIGNED,
   localLabHighlightBuckets,
@@ -18,6 +19,7 @@ import {
   recordLabHighlightDeletions,
   type LabHighlightCloudWriter,
 } from '../labHighlightSync'
+import { registerSignOutFlush } from '../signOutFlush'
 import { applyMarginMarks, marginMarks, migratePreviewMarks, type MarginMark, type MarginMarkScope } from './marginPreviewMarks'
 import type { MarginPreviewBook } from './marginPreviewModel'
 
@@ -84,8 +86,14 @@ export function useMarginPreviewMarks(model: MarginPreviewBook, userId: string |
         writeLabHighlights(next)
         if (bucket === bookId) tellRef.current()
       },
+      debounceMs: LAB_HIGHLIGHT_COMMIT_DEBOUNCE_MS,
     })
     writerRef.current = writer
+    const flush = () => { void writer.flush() }
+    const onHidden = () => { if (document.visibilityState === 'hidden') flush() }
+    document.addEventListener('visibilitychange', onHidden)
+    window.addEventListener('pagehide', flush)
+    const unregister = registerSignOutFlush(() => writer.flush())
     // Everything this device holds goes to the account (a merge), the preview's migrated marks with it.
     for (const bucket of localLabHighlightBuckets()) if (bucket !== bookId) void writer.sync(bucket)
     const run = () => { void writer.sync(bookId); void writer.sync(LAB_HIGHLIGHTS_UNASSIGNED) }
@@ -94,6 +102,9 @@ export function useMarginPreviewMarks(model: MarginPreviewBook, userId: string |
     window.addEventListener('online', run)
     document.addEventListener('visibilitychange', onVisible)
     return () => {
+      document.removeEventListener('visibilitychange', onHidden)
+      window.removeEventListener('pagehide', flush)
+      unregister()
       writer.dispose()
       if (writerRef.current === writer) writerRef.current = null
       window.removeEventListener('online', run)

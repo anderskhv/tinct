@@ -8,6 +8,7 @@
   --pdf-sheet-shadow: 0 1px 2px rgba(40,34,20,.12), 0 6px 18px rgba(40,34,20,.10); --pdf-accent: #1f4a5c;
 }
 html[data-pdf-theme="book"] { --pdf-paper: #e7dcc7; --pdf-room: #e7dcc7; --pdf-ink: #201a13; --pdf-muted: #675b4b; --pdf-surface: #efe6d3; --pdf-line: rgba(103, 91, 75, .32); }
+html[data-pdf-theme="white"] { --pdf-paper: #ffffff; --pdf-room: #ffffff; --pdf-ink: #1a1a1a; --pdf-muted: #5f5a52; --pdf-surface: #f6f5f2; --pdf-line: rgba(26, 26, 26, .18); }
 html[data-pdf-theme="dark"] { color-scheme: dark; --pdf-paper: #171411; --pdf-room: #100e0c; --pdf-ink: #bdb3a7; --pdf-muted: #8f857a; --pdf-surface: #211d18; --pdf-line: rgba(189, 179, 167, .2); --pdf-sheet-shadow: 0 0 0 1px #2a251f, 0 8px 24px rgba(0,0,0,.35); --pdf-accent: #78aabd; --pdf-hl: rgba(214, 186, 112, .30); }
 html[data-pdf-theme="dark"] body:not([data-view="reader"]) { --pdf-room: #171411; }
 html[data-pdf-theme="eink"] { --pdf-paper: #fff; --pdf-room: #fff; --pdf-ink: #111; --pdf-muted: #444; --pdf-surface: #fff; --pdf-line: #777; --pdf-sheet-shadow: 0 0 0 1px #777; }
@@ -100,17 +101,18 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob.is-phone .byob-aa { flex-basis: 32px; width: 32px; height: 44px; font-size: 19px; }
 /* On the phone the controls are one narrow column; with Aa they take the width they need, in one row. */
 .lab.byob.is-phone .lab-header-controls:has(.byob-aa) { width: auto; min-width: 0; flex-wrap: nowrap; gap: 0; }
-/* The Aa panel: Layout first (the reader's edition choices, src/lab/LabV2Sheet.tsx .lab-v2-edition-option),
+/* The phone's Aa is a t menu row (Anders, 22 Oct 2026): Aa, Book settings and Audio settings are all in the t menu there. */
+.lab.byob.is-phone .byob-aa { display: none; }
+/* Book settings: Layout first (the reader's edition choices, src/lab/LabV2Sheet.tsx .lab-v2-edition-option),
    its label in sentence case (the reader's group label is small caps; no all-caps labels here). */
-.lab.byob .byob-aa-panel .lab-v2-head { justify-content: flex-end; padding-bottom: 0; }
-.lab.byob .byob-aa-panel .lab-v2-group-label { margin: 0 0 2px; font: 600 13px/1.4 var(--pdf-ui); letter-spacing: 0; text-transform: none; color: var(--lab-ink-muted, var(--pdf-muted)); }
-/* Calm sections, as Gloss's own panels keep them: a hairline and 16px under Layout, as under the size;
-   no fills, no headings beyond Layout. */
-.lab.byob .byob-aa-panel .byob-aa-layout { margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--pdf-line); }
-.lab.byob .byob-aa-panel .byob-aa-layout[hidden], .lab.byob .byob-aa-panel .lab-v2-row[hidden] { display: none; }
-.lab.byob .byob-aa-panel .lab-v2-edition-option { min-height: 44px; padding: 8px 0; }
-.lab.byob .byob-aa-panel .lab-v2-edition-option + .lab-v2-edition-option { border-top: 1px solid var(--pdf-line); }
-.lab.byob .byob-aa-panel .lab-v2-edition-check { margin-left: auto; }
+.lab.byob .byob-settings .lab-v2-group-label { margin: 0 0 2px; font: 600 13px/1.4 var(--pdf-ui); letter-spacing: 0; text-transform: none; color: var(--lab-ink-muted, var(--pdf-muted)); }
+/* Calm sections, as Gloss's own panels keep them: a hairline and 16px under Layout; no fills, no headings beyond Layout. */
+.lab.byob .byob-settings .byob-layout { margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--pdf-line); }
+.lab.byob .byob-settings .byob-layout:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+.lab.byob .byob-settings .byob-layout[hidden], .lab.byob .byob-settings .lab-v2-row[hidden] { display: none; }
+.lab.byob .byob-settings .lab-v2-edition-option { min-height: 44px; padding: 8px 0; }
+.lab.byob .byob-settings .lab-v2-edition-option + .lab-v2-edition-option { border-top: 1px solid var(--pdf-line); }
+.lab.byob .byob-settings .lab-v2-edition-check { margin-left: auto; }
 /* Focus view (TinctReaderLayout): a card opens in a pop-up window with the book reader's Explain
    window's look (src/lab/lab.css .selection-popup.is-lab.is-contextual-explain: its fill, rule, 18px
    corners, shadow and blur); reader.js places it (placePopupEl). */
@@ -236,9 +238,10 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 /* The settings sheet in the design system's faces: UI in the system face (title, rows, values,
    theme names; never mono), the swatches' "Aa" in the reading face. Sized to its rows. */
 .lab.byob .byob-settings .lab-v2-sheet { height: auto !important; min-height: 0 !important; max-height: calc(100dvh - 48px); }
-/* The Aa panel on the desktop (Anders, 21 Oct 2026: "can't see the full menu"): a pop-over just below the Aa button, its
-   right edge under the button's (--aa-right, reader.js openDisplay), never past the window's foot; its rows scroll inside. */
-.lab.byob:not(.is-phone) .byob-aa-panel .lab-v2-sheet { top: calc(var(--pdf-top, 64px) + 8px); bottom: auto; left: auto; right: var(--aa-right, 16px); transform: none; max-height: calc(100dvh - var(--pdf-top, 64px) - 24px); border-radius: 16px; box-shadow: 0 12px 36px #140f0833, 0 1px 3px #140f081f; }
+/* The settings panels on the desktop (Anders, 21 Oct 2026: "can't see the full menu"; 22 Oct: never at the screen's foot):
+   a pop-over just below its button, Aa's or the t menu's (Book settings, Audio settings), its right edge under the
+   button's (--aa-right, reader.js hangAa), never past the window's foot; its rows scroll inside. */
+.lab.byob:not(.is-phone) :is(.byob-aa-panel, .byob-anchored) .lab-v2-sheet { top: calc(var(--pdf-top, 64px) + 8px); bottom: auto; left: auto; right: var(--aa-right, 16px); transform: none; max-height: calc(100dvh - var(--pdf-top, 64px) - 24px); border-radius: 16px; box-shadow: 0 12px 36px #140f0833, 0 1px 3px #140f081f; }
 .lab.byob .byob-settings :is(.lab-v2-title, .lab-v2-row-label, .lab-v2-row-select, button, .lab-v2-value, .lab-v2-theme-label, .lab-v2-note, .lab-v2-size-small, .lab-v2-size-large, .lab-v2-dismiss) { font-family: var(--pdf-ui) !important; letter-spacing: 0 !important; text-transform: none !important; }
 .lab.byob .byob-settings .lab-v2-title { font-weight: 600; }
 .lab.byob .byob-settings .lab-v2-value { font-variant-numeric: tabular-nums; }
@@ -289,3 +292,12 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 /* A picture in the chat's thread: at most 120px tall, opening it large (Anders, 19 Oct 2026, night). */
 .tc .tc-imgs .tc-img { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; }
 .tc .tc-imgs .tc-img img { display: block; max-width: 220px; max-height: 120px; border-radius: 8px; background: #fff; }
+/* White (9 Nov 2026): the reader's White theme, as src/lab/lab.css .lab.is-white-theme draws it (css/tinct-app.css
+   predates it), and its card in Aa beside Light; Aa's cards share one row. */
+.lab.is-white-theme { --lab-paper: #ffffff; --lab-ink: #1a1a1a; --lab-ink-muted: #5f5a52; --lab-ink-faint: #757067; --lab-surface: #f3f1ed; --lab-border: #dcd8d0; background: var(--lab-paper); color: var(--lab-ink); }
+.lab.is-white-theme :is(.lab-header, .lab-page-turn, .lab-phone-bar, .lab-ask, .lab-ask-composer, .lab-body, .lab-page-wrap, .lab-book, .lab-passage, .lab-hearing, .lab-hearing-stage, .lab-passage-header) { background: var(--lab-paper); color: var(--lab-ink); border-color: var(--lab-border); }
+.lab.is-white-theme :is(.lab-header-chapter, .lab-speed-popover, .lab-speed-popover::after) { background: var(--lab-surface); color: var(--lab-ink); border-color: var(--lab-border); }
+.lab.byob.is-white-theme.is-desktop .lab-header-chapter { background: color-mix(in srgb, var(--lab-surface) 70%, transparent); }
+.lab[data-chrome-version="v2"].is-white-theme { --lab-v2-panel-ink: 255, 255, 255; }
+.lab[data-chrome-version="v2"] .lab-v2-themes { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-white .lab-v2-theme-face { background: #ffffff; color: #1a1a1a; box-shadow: inset 0 0 0 1px rgba(32, 26, 19, .2); }

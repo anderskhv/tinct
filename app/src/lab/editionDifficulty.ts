@@ -1,3 +1,4 @@
+import { NEW_BOOKS_COPY } from '../social/profileRules'
 import type { Edition } from '../types'
 
 export type EditionDifficulty = 'Easy' | 'Medium' | 'Hard'
@@ -6,6 +7,7 @@ export type EditionDifficulty = 'Easy' | 'Medium' | 'Hard'
 // Ratings are reading guidance, not a measured reading age or a quality judgement.
 const reviewed: Record<string, EditionDifficulty> = {
   "odyssey:original-en": "Medium",
+  "odyssey:verse-en": "Hard",
   "ulysses:original-en": "Hard",
   "war-and-peace:original-en": "Medium",
   "bible:kjv-en": "Hard",
@@ -111,7 +113,9 @@ const reviewed: Record<string, EditionDifficulty> = {
   "don-quixote:original-en": "Medium",
   "essays-montaigne:original-en": "Hard",
   "ivan-ilyich:original-ru": "Medium",
-  "ivan-ilyich:original-en": "Medium"
+  "ivan-ilyich:original-en": "Medium",
+  "master-and-margarita:original-ru": "Medium",
+  "pinocchio:original-it": "Medium"
 }
 
 export function editionDifficulty(bookId: string, edition: Edition): EditionDifficulty | undefined {
@@ -119,6 +123,7 @@ export function editionDifficulty(bookId: string, edition: Edition): EditionDiff
   return reviewed[bookId + ':' + edition.key]
 }
 
+/** The edition picker names Tinct's modern edition in the same words as sign-up and Settings (NEW_BOOKS_COPY). */
 export function readerEditionLabel(edition: Edition): string {
-  return edition.key === 'modern-en' ? 'Tinct Modern English' : edition.label
+  return edition.key === 'modern-en' ? NEW_BOOKS_COPY.modern.label : edition.label
 }

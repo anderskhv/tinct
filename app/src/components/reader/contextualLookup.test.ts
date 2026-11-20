@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { parseContextualLookup } from './contextualLookup'
+import { contextualLookupPreview, parseContextualLookup } from './contextualLookup'
 
 describe('contextual lookup response', () => {
   it('keeps uncertainty explicit instead of guessing importance', () => {
@@ -12,4 +12,10 @@ describe('contextual lookup response', () => {
     expect(parseContextualLookup('\x60\x60\x60json\n{"kind":"definition","definition":"A meaning."}\n\x60\x60\x60')).toEqual({kind:'definition',definition:'A meaning.'})
     expect(parseContextualLookup('noun. A meaning.')).toEqual({kind:'definition',definition:'noun. A meaning.'})
   })
+})
+
+it("renders saved definition previews without JSON or fences", () => {
+  expect(contextualLookupPreview(JSON.stringify({kind:"definition",definition:"A meaning."}))).toBe("A meaning.")
+  expect(contextualLookupPreview("```json\n{\"kind\":\"definition\",\"definition\":\"A meaning.\"}\n``` ")).toBe("A meaning.")
+  expect(contextualLookupPreview("{\"kind\":")).toBe("Open definition")
 })

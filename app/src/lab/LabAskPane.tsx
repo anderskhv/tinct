@@ -1,3 +1,4 @@
+import { consumeDismissGesture } from '../utils/consumeDismissGesture'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type Ref, type MutableRefObject } from 'react'
 import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
 import { LabWait } from './LabWait'
@@ -9,8 +10,8 @@ import { LabMarkdown } from './LabMarkdown'
 // keys, press-and-hold and look live in public/lab/chat-thread.{js,css}, which
 // the PDF reader for a reader's own books loads too.
 import {
-  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, fitSpacer, HINT_TEXT, ICONS, keptCopyIndex, lastQuestion, latestPill,
-  questionTop, scrollToLatest, takeHint, threadRows, timeLabel, WAIT_HTML, BACK_TO_BOOK_HTML,
+  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, fitSpacer, ICONS, keptCopyIndex, lastQuestion,
+  questionTop, threadRows, timeLabel, WAIT_HTML, BACK_TO_BOOK_HTML,
 } from '../../public/lab/chat-thread.js'
 import '../../public/lab/chat-thread.css'
 
@@ -37,6 +38,8 @@ interface LabAskPaneProps {
   notice?: string | null
   onDone?: () => void
   phoneSheet?: boolean
+  embeddedPhoneCard?: boolean
+  composerPlaceholder?: string
   onKeyboardOpenChange?: (open: boolean) => void
   /** The host focuses this inside the Chat tap; iOS only raises the keyboard for a gesture-synchronous focus(). */
   inputRef?: Ref<HTMLInputElement | HTMLTextAreaElement>
@@ -113,6 +116,8 @@ export function LabAskPane({
   notice,
   onDone,
   phoneSheet = false,
+  embeddedPhoneCard = false,
+  composerPlaceholder,
   onKeyboardOpenChange,
   inputRef,
   chapterLabels = {},
@@ -130,6 +135,21 @@ export function LabAskPane({
     onMinimizedChange?.(value)
   }
   const windowRef = useReaderWindow<HTMLElement>('chat', !!desktopCompanion && !minimized)
+  const panelRef = useRef<HTMLElement | null>(null)
+  const setPanelRef = useCallback((node: HTMLElement | null) => { panelRef.current = node; windowRef(node) }, [windowRef])
+  const dismissRef = useRef(onDone)
+  dismissRef.current = onDone
+  useEffect(() => {
+    if (!desktopCompanion || minimized) return
+    const outside = (event: PointerEvent) => {
+      const target = event.target
+      if (!dismissRef.current || !(target instanceof Node) || panelRef.current?.contains(target)) return
+      consumeDismissGesture(event)
+      dismissRef.current?.()
+    }
+    window.addEventListener('pointerdown', outside, { capture: true, passive: false })
+    return () => window.removeEventListener('pointerdown', outside, true)
+  }, [desktopCompanion, minimized])
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
   // Auto-grow to five lines (fitComposer: no scrollbar until the field really clips).
@@ -137,19 +157,8 @@ export function LabAskPane({
     const field = textareaRef.current
     if (field) fitComposer(field)
   }, [draft])
-  // The keyboard hint, once per session, on the desktop only.
-  // (An effect, not a state initializer: React's strict mode runs initializers twice.)
-  const [hint, setHint] = useState(false)
-  useEffect(() => {
-    if (phoneSheet) return
-    let storage: Storage | null = null
-    try { storage = window.sessionStorage } catch { /* blocked */ }
-    if (takeHint(storage)) setHint(true)
-  }, [])
-  // The "Latest" pill: the reader scrolled up and something new arrived below (latestPill).
-  const [away, setAway] = useState(false)
-  const latestRef = useRef<ReturnType<typeof latestPill> | null>(null)
-  latestRef.current ??= latestPill()
+  // No "Latest" pill (Anders, 17 Nov 2026: "it just popped up in my face"): the sent question is held near the
+  // top, its answer grows under it, and the reader scrolls the thread on their own.
   const copyTurn = async (turn: LabAskTurn) => {
     try {
       await navigator.clipboard.writeText(turn.content)
@@ -231,16 +240,10 @@ export function LabAskPane({
     return Array.from(node.querySelectorAll<HTMLElement>('[data-turn-id]')).find(row => row.dataset.turnId === id) ?? null
   }
 
-  /** The Latest pill: never where the thread put the view (after a send, on open); only once the reader scrolled up and more arrived below. */
-  const measureAway = useCallback((node: HTMLDivElement) => {
-    setAway(latestRef.current!.shows(node, pinnedScrollTopRef.current === null))
-  }, [])
-
   const pinToBottom = useCallback((node: HTMLDivElement) => {
     node.scrollTop = node.scrollHeight
     pinnedScrollTopRef.current = node.scrollTop
     nearBottomRef.current = true
-    latestRef.current!.placed(node)
   }, [])
 
   /**
@@ -256,7 +259,6 @@ export function LabAskPane({
       node.scrollTop = top
       pinnedScrollTopRef.current = node.scrollTop
       nearBottomRef.current = false
-      latestRef.current!.placed(node)
     }
   }, [])
 
@@ -273,7 +275,6 @@ export function LabAskPane({
     const node = threadRef.current
     if (!node) return
     if (hidden > 0 && node.scrollTop <= LAB_ASK_LOAD_MORE_PX && revealAnchorRef.current === null) {
-      measureAway(node)
       revealOlder()
       return
     }
@@ -282,7 +283,7 @@ export function LabAskPane({
     // makes the thread taller than its writing space for a moment, and WebKit
     // reports that scroll before the resize observer refits the space. Put
     // the question back near the top (14 Oct 2026: it sat at the foot with
-    // the Latest pill over its answer).
+    // its answer out of view).
     const held = anchorRow(node)
     const pinned = pinnedScrollTopRef.current
     if (held && pinned !== null && node.scrollTop < pinned - 1 && node.scrollTop >= node.scrollHeight - node.clientHeight - 1) {
@@ -291,10 +292,9 @@ export function LabAskPane({
       pinnedScrollTopRef.current = null
       nearBottomRef.current = isNearBottom(node)
     }
-    measureAway(node)
     // anchorRow reads refs only.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hidden, holdQuestion, measureAway, revealOlder])
+  }, [hidden, holdQuestion, revealOlder])
 
   // Older turns were prepended: keep the reader's line still.
   useLayoutEffect(() => {
@@ -304,7 +304,6 @@ export function LabAskPane({
     revealAnchorRef.current = null
     const grown = node.scrollHeight - anchor.scrollHeight
     node.scrollTop = Math.max(0, anchor.scrollTop + grown)
-    latestRef.current!.shift(grown)
     pinnedScrollTopRef.current = null
     nearBottomRef.current = isNearBottom(node)
   }, [hidden])
@@ -364,13 +363,12 @@ export function LabAskPane({
       }
       // Turns that are not the reader's own question (Talk, another device):
       // follow only a reader who is already at the bottom.
-      if ((newTurn && lastTurn.role === 'user') || pinnedScrollTopRef.current !== null || nearBottomRef.current) pinToBottom(node)
+      if ((newTurn && lastTurn.role === 'user') || !desktopCompanion && (pinnedScrollTopRef.current !== null || nearBottomRef.current)) pinToBottom(node)
     }
-    measureAway(node)
     didPositionThreadRef.current = true
     repinRef.current = false
     lastTurnIdRef.current = lastTurn?.id ?? null
-  }, [focusTurnId, hidden, holdQuestion, measureAway, pinToBottom, turns, typedLoading])
+  }, [desktopCompanion, focusTurnId, hidden, holdQuestion, pinToBottom, turns, typedLoading])
 
   const focusedTurnRef = useRef<string | null>(null)
   useLayoutEffect(() => {
@@ -381,12 +379,13 @@ export function LabAskPane({
     const body = threadRef.current
     const row = Array.from(body?.querySelectorAll<HTMLElement>('[data-turn-id]') || []).find(node => node.dataset.turnId === focusTurnId)
     if (!body || !row) return
-    body.scrollTop = Math.max(0, row.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop)
-    nearBottomRef.current = false
-    pinnedScrollTopRef.current = null
-    latestRef.current!.placed(body)
+    // A short answer needs the same trailing room as a newly sent question;
+    // otherwise scrollTop clamps and leaves the follow-up at the bottom.
+    anchorIdRef.current = focusTurnId
+    cleanOpenRef.current = false
+    holdQuestion(body, row, true)
     focusedTurnRef.current = focusTurnId
-  }, [focusTurnId, hidden, turns])
+  }, [focusTurnId, hidden, turns, holdQuestion])
 
   // Press-and-hold on the phone reveals a message's row (the shared behaviour).
   useEffect(() => {
@@ -407,18 +406,19 @@ export function LabAskPane({
         // The keyboard closing after send: the question stays where it was put,
         // unless the reader has scrolled since.
         holdQuestion(current, held, pinnedScrollTopRef.current !== null)
-        measureAway(current)
         return
       }
       const resizedClean = cleanOpenRef.current && (pinnedScrollTopRef.current !== null || nearBottomRef.current)
       if (resizedClean && spacerRef.current) spacerRef.current.style.height = `${current.clientHeight}px`
-      if (pinnedScrollTopRef.current !== null || nearBottomRef.current) pinToBottom(current)
+      // A newly opened desktop window also needs its blank writing space
+      // kept below history while the panel reaches its final size.
+      if (resizedClean || !desktopCompanion && (pinnedScrollTopRef.current !== null || nearBottomRef.current)) pinToBottom(current)
     })
     observer.observe(node)
     return () => observer.disconnect()
     // anchorRow reads refs only.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [empty, holdQuestion, measureAway, pinToBottom])
+  }, [desktopCompanion, empty, holdQuestion, pinToBottom])
 
   const submit = () => {
     if (typedLoading) return
@@ -428,7 +428,6 @@ export function LabAskPane({
       return
     }
     setLocalError(null)
-    setHint(false)
     if (phoneSheet) {
       textareaRef.current?.blur()
       onKeyboardOpenChange?.(false)
@@ -484,7 +483,7 @@ export function LabAskPane({
         if (target.closest('button, a, input, textarea, [contenteditable]')) return
         if (target.closest('.tc-attached')) return
         event.preventDefault()
-        textareaRef.current?.focus()
+        textareaRef.current?.focus({ preventScroll: true })
       }}
     >
       {attachment && (
@@ -492,13 +491,13 @@ export function LabAskPane({
           {cutQuote(attachment.text)}
           <button type="button" className="tc-mark" aria-label="Remove" onClick={() => {
             onRemoveAttachment?.()
-            window.requestAnimationFrame(() => textareaRef.current?.focus())
+            window.requestAnimationFrame(() => textareaRef.current?.focus({ preventScroll: true }))
           }} dangerouslySetInnerHTML={{ __html: ICONS.close }} />
         </section>
       )}
       <div className={`tc-field${draft.length === 0 ? ' is-empty' : ''}`}>
-        <label className="lab-visually-hidden" htmlFor="lab-ask-input">{LAB_COPY.askPlaceholder}</label>
-        <textarea
+        <label className="lab-visually-hidden" htmlFor="lab-ask-input">{composerPlaceholder || LAB_COPY.askPlaceholder}</label>
+        <textarea autoComplete="off"
           id="lab-ask-input"
           data-testid="lab-ask-input"
           ref={node => {
@@ -507,6 +506,7 @@ export function LabAskPane({
             else if (inputRef) (inputRef as MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null>).current = node
           }}
           rows={1}
+          placeholder={composerPlaceholder}
           className="tc-input"
           value={draft}
           enterKeyHint={phoneSheet ? undefined : 'send'}
@@ -581,21 +581,14 @@ export function LabAskPane({
           dangerouslySetInnerHTML={{ __html: ICONS.send }}
         />
       </div>
-      {hint && !phoneSheet && <p className="tc-hint" data-testid="lab-ask-hint">{HINT_TEXT}</p>}
     </form>
-  )
-  const latestNode = (
-    <button type="button" className="tc-latest" data-testid="lab-ask-latest" hidden={!away} onClick={() => {
-      const node = threadRef.current
-      if (node) scrollToLatest(node)
-    }}><span dangerouslySetInnerHTML={{ __html: ICONS.down }} />Latest</button>
   )
   return (
     <aside
       style={minimized && desktopCompanion ? { display: 'none' } : undefined}
-      ref={windowRef}
+      ref={setPanelRef}
       data-window-minimized={minimized && desktopCompanion ? 'true' : undefined}
-      className={`lab-ask tc ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}${desktopCompanion ? ` is-desktop-companion is-${desktopCompanion}` : ''}`}
+      className={`lab-ask tc ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}${embeddedPhoneCard ? ' is-phone-card-chat' : ''}${desktopCompanion ? ` is-desktop-companion is-${desktopCompanion}` : ''}`}
       data-testid="lab-ask-pane"
       data-companion={desktopCompanion || undefined}
       aria-label={LAB_DESKTOP_PANES[0]}
@@ -624,12 +617,13 @@ export function LabAskPane({
       )}
       {onBackToContents && <button type="button" className="tc-older" onClick={onBackToContents}>← Back to contents</button>}
       <div className="tc-body">
-        <div className="tc-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll} data-hidden-turns={hidden}>
+        <div className="tc-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll} data-hidden-turns={hidden} aria-busy={typedLoading || undefined}>
           {hidden > 0 && (
             <button type="button" className="tc-older" data-testid="lab-ask-older" onClick={revealOlder}>
               {hidden === 1 ? '1 earlier message' : `${hidden} earlier messages`}
             </button>
           )}
+          {embeddedPhoneCard && visibleTurns[0] && placeOf(visibleTurns[0]) && <p className="tc-divider" data-testid="lab-ask-initial-location">{placeOf(visibleTurns[0])}</p>}
           {rows.map(row => {
             if (row.type === 'divider') return <p key={row.key} className="tc-divider" data-testid="lab-ask-location">{row.label}</p>
             const index = hidden + row.index
@@ -654,7 +648,7 @@ export function LabAskPane({
             return turn.role === 'user' ? (
               <div key={turn.id} className={`tc-turn tc-q${turn.highlightedText ? ' has-quote' : ''}`} data-chat-row data-testid="lab-ask-turn-user" data-turn-id={turn.id}>
                 {turn.highlightedText && (
-                  <button type="button" className="tc-quote" data-testid="lab-ask-history-passage" disabled={!onQuote} onClick={() => onQuote?.(turn)}>{cutQuote(turn.highlightedText)}</button>
+                  <div className="tc-quote" data-testid="lab-ask-history-passage">{cutQuote(turn.highlightedText)}</div>
                 )}
                 <div className="tc-bubble">{turn.content}</div>
                 {unanswered && <span className="tc-note" data-testid="lab-ask-unanswered">{LAB_COPY.askUnanswered}</span>}
@@ -679,7 +673,6 @@ export function LabAskPane({
           <div className="tc-spacer" data-testid="lab-ask-thread-spacer" ref={spacerRef} aria-hidden="true" />
         </div>
         {!empty && <div className="tc-fade" aria-hidden="true" />}
-        {latestNode}
       </div>
       {phoneSheet ? (
         <div className="lab-ask-chrome tc-chrome" data-testid="lab-ask-chrome">

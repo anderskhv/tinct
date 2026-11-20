@@ -3,14 +3,34 @@ const fs = require('node:fs')
 const { createHash } = require('node:crypto')
 const manifest = require('../src/data/editionAvailability.json')
 const { checkHeaders } = require('./lib/internalTraffic.cjs')
+const { offeredDanish } = require('./lib/offeredDanish.cjs')
 const origin = 'https://tinct.app'
 const version = process.env.EXPECTED_BUILD_SHA
 assert.ok(version, 'Pin production evidence to the deployed commit')
-const get = async path => {
-  const response = await fetch(origin + path, {headers:checkHeaders({'User-Agent':'Tinct-availability-verification'})})
-  assert.equal(response.status,200,path)
-  return response
+const get = async (path, expectedStatus = 200) => {
+  const started = Date.now()
+  let response
+  console.log('HOLD_FETCH_START', JSON.stringify({ path }))
+  try {
+    response = await fetch(origin + path, {
+      headers: checkHeaders({'User-Agent':'Tinct-availability-verification'}),
+      // Bound both response headers and body, so a stalled asset cannot hold
+      // production rollback until the entire acceptance job times out.
+      signal: AbortSignal.timeout(60_000),
+    })
+    console.log('HOLD_FETCH_HEADERS', JSON.stringify({ path, status: response.status,
+      elapsedMs: Date.now() - started, ray: response.headers.get('cf-ray') }))
+    assert.equal(response.status, expectedStatus, path)
+    const bytes = await response.arrayBuffer()
+    console.log('HOLD_FETCH_DONE', JSON.stringify({ path, bytes: bytes.byteLength, elapsedMs: Date.now() - started }))
+    return new Response(bytes, { status: response.status, headers: response.headers })
+  } catch (error) {
+    console.error('HOLD_FETCH_FAILURE', JSON.stringify({ path, elapsedMs: Date.now() - started,
+      status: response?.status, ray: response?.headers.get('cf-ray'), error: String(error) }))
+    throw error
+  }
 }
+
 ;(async()=>{
  const catalogue = await (await get('/lab/catalogue.json?v='+version)).json()
  const results=[]
@@ -54,9 +74,19 @@ const get = async path => {
    assert.ok(html.includes('Temporarily unavailable')&&html.includes('heldEdition='+editionKey),identity+' still held')
    results.push({identity,discovery:false,held:true})
  }
- for(const bookId of ['to-the-lighthouse','a-little-princess','around-the-world-80-days','jungle-book','grimms-fairy-tales','arabian-nights']){
+ // Books restricted in the runner's country (regionGate) are refused with 451 there:
+ // check the refusal instead of the served bytes, so the gate itself is verified.
+ const {restrictedBookIds}=await (await get('/api/restricted-books')).json()
+ assert.ok(Array.isArray(restrictedBookIds),'restricted-books answers a list')
+ for(const bookId of offeredDanish.map(key=>key.split('/')[0])){
    const identity=bookId+'/modern-da',book=catalogue.books.find(b=>b.id===bookId)
    assert.equal(book.editions.find(e=>e.key==='modern-da')?.discoveryAvailable,true,identity+' offered')
+   if(restrictedBookIds.includes(bookId)){
+     await get('/read/'+bookId+'?edition=modern-da',451)
+     await get('/data/editions/'+bookId+'-modern-da.json?v='+version,451)
+     results.push({identity,restrictedHere:true})
+     continue
+   }
    assert.equal(book.defaultEditionKey,'modern-en',identity+' not a new-reader default')
    assert.notEqual(book.defaultCompareEditionKey,'modern-da',identity+' not a default compare')
    assert.ok(!(await (await get('/read/'+bookId+'?edition=modern-da')).text()).includes('<h2>Temporarily unavailable</h2>'),identity+' not held')

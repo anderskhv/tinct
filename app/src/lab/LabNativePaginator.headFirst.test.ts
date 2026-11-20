@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { measuredDesktopPages, measuredDesktopPageSteps } from './LabDesktopPaginator'
 import { chapterPagesCover, chapterPageSegments, type ChapterHearingPage } from './labHearing'
-import { labResumeAfterPage, nativePagesFromPlacements, provisionalPagesAfter } from './LabNativePaginator'
+import { nativePaginationSlice, labResumeAfterPage, nativePagesFromPlacements, provisionalPagesAfter } from './LabNativePaginator'
 
 // Page 1 first (15 Oct 2026): the phone reader shows a chapter's opening page
 // as soon as it is laid out, and lays out the rest right after that page has
@@ -50,5 +50,22 @@ describe('head-first chapter maps', () => {
     const rest = provisionalPagesAfter(preflight, start)
     expect(chapterPageSegments(rest[0])[0]).toEqual({ paragraphIndex: 0, from: 2, to: 3, headBreak: 5 })
     expect(chapterPagesCover(paragraphs, [opening, ...rest])).toBe(true)
+  })
+})
+
+
+describe('long native layout scheduling', () => {
+  it('yields before completing a long chapter and preserves the exact final page map', () => {
+    const lengths = Array.from({ length: 200 }, () => 120)
+    const fits = (segments: { from: number; to: number }[]) => segments.reduce((n, s) => n + s.to - s.from, 0) <= 80
+    const steps = measuredDesktopPageSteps(lengths, fits)
+    let clock = 0
+    const now = () => { clock += 10; return clock }
+    let result = nativePaginationSlice(steps, now)
+    expect(result.done).toBe(false)
+    let tasks = 1
+    while (!result.done) { result = nativePaginationSlice(steps, now); tasks += 1 }
+    expect(tasks).toBeGreaterThan(2)
+    expect(result.value).toEqual(measuredDesktopPages(lengths, fits))
   })
 })

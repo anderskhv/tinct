@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { accountOnlyBook, flushOwnPlaces, flushPdfPlaces, noteOwnPlace, notePdfPlace, pullAccountPlaces, pushOwnPlace, pushPdfPlace, reconcileOpenPlace, reconcileOwnBooks, reconcilePdfPlace } from './ownSync'
+import { accountOnlyBook, flushOwnPlaces, flushPdfPlaces, noteOwnPlace, notePdfPlace, pullAccountPlaces, pushOwnPlace, pushPdfPlace, reconcileOpenPlace, reconcileOwnBooks, reconcilePdfPlace, withAccountBookMetadata } from './ownSync'
 import { fetchAccountCopy, fetchAccountPlaces, type AccountPagePlace, type AccountPlace } from './ownAccount'
 import { readUserBookPlace, storedPlaceConverter, writeUserBookPlace } from './userBookPlace'
 import type { UserBookEdition } from './userEdition'
@@ -43,6 +43,14 @@ beforeEach(() => { localStorage.clear(); forget.mockClear() })
 afterEach(() => { vi.useRealTimers() })
 
 describe('own-book places across devices', () => {
+  it('takes revised account metadata without changing local reading progress or cover', () => {
+    const accountBook = { id: 'f'.repeat(32), type: 'epub' as const, sha256: HEX + '0'.repeat(40), title: 'Renamed on another device', author: '', name: 'original.epub', size: 12, createdAt: '', metadataRev: 2 }
+    const local = { ...accountOnlyBook(accountBook), title: 'Old title', author: 'Old author', cover: 'data:image/jpeg;base64,AAAA', reading: { chapterNumber: 2 } } as ReturnType<typeof accountOnlyBook>
+    const merged = withAccountBookMetadata(local, accountBook)
+    expect(merged).toMatchObject({ title: 'Renamed on another device', author: '', cover: local.cover, reading: local.reading })
+    expect(withAccountBookMetadata(local, undefined)).toBe(local)
+    expect(withAccountBookMetadata(local, { ...accountBook, metadataRev: 0 })).toBe(local)
+  })
   it('takes an account place read later on another device, and keeps this device\'s newer one', async () => {
     writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: 1, wordIndex: 0, updatedAt: 100 })
     const { fetchImpl } = account({ [HEX]: { chapterNumber: 2, paragraphIndex: 1, wordIndex: 3, updatedAt: 200, percent: 75, rev: 4 } })
@@ -147,6 +155,51 @@ describe('own-book places across devices', () => {
     const started = Date.now()
     await reconcileOpenPlace(HEX, { token: 'tok', fetchImpl: never, timeoutMs: 50 })
     expect(Date.now() - started).toBeLessThan(1_000)
+  })
+
+  it('does not adopt A’s delayed EPUB or PDF place into B’s same-hash device state', async () => {
+    const pdf = 'fe12cd34ef56ab12cd34ef56'
+    const pdfKey = `tinct-addbook:pos:pdf:${pdf}`
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-a' } }))
+    let release!: () => void
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const fetchImpl = vi.fn(async () => {
+      await gate
+      return Response.json({ places: {
+        [HEX]: { chapterNumber: 2, paragraphIndex: 1, wordIndex: 3, updatedAt: 1000, rev: 5 },
+        [pdf]: { page: 10, frac: 0.5, updatedAt: 1000, rev: 5 },
+      } })
+    }) as unknown as typeof fetch
+    const pending = reconcileOpenPlace(HEX, { owner: 'owner-a', token: 'A-token', fetchImpl })
+    await vi.waitFor(() => expect(fetchImpl).toHaveBeenCalledOnce())
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-b' } }))
+    const bPlace = JSON.stringify({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 7, updatedAt: 700, rev: 3 })
+    const bPage = JSON.stringify({ page: 7, frac: 0.2, at: 700, rev: 3 })
+    localStorage.setItem(KEY, bPlace)
+    localStorage.setItem(pdfKey, bPage)
+    release()
+    await pending
+    expect(localStorage.getItem(KEY)).toBe(bPlace)
+    expect(localStorage.getItem(pdfKey)).toBe(bPage)
+  })
+
+  it('does not apply A’s late EPUB save revision to B’s same-hash place', async () => {
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-a' } }))
+    writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: 0, wordIndex: 2, updatedAt: 900 })
+    let release!: () => void
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const fetchImpl = vi.fn(async () => {
+      await gate
+      return Response.json({ place: { chapterNumber: 1, paragraphIndex: 0, wordIndex: 2, updatedAt: 900, rev: 2 } })
+    }) as unknown as typeof fetch
+    const pending = pushOwnPlace(HEX, { owner: 'owner-a', token: 'A-token', fetchImpl })
+    await vi.waitFor(() => expect(fetchImpl).toHaveBeenCalledOnce())
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-b' } }))
+    const bPlace = JSON.stringify({ chapterNumber: 2, paragraphIndex: 1, wordIndex: 8, updatedAt: 1200, rev: 7 })
+    localStorage.setItem(KEY, bPlace)
+    release()
+    expect(await pending).toBe('unavailable')
+    expect(localStorage.getItem(KEY)).toBe(bPlace)
   })
 })
 
@@ -295,6 +348,44 @@ describe('a PDF read in both its editions (Tinct text and Original pages)', () =
   const pdfEdition = { format: 'tinct-user-edition-v1', converter: 1, source: 'pdf', title: 'Paper', author: '', language: 'en', droppedImages: 0, chapters: pdfChapters } as unknown as UserBookEdition
   // A phone's rule (jsdom's window is a desktop's): the desktop opens every PDF in its pages unless chosen (19 Oct 2026).
   const PHONE = { phone: true }
+
+  it('does not adopt A’s delayed place into B’s same-hash device state during an account switch', async () => {
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-a' } }))
+    localStorage.setItem(POS, JSON.stringify({ page: 2, frac: 0, at: 100, rev: 1 }))
+    let release!: () => void
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const fetchImpl = vi.fn(async () => {
+      await gate
+      return Response.json({ places: { [PDF]: { page: 10, frac: 0.5, updatedAt: 1000, rev: 5 } } })
+    }) as unknown as typeof fetch
+    const pending = reconcilePdfPlace(PDF, { owner: 'owner-a', token: 'A-token', fetchImpl })
+    await vi.waitFor(() => expect(fetchImpl).toHaveBeenCalledOnce())
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-b' } }))
+    const bPlace = JSON.stringify({ page: 7, frac: 0.2, at: 700, rev: 3 })
+    localStorage.setItem(POS, bPlace)
+    release()
+    expect(await pending).toBe('unavailable')
+    expect(localStorage.getItem(POS)).toBe(bPlace)
+  })
+
+  it('does not apply A’s late save response to B’s same-hash page and revision', async () => {
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-a' } }))
+    localStorage.setItem(POS, JSON.stringify({ page: 2, frac: 0, at: 900, rev: 1 }))
+    let release!: () => void
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const fetchImpl = vi.fn(async () => {
+      await gate
+      return Response.json({ place: { page: 2, frac: 0, updatedAt: 900, rev: 2 } })
+    }) as unknown as typeof fetch
+    const pending = pushPdfPlace(PDF, { owner: 'owner-a', token: 'A-token', fetchImpl })
+    await vi.waitFor(() => expect(fetchImpl).toHaveBeenCalledOnce())
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-b' } }))
+    const bPlace = JSON.stringify({ page: 8, frac: 0.8, at: 1200, rev: 7 })
+    localStorage.setItem(POS, bPlace)
+    release()
+    expect(await pending).toBe('unavailable')
+    expect(localStorage.getItem(POS)).toBe(bPlace)
+  })
 
   // Rewritten 19 Oct 2026 (Anders: a PDF's view is chosen per device; only the place syncs): the place read
   // in Tinct text no longer opens the other device in Tinct text; its spot does, once that device's view is.
@@ -458,6 +549,31 @@ describe('own books removed on another device', () => {
     expect(forget).toHaveBeenCalledWith('owner-1', new Set([`epub:${'c'.repeat(24)}`]))
   })
 
+  it('keeps the authoritative book list when places are slow, and still adopts the eventual places', async () => {
+    vi.useFakeTimers()
+    let finishPlaces!: (response: Response) => void
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL) => String(input) === '/api/user-books'
+      ? Response.json({ books: [] })
+      : new Promise<Response>(resolve => { finishPlaces = resolve })) as unknown as typeof fetch
+    let completed = false
+    const result = reconcileOwnBooks('owner-1', { token: 'tok', fetchImpl }).then(books => { completed = true; return books })
+    await vi.advanceTimersByTimeAsync(2600)
+    expect(completed).toBe(true)
+    expect(await result).toEqual([])
+    expect(forget).toHaveBeenCalledWith('owner-1', new Set())
+    finishPlaces(Response.json({ places: { [HEX]: { chapterNumber: 2, paragraphIndex: 1, wordIndex: 3, updatedAt: 200, percent: 75, rev: 4 } } }))
+    await vi.advanceTimersByTimeAsync(0)
+    expect(readUserBookPlace(HEX, edition)).toMatchObject({ chapterNumber: 2, paragraphIndex: 1, wordIndex: 3, updatedAt: 200 })
+  })
+
+  it('waits for normal place sync before returning the account list', async () => {
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL) => String(input) === '/api/user-books'
+      ? Response.json({ books: [] })
+      : Response.json({ places: { [HEX]: { chapterNumber: 2, paragraphIndex: 1, wordIndex: 4, updatedAt: 300, percent: 75, rev: 5 } } })) as unknown as typeof fetch
+    expect(await reconcileOwnBooks('owner-1', { token: 'tok', fetchImpl })).toEqual([])
+    expect(readUserBookPlace(HEX, edition)).toMatchObject({ chapterNumber: 2, wordIndex: 4, updatedAt: 300 })
+  })
+
   it('forgets nothing when the account cannot be read (offline, signed out, an error)', async () => {
     const failing = vi.fn(async () => new Response('', { status: 500 })) as unknown as typeof fetch
     expect(await reconcileOwnBooks('owner-1', { token: 'tok', fetchImpl: failing })).toBeNull()
@@ -476,10 +592,10 @@ describe('own books removed on another device', () => {
     expect(listed()).toMatchObject({ href: `/reader?userBook=${'d'.repeat(24)}` })
     Object.defineProperty(window, 'innerWidth', { configurable: true, value: width })
     const book = listed()
-    expect(book).toMatchObject({ key: `epub:${'d'.repeat(24)}`, href: `/lab/addbook/?userBook=${'d'.repeat(24)}`, title: 'River Notes', cover: null })
+    expect(book).toMatchObject({ key: `epub:${'d'.repeat(24)}`, href: `/reader?userBook=${'d'.repeat(24)}`, title: 'River Notes', cover: null })
     expect(book.reading).toMatchObject({ bookId: `userbook-${'d'.repeat(24)}`, percent: 41.5, lastActiveAt: 700 })
     const pdf = accountOnlyBook({ id: 'e'.repeat(32), type: 'pdf', sha256: 'a'.repeat(64), title: '', name: 'notes.pdf', author: '', size: 1, createdAt: '' })
-    expect(pdf).toMatchObject({ title: 'notes', href: `/lab/addbook/?userBook=${'a'.repeat(24)}`, reading: null })
+    expect(pdf).toMatchObject({ title: 'notes', href: `/reader?userBook=${'a'.repeat(24)}`, reading: null })
   })
 })
 
@@ -501,5 +617,32 @@ describe('an account copy downloaded to this device', () => {
     expect((await fetchAccountCopy(sha.slice(0, 24), null, ok)).status).toBe('unavailable')
     const pdfList = vi.fn(async () => Response.json({ books: [{ ...list.books[0], type: 'pdf' }] })) as unknown as typeof fetch
     expect((await fetchAccountCopy(sha.slice(0, 24), 'tok', pdfList)).status).toBe('pdf')
+  })
+
+  it('warms the public EPUB converter only after a matching account row, before downloading its verified file', async () => {
+    const sha = await hexOf(bytes)
+    const book = { id: 'a'.repeat(32), type: 'epub', sha256: sha, title: 'T', name: 't.epub', author: '', size: 12, createdAt: '' }
+    const order: string[] = []
+    const request = vi.fn(async (input: RequestInfo | URL) => {
+      if (String(input) === '/api/user-books') { order.push('list'); return Response.json({ books: [book] }) }
+      order.push('file')
+      return new Response(bytes)
+    }) as unknown as typeof fetch
+    const warm = vi.fn(() => { order.push('converter'); throw new Error('prefetch unavailable') })
+    expect((await fetchAccountCopy(sha.slice(0, 24), 'tok', request, warm)).status).toBe('found')
+    expect(order).toEqual(['list', 'converter', 'file'])
+    expect(warm).toHaveBeenCalledOnce()
+
+    const changedFile = vi.fn(async (input: RequestInfo | URL) => String(input) === '/api/user-books'
+      ? Response.json({ books: [book] }) : new Response('altered private bytes')) as unknown as typeof fetch
+    expect((await fetchAccountCopy(sha.slice(0, 24), 'tok', changedFile, warm)).status).toBe('unavailable')
+    expect(warm).toHaveBeenCalledTimes(2)
+
+    warm.mockClear()
+    expect((await fetchAccountCopy('0'.repeat(24), 'tok', request, warm)).status).toBe('gone')
+    expect(warm).not.toHaveBeenCalled()
+    const pdfList = vi.fn(async () => Response.json({ books: [{ ...book, type: 'pdf' }] })) as unknown as typeof fetch
+    expect((await fetchAccountCopy(sha.slice(0, 24), 'tok', pdfList, warm)).status).toBe('pdf')
+    expect(warm).not.toHaveBeenCalled()
   })
 })

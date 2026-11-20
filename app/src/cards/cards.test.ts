@@ -251,11 +251,21 @@ describe('Settings', () => {
     expect((byTest('settings-leaderboard') as HTMLButtonElement).disabled).toBe(true)
   })
 
-  it('has no Reading-emails row and no confirm-email button', async () => {
-    profile = ownProfile({ emailConfirmed: false, visibility: 'everyone', effectiveVisibility: 'friends' })
+  it('asks for reading emails here, off by default, and has no confirm-email button (onboarding v3 brief, 2 Nov 2026)', async () => {
+    profile = ownProfile({ emailConfirmed: false, emailOptIn: false, visibility: 'everyone', effectiveVisibility: 'friends' })
     await open('settings')
-    expect(top().textContent).not.toMatch(/Reading emails|confirm/i)
+    // The consent tick left the sign-in sheet for Settings (brief: "The email-consent tick moves to Settings").
+    expect(byTest('settings-reading-emails').getAttribute('aria-checked')).toBe('false')
+    expect(top().textContent).toContain('Email me about my reading progress and ideas for what to read next. Stop any time.')
+    expect(top().textContent).not.toMatch(/confirm/i)
     expect(top().querySelectorAll('.tc-r').length).toBeGreaterThan(5)
+  })
+
+  it('names its languages: English and Dansk are labelled chips, not bare switches', async () => {
+    profile = ownProfile({ readingLanguages: ['en'] })
+    await open('settings')
+    expect([byTest('settings-language-en'), byTest('settings-language-da')].map(chip => [chip.textContent, chip.getAttribute('aria-pressed')])).toEqual([['English', 'true'], ['Dansk', 'false']])
+    expect(top().textContent).toContain('Modern is an AI-generated translation in today’s language; Original is the author’s text or a published human translation.')
   })
 
   it('opens a dark box under an (i) and closes it on the next tap', async () => {
@@ -354,6 +364,25 @@ describe('Delete account', () => {
     await flush()
     // Exactly what the Worker requires (worker/routes/accountDelete.ts).
     expect(deletePosts()).toEqual([{ url: ACCOUNT_DELETE_PATH, body: { confirm: ACCOUNT_DELETE_CONFIRM, userId: session.userId } }])
+    expect(signOut).toHaveBeenCalledWith('/')
+    stack.closeAll()
+  })
+
+  it('says at once that it is deleting and cannot be tapped twice while the Worker works (2 Nov 2026)', async () => {
+    const { signOut, stack } = accountOnly()
+    let release!: () => void
+    const held = new Promise<void>(resolve => { release = resolve })
+    const plain = globalThis.fetch
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => { if (String(input).startsWith('/api/account/delete')) await held; return plain(input, init) }))
+    click(byTest('account-delete'))
+    click(byTest('account-delete-confirm'))
+    const confirm = byTest('account-delete-confirm') as HTMLButtonElement
+    expect(confirm.textContent).toBe(CARDS_COPY.deletingAccount)
+    expect(confirm.disabled).toBe(true)
+    expect((byTest('account-delete-cancel') as HTMLButtonElement).disabled).toBe(true)
+    click(confirm)
+    release(); await flush()
+    expect(deletePosts()).toHaveLength(1)
     expect(signOut).toHaveBeenCalledWith('/')
     stack.closeAll()
   })
@@ -545,76 +574,12 @@ describe('findable profiles and follow requests (19 October 2026)', () => {
     expect(byTest('following-you-row-remove')).toBeNull()
   })
 
-  it('the You card shows the notice once per account: marked seen in the account as it shows, gone after Dismiss', async () => {
-    await open('you')
-    const notice = byTest('findable-notice')
-    expect(notice?.textContent).toContain(NOTICE)
-    expect(notice?.textContent).toContain('Settings')
-    // Shown is enough: the account has it before any tap.
-    expect(accountNotice.writes).toEqual([session.userId])
-    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${session.userId}`)).toBe('2')
-    click(byTest('findable-notice-dismiss'))
-    await flush()
-    expect(byTest('findable-notice')).toBeNull()
-    closeAccountCards()
+  it('no longer shows the replaced findable notice on the You card', async () => {
     await open('you')
     expect(byTest('findable-notice')).toBeNull()
-  })
-
-  it('another device, browser or private window never shows it once the account has seen it', async () => {
-    await open('you')
-    expect(byTest('findable-notice')).toBeTruthy()
-    closeAccountCards()
-    // A fresh device: nothing stored here, a new page.
-    localStorage.clear()
-    resetFindableNoticeVisit()
-    await open('you')
-    expect(byTest('findable-notice')).toBeNull()
-    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${session.userId}`)).toBe('2')
-  })
-
-  it('Settings in the notice opens Settings and ends the notice', async () => {
-    await open('you')
-    click(byTest('findable-notice-settings'))
-    await flush()
-    expect(top().dataset.card).toBe('settings')
-    click(byTest('card-back'))
-    expect(byTest('findable-notice')).toBeNull()
-  })
-
-  it('opening Settings any other way marks it seen, so it never shows after', async () => {
-    await open('settings')
-    await flush()
-    expect(accountNotice.seen.has(session.userId)).toBe(true)
-    closeAccountCards()
-    localStorage.clear()
-    resetFindableNoticeVisit()
-    await open('you')
-    expect(byTest('findable-notice')).toBeNull()
-  })
-
-  it('a profile set up since findable profiles shipped never gets it, and nothing is written', async () => {
-    profile = ownProfile({ setUpBeforeFindable: false })
-    // Another account, so the page's last paint (the earlier tests' profile) is not reused.
-    const later = { ...session, userId: '33333333-3333-4333-8333-333333333333' }
-    expect(await openAccountCards({ session: later, social: true, dark: false, start: 'you' })).toBe(true)
-    await flush()
-    expect(byTest('findable-notice')).toBeNull()
-    click(byTest('you-settings'))
-    await flush()
     expect(accountNotice.writes).toEqual([])
   })
 
-  it('an Only me profile never gets it; an Everyone profile gets a line that is true for it', async () => {
-    profile = ownProfile({ visibility: 'only_me', effectiveVisibility: 'only_me' })
-    await open('you')
-    expect(byTest('findable-notice')).toBeNull()
-    closeAccountCards()
-    profile = ownProfile({ visibility: 'everyone', effectiveVisibility: 'everyone' })
-    await open('you')
-    expect(byTest('findable-notice')?.textContent).toContain('Your profile is set to Everyone, so anyone with your link sees your reading.')
-    expect(byTest('findable-notice')?.textContent).not.toContain('stays private')
-  })
 })
 
 describe('type rules', () => {
@@ -1066,6 +1031,38 @@ describe('AI credits (Anders, 14 October 2026)', () => {
       expect(byTest('menu-top-up-more')?.textContent).toBe(CARDS_COPY.buyTopUpMore)
       stack.closeAll()
     }
+  })
+
+  it.each(['chat_pack_200', 'top_up_10'])('opens %s checkout once and shows progress immediately', async pack => {
+    let answer!: (value: Response) => void
+    const request = vi.fn((_url: string, _init?: RequestInit) => new Promise<Response>(resolve => { answer = resolve }))
+    vi.stubGlobal('fetch', request)
+    const { env, stack } = youOnly({ allowance: allowance(1) })
+    click(byTest('you-top-up'))
+    click(byTest(pack === 'chat_pack_200' ? 'menu-top-up' : 'menu-top-up-more'))
+    expect(byTest('top-up-status')).toBeNull()
+    expect(byTest('you-top-up')?.textContent).toContain('Opening checkout…')
+    click(byTest('you-top-up'))
+    expect(byTest('card-menu')).toBeNull()
+    expect(request).toHaveBeenCalledTimes(1)
+    expect(JSON.parse(String(request.mock.calls[0][1]?.body))).toEqual({ type: pack })
+    answer(Response.json({ url: 'https://checkout.stripe.com/test' }))
+    await flush()
+    expect(env.navigate).toHaveBeenCalledWith('https://checkout.stripe.com/test')
+    stack.closeAll()
+  })
+
+  it('shows a failed checkout beside the top-up controls and allows another attempt', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('{}', { status: 503 })))
+    const { stack } = youOnly({ allowance: allowance(1) })
+    click(byTest('you-top-up'))
+    click(byTest('menu-top-up'))
+    await flush()
+    expect(byTest('top-up-status')?.textContent).toBe(CARDS_COPY.topUpFailed)
+    expect(byTest('top-up-status')?.parentElement).toBe(byTest('you-top-up')?.parentElement)
+    click(byTest('you-top-up'))
+    expect(byTest('menu-top-up')).not.toBeNull()
+    stack.closeAll()
   })
 
   it('a free account from before the trial reset shows a fresh month: 0% used and "Resets 14 Nov" (15 Oct 2026)', () => {

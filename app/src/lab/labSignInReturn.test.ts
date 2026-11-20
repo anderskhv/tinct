@@ -14,11 +14,16 @@ describe('safeLabReturnTo', () => {
   it('keeps the launch routes', () => {
     expect(safe('/library')).toBe('/library')
     expect(safe('/library/')).toBe('/library/')
-    expect(safe('/featured')).toBe('/featured')
     expect(safe('/admin/metrics')).toBe('/admin/metrics')
     expect(safe('/read/odyssey')).toBe('/read/odyssey')
     expect(safe('/read/odyssey/3')).toBe('/read/odyssey/3')
     expect(safe('/read/bible/40?voice=v2')).toBe('/read/bible/40?voice=v2')
+  })
+
+  it('returns to the Preparing page, which adds a text or file kept on /byob (5 Nov 2026)', () => {
+    expect(safe('/preparing?own=paste')).toBe('/preparing?own=paste')
+    expect(safe('/preparing?own=file')).toBe('/preparing?own=file')
+    expect(safe('/preparingx')).toBe(LAB_DEFAULT_RETURN_TO)
   })
 
   it('maps old /lab page URLs to the canonical page, never to an asset folder', () => {

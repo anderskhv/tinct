@@ -56,7 +56,7 @@ describe('narration pilot flag and prefs', () => {
 describe('Grok production routing', () => {
   it('uses Grok for retained English originals and keeps optional voices separate from Talk', () => {
     expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'frankenstein','original-en',1,'grok')).toBe(true)
-    expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'frankenstein','modern-da',1,'grok')).toBe(false)
+    expect(narrationPilotApplies(DEFAULT_LAB_PREFS,'pride-and-prejudice','modern-da',1,'grok')).toBe(false)
     const prefs = {...DEFAULT_LAB_PREFS,audiobookVoice:'orion' as const}
     const voices = [{key:'f',label:'Ara',persona:'female' as const},{key:'m',label:'Helios',persona:'male' as const},{key:'orion',label:'Orion',persona:'male' as const},{key:'eve',label:'Eve',persona:'female' as const}]
     expect(resolveNarrationVoice(prefs,voices)).toBe('orion')
@@ -119,6 +119,9 @@ describe('narration API client', () => {
       const fetchImpl = (async () => new Response('', { status })) as unknown as typeof fetch
       await expect(ensureNarration(request, { fetchImpl })).rejects.toMatchObject({ code })
     }
+    const unavailable = vi.fn(async () => Response.json({ reason: 'rate_limit_unavailable' }, { status: 503 }))
+    await expect(ensureNarration(request, { fetchImpl: unavailable })).rejects.toMatchObject({ code: 'http', status: 503 })
+    expect(unavailable).toHaveBeenCalledTimes(1)
     const abort = (async () => { throw new DOMException('aborted', 'AbortError') }) as unknown as typeof fetch
     const cancelled = new AbortController()
     cancelled.abort()
@@ -165,4 +168,18 @@ it('sends a bounded book-transition identity and hash, never arbitrary spoken te
   }) as unknown as typeof fetch
   await ensureNarration({ kind: 'book-transition', bookId: 'bible', editionKey: 'web-en', chapter: 413,
     nextChapter: 414, voice: 'f', paragraphs: [{ index: 0, text }] }, { fetchImpl })
+})
+
+it('finishes voice configuration when the response stalls, without leaving loading active', async () => {
+  vi.useFakeTimers()
+  try {
+    const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => new Promise<Response>((_resolve, reject) => {
+      init?.signal?.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')))
+    }))
+    const pending = fetchNarrationPilotInfo(fetchImpl)
+    await vi.advanceTimersByTimeAsync(10_000)
+    expect(await pending).toMatchObject({ enabled: false, reason: 'timeout', voices: [] })
+    expect((await pending).loading).not.toBe(true)
+    expect(vi.getTimerCount()).toBe(0)
+  } finally { vi.useRealTimers() }
 })

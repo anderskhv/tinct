@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL, RECAP_FAST_MODEL } from './companionModel'
-import { CATCH_UP_PROMPT_VERSION } from './catchUp'
+import { CATCH_UP_BLOCK_LIMIT, CATCH_UP_CHAPTER_LIMIT, CATCH_UP_PROMPT_VERSION, catchUpCacheKey } from './catchUp'
+import { entryFits, entryWordCount } from './worker/lib/entryLength'
 import { resetBookRetrievalCache, type ChapterText } from './worker/lib/bookRetrieval'
 import {
   CATCH_UP_GENERATE_RATE_LIMIT_PER_MINUTE,
@@ -10,7 +11,10 @@ import {
   CATCH_UP_BLOCK_MAX_TOKENS,
   CATCH_UP_BLOCK_SYSTEM_PROMPT,
   CATCH_UP_SYSTEM_PROMPT,
+  CATCH_UP_SHORTEN_MAX_TOKENS,
+  CATCH_UP_SHORTEN_SYSTEM_PROMPT,
   buildCatchUpPassage,
+  enforceCatchUpLength,
   handleLabCatchUp,
   parseCatchUpRequest,
 } from './worker/routes/labCatchUp'
@@ -412,6 +416,124 @@ describe('POST /api/lab-catch-up', () => {
       await Promise.all(pending)
       expect(JSON.parse(cache.entries.get(key)!)).toEqual({ summary: 'Anna arrives in the snow.' })
     })
+  })
+
+  describe('length limit (Anders, 4 Nov 2026: "too much text"): a chapter one sentence of 25 words, a group two of 45', () => {
+    // The shape of the 2 Maccabees 1–8 entry: an episode per chapter, glued together.
+    const glued = [
+      'The Jews in Jerusalem send greetings to their kin in Egypt.',
+      'Jeremiah is said to have hidden the ark in a cave.',
+      'When the king dies, Jason buys the high priesthood and brings in Greek ways.',
+      'Antiochus invades Egypt and plunders the temple on his way back.',
+      'Eleazar, ninety years old, dies rather than eat pork.',
+      'Seven brothers and their mother die one after another for the law.',
+      'Judas gathers about six thousand men and defeats Nicanor, who flees to Antioch.',
+    ].join(' ')
+    const tool = (summary: string, delayMs = 0) => async () => {
+      if (delayMs) await new Promise(resolve => setTimeout(resolve, delayMs))
+      return Response.json({ model: RECAP_FAST_MODEL, stop_reason: 'tool_use', content: [{ type: 'tool_use', id: 'toolu_1', name: 'write_entry', input: { nothing_to_summarise: false, summary } }], usage: { input_tokens: 300, output_tokens: 60 } })
+    }
+    const short = 'Jason buys the high priesthood and Antiochus plunders the temple. Judas gathers an army and defeats Nicanor.'
+
+    it('the prompts ask for the new limits, and the calls leave room for an overlong answer to arrive whole', () => {
+      expect(CATCH_UP_SYSTEM_PROMPT).toContain('one sentence of at most 25 words')
+      expect(CATCH_UP_BLOCK_SYSTEM_PROMPT).toContain('at most two sentences and 45 words in all')
+      expect(CATCH_UP_BLOCK_SYSTEM_PROMPT).toMatch(/Do not go chapter by chapter/)
+      // A cut-off call is no entry (2 Nov 2026): room for several times the limit.
+      expect(CATCH_UP_MAX_TOKENS).toBeGreaterThanOrEqual(CATCH_UP_CHAPTER_LIMIT.words * 8)
+      expect(CATCH_UP_BLOCK_MAX_TOKENS).toBeGreaterThanOrEqual(CATCH_UP_BLOCK_LIMIT.words * 8)
+    })
+
+    it('an entry within the limit is untouched: one call, no correction', async () => {
+      const { ctx } = makeContext()
+      const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }
+      const fetchAnthropic = vi.fn(tool(short))
+      const reserve = vi.fn(async () => true)
+      const response = await handleLabCatchUp(catchUpRequest(partOne), env, ctx, allow, { reserveGuestSpend: reserve, cache: null, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: short })
+      expect(fetchAnthropic).toHaveBeenCalledTimes(1)
+      expect(reserve).toHaveBeenCalledTimes(1)
+    })
+
+    it('an overlong entry gets ONE corrective call with its length and the draft only; the rewrite is shown and cached', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }
+      const fetchAnthropic = vi.fn(tool(glued)).mockImplementationOnce(tool(glued)).mockImplementationOnce(tool(short))
+      const reserve = vi.fn(async () => true)
+      const response = await handleLabCatchUp(catchUpRequest(partOne), env, ctx, allow, { reserveGuestSpend: reserve, cache, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: short, source: 'model' })
+      expect(fetchAnthropic).toHaveBeenCalledTimes(2)
+      expect(reserve).toHaveBeenCalledTimes(2)
+      const [payload] = fetchAnthropic.mock.calls[1] as unknown as [Record<string, unknown>]
+      expect(payload).toMatchObject({ model: RECAP_FAST_MODEL, system: CATCH_UP_SHORTEN_SYSTEM_PROMPT, max_tokens: CATCH_UP_SHORTEN_MAX_TOKENS, tool_choice: { type: 'tool', name: 'write_entry' } })
+      const content = (payload.messages as Array<{ content: string }>)[0].content
+      expect(content).toContain(`The entry below is ${entryWordCount(glued)} words in 7 sentences.`)
+      expect(content).toContain('at most two sentences and 45 words in all')
+      expect(content).toContain(glued)
+      // Never the passage again: the correction is cheap.
+      expect(content).not.toContain('snow is falling')
+      await Promise.all(pending)
+      expect(JSON.parse([...cache.entries.values()][0])).toEqual({ summary: short })
+    })
+
+    it('a rewrite still over the limit is cut at a sentence end; so is the draft when the correction fails or is refused', async () => {
+      const { ctx } = makeContext()
+      const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }
+      const stillLong = `${short} Eleazar dies rather than eat pork.`
+      const cases: Array<{ second: () => Promise<Response>; reserve: () => Promise<boolean>; expected: string; calls: number }> = [
+        { second: tool(stillLong), reserve: async () => true, expected: short, calls: 2 },
+        { second: async () => Response.json({ error: 'overloaded' }, { status: 529 }), reserve: async () => true, expected: 'The Jews in Jerusalem send greetings to their kin in Egypt. Jeremiah is said to have hidden the ark in a cave.', calls: 2 },
+        { second: async () => { throw new Error('network') }, reserve: async () => true, expected: 'The Jews in Jerusalem send greetings to their kin in Egypt. Jeremiah is said to have hidden the ark in a cave.', calls: 2 },
+      ]
+      for (const item of cases) {
+        const fetchAnthropic = vi.fn(item.second).mockImplementationOnce(tool(glued))
+        const response = await handleLabCatchUp(catchUpRequest(partOne), env, ctx, allow, { reserveGuestSpend: item.reserve, cache: null, fetchAnthropic })
+        const { summary } = await response.json() as { summary: string }
+        expect(summary).toBe(item.expected)
+        expect(entryFits(summary, CATCH_UP_BLOCK_LIMIT)).toBe(true)
+        expect(fetchAnthropic).toHaveBeenCalledTimes(item.calls)
+      }
+      // The spend ceiling refuses the correction: no second call, the draft trimmed.
+      let reserved = 0
+      const fetchAnthropic = vi.fn(tool(glued))
+      const response = await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'ch-4' }), env, ctx, allow, { reserveGuestSpend: async () => ++reserved === 1, cache: null, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: 'The Jews in Jerusalem send greetings to their kin in Egypt.' })
+      expect(fetchAnthropic).toHaveBeenCalledTimes(1)
+    })
+
+    it('a chapter entry is held to one sentence', async () => {
+      const { ctx } = makeContext()
+      const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }
+      const two = 'Vronsky falls from his horse. Anna gives herself away.'
+      const fetchAnthropic = vi.fn(tool('Vronsky falls at the races and Anna gives herself away.')).mockImplementationOnce(tool(two))
+      const response = await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'ch-4' }), env, ctx, allow, { reserveGuestSpend: spend, cache: null, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: 'Vronsky falls at the races and Anna gives herself away.' })
+      expect(String(((fetchAnthropic.mock.calls[1] as unknown as [Record<string, unknown>])[0].messages as Array<{ content: string }>)[0].content)).toContain('one sentence of at most 25 words')
+    })
+
+    it('a slow correction never holds the entry back: past the budget the trimmed draft is shown, and the rewrite settles into the cache', async () => {
+      const send = vi.fn(tool(short, 60))
+      const started = Date.now()
+      const result = await enforceCatchUpLength({ summary: glued, limit: CATCH_UP_BLOCK_LIMIT, where: '2 Maccabees 1 – 2 Maccabees 8', send, reserve: spend, budgetMs: 10 })
+      expect(Date.now() - started).toBeLessThan(55)
+      expect(result.outcome).toBe('late')
+      expect(result.summary).toBe('The Jews in Jerusalem send greetings to their kin in Egypt. Jeremiah is said to have hidden the ark in a cave.')
+      expect(await result.settled).toBe(short)
+      expect(send).toHaveBeenCalledTimes(1)
+    })
+  })
+
+  it('the prompt version is in every cache key: an entry cached under an earlier prompt is never served', async () => {
+    expect(CATCH_UP_PROMPT_VERSION).toBe('catch-up-v5')
+    expect(catchUpCacheKey({ bookId: 'bible', editionKey: 'kjv', unitId: 'chs-1-8' })).toBe(`${CATCH_UP_PROMPT_VERSION}/bible/kjv/chs-1-8/end`)
+    const { ctx } = makeContext()
+    const cache = fakeCache()
+    cache.entries.set('https://tinct.app/__lab-catch-up/catch-up-v4/anna/original-en/part-part-1/end', JSON.stringify({ summary: 'An old, long entry.' }))
+    const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }
+    const fetchAnthropic = anthropicOk('Anna arrives in the snow.')
+    const response = await handleLabCatchUp(catchUpRequest(partOne), env, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+    expect(await response.json()).toMatchObject({ summary: 'Anna arrives in the snow.', source: 'model' })
   })
 
   it('never reaches api.anthropic.com from tests: the default transport is only used when no fake is injected', async () => {

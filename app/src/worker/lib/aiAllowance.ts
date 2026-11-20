@@ -83,6 +83,7 @@ export interface AllowanceProfile {
   subscription_status: string | null
   subscription_period_end: string | null
   created_at: string | null
+  period_start?: string | null
 }
 
 export type PeriodKind = 'subscription' | 'trial' | 'standard'
@@ -160,9 +161,27 @@ export function trialStartsAt(profile: AllowanceProfile, now: Date): Date | null
   return resetReached && created.getTime() < TRIAL_RESET_AT.getTime() ? TRIAL_RESET_AT : created
 }
 
-export function trialEndsAt(profile: AllowanceProfile, now: Date): Date | null {
+/**
+ * Premium extended for every account (Anders, 9 Nov 2026: "extend the premium
+ * for next 8 weeks"). From PREMIUM_EXTENSION_FROM, a free account's trial runs
+ * at least until PREMIUM_EXTENDED_UNTIL; a trial that would end later anyway
+ * (an account created from 5 Dec 2026) is unchanged. Before the decision the
+ * trial ends exactly as it did. While extended, the AI allowance renews monthly
+ * from the account's sign-up trial end (billingPeriod), as Premium's does.
+ */
+export const PREMIUM_EXTENSION_FROM = new Date('2026-11-09T00:00:00Z')
+export const PREMIUM_EXTENDED_UNTIL = new Date('2027-01-04T00:00:00Z')
+
+/** The 30-day trial's end before any extension. */
+export function signUpTrialEndsAt(profile: AllowanceProfile, now: Date): Date | null {
   const start = trialStartsAt(profile, now)
   return start ? new Date(start.getTime() + TRIAL_DAYS * DAY_MS) : null
+}
+
+export function trialEndsAt(profile: AllowanceProfile, now: Date): Date | null {
+  const end = signUpTrialEndsAt(profile, now)
+  if (!end) return null
+  return now.getTime() >= PREMIUM_EXTENSION_FROM.getTime() && end.getTime() < PREMIUM_EXTENDED_UNTIL.getTime() ? PREMIUM_EXTENDED_UNTIL : end
 }
 
 /**
@@ -180,7 +199,7 @@ export function hasPremiumAccess(profile: AllowanceProfile, now: Date): boolean 
 export async function loadPremiumAccess(env: SupabaseEnv, userId: string, now: Date = new Date()): Promise<boolean | null> {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
   try {
-    const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at`)
+    const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at,period_start`)
     if (!res.ok) return null
     const profile = ((await res.json()) as AllowanceProfile[])?.[0]
     return profile ? hasPremiumAccess(profile, now) : null
@@ -206,7 +225,7 @@ export function premiumTier(profile: AllowanceProfile, now: Date): PremiumTier {
 export async function loadPremiumTier(env: SupabaseEnv, userId: string, now: Date = new Date()): Promise<PremiumTier | null> {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
   try {
-    const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at`)
+    const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at,period_start`)
     if (!res.ok) return null
     const profile = ((await res.json()) as AllowanceProfile[])?.[0]
     return profile ? premiumTier(profile, now) : null
@@ -230,19 +249,37 @@ export async function loadPremiumTier(env: SupabaseEnv, userId: string, now: Dat
  *  - Standard: monthly windows from the trial's end, with no allowance; only
  *    top-up credit can pay for paid features.
  */
+/** A 30-day canceled grant records its exact start in the existing period_start.
+ * This also respects an identically dated canceled monthly subscription: its
+ * real start is the correct boundary, rather than a calendar-month estimate. */
+export function firstMonthGrantWindow(profile: AllowanceProfile): { start: Date; end: Date } | null {
+  const start = validDate(profile.period_start), end = validDate(profile.subscription_period_end)
+  return profile.subscription_status === 'canceled' && start && end && end.getTime() - start.getTime() === TRIAL_DAYS * DAY_MS
+    ? { start, end } : null
+}
+
 export function billingPeriod(profile: AllowanceProfile, now: Date, allowanceUsd = PREMIUM_AI_ALLOWANCE_USD): AllowancePeriod {
   const allowanceMicros = usdToMicros(allowanceUsd)
   const periodEnd = validDate(profile.subscription_period_end)
   if (isSubscribed(profile, now)) {
+    const grant = firstMonthGrantWindow(profile)
+    if (grant && now >= grant.start) return { kind: 'subscription', ...grant, allowanceMicros }
     if (periodEnd) return { kind: 'subscription', ...monthWindowAround(periodEnd, now), allowanceMicros }
     // Active with no known period end: calendar months from the account's creation.
     const anchor = validDate(profile.created_at) ?? new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1))
     return { kind: 'subscription', ...monthlyWindow(anchor, now), allowanceMicros }
   }
   const trialStart = trialStartsAt(profile, now)
+  const signUpEnd = signUpTrialEndsAt(profile, now)
   const trialEnd = trialEndsAt(profile, now)
-  if (trialStart && trialEnd && now.getTime() < trialEnd.getTime()) {
-    return { kind: 'trial', start: trialStart, end: trialEnd, allowanceMicros }
+  if (trialStart && signUpEnd && now.getTime() < signUpEnd.getTime()) {
+    return { kind: 'trial', start: trialStart, end: signUpEnd, allowanceMicros }
+  }
+  // The extension (PREMIUM_EXTENDED_UNTIL): monthly windows from the sign-up
+  // trial's end, the last one cut at the extension's end.
+  if (signUpEnd && trialEnd && now.getTime() < trialEnd.getTime()) {
+    const window = monthlyWindow(signUpEnd, now)
+    return { kind: 'trial', start: window.start, end: window.end.getTime() > trialEnd.getTime() ? trialEnd : window.end, allowanceMicros }
   }
   const anchor = trialEnd ?? new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1))
   return { kind: 'standard', ...monthlyWindow(anchor, now), allowanceMicros: 0 }
@@ -400,7 +437,7 @@ export function clearInternalAccountCache(): void {
 export async function loadAllowanceView(env: SupabaseEnv, userId: string, now: Date = new Date()): Promise<AllowanceView | null> {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
   try {
-    const profileRes = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at`)
+    const profileRes = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at,period_start`)
     if (!profileRes.ok) return null
     const profile = ((await profileRes.json()) as AllowanceProfile[])?.[0]
     if (!profile) return null

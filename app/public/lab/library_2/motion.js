@@ -3,7 +3,12 @@ export const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 export const mix=(a,b,t)=>a+(b-a)*t;
 // The two-page spread wherever it fits (touch tablets in landscape included); otherwise
 // the compact tour: the author flap first, then the introduction full screen.
-export function destination(w,h){const tour=w<1100||h<600;const width=tour?w:Math.min(660,(w-96)/2);const top=tour?0:76;return {x:tour?w:w/2,y:top,w:width,h:tour?h:h-top-28,spread:true,tour};}
+// The tour is for phones, portrait tablets and windows too small for two pages (under
+// 900x460: pages under about 400x356); every size that had the spread keeps it. The
+// tour's page runs past a phone's right edge, but in a landscape window it stopped short,
+// so the flap stood beside a blank page until Continue. Windows laptops at 125-150%
+// display scaling (1093x614, 1280x~590) opened books that way (user test, 12 Nov 2026).
+export function destination(w,h){const tour=w<900||h<460||(h>w&&w<1100);const width=tour?w:Math.min(660,(w-96)/2);const top=tour?0:76;return {x:tour?w:w/2,y:top,w:width,h:tour?h:h-top-28,spread:true,tour};}
 // The cover and paper share one uniformly scaled parent throughout the motion.
 // While the cover turns, the book slides half a cover to the right, so the open spread
 // is centred where the closed book stood and both pages stay on a screen viewWidth wide

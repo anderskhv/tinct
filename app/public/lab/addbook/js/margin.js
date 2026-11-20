@@ -22,7 +22,7 @@
    * from each edge, 12px below the last line (tip up), else 12px above the first line.
    * -> { left, top, width, below, tip } (tip: the tip's x inside the bar).
    */
-  function placeBar({ first, last, frame, w, h, phone = false }) {
+  function placeBar({ first, last, frame, w, h, phone = false, cursor = null }) {
     last = last || first;
     if (phone) {
       const height = h || PHONE.barH;
@@ -34,17 +34,24 @@
     }
     const height = h || DESK.barH;
     const width = Math.min(w, frame.right - frame.left - DESK.inset * 2);
-    const left = clamp(first.left - DESK.lead, frame.left + DESK.inset, frame.right - DESK.inset - width);
-    const roomAbove = first.top - frame.top;
     // 64px of room leaves the bar 8px clear of the top bar; that is the least it keeps above it.
     const topGap = DESK.room - DESK.above;
-    let below = roomAbove < DESK.room, top;
     // A bar taller than the 44px menu (Ask wrapping to three lines) grows upward from where the menu ends.
-    if (!below) top = first.top - DESK.above + DESK.barH - height;
-    else top = last.bottom + DESK.gap;
-    if (!below && top < frame.top + topGap) { below = true; top = last.bottom + DESK.gap }
-    top = clamp(top, frame.top + topGap, frame.bottom - DESK.inset - height);
-    return { left, top, width, below, tip: clamp(first.left - left + DESK.tipLead, DESK.tipMin, width - DESK.tipMin) };
+    const aboveTop = first.top - DESK.above + DESK.barH - height, belowTop = last.bottom + DESK.gap;
+    const fitsAbove = first.top - frame.top >= DESK.room && aboveTop >= frame.top + topGap;
+    const fitsBelow = belowTop + height <= frame.bottom - DESK.inset;
+    // Never off the frame first, then as close to the cursor as it can be (Anders, 11 Nov 2026): with `cursor` (where
+    // the pointer let go), the bar stands on the cursor's side of the selection, its tip at the cursor's x; the other
+    // side when its own has no room. Without one: above the first line, at the selection's start.
+    // (src/components/reader/deskBarPlace.ts holds the same rule for the book reader.)
+    const mid = b => (b.top + b.bottom) / 2;
+    const towardsEnd = !!cursor && last.top > first.top && Math.abs(cursor.y - mid(last)) < Math.abs(cursor.y - mid(first));
+    const below = towardsEnd ? fitsBelow || !fitsAbove : !fitsAbove;
+    const line = below ? last : first;
+    const point = cursor ? clamp(cursor.x, line.left, line.right) : null;
+    const left = clamp(point === null ? first.left - DESK.lead : point - DESK.tipLead, frame.left + DESK.inset, frame.right - DESK.inset - width);
+    const top = clamp(below ? belowTop : aboveTop, frame.top + topGap, frame.bottom - DESK.inset - height);
+    return { left, top, width, below, tip: clamp(point === null ? first.left - left + DESK.tipLead : point - left, DESK.tipMin, width - DESK.tipMin) };
   }
 
   /**
@@ -238,6 +245,15 @@
      The fixture (margin-fixture.html) and the reader draw them with these same builders, so what
      was compared with the mockup is what the reader shows. Icons are the mockup's own. */
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  /**
+   * A note's formatting (Anders, 13 Nov 2026): bullets, bold and italic as Markdown in the note (js/note-md.js, built
+   * from the reader's src/lab/notes). Shown: its HTML, every character escaped; written: a <tinct-note> field, whose
+   * words are the note's Markdown as text (the element makes the field when it is drawn). Without note-md.js (an
+   * old cached page) a note shows as its plain words.
+   */
+  const noteMd = () => (typeof self !== 'undefined' ? self : globalThis).TinctNoteMd || null;
+  const noteShown = note => { const md = noteMd(); return md ? md.noteHtml(String(note || '')) : `<p>${esc(note)}</p>` };
+  const noteField = ({ cls, note = '', placeholder, label }) => `<tinct-note class="tn-wrap"><div class="${cls} tn-editor" data-note-field data-placeholder="${esc(placeholder)}" aria-label="${esc(label)}">${esc(note)}</div></tinct-note>`;
   const svg = body => `<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false">${body}</svg>`;
   const ICONS = {
     // Remove (a highlight): a ✕, in the bar's stroke.
@@ -256,7 +272,7 @@
   const LATER = { share: true };
   const shown = (id, all) => all || !LATER[id];
   // Related (FIXES-2026-10-15 A5): between Fact-check and Counterpoint.
-  const MORE_ROWS = [['define', 'Define', 'The word, as this text uses it'], ['factcheck', 'Fact-check', 'Does it still hold? Searches the web'], ['related', 'Related', 'Where else the text takes this up'], ['counterpoint', 'Counterpoint', 'The strongest objection to it'], ['quiz', 'Quiz me', 'Three questions to check you have it']];
+  const MORE_ROWS = [['define', 'Define', 'The word, as this text uses it'], ['factcheck', 'Evaluate', 'Does it still hold? Searches the web'], ['related', 'Related', 'Where else the text takes this up'], ['counterpoint', 'Counterpoint', 'The strongest objection to it'], ['quiz', 'Quiz me', 'Three questions to check you have it']];
   const MORE_ROWS_2 = [['copy', 'Copy', 'With the title and page number'], ['share', 'Share as image', 'The quote as a card to post']];
   const colorOf = (colors, key) => { const c = colors.find(x => x[0] === key) || colors[0]; return { key: c[0], label: c[1], dot: c[3] } };
   function dotHtml(colors, current, { noted = false } = {}) {
@@ -289,8 +305,9 @@
         + `<button type="button" class="mr-bar__item" data-m="remove" aria-label="Remove highlight" title="Remove highlight">${ICONS.remove}</button>`;
     }
     if (state === 'asking') {
-      // Gloss's field (Anders, 20 Oct 2026): one pill, a placeholder, the mic and a round send. No spelling marks or
-      // autocorrect bubble (macOS put an "ads ×" correction chip under "adsf"): a question is the reader's own words.
+      // A3 (Anders, 22 Oct 2026): the dark bar itself becomes the field, 440px wide on the desktop
+      // (Esc goes back to the actions); a placeholder, the mic and a round send. No spelling marks or autocorrect
+      // bubble (macOS put an "ads ×" correction chip under "adsf"): a question is the reader's own words.
       return `<label class="mr-bar__field"><textarea class="mr-ask" rows="1" enterkeyhint="send" placeholder="Ask about this passage" aria-label="Ask about this passage" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="sentences">${esc(o.question || '')}</textarea></label>`
         + `<button type="button" class="mr-bar__item is-mic" data-m="mic" aria-label="Dictate" aria-pressed="false">${ICONS.mic}</button>`
         + `<button type="button" class="mr-bar__send" data-m="send" aria-label="Send"${o.question ? '' : ' disabled'}>${ICONS.up}</button>`;
@@ -341,25 +358,16 @@
   function noteHtml({ quote, note = '' }) {
     // A passage that opens or closes on its own quotation mark is not quoted twice (round 3: ““Yes, of course, if”).
     const bare = String(quote || '').trim().replace(/^["“‘']+|["”’']+$/g, '');
-    return `<div class="mr-note__body"><p class="mr-note__quote">“${esc(cut(bare))}”</p><textarea class="mr-note__field" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(note)}</textarea></div>`
+    return `<div class="mr-note__body"><p class="mr-note__quote">“${esc(cut(bare))}”</p>${noteField({ cls: 'mr-note__field', note, placeholder: 'Add a note…', label: 'Highlight note' })}</div>`
       + `<div class="mr-note__foot"><button type="button" class="mr-bar__item is-quiet" data-m="remove">Remove highlight</button><button type="button" class="mr-bar__item" data-m="save"${note ? '' : ' disabled'}>Save note</button></div>`;
   }
   /**
-   * The question field's size (mockup 1B): at least 330px, growing with the words to 520px (or the
-   * room there is), then wrapping to three lines. Desktop only for the width; the phone bar keeps
-   * its width. Measures with a canvas in the field's own font.
+   * The question field's size (A3, Anders 22 Oct 2026): on the desktop the bar is 440px wide as soon as it is the
+   * field (or the room there is), and a long question wraps upward to three lines. The phone bar keeps its width.
    */
-  function sizeAsk(el, { phone = false, room = 520 } = {}) {
+  function sizeAsk(el, { phone = false, room = 440 } = {}) {
     const t = el.querySelector('.mr-ask'); if (!t) return;
-    if (!phone) {
-      const max = Math.min(520, room);
-      const g = (sizeAsk.ctx ||= el.ownerDocument.createElement('canvas').getContext('2d'));
-      g.font = getComputedStyle(t).font;
-      const words = Math.max(0, ...t.value.split('\n').map(l => g.measureText(l).width));
-      el.style.width = '';
-      const chrome = el.offsetWidth - t.clientWidth;
-      el.style.width = Math.max(Math.min(330, max), Math.min(max, Math.ceil(words + chrome + 6))) + 'px';
-    }
+    if (!phone) el.style.width = Math.max(0, Math.min(440, room)) + 'px';
     t.style.height = 'auto';
     t.style.height = Math.min(t.scrollHeight, 60) + 'px';
   }
@@ -496,7 +504,7 @@
   }
 
   /* ---------- The cards: a view over the kept results and the noted highlights ---------- */
-  const KINDS = { explain: 'Explain', simplify: 'Simplify', ask: 'Ask', define: 'Define', factcheck: 'Fact-check', related: 'Related', counterpoint: 'Counterpoint', quiz: 'Quiz me', note: 'Your note', whole: 'Whole PDF', chat: 'Chat', figure: 'Figure', formula: 'Formula', snip: 'Snip' };
+  const KINDS = { explain: 'Explain', simplify: 'Simplify', ask: 'Ask', define: 'Define', factcheck: 'Evaluate', related: 'Related', counterpoint: 'Counterpoint', quiz: 'Quiz me', note: 'Your note', whole: 'Whole PDF', chat: 'Chat', figure: 'Figure', formula: 'Formula', snip: 'Snip' };
   // A figure's card (FIXES-2026-10-15 item 4) holds one thread about one figure, formula or snip: its box is the card's passage.
   const CARD_KINDS = ['explain', 'simplify', 'ask', 'define', 'factcheck', 'related', 'counterpoint', 'quiz', 'figure'];
   /** The whole file's card is "Whole PDF", or "Whole book" for an EPUB. */
@@ -526,7 +534,7 @@
     for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length && !c.data?.unit && (cardAnswered(c) || (c.at || 0) >= since)) out.push(c);
     // A note in the margin (a click on the empty column) or a unit's own note (its end's Note) has no passage: its one
     // box has no size (noteSpot). It is "free": no underline, no leader line, its field always editable.
-    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) { const spot = noteSpot(m); out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at, ...(spot ? { free: true, ...(spot.unit ? { unitNote: true } : {}) } : {}) }) }
+    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) { const spot = noteSpot(m); out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at, ...(m.place && typeof m.place === 'object' ? { place: m.place } : {}), ...(spot ? { free: true, ...(spot.unit ? { unitNote: true } : {}) } : {}) }) }
     return out.sort((a, b) => { const fa = firstRect(a), fb = firstRect(b); return fa[0] - fb[0] || (Math.abs(fa[2] - fb[2]) > 0.005 ? fa[2] - fb[2] : fa[1] - fb[1]) || (a.at || 0) - (b.at || 0) });
   }
   /**
@@ -689,7 +697,7 @@
   /** The words a folded card shows (two lines of them): plain, no tags. */
   function foldText(card, P) {
     const plain = t => String(t || '').replace(/\{[^{}\n]{1,40}\}/g, m => (P.parseCitations(m)[0]?.type === 'cite' ? '' : m)).replace(/\*\*/g, '').replace(/(^|[^\w*])\*(?=[^\s*])([^*\n]{0,200}?[^\s*])\*(?![\w*])/g, '$1$2').replace(/^\s*Sources:.*$/gim, '').replace(/```/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
-    if (card.kind === 'note') return plain(card.note);
+    if (card.kind === 'note') { const md = noteMd(); return plain(md ? md.notePlainText(card.note || '').replace(/^ *• /gm, '') : card.note) }
     if (card.kind === 'define') { const d = card.data || {}; return plain(d.inText || (d.senses || [])[0]?.text || d.line || '') }
     if (card.kind === 'quiz') {
       const q = card.data || {};
@@ -712,10 +720,12 @@
    * Each opens a margin card. o: { unit (its key), name (its phrase, for screen readers), open (the open pill's id) }.
    * They sit in the unit's marks (markHtml).
    */
-  const PILLS = { primer: 'Primer', catchup: 'Catch me up', recap: 'Recap', quiz: 'Quiz me', note: 'Note' };
-  const PILL_SETS = { start: ['primer', 'catchup'], end: ['recap', 'quiz', 'note'] };
+  // The library's pills (Anders, 11 Nov 2026: own books as the library): Primer, Summary (the unit's own, the id stays
+  // 'recap' for saved cards), Quiz me, Note. Catch me up is the t menu's; its name stays for cards saved from its old pill.
+  const PILLS = { primer: 'Primer', catchup: 'Catch me up', recap: 'Summary', quiz: 'Quiz me', note: 'Note' };
+  const PILL_SETS = { start: ['primer'], end: ['recap', 'quiz', 'note'] };
   function pillsHtml(where, o = {}) {
-    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Summary of ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
     return PILL_SETS[where].map(id => `<button type="button" class="mr-pill${id === 'note' ? ' is-note' : ''}" data-pill="${id}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}><span>${id === 'note' ? '' : '<span class="mr-pill__mark" aria-hidden="true">✧</span>'}${PILLS[id]}</span></button>`).join('');
   }
   /**
@@ -734,7 +744,7 @@
    * ids: the pills to show; o: { name (the unit's phrase), line (the primer's), open (the open pill's id) }.
    */
   function headPillsHtml(ids, o = {}) {
-    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Summary of ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
     return ids.map(id => `<button type="button" class="mr-pill mr-hp__pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}></button>`).join('');
   }
   /** A unit's name in its marks and the chapter menu: its title as printed, a band's without its pages ("Pages 11–20" stays). */
@@ -857,6 +867,8 @@
    */
   function cardHtml(card, o) {
     const P = o.P, label = esc(cardLabel(card, o.pageLabel, o.where));
+    // A folded note keeps its formatting, up to six lines (Anders, 13 Nov 2026).
+    if (!o.open && card.kind === 'note') return `<button type="button" class="mr-card__label" data-c="open">${label}</button><div class="mr-card__text tn-md is-note-md">${noteShown(card.note)}</div>`;
     if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
     // "x of n": n is the quiz's real number of questions, one per key idea (known as soon as the ideas have streamed).
@@ -878,18 +890,22 @@
     if (card.kind === 'quiz') {
       const qs = q.questions || [];
       let body = '', foot = '';
+      // The end: the score, "2/3", and new questions on the same passage or unit (Anders, 20 Oct 2026); the follow-up field
+      // as every card ends (21 Oct 2026): a question about the quiz goes to Chat.
+      const score = `<div class="mr-answer mr-quiz-score"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p></div>`;
+      const again = '<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>';
+      const at = Math.min(q.i || 0, qs.length - 1), r0 = (q.results || [])[at];
       if (!qs.length) body = status;
-      else if (q.done) {
-        // The end card is minimal (Anders, 20 Oct 2026): the score, "2/3", and new questions on the same passage or unit;
-        // the follow-up field under the score, as every card ends (21 Oct 2026): a question about the quiz goes to Chat.
-        body = `<div class="mr-answer mr-quiz-score"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p></div>`;
-        foot = followHtml({ link: '<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>' });
-      } else if (!qs[q.i || 0]) {
+      else if (q.done && !r0) {
+        // A quiz kept before the score came under its last question (13 Nov 2026): the score alone.
+        body = score;
+        foot = followHtml({ link: again });
+      } else if (!qs[q.i || 0] && !q.done) {
         // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
         body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
         foot = '';
       } else {
-        const i = q.i || 0, item = qs[i], r = (q.results || [])[i];
+        const i = at, item = qs[i], r = r0;
         const cite = item.cite ? ' ' + inlineHtml(item.cite, P, o.resolve) : '';
         body = `<div class="mr-question">${esc(item.q)}</div>`;
         if (r) {
@@ -903,8 +919,15 @@
           else body += status;
           // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
           const last = i + 1 >= qs.length && (q.ended || !o.writing || i + 1 >= (q.ideas?.length || Infinity));
-          // "Next question →" stays in view throughout; the reply field under the newest marking while it is not Right.
-          foot = followHtml({ field: o.pending == null && quizCanReply(r), talk: false, label: 'Your reply', link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
+          if (q.done || last) {
+            // The last question marked: its score at once, no "See your score" step (Anders, 13 Nov 2026). While the answer
+            // can still be discussed, its reply field stays above the score; after that, the follow-up field about the quiz.
+            if (quizCanReply(r)) foot = followHtml({ field: o.pending == null, talk: false, label: 'Your reply' }) + score.replace('mr-quiz-score', 'mr-quiz-score mr-quiz-end') + followHtml({ field: false, link: again });
+            else { body += score; foot = followHtml({ link: again }) }
+          } else {
+            // "Next question →" stays in view throughout; the reply field under the newest marking while it is not Right.
+            foot = followHtml({ field: o.pending == null && quizCanReply(r), talk: false, label: 'Your reply', link: '<button type="button" class="mr-follow__link" data-c="next">Next question →</button>' });
+          }
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
         else { body += status; foot = followHtml({ label: 'Your answer', placeholder: 'Your answer', talk: false, link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
@@ -924,13 +947,13 @@
     // A margin note (or a unit's note): its words in a field, always editable; Ask turns it into a chat; the bin.
     // The phone's note on a passage (reader.js phoneNote): the passage, its note in a field, the bin.
     if (card.kind === 'note' && !card.free && o.sheet) {
-      return head + `<div class="mr-card__body">${quote}<textarea class="mr-note-edit" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(card.note || '')}</textarea></div>`;
+      return head + `<div class="mr-card__body">${quote}${noteField({ cls: 'mr-note-edit', note: card.note || '', placeholder: 'Add a note…', label: 'Highlight note' })}</div>`;
     }
     if (card.kind === 'note' && card.free) {
-      const field = `<textarea class="mr-note-edit" rows="2" placeholder="${card.unitNote ? 'A note on this chapter' : 'Write a note'}" aria-label="${card.unitNote ? 'Chapter note' : 'Note'}">${esc(card.note || '')}</textarea>`;
+      const field = noteField({ cls: 'mr-note-edit', note: card.note || '', placeholder: card.unitNote ? 'A note on this chapter' : 'Write a note', label: card.unitNote ? 'Chapter note' : 'Note' });
       return head + `<div class="mr-card__body">${field}<div class="mr-card__acts"><button type="button" class="mr-card__ask" data-c="note-ask">Ask</button></div></div>`;
     }
-    if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
+    if (card.kind === 'note') body += `<div class="mr-answer is-note tn-md">${noteShown(card.note)}</div>`;
     else if (card.kind === 'define') {
       const senses = q.senses || [];
       body += q.inText
@@ -959,8 +982,9 @@
         // Never the passage again, never a note about the rewrite (retest after train 2): when nothing else came back, say so.
         // While it streams, a first paragraph that is the passage so far shows as written (the rewrite may follow).
         const s = P.simplifyAnswer(t.content, card.text, o.source);
-        if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
-        else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : answerHtml(s.text, P, { resolve: o.resolve })}</div>`;
+        // A rewrite has no bottom line: no sentence of it is bold (Anders, 11 Nov 2026), a saved one's too.
+        if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${replyHtml(t.content, P, { resolve: o.resolve })}</div>`;
+        else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : replyHtml(s.text, P, { resolve: o.resolve })}</div>`;
       }
       else {
         // An answer that searched sources (Ask, 20 Oct 2026: the model decides) ends with a "Sources:" line: shown as
@@ -1373,14 +1397,29 @@
   const OWN_NUMBER = /^\s*(?:\d+(?:\.\d+)*\.?|[A-Z](?:\.\d+)+\.?|[A-Z]\.|[IVXLC]+\.|(?:chapter|part|section|appendix|lecture|unit)\s+[\p{L}\p{N}]+(?:\.\d+)*[.:]?)\s+\S/iu;
   /**
    * The trigger's words, a folded margin card's (Anders, 15 Oct): the italic label "Before you start",
-   * then "The gist and a map of {unit}." It names no other section: what follows the gist depends
-   * on the document's kind, known only once the primer is made. The B key is in its title, not a keycap.
+   * then the primer's three parts (prompt v5, 11 Nov 2026): "Where chapter 1 fits, how it is built, what to
+   * watch for." (a whole document has no place in a larger one: "How the whole PDF is built and what to watch
+   * for."). The B key is in its title, not a keycap.
    */
   function triggerHtml(unit) {
     return `<span class="mr-trigger__title">Before you start</span><span class="mr-trigger__sub">${esc(triggerLine(unit))}</span>`;
   }
-  /** The trigger's line, also its accessible name: "The gist and a map of chapter 1." */
-  const triggerLine = unit => `The gist and a map of ${unitPhrase(unit)}.`;
+  /** The trigger's line, also its accessible name: "Where chapter 1 fits, how it is built, what to watch for." */
+  const triggerLine = unit => (unit?.key === 'all' || unit?.key === 'book'
+    ? `How ${unitPhrase(unit)} is built and what to watch for.`
+    : `Where ${unitPhrase(unit)} ${/^pages\b/.test(unitPhrase(unit)) ? 'fit' : 'fits'}, how it is built, what to watch for.`);
+  /**
+   * The document's contents nearest the unit at `index` (titles only, at most `max`), as the primer request's
+   * `outline` (companion/chapterChatPrompt.ts primerOutline, its twin): { titles, at, first, total }, or null
+   * without at least two titles.
+   */
+  function primerOutline(titles, index, max = 60) {
+    const list = Array.isArray(titles) ? titles : [];
+    if (list.length < 2 || !Number.isInteger(index) || index < 0 || index >= list.length) return null;
+    const from = Math.max(0, Math.min(index - Math.floor(max / 2), list.length - max));
+    const shown = list.slice(from, from + max).map(t => String(t || '').replace(/\s+/g, ' ').trim().slice(0, 200) || '(untitled)');
+    return { titles: shown, at: index - from, first: from + 1, total: list.length };
+  }
   /**
    * A primer's sections after the gist: its own, or, for a primer stored before kinds (Anders, 15
    * Oct), its claims and cautions as Key claims and Keep in mind. -> [{ title, items: [{ text, cite } | { term, meaning }] }]
@@ -1392,7 +1431,9 @@
     return [claims.length ? { title: 'Key claims', items: claims } : null, keep.length ? { title: 'Keep in mind', items: keep } : null].filter(Boolean);
   }
   /**
-   * The primer. p: { kind, gist, sections: [{ title, items }], map: [{ title, pages }] } (or a primer
+   * The primer (prompt v5, 11 Nov 2026): { kind, role, gist, sections, map? }: its role in the document under the
+   * italic label `role` ("In Deep Learning"; none for a whole document), then How it's built (numbered) and Watch
+   * for, a map only when an older primer has one. Before v5: { kind, gist, sections: [{ title, items }], map: [{ title, pages }] } (or a primer
    * stored before kinds: { gist, claims, keepInMind, map }), or null while it is made (`wait`) or when
    * it could not be (`status`, then Redo). The gist first, then each section under its italic label:
    * a paper's, a textbook's or other's first section and any steps numbered, as Key claims always
@@ -1412,7 +1453,9 @@
     const line = it => (it.term ? `${esc(it.term)} — ${inlineHtml(it.meaning, o.P, o.resolve)}` : `${inlineHtml(it.text, o.P, o.resolve)}${tag(it.cite)}`);
     const sections = primerSections(p).map((sec, k) => {
       // Numbered: a paper's claims, a textbook's outcomes, other's points (the first section, as Key claims was) and steps; a story's situation and a guide's scope are not a sequence.
-      const numbered = !sec.items.some(it => it.term) && sec.items.length > 1 && (/^steps\b/i.test(sec.title) || (k === 0 && p.kind !== 'narrative' && p.kind !== 'practical'));
+      // v5: How it's built is the chapter's parts in order, numbered; Watch for is not a sequence.
+      const v5 = typeof p.role === 'string';
+      const numbered = !sec.items.some(it => it.term) && sec.items.length > 1 && (/^steps\b|^how it['’]s built$/i.test(sec.title) || (!v5 && k === 0 && p.kind !== 'narrative' && p.kind !== 'practical'));
       const list = numbered
         ? `<ol class="mr-primer__claims">${sec.items.map((it, i) => `<li><span class="mr-primer__n" aria-hidden="true">${i + 1}</span><span>${line(it)}</span></li>`).join('')}</ol>`
         : `<ul class="mr-primer__keep">${sec.items.map(it => `<li>${line(it)}</li>`).join('')}</ul>`;
@@ -1426,11 +1469,15 @@
       const cls = 'mr-map__row' + (own ? ' is-own' : '');
       return target ? `<button type="button" class="${cls}" data-page="${target.page}">${inner}</button>` : `<div class="${cls}">${inner}</div>`;
     }).join('');
+    // The first part: v5's role under its label ("In Deep Learning"), an older primer's gist as it was; a whole document has none.
+    const first = !p.gist ? ''
+      : p.role ? `<div><p class="mr-primer__head">${esc(p.role)}</p><p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p></div>`
+        : `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`;
     return head
       + (o.unit ? `<p class="mr-primer__unit">${esc(o.unit)}</p>` : '')
-      + `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`
+      + first
       + sections
-      + `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>`
+      + (rows ? `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>` : '')
       + `<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>${o.quizCount > 0 ? `${o.quizCount} questions ` : ''}→</small></button>`
       + '<div class="mr-primer__foot"><button type="button" data-c="redo">Redo</button></div>';
   }
@@ -1439,8 +1486,8 @@
      Detection reads a small grey copy of the drawn page (`ink`: 1 where there is ink, W×H pixels,
      square) and the text layer's spans and displayed formulas (page fractions). */
   // A caption starts a line: "Figure 2.", "Fig. 3 The …", "Table 1:", "Figure 16.1: …" (not "Figure 2 shows …").
-  const CAPTION_RE = /^(Figure|FIGURE|Fig\.?|FIG\.?|Table|TABLE)\s*(\d+(?:[.\-–]\d+)*[a-z]?|[A-Z](?:\.\d+)*)(?=\s*(?:[:—–|]|\.(?!\d))|\s+\p{Lu}|\s*$)/u;
-  const REF_RE = /\b(Figure|Fig\.?|Table)\s*(\d+(?:\.\d+)*[a-z]?)(?![\d.]*\d)/i;
+  const CAPTION_RE = /^(Figure|FIGURE|Figur|FIGUR|Fig\.?|FIG\.?|Table|TABLE|Tabel|TABEL)\s*(\d+(?:[.\-–]\d+)*[a-z]?|[A-Z](?:\.\d+)*)(?=\s*(?:[:—–|]|\.(?!\d))|\s+\p{Lu}|\s*$)/u;
+  const REF_RE = /\b(Figure|Figur|Fig\.?|Table|Tabel)\s*(\d+(?:\.\d+)*[a-z]?)(?![\d.]*\d)/i;
   const figKind = w => (/^t/i.test(w) ? 'table' : 'figure');
   const figLabel = (kind, n) => `${kind === 'table' ? 'Table' : 'Figure'} ${n}`;
   /** A caption's own label, when `text` starts with one. -> { kind: 'figure' | 'table', n, label } | null */
@@ -1657,7 +1704,12 @@
       const near = segs.filter(o => same(o) && Math.abs(o.q.t - s.q.t) <= lh * 2.5);
       if (near.length >= 2 || (near.length === 1 && segs.some(o => o !== near[0] && same(o) && Math.abs(o.q.t - near[0].q.t) <= lh * 1.5 && Math.abs(o.q.t - s.q.t) > lh * 0.5))) s.wrapped = true;
     }
-    for (const s of segs) { if (s.wrapped) s.running = true; if (s.running) s.line.running = true }
+    for (const s of segs) if (s.wrapped) s.running = true;
+    // A shared baseline is not a shared prose line: chart labels in the other
+    // column must not inherit the running-text status of a paragraph beside them.
+    for (const s of segs) s.inlineRunning = segs.some(o => o !== s && o.line === s.line && o.running
+      && Math.max(o.q.l - s.q.r, s.q.l - o.q.r, 0) <= Math.max(s.q.b - s.q.t, o.q.b - o.q.t)
+        * (/[=∑∫√²³µ−]/u.test(s.text) ? 4 : 2));
     // Captions: a caption's first line and those just below it, in its column, that start no other caption.
     const captions = [];
     segs.forEach((s, i) => {
@@ -1687,7 +1739,7 @@
     for (const s of segs) {
       if (!s.running && !s.caption && !s.inCaption && inArea(s.q)) { fill(label, s.q, 1); continue }
       // Short text on a line of running text (inline maths, a footnote mark) goes with it, as words do.
-      if (s.running || s.caption || s.inCaption || s.line.running || (s.word = s.text.length >= 4 && /[A-Za-z]{3}/.test(s.text))) fill(kept, s.q, 0);
+      if (s.running || s.caption || s.inCaption || s.inlineRunning || (s.word = s.text.length >= 4 && /[A-Za-z]{3}/.test(s.text))) fill(kept, s.q, 0);
     }
     const maths = (formulas || []).map(f => ({ ...px(f), n: 0, formula: true }));
     for (const f of maths) fill(kept, f, 0);
@@ -1806,11 +1858,16 @@
     // A box mostly covered by running text, or holding three lines of it, is prose, never a figure, whatever inline
     // symbols it has (Anders, 19 Oct 2026: a paragraph of Constructor Theory with a fraktur A and an italic N was
     // boxed as a figure, its chip in place of the selection's bar).
-    const prose = o => {
-      const runs = segs.filter(s => (s.running || s.line.running) && !s.caption && !s.inCaption && inter(o, s.q) > 0.5 * area(s.q));
-      return runs.reduce((a, s) => a + inter(o, s.q), 0) > 0.45 * area(o) || new Set(runs.map(s => s.line)).size >= 3;
+    const prose = (o, index) => {
+      const runs = segs.filter(s => (s.running || s.inlineRunning) && !s.caption && !s.inCaption && inter(o, s.q) > 0.5 * area(s.q));
+      const coverage = runs.reduce((a, s) => a + inter(o, s.q), 0) / area(o);
+      // A shaded, captioned chart can carry several source-note lines along its
+      // bottom. Those notes do not turn the chart itself into running prose.
+      const bottomNotes = owned.has(index) && coverage < 0.25
+        && runs.every(s => s.q.t >= o.t + (o.b - o.t) * 0.75);
+      return coverage > 0.45 || (!bottomNotes && new Set(runs.map(s => s.line)).size >= 3);
     };
-    boxes.forEach((o, j) => { if (prose(o)) drop.add(j) });
+    boxes.forEach((o, j) => { if (prose(o, j)) drop.add(j) });
     boxes.forEach((o, j) => {
       if (owned.has(j) || drop.has(j)) return;
       const inside = [...owned].filter(k => inter(o, boxes[k]) > 0.6 * Math.min(area(o), area(boxes[k])));
@@ -1828,7 +1885,7 @@
     // Snapped to the page's own drawing where it has one (its rules, paths and pictures; snapFigure): the drawing's
     // box with the labels round it, never its caption, padded a little.
     if (shapes?.length) {
-      const labels = segs.filter(s => !s.running && !s.line.running && !s.caption && !s.inCaption && !s.stop).map(s => ({ x: s.x, y: s.y, w: s.w, h: s.h }));
+      const labels = segs.filter(s => !s.running && !s.inlineRunning && !s.caption && !s.inCaption && !s.stop).map(s => ({ x: s.x, y: s.y, w: s.w, h: s.h }));
       const caps = captions.map(c => ({ x: c.q.l / W, y: c.q.t / H, w: (c.q.r - c.q.l + 1) / W, h: (c.q.b - c.q.t + 1) / H }));
       figures.forEach((f, j) => Object.assign(f, snapFigure(f, shapes, labels, caps)));
     }
@@ -1906,6 +1963,15 @@
     for (let start = 1; start <= p; start += band) blocks.push({ from: start, to: Math.min(p, start + band - 1), partial: start + band - 1 >= p });
     return blocks;
   }
+  /**
+   * A saved highlight's bar goes when the mouse leaves it, on the desktop (Anders, 11 Nov 2026), as in the book reader
+   * (src/lab/labHighlightMenuLeave.ts, the same numbers): a short grace that coming back cancels, a few pixels of slack.
+   */
+  const MENU_LEAVE = { ms: 280, slack: 12 };
+  /** (x, y) inside any of the boxes, each grown by the slack. */
+  function insideMenu(x, y, boxes, slack = MENU_LEAVE.slack) {
+    return (boxes || []).some(b => b.right > b.left && b.bottom > b.top && x >= b.left - slack && x <= b.right + slack && y >= b.top - slack && y <= b.bottom + slack);
+  }
   /** The part of the reader's page they have read: its text up to `frac` of it, cut at a word. */
   function seenText(text, frac) {
     const t = String(text || ''), f = Math.max(0, Math.min(1, Number(frac) || 0));
@@ -1914,5 +1980,5 @@
     const space = cut.search(/\s\S*$/);
     return (space > 0 ? cut.slice(0, space) : cut).trimEnd();
   }
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, primerOutline, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText, MENU_LEAVE, insideMenu };
 });

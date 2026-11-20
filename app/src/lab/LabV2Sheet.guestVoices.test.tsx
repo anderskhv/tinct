@@ -20,7 +20,7 @@ const grok: NarrationPilotInfo = {
 
 function sheet(prefs: LabPrefs, voice: string, onAccountVoice?: () => void) {
   const onPrefs = vi.fn()
-  render(<LabV2Sheet layer="reading" onLayer={vi.fn()} onClose={vi.fn()} prefs={prefs} onPrefs={onPrefs}
+  render(<LabV2Sheet layer="audio" onLayer={vi.fn()} onClose={vi.fn()} prefs={prefs} onPrefs={onPrefs}
     editions={[]} narrationPilot={{ info: grok, voice }} onAccountVoice={onAccountVoice} />)
   return { onPrefs, select: screen.getByTestId('lab-v2-narration-voice') as HTMLSelectElement }
 }

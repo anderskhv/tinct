@@ -38,7 +38,7 @@ export const SHELVES: Record<string, { house: string; title: string; sub: string
   'shakespeare-history': { house: 'drama', title: 'Shakespeare — Histories', sub: 'The English chronicle plays', hue: 265 },
   'greek-tragedy': { house: 'drama', title: 'Greek Tragedy', sub: 'Aeschylus, Sophocles, Euripides', hue: 300 },
   'modern-drama': { house: 'drama', title: 'Modern Drama', sub: "Goethe's Faust", hue: 265 },
-  'russian-novels': { house: 'novel', title: 'The Russians', sub: 'Dostoevsky and Tolstoy', hue: 355 },
+  'russian-novels': { house: 'novel', title: 'The Russians', sub: 'Dostoevsky, Tolstoy and Bulgakov', hue: 355 },
   'english-novels': { house: 'novel', title: '19th-Century English Novels', sub: 'Austen to Conrad', hue: 265 },
   'american-novels': { house: 'novel', title: 'American Novels', sub: 'Melville and Chopin', hue: 200 },
   'modernist-novels': { house: 'novel', title: 'Modernism', sub: 'A new century, a new sentence', hue: 25 },

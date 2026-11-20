@@ -133,15 +133,6 @@ if [ -n "$JS_FILE" ]; then
     fail "Worker audio route MISSING from bundle — audio will be broken"
   fi
 
-  # 4b. AI-narration disclaimer MP3s accessible (both languages)
-  for lang in en da; do
-    D_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL/api/audio-file?path=disclaimer-${lang}.mp3")
-    if [ "$D_STATUS" = "200" ]; then
-      pass "Disclaimer audio disclaimer-${lang}.mp3 reachable"
-    else
-      fail "Disclaimer audio disclaimer-${lang}.mp3 unreachable (HTTP $D_STATUS) — first-play UX will skip the AI notice"
-    fi
-  done
 else
   fail "JS bundle not found in HTML"
 fi

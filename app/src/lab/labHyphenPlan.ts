@@ -303,22 +303,36 @@ export function planHyphenation(
   host: HTMLElement,
   paragraphs: string[],
   lang: HyphenLang | null,
-  paint: (p: HTMLElement, words: Array<{ text: string; emphasis?: boolean }>, text: string, plan: Map<number, number>) => void,
+  paint: (p: HTMLElement, words: Array<{ text: string; emphasis?: boolean }>, text: string, plan: Map<number, number>, paragraphIndex: number) => void,
 ): string {
+  const steps = planHyphenationSteps(host, paragraphs, lang, paint)
+  let step = steps.next()
+  while (!step.done) step = steps.next()
+  return step.value
+}
+
+export function* planHyphenationSteps(
+  host: HTMLElement,
+  paragraphs: string[],
+  lang: HyphenLang | null,
+  paint: (p: HTMLElement, words: Array<{ text: string; emphasis?: boolean }>, text: string, plan: Map<number, number>, paragraphIndex: number) => void,
+): Generator<void, string> {
   if (!lang || !hyphenatorReady(lang) || typeof document === 'undefined') return ''
   const p = document.createElement('p')
-  p.className = 'lab-hearing-line has-hyphen-plan is-hyphen-planning'
+  const planningClass = 'lab-hearing-line has-hyphen-plan is-hyphen-planning'
+  p.className = planningClass
   host.append(p)
   try {
     const style = getComputedStyle(p)
     const width = p.getBoundingClientRect().width
     if (!(width > 0)) return ''
     const key = [lang, Math.round(width * 10), style.fontFamily, faceState(style.fontFamily), style.fontSize, style.fontWeight, style.wordSpacing, style.letterSpacing, style.paddingLeft, style.paddingRight].join('|')
-    active = planSetFor(key)
-    const { plans, words: planWords } = active
+    const selected = planSetFor(key)
+    active = selected
+    const { plans, words: planWords } = selected
     // Every paragraph is planned in this one face: measure its space and hyphen once.
     let metrics: { space: number; hyphen: number } | undefined
-    for (const text of paragraphs) {
+    for (const [paragraphIndex, text] of paragraphs.entries()) {
       if (plans.has(text)) continue
       const words = tokenizeHearingWords(text)
       if (!plannable(text, words)) continue
@@ -327,12 +341,22 @@ export function planHyphenation(
         ? [] : hyphenationBreaks(words[index].text, lang, true)
       // The first layout is painted whole; each break after it is drawn in place.
       metrics ??= faceMetrics(p, parseFloat(style.fontSize) || 16)
+      // One planning paragraph serves the whole chapter, and the paint adds the
+      // paragraph's kind (labMeasureParagraphInto). Start each paragraph bare:
+      // a list item's indent left on it planned every later paragraph in a
+      // column 22px narrower than the page, so the breaks it chose never fell
+      // at a line end and the loose lines it should have mended kept their
+      // gaps (Bold Conjectures ch18, Anders, iPhone, 16 Nov 2026).
+      p.className = planningClass
       const plan = planParagraph(p, words, breaksOf, (current, changed) => {
-        if (!changed || !splitWordInPlace(changed.node, changed.at)) paint(p, words, text, current)
+        if (!changed || !splitWordInPlace(changed.node, changed.at)) paint(p, words, text, current, paragraphIndex)
       }, PLAN_GAP_EM, PLAN_SECOND_GAP_EM, metrics)
       plans.set(text, plan.size ? plan : EMPTY)
       planWords.set(text, words.map(word => word.text))
+      yield
+      active = selected
     }
+    active = selected
     return key
   } finally {
     p.remove()

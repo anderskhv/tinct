@@ -190,6 +190,13 @@ describe('readerBootDeepLink', () => {
     expect(readerBootDeepLink('?book=odyssey&chapter=0', exceptions)).toBeNull()
     expect(readerBootDeepLink('?book=odyssey&chapter=x', exceptions)).toBeNull()
     expect(readerBootDeepLink('?book=odyssey&edition=modern-da&chapter=1', exceptions)).toBeNull()
+    // No English original: a plain link preloads Modern English, a named edition is left to the app.
+    expect(exceptions['master-and-margarita']).toBe('modern-en')
+    expect(readerBootDeepLink('?book=master-and-margarita&chapter=2', exceptions)).toEqual({ bookId: 'master-and-margarita', primaryEditionKey: 'modern-en', chapterNumber: 2 })
+    expect(readerBootDeepLink('?book=master-and-margarita&edition=original-en&chapter=1', exceptions)).toBeNull()
+    // Pinocchio has no English original either (Tinct Modern English from the Italian, 10 Nov 2026).
+    expect(exceptions['pinocchio']).toBe('modern-en')
+    expect(readerBootDeepLink('?book=pinocchio&edition=original-en&chapter=1', exceptions)).toBeNull()
     expect(readerBootDeepLink('?book=odyssey&chapter=1&modern=1', exceptions)).toBeNull()
     expect(readerBootDeepLink('?heldBook=gilgamesh&book=gilgamesh&chapter=1', exceptions)).toBeNull()
     expect(readerBootDeepLink('?book=pd-abc&chapter=1', exceptions)).toBeNull()
@@ -205,6 +212,14 @@ describe('readerBootTheme', () => {
     expect(readerBootTheme(v2('book', 'book'), true, false)).toBe('book')
     expect(readerBootTheme(v2('system', 'dark'), true, false)).toBe('dark')
     expect(readerBootTheme(v2('system', 'system'), false, false)).toBe('light')
+  })
+
+  it('reads White, stored as Light on white paper, and nothing else as White', () => {
+    const white = JSON.stringify({ version: 2, shared: {}, phone: { theme: 'light', paper: 'white' }, desktop: { theme: 'light', paper: 'white' } })
+    expect(readerBootTheme(white, true, false)).toBe('white')
+    expect(readerBootTheme(JSON.stringify({ version: 2, shared: {}, phone: { theme: 'light', paper: 'white' }, desktop: { theme: 'light' } }), false, false, 'desktop')).toBe('light')
+    expect(readerBootTheme(JSON.stringify({ version: 2, shared: {}, phone: { theme: 'dark', paper: 'white' }, desktop: { theme: 'dark', paper: 'white' } }), false, false)).toBe('dark')
+    expect(readerBootTheme(JSON.stringify({ theme: 'light', paper: 'white' }), true, false)).toBe('white')
   })
 
   it('a new reader follows the system', () => {
@@ -241,7 +256,7 @@ describe('readerBootTheme', () => {
   })
 
   it('paints LabApp’s own paper colours', () => {
-    expect(LAB_THEME_PAPER).toEqual({ light: '#ece7db', book: '#e7dcc7', dark: '#171411' })
+    expect(LAB_THEME_PAPER).toEqual({ light: '#ece7db', white: '#ffffff', book: '#e7dcc7', dark: '#171411' })
   })
 
   // The status bar of a home-screen app takes this colour, so it must be the
@@ -251,6 +266,7 @@ describe('readerBootTheme', () => {
     const paper = (selector: string) => css.match(new RegExp(`^${selector.replace(/\./g, '\\.')} \\{\\s*--lab-paper: (#[0-9a-f]{6});`, 'm'))?.[1]
     expect(paper('.lab')).toBe(LAB_THEME_PAPER.light)
     expect(paper('.lab.is-book-theme')).toBe(LAB_THEME_PAPER.book)
+    expect(paper('.lab.is-white-theme')).toBe(LAB_THEME_PAPER.white)
     expect(paper('.lab.is-night')).toBe(LAB_THEME_PAPER.dark)
   })
 })
@@ -293,6 +309,8 @@ describe('readerBootMarginPreview (round 3)', () => {
     expect(at('?book=frankenstein')).toEqual([])
     expect(at('?book=frankenstein&margin=0', { sticky: '1' })).toEqual([])
     expect(at('?book=bible&margin=1', {}, readerBootPrimaryExceptions())).toEqual([])
+    // Listed only for its missing English original, a Modern English book still previews Modern English.
+    expect(at('?book=master-and-margarita&margin=1', {}, readerBootPrimaryExceptions())).toEqual(urls('modern-en', 'master-and-margarita'))
     expect(at('?margin=1')).toEqual([])
     // In doubt: another chosen main edition, a book whose default is not Modern English, a place without a usable edition, unreadable storage.
     expect(at('?book=frankenstein&margin=1', { prefs: JSON.stringify({ version: 2, shared: { primaryEdition: 'original-en' } }) })).toEqual([])

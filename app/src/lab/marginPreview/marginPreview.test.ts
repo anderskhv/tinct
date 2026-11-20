@@ -3,8 +3,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { decideMarginPreview, handoffBookIdOf, marginPreviewBookForPage, MARGIN_PREVIEW_KEY, NO_PREVIEW } from './marginPreviewFlag'
-import { isMarginPreviewBook, marginPreviewChapters, marginPreviewEditionKey, marginPreviewStart, normalReaderHref } from './marginPreviewModel'
+import { isMarginPreviewBook, marginPreviewChapters, marginPreviewLineBreaks, marginPreviewEditionKey, marginPreviewStart, normalReaderHref } from './marginPreviewModel'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
+import { readEditionSwitch, rememberEditionSwitch } from '../labEditionSwitch'
 import { getBook } from '../../data/bookRegistry'
 import { LAB_POSITION_STORAGE_KEY, type LabBookPlace } from '../labPosition'
 import type { EditionData } from '../../types'
@@ -120,6 +121,33 @@ describe('the book as the margin reader’s text', () => {
   })
 })
 
+describe('loading the preview after a switch between versions whose paragraphs do not line up', () => {
+  beforeEach(() => { localStorage.clear(); rememberEditionSwitch(null) })
+  const chapter = (number: number, paragraphs: string[]) => ({ number, title: `Book ${number}`, paragraphs })
+  const pope = { chapters: [chapter(6, ['x y']), chapter(7, ['a b', 'c d', 'e f', 'g h'])] } as unknown as EditionData
+  const at = { editionKey: 'verse-en', chapterNumber: 7, paragraphIndex: 0, wordIndex: 0 }
+  const deps = { fetchImpl: vi.fn() as unknown as typeof fetch, readToken: async () => null, loadEditionImpl: async () => pope, at }
+
+  it('opens at the same share of the chapter, and remembers where it landed', async () => {
+    rememberEditionSwitch({ bookId: 'odyssey', chapterNumber: 7, fraction: 6 / 8, from: { editionKey: 'original-en', paragraphIndex: 1, wordIndex: 2 }, to: { editionKey: 'verse-en' } })
+    const loaded = await loadMarginPreviewBook('odyssey', deps)
+    expect(loaded.editionKey).toBe('verse-en')
+    expect(loaded.start).toMatchObject({ chapterNumber: 7, paragraphIndex: 3, wordIndex: 0 })
+    expect(readEditionSwitch()?.to).toEqual({ editionKey: 'verse-en', paragraphIndex: 3, wordIndex: 0 })
+  })
+  it('a switch noted for another chapter, book or version does not move the link’s place', async () => {
+    rememberEditionSwitch({ bookId: 'odyssey', chapterNumber: 6, fraction: 0.75, from: { editionKey: 'original-en', paragraphIndex: 1, wordIndex: 2 }, to: { editionKey: 'verse-en' } })
+    expect((await loadMarginPreviewBook('odyssey', deps)).start).toMatchObject({ chapterNumber: 7, paragraphIndex: 0, wordIndex: 0 })
+    rememberEditionSwitch({ bookId: 'odyssey', chapterNumber: 7, fraction: 0.75, from: { editionKey: 'original-en', paragraphIndex: 1, wordIndex: 2 }, to: { editionKey: 'modern-en' } })
+    expect((await loadMarginPreviewBook('odyssey', deps)).start).toMatchObject({ chapterNumber: 7, paragraphIndex: 0, wordIndex: 0 })
+    // Without a link (an ordinary open), a remembered switch is not consulted at all.
+    rememberEditionSwitch({ bookId: 'odyssey', chapterNumber: 7, fraction: 0.75, from: { editionKey: 'original-en', paragraphIndex: 1, wordIndex: 2 }, to: { editionKey: 'verse-en' } })
+    const plain = await loadMarginPreviewBook('odyssey', { ...deps, at: undefined })
+    expect(plain.start).toMatchObject({ paragraphIndex: 0, wordIndex: 0 })
+    expect(readEditionSwitch()?.to).toEqual({ editionKey: 'verse-en' })
+  })
+})
+
 describe('loading the preview', () => {
   beforeEach(() => { localStorage.clear() })
   const edition = JSON.parse(readFileSync(resolve(__dirname, '../../../public/data/editions/frankenstein-modern-en.json'), 'utf8')) as EditionData
@@ -178,5 +206,33 @@ describe('loading the preview', () => {
   })
   it('refuses the Bible', async () => {
     await expect(loadMarginPreviewBook('bible', { readToken: async () => null })).rejects.toThrow()
+  })
+})
+
+// Butler's Odyssey carries its source's hard line wraps inside prose paragraphs; the frame keeps line breaks
+// (pre-line), so the prose was cut at each wrap (Anders, 11 Nov 2026). Only a `style: 'verse'` edition is lineated.
+describe('line breaks in a paragraph: prose flows, verse keeps its lines', () => {
+  const prose = 'Pontonous then mixed wine and water, and handed it round after giving\nevery man his _drink-offering_. When they had made their offerings, and\nhad drunk.'
+  const verse = 'His sage advice the listening king obeys,\nHe stretch’d his hand the prudent chief to raise,'
+  const data = (paragraphs: string[], kinds?: Record<number, string>) => ({ chapters: [{ number: 1, title: 'One', paragraphs, ...(kinds ? { kinds } : {}) }] }) as unknown as EditionData
+
+  it('a prose edition: each break becomes a space, one character for one', () => {
+    const [p] = marginPreviewChapters(data([prose]))[0].paragraphs
+    expect(p.text).not.toContain('\n')
+    expect(p.text).toContain('after giving every man his drink-offering. When they had made their offerings, and had drunk.')
+    // Same length as the text with its emphasis marks stripped, so the emphasis range still names the word.
+    expect(p.text.slice(p.em![0][0], p.em![0][1])).toBe('drink-offering')
+    expect(p.text.split(/\s+/).length).toBe(prose.replace(/_/g, '').split(/\s+/).length)
+  })
+  it('a verse edition keeps its lines; its prose argument (long lines) still flows', () => {
+    const argument = `ARGUMENT.\n${'A long sentence of the prose argument that runs on. '.repeat(4)}`
+    const [a, v] = marginPreviewChapters(data([argument, verse]), { verse: true })[0].paragraphs
+    expect(a.text).not.toContain('\n')
+    expect(v.text).toBe(verse)
+  })
+  it('the same verse text in an edition not marked verse flows, and a `line` paragraph keeps its break', () => {
+    expect(marginPreviewChapters(data([verse]))[0].paragraphs[0].text).not.toContain('\n')
+    expect(marginPreviewChapters(data(['a\nb'], { 0: 'line' }))[0].paragraphs[0]).toEqual({ text: 'a\nb', kind: 'line' })
+    expect(marginPreviewLineBreaks('no breaks', false)).toBe('no breaks')
   })
 })

@@ -10,6 +10,8 @@ import { readAttributionPayload } from '../utils/attribution'
 export type PremiumInterval = 'month' | 'year'
 
 export type SubscriptionInfo = {
+  premium?: boolean
+  first_month_free_until?: string | null
   subscription_status?: string | null
   subscription_period_end?: string | null
   intervals?: unknown

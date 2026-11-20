@@ -24,10 +24,28 @@ beforeEach(() => {
 afterEach(() => { vi.unstubAllGlobals(); session.current = null })
 
 describe('canAdd (adding books is Premium or the trial)', () => {
-  it('asks the Worker for the signed-in account; false signed out, null when it cannot tell', async () => {
+  it('bounds a stalled access request without inventing an entitlement', async () => {
+    vi.useFakeTimers()
+    try {
+      session.current = { access_token: 'tok' }
+      const { canAdd } = await import('./libraryAdd')
+      let signal: AbortSignal | undefined
+      const stalled = vi.fn((_url: unknown, init?: RequestInit) => {
+        signal = init?.signal as AbortSignal | undefined
+        return new Promise<Response>((_resolve, reject) => signal?.addEventListener('abort', () => reject(new Error('aborted'))))
+      })
+      let settled = false
+      const result = canAdd(stalled as typeof fetch).then(value => { settled = true; return value })
+      await vi.advanceTimersByTimeAsync(15_000)
+      expect(settled).toBe(true)
+      expect(await result).toBeNull()
+      expect(signal?.aborted).toBe(true)
+    } finally { vi.useRealTimers() }
+  })
+  it('denies only a confirmed free entitlement, not a cold or expired session', async () => {
     const { canAdd } = await import('./libraryAdd')
     const never = vi.fn()
-    expect(await canAdd(never as unknown as typeof fetch)).toBe(false)
+    expect(await canAdd(never as unknown as typeof fetch)).toBeNull()
     expect(never).not.toHaveBeenCalled()
     session.current = { access_token: 'tok' }
     const seen: string[] = []
@@ -35,6 +53,7 @@ describe('canAdd (adding books is Premium or the trial)', () => {
     expect(await canAdd(reply(200, { canAdd: true }))).toBe(true)
     expect(await canAdd(reply(200, { canAdd: false }))).toBe(false)
     expect(await canAdd(reply(503, { error: 'unavailable' }))).toBeNull()
+    expect(await canAdd(reply(401, { error: 'expired' }))).toBeNull()
     expect(seen[0]).toBe('/api/public-books/import/access')
   })
 })
@@ -86,7 +105,7 @@ describe('importWork (the browser half of Add)', () => {
 })
 
 describe('ownBooks (My shelf: Your own books)', () => {
-  it('lists the account copies (this device has no IndexedDB here), newest first, each opening by its own key (an EPUB in the reader, which downloads it; a PDF in Add a book\'s PDF reader, never the old start page)', async () => {
+  it('lists the account copies (this device has no IndexedDB here), newest first, each opening by its own key (the one reader address for both since 22 Oct 2026; never the old start page)', async () => {
     session.current = { access_token: 'tok' }
     const { ownBooks } = await import('./libraryAdd')
     const fetchImpl = (async () => Response.json({ books: [
@@ -97,8 +116,8 @@ describe('ownBooks (My shelf: Your own books)', () => {
     const list = await ownBooks(fetchImpl)
     expect(list.map(b => [b.title, b.kind, b.href, b.readingAt])).toEqual([
       // An EPUB on the desktop opens in Add a book's margin reader (19 Oct 2026, epubView.ts), which downloads it; a phone's goes to the reader (epubView.test.ts).
-      ['My novel', 'epub', '/lab/addbook/?userBook=' + 'b'.repeat(24), null],
-      ['Lecture notes', 'pdf', '/lab/addbook/?userBook=' + 'a'.repeat(24), null],
+      ['My novel', 'epub', '/reader?userBook=' + 'b'.repeat(24), null],
+      ['Lecture notes', 'pdf', '/reader?userBook=' + 'a'.repeat(24), null],
     ])
   })
 

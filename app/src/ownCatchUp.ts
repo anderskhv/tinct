@@ -68,5 +68,13 @@ export function sampleCatchUpText(text: string, maxChars: number): string {
   const marker = ' […] '
   const head = Math.max(0, Math.floor((maxChars - marker.length) * 0.6))
   const tail = Math.max(0, maxChars - marker.length - head)
-  return `${text.slice(0, head).trimEnd()}${marker}${text.slice(text.length - tail).trimStart()}`
+  // Never cut a character in two: a lone surrogate makes the model's API refuse the request.
+  let start = head
+  if (start > 0 && isHighSurrogate(text.charCodeAt(start - 1))) start--
+  let end = text.length - tail
+  if (end < text.length && isLowSurrogate(text.charCodeAt(end))) end++
+  return `${text.slice(0, start).trimEnd()}${marker}${text.slice(end).trimStart()}`
 }
+
+const isHighSurrogate = (code: number) => code >= 0xd800 && code <= 0xdbff
+const isLowSurrogate = (code: number) => code >= 0xdc00 && code <= 0xdfff

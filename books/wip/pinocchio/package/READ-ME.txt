@@ -1,0 +1,50 @@
+PINOCCHIO — COMPLETE ENGLISH AND DANISH TRANSLATIONS
+Prepared 9 November 2026 for Tinct.
+
+CONTENTS
+pinocchio-modern-en.epub / pinocchio-modern-da.epub: illustrated ebooks.
+pinocchio-modern-en.html / pinocchio-modern-da.html: self-contained illustrated reading copies, open in a browser.
+pinocchio-modern-en.txt / pinocchio-modern-da.txt: plain text.
+pinocchio-modern-en.json / pinocchio-modern-da.json: Tinct edition objects, chapters + sections.
+pinocchio-original-it.json: aligned Italian reading text.
+chapters/: individual source and translated chapters.
+illustrations.json: separate image placements; reading paragraph arrays are unchanged by illustrations.
+
+STATUS
+All 36 chapters, including chapter synopses, translated into both requested languages. Each language contains 1,754 reading paragraphs, exactly matching the Italian edition. Approximate word counts: English40,796; Danish40,853. This is the complete reading package, not a Tinct production release. No app, registry, audio or production changes were made.
+
+SOURCE AND RIGHTS BASIS
+Carlo Collodi, Le avventure di Pinocchio: Storia di un burattino. Italian, R. Bemporad & Figlio, Florence, 1902 edition; digitised as Project Gutenberg52484. Raw download retained as source-it.txt, including Gutenberg notice.
+https://www.gutenberg.org/ebooks/52484
+https://www.gutenberg.org/cache/epub/52484/pg52484.txt
+Retrieved9 November2026. Title and author verified. Collodi died1890; the original literary work is public domain in Denmark/EU and the US. These are fresh translations from Italian, not adaptations of Carol Della Chiesa or any modern copyrighted translation. Historical illustration captions, end marker, index and transcription notes are excluded from reading paragraphs. No historical illustrations reused.
+
+EDITORIAL BRIEF
+Vocabulary accessible to a reader around11, without shortening or sanitising the plot. Retain every source paragraph, sentence sequence, clause relationships, dialogue turn, concrete detail, humorous repetition and intentional confusion. Use natural target-language word order where required. Preserve long sentences instead of dividing them merely to improve a readability score. Preserve grim events unchanged. Danish uses natural du forms; formal titles remain where they matter to a joke. Short optional end notes explain old money, religious references and the director’s deliberate word muddles. These notes are outside the source paragraph arrays.
+
+Names: Master Cherry / mester Kirsebær; Talking Cricket / den talende fårekylling; Fire-Eater / Ildslugeren; Fox / Ræven; Cat / Katten; Fairy / Feen; Candlewick / Lysvægen; Land of Toys / Legetøjslandet; Shark / Hajen; Raven / Ravn. Pinocchio, Geppetto, Antonio, Romeo, Medoro, Alidoro and Melampo retained. The source’s own continuity quirks and Pinocchio’s rambling, inaccurate recaps remain; these are not silently corrected to match other chapters.
+
+AUTHORING AND REVIEW
+Chapter1 developed as the pilot and retained with review. Chapters2–12 authored by the primary agent;13–22,23–29 and30–36 authored in separate non-overlapping batches by three user-authorised agents. Every translated paragraph and chapter title received a source comparison by an agent other than its author:
+1–12: reviewer chapters_13_22.
+13–22: reviewer chapters_23_29.
+23–29: reviewer chapters_30_36.
+30–33: reviewer chapters_23_29.
+34–36: reviewer chapters_13_22.
+These were AI editorial reviews, not a claim of professional human copy-editing or reader testing with children.
+
+Review repairs included archaic or difficult vocabulary, Danish grammatical cases and natural forms of address, Harlequin’s ambiguous pardon pronoun, idiomatic cat-blaming threat, exact little-toe and fish-species details, proper names, alcohol references, and the Pentecost allusion at the ending. Deliberately nonsensical circus-director speech retained as comedy and marked in a brief end note. Cross-language short-paragraph ratio flags were inspected for omitted meaning; none remain unresolved. Textual similarity to an English baseline was not used: these editions were explicitly commissioned directly from Italian, so such a gate would not validate fidelity. A separately cleared human English Compare edition remains an integration consideration under Tinct’s general book workflow.
+
+TECHNICAL CHECKS
+All JSON parsed; chapter numbers1–36 unique and sequential; source/English/Danish paragraph counts equal per chapter; no empty paragraphs or untranslated placeholders. EPUB3 archive layout, XML, manifest targets, spine entries and chapter paragraph counts checked. Illustrated HTML checked at390×844 in isolated headless Chrome:36 chapters,3 images, no horizontal overflow. Danish opening inspected visually. No device-specific EPUB-reader test or Tinct production verification claimed.
+
+ILLUSTRATIONS
+Three original built-in image-generation illustrations: chapter1 talking firewood; chapter23 pigeon flight; chapter35 reunion with Geppetto. Inserted after the depicted events become known, at paragraph indexes8,26,5 respectively (zero-based), not at chapter openings that would reveal the reunion early. Shared between both language editions. Files copied into this package. A planned theatre illustration failed generation and is not included. Illustrations are an experiment, not historical reproductions; costume and anatomy are artistic interpretations.
+
+PROMPTS (final prompt briefs; built-in image tool, not API/CLI)
+Chapter1: Black-and-white pen-and-ink chapter illustration for age11; elderly carpenter Master Antonio with bulbous nose and crooked wig freezes over ordinary talking firewood, small axe raised motionless, no impact; no face or limbs on wood. Basket of shavings, Tuscan nineteenth-century workshop, warm comic wonder, sparse hatching, pure white margins, landscape, no text or watermark.
+Chapter23: Match chapter1’s sparse ink style. Small articulated wooden puppet in plain cap, flower-patterned jacket and bark shoes riding on an enormous kind pigeon above a faint Italian coastline, holding its neck. Airy wonder, clear contours, sparse hatching, white background, landscape, no text or watermark.
+Chapter35: Match chapter1’s ink style. Tender reunion inside enormous Shark: small wooden puppet embraces thin elderly Geppetto with long white beard, seated at rough table with one candle in a bottle. Curved interior contours, no gore, loving quiet mood, sparse ink and large white space, landscape, no text or watermark.
+
+PRESERVATION
+Pilot folder remains unchanged. No synced sources/ files modified. All deliverables are confined to outputs/pinocchio-full-2026-11-09 and its sibling ZIP. Repository book instructions were consulted during the pilot at main e38e53369e490fb6ae3780849dc6a53dce0fd16f; current user instructions explicitly authorise both Danish and English plus parallel agents.

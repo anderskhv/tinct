@@ -152,7 +152,9 @@ html.returning .hero-copy,html.returning #hero-book,html.returning .hero-dots{di
 .rt-front{inset:0;overflow:hidden;border-radius:1px 3px 3px 1px;background:var(--binding);transform:translateZ(calc(var(--d)/2))}
 .rt-front img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none}
 .rt-front::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0006 0,#0000 3.5%,#ffffff14 5%,#0000 8%);transition:background .5s}
-.rt-back{inset:0;border-radius:3px 1px 1px 3px;background:var(--binding);transform:rotateY(180deg) translateZ(calc(var(--d)/2))}
+/* The table only presents fronts and spines (12 or 90 degrees), never back covers.
+   Omit the rear plane: perspective/compositing can expose it beside a closed spine. */
+.rt-back{display:none}
 .rt-spine{top:0;bottom:0;left:calc(50% - var(--d)/2);width:var(--d);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:calc(var(--bh)*.07) 0;transform:rotateY(-90deg) translateZ(calc(var(--bw)/2));transition:filter .5s}
 /* The spine's title (reading-table.js spineTitle): the short form in one line, the type fitted to the
    spine's length from its character count (--tl; book-title.js SPINE_EM_PER_CHAR = .86), and an
@@ -441,6 +443,16 @@ html[data-eink=true].librarian-away #librarian.tuck{transition:none}
 .own-file-progress{display:block;height:2px;margin:4px 0 14px;border-radius:2px;background:var(--tui-line,#eee7d02e);overflow:hidden}
 .own-file-progress i{display:block;height:100%;background:var(--tui-ink,var(--cream));transform-origin:left;transform:scaleX(var(--p,0));transition:transform .5s ease}
 .own-file-note:empty{display:none}
+/* Several files at once (add-to-tinct.js drawQueue, 9 Nov 2026): one compact row per file, its name and then
+   its status or the reason it was not added, above the pop-up's own hairline. */
+.own-queue{list-style:none;margin:4px 0 10px;padding:0;max-height:min(46vh,340px);overflow:auto;border-top:1px solid var(--tui-line,#eee7d02e)}
+.own-queue__item{display:grid;gap:2px;padding:9px 0;border-bottom:1px solid var(--tui-line,#eee7d02e);font:15px/1.35 var(--tui-font-ui,system-ui,sans-serif)}
+.own-queue__name{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:var(--tui-ink,var(--cream))}
+.own-queue__status{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--tui-ink-muted,#a9ad9a);font-variant-numeric:tabular-nums}
+.own-queue__item[data-status=failed] .own-queue__status{color:var(--tui-ink,var(--cream))}
+.own-queue__item[data-status=waiting] .own-queue__status,.own-queue__item[data-status=skipped] .own-queue__status{color:var(--tui-ink-faint,#8a8e7d)}
+.own-queue-fine:empty{display:none}
+.own-file-dialog:not(.own-start).is-over{outline:1px dashed var(--tui-ink,var(--cream));outline-offset:-8px}
 /* My shelf's + beside its heading (Add to Tinct only): the same pop-up as the top bar's +. */
 #collection>header .shelf-add{margin:0 auto 0 -6px;color:var(--cream)}
 #collection>header .shelf-add[hidden]{display:none}
@@ -527,3 +539,33 @@ html.signed-in.own-avatar #sign-in:not(.cards-you)::before{content:'';width:24px
 #book-overlay.book-flat #book-shape,#book-overlay.book-flat #turning-cover{transform-style:flat;will-change:auto}
 #book-overlay.book-flat #turning-cover>.cover-front{display:none!important}
 #book-overlay.book-flat #turning-cover>.cover-back{transform:translateX(-100%)}
+/* "Read your own books" under Featured (app.js ownBooksBand; approved mockup 4 Nov 2026). */
+
+/* Signed-out first visit (Anders chose mockup B, 5 Nov 2026): next to Read, a way in for your own book or text. It leads to /byob (choose, drop or paste, then sign in). boot.js marks html.signed-in from the tinct_auth cookie before first paint, so a signed-in reader never sees it. */
+.hero-actions{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px}
+.hero-own{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;border:1px solid rgba(238,231,208,.4);background:rgba(11,14,11,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--cream);font:500 17px/1 system-ui,-apple-system,sans-serif;text-decoration:none;white-space:nowrap}
+.hero-own:hover{background:rgba(238,231,208,.08)}
+html.signed-in .hero-own{display:none}
+@media(max-width:699px){.hero-actions{gap:10px}.hero-own{min-height:42px;font-size:14px;padding:0 16px}}
+@media(max-height:500px) and (min-width:700px){.hero-own{min-height:36px;font-size:14px}}
+/* A row snaps its first card to its own left inset, in line with the shelf heading, not to the screen edge (QA 18 Nov 2026). */
+.book-row{scroll-padding-inline:max(28px,2.5vw)}
+@media(max-width:699px){.book-row{scroll-padding-inline:20px}}
+.collection-reel .book-row{scroll-padding-inline:4px;margin-inline:-4px}
+/* The author flap on a short screen (QA 18 Nov 2026): a smaller portrait leaves the author line in view, and the last visible line fades while the flap scrolls on to the edition picker. */
+.compact-book #slip-content.more-below{-webkit-mask-image:linear-gradient(#000 calc(100% - 32px),transparent);mask-image:linear-gradient(#000 calc(100% - 32px),transparent)}
+@media(max-height:700px){.compact-book #slip-portrait,.compact-book .author-flap-figure .author-flap-image{height:min(var(--portrait-height,96px),15vh)}}
+@media(max-height:500px){.compact-book #slip-portrait,.compact-book .author-flap-figure .author-flap-image{height:min(var(--portrait-height,96px),10vh)}}
+/* Shelf row arrows for a mouse (app.js; QA 18 Nov 2026): the chrome of the shelf "…" button, at the row's ends, level with the covers' middle. */
+.shelf.has-row-steps{position:relative}
+.row-step{position:absolute;z-index:4;top:var(--row-step-top,50%);width:40px;height:40px;margin-top:-20px;display:grid;place-items:center;padding:0;border-radius:50%;color:#eee7d0;background:#0c1a13cc;border:1px solid #eee7d033;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 2px 10px #0006;opacity:0;pointer-events:none;transition:opacity .18s,background-color .18s}
+.row-step.previous{left:max(8px,calc(2.5vw - 20px))}
+.row-step.next{right:max(8px,calc(2.5vw - 20px))}
+.row-step svg{width:20px;height:20px}
+.shelf:hover>.row-step:not([hidden]),.row-step:focus-visible{opacity:1;pointer-events:auto}
+.row-step:hover{background:#0c1a13f2}
+@media not ((hover:hover) and (pointer:fine)){.row-step{display:none}}
+/* The scrolled header's glass dims what passes under it, so a cream button (Continue) no longer shows through as a pale blob behind the menu and the logo (QA 18 Nov 2026). */
+#header.scrolled{-webkit-backdrop-filter:blur(28px) brightness(.5);backdrop-filter:blur(28px) brightness(.5)}
+/* Touch: small text buttons get a 32px+ hit area, their look unchanged (QA 18 Nov 2026). */
+@media(pointer:coarse){#rt-more,.tinct-open{position:relative}#rt-more::before{content:'';position:absolute;inset:-8px -6px}.tinct-open::before{content:'';position:absolute;inset:-6px -4px}}

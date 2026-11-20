@@ -20,6 +20,7 @@ import {
   readLabBookChat,
   type LabChatHistoryCloud,
 } from './labChatHistory'
+import { createFakeUserDataTable } from './fakeUserDataTable.test-helpers'
 
 afterEach(() => {
   localStorage.clear()
@@ -109,7 +110,8 @@ describe('phone turns reach the shared chat row', () => {
         : { data: [{ key: 'chat-history:bible', value: args.p_value, rev: 2, applied: true, conflict: false }], error: null }
       return withAbort(Promise.resolve(result))
     })
-    const client = { rpc, from: vi.fn() } as unknown as Parameters<typeof createLabChatHistoryCloud>[1]
+    // The account is read first (empty here), so the commit knows which chapter rows exist (userDataShards.ts).
+    const client = { rpc, from: createFakeUserDataTable().client.from } as unknown as Parameters<typeof createLabChatHistoryCloud>[1]
     const cloud = createLabChatHistoryCloud(USER, client)!
     const poisoned = [{ ...conversation('c', [message({ content: 'Psalm \u0000 19 \ud83d' })]), preview: '\udc4f' }]
     const result = await cloud.commit('bible', poisoned, 1)
@@ -138,6 +140,58 @@ describe('phone turns reach the shared chat row', () => {
     await writer.sync('bible')
     expect(ids(state.value)).toEqual(['desktop-turn', 'phone-1', 'phone-2'])
     expect(ids(readLabBookChat('bible'))).toEqual(['desktop-turn', 'phone-1', 'phone-2'])
+  })
+
+  it('reconnect preserves an answer when both the device mirror and first cloud commit fail', async () => {
+    const { cloud, state } = fakeRow([conversation('desktop', [message({ id: 'desktop-turn' })])], 3)
+    const commit = cloud.commit
+    cloud.commit = vi.fn().mockRejectedValueOnce(new Error('offline')).mockImplementation(commit)
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new DOMException('Full', 'QuotaExceededError') })
+    const answer = conversation('phone', [message({ id: 'unsaved-answer', role: 'assistant', timestamp: 1_790_000_000_000 })])
+    const writer = createLabChatCloudWriter(cloud)
+    writer.push('bible', [answer], { now: true })
+    await vi.waitFor(() => expect(writer.isDirty()).toBe(true))
+    expect(readLabBookChat('bible')).toEqual([])
+    const restored = await writer.sync('bible')
+    expect(ids(state.value)).toEqual(['desktop-turn', 'unsaved-answer'])
+    expect(ids(restored)).toEqual(['desktop-turn', 'unsaved-answer'])
+  })
+
+  it('keeps the only answer through a second offline sync and a later turn', async () => {
+    const { cloud, state } = fakeRow(null)
+    const commit = cloud.commit
+    let offline = true
+    cloud.commit = vi.fn((book, value, rev) => offline ? Promise.reject(new Error('offline')) : commit(book, value, rev))
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new DOMException('Full', 'QuotaExceededError') })
+    const first = conversation('phone', [message({ id: 'first', timestamp: 1_790_000_000_000 })])
+    const writer = createLabChatCloudWriter(cloud)
+    writer.push('bible', [first], { now: true })
+    await vi.waitFor(() => expect(writer.isDirty()).toBe(true))
+    expect(ids(await writer.sync('bible'))).toEqual(['first'])
+    // No background failure loop: only the explicit push and sync attempted commits.
+    expect(cloud.commit).toHaveBeenCalledTimes(2)
+    offline = false
+    writer.push('bible', [conversation('later', [message({ id: 'second', timestamp: 1_790_000_001_000 })])])
+    await vi.waitFor(() => expect(ids(state.value)).toEqual(['first', 'second']))
+    await vi.waitFor(() => expect(writer.isDirty()).toBe(false))
+  })
+
+  it('an older in-flight acknowledgment does not discard a newer unsaved answer', async () => {
+    const { cloud, state } = fakeRow(null)
+    const commit = cloud.commit
+    let finish!: () => void
+    cloud.commit = vi.fn().mockImplementationOnce((book, value, rev) => new Promise(resolve => {
+      finish = () => { void commit(book, value, rev).then(resolve) }
+    })).mockRejectedValueOnce(new Error('offline')).mockImplementation(commit)
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new DOMException('Full', 'QuotaExceededError') })
+    const writer = createLabChatCloudWriter(cloud)
+    writer.push('bible', [conversation('first', [message({ id: 'first' })])])
+    writer.push('bible', [conversation('second', [message({ id: 'second', timestamp: 1_790_000_000_000 })])])
+    finish()
+    await vi.waitFor(() => expect(writer.isDirty()).toBe(true))
+    expect(ids(state.value)).toEqual(['first'])
+    await writer.sync('bible')
+    expect(ids(state.value)).toEqual(['first', 'second'])
   })
 
   it('the phone history that never reached the cloud is uploaded on the phone’s next open', async () => {

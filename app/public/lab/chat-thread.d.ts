@@ -24,18 +24,9 @@ export function fitComposer(field: HTMLTextAreaElement, lines?: number): number
 export function takeHint(storage: Pick<Storage, 'getItem' | 'setItem'> | null | undefined): boolean
 export function contentEnd(node: Pick<HTMLElement, 'scrollHeight'> & { querySelector?: HTMLElement['querySelector'] }): number
 export function isAway(node: Pick<HTMLElement, 'scrollHeight' | 'scrollTop' | 'clientHeight'> & { querySelector?: HTMLElement['querySelector'] }): boolean
-export function scrollToLatest(node: HTMLElement): void
 export function bindPress(thread: HTMLElement, options?: { holdMs?: number; fadeMs?: number }): () => void
 export interface ThreadHtmlTurn extends ThreadTurnShape { text: string; html?: string; quote?: string | null; note?: string | null; extra?: string }
 export function threadHtml(turns: ThreadHtmlTurn[], options?: { now?: number; streaming?: boolean }): string
-export function isBelow(node: Pick<HTMLElement, 'scrollHeight' | 'scrollTop' | 'clientHeight'> & { querySelector?: HTMLElement['querySelector'] }, slack?: number): boolean
-type ThreadMetrics = Pick<HTMLElement, 'scrollHeight' | 'scrollTop' | 'clientHeight'> & { querySelector?: HTMLElement['querySelector'] }
-export interface LatestPill {
-  placed(node: ThreadMetrics): void
-  shift(by: number): void
-  shows(node: ThreadMetrics, readerScrolled: boolean): boolean
-}
-export function latestPill(): LatestPill
 export const QUESTION_PEEK: number
 export function questionTop(node: HTMLElement, row: Element, peek?: number): number
 export function fitSpacer(node: HTMLElement, top: number): void

@@ -29,9 +29,11 @@ function veil(prefs: unknown, systemDark = false, eink = false, innerWidth = 144
 
 const both = (theme: string) => ({ version: 2, shared: {}, phone: { theme }, desktop: { theme } })
 
-it('gives a dark or book reader their own paper as the library fades out', () => {
+it('gives a dark, book or white reader their own paper as the library fades out', () => {
   expect(veil(both('dark'))).toBe(LAB_THEME_PAPER.dark)
   expect(veil(both('book'))).toBe(LAB_THEME_PAPER.book)
+  const white = { theme: 'light', paper: 'white' }
+  expect(veil({ version: 2, shared: {}, phone: white, desktop: white })).toBe(LAB_THEME_PAPER.white)
   expect(veil(both('system'), true)).toBe(LAB_THEME_PAPER.dark)
   expect(veil({ darkMode: true })).toBe(LAB_THEME_PAPER.dark)
 })
@@ -51,10 +53,11 @@ it('a dark phone and a light desktop: the veil follows the layout the reader wil
 
 it('agrees with the reader’s own boot resolution', () => {
   const split = { version: 2, shared: {}, phone: { theme: 'dark' }, desktop: { theme: 'book' } }
-  const cases: Array<[unknown, boolean]> = [[both('dark'), false], [both('system'), true], [both('book'), false], [{ theme: 'dark' }, false], [{ darkMode: false }, true], [undefined, true], [split, false], [split, true]]
+  const white = { theme: 'light', paper: 'white' }
+  const cases: Array<[unknown, boolean]> = [[both('dark'), false], [both('system'), true], [both('book'), false], [{ version: 2, shared: {}, phone: white, desktop: { theme: 'light' } }, true], [{ ...white }, false], [{ theme: 'dark' }, false], [{ darkMode: false }, true], [undefined, true], [split, false], [split, true]]
   for (const width of [390, 1440]) for (const [prefs, dark] of cases) {
     const theme = readerBootTheme(prefs === undefined ? null : JSON.stringify(prefs), dark, false, width <= 899 ? 'phone' : 'desktop')
-    const expected = theme === 'dark' || theme === 'book' ? LAB_THEME_PAPER[theme] : null
+    const expected = theme === 'dark' || theme === 'book' || theme === 'white' ? LAB_THEME_PAPER[theme] : null
     expect(veil(prefs, dark, false, width)).toBe(expected)
   }
 })

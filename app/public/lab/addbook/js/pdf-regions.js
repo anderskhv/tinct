@@ -123,18 +123,34 @@
    * A page's lines of text, from its items (viewport pixels, as displayFormulas takes them): each
    * line's box in page fractions, its word count and how much of it is letters.
    */
-  function textLines(body, vp) {
+  function textLines(body, vp, splitGaps = false) {
     const lines = [];
     const size = median(body.map(b => b.size)) || 10;
     for (const b of [...body].filter(b => String(b.str || '').trim()).sort((a, c) => a.base - c.base || a.x - c.x)) {
       const L = lines.at(-1);
       if (L && Math.abs(b.base - L.base) < Math.min(b.size, size) * 0.42) L.items.push(b); else lines.push({ base: b.base, items: [b] });
     }
-    return lines.map(L => {
+    const separated = !splitGaps ? lines : lines.flatMap(L => {
+      const items = [...L.items].sort((a, b) => a.x - b.x);
+      if (items.length >= 6 && items.every(b => /^\S{1,5}$/.test(b.str.trim()))) return [L];
+      const groups = [];
+      for (const item of items) {
+        const group = groups.at(-1), previous = group?.at(-1);
+        if (!previous || item.x - previous.x - previous.w > size * 3) groups.push([item]);
+        else group.push(item);
+      }
+      return groups.map(items => ({ ...L, items }));
+    });
+    return separated.map(L => {
+      // Widely spaced single-token ticks are an axis, not a sentence. Combining
+      // month labels into one prose line would discard the chart containing them.
+      const items = [...L.items].sort((a, b) => a.x - b.x);
+      const gaps = items.slice(1).filter((b, i) => b.x - items[i].x - items[i].w > Math.max(b.size, items[i].size)).length;
+      const labels = items.length >= 6 && items.every(b => /^\S{1,5}$/.test(b.str.trim())) && gaps >= (items.length - 1) * .75;
       const text = L.items.map(b => b.str).join(' ').replace(/\s+/g, ' ').trim(), chars = text.replace(/\s/g, '').length;
       let l = Infinity, r = -Infinity, t = Infinity, btm = -Infinity;
       for (const b of L.items) { l = Math.min(l, b.x); r = Math.max(r, b.x + b.w); t = Math.min(t, b.base - b.size * 0.8); btm = Math.max(btm, b.base + b.size * 0.2) }
-      return { x: l / vp.width, y: t / vp.height, w: (r - l) / vp.width, h: (btm - t) / vp.height, text, words: text.split(' ').length, letters: chars ? (text.match(/\p{L}/gu) || []).length / chars : 0 };
+      return { x: l / vp.width, y: t / vp.height, w: (r - l) / vp.width, h: (btm - t) / vp.height, labels, text, words: text.split(' ').length, letters: chars ? (text.match(/\p{L}/gu) || []).length / chars : 0 };
     });
   }
   /**
@@ -144,7 +160,7 @@
    * figure (findFigures read text as ink). Formulas are left as they are. `lines`: textLines. -> the regions kept.
    */
   function trimRegions(regions, lines) {
-    const running = (lines || []).filter(L => L.words >= 8 && L.letters >= 0.7);
+    const running = (lines || []).filter(L => !L.labels && L.words >= 8 && L.letters >= 0.7);
     const inside = (g, L) => { const cy = L.y + L.h / 2; return cy > g.y && cy < g.y + g.h && Math.min(L.x + L.w, g.x + g.w) - Math.max(L.x, g.x) >= L.w * 0.5 };
     const out = [];
     const crosses = (g, L) => Math.min(L.y + L.h, g.y + g.h) - Math.max(L.y, g.y) > L.h * 0.3 && Math.min(L.x + L.w, g.x + g.w) - Math.max(L.x, g.x) > 0;
@@ -178,7 +194,8 @@
       }
       const mid = g.y + g.h / 2, hits = running.filter(L => inside(g, L));
       // Three lines of prose in it: findFigures read text as ink.
-      if (hits.length >= 3) continue;
+      const bottomNotes = g.captionBox && hits.every(L => L.y >= g.y + g.h * .75);
+      if (hits.length >= 3 && !bottomNotes) continue;
       const below = hits.filter(L => L.y + L.h / 2 >= mid).sort((a, b) => a.y - b.y)[0];
       const above = hits.filter(L => L.y + L.h / 2 < mid).sort((a, b) => (b.y + b.h) - (a.y + a.h))[0];
       if (below) g.h = Math.max(0, below.y - 0.002 - g.y);
@@ -212,10 +229,40 @@
    * 240 px wide (`ink`, W x H, 1 where dark), its text items as page fractions (`spans`, for findFigures) and in viewport
    * pixels (`body`, `vp`, for displayFormulas). `margin`: TinctMargin (findFigures). -> trimRegions' regions.
    */
-  function find({ ink, W, H, spans, body, vp }, margin) {
-    const blocks = displayFormulas(body, vp).blocks;
+  function find({ ink, W, H, spans, body, vp, captionColumns = false }, margin) {
+    // A caption in a separate side column establishes a gutter. Keep math
+    // fragments on its two sides apart: axis ticks otherwise join an adjacent
+    // displayed equation, erase the plot from the raster, and grow its crop left.
+    const captions = captionColumns ? body.filter(b => /^(?:Figure|Fig\.|Table|Figur|Tabel)\s+\d/i.test(b.str.trim())) : [];
+    const cuts = [...new Set(captions.map(b => b.x - b.size * .5))].filter(x =>
+      x > vp.width * .4 && x < vp.width * .85 &&
+      !body.some(b => b.base > vp.height * .1 && b.base < vp.height * .95 && b.x < x && b.x + b.w > x));
+    const cut = cuts[0];
+    const columns = cut === undefined ? [body] : [body.filter(b => b.x < cut), body.filter(b => b.x >= cut)];
+    const pictures = cut === undefined ? [] : margin.findFigures({ ink, W, H, spans, formulas: [] }).figures.filter(f => f.label);
+    const blocks = columns.flatMap((column, index) => displayFormulas(column, vp).blocks.filter(block =>
+      !index || !pictures.some(picture => meets(block, picture))));
     const found = margin.findFigures({ ink, W, H, spans, formulas: blocks });
-    return trimRegions(pageRegions({ figures: found.figures, captions: found.captions, blocks }), textLines(body, vp));
+    const regions = pageRegions({ figures: found.figures, captions: found.captions, blocks });
+    if (cut === undefined) return trimRegions(regions, textLines(body, vp));
+    return regions.flatMap(region => {
+      const column = columns[(region.x + region.w / 2) * vp.width >= cut ? 1 : 0];
+      // Formula padding must not pull in a nearby prose line, or grow across
+      // horizontal whitespace to an unrelated phrase beside the equation.
+      const columnLines = textLines(column, vp, true);
+      const bounded = { ...region };
+      if (region.kind === 'equation') for (const L of columnLines) {
+        if (L.words < 3 || L.letters < .7 || L.x >= region.x + region.w || L.x + L.w <= region.x) continue;
+        const center = L.y + L.h / 2;
+        if (center < region.y && L.y + L.h > bounded.y) {
+          const bottom = bounded.y + bounded.h;
+          bounded.y = L.y + L.h + .001; bounded.h = bottom - bounded.y;
+        } else if (center > region.y + region.h && L.y < bounded.y + bounded.h) bounded.h = L.y - .001 - bounded.y;
+      }
+      const lines = columnLines.filter(L => region.kind !== 'equation' ||
+        L.y + L.h / 2 >= bounded.y && L.y + L.h / 2 <= bounded.y + bounded.h && L.x < bounded.x + bounded.w && L.x + L.w > bounded.x);
+      return trimRegions([bounded], lines);
+    });
   }
   /**
    * `find`, off the main thread (js/pdf-regions-worker.js at `url`) while the pages are drawn on it; here instead where a

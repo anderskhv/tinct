@@ -6,37 +6,76 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'editions' | 'library' | 'settings' | 'text' | 'reading' | 'account'
+export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'snip' | 'notebook' | 'text' | 'editions' | 'audio' | 'ai' | 'angle' | 'library' | 'account'
+/** Explain a figure (`snip`) is added by the Original PDF reader itself (PdfOriginalReaderShell), never by labSuperMenuRows. */
 
 export interface LabSuperMenuRow {
   id: LabSuperMenuId
   label: string
   /** A chevron says the row opens a layer rather than doing something. */
   chevron?: boolean
+  /** A quiet state after the label (Reading angle: "Not set", or the book's angle). */
+  detail?: string
   /** The rule that separates what is in this book from what is around it. */
   ruleBefore?: boolean
   /**
-   * The Librarian row (desktop) and the phone's Chat · Talk row: the modes it
-   * offers. On the desktop they are icons beside the row's body (which opens
-   * the reader's default mode); on the phone they are the row's two halves.
+   * Chat · Talk share one row, with a clearly labelled button for each mode.
    */
   modes?: Array<'chat' | 'talk'>
 }
 
 /**
- * The phone's t menu, the approved design (iPhone feedback, 20 Oct 2026):
- * Chat · Talk on one row; Summarize and Catch me up; Text and theme (the
- * themes, size and Advanced settings); Reading settings (edition, compare
- * edition, voice and speed, the controls Book editions and Settings held);
- * then Library and Profile. Every destination of the old rows is still here.
+ * The settings groups, one model for every surface (Anders, 22 Oct 2026): the book reader's t menu and sheet
+ * (LabSuperMenu.tsx, LabV2Sheet.tsx: `id`, and the sheet layer it opens) and the margin reader's
+ * (public/lab/addbook/js/reader.js MENU_LABEL: `frame`). labSuperMenu.test.ts holds reader.js to these names.
+ * - Appearance: font, size, alignment, spacing, margins, theme and eligible desktop layouts
+ *   (Margin, Two-page, Compare). The desktop margin reader has its own top-bar Aa button.
+ * - Book settings: main and compare version, a play's layout, or a PDF's Original pages
+ *   (whichever source choices apply to the book).
+ * - Audio settings: voice, speed, audiobook version.
+ */
+export const LAB_SETTINGS_GROUPS = [
+  { id: 'text', frame: 'aa', layer: 'reading', label: 'Appearance' },
+  { id: 'editions', frame: 'book', layer: 'editions', label: 'Book settings' },
+  { id: 'audio', frame: 'audio', layer: 'audio', label: 'Audio settings' },
+] as const satisfies ReadonlyArray<{ id: LabSuperMenuId; frame: string; layer: string; label: string }>
+
+/** The reader's highlights, notes and cards: the desktop margin reader's top-bar button, the phone's t menu row. */
+export const LAB_NOTEBOOK_LABEL = 'Notebook'
+
+/**
+ * AI settings (Anders, 11 Nov 2026): a row at the same level as the three groups, after Audio settings. It opens its
+ * own dialog (openAiSettingsLayer.tsx), not a V2 sheet, so it is not one of LAB_SETTINGS_GROUPS' sheet layers.
+ * The margin reader's t menu (reader.js MENU_LABEL.ai) carries the same name.
+ */
+export const LAB_AI_SETTINGS_LABEL = 'AI settings'
+
+/**
+ * The book's reading angle (Anders, 16 Nov 2026): offered once the reader has started, so it moved from the start
+ * actions to the t menu, after AI settings. It opens AI settings' This book with the caret in the angle (the existing
+ * flow) and says whether this book has one.
+ */
+export const LAB_READING_ANGLE_LABEL = 'Reading angle'
+export function readingAngleRow(angle: string): LabSuperMenuRow {
+  return { id: 'angle', label: LAB_READING_ANGLE_LABEL, chevron: true, detail: angle.trim() ? angle.trim() : 'Not set' }
+}
+
+const SETTINGS_ROWS: LabSuperMenuRow[] = [
+  ...LAB_SETTINGS_GROUPS.map((group, index) => ({ id: group.id, label: group.label, chevron: true, ...(index === 0 ? { ruleBefore: true } : {}) })),
+  { id: 'ai', label: LAB_AI_SETTINGS_LABEL, chevron: true },
+]
+
+/**
+ * The phone's t menu (iPhone feedback, 20 Oct 2026; the settings groups of 22 Oct): Chat · Talk on one row;
+ * Summarize, Catch me up and Notebook (the Contents' highlights and notes); Aa, Book settings and Audio settings;
+ * then Library and Profile. The phone has no top-bar Aa or Notebook, so everything is here.
  */
 function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
   return [
     { id: 'conversation', label: '', modes: ['chat', 'talk'] },
-    { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
-    { id: 'text', label: 'Text and theme', chevron: true, ruleBefore: true },
-    { id: 'reading', label: 'Reading settings', chevron: true },
+    { id: 'notebook', label: LAB_NOTEBOOK_LABEL },
+    ...SETTINGS_ROWS,
     { id: 'library', label: privateBook ? 'Your books' : 'Library', ruleBefore: true },
     { id: 'account', label: 'Profile', chevron: true },
   ]
@@ -44,31 +83,35 @@ function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
 
 /**
  * Chapter actions (Catch me up, approved 2026-09-30, sits right under
- * Summarize), reading choices, then library (phone only) and account.
+ * Summarize), the settings groups, then library (phone only) and account.
  */
-export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, noCatchUp = false }: {
+export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, sharedReader = false, summarize = false, readingAngle }: {
   phone?: boolean; privateBook?: boolean; ownPdf?: boolean
-  /** A book's first chapter (or its front matter) on the phone: nothing to catch up on yet. */
-  noCatchUp?: boolean
+  /** The open book's reading angle ('' for none): adds the Reading angle row after AI settings. Absent: no row. */
+  readingAngle?: string
+  /**
+   * Summarize the whole document: the Original PDF pages reader keeps it (Christian's whole-PDF summary). The book
+   * reader has none (Anders, 10 Nov 2026): its start and chapter pills hold Summary, and Catch me up is "up to here".
+   */
+  summarize?: boolean
+  /** Shared source identity; Notebook uses its dedicated desktop button. */
+  sharedReader?: boolean
 } = {}): LabSuperMenuRow[] {
-  // A reader's own book keeps Reading settings on the phone: its voice and speed are there (and a PDF's editions).
-  if (phone) return phoneRows(privateBook).filter(row => !(noCatchUp && row.id === 'catchup'))
-  const all: LabSuperMenuRow[] = [
-    // One row for both conversations (Anders, 2026-10-07): always here, so
-    // the only way to the librarian since the margin tab went (2026-10-08).
-    { id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] },
-    { id: 'summarize', label: 'Summarize' },
+  const all: LabSuperMenuRow[] = phone ? phoneRows(privateBook) : [
+    // Match the phone: two explicit actions, with their existing destinations.
+    { id: 'conversation', label: '', modes: ['chat', 'talk'] },
     { id: 'catchup', label: 'Catch me up' },
-    { id: 'editions', label: 'Book editions', chevron: true, ruleBefore: true },
-    { id: 'settings', label: 'Settings', chevron: true },
+    ...SETTINGS_ROWS,
     // Desktop has the back arrow at the top left instead of a Library row (2026-10-01).
     { id: 'account', label: 'Profile', chevron: true, ruleBefore: true },
   ]
-  const rows = noCatchUp ? all.filter(row => row.id !== 'catchup') : all
+  const withSummary = summarize ? all.flatMap(row => row.id === 'conversation' ? [row, { id: 'summarize' as const, label: 'Summarize' }] : [row]) : all
+  const rows = readingAngle !== undefined ? withSummary.flatMap(row => row.id === 'ai' ? [row, readingAngleRow(readingAngle)] : [row]) : withSummary
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter
-  // at a time), but one edition, except a PDF: its Tinct text and its
-  // Original pages (2026-10-09).
+  // at a time). Book settings appears only for separate source choices (PDF
+  // Original pages or EPUB Margin source); desktop layout choices stay in Aa
+  // even when a book has only one source. Its Audio settings stay.
   return privateBook ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id) || (ownPdf && row.id === 'editions')) : rows
 }
 

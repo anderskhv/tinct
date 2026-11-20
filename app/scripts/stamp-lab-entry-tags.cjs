@@ -27,6 +27,14 @@
  * import some entries by their plain name, which a tag would turn into a
  * second module instance.
  *
+ * Add a book's pages and scripts (public/lab/addbook) carry no hand tags: every
+ * `?v=` there is the literal `?v=__TINCT_BUILD__`, which the first pass below
+ * replaces in every html and js file under dist/lab/addbook with the build's bundle hash (the
+ * `index-*.js` hash the deploy job records), so the Worker's day cache busts on
+ * every deploy. The dev server and the tests read public/ directly and request
+ * the literal placeholder, which the Worker and Vite serve like any tag.
+ * scripts/verify-bundle.cjs fails if a placeholder is left in dist.
+ *
  * Pure functions are exported for the unit tests and for
  * scripts/verify-bundle.cjs; the stamp runs only when this file is the entry.
  */
@@ -40,6 +48,9 @@ const TEXT_FILE = /\.(?:js|mjs|css|html)$/
 // A quoted reference with a cache tag: 'x.js?v=tag', "/lab/x.css?v=tag".
 const TAGGED_REF = /(["'`])([^"'`\s<>()?#]+\.(?:js|css))\?v=([\w.-]*)\1/g
 const PLACEHOLDER = '__TINCT_TAG__'
+// Add a book's one build stamp (public/lab/addbook), replaced in dist by stampBuild.
+const BUILD_PLACEHOLDER = '__TINCT_BUILD__'
+const BUILD_STAMPED = /^lab\/addbook\/.+\.(?:html|js)$/
 
 function sha10(text) {
   return crypto.createHash('sha256').update(text).digest('hex').slice(0, 10)
@@ -171,8 +182,35 @@ function readDist(dist, publicDir) {
   const files = {}
   for (const name of all) if (TEXT_FILE.test(name) && !name.startsWith('assets/')) files[name] = fs.readFileSync(path.join(dist, name), 'utf8')
   // A fixed-name lab/*.js with no file in public/ is one of Vite's entries (vite.config.ts entryFileNames).
-  const entries = all.filter(name => /^lab\/[^/]+\.js$/.test(name) && !fs.existsSync(path.join(publicDir, name))).sort()
+  // This entry has a public development/Vitest bridge at the same URL. The
+  // emitted production module overwrites that bridge and must still receive a
+  // content-derived tag through the Library's static import chain.
+  const entries = all.filter(name => /^lab\/[^/]+\.js$/.test(name)
+    && (name === 'lab/shared-reader-activation.js' || !fs.existsSync(path.join(publicDir, name)))).sort()
   return { files, entries }
+}
+
+/** The build's bundle hash: the hash part of the `/assets/index-<hash>.js` app.html loads. */
+function bundleHash(appHtml) {
+  const m = String(appHtml || '').match(/\/assets\/index-([A-Za-z0-9_-]+)\.js/)
+  return m ? m[1] : null
+}
+
+/**
+ * Add a book's files with `__TINCT_BUILD__` replaced by `stamp`. Runs before
+ * stampTags, so a reference on a chain to a built entry (reader.js's
+ * /lab/library-add.js) still takes its content-derived tag.
+ */
+function stampBuild(files, stamp) {
+  if (!/^[\w.-]+$/.test(stamp || '')) throw new Error(`Not a cache tag: ${stamp}`)
+  const out = { ...files }
+  const stamped = []
+  for (const name of Object.keys(files).sort()) {
+    if (!BUILD_STAMPED.test(name) || !files[name].includes(BUILD_PLACEHOLDER)) continue
+    out[name] = files[name].split(BUILD_PLACEHOLDER).join(stamp)
+    stamped.push(name)
+  }
+  return { files: out, stamped }
 }
 
 function main() {
@@ -180,7 +218,10 @@ function main() {
   const dist = path.join(root, 'dist')
   const { files, entries } = readDist(dist, path.join(root, 'public'))
   if (!entries.includes('lab/library-add.js')) throw new Error(`No built lab entries found in ${dist}; was the app built?`)
-  const { files: stamped, tags } = stampTags(files, entries)
+  const stamp = bundleHash(files['app.html'])
+  if (!stamp) throw new Error(`No /assets/index-*.js in ${path.join(dist, 'app.html')}; was the app built?`)
+  const build = stampBuild(files, stamp)
+  const { files: stamped, tags } = stampTags(build.files, entries)
   let changed = 0
   for (const name of Object.keys(files)) {
     if (stamped[name] === files[name]) continue
@@ -188,9 +229,9 @@ function main() {
     changed++
   }
   const derived = Object.keys(tags).filter(name => !entries.includes(name))
-  console.log(`[lab tags] ${entries.length} built entries, ${derived.length} files on a chain to one, ${changed} files rewritten`)
+  console.log(`[lab tags] build stamp ${stamp} in ${build.stamped.length} Add a book files; ${entries.length} built entries, ${derived.length} files on a chain to one, ${changed} files rewritten`)
 }
 
-module.exports = { stampTags, staleTags, taggedRefs, readDist, sha10 }
+module.exports = { stampTags, staleTags, taggedRefs, readDist, sha10, stampBuild, bundleHash, BUILD_PLACEHOLDER }
 
 if (require.main === module) main()

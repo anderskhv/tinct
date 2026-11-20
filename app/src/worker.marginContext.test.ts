@@ -15,8 +15,8 @@ vi.mock('./companion/marginRoutes', async importOriginal => {
 import { FACTCHECK_OPENING_ROUTE, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONNET_MODEL } from './companion/marginRoutes'
 import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, buildMarginPrefixParts, marginRules, parseMarginDocument } from './companion/marginContext'
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'
-import { CONTEXTUAL_LOOKUP_GROUNDING_LINE } from './components/reader/contextualLookup'
-import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_RECHECK_RULE } from './companion/labAskPrompt'
+import { CONTEXTUAL_LOOKUP_DEFINITION_LINE, CONTEXTUAL_LOOKUP_GROUNDING_LINE } from './components/reader/contextualLookup'
+import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_LENGTH_RULE, LAB_ASK_RECHECK_RULE } from './companion/labAskPrompt'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 import { anthropicCostUsd } from './worker/lib/aiUsage'
 import { handleChat, handleLabChat } from './worker/routes/chat'
@@ -362,6 +362,18 @@ describe('Explain on a PDF and the passage picture', () => {
     expect(JSON.stringify(last.content)).toContain('Explain this figure.')
   })
 
+  it('Explain a figure (a dragged box, no label or caption) reaches Claude as one image before its text and counts as an Explain', async () => {
+    const { anthropic, rows } = stubFetch()
+    const { status } = await send({ companion: { intent: 'explain', context: pdfContext(3), document, figure: true, selection: '[The reader selected a figure on page 3. It is the attached image.]' },
+      messages: [{ role: 'user', content: [image(1568, 1100), { type: 'text', text: 'Explain this figure.' }] }] })
+    expect(status).toBe(200)
+    expect(anthropic[0].model).toBe('claude-haiku-5-5')
+    const last = (anthropic[0].messages as Array<{ content: Array<{ type: string; source?: { type: string; media_type: string } }> }>).at(-1)!
+    expect(last.content.filter(block => block.type === 'image')).toEqual([{ type: 'image', source: expect.objectContaining({ type: 'base64', media_type: 'image/png' }) }])
+    expect(last.content[0].type).toBe('image')
+    expect(rows.map(row => row.feature)).toEqual(['explain'])
+  })
+
   it('refuses a picture over 1568 px on its long side', async () => {
     const { anthropic } = stubFetch()
     const { status, text } = await send(withImages(margin('explain', 1, { selection: 'a passage' }), [image(1569, 300)]))
@@ -625,9 +637,40 @@ describe('the book reader is unchanged', () => {
     const { anthropic } = stubFetch()
     await send(requests[name].body, { guest: requests[name].guest })
     expect(anthropic).toHaveLength(1)
-    expect(sha(anthropic[0])).toBe(AFTER[name])
-    expect(sha(withoutLookupGrounding(anthropic[0]))).toBe(GROUNDED[name])
-    expect(sha(withoutGrounding(withoutLookupGrounding(anthropic[0])))).toBe(BEFORE[name])
+    // The approved language rule is the only addition to the frozen request.
+    const languageRule = '\n\nIf the reader writes their question in Danish, answer in Danish. Keep structured response keys unchanged.'
+    const body = anthropic[0]
+    const system = body.system as string | Array<{ text: string }>
+    expect(JSON.stringify(system)).toContain('If the reader writes their question in Danish')
+    // Nov2: shorter answers (Anders, "the text from AI is in general a bit too long"): the chat length rule in the
+    // shared policy, and Explain's detail held to two short paragraphs, about 100 words. Nothing else changes.
+    const lengthRule = `\n${LAB_ASK_LENGTH_RULE}\n`
+    expect(JSON.stringify(system)).toContain(JSON.stringify(LAB_ASK_LENGTH_RULE).slice(1, -1))
+    const shorter = (text: string) => text.replace(languageRule, '').replace(lengthRule, '')
+    const explainNow = 'Then at most two short paragraphs of useful detail, most important first. Skip any paragraph that only adds background. About 100 words or fewer in all.'
+    const explainBefore = 'Then at most three short paragraphs of useful detail, most important first. Skip any paragraph that only adds background.'
+    let unchanged: Record<string, unknown> = { ...body, system: typeof system === 'string' ? shorter(system) : system.map(block => ({ ...block, text: shorter(block.text) })) }
+    if (name === 'explain') unchanged = { ...unchanged, messages: (unchanged.messages as Array<{ role: string; content: unknown }>).map(message => typeof message.content === 'string' ? { ...message, content: message.content.replace(explainNow, explainBefore) } : message) }
+    if (name !== 'explain' && name !== 'define') {
+      // Oct29: a chat answer's bound is 4096 (1024 cut long answers off mid-word); all other fields remain frozen.
+      expect(unchanged.max_tokens).toBe(4096)
+      unchanged = { ...unchanged, max_tokens: 1024 }
+    }
+    if (name === 'define') {
+      // Nov12: a word's definition is the part of speech, one short sentence and its sense here (Anders, "tetrarch");
+      // that template and its one line are the only change.
+      const definitionNow = `or {"kind":"definition","definition":"Part of speech. One short sentence of meaning. Here, its sense in this passage."}\n${CONTEXTUAL_LOOKUP_DEFINITION_LINE}\n`
+      const definitionBefore = 'or {"kind":"definition","definition":"Part of speech. Concise meaning."}\n'
+      expect(JSON.stringify(unchanged.messages)).toContain(JSON.stringify(definitionNow).slice(1, -1))
+      unchanged = { ...unchanged, messages: (unchanged.messages as Array<{role: string; content: unknown}>).map(message => typeof message.content === 'string' ? { ...message, content: message.content.replace(definitionNow, definitionBefore) } : message) }
+      // Oct27: quick lookups are now at most40 words; all other request fields remain frozen.
+      expect(sha(unchanged)).toBe('32025d2cec69540ed2f2d52e0cee46c9a3f35b9bf8ded220215e100e91c85bd5')
+      const brevity = 'Keep this a quick lookup: at most 40 words of explanation in one or two short sentences. Give only the identity or meaning needed here; leave extended background for a follow-up question.\n'
+      unchanged = { ...unchanged, messages: (unchanged.messages as Array<{role: string; content: unknown}>).map(message => typeof message.content === 'string' ? { ...message, content: message.content.replace(brevity, '').replace('One or two short sentences, at most 40 words.', 'Two or three concise sentences.') } : message) }
+    }
+    expect(sha(unchanged)).toBe(AFTER[name])
+    expect(sha(withoutLookupGrounding(unchanged))).toBe(GROUNDED[name])
+    expect(sha(withoutGrounding(withoutLookupGrounding(unchanged)))).toBe(BEFORE[name])
   })
 })
 

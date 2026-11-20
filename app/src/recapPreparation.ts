@@ -2,7 +2,11 @@ import { RECAP_PROMPT_VERSION, type LabRecapRequest, type LabRecapResponse } fro
 
 export const RECAP_PREPARATION_ROUTE = '/api/recap-preparation'
 export const RECAP_PREPARATION_DELAY_MS = 5 * 60 * 1000
-export const RECAP_PRESENCE_LEASE_MS = 90_000
+// How long one presence call keeps a book "open". The reader renews it every
+// 4 min (RECAP_PRESENCE_HEARTBEAT_MS), so 5 min leaves a minute of slack; it
+// must not exceed RECAP_PREPARATION_DELAY_MS, or a return would push the
+// deadline past "five minutes after leaving". Was 90 s with a 30 s renewal.
+export const RECAP_PRESENCE_LEASE_MS = RECAP_PREPARATION_DELAY_MS
 export interface RecapCandidate { request: LabRecapRequest; lastActiveAt: number }
 export interface RecapQueueEntry extends RecapCandidate { due: number; attempts: number; result?: LabRecapResponse }
 export interface RecapQueueState {

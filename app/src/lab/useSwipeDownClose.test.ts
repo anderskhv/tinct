@@ -45,7 +45,7 @@ function rulesFor(className: string): string[] {
 describe('audio transport type and handle', () => {
   // The phone speed button read "1.25×" in a monospace face (14 Oct 2026):
   // chrome is system UI, figures tabular, never mono.
-  it.each(['lab-audio-speed', 'lab-desktop-audio-speed', 'lab-audio-speed-heading', 'lab-audio-speed-scale'])('.%s is system UI with tabular figures, never mono', className => {
+  it.each(['lab-audio-speed', 'lab-desktop-audio-speed', 'lab-audio-speed-value'])('.%s is system UI with tabular figures, never mono', className => {
     const rules = rulesFor(className)
     expect(rules.length).toBeGreaterThan(0)
     for (const body of rules) expect(body).not.toMatch(/monospace|Plex Mono|Menlo/i)

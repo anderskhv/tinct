@@ -665,6 +665,36 @@ export function accountLabPositionRecord(local: LabPositionState, cloud: LabPosi
   })
 }
 
+/**
+ * Stale reader instances (12 Nov 2026, iPhone/Brave, one device id).
+ *
+ * Several readers can live on one device at once: two tabs, or a tab kept
+ * frozen by iOS or in the back/forward cache. They share the device record.
+ * A reader that slept while another read on still shows, and still holds in
+ * memory, the place it last saw. Its next note (a tap on the page it is
+ * showing) is stamped with the current clock, so the older place became the
+ * newest record and won everywhere: The Master and Margarita ¶180 was lost to
+ * ¶158 + one page.
+ *
+ * This is the place the device record holds for `bookId` when it is newer
+ * than the one this reader knows and names a different spot: another reader
+ * on this device (or the library, from the account) put it there after this
+ * reader last wrote or adopted. Such a reader adopts it and moves there; it
+ * never writes a place derived from what it was showing. Null when this
+ * reader is current, or the record belongs to another account.
+ */
+export function newerStoredPlace(own: LabPositionState, stored: LabPositionState, bookId: string): LabBookPlace | null {
+  if ((stored.owner ?? null) !== (own.owner ?? null)) return null
+  const candidate = stored.books[bookId]
+  const known = own.books[bookId]
+  if (!candidate || candidate.bookId !== bookId || !known) return null
+  if (!isNewerPlace(candidate, known)) return null
+  const samePlace = candidate.sequentialChapter === known.sequentialChapter
+    && candidate.paragraphIndex === known.paragraphIndex
+    && candidate.wordIndex === known.wordIndex
+  return samePlace ? null : candidate
+}
+
 export function settleReason(reason: LabPlaceReason): boolean {
   return reason === 'open-book' || reason === 'page-turn' || reason === 'mode-change' || reason === 'play' || reason === 'dwell'
 }

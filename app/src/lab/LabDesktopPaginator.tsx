@@ -1,3 +1,4 @@
+import { transcriptTurns } from './labTranscript'
 import { proseRuns, sliceJoinsPrevious } from './labPoetry'
 import { measureRowsState, paintRows, type MeasureRow } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
@@ -275,6 +276,18 @@ export interface LabLeafCapacity {
   leafHeight: number
 }
 
+/** Words the capacity probe measures: every word of a chapter up to this many. */
+export const LAB_CAPACITY_SAMPLE_WORDS = 4000
+
+/** The chapter's words, in order, up to LAB_CAPACITY_SAMPLE_WORDS. */
+export function labCapacitySample<T>(paragraphs: readonly (readonly T[])[], limit = LAB_CAPACITY_SAMPLE_WORDS): T[] {
+  const out: T[] = []
+  for (const words of paragraphs) {
+    for (const word of words) { if (out.length >= limit) return out; out.push(word) }
+  }
+  return out
+}
+
 export function measuredLeafCapacity(page: HTMLElement, probe: HTMLElement, words: number): LabLeafCapacity | null {
   const lineHeight = parseFloat(getComputedStyle(probe).lineHeight)
   const leafHeight = page.getBoundingClientRect().height
@@ -285,13 +298,15 @@ export function measuredLeafCapacity(page: HTMLElement, probe: HTMLElement, word
   return { wordsPerPage: Math.max(1, Math.round((words / lines) * linesPerLeaf)), leafHeight: Math.round(leafHeight) }
 }
 
-export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layoutKey, editionKey, chapterActions = false, hasNextChapter = false, pageLimit, onPages }: {
+export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layoutKey, editionKey, language, chapterActions = false, hasNextChapter = false, pageLimit, onPages }: {
   paragraphs: string[]; comparison?: string[]; chapterTitle: string; layoutKey: string
   chapterActions?: boolean; hasNextChapter?: boolean
   /** Bound a next-chapter opening measurement without truncating its source. */
   pageLimit?: number
   /** Reading edition, for the hyphenation patterns a page-edge break needs. */
   editionKey?: string
+  /** The book's language when the edition key does not name it (a reader's own book). */
+  language?: string
   onPages: (pages: ChapterHearingPage[], content: string[], key: string, capacity: LabLeafCapacity | null, endInFooter?: boolean) => void
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
@@ -299,7 +314,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
   callbackRef.current = onPages
   // Same two-pass arrangement as the phone reader: break between words until
   // the patterns land, then re-measure and fill the last lines.
-  const hyphenLang = hyphenLangForEdition(editionKey)
+  const hyphenLang = hyphenLangForEdition(editionKey, language)
   const [hyphensReady, setHyphensReady] = useState(() => (hyphenLang ? hyphenatorReady(hyphenLang) : false))
   useEffect(() => {
     if (!hyphenLang) { setHyphensReady(false); return }
@@ -404,6 +419,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
               p,
               segmentWordTexts(words[segment.paragraphIndex] || [], segment),
               { text: texts[segment.paragraphIndex], from: segment.from },
+              { turn: transcriptTurns(texts)?.get(segment.paragraphIndex) },
             )
           }
           const end = page.querySelector<HTMLElement>('.lab-chapter-end')
@@ -541,14 +557,17 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             }
             const capacityProbe = document.createElement('p')
             capacityProbe.className = 'lab-hearing-line'
-            labMeasureParagraphInto(capacityProbe, source.flat())
+            // A sample is enough for words per line, and a whole pasted book
+            // (~200k words) in one probe took ~26 s to lay out.
+            const sample = labCapacitySample(source)
+            labMeasureParagraphInto(capacityProbe, sample)
             // A paired measure row is a two-column grid; an unwrapped probe would
             // run the full spread width and claim twice the words per line.
             const capacityRow = document.createElement('div')
             capacityRow.className = 'lab-desktop-measure-row'
             capacityRow.append(capacityProbe)
             rows.replaceChildren(capacityRow)
-            const capacity = measuredLeafCapacity(page, capacityProbe, source.reduce((total, words) => total + words.length, 0))
+            const capacity = measuredLeafCapacity(page, capacityProbe, sample.length)
             rows.replaceChildren()
             callbackRef.current(pages, paragraphs, layoutKey, capacity, endInFooter)
           }

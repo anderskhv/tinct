@@ -112,6 +112,9 @@ function build() {
     ],
   }
 
+  // Each shelf's hub page (/read/shelf/{shelf}, scripts/seo/build-chapter-pages.mjs), where the build wrote one.
+  let shelfHubs = {}
+  try { shelfHubs = JSON.parse(fs.readFileSync(path.join(APP_DIR, 'src/data/chapterPages.generated.json'), 'utf8')).hubs || {} } catch { /* no hubs */ }
   const houseSections = houses.map(house => {
     const shelfBlocks = house.shelves
       .filter(shelfId => shelfBooks.has(shelfId))
@@ -126,7 +129,7 @@ function build() {
         </li>`
         }).join('\n')
         return `      <section class="shelf">
-        <h3 class="sub">${esc(shelf.title)}</h3>
+        <h3 class="sub">${shelfHubs[shelfId] === undefined ? esc(shelf.title) : `<a href="/read/shelf/${shelfId}">${esc(shelf.title)}</a>`}</h3>
         <p class="shelf-sub">${esc(shelf.sub)}</p>
         <ul class="books">
 ${lis}
@@ -171,14 +174,14 @@ ${lis}
   <meta property="og:type" content="website">
   <meta property="og:url" content="${canonical}">
   <meta property="og:site_name" content="Tinct">
-  <meta property="og:image" content="${ORIGIN}/og-image-v2.jpg">
+  <meta property="og:image" content="${ORIGIN}/og-image-v3.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(description)}">
-  <meta name="twitter:image" content="${ORIGIN}/og-image-v2.jpg">
+  <meta name="twitter:image" content="${ORIGIN}/og-image-v3.jpg">
 
   <script type="application/ld+json">
   ${JSON.stringify(breadcrumbLd, null, 2).split('\n').join('\n  ')}

@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { TALK_SPEED_STEPS, clampTalkSpeed } from './labTalkSpeed'
-import { VoiceControl, VoiceSpeedIcon } from './LabVoiceIcons'
+import { VoiceControl } from './LabVoiceIcons'
+import { LAB_CALL_COPY } from './labVoiceCall'
 
 /** "1×", "1.25×": the same label narration's speed control shows. */
 export function talkSpeedLabel(speed: number): string {
@@ -12,15 +13,15 @@ interface LabTalkSpeedControlProps {
   onChange: (speed: number) => void
   /** `lab-call` on the phone, `lab-voice-panel` in the desktop Talk window. */
   testIdPrefix: string
-  iconSize?: number
 }
 
 /**
- * Talk's speaking speed, beside Mute and End. It follows narration's speed
- * control: the button shows the current speed and opens a small popover;
- * here the popover offers the four steps inside xAI's documented range.
+ * Talk's speaking speed, between Mute and End. The disc shows the current
+ * speed as its figure, "Speed" sits under it like Mute's and End's words,
+ * and a tap opens a small popover with the four steps inside xAI's
+ * documented range.
  */
-export function LabTalkSpeedControl({ speed, onChange, testIdPrefix, iconSize = 24 }: LabTalkSpeedControlProps) {
+export function LabTalkSpeedControl({ speed, onChange, testIdPrefix }: LabTalkSpeedControlProps) {
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement | null>(null)
   const popoverId = `${useId()}-talk-speed`
@@ -45,9 +46,9 @@ export function LabTalkSpeedControl({ speed, onChange, testIdPrefix, iconSize = 
     >
       <VoiceControl
         testId={`${testIdPrefix}-speed`}
-        word={talkSpeedLabel(current)}
+        word={LAB_CALL_COPY.speed}
         label={`Playback speed ${current} times. Open speed control`}
-        icon={<VoiceSpeedIcon size={iconSize} />}
+        icon={<span className="lab-voice-control-figure">{talkSpeedLabel(current)}</span>}
         expanded={open}
         controls={popoverId}
         onClick={() => setOpen(value => !value)}

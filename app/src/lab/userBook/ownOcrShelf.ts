@@ -2,7 +2,7 @@
  * What My shelf says of a scanned own PDF whose text the account is
  * recognising (OCR, §3 of the PDF editions plan): "Recognising text…", from
  * the account's status (GET /api/user-books/ocr/{hex}, worker/routes/userBooks.ts).
- * The same words and states as Add a book's viewer (addbooks/web/src/js/pdf-ocr.js
+ * The same words and states as Add a book's viewer (public/lab/addbook/js/pdf-ocr.js
  * shelfLine). Recognition switched off (the route answers 404), a job done or
  * never started, or an account that cannot be asked: nothing.
  */

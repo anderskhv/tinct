@@ -12,13 +12,14 @@
  * `tinct-addbook`, this account's records only) and in the account
  * (`/api/user-books`), listed for My shelf, with the places read on the
  * account's other devices (`/api/user-books/places`). Nothing is uploaded here,
- * except Add a book's viewer saving a PDF's place (`pdfPlaces`). `rememberJustRead`
+ * except Add a book's viewer saving a PDF's place (`pdfPlaces`) and an EPUB's
+ * place read in Margin view (`epubPlaces`). `rememberJustRead`
  * names the book the viewer just read in this device's library snapshot (local only).
  */
 import { supabase } from './services/supabase'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './lab/labLibraryBoot'
 import { ownShelfSavedAt, type OwnShelfBook } from './lab/userBook/ownShelf'
-import { flushPdfPlaces, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
+import { flushOwnPlaces, flushPdfPlaces, noteEpubMarginPlace, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
 import { userBookId } from './lab/userBook/userBookId'
 import { bookCoverSrc } from '../public/lab/book-cover.js'
 import { ocrShelfLines } from './lab/userBook/ownOcrShelf'
@@ -89,18 +90,24 @@ export async function importWork(workId: string, options: { onStage?: (stage: 'd
 
 /**
  * Whether this account may add books (Premium or its 30-day trial; the Worker's
- * hasPremiumAccess). False signed out; null when it cannot be told.
+ * hasPremiumAccess). Only an authenticated entitlement response can deny access.
  */
 export async function canAdd(fetchImpl: typeof fetch = fetch): Promise<boolean | null> {
   const auth = await token()
-  if (!auth) return false
+  if (!auth) return null
+  // This is an advisory preflight; the upload endpoint checks access again.
+  // A stalled request must not leave the file/paste dialog disabled forever.
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 15_000)
   try {
-    const response = await fetchImpl('/api/public-books/import/access', { headers: { Authorization: `Bearer ${auth}` }, cache: 'no-store' })
-    if (!response.ok) return response.status === 401 ? false : null
+    const response = await fetchImpl('/api/public-books/import/access', { headers: { Authorization: `Bearer ${auth}` }, cache: 'no-store', signal: controller.signal })
+    if (!response.ok) return null
     const body = await response.json() as { canAdd?: unknown }
     return typeof body.canAdd === 'boolean' ? body.canAdd : null
   } catch {
     return null
+  } finally {
+    clearTimeout(timer)
   }
 }
 
@@ -200,6 +207,16 @@ export const pdfPlaces = {
 }
 
 /**
+ * An EPUB's place across the account's devices, for Add a book's viewer in Margin view (userBook/ownSync.ts
+ * noteEpubMarginPlace): each new place saved a moment later as the book's Tinct reader place, and anything
+ * waiting sent when the page is left.
+ */
+export const epubPlaces = {
+  note: (hex: string, now = false) => { void noteEpubMarginPlace(hex, { now }).catch(() => {}) },
+  flush: () => flushOwnPlaces(),
+}
+
+/**
  * The desktop viewer read an own book: it leads the library's first paint
  * (labLibraryBoot.ts, `withJustRead` in libraryTwoReading.ts), so Continue
  * opens it before the account's table arrives. This device's snapshot only;
@@ -216,4 +233,9 @@ export function rememberJustRead(input: { hex: string; title: string; chapterLab
   }))
 }
 
-;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget, pdfPlaces, rememberJustRead }
+export async function assessPdf(bytes: ArrayBuffer) {
+  const { assessPdfReadability } = await import('./lab/userBook/pdfReadability')
+  return assessPdfReadability(bytes)
+}
+
+;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { assessPdf, importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget, pdfPlaces, epubPlaces, rememberJustRead }

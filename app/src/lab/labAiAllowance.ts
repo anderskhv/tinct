@@ -144,8 +144,11 @@ export async function fetchAiAllowance(token: string, fetchImpl: FetchLike = fet
 
 /** Opens the top-up checkout; resolves to the Stripe URL, or null. */
 export async function startTopUpCheckout(token: string, pack: TopUpPack, fetchImpl: FetchLike = fetch): Promise<string | null> {
+  const abort = new AbortController()
+  const timeout = setTimeout(() => abort.abort(), 12_000)
   try {
     const response = await fetchImpl(apiUrl('/api/create-checkout'), {
+      signal: abort.signal,
       method: 'POST',
       headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ type: pack }),
@@ -155,5 +158,34 @@ export async function startTopUpCheckout(token: string, pack: TopUpPack, fetchIm
     return typeof data.url === 'string' && data.url.startsWith('https://') ? data.url : null
   } catch {
     return null
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
+/** Refresh an open balance after a purchase on another device, without background polling. */
+export function watchAiAllowance(token: () => string, changed: (value: AiAllowance) => void): () => void {
+  let stopped = false
+  let pending = false
+  let last = 0
+  const refresh = async () => {
+    if (stopped || pending || document.visibilityState === 'hidden' || Date.now() - last < 5000) return
+    pending = true
+    last = Date.now()
+    const currentToken = token()
+    try {
+      const value = await fetchAiAllowance(currentToken)
+      if (!stopped && currentToken === token() && value) changed(value)
+    } finally { pending = false }
+  }
+  window.addEventListener('focus', refresh)
+  document.addEventListener('visibilitychange', refresh)
+  const timer = setInterval(refresh, 30_000)
+  void refresh()
+  return () => {
+    stopped = true
+    clearInterval(timer)
+    window.removeEventListener('focus', refresh)
+    document.removeEventListener('visibilitychange', refresh)
   }
 }

@@ -1,6 +1,6 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
 import { bookshelfMarkup } from './bookshelf-template.js?v=20260928f';
-import { bindingFor } from './reading-table.js?v=20261020open';
+import { bindingFor } from './reading-table.js?v=20261120young';
 import { bookCoverSrc, ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009owncover';
 import { shortTitle } from '../book-title.js?v=20261009owncover';
 import { recordRects, playFlip } from './shelf-motion.js?v=20261009cover';
@@ -82,7 +82,7 @@ function updateSelection(){
  $('previous-book').disabled=$('next-book').disabled=shelves[shelf].length<2;
  $('row-status').parentElement.hidden=row.total<=1;
  $('browse-shelf').hidden=shelves[shelf].length<=capacity[shelf];
- $('row-status').textContent=row.total?`Row ${row.index+1} of ${row.total}`:'No books yet';
+ $('row-status').textContent=row.total?`${row.start+1}–${row.start+row.items.length} of ${shelves[shelf].length} books`:'No books yet';
  $('previous-row').disabled=row.index===0;$('next-row').disabled=row.index>=row.total-1;
  $('browse-shelf').textContent=`All ${shelves[shelf].length} books`;
  onSelection?.({shelf,view,chosen:{...chosen}});

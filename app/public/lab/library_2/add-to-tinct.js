@@ -6,12 +6,19 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261009rel10';
+import {putHandoff,HANDOFF_PARAM,clearPasteHandoff} from '../addbook/js/file-handoff.js?v=20261109bulk';
 import {normalize,includedWork,altTitlesFor,cleanName} from '../addbook/js/search.js?v=20261009rel10';
-import {eraLabel} from './book-metadata.js?v=20261009rel10';
+import {eraLabel} from './book-metadata.js?v=20261120young';
 import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
+import {sharedReaderEnabled} from '../shared-reader-activation.js?v=20261023activate';
+import {addEngine,loadFileEngine,pasteTooLong,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink,isFileLink,importFile} from './own-add.js?v=20261111link';
+import {pasteBox} from './paste-box.js?v=20261109add3';
+import {htmlText} from './paste-text.js?v=20261109add3';
+import {createQueue,prepareQueuedFile,isTextFile,QUEUE_COPY} from './own-queue.js?v=20261109add3';
+import {ADD_TITLE,LINK_COPY,choiceList,filesRoute,linkForm,backButton} from './add-choices.js?v=20261109add3';
+export {addEngine,loadFileEngine};
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
 export const signedIn=()=>document.documentElement.classList.contains('signed-in');
@@ -20,10 +27,15 @@ export const enabled=()=>addToTinctEnabled(undefined,signedIn());
 export const MY_SHELF_URL='/library#my-shelf';
 /** A file entry's link (the search field's +, "Add a PDF or EPUB"): My shelf, for a click the pop-up does not take. */
 export const ADD_FILE_PAGE=MY_SHELF_URL;
+/** The page about reading your own books (the library's "Read your own books" band, signed out). */
+export const OWN_BOOKS_PAGE='/byob';
 /** Only when this browser cannot keep the file itself: Add a book's PDF reader takes it (file-handoff.js) and opens it unkept. */
 export const ADD_FILE_HANDOFF_PAGE=`/lab/addbook/?mode=file&${HANDOFF_PARAM}=1`;
 /** Signed out (an internal device): sign in, then back to My shelf. */
 export const SIGN_IN_FOR_FILE=`/sign-in?returnTo=${encodeURIComponent(MY_SHELF_URL)}`;
+const pasteEnabled=()=>sharedReaderEnabled(location.search);
+const pasteShelf=()=>'/library?sharedReader=1#my-shelf';
+const signInForEntry=()=>pasteEnabled()?`/sign-in?returnTo=${encodeURIComponent(pasteShelf())}`:SIGN_IN_FOR_FILE;
 /** The add a signed-out reader asked for resumes here after sign-in. */
 export const ADD_PARAM='add';
 
@@ -92,21 +104,22 @@ export function linkedPublicBook(){
  try{const id=new URLSearchParams(location.search).get('book')||location.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/)?.[1]||null;return isPublicBookId(id)?id:null;}catch{return null;}
 }
 
-// ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261014talkwake';let engine=null;
-export function addEngine(){
- if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
- engine.catch(()=>{engine=null;});
- return engine;
-}
+// ---- The engine (import, own books): own-add.js addEngine ----
 
 // ---- Premium: adding books (Add, a PDF or EPUB) is Premium or the 30-day trial (Anders, 2026-10-07) ----
 /** The account page with its Premium offer: where a free account's Add and file entries lead. */
 export const PREMIUM_PAGE=`/sign-in?mode=account&returnTo=${encodeURIComponent('/library')}`;
+const premiumForEntry=()=>pasteEnabled()?`/sign-in?mode=account&returnTo=${encodeURIComponent(pasteShelf())}`:PREMIUM_PAGE;
 let access=null;
 /** Whether this account may add books: true, false, or null when it cannot be told (asked once per account). */
-export function canAdd(){
- if(!access){access=addEngine().then(api=>api.canAdd?api.canAdd():null).catch(()=>null);access.then(value=>{if(value===null)access=null;});}
+export function canAdd(load=addEngine){
+ if(!access){
+  const pending=load().then(api=>api.canAdd?api.canAdd():null).catch(()=>null);
+  access=pending;
+  // A cold/expired session or a recently upgraded account must get a fresh
+  // entitlement check on its next click, not a page-long cached denial.
+  pending.then(value=>{if(value!==true&&access===pending)access=null;});
+ }
  return access;
 }
 /** Forget the answer (the reader signed in or out). */
@@ -117,49 +130,52 @@ export function resetAddAccess(){access=null;}
 // confirmation asked once per account (the same recorded confirmation), kept in this browser,
 // saved privately to the account, then the book opens: an EPUB in the Tinct reader, a PDF in
 // Add a book's PDF reader. Nothing goes through Add a book's page.
-const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. When you ask Tinct’s reading companion about it, its text is sent to answer. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',close:'Close',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
+// "Add your own" (approved mockup, Anders 9 Nov 2026): three equal choices, Upload, Insert link and Paste text
+// (add-choices.js), and nothing else on the first step.
+const OWN_BOOK_COPY={title:ADD_TITLE,close:'Close',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
 // Both the extensions and the types: iOS Files greys an EPUB out when only a type it does not map is
 // named. No spaces: Android's WebView hands each piece to the picker untrimmed. On Android some file
 // managers and cloud apps report an EPUB as application/octet-stream, which the picker would grey out,
 // so it is named there too; the engine then decides by the file's own bytes (add-engine.js readFile).
-export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
+export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub,text/plain,.txt';
 export const FILE_ACCEPT_ANDROID=FILE_ACCEPT+',application/octet-stream';
 export const fileAccept=(ua=globalThis.navigator?.userAgent||'')=>/\bAndroid\b/i.test(ua)?FILE_ACCEPT_ANDROID:FILE_ACCEPT;
-const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261019batch'];
-function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
-let fileEngine=null;
-/** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */
-export function loadFileEngine(load=loadScript){
- if(window.TinctAddEngine&&window.TinctAI&&window.TinctEpub)return Promise.resolve(window.TinctAddEngine);
- if(!fileEngine){fileEngine=Promise.all(FILE_ENGINE.map(src=>load(src))).then(()=>{if(!window.TinctAddEngine)throw new Error('add engine unavailable');return window.TinctAddEngine;});fileEngine.catch(()=>{fileEngine=null;});}
- return fileEngine;
-}
+// Add a book's engine on this page: own-add.js loadFileEngine.
 let openDialog=null;
-/** Close the pop-up (if open), focus back on what opened it. */
+/**
+ * Several files chosen or dropped at once (9 Nov 2026): their queue (own-queue.js), kept while the pop-up
+ * is closed, so the reader can go on using the page and see it again from any +. {queue, done, draw}.
+ */
+let batch=null;
+/** Close the pop-up (if open), focus back on what opened it. A queue still running carries on. */
 export function closeFileDialog(){
  if(!openDialog)return;
  const {layer,from,onKey}=openDialog;openDialog=null;
+ if(batch){batch.draw=null;if(batch.done)batch=null;}
  removeEventListener('keydown',onKey,true);layer.remove();from?.focus?.({preventScroll:true});
 }
+/** The queue, for tests and the page: its items ({name, status, reason, note, key}) or null. */
+export const ownQueue=()=>batch?.queue?.items||null;
 const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
 const button=(cls,text)=>{const b=make('button',cls,text);b.type='button';return b;};
 /**
- * The "Your own book" pop-up: one button for the file and a × to close (Anders, 15 Oct 2026);
- * `onSearch` is still accepted from the + buttons but no longer shown. A chosen file
+ * The "Add your own" pop-up: Upload, Insert link and Paste text, and a × to close (Anders, 9 Nov 2026);
+ * `onSearch` is still accepted from the + buttons but no longer shown. A chosen file, link or text
  * is added in the pop-up, with its progress there; `go` then opens the book.
  */
-export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE}={}){
+export function openFileDialog({from=null,onSearch=null,checking=false,authorize=async()=>true,assessPdf=bytes=>addEngine().then(api=>api.assessPdf?.(bytes)),engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE,showShelf=showMyShelf}={}){
  closeFileDialog();
  // Tinct UI's dialog (/lab/tinct-ui.css, docs/design-system.md) in the library's dark room.
  const layer=make('div','tui-scrim own-file-layer');layer.dataset.testid='own-file-dialog';layer.dataset.tuiTheme='dark';
- const box=make('div','tui-dialog own-file-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-file-title');
+ const box=make('div','tui-dialog own-file-dialog add-own');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-file-title');
  const title=make('h2','tui-dialog__title',OWN_BOOK_COPY.title);title.id='own-file-title';
  const head=make('div','tui-dialog__head');head.append(title);
  // Closed with the × (Tinct UI's .tui-close), not a Cancel button (Anders, 15 Oct 2026).
  const close=button('tui-close own-file-close','');close.setAttribute('aria-label',OWN_BOOK_COPY.close);
  close.innerHTML='<svg viewBox="0 0 14 14" aria-hidden="true"><path d="m3 3 8 8M11 3l-8 8"/></svg>';
  close.onclick=()=>{if(!box.dataset.busy)closeFileDialog();};head.append(close);
- const input=make('input');input.type='file';input.accept=fileAccept();input.hidden=true;input.className='own-file-input';
+ // Several at once (9 Nov 2026): one file keeps the one-file path below exactly; more go to the queue.
+ const input=make('input');input.type='file';input.accept=fileAccept();input.multiple=true;input.hidden=true;input.className='own-file-input';
  const content=make('div','own-file-content');
  box.append(head,content,input);layer.append(box);document.body.append(layer);
  // While a file is being added, the pop-up stays until the book opens.
@@ -172,17 +188,27 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  api().catch(()=>{});
  const step=(name,...children)=>{box.dataset.step=name;content.replaceChildren(...children);};
  const actions=(...list)=>{const row=make('div','tui-dialog__actions own-file-actions');row.append(...list);return row;};
+ let pastePending=null,pasteDraft=null;
+ // The back chevron before the title (Insert link, Paste text), or none.
+ let back=null;
+ const setBack=onBack=>{back?.remove();back=onBack?backButton(onBack):null;if(back)head.prepend(back);};
+ // The plain heading ("Add your own"), as before the Paste window made the title the heading.
+ const plainHead=(text=OWN_BOOK_COPY.title)=>{setBack(null);box.classList.remove('paste-dialog');title.className='tui-dialog__title';delete title.dataset.empty;title.textContent=text;};
+ // The three choices and nothing else (Anders, 9 Nov 2026); the × in the head closes. Insert link and Paste
+ // text go through the shared reader's pasted-text path, so they are offered where it is on.
  const chooseStep=(message='')=>{
   delete box.dataset.busy;
-  const choose=button('tui-btn tui-btn--primary own-file-choose',OWN_BOOK_COPY.choose);
-  // The picker opens on this tap (browsers allow a file picker only from a user's own click).
-  choose.onclick=()=>input.click();
-  // Only the file button; the × in the head closes (Anders, 15 Oct 2026).
-  const row=actions(choose);
-  const parts=[make('p','tui-dialog__body own-file-lede',OWN_BOOK_COPY.lede),make('p','tui-dialog__fine own-file-fine',OWN_BOOK_COPY.fine)];
-  if(message){const alert=make('p','tui-dialog__body own-file-message',message);alert.setAttribute('role','alert');parts.unshift(alert);}
-  step('choose',...parts,row);
-  choose.focus({preventScroll:true});
+  plainHead();
+  const parts=[];
+  if(message){const alert=make('p','tui-dialog__body own-file-message',message);alert.setAttribute('role','alert');parts.push(alert);}
+  parts.push(choiceList({
+   // The picker opens on this tap (browsers allow a file picker only from a user's own click).
+   upload:()=>input.click(),
+   link:pasteEnabled()?()=>{linkDraft=null;linkStep();}:null,
+   paste:pasteEnabled()?()=>{pasteDraft=null;pasteStep();}:null,
+  }));
+  step('choose',...parts);
+  content.querySelector('.add-choice')?.focus({preventScroll:true});
  };
  const progress=value=>{
   box.dataset.busy='1';
@@ -209,7 +235,115 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
   step('rights',intro,label,actions(no,ok));
   check.focus({preventScroll:true});
  });
- async function addFile(file){
+ // A text or an imported article as the EPUB that is added (own-add.js), then the reader. The file and any
+ // confirmed account copy are reused on a retry of the same text. `retry(message)` shows the step again.
+ async function addPasted(details,{fromHandoff=false,retry}){
+  const signature=JSON.stringify(details);
+  try{if(pastePending?.signature!==signature)pastePending={signature,file:pasteBook(details),account:null};}
+  catch(error){retry(error.message);return;}
+  const file=pastePending.file;
+  progress(.08);
+  try{
+   const engineApi=await api();
+   const added=await savePastedText(engineApi,file,{title:details.title,author:details.author,account:pastePending.account,progress,onAccount:account=>{pastePending.account=account;}});
+   if(fromHandoff)await clearPasteHandoff();
+   noteAdded(added.key);go(added.href);
+  }catch(error){retry(error?.message||'This text could not be added. Try again.');}
+ }
+ // Insert link (approved mockup, 9 Nov 2026): a back chevron, one field "Link to an article" and Add. The
+ // article is fetched once by Tinct's server (own-add.js draftFromLink) and added as pasted text is. On a
+ // failure the step comes back with the reason and the link still in the field.
+ let linkDraft=null;
+ function linkStep(message='',value=linkDraft?.url||''){
+  delete box.dataset.busy;
+  plainHead(LINK_COPY.title);setBack(()=>{linkDraft=null;chooseStep();});
+  const form=linkForm({value,message,onSubmit:url=>void addLink(url),buttonClass:'tui-btn tui-btn--primary',inputClass:'tui-input',actionsClass:'tui-dialog__actions'});
+  step('link',form.el);
+  form.focus();
+ }
+ let linking=false;
+ async function addLink(url){
+  if(linking)return;
+  linking=true;
+  const again=message=>{linking=false;linkStep(message,url);};
+  content.querySelector('.add-link__add')?.setAttribute('disabled','');
+  if(!await authorize()||!layer.isConnected){linking=false;if(layer.isConnected)linkStep('',url);return;}
+  linkDraft={...linkDraft,url};
+  plainHead(LINK_COPY.title);
+  progress(.05);
+  let host='';try{host=new URL(url).hostname.replace(/^www\./,'');}catch{/* checked by the server */}
+  note(`Importing the article from ${host}…`);
+  let article;
+  try{await api();article=await draftFromLink({url,title:linkDraft?.title||'',uid:linkDraft?.uid||''});}
+  catch(error){
+   // A link to a PDF or EPUB (Anders, 11 Nov 2026): the file is fetched once and added as a chosen file is,
+   // the rights step included; on a failure the link step comes back with the reason.
+   if(isFileLink(error)){
+    note(`Downloading the file from ${host}…`);
+    let file;try{file=await importFile(url);}catch(failed){again(failed?.message||'Tinct could not open this file. Download it and add it instead.');return;}
+    linking=false;
+    if(linkDraft?.fromHandoff)await clearPasteHandoff().catch(()=>{});
+    await addFile(file,{authorized:true});
+    return;
+   }
+   again(error?.message||'Tinct could not import this page. Paste the article text instead.');return;
+  }
+  const tooLong=pasteTooLong(htmlText(article.html),{imported:true});
+  if(tooLong){again(tooLong);return;}
+  await addPasted({html:article.html,title:article.title||'Pasted text',author:article.author,uid:linkDraft?.uid||'',source:article.source},{fromHandoff:!!linkDraft?.fromHandoff,retry:again});
+ }
+ // The slim Paste window (approved mockup 01, 5 Nov 2026): the title is the heading, edited in place;
+ // the byline and word count under it; the cleaned text in the box (paste-box.js); one Add button and,
+ // since 9 Nov 2026, a back chevron to the three choices instead of "Choose a file instead". A link pasted
+ // alone goes to Insert link. No rights step for pasted text. The draft lives only in the dialog
+ // (and, from /byob, in this browser's handoff until it is added).
+ function pasteStep(message=''){
+  delete box.dataset.busy;
+  setBack(null);
+  box.classList.add('paste-dialog');
+  const paste=pasteBox({heading:title,placeholder:'Paste text',onLink:url=>{linkDraft={uid:pasteDraft?.uid||'',fromHandoff:!!pasteDraft?.fromHandoff};linkStep('',url);}});
+  setBack(()=>{pasteDraft=null;chooseStep();});
+  const alert=make('p','own-paste-error',message);alert.setAttribute('role','alert');
+  const save=button('tui-btn tui-btn--primary tui-btn--lg own-paste-save','Add');
+  const sync=()=>{save.disabled=paste.empty()||save.dataset.busy==='1';};
+  paste.onChange(()=>{alert.textContent='';sync();});
+  save.onclick=async()=>{
+   if(save.disabled)return;
+   let draft=paste.read();
+   // A link typed into the box: imported as Insert link imports it.
+   if(draft.url){linkDraft={uid:pasteDraft?.uid||'',title:draft.title,fromHandoff:!!pasteDraft?.fromHandoff};void addLink(draft.url);return;}
+   save.dataset.busy='1';sync();
+   const release=()=>{delete save.dataset.busy;sync();};
+   if(!await authorize()||!layer.isConnected){release();return;}
+   pasteDraft={...pasteDraft,...draft};
+   const tooLong=pasteTooLong(draft.text);if(tooLong){alert.textContent=tooLong;release();return;}
+   const details={html:draft.html,title:draft.title||'Pasted text',author:draft.author,uid:pasteDraft?.uid||'',source:''};
+   paste.title.contentEditable='false';
+   await addPasted(details,{fromHandoff:!!pasteDraft?.fromHandoff,retry:text=>{box.classList.remove('paste-dialog');pasteStep(text);}});
+  };
+  const row=actions(save);row.classList.add('paste-actions');
+  step('paste',paste.wrap,alert,row);
+  content.prepend(paste.meta);
+  if(pasteDraft?.plain!==undefined)paste.showPasted(pasteDraft.plain,pasteDraft.title);
+  else if(pasteDraft)paste.restore(pasteDraft);
+  if(pasteDraft?.plain!==undefined)pasteDraft={uid:pasteDraft.uid,...paste.read()};
+  sync();
+  if(message)alert.textContent=message;
+  paste.focus();
+ }
+ async function addFile(file,{authorized=false}={}){
+  if(!authorized&&!await authorize()||!layer.isConnected)return;
+  if (/\.txt$/i.test(file.name) || file.type === 'text/plain') {
+   if (file.size > 50 * 1024 * 1024) { chooseStep('This text file exceeds the 50 MB limit.'); return; }
+   try {
+    const text = await file.text();
+    if (!text.trim()) throw new Error('This text file is empty.');
+    pasteDraft = { plain: text, title: file.name.replace(/\.txt$/i, '') };
+    pasteStep();
+   } catch (error) { chooseStep(error?.message || 'This text file could not be read.'); }
+   return;
+  }
+  plainHead();
   progress(.08);
   let engineApi;
   try{engineApi=await api();}catch{chooseStep(OWN_BOOK_COPY.failed);return;}
@@ -217,29 +351,133 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
   if(read.error){chooseStep(read.error);return;}
   if(!engineApi.rightsConfirmed()&&!await confirmRights(engineApi,file.name))return;
   progress(.3);
-  const kept=await engineApi.keepFile(file,read);
-  // Unkept (storage full or blocked): Add a book's PDF reader takes the file and opens it unkept, as before.
-  if(!kept){note(OWN_BOOK_COPY.unkept);go(await keep(file)?fallback:MY_SHELF_URL);return;}
-  progress(.6);
   try{
-   const opened=read.kind==='epub'?await engineApi.prepareEpub(read.bytes,file.name,read.key,file,{notify:note}):await engineApi.preparePdf(file,read.key,{notify:note});
-   progress(1);
+   const {kept,opened}=await keepOwnFile(engineApi,file,read,{notify:note,progress});
+   // Unkept (storage full or blocked): Add a book's PDF reader takes the file and opens it unkept, as before.
+   if(!kept){note(OWN_BOOK_COPY.unkept);go(await keep(file)?fallback:MY_SHELF_URL);return;}
+   noteAdded(read.key);
+   if(read.kind==='pdf'){
+    delete box.dataset.busy;
+    const original=button('tui-btn tui-btn--secondary','Open original PDF');
+    let left=false;original.onclick=()=>{left=true;go(opened.href);};
+    const message=make('p','tui-dialog__body','Checking a few pages for reading comfort…');
+    const choices=actions(original);step('pdf-ready',message,choices);
+    let assessment;try{assessment=await assessPdf(read.bytes);}catch{assessment=null;}
+    if(left||!layer.isConnected)return;
+    if(assessment?.recommend){
+     message.textContent=assessment.reason==='scan'?'This PDF uses scanned pages. A Tinct text version may be easier to read. Your original PDF will stay available.':'This PDF has small or dense text. A Tinct text version lets the words fit your screen. Your original PDF will stay available.';
+     const convert=button('tui-btn tui-btn--primary','Convert to Tinct');
+     convert.onclick=()=>{if(left)return;left=true;go('/reader?userBook='+encodeURIComponent(read.key.slice(4))+'&sharedReader=1&convert=1');};
+     choices.prepend(convert);return;
+    }
+   }
    go(opened.href);
   }catch(error){chooseStep(error?.message||OWN_BOOK_COPY.failed);}
  }
- input.onchange=()=>{const file=input.files?.[0];input.value='';if(file)void addFile(file);};
- chooseStep();
+ // A queue already running takes more at its end; else one file is the one-file path, several the queue.
+ function takeFiles(list){
+  const files=[...(list||[])].filter(Boolean);if(!files.length)return;
+  if(batch?.queue&&!batch.done){batch.queue.add(files);return;}
+  if(box.dataset.busy)return;
+  if(filesRoute(files)==='one')void addFile(files[0]);else void addFiles(files);
+ }
+ input.onchange=()=>{const files=[...(input.files||[])];input.value='';takeFiles(files);};
+ // Files dropped anywhere on the pop-up (a desktop), as on the signed-out sheet (own-start.js); no line says so.
+ const dragging=event=>[...(event.dataTransfer?.types||[])].includes('Files');
+ const dropReady=()=>box.dataset.step==='choose'||box.dataset.step==='link'||box.dataset.step==='queue'&&!batch?.done;
+ for(const type of ['dragenter','dragover'])box.addEventListener(type,event=>{if(!dragging(event)||!dropReady())return;event.preventDefault();box.classList.add('is-over');});
+ for(const type of ['dragleave','drop'])box.addEventListener(type,()=>box.classList.remove('is-over'));
+ box.addEventListener('drop',event=>{if(!event.dataTransfer?.files?.length||!dropReady())return;event.preventDefault();takeFiles(event.dataTransfer.files);});
+ // The queue in the pop-up: a compact list (name, then its status or the reason it failed) and the
+ // pop-up's own hairline for the whole batch. Not busy: the × closes it and the queue carries on.
+ const queueList=make('ol','own-queue');queueList.setAttribute('aria-live','polite');
+ const queueBar=make('span','own-file-progress');queueBar.setAttribute('aria-hidden','true');queueBar.append(make('i'));
+ const queueFine=make('p','tui-dialog__fine own-queue-fine');
+ function drawQueue(){
+  if(!batch?.queue||!layer.isConnected)return;
+  const items=batch.queue.items;
+  if(box.dataset.step!=='queue'){delete box.dataset.busy;plainHead();queueList.replaceChildren();step('queue',queueList,queueBar,queueFine);}
+  const added=items.filter(item=>item.status==='ready').length;
+  title.textContent=batch.done?`Added ${added} of ${items.length} ${items.length===1?'book':'books'}`:`Adding ${items.length} books`;
+  while(queueList.children.length<items.length){
+   const row=make('li','own-queue__item');row.append(make('span','own-queue__name'),make('span','own-queue__status'));queueList.append(row);
+  }
+  items.forEach((item,index)=>{
+   const row=queueList.children[index],name=row.firstChild,status=row.lastChild;
+   if(name.textContent!==item.name){name.textContent=item.name;name.title=item.name;}
+   if(row.dataset.status!==item.status){
+    row.dataset.status=item.status;
+    if(item.status==='preparing'){const ring=globalThis.TinctWait?.waitRing('',{size:13,live:false,delayMs:0});status.replaceChildren(...(ring?[ring]:[]),make('span','',QUEUE_COPY.preparing));}
+    else status.textContent=item.status==='ready'?QUEUE_COPY.ready:item.status==='waiting'?QUEUE_COPY.waiting:item.reason;
+   }
+   if(item.status==='ready'&&item.note&&status.textContent!==`${QUEUE_COPY.ready}. ${item.note}`)status.textContent=`${QUEUE_COPY.ready}. ${item.note}`;
+  });
+  const done=items.reduce((sum,item)=>sum+(item.status==='waiting'?0:item.status==='preparing'?item.progress:1),0);
+  const value=items.length?done/items.length:0;
+  queueBar.style.setProperty('--p',String(value));queueBar.dataset.value=String(value);
+  queueBar.hidden=batch.done;
+  queueFine.textContent=batch.done?'':'You can close this. Each book goes to My shelf as soon as it is ready.';
+ }
+ async function addFiles(files,{rights=false}={}){
+  if(!await authorize()||!layer.isConnected)return;
+  let engineApi;
+  try{engineApi=await api();}catch{chooseStep(OWN_BOOK_COPY.failed);return;}
+  // The rights confirmation, once for the whole batch (none for text files, as for pasted text).
+  if(rights&&!engineApi.rightsConfirmed())engineApi.confirmRights();
+  if(files.some(file=>!isTextFile(file))&&!engineApi.rightsConfirmed()&&!await confirmRights(engineApi,`${files.length} files`))return;
+  if(!layer.isConnected)return;
+  if(batch?.queue&&!batch.done){batch.queue.add(files);return;}
+  const seen=new Set();
+  const still=async()=>signedIn()&&await authorize();
+  batch={done:false,draw:drawQueue,queue:null};
+  const current=batch;
+  current.queue=createQueue(files,{
+   prepare:(file,{progress})=>prepareQueuedFile(engineApi,file,{seen,authorize:still,progress}),
+   onChange:(_items,item)=>{if(item?.status==='ready'&&item.key)dispatchEvent(new CustomEvent('library2:own-added',{detail:{key:item.key}}));current.draw?.();},
+   onSettled:items=>{
+    current.done=true;
+    showShelf();
+    // All added: the pop-up goes and My shelf shows them. Otherwise the list stays (or comes back) with each reason.
+    if(items.every(item=>item.status==='ready')){if(current.draw)closeFileDialog();if(batch===current)batch=null;return;}
+    if(current.draw)current.draw();else if(batch===current)openFileDialog({go,engine,showShelf});
+   },
+  });
+  drawQueue();
+ }
+ if(batch){batch.draw=drawQueue;drawQueue();}
+ else if(checking) step('checking',make('p','tui-dialog__body','Checking your account…'));
+ else chooseStep();
+ layer.showReady=chooseStep;
  layer.addFile=addFile;
+ // Several files (from /byob or the signed-out sheet via /preparing): `rights` when the line was shown there.
+ layer.addFiles=(files,options)=>{const list=[...(files||[])].filter(Boolean);if(!list.length)return;return list.length===1?addFile(list[0]):addFiles(list,options);};
+ // A kept text (from /byob or the signed-out sheet) shown again; a kept link in Insert link.
+ layer.showPaste=(draft=null)=>{
+  if(!pasteEnabled())return;
+  if(draft?.url){pasteDraft=null;linkDraft={url:draft.url,title:draft.title||'',uid:draft.uid||'',fromHandoff:true};linkStep();return;}
+  pasteDraft=draft?{...draft,fromHandoff:true}:null;pasteStep();
+ };
+ layer.showLink=(url='')=>{if(!pasteEnabled())return;linkDraft=url?{url}:null;linkStep();};
  return layer;
 }
+/** After a batch: My shelf on this page (app.js listens), not a book. */
+export function showMyShelf(){dispatchEvent(new Event('library2:my-shelf'));}
 /**
  * A file entry (the search field's +, "Add a PDF or EPUB", the top bar's and My shelf's +):
  * for Premium and trial, the "Your own book" pop-up (signed in) or sign-in first (an internal
  * device signed out), the Premium offer for a free account, exactly as before.
  */
 export async function openFileEntry(from,{access=canAdd,go=href=>location.assign(href),...options}={}){
- if((await access())===false){go(PREMIUM_PAGE);return null;}
- if(!signedIn()){go(SIGN_IN_FOR_FILE);return null;}
+ const permission=Promise.resolve().then(()=>access());
+ // Choosing a local file can overlap the entitlement request. Reading/importing
+ // it still waits for that request, and the authenticated API remains authoritative.
+ const pending=signedIn()?openFileDialog({from,go,...options,authorize:async()=>await permission!==false&&signedIn()}):null;
+ const allowed=await permission;
+ // Closing the dialog while the account check runs cancels this opening.
+ if(pending&&!pending.isConnected)return null;
+ if(allowed===false){if(pending)closeFileDialog();go(premiumForEntry());return null;}
+ if(!signedIn()){if(pending)closeFileDialog();go(signInForEntry());return null;}
+ if(pending)return pending;
  return openFileDialog({from,go,...options});
 }
 function fileEntry(link){
@@ -781,14 +1019,14 @@ export const ownPercentLabel=p=>typeof p!=='number'||!Number.isFinite(p)?'':p>0&
  * `actions`: the menu's other items, above Delete (`{label,onChoose(book,more)}`: Currently
  * reading's Read later and Remove from Currently reading).
  */
-export function ownBookCard(book,el,{onRemove=null,onDelete=null,actions=[],cover=null,progress=false}={}){
+export function ownBookCard(book,el,{onRemove=null,onDelete=null,onEdit=null,actions=[],cover=null,progress=false}={}){
  const card=el('article','collection-card own-book');card.dataset.shelfGroup='own';card.dataset.ownKey=book.key;
  const open=el('a','book-card cover-button own-cover');open.href=book.href;open.setAttribute('aria-label',`Open ${book.title}${book.author?', by '+book.author:''}`);
  open.append(ownCoverElement(cover?{...book,cover}:book));
  let face=open;
  if(onDelete){
   face=el('div','card-wrap');
-  const items=[...actions.map(a=>({label:a.label,onChoose:from=>a.onChoose(book,from)})),{label:shelfAction(true).item,danger:true,onChoose:from=>onDelete(book,from)}];
+  const items=[...actions.map(a=>({label:a.label,onChoose:from=>a.onChoose(book,from)})),...(onEdit&&pasteEnabled()?[{label:'Edit title and author',onChoose:from=>onEdit(book,from)}]:[]),{label:shelfAction(true).item,danger:true,onChoose:from=>onDelete(book,from)}];
   face.append(open,shelfMenu(book.title,{own:true,items}));
  }else if(onRemove){
   face=el('div','card-wrap');
@@ -822,7 +1060,7 @@ export const ownTableId=key=>'userbook-'+String(key||'').replace(/^(epub|pdf):/,
  * the + beside My shelf's heading. Returns how many cards were added. `currentlyReading: false`:
  * the library's My shelf, whose Currently reading is the reading table's list (own books in it).
  */
-export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,covers=null,currentlyReading=true}={}){
+export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,onEdit=null,covers=null,currentlyReading=true}={}){
  const {reading,own}=ownShelfGroups(list);let added=0;
  const coverFor=book=>covers?.get?.(ownTableId(book.key))||null;
  if(currentlyReading&&reading.length){
@@ -832,7 +1070,7 @@ export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,
  }
  if(own.length){
   grid.append(el('h2','my-books-head',PRIVATE_UPLOADS));
-  for(const book of own){grid.append(ownBookCard(book,el,{onDelete,cover:coverFor(book)}));added++;}
+  for(const book of own){grid.append(ownBookCard(book,el,{onDelete,onEdit,cover:coverFor(book)}));added++;}
  }
  return added;
 }
@@ -966,13 +1204,80 @@ export function confirmDeleteUpload(book,{from=null,own=true}={}){
  * (forgetOwnBookHere). Other books' places are never touched. Resolves true when it is
  * gone from both.
  */
+// The file engine loads tinct-api.js lazily on a cold Library page. Read the
+// same Supabase session it will expose, so installing the bridge is not mistaken
+// for an account change. This is an identity check, never a separate auth source.
+function deleteSession(){
+ const bridged=globalThis.TinctAI?.session?.();
+ if(bridged)return {userId:bridged.userId??null,token:bridged.token??null};
+ try{
+  for(let i=0;i<localStorage.length;i++){
+   const key=localStorage.key(i);
+   if(!/^sb-.*-auth-token$/.test(key))continue;
+   const value=JSON.parse(localStorage.getItem(key)||'null');
+   const session=value&&(value.currentSession||value);
+   if(!session?.access_token)continue;
+   const expired=session.expires_at&&session.expires_at*1000<Date.now()+30000;
+   return {userId:session.user?.id||null,token:expired?null:session.access_token};
+  }
+ }catch{}
+ return {userId:null,token:null};
+}
 export async function deleteUpload(book,{engine=loadFileEngine,storages=null}={}){
+ const initiating=deleteSession();
+ const userId=initiating.userId,token=initiating.token;
+ const sameSession=()=>{
+  const current=deleteSession();
+  return current.userId===userId&&current.token===token;
+ };
  const api=await engine();
+ if(!sameSession())return false;
  // An account copy not on this device is found by the account's list.
- if(!(await api.library.get(book.key)))await api.cloud.refresh();
+ const local=await api.library.get(book.key);
+ if(!sameSession())return false;
+ if(!local){await api.cloud.refresh();if(!sameSession())return false;}
  const gone=await api.removeBook(book.key);
- forgetOwnBookHere(String(book.key||'').replace(/^(epub|pdf):/,''),storages||undefined);
+ if(!sameSession())return false;
+ // Engine already removed the verified local file. This second pass may run
+ // after a stale shelf lookup, so it must not erase another owner's hash-only
+ // state merely because their local file has identical bytes.
+ forgetOwnBookHere(String(book.key||'').replace(/^(epub|pdf):/,''),storages||undefined,{preserveHashOnly:true});
  return gone;
+}
+/** Display details only: the owned file, its SHA and source anchors are untouched. */
+export async function editOwnBookDetails(book,{from=null,engine=loadFileEngine,onSaved=()=>{}}={}){
+ const hex=String(book.key||'').replace(/^(epub|pdf):/,'');
+ if(!/^[0-9a-f]{24}$/.test(hex))return null;
+ const layer=make('div','tui-scrim own-file-layer');layer.dataset.tuiTheme='dark';layer.dataset.testid='own-metadata-dialog';
+ const box=make('div','tui-dialog own-file-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-metadata-title');
+ const heading=make('h2','tui-dialog__title','Edit book details');heading.id='own-metadata-title';
+ const status=make('p','tui-dialog__body own-file-message','Loading…');status.setAttribute('role','status');
+ const title=make('input','own-paste-title');title.type='text';title.maxLength=200;title.setAttribute('aria-label','Title');
+ const author=make('input','own-paste-author');author.type='text';author.maxLength=200;author.setAttribute('aria-label','Author (optional)');
+ const field=(label,input)=>{const wrap=make('label','own-paste-field');wrap.append(make('span','',label),input);return wrap;};
+ const cancel=button('tui-btn tui-btn--secondary','Cancel'),save=button('tui-btn tui-btn--primary','Save details');save.disabled=true;
+ const actions=make('div','tui-dialog__actions own-file-actions');actions.append(cancel,save);
+ box.append(heading,status,field('Title',title),field('Author',author),actions);layer.append(box);document.body.append(layer);
+ let busy=false,closed=false,current=null;
+ const close=()=>{if(busy||closed)return;closed=true;removeEventListener('keydown',onKey,true);layer.remove();from?.focus?.({preventScroll:true});};
+ const onKey=e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close();}};
+ addEventListener('keydown',onKey,true);cancel.onclick=close;layer.onclick=e=>{if(e.target===layer)close();};
+ let api;
+ try{api=await engine();current=await window.TinctAI.books.metadata(hex);if(closed)return null;title.value=current.title;author.value=current.author;status.textContent='';save.disabled=false;title.focus({preventScroll:true});}
+ catch{if(!closed)status.textContent='Could not load these details. Close and try again.';return layer;}
+ save.onclick=async()=>{
+  if(!title.value.trim()){status.textContent='Give this book a title.';title.focus();return;}
+  busy=true;save.disabled=true;status.textContent='Saving…';
+  try{
+   const next=await window.TinctAI.books.editMetadata(hex,{title:title.value.trim(),author:author.value.trim(),rev:current.rev,fileId:current.fileId});
+   // The account PATCH has already committed. A blocked local IndexedDB write
+   // cannot turn that success into a retry with a stale revision.
+   try{await api.library.touch(book.key,{title:next.title,author:next.author,metadataRev:next.rev});}catch{/* account metadata remains authoritative */}
+   const remote=api.cloud.get(book.key);if(remote)Object.assign(remote,{title:next.title,author:next.author});
+   busy=false;close();onSaved({...book,title:next.title,author:next.author});
+  }catch(error){busy=false;save.disabled=false;status.textContent=error?.status===409?'This book changed on another device. Close and reopen to edit its latest details.':error?.status===404?'This book was removed from your account.':'Could not save these details. Try again.';}
+ };
+ return layer;
 }
 /** This page's fast-paint snapshots: rebuilt on the next load, so one that names a deleted book is dropped whole. */
 const SNAPSHOT_KEYS=/^tinct:(library-2-table:|lab-library-boot$|library-2-first-paint$)/;
@@ -982,14 +1287,73 @@ const SNAPSHOT_KEYS=/^tinct:(library-2-table:|lab-library-boot$|library-2-first-
  * library's small cover copy, and any snapshot naming it. Keys are matched by the book's own
  * 24-hex-digit id, so no other book's keys can match.
  */
-export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalThis.sessionStorage]){
+export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalThis.sessionStorage],{preserveHashOnly=false}={}){
  if(!/^[0-9a-f]{24}$/.test(String(hex)))return 0;
- const id='userbook-'+hex;let gone=0;
+ const id='userbook-'+hex;let gone=0,owner=globalThis.TinctAI?.session()?.userId||null;
  for(const store of storages){
   if(!store)continue;
   try{
+   const legacyClaim=`tinct-addbook:legacy-epub-owner:${hex}`;
+   const legacyBackup=`tinct-addbook:legacy-epub-annotations:${owner}:${hex}`;
+   const legacyMarks=`tinct-addbook:hl:epub:${hex}`,legacyCards=`tinct-addbook:cards:epub:${hex}`;
+   const claimedByOwner=!!owner&&store.getItem(legacyClaim)===owner;
+   // Old EPUB annotations use hash-only keys. Exact agreement with this
+   // owner's backup is the proof needed to delete them. Preserve a mismatched
+   // claim and backup, otherwise another account could adopt the raw records.
+   let legacyRawProven=false;
+   if(claimedByOwner)try{
+    const marks=store.getItem(legacyMarks),cards=store.getItem(legacyCards);
+    if(marks===null&&cards===null)legacyRawProven=true;
+    else{const backup=JSON.parse(store.getItem(legacyBackup)||'null');legacyRawProven=!!backup&&Array.isArray(backup.marks)&&Array.isArray(backup.cards)
+     &&(marks===null||JSON.stringify(JSON.parse(marks))===JSON.stringify(backup.marks))
+     &&(cards===null||JSON.stringify(JSON.parse(cards))===JSON.stringify(backup.cards));}
+   }catch{legacyRawProven=false;}
+   if(legacyRawProven)for(const key of [legacyMarks,legacyCards])try{store.removeItem(key);}catch{/* keep claim if raw remains */}
+   const preserveLegacyClaim=claimedByOwner&&(store.getItem(legacyMarks)!==null||store.getItem(legacyCards)!==null);
+   const marksMarker=`tinct-addbook:text-marks-owner:${hex}`;
+   if(owner&&store.getItem(marksMarker)===owner){
+    const backup=store.getItem(`tinct-addbook:text-marks-local:${owner}:${hex}`);
+    try{const all=JSON.parse(store.getItem('tinct-lab-highlights')||'[]');if(backup!==null&&Array.isArray(all)&&backup===JSON.stringify(all.filter(mark=>mark?.bookId===id)))store.setItem('tinct-lab-highlights',JSON.stringify(all.filter(mark=>mark?.bookId!==id)));}catch{/* preserve marks when ownership or storage is uncertain */}
+   }
+   const marksStillClaimed=owner&&store.getItem(marksMarker)===owner&&(()=>{
+    const raw=store.getItem('tinct-lab-highlights');if(raw===null)return false;
+    try{const rows=JSON.parse(raw);return !Array.isArray(rows)||rows.some(mark=>mark?.bookId===id);}catch{return true;}
+   })();
    const keys=[];for(let i=0;i<store.length;i++){const key=store.key(i);if(key)keys.push(key);}
+   const chatKey=`tinct:chat-history:${id}`;
+   const chatMarker=`tinct-addbook:text-cards-owner:${hex}`;
+   if(owner&&store.getItem(chatMarker)===owner&&store.getItem(chatKey)!==null)try{
+    const raw=JSON.parse(store.getItem(chatKey));
+    const canonical=keys.filter(key=>key===`tinct-addbook:text-cards-canonical:${owner}:${hex}`||key.startsWith(`tinct-addbook:text-cards-canonical:${owner}:${hex}:`));
+    if(Array.isArray(raw)&&raw.length&&canonical.some(key=>{
+     try{const copy=JSON.parse(store.getItem(key)||'null');const known=new Set(Array.isArray(copy?.conversations)?copy.conversations.map(row=>JSON.stringify(row)):[]);
+      return raw.every(row=>known.has(JSON.stringify(row)));}catch{return false;}
+    })){store.removeItem(chatKey);if(store.getItem(chatKey)===null)gone++;}
+   }catch{/* malformed or ambiguous hash-only chat remains claimed */}
+   const chatStillClaimed=owner&&store.getItem(chatMarker)===owner&&store.getItem(chatKey)!==null;
    for(const key of keys){
+    if(key===chatKey||key===legacyMarks||key===legacyCards)continue;
+    if(preserveLegacyClaim&&(key===legacyClaim||key===legacyBackup||key===`tinct-addbook:legacy-epub-migrated:${owner}:${hex}`))continue;
+    if(marksStillClaimed&&(key===marksMarker||key===`tinct-addbook:text-marks-local:${owner}:${hex}`||key===`tinct-addbook:text-marks-previous:${owner}:${hex}`))continue;
+    if(chatStillClaimed&&(key===chatMarker||key===`tinct-addbook:text-cards-adopted:${owner}:${hex}`||key===`tinct-addbook:text-cards-canonical:${owner}:${hex}`||key.startsWith(`tinct-addbook:text-cards-canonical:${owner}:${hex}:`)))continue;
+    const scoped=/^tinct-addbook:text-(?:marks|cards)-(?:local|sync|adopted|previous|quarantine|canonical):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(key);
+    if(scoped&&scoped[2]===hex&&(!owner||scoped[1]!==owner))continue;
+    const pdfScoped=/^tinct-addbook:pdf-original-(?:marks|cards|talk):([^:]+):[0-9a-f]{32}:([0-9a-f]{24})$/.exec(key);
+    if(pdfScoped&&pdfScoped[2]===hex&&(!owner||pdfScoped[1]!==owner))continue;
+    const staticScoped=/^tinct-addbook:static-epub-(?:marks|cards):([^:]+):([0-9a-f]{24})$/.exec(key);
+    if(staticScoped&&staticScoped[2]===hex&&(!owner||staticScoped[1]!==owner))continue;
+    if(/^tinct-addbook:static-epub-guest-(?:marks|cards):[0-9a-f]{24}$/.test(key)&&owner)continue;
+    if(key===`tinct-addbook:text-cards-unassigned:${hex}`||key===`tinct-addbook:text-marks-unassigned:${hex}`)continue;
+    if(key===`tinct-addbook:text-cards-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    const legacy=/^tinct-addbook:legacy-epub-(?:annotations|migrated|backup-quarantine):([^:]+):([0-9a-f]{24})$/.exec(key);
+    if(legacy&&legacy[2]===hex&&(!owner||legacy[1]!==owner))continue;
+    if(key===`tinct-addbook:legacy-epub-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    if(key===`tinct-addbook:text-marks-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    const tableOwner=/^tinct:library-2-table:([^:]+)$/.exec(key);
+    if(tableOwner&&(!owner||tableOwner[1]!==owner))continue;
+    if(preserveHashOnly&&!(owner&&((scoped&&scoped[1]===owner)||(pdfScoped&&pdfScoped[1]===owner)
+     ||(legacy&&legacy[1]===owner)||(staticScoped&&staticScoped[1]===owner)
+     ||([legacyClaim,marksMarker,chatMarker].includes(key)&&store.getItem(key)===owner))))continue;
     const mine=(key.startsWith('tinct-addbook:')||key.startsWith('tinct:'))&&key.includes(hex);
     const names=!mine&&SNAPSHOT_KEYS.test(key)&&String(store.getItem(key)||'').includes(id);
     if(mine||names){store.removeItem(key);gone++;}

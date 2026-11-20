@@ -8,7 +8,7 @@
 //
 // Checks: the top bar is the normal reader's (DOM and pixels); a selection shows the dark bar (Ask with no blinking
 // line) and no native callout; the ••• menu is compact and whole on screen; each action opens its card (Explain,
-// Simplify, Define, Fact-check, Counterpoint, Quiz me, Ask, a note), none quoting the passage, which stays
+// Simplify, Define, Evaluate, Counterpoint, Quiz me, Ask, a note), none quoting the passage, which stays
 // underlined on the page, the page dimmed behind, no field focused until tapped; a focused field with a shrunken
 // visualViewport (the keyboard) keeps the card inside it; Chat and Talk open as cards; the start pills sit on the
 // heading's line and the end pills have no label, and open their cards; the place is unchanged after each card
@@ -65,7 +65,7 @@ async function mock(context, log) {
 const SEED = { chapterNumber: Number(process.env.CHAPTER || 5), paragraphIndex: 0 }
 async function boot(engine, search, seed = SEED, keep = null) {
   const fresh = !!keep?.fresh
-  const context = keep?.context ?? await engine.launch().then(browser => browser.newContext({ ...devices['iPhone 13'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, serviceWorkers: 'block' }).then(c => { c.__browser = browser; return c }))
+  const context = keep?.context ?? await engine.launch({ headless: true, args: engine === chromium ? ['--mute-audio'] : [] }).then(browser => browser.newContext({ ...devices['iPhone 13'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, serviceWorkers: 'block' }).then(c => { c.__browser = browser; return c }))
   const log = keep?.log ?? { ai: [], notes: [], voice: [], errors: [] }
   if (!keep || fresh) {
     await mock(context, log)
@@ -213,7 +213,7 @@ async function run(engineName) {
   const { page, log } = state
   const mode = await page.evaluate(() => ({ margin: !!document.querySelector('.lab.is-margin-phone'), frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]'), layout: document.querySelector('[data-testid="lab-root"]')?.dataset.labLayout, optIn: localStorage.getItem('tinct:margin-preview') }))
   ok(`${tag}: margin=1 opens today's phone reader in margin mode (no frame), opt-in stored`, mode.margin && !mode.frame && mode.layout === 'phone' && mode.optIn === '1', mode)
-  const home = await placeOf(page)
+  let home = await placeOf(page)
   ok(`${tag}: same place as the normal reader (${home.chapter} ${home.place} ${home.first})`, same(home, normalPlace), { home, normalPlace })
   const header = await headerOf(page)
   const diffAt = [...header.tree].findIndex((c, i) => c !== normalHeader.tree[i])
@@ -259,10 +259,11 @@ async function run(engineName) {
   }
   let more = await moreBox()
   const whole = box => box.m[0] >= 0 && box.m[1] >= 0 && box.m[2] <= 390 && box.m[3] <= 844
-  ok(`${tag}: ••• is compact (${more.w}px for ${more.widest}px of name) and whole on screen`, whole(more) && more.w <= more.widest + 40 && more.names.join('|') === 'Define|Fact-check|Counterpoint|Quiz me|Copy', more)
+  ok(`${tag}: ••• is compact (${more.w}px for ${more.widest}px of name) and whole on screen`, whole(more) && more.w <= more.widest + 40 && more.names.join('|') === 'Define|Evaluate|Counterpoint|Quiz me|Copy', more)
   shots.push(await shot(page, `${tag}-more`))
   await tapOutside(page)
-  await select(page, 150, 156).catch(() => select(page, 120, 126))
+  // The chapter's start pill (approved mockup, 9 Nov 2026) leaves fewer words on a chapter's first page.
+  await select(page, 150, 156).catch(() => select(page, 120, 126)).catch(() => select(page, 100, 106))
   more = await moreBox()
   ok(`${tag}: ••• for a selection low on the page is still whole on screen (${more.below ? 'below' : 'above'} the bar)`, whole(more) && (more.below || more.m[3] <= more.bar[0]), more)
   shots.push(await shot(page, `${tag}-more-low`))
@@ -280,12 +281,12 @@ async function run(engineName) {
     ok(`${tag}: ${label} opens its card (${card.label})`, card.count === 1 && card.kind === kind && card.label?.startsWith(label) && !card.popup && card.bottom >= 840, card)
     const look = await page.evaluate(() => ({
       quote: document.querySelectorAll('[data-testid="lab-phone-card-quote"], .lab-pcard-quote').length,
-      underlined: [...document.querySelectorAll('[data-testid="lab-page-wrap"] .is-card-passage')].map(w => getComputedStyle(w).textDecorationLine),
+      underlined: [...document.querySelectorAll('[data-testid="lab-page-wrap"] .is-card-passage')].map(w => !!w.closest('.lab-hearing-line')?.querySelector('.lab-card-passage-line')),
       scrim: (() => { const s = document.querySelector('[data-testid="lab-phone-card-scrim"]'); return s ? getComputedStyle(s).backgroundColor : null })(),
       focused: document.activeElement?.tagName === 'TEXTAREA',
     }))
     ok(`${tag}: ${label}: no quote in the card, the passage underlined on the page (${look.underlined.length} words), the page dimmed, no field focused`,
-      look.quote === 0 && look.underlined.length > 0 && look.underlined.every(line => line.includes('underline')) && !!look.scrim && look.scrim !== 'rgba(0, 0, 0, 0)' && !look.focused, look)
+      look.quote === 0 && look.underlined.length > 0 && look.underlined.every(Boolean) && !!look.scrim && look.scrim !== 'rgba(0, 0, 0, 0)' && !look.focused, look)
     return card
   }
   const close1 = async (how, label) => {
@@ -315,7 +316,8 @@ async function run(engineName) {
   card = await action(() => page.getByTestId('lab-pbar-simplify').click(), 'simplify', 'Simplify')
   ok(`${tag}: Simplify asks the simplify route`, log.ai.some(a => a.intent === 'simplify') && card.text.includes('MOCK simplify'), card)
   await close1('drag', 'Simplify')
-  for (const [id, kind, label, intent] of [['define', 'define', 'Define', 'define'], ['factcheck', 'factcheck', 'Fact-check', 'factcheck'], ['counterpoint', 'counterpoint', 'Counterpoint', 'counterpoint'], ['quiz', 'quiz', 'Quiz me', 'quiz']]) {
+  // No Define in •••: a tap on a word defines it (30 Oct 2026).
+  for (const [id, kind, label, intent] of [['factcheck', 'factcheck', 'Evaluate', 'factcheck'], ['counterpoint', 'counterpoint', 'Counterpoint', 'counterpoint'], ['quiz', 'quiz', 'Quiz me', 'quiz']]) {
     card = await action(async () => { await page.getByTestId('lab-pbar-more').click(); await page.getByTestId(`lab-pmore-${id}`).click() }, kind, label)
     ok(`${tag}: ${label} asks the ${intent} route with the passage`, log.ai.some(a => a.intent === intent && a.selection), log.ai.slice(-2))
     if (kind === 'quiz') {
@@ -325,7 +327,6 @@ async function run(engineName) {
       await page.getByTestId('lab-phone-quiz-next').waitFor()
       ok(`${tag}: a quiz answer is marked on the quiz_check route`, log.ai.some(a => a.intent === 'quiz_check' && a.quiz) && /Right\./.test((await cardOf(page)).text), (await cardOf(page)).text)
     }
-    if (kind === 'define') shots.push(await shot(page, `${tag}-define`))
     await close1('outside', label)
   }
 
@@ -416,9 +417,61 @@ async function run(engineName) {
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-menu').waitFor()
   const menu = await page.evaluate(() => [...document.querySelectorAll('[data-testid="lab-super-menu"] .lab-super-row-label')].map(n => n.textContent))
-  ok(`${tag}: the t menu: ${menu.join(' · ')}`, menu.join('|') === 'Chat|Talk|Summarize|Catch me up|Text and theme|Reading settings|Library|Profile', menu)
+  // The settings groups and Notebook (22 Oct 2026): the phone has no top-bar Aa or Notebook, so all are t menu rows.
+  ok(`${tag}: the t menu: ${menu.join(' · ')}`, menu.join('|') === 'Chat|Talk|Catch me up|Notebook|Aa|Book settings|Audio settings|AI settings|Library|Profile', menu)
   shots.push(await shot(page, `${tag}-menu`))
-  await page.getByTestId('lab-super-scrim').click()
+  // Notebook (one Notebook on every interface): the book's cards (section 3's) and the reader's marks in one list,
+  // newest first, with the desktop Notebook's filters; its × goes back to the book, the place kept.
+  await page.getByTestId('lab-super-scrim').click({ position: { x: 20, y: 420 } })
+  await page.waitForTimeout(200)
+  await select(page)
+  await page.getByTestId('lab-pbar-highlight').click()
+  await page.waitForTimeout(300)
+  await tapOutside(page)
+  await showControls(page)
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-notebook').click()
+  await page.locator('[data-testid="lab-contents-v2"] .overlay-title').waitFor({ timeout: 4000 })
+  await page.waitForTimeout(500)
+  const nb = await page.evaluate(() => ({ title: document.querySelector('[data-testid="lab-contents-v2"] .overlay-title')?.textContent, filters: [...document.querySelectorAll('[data-testid^="contents-notebook-"]')].map(b => b.textContent), rows: [...document.querySelectorAll('[data-testid="lab-contents-v2"] .overlay .results .result')].map(r => r.dataset.testid) }))
+  ok(`${tag}: Notebook lists the book's cards and the reader's highlights in one list (${nb.rows.length} entries), filtered AI · Highlights · Notes · All`, nb.title === 'Notebook' && nb.filters.join('|') === 'AI|Highlights|Notes|All' && nb.rows.some(r => /^contents-chat-/.test(r)) && nb.rows.some(r => /^contents-highlight-/.test(r)), nb)
+  shots.push(await shot(page, `${tag}-notebook`))
+  await page.locator('[data-testid="lab-contents-v2"] [data-close]').click()
+  await page.waitForTimeout(300)
+  ok(`${tag}: closing Notebook returns to the book`, await page.getByTestId('lab-toc').count() === 0)
+  await check('Notebook open and closed')
+  // A card in the Notebook opens at its passage, as its card; closed, the reader stays at that passage.
+  await showControls(page)
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-notebook').click()
+  await page.locator('[data-testid="lab-contents-v2"] .overlay-title').waitFor({ timeout: 4000 })
+  await page.getByTestId('contents-notebook-ai').click()
+  await page.locator('[data-testid="lab-contents-v2"] .overlay .results [data-testid^="contents-chat-"]').first().click()
+  await page.getByTestId('lab-phone-card').waitFor({ timeout: 8000 })
+  await page.waitForTimeout(500)
+  const opened = { card: await cardOf(page), place: await placeOf(page) }
+  ok(`${tag}: a Notebook card opens as its card at its passage (chapter ${opened.place.chapter})`, opened.place.chapter === home.chapter && !!opened.card.kind, opened)
+  shots.push(await shot(page, `${tag}-notebook-card`))
+  await tapOutside(page)
+  await page.waitForTimeout(300)
+  ok(`${tag}: the Notebook card closed, the place is kept`, same(await placeOf(page), opened.place), { now: await placeOf(page), opened: opened.place })
+  // The reader moved to the card's passage on purpose: the checks below hold the place from here.
+  home = await placeOf(page)
+  for (const [row, title] of [['text', 'Appearance'], ['editions', 'Book settings'], ['audio', 'Audio settings']]) {
+    await showControls(page)
+    await page.getByTestId('lab-super').click()
+    await page.getByTestId(`lab-super-row-${row}`).click()
+    await page.getByTestId('lab-v2-sheet').waitFor({ timeout: 4000 })
+    ok(`${tag}: ${title} opens its sheet`, await page.getByTestId('lab-v2-sheet').getAttribute('aria-label') === title)
+    shots.push(await shot(page, `${tag}-${row}`))
+    await page.getByTestId('lab-v2-sheet-close').click()
+    await page.waitForTimeout(300)
+    await check(`${title} open and closed`)
+  }
+  await showControls(page)
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-menu').waitFor()
+  await page.getByTestId('lab-super-scrim').click({ position: { x: 20, y: 420 } })
   await page.waitForTimeout(200)
   await showControls(page)
   await page.getByTestId('lab-super').click()
@@ -452,9 +505,10 @@ async function run(engineName) {
     const el = document.querySelector('[data-testid="lab-unit-start"]'), head = el?.parentElement?.querySelector('.lab-passage-headline')
     if (!el || !head) return null
     const p = el.getBoundingClientRect(), h = head.getBoundingClientRect()
-    return { text: el.textContent.replace(/\s+/g, ' ').trim(), primerChip: document.querySelectorAll('.lab-passage-header > .lab-chapter-preview').length, sameLine: p.top < h.bottom && p.bottom > h.top && p.left >= h.right - 1, starting: /Starting/.test(document.querySelector('.lab-passage-header').textContent) }
+    return { text: [...el.querySelectorAll('.lab-start-seg')].map(seg => seg.textContent.trim()).join('·'), primerChip: document.querySelectorAll('.lab-passage-header > .lab-chapter-preview').length, under: p.top >= h.bottom - 1, full: Math.round(p.width) >= Math.round(head.parentElement.getBoundingClientRect().width) - 1, starting: /Starting/.test(document.querySelector('.lab-passage-header').textContent) }
   })
-  ok(`${tag}: the start pills sit on the heading's line, beside it (✧ Primer · ✧ Catch me up), no "Starting" line`, !!startPill && /^✧Primer✧Catch me up$/.test(startPill.text) && startPill.primerChip === 0 && startPill.sameLine && !startPill.starting, startPill)
+  // The start actions (approved mockup, Anders 9 Nov 2026) replace the ✧ Primer · ✧ Catch me up chips beside the heading.
+  ok(`${tag}: the chapter's pill sits under the heading, full width (Primer · Summary · Quiz), no "Starting" line`, !!startPill && startPill.text === 'Primer·Summary·Quiz' && startPill.primerChip === 0 && startPill.under && startPill.full && !startPill.starting, startPill)
   shots.push(await shot(sp, `${tag}-start-pills`))
   const pillGaps = sel => sp.evaluate(sel => {
     const pills = [...document.querySelectorAll(sel)].filter(el => el.getBoundingClientRect().height > 0)
@@ -462,7 +516,7 @@ async function run(engineName) {
     return { gaps: spans.slice(1).map((b, i) => Math.round(b.left - spans[i].right)), heights: pills.map(el => Math.round(el.getBoundingClientRect().height)) }
   }, sel)
   const startGaps = await pillGaps('[data-testid="lab-unit-start"] button')
-  ok(`${tag}: the start pills sit 8px apart (${startGaps.gaps.join(', ')}), each 44px tall to tap`, startGaps.gaps.length >= 1 && startGaps.gaps.every(g => g <= 8.5 && g >= 7.5) && startGaps.heights.every(h => h >= 44), startGaps)
+  ok(`${tag}: the start pill's segments, each 44px tall to tap`, startGaps.heights.length === 3 && startGaps.heights.every(h => h >= 44), startGaps)
   const pillCard = async (testId, kind, label) => {
     await sp.getByTestId(testId).click()
     await sp.getByTestId('lab-phone-card').waitFor()
@@ -498,12 +552,12 @@ async function run(engineName) {
   await tapOutside(sp)
   await sp.waitForTimeout(300)
   ok(`${tag}: Primer, follow-up and Talk: the place is unchanged`, same(await placeOf(sp), startHome), await placeOf(sp))
-  await pillCard('lab-unit-catchup', 'catchup', 'Catch me up')
+  await pillCard('lab-unit-summary', 'chapter-notes-end', 'Summary')
   // Turn to the chapter's end.
   for (let i = 0; i < 60 && !(await sp.getByTestId('lab-unit-quiz').count()); i++) { await sp.keyboard.press('ArrowRight'); await sp.waitForTimeout(260) }
   await sp.waitForTimeout(600)
   const endPill = await sp.evaluate(() => { const el = document.querySelector('[data-testid="lab-chapter-end"]'); return el ? el.textContent.replace(/\s+/g, ' ').trim() : null })
-  ok(`${tag}: the end pills (✧ Recap · ✧ Quiz me · Note), no "End of" label`, !!endPill && /^✧Recap✧Quiz meNote/.test(endPill), endPill)
+  ok(`${tag}: the end pills (✧ Summary · ✧ Quiz me · Note), no "End of" label`, !!endPill && /^✧Summary✧Quiz meNote/.test(endPill), endPill)
   shots.push(await shot(sp, `${tag}-end-pills`))
   const endGaps = await pillGaps('[data-testid="lab-chapter-end"] .lab-chapter-recap, [data-testid="lab-chapter-end"] .lab-chapter-note')
   ok(`${tag}: the end pills sit 8px apart (${endGaps.gaps.join(', ')}), each 44px tall to tap`, endGaps.gaps.length >= 2 && endGaps.gaps.every(g => g <= 8.5 && g >= 7.5) && endGaps.heights.every(h => h >= 44), endGaps)
@@ -516,7 +570,8 @@ async function run(engineName) {
     ok(`${tag}: ${label} opens as a card (${c.label})`, c.kind === kind, c)
     if (kind === 'quiz') ok(`${tag}: the chapter's quiz asks the quiz route without a passage`, startState.log.ai.some(a => a.intent === 'quiz' && !a.selection))
     if (kind === 'quiz') {
-      for (let i = 0; i < 3; i++) { await sp.getByTestId('lab-phone-quiz-show').click(); await sp.getByTestId('lab-phone-quiz-next').click() }
+      // The last answer shown: the score at once (13 Nov 2026: no "See your score").
+      for (let i = 0; i < 3; i++) { await sp.getByTestId('lab-phone-quiz-show').click(); if (i < 2) await sp.getByTestId('lab-phone-quiz-next').click() }
       await sp.waitForTimeout(300)
       const end = await shapeOf(sp)
       ok(`${tag}: Quiz me's end ends with the field (mic, Talk, send) right under the score, Try another quiz below it, ${end?.gap}px from the score`, followRow(end) && end.gap <= 24 && (await sp.getByTestId('lab-phone-quiz-again').count()) === 1, end)
@@ -546,12 +601,12 @@ async function run(engineName) {
   // The book's first chapter: nothing to catch up on yet (Anders, 20 Oct 2026): ✧ Primer only, no Catch me up in the t menu.
   const firstState = await boot(engine, `?book=${BOOK}&margin=1`, { chapterNumber: 1, paragraphIndex: 0 })
   const fp = firstState.page
-  const first = await fp.evaluate(() => document.querySelector('[data-testid="lab-unit-start"]')?.textContent.replace(/\s+/g, ' ').trim() ?? null)
-  ok(`${tag}: the first chapter's start pill has ✧ Primer and no ✧ Catch me up ("${first}")`, first === '✧Primer', first)
+  const first = await fp.evaluate(() => [...document.querySelectorAll('[data-testid="lab-unit-start"] .lab-start-seg')].map(seg => seg.textContent.trim()).join('·') || null)
+  ok(`${tag}: the first chapter's pill has Primer and Quiz, no Summary ("${first}")`, first === 'Primer·Quiz', first)
   await showControls(fp)
   await fp.getByTestId('lab-super').click()
   await fp.getByTestId('lab-super-menu').waitFor()
-  ok(`${tag}: the first chapter's t menu has no Catch me up`, (await fp.getByTestId('lab-super-row-catchup').count()) === 0 && (await fp.getByTestId('lab-super-row-summarize').count()) === 1)
+  ok(`${tag}: the first chapter's t menu has no Catch me up`, (await fp.getByTestId('lab-super-row-catchup').count()) === 0 && (await fp.getByTestId('lab-super-row-summarize').count()) === 0)
   shots.push(await shot(fp, `${tag}-first-chapter-menu`))
   await close(firstState)
   return shots
@@ -565,7 +620,7 @@ async function run(engineName) {
 async function talkCard(engineName, w, h) {
   const engine = engineName === 'webkit' ? webkit : chromium
   const tag = `${BOOK}-${w}x${h}-${engineName}`
-  const browser = await engine.launch()
+  const browser = await engine.launch({ headless: true, args: engine === chromium ? ['--mute-audio'] : [] })
   const context = await browser.newContext({ ...devices['iPhone 13'], viewport: { width: w, height: h }, deviceScaleFactor: 1, serviceWorkers: 'block' })
   context.__browser = browser
   const state = await boot(engine, `?book=${BOOK}&margin=1`, SEED, { context, page: await context.newPage(), log: { ai: [], notes: [], voice: [], errors: [] }, fresh: true })
@@ -644,7 +699,7 @@ async function narrationTyping(engineName) {
   const bundled = await build({ stdin: { contents: "export { chunkNarrationText, narrationTextForParagraph, sha256Hex } from './src/narration/narrationCore'", resolveDir: process.cwd() }, bundle: true, platform: 'node', format: 'esm', write: false })
   const { chunkNarrationText, narrationTextForParagraph, sha256Hex } = await import('data:text/javascript;base64,' + Buffer.from(bundled.outputFiles[0].text).toString('base64'))
   const edition = JSON.parse(readFileSync(`public/data/editions/${BOOK}-modern-en.json`, 'utf8'))
-  const browser = await engine.launch()
+  const browser = await engine.launch({ headless: true, args: engine === chromium ? ['--mute-audio'] : [] })
   const context = await browser.newContext({ ...devices['iPhone 13'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, serviceWorkers: 'block' })
   context.__browser = browser
   await context.addInitScript(() => {

@@ -26,7 +26,7 @@ describe('the call view', () => {
   it('starts at Listening once the connection is up and the mic is live', () => {
     const live = view()
     expect(live.status).toBe('listening')
-    expect(live.statusText).toBe('Listening.')
+    expect(live.statusText).toBe('Listening')
     expect(live.motion).toBe('breathe')
     expect(live.broken).toBe(false)
     expect(live.connected).toBe(true)
@@ -36,7 +36,7 @@ describe('the call view', () => {
     for (const activity of ['thinking', 'checking', 'preparing'] as const) {
       const working = view({ activity })
       expect(working.status).toBe('thinking')
-      expect(working.statusText).toBe('Thinking.')
+      expect(working.statusText).toBe('Thinking')
       expect(working.motion).toBe('rotate')
       expect(working.broken).toBe(true)
     }
@@ -45,7 +45,7 @@ describe('the call view', () => {
   it('pulses with the assistant while she speaks', () => {
     const speaking = view({ activity: 'speaking' })
     expect(speaking.status).toBe('speaking')
-    expect(speaking.statusText).toBe('Speaking.')
+    expect(speaking.statusText).toBe('Speaking')
     // `pulse` is the contract that the circle follows real audio; no other
     // status may claim it.
     expect(speaking.motion).toBe('pulse')
@@ -68,7 +68,7 @@ describe('the call view', () => {
           const dropped = view({ connection: 'disconnected', activity, micMuted })
           expect(dropped.status).toBe('disconnected')
           expect(dropped.statusText).toBe('Disconnected')
-          expect(dropped.statusText).not.toBe('Listening.')
+          expect(dropped.statusText).not.toBe('Listening')
           expect(dropped.motion).toBe('still')
           expect(dropped.broken).toBe(true)
           expect(dropped.connected).toBe(false)
@@ -109,7 +109,7 @@ describe('the call view', () => {
     it('lets the assistant go on speaking, carrying the closed mic alongside', () => {
       const speakingMuted = view({ activity: 'speaking', micMuted: true })
       expect(speakingMuted.status).toBe('speaking')
-      expect(speakingMuted.statusText).toBe('Speaking.')
+      expect(speakingMuted.statusText).toBe('Speaking')
       expect(speakingMuted.micOff).toBe(true)
       expect(speakingMuted.connected).toBe(true)
     })

@@ -21,6 +21,8 @@ export interface CoordinateEdition {
   paragraphCountsBefore: Record<string, number>
   paragraphCountsAfter: Record<string, number>
   entries: Record<string, CoordinateEntry>
+  /** Direct maps from older source revisions to the same current text. */
+  previous?: Record<string, CoordinateEdition>
 }
 export interface CoordinateMigration {
   revision: string
@@ -41,6 +43,17 @@ export interface ProjectedCoordinate {
 }
 const integer = (value: number) => Number.isSafeInteger(value) && value >= 0
 
+/** Select only a map whose source hash is explicitly recorded. Previous maps
+ * already target the current text; no recursive or guessed migration occurs. */
+export function coordinateEditionForRevision(
+  migration: CoordinateMigration, editionKey: string, revision?: string,
+): CoordinateEdition | undefined {
+  const edition = migration.editions[editionKey]
+  if (!edition || !revision || revision === edition.beforeSha256 || revision === edition.afterSha256) return edition
+  const previous = edition.previous?.[revision]
+  return previous?.beforeSha256 === revision && previous.afterSha256 === edition.afterSha256 ? previous : undefined
+}
+
 /** Positions can land near rewritten wording; annotations must use exactRange. */
 export function projectEditionCoordinate(
   migration: CoordinateMigration,
@@ -49,7 +62,7 @@ export function projectEditionCoordinate(
   unit: 'words' | 'chars',
   bias: 'left' | 'right' = 'right',
 ): ProjectedCoordinate {
-  const edition = migration.editions[editionKey]
+  const edition = coordinateEditionForRevision(migration, editionKey, point.contentRevision)
   if (!edition) return { point, status: 'unresolved' }
   if (point.contentRevision === edition.afterSha256) {
     const count = edition.paragraphCountsAfter[String(point.chapterNumber)]
@@ -112,7 +125,7 @@ export function projectExactEditionRange(
   unit: 'words' | 'chars',
 ): { start: EditionCoordinate; end: EditionCoordinate } | null {
   if (start.chapterNumber !== end.chapterNumber || start.paragraphIndex !== end.paragraphIndex || start.offset >= end.offset) return null
-  const edition = migration.editions[editionKey]
+  const edition = coordinateEditionForRevision(migration, editionKey, start.contentRevision)
   if (!edition || start.contentRevision !== end.contentRevision) return null
   if (start.contentRevision === edition.afterSha256) {
     const a = projectEditionCoordinate(migration, editionKey, start, unit)

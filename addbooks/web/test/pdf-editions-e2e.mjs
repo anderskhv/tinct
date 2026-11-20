@@ -27,8 +27,8 @@ const VENDOR = join(REPO, 'app/public/lab/addbook/vendor/pdfjs/');
 const quiet = console.log; console.log = () => {};
 require(VENDOR + 'pdf.worker.min.js'); require(VENDOR + 'pdf.min.js');
 console.log = quiet;
-require(join(REPO, 'addbooks/web/src/js/pdf-scan.js'));
-require(join(REPO, 'addbooks/web/src/js/pdf-text.js'));
+require(join(REPO, 'app/public/lab/addbook/js/pdf-scan.js'));
+require(join(REPO, 'app/public/lab/addbook/js/pdf-text.js'));
 const { TinctPdfText } = globalThis;
 
 const results = [];

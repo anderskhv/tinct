@@ -10,6 +10,7 @@ import { addLibraryReadingStructures } from './src/preReader/libraryReadingStruc
 import { legacyLabPageRedirect } from './src/lab/labRoute'
 import { accountPageRedirect } from './src/cards/cardRoutes'
 import { buildReaderBootScript } from './scripts/readerBootScript'
+import { buildSharedReaderActivation } from './scripts/build-shared-reader-activation.mjs'
 
 const serializedPreReaderCatalogue = JSON.stringify(addLibraryReadingStructures(
   serializePreReaderCatalogue(),
@@ -86,7 +87,6 @@ export default defineConfig(({ mode, command }) => {
     rollupOptions: {
       input: {
         index: path.resolve(process.cwd(), 'index.html'),
-        labFeaturedAccess: path.resolve(process.cwd(), 'src/labFeaturedAccess.ts'),
         labAuthStatus: path.resolve(process.cwd(), 'src/labAuthStatus.ts'),
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
         libraryTwoAssistant: path.resolve(process.cwd(), 'src/libraryTwoAssistant.tsx'),
@@ -104,7 +104,7 @@ export default defineConfig(({ mode, command }) => {
         // also use index.ts; their lazy chunks must not impersonate the app
         // in shell stamping, production checks or offline registration.
         chunkFileNames: chunk => chunk.name === 'index' ? 'assets/shared-index-[hash].js' : 'assets/[name]-[hash].js',
-        entryFileNames: chunk => chunk.name === 'labFeaturedAccess' ? 'lab/featured-access.js' : chunk.name === 'labAuthStatus'
+        entryFileNames: chunk => chunk.name === 'labAuthStatus'
           ? 'lab/auth-status.js'
           : chunk.name === 'labSignIn'
             ? 'lab/sign-in-runtime.js'
@@ -129,6 +129,18 @@ export default defineConfig(({ mode, command }) => {
   plugins: [
     react(),
     {
+      // The Library imports this fixed-name ES module outside Vite's graph.
+      // Vite's web build uses preserveEntrySignatures=false, which can erase
+      // named exports from an otherwise unused Rollup entry. Emit this one
+      // asset from the canonical React helper with its build default baked in.
+      name: 'shared-reader-activation',
+      apply: 'build',
+      async generateBundle() {
+        this.emitFile({ type: 'asset', fileName: 'lab/shared-reader-activation.js',
+          source: await buildSharedReaderActivation(env.VITE_SHARED_READER_DEFAULT === '1') })
+      },
+    },
+    {
       // The reader's head script: starts the opening chapter's requests and
       // paints the stored paper before the app bundle runs (src/lab/readerBoot.ts).
       name: 'reader-boot',
@@ -148,7 +160,11 @@ export default defineConfig(({ mode, command }) => {
           // with it (LabApp waits for it briefly); fetch it beside the bundle.
           const hyphenation = Object.values(ctx.bundle ?? {}).filter(chunk => chunk.type === 'chunk'
             && chunk.moduleIds.some(id => /[\\/]node_modules[\\/](?:hypher|hyphenation\.en-us)[\\/]/.test(id)))
+          // The /try page's reader (/reader?demo=try): on the dev server its demo script goes first, as the Worker
+          // adds it in production (worker/routes/seo.ts withTryDemo); the built app.html never carries it.
+          const tryDemo = command !== 'build' && /[?&]demo=try(?:&|$)/.test(ctx.originalUrl || '')
           return [
+            ...(tryDemo ? [{ tag: 'script', attrs: { src: '/lab/try/reader-demo.js' }, injectTo: 'head-prepend' as const }] : []),
             { tag: 'script', attrs: { src }, injectTo: 'head-prepend' },
             ...hyphenation.map(chunk => ({ tag: 'link', attrs: { rel: 'modulepreload', crossorigin: true, href: `/${chunk.fileName}` }, injectTo: 'head' as const })),
           ]
@@ -224,11 +240,6 @@ export default defineConfig(({ mode, command }) => {
           const url = req.url || ''
           // Strip query string for the path comparison
           const pathOnly = url.split('?')[0]
-          if (pathOnly === '/lab/featured-access.js') {
-            req.url = `/src/labFeaturedAccess.ts${url.slice(pathOnly.length)}`
-            next()
-            return
-          }
           if (pathOnly === '/lab/auth-status.js') {
             req.url = `/src/labAuthStatus.ts${url.slice(pathOnly.length)}`
             next()
@@ -283,12 +294,12 @@ export default defineConfig(({ mode, command }) => {
           const pageAssets: Record<string, string> = {
             '/sign-in': '/lab/sign-in/index.html',
             '/sign-in/': '/lab/sign-in/index.html',
-            '/featured': '/lab/featured/index.html',
-            '/featured/': '/lab/featured/index.html',
             '/': '/lab/library_2/index.html',
             '/index.html': '/lab/library_2/index.html',
             '/library': '/lab/library_2/index.html',
             '/library/': '/lab/library_2/index.html',
+            // The About page (public/about.html; the Worker serves it from assets and sends /try here).
+            '/about': '/about.html',
             // Social (ship 3): the Worker serves this only while SOCIAL_FRIENDS is on.
             '/admin/social': '/lab/admin-social/index.html',
             // The PDF reader's folder page, as the Worker's assets serve it (the margin preview frames it).
@@ -314,6 +325,10 @@ export default defineConfig(({ mode, command }) => {
           if (m) {
             req.url = `/read/${m[1]}/${m[2]}.html${m[3] || ''}`
           }
+          // Scene pages (scripts/seo/build-scene-pages.mjs). In dev they lack the reader's built CSS, which the
+          // build stamps in; check their look on a build.
+          const scene = url.match(/^\/read\/([a-z0-9-]+)\/((?:act-\d{1,2}-scene-\d{1,2}|act-\d{1,2}-prologue|prologue))\/?(\?.*)?$/i)
+          if (scene) req.url = `/read/${scene[1]}/${scene[2]}.html${scene[3] || ''}`
           next()
         })
 

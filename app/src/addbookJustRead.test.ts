@@ -45,7 +45,5 @@ describe('the viewer’s book just read', () => {
     expect(hook).toContain('rememberJustRead')
     expect(READER).toMatch(/if \(moved\) justRead\.note\(\);/)
     expect(READER).toMatch(/function leavePlace\(\) \{[^\n]*justRead\.leave\(\);/)
-    // Byte-identical mirror (addbooks/web/src).
-    expect(readFileSync(ROOT + 'addbooks/web/src/js/reader.js', 'utf8')).toBe(READER)
   })
 })

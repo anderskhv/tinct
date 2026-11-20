@@ -21,14 +21,23 @@ export const USER_EDITION_FORMAT = 'tinct-user-edition-v1'
  * together (a short book of poems in one document) is kept, not left out as a
  * contents page (epubEdition.ts contentsMatter).
  */
-export const USER_EDITION_CONVERTER = 7
+// 8 (28 Oct 2026): join wrapped continuations without flattening other verse lines.
+// 9 (28 Oct 2026): rejoin source-corroborated printed word wraps in prose.
+// 10 (30 Oct 2026): an Internet Archive scan's EPUB (hocr-to-epub, a page a document) is rebuilt from its pages:
+// running heads, page numbers and accuracy banners out, pages run together, chapters as printed (archiveEpub.ts).
+// 11 (31 Oct 2026): Archive EPUBs: a contents without numerals or under another heading, a play's acts, chapters where
+// their own running head first stands, chapter numbers that only go up (archiveEpub.ts).
+// 12 (4 Nov 2026): prose in one document without a contents (a pasted web article): a piece under 2,500 words is one
+// chapter; only top-level headings start chapters, sub-sections ("i.", h3 under h2) stay inside; a section under 300
+// words opens the chapter after it (epubEdition.ts splitAtHeadings).
+export const USER_EDITION_CONVERTER = 12
 /** The rules every book converted before USER_EDITION_CONVERTER was converted with. */
 export const LEGACY_EDITION_CONVERTER = 5
 /** Every rule set a stored conversion may have been made with; each stays readable as it is. */
-export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, 6, USER_EDITION_CONVERTER]
+export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, 6, 7, 8, 9, 10, 11, USER_EDITION_CONVERTER]
 /**
  * Where an edition's text comes from: an EPUB's own text (the default, when
- * absent), a text PDF's text layer (addbooks/web/src/js/pdf-text.js, "Tinct
+ * absent), a text PDF's text layer (public/lab/addbook/js/pdf-text.js, "Tinct
  * text"), or text recognised from a scanned PDF's page images (OCR, R2).
  */
 export type UserEditionSource = 'epub' | 'pdf' | 'ocr'
@@ -44,7 +53,13 @@ export type UserEditionSource = 'epub' | 'pdf' | 'ocr'
  * 3 (16 Oct 2026): formulas, figures and tables stand in the text as crops of
  * their page (`figures`, kept on this device like an EPUB's pictures).
  */
-export const PDF_TEXT_CONVERTER = 3
+// 4 (28 Oct 2026): sloped OCR lines and wrapped headings are reconstructed before conversion.
+// 5 (29 Oct 2026): a two-column page with a narrow gutter is read column by column, not line by line across.
+// 6 (29 Oct 2026): paragraphs indented on their first line are not a hanging-indent list; a heading past a
+// page's first 40 lines starts its chapter; a figure inside a paragraph's run follows the paragraph.
+// 7 (30 Oct 2026): scanned books read as printed: OCR lines, running heads, chapters, drop caps (pdf-text.js).
+// 8 (31 Oct 2026): scans: page numbers as OCR misreads them, a chapter's label line opens it, drop caps read from the page.
+export const PDF_TEXT_CONVERTER = 8
 /**
  * The format of a recognised (OCR) edition assembled in the account (§3 of the PDF editions plan).
  * 2 (15 Oct 2026): captions and algorithm boxes kept, a paper's numbered sections as chapters.
@@ -110,6 +125,8 @@ export interface UserBookEdition {
    * equations, which decide the edition it opens in (ocrEdition.ts ocrDefaultEdition).
    */
   ocrLayout?: { pages: number; columns: number; equations: number }
+  /** Its scanning errors have been through the repair pass (ownTextRepair.ts OWN_TEXT_REPAIR_VERSION). */
+  textRepair?: number
 }
 
 /** The rule sets an edition from `source` may have been made with (absent: an EPUB). */

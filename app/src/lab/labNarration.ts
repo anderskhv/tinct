@@ -43,6 +43,8 @@ export interface NarrationVoiceOption {
 }
 
 export interface NarrationPilotInfo {
+  /** Local startup state; never copied from the server response. */
+  loading?: boolean
   enabled: boolean
   reason?: string
   provider?: string
@@ -54,7 +56,7 @@ export interface NarrationPilotInfo {
 
 /** Until configuration is known, English playback must not select legacy audio. */
 export function initialNarrationPilotInfo(): NarrationPilotInfo {
-  return { enabled: false, provider: 'grok', voices: [] }
+  return { enabled: false, provider: 'grok', voices: [], loading: true }
 }
 
 /** True when the reader opted in and the current text is inside the narration scope (featured books, English editions). */
@@ -87,8 +89,10 @@ export function resolveNarrationVoice(prefs: LabPrefs, allVoices: NarrationVoice
 }
 
 export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): Promise<NarrationPilotInfo> {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 10_000)
   try {
-    const response = await fetchImpl(apiUrl('/api/narration/voices'), { cache: 'no-store', headers: internalTrafficHeaders() })
+    const response = await fetchImpl(apiUrl('/api/narration/voices'), { cache: 'no-store', headers: internalTrafficHeaders(), signal: controller.signal })
     if (!response.ok) return { enabled: false, provider: 'grok', reason: `http_${response.status}`, voices: [] }
     const json = await response.json() as Partial<NarrationPilotInfo>
     return {
@@ -102,7 +106,9 @@ export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): 
         : [],
     }
   } catch {
-    return { enabled: false, provider: 'grok', reason: 'network', voices: [] }
+    return { enabled: false, provider: 'grok', reason: controller.signal.aborted ? 'timeout' : 'network', voices: [] }
+  } finally {
+    clearTimeout(timer)
   }
 }
 
@@ -216,7 +222,11 @@ export async function ensureNarration(
     options.signal?.removeEventListener('abort', onCancel)
   }
   if (response.status === 401) throw new NarrationEnsureError('Sign in to prepare narration', 'unauthenticated', 401)
-  if (response.status === 503) throw new NarrationEnsureError('Narration pilot is not configured', 'not_configured', 503)
+  if (response.status === 503) {
+    const reason = await response.json().then((body: { reason?: unknown }) => body?.reason, () => undefined)
+    if (reason === 'rate_limit_unavailable') throw new NarrationEnsureError('Narration temporarily unavailable', 'http', 503)
+    throw new NarrationEnsureError('Narration pilot is not configured', 'not_configured', 503)
+  }
   if (response.status === 429) throw new NarrationEnsureError('Too many requests', 'rate_limited', 429)
   if (response.status === 409) {
     // A Modern English chapter still shown in its original text: its words are about to be replaced.

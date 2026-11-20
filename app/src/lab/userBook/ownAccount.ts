@@ -22,6 +22,8 @@ export interface AccountBook {
   size: number
   sha256: string
   createdAt: string
+  /** Positive only after a reader edited the display metadata; upload defaults do not replace parsed OPF labels. */
+  metadataRev?: number
   /** The small image of its cover kept with the account copy (`/api/user-books/covers/<hex>?v=…`), or null. */
   cover?: string | null
 }
@@ -157,11 +159,14 @@ export type AccountCopy =
  * One EPUB's bytes from the account, checked against the book's hex (the
  * first 24 hex digits of the file's SHA-256) before they are used.
  */
-export async function fetchAccountCopy(hex: string, token: string | null, fetchImpl: FetchLike = fetch): Promise<AccountCopy> {
+export async function fetchAccountCopy(hex: string, token: string | null, fetchImpl: FetchLike = fetch, onEpub?: () => void): Promise<AccountCopy> {
   const books = await listAccountBooks(token, fetchImpl)
   if (!books || !token) return { status: 'unavailable' }
   const book = books.find(item => item.type === 'epub' && item.id && item.sha256.startsWith(hex))
   if (!book) return books.some(item => item.type === 'pdf' && item.sha256.startsWith(hex)) ? { status: 'pdf' } : { status: 'gone' }
+  // The account list has established that this is an EPUB. A caller may warm
+  // its public converter while the verified private file is still in flight.
+  try { onEpub?.() } catch { /* warming cannot change the download result */ }
   try {
     const response = await fetchImpl(`/api/user-books/${encodeURIComponent(book.id)}`, authorized(token))
     if (response.status === 404) return { status: 'gone' }

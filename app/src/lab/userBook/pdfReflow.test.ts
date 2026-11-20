@@ -30,8 +30,8 @@ let textRows: (items: unknown[]) => unknown[]
 let converter: number
 
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
-  require(ROOT + 'addbooks/web/src/js/pdf-text.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-text.js')
   const g = globalThis as unknown as { TinctPdfScan: { textRows: typeof textRows }; TinctPdfText: { fromPages: typeof fromPages; PDF_TEXT_CONVERTER: number } }
   textRows = g.TinctPdfScan.textRows
   fromPages = g.TinctPdfText.fromPages
@@ -168,7 +168,8 @@ describe('A place read under the earlier rules', () => {
     } as Storage
   })
 
-  it('moves to the same words on the same PDF page in the new conversion', () => {
+  it.each([1, 3, 4])('moves from converter %s to the same words on the same PDF page', oldConverter => {
+    store.clear()
     const edition = fromPages(pagesOf('constructor-theory.pages.json'), constructorScan)!
     // The same words as converter 1 kept them: the abstract one short paragraph per PDF line (ten words here).
     const first = edition.chapters[0]
@@ -177,11 +178,11 @@ describe('A place read under the earlier rules', () => {
       const words = text.split(/\s+/)
       for (let at = 0; at < words.length; at += 10) { pieces.push(words.slice(at, at + 10).join(' ')); pages.push(first.pages![i]) }
     })
-    const previous: UserBookEdition = { ...edition, converter: 1, chapters: [{ number: 1, title: first.title, paragraphs: pieces, pages }, ...edition.chapters.slice(1)] }
+    const previous: UserBookEdition = { ...edition, converter: oldConverter, chapters: [{ number: 1, title: first.title, paragraphs: pieces, pages }, ...edition.chapters.slice(1)] }
     // Read at "cannot." in the old text.
     const old = pieces.findIndex(text => text.split(/\s+/).includes('cannot.'))
     const word = pieces[old].split(/\s+/).indexOf('cannot.')
-    writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: old, wordIndex: word, updatedAt: 500, converter: 1 })
+    writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: old, wordIndex: word, updatedAt: 500, converter: oldConverter })
     const at = pageOfTextPlace(previous.chapters, { chapterNumber: 1, paragraphIndex: old, wordIndex: word })!
     expect(at.page).toBe(1)
     const place = readPdfTextPlace(HEX, edition, { previous })!
@@ -202,16 +203,26 @@ describe('A place read under the earlier rules', () => {
 })
 
 describe('Registered books are untouched', () => {
-  // The reflow rules live in Add a book's converter (pdf-text.js), which runs only on a reader's
-  // own PDF: the library's books never pass through it, and the reader's shared renderer is unchanged.
-  it('only a reader’s own PDF loads the converter', async () => {
+  // Conversion and Original page rendering both use pdf.js, but only the
+  // owned-file conversion path loads the source-to-prose rules (pdf-text.js).
+  it('limits PDF conversion and page-engine entry points to the reader’s own file paths', async () => {
     const { readdirSync, statSync } = await import('node:fs')
     const SRC = fileURLToPath(new URL('../../', import.meta.url))
     const files: string[] = []
     const walk = (dir: string) => { for (const name of readdirSync(dir)) { const path = dir + '/' + name; if (statSync(path).isDirectory()) { if (name !== '__fixtures__' && name !== 'node_modules') walk(path) } else if (/\.(ts|tsx)$/.test(name) && !/\.test\.tsx?$/.test(name)) files.push(path) } }
     walk(SRC.replace(/\/$/, ''))
-    const users = files.filter(path => /js\/pdf-text\.js\?v=|\bconvertPdf\(|\bloadPdfEngine\(|import\('\.\/pdfEdition'\)/.test(readFileSync(path, 'utf8'))).map(path => path.slice(SRC.length).replace(/^\//, '')).sort()
-    expect(users).toEqual(['lab/userBook/pdfEdition.ts', 'lab/userBook/userBookStore.ts'])
+    const source = (pattern: RegExp) => files.filter(path => pattern.test(readFileSync(path, 'utf8')))
+      .map(path => path.slice(SRC.length).replace(/^\//, '')).sort()
+    expect(source(/js\/pdf-text\.js\?v=|\bconvertPdf\(|import\('\.\/pdfEdition'\)/)).toEqual(['lab/userBook/pdfEdition.ts', 'lab/userBook/userBookStore.ts'])
+    expect(source(/\bloadPdfEngine\(/)).toEqual([
+      'lab/sharedReader/pdf/PdfOriginalReaderShell.tsx', 'lab/sharedReader/pdf/PdfOriginalSurface.tsx',
+      // Original figures use the same raw page engine/detector; they never invoke source-to-prose conversion.
+      'lab/sharedReader/pdf/pdfOriginalFigures.ts',
+      'lab/userBook/pdfEdition.ts', 'lab/userBook/usePdfOriginalServices.ts',
+      // A scan's page images drawn for the account to recognise (scanRecognition.ts, 3 Nov 2026): the raw page
+      // engine only, never conversion.
+      'lab/userBook/userBookStore.ts',
+    ])
   })
 })
 

@@ -18,7 +18,8 @@ const expected = [
 ].join('\n\n')
 
 function store() {
-  localStorage.setItem(CHAPTER_NOTES_STORAGE_KEY, JSON.stringify({ [chapterNotesKey(request)]: { beats, at: Date.now() } }))
+  // The sheet asks for the card at the reader's length: Standard for a reader who set none (AI settings).
+  localStorage.setItem(CHAPTER_NOTES_STORAGE_KEY, JSON.stringify({ [chapterNotesKey({ ...request, ai: { length: 'standard', row: 'summary' } })]: { beats, at: Date.now() } }))
 }
 
 function renderSheet() {
@@ -125,4 +126,36 @@ describe('LabChapterNotesSheet with the follow-up field (phone, iPhone feedback 
       expect(thread.compareDocumentPosition(screen.getByTestId('follow')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
     })
   }
+})
+
+describe("LabChapterNotesSheet on a reader's own book (One Tinct, 22 Oct 2026)", () => {
+  const HEX = 'aa11bb22cc33dd44ee55ff66'
+  const own = { bookTitle: 'Lamplit Conjectures', bookAuthor: '', chapterNumber: 3, chapterTitle: '2 Controversial Candles', paragraphs: ['The lamp explains itself.', 'The shade disagrees.'] }
+  const ownRequest: ChapterNotesRequest = { bookId: `userbook-${HEX}`, editionKey: 'own-en', chapterNumber: 3, kind: 'end', bookTitle: 'Lamplit Conjectures' }
+  beforeEach(() => { localStorage.clear() })
+  afterEach(() => { cleanup(); vi.unstubAllGlobals() })
+
+  it('makes its Recap from this device’s text through the companion, never the server’s chapter notes, and keeps it here', async () => {
+    const fetchMock = vi.fn(async (_url: string, _init: RequestInit) => new Response(JSON.stringify({ content: [{ type: 'text', text: 'It explains.\n\nIt sets up the shade.' }], stop_reason: 'end_turn' }), { status: 200 }))
+    vi.stubGlobal('fetch', fetchMock)
+    render(<LabChapterNotesSheet request={ownRequest} own={own} title="Recap · 2 Controversial Candles" onClose={vi.fn()} onChat={vi.fn()} onTalk={vi.fn()} readToken={async () => null} />)
+    expect((await screen.findAllByTestId('lab-chapter-notes-beat')).map(beat => beat.textContent)).toEqual(['Main pointsIt explains.', 'What it sets upIt sets up the shade.'])
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    const [url, init] = fetchMock.mock.calls[0]
+    expect(url).toMatch(/\/api\/lab-chat$/)
+    expect(String(init.body)).not.toContain(HEX)
+    // Reopened: from this device, no second request.
+    cleanup()
+    render(<LabChapterNotesSheet request={ownRequest} own={own} title="Recap · 2 Controversial Candles" onClose={vi.fn()} onChat={vi.fn()} onTalk={vi.fn()} />)
+    expect(screen.getAllByTestId('lab-chapter-notes-beat')).toHaveLength(2)
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('never sends an own book’s id to the chapter notes route, even without its text', async () => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+    render(<LabChapterNotesSheet request={ownRequest} title="Recap" onClose={vi.fn()} onChat={vi.fn()} onTalk={vi.fn()} />)
+    await screen.findByTestId('lab-chapter-notes-retry')
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
 })

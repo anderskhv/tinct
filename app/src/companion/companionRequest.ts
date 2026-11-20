@@ -14,6 +14,7 @@ import { buildChapterChatInstructions, parseChapterChatAction, type PrimerChapte
 import { buildLabAskInstructionParts, type LabAskContext, type LabAskInstructionOptions, type LabAskInstructionParts, type ShownExplanation } from './labAskPrompt'
 import {
   ASK_DOCUMENT_LINE,
+  ASK_LEAD_RULE,
   COUNTERPOINT_PROMPT,
   DEFINE_SENSE_PROMPT,
   FACTCHECK_NO_SEARCH_NOTE,
@@ -25,6 +26,7 @@ import {
   PDF_COUNTERPOINT_PROMPT,
   PDF_DOCUMENT_WORDING,
   PDF_EXPLAIN_PROMPT,
+  PDF_FIGURE_EXPLAIN_PROMPT,
   QUIZ_CHECK_PROMPT,
   RELATED_PROMPT,
   SIMPLIFY_PROMPT,
@@ -38,6 +40,7 @@ import {
 import { PRIMER_MAX_TOKENS, buildPrimerInstructions, buildPrimerTask, primerPages, primerUserTurn } from './primerPrompt'
 import { buildMarginPrefixParts, buildMarginVolatile, parseMarginDocument, parseMarginPassages, type MarginDocument, type MarginPassage } from './marginContext'
 import { MARGIN_ROUTES, marginRouteKey, type MarginRoute } from './marginRoutes'
+import { AI_EXPLAIN_LENGTH_LINES, aiPrefsPromptLines, aiShorterLength, parseAiRequestPrefs, type AiRequestPrefs } from '../aiSettings'
 
 /**
  * `simplify` … `related` are the margin reader's actions (docs/margin/PROMPTS.md),
@@ -93,6 +96,8 @@ export interface CompanionRequest {
    * Metered as `explain_speculative`, never against an allowance.
    */
   speculative?: boolean
+  /** PDF Explain on a selected figure or table (not a formula): the takeaway first, never a description of the chart. */
+  figure?: true
   /**
    * Chapter action; `target` carries the next chapter's paragraphs for `prepare`.
    * `primer` (Before you start) is a user's own PDF only: see parsePrimerRequest.
@@ -134,15 +139,22 @@ export interface CompanionRequest {
    * (FIXES-2026-10-15, long books, item 8). Never set otherwise.
    */
   passages?: MarginPassage[]
+  /**
+   * The reader's AI settings for this action (aiSettings.ts), only what differs
+   * from Tinct's defaults: length, answer language, their own instructions.
+   * Appended to Tinct's rules, never in place of them. Never on `library`.
+   */
+  ai?: AiRequestPrefs
 }
 
 /** The card shows the first paragraph whole, then "More". The opener's word
  *  cap is what keeps it to two or three lines on a phone; the rest is capped
- *  at three short paragraphs so the expanded card stays a glance, not a read. */
+ *  at two short paragraphs, about 100 words in all, so the expanded card stays a glance, not a read
+ *  (Anders, 2 Nov 2026: answers too long). */
 export const LAB_EXPLAIN_PROMPT = [
   'Explain this selected passage for a reader at this point in the book.',
   'First paragraph: the answer itself, one sentence, at most 25 words. It must stand alone. If the passage is a name or place, say what it is and why it is here, nothing more. Then a blank line.',
-  'Then at most three short paragraphs of useful detail, most important first. Skip any paragraph that only adds background.',
+  'Then at most two short paragraphs of useful detail, most important first. Skip any paragraph that only adds background. About 100 words or fewer in all.',
   'Do not repeat the full selected passage. Discuss its meaning and significance without using knowledge from later in the work.',
 ].join('\n\n')
 
@@ -176,10 +188,12 @@ function quizTurns(raw: unknown): QuizTurn[] | null {
 
 /** Output bound per intent. The Worker never uses a caller-supplied value. */
 export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = Object.freeze({
-  ask: 1024,
+  // A chat answer is as long as its question needs: 1024 cut a long answer off mid-word (iPhone, 29 Oct 2026,
+  // "Paul goes on in chap"). Only the words written are paid for.
+  ask: 4096,
   explain: 450,
   define: 450,
-  chapter: 1024,
+  chapter: 4096,
   library: 900,
   simplify: 450,
   define_sense: 60,
@@ -198,9 +212,41 @@ export function isPrimerRequest(request: CompanionRequest): request is Companion
   return request.intent === 'chapter' && request.chapter?.action.kind === 'primer'
 }
 
-/** The output bound for a parsed request: a primer has its own (PROMPTS.md), every other request its intent's. */
-export function companionMaxTokens(request: CompanionRequest): number {
-  return isPrimerRequest(request) ? PRIMER_MAX_TOKENS : COMPANION_MAX_TOKENS[request.intent]
+/** Whether a request's action has a row in AI settings' Length grid (Explain, Ask, Primer, Summary and Recap). */
+export function companionHasLengthRow(request: CompanionRequest): boolean {
+  // The row the reader set the length in, when the client names it (a recap sent as a question reads Summary's).
+  if (request.ai?.row) return true
+  return request.intent === 'explain' || request.intent === 'ask' || request.intent === 'chapter'
+}
+
+/** The shorter length the reader set for this request (Brief or Standard); null for Detailed, which is the prompt as written. */
+function companionLength(request: CompanionRequest): 'brief' | 'standard' | null {
+  return companionHasLengthRow(request) ? aiShorterLength(request.ai) : null
+}
+
+/** The output bound for a parsed request: a primer has its own (PROMPTS.md), every other request its intent's. No length setting raises it. */
+export function companionMaxTokens(request: CompanionRequest, base?: number): number {
+  return base ?? (isPrimerRequest(request) ? PRIMER_MAX_TOKENS : COMPANION_MAX_TOKENS[request.intent])
+}
+
+/**
+ * A primer's length as the reader set it (AI settings' Primer row), in its own parts: the generic line would
+ * fight its JSON. Detailed is the prompt as written (gist at most 50 words, items at most 30); Standard is about
+ * 30% shorter. The three parts keep their order and the JSON its shape.
+ */
+export const PRIMER_LENGTH_LINES: Readonly<Record<'brief' | 'standard', string>> = Object.freeze({
+  brief: 'Length, as the reader set it: brief. gist one sentence of at most 25 words; "How it\'s built" two or three parts and "Watch for" one item, each at most 18 words. This replaces any other length guidance above; keep the JSON shape and the three parts in their order.',
+  standard: 'Length, as the reader set it: standard. gist two sentences, at most 35 words; "How it\'s built" two or three parts and "Watch for" one or two items, each at most 21 words. This replaces any other length guidance above; keep the JSON shape and the three parts in their order.',
+})
+
+/** The reader's settings as prompt lines; the length line only for a request with a length row. Explain's goes in its user turn. */
+function companionAiLines(request: CompanionRequest): string[] {
+  const length = companionLength(request)
+  if (isPrimerRequest(request)) {
+    // The primer's own length line, then the reader's instructions as for any request.
+    return [...(length ? [PRIMER_LENGTH_LINES[length]] : []), ...aiPrefsPromptLines(request.ai, { length: false })]
+  }
+  return aiPrefsPromptLines(request.ai, { length: Boolean(length) && request.intent !== 'explain' })
 }
 
 /** Paragraphs on each side of the reader's place sent with Explain and Define. */
@@ -459,6 +505,13 @@ function parsePrimerRequest(r: Record<string, unknown>, chapter: Record<string, 
 
 /** Validates and bounds a structured request. `null` = not a valid companion request. */
 export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
+  const request = parseCompanionRequestBody(raw)
+  if (!request || request.intent === 'library') return request
+  const ai = parseAiRequestPrefs((raw as Record<string, unknown>).ai)
+  return ai ? { ...request, ai } : request
+}
+
+function parseCompanionRequestBody(raw: unknown): CompanionRequest | null {
   if (!raw || typeof raw !== 'object') return null
   const r = raw as Record<string, unknown>
   const intent = r.intent as CompanionIntent
@@ -488,7 +541,8 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   if (intent === 'explain' || intent === 'define' || intent === 'simplify') {
     const selection = text(r.selection, SELECTION_CHARS)
     if (!selection) return null
-    return { intent, context: { ...context, lookups: false }, selection, ...(r.speculative === true ? { speculative: true } : {}), ...pdf }
+    const figure = intent === 'explain' && parsed.pdf && r.figure === true ? { figure: true as const } : {}
+    return { intent, context: { ...context, lookups: false }, selection, ...(r.speculative === true ? { speculative: true } : {}), ...figure, ...pdf }
   }
   if (intent === 'factcheck' || intent === 'counterpoint' || intent === 'related') {
     const selection = text(r.selection, SELECTION_CHARS)
@@ -602,7 +656,7 @@ function marginTask(request: CompanionRequest, extras: CompanionBuildExtras): st
     case 'quiz_check': return [QUIZ_CHECK_PROMPT]
     // A question in the PDF reader's margin: the document before our own explanation; on a PDF passage, the image line, as Explain has it.
     // About the whole PDF: its own rules too (WHOLE_PDF_PROMPT).
-    case 'ask': return request.pdf ? [...(request.whole ? [WHOLE_PDF_PROMPT] : []), ASK_DOCUMENT_LINE, ...(extras.sourceSearch ? [ASK_SOURCE_SEARCH_LINE] : []), ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
+    case 'ask': return request.pdf ? [...(request.whole ? [WHOLE_PDF_PROMPT] : []), ASK_DOCUMENT_LINE, ASK_LEAD_RULE, ...(extras.sourceSearch ? [ASK_SOURCE_SEARCH_LINE] : []), ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
     default: return []
   }
 }
@@ -613,17 +667,20 @@ function instructionOptions(request: CompanionRequest, extras: CompanionBuildExt
   // citation rule for a PDF (an EPUB has no page numbers).
   const plain = request.pdf ? [...MARGIN_ANSWER_RULES, ...(isPdfFile(request) ? [PDF_DOCUMENT_WORDING] : [])] : []
   const citations = [...(isPdfFile(request) && (request.intent === 'ask' || PASSAGE_INTENTS.has(request.intent)) ? [PDF_CITATION_RULE] : []), ...plain]
+  // The margin reader without its document sends the chapters (or pages) around the reader, each cut to a window:
+  // an excerpt, never the full chapter (labAskPrompt LAB_EXCERPT_CHAPTER_LEAD).
+  const excerpt = request.pdf ? { excerpt: true } : {}
   switch (request.intent) {
     case 'explain':
     case 'define':
       return { nearby: COMPANION_NEARBY_PARAGRAPHS, ...(plain.length ? { rules: plain } : {}) }
     case 'ask':
-      return { shownExplanations: request.shownExplanations, rules: citations, task: marginTask(request, extras) }
+      return { shownExplanations: request.shownExplanations, rules: citations, task: marginTask(request, extras), ...excerpt }
     case 'quiz':
       // A chapter quiz needs the whole chapter; a passage quiz, the passage's neighbourhood.
-      return { ...(request.selection ? { nearby: COMPANION_NEARBY_PARAGRAPHS } : {}), rules: citations, task: marginTask(request, extras) }
+      return { ...(request.selection ? { nearby: COMPANION_NEARBY_PARAGRAPHS } : {}), rules: citations, task: marginTask(request, extras), ...excerpt }
     default:
-      return { nearby: COMPANION_NEARBY_PARAGRAPHS, rules: citations, task: marginTask(request, extras) }
+      return { nearby: COMPANION_NEARBY_PARAGRAPHS, rules: citations, task: marginTask(request, extras), ...excerpt }
   }
 }
 
@@ -636,9 +693,11 @@ export function buildCompanionSystem(request: CompanionRequest, extras: Companio
       const chapter = request.chapter!
       const context = request.context!
       // Before you start (a user's PDF only): its own builder, so a book's chapter actions are untouched.
-      if (chapter.action.kind === 'primer') return buildPrimerInstructions(chapter.action, context)
+      const ai = companionAiLines(request)
+      const tail = ai.length ? `\n\n${ai.join('\n\n')}` : ''
+      if (chapter.action.kind === 'primer') return `${buildPrimerInstructions(chapter.action, context)}${tail}`
       const target = chapter.action.kind === 'prepare' ? chapter.target ?? [] : context.paragraphs
-      return buildChapterChatInstructions({ action: chapter.action, context, activity: chapter.activity }, target)
+      return `${buildChapterChatInstructions({ action: chapter.action, context, activity: chapter.activity }, target)}${tail}`
     }
     default: {
       const parts = buildCompanionSystemParts(request, extras)!
@@ -659,7 +718,9 @@ export function buildCompanionSystemParts(request: CompanionRequest, extras: Com
   if (request.intent === 'library' || request.intent === 'chapter') return null
   // The PDF reader's margin opens with its own wording of the policy (no "supplied"); the book reader's is unchanged.
   const options = instructionOptions(request, extras)
-  return buildLabAskInstructionParts(request.context!, request.pdf ? { ...options, policy: MARGIN_LAB_ASK_POLICY } : options)
+  const parts = buildLabAskInstructionParts(request.context!, request.pdf ? { ...options, policy: MARGIN_LAB_ASK_POLICY } : options)
+  const ai = companionAiLines(request)
+  return ai.length ? { ...parts, volatile: [parts.volatile, ...ai].filter(Boolean).join('\n\n') } : parts
 }
 
 /** The reader's data inside our own wrapper tags cannot close or open one of them. */
@@ -673,11 +734,15 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
   switch (request.intent) {
     case 'define':
       return `${request.pdf ? PDF_CONTEXTUAL_LOOKUP_PROMPT : CONTEXTUAL_LOOKUP_PROMPT}\n<word>${request.selection}</word>`
-    case 'explain':
+    case 'explain': {
+      // The reader's Explain length (AI settings), last, so it replaces the prompt's own word counts.
+      const length = companionLength(request)
+      const tail = length ? `\n\n${AI_EXPLAIN_LENGTH_LINES[request.pdf ? 'pdf' : 'book'][length]}` : ''
       // The PDF reader's Explain (FIXES-2026-10-15 A2); the book reader's is unchanged.
       return request.pdf
-        ? `${PDF_EXPLAIN_PROMPT}\n\n<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>`
-        : `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${request.selection}\n</selected_passage>`
+        ? `${request.figure ? PDF_FIGURE_EXPLAIN_PROMPT : PDF_EXPLAIN_PROMPT}\n\n<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>${tail}`
+        : `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${request.selection}\n</selected_passage>${tail}`
+    }
     case 'simplify':
     case 'factcheck':
     case 'counterpoint':
@@ -752,6 +817,8 @@ export function buildMarginSystemParts(request: CompanionRequest, extras: Compan
   const primer = isPrimerRequest(request)
   const image = extras.image && (request.intent === 'explain' || request.intent === 'define') ? [PASSAGE_IMAGE_LINE] : []
   const task = primer ? [buildPrimerTask(request.chapter.action, context, doc)] : [...marginTask(request, extras), ...image]
+  task.push('If the edition or the reader’s question is Danish, answer in Danish unless they request another language. This includes Simplify; keep structured response keys unchanged.')
+  task.push(...companionAiLines(request))
   const volatile = buildMarginVolatile({
     kind: doc.kind,
     place: primer ? null : contextPlace(context),

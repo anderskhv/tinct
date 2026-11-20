@@ -242,3 +242,21 @@ describe('paragraph numbers stay internal', () => {
     }
   })
 })
+
+describe('PDF figure Explain (2 Nov 2026)', () => {
+  it('asks a figure for its point, and only a PDF Explain may carry the flag', async () => {
+    const { companionSelectionMessage } = await import('./companion/companionRequest')
+    const pdfContext = { kind: 'pdf', bookTitle: 'Report', bookAuthor: '', chapterLabel: 'Original PDF page 1', pageNumber: 1, pages: [{ n: 1, text: 'Loans published per month.' }], paragraphIndex: 0, lookups: false }
+    const figure = parseCompanionRequest({ intent: 'explain', context: pdfContext, selection: '[The reader selected a figure on page 1. It is the attached image.]', figure: true })!
+    expect(figure.figure).toBe(true)
+    const message = companionSelectionMessage(figure)!
+    expect(message).toContain('its main point in one sentence')
+    expect(message).toContain('Never describe the chart type, colours, layout, axes or legend')
+    const passage = parseCompanionRequest({ intent: 'explain', context: pdfContext, selection: 'Norway delivered 33.1 million.' })!
+    expect(passage.figure).toBeUndefined()
+    expect(companionSelectionMessage(passage)).not.toContain('main point in one sentence')
+    expect(parseCompanionRequest({ intent: 'define', context: pdfContext, selection: 'tranche', figure: true })).not.toHaveProperty('figure')
+    expect(parseCompanionRequest({ intent: 'explain', context, selection: 'A passage.', figure: true })).not.toHaveProperty('figure')
+  })
+})
+

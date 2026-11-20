@@ -1,4 +1,4 @@
-import { editionHold } from './editionAvailability'
+import { editionHold, isOfferedDanishEdition } from './editionAvailability'
 import { editionDifficulty } from '../lab/editionDifficulty'
 import type { Edition } from '../types'
 
@@ -104,6 +104,10 @@ export function humanPrimaryEditionKey(bookId: string, allEditions: readonly Edi
 }
 
 /** The edition a book opens in the first time, under the reader's "New books open in" choice. */
-export function newBookPrimaryEditionKey(bookId: string, editions: readonly EditionLike[], openIn: 'modern' | 'human' | null): string | undefined {
+export function newBookPrimaryEditionKey(bookId: string, editions: readonly EditionLike[], openIn: 'modern' | 'human' | null, languages: readonly string[] = ['en']): string | undefined {
+  if (languages.includes('da')) {
+    const danish = editions.find(edition => edition.language === 'da' && isOfferedDanishEdition(bookId, edition.key) && !editionHold(bookId, edition.key))
+    if (danish) return danish.key
+  }
   return openIn === 'human' ? humanPrimaryEditionKey(bookId, editions) : defaultPrimaryEditionKey(bookId, editions)
 }

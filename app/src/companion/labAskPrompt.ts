@@ -84,6 +84,13 @@ export const LAB_ASK_CHECKED_SPECIFICS_RULE = `State specifics only when you hav
 export const LAB_RECAP_GROUNDING_RULE = `Only state what the text says. Never state an outcome, a result or a later state that is not in the span you were given (who succeeds or fails, finishes or gives up, who goes and who stays); when the text leaves a turn open or unclear, leave it out rather than guess. Name only the people the text shows taking part.`
 export const LAB_ASK_RECHECK_RULE =`When the reader questions an answer, re-read the passage, then say plainly and briefly what was wrong, if anything ("I was wrong: verse 11 is a different Jonathan"). Never insist an earlier answer was right without checking it, and never pad the correction.`
 
+/**
+ * How long a chat answer runs (Anders, 2 Nov 2026: answers were too long). Before this the policy set no length, and
+ * typed answers ran a median of about 460 words (his own account, last 30 days). Short by default; the reader asks
+ * for more when they want it.
+ */
+export const LAB_ASK_LENGTH_RULE = `Keep answers short by default: about 60 to 120 words, in one or two short paragraphs, the answer itself first. Go up to about 250 words only when the question needs it (several parts, a comparison, a passage to walk through), and longer only when the reader asks for depth or detail. No preamble, no restating the question, no closing summary. Prefer prose; use a short list only for an answer that is a list.`
+
 export const LAB_ASK_POLICY = `You are Tinct's reading companion beside the page on /lab. This is a conversation next to the open chapter, not an in-car interruption.
 
 Do not greet. Do not say hello. Do not start with small talk. The app speaks the opening line.
@@ -92,6 +99,8 @@ ${LAB_ASK_NO_PRAISE_RULE}
 ${LAB_ASK_NO_PARAGRAPH_NUMBERS_RULE}
 
 Answer completely and stop. Do not routinely end with a question, offer or invitation to continue. Ask only when clarification is necessary or a question is plainly the natural next move.
+
+${LAB_ASK_LENGTH_RULE}
 
 ${LAB_ASK_NO_DECLINE_RULE}
 
@@ -214,7 +223,19 @@ export interface LabAskInstructionOptions {
   shownExplanations?: ShownExplanation[]
   rules?: string[]
   task?: string[]
+  /**
+   * The paragraphs are an excerpt, not the whole chapter (the margin reader's fallback without its document: the
+   * chapters or pages around the reader, each cut to a window, with "[…]" where it was cut). Labelled so, never as
+   * the full chapter: on 9 Nov 2026 an own EPUB's Ask said a highlighted line came "later than this chapter reaches",
+   * because the first 9,000 characters of the chapter were sent as its full, authoritative text.
+   */
+  excerpt?: boolean
 }
+
+/** The lead of the chapter text when it is the whole chapter. */
+export const LAB_FULL_CHAPTER_LEAD = 'Full current chapter with numbered paragraphs. This is the authoritative text. If they ask for the second paragraph, read [2]. If they ask for a paragraph that is here, read it.'
+/** The lead of the chapter text when it is an excerpt (cut by the client or by the prompt cap). */
+export const LAB_EXCERPT_CHAPTER_LEAD = 'An excerpt of the current chapter around the reader, with numbered paragraphs; the chapter goes on beyond it, and "[…]" or "[…chapter continues]" marks where it was cut. Use it for exact wording. A passage the reader selected or names that is not in the excerpt is still in this chapter: never say it comes later or earlier because it is not here.'
 
 const SUPERSCRIPT_DIGITS = '⁰¹²³⁴⁵⁶⁷⁸⁹'
 const VERSE_MARK_RE = /(?:^|\s)([⁰¹²³⁴⁵⁶⁷⁸⁹]+)(?=\s)/g
@@ -247,6 +268,9 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: LabAs
 
   const stable = [
     options.policy ?? LAB_ASK_POLICY,
+    input.editionKey?.endsWith('-da')
+      ? 'Answer in Danish for this Danish edition, unless the reader explicitly requests another language. This also applies to Simplify; keep structured response keys unchanged.'
+      : 'If the reader writes their question in Danish, answer in Danish. Keep structured response keys unchanged.',
   ]
   if (toolsAvailable) stable.push(LAB_ASK_BOOK_TOOLS_RULE, LAB_LOOKUP_BEFORE_TEXT_RULE)
   for (const rule of options.rules ?? []) if (rule) stable.push(rule)
@@ -287,15 +311,17 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: LabAs
   }
   const chapter = numberedLabChapter(input.paragraphs)
   if (chapter) {
-    const lead = `Full current chapter with numbered paragraphs. This is the authoritative text. If they ask for the second paragraph, read [2]. If they ask for a paragraph that is here, read it.\n`
     const budget = Math.min(
       LAB_CHAPTER_CAP,
-      Math.max(4_000, LAB_ASK_SYSTEM_CAP - LAB_ASK_SYSTEM_MARGIN - stable.join('\n\n').length - lead.length),
+      Math.max(4_000, LAB_ASK_SYSTEM_CAP - LAB_ASK_SYSTEM_MARGIN - stable.join('\n\n').length - Math.max(LAB_FULL_CHAPTER_LEAD.length, LAB_EXCERPT_CHAPTER_LEAD.length) - 1),
     )
-    const capped = chapter.length > budget
+    const cut = chapter.length > budget
+    const capped = cut
       ? `${chapter.slice(0, budget).trim()}\n\n[…chapter continues]`
       : chapter
-    stable.push(`${lead}${capped}`)
+    // Text cut here or by the client is an excerpt, never "the full chapter".
+    const lead = cut || options.excerpt ? LAB_EXCERPT_CHAPTER_LEAD : LAB_FULL_CHAPTER_LEAD
+    stable.push(`${lead}\n${capped}`)
   }
   for (const line of options.task ?? []) if (line) volatile.push(line)
 

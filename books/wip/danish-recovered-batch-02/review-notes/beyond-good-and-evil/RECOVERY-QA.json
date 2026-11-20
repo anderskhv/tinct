@@ -1,0 +1,42 @@
+{
+  "book": "beyond-good-and-evil",
+  "recovery_date": "2026-11-18",
+  "native_signoff": false,
+  "new_full_semantic_review": false,
+  "targets": [
+    {
+      "file": "beyond-good-and-evil-modern-da.json",
+      "target": "app/public/data/editions/beyond-good-and-evil-modern-da.json",
+      "sha256": "c6ce72bc0b67c33e7db033b81c2e91f284ed35ed2bd8bc6df7549eeeb620a3aa",
+      "current_main_equals_candidate": false,
+      "chapters": 11,
+      "slots": 325,
+      "paragraph_ledger_replay": true,
+      "changed_slots": 310,
+      "current_main_equals_source": true
+    },
+    {
+      "file": "beyond-good-and-evil-modern-en.json",
+      "target": "app/public/data/editions/beyond-good-and-evil-modern-en.json",
+      "sha256": "d017ff076cbbf10f7aa9002fb77818fbedeaa551ecbc39fa336330d68a4f116a",
+      "current_main_equals_candidate": false,
+      "chapters": 11,
+      "slots": 325,
+      "paragraph_ledger_replay": true,
+      "changed_slots": 140,
+      "current_main_equals_source": true
+    },
+    {
+      "file": "beyond-good-and-evil.da.json",
+      "target": "app/public/data/onboarding/beyond-good-and-evil.da.json",
+      "sha256": "4594c023153e93c5fb59ccdf5b9dd9848da5b96a9b67c770845fb6494ac52274",
+      "current_main_equals_candidate": false
+    },
+    {
+      "file": "beyond-good-and-evil.json",
+      "target": "app/public/data/onboarding/beyond-good-and-evil.json",
+      "sha256": "0b6be5cc4c59889b4047f1536239b5733f1f64b72c1bb35568f511dc7aa33eff",
+      "current_main_equals_candidate": false
+    }
+  ]
+}

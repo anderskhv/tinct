@@ -7,6 +7,7 @@ import {
   mayReceiveOptIn,
   planLifecycle,
   planTrialNotice,
+  extendedTrialAccount,
   readingCandidates,
   trialResetAccount,
   type LogRow,
@@ -120,8 +121,21 @@ describe('trial notices after the trial reset (15 Oct 2026)', () => {
     expect(trialResetAccount({ createdAt: RESET }, RESET)).toBe(false)
     expect(trialResetAccount({ createdAt: RESET - 1 }, RESET)).toBe(true)
     expect(trialResetAccount({ createdAt: RESET - 1 }, RESET - 1)).toBe(false) // before the reset, as before
-    expect(planTrialNotice(facts({ createdAt: created }), created + 25 * DAY)?.template).toBe('trial-ending')
-    expect(planTrialNotice(facts({ createdAt: created }), created + 30 * DAY)?.template).toBe('trial-ended')
+    // From 9 Nov 2026 this account's trial is extended to 4 Jan 2027 (below), so the
+    // sign-up schedule is shown on an account whose 30 days end after the extension.
+    const late = Date.parse('2026-12-10T09:00:00Z')
+    expect(planTrialNotice(facts({ createdAt: late }), late + 25 * DAY)?.template).toBe('trial-ending')
+    expect(planTrialNotice(facts({ createdAt: late }), late + 30 * DAY)?.template).toBe('trial-ended')
+  })
+})
+
+describe('trial notices during the Premium extension (9 Nov 2026, to 4 Jan 2027)', () => {
+  it('sends no "free month ends" notice to an account whose trial was extended', () => {
+    const created = Date.parse('2026-10-15T09:00:00Z')
+    expect(extendedTrialAccount({ createdAt: created }, created + 25 * DAY)).toBe(true)
+    expect(planTrialNotice(facts({ createdAt: created }), created + 25 * DAY)).toBeNull()
+    expect(planTrialNotice(facts({ createdAt: created }), created + 30 * DAY)).toBeNull()
+    expect(extendedTrialAccount({ createdAt: created }, Date.parse('2026-11-08T23:59:59Z'))).toBe(false) // before the decision
   })
 })
 

@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { expect, it } from 'vitest'
-import { consumeLabReaderHandoffForPage, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { consumeLabReaderHandoffForPage, releaseLabReaderHandoffForPage, deepLinkView, deepLinkViewForPage } from './labReaderHandoff'
 
 it('opens a deep link once, then removes it from the address so a reload keeps the reader\'s place', () => {
   window.history.replaceState(null, '', '/reader?book=odyssey&edition=original-en&chapter=2&layout=phone#top')
@@ -68,4 +68,16 @@ it('a Bible-only link opens the reader\'s saved Bible place: the settled book, e
   expect(link()?.savedPlace).toMatchObject({ chapterNumber: 1054, paragraphIndex: 1, wordIndex: 0 })
   expect(readerHandoffFromUrlParams(new URLSearchParams('book=odyssey'))?.savedPlace).toMatchObject({ chapterNumber: 2, paragraphIndex: 9 })
   localStorage.removeItem(LAB_POSITION_STORAGE_KEY)
+})
+
+
+it('retains an explicit Margin layout while consuming a chapter link', () => {
+  expect(deepLinkView(new URLSearchParams('view=margin'))).toBe('margin')
+  releaseLabReaderHandoffForPage(consumeLabReaderHandoffForPage())
+  window.history.replaceState(null, '', '/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=3&word=4&view=margin&sharedReader=1')
+  const handoff = consumeLabReaderHandoffForPage()
+  expect(deepLinkViewForPage()).toBe('margin')
+  expect(window.location.search).not.toContain('view=margin')
+  expect(handoff?.savedPlace).toMatchObject({ paragraphIndex: 3, wordIndex: 4 })
+  releaseLabReaderHandoffForPage(handoff)
 })

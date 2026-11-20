@@ -31,6 +31,19 @@ export interface Edition {
    * which is why no other book pays for the request.
    */
   hasVerseLines?: boolean
+  /**
+   * A verse edition that keeps its role as the book's original or human
+   * translation: each verse line ends with a newline in its own text, and the
+   * reader sets the lines exactly as for a `style: 'verse'` edition
+   * (labVerseLines registerNewlineVerseLines). Thompson's 1928 Gilgamesh
+   * hexameters. Absent for prose, whose newlines (a source's hard wraps) flow.
+   */
+  newlineVerse?: boolean
+}
+
+/** Whether the reader sets an edition's newline-ended lines as verse lines. */
+export function setsNewlineVerse(edition: Pick<Edition, 'style' | 'newlineVerse'> | undefined): boolean {
+  return !!edition && (edition.style === 'verse' || edition.newlineVerse === true)
 }
 
 /**
@@ -175,6 +188,14 @@ export interface Book {
    * noModernEdition.test.ts.
    */
   noModernEdition?: boolean
+  /**
+   * ISO 3166-1 alpha-2 countries (upper case) where the work is probably still
+   * in copyright, so Tinct's editions, narration and other text derived from it
+   * are not served to a request whose country is known to be one of them
+   * (src/data/regionRestrictions.ts, src/worker/lib/regionGate.ts). An unknown
+   * country is allowed. Decided per request; the country is never stored.
+   */
+  restrictedCountries?: string[]
 }
 
 // === Chat ===

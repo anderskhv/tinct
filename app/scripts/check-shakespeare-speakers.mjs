@@ -5,6 +5,7 @@ import path from 'node:path'
 import { registerShakespeareSpeakers, verseSpeakerEnd } from '../src/lab/labVerseLines.ts'
 import { markInternal } from './lib/internalTraffic.cjs'
 const live = process.env.SHAKESPEARE_LIVE === '1'
+const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 const origin = 'https://tinct.app', output = 'artifacts/shakespeare-speakers'
 await fs.mkdir(output, { recursive: true })
 const results = []
@@ -39,6 +40,10 @@ async function boot(page, scenario) {
   }, scenario)
   await page.goto(origin + '/reader?qaLayoutTrace=1', { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
+  if (expectedBundle) {
+    const entry = await page.locator('script[src]').evaluateAll(nodes => nodes.map(node => node.src).find(src => /\/assets\/index-[\w-]+\.js(?:$|\?)/.test(src)))
+    assert.equal(entry && new URL(entry).pathname, expectedBundle.startsWith('/') ? expectedBundle : '/assets/' + expectedBundle, 'Every speaker case uses the exact deployed reader')
+  }
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(800)
 }
@@ -48,7 +53,13 @@ const books = [...registry.matchAll(/export const (\w+): Book = \{([\s\S]*?)\n\}
   .filter(([, key, body]) => published.split(',').map(s => s.trim()).includes(key) && body.includes("author: 'William Shakespeare'"))
   .map(([, , body]) => body.match(/id: '([^']+)'/)[1])
 for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
-  const browser = await markInternal(await browserType.launch({ headless: true, args: engine === 'chromium' ? ['--mute-audio'] : [] }))
+  // Capture bounded transport evidence without changing acceptance behavior.
+  // Default NetLog privacy mode excludes cookies and raw response bytes.
+  const args = engine === 'chromium' ? ['--mute-audio'] : []
+  if (engine === 'chromium' && process.env.SHAKESPEARE_NETLOG === '1') {
+    args.push(`--log-net-log=${path.resolve(output, 'chromium-netlog.json')}`, '--net-log-max-size-mb=50')
+  }
+  const browser = await markInternal(await browserType.launch({ headless: true, args }))
   try {
     const scenarios = books.flatMap(book => ['original-en', 'modern-en'].map(edition => ({ book, edition, chapter: 1, paragraph: 0, size: 1.3, alignment: 'left', explicit: false, layout: 'verse', width: 1440 })))
     for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ book: 'hamlet', edition: 'original-en', chapter: 2, paragraph: 69, size, alignment, explicit: true, layout: 'verse', width: 1440, theme: 'dark', screenshot: true })
@@ -78,13 +89,18 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         if (scenario.compare) {
           await page.getByTestId('lab-super').click()
           await page.getByTestId('lab-super-menu').waitFor()
-          // The phone's t menu holds Show compare in Reading settings (20 Oct 2026); the desktop keeps Book editions.
-          await page.getByTestId(await page.getByTestId('lab-super-row-reading').count() ? 'lab-super-row-reading' : 'lab-super-row-editions').click()
-          await page.getByTestId('lab-v2-show-compare').click()
-          await page.waitForFunction(edition => {
+          await page.getByTestId('lab-super-row-editions').click()
+          if (scenario.phone) {
+            // No Compare on the phone (10 Nov 2026): the other edition is read as the Main version.
+            assert.equal(await page.getByTestId('lab-v2-show-compare').count(), 0, 'The phone offers no Compare')
+            await page.getByTestId('lab-v2-main-edition').click()
+            await page.locator(`[data-edition="${visibleEdition}"]`).click()
+            await page.getByTestId('lab-v2-sheet-close').click()
+          } else await page.getByTestId('lab-v2-show-compare').click()
+          await page.waitForFunction(({edition, phone}) => {
             const root=document.querySelector('[data-testid="lab-root"]')
-            return root?.dataset.compareActive==='true' && root.dataset.readerEdition===edition
-          }, visibleEdition)
+            return (phone || root?.dataset.compareActive==='true') && root?.dataset.readerEdition===edition
+          }, {edition: visibleEdition, phone: !!scenario.phone})
           await page.waitForTimeout(800)
         }
         if (scenario.reportedPhone) {

@@ -28,6 +28,7 @@ export function ensureCardsStyle(doc: Document = document): void {
 }
 
 export const ICONS = {
+  pencil: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m10 2 4 4-8 8H2v-4zM8 4l4 4"/></svg>',
   x: '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg>',
   back: '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2.5 4.5 7 9 11.5"/></svg>',
   chev: '<svg viewBox="0 0 8 14" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5"/></svg>',

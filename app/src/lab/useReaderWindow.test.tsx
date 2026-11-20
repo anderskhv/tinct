@@ -165,10 +165,10 @@ describe('Chat and Talk default geometry (Anders, 9 Oct 2026)', () => {
   })
 
   it('Chat cannot be made smaller than 280 x 300, Talk not smaller than 260 x 180, so their controls keep room', () => {
-    expect(readerWindowMinimum('talk')).toEqual({ width: 260, height: 180 })
+    expect(readerWindowMinimum('talk')).toEqual({ width: 260, height: 220 })
     expect(readerWindowMinimum('chat')).toEqual({ width: 280, height: 300 })
     expect(readerWindowMinimum('settings')).toEqual({ width: 260, height: 160 })
-    for (const [name, minimum] of [['talk', { width: 260, height: 180 }], ['chat', { width: 280, height: 300 }]] as const) {
+    for (const [name, minimum] of [['talk', { width: 260, height: 220 }], ['chat', { width: 280, height: 300 }]] as const) {
       const view = mountWithLayout(name)
       const panel = view.getByTestId('panel')
       panel.getBoundingClientRect = () => styledBox(panel)
@@ -184,9 +184,9 @@ describe('Chat and Talk default geometry (Anders, 9 Oct 2026)', () => {
   })
 
   it('Talk opens at its compact size on the same anchor: 8px in, foot on the pages\' foot', () => {
-    expect(READER_TALK_WINDOW).toEqual({ width: 312, height: 252, right: 8 })
+    expect(READER_TALK_WINDOW).toEqual({ width: 312, height: 336, right: 8 })
     const point = readerCompanionPlacement(READER_TALK_WINDOW, { width: 1440, height: 900 }, pages.bottom)
-    expect(point).toEqual({ x: 1440 - 8 - 312, y: 808 - 252 })
+    expect(point).toEqual({ x: 1440 - 8 - 312, y: 808 - 336 })
   })
 
   it('pins the Talk header and controls: only the orb gives way; Talk is sized to its content (lab.css)', () => {
@@ -194,7 +194,7 @@ describe('Chat and Talk default geometry (Anders, 9 Oct 2026)', () => {
     expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] > \.lab-voice-panel-controls \{ flex:none; \}/)
     expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] > \.lab-voice-panel-stage \{\s*flex:1 1 auto; min-height:0; overflow:hidden;/)
     expect(css).toMatch(/width:min\(312px,calc\(100vw - 48px\)\);\s*height:min\(390px,calc\(100dvh - 132px\)\);/)
-    expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] \{\s*height:min\(252px,calc\(100dvh - 132px\)\);/)
+    expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] \{\s*height:min\(336px,calc\(100dvh - 132px\)\);/)
     expect(css).not.toMatch(/lab-voice-panel-thread/)
   })
 })

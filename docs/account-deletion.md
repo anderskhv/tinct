@@ -81,6 +81,14 @@ curl -sS -X POST https://tinct.app/api/admin/delete-user \
 The export response has `complete: true` when every store was read in full;
 otherwise `errors` and `truncated` say what is missing. Re-run in that case.
 
+`durableObjects.readerPosition` holds the account's position record and,
+under `positionHistory`, its recent position writes: the last 200 saves of
+at most 30 days (time, device and tab ids, app build, book, edition, chapter,
+paragraph, word, the write's reason and whether the merge accepted, ignored
+or overrode it; `app/src/worker/lib/positionHistory.ts`). Older entries are
+dropped at the account's next save. To read one account's history alone, for
+a lost place, post the same body to `/api/admin/position-history`.
+
 `supabase.reading_time` is the reading-time ledger (seconds read and listened
 per day and book; `app/supabase/migrations/20261008_reading_time.sql`). Until
 that migration has run the table does not exist; export and deletion then
@@ -147,7 +155,7 @@ objects in `NARRATION_COORDINATOR`. Deleting the book deletes
 Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
 
 1. **Durable Objects:** recap preparation, then reader position (alarm and all
-   storage). Recap goes first because its alarm reads the position object.
+   storage, which includes the position write history). Recap goes first because its alarm reads the position object.
 2. **KV:** `lab-chat-history:<id>` (Talk/chat history) and `lab-position:<id>`
    (legacy position record). The own-book narration spend object
    (`own-user:<id>`, purged). Each OCR job found under `u/<id>/ocr/` is
@@ -214,3 +222,13 @@ override.
   stays until the reader signs out, clears site data or uninstalls. Say so in
   the confirmation reply.
 - **Backups:** Supabase point-in-time backups roll off on their own schedule.
+
+The October 2026 profile flow adds `reader_profiles.reading_languages` and a
+`user_data` receipt at `premium-first-month-2026-10` containing only the grant
+start and expiry. Existing full-row export and account deletion cover both.
+The receipt labels the promotion; it never grants access.
+
+Uploaded-book shelf visibility uses the existing owner-only `user_data` keys
+`library-shelf:userbook-<opaque-id>` (choice and action time, no title or text).
+These are included in the full `user_data` export and cascade on account deletion.
+Hiding a book does not delete its private file, reading place, notes or highlights.

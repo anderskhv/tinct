@@ -1,5 +1,5 @@
 /**
- * The PDF viewer follows the reader's theme (addbooks/web/src/js/pdf-theme.js):
+ * The PDF viewer follows the reader's theme (public/lab/addbook/js/pdf-theme.js):
  * the same stored setting as the reader (labPrefs.ts), and pages recoloured
  * for the dark theme with pictures kept as drawn.
  */
@@ -13,7 +13,7 @@ const ROOT = fileURLToPath(new URL('../../../../', import.meta.url))
 
 interface Rect { x: number; y: number; r: number; b: number }
 interface PdfThemeApi {
-  PALETTE: Record<'light' | 'book' | 'dark' | 'eink', { paper: string; ink: string }>
+  PALETTE: Record<'light' | 'white' | 'book' | 'dark' | 'eink', { paper: string; ink: string }>
   resolveTheme: (raw: string | null, layout: 'phone' | 'desktop', systemDark: boolean, eink: boolean) => string
   withTheme: (raw: string | null, layout: 'phone' | 'desktop', theme: string) => string | null
   readEink: (search: string, stored: string | null) => boolean
@@ -22,7 +22,7 @@ interface PdfThemeApi {
 }
 let theme: PdfThemeApi
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-theme.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-theme.js')
   theme = (globalThis as unknown as { TinctPdfTheme: PdfThemeApi }).TinctPdfTheme
 })
 
@@ -51,9 +51,24 @@ describe('PDF theme: the reader’s own setting', () => {
     expect(theme.withTheme(v2('light', 'light'), 'desktop', 'sepia')).toBeNull()
   })
 
+  it('writes White as the reader stores it (Light on white paper) and reads it back; leaving it drops the paper', () => {
+    const raw = theme.withTheme(v2('dark', 'light'), 'desktop', 'white')!
+    const stored = JSON.parse(raw)
+    expect(stored.desktop).toMatchObject({ theme: 'light', paper: 'white', darkMode: false })
+    expect(stored.phone).toEqual({ theme: 'dark' })
+    expect(theme.resolveTheme(raw, 'desktop', true, false)).toBe('white')
+    expect(parseLabStoredPrefs(stored).desktop.theme).toBe('white')
+    const back = theme.withTheme(raw, 'desktop', 'book')!
+    expect(JSON.parse(back).desktop.paper).toBeUndefined()
+    expect(theme.resolveTheme(back, 'desktop', false, false)).toBe('book')
+    // A reader's own write of White reads back here too.
+    expect(theme.resolveTheme(JSON.stringify({ theme: 'light', paper: 'white' }), 'phone', false, false)).toBe('white')
+  })
+
   it('uses the reader’s papers', () => {
     expect(theme.PALETTE.light.paper).toBe('#ece7db')
     expect(theme.PALETTE.book.paper).toBe('#e7dcc7')
+    expect(theme.PALETTE.white.paper).toBe('#ffffff')
     expect(theme.PALETTE.dark).toEqual({ paper: '#171411', ink: '#bdb3a7' })
   })
 })

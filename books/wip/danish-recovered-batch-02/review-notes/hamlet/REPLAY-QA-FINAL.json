@@ -1,0 +1,53 @@
+{
+  "total_scenes": 20,
+  "total_slots": 1391,
+  "expected_counts": [
+    71,
+    81,
+    32,
+    40,
+    65,
+    42,
+    196,
+    53,
+    169,
+    18,
+    68,
+    15,
+    19,
+    36,
+    24,
+    92,
+    11,
+    49,
+    134,
+    176
+  ],
+  "source_pin_verified": false,
+  "native_review": "pending",
+  "independent_review": "pending",
+  "languages": {
+    "da": {
+      "operations": 1183,
+      "distinct_changed_slots": 1172,
+      "full_replay": true,
+      "guide_replay": true,
+      "nonempty": true,
+      "structure_preserved": true,
+      "chapter_brackets_balanced": true,
+      "candidate_characters": 178951
+    },
+    "en": {
+      "operations": 382,
+      "distinct_changed_slots": 258,
+      "full_replay": true,
+      "guide_replay": true,
+      "nonempty": true,
+      "structure_preserved": true,
+      "chapter_brackets_balanced": true,
+      "candidate_characters": 172674
+    }
+  },
+  "source_map_recovered": false,
+  "recovered_on": "2026-11-18"
+}

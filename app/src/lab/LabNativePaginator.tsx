@@ -1,3 +1,4 @@
+import { transcriptTurns } from './labTranscript'
 import { proseJoins, proseRuns } from './labPoetry'
 import { measureRowsState, paintRows } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
@@ -25,7 +26,7 @@ import {
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
 import { measuredDesktopPages, measuredDesktopPageSteps, type LabPaginationStart } from './LabDesktopPaginator'
 import { paragraphKindClass, paragraphSetRagged, wordLink } from './labParagraphStyle'
-import { planHyphenation } from './labHyphenPlan'
+import { planHyphenationSteps } from './labHyphenPlan'
 import { figureFor, setFigureLayout } from './labFigures'
 import { LabFigureView } from './LabFigure'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
@@ -344,6 +345,14 @@ function nativeVerseLines(text: string, rendered: Array<{ at: number; node: Reac
   })
 }
 
+/** Advance a layout without changing its generator or source boundaries. */
+export function nativePaginationSlice<T>(steps: Generator<unknown, T>, now = () => performance.now()): IteratorResult<unknown, T> {
+  const until = now() + 50
+  let step = steps.next()
+  while (!step.done && now() < until) step = steps.next()
+  return step
+}
+
 /**
  * The column flow's pages for the words from `start` on, as stand-ins: a
  * head-first map (`headFirst` below) has its opening page exactly laid out and
@@ -391,6 +400,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   chapterActions = false,
   hasNextChapter = false,
   editionKey,
+  language,
   keepPages,
   headFirst = false,
   onPages,
@@ -403,6 +413,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   hasNextChapter?: boolean
   /** Reading edition, for the hyphenation patterns a page-edge break needs. */
   editionKey?: string
+  /** The book's language when the edition key does not name it (a reader's own book). */
+  language?: string
   /**
    * Pages to keep verbatim at the head of the map (the reader's current page
    * and those before it) when the foot changes height under them. Only the
@@ -428,7 +440,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   const measuredRef = useRef(new WeakMap<string[], Map<string, ChapterHearingPage[]>>())
   const headFirstRef = useRef(headFirst)
   headFirstRef.current = headFirst
-  const hyphenLang = hyphenLangForEdition(editionKey)
+  const hyphenLang = hyphenLangForEdition(editionKey, language)
   // Patterns arrive after the first layout. Re-measuring once they do is the
   // whole point: the first pass breaks between words, the second fills the
   // last lines. Both are correct pages, so the reader sees no error state.
@@ -461,8 +473,16 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       rest = null
     }
 
-    const measure = () => {
+    let measurement: Generator<unknown, void> | null = null
+    let measureTimer = 0
+    const cancelMeasurement = () => {
+      window.clearTimeout(measureTimer)
+      measurement?.return()
+      measurement = null
+    }
+    const measure = function* (): Generator<unknown, void> {
       if (cancelled) return
+      const columnAt = performance.now()
       const flow = host.querySelector('[data-native-page-flow]') as HTMLElement | null
       if (!flow) return
       const pageWidth = flow.getBoundingClientRect().width
@@ -481,6 +501,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           wordIndex,
         })
       })
+      traceLayout('column-map', columnAt)
       let pages = nativePagesFromPlacements(placements)
       if (fillPages) {
         // The column flow keeps whole words together. The visible leaf allows
@@ -522,8 +543,9 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               const segment = segments[index]
               const words = segmentWordTexts(sourceWords[segment.paragraphIndex], segment)
               const lineation = { text: paragraphs[segment.paragraphIndex], from: segment.from }
-              if (position === 0) labMeasureParagraphInto(p, words, lineation, { plans: true })
-              else labMeasureJoinInto(p, words, lineation, { plans: true })
+              const turn = transcriptTurns(paragraphs)?.get(segment.paragraphIndex)
+              if (position === 0) labMeasureParagraphInto(p, words, lineation, { plans: true, turn })
+              else labMeasureJoinInto(p, words, lineation, { plans: true, turn })
             })
             return p
           } })))
@@ -564,7 +586,13 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         setFigureLayout({ columnWidth, pageHeight })
         probe.remove()
         // Hyphens where a line needs one, chosen in this column (labHyphenPlan).
-        const planKey = planHyphenation(stage, paragraphs, breakLang, (p, words, text, plan) => { labMeasureParagraphInto(p, words, { text, from: 0 }, { plan }) })
+        const planAt = performance.now()
+        // Painted as the page paints it, a transcript turn's time and speaker
+        // included: the speaker's heavier weight moves the line ends.
+        const planKey = yield* planHyphenationSteps(stage, paragraphs, breakLang, (p, words, text, plan, paragraphIndex) => {
+          labMeasureParagraphInto(p, words, { text, from: 0 }, { plan, turn: transcriptTurns(paragraphs)?.get(paragraphIndex) })
+        })
+        traceLayout('hyphen-plan', planAt)
         onStage = ''
         const lengths = sourceWords.map(words => words.length)
         const fitEnd = chapterActions
@@ -595,15 +623,17 @@ export const LabNativePaginator = memo(function LabNativePaginator({
             })
             const headOnly = headFirstRef.current && !publishedPages && preflight.length >= HEAD_FIRST_MIN_PAGES
             const layoutAt = performance.now()
-            let step = steps.next()
-            while (!step.done && !(headOnly && opening.page)) step = steps.next()
+            let step = headOnly ? steps.next() : nativePaginationSlice(steps)
+            while (!step.done && headOnly && !opening.page) step = steps.next()
             const start = !step.done && opening.page ? labResumeAfterPage(opening.page, lengths) : null
-            const head = start && opening.page ? [opening.page, ...provisionalPagesAfter(preflight, start)] : null
-            if (head && placements.length === wordNodes.length && chapterPagesCover(paragraphs, head)) {
-              publishedPages = head
-              publishedPartial = true
-              onPages(head, paragraphs, true)
-              traceLayout('head', layoutAt)
+            const head = headOnly && start && opening.page ? [opening.page, ...provisionalPagesAfter(preflight, start)] : null
+            if (!step.done) {
+              if (head && placements.length === wordNodes.length && chapterPagesCover(paragraphs, head)) {
+                publishedPages = head
+                publishedPartial = true
+                onPages(head, paragraphs, true)
+                traceLayout('head', layoutAt)
+              }
               const layoutMap = measured
               // The same layout carries on from the page it closed, on the
               // same stage, once that page has painted (two frames, then a task).
@@ -611,8 +641,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
                 rest = null
                 if (cancelled) return
                 const drainAt = performance.now()
-                let next = steps.next()
-                while (!next.done) next = steps.next()
+                const next = nativePaginationSlice(steps)
+                if (!next.done) { rest = pending; pending.timer = window.setTimeout(finish, 0); return }
                 let full = next.value
                 const fitAt = performance.now()
                 traceLayout('finish-drain', drainAt)
@@ -622,7 +652,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
                 while (layoutMap.size > MEASURED_LAYOUTS) layoutMap.delete(layoutMap.keys().next().value!)
                 if (end) end.hidden = true
                 stage.replaceChildren()
-                if (chapterPagesCover(paragraphs, full)) {
+                if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, full) && (!publishedPages || publishedPartial || !sameChapterPages(publishedPages, full))) {
                   publishedPages = full
                   publishedPartial = false
                   const publishAt = performance.now()
@@ -637,7 +667,6 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               rest = pending
               return
             }
-            while (!step.done) step = steps.next()
             pages = step.value
             if (fitEnd) pages = fitEnd(pages)
             traceLayout('full-layout', layoutAt)
@@ -663,6 +692,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
     const schedule = () => {
       // A newer measurement replaces the rest still to come.
       cancelRest()
+      cancelMeasurement()
       const generation = ++generationRef.current
       if (firstFrame) cancelAnimationFrame(firstFrame)
       if (secondFrame) cancelAnimationFrame(secondFrame)
@@ -673,7 +703,17 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           const pageWidth = flow?.getBoundingClientRect().width ?? 0
           if (flow && pageWidth > 1) flow.style.columnWidth = `${pageWidth}px`
           secondFrame = requestAnimationFrame(() => {
-            if (!cancelled && generation === generationRef.current) measure()
+            if (cancelled || generation !== generationRef.current) return
+            const steps = measure()
+            measurement = steps
+            const run = () => {
+              measureTimer = 0
+              if (cancelled || generation !== generationRef.current) { steps.return(); return }
+              const next = nativePaginationSlice(steps)
+              if (!next.done) measureTimer = window.setTimeout(run, 0)
+              else measurement = null
+            }
+            run()
           })
         })
       })
@@ -686,6 +726,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
     return () => {
       cancelled = true
       cancelRest()
+      cancelMeasurement()
       generationRef.current += 1
       if (firstFrame) cancelAnimationFrame(firstFrame)
       if (secondFrame) cancelAnimationFrame(secondFrame)

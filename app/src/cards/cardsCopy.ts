@@ -1,3 +1,4 @@
+import { NEW_BOOKS_COPY, NEW_BOOKS_FOOT } from '../social/profileRules'
 /**
  * Every word the account cards show. Card words are cards.html's (approved
  * 9 October 2026); the rest is existing Tinct copy, reused where the design
@@ -15,6 +16,7 @@ export const CARDS_COPY = {
   topUp: 'Top up',
   findReaders: 'Find readers',
   settings: 'Settings',
+  aiSettings: 'AI settings',
   premium: 'Premium',
   free: 'Free',
   uploadPicture: 'Upload a picture',
@@ -27,6 +29,13 @@ export const CARDS_COPY = {
   since: (date: string) => `since ${date}, reading and listening`,
   // Under the last bar of Your reading's week chart (Anders asked what a bar is).
   thisWeek: 'This week',
+  thisMonth: 'This month',
+  readingBy: 'Show reading by',
+  byDays: 'Days',
+  byWeeks: 'Weeks',
+  byMonths: 'Months',
+  previousWeek: 'Previous week',
+  nextWeek: 'Next week',
   last7: 'last 7 days',
   finished: 'finished',
   streak: 'streak',
@@ -34,6 +43,9 @@ export const CARDS_COPY = {
   finishedHeading: 'Finished',
   everyone: 'Everyone',
   lastSevenDays: 'Last 7 days',
+  /** Under a folded Leaderboard: no count (Anders, 17 Nov 2026, not "Show all 13"). */
+  boardShowAll: 'Show all',
+  boardShowTop: 'Show top 5',
   me: 'You',
   searchPlaceholder: 'Name or tinct.app link',
   readingYourBooks: 'Reading your books',
@@ -44,9 +56,12 @@ export const CARDS_COPY = {
   more: (n: number) => `${n} more`,
   profile: 'Profile',
   newBooksOpenIn: 'New books open in',
-  modern: 'Modern',
-  original: 'Original',
-  newBooksFoot: 'Modern is Tinct’s English rewrite; Original is the source text or a published translation.',
+  // The same words as sign-up and the reader's edition picker (profileRules NEW_BOOKS_COPY, onboarding v3).
+  modern: NEW_BOOKS_COPY.modern.short,
+  original: NEW_BOOKS_COPY.human.short,
+  newBooksFoot: NEW_BOOKS_FOOT,
+  languages: 'Languages',
+  readingEmails: 'Reading emails',
   account: 'Account',
   email: 'Email',
   password: 'Password',
@@ -84,6 +99,7 @@ export const CARDS_COPY = {
   // The old Settings sheet (SettingsSheet.tsx): the subscription "Manage" button and Delete account
   manage: 'Manage',
   deleteAccount: 'Delete account',
+  deletingAccount: 'Deleting your account…',
   deleteConfirm: 'Permanently delete your account and all data?',
   cancel: 'Cancel',
   // The reader's old Account sheet (LabV2Sheet.tsx)

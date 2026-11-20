@@ -20,22 +20,22 @@ async function readPreferences(userId: string): Promise<PreferencesRow> {
 }
 
 /** Whether the account has seen the notice. Without Supabase there is no account to ask: not seen. Throws when the read fails. */
-export async function readAccountNoticeSeen(userId: string): Promise<boolean> {
+export async function readAccountNoticeSeen(userId: string, preference = FINDABLE_NOTICE_PREF): Promise<boolean> {
   const row = await readPreferences(userId)
-  return row.value?.[FINDABLE_NOTICE_PREF] === true
+  return row.value?.[preference] === true
 }
 
 /** Marks it seen in the account; true once the account has it. */
-export async function writeAccountNoticeSeen(userId: string): Promise<boolean> {
+export async function writeAccountNoticeSeen(userId: string, preference = FINDABLE_NOTICE_PREF, claim = false): Promise<boolean> {
   if (!supabase) return false
   for (let attempt = 0; attempt < 3; attempt += 1) {
     const row = await readPreferences(userId)
     const value = row.value && typeof row.value === 'object' ? row.value : {}
-    if (value[FINDABLE_NOTICE_PREF] === true) return true
+    if (value[preference] === true) return !claim
     const { data, error } = await supabase.rpc('commit_user_data', {
       p_user_id: userId,
       p_key: 'preferences',
-      p_value: { ...value, [FINDABLE_NOTICE_PREF]: true },
+      p_value: { ...value, [preference]: true },
       p_expected_rev: typeof row.rev === 'number' ? row.rev : null,
     })
     if (error) return false

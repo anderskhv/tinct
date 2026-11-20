@@ -194,9 +194,11 @@ describe('flush on opening the You card or the Leaderboard (21 Oct 2026: You 16 
   })
 })
 
+/** Reading time is credited at page turns (10 Nov 2026): `turn()` turns the page. */
 function mountReader(userId: string | null) {
   const listeningRef = { current: false }
-  return renderHook(() => useLabReadingYear({ userId, bookId: 'odyssey', chapter: 1, page: 0, onCover: false, paused: false, listeningRef }))
+  const hook = renderHook(({ page }: { page: number }) => useLabReadingYear({ userId, bookId: 'odyssey', chapter: 1, page, onCover: false, paused: false, listeningRef }), { initialProps: { page: 0 } })
+  return { ...hook, turn: () => act(() => hook.rerender({ page: 1 })) }
 }
 
 describe('the reader’s tally with the switch', () => {
@@ -204,9 +206,10 @@ describe('the reader’s tally with the switch', () => {
     vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
     const fetchMock = vi.fn(async () => Response.json({ enabled: false }))
     vi.stubGlobal('fetch', fetchMock)
-    mountReader(null)
+    const reader = mountReader(null)
     await act(async () => { await Promise.resolve() })
     await act(async () => { vi.advanceTimersByTime(30_000) })
+    reader.turn()
     const year = new Date().getFullYear()
     expect(readingYearTotals(readLocalReadingYear(year, null)).seconds).toBe(30)
     expect(readPending(null)).toEqual({})
@@ -217,9 +220,10 @@ describe('the reader’s tally with the switch', () => {
   it('on: the same time waits per day and book for the ledger instead, so it is never counted twice', async () => {
     vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
     vi.stubGlobal('fetch', vi.fn(async () => Response.json({ enabled: true })))
-    mountReader(null)
+    const reader = mountReader(null)
     await act(async () => { await Promise.resolve(); await Promise.resolve() })
     await act(async () => { vi.advanceTimersByTime(30_000) })
+    reader.turn()
     const year = new Date().getFullYear()
     expect(readingYearTotals(readLocalReadingYear(year, null)).seconds).toBe(0)
     expect(readPending(null)).toEqual({ [localDay()]: { odyssey: { read: 30, listen: 0 } } })
@@ -231,15 +235,17 @@ describe('a reader’s own book (private)', () => {
   function mountOwnBook() {
     const listeningRef = { current: false }
     // As LabApp mounts it for an own book: no pages (onCover), the private flag.
-    return renderHook(() => useLabReadingYear({ userId: null, bookId: OWN, chapter: 1, page: 0, onCover: true, paused: false, listeningRef, privateBook: true }))
+    const hook = renderHook(({ page }: { page: number }) => useLabReadingYear({ userId: null, bookId: OWN, chapter: 1, page, onCover: true, paused: false, listeningRef, privateBook: true }), { initialProps: { page: 0 } })
+    return { ...hook, turn: () => act(() => hook.rerender({ page: 1 })) }
   }
 
   it('off: counted nowhere, exactly as before (no yearly tally, nothing pending)', async () => {
     vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
     vi.stubGlobal('fetch', vi.fn(async () => Response.json({ enabled: false })))
-    mountOwnBook()
+    const reader = mountOwnBook()
     await act(async () => { await Promise.resolve(); await Promise.resolve() })
     await act(async () => { vi.advanceTimersByTime(60_000) })
+    reader.turn()
     const year = new Date().getFullYear()
     expect(readingYearTotals(readLocalReadingYear(year, null)).seconds).toBe(0)
     expect(readPending(null)).toEqual({})
@@ -248,9 +254,10 @@ describe('a reader’s own book (private)', () => {
   it('on: its time counts under the one private bucket, never the own book’s id', async () => {
     vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
     vi.stubGlobal('fetch', vi.fn(async () => Response.json({ enabled: true })))
-    mountOwnBook()
+    const reader = mountOwnBook()
     await act(async () => { await Promise.resolve(); await Promise.resolve() })
     await act(async () => { vi.advanceTimersByTime(30_000) })
+    reader.turn()
     expect(readPending(null)).toEqual({ [localDay()]: { private: { read: 30, listen: 0 } } })
     expect(JSON.stringify({ ...localStorage })).not.toContain('userbook-')
     expect(beatPayload(readPending(null), localDay(), 'private', false)).toMatchObject({ bookId: 'private', read: 30 })

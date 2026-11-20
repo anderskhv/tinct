@@ -63,16 +63,25 @@ for (const [chapter, paragraph, name] of [[648, 12, 'proverbs'], [918, 4, 'zecha
   for(let i=0;i<8 && !await page.getByTestId('lab-word').filter({hasText:'Sherebiah'}).count();i++) {await page.keyboard.press('ArrowRight');await page.waitForTimeout(250)}
   const word=page.getByTestId('lab-word').filter({hasText:'Sherebiah'}).first()
   await word.waitFor({timeout:5000})
+  const beforeLookupPlace=await page.getByTestId('lab-root').getAttribute('data-place')
   const box=await word.boundingBox()
   const point={pointerId:7,pointerType:'touch',clientX:box.x+box.width*.3,clientY:box.y+box.height*.5,button:0,bubbles:true}
   await word.dispatchEvent('pointerdown',point);await page.waitForTimeout(220);await word.dispatchEvent('pointerup',point)
   await page.waitForTimeout(600)
-  assert.equal(await page.locator('.popup-define-word').textContent(),'Sherebiah')
-  assert.equal(await page.getByText('AI definition',{exact:true}).count(),0)
+  const sharedPhone=await page.getByTestId('lab-root').getAttribute('data-shared-reader')==='true'
+  const definition=sharedPhone?page.locator('[data-testid="lab-phone-card"][data-kind="define"]'):page.locator('.popup-define')
+  await definition.waitFor({state:'visible'})
+  assert.equal(await definition.locator('.popup-define-word').textContent(),'Sherebiah')
+  assert.equal(await definition.getByText('AI definition',{exact:true}).count(),0)
   const selection=await page.evaluate(()=>[...CSS.highlights.values()].flatMap(h=>[...h].map(r=>r.toString())))
   assert(selection.includes('Sherebiah') && !selection.includes('Sherebiah—a'),JSON.stringify(selection))
   assert(requests.some(r=>(r.companion?.intent==='define'&&r.companion.selection==='Sherebiah')||JSON.stringify(r.messages).includes('<word>Sherebiah</word>')))
   await page.screenshot({path:`${output}/definition.png`,fullPage:true})
+  if(sharedPhone) {
+   await page.mouse.click(12,120)
+   await definition.waitFor({state:'hidden'})
+   assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),beforeLookupPlace,'dismissing Define leaves the reading place unchanged')
+  }
  }
  assert.deepEqual(errors,[])
  results.push({name,...state,errors})
