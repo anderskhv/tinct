@@ -22,11 +22,10 @@
   // nailed this"): on the phone a press selects the sentence and its menu at once; the Explain card rises with its
   // answer already in it (Anders, 19 Nov: no typing lag); the card goes down (51) before the page dissolves into
   // modern English, band by band.
-  // Desktop keeps its drag, a word a frame (29-45).
+  // Desktop selects the passage in one press too (Anders, 20 Nov: the word-by-word drag grew, shrank and grew again).
   var PHONE = window.matchMedia('(max-width: 899px)').matches
   var FRAMES = [
     ['01', 0, 1300],
-    ['29', 0, 75, 'desktop'], ['30', 0, 75, 'desktop'], ['31', 0, 75, 'desktop'], ['32', 0, 75, 'desktop'], ['33', 0, 75, 'desktop'], ['34', 0, 75, 'desktop'], ['35', 0, 75, 'desktop'], ['36', 0, 75, 'desktop'], ['37', 0, 75, 'desktop'], ['38', 0, 75, 'desktop'], ['39', 0, 75, 'desktop'], ['40', 0, 75, 'desktop'], ['41', 0, 75, 'desktop'], ['42', 0, 75, 'desktop'], ['43', 0, 75, 'desktop'], ['44', 0, 75, 'desktop'], ['45', 0, 75, 'desktop'],
     ['02', 0, 1400],
     ['04', 0, 3800],
     ['51', 1, 900], ['08', 1, 3400],
@@ -47,11 +46,8 @@
   // The first frame is in the page; the rest load after it, one picture each (phone and desktop crops).
   var first = $('picture', demo)
   var pictures = [first]
-  // Drag frames hold only the strip the selection grows in, laid over the first frame (kept small to load).
-  var isCrop = function (file) { var n = Number(file); return n >= 29 && n <= 45 }
   FRAMES.slice(1).forEach(function (frame) {
     var picture = document.createElement('picture')
-    if (isCrop(frame[0])) picture.className = 'is-crop'
     picture.innerHTML = '<source media="(max-width: 899px)" srcset="/lab/try/frames/phone-' + frame[0] + '.webp?v=' + FRAMES_V + '" width="780" height="1520">' +
       '<img src="/lab/try/frames/desktop-' + frame[0] + '.webp?v=' + FRAMES_V + '" alt="" width="2112" height="1222" loading="lazy" decoding="async">'
     demo.insertBefore(picture, $('.try-demo-open', demo))
@@ -62,15 +58,11 @@
 
   // ---- The visitor's pointer (Anders, 19 Nov: show the click before each change). Where it goes was recorded when the
   // frames were captured (scripts/capture-try-frames.cjs writes frames/*-pointer.json), as fractions of the frame. ----
-  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "drag29": [0.1794, 0.3289], "drag30": [0.2472, 0.3289], "drag31": [0.2695, 0.3289], "drag32": [0.32, 0.3289], "drag33": [0.3396, 0.3289], "drag34": [0.3976, 0.3289], "drag35": [0.4086, 0.3289], "drag36": [0.4481, 0.3289], "drag37": [0.4885, 0.3289], "drag38": [0.5266, 0.3289], "drag39": [0.555, 0.3289], "drag40": [0.5988, 0.3479], "drag41": [0.1618, 0.367], "drag42": [0.2481, 0.367], "drag43": [0.3204, 0.367], "drag44": [0.3932, 0.367], "drag45": [0.4589, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.131, 0.1657], "selectTo": [0.6907, 0.2793], "explain": [0.3141, 0.3458], "modern": [0.88, 0.0361], "play": [0.7621, 0.0361], "summary": [0.6317, 0.1074]}}
-  // What happens on a frame before the next one: a drag that selects, or a press on a button.
+  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.131, 0.1657], "selectTo": [0.6907, 0.2793], "explain": [0.3141, 0.3458], "modern": [0.88, 0.0361], "play": [0.7621, 0.0361], "summary": [0.6317, 0.1074]}}
+  // What happens on a frame before the next one: a press and hold that selects the passage, or a press on a button.
   var ACTIONS = {
-    '01': { drag: ['selectFrom', 'drag29'] },
-    '29': { move: 'drag30' }, '30': { move: 'drag31' }, '31': { move: 'drag32' }, '32': { move: 'drag33' }, '33': { move: 'drag34' }, '34': { move: 'drag35' }, '35': { move: 'drag36' }, '36': { move: 'drag37' }, '37': { move: 'drag38' }, '38': { move: 'drag39' }, '39': { move: 'drag40' }, '40': { move: 'drag41' }, '41': { move: 'drag42' }, '42': { move: 'drag43' }, '43': { move: 'drag44' }, '44': { move: 'drag45' },
-    '45': { move: 'selectTo', lift: true },
+    '01': { hold: 'selectFrom' },
     '02': { press: 'explain' }, '51': { press: 'modern' }, '08': { press: 'play' }, '24': { press: 'summary' } }
-  // The phone selects with a press and hold (the launch film's way), not a drag.
-  var PHONE_ACTIONS = { '01': { hold: 'selectFrom' } }
   var phoneQuery = window.matchMedia('(max-width: 899px)')
   var layer = document.createElement('div')
   layer.className = 'try-pointer-layer'
@@ -103,7 +95,6 @@
   var scene = $('.try-scene', layer)
   var actionTimers = []
   function later(fn, ms) { actionTimers.push(setTimeout(fn, ms)) }
-  // keep: the next frame carries the same drag on, so the finger stays down where it is.
   function clearActions(keep) { actionTimers.forEach(clearTimeout); actionTimers = []; if (!keep) pointer.className = 'try-pointer' }
   function place(at, glide, ease) {
     ease = ease || 'cubic-bezier(.4, 0, .2, 1)'
@@ -114,7 +105,7 @@
   // Plays the frame's action so it ends just as the frame changes; returns how long the frame must stay up for it.
   function act(frame, duration) {
     // Only the taps show, as a ripple where the finger lands (Anders, 19 Nov): no cursor travelling between them.
-    var action = (PHONE && PHONE_ACTIONS[frame[0]]) || ACTIONS[frame[0]]
+    var action = ACTIONS[frame[0]]
     var marks = POINTER[phoneQuery.matches ? 'phone' : 'desktop']
     if (!action || reduce) return duration
     if (action.hold) {
@@ -126,7 +117,7 @@
       later(function () { pointer.className = 'try-pointer' }, stay + 250)
       return stay
     }
-    if (!action.press) return action.drag ? Math.max(duration, 1200) : duration
+    if (!action.press) return duration
     var at = marks[action.press]
     if (!at) return duration
     var whole = Math.max(duration, 1300)
@@ -202,15 +193,12 @@
     var rise = !reduce && shown >= 0 && shown !== index && RISE[index]
     var sink = !reduce && shown >= 0 && shown !== index && SINK[index]
     var under = shown >= 0 && shown !== index ? shown : -1
-    // Cut, not fade: word by word in Listen, and the selection growing under the finger.
-    // …and the answer typing itself in, which only adds words.
-    var drag = function (i) { var n = Number(FRAMES[i][0]); return n >= 29 && n <= 45 }
-    demo.classList.toggle('is-cut', shown >= 0 && ((FRAMES[shown][1] === 2 && FRAMES[index][1] === 2) || drag(shown) || drag(index)))
+    // Cut, not fade: word by word in Listen.
+    demo.classList.toggle('is-cut', shown >= 0 && FRAMES[shown][1] === 2 && FRAMES[index][1] === 2)
     clearTimeout(underTimer)
     pictures.forEach(function (picture, i) {
       picture.classList.remove('is-wave', 'is-rise', 'is-under', 'is-sink', 'is-held')
       picture.classList.toggle('is-on', i === index)
-      picture.classList.toggle('is-base', i === 0 && isCrop(FRAMES[index][0]))
     })
     if (under >= 0) {
       pictures[under].classList.add('is-under')
@@ -252,7 +240,7 @@
     // The headline leads the action (Anders, 19 Nov): when this frame ends in the tap that starts the next moment
     // (Play, Summary), that moment's headline and dot come up first, and the tap follows a beat later.
     var nextStep = FRAMES[(index + 1) % FRAMES.length][1]
-    var action = (PHONE && PHONE_ACTIONS[frame[0]]) || ACTIONS[frame[0]]
+    var action = ACTIONS[frame[0]]
     if (!reduce && action && action.press && nextStep !== frame[1]) {
       later(function () {
         ledStep = nextStep
@@ -302,7 +290,13 @@
 
   // ---- The top bar turns solid once the page scrolls (over the hero it shows the scene) ----
   var nav = $('.try-nav')
-  function navState() { if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 8) }
+  // Phone: Start reading joins the bar only once the hero's own Start reading has scrolled up under it (Anders, 20 Nov).
+  var heroStart = $('[data-try-start]')
+  function navState() {
+    if (!nav) return
+    nav.classList.toggle('is-scrolled', window.scrollY > 8)
+    nav.classList.toggle('is-past-hero', !!heroStart && heroStart.getBoundingClientRect().bottom < nav.getBoundingClientRect().bottom)
+  }
   window.addEventListener('scroll', navState, { passive: true })
   navState()
 

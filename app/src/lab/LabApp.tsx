@@ -6813,17 +6813,19 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const name = PHONE_CARD_NAMES[card.kind]
     if (card.kind === 'note' || card.kind === 'chapter-note') {
       return (
-        <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.kind === 'note' ? card.passage.chapterLabel : card.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={() => deletePhoneCard(card)} deleteLabel={card.kind === 'note' ? 'Delete note' : 'Delete chapter note'} foot={continuousReader ? <PhoneFollowField draft={draftStore} onChange={setDraft} placeholder="Ask about this note" onSend={question => {
+        <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.kind === 'note' ? card.passage.chapterLabel : card.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={() => deletePhoneCard(card)} deleteLabel={card.kind === 'note' ? 'Delete note' : 'Delete chapter note'} foot={continuousReader ? <div className="lab-pcard-note-ask"><button type="button" className="lab-pcard-link" data-testid="lab-note-ask" onPointerDown={event => event.preventDefault()} onClick={() => {
+          // "Ask" (Anders, 20 Nov 2026): the note's own field is gone (#879); this opens an Ask card about the note, with
+          // the note on top and its question field ready. Nothing is sent until the reader asks, and the field is not
+          // focused: no card field takes the focus by itself (iPhone feedback, 20 Oct 2026).
           const text = phoneNoteRef.current.trim()
-          if (!text) return
           const openedAt = Date.now()
-          const passage = card.kind === 'note' ? { ...card.passage, text } : { ...phoneChapterPassage(), text }
-          desktopNoteConversionRef.current.set(openedAt, { ...(card.kind === 'note' ? {highlightId:card.highlightId, created:card.created} : {chapterNumber:card.chapterNumber}), text })
+          const source = card.kind === 'note' ? card.passage : phoneChapterPassage()
+          const passage = text ? { ...source, text } : source
+          if (text) desktopNoteConversionRef.current.set(openedAt, { ...(card.kind === 'note' ? {highlightId:card.highlightId, created:card.created} : {chapterNumber:card.chapterNumber}), text })
           closePhoneCard()
           openPhoneCard({kind:'ask', passage, openedAt})
           setDraft('')
-          void ask.sendTyped(question, undefined, undefined, {highlightedText:text, conversationId:`mc_react_${openedAt}`})
-        }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(card.kind === 'note' ? card.passage : null)} disabled={ask.typedLoading} /> : undefined}>
+        }}>Ask</button></div> : undefined}>
           <PhoneNoteBody value={phoneNote} onChange={text => { setPhoneNote(text); if (continuousReader) { if (card.kind === 'note') highlightsApi.setNote(card.highlightId, text); else highlightsApi.setChapterNote(card.chapterNumber, text) } }} inputRef={phoneFieldRef as unknown as MutableRefObject<HTMLElement | null>} chapter={card.kind === 'chapter-note'} phone={showPhoneChrome} />
         </ResponseCard>
       )
