@@ -399,12 +399,48 @@ jobs:
             app/artifacts/reader-panels
             app/artifacts/reader-feedback-20260928
 
+  # Post-deploy checks that can run on this PR's own build (Anders, 20 Nov 2026; release review): five of the
+  # eighteen rollbacks of 14-19 Nov were checks that only ran after deploy, out of date with an intended change.
+  # Every PR runs them, so a change that breaks them fails here, before anyone has the build.
+  publication:
+    needs: changes
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
+        id: prepare
+      - name: Verify chapter pages, book pages, hubs and robots on this build (Googlebot, Bingbot, signed-out browser)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        run: node scripts/check-chapter-pages.mjs
+      - name: Verify Lighthouse publication and its book page on this build
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        env:
+          TEST_BOOK: to-the-lighthouse
+          READER_BUILT: '1'
+          ARTIFACT_DIR: artifacts/lighthouse-publication
+        run: |
+          node scripts/check-book-publication.cjs
+          node scripts/check-lighthouse-characters.cjs
+      - uses: actions/upload-artifact@v4
+        continue-on-error: true
+        if: always()
+        with:
+          retention-days: 3
+          name: publication-acceptance
+          path: |
+            app/artifacts/chapter-pages
+            app/artifacts/lighthouse-publication
+
   # The one check to wait for (and to require, should main ever be protected): green only when the suite choice ran,
   # every suite that ran passed (every part of a split job: page-layout 1-3/3, margin-layout 1-4/4), and every skipped
   # suite was one this change did not need.
   ci-summary:
     if: ${{ always() }}
-    needs: [changes, app, reader-panels, library, profile-flow-sql, page-layout, margin-layout, reading-benchmark, audio-and-menu]
+    needs: [changes, app, reader-panels, library, profile-flow-sql, page-layout, margin-layout, reading-benchmark, audio-and-menu, publication]
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
@@ -418,7 +454,7 @@ jobs:
           const on = (...names) => names.some(n => s[n] === 'true')
           // Which suites a job carries: it may be skipped only when none of them was needed.
           const carries = { 'reader-panels': on('panels'), library: on('signin', 'library'), 'profile-flow-sql': on('signin', 'library'), 'page-layout': on('shakespeare', 'typeset'),
-            'margin-layout': on('margin'), 'audio-and-menu': on('audio', 'featured'), app: true, 'reading-benchmark': true }
+            'margin-layout': on('margin'), 'audio-and-menu': on('audio', 'featured'), app: true, 'reading-benchmark': true, publication: true }
           const problems = []
           if (needs.changes.result !== 'success') problems.push(`changes: ${needs.changes.result} (the suites could not be chosen)`)
           for (const [job, { result }] of Object.entries(needs)) {
