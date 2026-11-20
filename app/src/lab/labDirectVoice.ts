@@ -2,6 +2,8 @@ import { editionNumberingNote } from '../companion/editionNotes'
 import { authorshipNote, promptAuthor } from '../companion/authorship'
 import { loadEditionWindow } from '../data/editionLoader'
 import type { VoiceApplicationToolResult } from '../voice/types'
+import { GROK_STORY_SO_FAR_RULE, GROK_VOICE_INSTRUCTIONS, buildGrokVoiceInstructions } from '../voice/grokConfig'
+import { hasStorySoFar, storySoFarBefore, type StorySoFarChapter } from '../voice/storySoFar'
 import type { LabAskContext } from './labAsk'
 
 /** Most chapters one get_book_passage call may return, as typed chat's read_chapter. */
@@ -31,6 +33,8 @@ export const SHOWN_EXPLANATION_LABEL = 'Brief explanation the reader was shown, 
 export function buildLabTalkReference(
   context: LabAskContext,
   turns: Array<{ role: string; content: string; highlightedText?: string; cancelled?: boolean; shownExplanation?: boolean }>,
+  /** The book's prepared story so far (voice/storySoFar.ts). Only chapters before the reader's are included. */
+  story?: readonly StorySoFarChapter[] | null,
 ): string {
   const index = Math.max(0, Math.min(context.paragraphIndex, Math.max(0, context.paragraphs.length - 1)))
   const from = Math.max(0, index - 1)
@@ -53,6 +57,7 @@ export function buildLabTalkReference(
       }]
     })
   const numberingNote = editionNumberingNote(context.bookId, context.editionKey)
+  const storySoFar = storySoFarBefore(story, context.chapterNumber).map(entry => ({ chapter: entry.number, summary: entry.summary }))
   return JSON.stringify({
     book: context.bookTitle,
     author: promptAuthor(context.bookAuthor, context.authorship),
@@ -64,12 +69,43 @@ export function buildLabTalkReference(
     paragraphIndex: index,
     ...(context.readingAngle ? { readingAngle: context.readingAngle.slice(0, 240) } : {}),
     ...(numberingNote ? { editionNote: numberingNote } : {}),
+    ...(storySoFar.length ? { storySoFar } : {}),
     excerpt,
     ...(recentConversation.length ? { recentConversation } : {}),
   })
 }
 
+/**
+ * Talk's reference and, for a book whose prepared story so far has loaded, its
+ * whole prompt. With entries before the reader's chapter the prompt is the Tinct
+ * prompt plus the story-so-far rule; at the first chapter (no entries) it is the
+ * plain Tinct prompt. `instructions` stays set for as long as the story is loaded,
+ * because the session keeps the last instructions it was given: a reader who turns
+ * back to chapter 1 must not keep a prompt built for a later chapter. Without a
+ * story file `instructions` is undefined and the session builds the unchanged
+ * prompt from the reference, as for every other book.
+ */
+export function buildLabTalkPrompt(
+  context: LabAskContext,
+  turns: Parameters<typeof buildLabTalkReference>[1],
+  story?: readonly StorySoFarChapter[] | null,
+): { reference: string; instructions?: string } {
+  const reference = buildLabTalkReference(context, turns, story)
+  if (!story) return { reference }
+  const supplied = storySoFarBefore(story, context.chapterNumber).length > 0
+  return {
+    reference,
+    instructions: buildGrokVoiceInstructions(reference, supplied ? `${GROK_VOICE_INSTRUCTIONS}\n${GROK_STORY_SO_FAR_RULE}` : GROK_VOICE_INSTRUCTIONS),
+  }
+}
+
 const PASSAGE_ANSWER_INSTRUCTIONS = 'Answer the reader using the retrieved text and conversation context. Distinguish quotation from interpretation. If more text is required, retrieve it before answering. Never tell the reader what text you have or lack and never offer to pull up or read a chapter: answer, filling any gap from your knowledge of the book. Do not narrate the retrieval or change reading position.'
+/**
+ * For a book on the story-so-far trial (Sense and Sensibility, 20 Nov 2026): the same, but a gap is not filled
+ * from memory of the book, which is where later events leaked from.
+ */
+const PASSAGE_ANSWER_INSTRUCTIONS_STORY = 'Answer the reader using the retrieved text, the supplied story so far and conversation context. Distinguish quotation from interpretation. If more text is required, retrieve it before answering. Never offer to pull up or read a chapter. Do not add events from after the reader\'s place unless the reader explicitly asked for spoilers; if the material does not cover something, say so briefly. Do not narrate the retrieval or change reading position.'
+const passageAnswerInstructions = (bookId: string | null | undefined) => hasStorySoFar(bookId) ? PASSAGE_ANSWER_INSTRUCTIONS_STORY : PASSAGE_ANSWER_INSTRUCTIONS
 
 /** Whole paragraphs (each at most 5,000 characters) from `from` until the character budget, always at least one. */
 function paragraphWindow(paragraphs: string[], from: number, budget: number) {
@@ -118,10 +154,10 @@ export async function retrieveVoicePassage(context: LabAskContext, args: Record<
       ? [{ chapter_number: chapter.number, chapter_title: chapter.title, total_paragraphs: chapter.paragraphs.length, ...paragraphWindow(chapter.paragraphs, 0, share) }]
       : [])
     if (!chapters.length) return failed('passage_not_found')
-    return {output:{ok:true,book_id:context.bookId,edition_key:context.editionKey,chapters,...(last < through ? { continue_from_chapter: last + 1 } : {})},responseInstructions:PASSAGE_ANSWER_INSTRUCTIONS}
+    return {output:{ok:true,book_id:context.bookId,edition_key:context.editionKey,chapters,...(last < through ? { continue_from_chapter: last + 1 } : {})},responseInstructions:passageAnswerInstructions(context.bookId)}
   }
   const data = requested === current ? edition : await loadEditionWindow(context.bookId, context.editionKey, requested)
   const chapter = data.chapters.find(ch => ch.number === requested)
   if (!chapter?.paragraphs.length || from >= chapter.paragraphs.length) return failed('passage_not_found')
-  return {output:{ok:true,book_id:context.bookId,edition_key:context.editionKey,chapter_number:requested,chapter_title:chapter.title,total_paragraphs:chapter.paragraphs.length,...paragraphWindow(chapter.paragraphs, from, VOICE_PASSAGE_CHAR_BUDGET)},responseInstructions:PASSAGE_ANSWER_INSTRUCTIONS}
+  return {output:{ok:true,book_id:context.bookId,edition_key:context.editionKey,chapter_number:requested,chapter_title:chapter.title,total_paragraphs:chapter.paragraphs.length,...paragraphWindow(chapter.paragraphs, from, VOICE_PASSAGE_CHAR_BUDGET)},responseInstructions:passageAnswerInstructions(context.bookId)}
 }
