@@ -1,0 +1,11 @@
+{
+  "_note": "Reviewed same-sentence character-card rulings for modern-en release text-2026-10-22.1 (History of the Peloponnesian War, held from release 5 and repaired: five source misprints of proper names corrected), applied by app/scripts/prepare-modern-en-repairs.py --mappings. Each maps a mention to the same figure in the repaired version of the same sentence. Rulings and the mentions left dropped are listed in RELEASE-7.md.",
+  "peloponnesian-war": [
+    { "characterId": "themistocles", "from": "Themistocles", "to": "Themistocles", "occurrenceOverrides": [
+      { "chapterNumber": 4, "paragraphIndex": 1, "oldOccurrence": 0, "newOccurrence": 0 } ] },
+    { "characterId": "pausanias", "from": "Pausanias", "to": "Pausanias", "occurrenceOverrides": [
+      { "chapterNumber": 5, "paragraphIndex": 10, "oldOccurrence": 1, "newOccurrence": 2 } ] },
+    { "characterId": "brasidas", "from": "Brasidas", "to": "Brasidas", "occurrenceOverrides": [
+      { "chapterNumber": 14, "paragraphIndex": 7, "oldOccurrence": 1, "newOccurrence": 1 } ] }
+  ]
+}

@@ -174,7 +174,16 @@ describe('every removal path uses the motion', () => {
     // The eight young-reader books (20261120young) changed taxonomy.js and browse-groups.js; the new tag goes on them and
     // every module above them on the way to index.html (book-metadata.js, add-to-tinct.js, catalogue.js, reading-table.js,
     // bookshelf-view.js, bookshelf.js, app.js), as for 20261106mm.
-    const young = '20261120young'
+    // The "For young readers" shelf, the two Church retellings dated by Homer, and the eight books' introductions
+    // (20261120shelf) changed taxonomy.js, browse-groups.js and reviewed-introductions.js again; the new tag goes on
+    // them and every module above them on the way to index.html, as for 20261120young.
+    const young = '20261120shelf'
+    expect(lib('app.js')).toContain(`reviewed-introductions.js?v=${young}`)
+    expect(lib('catalogue.js')).toContain(`reviewed-introductions.js?v=${young}`)
+    expect(lib('bookshelf.js')).toContain(`reviewed-introductions.js?v=${young}`)
+    expect(lib('index.html')).toContain(`reviewed-introductions.js?v=${young}`)
+    expect(lib('index.html')).toContain(`taxonomy.js?v=${young}`)
+    expect(lib('index.html')).toContain(`browse-groups.js?v=${young}`)
     expect(lib('index.html')).toContain(`app.js?v=${young}`)
     expect(lib('app.js')).toContain(`taxonomy.js?v=${young}`)
     expect(lib('app.js')).toContain(`browse-groups.js?v=${young}`)

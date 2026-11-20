@@ -110,7 +110,16 @@ export const reviewedHooks = {
   // Content package accepted 2026-11-05 (books/wip/master-and-margarita/package/intro-data).
   "master-and-margarita": "What would the devil find if he came to Moscow to see how people live?",
   // Content package accepted 2026-11-10 (books/wip/pinocchio/package/intro-data).
-  "pinocchio": "What does it take for a puppet who keeps running away to find his way home?"
+  "pinocchio": "What does it take for a puppet who keeps running away to find his way home?",
+  // The eight young-reader books (published 2026-11-20); introductions written 2026-11-20, accepted by Anders.
+  "odyssey-for-boys-and-girls": "What would it take to get home after twenty years away, with strangers feasting in your hall?",
+  "iliad-for-boys-and-girls": "What does one man's anger cost everyone around him?",
+  "merry-adventures-of-robin-hood": "Why would a whole countryside love a band of outlaws?",
+  "wonder-book-and-tanglewood-tales": "What would you do if a wish came true exactly as you asked it?",
+  "beautiful-stories-from-shakespeare": "What is left of Shakespeare when his plays are told as stories?",
+  "wind-in-the-willows": "What pulls you away from home, and what brings you back?",
+  "story-of-king-arthur-and-his-knights": "What makes a young man nobody has heard of fit to be king?",
+  "the-secret-garden": "What could bring a locked garden, and a lonely child, back to life?"
 };
 const pending = new Map();
 export async function loadReviewedIntroduction(book) {
