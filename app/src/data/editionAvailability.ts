@@ -52,6 +52,14 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'wuthering-heights/modern-da',
   'master-and-margarita/modern-da',
   'pinocchio/modern-da',
+  // Young readers, 20 Nov 2026 (books/wip/<id>).
+  'odyssey-for-boys-and-girls/modern-da',
+  'iliad-for-boys-and-girls/modern-da',
+  'merry-adventures-of-robin-hood/modern-da',
+  'wonder-book-and-tanglewood-tales/modern-da',
+  'beautiful-stories-from-shakespeare/modern-da',
+  'wind-in-the-willows/modern-da',
+  // End of young readers.
   'ivan-ilyich/modern-da',
   'werther/modern-da',
   'communist-manifesto/modern-da',

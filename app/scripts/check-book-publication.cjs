@@ -3,7 +3,7 @@ const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto')
 const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''),out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
 // Books published through a reviewed release package (books/wip/<id>/release).
-const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility','grimms-fairy-tales','arabian-nights','master-and-margarita','pinocchio','gilgamesh']
+const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility','grimms-fairy-tales','arabian-nights','master-and-margarita','pinocchio','gilgamesh','odyssey-for-boys-and-girls','iliad-for-boys-and-girls','merry-adventures-of-robin-hood','wonder-book-and-tanglewood-tales','beautiful-stories-from-shakespeare','wind-in-the-willows','story-of-king-arthur-and-his-knights','the-secret-garden']
 // Text-only editions published beside the narrated ones: the Russian source of The
 // Master and Margarita and the Italian of Pinocchio. No narration, no character cards.
 const TEXT_ONLY_EDITIONS={'master-and-margarita':['original-ru'],'pinocchio':['original-it']}[book]||[]
@@ -13,7 +13,9 @@ const TEXT_ONLY_EDITIONS={'master-and-margarita':['original-ru'],'pinocchio':['o
 // Gilgamesh: replaced by R. Campbell Thompson's 1928 text and republished 2026-11-18.
 // The offered Danish editions (OFFERED_DANISH_EDITIONS) are narrated by streaming in
 // Danish since 2026-11-06 (Anders, after a Grok sample); until then they were text-only.
-const NARRATED_EDITIONS={'master-and-margarita':['modern-en','modern-da'],'pinocchio':['modern-en','modern-da'],'to-the-lighthouse':['modern-en','original-en','modern-da'],'grimms-fairy-tales':['modern-en','original-en','modern-da'],'arabian-nights':['modern-en','original-en','modern-da'],'gilgamesh':['modern-en','original-en','modern-da']}[book]||['modern-en','original-en']
+// The young-reader books (2026-11-20) have no recorded audio (no hasAudio); Play streams like every
+// English and offered Danish edition. The two without a Danish edition take the default list.
+const NARRATED_EDITIONS={'odyssey-for-boys-and-girls':['modern-en','original-en','modern-da'],'iliad-for-boys-and-girls':['modern-en','original-en','modern-da'],'merry-adventures-of-robin-hood':['modern-en','original-en','modern-da'],'wonder-book-and-tanglewood-tales':['modern-en','original-en','modern-da'],'beautiful-stories-from-shakespeare':['modern-en','original-en','modern-da'],'wind-in-the-willows':['modern-en','original-en','modern-da'],'master-and-margarita':['modern-en','modern-da'],'pinocchio':['modern-en','modern-da'],'to-the-lighthouse':['modern-en','original-en','modern-da'],'grimms-fairy-tales':['modern-en','original-en','modern-da'],'arabian-nights':['modern-en','original-en','modern-da'],'gilgamesh':['modern-en','original-en','modern-da']}[book]||['modern-en','original-en']
 const compareFor=ed=>ed==='modern-en'?({'master-and-margarita':'original-ru','pinocchio':'original-it'}[book]||'original-en'):'modern-en'
 assert(PUBLICATION_BOOKS.includes(book),'TEST_BOOK must be one of '+PUBLICATION_BOOKS.join(', '));fs.mkdirSync(out,{recursive:true})
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')

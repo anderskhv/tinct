@@ -3056,6 +3056,205 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "DA",
       "IT"
     ]
+  },
+  {
+    "id": "odyssey-for-boys-and-girls",
+    "title": "The Story of the Odyssey",
+    "author": "Alfred J. Church",
+    "year": "1892",
+    "ySort": 1892,
+    "form": "epic",
+    "era": "modern",
+    "hue": 35,
+    "blurb": "Alfred Church’s prose retelling of Homer’s Odyssey, from the counsel of Athene to the slaying of the suitors.",
+    "themes": [
+      "journey",
+      "home",
+      "cunning",
+      "hospitality",
+      "justice"
+    ],
+    "shelves": [
+      "ancient-epics"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "iliad-for-boys-and-girls",
+    "title": "The Story of the Iliad",
+    "author": "Alfred J. Church",
+    "year": "1920",
+    "ySort": 1920,
+    "form": "epic",
+    "era": "contemporary",
+    "hue": 35,
+    "blurb": "Alfred Church’s prose retelling of Homer’s Iliad, from the quarrel of Achilles and Agamemnon to the ransoming of Hector.",
+    "themes": [
+      "war",
+      "honor",
+      "anger",
+      "gods",
+      "grief"
+    ],
+    "shelves": [
+      "ancient-epics"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "merry-adventures-of-robin-hood",
+    "title": "The Merry Adventures of Robin Hood",
+    "author": "Howard Pyle",
+    "year": "1883",
+    "ySort": 1883,
+    "form": "novel",
+    "era": "modern",
+    "hue": 120,
+    "blurb": "Howard Pyle’s Robin Hood: archery contests, friars, disguises and a sheriff who is outwitted again and again.",
+    "themes": [
+      "outlaws",
+      "justice",
+      "friendship",
+      "disguise",
+      "generosity"
+    ],
+    "shelves": [
+      "adventure"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "wonder-book-and-tanglewood-tales",
+    "title": "A Wonder Book and Tanglewood Tales",
+    "author": "Nathaniel Hawthorne",
+    "year": "1851–1853",
+    "ySort": 1851,
+    "form": "short-stories",
+    "era": "modern",
+    "hue": 45,
+    "blurb": "Hawthorne’s retellings of Greek myths for children: Perseus, Midas, Pandora, Bellerophon, Theseus, Circe, Jason and more.",
+    "themes": [
+      "myth",
+      "children",
+      "transformation",
+      "courage",
+      "greed"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "beautiful-stories-from-shakespeare",
+    "title": "Beautiful Stories from Shakespeare",
+    "author": "E. Nesbit",
+    "year": "1907",
+    "ySort": 1907,
+    "form": "short-stories",
+    "era": "contemporary",
+    "hue": 265,
+    "blurb": "E. Nesbit’s prose retellings of twenty Shakespeare plays, from A Midsummer Night’s Dream to All’s Well That Ends Well.",
+    "themes": [
+      "stories",
+      "love",
+      "jealousy",
+      "kingship",
+      "disguise"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "wind-in-the-willows",
+    "title": "The Wind in the Willows",
+    "author": "Kenneth Grahame",
+    "year": "1908",
+    "ySort": 1908,
+    "form": "novel",
+    "era": "contemporary",
+    "hue": 140,
+    "blurb": "Mole, Rat, Badger and Toad share a river, a wild wood and one very reckless motor-car.",
+    "themes": [
+      "friendship",
+      "home",
+      "river",
+      "vanity",
+      "adventure"
+    ],
+    "shelves": [
+      "adventure"
+    ],
+    "langs": [
+      "EN",
+      "DA"
+    ]
+  },
+  {
+    "id": "story-of-king-arthur-and-his-knights",
+    "title": "The Story of King Arthur and His Knights",
+    "author": "Howard Pyle",
+    "year": "1903",
+    "ySort": 1903,
+    "form": "novel",
+    "era": "contemporary",
+    "hue": 10,
+    "blurb": "A boy draws a sword from a stone, and the knights of the Round Table ride out to prove themselves.",
+    "themes": [
+      "chivalry",
+      "arthurian",
+      "quest",
+      "kingship",
+      "loyalty"
+    ],
+    "shelves": [
+      "medieval-epics",
+      "adventure"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "the-secret-garden",
+    "title": "The Secret Garden",
+    "author": "Frances Hodgson Burnett",
+    "year": "1911",
+    "ySort": 1911,
+    "form": "novel",
+    "era": "contemporary",
+    "hue": 130,
+    "blurb": "An unloved orphan finds a locked garden, a boy who cannot walk, and a way to bring them all back to life.",
+    "themes": [
+      "gardens",
+      "healing",
+      "childhood",
+      "friendship",
+      "nature"
+    ],
+    "shelves": [
+      "adventure"
+    ],
+    "langs": [
+      "EN"
+    ]
   }
 ]
 
