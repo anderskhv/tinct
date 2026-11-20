@@ -49,9 +49,6 @@ export const PERIOD_PILLS: ReadonlyArray<{ era: ModernEnglishEra; label: string 
   { era: '1900s', label: '1900s' },
 ]
 
-/** The six covers of the pile beside the headline. */
-export const PILE_BOOKS = ['meditations', 'hamlet', 'crime-and-punishment', 'pride-and-prejudice', 'odyssey', 'frankenstein'] as const
-
 /** A book's Modern English is live: registered, published, not held, not withheld and not kept on one machine. */
 export function hasLiveModernEnglish(book: Book): boolean {
   if (book.localOnly || book.noModernEdition) return false
@@ -110,13 +107,10 @@ export interface ModernEnglishPageAssets {
 
 /** The whole page. Book data for the search rides in the page as JSON; the shelves are plain HTML. */
 export function renderModernEnglishPage(assets: ModernEnglishPageAssets, list: ModernEnglishBook[] = modernEnglishBooks()): string {
-  const byId = new Map(list.map(book => [book.id, book]))
   const shelves = modernEnglishShelves(list)
   const card = (book: ModernEnglishBook) => `<li class="me-card" data-era="${book.era}"><a href="${esc(book.href)}">`
     + `<img src="${cover(book.id)}" alt="" width="300" height="450" loading="lazy" decoding="async">`
     + `<span class="me-card-title">${esc(book.title)}</span><span class="me-card-source">${esc(book.source)}</span></a></li>`
-  const pile = PILE_BOOKS.map(id => byId.get(id)).filter((book): book is ModernEnglishBook => Boolean(book))
-    .map(book => `<li><a href="${esc(book.href)}" aria-label="${esc(book.title)}"><img src="${cover(book.id)}" alt="" width="300" height="450"></a></li>`).join('')
   const search = list.map(book => ({ id: book.id, t: book.title, a: book.author, s: book.source, h: book.href }))
   return `<!doctype html>
 <html lang="en">
@@ -148,7 +142,6 @@ export function renderModernEnglishPage(assets: ModernEnglishPageAssets, list: M
       <div class="me-pills" role="group" aria-label="Category">${CATEGORY_PILLS.map(pill => `<button type="button" aria-pressed="false" data-kind="house" data-value="${pill.house}">${esc(pill.label)}</button>`).join('')}</div>
       <div class="me-pills" role="group" aria-label="Period">${PERIOD_PILLS.map(pill => `<button type="button" aria-pressed="false" data-kind="era" data-value="${pill.era}">${esc(pill.label)}</button>`).join('')}</div>
     </div>
-    <ul class="me-pile" aria-label="Start here">${pile}</ul>
   </div>
 </div>
 <main class="me-main">

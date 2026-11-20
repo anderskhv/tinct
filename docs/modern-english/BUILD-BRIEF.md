@@ -33,7 +33,7 @@ A static page served like `/try`. It's free and sells nothing: no sign-in, no Pr
   - **Category:** Philosophy · Drama · Fiction · Poetry · Politics.
   - **Period:** Ancient, before 500 · Medieval, 500–1500 · 1500s–1600s · 1700s · 1800s · 1900s.
   - **Behaviour:** pick at most one per row. A pill filters the shelves and scrolls to them; tapping it again clears it.
-- **On the right (desktop):** a loose pile of six covers: Meditations, Hamlet, Crime and Punishment, Pride and Prejudice, the Odyssey, Frankenstein. On a phone they're a small sideways row under the pills. The pile must shrink with the space, so the headline column is never squeezed. Check this at about 980px wide.
+- **No pile of covers** (Anders, 20 Nov 2026: "the rhs adds nothing"). The headline and the search run across the page; the shelves carry the covers.
 - **Shelves:** in the library's house order and names, with covers in rows that scroll sideways. Each card shows the cover, the title, and the source in italics: "from George Long, 1862", or "from the original" for books written in English.
 - **One quiet line at the end:** "Made with AI from the original, or from the older translation named under each book. A way in, not a scholarly translation. Free to read, in both versions."
 - **Footer:** Privacy · Terms · Credits · About Tinct (the last goes to `/try`).
