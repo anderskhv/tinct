@@ -7,7 +7,6 @@ Tinct is a reader for public-domain classics: a modern English edition beside th
 - `/read/{book}`: the book page. For a book with a modern English edition it opens on the first chapter (or the first scene of a play) in modern English, with the original text in the same page, the book's structure (for example "38 chapters" or "5 acts · 20 scenes") and the list of every chapter.
 - `/read/{book}/chapter-N`: one page per chapter, the whole chapter in modern English with the original in the same page. Chapter 1's canonical address is the book page.
 - `/read/{play}/act-N-scene-M`: one page per scene for Hamlet, Macbeth, Romeo and Juliet, Julius Caesar and Othello. The first scene's canonical address is the play's book page.
-- `/modern-english`: every book with a modern English edition, grouped by shelf.
 - `/read/shelf/{shelf}`: the books on one library shelf.
 - `/read`: the library.
 

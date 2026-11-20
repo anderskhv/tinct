@@ -14,7 +14,6 @@
 //                                               CSS links are stamped in after vite build (stamp-scene-pages.cjs)
 //   public/read/shelf/{shelf}.html              the shelf hubs
 //   public/read/chapter-page.css                the chapter pages' own stylesheet
-//   public/modern-english.html                  /modern-english, every book in Modern English by shelf
 // and the committed manifests src/data/chapterPages.generated.json (the Worker's routes, the sitemap and the book
 // pages read it) and src/data/editionNotes.generated.json (the book pages' edition notes).
 // Book text is read, never written.
@@ -129,16 +128,6 @@ for (const hub of hubs) {
   writeFileSync(join(HUB_DIR, `${hub.shelfId}.html`), hub.html)
   manifest.hubs[hub.shelfId] = hub.indexable
 }
-
-// /modern-english: every book with a Modern English edition, by shelf (docs/seo-brief-2026-11-19.md §6).
-const modernBooks = publicBooks.filter(book => sitemap.hasModernEdition(book))
-const modernHub = renderer.renderModernEnglishHub({
-  books: modernBooks.map(book => ({
-    id: book.id, title: book.title, author: book.author,
-    cover: existsSync(join(root, 'public/covers/v2', `${book.id}.webp`)) ? `/covers/v2/${book.id}.webp` : null,
-  })),
-})
-writeFileSync(join(root, 'public/modern-english.html'), modernHub.html)
 
 // One book per line: a small file and a readable diff.
 const lines = Object.entries(manifest.books).map(([bookId, entry]) => `  ${JSON.stringify(bookId)}: ${JSON.stringify(entry)}`)

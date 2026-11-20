@@ -176,8 +176,7 @@ describe('shelf hubs', () => {
     expect(russians.heading).toBe('The Russians in modern English')
     expect(russians.bookIds).toEqual(['crime-and-punishment', 'master-and-margarita'])
     const body = russians.html.slice(russians.html.indexOf('<body>'))
-    // Every shelf hub links /modern-english (docs/seo-brief-2026-11-19.md §6).
-    expect(body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).toBe('tinct Every classic in modern English Library The Russians in modern English Crime and Punishment The Master and Margarita')
+    expect(body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).toBe('tinct Library The Russians in modern English Crime and Punishment The Master and Margarita')
     expect(body).toContain('<a href="/read/crime-and-punishment"><img src="/covers/v2/crime-and-punishment.webp"')
     expect(russians.html).not.toContain('name="description"')
   })

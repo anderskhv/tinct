@@ -108,17 +108,12 @@ try {
       assert.equal(odyssey.status, 200)
       assert.equal(odyssey.headers.get('x-robots-tag'), null)
       assert.ok(!/name="robots"/.test(await odyssey.text()))
-      const hub = await crawl('/modern-english', ua)
-      assert.equal(hub.status, 200)
-      const hubHtml = await hub.text()
-      assert.ok(hubHtml.includes('<title>Classics in modern English, free to read | Tinct</title>') && hubHtml.includes('Every classic in modern English</h1>'))
-      assert.ok(!/name="robots"/.test(hubHtml) && hub.headers.get('x-robots-tag') === null)
       const llms = await crawl('/llms.txt', ua)
       assert.equal(llms.status, 200)
-      assert.ok((await llms.text()).includes('https://tinct.app/modern-english'))
+      assert.ok((await llms.text()).includes('https://tinct.app/read/{book}/chapter-N'))
       const hamlet = await (await crawl('/read/hamlet', ua)).text()
       assert.ok(hamlet.includes('<title>Read Hamlet online free, scene by scene in modern English | Tinct</title>') && hamlet.includes('id="book-structure">5 acts · 20 scenes<'))
-      ok(`${bot}: chapter-1 canonical → /read/jane-eyre; chapter-26 "of 38" and its title; /read/odyssey/chapter-1 indexable; /modern-english 200; /llms.txt; /read/hamlet`)
+      ok(`${bot}: chapter-1 canonical → /read/jane-eyre; chapter-26 "of 38" and its title; /read/odyssey/chapter-1 indexable; /llms.txt; /read/hamlet`)
     }
   }
   {
@@ -150,7 +145,7 @@ try {
     assert.equal(chapterBooks.size, 18)
     assert.ok(!sitemap.includes('<loc>https://tinct.app/read/jane-eyre/chapter-1</loc>') && sitemap.includes('<loc>https://tinct.app/read/jane-eyre</loc>'), 'chapter 1 is the book page')
     assert.ok(!sitemap.includes('<loc>https://tinct.app/read/hamlet/act-1-scene-1</loc>'), 'the first scene is the book page')
-    assert.ok(sitemap.includes('<loc>https://tinct.app/modern-english</loc>'))
+    assert.ok(!sitemap.includes('/modern-english'), '/modern-english waits for #861')
     ok('sitemap lists chapter pages only for allowlisted books', `${chapterBooks.size} books, ${(sitemap.match(/\/chapter-\d+<\/loc>/g) || []).length} pages; not listed: ${allowlist.filter(id => !chapterBooks.has(id)).join(', ')}`)
   }
   {
@@ -315,8 +310,6 @@ try {
     ['book-desktop-hamlet', '/read/hamlet', { viewport: { width: 1440, height: 900 } }],
     ['scene-phone-hamlet', '/read/hamlet/act-3-scene-1', { viewport: { width: 390, height: 844 }, userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }],
     ['book-desktop-crime', '/read/crime-and-punishment', { viewport: { width: 1440, height: 900 } }],
-    ['modern-english-desktop', '/modern-english', { viewport: { width: 1440, height: 900 } }],
-    ['modern-english-phone', '/modern-english', { viewport: { width: 390, height: 844 }, userAgent: IPHONE, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }],
     ['book-chapter-list-desktop', '/read/jane-eyre', { viewport: { width: 1440, height: 900 } }, '#chapters'],
     ['chapter-desktop-light', '/read/moby-dick/chapter-1', { viewport: { width: 1440, height: 900 }, colorScheme: 'light' }],
     ['chapter-desktop-dark', '/read/moby-dick/chapter-1', { viewport: { width: 1440, height: 900 }, colorScheme: 'dark' }],
