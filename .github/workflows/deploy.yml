@@ -108,8 +108,9 @@ jobs:
           echo "Commit $GITHUB_SHA ($EVENT_NAME), tree $tree"
           # A verify.yml run of this repository that passed and recorded this exact tree (pull request or main).
           verified_run() {
-            local ids id
-            ids=$(gh api "repos/$REPO/actions/artifacts?name=verified-tree-${1:-$tree}&per_page=30" \
+            # $1: another tree to look up (the page lane's verified ancestor); this commit's tree by default.
+            local tree="${1:-$tree}" ids id
+            ids=$(gh api "repos/$REPO/actions/artifacts?name=verified-tree-$tree&per_page=30" \
               --jq '.artifacts[] | select(.expired | not) | .workflow_run.id') || return 0
             for id in $ids; do
               gh api "repos/$REPO/actions/runs/$id" 2>/dev/null | jq -r --arg repo "$REPO" \
