@@ -6,7 +6,8 @@ import { LAB_VOICE_HISTORY_INSTRUCTIONS, PERSONAL_HISTORY_TOOL, personalHistoryE
 import { CHAPTER_CHAT_MESSAGES, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
 import { labVoiceRequestsAudio } from './labVoiceControls'
-import { BOOK_PASSAGE_TOOL, buildLabTalkReference, retrieveVoicePassage } from './labDirectVoice'
+import { BOOK_PASSAGE_TOOL, buildLabTalkPrompt, retrieveVoicePassage } from './labDirectVoice'
+import { hasStorySoFar, loadStorySoFar, type StorySoFarChapter } from '../voice/storySoFar'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
@@ -633,13 +634,28 @@ export function useLabAsk(options: UseLabAskOptions) {
     const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookId) : null
     return selected ? turnsFromConversations([selected]) : null
   }, [options.conversationId, conversations, chatBookId])
+  // The book's prepared story so far (a trial on one book, voice/storySoFar.ts),
+  // fetched when the book opens so it is in memory before Talk starts. Talk never
+  // waits for it: a missing or slow file leaves the prompt as it is for every
+  // other book, and a late arrival reaches a live session as a reference update.
+  const storyBookId = askContext.bookId
+  const [story, setStory] = useState<{ bookId: string; chapters: StorySoFarChapter[] } | null>(null)
+  useEffect(() => {
+    if (!storyBookId || !hasStorySoFar(storyBookId)) return
+    let live = true
+    void loadStorySoFar(storyBookId).then(chapters => { if (live && chapters) setStory({ bookId: storyBookId, chapters }) })
+    return () => { live = false }
+  }, [storyBookId])
+  const storyChapters = story && story.bookId === storyBookId ? story.chapters : null
   // Reference material only: the Tinct prompt itself lives in grokConfig.ts.
-  const talkReference = useMemo(
-    () => buildLabTalkReference(askContext,
+  const talkPrompt = useMemo(
+    () => buildLabTalkPrompt(askContext,
       (selectedConversationTurns ?? turns).map(turn => ({ ...turn, content: chapterChatHistoryContent(turn) })),
+      storyChapters,
     ),
-    [askContext, selectedConversationTurns, turns],
+    [askContext, selectedConversationTurns, turns, storyChapters],
   )
+  const talkReference = talkPrompt.reference
   const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
   const mergedVoiceTools = useMemo(
     () => mergeLabVoiceTools([...LAB_VOICE_TOOLS.filter(tool => tool.name !== 'ask_companion'), BOOK_PASSAGE_TOOL, VOICE_RESEARCH_TOOL, PERSONAL_HISTORY_TOOL]).map(tool =>
@@ -749,6 +765,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
     mode: 'conversation',
     reference: talkReference,
+    instructions: talkPrompt.instructions,
     tools: mergedVoiceTools,
     onApplicationTool: onTinctVoiceTool,
     onSessionStart: () => {
