@@ -140,6 +140,7 @@ export function bookPageTitle(book: { title: string }, play = false): string {
 export function besidePhrase(source: EditionSource | null): string {
   if (source?.kind === 'translation') return `${source.translator}'s translation`
   if (source?.kind === 'english-original') return `${source.author}'s original`
+  if (source?.kind === 'tinct-translation') return 'the original'
   return 'the original'
 }
 

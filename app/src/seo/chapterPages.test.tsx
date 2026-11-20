@@ -65,14 +65,23 @@ describe('the edition note', () => {
     const english = /^<strong>How this edition was made\.<\/strong> Tinct's modern English is drafted with AI from (.+)'s original text, then checked by a separate AI review against it\. The original is one tap away, and if you spot a mistake, tell us\.$/
     for (const [id, note] of Object.entries(notes.books as Record<string, string>)) {
       const source = editionSource(book(id))!
+      // Tinct's own translations carry their own approved note (Anders, 20 Nov 2026), tested below.
+      if (source.kind === 'tinct-translation') continue
       const match = note.match(source.kind === 'translation' ? translated : english)
       expect(match, id).toBeTruthy()
       expect(match![1].replace(/&amp;/g, '&'), id).toBe(source.kind === 'translation' ? source.translator : source.author)
     }
   })
 
+  // Anders, 20 Nov 2026: Tinct's own translation of The Master and Margarita gets its own note; it stays unindexed.
+  it('notes Tinct\'s own translation of The Master and Margarita, and keeps it out of the index', () => {
+    expect(editionNoteText(editionSource(book('master-and-margarita'))!)).toBe("Tinct's modern English is translated with AI directly from Bulgakov's Russian text (L. M. Yanovskaya's edition, 1990). The original is one tap away, and if you spot a mistake, tell us.")
+    expect(planOf('master-and-margarita')!.indexable).toBe(false)
+    expect(SEO_INDEX_ALLOWLIST).not.toContain('master-and-margarita')
+  })
+
   it('has no note for a book whose source is unknown', () => {
-    for (const id of ['ivan-ilyich', 'imitation-of-christ', 'fear-and-trembling', 'master-and-margarita', 'pinocchio', 'grimms-fairy-tales', 'arabian-nights']) {
+    for (const id of ['ivan-ilyich', 'imitation-of-christ', 'fear-and-trembling', 'pinocchio', 'grimms-fairy-tales', 'arabian-nights']) {
       expect(editionSource(book(id)), id).toBeNull()
       expect((notes.books as Record<string, string>)[id], id).toBeUndefined()
     }

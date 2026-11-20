@@ -175,7 +175,10 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         }
         results.push({ name, labels: actual.labels, wordCount: actual.words.length })
         console.log('PASS', name)
-      } catch (error) { await context.tracing.stop({path: `${output}/${name}-trace.zip`}); await page.screenshot({ path: `${output}/${name}-failure.png` }); throw error }
+      } catch (error) {
+        // The evidence must never hide the failure: a screenshot that waits on fonts once replaced the real error with its own timeout (19 Nov 2026).
+        console.error('FAIL', name, error?.stack || error)
+        await context.tracing.stop({path: `${output}/${name}-trace.zip`}).catch(()=>{}); await page.screenshot({ path: `${output}/${name}-failure.png`, timeout: 5000 }).catch(()=>{}); throw error }
       finally { await context.tracing.stop().catch(()=>{}); await context.close() }
     }
   } finally { await browser.close(); await fs.writeFile(`${output}/results.json`, JSON.stringify(results, null, 2)) }

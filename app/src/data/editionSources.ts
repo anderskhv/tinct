@@ -31,9 +31,22 @@ export const ENGLISH_ORIGINAL_BOOKS: ReadonlySet<string> = new Set([
 export type EditionSource =
   | { kind: 'translation'; translator: string; year: number }
   | { kind: 'english-original'; author: string }
+  /** Tinct's own translation from the original language, where no usable English translation exists. */
+  | { kind: 'tinct-translation'; author: string; sourceText: string }
+
+/**
+ * Books Tinct translated itself, with the source text the note names. The Master and Margarita: Anders approved
+ * this note on 20 Nov 2026 (it claims no separate review, because none is recorded) and agreed the book stays
+ * out of the index: it is blocked in the US and Russia.
+ */
+export const TINCT_TRANSLATIONS: Readonly<Record<string, { author: string; sourceText: string }>> = {
+  'master-and-margarita': { author: 'Mikhail Bulgakov', sourceText: "Bulgakov's Russian text (L. M. Yanovskaya's edition, 1990)" },
+}
 
 /** The source of `book`'s Modern English edition, or null when the registry does not say. */
 export function editionSource(book: Pick<Book, 'id' | 'author' | 'editions'>): EditionSource | null {
+  const own = TINCT_TRANSLATIONS[book.id]
+  if (own) return { kind: 'tinct-translation', ...own }
   const original = book.editions.find(edition => edition.key === 'original-en')
   if (!original) return null
   if (original.translator) {
@@ -50,6 +63,7 @@ const escape = (value: string) => value.replace(/&/g, '&amp;').replace(/</g, '&l
  * pages now open on the Modern English alone, with the original behind a switch. "Tell us" is plain text: readers have no issue-report page to link to.
  */
 export function editionNoteText(source: EditionSource): string {
+  if (source.kind === 'tinct-translation') return `Tinct's modern English is translated with AI directly from ${source.sourceText}. The original is one tap away, and if you spot a mistake, tell us.`
   return source.kind === 'translation'
     ? `Tinct's modern English is drafted with AI from ${source.translator}'s public-domain translation (${source.year}), then checked by a separate AI review against that translation. The original is one tap away, and if you spot a mistake, tell us.`
     : `Tinct's modern English is drafted with AI from ${source.author}'s original text, then checked by a separate AI review against it. The original is one tap away, and if you spot a mistake, tell us.`

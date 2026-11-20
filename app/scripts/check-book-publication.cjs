@@ -119,6 +119,12 @@ async function main(){
   // (bookLibraryPage.ts), so it asks the assets for both.
   const libraryFile=['dist','public'].map(root=>path.join(root,'lab/library_2/index.html')).find(file=>fs.existsSync(file))
   const assetPages={['/read/'+book+'/book']:rawPage,'/lab/library_2/':libraryFile&&fs.readFileSync(libraryFile)}
+  // Since 19 Nov 2026 (docs/seo-brief-2026-11-19.md §1) a book with chapter or scene pages is served at /read/<id>
+  // as its first chapter: page 0 of its first chapter pack, or a play's book page. The deployed (stamped) files.
+  for(const file of ['seo/chapter-packs/'+book+'/0.txt','seo/book-pages/'+book+'.html']){
+   const built=['dist','public'].map(root=>path.join(root,file)).find(candidate=>fs.existsSync(candidate))
+   if(built)assetPages['/'+file]=fs.readFileSync(built)
+  }
   const expectedPage=await workerModule.exports.handleSeoAndStaticRequest(new Request(canonical),{ASSETS:{fetch:async req=>{
    const page=assetPages[new URL(req.url).pathname]
    assert.ok(page,'Unexpected asset request '+new URL(req.url).pathname)

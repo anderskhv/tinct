@@ -27,8 +27,8 @@ export const SEO_INDEX_ALLOWLIST: readonly string[] = [
   'frankenstein',
   'great-expectations',
   'heart-of-darkness',
-  // Wave 2 (19 Nov 2026, docs/seo-brief-2026-11-19.md). master-and-margarita waits for Anders to approve its note:
-  // the registry names no translator for Tinct's own translation from the Russian.
+  // Wave 2 (19 Nov 2026, docs/seo-brief-2026-11-19.md). master-and-margarita is left out (Anders, 20 Nov 2026): it is
+  // blocked in the US and Russia, where most crawling happens; its note is approved and shown all the same.
   'odyssey',
   'oresteia',
   'the-histories',
