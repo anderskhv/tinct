@@ -234,7 +234,7 @@ import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { ChatConversation, HighlightColor } from '../types'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { TRY_DEMO, TRY_DEMO_DESKTOP_FONT_SIZE, tryDemoTell, useTryDemo, type TryDemoHandles } from './tryDemo/tryDemo'
-import { FREE_MODE, FREE_MODE_COMMANDS, FREE_MODE_HOME, freeModeEditionFor, freeModeEditions, freeModeMenuRows, freeModeSourceLine, otherFreeModeEdition, withFreeMode } from './freeMode/freeMode'
+import { FREE_MODE, FREE_MODE_COMMANDS, FREE_MODE_HOME, FREE_MODE_LOCALE, freeModeCandidates, freeModeEditionFor, freeModeEditions, freeModeMenuRows, freeModePair, freeModeSourceLine, otherFreeModeEdition, withFreeMode } from './freeMode/freeMode'
 import { LabFreeModeEditions, LabFreeModeCopyBar, LabFreeModePhoneBand } from './freeMode/LabFreeMode'
 import { FreeModeSourceContext } from './freeMode/freeModeContext'
 import { useLabHighlights } from './useLabHighlights'
@@ -663,8 +663,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (userBookEditionKey) return userBookPrefs(synced, userBookEditionKey)
     // Free reading mode reads Original or Modern English, with the other beside it for Both (freeMode.ts).
     if (FREE_MODE) {
-      const primary = freeModeEditionFor(book.editions ?? [], synced.primaryEdition)
-      if (primary) return syncLabAudioEdition({ ...synced, primaryEdition: primary, compareEdition: otherFreeModeEdition(primary), compareOpen: true, compareChosen: true }, book.editions ?? [])
+      const candidates = freeModeCandidates(book.bookId || 'bible', book.editions ?? [])
+      const primary = freeModeEditionFor(candidates, synced.primaryEdition)
+      if (primary) return syncLabAudioEdition({ ...synced, primaryEdition: primary, compareEdition: otherFreeModeEdition(primary, candidates), compareOpen: true, compareChosen: true }, book.editions ?? [])
     }
     // Compare chosen in the margin preview's Layout: its compare edition is shown, even after an earlier None.
     return readerHandoff && deepLinkViewForPage() === 'compare' && !synced.compareOpen && synced.compareEdition !== synced.primaryEdition
@@ -2007,7 +2008,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const target = bookEditions.find(edition => edition.key === view)
     if (!target) return
     if (!showPhoneChrome && desktopCompareActive) chooseSharedDesktopLayout(privateDesktopClassic ? 'two-page' : 'margin')
-    if (prefs.primaryEdition !== target.key) updatePrefs({ ...prefs, primaryEdition: target.key, compareEdition: otherFreeModeEdition(target.key), compareOpen: true })
+    if (prefs.primaryEdition !== target.key) updatePrefs({ ...prefs, primaryEdition: target.key, compareEdition: otherFreeModeEdition(target.key, bookEditions), compareOpen: true })
   }
   // Leaving or hiding the page sends the own book's place still waiting (keepalive).
   useEffect(() => {
@@ -6727,7 +6728,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions))
       // Free reading mode keeps reading, moving and the editions (freeMode.ts FREE_MODE_COMMANDS); its O and M are its own switch.
       .filter(command => !FREE_MODE || FREE_MODE_COMMANDS.has(command.id))
-      .map(command => FREE_MODE && (command.id === 'original' || command.id === 'modern') ? { ...command, run: () => chooseFreeModeView(`${command.id}-en`) } : command),
+      .map(command => FREE_MODE && (command.id === 'original' || command.id === 'modern') ? { ...command, run: () => chooseFreeModeView(freeModePair(bookEditions)[command.id as 'original' | 'modern']) } : command),
   })
 
   // The /try page's reader (tryDemo/tryDemo.ts): the page's own Original | Modern English switch (phone) runs here
@@ -7538,8 +7539,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             type="button"
             className="lab-v2-library-back"
             data-testid="lab-library-back"
-            aria-label={FREE_MODE ? 'Back to the modern-English classics' : 'Back to library'}
-            title={FREE_MODE ? 'All the books' : privateBook ? 'Your books' : 'Library'}
+            aria-label={FREE_MODE ? FREE_MODE_LOCALE.strings.back : 'Back to library'}
+            title={FREE_MODE ? FREE_MODE_LOCALE.strings.backTitle : privateBook ? 'Your books' : 'Library'}
             onClick={() => {
               // Free reading mode came from the modern-English page and goes back to it, its place kept on this device.
               if (FREE_MODE) { notePlace('hide'); window.location.assign(FREE_MODE_HOME); return }
@@ -7560,8 +7561,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               type="button"
               className="lab-free-back"
               data-testid="lab-free-back"
-              aria-label="Back to the modern-English classics"
-              title="All the books"
+              aria-label={FREE_MODE_LOCALE.strings.back}
+              title={FREE_MODE_LOCALE.strings.backTitle}
               onClick={() => { notePlace('hide'); window.location.assign(FREE_MODE_HOME) }}
             >
               <LibraryBackIcon size={22} />

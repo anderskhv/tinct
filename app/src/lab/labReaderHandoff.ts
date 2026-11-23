@@ -9,7 +9,8 @@ import { libraryResumePlace, resumePlace, type LabBookPlace, type LabPositionSta
 import { readLabPositionLocal } from './labPositionStore'
 import type { LabSource } from './labSource'
 import { parseSceneHandoff, type SceneHandoff } from './labSceneHandoff'
-import { FREE_MODE_PARAM, FREE_MODE_VALUE, freeModeEditionFor, otherFreeModeEdition } from './freeMode/freeMode'
+import { FREE_MODE_LOCALE, FREE_MODE_PARAM, FREE_MODE_VALUE, freeModeCandidates, freeModeEditionFor, otherFreeModeEdition } from './freeMode/freeMode'
+import type { FreeModeLocale } from './freeMode/freeModeLocale'
 
 export const LAB_READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 
@@ -75,21 +76,23 @@ export function modernReturnHandoff(bookId: string): ReaderHandoffIntent | null 
 
 /**
  * Free reading mode's hand-off (`/reader?book=…&mode=free`, lab/freeMode/freeMode.ts): the place this device saved
- * in the book, else its first chapter, in Modern English (or the saved place's edition when it is the original),
+ * in the book, else its first chapter, in the modern edition of free mode's language (Modern English, or Danish from
+ * the Danish page; or the saved place's edition when it is the original),
  * with the other of the two beside it for Both. Null when the book is not registered.
  */
-export function freeModeHandoff(bookId: string): ReaderHandoffIntent | null {
+export function freeModeHandoff(bookId: string, locale: FreeModeLocale = FREE_MODE_LOCALE): ReaderHandoffIntent | null {
   const book = getBook(bookId)
   if (!book) return null
   const saved = localPlace(bookId)
-  const primaryEditionKey = freeModeEditionFor(book.editions, saved?.primaryEditionKey)
+  const candidates = freeModeCandidates(bookId, book.editions, locale)
+  const primaryEditionKey = freeModeEditionFor(candidates, saved?.primaryEditionKey, locale)
   if (!primaryEditionKey) return modernReturnHandoff(bookId)
   const entry = PRE_READER_CATALOGUE.booksById.get(bookId) as { readingStructure?: { chapters?: Array<{ number?: number }> } } | undefined
   const first = entry?.readingStructure?.chapters?.[0]?.number
   const savedPlace = saved
     ? { bookId, chapterNumber: saved.sequentialChapter, paragraphIndex: saved.paragraphIndex, wordIndex: saved.wordIndex, page: saved.pageIndex ?? 0 }
     : { bookId, chapterNumber: Number.isInteger(first) && (first as number) >= 1 ? first as number : 1, paragraphIndex: 0, wordIndex: 0, page: 0 }
-  const compareEditionKey = otherFreeModeEdition(primaryEditionKey)
+  const compareEditionKey = otherFreeModeEdition(primaryEditionKey, candidates, locale)
   return createReaderHandoffIntent({ bookId, primaryEditionKey, compareEditionKey, compareChosen: true, resumeLatest: true, savedPlace })
     ?? createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace })
 }

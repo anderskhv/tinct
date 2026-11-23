@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react'
-import { FREE_MODE } from './freeMode'
+import { FREE_MODE, FREE_MODE_LOCALE } from './freeMode'
 
-export { FREE_MODE }
+export { FREE_MODE, FREE_MODE_LOCALE }
 
 /**
  * Free reading mode's source line under the chapter heading ("Modern English made with AI from George Long's 1862

@@ -1,4 +1,5 @@
 import { LIBRARY_ENTRY_PATH } from './libraryTwoRelease'
+import { DANISH_FREE_PAGE_SLUG } from '../../data/freePages'
 import { TEMPORARY_EDITION_HOLDS, editionHold, isBookTemporarilyHeld, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
 import { isLabPath, legacyLabPageRedirect } from '../../lab/labRoute'
@@ -352,6 +353,22 @@ function redirectTryToAbout(url: URL): Response {
  * absent from the sitemap, linked from nowhere. Signed-in readers may see it.
  */
 const MODERN_ENGLISH_PAGE_PATH = '/modern-english'
+/**
+ * The Danish free page, "Klassikere på nutidsdansk" (src/seo/modernEnglishPage.ts DANISH_FREE_PAGE; Anders, 23 Nov
+ * 2026): the same page for the books whose Danish edition is published, built into public/{slug}.html by the same
+ * script. Unlisted: noindex in the page and in this header, absent from the sitemap, linked from nowhere.
+ */
+const DANISH_FREE_PAGE_PATH = `/${DANISH_FREE_PAGE_SLUG}`
+const DANISH_FREE_PAGE_ROUTE = new RegExp(`^/${DANISH_FREE_PAGE_SLUG}(?:\\.html|/)?$`)
+async function serveDanishFreePage(request: Request, url: URL, env: SeoEnv): Promise<Response> {
+  if (url.pathname !== DANISH_FREE_PAGE_PATH) {
+    return new Response(null, { status: 301, headers: { Location: DANISH_FREE_PAGE_PATH + url.search, 'Cache-Control': 'public, max-age=3600' } })
+  }
+  const page = await serveStaticHtml(request.method, request, url, DANISH_FREE_PAGE_PATH, env)
+  if (!page) return serveNotFound(request.method, url, env)
+  page.headers.set('X-Robots-Tag', 'noindex, nofollow')
+  return page
+}
 async function serveModernEnglishPage(request: Request, url: URL, env: SeoEnv): Promise<Response> {
   if (url.pathname !== MODERN_ENGLISH_PAGE_PATH) {
     return new Response(null, { status: 301, headers: { Location: MODERN_ENGLISH_PAGE_PATH + url.search, 'Cache-Control': 'public, max-age=3600' } })
@@ -507,6 +524,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
 
     if ((request.method === 'GET' || request.method === 'HEAD') && /^\/modern-english(?:\.html|\/)?$/.test(url.pathname)) {
       return serveModernEnglishPage(request, url, env)
+    }
+
+    if ((request.method === 'GET' || request.method === 'HEAD') && DANISH_FREE_PAGE_ROUTE.test(url.pathname)) {
+      return serveDanishFreePage(request, url, env)
     }
 
     // The privacy policy is one page at /privacy (public/privacy.html, served by

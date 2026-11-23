@@ -1,5 +1,5 @@
 import { useMarginPhone } from './marginPhone/marginPhoneContext'
-import { FREE_MODE } from './freeMode/freeModeContext'
+import { FREE_MODE, FREE_MODE_LOCALE } from './freeMode/freeModeContext'
 
 export function LabChapterEnd({ chapterTitle, hasNext, busy = false, measuring = false, docked = false, recap: recapAsked = true, note: noteAsked = true, onContinue, onDiscuss, onNote, finishedCard: finishedCardAsked }: {
   /** The chapter's title (measuring copies pass it too). */
@@ -23,7 +23,7 @@ export function LabChapterEnd({ chapterTitle, hasNext, busy = false, measuring =
   const recap = recapAsked && !FREE_MODE
   const note = noteAsked && !FREE_MODE
   const finishedCard = FREE_MODE ? undefined : finishedCardAsked
-  return <section className={`lab-chapter-end${docked ? ' is-docked' : ''}`} data-testid={measuring ? undefined : "lab-chapter-end"} aria-label="Chapter finished"
+  return <section className={`lab-chapter-end${docked ? ' is-docked' : ''}`} data-testid={measuring ? undefined : "lab-chapter-end"} aria-label={FREE_MODE ? FREE_MODE_LOCALE.strings.chapterFinished : 'Chapter finished'}
     onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()} onClick={event => event.stopPropagation()}>
     <div className="lab-chapter-end-actions">
       {recap && <button type="button" className="lab-chapter-recap" disabled={busy} tabIndex={onDiscuss ? 0 : -1} aria-label="Summary of this chapter" onClick={onDiscuss}>
@@ -42,7 +42,7 @@ export function LabChapterEnd({ chapterTitle, hasNext, busy = false, measuring =
         <span>Note</span>
       </button>}
       {hasNext && <button type="button" tabIndex={onContinue ? 0 : -1} onClick={onContinue}>
-        Next chapter <span aria-hidden="true">→</span>
+        {FREE_MODE ? FREE_MODE_LOCALE.strings.nextChapter : 'Next chapter'} <span aria-hidden="true">→</span>
       </button>}
       {!hasNext && finishedCard && <button type="button" className="lab-chapter-finished-card" data-testid="lab-finished-card" disabled={finishedCard.busy} onClick={finishedCard.onShare}>
         {finishedCard.label} <span aria-hidden="true">↗</span>

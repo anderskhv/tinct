@@ -5,6 +5,8 @@
  * - Two rows of pills, category and period: at most one per row; a pill filters the shelves and scrolls to them,
  *   and pressed again it clears. The two rows work alone and together.
  * Every book opens the reader's free mode; the reader itself opens this device's saved place when there is one.
+ * The Danish page (/nutidsdansk) is the same page: its words come from the page itself (the list's data-empty), a
+ * book is also found by the names in its `x` (its English title), and æ and ø are folded for the search.
  */
 (function () {
   'use strict'
@@ -12,8 +14,8 @@
   ready(function () {
     var books = []
     try { books = JSON.parse(document.getElementById('me-books').textContent || '[]') } catch (e) { books = [] }
-    var fold = function (text) { return String(text || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim() }
-    books.forEach(function (book) { book.ft = fold(book.t); book.fa = fold(book.a) })
+    var fold = function (text) { return String(text || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/æ/g, 'ae').replace(/ø/g, 'o').replace(/\s+/g, ' ').trim() }
+    books.forEach(function (book) { book.ft = fold(book.t); book.fa = fold(book.a); book.fx = fold(book.x) })
 
     // ---- Search ----------------------------------------------------------------------------------------------
     var input = document.getElementById('me-q')
@@ -25,7 +27,7 @@
     function matches(query) {
       var words = query.split(' ')
       var hits = books.filter(function (book) {
-        var hay = book.ft + ' ' + book.fa
+        var hay = book.ft + ' ' + book.fa + ' ' + book.fx
         return words.every(function (word) { return hay.indexOf(word) >= 0 })
       })
       // Titles that start with the query first, then titles that contain it, then authors.
@@ -59,7 +61,7 @@
               + '<img src="/covers/v2/' + esc(book.id) + '.webp" alt="" width="36" height="54">'
               + '<span><span class="me-result-title">' + esc(book.t) + '</span><span class="me-result-meta">' + esc(book.a) + ' · ' + esc(book.s) + '</span></span></a></li>'
           }).join('')
-        : '<li class="me-empty" role="presentation">No book by that name. Try the author.</li>'
+        : '<li class="me-empty" role="presentation">' + esc(list.getAttribute('data-empty') || 'No book by that name. Try the author.') + '</li>'
       list.hidden = false
       input.setAttribute('aria-expanded', 'true')
       select(hits.length ? 0 : -1)
