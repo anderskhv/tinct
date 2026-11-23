@@ -348,8 +348,8 @@ function redirectTryToAbout(url: URL): Response {
 
 /**
  * The modern-English page (docs/modern-english/BUILD-BRIEF.md; built from the registry into public/modern-english.html
- * by scripts/seo/build-modern-english.mjs). Unlisted until Anders launches it: noindex in the page and in this header,
- * absent from the sitemap, linked from nowhere. Signed-in readers may see it.
+ * by scripts/seo/build-modern-english.mjs). Listed since 23 Nov 2026 (Anders): indexable, in the sitemap,
+ * linked from the shelf pages and llms.txt. Signed-in readers may see it.
  */
 const MODERN_ENGLISH_PAGE_PATH = '/modern-english'
 async function serveModernEnglishPage(request: Request, url: URL, env: SeoEnv): Promise<Response> {
@@ -358,7 +358,6 @@ async function serveModernEnglishPage(request: Request, url: URL, env: SeoEnv): 
   }
   const page = await serveStaticHtml(request.method, request, url, MODERN_ENGLISH_PAGE_PATH, env)
   if (!page) return serveNotFound(request.method, url, env)
-  page.headers.set('X-Robots-Tag', 'noindex, nofollow')
   return page
 }
 export const isLabPathnameForTest = isLabPathname

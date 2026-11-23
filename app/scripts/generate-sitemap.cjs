@@ -876,6 +876,9 @@ function buildSitemap(books, state = loadLastmodState(), next = {}) {
   entry(`${ORIGIN}/terms`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/terms.html'))
   entry(`${ORIGIN}/copyright`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/copyright.html'))
   entry(`${ORIGIN}/read/`, { changefreq: 'weekly', priority: 0.8 }, path.join(READ_DIR, 'index.html'))
+  // /modern-english: every book in Modern English (listed 23 Nov 2026). The page is generated after the sitemap in
+  // prebuild, so its lastmod follows what it is built from: the registry and the page's own source.
+  entry(`${ORIGIN}/modern-english`, { changefreq: 'weekly', priority: 0.8 }, path.join(APP_DIR, 'src/data/bookRegistry.ts'), path.join(APP_DIR, 'src/seo/modernEnglishPage.ts'), path.join(APP_DIR, 'public/lab/modern-english/modern-english.css'))
   for (const b of books) {
     const page = path.join(READ_DIR, b.id, 'book.html')
     if (!fs.existsSync(page)) continue

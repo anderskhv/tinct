@@ -467,6 +467,7 @@ export function renderShelfHubs(input: {
     .hub-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px max(20px, 2.5vw); }
     .hub-top a { color: var(--tui-ink); text-decoration: none; font-size: var(--tui-text-ui); }
     .hub-top .hub-logo { font-family: var(--tui-font-serif); font-size: 30px; letter-spacing: -1.5px; }
+    .hub-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 20px; }
     main { max-width: 1180px; margin: 0 auto; padding: 24px max(20px, 2.5vw) 80px; }
     /* Two families on the screen: the books' serif (title and book titles) and the system face for the links. */
     h1 { margin: 0 0 32px; font: 500 var(--tui-text-3xl)/1.1 var(--tui-font-serif); letter-spacing: -.01em; }
@@ -479,7 +480,7 @@ export function renderShelfHubs(input: {
   </style>
 </head>
 <body>
-<nav class="hub-top"><a class="hub-logo" href="/">tinct</a><a href="/read/">Library</a></nav>
+<nav class="hub-top"><a class="hub-logo" href="/">tinct</a><span class="hub-links"><a href="/modern-english">Every classic in modern English</a><a href="/read/">Library</a></span></nav>
 <main>
 <h1>${escapeHtml(heading)}</h1>
 <ul class="hub-books">
