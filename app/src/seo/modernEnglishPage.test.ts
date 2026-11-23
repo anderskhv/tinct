@@ -12,7 +12,7 @@ import {
   renderModernEnglishPage,
 } from './modernEnglishPage'
 
-// The modern-English page (docs/modern-english/BUILD-BRIEF.md): built from the registry, unlisted, selling nothing.
+// The modern-English page (docs/modern-english/BUILD-BRIEF.md): built from the registry, listed since 23 Nov 2026, selling nothing.
 const ASSETS = { css: '/lab/modern-english/modern-english.css?v=1', js: '/lab/modern-english/modern-english.js?v=1' }
 
 const book = (over: Partial<Book>): Book => ({
@@ -69,8 +69,10 @@ describe('the page', () => {
     for (const link of links) expect(link).toMatch(/^\/reader\?book=[a-z0-9-]+&mode=free&ref=modern-english$/)
   })
 
-  it('is noindex, has no top bar, sells nothing and links nothing unlisted', () => {
-    expect(html).toContain('<meta name="robots" content="noindex, nofollow">')
+  it('is indexable with its canonical, has no top bar, sells nothing and links nothing unlisted', () => {
+    // Listed on 23 Nov 2026 (Anders): no robots meta, and the canonical names the page.
+    expect(html).not.toMatch(/<meta name="robots"/)
+    expect(html).toContain('<link rel="canonical" href="https://tinct.app/modern-english">')
     expect(html).toContain('<h1>100+ classics in modern translation. Free.</h1>')
     expect(html).toContain('A way in, not a scholarly translation. Free to read, in both versions.')
     expect(html).not.toMatch(/sign-in|Sign in|Premium|Subscribe|\$\d/)
@@ -86,7 +88,7 @@ describe('the page', () => {
     expect(html.match(/data-kind="era"/g)).toHaveLength(6)
   })
 
-  it('is served unlisted by the Worker and is not in the sitemap', async () => {
+  it('is served indexable by the Worker and is in the sitemap and llms.txt', async () => {
     const env = { ASSETS: { fetch: async (request: Request) => new URL(request.url).pathname === '/modern-english'
       ? new Response(html, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
       : new Response('nf', { status: 404 }) } }
@@ -94,7 +96,7 @@ describe('the page', () => {
     const get = (path: string, cookie?: string) => handleSeoAndStaticRequest(new Request(`https://tinct.app${path}`, cookie ? { headers: { Cookie: cookie } } : undefined), env as never, ctx)
     const page = await get('/modern-english')
     expect(page.status).toBe(200)
-    expect(page.headers.get('X-Robots-Tag')).toBe('noindex, nofollow')
+    expect(page.headers.get('X-Robots-Tag')).toBeNull()
     // Signed-in readers may see it.
     expect((await get('/modern-english', 'tinct_auth=1')).status).toBe(200)
     for (const path of ['/modern-english.html', '/modern-english/']) {
@@ -102,6 +104,9 @@ describe('the page', () => {
       expect(moved.status).toBe(301)
       expect(moved.headers.get('Location')).toBe('/modern-english')
     }
-    for (const file of ['public/sitemap.xml', 'public/robots.txt', 'public/llms.txt']) expect(readFileSync(file, 'utf8'), file).not.toContain('modern-english')
+    expect(readFileSync('public/sitemap.xml', 'utf8')).toContain('<loc>https://tinct.app/modern-english</loc>')
+    expect(readFileSync('public/llms.txt', 'utf8')).toContain('https://tinct.app/modern-english')
+    // robots.txt neither names nor blocks it.
+    expect(readFileSync('public/robots.txt', 'utf8')).not.toContain('modern-english')
   })
 })
