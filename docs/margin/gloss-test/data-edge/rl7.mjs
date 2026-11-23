@@ -1,0 +1,10 @@
+import { open } from './th.mjs'; import { sleep } from './lib.mjs'; import fs from 'fs';
+const { c, p } = await open(); const OUT = 'p3/rl-whole.jsonl';
+await p.locator('button', { hasText: /\d+%/ }).first().click(); await sleep(700); await p.fill('#jumpInput', '445'); await p.keyboard.press('Enter'); await sleep(3500);
+const answers = () => p.evaluate(() => [...document.querySelectorAll('.mr-answer')].map(e => e.innerText));
+async function waitNew(before, t0, max = 120000) { let first = 0, last = 0, prev = '', since = 0; while (Date.now() - t0 < max) { const a = await answers(); const t = a.length > before ? a[a.length - 1] : ''; const now = Date.now(); if (t.length > 20 && !first) first = now - t0; if (t !== prev) { prev = t; since = now; last = now - t0; } if (first && now - since > 4000) break; await sleep(250); } return { first, last, text: prev }; }
+const W = ['According to the book, how well did the first version of TD-Gammon play compared with earlier programs?', 'Which chapter and section introduce the Sarsa algorithm, and on what page?', 'What open problems does the final chapter list as frontiers?'];
+for (const q of W) { await p.mouse.click(60, 500); await p.keyboard.press('/'); await sleep(5000); const before = (await answers()).length; await p.keyboard.type(q, { delay: 4 }); const t0 = Date.now(); await p.keyboard.press('Enter'); const r = await waitNew(before, t0); fs.appendFileSync(OUT, JSON.stringify({ q, ...r }) + '\n'); console.log(q.slice(0, 30), r.first, r.last); for (let i = 0; i < 3; i++) await p.keyboard.press('Escape'); await sleep(400); }
+await p.mouse.click(60, 500); const t0 = Date.now(); await p.keyboard.press('b'); let txt = ''; for (let k = 0; k < 300; k++) { await sleep(500); txt = await p.evaluate(() => document.querySelector('.mr-primer')?.innerText || ''); if (txt.length > 150 && !/Thinking|loading|Reading/i.test(txt.slice(0, 200))) break; }
+fs.appendFileSync(OUT, JSON.stringify({ q: 'primer', last: Date.now() - t0, text: txt }) + '\n'); console.log('primer', Date.now() - t0);
+await c.close();

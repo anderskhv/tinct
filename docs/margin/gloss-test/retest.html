@@ -1,0 +1,140 @@
+<title>PDF Reader Retest</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@700&display=swap">
+<style>
+/* Layout: a single reading column (report), wide tables scroll inside their own box. Tinct's paper and ink; verdict colours only in the score chips. */
+:root {
+  --bg: #ece7db; --surface: #f6f2ea; --ink: #141210; --muted: #6a6256; --line: rgba(32,26,19,.16); --wash: rgba(32,26,19,.06);
+  --good: #2f6b3a; --mid: #8a6a12; --bad: #9b2c1f; --good-bg: rgba(47,107,58,.12); --mid-bg: rgba(138,106,18,.13); --bad-bg: rgba(155,44,31,.12);
+  --display: "Playfair Display", Georgia, serif; --body: "EB Garamond", Georgia, serif; --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #151310; --surface: #1e1b17; --ink: #e6ddd0; --muted: #9a9083; --line: rgba(230,221,208,.16); --wash: rgba(230,221,208,.06); --good: #8fc79a; --mid: #d9b75a; --bad: #e58b7d; --good-bg: rgba(143,199,154,.14); --mid-bg: rgba(217,183,90,.14); --bad-bg: rgba(229,139,125,.14); color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #151310; --surface: #1e1b17; --ink: #e6ddd0; --muted: #9a9083; --line: rgba(230,221,208,.16); --wash: rgba(230,221,208,.06); --good: #8fc79a; --mid: #d9b75a; --bad: #e58b7d; --good-bg: rgba(143,199,154,.14); --mid-bg: rgba(217,183,90,.14); --bad-bg: rgba(229,139,125,.14); color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 19px/1.55 var(--body); padding-block: 40px 96px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+main { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+h1 { font: 700 2.3rem/1.15 var(--display); margin: 0; text-wrap: balance; }
+h2 { font: 700 1.45rem/1.25 var(--display); margin: 0 0 10px; }
+h3 { font: 600 1.1rem/1.3 var(--body); margin: 18px 0 6px; }
+p { margin: 0 0 12px; }
+.lede { font-size: 1.15rem; }
+.meta { font: 14px/1.5 var(--ui); color: var(--muted); }
+.tw { overflow-x: auto; border-radius: 10px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+table { border-collapse: collapse; width: 100%; font: 15px/1.45 var(--ui); min-width: 720px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-top: 1px solid var(--line); }
+thead th { border-top: 0; font-weight: 600; color: var(--muted); font-size: 13px; background: var(--wash); }
+td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.s { display: inline-block; min-width: 2.2em; text-align: center; border-radius: 6px; padding: 1px 6px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.g { color: var(--good); background: var(--good-bg); } .m { color: var(--mid); background: var(--mid-bg); } .b { color: var(--bad); background: var(--bad-bg); } .x { color: var(--muted); background: var(--wash); }
+ul, ol { margin: 0 0 12px; padding-left: 1.3em; } li { margin: 0 0 8px; }
+.sev { font: 600 12px var(--ui); border-radius: 5px; padding: 1px 6px; margin-right: 6px; white-space: nowrap; }
+.crit { color: var(--bad); background: var(--bad-bg); } .maj { color: var(--mid); background: var(--mid-bg); } .min { color: var(--muted); background: var(--wash); }
+figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+figure img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); display: block; }
+figcaption { font: 14px/1.45 var(--ui); color: var(--muted); }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 18px; }
+.callout { background: var(--surface); box-shadow: 0 0 0 1px var(--line); border-radius: 10px; padding: 16px 18px; }
+code { font: 14px var(--ui); background: var(--wash); padding: 0 4px; border-radius: 4px; }
+blockquote { margin: 0 0 12px; padding: 2px 0 2px 14px; box-shadow: inset 2px 0 0 var(--line); color: var(--muted); font-style: italic; }
+</style>
+
+<main>
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <h1>The new PDF reader, retested</h1>
+    <p class="lede">I ran the same tests again on the reader as it went live today (release trains 1 and 2, plus #455 and #456). When an answer loads, Tinct now scores 4.1 out of 5 on the Attention paper and 4.2 on the GAN paper, up from 3.4 and 3.8. Gloss scored 4.7 and 4.6 on the same tests. The biggest gains are in the primer, whole-paper questions, Explain and scans. The new problem is reliability: 7 of about 70 actions ended with “The answer could not be loaded”.</p>
+    <p class="meta">Tested 15 October 2026, evening, on the live site with the test account flagged internal. The Gloss scores are the baselines from this morning; Gloss has not changed. Same passages, same questions, same rubric (accurate, grounded, useful, fits the action, speed).</p>
+  </header>
+
+  <section>
+    <h2>Scores by action</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Action</th><th>Before (Attn / GAN)</th><th>Now (Attn / GAN)</th><th>Gloss</th><th>What changed</th></tr></thead>
+      <tbody>
+        <tr><td>Explain</td><td class="n">3.5 / 3.5</td><td class="n"><span class="s g">4.4</span> / <span class="s g">4.3</span></td><td class="n">4.8</td><td>Short and correct, 130 to 185 words, with no “Notation” paragraph. 2.7–4.5 s, down from 6–7.5 s. One answer showed raw “{pp. 5}” tokens.</td></tr>
+        <tr><td>Simplify</td><td class="n">3.6 / 3.5</td><td class="n"><span class="s g">4.3</span> / <span class="s m">3.8*</span></td><td class="n">4.6–4.7</td><td>Now leads with the plain version. Two weak ones on GAN: one repeats the passage word for word, and one ends with a meta line (“The rewrite is a restatement of…”). Two failed to load.</td></tr>
+        <tr><td>Define</td><td class="n">2.0 / 3.4</td><td class="n"><span class="s m">3.5</span> / <span class="s m">3.5*</span></td><td class="n">4.8</td><td>“In this text” now comes first for transduction, constituency, auto-regressive (as a whole word now), minimax and maxout. Ensemble, perplexity and saturate still get only the everyday dictionary sense. “Parzen” got an odd entry (“not a standalone character”). Raw “{p. 1}” tags.</td></tr>
+        <tr><td>Fact-check</td><td class="n">3.8 / 3.8</td><td class="n"><span class="s m">3.6</span> / <span class="s m">3.7*</span></td><td class="n">4.2–4.5</td><td>Better sources (Brunner 2020, Sun and Marasović 2021). It caught the paper’s own 41.0 vs 41.8 BLEU mismatch, and that GANs lose to Stacked CAE on TFD (2057 vs 2110). But it is <b>slower: 17–32 s</b>, up from 11.5 s. It still states the verdict twice in 3 of 8, and leaks “the search note I drew on”.</td></tr>
+        <tr><td>Counterpoint</td><td class="n">3.9 / 4.0</td><td class="n"><span class="s g">4.1</span> / <span class="s g">4.2</span></td><td class="n">4.7–4.8</td><td>Strong, and the author’s reply now comes from the paper. One factual slip: it said Table 1 lists recurrence and self-attention both as O(n·d), but self-attention is O(n²·d). Slower: 9–12 s, up from 7.5 s.</td></tr>
+        <tr><td>Ask</td><td class="n">4.0 / 4.0</td><td class="n"><span class="s g">4.5</span> / <span class="s g">4.5*</span></td><td class="n">4.4–4.8</td><td>Now on a par with Gloss. It labels general knowledge as such (“what follows is general background, not something the paper says”), and it called the Helvetica scenario mode collapse. A merged citation (“p. 5p. 6”). One failed to load on each paper.</td></tr>
+        <tr><td>Whole paper</td><td class="n">3.4 / 3.9</td><td class="n"><span class="s g">4.6</span> / <span class="s g">4.8</span></td><td class="n">4.3–4.8</td><td>Covers the whole paper now. The GAN Table 1 answer weighs the error bars, which beats Gloss, which got TFD wrong. Leaks “the exponents were lost in the text I have”. 5–8 s.</td></tr>
+        <tr><td>Primer</td><td class="n">2.4 / 4.2</td><td class="n"><span class="s g">4.6</span> / <span class="s g">4.6</span></td><td class="n">4.8–5.0</td><td>Covers the whole paper and catches inconsistencies (pg(z) notation). Opened from storage in 0.5 s.</td></tr>
+        <tr><td>Quiz me</td><td class="n">3.7 / 3.8</td><td class="n"><span class="s g">4.2</span> / <span class="s g">4.2*</span></td><td class="n">—</td><td>All questions are now on the passage. The end card says “0 of 2 answered, 1 shown”, and the marking stays good. The first question still takes 5–11 s against a target under 5. One quiz failed to load.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta">* Scored on the answers that loaded. Counting each failed load as 1, GAN averages 3.8.</p>
+  </section>
+
+  <section>
+    <h2>The new problem: answers that do not load</h2>
+    <p><b>7 of about 70 actions ended with “The answer could not be loaded. Try again.”</b> That was 1 on Attention and 6 on GAN (two Simplify, one Define, two Fact-check, one Ask, plus one quiz that never opened). The browser logged <code>502 /api/chat</code>. I was running up to three browsers at once, so at most about three requests at the same time, which the Worker should handle easily. Nothing retries automatically, so the reader just sees a failed card.</p>
+    <ul>
+      <li>Retry once automatically on a 502 or a dropped stream before showing the error.</li>
+      <li>Log the cause on the server: upstream overload, a timeout, or the new cache-prefix requests.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Scans, figures and long books</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Case</th><th>Before</th><th>Now</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Scanned PDF</td><td class="n"><span class="s b">1.5</span></td><td class="n"><span class="s g">4.5</span></td><td>A brand-new scan offers recognition on its first open. After recognition it stays in the PDF reader with selectable text and the margin. Explain took 3 s. The Table 1 question was answered from the recognised text (225 ± 2), and the primer covers the whole paper. Recognition took 46–80 s for 9 pages.</td></tr>
+        <tr><td>Figures</td><td class="n"><span class="s g">4.0</span></td><td class="n"><span class="s g">4.3</span></td><td>All 6 ResNet figures get a chip, kept on screen, and hovering a caption works too. The visual answers were right in 6 of 6: values, colours, where the drops are. But: Figure 2 is still detected only in part (“the output end of the building block”). One Explain described Table 8 instead of Figure 6. A question that names a figure on another page still gets no picture. The TD-Gammon diagram in the long book still has no chip. A figure question took 21 s once.</td></tr>
+        <tr><td>Long book (548 pp.)</td><td class="n"><span class="s m">2.8</span></td><td class="n"><span class="s g">3.8</span></td><td>The primer now covers the chapter you are in (chapter 16, eight case studies). Cards and the header show the printed page (423). “Where is Sarsa introduced?” now gets Chapter 6, §6.4, p. 129. But the search returns only the opening lines of a section: on general value functions, it found §17.1 and then said the definition “falls past the text I have”. “Go to page” still expects the file’s number (type 445 to reach printed 423). Text wrapped beside a figure is still scrambled.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Speed: before, now, and Gloss</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Action</th><th>Before</th><th>Now</th><th>Gloss</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td>Explain</td><td class="n">6–7.5 s</td><td class="n">2.7–4.5 s</td><td class="n">0.9–1.7 s</td><td class="n">&lt; 2.5 s</td></tr>
+        <tr><td>Simplify</td><td class="n">2.6–6 s</td><td class="n">1.9–3.6 s (one 13.6 s)</td><td class="n">0.9–1.3 s</td><td class="n">&lt; 2.5 s</td></tr>
+        <tr><td>Define (dictionary / in this text)</td><td class="n">0.5 / 5 s</td><td class="n">0.5 / 5 s</td><td class="n">0.6–1.3 s</td><td class="n">&lt; 2.5 s</td></tr>
+        <tr><td>Fact-check</td><td class="n">9–13 s</td><td class="n"><b>17–32 s</b></td><td class="n">2.4 s</td><td class="n">first words &lt; 4 s</td></tr>
+        <tr><td>Counterpoint</td><td class="n">5.7–7.5 s</td><td class="n"><b>9–12 s</b></td><td class="n">0.7–2 s</td><td class="n">&lt; 5 s</td></tr>
+        <tr><td>Ask</td><td class="n">5.6–6.7 s</td><td class="n">4.7–8.8 s</td><td class="n">0.6–1.9 s</td><td class="n">&lt; 5 s</td></tr>
+        <tr><td>Quiz, first question</td><td class="n">6–8.6 s</td><td class="n">5.4–10.7 s</td><td class="n">—</td><td class="n">&lt; 5 s</td></tr>
+        <tr><td>Whole paper</td><td class="n">4–7 s</td><td class="n">5–8 s</td><td class="n">0.6–1.0 s</td><td class="n">&lt; 5 s</td></tr>
+      </tbody>
+    </table></div>
+    <p>Lookups got faster, but the main-model actions got slower. Fact-check and Counterpoint run 3–15 s over their targets, and Fact-check still waits for the search before it writes anything. The likely causes are the higher effort settings on Sonnet 5.5 and the whole-document prompt. Worth checking <code>usage.cache_read_input_tokens</code> to see whether the cache is actually being hit.</p>
+  </section>
+
+  <section>
+    <h2>Still leaking: wording and plumbing</h2>
+    <ul>
+      <li><b>Pipeline wording:</b> “the text I have”, “falls past the text I have”, “the supplied text”, “the search note I drew on”.</li>
+      <li><b>Raw citation tags:</b> “{p. 1}”, “{pp. 5}”, “(p. 2)” in Define and Explain, and the merged “p. 5p. 6”.</li>
+      <li><b>Self-reference in the whole-PDF thread:</b> “My first answer cited page 445, which was wrong”, “Same question as before”. Honest, but it reads like a log.</li>
+      <li><b>Fact-check verdict</b> stated twice (“Partly holds.” then “Partly holds.”).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Your UI notes, checked live</h2>
+    <ul>
+      <li><b>Fixed:</b> nothing has the typing focus when the reader opens, so there is no blinking cursor until you click into a field. The “Your own book” pop-up has one button and an × (#455).</li>
+      <li><b>Not built yet</b> (in Coder’s batch): the whole-PDF bar is still there; the primer appears at full size in one go; cards have no delete button; “Tinct text” still shows instead of Aa; the scrollbar sits between the page and the margin.</li>
+      <li><b>New:</b> dragging over a figure caption now brings up the figure chip instead of the bar, so you can no longer highlight or note a caption.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What Coder should do next</h2>
+    <ol>
+      <li><b>Reliability first.</b> Retry once on a 502 or a dropped stream, and log the cause. Aim for zero “could not be loaded” in a full test run.</li>
+      <li><b>Speed of the main model.</b> Get Fact-check’s first words under 4 s, by writing from the document while the search runs, and Counterpoint and Quiz under 5 s. Check the cache hit rate, and lower effort to low for Counterpoint and Quiz if it is higher.</li>
+      <li><b>Strip the pipeline wording</b> in the prompts (“text I have”, “supplied”, “search note”), and render or strip every citation tag form: <code>{p. N}</code>, <code>{pp. N}</code>, <code>(p. N)</code>, and no merged “p. 5p. 6”.</li>
+      <li><b>Define:</b> run the “In this text” check even when the dictionary has the word (ensemble, perplexity, saturate). Drop the novel-character wording for people’s names.</li>
+      <li><b>Simplify:</b> never return the passage unchanged, and no meta closing line.</li>
+      <li><b>Long books:</b> when search finds a section, send its full text (several pages), not only its first lines. “Go to page” should accept the printed number.</li>
+      <li><b>Figures:</b> fix the partial Figure 2 region and the Table 8/Figure 6 mix-up. Attach a figure named in a question even when it is on another page. Detect diagrams with text labels (TD-Gammon). Let a caption be highlighted.</li>
+    </ol>
+    <div class="callout"><p style="margin:0">Tinct is now close to Gloss on answer quality, and ahead of it on figures, scans with the margin, whole-paper reasoning and long books. Gloss still leads on speed and reliability. Those two, plus the leaking wording, are what stand between us and parity.</p></div>
+  </section>
+</main>

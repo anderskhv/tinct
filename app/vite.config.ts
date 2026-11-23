@@ -298,6 +298,8 @@ export default defineConfig(({ mode, command }) => {
             '/index.html': '/lab/library_2/index.html',
             '/library': '/lab/library_2/index.html',
             '/library/': '/lab/library_2/index.html',
+            // The unlisted modern-English page (the Worker's serveModernEnglishPage; generated in prebuild).
+            '/modern-english': '/modern-english.html',
             // The About page (public/about.html; the Worker serves it from assets and sends /try here).
             '/about': '/about.html',
             // Social (ship 3): the Worker serves this only while SOCIAL_FRIENDS is on.

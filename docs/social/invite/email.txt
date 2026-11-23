@@ -1,0 +1,54 @@
+DRAFT, 21 October 2026. The plain-text parts of the three emails in email.html.
+Coder splits at the "=== template:" lines into invite.txt, invite-no-book.txt and
+invite-joined.txt beside the lifecycle templates. Variables as in email.html
+(snake_case). Lines holding an empty optional variable (note, book_author) are
+dropped; avatar_url and inviter_initial do not appear in text.
+
+=== template: invite
+{{inviter_name}} invited you to read with them on Tinct.
+
+{{note}}
+
+{{book_title}}
+{{book_author}}
+Free to read on Tinct
+
+Join {{inviter_name}} on Tinct: {{join_url}}
+
+You’ll follow each other, so you can see each other’s reading.
+
+Tinct is a place to read the classics, in the original or in modern English. Reading is always free. The link works for 30 days.
+
+--
+{{inviter_name}} entered your address on Tinct. We won’t email you again unless someone invites you.
+Never send me invites: {{opt_out_url}}
+How Tinct uses your address: {{privacy_url}}
+{{sender_address}}
+
+=== template: invite-no-book
+{{inviter_name}} invited you to read with them on Tinct.
+
+{{note}}
+
+Join {{inviter_name}} on Tinct: {{join_url}}
+
+You’ll follow each other, so you can see each other’s reading.
+
+Tinct is a place to read the classics, in the original or in modern English. Reading is always free. The link works for 30 days.
+
+--
+{{inviter_name}} entered your address on Tinct. We won’t email you again unless someone invites you.
+Never send me invites: {{opt_out_url}}
+How Tinct uses your address: {{privacy_url}}
+{{sender_address}}
+
+=== template: invite-joined
+{{friend_name}} joined Tinct from your invite.
+
+You now follow each other.
+
+Open Tinct: {{friends_url}}
+
+--
+You’re getting this because you invited {{friend_name}} to Tinct.
+{{sender_address}}

@@ -345,6 +345,22 @@ export function withTryDemo(url: URL, html: string): string {
 function redirectTryToAbout(url: URL): Response {
   return new Response(null, { status: 301, headers: { Location: '/about' + url.search, 'Cache-Control': 'public, max-age=3600' } })
 }
+
+/**
+ * The modern-English page (docs/modern-english/BUILD-BRIEF.md; built from the registry into public/modern-english.html
+ * by scripts/seo/build-modern-english.mjs). Unlisted until Anders launches it: noindex in the page and in this header,
+ * absent from the sitemap, linked from nowhere. Signed-in readers may see it.
+ */
+const MODERN_ENGLISH_PAGE_PATH = '/modern-english'
+async function serveModernEnglishPage(request: Request, url: URL, env: SeoEnv): Promise<Response> {
+  if (url.pathname !== MODERN_ENGLISH_PAGE_PATH) {
+    return new Response(null, { status: 301, headers: { Location: MODERN_ENGLISH_PAGE_PATH + url.search, 'Cache-Control': 'public, max-age=3600' } })
+  }
+  const page = await serveStaticHtml(request.method, request, url, MODERN_ENGLISH_PAGE_PATH, env)
+  if (!page) return serveNotFound(request.method, url, env)
+  page.headers.set('X-Robots-Tag', 'noindex, nofollow')
+  return page
+}
 export const isLabPathnameForTest = isLabPathname
 
 function editionBookIdFromPath(pathname: string): string | null {
@@ -487,6 +503,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
 
     if (/^\/try(?:\.html|\/)?$/.test(url.pathname)) {
       return redirectTryToAbout(url)
+    }
+
+    if ((request.method === 'GET' || request.method === 'HEAD') && /^\/modern-english(?:\.html|\/)?$/.test(url.pathname)) {
+      return serveModernEnglishPage(request, url, env)
     }
 
     // The privacy policy is one page at /privacy (public/privacy.html, served by

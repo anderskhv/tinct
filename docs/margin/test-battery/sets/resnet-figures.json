@@ -1,0 +1,8 @@
+[
+ {"id":"fig1","cap":"Figure 1. Training error (left)","q":"Roughly what test error does the 56-layer network end at, and how does that compare with the 20-layer one?","gt":"56-layer ends near 13-14% test error; 20-layer near 10%; deeper is worse"},
+ {"id":"fig2","cap":"Figure 2. Residual learning: a building","q":"What happens to the signal right after the addition in this diagram?","gt":"a relu is applied after F(x)+x"},
+ {"id":"fig3","cap":"Figure 3. Example network architectures","q":"What do the dotted shortcut arrows mean, and how many of them are in the 34-layer residual network?","gt":"dotted shortcuts increase dimensions (projection/zero-pad when filters double); there are 3 in the 34-layer residual net"},
+ {"id":"fig4","cap":"Figure 4. Training on","q":"At about which iterations do the sudden drops in error happen, and why?","gt":"around 15x10^4 and 30x10^4 iterations; learning rate divided by 10"},
+ {"id":"fig6","cap":"Figure 6. Training on","q":"In the right panel, what colour is the 1202-layer curve and roughly what test error does it reach?","gt":"magenta/pink; about 8% (7.93%), above the 110-layer's ~6.4% (black)"},
+ {"id":"fig7","cap":"Figure 7. Standard deviations","q":"In the bottom plot, which network has the smallest responses overall?","gt":"ResNet-110 (black) lowest; ResNets lower than plain nets"}
+]

@@ -1,0 +1,109 @@
+<title>Tinct vs Gloss Second Paper</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@700&display=swap">
+<style>
+/* Layout: a single reading column (report), wide tables scroll inside their own box. Tinct's paper and ink; verdict colours only in the score chips. */
+:root {
+  --bg: #ece7db; --surface: #f6f2ea; --ink: #141210; --muted: #6a6256; --line: rgba(32,26,19,.16); --wash: rgba(32,26,19,.06);
+  --good: #2f6b3a; --mid: #8a6a12; --bad: #9b2c1f; --good-bg: rgba(47,107,58,.12); --mid-bg: rgba(138,106,18,.13); --bad-bg: rgba(155,44,31,.12);
+  --display: "Playfair Display", Georgia, serif; --body: "EB Garamond", Georgia, serif; --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #151310; --surface: #1e1b17; --ink: #e6ddd0; --muted: #9a9083; --line: rgba(230,221,208,.16); --wash: rgba(230,221,208,.06); --good: #8fc79a; --mid: #d9b75a; --bad: #e58b7d; --good-bg: rgba(143,199,154,.14); --mid-bg: rgba(217,183,90,.14); --bad-bg: rgba(229,139,125,.14); color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #151310; --surface: #1e1b17; --ink: #e6ddd0; --muted: #9a9083; --line: rgba(230,221,208,.16); --wash: rgba(230,221,208,.06); --good: #8fc79a; --mid: #d9b75a; --bad: #e58b7d; --good-bg: rgba(143,199,154,.14); --mid-bg: rgba(217,183,90,.14); --bad-bg: rgba(229,139,125,.14); color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 19px/1.55 var(--body); padding-block: 40px 96px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+main { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+h1 { font: 700 2.3rem/1.15 var(--display); margin: 0; text-wrap: balance; }
+h2 { font: 700 1.45rem/1.25 var(--display); margin: 0 0 10px; }
+h3 { font: 600 1.1rem/1.3 var(--body); margin: 18px 0 6px; }
+p { margin: 0 0 12px; }
+.lede { font-size: 1.15rem; }
+.meta { font: 14px/1.5 var(--ui); color: var(--muted); }
+.tw { overflow-x: auto; border-radius: 10px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+table { border-collapse: collapse; width: 100%; font: 15px/1.45 var(--ui); min-width: 720px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-top: 1px solid var(--line); }
+thead th { border-top: 0; font-weight: 600; color: var(--muted); font-size: 13px; background: var(--wash); }
+td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.s { display: inline-block; min-width: 2.2em; text-align: center; border-radius: 6px; padding: 1px 6px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.g { color: var(--good); background: var(--good-bg); } .m { color: var(--mid); background: var(--mid-bg); } .b { color: var(--bad); background: var(--bad-bg); } .x { color: var(--muted); background: var(--wash); }
+ul, ol { margin: 0 0 12px; padding-left: 1.3em; } li { margin: 0 0 8px; }
+.sev { font: 600 12px var(--ui); border-radius: 5px; padding: 1px 6px; margin-right: 6px; white-space: nowrap; }
+.crit { color: var(--bad); background: var(--bad-bg); } .maj { color: var(--mid); background: var(--mid-bg); } .min { color: var(--muted); background: var(--wash); }
+figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+figure img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); display: block; }
+figcaption { font: 14px/1.45 var(--ui); color: var(--muted); }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 18px; }
+.callout { background: var(--surface); box-shadow: 0 0 0 1px var(--line); border-radius: 10px; padding: 16px 18px; }
+code { font: 14px var(--ui); background: var(--wash); padding: 0 4px; border-radius: 4px; }
+blockquote { margin: 0 0 12px; padding: 2px 0 2px 14px; box-shadow: inset 2px 0 0 var(--line); color: var(--muted); font-style: italic; }
+</style>
+
+<main>
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <h1>Second paper: Generative Adversarial Nets</h1>
+    <p class="lede">Same deep test, a new paper: Goodfellow et al., 2014, nine pages, with theorems, proofs and a results table. It ran 41 actions in each product, scored on the same rubric. Tinct comes out at 3.8 out of 5 (3.4 on the first paper) and Gloss at 4.6 (4.7 before). Tinct did better here because this paper has no outline, which sidesteps the bugs that broke whole-paper questions and the primer last time. Gloss made real mistakes this time.</p>
+    <p class="meta">Tested 15 October 2026 on the same live version as the first deep test; none of the fix PRs had shipped. Same rubric, scorer and scripts. Gloss again ran with 87–99% of the paper cached.</p>
+  </header>
+
+  <section>
+    <h2>Scores by action</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Action</th><th>Tinct</th><th>Gloss</th><th>Typical time, Tinct vs Gloss</th><th>What happened</th></tr></thead>
+      <tbody>
+        <tr><td>Explain (5)</td><td><span class="s m">3.5</span></td><td><span class="s g">4.8</span></td><td class="n">6.5 s vs 1.1 s</td><td>Accurate, but 250-word answers every time, with a terms paragraph. One small slip: it says the abstract refers to a Nash equilibrium, and the abstract does not.</td></tr>
+        <tr><td>Simplify (5)</td><td><span class="s m">3.5</span></td><td><span class="s g">4.6</span></td><td class="n">3.4 s vs 1.1 s</td><td>It still opens with “This sentence describes…”. Two rewrites added material, such as the Helvetica scenario and Boltzmann chains for a 10-word selection. One garbled the meaning: “Instead of trying to fool D directly…”.</td></tr>
+        <tr><td>Define (5)</td><td><span class="s m">3.4</span></td><td><span class="s g">4.8</span></td><td class="n">0.5 s vs 0.9 s</td><td>Better than on the first paper. Words missing from the dictionary (minimax, maxout, Parzen) got a correct meaning in context from the AI. But “saturates” got the chemistry sense, and “log-likelihood” was cut to “likelihood” again.</td></tr>
+        <tr><td>Fact-check (5)</td><td><span class="s m">3.8</span></td><td><span class="s m">4.2</span></td><td class="n">10.8 s vs 2.4 s</td><td>Tinct’s content is strong. It named Inception Score and FID as what replaced Parzen estimates, and Arjovsky and Bottou 2017 on instability. Its sources are mostly the paper itself. Gloss was quick, but two of its checks cited irrelevant pages: medical “best evidence” guides and an English StackExchange question.</td></tr>
+        <tr><td>Counterpoint (5)</td><td><span class="s g">4.0</span></td><td><span class="s g">4.7</span></td><td class="n">5.9 s vs 1.8 s</td><td>Both were strong. Tinct’s point that the counterfeiter analogy rewards exploiting the detector’s blind spots, which is mode collapse, was excellent. It also cited Theis et al. on Parzen estimates, correctly. Gloss is tighter and cites the paragraph.</td></tr>
+        <tr><td>Ask on a passage (5)</td><td><span class="s g">4.0</span></td><td><span class="s g">4.4</span></td><td class="n">5.9 s vs 0.9 s</td><td>All of Tinct’s answers were correct but long. Gloss lost points twice. Its highlight markup leaked as literal “==…==”. It also claimed “the authors have said the term was a placeholder”, which I could not verify.</td></tr>
+        <tr><td>Whole paper (3)</td><td><span class="s g">3.9</span></td><td><span class="s g">4.3</span></td><td class="n">7.2 s vs 0.9 s</td><td>Fixed on this paper: Tinct read the whole paper and cited pages throughout. Problems: Markdown bullet lists, a visible self-correction mid-answer, and a raw “{p. 4, p. 5}” token. Gloss made a factual error: it said GANs lose to Deep GSN on TFD, but they beat it (2057 vs 1890) and lose only to Stacked CAE.</td></tr>
+        <tr><td>Primer (1)</td><td><span class="s g">4.2</span></td><td><span class="s g">4.8</span></td><td class="n">8.1 s vs 5.9 s</td><td>It worked first time and covered the whole paper. Its “Keep in mind” was genuinely useful: it flags that Algorithm 1 writes the noise prior as p<sub>g</sub>(z), easily confused with p<sub>g</sub>(x). Gloss’s was again excellent.</td></tr>
+        <tr><td>Quiz me (3), Tinct only</td><td><span class="s m">3.8</span></td><td><span class="s x">—</span></td><td class="n">first question 6.2–8.6 s; marking 1.8–3.5 s</td><td>One quiz, on the Jensen–Shannon proof, was fully on the passage and well built: a fact, a “why”, then “what if p<sub>g</sub> differs”. In the other two, question 1 or question 3 came from elsewhere, such as the counterfeiter analogy for a selection about G’s objective.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>What the second paper tells us</h2>
+    <ul>
+      <li><b>The worst failures come from papers with an outline.</b> This paper has no outline, and both whole-paper questions and the primer worked. On “Attention”, which has an outline, they answered from one page and one section. So the fix is in how outline units choose their context: send the whole file whenever it fits, which is item A1 of the fix plan.</li>
+      <li><b>Define’s AI fallback works only when the dictionary lacks the word.</b> When the dictionary has the word with the wrong sense, as with “saturates” here or “perplexity” and “constituency” last time, the wrong sense wins. Hyphenated words were cut in two on both papers.</li>
+      <li><b>The prompt problems hold on every paper.</b> Explain runs too long. Simplify opens with a description. Answers contain Markdown and em dashes. Quiz question 1 drifts off the selection. Fact-check cites the document itself. All are already in the fix plan.</li>
+      <li><b>Speed is the steadiest gap.</b> Tinct is 3 to 6 times slower on every action except Define.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>New flaws in Tinct</h2>
+    <ul>
+      <li><span class="sev maj">Major</span><b>Two-page citations show as raw text.</b> “{p. 4, p. 5}” appeared literally in an answer. Either the parser accepts a comma list, or the prompt allows only one page per brace.</li>
+      <li><span class="sev maj">Major</span><b>Corrections show mid-answer.</b> “…beating DBN and Stacked CAE (2110 ± 50)... actually Stacked CAE is slightly higher there.” Add to the shared rules: check figures before writing them, and never leave a correction in the answer.</li>
+      <li><span class="sev min">Minor</span><b>A paper is called a “chapter”.</b> The whole-paper answer said “Across the chapter” about a paper. For PDFs, use “the document”, or its section names.</li>
+      <li><span class="sev min">Minor</span><b>Explain asserts small things the text doesn’t say.</b> In one answer it attributed a Nash equilibrium to the abstract. The Explain prompt should say “do not attribute to the text what it does not say”.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Gloss is not flawless</h2>
+    <p>These are worth knowing for positioning, and they show what we must not copy.</p>
+    <ul>
+      <li><b>Its re-flow changes facts.</b> The abstract reads “D equal to 1 everywhere”; the paper says ½. The theorem section shows broken maths such as “fracp_data (x)p_data (x)+p_g(x)”. Tinct shows the real PDF.</li>
+      <li><b>One factual error on the results table.</b> It said GANs lose to Deep GSN on TFD; they beat it.</li>
+      <li><b>Irrelevant or weak sources.</b> These appeared in two of five fact-checks, for example medical “best evidence” guides cited for a claim about likelihood estimation.</li>
+      <li><b>Leaks and unsupported claims.</b> Highlight markup leaked (“==…==”), and once it made a claim about the authors that it could not support.</li>
+      <li><b>Reliability.</b> The page once failed to load (“upstream request failed”), as its Thoreau sample did earlier.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Additions to the fix plan</h2>
+    <ol>
+      <li><b>Citations.</b> Parse comma lists inside braces, or restrict the prompt to one citation per brace.</li>
+      <li><b>Shared rules.</b> Add: “Check numbers before you state them; never correct yourself mid-answer.” And: “Do not attribute to the document anything it does not say.”</li>
+      <li><b>Define.</b> Prefer the AI meaning in context whenever the passage is technical and <code>define_sense</code> returns 0. That is the existing PR B item; this test confirms it on a second paper.</li>
+      <li><b>Wording.</b> Call PDFs “the document”, not “the chapter”, in the whole-paper and primer prompts.</li>
+    </ol>
+  </section>
+</main>

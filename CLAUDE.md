@@ -34,6 +34,8 @@ Details and the completion checklist are in `AGENTS.md`.
 
 In any marketing, SEO, ads or growth conversation, read `docs/cmo-memory.md` first and update it before the conversation ends.
 
+New standalone pages (/try-style) use the light lane in `AGENTS.md`: an approved, built page ships the same day, next in the queue, with proportionate checks.
+
 ## Data and privacy
 
 - Anders's own account data (reading time, profile, stats) may be read at any time as ground truth. Other readers' data needs his approval per `AGENTS.md`. Nothing of his goes into the repo.

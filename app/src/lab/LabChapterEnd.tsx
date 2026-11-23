@@ -1,6 +1,7 @@
 import { useMarginPhone } from './marginPhone/marginPhoneContext'
+import { FREE_MODE } from './freeMode/freeModeContext'
 
-export function LabChapterEnd({ chapterTitle, hasNext, busy = false, measuring = false, docked = false, recap = true, note = true, onContinue, onDiscuss, onNote, finishedCard }: {
+export function LabChapterEnd({ chapterTitle, hasNext, busy = false, measuring = false, docked = false, recap: recapAsked = true, note: noteAsked = true, onContinue, onDiscuss, onNote, finishedCard: finishedCardAsked }: {
   /** The chapter's title (measuring copies pass it too). */
   chapterTitle?: string
   hasNext: boolean; busy?: boolean; measuring?: boolean; docked?: boolean
@@ -16,7 +17,12 @@ export function LabChapterEnd({ chapterTitle, hasNext, busy = false, measuring =
 }) {
   // The phone's margin mode: ✧ Summary · ✧ Quiz me · Note, with no label above them. Summary is the chapter's own
   // (Anders, 11 Nov 2026: the same card as the chapter start's Summary pill; "Recap" was its old name here).
-  const margin = useMarginPhone()
+  const marginPills = useMarginPhone()
+  // Free reading mode (freeMode.ts) keeps only Next chapter: no Summary, Quiz me, angle, note or reading card.
+  const margin = FREE_MODE ? null : marginPills
+  const recap = recapAsked && !FREE_MODE
+  const note = noteAsked && !FREE_MODE
+  const finishedCard = FREE_MODE ? undefined : finishedCardAsked
   return <section className={`lab-chapter-end${docked ? ' is-docked' : ''}`} data-testid={measuring ? undefined : "lab-chapter-end"} aria-label="Chapter finished"
     onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()} onClick={event => event.stopPropagation()}>
     <div className="lab-chapter-end-actions">

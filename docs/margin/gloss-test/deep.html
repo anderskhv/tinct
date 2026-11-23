@@ -1,0 +1,129 @@
+<title>Tinct vs Gloss Deep Test</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@700&display=swap">
+<style>
+/* Layout: a single reading column (report), wide tables scroll inside their own box. Tinct's paper and ink; verdict colours only in the score chips. */
+:root {
+  --bg: #ece7db; --surface: #f6f2ea; --ink: #141210; --muted: #6a6256; --line: rgba(32,26,19,.16); --wash: rgba(32,26,19,.06);
+  --good: #2f6b3a; --mid: #8a6a12; --bad: #9b2c1f; --good-bg: rgba(47,107,58,.12); --mid-bg: rgba(138,106,18,.13); --bad-bg: rgba(155,44,31,.12);
+  --display: "Playfair Display", Georgia, serif; --body: "EB Garamond", Georgia, serif; --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #151310; --surface: #1e1b17; --ink: #e6ddd0; --muted: #9a9083; --line: rgba(230,221,208,.16); --wash: rgba(230,221,208,.06); --good: #8fc79a; --mid: #d9b75a; --bad: #e58b7d; --good-bg: rgba(143,199,154,.14); --mid-bg: rgba(217,183,90,.14); --bad-bg: rgba(229,139,125,.14); color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #151310; --surface: #1e1b17; --ink: #e6ddd0; --muted: #9a9083; --line: rgba(230,221,208,.16); --wash: rgba(230,221,208,.06); --good: #8fc79a; --mid: #d9b75a; --bad: #e58b7d; --good-bg: rgba(143,199,154,.14); --mid-bg: rgba(217,183,90,.14); --bad-bg: rgba(229,139,125,.14); color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 19px/1.55 var(--body); padding-block: 40px 96px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+main { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+h1 { font: 700 2.3rem/1.15 var(--display); margin: 0; text-wrap: balance; }
+h2 { font: 700 1.45rem/1.25 var(--display); margin: 0 0 10px; }
+h3 { font: 600 1.1rem/1.3 var(--body); margin: 18px 0 6px; }
+p { margin: 0 0 12px; }
+.lede { font-size: 1.15rem; }
+.meta { font: 14px/1.5 var(--ui); color: var(--muted); }
+.tw { overflow-x: auto; border-radius: 10px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+table { border-collapse: collapse; width: 100%; font: 15px/1.45 var(--ui); min-width: 720px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-top: 1px solid var(--line); }
+thead th { border-top: 0; font-weight: 600; color: var(--muted); font-size: 13px; background: var(--wash); }
+td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.s { display: inline-block; min-width: 2.2em; text-align: center; border-radius: 6px; padding: 1px 6px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.g { color: var(--good); background: var(--good-bg); } .m { color: var(--mid); background: var(--mid-bg); } .b { color: var(--bad); background: var(--bad-bg); } .x { color: var(--muted); background: var(--wash); }
+ul, ol { margin: 0 0 12px; padding-left: 1.3em; } li { margin: 0 0 8px; }
+.sev { font: 600 12px var(--ui); border-radius: 5px; padding: 1px 6px; margin-right: 6px; white-space: nowrap; }
+.crit { color: var(--bad); background: var(--bad-bg); } .maj { color: var(--mid); background: var(--mid-bg); } .min { color: var(--muted); background: var(--wash); }
+figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+figure img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); display: block; }
+figcaption { font: 14px/1.45 var(--ui); color: var(--muted); }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 18px; }
+.callout { background: var(--surface); box-shadow: 0 0 0 1px var(--line); border-radius: 10px; padding: 16px 18px; }
+code { font: 14px var(--ui); background: var(--wash); padding: 0 4px; border-radius: 4px; }
+blockquote { margin: 0 0 12px; padding: 2px 0 2px 14px; box-shadow: inset 2px 0 0 var(--line); color: var(--muted); font-style: italic; }
+</style>
+
+<main>
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <h1>Tinct vs Gloss: deep test</h1>
+    <p class="lede">I tested 41 actions on the same paper in both products: five passages each for Explain, Simplify, Define, Fact-check, Counterpoint and Ask, three whole-paper questions, three full quizzes and the primer. I scored every answer against a fixed rubric. Averaged over every scored answer, Tinct gets 3.4 out of 5 and Gloss 4.7. The test found nine flaws that the first test did not.</p>
+    <p class="meta">Tested 15 October 2026 against the version live before Coder’s fix PRs, so this is the baseline to measure the fixes against. Tinct was signed in as the test account; Gloss was signed out. I scored all answers myself against a rubric fixed before reading any of them.</p>
+  </header>
+
+  <section>
+    <h2>How the scoring works</h2>
+    <p>Each answer gets 1 to 5 on five criteria, and its score is the average:</p>
+    <ul>
+      <li><b>Accurate:</b> correct about the paper and the world.</li>
+      <li><b>Grounded:</b> uses the passage and the paper, and shows where.</li>
+      <li><b>Useful:</b> helps a reader beyond the text itself.</li>
+      <li><b>Fits the action:</b> length suits a margin card, and it does what the button says.</li>
+      <li><b>Speed:</b> time to the last word. 2 s or less scores 5; 4 s scores 4; 7 s scores 3; 12 s scores 2; slower scores 1.</li>
+    </ul>
+    <p>Quiz me has no Gloss counterpart, so it is scored on its own: are the questions on the passage, are they good questions, how good is the marking, and how fast.</p>
+  </section>
+
+  <section>
+    <h2>Scores by action</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Action</th><th>Tinct</th><th>Gloss</th><th>Typical time, Tinct vs Gloss</th><th>Why the gap</th></tr></thead>
+      <tbody>
+        <tr><td>Explain (5)</td><td><span class="s m">3.5</span></td><td><span class="s g">4.8</span></td><td class="n">7.3 s vs 0.9 s</td><td>Both are accurate. Tinct runs four paragraphs of 190 to 260 words every time, including a “Notation” paragraph, against a limit of three short ones. Gloss gives three sentences, each pointing to the paragraph it draws on.</td></tr>
+        <tr><td>Simplify (5)</td><td><span class="s m">3.6</span></td><td><span class="s g">4.6</span></td><td class="n">2.9 s vs 0.9 s</td><td>Four of Tinct’s five rewrites add things the passage does not say, such as an analogy about grammar and tone, or the sine formula from elsewhere. Its first line describes the passage (“The passage explains…”) instead of simplifying it. Gloss rewrites first, then adds a labelled “The point”.</td></tr>
+        <tr><td>Define (5)</td><td><span class="s b">2.0</span></td><td><span class="s g">4.8</span></td><td class="n">0.5 s vs 0.6 s</td><td>All five Tinct definitions gave the wrong sense: transduction as energy or genetics, ensembles as clothing or musicians, perplexity as “confusion”, constituency as voters, and “auto-regressive” looked up as “regressive” (“opposing progress”). Gloss gives the meaning in this paper.</td></tr>
+        <tr><td>Fact-check (5)</td><td><span class="s m">3.8</span></td><td><span class="s g">4.5</span></td><td class="n">11.5 s vs 2.4 s</td><td>Better than in the first test. Tinct now notes outdated claims and cited the right interpretability papers (Jain and Wallace; Serrano and Smith, 2019). But three of five cite only the paper or its own pages as sources, and it is about five times slower. Gloss adds concrete current context, such as 29.3 BLEU in 2018 and state-space models, though some of its sources are weak (LinkedIn, blockchain.news).</td></tr>
+        <tr><td>Counterpoint (5)</td><td><span class="s m">3.9</span></td><td><span class="s g">4.8</span></td><td class="n">7.5 s vs 1.6 s</td><td>Tinct’s objections are strong and well informed. Gloss’s are sharper because they cite the paper. One example: it noted that the semi-supervised parsing run uses 17M extra sentences while most baselines are WSJ-only. Tinct invented supporting evidence once: “empirically, shorter path length correlates…”, which the paper does not show.</td></tr>
+        <tr><td>Ask on a passage (5)</td><td><span class="s g">4.0</span></td><td><span class="s g">4.8</span></td><td class="n">5.9 s vs 0.9 s</td><td>Both are correct; Tinct’s are thorough but long. Tinct once stated a speculative mechanism as fact (why label smoothing helps BLEU), where Gloss said the paper does not explain it. Two Tinct answers used Markdown (asterisks, bullet lists).</td></tr>
+        <tr><td>Whole paper (3)</td><td><span class="s m">3.4</span></td><td><span class="s g">4.8</span></td><td class="n">4–7 s vs 1.0 s</td><td>Tinct’s answer about the authors’ limitations again began “The clearest self-acknowledged limitation on this page…”. It missed the quadratic cost that Gloss found, citing the paragraph numbers. Tinct answered the other two well, with one reasoning slip.</td></tr>
+        <tr><td>Primer (1)</td><td><span class="s b">2.4</span></td><td><span class="s g">5.0</span></td><td class="n">stored</td><td>Unchanged since the first test. It covers only section 1, and its cautions are about our excerpt. Gloss’s covers the whole paper and catches inconsistencies inside it.</td></tr>
+        <tr><td>Quiz me (3), Tinct only</td><td><span class="s m">3.7</span></td><td><span class="s x">—</span></td><td class="n">first question 6.6–7.4 s; marking 1.4–2.5 s</td><td>Better than in the first test: in two of three quizzes, questions 2 and 3 were on the passage, with a good mix of “why” and “apply it”. But question 1 came from outside the selection in all three. The marking is the best part: “Nearly” and “Not yet” come with useful pointers.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta">Gloss’s times come from requests where 95–99% of the paper was already cached. That is fair to compare, since it is exactly what whole-document caching will give us.</p>
+  </section>
+
+  <section>
+    <h2>New flaws found in this test</h2>
+    <ul>
+      <li><span class="sev crit">Critical</span><b>Define gives the wrong meaning almost every time in a technical PDF.</b> It was wrong on 5 of 5 words. The sense check never finds a fit, because the dictionary has no technical senses, and there is no fallback to the meaning in this text.</li>
+      <li><span class="sev maj">Major</span><b>Double-clicking a hyphenated word defines only half of it.</b> “auto-regressive” became “regressive”, which was then defined as a tax term. Double-click should take the whole hyphenated word.</li>
+      <li><span class="sev maj">Major</span><b>The book switcher breaks for returning readers.</b> <code>/lab/library-add.js</code> was rebuilt without changing its <code>?v=</code> tag (still <code>20261014talkwake</code>). It is cached for a day, and served stale for up to a week. Cached copies point at chunks that no longer exist (<code>ownSwitcher-DpiQjfD1.js</code> and <code>quickBookSwitcher-Dkji_CZ5.js</code>, both 404), so the switcher fails to load. Bump the tag on every build, or derive it from the file’s hash.</li>
+      <li><span class="sev maj">Major</span><b>Simplify’s opening line describes instead of simplifying.</b> Every answer starts “The passage explains…”. That is what our prompt asks for, but it reads worse than Gloss, which leads with the plain version. Change the prompt so the first sentence is the simplest faithful restatement.</li>
+      <li><span class="sev maj">Major</span><b>Explain breaks its own limits every time:</b> 5 of 5 ran four paragraphs, and most added a “Notation” paragraph.</li>
+      <li><span class="sev min">Minor</span><b>Fact-check repeats its verdict.</b> In three of five, the bottom line (“Holds. …”) is followed by a first paragraph that starts “Holds.” again.</li>
+      <li><span class="sev min">Minor</span><b>Counterpoint invents evidence.</b> In one of five, the author’s reply cited findings the paper does not contain. Add to the prompt: “Give the author’s reply only from what the document says or plainly implies.”</li>
+      <li><span class="sev min">Minor</span><b>The whole-paper card opens empty, then fills.</b> When it opens, it shows no messages for a moment while the earlier conversation loads, so a reader may think their history is gone.</li>
+      <li><span class="sev min">Minor</span><b>Quiz me counts “Show answer” as wrong without saying so.</b> The end card reads “0 of 3” even after an answer was revealed. Say “2 of 3 answered, 1 shown”, or leave revealed questions out of the score.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Flaws confirmed again</h2>
+    <ul>
+      <li><b>Whole-paper questions look at one page:</b> 1 of 3 answers here, and both in the first test.</li>
+      <li><b>Markdown and em dashes:</b> asterisks in three answers, bullet lists in two, em dashes in most.</li>
+      <li><b>Quiz question 1 is off the selection:</b> 3 of 3 quizzes.</li>
+      <li><b>Speed:</b> Tinct takes 3 to 12 seconds where Gloss takes 1 to 3. PDF Explain still goes through the slow path.</li>
+      <li><b>Primer:</b> it covers only the first section, and its cautions describe our excerpt.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Where Tinct already does well</h2>
+    <ul>
+      <li><b>Fact-check content has improved.</b> It now flags outdated claims and names the right later research.</li>
+      <li><b>Counterpoints are strong.</b> They are well-informed objections with a fair reply, and better argued than most of Gloss’s, though less specific.</li>
+      <li><b>Ask answers are thorough and correct,</b> just too long for a card.</li>
+      <li><b>Quiz marking is genuinely good teaching.</b> No other product here has it.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What this adds to the fix plan</h2>
+    <ol>
+      <li><b>Define.</b> When no dictionary sense fits, show the meaning in this text first, and select whole hyphenated words. This now outranks most items in PR C.</li>
+      <li><b>Book switcher.</b> Fix the stale cache tag on <code>library-add.js</code> and give every lazily loaded engine a tag tied to its content.</li>
+      <li><b>Simplify.</b> The first sentence becomes the plain restatement itself.</li>
+      <li><b>Prompt tightening.</b> Hold Explain to three paragraphs, no notation paragraph and about 120 words. Fact-check states its verdict once. Counterpoint takes the author’s reply only from the document. Ask labels speculation as such, as Gloss does (“the paper does not explain why”).</li>
+      <li><b>Quiz me.</b> Count “Show answer” separately on the end card.</li>
+    </ol>
+    <div class="callout"><p style="margin:0">Re-run this same test after each fix PR. The test set, passages and scripts are saved, so the next scores are directly comparable with these.</p></div>
+  </section>
+</main>
