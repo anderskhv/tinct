@@ -131,6 +131,7 @@ export function renderModernEnglishPage(assets: ModernEnglishPageAssets, list: M
   <div class="me-scene" aria-hidden="true"></div>
   <div class="me-top">
     <div class="me-claim">
+      <a class="me-wordmark" href="/library" aria-label="Tinct library">Tinct.</a>
       <h1>100+ classics in modern translation. Free.</h1>
       <p class="me-sub">The original, or its classic human translation, is always one tap away.</p>
       <div class="me-search" role="search">

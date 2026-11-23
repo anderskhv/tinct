@@ -76,6 +76,9 @@ describe('the page', () => {
     expect(html).not.toMatch(/sign-in|Sign in|Premium|Subscribe|\$\d/)
     expect(html).not.toMatch(/href="\/try\b/)
     expect(html).not.toContain('<header')
+    // The one brand mark (Anders, 23 Nov): a wordmark to the library, and no account prompt.
+    expect(html).toContain('<a class="me-wordmark" href="/library" aria-label="Tinct library">Tinct.</a>')
+    expect(html).not.toMatch(/Create account/i)
   })
 
   it('has one pill per category and period, each a toggle', () => {
