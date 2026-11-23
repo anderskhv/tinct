@@ -298,10 +298,10 @@ export default defineConfig(({ mode, command }) => {
             '/index.html': '/lab/library_2/index.html',
             '/library': '/lab/library_2/index.html',
             '/library/': '/lab/library_2/index.html',
-            // The unlisted Try page (the Worker's serveTryPage; its signed-in redirect is the page's head script here).
-            '/try': '/try.html',
             // The unlisted modern-English page (the Worker's serveModernEnglishPage; generated in prebuild).
             '/modern-english': '/modern-english.html',
+            // The About page (public/about.html; the Worker serves it from assets and sends /try here).
+            '/about': '/about.html',
             // Social (ship 3): the Worker serves this only while SOCIAL_FRIENDS is on.
             '/admin/social': '/lab/admin-social/index.html',
             // The PDF reader's folder page, as the Worker's assets serve it (the margin preview frames it).

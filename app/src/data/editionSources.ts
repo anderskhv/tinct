@@ -46,12 +46,13 @@ const escape = (value: string) => value.replace(/&/g, '&amp;').replace(/</g, '&l
 
 /**
  * The edition note, in Anders's exact wording (16 Nov 2026; it stays true for every book, so it does not mention
- * human review). "Tell us" is plain text: readers have no issue-report page to link to.
+ * human review). "The original is one tap away" replaced "always beside it" on 19 Nov 2026 (Anders): the chapter
+ * pages now open on the Modern English alone, with the original behind a switch. "Tell us" is plain text: readers have no issue-report page to link to.
  */
 export function editionNoteText(source: EditionSource): string {
   return source.kind === 'translation'
-    ? `Tinct's modern English is drafted with AI from ${source.translator}'s public-domain translation (${source.year}), then checked by a separate AI review against that translation. The original is always beside it, and if you spot a mistake, tell us.`
-    : `Tinct's modern English is drafted with AI from ${source.author}'s original text, then checked by a separate AI review against it. The original is always beside it, and if you spot a mistake, tell us.`
+    ? `Tinct's modern English is drafted with AI from ${source.translator}'s public-domain translation (${source.year}), then checked by a separate AI review against that translation. The original is one tap away, and if you spot a mistake, tell us.`
+    : `Tinct's modern English is drafted with AI from ${source.author}'s original text, then checked by a separate AI review against it. The original is one tap away, and if you spot a mistake, tell us.`
 }
 
 export const EDITION_NOTE_LEAD = 'How this edition was made.'

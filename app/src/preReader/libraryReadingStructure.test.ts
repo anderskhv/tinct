@@ -12,7 +12,8 @@ describe('Library 2 published reading structures', () => {
   it('gives every published book an honest, non-Danish structure', () => {
     // 113 with The Master and Margarita (2026-11-05).
     // 114 with Pinocchio (2026-11-10).
-    expect(catalogue.books).toHaveLength(114)
+    // 122 with the eight young-reader books (2026-11-20).
+    expect(catalogue.books).toHaveLength(122)
     for (const book of catalogue.books) {
       expect(book.readingStructure.editionKey).toBeTruthy()
       expect(book.editions.find(edition => edition.key === book.readingStructure.editionKey)?.language).not.toBe('da')

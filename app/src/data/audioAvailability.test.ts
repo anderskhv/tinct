@@ -22,13 +22,15 @@ describe('reversible edition discovery availability', () => {
     // Margarita (modern-en only, streamed narration, 2026-11-05).
     // 223 with Pinocchio (modern-en, streamed narration, 2026-11-10).
     // 224 with Pope's verse Odyssey (2026-11-11: listed so it stays discoverable; no hasAudio, so no narration).
-    expect(new Set(reviewed).size).toBe(224)
+    // 240 with the eight young-reader books (2026-11-20: listed so they stay discoverable; no hasAudio, so no narration).
+    expect(new Set(reviewed).size).toBe(240)
     // Art of War modern-en text changed on 2026-11-02; its old recording is held.
     // 174 with The Master and Margarita modern-en (2026-11-05).
     // 175 with Pinocchio modern-en (2026-11-10).
     // 176 with Pope's verse Odyssey (2026-11-11).
     // Medea modern-en text repaired 2026-11-13; its old recording is held.
-    expect(manifest.eligible_editions).toHaveLength(175)
+    // 191 with the eight young-reader books' English editions (2026-11-20).
+    expect(manifest.eligible_editions).toHaveLength(191)
     expect(manifest.held_editions).toHaveLength(49)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
@@ -37,13 +39,15 @@ describe('reversible edition discovery availability', () => {
     // Conjecture books (2026-10-08); 112 with Grimm and the Arabian Nights (2026-10-19);
     // 113 with The Master and Margarita (2026-11-05).
     // 114 with Pinocchio (2026-11-10).
-    expect(PRE_READER_CATALOGUE.books).toHaveLength(114)
+    // 122 with the eight young-reader books (2026-11-20).
+    expect(PRE_READER_CATALOGUE.books).toHaveLength(122)
     // 2026-10-02 rights holds: gilgamesh, social-contract, discourse-on-inequality,
     // symposium and second-treatise leave discovery (94 -> 89); 93 with the
     // four books published 2026-10-03; 98 with the five Conjecture books;
     // 100 with Grimm and the Arabian Nights; 101 with The Master and Margarita.
     // 102 with Pinocchio. 103 with Gilgamesh back (Thompson's 1928 text, 2026-11-18).
-    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(103)
+    // 111 with the eight young-reader books (2026-11-20).
+    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(111)
     for (const id of manifest.held_books) {
       expect(isBookDiscoverable(id)).toBe(id === 'faust-part-1')
       const book = PRE_READER_CATALOGUE.booksById.get(id)!

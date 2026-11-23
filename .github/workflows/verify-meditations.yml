@@ -2,7 +2,7 @@ name: Verify accepted Meditations release
 on:
   pull_request:
     branches: [main]
-    paths: ['books/wip/meditations-release-20260924*', 'app/scripts/verify-reviewed-release.py', 'app/scripts/check-reviewed-characters.cjs', 'app/public/data/editions/meditations-modern-en.json', 'app/public/data/characters/meditations.v1.json', '.github/workflows/verify-meditations.yml']
+    paths: ['books/wip/meditations-release-20260924*', 'books/wip/danish-recovered-batch-04/release-meditations.json', 'books/wip/danish-recovered-batch-04/meditations-release/**', 'app/scripts/verify-reviewed-release.py', 'app/scripts/check-reviewed-characters.cjs', 'app/public/data/editions/meditations-modern-en.json', 'app/public/data/characters/meditations.v1.json', '.github/workflows/verify-meditations.yml']
   push:
     branches: [main]
     paths: ['app/public/data/editions/meditations-modern-en.json', 'app/public/data/characters/meditations.v1.json']
@@ -31,6 +31,8 @@ jobs:
       - run: bash ../scripts/cloud-setup.sh
       - run: python3 scripts/test-prepare-reviewed-editions.py
       - run: python3 scripts/verify-reviewed-release.py --config books/wip/meditations-release-20260924.json --baseline b91d4b8d8ceab2e3379cb6a83174ce97c7c47aec
+      # Meditations moved to the six modern-en repairs shipped with Danish recovered batch 04 (Anders, 2026-11-19); its 24 Sep entry is superseded by this config.
+      - run: python3 scripts/verify-reviewed-release.py --config books/wip/danish-recovered-batch-04/release-meditations.json --baseline 49a0427469bf1331d5087343e83948bd59baecdf
       - run: python3 ../books/classify-modern-en.py meditations --gate
       - run: npm run build
       - run: npm run verify-bundle

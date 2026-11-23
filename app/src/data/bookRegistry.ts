@@ -3568,10 +3568,140 @@ export const ARABIAN_NIGHTS: Book = {
   ],
 }
 
+// Eight books for young readers (Anders, 20 Nov 2026), from their content packages
+// (books/wip/<id>). English originals with Tinct Modern English; six with Moderne Dansk.
+// Text only: no recorded audio, no character cards, no Cast.
+
+export const STORY_OF_THE_ODYSSEY: Book = {
+  id: 'odyssey-for-boys-and-girls',
+  title: 'The Story of the Odyssey',
+  author: 'Alfred J. Church',
+  description: 'Alfred John Church (1829–1912) retold Homer’s Odyssey for young readers. The story opens with Telemachus searching for news of his father while suitors consume the household of Ulysses on Ithaca. It then follows Ulysses himself, held on Calypso’s island, wrecked near the Phaeacians, and telling the tale of his ten years of wandering: the Cyclops, Circe, the dead, the Sirens, Scylla, and the cattle of the Sun.',
+  year: 1892,
+  wordCount: 43000,
+  coverColor: '#1c2a3a',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Story of the Odyssey (1892)', year: 1892, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const STORY_OF_THE_ILIAD: Book = {
+  id: 'iliad-for-boys-and-girls',
+  title: 'The Story of the Iliad',
+  author: 'Alfred J. Church',
+  description: 'This is a prose retelling of Homer’s Iliad for young readers by Alfred John Church (1829–1912), in the Macmillan edition of 1920 that Project Gutenberg digitised. It follows the story of the last year of the siege of Troy: the quarrel between Agamemnon and Achilles, the duels and battles, the death of Patroclus, the killing of Hector, and the ransom of his body by his father Priam.',
+  year: 1920,
+  wordCount: 41000,
+  coverColor: '#3a2418',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Story of the Iliad (1920)', year: 1920, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const MERRY_ADVENTURES_OF_ROBIN_HOOD: Book = {
+  id: 'merry-adventures-of-robin-hood',
+  title: 'The Merry Adventures of Robin Hood',
+  author: 'Howard Pyle',
+  description: 'Howard Pyle (1853–1911) gathered the old ballads of Robin Hood into a single connected story, first published in 1883. Robin becomes an outlaw, wins Little John, Will Scarlet and Friar Tuck to his band, outwits the Sheriff of Nottingham, helps a sorrowful knight, and finally meets King Richard in Sherwood Forest.',
+  year: 1883,
+  wordCount: 108000,
+  coverColor: '#1e2e1c',
+  coverAccent: '#c8a35a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Merry Adventures of Robin Hood (1883)', year: 1883, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const WONDER_BOOK_AND_TANGLEWOOD_TALES: Book = {
+  id: 'wonder-book-and-tanglewood-tales',
+  title: 'A Wonder Book and Tanglewood Tales',
+  author: 'Nathaniel Hawthorne',
+  description: 'In 1851 and 1853 Nathaniel Hawthorne retold Greek myths for children. This edition (illustrated by Maxfield Parrish) combines A Wonder Book and Tanglewood Tales. The first half tells Perseus and the Gorgon, King Midas, Pandora, Hercules, Baucis and Philemon, and Bellerophon. In the second half, after a short introduction, come Theseus and the Minotaur, the Pygmies (Hercules and Antaeus), Cadmus and the dragon’s teeth, Circe, Proserpina and Jason.',
+  year: 1851,
+  wordCount: 112000,
+  coverColor: '#2e2614',
+  coverAccent: '#d4b25a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'A Wonder Book and Tanglewood Tales (1851–1853)', year: 1851, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const BEAUTIFUL_STORIES_FROM_SHAKESPEARE: Book = {
+  id: 'beautiful-stories-from-shakespeare',
+  title: 'Beautiful Stories from Shakespeare',
+  author: 'E. Nesbit',
+  description: 'Edith Nesbit (1858–1924), the author of The Railway Children, retold twenty of Shakespeare’s plays as short prose stories. This volume opens with a preface and a brief life of Shakespeare. It then tells, in turn, A Midsummer Night’s Dream, The Tempest, As You Like It, The Winter’s Tale, King Lear, Twelfth Night, Much Ado About Nothing, Romeo and Juliet and twelve more, ending with All’s Well That Ends Well.',
+  year: 1907,
+  wordCount: 43000,
+  coverColor: '#2a1f3a',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Beautiful Stories from Shakespeare (1907)', year: 1907, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const WIND_IN_THE_WILLOWS: Book = {
+  id: 'wind-in-the-willows',
+  title: 'The Wind in the Willows',
+  author: 'Kenneth Grahame',
+  description: 'Kenneth Grahame (1859–1932) published The Wind in the Willows in 1908. Mole leaves his spring-cleaning for the river, where he meets Rat, who takes him boating and picnicking. The two visit gruff Badger in the Wild Wood and try, again and again, to keep their friend Toad out of trouble as he moves from caravans to motor-cars to prison to a bold return to Toad Hall.',
+  year: 1908,
+  wordCount: 59000,
+  coverColor: '#1c3024',
+  coverAccent: '#c8a35a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Wind in the Willows (1908)', year: 1908, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
+}
+
+export const STORY_OF_KING_ARTHUR: Book = {
+  id: 'story-of-king-arthur-and-his-knights',
+  title: 'The Story of King Arthur and His Knights',
+  author: 'Howard Pyle',
+  description: 'Howard Pyle (1853–1911) wrote and illustrated this retelling of the Arthurian legend, published in 1903. It follows Arthur from the sword in the stone to the founding of the Round Table, then tells the stories of Merlin, Sir Pellias and Sir Gawaine.',
+  year: 1903,
+  wordCount: 99000,
+  coverColor: '#2a1c1c',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Story of King Arthur and His Knights (1903)', year: 1903, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+  ],
+}
+
+export const THE_SECRET_GARDEN: Book = {
+  id: 'the-secret-garden',
+  title: 'The Secret Garden',
+  author: 'Frances Hodgson Burnett',
+  description: 'Frances Hodgson Burnett (1849–1924) published The Secret Garden in 1911. Mary Lennox, a sour and neglected child, is sent from India to her uncle’s great house on the Yorkshire moor. There she finds a garden that has been locked for ten years, a servant boy who understands animals, and a hidden cousin who believes he is dying.',
+  year: 1911,
+  wordCount: 79000,
+  coverColor: '#1f3324',
+  coverAccent: '#d4a872',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'The Secret Garden (1911)', year: 1911, aligned: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+  ],
+}
+
 /** The five Conjecture books, in publication order (shelf Critical Rationalism). */
 export const CONJECTURE_BOOKS: Book[] = [THE_SOVEREIGN_CHILD, LORDS_OF_THE_COSMOS, BOLD_CONJECTURES_VOLUME_1, BOLD_CONJECTURES_VOLUME_2, THE_FARTHEST_REACHES]
 
-export const BOOKS: Book[] = [TO_THE_LIGHTHOUSE, ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, KANT_GROUNDWORK, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, HUME_ENQUIRY, SOCIAL_CONTRACT, WEALTH_OF_NATIONS, WERTHER, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, FREDERICK_DOUGLASS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE, IVAN_ILYICH, ALICE_IN_WONDERLAND, WUTHERING_HEIGHTS, MIDDLEMARCH, SENSE_AND_SENSIBILITY, THE_SOVEREIGN_CHILD, LORDS_OF_THE_COSMOS, BOLD_CONJECTURES_VOLUME_1, BOLD_CONJECTURES_VOLUME_2, THE_FARTHEST_REACHES, GRIMMS_FAIRY_TALES, ARABIAN_NIGHTS, MASTER_AND_MARGARITA, PINOCCHIO]
+export const BOOKS: Book[] = [TO_THE_LIGHTHOUSE, ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, KANT_GROUNDWORK, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, HUME_ENQUIRY, SOCIAL_CONTRACT, WEALTH_OF_NATIONS, WERTHER, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, FREDERICK_DOUGLASS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE, IVAN_ILYICH, ALICE_IN_WONDERLAND, WUTHERING_HEIGHTS, MIDDLEMARCH, SENSE_AND_SENSIBILITY, THE_SOVEREIGN_CHILD, LORDS_OF_THE_COSMOS, BOLD_CONJECTURES_VOLUME_1, BOLD_CONJECTURES_VOLUME_2, THE_FARTHEST_REACHES, GRIMMS_FAIRY_TALES, ARABIAN_NIGHTS, MASTER_AND_MARGARITA, PINOCCHIO, STORY_OF_THE_ODYSSEY, STORY_OF_THE_ILIAD, MERRY_ADVENTURES_OF_ROBIN_HOOD, WONDER_BOOK_AND_TANGLEWOOD_TALES, BEAUTIFUL_STORIES_FROM_SHAKESPEARE, WIND_IN_THE_WILLOWS, STORY_OF_KING_ARTHUR, THE_SECRET_GARDEN]
 
 export const ALL_BOOKS: Book[] = BOOKS
 

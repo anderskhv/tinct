@@ -1,301 +1,304 @@
 /*
- * The Try page (public/try.html; docs/try-page/BRIEF.md): just the reader, with hints (Anders, 18 Nov 2026). The
- * real reader runs in a frame in demo mode (public/lab/try/reader-demo.js, src/lab/tryDemo/tryDemo.ts). Beside it, a
- * checklist of five things ticks as the visitor does each one, in any order; inside it, one small hint at a time sits
- * by the control for the next thing not yet done. Nothing runs on its own and nothing here scrolls the reader: the
- * page only reads the frame's DOM (same origin) to place the hint. When the AI runs out (the visitor's free
- * questions, or the page's own day), the sign-up card shows instead of an error, and creating an account carries
- * this conversation over.
+ * The Try page (public/try.html; docs/try-page/BRIEF.md): the reader plays itself (Anders, 19 Nov 2026).
+ * Frames of the real reader, captured by scripts/capture-try-frames.cjs (Meditations Book 2: Explain, Listen,
+ * Modern, Summary), crossfade on a loop beside the step they show (Next moves on, the dots jump). Nothing here asks the visitor to do
+ * anything and nothing calls the server: a click on the frames, or on Start reading, opens the reader itself.
+ * Hover or focus pauses the loop; a step (or a dot on the phone) jumps to its moment; reduced motion shows each
+ * step's last frame and waits for the visitor.
  */
 (function () {
   'use strict'
-  var READER = { book: 'meditations', chapter: 2 }
-  var WIDE = '(min-width: 900px)'
-  var TOUCH = window.matchMedia('(hover: none) and (pointer: coarse)').matches
-  var COPY = {
-    chatTitle: 'Keep the conversation going',
-    chatBody: "That's the free questions for today. Create an account and carry on right here — this conversation comes with you, and your first month of Premium is free.",
-    // The reader's own listening prompt (src/lab/labCopy.ts accountTitleAudio / accountBodyAudio).
-    audioTitle: 'Create a free account to keep listening',
-    audioBody: 'Listen on, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.',
-  }
-  // The five things, in the order the checklist and the hints offer them. `hint` is the bubble's fixed copy (HTML).
-  var ITEMS = [
-    { key: 'explain', hint: (TOUCH ? 'Press and hold' : 'Select') + ' a sentence to have it <b>explained</b>.', side: 'above' },
-    { key: 'ask', hint: '<b>Keep asking.</b> Try “Why does he call them kin?”', side: 'below' },
-    { key: 'modern', hint: 'Read it in <b>today’s words</b>. Your place stays put.', side: 'below' },
-    { key: 'listen', hint: 'Hear it as you read.', side: 'below' },
-    { key: 'summary', hint: 'Get the gist in a minute.', side: 'below' },
+  // The step beside the reader: the copy approved for the step page (18 Nov), in the order the frames play. Modern is
+  // the second move (Anders, 19 Nov), and Listen then plays the modern English.
+  var STEPS = [
+    { title: 'Explain anything', line: 'Select a passage. The explanation lands beside it, in the margin, and stays there as a note.' },
+    { title: "Read it in today's words", line: 'Switch to modern English. Switch back any time; you stay on the line.' },
+    { title: 'Hear it as you read', line: 'Press play. Every word is marked as it is read.' },
+    { title: 'Get the gist in a minute', line: 'Tap Summary beside the chapter. It opens as a card, four beats long.' },
   ]
+  // [file, step, milliseconds on screen]. Listen is fourteen frames 280 ms apart, as captured, so the marked word moves
+  // word by word (Anders, 19 Nov: it lagged); they cut, not fade, into each other.
+  // A fourth field keeps a frame to one device. The motion follows the launch film (Anders, 19 Nov: "the video
+  // nailed this"): on the phone a press selects the sentence and its menu at once; the Explain card rises with its
+  // answer already in it (Anders, 19 Nov: no typing lag); the card goes down (51) before the page dissolves into
+  // modern English, band by band.
+  // Desktop selects the passage in one press too (Anders, 20 Nov: the word-by-word drag grew, shrank and grew again).
+  var PHONE = window.matchMedia('(max-width: 899px)').matches
+  var FRAMES = [
+    ['01', 0, 1300],
+    ['02', 0, 1400],
+    ['04', 0, 3800],
+    ['51', 1, 900], ['08', 1, 3400],
+    ['11', 2, 280], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
+    ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 1500],
+    ['10', 3, 4200],
+  ].filter(function (frame) { return !frame[3] || (frame[3] === 'phone') === PHONE })
+  // Bump when the frames are re-captured, so browsers fetch the new ones.
+  var FRAMES_V = '20261119o'
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   var $ = function (selector, root) { return (root || document).querySelector(selector) }
   var $$ = function (selector, root) { return Array.prototype.slice.call((root || document).querySelectorAll(selector)) }
-  var frame = $('[data-try-frame]')
-  var limit = $('[data-try-limit]')
-  var done = {}
-  var dismissed = {}
-  var reader = { ready: false, edition: 'original-en', phone: false }
-  var queued = []
-  var wide = window.matchMedia(WIDE).matches
+  var demo = $('[data-try-demo]')
+  var text = function (selector, value) { var el = $(selector); if (el) el.textContent = value }
+  if (!demo) return
 
-  function readerSrc() {
-    var params = new URLSearchParams({ book: READER.book, chapter: String(READER.chapter), edition: 'original-en', demo: 'try', layout: wide ? 'desktop' : 'phone' })
-    // Always the Margin reader on the desktop: an iPad reads the frame (wider than tall) as an iPad held sideways and
-    // would open the two-page spread, where cards float over the text and the margin's Summary is gone.
-    if (wide) params.set('view', 'margin')
-    return '/reader?' + params.toString()
+  // The first frame is in the page; the rest load after it, one picture each (phone and desktop crops).
+  var first = $('picture', demo)
+  var pictures = [first]
+  FRAMES.slice(1).forEach(function (frame) {
+    var picture = document.createElement('picture')
+    picture.innerHTML = '<source media="(max-width: 899px)" srcset="/lab/try/frames/phone-' + frame[0] + '.webp?v=' + FRAMES_V + '" width="780" height="1520">' +
+      '<img src="/lab/try/frames/desktop-' + frame[0] + '.webp?v=' + FRAMES_V + '" alt="" width="2112" height="1222" loading="lazy" decoding="async">'
+    demo.insertBefore(picture, $('.try-demo-open', demo))
+    pictures.push(picture)
+  })
+  // Lazy images in a stack under the first never scroll into view on their own: ask for them once the page is up.
+  window.addEventListener('load', function () { pictures.forEach(function (p) { var img = $('img', p); img.loading = 'eager'; if (img.decode) img.decode().catch(function () {}) }) })
+
+  // ---- The visitor's pointer (Anders, 19 Nov: show the click before each change). Where it goes was recorded when the
+  // frames were captured (scripts/capture-try-frames.cjs writes frames/*-pointer.json), as fractions of the frame. ----
+  var POINTER = {"desktop": {"selectFrom": [0.1141, 0.3289], "selectTo": [0.5293, 0.367], "explain": [0.5867, 0.4419], "modern": [0.644, 0.0458], "play": [0.91, 0.0458], "summary": [0.7713, 0.2875]}, "phone": {"selectFrom": [0.131, 0.1657], "selectTo": [0.6907, 0.2793], "explain": [0.3141, 0.3458], "modern": [0.88, 0.0361], "play": [0.7621, 0.0361], "summary": [0.6317, 0.1074]}}
+  // What happens on a frame before the next one: a press and hold that selects the passage, or a press on a button.
+  var ACTIONS = {
+    '01': { hold: 'selectFrom' },
+    '02': { press: 'explain' }, '51': { press: 'modern' }, '08': { press: 'play' }, '24': { press: 'summary' } }
+  var phoneQuery = window.matchMedia('(max-width: 899px)')
+  var layer = document.createElement('div')
+  layer.className = 'try-pointer-layer'
+  layer.setAttribute('aria-hidden', 'true')
+  layer.innerHTML = '<span class="try-pointer"></span><span class="try-scene"></span>'
+  demo.appendChild(layer)
+  var pointer = $('.try-pointer', layer)
+  // ---- Phone: the launch film's way (Anders, 19 Nov). One caption per moment, the reader in a phone, and the camera
+  // moving in on what matters (the card, the marked word). ----
+  var CAPTIONS = [
+    ['Stuck on a line?', 'Explain it.'],
+    ['Language too hard?', 'Switch to modern English.'],
+    ['On the go?', 'Listen.'],
+    ['Short on time?', 'Get the gist.'],
+  ]
+  var caption = document.createElement('p')
+  caption.className = 'try-caption'
+  caption.setAttribute('aria-hidden', 'true')
+  demo.parentNode.insertBefore(caption, demo)
+  var captionStep = -1
+  function frameCaption(step) {
+    if (step === captionStep) return
+    captionStep = step
+    caption.classList.remove('is-on')
+    later(function () {
+      caption.innerHTML = '<span>' + CAPTIONS[step][0] + ' <em>' + CAPTIONS[step][1] + '</em></span>'
+      caption.classList.add('is-on')
+    }, caption.innerHTML ? 260 : 0)
   }
-  function loadReader() {
-    reader.ready = false
-    queued = []
-    frame.src = readerSrc()
+  var scene = $('.try-scene', layer)
+  var actionTimers = []
+  function later(fn, ms) { actionTimers.push(setTimeout(fn, ms)) }
+  function clearActions(keep) { actionTimers.forEach(clearTimeout); actionTimers = []; if (!keep) pointer.className = 'try-pointer' }
+  function place(at, glide, ease) {
+    ease = ease || 'cubic-bezier(.4, 0, .2, 1)'
+    pointer.style.transition = glide ? 'left ' + glide + 'ms ' + ease + ', top ' + glide + 'ms ' + ease + ', opacity .25s' : 'opacity .25s'
+    pointer.style.left = (at[0] * 100) + '%'
+    pointer.style.top = (at[1] * 100) + '%'
+  }
+  // Plays the frame's action so it ends just as the frame changes; returns how long the frame must stay up for it.
+  function act(frame, duration) {
+    // Only the taps show, as a ripple where the finger lands (Anders, 19 Nov): no cursor travelling between them.
+    var action = ACTIONS[frame[0]]
+    var marks = POINTER[phoneQuery.matches ? 'phone' : 'desktop']
+    if (!action || reduce) return duration
+    if (action.hold) {
+      // A press and hold on the first word: a soft disc where the finger is, then the sentence selected under it.
+      var spot = marks[action.hold]
+      if (!spot) return duration
+      var stay = Math.max(duration, 1500)
+      later(function () { place(spot, 0); pointer.className = 'try-pointer is-on is-hold' }, stay - 800)
+      later(function () { pointer.className = 'try-pointer' }, stay + 250)
+      return stay
+    }
+    if (!action.press) return duration
+    var at = marks[action.press]
+    if (!at) return duration
+    var whole = Math.max(duration, 1300)
+    later(function () { place(at, 0); pointer.className = 'try-pointer is-on is-tap is-press' }, whole - 450)
+    later(function () { pointer.className = 'try-pointer' }, whole + 300)
+    return whole
+  }
+  // A new moment opens with its name over the reader for a beat, so a change of scene reads as one.
+  function announce(step) {
+    if (reduce) return
+    scene.textContent = STEPS[step].title
+    scene.className = 'try-scene'
+    void scene.offsetWidth
+    scene.className = 'try-scene is-on'
+    later(function () { scene.className = 'try-scene' }, phoneQuery.matches ? 1500 : 1200)
   }
 
-  function send(command) {
-    if (!reader.ready || !frame.contentWindow) { queued.push(command); return }
-    frame.contentWindow.postMessage(Object.assign({ source: 'tinct-try-page' }, command), location.origin)
-  }
+  var index = 0
+  // How long before the tap that starts a moment its headline comes up.
+  var LEAD_MS = 1700
+  var ledStep = -1
+  var timer = null
+  var held = false
+  var visible = true
 
-  // ---- The checklist (desktop) and its chips (phone) ----
-  function nextUndone() {
-    for (var i = 0; i < ITEMS.length; i++) if (!done[ITEMS[i].key]) return ITEMS[i].key
-    return null
+  // The frame that switches to modern English arrives as a wave running down the page (the launch film's switch).
+  var WAVE = FRAMES.map(function (frame) { return frame[0] === '08' })
+  // The frames that open a card: the card rises from the foot of the screen over the page, as it does in the reader
+  // (Anders, 19 Nov: Explain looked jumpy). Every other change fades the new frame in over the old one, never through
+  // an empty screen.
+  var RISE = FRAMES.map(function (frame) { return frame[0] === '04' || frame[0] === '10' })
+  // The card going down again before the switch (phone: the sheet sinks out of the screen).
+  var SINK = FRAMES.map(function (frame) { return PHONE && frame[0] === '51' })
+  var shown = -1
+  var underTimer = null
+  // The switch to modern English, as in the launch film: the page changes paragraph band by band, top to bottom, each
+  // band a soft cross-fade of old into new, never a hard edge sweeping down.
+  var BANDS = 9, BAND_FROM = 0.08, BAND_FADE = 460, BAND_STEP = 105
+  var dissolveLayer = null
+  function dissolve(incoming, outgoing) {
+    if (dissolveLayer) dissolveLayer.remove()
+    var src = $('img', incoming).currentSrc || $('img', incoming).src
+    incoming.classList.add('is-held')
+    dissolveLayer = document.createElement('div')
+    dissolveLayer.className = 'try-dissolve'
+    dissolveLayer.setAttribute('aria-hidden', 'true')
+    for (var i = 0; i < BANDS; i++) {
+      var top = i === 0 ? 0 : BAND_FROM + (1 - BAND_FROM) * i / BANDS
+      var bottom = BAND_FROM + (1 - BAND_FROM) * (i + 1) / BANDS
+      var band = document.createElement('img')
+      band.src = src; band.alt = ''
+      band.style.clipPath = 'inset(' + (top * 100) + '% 0 ' + ((1 - bottom) * 100) + '% 0)'
+      band.style.animationDelay = (i * BAND_STEP) + 'ms'
+      band.style.animationDuration = BAND_FADE + 'ms'
+      dissolveLayer.appendChild(band)
+    }
+    demo.insertBefore(dissolveLayer, layer)
+    var layerNow = dissolveLayer
+    // At the end the page underneath becomes the new one at once (no second fade), then the bands go: the text
+    // changes once.
+    setTimeout(function () {
+      incoming.classList.add('is-settle')
+      incoming.classList.remove('is-held')
+      if (outgoing) outgoing.classList.remove('is-under')
+      requestAnimationFrame(function () { requestAnimationFrame(function () {
+        if (layerNow === dissolveLayer) { dissolveLayer.remove(); dissolveLayer = null }
+        incoming.classList.remove('is-settle')
+      }) })
+    }, BANDS * BAND_STEP + BAND_FADE + 60)
   }
-  function render() {
-    var next = nextUndone()
-    $$('[data-try-item]').forEach(function (item) {
-      var key = item.getAttribute('data-try-item')
-      item.classList.toggle('is-done', !!done[key])
-      item.classList.toggle('is-next', key === next)
-      if (key === next) item.setAttribute('aria-current', 'step')
-      else item.removeAttribute('aria-current')
-      var state = item.querySelector('.sr-only')
-      if (state) state.textContent = done[key] ? 'Done: ' : ''
+  function paint() {
+    var wave = !reduce && shown >= 0 && shown !== index && WAVE[index]
+    var rise = !reduce && shown >= 0 && shown !== index && RISE[index]
+    var sink = !reduce && shown >= 0 && shown !== index && SINK[index]
+    var under = shown >= 0 && shown !== index ? shown : -1
+    // Cut, not fade: word by word in Listen.
+    demo.classList.toggle('is-cut', shown >= 0 && FRAMES[shown][1] === 2 && FRAMES[index][1] === 2)
+    clearTimeout(underTimer)
+    pictures.forEach(function (picture, i) {
+      picture.classList.remove('is-wave', 'is-rise', 'is-under', 'is-sink', 'is-held')
+      picture.classList.toggle('is-on', i === index)
     })
-    schedule()
-  }
-
-  /** The visitor did one of the five: it ticks, and the hint moves on to the next thing not yet done. */
-  function did(key) {
-    if (done[key]) return
-    done[key] = true
-    render()
-  }
-
-  // ---- The hint: one bubble beside its control in the reader, only while that control is on screen ----
-  var hint = $('[data-try-hint]')
-  var hintText = $('[data-try-hint-text]')
-  var hintKey = null
-
-  function frameDoc() {
-    try { return frame.contentDocument && frame.contentDocument.querySelector('.lab') ? frame.contentDocument : null } catch (e) { return null }
-  }
-  /** The control's box in the page's coordinates, when the visitor can see it now (not scrolled off, not covered). */
-  function onScreen(el, inFrame) {
-    var rect = el.getBoundingClientRect()
-    if (!(rect.width > 0 && rect.height > 0)) return null
-    var view = el.ownerDocument.defaultView
-    var cx = Math.min(rect.right - 2, rect.left + Math.min(rect.width / 2, 24))
-    var cy = rect.top + rect.height / 2
-    if (cy < 0 || cy > view.innerHeight || cx < 0 || cx > view.innerWidth) return null
-    var hit = el.ownerDocument.elementFromPoint(cx, cy)
-    if (!hit || !(hit === el || el.contains(hit))) return null
-    var dx = 0
-    var dy = 0
-    if (inFrame) { var box = frame.getBoundingClientRect(); dx = box.left; dy = box.top }
-    var placed = { left: rect.left + dx, right: rect.right + dx, top: rect.top + dy, bottom: rect.bottom + dy }
-    if (placed.bottom < 0 || placed.top > window.innerHeight) return null
-    return placed
-  }
-  function firstOnScreen(doc, selector, inFrame) {
-    var nodes = $$(selector, doc)
-    for (var i = 0; i < nodes.length; i++) { var rect = onScreen(nodes[i], inFrame); if (rect) return rect }
-    return null
-  }
-  function anchorFor(key, doc) {
-    switch (key) {
-      case 'explain': {
-        // Book 2's first sentence (the scripted passage), pointed at from its first word after the section number.
-        var lab = doc.querySelector('.lab')
-        if (lab && lab.dataset.chapter && lab.dataset.chapter !== String(READER.chapter)) return null
-        return firstOnScreen(doc, '[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="1"]', true)
-      }
-      case 'ask': return firstOnScreen(doc, '.lab-pcard-follow-input', true)
-      case 'modern':
-        // The phone's switch is on the page above the reader; the desktop's is in the reader's top bar.
-        return reader.phone ? firstOnScreen(document, '[data-try-edition="modern"]', false) : firstOnScreen(doc, '[data-testid="lab-try-editions"] button:last-child', true)
-      case 'listen': return firstOnScreen(doc, '[data-testid="lab-v2-play"], [data-testid="lab-listen"]', true)
-      case 'summary': return firstOnScreen(doc, '[data-testid="margin-start-summary"], [data-testid="lab-unit-summary"]', true)
+    if (under >= 0) {
+      pictures[under].classList.add('is-under')
+      void pictures[index].offsetWidth
+      if (wave) dissolve(pictures[index], pictures[under])
+      else if (rise) pictures[index].classList.add('is-rise')
+      else if (sink) pictures[under].classList.add('is-sink')
+      underTimer = setTimeout(function () { pictures[under].classList.remove('is-under', 'is-sink') }, wave ? 1700 : 800)
     }
-    return null
+    var newStep = shown < 0 || FRAMES[shown][1] !== FRAMES[index][1]
+    shown = index
+    markStep(FRAMES[index][1])
+    return newStep
   }
-  /**
-   * What a box (page coordinates) would cover, from a few points across it: 10 for each that lands on a word of the
-   * book or a control on the page or in the reader, 100 for each on the text of an open card or sheet (the answer
-   * being read; the card's empty space and its follow-up field are fair).
-   * The hint itself takes no pointer events, so it is never what a point finds.
-   */
-  var CARD = '.source-margin-item[data-open="true"], .lab-pcard, .lab-phone-card'
-  var CARD_TEXT = 'p, li, blockquote, h2, h3, h4, b, strong, em'
-  var BUSY_IN_FRAME = '[data-testid="lab-word"], .selection-popup, .lab-pbar, button, a, input, textarea, select, [role="button"]'
-  var BUSY_ON_PAGE = 'button:not(.try-hint-close), a, select, input'
-  function covered(doc, box) {
-    var frameBox = frame.getBoundingClientRect()
-    var hits = 0
-    var xs = [box.left + 10, (box.left + box.right) / 2, box.right - 10]
-    var ys = [box.top + 8, box.bottom - 8]
-    for (var i = 0; i < xs.length; i++) {
-      for (var j = 0; j < ys.length; j++) {
-        var x = xs[i]
-        var y = ys[j]
-        var inFrame = x >= frameBox.left && x <= frameBox.right && y >= frameBox.top && y <= frameBox.bottom
-        var hit = inFrame ? doc.elementFromPoint(x - frameBox.left, y - frameBox.top) : document.elementFromPoint(x, y)
-        if (!hit || !hit.closest) continue
-        if (inFrame && hit.closest(CARD) && hit.closest(CARD_TEXT)) hits += 100
-        else if (hit.closest(inFrame ? BUSY_IN_FRAME : BUSY_ON_PAGE)) hits++
-      }
-    }
-    return hits
-  }
-  function hideHint() { hint.hidden = true; hintKey = null }
-  function placeHint() {
-    var doc = frameDoc()
-    if (!reader.ready || !doc || !limit.hidden) { hideHint(); return }
-    // The first thing not yet done or dismissed whose control is on screen now.
-    var item = null
-    var anchor = null
-    for (var i = 0; i < ITEMS.length && !anchor; i++) {
-      if (done[ITEMS[i].key] || dismissed[ITEMS[i].key]) continue
-      anchor = anchorFor(ITEMS[i].key, doc)
-      if (anchor) item = ITEMS[i]
-    }
-    if (!anchor) { hideHint(); return }
-    if (hintKey !== item.key) { hintText.innerHTML = item.hint; hintKey = item.key }
-    hint.hidden = false
-    var bounds = frame.getBoundingClientRect()
-    var minX = Math.max(8, Math.min(bounds.left, anchor.left))
-    var maxX = Math.min(window.innerWidth - 8, Math.max(bounds.right, anchor.right))
-    var w = hint.offsetWidth
-    var h = hint.offsetHeight
-    // A sentence is pointed at from its start; a control from its middle.
-    var target = item.key === 'explain' ? anchor.left + 14 : (anchor.left + anchor.right) / 2
-    var left = Math.max(minX + 4, Math.min(target - 34, maxX - w - 4))
-    var above = anchor.top - h - 12
-    var below = anchor.bottom + 12
-    // Each side is scored: it must fit in the window and stay off an open card (else no hint at all, never a clipped
-    // one or one over the answer); it should stay on the reader (for a control in the reader) and should not cover
-    // the text being read or another control. Ties go to the hint's own side: over the heading for Explain (D1, and now
-    // M1 too, so the sentence to select stays readable), under the control otherwise.
-    function cost(top) {
-      if (top < 8 || top + h > window.innerHeight - 4) return Infinity
-      var onFrame = anchor.top >= bounds.top && anchor.bottom <= bounds.bottom
-      var c = onFrame && (top < bounds.top + 4 || top + h > bounds.bottom - 4) ? 3 : 0
-      var hits = covered(doc, { left: left, right: left + w, top: top, bottom: top + h })
-      // Over an open card the hint would hide the answer the visitor is reading: no hint rather than that.
-      return hits >= 100 ? Infinity : c + 10 * hits
-    }
-    var costAbove = cost(above)
-    var costBelow = cost(below)
-    if (costAbove === Infinity && costBelow === Infinity) { hideHint(); return }
-    var top = item.side === 'above' ? (costAbove <= costBelow ? above : below) : (costBelow <= costAbove ? below : above)
-    hint.style.left = Math.round(left) + 'px'
-    hint.style.top = Math.round(top) + 'px'
-    hint.setAttribute('data-side', top === below ? 'below' : 'above')
-    hint.style.setProperty('--try-hint-arrow', Math.round(Math.max(14, Math.min(target - left - 6, w - 26))) + 'px')
-  }
-  var pending = 0
-  function schedule() { if (!pending) pending = requestAnimationFrame(function () { pending = 0; placeHint() }) }
-  $('[data-try-hint-close]').addEventListener('click', function () {
-    if (hintKey) dismissed[hintKey] = true
-    hideHint()
-    schedule()
-  })
-  window.addEventListener('scroll', schedule, { passive: true })
-  window.addEventListener('resize', schedule)
-  frame.addEventListener('load', function () {
-    var doc
-    try { doc = frame.contentDocument } catch (e) { doc = null }
-    if (!doc) return
-    // The reader scrolls in its own scroller: follow every scroll in the frame, and every change to what it shows.
-    doc.addEventListener('scroll', schedule, { capture: true, passive: true })
-    frame.contentWindow.addEventListener('resize', schedule)
-    new MutationObserver(schedule).observe(doc.documentElement, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-open', 'hidden', 'class', 'aria-pressed'] })
-  })
-  // Smooth scrolls and sheets that settle without an event.
-  window.setInterval(schedule, 500)
-
-  // ---- Original | Modern on the phone (on desktop it is in the reader's own top bar) ----
-  $$('[data-try-edition]').forEach(function (button) {
-    button.addEventListener('click', function () { send({ cmd: 'edition', kind: button.getAttribute('data-try-edition') }) })
-  })
-  function paintEdition() {
-    $$('[data-try-edition]').forEach(function (button) {
-      button.setAttribute('aria-pressed', String(reader.edition === button.getAttribute('data-try-edition') + '-en'))
+  function markStep(step) {
+    $$('[data-try-step]').forEach(function (button) {
+      if (Number(button.getAttribute('data-try-step')) === step) button.setAttribute('aria-current', 'step')
+      else button.removeAttribute('aria-current')
     })
+    text('[data-try-count]', (step + 1) + ' of ' + STEPS.length)
+    text('[data-try-num]', (step + 1) + '. ')
+    text('[data-try-title]', STEPS[step].title)
+    text('[data-try-upnext]', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
+    if (next) next.setAttribute('aria-label', 'Next: ' + STEPS[(step + 1) % STEPS.length].title)
+  }
+  // Slower than captured (Anders, 19 Nov: too much, too fast), the phone most: a small screen takes longer to read.
+  // The word-by-word Listen frames slow only a little, so the voice still sounds like reading.
+  function pace(ms) { return Math.round(ms * (phoneQuery.matches ? (ms > 400 ? 1.45 : 1.15) : (ms > 400 ? 1.3 : 1.1))) }
+  function schedule(opened) {
+    clearTimeout(timer)
+    clearActions()
+    if (reduce || held || !visible) return
+    var frame = FRAMES[index]
+    var duration = pace(frame[2]) + (opened ? (phoneQuery.matches ? 1100 : 600) : 0)
+    if (opened && !phoneQuery.matches && ledStep !== frame[1]) announce(frame[1])
+    ledStep = -1
+    if (phoneQuery.matches) frameCaption(frame[1])
+    duration = act(frame, duration)
+    // The headline leads the action (Anders, 19 Nov): when this frame ends in the tap that starts the next moment
+    // (Play, Summary), that moment's headline and dot come up first, and the tap follows a beat later.
+    var nextStep = FRAMES[(index + 1) % FRAMES.length][1]
+    var action = ACTIONS[frame[0]]
+    if (!reduce && action && action.press && nextStep !== frame[1]) {
+      later(function () {
+        ledStep = nextStep
+        if (phoneQuery.matches) frameCaption(nextStep)
+        else announce(nextStep)
+        markStep(nextStep)
+      }, Math.max(0, duration - LEAD_MS))
+    }
+    timer = setTimeout(function () {
+      // Switch only once the next frame is decoded, so a change never flashes an empty reader.
+      var nextIndex = (index + 1) % FRAMES.length
+      var img = $('img', pictures[nextIndex])
+      var go = function () { if (held || !visible) return; index = nextIndex; var fresh = paint(); schedule(fresh) }
+      if (img && img.decode) img.decode().then(go, go)
+      else go()
+    }, duration)
+  }
+  function show(step) {
+    // A step opens on its first frame and plays on; with reduced motion, its last.
+    var matches = FRAMES.map(function (frame, i) { return frame[1] === step ? i : -1 }).filter(function (i) { return i >= 0 })
+    index = reduce ? matches[matches.length - 1] : matches[0]
+    paint()
+    schedule(true)
   }
 
-  // ---- Out of AI: the sign-up card, never an error ----
-  function showLimit(kind) {
-    var audio = kind === 'audio'
-    $('[data-try-limit-title]').textContent = audio ? COPY.audioTitle : COPY.chatTitle
-    $('[data-try-limit-body]').textContent = audio ? COPY.audioBody : COPY.chatBody
-    // Listening can be put aside; the conversation card stays until the visitor chooses.
-    $('[data-try-limit-close]').hidden = !audio
-    limit.hidden = false
-    hideHint()
-    var create = $('[data-try-create]')
-    if (create) create.focus({ preventScroll: true })
-  }
-  function closeLimit() { limit.hidden = true; schedule() }
-  $('[data-try-limit-close]').addEventListener('click', closeLimit)
-  limit.addEventListener('keydown', function (event) { if (event.key === 'Escape' && !$('[data-try-limit-close]').hidden) closeLimit() })
-
-  // ---- Account links: this conversation comes along, and the reader opens where it was ----
-  function carryOver() {
-    try {
-      var demo = frame.contentWindow && frame.contentWindow.__TINCT_TRY_DEMO__
-      return !!(demo && demo.carryOver())
-    } catch (e) { return false }
-  }
-  document.addEventListener('click', function (event) {
-    var link = event.target && event.target.closest ? event.target.closest('a[href^="/sign-in"]') : null
-    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return
-    if (!carryOver()) return
-    var url = new URL(link.getAttribute('href'), location.origin)
-    url.searchParams.set('returnTo', '/reader?' + new URLSearchParams({ book: READER.book, chapter: String(READER.chapter), edition: reader.edition }).toString())
-    event.preventDefault()
-    location.assign(url.pathname + url.search)
+  $$('[data-try-step]').forEach(function (button) {
+    button.addEventListener('click', function () { show(Number(button.getAttribute('data-try-step'))) })
   })
-
-  // ---- What the reader says: what the visitor did ----
-  window.addEventListener('message', function (event) {
-    if (event.origin !== location.origin || event.source !== frame.contentWindow) return
-    var data = event.data
-    if (!data || data.source !== 'tinct-try-reader') return
-    if (data.type === 'state') {
-      var wasReady = reader.ready
-      reader.ready = !!data.ready
-      reader.phone = !!data.phone
-      if (data.edition && data.edition !== reader.edition) {
-        reader.edition = data.edition
-        paintEdition()
-      }
-      if (reader.ready && reader.edition === 'modern-en') did('modern')
-      if (data.card === 'explain') did('explain')
-      if (data.playing) did('listen')
-      if (data.chapterCard === 'summary') did('summary')
-      if (reader.ready && !wasReady && queued.length) { var waiting = queued; queued = []; waiting.forEach(send) }
+  var next = $('[data-try-next]')
+  if (next) next.addEventListener('click', function () { show((FRAMES[index][1] + 1) % STEPS.length) })
+  var prev = $('[data-try-prev]')
+  if (prev) prev.addEventListener('click', function () { show((FRAMES[index][1] + STEPS.length - 1) % STEPS.length) })
+  demo.addEventListener('mouseenter', function () { held = true; clearTimeout(timer); clearActions() })
+  demo.addEventListener('mouseleave', function () { held = false; schedule() })
+  demo.addEventListener('focus', function () { held = true; clearTimeout(timer); clearActions() })
+  demo.addEventListener('blur', function () { held = false; schedule() })
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting
       schedule()
-      return
-    }
-    if (data.type === 'ai') {
-      // A follow-up was sent (or a question of their own, or Talk).
-      if (data.intent === 'ask' || data.intent === 'lab-voice-session') did('ask')
-      return
-    }
-    if (data.type === 'limit') { showLimit('chat'); return }
-    if (data.type === 'account') { showLimit(data.action === 'audio' ? 'audio' : 'chat') }
-  })
+    }).observe(demo)
+  }
+  document.addEventListener('visibilitychange', function () { visible = !document.hidden; schedule() })
+  if (reduce) index = FRAMES.map(function (frame) { return frame[1] }).lastIndexOf(0)
+  paint()
+  schedule()
+
+  // ---- The top bar turns solid once the page scrolls (over the hero it shows the scene) ----
+  var nav = $('.try-nav')
+  // Phone: Start reading joins the bar only once the hero's own Start reading has scrolled up under it (Anders, 20 Nov).
+  var heroStart = $('[data-try-start]')
+  function navState() {
+    if (!nav) return
+    nav.classList.toggle('is-scrolled', window.scrollY > 8)
+    nav.classList.toggle('is-past-hero', !!heroStart && heroStart.getBoundingClientRect().bottom < nav.getBoundingClientRect().bottom)
+  }
+  window.addEventListener('scroll', navState, { passive: true })
+  navState()
 
   // ---- Section links show where you are ----
   var links = $$('.try-sections a')
@@ -306,33 +309,6 @@
         links.forEach(function (link) { link.setAttribute('aria-current', String(link.getAttribute('href') === '#' + entry.target.id)) })
       })
     }, { rootMargin: '-45% 0px -50% 0px' })
-    ;['try', 'features', 'pricing', 'questions'].forEach(function (id) { var el = document.getElementById(id); if (el) observer.observe(el) })
+    ;['try', 'pricing', 'questions'].forEach(function (id) { var el = document.getElementById(id); if (el) observer.observe(el) })
   }
-
-  // ---- Phone: the reader ends on the first screen (try.css --try-reader-h) ----
-  // Its top depends on how the chips and the book and edition row wrap at this width, so it is measured, never
-  // guessed. Only the reader's height follows; nothing scrolls.
-  var readerBox = $('[data-try-reader]')
-  var readerTop = -1
-  function measureReaderTop() {
-    var top = Math.round(readerBox.getBoundingClientRect().top + window.scrollY)
-    if (top === readerTop) return
-    readerTop = top
-    document.body.style.setProperty('--try-reader-top', top + 'px')
-  }
-  measureReaderTop()
-  window.addEventListener('resize', measureReaderTop)
-  if ('ResizeObserver' in window) new ResizeObserver(measureReaderTop).observe($('.try-stage'))
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureReaderTop)
-
-  window.matchMedia(WIDE).addEventListener('change', function (event) {
-    // The reader is laid out for the frame it opened in; a phone and a desktop frame are different readers.
-    wide = event.matches
-    loadReader()
-  })
-
-  var explainLine = $('[data-try-item="explain"] .try-check-line')
-  if (explainLine && TOUCH) explainLine.textContent = 'Press and hold a sentence'
-  render()
-  loadReader()
 })()

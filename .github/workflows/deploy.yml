@@ -19,6 +19,10 @@ name: deploy
 #   - CI once: when a verify.yml run that passed tested this exact tree (artifact verified-tree-<tree>, written by
 #     its ci-summary), the deploy job skips its own `npm test`; it still builds, runs verify-bundle, deploys, and
 #     every acceptance group and the automatic rollback run as before.
+#   - Page lane (Anders, 19 Nov 2026): a push whose every change since the nearest first-parent ancestor with such
+#     a verified tree is a standalone page, that page's own unit test or docs (scripts/release-lane.mjs) does not wait
+#     for main's verify run. It runs the full deploy job at once: npm test, build, verify-bundle, deploy, every
+#     acceptance group and the automatic rollback, exactly as on the full path.
 #   - Otherwise a push waits for verify.yml on this commit to pass (it never deploys a tree no CI passed) and then
 #     runs the full deploy job, `npm test` included. A manual dispatch runs the full deploy job at once, as before.
 #   - A push whose commit is no longer the head of main cancels its own run: the newer commit's run deploys.
@@ -84,12 +88,15 @@ jobs:
       tree: ${{ steps.decide.outputs.tree }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The page lane looks back along main's first parents for a verified tree (at most 20 commits).
+          fetch-depth: 25
       - name: Refuse a push the rollout does not release automatically
         if: github.event_name == 'push'
         run: |
           test "$GITHUB_REF" = refs/heads/main
           node app/scripts/release-tools.cjs push-release-phase
-      - name: Decide the release path (CI once, or wait for verify)
+      - name: Decide the release path (CI once, page lane, or wait for verify)
         id: decide
         env:
           GH_TOKEN: ${{ github.token }}
@@ -101,7 +108,8 @@ jobs:
           echo "Commit $GITHUB_SHA ($EVENT_NAME), tree $tree"
           # A verify.yml run of this repository that passed and recorded this exact tree (pull request or main).
           verified_run() {
-            local ids id
+            # $1: another tree to look up (the page lane's verified ancestor); this commit's tree by default.
+            local tree="${1:-$tree}" ids id
             ids=$(gh api "repos/$REPO/actions/artifacts?name=verified-tree-$tree&per_page=30" \
               --jq '.artifacts[] | select(.expired | not) | .workflow_run.id') || return 0
             for id in $ids; do
@@ -129,10 +137,33 @@ jobs:
             { echo "Release path: **CI once** (verify passed on tree \`$tree\`: $1)."; echo 'Pre-go-live npm test skipped; build, verify-bundle, every acceptance group and automatic rollback run.'; } >> "$GITHUB_STEP_SUMMARY"
             exit 0
           }
+          # Page lane: the nearest first-parent ancestor (at most 20 back) whose tree a passing verify run recorded,
+          # and every file changed since it a standalone page, its own test or docs. Renames count as delete + add.
+          page_lane() {
+            local base='' base_tree evidence='' lane
+            for base in $(git rev-list --first-parent --max-count=20 HEAD^ 2>/dev/null); do
+              base_tree=$(git rev-parse "$base^{tree}")
+              evidence=$(verified_run "$base_tree")
+              [ -n "$evidence" ] && break
+            done
+            if [ -z "$evidence" ]; then
+              echo 'Page lane: no verified tree among the last 20 first-parent commits.'
+              return 0
+            fi
+            lane=$(git diff --name-only --no-renames -z "$base" HEAD | node scripts/release-lane.mjs) || return 0
+            echo "Page lane: since $base (verified: $evidence): $(echo "$lane" | sed -n 's/^reason=//p')"
+            echo "$lane" | grep -qx 'lane=page' || return 0
+            echo 'ci_once=false' >> "$GITHUB_OUTPUT"
+            echo 'Path: page lane. Not waiting for verify on this commit; the deploy job runs npm test, build, verify-bundle, acceptance and rollback.'
+            { echo "Release path: **page lane** (only standalone pages or docs changed since verified main \`$base\`: $evidence)."
+              echo 'Not waiting for verify on this commit; npm test, build, verify-bundle, every acceptance group and automatic rollback run.'; } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          }
           if [ "$EVENT_NAME" = push ] && newer=$(superseded); then stand_down "$newer"; fi
 
           evidence=$(verified_run)
           if [ -n "$evidence" ]; then ci_once "$evidence"; fi
+          if [ "$EVENT_NAME" = push ]; then page_lane; fi
           if [ "$EVENT_NAME" != push ]; then
             echo 'ci_once=false' >> "$GITHUB_OUTPUT"
             echo "Path: full. No passing verify run recorded tree $tree; the deploy job runs npm test before go-live, as before."
@@ -495,16 +526,16 @@ jobs:
         if: ${{ matrix.group == 'audio-smoke' }}
         env:
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
-        run: bash scripts/smoke-test.sh "$TINCT_ORIGIN"
+        run: bash scripts/retry-once.sh bash scripts/smoke-test.sh "$TINCT_ORIGIN"
       - name: Verify published Android book downloads
         if: ${{ !cancelled() && matrix.group == 'audio-smoke' }}
-        run: node scripts/android/check-publication.mjs "$TINCT_ORIGIN"
+        run: bash scripts/retry-once.sh node scripts/android/check-publication.mjs "$TINCT_ORIGIN"
       - name: Verify inline audio loading silently
         if: ${{ !cancelled() && matrix.group == 'audio-smoke' }}
         env:
           READER_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
-        run: node scripts/check-inline-audio-loading.mjs
+        run: bash scripts/retry-once.sh node scripts/check-inline-audio-loading.mjs
 
       # -- publication
       - name: Verify Omarchy commands and themes
@@ -513,7 +544,7 @@ jobs:
           TINCT_DESKTOP_LIVE: '1'
           TINCT_DESKTOP_VISUAL: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
-        run: node scripts/check-omarchy.mjs
+        run: bash scripts/retry-once.sh node scripts/check-omarchy.mjs
       - name: Verify Lighthouse publication
         if: ${{ !cancelled() && matrix.group == 'publication' }}
         env:
@@ -522,8 +553,8 @@ jobs:
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
           ARTIFACT_DIR: artifacts/lighthouse-publication-live
         run: |
-          node scripts/check-book-publication.cjs
-          node scripts/check-lighthouse-characters.cjs
+          bash scripts/retry-once.sh node scripts/check-book-publication.cjs
+          bash scripts/retry-once.sh node scripts/check-lighthouse-characters.cjs
       # Symposium is held out of the library (2026-10-02 rights holds), so its
       # publication check is replaced by the held-books check: every whole-book
       # hold is absent from the hub, sitemap and shelves, and every held edition
@@ -533,7 +564,7 @@ jobs:
         if: ${{ !cancelled() && matrix.group == 'publication' }}
         env:
           EXPECTED_BUILD_SHA: ${{ github.sha }}
-        run: node scripts/check-edition-holds-production.cjs
+        run: bash scripts/retry-once.sh node scripts/check-edition-holds-production.cjs
 
       # -- reader-panels
       - name: Verify reader panels and selection
@@ -541,36 +572,36 @@ jobs:
         env:
           READER_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
-        run: node scripts/check-reader-panels.mjs
+        run: bash scripts/retry-once.sh node scripts/check-reader-panels.mjs
       - name: Verify reader feedback fixes
         if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
         env:
           READER_LIVE: '1'
-        run: node scripts/check-reader-feedback.mjs
+        run: bash scripts/retry-once.sh node scripts/check-reader-feedback.mjs
       - name: Verify the narration speed popover takes its own clicks (margin, two-page, phone)
         if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
         env:
           READER_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
-        run: node scripts/check-audio-speed-popover.mjs
+        run: bash scripts/retry-once.sh node scripts/check-audio-speed-popover.mjs
       - name: Verify a tint never moves the text (selection, Ask, card, highlight)
         if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
         env:
           TINT_ENGINES: chromium,webkit
-        run: node scripts/check-tint-no-reflow.mjs
+        run: bash scripts/retry-once.sh node scripts/check-tint-no-reflow.mjs
       - name: Verify spoken Bible book transition silently
         if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
         env:
           READER_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
-        run: node scripts/check-book-transition.mjs
+        run: bash scripts/retry-once.sh node scripts/check-book-transition.mjs
       - name: Verify repaired live Aa, layout, and source position with mocked API
         if: ${{ !cancelled() && matrix.group == 'reader-panels' && needs.deploy.outputs.release_phase == 'repair' }}
         env:
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
         run: |
-          node scripts/check-shared-reader-menu.mjs
-          node scripts/check-shared-reader-position.mjs
+          bash scripts/retry-once.sh node scripts/check-shared-reader-menu.mjs
+          bash scripts/retry-once.sh node scripts/check-shared-reader-position.mjs
 
       # -- page-layout (every Shakespeare edition, the emitted ON reader) and layout-and-source (Shakespeare layout,
       # hyphenation, source-connected behaviour): one group took 16 min, so it runs as two side by side.
@@ -579,20 +610,20 @@ jobs:
         env:
           SHAKESPEARE_LIVE: '1'
           SHAKESPEARE_NETLOG: '1'
-        run: node scripts/check-shakespeare-layout.mjs
+        run: bash scripts/retry-once.sh node scripts/check-shakespeare-layout.mjs
       - name: Verify hyphenation hardening
         if: ${{ !cancelled() && matrix.group == 'layout-and-source' }}
         env:
           HYPHENATION_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
-        run: node scripts/check-hyphenation-hardening.mjs
+        run: bash scripts/retry-once.sh node scripts/check-hyphenation-hardening.mjs
       - name: Verify every Shakespeare edition and reported passage
         if: ${{ !cancelled() && matrix.group == 'page-layout' && (needs.deploy.outputs.release_phase == 'reader' || needs.deploy.outputs.release_phase == 'repair') }}
         env:
           SHAKESPEARE_LIVE: '1'
           SHAKESPEARE_NETLOG: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
-        run: node scripts/check-shakespeare-speakers.mjs
+        run: bash scripts/retry-once.sh node scripts/check-shakespeare-speakers.mjs
       - name: Verify repaired emitted ON reader and synthetic PDF Original
         if: ${{ !cancelled() && matrix.group == 'page-layout' && needs.deploy.outputs.release_phase == 'repair' }}
         env:
@@ -600,8 +631,8 @@ jobs:
           PDF_ORIGINAL_DIST: dist
           PDF_ORIGINAL_WEBKIT: '1'
         run: |
-          node scripts/check-shared-reader-default-on.mjs
-          node scripts/check-shared-reader-pdf-original.mjs
+          bash scripts/retry-once.sh node scripts/check-shared-reader-default-on.mjs
+          bash scripts/retry-once.sh node scripts/check-shared-reader-pdf-original.mjs
 
       - name: Verify restored source-connected reader behavior
         if: ${{ !cancelled() && matrix.group == 'layout-and-source' && needs.deploy.outputs.release_phase == 'repair' }}
@@ -609,24 +640,24 @@ jobs:
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
           PDF_ORIGINAL_DIST: dist
         run: |
-          node scripts/check-reader-source-parity.mjs
-          node scripts/check-reader-margin-refinements.mjs
-          node scripts/check-reader-selection-release.mjs
-          node scripts/check-reader-mobile-chat-cards.mjs
-          PDF_SOURCE_PARITY=1 node scripts/check-shared-reader-pdf-original.mjs
+          bash scripts/retry-once.sh node scripts/check-reader-source-parity.mjs
+          bash scripts/retry-once.sh node scripts/check-reader-margin-refinements.mjs
+          bash scripts/retry-once.sh node scripts/check-reader-selection-release.mjs
+          bash scripts/retry-once.sh node scripts/check-reader-mobile-chat-cards.mjs
+          bash scripts/retry-once.sh env PDF_SOURCE_PARITY=1 node scripts/check-shared-reader-pdf-original.mjs
 
       # -- production and library: what only production can prove (direct mode only here; staged: production-checks)
       - name: Smoke test production
         if: ${{ matrix.group == 'production' }}
         env:
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
-        run: bash scripts/smoke-test.sh https://tinct.app
+        run: bash scripts/retry-once.sh bash scripts/smoke-test.sh https://tinct.app
       - name: Verify production brand metadata and assets
         if: ${{ !cancelled() && matrix.group == 'production' }}
-        run: node scripts/check-brand.mjs
+        run: bash scripts/retry-once.sh node scripts/check-brand.mjs
       - name: Verify production sign-in completion without real accounts
         if: ${{ !cancelled() && matrix.group == 'production' }}
-        run: AUTH_LIVE=1 node scripts/check-sign-in.mjs
+        run: bash scripts/retry-once.sh env AUTH_LIVE=1 node scripts/check-sign-in.mjs
       - name: Verify real Grok microphone recovery silently
         if: ${{ !cancelled() && matrix.group == 'production' && needs.deploy.outputs.release_phase != 'repair' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
         run: |
@@ -637,10 +668,10 @@ jobs:
           READER_LIVE=1 node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
       - name: Verify public cinematic library
         if: ${{ !cancelled() && matrix.group == 'library' }}
-        run: LIBRARY_LIVE=1 node scripts/check-library-public.mjs
+        run: bash scripts/retry-once.sh env LIBRARY_LIVE=1 node scripts/check-library-public.mjs
       - name: Verify repaired own EPUB isolation on the handed-off build
         if: ${{ !cancelled() && matrix.group == 'library' && needs.deploy.outputs.release_phase == 'repair' }}
-        run: node scripts/check-shared-reader-own-isolation.mjs
+        run: bash scripts/retry-once.sh node scripts/check-shared-reader-own-isolation.mjs
 
       - uses: actions/upload-artifact@v4
         continue-on-error: true
@@ -754,13 +785,13 @@ jobs:
         if: ${{ matrix.group == 'production' }}
         env:
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
-        run: bash scripts/smoke-test.sh https://tinct.app
+        run: bash scripts/retry-once.sh bash scripts/smoke-test.sh https://tinct.app
       - name: Verify production brand metadata and assets
         if: ${{ !cancelled() && matrix.group == 'production' }}
-        run: node scripts/check-brand.mjs
+        run: bash scripts/retry-once.sh node scripts/check-brand.mjs
       - name: Verify production sign-in completion without real accounts
         if: ${{ !cancelled() && matrix.group == 'production' }}
-        run: AUTH_LIVE=1 node scripts/check-sign-in.mjs
+        run: bash scripts/retry-once.sh env AUTH_LIVE=1 node scripts/check-sign-in.mjs
       - name: Verify real Grok microphone recovery silently
         if: ${{ !cancelled() && matrix.group == 'production' && needs.deploy.outputs.release_phase != 'repair' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
         run: |
@@ -771,7 +802,7 @@ jobs:
           READER_LIVE=1 node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
       - name: Verify public cinematic library
         if: ${{ !cancelled() && matrix.group == 'library' }}
-        run: LIBRARY_LIVE=1 node scripts/check-library-public.mjs
+        run: bash scripts/retry-once.sh env LIBRARY_LIVE=1 node scripts/check-library-public.mjs
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()

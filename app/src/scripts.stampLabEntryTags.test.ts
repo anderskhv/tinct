@@ -10,8 +10,8 @@ import { buildSharedReaderActivation } from '../scripts/build-shared-reader-acti
 const require = createRequire(import.meta.url)
 type Files = Record<string, string>
 const { stampTags, staleTags } = require('../scripts/stamp-lab-entry-tags.cjs') as {
-  stampTags: (files: Files, entries: string[]) => { files: Files; tags: Record<string, string> }
-  staleTags: (files: Files, entries: string[]) => Array<{ file: string; ref: string; tag: string; expected: string }>
+  stampTags: (files: Files, entries: string[], stamp?: string | null) => { files: Files; tags: Record<string, string>; expected: (file: string, ref: { tag: string; target: string }) => string | null }
+  staleTags: (files: Files, entries: string[], stamp?: string | null) => Array<{ file: string; ref: string; tag: string; expected: string }>
 }
 const { moduleReferences, missingImports, checkDist } = require('../scripts/check-lab-bundle.cjs') as {
   moduleReferences: (file: string, source: string) => string[]
@@ -90,15 +90,47 @@ describe('stamp-lab-entry-tags', () => {
     expect(files['lab/library_2/index.html']).toContain(`src="app.js?v=${tags['lab/library_2/app.js']}"`)
   })
 
-  it('leaves untagged references, comments and files off the chain as they are', () => {
-    const { files, tags } = stampTags(dist(), ENTRIES)
+  it('leaves untagged references, comments and references to files not in dist as they are', () => {
+    const { files, tags } = stampTags({ ...dist(), 'lab/library_2/app.js': "import'./catalogue.js?v=x';import'./gone.js?v=20261001kept'" }, ENTRIES)
     expect(files['lab/library_2/add-to-tinct.js']).toContain('// /lab/library-add.js (comment)')
     expect(files['lab/library_2/catalogue.js']).toContain("import('/lab/native-books.js')")
     expect(files['lab/library_2/index.html']).toContain('src="/lab/account-cards.js"')
-    expect(files['lab/library_2/index.html']).toContain('src="funnel.js?v=20261006internal"')
-    expect(files['lab/library_2/app.js']).toContain("'./funnel.js?v=20261006internal'")
-    expect(files['lab/addbook/js/reader.js']).toContain("'/lab/chat-thread.js?v=20261012thread'")
-    expect(tags).not.toHaveProperty('lab/library_2/funnel.js')
+    expect(files['lab/library_2/app.js']).toContain("'./gone.js?v=20261001kept'")
+    expect(tags).not.toHaveProperty('lab/library_2/gone.js')
+  })
+
+  // Design change (6 Nov 2026): files off a chain to a built entry used to keep
+  // their hand tags; now every tag-cached file in dist is tagged from content.
+  it('tags files off an entry chain from their content too, so a hand tag is never served', () => {
+    const { files, tags } = stampTags(dist(), ENTRIES)
+    expect(tags['lab/library_2/funnel.js']).toBe(sha10('export const f=1'))
+    expect(tags['lab/chat-thread.js']).toBe(sha10('export const c=1'))
+    expect(files['lab/library_2/app.js']).toContain(`'./funnel.js?v=${sha10('export const f=1')}'`)
+    expect(files['lab/library_2/index.html']).toContain(`src="funnel.js?v=${sha10('export const f=1')}"`)
+    expect(files['lab/addbook/js/reader.js']).toContain(`'/lab/chat-thread.js?v=${sha10('export const c=1')}'`)
+    expect(files['lab/library_2/index.html']).not.toMatch(/\?v=2026/)
+  })
+
+  it('changes a static file\'s tag and every tag up the chain when its content changes under an unchanged hand tag', () => {
+    // 6 Nov 2026: reviewed-introductions.js changed without a new tag, and returning readers kept the old file.
+    const fixture = (intro: string): Files => ({
+      'lab/library_2/reviewed-introductions.js': intro,
+      'lab/library_2/app.js': "import'./reviewed-introductions.js?v=20260930fix'",
+      'lab/library_2/index.html': '<base href="/lab/library_2/"><script type="module" src="app.js?v=20261101x"></script>',
+      'lab/tinct-ui.css': '.a{}',
+      'omarchy/index.html': '<link rel="stylesheet" href="/lab/tinct-ui.css?v=1"><script src="experience.js?v=20261005h1"></script>',
+      'omarchy/experience.js': 'window.x=1',
+    })
+    const before = stampTags(fixture("export const intros={}"), [])
+    const after = stampTags(fixture("export const intros={'master-and-margarita':1}"), [])
+    for (const name of ['lab/library_2/reviewed-introductions.js', 'lab/library_2/app.js'])
+      expect(after.tags[name]).not.toBe(before.tags[name])
+    expect(after.files['lab/library_2/app.js']).toBe(`import'./reviewed-introductions.js?v=${sha10("export const intros={'master-and-margarita':1}")}'`)
+    expect(after.files['lab/library_2/index.html']).toContain(`app.js?v=${sha10(after.files['lab/library_2/app.js'])}`)
+    expect(after.files['omarchy/index.html']).toBe(`<link rel="stylesheet" href="/lab/tinct-ui.css?v=${sha10('.a{}')}"><script src="experience.js?v=${sha10('window.x=1')}"></script>`)
+    expect(after.tags['lab/tinct-ui.css']).toBe(before.tags['lab/tinct-ui.css'])
+    expect(staleTags(fixture('export const intros={}'), [])).toContainEqual({ file: 'lab/library_2/app.js', ref: './reviewed-introductions.js', tag: '20260930fix', expected: sha10('export const intros={}') })
+    expect(staleTags(after.files, [])).toEqual([])
   })
 
   it('changes every tag on the chain when the entry is rebuilt, and is stable when it is not', () => {
@@ -110,6 +142,7 @@ describe('stamp-lab-entry-tags', () => {
       expect(second.tags[file]).not.toBe(first.tags[file])
     }
     expect(second.tags['lab/library-2-reading.js']).toBe(first.tags['lab/library-2-reading.js'])
+    expect(second.tags['lab/library_2/funnel.js']).toBe(first.tags['lab/library_2/funnel.js'])
   })
 })
 
@@ -165,6 +198,11 @@ describe('check-lab-bundle', () => {
       expect(problems).toContain(`/lab/library_2/add-to-tinct.js references /lab/library-add.js?v=20261014talkwake; the built file's tag is ${sha10(ENGINE)}`)
       expect(problems).toContain(`/lab/addbook/js/reader.js references /lab/library-add.js?v=20261014talkwake; the built file's tag is ${sha10(ENGINE)}`)
     })
+    it('fails on a hand-kept tag on a static file off any entry chain', () => {
+      const stamped = stampTags(dist(), ENTRIES).files
+      const broken = { ...stamped, 'lab/library_2/app.js': stamped['lab/library_2/app.js'].replace(/funnel\.js\?v=\w+/, 'funnel.js?v=20261006internal') }
+      expect(write({ ...broken, ...chunks })).toContain(`/lab/library_2/app.js references ./funnel.js?v=20261006internal; the built file's tag is ${sha10('export const f=1')}`)
+    })
   })
 })
 
@@ -191,11 +229,20 @@ describe('Add a book’s one build stamp', () => {
     expect(out['lab/addbook/book.html']).toBe('<script src="js/reader.js?v=AbC_12-x"></script><script src="/lab/wait-ring.js?v=AbC_12-x"></script>')
     expect(out['lab/library_2/app.js']).toBe(files()['lab/library_2/app.js'])
   })
-  it('then leaves a reference to a built entry to its content tag', () => {
-    const { files: out } = stampTags(stampBuild(files(), 'AbC_12-x').files, ['lab/library-add.js'])
+  it('then leaves a reference to a built entry to its content tag, and keeps the stamp elsewhere', () => {
+    const stamped = { ...stampBuild(files(), 'AbC_12-x').files, 'lab/wait-ring.js': 'export const w=1', 'lab/chat-thread.js': 'export const c=1' }
+    const { files: out, expected } = stampTags(stamped, ['lab/library-add.js'], 'AbC_12-x')
     expect(out['lab/addbook/js/reader.js']).toBe(`const SWITCHER_ENGINE = '/lab/library-add.js?v=${sha10(ENGINE)}';import('/lab/chat-thread.js?v=AbC_12-x')`)
     expect(out['lab/addbook/book.html']).toContain(`js/reader.js?v=${sha10(out['lab/addbook/js/reader.js'])}`)
+    // The per-build stamp is never stale and is the tag the React reader asks for (pdfEdition.ts addbookScriptTag).
     expect(out['lab/addbook/book.html']).toContain('/lab/wait-ring.js?v=AbC_12-x')
+    expect(staleTags(out, ['lab/library-add.js'], 'AbC_12-x')).toEqual([])
+    expect(expected('lab/addbook/book.html', { tag: 'AbC_12-x', target: 'lab/wait-ring.js' })).toBeNull()
+    // Outside Add a book, or with another tag, a reference takes its content tag.
+    const library = stampTags({ ...stamped, 'lab/library_2/app.js': "import'/lab/wait-ring.js?v=AbC_12-x'" }, ['lab/library-add.js'], 'AbC_12-x').files
+    expect(library['lab/library_2/app.js']).toBe(`import'/lab/wait-ring.js?v=${sha10('export const w=1')}'`)
+    const hand = stampTags({ ...stamped, 'lab/addbook/book.html': '<script src="/lab/wait-ring.js?v=20261001x"></script>' }, ['lab/library-add.js'], 'AbC_12-x').files
+    expect(hand['lab/addbook/book.html']).toBe(`<script src="/lab/wait-ring.js?v=${sha10('export const w=1')}"></script>`)
   })
   it('refuses a stamp that is not a cache tag', () => {
     expect(() => stampBuild(files(), '')).toThrow()
