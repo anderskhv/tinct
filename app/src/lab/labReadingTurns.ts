@@ -6,7 +6,7 @@
  *   credits the visible time since the previous turn to the page just left, at most PAGE_CAP_MS.
  * - The last page of a session (the page hidden, closed, or another book opened with no turn after it) earns the
  *   session's median page time, at most what that page was visibly open and PAGE_CAP_MS; LAST_PAGE_FEW_TURNS_MS when
- *   the session had fewer than MEDIAN_MIN_TURNS turns.
+ *   the session had fewer than MEDIAN_MIN_TURNS pages. A turn within TURN_BURST_MS of the one before is not a page.
  * - Only visible time is reading: hidden or locked time is never credited.
  *
  * Everything is computed from timestamps given to it, so throttled timers lose nothing. Pure: no DOM, no clock.
@@ -14,6 +14,13 @@
 export const PAGE_CAP_MS = 15 * 60_000
 export const LAST_PAGE_FEW_TURNS_MS = 60_000
 export const MEDIAN_MIN_TURNS = 3
+/**
+ * Turns closer together than this are one move, not pages read: a scroll that carries several paragraphs past the
+ * Margin reader's foot, a quick flick through pages. Their seconds still count; they are left out of the session's
+ * typical page time, which they would otherwise pull to almost nothing (24 Nov 2026: a Mac reader's last page of
+ * every visit earned ~0 s in the Margin reader).
+ */
+export const TURN_BURST_MS = 2_000
 
 /** Content-free diagnostics for a session, in seconds (internal sessions only). */
 export interface ReadingTurnsDiagnostics {
@@ -61,7 +68,7 @@ export function createReadingTurns(now: number, visible = true): ReadingTurns {
       const open = Math.max(0, at - pageSince)
       const ms = Math.min(open, PAGE_CAP_MS)
       pageSince = at
-      pageTimes.push(ms)
+      if (open >= TURN_BURST_MS) pageTimes.push(ms)
       diag.turns += 1
       diag.visible += seconds(open)
       diag.counted += seconds(ms)
