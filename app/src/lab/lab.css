@@ -8134,3 +8134,21 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] { --lab-call-end: #111; --
 .lab[data-chrome-version="v2"] .lab-book.is-aligned-compare .lab-passage-header,
 .lab[data-chrome-version="v2"] .lab-desktop-measure.is-paired .lab-desktop-measure-page > .lab-passage-header { max-width: calc((100% - var(--desktop-gutter, 56px)) / 2); }
 
+
+/* iPad (the desktop layout under a finger: no hover, coarse pointer), 24 Nov 2026.
+   iOS Safari draws its scroll-edge blur over ordinary flow content at the top
+   of the page: strongest at the top edge, fading downwards. The phone header
+   got one opaque, pinned surface for that in Oct 2026 (the v2 phone rule
+   above); the iPad header stayed transparent, so the title and the buttons
+   read as blurred and dimmer at the top. Same surface here, in the paper the
+   v2 desktop already sits on. 100vh is the large Safari viewport, so the
+   reader is sized to the visible one, as on the phone. Mouse desktops are
+   untouched. */
+@media (hover: none) and (pointer: coarse) {
+  .lab[data-chrome-version="v2"].is-desktop { height: 100svh; }
+  .lab[data-chrome-version="v2"].is-desktop .lab-header {
+    position: sticky;
+    top: 0;
+    background: var(--lab-paper);
+  }
+}

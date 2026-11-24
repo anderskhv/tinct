@@ -124,6 +124,15 @@ interface LabPassageProps {
    */
   tapZones?: LabTapTurnZones
   /**
+   * A neighbouring chapter's text drawn inside a desktop spread (the next
+   * chapter's opening, or the previous chapter's ending) has `tapZones` 'none',
+   * so a mouse click on its words defines them. A finger tap there still turns
+   * the page by the spread's zones: these are the spread's zones and surface.
+   * Without them a tap on that text did nothing on an iPad (24 Nov 2026).
+   */
+  spreadTapZones?: LabTapTurnZones
+  spreadTapSurfaceRef?: { readonly current: HTMLElement | null }
+  /**
    * The paginated phone page also turns on a vertical swipe: up is the next
    * page, down the previous one, through the same `onPageTurn` as a sideways
    * swipe. Never on a passage inside a scroller (`touchScroll`).
@@ -543,6 +552,8 @@ export function LabPassage({
   onSelectionPageTurn,
   onSelectingChange,
   tapZones = 'all',
+  spreadTapZones,
+  spreadTapSurfaceRef,
   verticalSwipeTurns = false,
   onToggleControls,
   layoutKey = '',
@@ -958,7 +969,12 @@ export function LabPassage({
     const deltaX = event.clientX - drag.startX
     const deltaY = event.clientY - drag.startY
     const duration = Math.max(0, event.timeStamp - drag.startedAt)
-    const surfaceRect = event.currentTarget.getBoundingClientRect()
+    // A touch on a neighbouring chapter's text inside a spread turns by the
+    // spread's zones, measured on the whole spread; a mouse keeps this
+    // passage's own zones ('none': its words define).
+    const spreadSurface = drag.pointerType !== 'mouse' && spreadTapZones ? spreadTapSurfaceRef?.current ?? null : null
+    const turnZones = spreadSurface && spreadTapZones ? spreadTapZones : tapZones
+    const surfaceRect = (spreadSurface ?? event.currentTarget).getBoundingClientRect()
     // Listening: a tap on a word moves the audio to it. It is never a lookup
     // and never a page turn; a long press (touch) or a drag (mouse) became a
     // selection above and is handled as one below.
@@ -985,7 +1001,7 @@ export function LabPassage({
     // mouse click on a word anywhere on the page still defines it.
     const tap = onPageTurn
       && !savedHighlight
-      && labTapTurnAllowed(tapZones, drag.pointerType)
+      && labTapTurnAllowed(turnZones, drag.pointerType)
       && !selectingRange
       && !drag.selecting
       && !nativeSelecting
@@ -1280,7 +1296,7 @@ export function LabPassage({
               compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]}
               markedIndexes={new Set()} keyboardSelection={keyboardSelection} highlights={previousChapterEnding.highlights}
               selectingRange={previousChapterEnding.selectingRange} onSelectRange={previousChapterEnding.onSelectRange}
-              onPageTurn={onPageTurn} tapZones="none" />
+              onPageTurn={onPageTurn} tapZones="none" spreadTapZones={tapZones} spreadTapSurfaceRef={articleRef} />
             {previousChapterEnding.chapterEnd}
           </> : <>
           {desktopSpread && showHeadline && <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />}
@@ -1327,6 +1343,7 @@ export function LabPassage({
                   followParagraphs={[]} markedIndexes={new Set()} keyboardSelection={keyboardSelection}
                   highlights={nextChapterOpening.highlights ?? []} selectingRange={nextChapterOpening.selectingRange}
                   onSelectRange={nextChapterOpening.onSelectRange} onPageTurn={onPageTurn} tapZones="none"
+                  spreadTapZones={tapZones} spreadTapSurfaceRef={articleRef}
                 />
               </div>
             )}
