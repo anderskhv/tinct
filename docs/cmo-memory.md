@@ -1,6 +1,6 @@
 # CMO memory: Tinct marketing state
 
-**Read this first in any marketing, SEO or growth conversation with Anders. Update it at the end of each one** (overwrite stale lines, keep it short). Last updated: 19 Nov 2026 (evening).
+**Read this first in any marketing, SEO or growth conversation with Anders. Update it at the end of each one** (overwrite stale lines, keep it short). Last updated: 24 Nov 2026.
 
 ## How Anders likes to work
 - **Plain language, short answers,** a clear recommendation rather than a survey of options. "Explain like I'm 13" when he asks.
@@ -14,16 +14,13 @@
 ## Live experiments and dates
 | What | Status | Next check |
 |---|---|---|
-| Google Ads "hamlet angles" + "Moby Dick" | Landing on scene/book pages, `utm_term={keyword}` in the campaign suffix, pdf/download negatives, Moby ads without the word "Dick" (appeal rejected). 16–19 Nov: ~DKK 460, 25 real visitors, 3 read ≥ 1 min, 0 accounts. Only "read X online / full text" searches produced readers. | **24 Nov:** screenshot + customer-success numbers. **30 Nov:** decide. Continue only if ≤ DKK 50 per engaged reader; stop at DKK 500 spent with no reader. Recommended: only "read it" keywords, DKK 50/day total. Card payment was declined 18 Nov: Anders to fix. |
+| Google Ads "hamlet angles" + "Moby Dick" | Landing on scene/book pages, `utm_term={keyword}` in the campaign suffix, pdf/download negatives, Moby ads without the word "Dick" (appeal rejected). 16–19 Nov: ~DKK 460, 25 real visitors, 3 read ≥ 1 min, 0 accounts. Only "read X online / full text" searches produced readers. | **24 Nov:** screenshot + customer-success numbers. **30 Nov:** decide. Continue only if ≤ DKK 50 per engaged reader; stop at DKK 500 spent with no reader. Recommended: only "read it" keywords, DKK 50/day total. Card payment was declined 18 Nov. **17–23 Nov:** ads ran every day: 67 clicks, 1,280 impressions, avg CPC DKK 14.16, DKK 949. The new SEO landing has been live since ~20 Nov, so ads from 20 Nov test the new pages. Asked customer success for read rates before and after 20 Nov. |
 | SEO chapter/scene pages | Live (#838, #839): all books, wave 1 (15 novels) indexed, hubs `/read/shelf/*`. Hamlet 3.1 confirmed indexed 16 Nov. Requested indexing for the top 12 URLs. | **Mid-Dec:** Search Console → which wave 1 pages get impressions; then decide wave 2 (Odyssey first). |
 | Bing | Ranks Tinct position 6–8 on 517 queries (19 Nov), 2% click-through. | With the Google check. |
 
-## Briefs waiting for the coder (check whether shipped)
-- **Allowlist:** odyssey, oresteia, the-histories, master-and-margarita, beowulf. Structure line "38 chapters" on book pages, "Chapter N of total" on chapter pages, plain-HTML chapter lists.
-- **Titles by intent:** "Read {Book} online free" on the first chapter, "all N chapters" on the book page. Curly quotes in the modern column. "Continue reading" at the end of chapters.
-- **`/modern-english` hub** listing every modern edition.
-- **Search landing (decided 19 Nov: option B):** the book page `/read/{book}` opens straight into Chapter 1 text; chapter-1 URL canonical to the book page; the cinematic hero stays in library/app.
-- **Chapter pages (approved mockups 19 Nov):** single column Modern English by default; desktop switch `Original | Modern | Both` in the top bar (italic serif, approved exception); phone `Modern English | Original` under the heading; Shakespeare keeps side by side on desktop; "Chapter N of total"; "Continue reading" + "Your place is saved on this device" (only if true); edition note now says "The original is one tap away". Brief given in chat 19 Nov; not shipped yet.
+## SEO shipped (live since ~20 Nov, #887; /modern-english #894)
+- Book page `/read/{book}` opens on Chapter 1 (option B). Chapter pages: single-column Modern English, Original | Modern | Both switch, "of N", Continue reading. Titles by intent ("Read {Book} online free, in modern English"). Structure pill. Wave 2 indexed (odyssey, oresteia, the-histories, beowulf; master-and-margarita awaits note wording). `/modern-english` hub. llms.txt rewritten.
+- Next: Anders requests indexing for key pages; Search Console/Bing review in mid-December.
 
 ## Decisions made (do not reopen)
 - Publish modern-English text openly as crawlable HTML, by allowlist waves.
