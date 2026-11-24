@@ -684,6 +684,49 @@ describe('mouse word lookup and dragging', () => {
     })
   })
 
+  /**
+   * A neighbouring chapter's text in a desktop spread (the next chapter's
+   * opening on the right page, the previous chapter's ending on the left) is a
+   * nested passage with tapZones 'none' so a mouse click defines its words. On
+   * an iPad a finger tap on it did nothing at all; it now turns by the
+   * spread's zones, measured on the whole spread (24 Nov 2026).
+   */
+  describe('a neighbouring chapter inside a spread', () => {
+    const rect = (left: number, width: number) => ({ left, right: left + width, top: 0, bottom: 600, width, height: 600, x: left, y: 0, toJSON: () => ({}) } as DOMRect)
+    const setup = () => {
+      const select = vi.fn(), turn = vi.fn()
+      const spread = document.createElement('article')
+      vi.spyOn(spread, 'getBoundingClientRect').mockReturnValue(rect(0, 1200))
+      render(<LabPassage {...props()} tapZones="none" spreadTapZones="all" spreadTapSurfaceRef={{ current: spread }} onSelectRange={select} onPageTurn={turn} />)
+      // The nested passage is the right page only.
+      vi.spyOn(screen.getByTestId('lab-book'), 'getBoundingClientRect').mockReturnValue(rect(600, 600))
+      return { select, turn, word: screen.getAllByTestId('lab-word')[1] }
+    }
+
+    it('a finger tap near the right edge turns forward', () => {
+      const { select, turn, word } = setup()
+      fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 1100, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 1100, clientY: 100 })
+      expect(turn).toHaveBeenCalledWith(1)
+      expect(select).not.toHaveBeenCalled()
+    })
+
+    it('measures the zones on the spread, so the inner part of the right page stays still', () => {
+      const { turn, word } = setup()
+      fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 700, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 700, clientY: 100 })
+      expect(turn).not.toHaveBeenCalled()
+    })
+
+    it('a mouse click still defines the word', () => {
+      const { select, turn, word } = setup()
+      fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 1100, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 1100, clientY: 100 })
+      expect(turn).not.toHaveBeenCalled()
+      expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 1100, 100, undefined, 'lookup')
+    })
+  })
+
   // Phone: swipe up/down turns pages like left/right (Anders, 12 Nov 2026).
   describe('vertical swipe on the phone page', () => {
     const swipe = (target: Element, from: [number, number], to: [number, number], pointerType = 'touch') => {
