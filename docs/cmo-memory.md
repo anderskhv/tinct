@@ -36,7 +36,7 @@
 - **Founding Readers** (first 100 get Premium free for a year, in exchange for feedback). Pricing decision, pending.
 - **Talk to the 2–5 fans:** why they came back, what nearly stopped them, who else they know.
 - **First reading group** ("Hamlet in 4 weeks" or "Odyssey in 6 weeks"); 3–5 book clubs; teachers and homeschool groups; LinkedIn.
-- **Launch video** (92s, Suno music: check the licence before posting). Post on Anders's X and LinkedIn as the reveal. Make a 20–25s cut for Reddit.
+- **Launch video** (92s, Suno music: check the licence before posting). 24 Nov advice: post on X/LinkedIn now as a soft "here's what I'm building" (not a big launch), with one ask (reading group / Founding Readers / feedback), tagged link (`utm_source=x&utm_campaign=launch-video`). Measure 7-day return of X visitors vs cold ad visitors. **Hold Product Hunt and Show HN** until ~20 fans, a few testimonials and a return loop. Make a 20–25s cut for Reddit.
 - **"Why I left" X post:** drafts in `docs/x-post-ideas.md`.
 - **SEO tooling:** the OpenSEO method is adapted in `docs/seo-method.md`. Claude SEO plugin (free) suggested for Anders's Mac. DataForSEO only as a $1 test.
 
