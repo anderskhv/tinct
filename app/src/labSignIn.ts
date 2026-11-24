@@ -22,14 +22,15 @@ import { signInErrorMessage } from './services/browserAuthStorage'
 import { funnel, setFunnelToken, trackFunnel } from './utils/funnel'
 import { setSignedInCookie } from './utils/authCookie'
 import { cardUrl } from './cards/cardRoutes'
-import { enhanceSignInPage, startProfileSteps, updateStepCounter } from './social/signUpSteps'
+import { enhanceSignInPage } from './social/signUpSteps'
+import { SIGN_IN_FREE_LINE, currentSignInEntry, signInBookTitle, signInSheetCopy } from './lab/signInEntry'
 import { fetchOwnProfile } from './social/socialClient'
 import { GOOGLE_FAILED_MESSAGE, GOOGLE_RETURN_CALLBACK, finishGoogleReturn, googleClientId, googleClientIdKnown, parseGoogleReturn, peekGoogleReturnTo, startGoogleSignIn, takeGoogleFlow } from './lab/googleSignIn'
 import { EMAIL_CODE_LENGTH, EMAIL_CODE_RESEND_SECONDS, codeFromText, emailCodeErrorMessage, isGmailAddress, looksLikeEmail } from './lab/labEmailCode'
 
 /** signin: Google or an email code. code: the code for signing in. confirm: the one-time code that confirms an
  * older password account's address. password: password accounts (kept for now). reset: an old recovery link. */
-type Mode = 'signin' | 'password' | 'code' | 'confirm' | 'reset' | 'welcome' | 'profile' | 'reading'
+type Mode = 'signin' | 'password' | 'code' | 'confirm' | 'reset' | 'welcome'
 
 const root = document.querySelector<HTMLElement>('#tinct-lab-sign-in')
 const form = root?.querySelector<HTMLFormElement>('[data-auth-form]')
@@ -52,9 +53,10 @@ const googleReturn = initialParams.get('callback') === GOOGLE_RETURN_CALLBACK
 const returnTo = accountLink ? cardUrl('account', safeLabReturnTo(initialParams.get('returnTo'))) : safeLabReturnTo(initialParams.get('returnTo') ?? (googleReturn ? peekGoogleReturnTo() : null))
 // Back from sign-in, a text or file kept on /byob goes back to /byob, where it still is.
 const preparingReturn = /^\/preparing(?:[/?#]|$)/.test(returnTo)
-// Profiles (social ship 2): only when the Worker marks the page; otherwise nothing changes.
+// Profiles (social ship 2): only when the Worker marks the page; otherwise nothing changes. Sign-up has no
+// profile step since 24 Nov 2026 (Anders): an old ?mode=profile or ?mode=reading link is the plain sheet.
 const social = enhanceSignInPage(root ?? null)
-const allowedModes = new Set<Mode>(['signin', 'password', 'reset', 'welcome', ...(social ? ['profile', 'reading'] as Mode[] : [])])
+const allowedModes = new Set<Mode>(['signin', 'password', 'reset', 'welcome'])
 // One way in now: the old "create" and "forgot" links (reader prompts, emails) open the same sheet (onboarding v3).
 let mode: Mode = allowedModes.has(initialParams.get('mode') as Mode)
   ? initialParams.get('mode') as Mode
@@ -66,6 +68,18 @@ const returnedError = labOAuthReturnError(location.search, location.hash)
 const returnedTokens = new URLSearchParams(location.hash.slice(1))
 const authReturn = Boolean(callback || initialParams.has('code') || returnedTokens.has('access_token') || pendingProvider())
 if (returnedTokens.get('type') === 'recovery') mode = 'reset'
+// What opened the sheet (lab/signInEntry.ts): its title and line, and the sign-up event's `entry`.
+const entry = currentSignInEntry(location.search, googleReturn || authReturn)
+
+/** The sheet's title, line and small print for its entry. /byob's file and paste variants put their own after (context.js). */
+function applyEntryCopy() {
+  const { title, line } = signInSheetCopy(entry, entry === 'save_place' ? signInBookTitle() : null)
+  const set = (selector: string, text: string) => { const node = root?.querySelector<HTMLElement>(selector); if (node) node.textContent = text }
+  set('[data-signin-title]', title)
+  set('[data-signin-copy]', line)
+  set('[data-signin-free]', SIGN_IN_FREE_LINE)
+}
+applyEntryCopy()
 
 function setStatus(message = '', tone: 'error' | 'success' | 'neutral' = 'neutral') {
   if (!status) return
@@ -75,7 +89,7 @@ function setStatus(message = '', tone: 'error' | 'success' | 'neutral' = 'neutra
 }
 
 /**
- * Busy from the first tap until the reader is somewhere new (the profile step, the code, or back in the book), never
+ * Busy from the first tap until the reader is somewhere new (the code, or back in the book), never
  * re-enabled while that is loading: a second tap made a second account ("User already registered", scan 2 Nov 2026).
  */
 let inFlight = false
@@ -110,7 +124,6 @@ function setMode(next: Mode) {
   confirmPassword?.closest<HTMLElement>('[data-confirm-field]')?.toggleAttribute('hidden', mode !== 'reset')
   if (codeBox) codeBox.hidden = mode !== 'code' && mode !== 'confirm'
   if (submit) submit.hidden = mode === 'welcome'
-  if (social) updateStepCounter(root, mode)
   setStatus()
   const url = new URL(location.href)
   // The code screens are not a place to come back to: a reload starts again at the sheet.
@@ -132,7 +145,7 @@ function trackSignupCompleted(userId: string, method: string) {
     if (localStorage.getItem(SIGNUP_LOGGED_KEY) === userId) return
     localStorage.setItem(SIGNUP_LOGGED_KEY, userId)
   } catch { /* private mode: at worst one duplicate */ }
-  trackFunnel('signup_completed', { method })
+  trackFunnel('signup_completed', { method, entry })
 }
 
 async function completeSignIn(session: Session, newAccount = false, method: string = pendingProvider() ? 'oauth' : 'email', windowMs?: number): Promise<void> {
@@ -154,25 +167,11 @@ async function completeSignIn(session: Session, newAccount = false, method: stri
     try { rememberEmptyLibrary(window.localStorage, session.user.id) } catch { /* private mode */ }
     setFunnelToken(session.access_token)
     trackSignupCompleted(session.user.id, method)
-    if (social && root) await startSocialSteps(session)
-    // A text or file chosen on /byob opens straight away (approved paste flow, 5 Nov 2026): no "Explore the library" card first.
-    else if (preparingReturn) returnToLibrary()
-    else setMode('welcome')
-    setBusy(false)
   }
-  else returnToLibrary()
-}
-
-/** Sign-up steps 2 and 3 (social ship 2); today's welcome screen if profiles cannot be reached. */
-function startSocialSteps(session: Session) {
-  const meta = (session.user?.user_metadata ?? {}) as Record<string, unknown>
-  const googlePhotoUrl = typeof meta.avatar_url === 'string' ? meta.avatar_url : typeof meta.picture === 'string' ? meta.picture : null
-  return startProfileSteps(root!, session.access_token, {
-    setMode: next => setMode(next as Mode),
-    setStatus,
-    finish: returnToLibrary,
-    fallbackWelcome: () => setMode('welcome'),
-  }, { googlePhotoUrl, userId: session.user?.id ?? null })
+  // One step (Anders, 24 Nov 2026): a new account goes straight back to where the reader was, the same
+  // book, place and edition, as a returning one does; no profile step and no welcome card. The profile is
+  // made silently, Only me, on its first read (worker/routes/profiles.ts).
+  returnToLibrary()
 }
 
 function credentials() {
@@ -530,13 +529,12 @@ async function initialize() {
       setSignedInCookie()
       if (mode === 'reset') setMode('reset')
       else if (authReturn) { setBusy(true); await completeSignIn(data.session, callback === 'signup') }
-      else if (social && (mode === 'profile' || mode === 'reading')) void startSocialSteps(data.session)
       else if (mode === 'welcome') setMode('welcome')
       // Signed in already: the account is the cards, over the page the reader came from.
       else { navigateAfterAuth(accountLink || preparingReturn ? returnTo : cardUrl('you', returnTo), true); return }
       rememberPendingProvider(null)
     } else {
-      setMode(mode === 'welcome' || mode === 'profile' || mode === 'reading' || mode === 'reset' ? 'signin' : mode)
+      setMode(mode === 'welcome' || mode === 'reset' ? 'signin' : mode)
       reportProviderReturnError()
     }
   } catch (error) {

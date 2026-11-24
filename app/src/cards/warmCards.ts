@@ -13,6 +13,7 @@
 import { fetchAiAllowance } from '../lab/labAiAllowance'
 import { fetchSubscriptionInfo } from '../lab/labPremiumOffer'
 import { socialFriendsOn } from '../social/friendsClient'
+import { socialEnabledFor } from '../social/socialRules'
 import { currentBookHint } from '../social/socialClient'
 import { networkSpare, whenReaderSettled } from '../utils/libraryPreviewWarmup'
 import { fetchOwnProfile, loadReading } from './cardsApi'
@@ -33,11 +34,17 @@ export function warmAccountCards(): void {
     if (!stored?.fresh || stopped) return
     const { token, userId } = stored.session
     const social = socialFriendsOn()
+    const profileRead = fetchOwnProfile(token, currentBookHint()).catch(() => null)
+    // The board only for a reader with social (socialEnabledFor; Anders, 24 Nov 2026): not for one this
+    // device knows was never set up. Unknown here, it is asked beside the profile (the Worker refuses a
+    // reader without social).
+    const known = readCardsCache(userId)?.profile
+    const boardRead = social && (!known || socialEnabledFor(known)) ? loadDefaultBoard(token, userId) : Promise.resolve(null)
     void Promise.all([
-      fetchOwnProfile(token, currentBookHint()).catch(() => null),
+      profileRead,
       loadReading(token, userId).catch(() => null),
       // Kept in memory for the Leaderboard card (boardMemory.ts), never in the device cache.
-      social ? loadDefaultBoard(token, userId) : Promise.resolve(null),
+      boardRead,
       fetchSubscriptionInfo(token).catch(() => null),
       fetchAiAllowance(token).catch(() => null),
     ]).then(([profile, reading, board, info, allowance]) => {

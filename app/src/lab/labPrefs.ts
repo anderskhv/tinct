@@ -1,3 +1,4 @@
+import { withSignInEntry, type SignInEntry } from './signInEntry'
 import { editionHold } from '../data/editionAvailability'
 import type { Edition, FontFamily, ProgressDisplay, ProgressMetric, ProgressScope } from '../types'
 import { BIBLE } from '../data/bookRegistry'
@@ -22,9 +23,12 @@ export function labLibraryIntroductionUrl(bookId: string, editionKey?: string, p
   new URLSearchParams(preview).forEach((value, name) => { if (!params.has(name)) params.set(name, value) })
   return `${LAB_LIBRARY_URL}?${params}`
 }
-/** Sign-in page URL. Pass the current reader path so the reader comes back to the same book after signing in. */
-export function labSignInUrl(returnTo: string = LAB_LIBRARY_URL): string {
-  return `/sign-in?returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
+/**
+ * Sign-in page URL. Pass the current reader path so the reader comes back to the same book after signing in,
+ * and `entry` when the sheet should say why it opened (signInEntry.ts: save_place from inside a book).
+ */
+export function labSignInUrl(returnTo: string = LAB_LIBRARY_URL, entry: SignInEntry = 'general'): string {
+  return withSignInEntry(`/sign-in?returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`, entry)
 }
 /** Library defaults, for surfaces with no reader to return to. */
 export const LAB_SIGN_IN_URL = labSignInUrl()

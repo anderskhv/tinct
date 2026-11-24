@@ -6,10 +6,9 @@ import { claimWhatsNew, returningAccount, WHATS_NEW_TITLE, WHATS_NEW_BULLETS } f
  * in the dark theme, without leaving the page. An old account link arrives as
  * /library?card=<name> and opens that card.
  *
- * Accounts from before profiles get one gentle prompt to set theirs up, here
- * in the library (never inside a book), once. One that still carries the
- * neutral name and was never set up gets the sign-up profile step itself
- * instead (name, picture, background; signUpSteps.ts), once (15 Oct 2026).
+ * Since 24 Nov 2026 (Anders, option B) no account is offered a profile step:
+ * a profile never set up has no social, and the header shows the account's
+ * initial, as the You card does.
  */
 import { supabase } from '../services/supabase'
 import { fetchOwnProfile, ownPictureView, paintAvatar, privateImageUrl, currentBookHint } from '../social/socialClient'
@@ -19,36 +18,18 @@ import { clearCardsCache, readCardsCache } from './cardsCache'
 import { trackFunnel } from '../utils/funnel'
 import type { OwnProfile } from '../social/socialClient'
 import { avatarSignature, captureAvatar, clearAvatarCache, headerPictureView, paintCachedAvatar, readAvatarCache, writeAvatarCache } from './avatarCache'
-import type { PictureView } from '../social/profileRules'
+import { pictureView, type PictureView } from '../social/profileRules'
+import { socialEnabledFor } from '../social/socialRules'
 import { fetchFollowRequests, socialFriendsOn } from '../social/friendsClient'
 import { FOLLOW_REQUESTS_SEEN_EVENT, REQUEST_DOT_CLASS, requestDotDue, type RequestRow } from '../social/followRequests'
 
-import { LEGACY_SETUP_KEY_PREFIX, markProfileStepOffered, profileStepOfferedHere } from '../social/profileStepOffer'
-export { LEGACY_SETUP_KEY_PREFIX }
-
 /**
- * An account that never set up its profile and was never offered the step
- * gets the profile step new sign-ups get: once, never in a book. Skip there
- * records the offer on the account (prompted_at) and Continue sets the
- * profile up, so it does not come back on this or any other device; the
- * device mark covers leaving the step without either (profileStepOffer.ts).
+ * The header's picture: a set-up profile's own; else the account's initial, or an empty disc for an account
+ * with no name, as the You card shows it (no profile is shown, option B; never the stand-in "R").
  */
-export function legacyProfileStepDue(profile: Pick<OwnProfile, 'shouldPrompt' | 'name'>, userId: string | null): boolean {
-  if (!profile.shouldPrompt || !userId) return false
-  return !profileStepOfferedHere(userId)
-}
-
-/** The sign-up profile step (/sign-in?mode=profile), back to `returnTo` when done. */
-export function legacyProfileStepUrl(returnTo: string): string {
-  return `/sign-in?mode=profile&returnTo=${encodeURIComponent(returnTo)}`
-}
-
-function offerLegacyProfileStep(userId: string, returnTo: string): void {
-  markProfileStepOffered(userId)
-  // A browser that cannot keep the mark would be sent to the step on every visit: not at all, then.
-  if (!profileStepOfferedHere(userId)) return
-  // The gentle prompt is not shown as well.
-  location.assign(legacyProfileStepUrl(returnTo))
+export function headerViewFor(profile: OwnProfile, accountName: string | null | undefined): PictureView {
+  if (socialEnabledFor(profile)) return headerPictureView(ownPictureView(profile))
+  return accountName?.trim() ? pictureView('initial', null, accountName) : { kind: 'initial', initial: '' }
 }
 
 const STYLE = `
@@ -142,6 +123,7 @@ async function start(pending: CardName | null): Promise<void> {
   let userId = stored?.session.userId ?? null
   const kept = readAvatarCache(userId)
   const known = readCardsCache(userId)?.profile ?? null
+  const accountName = stored?.session.accountName ?? null
   const mount = () => {
     // Looked up now: the header may have been drawn again since the script loaded.
     const button = document.getElementById('sign-in')
@@ -153,7 +135,7 @@ async function start(pending: CardName | null): Promise<void> {
   }
   const show = (token: string) => {
     if (kept) paintCachedAvatar(avatar, kept.src)
-    else paintAvatar(avatar, known ? headerPictureView(ownPictureView(known)) : { kind: 'initial', initial: '' }, token)
+    else paintAvatar(avatar, known ? headerViewFor(known, accountName) : { kind: 'initial', initial: '' }, token)
     mount()
   }
   if (stored) show(stored.session.token)
@@ -169,7 +151,7 @@ async function start(pending: CardName | null): Promise<void> {
   if (!result.ok) return
   // Then the profile: the same picture keeps the copy already shown (nothing is
   // downloaded); a different one is painted and a new copy kept for next time.
-  const view = headerPictureView(ownPictureView(result.profile))
+  const view = headerViewFor(result.profile, accountName)
   const sig = avatarSignature(view)
   if (!kept || kept.sig !== sig) {
     paintAvatar(avatar, view, token)
@@ -177,11 +159,10 @@ async function start(pending: CardName | null): Promise<void> {
     if (sig && view.kind === 'image') void keepAvatar(userId, sig, view, token)
     else clearAvatarCache(userId)
   }
-  if (socialFriendsOn()) void showRequestDot(token, userId, mount)
+  // Follow requests only for a reader with social (socialEnabledFor; Anders, 24 Nov 2026).
+  if (socialFriendsOn() && socialEnabledFor(result.profile)) void showRequestDot(token, userId, mount)
   if (userId && returningAccount(result.profile.accountCreatedAt)) {
     if (await claimWhatsNew(userId) && storedSession()?.session.userId === userId) showWhatsNew(result.profile)
-  } else if (userId && legacyProfileStepDue(result.profile, userId)) {
-    offerLegacyProfileStep(userId, pending ? cardUrl(pending) : `${location.pathname}${location.search}`)
   }
 }
 
@@ -222,15 +203,14 @@ export function showWhatsNew(profile: OwnProfile): void {
   card.setAttribute('role', 'dialog'); card.setAttribute('aria-label', WHATS_NEW_TITLE)
   const title = document.createElement('b'); title.textContent = WHATS_NEW_TITLE
   const list = document.createElement('ul')
-  for (const [heading, text] of WHATS_NEW_BULLETS) {
+  // "Read with friends" only for a reader who has social (option B).
+  for (const [heading, text] of WHATS_NEW_BULLETS.filter(([heading]) => socialEnabledFor(profile) || !/friends/i.test(heading))) {
     const item = document.createElement('li'), strong = document.createElement('strong')
     strong.textContent = heading; item.append(strong, ' ' + text); list.append(item)
   }
   const go = document.createElement('button'); go.type = 'button'; go.className = 'go'; go.textContent = 'Continue'
-  go.addEventListener('click', () => {
-    card.remove()
-    if (profile.needsSetup) location.assign(legacyProfileStepUrl(`${location.pathname}${location.search}`))
-  })
+  // Continue closes it: no profile step follows any more (Anders, 24 Nov 2026).
+  go.addEventListener('click', () => card.remove())
   const later = document.createElement('button'); later.type = 'button'; later.className = 'later'; later.textContent = 'Later'
   later.addEventListener('click', () => card.remove())
   card.append(title, list, go, later); document.body.append(card)

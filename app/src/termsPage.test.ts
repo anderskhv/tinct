@@ -87,7 +87,7 @@ describe('own books and the AI features', () => {
     expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
-    expect(privacy).toContain('Last updated: 11 November 2026')
+    expect(privacy).toContain('Last updated: 24 November 2026')
     // Explain a figure (9 Nov 2026): a box dragged on an own PDF's page goes to Anthropic as a picture, like a passage's.
     expect(privacyText).toContain('a picture of the passage, figure or page area you select for an action in the margin of a PDF you added (including a box you drag with Explain a figure), are sent to Anthropic')
     // Crops of an own PDF's formulas, figures and tables for its Tinct text (16 Oct 2026): made and kept on the device.
@@ -106,13 +106,22 @@ describe('own books and the AI features', () => {
 
   // Findable profiles and follow requests (Anders, 19 Oct 2026; an in-app notice instead of an email).
   it('privacy: Friends profiles are findable by name and picture; reading only to accepted friends; Only me unfindable', () => {
-    expect(privacy).toContain('Last updated: 11 November 2026')
+    expect(privacy).toContain('Last updated: 24 November 2026')
     expect(privacyText).toContain('A Friends or Everyone profile can be found by other signed-in readers in Find readers, by your name or link; the results show only your name and picture.')
     expect(privacyText).toContain('With Friends, what you read, your reading time and your place on the leaderboard are shown only to accepted friends: readers you follow who follow you back.')
     expect(privacyText).toContain('When someone follows you, it is a request: until you follow them back, they see only your name and picture.')
     expect(privacyText).toContain('Only me keeps you unfindable: nobody can find your profile or see your reading, and a reader you follow sees only your name and link.')
     // Follow requests already shown are remembered in the browser (src/social/followRequests.ts, 20 Oct 2026).
     expect(privacyText).toContain('and which follow requests this browser has already shown you.')
+  })
+
+  // One-step sign-up and option B (Anders, 24 Nov 2026): no profile step, new accounts Only me, social only for
+  // profiles set up before 24 Nov 2026.
+  it('privacy: new accounts start Only me with no profile step; social only for profiles set up before 24 November 2026', () => {
+    expect(privacyText).toContain('A new account’s profile is set to Only me and is not on the leaderboard, and there is no profile step when you sign up.')
+    expect(privacyText).toContain('Profile pages, followers, Find readers and the leaderboard are available only to readers who set up a profile before 24 November 2026.')
+    expect(privacyText).toContain('Without one, nobody can find, follow or see your profile, and you do not see anyone else’s.')
+    expect(privacyText).not.toMatch(/preselected|Pressing Continue with Public|Skip saves none/)
   })
 
   // The library header keeps a small copy of the reader's own picture on the device (src/cards/avatarCache.ts, 19 Oct 2026).

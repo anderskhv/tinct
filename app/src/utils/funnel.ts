@@ -259,5 +259,6 @@ export function funnel(surface: 'library' | 'reader' | 'sign-in' = 'reader'): Re
 }
 
 /** Fire and forget helpers for call sites. */
+/** signup_completed carries how sign-in began (`method`) and what opened the sheet (`entry`: save_place, listen, general). */
 export function trackFunnel(name: FunnelEventName, props?: Props): void { if (!withholdAnalytics(props)) funnel().track(name, props) }
 export function trackFunnelOnce(name: FunnelEventName, props?: Props, scope?: string): void { if (!withholdAnalytics([props, scope])) funnel().trackOnce(name, props, scope) }

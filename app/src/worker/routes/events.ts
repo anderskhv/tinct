@@ -58,6 +58,12 @@ export const FUNNEL_EVENT_NAMES = new Set<string>([
 ])
 const SOCIAL_EVENTS = new Set<string>(SOCIAL_EVENT_NAMES)
 
+/**
+ * signup_completed's `entry`: what opened the sign-in sheet (lab/signInEntry.ts; Anders, 24 Nov 2026).
+ * One of these three words or nothing: never free text, never anything about the reader.
+ */
+export const SIGNUP_ENTRIES = new Set<string>(['save_place', 'listen', 'general'])
+
 export const EVENTS_MAX_BODY_BYTES = 16_384
 export const EVENTS_MAX_BATCH = 20
 export const EVENTS_RATE_PER_MINUTE = 60
@@ -142,6 +148,7 @@ export function buildAnalyticsRows(body: unknown, userAgent: string, userId: str
     const props = cleanProps(item.props)
     // `internal` is only ever true: a stray false or string never marks or unmarks a row.
     delete props.internal
+    if (item.name === 'signup_completed' && 'entry' in props && !SIGNUP_ENTRIES.has(String(props.entry))) delete props.entry
     const internal = options.internal === true || (item.props as { internal?: unknown } | null | undefined)?.internal === true
     const mark = internal ? { internal: true } : {}
     const common = {

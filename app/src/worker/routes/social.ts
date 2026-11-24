@@ -69,6 +69,7 @@ import {
   offEveryone,
   parseFindQuery,
   rankRows,
+  socialEnabledFor,
   socialFriendsOn,
   weekSeconds,
   weekSinceDay,
@@ -628,7 +629,8 @@ async function cardlessFollowers(ctx: Context, followers: string[], cards?: Boar
   if (!followers.length) return []
   const carded = new Set((cards ?? await ctx.social.cardsByIds(followers)).map(card => card.id))
   const rows = await Promise.all(followers.filter(id => !carded.has(id)).slice(0, FOLLOWER_LOOKUP_LIMIT).map(id => ctx.profiles.getOwn(id).catch(() => null)))
-  return rows.filter(Boolean) as ReaderProfileRow[]
+  // A follower who never set up a profile has no social (option B, 24 Nov 2026): never listed to anyone.
+  return rows.filter(row => row && socialEnabledFor(row)) as ReaderProfileRow[]
 }
 
 async function followerByHandle(ctx: Context, viewerId: string, handle: string): Promise<string | null> {
@@ -773,7 +775,8 @@ async function handleCard(request: Request, ctx: Context, viewerId: string): Pro
   const duration = seconds >= 60 ? formatDuration(seconds) : null
   // It links to the reader's public profile when others can see it, else to the book.
   const own = await ctx.profiles.getOwn(viewerId).catch(() => null)
-  const link = own && own.visibility !== 'only_me' ? `https://${profileLinkText(own.handle)}` : `https://tinct.app/read/${bookId}`
+  // Never a profile link for a reader without social (option B): the book's link, as for Only me.
+  const link = own && socialEnabledFor(own) && own.visibility !== 'only_me' ? `https://${profileLinkText(own.handle)}` : `https://tinct.app/read/${bookId}`
   // "Finished" by the same rule as the library and Your reading (preReader/bookFinished.ts).
   const position = await positionOf(ctx, viewerId).catch(() => null)
   const finished = finishedBookIds(position?.finished, () => chapterNumbersOf(book)).includes(bookId)
@@ -932,8 +935,25 @@ export async function handleSocial(request: Request, env: SocialEnv, deps: Socia
     const viewer = request.headers.get('authorization') ? await timed(ctx, 'auth', deps.verifyUser(request)) : null
     const viewerId = viewer && isValidUUID(viewer.id) ? viewer.id : null
 
+    // Social belongs to readers who set up a profile (socialRules.socialEnabledFor; Anders, 24 Nov 2026,
+    // option B). A signed-in reader without one gets no board, rank, Find, follows, blocks, reports or
+    // profile pages: a profile is Not found, the rest refused. The reading card stays: it names no one and
+    // links to the book (handleCard). Signed out is unchanged. Reads are asked beside the check (the board
+    // must not wait for it) and answer only once it passed; anything that writes waits for it first.
+    const socialOff: Promise<boolean> = viewerId && path !== '/api/social/card'
+      ? ctx.profiles.getOwn(viewerId).then(own => !socialEnabledFor(own))
+      : Promise.resolve(false)
+    // Settled at once, so a read that fails first never leaves this promise unhandled.
+    socialOff.catch(() => {})
+    const refused = () => path.startsWith('/api/social/profile/') ? reply({ error: 'Not found' }, 404, request) : reply({ error: 'social_off' }, 403, request)
+    const checked = async <T>(work: Promise<T>): Promise<T | null> => {
+      const [off, value] = await Promise.all([socialOff, work])
+      return off ? null : value
+    }
+
     if (path.startsWith('/api/social/profile/') && request.method === 'GET') {
       const handle = normalizeHandle(decodeURIComponent(path.slice('/api/social/profile/'.length)))
+      if (await socialOff) return refused()
       const data = await buildProfile(ctx, handle, viewerId)
       if (!data) return reply({ error: 'Not found' }, 404, request)
       const response = reply({ profile: data }, 200, request)
@@ -952,22 +972,27 @@ export async function handleSocial(request: Request, env: SocialEnv, deps: Socia
       // The board is read beside the Everyone count, not after it. `today` is the
       // page's own date, so the viewer's row counts the same 7 days as Your reading.
       const opening = timed(ctx, 'count', everyoneOpen(ctx))
-      const [open, data] = await Promise.all([opening, buildBoard(ctx, viewerId, tab, opening, url.searchParams.get('today'))])
+      const both = await checked(Promise.all([opening, buildBoard(ctx, viewerId, tab, opening, url.searchParams.get('today'))]))
+      if (!both) return withTiming(refused(), ctx)
+      const [open, data] = both
       // Below the threshold there is no Everyone board at all.
       if (tab === 'everyone' && !open) return withTiming(reply({ error: 'Not found', everyoneOpen: false }, 404, request), ctx)
       return withTiming(reply({ ...data, everyoneOpen: open }, 200, request), ctx)
     }
     if (path === '/api/social/rank' && request.method === 'GET') {
-      const board = await buildBoard(ctx, viewerId, 'friends', false, url.searchParams.get('today'))
+      const board = await checked(buildBoard(ctx, viewerId, 'friends', false, url.searchParams.get('today')))
+      if (!board) return withTiming(refused(), ctx)
       return withTiming(reply({ rank: board.me?.rank ?? null, total: board.total, seconds: board.me?.seconds ?? 0 }, 200, request), ctx)
     }
     if (path === '/api/social/find' && request.method === 'GET') {
+      if (await socialOff) return refused()
       // Following you only (the dot on the reader's picture, 20 Oct 2026): no ledger reads.
       if (url.searchParams.get('only') === 'following-you') return reply({ followingYou: await followingYouRows(ctx, await circleOf(ctx, viewerId)) }, 200, request)
       const found = await buildFind(ctx, viewerId, url.searchParams.has('q') ? url.searchParams.get('q') : null)
       return reply(url.searchParams.has('q') ? found : { ...found, everyoneOpen: await everyoneOpen(ctx) }, 200, request)
     }
     if (path === '/api/social/blocked' && request.method === 'GET') {
+      if (await socialOff) return refused()
       const blocked = await ctx.social.blockedByMe(viewerId)
       const rows = await Promise.all(blocked.slice(0, 200).map(async id => {
         const row = await ctx.profiles.getOwn(id).catch(() => null)
@@ -978,6 +1003,8 @@ export async function handleSocial(request: Request, env: SocialEnv, deps: Socia
     if (path === '/api/social/card' && request.method === 'POST') return await handleCard(request, ctx, viewerId)
 
     if (request.method !== 'POST') return reply({ error: 'Not found' }, 404, request)
+    // Follows, blocks and reports change something: only after the check.
+    if (await socialOff) return refused()
     const body = await readJson(request)
 
     if (path === '/api/social/unblock') {

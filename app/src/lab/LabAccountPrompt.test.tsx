@@ -78,6 +78,15 @@ function sendTyped(text: string) {
 }
 
 describe('LabAccountSheet', () => {
+  it('leaves the book\'s title for the sign-in sheet as the reader goes to it', async () => {
+    const { signInBookTitle } = await import('./signInEntry')
+    sessionStorage.clear()
+    render(<LabAccountSheet open action="chat" returnTo="/reader" onClose={vi.fn()} bookTitle="Frankenstein" />)
+    expect(signInBookTitle()).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-account-sign-in'))
+    expect(signInBookTitle()).toBe('Frankenstein')
+  })
+
   it('renders the copy, the two sign-in links with the return target, and nothing when closed', () => {
     const onClose = vi.fn()
     const { rerender } = render(<LabAccountSheet open action="chat" returnTo="/reader?voice=v2" onClose={onClose} />)
@@ -88,9 +97,10 @@ describe('LabAccountSheet', () => {
     expect(screen.getByRole('heading', {name: 'Create a free account to keep using AI'})).toBeTruthy()
     expect(screen.getByText(LAB_COPY.accountBody)).toBeTruthy()
     expect(sheet.textContent).not.toMatch(/\d+ free AI/)
-    expect(screen.getByTestId('lab-account-create').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader%3Fvoice%3Dv2')
+    // `from` tells the sign-in sheet what opened it (Anders, 24 Nov 2026): Keep your place for AI, Talk and Catch me up.
+    expect(screen.getByTestId('lab-account-create').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader%3Fvoice%3Dv2&from=save_place')
     expect(screen.getByTestId('lab-account-create').textContent).toBe(LAB_COPY.accountCreate)
-    expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/sign-in?returnTo=%2Freader%3Fvoice%3Dv2')
+    expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/sign-in?returnTo=%2Freader%3Fvoice%3Dv2&from=save_place')
     expect(screen.getByTestId('lab-account-sign-in').textContent).toBe(LAB_COPY.accountSignIn)
     rerender(<LabAccountSheet open={false} action="chat" returnTo="/reader" onClose={onClose} />)
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
@@ -122,7 +132,9 @@ it('shares one prompt between listening and AI: same eyebrow, body tail and butt
   const order = (root: HTMLElement) => Array.from(root.querySelectorAll('a.lab-account-primary, .lab-account-secondary')).map(node => node.textContent)
   expect(order(audio)).toEqual(['Create free account', 'Keep reading', 'Sign in'])
   expect(screen.getByTestId('lab-account-create').className).toBe('lab-account-primary')
-  expect(screen.getByTestId('lab-account-create').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader')
+  // Audio is the keep listening prompt: the sign-in sheet says Keep listening (24 Nov 2026).
+  expect(screen.getByTestId('lab-account-create').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader&from=listen')
+  expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/sign-in?returnTo=%2Freader&from=listen')
   expect(screen.getByTestId('lab-account-sign-in').className).toBe('lab-account-secondary')
   // The quiet text button carries the same class as the Sign in link.
   expect(screen.getByRole('button', {name: 'Keep reading'}).className).toBe('lab-account-secondary')
@@ -143,7 +155,7 @@ describe('LabSecondBookNudge', () => {
     render(<LabSecondBookNudge returnTo="/reader" onDismiss={onDismiss} />)
     const nudge = screen.getByTestId('lab-second-book-nudge')
     expect(nudge.textContent).toContain(`${LAB_COPY.secondBookNudge}${LAB_COPY.secondBookNudgeLink}`)
-    expect(screen.getByTestId('lab-second-book-nudge-link').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader')
+    expect(screen.getByTestId('lab-second-book-nudge-link').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader&from=save_place')
     fireEvent.click(screen.getByLabelText(LAB_COPY.secondBookNudgeDismiss))
     expect(onDismiss).toHaveBeenCalledTimes(1)
   })

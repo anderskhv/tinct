@@ -81,6 +81,25 @@ describe('funnel event rows', () => {
     expect(rows.every(row => row.user_id === userId)).toBe(true)
   })
 
+  it('signup_completed keeps its method and what opened the sign-in sheet (save_place, listen, general), nothing else', () => {
+    const rows = buildAnalyticsRows(batch([
+      { name: 'signup_completed', props: { method: 'oauth', entry: 'save_place' } },
+      { name: 'signup_completed', props: { method: 'email_code', entry: 'listen' } },
+      { name: 'signup_completed', props: { method: 'email_code', entry: 'general' } },
+      // Anything else in `entry` (a title, an address) is dropped; the event stays.
+      { name: 'signup_completed', props: { method: 'oauth', entry: 'Frankenstein' } },
+      { name: 'signup_completed', props: { method: 'oauth' } },
+    ], { surface: 'sign-in', path: '/sign-in' }), 'UA', userId)!
+    expect(rows.map(row => [row.payload.type, row.payload.method, row.payload.entry ?? null])).toEqual([
+      ['signup_completed', 'oauth', 'save_place'],
+      ['signup_completed', 'email_code', 'listen'],
+      ['signup_completed', 'email_code', 'general'],
+      ['signup_completed', 'oauth', null],
+      ['signup_completed', 'oauth', null],
+    ])
+    expect(rows[0].payload.surface).toBe('sign-in')
+  })
+
   it('rejects malformed bodies', () => {
     expect(buildAnalyticsRows(null, 'UA', null)).toBeNull()
     expect(buildAnalyticsRows(batch([]), 'UA', null)).toBeNull()

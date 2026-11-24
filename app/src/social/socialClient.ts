@@ -41,6 +41,12 @@ export interface OwnProfile {
   accountCreatedAt?: string | null
   newBooksOpenIn: NewBooksOpenIn
   setUp: boolean
+  /**
+   * Profile, followers, Find readers, the leaderboard and profile pages: only a profile
+   * that was set up (socialRules.socialEnabledFor; Anders, 24 Nov 2026). Absent (an older
+   * Worker, a copy cached before): setUp decides, which is the same column.
+   */
+  socialEnabled?: boolean
   needsSetup: boolean
   shouldPrompt: boolean
   /** First set up before findable profiles (19 Oct 2026): the findable notice is for these only. Absent: false. */

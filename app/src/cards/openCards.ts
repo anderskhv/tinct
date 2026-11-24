@@ -29,6 +29,7 @@ import { readCardsCache, writeCardsCache } from './cardsCache'
 import { CARDS_COPY } from './cardsCopy'
 import { sessionStorageKey, storedSession, toCardsSession, type StoredAuthSession } from './cardsBoot'
 import { currentBookHint } from '../social/socialClient'
+import { socialEnabledFor } from '../social/socialRules'
 
 export type { CardName } from './cardRoutes'
 export { consumeCardParam, storedSession } from './cardsBoot'
@@ -115,21 +116,13 @@ function load(env: CardsEnv, social: boolean): () => void {
     env.changed()
   }
   const settled = (part: 'profile' | 'reading') => ({ ...env.data.loading, [part]: false })
-  // Profile, reading time and rank are asked for at once; each paints as it arrives.
-  void fetchOwnProfile(token, currentBookHint()).then(result => {
-    // Profiles off or unavailable: the card shows what needs no profile (the last one stays painted if it was).
-    set(result.ok ? { profile: result.profile, loading: settled('profile') } : { loading: settled('profile') })
-  })
-  // Your reading after this device's pending time has gone up (at most a 2 s
-  // wait), so it reads the ledger rows the board does (21 Oct 2026).
-  // The Leaderboard, when it asks again later, sends what was read since too.
-  let syncing: Promise<void> | null = null
-  env.syncOwnTime = () => {
-    // One at a time: a Leaderboard opened while the open's own is on its way shares it.
-    syncing ??= syncOwnTime(env, set).finally(() => { syncing = null })
-  }
-  env.syncOwnTime()
-  if (social) {
+  // The board and Find only for a reader with social (socialEnabledFor; Anders, 24 Nov 2026). At once
+  // unless this device knows the profile was never set up: a first open here does not wait for the
+  // profile (the Worker refuses a reader without social, and nothing of it is shown).
+  let socialStarted = false
+  const startSocial = () => {
+    if (socialStarted || !social) return
+    socialStarted = true
     // The viewer's own row took the flushed time: the rank follows.
     const stop = onBoardsChanged(() => { if (current?.env !== env) stop(); else showBoard(env, set) })
     // The leaderboard now, beside the flush rather than after it (21 Oct 2026):
@@ -140,6 +133,23 @@ function load(env: CardsEnv, social: boolean): () => void {
     void loadDefaultBoard(token, userId).then(board => { if (board) showBoard(env, set) })
     loadFind(env, set)
   }
+  if (!env.data.profile || socialEnabledFor(env.data.profile)) startSocial()
+  // Profile, reading time and rank are asked for at once; each paints as it arrives.
+  void fetchOwnProfile(token, currentBookHint()).then(result => {
+    // Profiles off or unavailable: the card shows what needs no profile (the last one stays painted if it was).
+    set(result.ok ? { profile: result.profile, loading: settled('profile') } : { loading: settled('profile') })
+    if (result.ok && socialEnabledFor(result.profile)) startSocial()
+    else if (result.ok) dropSocialCards(env)
+  })
+  // Your reading after this device's pending time has gone up (at most a 2 s
+  // wait), so it reads the ledger rows the board does (21 Oct 2026).
+  // The Leaderboard, when it asks again later, sends what was read since too.
+  let syncing: Promise<void> | null = null
+  env.syncOwnTime = () => {
+    // One at a time: a Leaderboard opened while the open's own is on its way shares it.
+    syncing ??= syncOwnTime(env, set).finally(() => { syncing = null })
+  }
+  env.syncOwnTime()
   const stopAllowance = watchAiAllowance(() => env.session.token, allowance => set({ allowance }))
   void fetchSubscriptionInfo(token).then(info => {
     if (!info) return
@@ -151,6 +161,14 @@ function load(env: CardsEnv, social: boolean): () => void {
     set({ plan: info.premium || paying ? 'premium' : 'free', firstMonthFreeUntil: info.first_month_free_until ?? null, intervals: premiumOfferIntervals(info), billing: Boolean(info.stripe) })
   })
   return stopAllowance
+}
+
+/** Cards that belong to social; a reader without it (an old ?card= link) is taken back to You. */
+const SOCIAL_CARDS: ReadonlySet<string> = new Set(['leaderboard', 'find', 'profile', 'picture', 'background'])
+
+function dropSocialCards(env: CardsEnv): void {
+  const stack = current?.env === env ? current.stack : null
+  while (stack && !stack.isClosed && stack.depth > 1 && SOCIAL_CARDS.has(stack.ids[stack.ids.length - 1])) stack.back()
 }
 
 /** The You card's rank from the board the Leaderboard opens on (as this page knows it now). */
@@ -256,7 +274,10 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
   })
   current = { stack, env }
   stack.push(cardSpec('you', env))
-  const start = options.start && options.start !== 'you' ? options.start : null
+  // Leaderboard and Find readers only for a reader with social: known here from this device's last profile;
+  // otherwise opened, and taken back to You if the profile says no (dropSocialCards).
+  const known = data.profile
+  const start = options.start && options.start !== 'you' && !(SOCIAL_CARDS.has(options.start) && known && !socialEnabledFor(known)) ? options.start : null
   if (start) stack.push(cardSpec(start, env))
   if (stored && !stored.fresh && live) {
     // An expired token: paint the cached data, load once Supabase has refreshed it.

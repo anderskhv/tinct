@@ -52,7 +52,7 @@ import {
   type ProfileCard,
   type Visibility,
 } from '../../social/profileRules'
-import { isInternalAccount } from '../../social/socialRules'
+import { isInternalAccount, socialEnabledFor } from '../../social/socialRules'
 import { PHOTO_COPY } from '../../social/photoFile'
 import { GENERATED_BOOK_META } from '../../data/bookMetaGenerated'
 import { SIGNUP_CONFIRM_DEDUPE_KEY, SIGNUP_CONFIRM_TEMPLATE, SIGNUP_CONFIRM_WINDOW_MS } from './confirmLink'
@@ -125,6 +125,20 @@ function notFound(request: Request): Response {
   return reply({ error: 'Not found' }, 404, request)
 }
 
+/**
+ * What only a set-up profile may change (socialRules.socialEnabledFor; Anders,
+ * 24 Nov 2026, option B). An account without one keeps its reading defaults
+ * and reading emails (Settings), and never becomes visible to anyone: it
+ * cannot choose who sees it, join the leaderboard, or set itself up.
+ */
+export const SOCIAL_PROFILE_FIELDS = ['name', 'handle', 'picture', 'background', 'visibility', 'showReading', 'showTime', 'onLeaderboard', 'skip', 'setUp'] as const
+
+export const SOCIAL_OFF_ERROR = 'Profiles are not available on this account.'
+
+function socialOff(request: Request, field?: string): Response {
+  return reply({ error: SOCIAL_OFF_ERROR, ...(field ? { field } : {}) }, 403, request)
+}
+
 export function isGoogleAccount(user: ProfileAuthUser): boolean {
   const meta = user.app_metadata || {}
   return meta.provider === 'google'
@@ -180,9 +194,15 @@ function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; ema
     readingLanguages: row.reading_languages ?? ['en'],
     accountCreatedAt: user.created_at ?? null,
     setUp: Boolean(row.set_up_at),
+    /**
+     * Profile, followers, Find readers, the leaderboard and profile pages
+     * (socialRules.socialEnabledFor; Anders, 24 Nov 2026): only a profile that
+     * was set up. Sign-up has no profile step, so a new account never has it.
+     */
+    socialEnabled: socialEnabledFor(row),
     /** An account from before profiles that has not chosen anything yet. */
     needsSetup: row.auto_created && !row.set_up_at,
-    /** The one gentle prompt: offered once, outside a book. */
+    /** The one gentle prompt: offered once, outside a book. No page offers it since 24 Nov 2026 (option B). */
     shouldPrompt: row.auto_created && !row.set_up_at && !row.prompted_at,
     /**
      * Set up before findable profiles (set_up_at, stamped once at set-up: the
@@ -541,6 +561,8 @@ export async function handleProfiles(
       if (!body) return reply({ error: 'Invalid JSON' }, 400, request)
       const row = await ownProfile(store, user, null, random)
       await flagInternal(store, user, request)
+      const socialField = socialEnabledFor(row) ? undefined : SOCIAL_PROFILE_FIELDS.find(field => field in body)
+      if (socialField) return socialOff(request, socialField)
       const built = await buildPatch(store, row, body, now, random)
       if ('error' in built) return reply({ error: built.error, field: built.field }, built.status, request)
       const { patch } = built
@@ -579,6 +601,7 @@ export async function handleProfiles(
     if (url.pathname === '/api/profile/handle' && request.method === 'GET') {
       const handle = normalizeHandle(url.searchParams.get('h') || '')
       const own = await store.getOwn(user.id)
+      if (!socialEnabledFor(own)) return socialOff(request)
       if (own?.handle === handle) return reply({ ok: true, handle, link: profileLinkText(handle) }, 200, request)
       const problem = handleProblem(handle, BOOK_IDS)
       // Reserved and taken answer alike ("unavailable"), so the check does not say a profile is there.
@@ -598,12 +621,14 @@ export async function handleProfiles(
       const jpeg = stripJpegMetadata(bytes)
       if (!jpeg || jpeg.width > MAX_IMAGE_SIDE || jpeg.height > MAX_IMAGE_SIDE) return reply({ error: PHOTO_COPY.unprocessed }, 415, request)
       const row = await ownProfile(store, user, null, random)
+      if (!socialEnabledFor(row)) return socialOff(request)
       await storeImage(env, store, row, slot, jpeg.bytes, 'image/jpeg', 'upload', random)
       const next = await store.getOwn(user.id) ?? row
       return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now, request), user, photoUploadsOn(env)) }, 200, request)
     }
 
     if (url.pathname === '/api/profile/google-photo' && request.method === 'POST') {
+      if (!socialEnabledFor(await store.getOwn(user.id))) return socialOff(request)
       const source = googlePhotoUrl(user)
       if (!source) return reply({ error: 'No Google photo on this account.' }, 404, request)
       if (!env.USER_BOOKS) return reply({ error: 'Uploads are unavailable' }, 503, request)
@@ -688,7 +713,8 @@ async function sendSignUpConfirmation(store: ProfileStore, user: ProfileAuthUser
 export async function viewFor(store: ProfileStore, ownerId: string, viewerId: string | null) {
   if (viewerId === ownerId) {
     const [own, account] = await Promise.all([store.getOwn(ownerId), store.getAccount(ownerId)])
-    if (!own) return null
+    // No social (never set up): no profile page, not even one's own, like Only me to everyone else.
+    if (!own || !socialEnabledFor(own)) return null
     return publicProfileView(cardFromOwn(own, Boolean(account?.email_confirmed_at)), 'self')
   }
   // The card and the relation at once (two round trips otherwise).
@@ -701,7 +727,8 @@ export async function viewFor(store: ProfileStore, ownerId: string, viewerId: st
   // shows, as the follower view (name and link), so the viewer can remove or block them.
   if (!rel || rel.blocked || !rel.ownerFollowsViewer) return null
   const own = await store.getOwn(ownerId)
-  return own ? publicProfileView({ ...cardFromOwn(own, false), visibility: 'only_me' }, relation) : null
+  // A follower who never set up a profile has no social: never listed or shown to anyone (option B).
+  return own && socialEnabledFor(own) ? publicProfileView({ ...cardFromOwn(own, false), visibility: 'only_me' }, relation) : null
 }
 
 function cardFromOwn(row: ReaderProfileRow, emailConfirmed: boolean): ProfileCard {
@@ -739,6 +766,8 @@ async function handlePublicProfile(request: Request, url: URL, env: ProfilesEnv,
   let ownerId: string | null = null
   if (viewer) {
     const own = await store.getOwn(viewer)
+    // A signed-in reader without social sees no profile page at all: Not found, as for Only me.
+    if (!socialEnabledFor(own)) return notFound(request)
     if (own?.handle === handle) ownerId = viewer
   }
   if (!ownerId) ownerId = (await store.getCardByHandle(handle))?.id ?? null

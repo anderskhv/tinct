@@ -107,6 +107,21 @@ function call(store: ProfileStore, path: string, init: RequestInit & { as?: stri
 const post = (store: ProfileStore, as: string, body: unknown, env?: Record<string, unknown>) =>
   call(store, '/api/profile', { method: 'POST', as, body: JSON.stringify(body), headers: { 'content-type': 'application/json' } }, env)
 
+/** When a profile set up before 24 Nov 2026 was set up: social stays theirs (option B). */
+const EARLIER_SET_UP = '2026-10-01T09:00:00Z'
+
+/**
+ * Readers who set up a profile before 24 Nov 2026 (option B): only these keep
+ * social, so tests of social behaviour use them. Created on first read, as
+ * any account is, then marked set up as the sign-up step used to.
+ */
+async function setUpEarlier(store: MemoryStore, ...ids: string[]) {
+  for (const id of ids) {
+    if (!store.profiles.has(id)) await call(store, '/api/profile', { as: id })
+    store.profiles.set(id, { ...store.profiles.get(id)!, set_up_at: EARLIER_SET_UP })
+  }
+}
+
 afterEach(() => {
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
@@ -270,32 +285,32 @@ describe('names and links never come from the email (Anders, 9 Oct 2026)', () =>
     expect(await get(store, G)).toMatchObject({ name: 'Anders Hvelplund', handle: 'anders.hvelplund' })
   })
 
-  it('setting a name re-derives the link while it is still the automatic one', async () => {
+  // Changed with option B (Anders, 24 Nov 2026): a profile that was never set up can no longer be named,
+  // linked or set up (sign-up has no profile step). Before, the step's name re-derived the automatic link.
+  it('a profile never set up keeps the name and link Tinct made: name, link and set-up are refused', async () => {
     const store = seeded()
-    await get(store, E)
-    // Sign-up step 2 sends the name with setUp.
-    const { profile } = await save(store, E, { name: 'Quinn Adler', visibility: 'friends', setUp: true })
-    expect(profile).toMatchObject({ name: 'Quinn Adler', handle: 'quinn.adler' })
-    // Once set up, the link may be shared: a later name change leaves it alone.
-    expect((await save(store, E, { name: 'Quinn A' })).profile).toMatchObject({ name: 'Quinn A', handle: 'quinn.adler' })
+    const made = await get(store, E)
+    expect((await save(store, E, { name: 'Quinn Adler', visibility: 'friends', setUp: true })).status).toBe(403)
+    expect((await save(store, E, { name: 'Quinn Adler' })).status).toBe(403)
+    expect((await save(store, E, { handle: 'q.reads' })).status).toBe(403)
+    expect(store.profiles.get(E)).toMatchObject({ display_name: made.name, handle: made.handle, set_up_at: null, visibility: 'only_me' })
   })
 
-  it('a name set from the You page before set-up also re-derives the automatic link, uniquely', async () => {
+  it('a set-up profile: once set up, the link may be shared, so a later name change leaves it alone', async () => {
     const store = seeded()
-    store.profiles.set(G, { ...legacyRow({ id: G, display_name: 'Someone', handle: 'quinn.adler' }), set_up_at: '2026-10-08T08:00:00Z' })
-    await get(store, E)
-    expect((await save(store, E, { name: 'Quinn Adler' })).profile).toMatchObject({ name: 'Quinn Adler', handle: 'quinn.adler2' })
+    store.profiles.set(E, legacyRow({ display_name: 'Quinn Adler', handle: 'quinn.adler', set_up_at: '2026-10-08T08:00:00Z' }))
+    expect((await save(store, E, { name: 'Quinn A' })).profile).toMatchObject({ name: 'Quinn A', handle: 'quinn.adler' })
   })
 
   it('a link the reader typed is never changed', async () => {
     const store = seeded()
-    await get(store, E)
+    store.profiles.set(E, legacyRow({ display_name: 'Reader', handle: 'reader4780', set_up_at: '2026-10-08T08:00:00Z' }))
     expect((await save(store, E, { handle: 'q.reads' })).profile.handle).toBe('q.reads')
     expect((await save(store, E, { name: 'Quinn Adler' })).profile).toMatchObject({ name: 'Quinn Adler', handle: 'q.reads' })
     expect((await save(store, E, { name: 'Quinn B', setUp: true })).profile.handle).toBe('q.reads')
     // A name and a typed link in the same save: the typed link wins.
     const other = seeded()
-    await get(other, E)
+    other.profiles.set(E, legacyRow({ display_name: 'Reader', handle: 'reader4780', set_up_at: '2026-10-08T08:00:00Z' }))
     expect((await save(other, E, { name: 'Quinn Adler', handle: 'quinny', setUp: true })).profile.handle).toBe('quinny')
   })
 
@@ -346,10 +361,11 @@ describe('names and links never come from the email (Anders, 9 Oct 2026)', () =>
   })
 })
 
-describe('sign-up step 2', () => {
+// The sign-up profile step is gone (Anders, 24 Nov 2026); these choices remain for profiles set up before.
+describe('a set-up profile\'s choices (was: sign-up step 2)', () => {
   it('Skip = Only me, and records the consent with its wording version', async () => {
     const store = new MemoryStore(); seed(store)
-    await call(store, '/api/profile', { as: C })
+    await setUpEarlier(store, C)
     await post(store, C, { visibility: 'friends' })
     const { profile } = await (await post(store, C, { skip: true, consent: { optIn: true, version: EMAIL_CONSENT_VERSION } })).json() as { profile: Record<string, unknown> }
     expect(profile).toMatchObject({ visibility: 'only_me', setUp: true, needsSetup: false, emailOptIn: true })
@@ -364,14 +380,14 @@ describe('sign-up step 2', () => {
 
   it('Continue saves picture, name and Friends', async () => {
     const store = new MemoryStore(); seed(store)
+    await setUpEarlier(store, C)
     const { profile } = await (await post(store, C, { name: 'Cee', picture: { kind: 'set', value: 'florence' }, background: { kind: 'set', value: 'florence' }, visibility: 'friends', setUp: true })).json() as { profile: Record<string, unknown> }
     expect(profile).toMatchObject({ name: 'Cee', picture: { kind: 'set', value: 'florence' }, visibility: 'friends', setUp: true })
   })
 
   it('rejects a filtered name, a reserved or taken link, and a bad visibility', async () => {
     const store = new MemoryStore(); seed(store)
-    await call(store, '/api/profile', { as: A })
-    await call(store, '/api/profile', { as: C })
+    await setUpEarlier(store, A, C)
     expect((await post(store, C, { name: 'shithead' })).status).toBe(422)
     expect((await post(store, C, { handle: 'library' })).status).toBe(422)
     expect((await post(store, C, { handle: 'odyssey' })).status).toBe(422)
@@ -393,7 +409,8 @@ describe('sign-up step 2', () => {
 describe('visibility seen by a stranger, a one-way follower and a friend', () => {
   async function world() {
     const store = new MemoryStore(); seed(store)
-    for (const id of [A, B, C, D]) await call(store, '/api/profile', { as: id })
+    // Every one of them set up a profile before 24 Nov 2026 (option B): social is theirs.
+    await setUpEarlier(store, A, B, C, D)
     // B follows A (one-way). C and A follow each other (friends). D is a stranger.
     store.follows.push([B, A], [C, A], [A, C])
     return store
@@ -486,6 +503,7 @@ describe('uploads', () => {
       delete: async (key: string) => { objects.delete(key) },
     }
     const env = { ...on, SOCIAL_PHOTO_UPLOADS: '1', USER_BOOKS: bucket }
+    await setUpEarlier(store, A, D)
     await post(store, A, { visibility: 'everyone' }, env)
     const upload = await call(store, '/api/profile/image?slot=picture', { method: 'POST', as: A, body: jpegWithExif() as BodyInit }, env)
     const { profile } = await upload.json() as { profile: { picture: { kind: string; url: string; review: string }; uploads: boolean } }
@@ -544,6 +562,7 @@ describe('photo uploads at launch (SOCIAL_PHOTO_UPLOADS not "1")', () => {
     const r2 = bucket()
     const env: Record<string, unknown> = { ...on, USER_BOOKS: r2 }
     if (value !== undefined) env.SOCIAL_PHOTO_UPLOADS = value
+    await setUpEarlier(store, A)
     await post(store, A, { visibility: 'everyone' }, env)
     // The profile says uploads are off, so the cards offer none.
     expect((await (await call(store, '/api/profile', { as: A }, env)).json() as { profile: { uploads: boolean } }).profile.uploads).toBe(false)
@@ -564,6 +583,7 @@ describe('photo uploads at launch (SOCIAL_PHOTO_UPLOADS not "1")', () => {
   it('the Google photo still works', async () => {
     const store = new MemoryStore(); seed(store)
     const r2 = bucket()
+    await setUpEarlier(store, B)
     vi.stubGlobal('fetch', vi.fn(async () => new Response(jpeg() as BodyInit, { headers: { 'content-type': 'image/jpeg' } })))
     const res = await call(store, '/api/profile/google-photo', { method: 'POST', as: B }, { ...on, USER_BOOKS: r2 })
     expect(res.status).toBe(200)
@@ -861,6 +881,7 @@ describe('the confirmation email at sign-up (Anders, 9 Oct 2026)', () => {
     const { store, read } = setup()
     await read(A)
     expect(store.accounts.get(A)!.email_confirmed_at).toBeNull()
+    await setUpEarlier(store, A)
     const saved = await (await post(store, A, { visibility: 'everyone' })).json() as { profile: { visibility: string; effectiveVisibility: string; emailConfirmed: boolean } }
     expect(saved.profile).toMatchObject({ visibility: 'everyone', effectiveVisibility: 'friends', emailConfirmed: false })
     expect(effectiveVisibility('everyone', false)).toBe('friends')
@@ -924,10 +945,92 @@ describe('onboarding v3: an email code confirms the address; an empty name never
   it('an empty name saves the rest and keeps the name; a name that cleans to nothing still asks again', async () => {
     const store = new MemoryStore(); seed(store)
     const before = await (await call(store, '/api/profile', { as: A })).json() as { profile: { name: string } }
+    await setUpEarlier(store, A)
     const saved = await post(store, A, { name: '   ', visibility: 'only_me' })
     expect(saved.status).toBe(200)
     expect(((await saved.json()) as { profile: { name: string; visibility: string } }).profile).toMatchObject({ name: before.profile.name, visibility: 'only_me' })
     expect((await post(store, A, { name: '' })).status).toBe(200)
     expect((await post(store, A, { name: '<<>>' })).status).toBe(422)
+  })
+})
+
+describe('social only for profiles set up before 24 Nov 2026 (Anders: option B)', () => {
+  const bucket = () => {
+    const objects = new Map<string, Uint8Array>()
+    return { objects, put: async (key: string, value: Uint8Array) => { objects.set(key, value) }, get: async () => null, delete: async () => {} }
+  }
+
+  it('a new account is still made silently, Only me and off the leaderboard, and says it has no social', async () => {
+    const store = new MemoryStore(); seed(store)
+    const { profile } = await (await call(store, '/api/profile', { as: C })).json() as { profile: Record<string, unknown> }
+    expect(profile).toMatchObject({ visibility: 'only_me', onLeaderboard: false, setUp: false, socialEnabled: false })
+    expect(store.profiles.get(C)).toMatchObject({ visibility: 'only_me', on_leaderboard: false, set_up_at: null })
+  })
+
+  it('a set-up profile says it has social, and is unchanged in every other way', async () => {
+    const store = new MemoryStore(); seed(store)
+    await setUpEarlier(store, A)
+    const { profile } = await (await call(store, '/api/profile', { as: A })).json() as { profile: Record<string, unknown> }
+    expect(profile).toMatchObject({ setUp: true, socialEnabled: true })
+    expect((await post(store, A, { visibility: 'friends', onLeaderboard: true })).status).toBe(200)
+  })
+
+  it('without social, every profile choice is refused and nothing is written; set-up and Skip cannot switch it on', async () => {
+    const store = new MemoryStore(); seed(store)
+    await call(store, '/api/profile', { as: C })
+    const before = { ...store.profiles.get(C)! }
+    for (const body of [
+      { name: 'Cee' }, { handle: 'cee.reads' }, { picture: { kind: 'set', value: 'florence' } }, { background: { kind: 'library' } },
+      { visibility: 'everyone' }, { showReading: false }, { showTime: false }, { onLeaderboard: true }, { setUp: true }, { skip: true },
+      // A social field beside an allowed one refuses the whole save.
+      { readingLanguages: ['da'], visibility: 'friends' },
+    ]) {
+      const res = await post(store, C, body)
+      expect(res.status).toBe(403)
+      expect(await res.json()).toMatchObject({ error: 'Profiles are not available on this account.' })
+    }
+    expect(store.profiles.get(C)).toEqual(before)
+  })
+
+  it('without social, Settings still saves reading languages, new books and reading emails', async () => {
+    const store = new MemoryStore(); seed(store)
+    await call(store, '/api/profile', { as: C })
+    expect((await post(store, C, { readingLanguages: ['en', 'da'] })).status).toBe(200)
+    expect((await post(store, C, { newBooksOpenIn: 'human' })).status).toBe(200)
+    expect((await post(store, C, { emailOptIn: true })).status).toBe(200)
+    expect(store.profiles.get(C)).toMatchObject({ reading_languages: ['en', 'da'], new_books_open_in: 'human', set_up_at: null, visibility: 'only_me' })
+    expect(store.accounts.get(C)!.email_opt_in).toBe(true)
+  })
+
+  it('without social: no link check, no upload, no Google photo', async () => {
+    const store = new MemoryStore(); seed(store)
+    const r2 = bucket()
+    const env = { ...on, SOCIAL_PHOTO_UPLOADS: '1', USER_BOOKS: r2 }
+    await call(store, '/api/profile', { as: B }, env)
+    const fetcher = vi.fn(async () => new Response('x'))
+    vi.stubGlobal('fetch', fetcher)
+    expect((await call(store, '/api/profile/handle?h=bea.reads', { as: B }, env)).status).toBe(403)
+    const jpeg = new Uint8Array([0xff, 0xd8, 0xff, 0xc0, 0x00, 0x11, 0x08, 0x02, 0x00, 0x02, 0x00, 0x03, 0x01, 0x22, 0x00, 0x02, 0x11, 0x01, 0x03, 0x11, 0x01, 0xff, 0xda, 0x00, 0x08, 0x01, 0x01, 0x00, 0x00, 0x3f, 0x00, 0x12, 0x34, 0xff, 0xd9])
+    expect((await call(store, '/api/profile/image?slot=picture', { method: 'POST', as: B, body: jpeg as BodyInit }, env)).status).toBe(403)
+    expect((await call(store, '/api/profile/google-photo', { method: 'POST', as: B }, env)).status).toBe(403)
+    expect(fetcher).not.toHaveBeenCalled()
+    expect(r2.objects.size).toBe(0)
+  })
+
+  it('without social, no profile page shows: not one\'s own, not anyone else\'s; and the account appears on no one\'s page', async () => {
+    const store = new MemoryStore(); seed(store)
+    store.accounts.get(A)!.email_confirmed_at = '2026-10-08T11:00:00Z'
+    await setUpEarlier(store, A)
+    await post(store, A, { visibility: 'everyone' })
+    await call(store, '/api/profile', { as: C })
+    const own = store.profiles.get(C)!.handle
+    // C (never set up) looks at an Everyone profile and at their own: Not found, as for Only me.
+    expect((await call(store, '/api/profiles/reader4780', { as: C })).status).toBe(404)
+    expect((await call(store, `/api/profiles/${own}`, { as: C })).status).toBe(404)
+    // Signed out, the Everyone profile is unchanged.
+    expect((await call(store, '/api/profiles/reader4780')).status).toBe(200)
+    // C followed A before 24 Nov: A never sees C, not even as a follower.
+    store.follows.push([C, A])
+    expect((await call(store, `/api/profiles/${own}`, { as: A })).status).toBe(404)
   })
 })

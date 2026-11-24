@@ -76,7 +76,9 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
           const callback = test === 'email-confirmed' ? 'signup' : 'oauth'
           const query = test === 'signed-out' || test === 'email-code' ? '' : test === 'password-reset' ? '&mode=reset' : '&callback=' + callback
           await page.goto(origin + '/sign-in?returnTo=%2Freader%3Fbook%3Dbible%23p12' + query, { waitUntil: 'domcontentloaded' }).catch(reportNavigationFailure)
-          if (test === 'returning-google') {
+          // One step (Anders, 24 Nov 2026): a new reader goes straight back to the book as a returning one does,
+          // with no profile step and no welcome card.
+          if (test === 'returning-google' || test === 'new-google' || test === 'email-confirmed') {
             await page.waitForURL('**/reader?book=bible#p12')
             assert.equal(await page.locator('[data-auth-destination]').count(), 1)
           } else {
@@ -105,36 +107,17 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
               assert(boxes.every(([w, h]) => w >= 36 && h >= 44), JSON.stringify(boxes))
               await page.screenshot({ path: output + '/' + engine + '-' + size + '-code.png' })
               await page.locator('[data-code-input]').pressSequentially('123456')
-              await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.mode === 'welcome')
-            }
-            const expected = test === 'signed-out' ? 'signin' : test === 'password-reset' ? 'reset' : 'welcome'
-            if (expected === 'signin') await page.screenshot({ path: output + '/' + engine + '-' + size + '-sheet.png' })
-            assert.equal(await root.getAttribute('data-mode'), expected)
-            assert.equal(await page.locator('[data-oauth="apple"]:visible').count(), 0)
-            assert.equal(await page.locator('[data-oauth="github"]:visible').count(), 0)
-            if (expected === 'signin') assert.equal(await page.getByRole('button', { name: 'Continue with Google' }).count(), 1)
-            if (expected === 'welcome') {
-              assert.equal(await page.getByRole('heading', { name: 'Welcome to Tinct.' }).count(), 1)
-              assert.equal(await page.locator('[data-auth-form]:visible').count(), 0)
-              assert.equal(await page.locator('[data-sign-out]:visible').count(), 0)
-              const box = await page.locator('.auth-card').boundingBox()
-              assert(box.x >= 0 && box.x + box.width <= width && box.y >= 60 && box.y + box.height <= height)
-              if (test === 'new-google') {
-                assert(Math.abs(box.y + box.height / 2 - (height + (size === 'phone' ? 60 : 72)) / 2) < 6)
-                const screenshot = await page.screenshot({ path: output + '/' + engine + '-' + size + '-welcome.png' })
-                if (engine === 'webkit') {
-                  console.log('REVIEW_BEGIN ' + size + '-welcome')
-                  const encoded = screenshot.toString('base64')
-                  for (let i = 0; i < encoded.length; i += 12000) console.log('REVIEW_CHUNK ' + encoded.slice(i, i + 12000))
-                  console.log('REVIEW_END')
-                }
-                await page.reload().catch(reportNavigationFailure)
-                await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true')
-                assert.equal(await root.getAttribute('data-mode'), 'welcome')
-              }
-              await page.getByRole('button', { name: 'Continue reading', exact: true }).click()
               await page.waitForURL('**/reader?book=bible#p12')
+              assert.equal(await page.locator('[data-auth-destination]').count(), 1)
             }
+            const expected = test === 'signed-out' ? 'signin' : test === 'password-reset' ? 'reset' : null
+            if (expected === 'signin') await page.screenshot({ path: output + '/' + engine + '-' + size + '-sheet.png' })
+            if (expected) {
+              assert.equal(await root.getAttribute('data-mode'), expected)
+              assert.equal(await page.locator('[data-oauth="apple"]:visible').count(), 0)
+              assert.equal(await page.locator('[data-oauth="github"]:visible').count(), 0)
+            }
+            if (expected === 'signin') assert.equal(await page.getByRole('button', { name: 'Continue with Google' }).count(), 1)
           }
           assert.deepEqual(errors, [])
           const result = { engine, size, test, live, passed: true, assets: [...new Set(assets)] }
