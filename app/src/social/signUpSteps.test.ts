@@ -19,6 +19,11 @@ const auth = {
   signOut: vi.fn(async () => ({ error: null })),
 }
 vi.mock('../services/supabase', () => ({ supabase: { auth }, isSupabaseConfigured: () => true }))
+const tracked = vi.hoisted(() => [] as Array<[string, Record<string, unknown> | undefined]>)
+vi.mock('../utils/funnel', async () => ({
+  ...await vi.importActual<typeof import('../utils/funnel')>('../utils/funnel'),
+  trackFunnel: (name: string, props?: Record<string, unknown>) => { tracked.push([name, props]) },
+}))
 
 const baseProfile = {
   handle: 'new', link: 'tinct.app/@new', name: 'Reader',
@@ -84,7 +89,9 @@ beforeEach(() => {
   newUser.user_metadata = {}
   vi.stubGlobal('URL', Object.assign(URL, { createObjectURL: vi.fn(() => 'blob:synthetic-preview'), revokeObjectURL: vi.fn() }))
   navigation.mockClear()
+  tracked.length = 0
   auth.signInWithOtp.mockClear()
+  auth.getSession.mockReset(); auth.getSession.mockResolvedValue({ data: { session: null } })
   vi.stubGlobal('fetch', api)
   api.mockClear()
 })
@@ -94,208 +101,103 @@ afterEach(() => {
   vi.unstubAllGlobals()
 })
 
-describe('sign-up with profiles off', () => {
-  it('a new reader by code gets the welcome screen, and no profile request is made', async () => {
-    mount(false)
-    await import('../labSignIn')
-    await flush()
-    expect(document.querySelector('[data-social-steps]')).toBeNull()
-    await signInByCode()
-    expect(mode()).toBe('welcome')
-    // The only request is the page's Google sign-in check (lab/googleSignIn.ts), never a profile one.
-    expect(api.mock.calls.map(call => String((call as unknown[])[0])).filter(url => !url.endsWith('/api/auth/google/config'))).toEqual([])
-  })
-})
-
-describe('onboarding v3 steps (approved mockup, 2 Nov 2026)', () => {
-  const start = async (search?: string) => {
-    mount(true, search)
-    await import('../labSignIn')
-    await flush()
-    await signInByCode()
+// One-step sign-up (Anders, 24 Nov 2026). This file tested the "Your profile" and "How do you read?" steps
+// (onboarding v3, 2 Nov 2026), which are removed with this decision; their tests went with them. The password
+// tests are kept as they were.
+describe('one-step sign-up (Anders, 24 Nov 2026)', () => {
+  for (const social of [true, false]) {
+    it(`a new reader by code goes straight back to the book: no profile step, no welcome, nothing saved (profiles ${social ? 'on' : 'off'})`, async () => {
+      mount(social)
+      await import('../labSignIn')
+      await flush()
+      await signInByCode()
+      expect(navigation).toHaveBeenCalledExactlyOnceWith('/reader?book=odyssey')
+      expect(mode()).not.toBe('welcome')
+      expect(document.querySelector('.social-step, [data-social-continue], [data-social-steps]')).toBeNull()
+      // Nothing is saved to the profile: it is made silently, Only me, by the Worker on its first read.
+      expect(posts).toEqual([])
+      expect(tracked).toContainEqual(['signup_completed', { method: 'email_code', entry: 'general' }])
+    })
   }
 
-  it('Your profile, 1 of 2: no background by default, the initial, an empty name, Skip at the top', async () => {
-    await start()
-    expect(mode()).toBe('profile')
-    const step = q('[data-mode-copy="profile"]')
-    expect(step.querySelector('.social-counter')!.textContent).toBe('1 of 2Skip')
-    expect(step.querySelector('h1')!.textContent).toBe('Your profile')
-    expect(q('.social-banner').hidden).toBe(true)
-    expect(q<HTMLInputElement>('[name=profileName]').value).toBe('')
-    expect(q('.social-hero-avatar').dataset.kind).toBe('initial')
-    expect(q('[data-social-add-background]').hidden).toBe(false)
-    expect(q('.social-strip').hidden).toBe(true)
-  })
-
-  it('an empty name never blocks: Continue moves on at once and saves behind, without a name', async () => {
-    await start()
-    let release!: () => void
-    holdPosts = new Promise(resolve => { release = resolve })
-    q<HTMLButtonElement>('[data-social-continue]').click()
-    expect(mode()).toBe('reading')
-    await flush()
-    expect(profilePosts()[0].body).not.toHaveProperty('name')
-    release(); await flush()
-  })
-
-  it('a failed save is retried behind the step', async () => {
-    await start()
-    failNextPosts = 1
-    q<HTMLButtonElement>('[data-social-continue]').click()
-    await new Promise(resolve => setTimeout(resolve, 700))
-    await flush()
-    expect(profilePosts().length).toBe(2)
-    expect(mode()).toBe('reading')
-  })
-
-  it('Public and Private set exactly their four settings', async () => {
-    await start()
-    q<HTMLInputElement>('[name=profileName]').value = 'Sara Holm'
-    q<HTMLButtonElement>('[data-visibility="only_me"]').click()
-    q<HTMLButtonElement>('[data-social-continue]').click()
-    await flush()
-    expect(profilePosts()[0].body).toMatchObject({ name: 'Sara Holm', visibility: 'only_me', showReading: false, showTime: false, onLeaderboard: false, setUp: true, picture: { kind: 'initial', value: null } })
-    expect(profilePosts()[0].body).not.toHaveProperty('background')
-    vi.resetModules(); posts = []
-    await start()
-    expect(q('[data-visibility="everyone"]').getAttribute('aria-checked')).toBe('true')
-    q<HTMLButtonElement>('[data-social-continue]').click()
-    await flush()
-    expect(profilePosts()[0].body).toMatchObject({ visibility: 'everyone', showReading: true, showTime: true, onLeaderboard: true })
-  })
-
-  it('+ Add a background: Upload first, then small scenes that take on the first tap; None removes it', async () => {
-    profile = { ...baseProfile, uploads: true }
-    localStorage.setItem('tinct-lab-position', JSON.stringify({ books: { odyssey: { updatedAt: 1 } } }))
-    await start()
-    q<HTMLButtonElement>('[data-social-add-background]').click()
-    const strip = q('.social-strip')
-    expect(strip.hidden).toBe(false)
-    const tiles = [...strip.querySelectorAll<HTMLButtonElement>('.social-strip-row > button')]
-    expect(tiles[0].dataset.socialUpload).toBe('background')
-    const scenes = tiles.filter(tile => tile.classList.contains('social-scene'))
-    expect(scenes.map(scene => scene.querySelector('img')!.getAttribute('src'))).toEqual(expect.arrayContaining(['/lab/library_2/assets/profile/scene-at-sea.jpg']))
-    expect(scenes.every(scene => /\/profile\/scene-[a-z-]+\.jpg$/.test(scene.querySelector('img')!.getAttribute('src')!))).toBe(true)
-    // The book being read comes first (odyssey: At sea).
-    expect(scenes[0].getAttribute('aria-label')).toBe('Background: At sea')
-    scenes[1].click()
-    expect(scenes[1].getAttribute('aria-pressed')).toBe('true')
-    expect(q('.social-banner').hidden).toBe(false)
-    expect(q('.social-banner').style.backgroundImage).toContain('/profile/scene-')
-    q<HTMLButtonElement>('.social-strip-none').click()
-    expect(q('.social-banner').hidden).toBe(true)
-    scenes[0].click()
-    q<HTMLButtonElement>('[data-social-continue]').click()
-    await flush()
-    expect(profilePosts()[0].body).toMatchObject({ background: { kind: 'set', value: 'at-sea' } })
-  })
-
-  it('the picture strip: Upload first, then disc-sized crops, never the full covers', async () => {
-    profile = { ...baseProfile, uploads: true }
-    localStorage.setItem('tinct-lab-position', JSON.stringify({ books: { odyssey: { updatedAt: 1 } } }))
-    await start()
-    q<HTMLButtonElement>('.social-hero-picture').click()
-    const strip = document.querySelectorAll<HTMLElement>('.social-strip')[1]
-    expect(strip.hidden).toBe(false)
-    const tiles = [...strip.querySelectorAll<HTMLButtonElement>('.social-strip-row > button')]
-    expect(tiles[0].dataset.socialUpload).toBe('picture')
-    const images = [...document.querySelectorAll<HTMLElement>('.tinct-avatar')].map(node => node.style.backgroundImage).filter(Boolean)
-    expect(images.length).toBeGreaterThan(3)
-    expect(images.every(image => /\/assets\/avatars\/.+\.webp/.test(image))).toBe(true)
-    const stoic = tiles.find(tile => tile.getAttribute('aria-label') === 'Picture: Stoic')!
-    stoic.click()
-    expect(stoic.getAttribute('aria-pressed')).toBe('true')
-    q<HTMLButtonElement>('[data-social-continue]').click()
-    await flush()
-    expect(profilePosts()[0].body).toMatchObject({ picture: { kind: 'set', value: 'stoic' } })
-  })
-
-  it('a Google account starts with its own photo, saved as the Google photo', async () => {
-    profile = { ...baseProfile, googlePhoto: true, name: 'Sara Holm' }
-    newUser.user_metadata = { avatar_url: 'https://lh3.googleusercontent.com/a/sara=s96-c' }
-    await start()
-    expect(q('.social-hero-avatar').style.backgroundImage).toContain('lh3.googleusercontent.com')
-    expect(q<HTMLInputElement>('[name=profileName]').value).toBe('Sara Holm')
-    q<HTMLButtonElement>('[data-social-continue]').click()
-    await flush()
-    expect(profilePosts()[0].body).not.toHaveProperty('picture')
-    expect(posts.some(post => post.url === '/api/profile/google-photo')).toBe(true)
-  })
-
-  it('How do you read?, 2 of 2: labelled language chips, Modern translation or Original, back to the book', async () => {
-    await start()
-    q<HTMLButtonElement>('[data-social-continue]').click()
-    await flush()
-    const step = q('[data-mode-copy="reading"]')
-    expect(step.querySelector('.social-counter')!.textContent).toBe('2 of 2Skip')
-    expect(step.querySelector('h1')!.textContent).toBe('How do you read?')
-    expect([...step.querySelectorAll('.social-chip')].map(chip => chip.textContent)).toEqual(['English', 'Dansk'])
-    expect([...step.querySelectorAll('.social-option strong')].map(node => node.textContent)).toEqual(['Modern translation', 'Original'])
-    expect([...step.querySelectorAll('.social-option small')].map(node => node.textContent)).toEqual(['AI-generated, in today’s language. Easier to read.', 'The author’s own words, or a published human translation.'])
-    // Where the choice is changed later (Anders, 2 Nov 2026: "You can switch any book at any time" was not clear).
-    expect(step.textContent).toContain('You can change this for any book while you read, in Book settings.')
-    q<HTMLButtonElement>('.social-chip[data-language="da"]').click()
-    q<HTMLButtonElement>('.social-option[data-value="human"]').click()
-    q<HTMLButtonElement>('[data-social-start]').click()
-    await flush()
-    const saved = profilePosts().at(-1)!
-    expect(saved.body).toEqual({ newBooksOpenIn: 'human', readingLanguages: expect.arrayContaining(['en', 'da']) })
-    expect(saved.keepalive).toBe(true)
-    expect(navigation).toHaveBeenCalledWith('/reader?book=odyssey')
-  })
-
-  it('skipping both steps saves no profile choice, only that the step was offered, and returns to the book', async () => {
-    await start()
-    q<HTMLButtonElement>('[data-social-skip]').click()
-    q<HTMLButtonElement>('[data-social-reading-skip]').click()
-    await flush()
-    // prompted_at only (Anders, 9 Nov 2026: after Skip the library offered the step again): no name,
-    // picture, Google photo, visibility or reading choice is sent.
-    expect(posts).toEqual([{ url: '/api/profile', body: { prompted: true }, keepalive: undefined }])
-    expect(navigation).toHaveBeenCalledWith('/reader?book=odyssey')
-  })
-
-  it('Skip waits for the offer to be recorded (retried) before leaving, and the device remembers it from the first sight', async () => {
-    const { LEGACY_SETUP_KEY_PREFIX } = await import('./profileStepOffer')
-    await start()
-    expect(localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + newUser.id)).toBe('1')
-    failNextPosts = 1
-    q<HTMLButtonElement>('[data-social-skip]').click()
-    q<HTMLButtonElement>('[data-social-reading-skip]').click()
-    await flush()
-    expect(navigation).not.toHaveBeenCalled()
-    await new Promise(resolve => setTimeout(resolve, 700))
-    await flush()
-    expect(profilePosts().map(post => post.body)).toEqual([{ prompted: true }, { prompted: true }])
-    expect(navigation).toHaveBeenCalledWith('/reader?book=odyssey')
-  })
-
-  it('an account already offered the step: Skip sends nothing at all', async () => {
-    profile = { ...baseProfile, shouldPrompt: false }
-    await start()
-    q<HTMLButtonElement>('[data-social-skip]').click()
-    q<HTMLButtonElement>('[data-social-reading-skip]').click()
-    await flush()
-    expect(posts).toEqual([])
-    expect(navigation).toHaveBeenCalledWith('/reader?book=odyssey')
-  })
-
-  it('returning readers see the same two steps, counted 1 of 2', async () => {
+  it('an old ?mode=profile link opens no step: signed in, it goes to the You card over the page', async () => {
     auth.getSession.mockResolvedValueOnce({ data: { session: { access_token: 'tok', user: { ...newUser, created_at: '2025-01-01T00:00:00Z' } } } })
     mount(true, '?mode=profile&returnTo=%2Flibrary')
     await import('../labSignIn')
     await flush()
-    expect(mode()).toBe('profile')
-    expect(q('[data-mode-copy="profile"] .social-counter').textContent).toBe('1 of 2Skip')
+    expect(document.querySelector('.social-step')).toBeNull()
+    expect(navigation).toHaveBeenCalledWith('/library?card=you', true)
+  })
+})
+
+describe('the sheet says what opened it (Anders, 24 Nov 2026)', () => {
+  const sheet = () => ({ title: q('[data-signin-title]').textContent, line: q('[data-signin-copy]').textContent, free: q('[data-signin-free]').textContent })
+  const FREE = 'Reading is free. Your first month of Premium is free, no card.'
+  const open = async (search: string) => { mount(true, search); await import('../labSignIn'); await flush() }
+
+  it('from inside a book: Keep your place, naming the book the reader left', async () => {
+    const { rememberSignInBook } = await import('../lab/signInEntry')
+    rememberSignInBook('The Odyssey')
+    await open('?returnTo=%2Freader&from=save_place')
+    expect(sheet()).toEqual({ title: 'Keep your place', line: 'Pick up The Odyssey at this page on any device.', free: FREE })
   })
 
-  it('falls back to the welcome screen when profiles are unavailable', async () => {
-    profile = null as never
-    await start()
-    expect(mode()).toBe('welcome')
+  it('from inside a book whose title is not known: the line without it', async () => {
+    await open('?returnTo=%2Freader&from=save_place')
+    expect(sheet()).toEqual({ title: 'Keep your place', line: 'Pick up where you are on any device.', free: FREE })
   })
 
+  it('a stale title (over 30 minutes) is not used', async () => {
+    sessionStorage.setItem('tinct:sign-in-book', JSON.stringify({ title: 'Ulysses', at: Date.now() - 31 * 60_000 }))
+    await open('?returnTo=%2Freader&from=save_place')
+    expect(sheet().line).toBe('Pick up where you are on any device.')
+  })
+
+  it('the keep listening prompt: Keep listening', async () => {
+    await open('?returnTo=%2Freader&from=listen')
+    expect(sheet()).toEqual({ title: 'Keep listening', line: 'Listen on from this sentence, on any device.', free: FREE })
+  })
+
+  it('anything else, an unknown entry included: Sign in or join Tinct', async () => {
+    for (const search of ['?returnTo=%2Flibrary', '?returnTo=%2Flibrary&from=nonsense']) {
+      vi.resetModules()
+      await open(search)
+      expect(sheet()).toEqual({ title: 'Sign in or join Tinct', line: 'Your books, places, highlights and notes on every device.', free: FREE })
+    }
+  })
+
+  it('the small print sits under the line, left-aligned with it; the only centred note left is the code note under the button', () => {
+    const html = readFileSync(resolve(__dirname, '../../public/lab/sign-in/index.html'), 'utf8')
+    const doc = new DOMParser().parseFromString(html, 'text/html')
+    const free = doc.querySelector('[data-signin-free]')!
+    expect(free.previousElementSibling?.matches('[data-signin-copy]')).toBe(true)
+    expect(free.classList.contains('auth-note')).toBe(false)
+    expect(free.textContent).toBe(FREE)
+    expect(html).toMatch(/\.auth-free\{[^}]*font-size:13px/)
+    expect(html).not.toMatch(/\.auth-free\{[^}]*text-align:center/)
+  })
+
+  it('signup_completed carries the entry, kept across a provider round trip in this tab', async () => {
+    await open('?returnTo=%2Freader&from=listen')
+    vi.resetModules()
+    // Back from the provider: the URL no longer says what opened the sheet; this tab remembered it.
+    auth.getSession.mockResolvedValueOnce({ data: { session: { access_token: 'tok', user: { ...newUser, last_sign_in_at: '2026-11-02T09:00:01Z' } } } })
+    mount(true, '?callback=oauth&returnTo=%2Freader')
+    await import('../labSignIn')
+    await flush()
+    expect(tracked).toContainEqual(['signup_completed', expect.objectContaining({ entry: 'listen' })])
+    expect(navigation).toHaveBeenCalledWith('/reader')
+  })
+
+  it('a later direct visit is general again', async () => {
+    sessionStorage.setItem('tinct:sign-in-entry', 'listen')
+    await open('?returnTo=%2Flibrary')
+    expect(sheet().title).toBe('Sign in or join Tinct')
+    expect(sessionStorage.getItem('tinct:sign-in-entry')).toBeNull()
+  })
+})
+
+describe('password accounts (onboarding v3, kept)', () => {
   it('an unconfirmed password account is asked once for a code, which confirms it and goes on (onboarding v3)', async () => {
     profile = { ...baseProfile, setUp: true, emailConfirmed: false }
     mount(true, '?mode=password&returnTo=%2Flibrary')

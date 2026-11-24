@@ -8,6 +8,7 @@
 import { getBook } from '../../data/bookRegistry'
 import { editionHold } from '../../data/editionAvailability'
 import { labCurrentPath } from '../labAccountPrompt'
+import { rememberSignInBook } from '../signInEntry'
 import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { LAB_PREFS_KEY, labSignInUrl, parseLabPrefs, writeLabPrefs, type LabPrefs } from '../labPrefs'
 import { marginParagraphWords, marginPreviewCompareEdition, marginPreviewReturnHref, type MarginPreviewBook } from './marginPreviewModel'
@@ -65,7 +66,7 @@ export function marginPreviewMenu(bookId: string, pending: Promise<MarginPreview
         return cards.openAccountCards({ start: 'you', dark, deskTop: 76 })
       }).then(opened => {
         // Signed out: the account lives behind sign-in.
-        if (!opened) window.location.assign(labSignInUrl(labCurrentPath()))
+        if (!opened) { rememberSignInBook(book?.title); window.location.assign(labSignInUrl(labCurrentPath(), 'save_place')) }
       }, () => { /* the cards' code could not load (offline before first use): nothing opened */ })
     },
     openAiSettings: ({ dark }) => {

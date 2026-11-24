@@ -16,6 +16,7 @@
  */
 
 import { trackFunnel, trackFunnelOnce } from '../utils/funnel'
+import { SIGN_IN_ENTRY_PARAM, type SignInEntry } from './signInEntry'
 
 /** Device counter of AI actions taken while anonymous. In the `tinct:` namespace `clearLocalUserData` wipes. */
 export const LAB_AI_ACTIONS_KEY = 'tinct:lab-ai-actions'
@@ -144,11 +145,15 @@ export function markTalkTrialUsed(storage: LabPromptStorage | null = browserStor
   try { storage?.setItem(LAB_TALK_TRIAL_KEY, utcToday(now)) } catch { /* private mode */ }
 }
 
-/** Lab sign-in page URL. The sign-in runtime owns the return-target safety policy. */
-export function labSignInHref(mode: 'create' | 'signin', returnTo: string): string {
+/**
+ * Lab sign-in page URL. The sign-in runtime owns the return-target safety policy. `entry` says what
+ * opened the sheet, for its title and line (signInEntry.ts); general adds nothing.
+ */
+export function labSignInHref(mode: 'create' | 'signin', returnTo: string, entry: SignInEntry = 'general'): string {
   const query = new URLSearchParams()
   if (mode === 'create') query.set('mode', 'create')
   query.set('returnTo', returnTo || '/library')
+  if (entry !== 'general') query.set(SIGN_IN_ENTRY_PARAM, entry)
   return `/sign-in?${query.toString()}`
 }
 

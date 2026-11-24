@@ -1650,3 +1650,51 @@ describe('a reader\'s profile shows at once and answers a tap at once (21 Octobe
     expect(top().querySelector('.tc-status')?.textContent).toBe(CARDS_COPY.actionFailed)
   })
 })
+
+describe('an account that never set up a profile (Anders, 24 Nov 2026: option B)', () => {
+  const never = () => ownProfile({ name: 'Reader', handle: 'reader4780', visibility: 'only_me', effectiveVisibility: 'only_me', onLeaderboard: false, setUp: false, socialEnabled: false, needsSetup: true, setUpBeforeFindable: false })
+
+  it('You shows no profile, leaderboard, Find readers or requests; Your reading, AI settings and Settings stay', async () => {
+    profile = never()
+    await open('you')
+    expect(top().dataset.card).toBe('you')
+    for (const id of ['you-leaderboard', 'you-find', 'you-requests', 'you-name', 'you-background', 'you-leaderboard-skeleton', 'you-find-skeleton']) expect(byTest(id), id).toBeNull()
+    // The account's own name, not the profile's; the picture cannot be changed.
+    expect(top().querySelector('.tc-nm')?.textContent).toContain('Anders')
+    expect(top().querySelector('.tc-nm')?.textContent).not.toContain('Reader')
+    expect((byTest('you-picture') as HTMLButtonElement).disabled).toBe(true)
+    expect(byTest('you-picture')!.querySelector('.tc-cam')).toBeNull()
+    expect(byTest('you-reading')).toBeTruthy()
+    expect(byTest('you-settings')).toBeTruthy()
+  })
+
+  it('Settings keeps account, Premium, reading emails and languages, without the profile section', async () => {
+    profile = never()
+    await open('settings')
+    expect(top().dataset.card).toBe('settings')
+    for (const id of ['settings-visibility', 'settings-show-reading', 'settings-show-time', 'settings-leaderboard', 'info-profile', 'info-leaderboard']) expect(byTest(id), id).toBeNull()
+    for (const id of ['settings-language-en', 'settings-new-books', 'settings-reading-emails', 'settings-account', 'settings-sign-out']) expect(byTest(id), id).toBeTruthy()
+    click(byTest('settings-language-da'))
+    await flush()
+    expect(posts.filter(post => post.url === '/api/profile').map(post => Object.keys(post.body))).toEqual([['readingLanguages']])
+  })
+
+  it('an old Leaderboard or Find readers link opens You instead', async () => {
+    profile = never()
+    await open('leaderboard')
+    expect(top().dataset.card).toBe('you')
+    closeAccountCards()
+    // Known on this device now: not opened at all.
+    await open('find')
+    expect(top().dataset.card).toBe('you')
+    expect(document.querySelectorAll('.tc-card').length).toBe(1)
+  })
+
+  it('a profile set up before keeps every row', async () => {
+    await open('you')
+    for (const id of ['you-leaderboard', 'you-find', 'you-background']) expect(byTest(id), id).toBeTruthy()
+    expect((byTest('you-picture') as HTMLButtonElement).disabled).toBe(false)
+    click(byTest('you-settings'))
+    expect(byTest('settings-visibility')).toBeTruthy()
+  })
+})

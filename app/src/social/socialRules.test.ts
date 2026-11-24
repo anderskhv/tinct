@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { EVERYONE_BOARD_MIN_READERS, amongFriendsLine, appearsOnBoard, everyoneBoardOpen, finishedCardLine, isInternalAccount, isReservedTestEmail, mutualFriends, offEveryone, parseFindQuery, rankOfLine, socialFriendsOn, weekSeconds, weekSinceDay, type BoardCard } from './socialRules'
+import { EVERYONE_BOARD_MIN_READERS, amongFriendsLine, appearsOnBoard, everyoneBoardOpen, finishedCardLine, isInternalAccount, isReservedTestEmail, mutualFriends, offEveryone, parseFindQuery, rankOfLine, socialEnabledFor, socialFriendsOn, weekSeconds, weekSinceDay, type BoardCard } from './socialRules'
 import { readingTimeStats } from '../readingTime/model'
 import { followButtonHtml, profileBlockedHtml, profileDocument, profileMainHtml, profileMissingHtml, type ProfilePageData } from './profilePageView'
 
@@ -13,6 +13,24 @@ describe('socialRules', () => {
     expect(socialFriendsOn({ SOCIAL_FRIENDS: '1', SOCIAL_PROFILES: '1' })).toBe(true)
     expect(socialFriendsOn({ SOCIAL_FRIENDS: '1' })).toBe(false)
     expect(socialFriendsOn({ SOCIAL_PROFILES: '1' })).toBe(false)
+  })
+
+  it('social belongs only to profiles that were set up (Anders, 24 Nov 2026: option B)', () => {
+    // The Worker's row.
+    expect(socialEnabledFor({ set_up_at: '2026-10-12T08:00:00Z' })).toBe(true)
+    expect(socialEnabledFor({ set_up_at: null })).toBe(false)
+    expect(socialEnabledFor({ set_up_at: '' })).toBe(false)
+    // The browser's own profile: the Worker's flag decides, whatever setUp says.
+    expect(socialEnabledFor({ socialEnabled: true, setUp: true })).toBe(true)
+    expect(socialEnabledFor({ socialEnabled: false, setUp: true })).toBe(false)
+    expect(socialEnabledFor({ socialEnabled: true, setUp: false })).toBe(true)
+    // A copy cached on the device before the flag existed: setUp is the same column.
+    expect(socialEnabledFor({ setUp: true })).toBe(true)
+    expect(socialEnabledFor({ setUp: false })).toBe(false)
+    expect(socialEnabledFor({})).toBe(false)
+    // No profile (profiles off, unavailable, signed out): no social.
+    expect(socialEnabledFor(null)).toBe(false)
+    expect(socialEnabledFor(undefined)).toBe(false)
   })
 
   it('who appears on which board', () => {

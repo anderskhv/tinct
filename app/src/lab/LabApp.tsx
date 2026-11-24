@@ -243,6 +243,7 @@ import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet } from './LabAccountPrompt.tsx'
+import { rememberSignInBook } from './signInEntry'
 import { clearLabAiActionCount, labCurrentPath, type LabAccountPromptRequest } from './labAccountPrompt'
 import { narrationBridgeUrls, useLabListen, type NextChapterAudio } from './useLabListen'
 import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, type LabCompareAnchor } from './labCompare'
@@ -1067,9 +1068,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       onClose: () => setSuperSheet(layer => (layer === 'account' ? null : layer)),
     })).then(opened => {
       if (opened || !live) return
-      // Signed out: the account lives behind sign-in.
+      // Signed out: the account lives behind sign-in, which says "Keep your place" and names the book.
       setSuperSheet(null)
-      window.location.assign(labSignInUrl(labCurrentPath()))
+      rememberSignInBook(book.bookTitle)
+      window.location.assign(labSignInUrl(labCurrentPath(), 'save_place'))
     }, () => {
       // The cards' code could not load (offline before first use): nothing opened.
       if (live) setSuperSheet(layer => (layer === 'account' ? null : layer))
@@ -8518,6 +8520,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         returnTo={signInReturnTo}
         onClose={closeAccountPrompt}
         desktop={!showPhoneChrome}
+        bookTitle={book.bookTitle}
       />
 
       <LabContentsV2

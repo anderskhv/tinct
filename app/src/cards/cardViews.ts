@@ -42,6 +42,7 @@ import { markRequestsSeen, pendingRequests, requestsLine } from '../social/follo
 import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, onBoardsChanged, rememberPickedBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
+import { socialEnabledFor } from '../social/socialRules'
 
 // ===== Shared state =====
 
@@ -86,7 +87,10 @@ export interface CardsSession {
 export interface CardsEnv {
   session: CardsSession
   data: CardsData
-  /** Leaderboard and Find readers exist (the Worker's SOCIAL_FRIENDS marker). */
+  /**
+   * Leaderboard and Find readers exist on this page (the Worker's SOCIAL_FRIENDS marker). Whether
+   * this reader has them is socialOn(env): the account's own rule as well (socialEnabledFor).
+   */
   social: boolean
   /** Re-render the live cards after `data` changed. */
   changed: () => void
@@ -191,9 +195,27 @@ function avatar(picture: CardPicture | null | undefined, name: string, token: st
   return node
 }
 
+/**
+ * This reader's profile, when it is theirs to show and change: set up (socialEnabledFor; Anders,
+ * 24 Nov 2026, option B). A profile never set up is not shown at all, as when profiles are off.
+ */
+function socialProfile(env: CardsEnv): OwnProfile | null {
+  const profile = env.data.profile
+  return profile && socialEnabledFor(profile) ? profile : null
+}
+
+/**
+ * Leaderboard, Find readers and follow requests for this reader: the page's switch and the
+ * account's own rule. While the profile is on its way its rows keep their place (skeletons).
+ */
+export function socialOn(env: CardsEnv): boolean {
+  if (!env.social) return false
+  return env.data.profile ? socialEnabledFor(env.data.profile) : env.data.loading?.profile === true
+}
+
 /** The reader's own name: the profile's, else the account's; '' rather than a stand-in. */
 function ownName(env: CardsEnv): string {
-  return env.data.profile?.name || env.session.accountName || ''
+  return socialProfile(env)?.name || env.session.accountName || ''
 }
 
 function planWord(env: CardsEnv): string {
@@ -364,8 +386,9 @@ export function youCard(env: CardsEnv): CardSpec {
     live: true,
     render: card => {
       const { data, session } = env
-      const profile = data.profile
-      const waitingProfile = !profile && data.loading?.profile === true
+      // Name, picture and background only for a set-up profile; the rest of You is everyone's.
+      const profile = socialProfile(env)
+      const waitingProfile = !data.profile && data.loading?.profile === true
       const name = waitingProfile ? '' : ownName(env)
       const bg = el('div', { className: 'tc-hero-bg' })
       // While the profile is on its way: no painting yet rather than the wrong one.
@@ -421,13 +444,13 @@ export function youCard(env: CardsEnv): CardSpec {
       const readingGroup = group(
         readingRow,
         // Only once the reader joined the leaderboard.
-        env.social && profile?.onLeaderboard ? row({ label: CARDS_COPY.leaderboard, value: shownRank(env), chevron: true, onClick: () => card.stack.push(leaderboardCard(env)), testid: 'you-leaderboard' })
+        socialOn(env) && profile?.onLeaderboard ? row({ label: CARDS_COPY.leaderboard, value: shownRank(env), chevron: true, onClick: () => card.stack.push(leaderboardCard(env)), testid: 'you-leaderboard' })
           // The profile on its way (a first open on this device): its row's place is kept, so nothing moves when it comes.
           : env.social && waitingProfile ? row({ label: CARDS_COPY.leaderboard, value: el('i', { className: 'tc-skel', 'aria-hidden': 'true' }), testid: 'you-leaderboard-skeleton' }) : null,
       )
       const badge = data.findBadge > 0 ? el('span', { className: 'tc-badge', text: String(data.findBadge) }) : null
       const moreGroup = group(
-        env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' })
+        socialOn(env) && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' })
           : env.social && waitingProfile ? row({ label: CARDS_COPY.findReaders, testid: 'you-find-skeleton' }) : null,
         env.openAiSettings ? row({ label: CARDS_COPY.aiSettings, chevron: true, onClick: env.openAiSettings, testid: 'you-ai-settings' }) : null,
         row({ label: CARDS_COPY.settings, chevron: true, onClick: () => card.stack.push(settingsCard(env)), testid: 'you-settings' }),
@@ -446,7 +469,7 @@ export function youCard(env: CardsEnv): CardSpec {
  * device, so the dot on the reader's picture clears.
  */
 function requestsGroup(env: CardsEnv, card: CardHandle): HTMLElement | null {
-  if (!env.social || !env.data.profile) return null
+  if (!socialOn(env) || !socialProfile(env)) return null
   const rows = env.data.find?.followingYou
   const pending = pendingRequests(rows)
   const line = requestsLine(pending)
@@ -774,7 +797,7 @@ const BOARD_FRESH_MS = 15_000
  * "8th of 12", then "5th of 8").
  */
 function shownRank(env: CardsEnv): string | null {
-  const board = env.social ? knownDefaultBoard(env.session.userId) : null
+  const board = socialOn(env) ? knownDefaultBoard(env.session.userId) : null
   const me = board ? board.entries.find(entry => entry.me) ?? board.me : null
   return (board && rankOf(me?.rank, board.total)) || env.data.rank
 }
@@ -1246,7 +1269,8 @@ export function settingsCard(env: CardsEnv): CardSpec {
           return el('span', { className: 'tc-l' }, el('span', { className: 'tc-lt', text }), info)
         }
         const allowed = leaderboardAllowed(profile)
-        body.append(group(
+        // Who can see you, show reading and time, the leaderboard: a set-up profile's only (option B).
+        if (socialEnabledFor(profile)) body.append(group(
           row({
             label: withInfo(CARDS_COPY.profile, CARDS_COPY.tipProfile, 'info-profile'), className: 'is-seg', testid: 'settings-visibility-row',
             extra: [segmented<Visibility>(CARDS_COPY.profile, [{ value: 'only_me', label: CARDS_COPY.onlyMe }, { value: 'friends', label: CARDS_COPY.friends }, { value: 'everyone', label: CARDS_COPY.everyone }], profile.visibility, value => setPrivacy({ visibility: value }), { testid: 'settings-visibility' })],

@@ -1242,3 +1242,70 @@ describe('the leaderboard answers fast (Anders, 15 Oct 2026: "takes too long to 
     expect(data.entries.map((entry: { name: string; seconds: number }) => [entry.name, entry.seconds])).toEqual([['Bea', 3600], ['You', 0]])
   })
 })
+
+describe('social only for profiles set up before 24 Nov 2026 (Anders: option B)', () => {
+  /** E joined after 24 Nov: a profile made silently, Only me, off the board, never set up. */
+  function withNewcomer(): World {
+    const world = everyoneWorld()
+    world.add(E, { visibility: 'only_me', on_leaderboard: false, auto_created: true, set_up_at: null })
+    return world
+  }
+
+  it('a reader without social gets no board, rank, Find, blocked list or profile page', async () => {
+    const world = withNewcomer()
+    world.read(A, 0, 60); world.read(E, 0, 60)
+    for (const path of ['/api/social/board?tab=friends', '/api/social/board?tab=everyone', '/api/social/board?tab=default', '/api/social/rank', '/api/social/find', '/api/social/find?q=anders', '/api/social/find?only=following-you', '/api/social/blocked']) {
+      const res = await api(world, path, E)
+      expect(res.status, path).toBe(403)
+      expect(JSON.stringify(await res.json())).not.toMatch(/Anders|Bea|Carl|Dora/)
+    }
+    // Profiles, their own included: Not found, as for Only me.
+    for (const handle of ['anders', 'erik']) expect((await api(world, `/api/social/profile/${handle}`, E)).status).toBe(404)
+  })
+
+  it('a reader without social cannot follow, unfollow, remove, block, unblock or report, and nothing is written', async () => {
+    const world = withNewcomer()
+    for (const action of ['follow', 'unfollow', 'remove-follower', 'block']) {
+      expect((await api(world, `/api/social/${action}`, E, { method: 'POST', body: JSON.stringify({ handle: 'anders' }) })).status).toBe(403)
+    }
+    expect((await api(world, '/api/social/unblock', E, { method: 'POST', body: JSON.stringify({ id: A }) })).status).toBe(403)
+    expect((await api(world, '/api/social/report', E, { method: 'POST', body: JSON.stringify({ handle: 'anders', reason: 'spam' }) })).status).toBe(403)
+    expect(world.follows.filter(([f]) => f === E)).toEqual([])
+    expect(world.blocks).toEqual([])
+    expect(world.reports).toEqual([])
+  })
+
+  it('an account without social appears on no board, in no search and in no one\'s Following you, even as an old follower', async () => {
+    const world = withNewcomer()
+    // E followed Anders before 24 Nov 2026.
+    world.follows.push([E, A])
+    world.read(E, 0, 500); world.read(A, 0, 60)
+    for (const tab of ['friends', 'everyone'] as const) expect(names(await board(world, A, tab))).not.toContain('Erik')
+    expect((await json(await api(world, '/api/social/find?q=erik', A))).results).toEqual([])
+    const find = await json(await api(world, '/api/social/find', A))
+    expect(JSON.stringify(find.followingYou)).not.toContain('erik')
+    expect(JSON.stringify(await json(await api(world, '/api/social/find?only=following-you', A)))).not.toContain('erik')
+    expect((await api(world, '/api/social/profile/erik', A)).status).toBe(404)
+  })
+
+  it('the reading card stays, names no one and links to the book', async () => {
+    const world = withNewcomer()
+    // Even a row that somehow says Everyone: no social, no profile link.
+    world.profiles.get(E)!.visibility = 'everyone'
+    world.read(E, -1, 90, 'frankenstein')
+    const renderCard = vi.fn(async () => new Uint8Array([137, 80, 78, 71]))
+    const card = await api(world, '/api/social/card', E, { method: 'POST', body: JSON.stringify({ bookId: 'frankenstein' }) }, { renderCard })
+    expect(card.status).toBe(200)
+    expect(card.headers.get('X-Card-Link')).toBe('https://tinct.app/read/frankenstein')
+    expect(renderCard).toHaveBeenCalledWith(expect.objectContaining({ link: 'https://tinct.app/read/frankenstein' }))
+  })
+
+  it('readers who set up a profile keep everything', async () => {
+    const world = withNewcomer()
+    world.befriend(A, B); world.read(A, 0, 60); world.read(B, 0, 30)
+    expect((await api(world, '/api/social/board?tab=friends', A)).status).toBe(200)
+    expect(names(await board(world, A, 'friends'))).toEqual(['You', 'Bea'])
+    expect((await api(world, '/api/social/profile/bea', A)).status).toBe(200)
+    expect((await api(world, '/api/social/follow', A, { method: 'POST', body: JSON.stringify({ handle: 'carl' }) })).status).toBe(200)
+  })
+})

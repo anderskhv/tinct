@@ -173,7 +173,7 @@ describe('the library picture', () => {
     document.body.innerHTML = '<header id="header"><nav><button id="search-toggle"></button><button id="sign-in" class="sign-in">Account</button></nav></header>'
     const { writeCardsCache } = await import('./cardsCache')
     writeCardsCache(USER, {
-      profile: { name: 'Anders K. Hvelplund', handle: 'anders', picture: { kind: 'cover', value: 'frankenstein' } } as never,
+      profile: { name: 'Anders K. Hvelplund', handle: 'anders', picture: { kind: 'cover', value: 'frankenstein' }, setUp: true, socialEnabled: true } as never,
       reading: null, rank: null, plan: null, billing: false,
     })
     await import('./libraryCards')
@@ -188,7 +188,7 @@ describe('the library picture', () => {
 
 describe('the library picture from this device\'s copy (Anders, 19 October 2026)', () => {
   const SRC = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ=='
-  const profile = (picture: Record<string, unknown>) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', picture, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false } })
+  const profile = (picture: Record<string, unknown>) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', picture, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false, setUp: true, socialEnabled: true } })
   async function startWith(answer: unknown) {
     vi.resetModules()
     document.documentElement.classList.add('signed-in')
@@ -246,61 +246,56 @@ describe('the library picture from this device\'s copy (Anders, 19 October 2026)
   })
 })
 
-describe('the profile step for an older account (Anders, 15 October 2026)', () => {
-  it('once, for a profile never set up and never offered the step', async () => {
-    const { legacyProfileStepDue, legacyProfileStepUrl, LEGACY_SETUP_KEY_PREFIX } = await import('./libraryCards')
-    // shouldPrompt: never set up (auto_created && !set_up_at) and never offered (!prompted_at).
-    expect(legacyProfileStepDue({ shouldPrompt: true, name: 'Reader' }, USER)).toBe(true)
-    expect(legacyProfileStepDue({ shouldPrompt: true, name: 'Mette' }, USER)).toBe(true)
-    // Set up, skipped on any device (prompted_at; Anders, 9 Nov 2026), or no account: never.
-    expect(legacyProfileStepDue({ shouldPrompt: false, name: 'Reader' }, USER)).toBe(false)
-    expect(legacyProfileStepDue({ shouldPrompt: true, name: 'Reader' }, null)).toBe(false)
-    // Offered on this device already: not again.
-    localStorage.setItem(LEGACY_SETUP_KEY_PREFIX + USER, '1')
-    expect(legacyProfileStepDue({ shouldPrompt: true, name: 'Reader' }, USER)).toBe(false)
-    // The sign-up profile step itself, back where the reader was.
-    expect(legacyProfileStepUrl('/library?card=you')).toBe('/sign-in?mode=profile&returnTo=%2Flibrary%3Fcard%3Dyou')
+// Changed with option B (Anders, 24 Nov 2026): an account never set up is no longer sent to a profile step
+// from the library (before: once, 15 Oct 2026); it has no social, and its header shows the account's initial.
+describe('an account that never set up a profile (Anders, 24 Nov 2026: option B)', () => {
+  const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
+  async function visit(answer: Record<string, unknown>) {
+    vi.resetModules()
+    localStorage.clear()
+    storeSession(3600)
+    document.head.innerHTML = '<meta name="tinct-social" content="1"><meta name="tinct-friends" content="1">'
+    document.documentElement.classList.add('signed-in')
+    const asked: string[] = []
+    const assign = vi.fn()
+    vi.stubGlobal('location', { ...window.location, pathname: '/library', search: '', assign })
+    vi.stubGlobal('fetch', vi.fn((url: string) => {
+      asked.push(String(url))
+      return String(url).startsWith('/api/profile')
+        ? Promise.resolve(new Response(JSON.stringify({ enabled: true, available: true, profile: answer }), { status: 200, headers: { 'Content-Type': 'application/json' } }))
+        : new Promise<Response>(() => {})
+    }))
+    await import('./libraryCards')
+    await settle()
+    return { asked, assign, disc: document.querySelector<HTMLElement>('#sign-in.cards-you .tinct-avatar') }
+  }
+  afterEach(() => { document.head.innerHTML = '' })
+  const never = { handle: 'reader4780', name: 'Reader', visibility: 'only_me', picture: { kind: 'cover', value: 'frankenstein', url: null }, background: { kind: 'library', value: null, url: null }, setUp: false, socialEnabled: false, needsSetup: true, shouldPrompt: true, accountCreatedAt: new Date().toISOString() }
+
+  it('is never sent to a profile step, asks for no follow requests, and its header shows the account\'s initial', async () => {
+    const { assign, asked, disc } = await visit(never)
+    expect(assign).not.toHaveBeenCalled()
+    expect(asked.some(url => url.startsWith('/api/social/'))).toBe(false)
+    expect(disc?.dataset.kind).toBe('initial')
+    expect(disc?.textContent).toBe('A')
+    // An account with no name (an email code): an empty disc, never the stand-in "R".
+    const { headerViewFor } = await import('./libraryCards')
+    expect(headerViewFor(never as never, null)).toEqual({ kind: 'initial', initial: '' })
+    expect(headerViewFor(never as never, 'Anders')).toEqual({ kind: 'initial', initial: 'A' })
   })
 
-  it('a new account that skipped the step on another device is not sent to it here (Anders, 9 Nov 2026)', async () => {
-    const { LEGACY_SETUP_KEY_PREFIX } = await import('./libraryCards')
-    const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
-    const visit = async (shouldPrompt: boolean) => {
-      vi.resetModules()
-      localStorage.clear()
-      storeSession(3600)
-      document.head.innerHTML = '<meta name="tinct-social" content="1">'
-      document.documentElement.classList.add('signed-in')
-      const profile = { handle: 'nora', name: 'Reader', visibility: 'only_me', picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, needsSetup: true, shouldPrompt, accountCreatedAt: new Date().toISOString() }
-      vi.stubGlobal('fetch', vi.fn((url: string) => String(url).startsWith('/api/profile')
-        ? Promise.resolve(new Response(JSON.stringify({ enabled: true, available: true, profile }), { status: 200, headers: { 'Content-Type': 'application/json' } }))
-        : new Promise<Response>(() => {})))
-      await import('./libraryCards')
-      await settle()
-      // offerLegacyProfileStep leaves the device mark just before it goes to /sign-in?mode=profile.
-      return localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + USER) !== null
-    }
-    try {
-      // Skipped (prompted_at set), not set up: a fresh device does not offer it.
-      expect(await visit(false)).toBe(false)
-      // Never offered: once.
-      expect(await visit(true)).toBe(true)
-    } finally {
-      document.head.innerHTML = ''
-    }
-  })
-
-  it('the device mark is reader data: sign-out wipes it with the rest', async () => {
-    const { LEGACY_SETUP_KEY_PREFIX } = await import('./libraryCards')
-    const { clearLocalUserData } = await import('../services/storage')
-    localStorage.setItem(LEGACY_SETUP_KEY_PREFIX + USER, '1')
-    clearLocalUserData()
-    expect(localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + USER)).toBeNull()
+  it('a returning account without social: the notice leaves out reading with friends, and Continue only closes it', async () => {
+    const { assign } = await visit({ ...never, accountCreatedAt: '2025-01-01T00:00:00Z' })
+    const notice = document.querySelector<HTMLElement>('[data-testid="whats-new"]')!
+    expect(notice.textContent).not.toMatch(/friends/i)
+    notice.querySelector<HTMLElement>('.go')!.click()
+    expect(document.querySelector('[data-testid="whats-new"]')).toBeNull()
+    expect(assign).not.toHaveBeenCalled()
   })
 })
 
 describe('the approved returning-reader notice', () => {
-  const answer = (visibility: string, setUpBeforeFindable = true) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility, picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false, setUpBeforeFindable, accountCreatedAt: setUpBeforeFindable ? '2025-01-01T00:00:00Z' : new Date().toISOString() } })
+  const answer = (visibility: string, setUpBeforeFindable = true) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility, picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false, setUp: true, socialEnabled: true, setUpBeforeFindable, accountCreatedAt: setUpBeforeFindable ? '2025-01-01T00:00:00Z' : new Date().toISOString() } })
   const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
   async function visit(visibility: string, friendsOn = true, setUpBefore = true, signedIn = true) {
     vi.resetModules()
@@ -361,7 +356,7 @@ describe('the approved returning-reader notice', () => {
 
 // Follow requests made visible (Anders, 20 Oct 2026): a dot on the picture until the requests were shown here.
 describe('the follow-request dot on the library picture', () => {
-  const profileAnswer = { enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility: 'friends', picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false } }
+  const profileAnswer = { enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility: 'friends', picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false, setUp: true, socialEnabled: true } }
   const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
   const reply = (body: unknown) => Promise.resolve(new Response(JSON.stringify(body), { status: 200, headers: { 'Content-Type': 'application/json' } }))
   const ellen = { handle: 'ellen', name: 'Ellen Ravn', link: 'tinct.app/@ellen', picture: { src: null, pos: '', cover: false, private: false, initial: 'E' }, relation: 'followed', book: null }

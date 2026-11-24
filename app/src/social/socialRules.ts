@@ -37,6 +37,31 @@ export function socialFriendsOn(env: { SOCIAL_FRIENDS?: string; SOCIAL_PROFILES?
   return env.SOCIAL_FRIENDS === '1' && env.SOCIAL_PROFILES === '1'
 }
 
+// ===== Who has social at all (Anders, 24 Nov 2026: option B) =====
+
+/**
+ * The shapes a profile reaches this rule in: the Worker's row
+ * (reader_profiles.set_up_at), or the browser's own profile from
+ * GET /api/profile (`socialEnabled`; `setUp` on a copy cached before the flag).
+ */
+export type SocialProfileShape =
+  | { set_up_at: string | null }
+  | { socialEnabled?: boolean; setUp?: boolean }
+
+/**
+ * Social (profile, followers, follow requests, Find readers, the leaderboard,
+ * public profile pages) belongs only to readers who set up a profile: set_up_at
+ * is not null. Sign-up has no profile step since 24 Nov 2026, so a new account
+ * never gets it; profiles set up before then are unchanged. No profile at all:
+ * no social. One rule for the Worker and the pages.
+ */
+export function socialEnabledFor(profile: SocialProfileShape | null | undefined): boolean {
+  if (!profile) return false
+  if ('set_up_at' in profile) return typeof profile.set_up_at === 'string' && profile.set_up_at.length > 0
+  if (typeof profile.socialEnabled === 'boolean') return profile.socialEnabled
+  return profile.setUp === true
+}
+
 // ===== The 7-day window =====
 
 /** The fallback cache (read only when the live ledger read fails) is rebuilt on read when older than this; the cron rebuilds it hourly. */

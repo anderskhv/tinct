@@ -320,13 +320,12 @@ describe('completed authentication', () => {
   }
   const mode = () => document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode
 
-  it('welcomes a new Google reader and preserves their exact book return', async () => {
+  // Changed with one-step sign-up (Anders, 24 Nov 2026): a new reader goes straight back to their exact place,
+  // with no welcome card (before: "Welcome to Tinct." and a Continue button first).
+  it('returns a new Google reader straight to their exact book return, with no welcome or profile stop', async () => {
     await ready('?callback=oauth&returnTo=%2Freader%3Fbook%3Dbible%23p12')
-    expect(mode()).toBe('welcome')
-    expect(navigation).not.toHaveBeenCalled()
-    expect(document.querySelector('[data-mode-copy="welcome"]')?.textContent).toContain('Welcome to Tinct.')
-    document.querySelector<HTMLButtonElement>('[data-mode-copy="welcome"] [data-return]')!.click()
-    expect(navigation).toHaveBeenCalledWith('/reader?book=bible#p12')
+    expect(navigation).toHaveBeenCalledExactlyOnceWith('/reader?book=bible#p12')
+    expect(mode()).not.toBe('welcome')
     expect(location.search).not.toContain('callback')
   })
 
@@ -336,10 +335,11 @@ describe('completed authentication', () => {
     expect(mode()).not.toBe('welcome')
   })
 
-  it('welcomes an email confirmation even when confirmed days after signup', async () => {
+  // Changed with one-step sign-up (Anders, 24 Nov 2026): before, the welcome card.
+  it('an email confirmation confirmed days after signup goes straight back too', async () => {
     await ready('?callback=signup&returnTo=%2Flibrary', { ...newUser, created_at: '2026-09-20T00:00:00Z' })
-    expect(mode()).toBe('welcome')
-    expect(navigation).not.toHaveBeenCalled()
+    expect(mode()).not.toBe('welcome')
+    expect(navigation).toHaveBeenCalledWith('/library')
   })
 
   it('leaves account settings and password recovery available', async () => {
@@ -398,8 +398,10 @@ describe('completed authentication', () => {
     expect(auth.verifyOtp).not.toHaveBeenCalled()
     await typeCode('12 34 56')
     expect(auth.verifyOtp).toHaveBeenCalledExactlyOnceWith({ email: 'new@example.com', token: '123456', type: 'email' })
-    // Four minutes between sending and typing is still a new account: the welcome, not a silent return.
-    expect(mode()).toBe('welcome')
+    // A new account (four minutes between sending and typing) goes straight back to the book: one step
+    // (Anders, 24 Nov 2026; before, the welcome card).
+    expect(mode()).not.toBe('welcome')
+    expect(navigation).toHaveBeenCalledWith('/reader?book=bible')
   })
 
   it('a pasted code signs in, whatever surrounds it (5 Nov 2026: a reader could not paste theirs)', async () => {
@@ -543,9 +545,10 @@ describe('Google sign-in on tinct.app', () => {
     expect(status().hidden).toBe(true)
     answer(Response.json({ idToken: 'id.token.value' }))
     await settle()
-    // The next screen (the welcome here; the profile step with profiles on) takes the mark off.
-    expect(document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode).toBe('welcome')
-    expect(signingIn()).toBeNull()
+    // A new reader now goes straight back to the book (one step, 24 Nov 2026; before, the welcome took the
+    // mark off): the page keeps "Signing you in…" as it leaves, never the form.
+    expect(navigation).toHaveBeenCalledWith('/reader?book=bible#p12')
+    expect(signingIn()).toBe('google')
   })
 
   it('a returning reader goes back to the book still on "Signing you in…"; a failure gives the form back with the notice', async () => {
@@ -614,13 +617,13 @@ describe('Google sign-in on tinct.app', () => {
     expect(sessionStorage.getItem('tinct:google-sign-in')).toBeNull()
   })
 
-  it('welcomes a new reader who came in through Google', async () => {
+  // Changed with one-step sign-up (Anders, 24 Nov 2026): before, the welcome card first.
+  it('returns a new reader who came in through Google straight to the book', async () => {
     workerFetch.mockImplementation(async () => Response.json({ idToken: 'id.token.value' }))
     auth.signInWithIdToken.mockResolvedValueOnce({ data: { session: { access_token: 't', user: fresh } }, error: null })
     await back('#code=c&state=state-1')
-    expect(document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode).toBe('welcome')
-    document.querySelector<HTMLButtonElement>('[data-mode-copy="welcome"] [data-return]')!.click()
-    expect(navigation).toHaveBeenCalledWith('/reader?book=bible#p12')
+    expect(document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode).not.toBe('welcome')
+    expect(navigation).toHaveBeenCalledExactlyOnceWith('/reader?book=bible#p12')
   })
 
   it('a cancelled Google screen comes back to the sheet with a short notice', async () => {

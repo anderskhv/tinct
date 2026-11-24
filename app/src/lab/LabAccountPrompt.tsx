@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { LAB_COPY } from './labCopy'
 import { labSignInHref, type LabAccountAction } from './labAccountPrompt'
+import { rememberSignInBook } from './signInEntry'
 
 interface LabAccountSheetProps {
   open: boolean
@@ -10,6 +11,8 @@ interface LabAccountSheetProps {
   returnTo: string
   onClose: () => void
   desktop?: boolean
+  /** The book being read: the sign-in sheet names it ("Pick up {book} at this page"). */
+  bookTitle?: string | null
 }
 
 /**
@@ -18,7 +21,7 @@ interface LabAccountSheetProps {
  * overlay pattern as the reader sheets (bottom sheet on phones, popover on
  * desktop), one title, one sentence, a cream pill and a text link.
  */
-export function LabAccountSheet({ open, action, returnTo, onClose, desktop = false }: LabAccountSheetProps) {
+export function LabAccountSheet({ open, action, returnTo, onClose, desktop = false, bookTitle = null }: LabAccountSheetProps) {
   useEffect(() => {
     if (!open) return
     const onKey = (event: KeyboardEvent) => {
@@ -28,6 +31,9 @@ export function LabAccountSheet({ open, action, returnTo, onClose, desktop = fal
     return () => window.removeEventListener('keydown', onKey)
   }, [onClose, open])
   if (!open) return null
+  // The sign-in sheet says why it opened (signInEntry.ts): Keep listening for audio, Keep your place for the rest.
+  const entry = action === 'audio' ? 'listen' : 'save_place'
+  const remember = () => rememberSignInBook(bookTitle)
   return (
     <div
       className={`lab-account-overlay${desktop ? ' is-desktop-popover' : ''}`}
@@ -55,11 +61,11 @@ export function LabAccountSheet({ open, action, returnTo, onClose, desktop = fal
         <p className="lab-account-eyebrow">{LAB_COPY.accountEyebrow}</p>
         <h2 className="lab-account-title" id="lab-account-title">{action === 'audio' ? LAB_COPY.accountTitleAudio : action === 'voice' ? LAB_COPY.accountTitleTalk : LAB_COPY.accountTitle}</h2>
         <p className="lab-account-body">{action === 'audio' ? LAB_COPY.accountBodyAudio : LAB_COPY.accountBody}</p>
-        <a className="lab-account-primary" href={labSignInHref('create', returnTo)} data-testid="lab-account-create">
+        <a className="lab-account-primary" href={labSignInHref('create', returnTo, entry)} onClick={remember} data-testid="lab-account-create">
           {LAB_COPY.accountCreate}
         </a>
         <button type="button" className="lab-account-secondary" data-testid="lab-account-keep-reading" onClick={onClose}>{LAB_COPY.accountKeepReading}</button>
-        <a className="lab-account-secondary" href={labSignInHref('signin', returnTo)} data-testid="lab-account-sign-in">
+        <a className="lab-account-secondary" href={labSignInHref('signin', returnTo, entry)} onClick={remember} data-testid="lab-account-sign-in">
           {LAB_COPY.accountSignIn}
         </a>
       </section>
@@ -78,7 +84,7 @@ export function LabSecondBookNudge({ returnTo, onDismiss }: LabSecondBookNudgePr
     <p className="lab-account-nudge" data-testid="lab-second-book-nudge">
       <span>
         {LAB_COPY.secondBookNudge}
-        <a href={labSignInHref('create', returnTo)} data-testid="lab-second-book-nudge-link">{LAB_COPY.secondBookNudgeLink}</a>
+        <a href={labSignInHref('create', returnTo, 'save_place')} data-testid="lab-second-book-nudge-link">{LAB_COPY.secondBookNudgeLink}</a>
       </span>
       <button
         type="button"
