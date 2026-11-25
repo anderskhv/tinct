@@ -84,7 +84,13 @@ export const LAB_COPY = {
   accountCreate: 'Create free account',
   accountSignIn: 'Sign in',
   accountDismiss: 'Not now',
-  secondBookNudge: 'Keep your place across books: ',
-  secondBookNudgeLink: 'create a free account',
-  secondBookNudgeDismiss: 'Dismiss',
+  /** The save-your-place box at a signed-out reader's chapter end (labSavePlace.ts); {book} is the book's title. */
+  savePlaceFirstChapter: 'You finished your first chapter of {book}. Keep your place on every device: ',
+  /** {n} is the chapters of this book finished on this device (two or more). */
+  savePlaceChapters: "You've read {n} chapters of {book}. Keep your place on every device: ",
+  savePlaceLink: 'create a free account',
+  /** The welcome-back box, on a later day than the device's previous reading session. */
+  savePlaceWelcomeBack: "Welcome back. You're where you left off on this device. ",
+  savePlaceWelcomeBackLink: 'Create a free account',
+  savePlaceWelcomeBackTail: ' to keep your place everywhere.',
 } as const

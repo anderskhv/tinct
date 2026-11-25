@@ -5,7 +5,8 @@ import { READING_MEMORY_DEVICE_KEY, READING_MEMORY_QUEUE_KEY } from '../readingM
 import { clearLocalUserData } from '../services/storage'
 import { LAB_POSITION_DEVICE_KEY, LAB_POSITION_DIRTY_KEY, LAB_POSITION_STORAGE_KEY } from './labPosition'
 import { LAB_PREFS_KEY } from './labPrefs'
-import { LAB_AI_ACTIONS_KEY, LAB_SECOND_BOOK_NUDGE_KEY } from './labAccountPrompt'
+import { LAB_AI_ACTIONS_KEY } from './labAccountPrompt'
+import { LAB_SAVE_PLACE_KEY } from './labSavePlace'
 import { wipeLabDeviceUserData } from './labSignOut'
 
 /** What a signed-in reader leaves on a device, plus the device-level keys that must survive. */
@@ -29,7 +30,7 @@ const USER_KEYS: Record<string, string> = {
   'tinct-addbook:legacy-epub-backup-quarantine:user-a:abababababababababababab': '{damaged',
   'tinct:lab-reader-handoff': '{"bookId":"bible"}',
   [LAB_AI_ACTIONS_KEY]: '1',
-  [LAB_SECOND_BOOK_NUDGE_KEY]: '1',
+  [LAB_SAVE_PLACE_KEY]: '{"shown":3,"skipped":0,"ends":["odyssey:3"],"returnDay":"2026-11-24"}',
   'tinct:library': '["odyssey"]',
   'tinct:lab-library-boot': '{"v":1,"at":1,"userId":"user-a","readingNow":1,"finished":0,"hero":null}',
   // The device id also identifies analytics events: the next reader on this

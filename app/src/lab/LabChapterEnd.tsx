@@ -1,9 +1,12 @@
 import { useMarginPhone } from './marginPhone/marginPhoneContext'
 import { FREE_MODE } from './freeMode/freeModeContext'
+import { LabSavePlaceChapterEnd, LabSavePlaceRoom } from './LabSavePlaceBox'
 
-export function LabChapterEnd({ chapterTitle, hasNext, busy = false, measuring = false, docked = false, recap: recapAsked = true, note: noteAsked = true, onContinue, onDiscuss, onNote, finishedCard: finishedCardAsked }: {
+export function LabChapterEnd({ chapterTitle, chapterNumber, hasNext, busy = false, measuring = false, docked = false, recap: recapAsked = true, note: noteAsked = true, onContinue, onDiscuss, onNote, finishedCard: finishedCardAsked }: {
   /** The chapter's title (measuring copies pass it too). */
   chapterTitle?: string
+  /** The chapter's number, for a signed-out reader's save-your-place box under the actions (LabSavePlaceBox). */
+  chapterNumber?: number
   hasNext: boolean; busy?: boolean; measuring?: boolean; docked?: boolean
   /** False where no recap can be offered (a reader's own book, once its next chapter is open). */
   recap?: boolean
@@ -49,5 +52,6 @@ export function LabChapterEnd({ chapterTitle, hasNext, busy = false, measuring =
       </button>}
     </div>
     {!hasNext && finishedCard?.note && <p className="lab-chapter-finished-note" role="status">{finishedCard.note}</p>}
+    {measuring ? <LabSavePlaceRoom /> : <LabSavePlaceChapterEnd chapterNumber={chapterNumber} />}
   </section>
 }

@@ -57,6 +57,9 @@ export const FUNNEL_EVENT_NAMES = new Set<string>([
   // A static scene page (/read/{bookId}/{scene}) handing over to the reader: the action and the scene, never the
   // passage or question.
   'scene_handoff',
+  // The save-your-place box for signed-out readers (lab/labSavePlace.ts): where it was (`moment`: chapter_end or
+  // return) and the chapters of the book finished on the device, nothing else.
+  'save_place_prompt_shown', 'save_place_prompt_clicked',
 ])
 const SOCIAL_EVENTS = new Set<string>(SOCIAL_EVENT_NAMES)
 
