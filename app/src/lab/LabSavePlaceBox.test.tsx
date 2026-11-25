@@ -125,6 +125,23 @@ describe('the chapter-end box', () => {
     expect(box()).toBeNull()
   })
 
+  it('in a scrolling reader the room is there before, while and after the box shows, so the chapter end never moves', () => {
+    const room = () => section().querySelector('.lab-save-place')
+    render(chapterEnd(3, { ...reader, scrolling: true }))
+    expect(room()?.classList.contains('is-room')).toBe(true)
+    expect(room()?.getAttribute('aria-hidden')).toBe('true')
+    const text = room()?.textContent
+    act(() => screenShows(section(), 1))
+    expect(box()?.textContent).toBe(text)
+    expect(box()?.classList.contains('is-room')).toBe(false)
+    act(() => screenShows(box()!, 1))
+    act(() => { vi.advanceTimersByTime(SAVE_PLACE_SEEN_MS) })
+    act(() => screenShows(box()!, 0))
+    expect(box()).toBeNull()
+    expect(room()?.classList.contains('is-room')).toBe(true)
+    expect(room()?.textContent).toBe(text)
+  })
+
   it('the measuring copy keeps the room only where asked (phone pages), and never a live box', () => {
     const { container, rerender } = render(<SavePlaceContext.Provider value={{ ...reader, reserveRoom: true }}><LabChapterEnd hasNext measuring /></SavePlaceContext.Provider>)
     expect(container.querySelector('.lab-save-place.is-room')?.getAttribute('aria-hidden')).toBe('true')

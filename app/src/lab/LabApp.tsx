@@ -2059,8 +2059,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const savePlaceOn = !signedIn && !FREE_MODE && !privateBook
   // The phone's pages keep room for the chapter-end box under the chapter end (LabSavePlaceRoom).
   const savePlaceRoom = savePlaceOn && showPhoneChrome && !continuousReader
-  const savePlaceReader = useMemo<SavePlaceReader | null>(() => savePlaceOn ? { bookId: book.bookId || 'bible', bookTitle: book.bookTitle || '', finished: finishedChapters, reserveRoom: savePlaceRoom } : null,
-    [savePlaceOn, savePlaceRoom, book.bookId, book.bookTitle, finishedChapters])
+  const savePlaceReader = useMemo<SavePlaceReader | null>(() => savePlaceOn ? { bookId: book.bookId || 'bible', bookTitle: book.bookTitle || '', finished: finishedChapters, reserveRoom: savePlaceRoom, scrolling: continuousReader } : null,
+    [savePlaceOn, savePlaceRoom, continuousReader, book.bookId, book.bookTitle, finishedChapters])
   // Decided once, at the first render: before this load's own reading session is written.
   const [welcomeBackOpen, setWelcomeBackOpen] = useState(() => !FREE_MODE && welcomeBackDue({ signedIn: false, previousReadingAt: previousReadingAtThisLoad(), now: Date.now(), returnDay: readSavePlace().returnDay }))
   const showWelcomeBack = welcomeBackOpen && savePlaceOn && !initialResolving && !readerLoadError

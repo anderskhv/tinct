@@ -27,6 +27,11 @@ export interface SavePlaceReader {
    * (LabSavePlaceRoom), so the box lies in that room on the final page without moving a word.
    */
   reserveRoom?: boolean
+  /**
+   * A scrolling reader (the Margin reader): every chapter end keeps the box's room in the flow, shown or not, so the
+   * chapter's physical end and the scroll extent never change when the box is decided, shown or taken away.
+   */
+  scrolling?: boolean
 }
 export const SavePlaceContext = createContext<SavePlaceReader | null>(null)
 
@@ -166,14 +171,18 @@ export function LabSavePlaceChapterEnd({ chapterNumber }: { chapterNumber?: numb
   }, () => {
     if (!key) return
     decided.set(key, 'none')
-    removeKeepingView(box.current, () => setState('none'))
+    // In a scrolling reader the room stays: hiding the box moves nothing.
+    if (reader?.scrolling) setState('none')
+    else removeKeepingView(box.current, () => setState('none'))
   })
   if (!key) return null
   const line = (chapters <= 1 ? LAB_COPY.savePlaceFirstChapter : LAB_COPY.savePlaceChapters.replace('{n}', String(chapters))).replace('{book}', reader!.bookTitle)
   return <>
     <span ref={sentinel} hidden />
-    {state === 'show' && <p ref={box} className={`lab-save-place is-chapter-end${fits ? '' : ' is-unfit'}`} data-testid="lab-save-place-chapter-end" aria-hidden={fits ? undefined : true}>
+    {state === 'show' ? <p ref={box} className={`lab-save-place is-chapter-end${fits ? '' : ' is-unfit'}`} data-testid="lab-save-place-chapter-end" aria-hidden={fits ? undefined : true}>
       {line}<SavePlaceLink bookTitle={reader!.bookTitle} moment="chapter_end" chapters={chapters} testId="lab-save-place-link">{LAB_COPY.savePlaceLink}</SavePlaceLink>
+    </p> : reader!.scrolling && <p className="lab-save-place is-chapter-end is-room" aria-hidden="true">
+      {line}<span className="lab-save-place-link">{LAB_COPY.savePlaceLink}</span>
     </p>}
   </>
 }
