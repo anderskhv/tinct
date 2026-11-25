@@ -36,7 +36,7 @@ Calm, literate, confident. Short sentences. No hype words ("revolutionary", "unl
 
 ## Where the promise appears
 
-- Link previews for tinct.app, /library and /reader (title, description, image: `app/public/brand/20261105/share-tinct-1200x630.jpg`), and the shared preview image for other pages (`app/public/og-image-v3.jpg`, generated from `app/scripts/seo/og-image-template.html` by `app/scripts/seo/generate-og-image.cjs`).
+- Link previews for tinct.app, /library and /reader (title, description, image: `app/public/brand/20261105/share-tinct-1200x630.jpg`), and the shared preview image for other pages (`app/public/og-image-v4.jpg`, generated from `app/scripts/seo/og-image-template.html` by `app/scripts/seo/generate-og-image.cjs`).
 - Browser tab titles: home, library, landing, /story.
 - Book pages (`/read/{book}`) keep their own book-specific titles and descriptions, with the shared image.
 - Share cards keep the call to action "Read free at tinct.app".

@@ -1,24 +1,28 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
-<!-- The shared social preview (1200x630): Frankenstein's painted cover on the
-     library's green, the library wordmark and the brand line. Regenerate with
-     node scripts/seo/generate-og-image.cjs -->
+<!-- The shared social preview (1200x630): the library wordmark and the brand line on the library's green, beside four
+     covers on a turned 2x2 that runs off the right edge: the Bible, the Odyssey, Meditations, Hamlet (Anders, 25 Nov:
+     option 6). Every title stays inside the frame. Regenerate with node scripts/seo/generate-og-image.cjs -->
 <style>
 @font-face{font-family:Disp;src:url(../../public/assets/about-v20/fonts/serif.woff2)}
 @font-face{font-family:Body;src:url(../../public/assets/about-v20/fonts/reader-garamond.woff2)}
 *{margin:0;box-sizing:border-box}
 body{width:1200px;height:630px;overflow:hidden;position:relative;color:#efe7d6;font-family:Body,Georgia,serif;background:radial-gradient(ellipse at 75% 45%,#24301f 0%,#141c15 60%)}
-.copy{position:absolute;left:64px;top:56px;bottom:52px;width:600px;display:flex;flex-direction:column}
+.copy{position:absolute;left:64px;top:56px;bottom:56px;width:520px;display:flex;flex-direction:column;z-index:2}
 .mark{font-family:Disp,Georgia,serif;font-size:40px;letter-spacing:-.5px}
 h1{font-family:Disp,Georgia,serif;font-weight:400;font-size:76px;line-height:1.04;letter-spacing:-1px}
 p{font-size:25px;line-height:1.35;opacity:.86;margin-top:22px}
-.url{font-size:21px;opacity:.7;letter-spacing:.5px;margin-top:28px}
-.cover{position:absolute;right:96px;top:62px;width:338px;height:506px;background:url(../../public/lab/library_2/assets/frankenstein.jpg) center/cover;box-shadow:0 30px 60px rgba(0,0,0,.55),0 0 0 1px rgba(239,231,214,.08);border-radius:3px}
+.books{position:absolute;left:750px;top:-6px;width:430px;height:640px;transform:rotate(-9deg)}
+.c{position:absolute;width:200px;height:300px;background-position:center;background-size:cover;border-radius:3px;box-shadow:0 24px 46px rgba(0,0,0,.55),0 0 0 1px rgba(239,231,214,.08)}
 </style></head>
 <body>
 <div class="copy"><div class="mark">tinct</div><div style="flex:1"></div>
 <h1>No text is<br>beyond you.</h1>
-<p>Read, listen and talk with the world’s great books, or your own, in a language and style that speaks to you.</p>
-<div class="url">tinct.app</div></div>
-<div class="cover" role="img" aria-label="Frankenstein by Mary Shelley"></div>
+<p>Read, listen and talk with the world’s great books, or your own, in a language and style that speaks to you.</p></div>
+<div class="books">
+<div class="c" style="left:0;top:0;background-image:url(../../public/covers/v2/bible.webp)" role="img" aria-label="The Bible"></div>
+<div class="c" style="left:224px;top:0;background-image:url(../../public/covers/v2/odyssey@2x.webp)" role="img" aria-label="The Odyssey by Homer"></div>
+<div class="c" style="left:0;top:324px;background-image:url(../../public/covers/v2/meditations@2x.webp)" role="img" aria-label="Meditations by Marcus Aurelius"></div>
+<div class="c" style="left:224px;top:324px;background-image:url(../../public/covers/v2/hamlet.webp)" role="img" aria-label="Hamlet by William Shakespeare"></div>
+</div>
 </body></html>

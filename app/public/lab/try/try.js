@@ -27,9 +27,9 @@
   var FRAMES = [
     ['01', 0, 1300],
     ['02', 0, 1400],
-    ['04', 0, 3800],
-    ['51', 1, 900], ['08', 1, 3400],
-    ['11', 2, 280], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
+    ['04', 0, 2400],
+    ['51', 1, 900], ['08', 1, 4600],
+    ['11', 2, 900], ['12', 2, 280], ['13', 2, 280], ['14', 2, 280], ['15', 2, 280], ['16', 2, 280], ['17', 2, 280],
     ['18', 2, 280], ['19', 2, 280], ['20', 2, 280], ['21', 2, 280], ['22', 2, 280], ['23', 2, 280], ['24', 2, 1500],
     ['10', 3, 4200],
   ].filter(function (frame) { return !frame[3] || (frame[3] === 'phone') === PHONE })
@@ -128,12 +128,19 @@
   // A new moment opens with its name over the reader for a beat, so a change of scene reads as one.
   function announce(step) {
     if (reduce) return
-    scene.textContent = STEPS[step].title
+    // Word for word the moment's line in the list beside the reader (Anders, 25 Nov: "1:1"), the answer in italics as there.
+    scene.textContent = CAPTIONS[step][0] + ' '
+    var answer = document.createElement('em')
+    answer.textContent = CAPTIONS[step][1]
+    scene.appendChild(answer)
     scene.className = 'try-scene'
     void scene.offsetWidth
     scene.className = 'try-scene is-on'
-    later(function () { scene.className = 'try-scene' }, phoneQuery.matches ? 1500 : 1200)
+    // Its own timer: the frame timers are cleared at every frame, which left the headline up for good.
+    clearTimeout(sceneTimer)
+    sceneTimer = setTimeout(function () { scene.className = 'try-scene' }, phoneQuery.matches ? 1500 : 2600)
   }
+  var sceneTimer = null
 
   var index = 0
   // How long before the tap that starts a moment its headline comes up.
@@ -155,7 +162,9 @@
   var underTimer = null
   // The switch to modern English, as in the launch film: the page changes paragraph band by band, top to bottom, each
   // band a soft cross-fade of old into new, never a hard edge sweeping down.
-  var BANDS = 9, BAND_FROM = 0.08, BAND_FADE = 460, BAND_STEP = 105
+  // Slower (Anders, 25 Nov: "so you see what is happening"): each band takes most of a second, about three in all.
+  var BANDS = 9, BAND_FROM = 0.08, BAND_FADE = 900, BAND_STEP = 260
+  var DISSOLVE_MS = (BANDS - 1) * BAND_STEP + BAND_FADE
   var dissolveLayer = null
   function dissolve(incoming, outgoing) {
     if (dissolveLayer) dissolveLayer.remove()
@@ -186,7 +195,7 @@
         if (layerNow === dissolveLayer) { dissolveLayer.remove(); dissolveLayer = null }
         incoming.classList.remove('is-settle')
       }) })
-    }, BANDS * BAND_STEP + BAND_FADE + 60)
+    }, DISSOLVE_MS + 60)
   }
   function paint() {
     var wave = !reduce && shown >= 0 && shown !== index && WAVE[index]
@@ -206,7 +215,7 @@
       if (wave) dissolve(pictures[index], pictures[under])
       else if (rise) pictures[index].classList.add('is-rise')
       else if (sink) pictures[under].classList.add('is-sink')
-      underTimer = setTimeout(function () { pictures[under].classList.remove('is-under', 'is-sink') }, wave ? 1700 : 800)
+      underTimer = setTimeout(function () { pictures[under].classList.remove('is-under', 'is-sink') }, wave ? DISSOLVE_MS + 300 : 800)
     }
     var newStep = shown < 0 || FRAMES[shown][1] !== FRAMES[index][1]
     shown = index
@@ -226,7 +235,39 @@
   }
   // Slower than captured (Anders, 19 Nov: too much, too fast), the phone most: a small screen takes longer to read.
   // The word-by-word Listen frames slow only a little, so the voice still sounds like reading.
-  function pace(ms) { return Math.round(ms * (phoneQuery.matches ? (ms > 400 ? 1.45 : 1.15) : (ms > 400 ? 1.3 : 1.1))) }
+  // Desktop slower again (Anders, 25 Nov: "scroll, but slowly"); the word-by-word Listen frames slow to about
+  // speaking pace and the first one holds after Play (Anders, 25 Nov: Listen felt too short).
+  function pace(ms) { return Math.round(ms * (phoneQuery.matches ? (ms > 400 ? 1.45 : 1.15) : (ms > 400 ? 2.1 : 1.4))) }
+  // ---- Desktop: a small timer on the lit moment (Anders, 25 Nov). Its line fills while the moment plays: each frame
+  // moves it from the share of the moment already shown to the share shown when that frame ends, over the frame's
+  // real time, so it is full when the next moment starts. ----
+  var momentButtons = $$('.try-moments [data-try-step]')
+  function stepFrames(step) { return FRAMES.map(function (f, i) { return f[1] === step ? i : -1 }).filter(function (i) { return i >= 0 }) }
+  function fill(step, from, to, ms) {
+    momentButtons.forEach(function (button) {
+      var mine = Number(button.getAttribute('data-try-step')) === step
+      button.style.setProperty('--try-fill-ms', '0ms')
+      button.style.setProperty('--try-fill', String(mine ? from : 0))
+      if (!mine) return
+      void button.offsetWidth
+      button.style.setProperty('--try-fill-ms', ms + 'ms')
+      button.style.setProperty('--try-fill', String(to))
+    })
+  }
+  function frameShare(i) {
+    var frames = stepFrames(FRAMES[i][1])
+    var total = frames.reduce(function (sum, j) { return sum + pace(FRAMES[j][2]) }, 0)
+    var before = frames.filter(function (j) { return j < i }).reduce(function (sum, j) { return sum + pace(FRAMES[j][2]) }, 0)
+    return { from: before / total, to: (before + pace(FRAMES[i][2])) / total }
+  }
+  // Held (pointer over the reader): the line stops where it is.
+  function freezeFill() {
+    momentButtons.forEach(function (button) {
+      var now = new DOMMatrix(getComputedStyle(button, '::before').transform).d
+      button.style.setProperty('--try-fill-ms', '0ms')
+      button.style.setProperty('--try-fill', String(isFinite(now) ? now : 0))
+    })
+  }
   function schedule(opened) {
     clearTimeout(timer)
     clearActions()
@@ -237,6 +278,10 @@
     ledStep = -1
     if (phoneQuery.matches) frameCaption(frame[1])
     duration = act(frame, duration)
+    if (!phoneQuery.matches && ledStep !== frame[1]) {
+      var share = frameShare(index)
+      fill(frame[1], share.from, share.to, duration)
+    }
     // The headline leads the action (Anders, 19 Nov): when this frame ends in the tap that starts the next moment
     // (Play, Summary), that moment's headline and dot come up first, and the tap follows a beat later.
     var nextStep = FRAMES[(index + 1) % FRAMES.length][1]
@@ -244,6 +289,7 @@
     if (!reduce && action && action.press && nextStep !== frame[1]) {
       later(function () {
         ledStep = nextStep
+        if (!phoneQuery.matches) fill(nextStep, 0, 0, 0)
         if (phoneQuery.matches) frameCaption(nextStep)
         else announce(nextStep)
         markStep(nextStep)
@@ -273,7 +319,7 @@
   if (next) next.addEventListener('click', function () { show((FRAMES[index][1] + 1) % STEPS.length) })
   var prev = $('[data-try-prev]')
   if (prev) prev.addEventListener('click', function () { show((FRAMES[index][1] + STEPS.length - 1) % STEPS.length) })
-  demo.addEventListener('mouseenter', function () { held = true; clearTimeout(timer); clearActions() })
+  demo.addEventListener('mouseenter', function () { held = true; clearTimeout(timer); clearActions(); freezeFill() })
   demo.addEventListener('mouseleave', function () { held = false; schedule() })
   demo.addEventListener('focus', function () { held = true; clearTimeout(timer); clearActions() })
   demo.addEventListener('blur', function () { held = false; schedule() })
@@ -286,7 +332,8 @@
   document.addEventListener('visibilitychange', function () { visible = !document.hidden; schedule() })
   if (reduce) index = FRAMES.map(function (frame) { return frame[1] }).lastIndexOf(0)
   paint()
-  schedule()
+  // The first moment opens with its headline too (Anders, 25 Nov), as every later one does.
+  schedule(true)
 
   // ---- The top bar turns solid once the page scrolls (over the hero it shows the scene) ----
   var nav = $('.try-nav')

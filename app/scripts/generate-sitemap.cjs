@@ -37,7 +37,7 @@ const BUILD_DATE = new Date().toISOString().slice(0, 10)
 const SEO_EXCERPT_WORDS = 1200
 const MAX_META_TITLE_CHARS = 60
 const MAX_META_DESCRIPTION_CHARS = 155
-const DEFAULT_OG_IMAGE = `${ORIGIN}/og-image-v3.jpg`
+const DEFAULT_OG_IMAGE = `${ORIGIN}/og-image-v4.jpg`
 // Hand-set meta for a book, used before the generated text. The Odyssey's stale hand-tuned title, which
 // promised an AI companion and an audiobook, was removed (16 Nov 2026): it is titled like every other book,
 // and its description names only the editions.
