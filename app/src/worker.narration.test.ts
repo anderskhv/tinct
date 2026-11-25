@@ -102,6 +102,8 @@ function makeHarness(overrides: Partial<NarrationEnv> = {}, options: { user?: { 
     NARRATION_FISH_BASE_URL: 'https://fish.test',
     AUDIO_BUCKET: bucket as unknown as R2Bucket & FakeR2,
     RATE_LIMIT: kv as unknown as KVNamespace & FakeKV,
+    // A guest's listening trial always has time left here; worker.narrationListenTrial.test.ts covers its limit.
+    USAGE_COORDINATOR: { getByName: () => ({ hitUnits: async () => true }) } as unknown as NarrationEnv['USAGE_COORDINATOR'],
     ASSETS: {
       fetch: async (request: Request) => {
         const url = new URL(request.url)

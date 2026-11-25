@@ -92,6 +92,8 @@ function setup(options: { reserve?: boolean } = {}): Setup {
       reserve: async (_day: string, bytes: number) => { if (name.startsWith('budget:')) reservations.push(bytes); return options.reserve !== false },
       usage: async () => [],
     }) },
+    // A guest's listening trial always has time left here; worker.narrationListenTrial.test.ts covers its limit.
+    USAGE_COORDINATOR: { getByName: () => ({ hitUnits: async () => true }) },
     // Added books are not static assets: any lookup here is the bug this file guards.
     ASSETS: { fetch: async (request: Request) => { assetFetches.push(new URL(request.url).pathname); return new Response('Not found', { status: 404 }) } },
   } as unknown as Setup['env']

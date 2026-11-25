@@ -14,6 +14,10 @@ import { apiUrl } from '../utils/apiUrl'
 import { isGuestNarrationVoice, isPilotScope, narrationTextForParagraph, sha256Hex, type AlignedWord, type TokenAlignmentStats } from '../narration/narrationCore'
 import type { LabPrefs } from './labPrefs'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
+import { markListenTrialUsed } from './labListenTrial'
+
+/** The Worker's refusal once a signed-out reader's five minutes today are used (worker/lib/listenTrial.ts). */
+export const LISTEN_TRIAL_USED_CODE = 'listen_trial_used'
 
 export type NarrationPilotFlag = 'fish' | 'off' | null
 
@@ -221,7 +225,12 @@ export async function ensureNarration(
     clearTimeout(timer)
     options.signal?.removeEventListener('abort', onCancel)
   }
-  if (response.status === 401) throw new NarrationEnsureError('Sign in to prepare narration', 'unauthenticated', 401)
+  if (response.status === 401) {
+    // Today's listening trial is used: this device's mark says so too, so the next Play opens the sheet at once.
+    const code = await Promise.resolve().then(() => response.json()).then((body: { code?: unknown }) => body?.code, () => undefined)
+    if (code === LISTEN_TRIAL_USED_CODE) markListenTrialUsed()
+    throw new NarrationEnsureError('Sign in to prepare narration', 'unauthenticated', 401)
+  }
   if (response.status === 503) {
     const reason = await response.json().then((body: { reason?: unknown }) => body?.reason, () => undefined)
     if (reason === 'rate_limit_unavailable') throw new NarrationEnsureError('Narration temporarily unavailable', 'http', 503)

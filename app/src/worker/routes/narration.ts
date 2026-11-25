@@ -1,16 +1,20 @@
 import { RateLimitUnavailableError } from '../lib/rateLimit'
-import { WARM_GUEST_KEY, ledgerGuestKey, narrationCostUsd, recordAiUsage, requestGuestKey, type AiIdentity, type LedgerEnv } from '../lib/aiUsage'
+import { CHECK_GUEST_KEY, WARM_GUEST_KEY, ledgerGuestKey, narrationCostUsd, recordAiUsage, requestGuestKey, type AiIdentity, type LedgerEnv } from '../lib/aiUsage'
 import { bibleBookTransition } from '../../narration/bookTransition'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { isEditionWithheld } from '../../data/withheldEditions'
 import { verifyReleaseWarmRequest } from '../../narration/narrationReleaseAuth'
 import { grokWordSegments, type GrokTimingEnvelope } from '../../narration/grokTimestamps'
+import { listenTrialSlot, takeListenTrial, LISTEN_TRIAL_USED_CODE } from '../lib/listenTrial'
+import type { UsageEnv } from '../lib/rateLimit'
 /**
  * Fish Audio narration pilot — Worker routes.
  *
  *   GET  /api/narration/voices   public   pilot configuration and curated voices
  *   GET  /api/narration/chapter  public   which paragraphs of a chapter are cached for a voice
- *   POST /api/narration/ensure   signed-in  make 1–3 paragraphs playable (cache hit or generate)
+ *   POST /api/narration/ensure   signed-in  make 1–3 paragraphs playable (cache hit or generate);
+ *                                signed out: recordings that already exist only, five minutes a day
+ *                                (Grok voices Ara and Helios; lib/listenTrial.ts)
  *   POST /api/narration/warm     admin token  same as ensure, for pre-generating chapters
  *   GET  /api/narration/usage    admin    generation accounting and ceilings
  *
@@ -77,7 +81,7 @@ import { editionChapter, publicEditionChapter } from './publicBooks'
 import { USER_BOOK_PREFIX } from '../../lab/userBook/userBookId'
 import { isPublicBookId } from '../../../public/lab/public-books.js'
 
-export type NarrationEnv = SupabaseEnv & {
+export type NarrationEnv = SupabaseEnv & UsageEnv & {
   FISH_AUDIO_API_KEY?: string
   GOOGLE_TTS_API_KEY?: string
   XAI_API_KEY?: string
@@ -1465,6 +1469,17 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   if (cacheOnlyGuest && !(guestResult && 'chunks' in guestResult && guestResult.chunks.some(chunk => chunk.index === guestChunk && chunk.ready))) {
     return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
   }
+  if (cacheOnlyGuest) {
+    // A guest's listening trial (lib/listenTrial.ts): the recordings handed out
+    // count against today's slot for this hashed IP; once it is used, the
+    // account sheet, exactly as for narration that does not exist yet.
+    const served = guestServedSeconds(prepared)
+    const check = ledgerGuestKey(request) === CHECK_GUEST_KEY
+    const slot = await listenTrialSlot(env, { ip: requestGuestKey(request), check, day: new Date(now()).toISOString().slice(0, 10) })
+    if (!await takeListenTrial(env, slot, served)) {
+      return jsonResponse({ error: 'Sign in to prepare narration', code: LISTEN_TRIAL_USED_CODE }, 401, request)
+    }
+  }
   if (usageDelta.requests > 0) ctx.waitUntil(addUsage(kv, now(), usageDelta, pool))
   // One free row per request that served recordings from the cache.
   if (cachedChars > 0 && caller === 'reader' && config.provider === 'grok') {
@@ -1487,6 +1502,24 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     `total;dur=${Date.now() - handlerStartedAt}`,
   ].join(', '))
   return response
+}
+
+/**
+ * Seconds of recordings a guest's answer hands out: each requested paragraph's
+ * ready sentence groups from the one asked for onwards (the reader asks only
+ * for paragraphs it does not hold yet, so each is counted about once).
+ */
+function guestServedSeconds(
+  prepared: Array<{ result: EnsureParagraphResult } | { fromChunk: number; state: ParagraphState }>,
+): number {
+  let seconds = 0
+  for (const paragraph of prepared) {
+    if ('result' in paragraph) continue
+    for (const ready of paragraph.state.ready) {
+      if (ready.index >= paragraph.fromChunk && Number.isFinite(ready.duration) && ready.duration > 0) seconds += ready.duration
+    }
+  }
+  return seconds
 }
 
 async function waitForChunk(

@@ -15,16 +15,27 @@ export class UsageCoordinator extends DurableObject {
 
   /** Count one request in a fixed window. `false` = over the limit (nothing counted). */
   async hit(limit: number, windowMs: number): Promise<boolean> {
+    return this.hitUnits(1, limit, windowMs)
+  }
+
+  /**
+   * Count `units` in the same fixed window (a guest's listening trial counts
+   * seconds of recordings handed out, lib/listenTrial.ts). `false` = the
+   * window had already reached the limit (nothing counted); a call under it
+   * is counted in full, even past the limit.
+   */
+  async hitUnits(units: number, limit: number, windowMs: number): Promise<boolean> {
+    if (!Number.isSafeInteger(units) || units < 1) return false
     if (!Number.isSafeInteger(limit) || limit < 1 || !Number.isSafeInteger(windowMs) || windowMs < 1000) return false
     const now = Date.now()
     const outcome = this.ctx.storage.transactionSync(() => {
       const row = this.ctx.storage.sql.exec<{ reset_at: number; count: number }>('SELECT reset_at, count FROM request_window WHERE id=1').toArray()[0]
       if (!row || now >= row.reset_at) {
-        this.ctx.storage.sql.exec('INSERT INTO request_window VALUES (1, ?, 1) ON CONFLICT(id) DO UPDATE SET reset_at=excluded.reset_at, count=1', now + windowMs)
+        this.ctx.storage.sql.exec('INSERT INTO request_window VALUES (1, ?, ?) ON CONFLICT(id) DO UPDATE SET reset_at=excluded.reset_at, count=excluded.count', now + windowMs, units)
         return { allowed: true, resetAt: now + windowMs }
       }
       if (row.count >= limit) return { allowed: false, resetAt: row.reset_at }
-      this.ctx.storage.sql.exec('UPDATE request_window SET count=count+1 WHERE id=1')
+      this.ctx.storage.sql.exec('UPDATE request_window SET count=count+? WHERE id=1', units)
       return { allowed: true, resetAt: row.reset_at }
     })
     // Idle windows are cleared so per-caller objects do not keep storage.

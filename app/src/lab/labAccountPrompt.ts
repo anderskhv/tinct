@@ -8,6 +8,13 @@
  *   minutes at most (Anders, 16 Oct 2026); after it, or on a second attempt
  *   that day, the account sheet. The Worker enforces both (worker/lib/talkTrial.ts);
  *   this device's day mark only sends a second attempt straight to the sheet.
+ * - Listening: a signed-out reader may listen five minutes a day (UTC) per
+ *   device, to narration that already exists only (Anders, 25 Nov 2026). At
+ *   5:00 the sentence being read finishes, the audio pauses and the audio
+ *   account sheet opens; a second Play that day opens the sheet at once
+ *   (labListenTrial.ts, useLabListenTrial.ts). Narration that would have to be
+ *   made, and the voices that need an account, open the sheet straight away.
+ *   The Worker enforces both (worker/lib/listenTrial.ts, routes/narration.ts).
  * - Opening books never prompts for an account.
  *
  * Paid-tier enforcement is intentionally absent. `LAB_PAID_FEATURES` records
