@@ -4529,15 +4529,9 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   color: #6a6555;
   cursor: pointer;
 }
-.lab-account-eyebrow {
-  margin: 1rem 0 .4rem;
-  font: 600 .66rem/1 'IBM Plex Mono', ui-monospace, monospace;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: #81796b;
-}
 .lab-account-title {
-  margin: 0;
+  /* The sheet starts with its title: no eyebrow label above it (Anders, 25 Nov 2026). */
+  margin: 1.4rem 0 0;
   font: 500 1.35rem/1.15 'Playfair Display', Georgia, serif;
   letter-spacing: -.01em;
 }
@@ -4588,7 +4582,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 .lab-account-overlay.is-desktop-popover .lab-account-grabber { display: none; }
 .lab.is-night .lab-account-overlay { background: rgba(12, 10, 8, .38); }
 .lab.is-night .lab-account-sheet { background: var(--lab-paper); color: var(--lab-ink); }
-.lab.is-night .lab-account-eyebrow,
 .lab.is-night .lab-account-body,
 .lab.is-night .lab-account-secondary,
 .lab.is-night .lab-account-close { color: var(--lab-ink-muted); }

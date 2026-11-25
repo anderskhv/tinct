@@ -41,6 +41,24 @@ describe('usage coordinator', () => {
   beforeEach(() => { vi.useFakeTimers(); vi.setSystemTime(new Date('2026-09-30T12:00:00Z')) })
   afterEach(() => vi.useRealTimers())
 
+  it('counts units in the same window: a call under the limit counts in full, one at or over it is refused', async () => {
+    const c = coordinator()
+    expect(await c.hitUnits(250, 600, 60_000)).toBe(true)
+    expect(await c.hitUnits(340, 600, 60_000)).toBe(true)
+    expect(await c.hitUnits(30, 600, 60_000)).toBe(true) // 590 before: counted in full, to 620
+    expect(await c.hitUnits(1, 600, 60_000)).toBe(false)
+    expect(await c.hitUnits(0, 600, 60_000)).toBe(false)
+    vi.advanceTimersByTime(60_000)
+    expect(await c.hitUnits(5, 600, 60_000)).toBe(true)
+    // Strict: refused when the units would go past the limit; give-backs lower the count.
+    expect(await c.hitUnits(596, 600, 60_000, true)).toBe(false)
+    expect(await c.hitUnits(595, 600, 60_000, true)).toBe(true)
+    c.unhit(595)
+    // hit() is one unit.
+    expect(await c.hit(6, 60_000)).toBe(true)
+    expect(await c.hit(6, 60_000)).toBe(false)
+  })
+
   it('counts concurrent requests atomically within one window', async () => {
     const c = coordinator()
     const results = await Promise.all(Array.from({ length: 8 }, () => c.hit(5, 60_000)))

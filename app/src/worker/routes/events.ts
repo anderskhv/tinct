@@ -47,6 +47,8 @@ export const FUNNEL_EVENT_NAMES = new Set<string>([
   'ai_first_use', 'anon_limit_reached', 'signup_started', 'signup_completed',
   'member_ai_use', 'checkout_started', 'checkout_completed',
   'book_intro_viewed', 'audio_failed', 'audio_slow_start', 'talk_failed',
+  // A signed-out reader's listening trial (lab/useLabListenTrial.ts): its start and its end at five minutes.
+  'listen_trial_started', 'listen_trial_ended',
   'share_sheet_opened', 'share_created', 'share_completed', 'share_link_opened', 'share_link_signup',
   'cards_open_failed', 'cards_open_stuck',
   // The PDF reader's margin: a card whose request or drawing failed in the page (reader.js reportCardError;

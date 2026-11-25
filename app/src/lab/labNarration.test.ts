@@ -10,7 +10,9 @@ import {
   readerNarrationVoices,
   resolveNarrationVoice,
   NarrationEnsureError,
+  LISTEN_TRIAL_USED_CODE,
 } from './labNarration'
+import { listenTrialUsedToday } from './labListenTrial'
 import { narrationTextForParagraph, sha256Hex } from '../narration/narrationCore'
 
 afterEach(() => vi.unstubAllGlobals())
@@ -130,6 +132,18 @@ describe('narration API client', () => {
     await expect(ensureNarration(request, { fetchImpl: abort })).rejects.toMatchObject({ code: 'network', message: 'timeout' })
     const offline = (async () => { throw new TypeError('Failed to fetch') }) as unknown as typeof fetch
     await expect(ensureNarration(request, { fetchImpl: offline })).rejects.toBeInstanceOf(NarrationEnsureError)
+  })
+
+  it('marks this device\'s listening trial used when the Worker says so, and asks for an account either way', async () => {
+    const store = new Map<string, string>()
+    vi.stubGlobal('localStorage', { getItem: (key: string) => store.get(key) ?? null, setItem: (key: string, value: string) => { store.set(key, value) } })
+    const request = { bookId: 'odyssey', editionKey: 'original-en', chapter: 1, voice: 'f', paragraphs: [{ index: 0, text: 'x' }] }
+    const missing = (async () => Response.json({ error: 'Sign in to prepare narration' }, { status: 401 })) as unknown as typeof fetch
+    await expect(ensureNarration(request, { fetchImpl: missing })).rejects.toMatchObject({ code: 'unauthenticated' })
+    expect(listenTrialUsedToday()).toBe(false)
+    const used = (async () => Response.json({ error: 'Sign in to prepare narration', code: LISTEN_TRIAL_USED_CODE }, { status: 401 })) as unknown as typeof fetch
+    await expect(ensureNarration(request, { fetchImpl: used })).rejects.toMatchObject({ code: 'unauthenticated' })
+    expect(listenTrialUsedToday()).toBe(true)
   })
 
   it('reports a Modern English chapter still in its original text as modern_pending, with its own copy', async () => {
