@@ -330,7 +330,7 @@ describe('worker SEO routing', () => {
       expect(html).toContain('<meta property="og:title" content="Read Wuthering Heights online free, in modern English | Tinct">')
       expect(html).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/books/wuthering-heights.jpg">')
       expect(html).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20260921/books/wuthering-heights.jpg">')
-      expect(html).not.toContain('og-image-v3.jpg')
+      expect(html).not.toContain('og-image-v4.jpg')
       expect(html.match(/<title>/g)).toHaveLength(1)
       expect(html).toContain('"@type":"Book"')
       // The library experience, with this book from the first paint.

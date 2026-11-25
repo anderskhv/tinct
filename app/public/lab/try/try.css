@@ -439,10 +439,20 @@ html[data-eink="true"] .try-backdrop { display: none; }
     transition: color .4s, border-color .4s;
   }
   .try-moments em { font-style: italic; }
-  .try-moments button[aria-current="step"] { color: var(--try-cream-ink); border-left-color: #d8b56a; }
+  /* The lit moment's line is a small timer (Anders, 25 Nov): a faint track that the gold fills from the top. */
+  .try-moments button { position: relative; }
+  .try-moments button[aria-current="step"] { color: var(--try-cream-ink); border-left-color: rgba(216, 181, 106, .22); }
+  .try-moments button::before {
+    content: ''; position: absolute; left: -2px; top: 0; width: 2px; height: 100%; background: #d8b56a;
+    transform-origin: top; transform: scaleY(var(--try-fill, 0)); transition: transform var(--try-fill-ms, 0ms) linear;
+  }
+  .try-moments button:not([aria-current="step"])::before { transform: scaleY(0); transition: none; }
   .try-moments button[aria-current="step"] em { color: #d8b56a; }
   .try-moments button:hover, .try-moments button:focus-visible { color: var(--try-cream-ink); }
-  .try-scene { display: none; }
+  /* What is about to happen, written on the reader before it happens (Anders, 25 Nov). */
+  /* Set as the moment's line in the list: the same serif, the answer in gold italics. */
+  .try-scene { top: 13%; padding: 10px 20px; font: 400 20px/1.2 var(--tui-font-serif); }
+  .try-scene em { font-style: italic; color: #d8b56a; }
 }
 
 /* ---- Phone: the top bar is only the logo over the hero; Start reading slides in once the hero has scrolled past
