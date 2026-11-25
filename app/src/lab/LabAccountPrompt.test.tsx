@@ -94,7 +94,7 @@ describe('LabAccountSheet', () => {
     const sheet = screen.getByTestId('lab-account-sheet')
     expect(sheet.getAttribute('data-action')).toBe('chat')
     expect(screen.getByRole('dialog').getAttribute('aria-labelledby')).toBe('lab-account-title')
-    expect(screen.getByText(LAB_COPY.accountEyebrow)).toBeTruthy()
+    expect(sheet.querySelector('.lab-account-eyebrow')).toBeNull()
     expect(screen.getByRole('heading', {name: 'Create a free account to keep using AI'})).toBeTruthy()
     expect(screen.getByText(LAB_COPY.accountBody)).toBeTruthy()
     expect(sheet.textContent).not.toMatch(/\d+ free AI/)
@@ -122,13 +122,13 @@ describe('LabAccountSheet', () => {
   })
 })
 
-it('shares one prompt between listening and AI: same eyebrow, body tail and buttons in the same order', () => {
+it('shares one prompt between listening and AI: no eyebrow, same body tail and buttons in the same order', () => {
   const onClose = vi.fn()
   const { rerender } = render(<LabAccountSheet open action="audio" returnTo="/reader" onClose={onClose} desktop />)
   const audio = screen.getByTestId('lab-account-sheet')
-  expect(screen.getByText('Free account')).toBeTruthy()
+  expect(screen.queryByText('Free account')).toBeNull()
   expect(screen.getByRole('heading', {name: 'Create a free account to keep listening'})).toBeTruthy()
-  expect(audio.textContent).toContain('Listen on, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.')
+  expect(audio.textContent).toContain('Listen on, and use all of Tinct’s AI features. Your first month of Premium is free, no card. You can also keep reading without an account.')
   expect(audio.textContent).not.toMatch(/\d+ free AI/)
   const order = (root: HTMLElement) => Array.from(root.querySelectorAll('a.lab-account-primary, .lab-account-secondary')).map(node => node.textContent)
   expect(order(audio)).toEqual(['Create free account', 'Keep reading', 'Sign in'])

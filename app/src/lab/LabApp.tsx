@@ -48,6 +48,8 @@ import { narrationLanguage } from '../narration/narrationCore'
 import { readSupabaseAccessToken } from './labAuth'
 import { useLabFunnel } from './useLabFunnel'
 import { useLabListenReport } from './useLabListenReport'
+import { useLabListenTrial } from './useLabListenTrial'
+import { listenTrialUsedToday } from './labListenTrial'
 import { trackFunnel, trackFunnelOnce } from '../utils/funnel'
 import { apiUrl } from '../utils/apiUrl'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
@@ -1735,6 +1737,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   listenPlayingRef.current = listen.playing
   // Listening to an own book is not reported: the report would carry its id.
   useLabListenReport(listen.playing && !privateBook, listenSource.bookId || book.bookId || 'bible')
+  // A signed-out reader listens five minutes a day (labListenTrial.ts); at 5:00 the sentence finishes, then the account sheet.
+  const listenTrialEndRef = useRef<() => void>(() => {})
+  useLabListenTrial({
+    active: !signedIn && !FREE_MODE && !privateBook,
+    playing: listen.playing && !listen.pending && !listen.buffering,
+    follow: listen.follow,
+    paragraphs: listenSource.paragraphs,
+    onEnd: () => listenTrialEndRef.current(),
+  })
   /** The Margin reader's newest paragraph in view at the foot: its page turns for reading time. */
   const [continuousTailParagraph, setContinuousTailParagraph] = useState<number | undefined>(undefined)
   useLabReadingYear({
@@ -5276,6 +5287,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // rather than asking a signed-out reader to sign in for audio.
     if (audioUnavailable && !narrationOption && !retainedBella && !streamedNarrationEdition && !listen.isPending()) { setAudioUnavailableNotice(true); return }
     if (audioAccountRequiredRef.current && !signedIn) { setAccountPrompt({ action: 'audio' }); return }
+    // A second Play once today's five minutes are used goes straight to the sheet (labListenTrial.ts).
+    if (!signedIn && !FREE_MODE && !privateBook && !listen.playing && listenTrialUsedToday()) { setAccountPrompt({ action: 'audio' }); return }
     if (listen.isPending()) { listen.pause(); return }
     if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && streamedNarrationEdition && !narrationOption)) { setAudioUnavailableNotice(true); return }
     setAudioUnavailableNotice(false)
@@ -5371,9 +5384,24 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setInTheBookOpen(false)
     notePlace('play')
     void listen.startAtPlace(place)
-  }, [temporaryHold, signedIn, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, streamedNarrationEdition, book, chrome, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, pausedTransportVisible, readingPageIndex, readingPages, resumeListeningPlace, showPhoneChrome, continuousReader])
+  }, [temporaryHold, signedIn, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, streamedNarrationEdition, book, chrome, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, pausedTransportVisible, readingPageIndex, readingPages, resumeListeningPlace, showPhoneChrome, continuousReader, privateBook])
 
   startHearingRef.current = () => startHearing({ force: true })
+  // Today's five minutes are up (useLabListenTrial): pause the way the Pause button does, so the
+  // place is kept at the sentence just heard, then the account sheet. Play again asks again.
+  listenTrialEndRef.current = () => {
+    if (chrome === 'hearing' && listen.playing) startHearing()
+    else {
+      listen.pause()
+      browseWhileListeningRef.current = false
+      setBrowseWhileListening(false)
+      setChrome('reading')
+      setReturnTo('reading')
+      setPeekBook(false)
+    }
+    audioAccountRequiredRef.current = true
+    setAccountPrompt({ action: 'audio' })
+  }
 
   const handleHeaderListen = useCallback(() => {
     if (listen.isPending()) { listen.pause(); return }
