@@ -40,8 +40,9 @@ export interface SourceMarginEntry {
    * The start actions (approved mockup, Anders 9 Nov 2026): 'start' is the book's "Before you start" card; 'start-later'
    * a later chapter's greyed card (dashed, muted) until one of its actions is chosen. 'hint': the first visit's
    * line on how to use the selection actions (Anders, 16 Nov 2026), its content alone under the margin's rule: no label.
+   * 'reminder': a signed-out reader's welcome-back box (LabSavePlaceBox), its content alone, no label or rule.
    */
-  variant?: 'start' | 'start-later' | 'hint'
+  variant?: 'start' | 'start-later' | 'hint' | 'reminder'
   /** An actions card that folds to its label alone, greyed with a +, until opened (Anders, 10 Nov 2026: "Before you start"). */
   collapsible?: boolean
   /**
@@ -300,7 +301,7 @@ export function SourceMarginRail({ host, entries: given, onBlankNote, ownsSource
           onClick={event => event.stopPropagation()}>
           <svg viewBox="0 0 10 16" aria-hidden="true"><circle cx="2.5" cy="3" r="1.4"/><circle cx="7.5" cy="3" r="1.4"/><circle cx="2.5" cy="8" r="1.4"/><circle cx="7.5" cy="8" r="1.4"/><circle cx="2.5" cy="13" r="1.4"/><circle cx="7.5" cy="13" r="1.4"/></svg>
         </button>}
-        {entry.variant !== 'hint' && <header className="source-margin-head">{entry.actions && !entry.collapsible ? <span className="source-margin-label">{entry.label}</span> : <button type="button" data-testid="source-margin-open" className="source-margin-label" onClick={entry.onToggle} aria-expanded={entry.open}>{entry.label}</button>}
+        {entry.variant !== 'hint' && entry.variant !== 'reminder' && <header className="source-margin-head">{entry.actions && !entry.collapsible ? <span className="source-margin-label">{entry.label}</span> : <button type="button" data-testid="source-margin-open" className="source-margin-label" onClick={entry.onToggle} aria-expanded={entry.open}>{entry.label}</button>}
           {/* One place opens and minimises (tester, 9 Nov 2026: the open click and the minimise sat apart). */}
           {(!entry.actions || entry.collapsible) && <button type="button" data-testid={entry.open ? 'source-margin-minimise' : 'source-margin-expand'} className="source-margin-toggle" aria-label={entry.open ? 'Minimise' : 'Open'} aria-expanded={entry.open} onClick={entry.onToggle}>{entry.open ? '−' : '+'}</button>}
           {entry.onDelete && <button type="button" aria-label={`Delete ${entry.label}`} onClick={entry.onDelete}><PhoneIcon name="trash" /></button>}

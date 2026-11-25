@@ -72,29 +72,3 @@ export function LabAccountSheet({ open, action, returnTo, onClose, desktop = fal
     </div>
   )
 }
-
-interface LabSecondBookNudgeProps {
-  returnTo: string
-  onDismiss: () => void
-}
-
-/** One quiet line under the reader header for an anonymous reader's second book. */
-export function LabSecondBookNudge({ returnTo, onDismiss }: LabSecondBookNudgeProps) {
-  return (
-    <p className="lab-account-nudge" data-testid="lab-second-book-nudge">
-      <span>
-        {LAB_COPY.secondBookNudge}
-        <a href={labSignInHref('create', returnTo, 'save_place')} data-testid="lab-second-book-nudge-link">{LAB_COPY.secondBookNudgeLink}</a>
-      </span>
-      <button
-        type="button"
-        className="lab-account-nudge-dismiss"
-        onClick={onDismiss}
-        aria-label={LAB_COPY.secondBookNudgeDismiss}
-        data-testid="lab-second-book-nudge-dismiss"
-      >
-        ×
-      </button>
-    </p>
-  )
-}

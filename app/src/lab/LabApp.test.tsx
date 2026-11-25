@@ -51,7 +51,7 @@ afterEach(() => {
   try { localStorage.removeItem('tinct:chat-history:odyssey') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:lab-chat-history-legacy-cloud-migrated') } catch { /* jsdom */ }
   try { localStorage.removeItem('tinct:lab-ai-actions') } catch { /* jsdom */ }
-  try { localStorage.removeItem('tinct:lab-second-book-nudge') } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct:lab-save-place') } catch { /* jsdom */ }
   resetLabBibleManifestCache()
   resetLabChapterTextCache()
 })

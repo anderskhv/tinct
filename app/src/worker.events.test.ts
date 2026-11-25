@@ -29,7 +29,7 @@ describe('funnel event rows', () => {
     expect([...FUNNEL_EVENT_NAMES].sort()).toEqual([
       'ai_first_use', 'anon_limit_reached', 'audio_failed', 'audio_slow_start', 'book_intro_viewed', 'book_opened', 'cards_open_failed', 'cards_open_stuck', 'chapter_completed', 'checkout_completed', 'checkout_started',
       'first_page_turn', 'landing_view', 'margin_card_failed', 'member_ai_use', 'page_duration', 'pageview',
-      'scene_handoff', 'share_completed', 'share_created', 'share_link_opened', 'share_link_signup', 'share_sheet_opened',
+      'save_place_prompt_clicked', 'save_place_prompt_shown', 'scene_handoff', 'share_completed', 'share_created', 'share_link_opened', 'share_link_signup', 'share_sheet_opened',
       'signup_completed', 'signup_started', 'talk_failed',
     ])
   })

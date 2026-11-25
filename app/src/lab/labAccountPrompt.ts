@@ -20,8 +20,6 @@ import { SIGN_IN_ENTRY_PARAM, type SignInEntry } from './signInEntry'
 
 /** Device counter of AI actions taken while anonymous. In the `tinct:` namespace `clearLocalUserData` wipes. */
 export const LAB_AI_ACTIONS_KEY = 'tinct:lab-ai-actions'
-/** Set once the second-book nudge has been shown on this device. */
-export const LAB_SECOND_BOOK_NUDGE_KEY = 'tinct:lab-second-book-nudge'
 /**
  * AI actions an anonymous reader gets before the account sheet. One shared
  * allowance across Explain and chat; voice requires an account.
@@ -182,31 +180,4 @@ export function labBooksReadOnDevice(input: {
     if (Array.isArray(chapters) && chapters.length > 0) books.add(bookId)
   }
   return books
-}
-
-export function hasSeenSecondBookNudge(storage: LabPromptStorage | null = browserStorage()): boolean {
-  try { return storage?.getItem(LAB_SECOND_BOOK_NUDGE_KEY) === '1' } catch { return false }
-}
-
-export function markSecondBookNudgeShown(storage: LabPromptStorage | null = browserStorage()): void {
-  try { storage?.setItem(LAB_SECOND_BOOK_NUDGE_KEY, '1') } catch { /* private mode */ }
-}
-
-/**
- * One quiet line when an anonymous reader opens a book that is not the first
- * one read on this device. At most once per device; never when signed in.
- */
-export function shouldShowSecondBookNudge(input: {
-  signedIn: boolean
-  bookId: string
-  booksRead: ReadonlySet<string>
-  storage?: LabPromptStorage | null
-}): boolean {
-  if (input.signedIn) return false
-  const storage = input.storage === undefined ? browserStorage() : input.storage
-  if (hasSeenSecondBookNudge(storage)) return false
-  for (const bookId of input.booksRead) {
-    if (bookId && bookId !== input.bookId) return true
-  }
-  return false
 }

@@ -244,6 +244,8 @@ import { readLabPositionLocal } from './labPositionStore'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet } from './LabAccountPrompt.tsx'
 import { rememberSignInBook } from './signInEntry'
+import { LabSavePlaceWelcome, SavePlaceContext, type SavePlaceReader } from './LabSavePlaceBox'
+import { previousReadingAtThisLoad, readSavePlace, welcomeBackDue } from './labSavePlace'
 import { clearLabAiActionCount, labCurrentPath, type LabAccountPromptRequest } from './labAccountPrompt'
 import { narrationBridgeUrls, useLabListen, type NextChapterAudio } from './useLabListen'
 import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, type LabCompareAnchor } from './labCompare'
@@ -2041,6 +2043,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userBook, positionSync.markChapterFinished])
   const initialResolving = !initialPositionResolved || remoteResumePending
+  // The save-your-place boxes for a signed-out reader (LabSavePlaceBox.tsx, Anders 25 Nov 2026): under a chapter's end, and
+  // welcome back on a later day than this device's previous reading. Never signed in, in free reading mode or in an own book.
+  const savePlaceOn = !signedIn && !FREE_MODE && !privateBook
+  // The phone's pages keep room for the chapter-end box under the chapter end (LabSavePlaceRoom).
+  const savePlaceRoom = savePlaceOn && showPhoneChrome && !continuousReader
+  const savePlaceReader = useMemo<SavePlaceReader | null>(() => savePlaceOn ? { bookId: book.bookId || 'bible', bookTitle: book.bookTitle || '', finished: finishedChapters, reserveRoom: savePlaceRoom } : null,
+    [savePlaceOn, savePlaceRoom, book.bookId, book.bookTitle, finishedChapters])
+  // Decided once, at the first render: before this load's own reading session is written.
+  const [welcomeBackOpen, setWelcomeBackOpen] = useState(() => !FREE_MODE && welcomeBackDue({ signedIn: false, previousReadingAt: previousReadingAtThisLoad(), now: Date.now(), returnDay: readSavePlace().returnDay }))
+  const showWelcomeBack = welcomeBackOpen && savePlaceOn && !initialResolving && !readerLoadError
+  const closeWelcomeBack = useCallback(() => setWelcomeBackOpen(false), [])
   const positionWritesSuspended = Boolean(temporaryHold) || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
   const continuousEpoch: ContinuousReaderEpoch = {
     bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition,
@@ -4940,7 +4953,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         title: book.chapterTitle, chapterNumber: book.chapterNumber, paragraphs: readerParagraphs, page: readingPage,
         previousAnchor: readingPageIndex > 0 ? pageAnchorOf(readingPages[Math.max(0, readingPageIndex - 2)]) : null,
         folio: bookPageEstimate.page, onPrimer: privateBook ? undefined : () => openChapterNotes('primer', endedChapter),
-        chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle} docked={desktopEndInFooter} hasNext recap={!privateBook}
+        chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle} chapterNumber={endedChapter} docked={desktopEndInFooter} hasNext recap={!privateBook}
           onContinue={() => goNextRef.current()} busy={false} onDiscuss={privateBook ? undefined : () => openChapterNotes(CHAPTER_SUMMARY_KIND, endedChapter, 'pill', 'summary', 'end')}
           onNote={pill => openChapterNoteRef.current(endedChapter, pill)} />,
       })
@@ -7197,6 +7210,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   // The first-visit hint steps aside whenever a card is open in the margin (the simple first page, 16 Nov 2026).
   const withFirstHint = (entries: SourceMarginEntry[]) => entries.some(entry => entry.open && !entry.actions) ? entries.filter(entry => entry.variant !== 'hint') : entries
+  // Welcome back (LabSavePlaceBox.tsx): beside the place the reader reopened at, below the chapter's start actions and the
+  // Primer when the place is the chapter's start.
+  if (showWelcomeBack && continuousReader && !showPhoneChrome && !book.chaptersProvisional) desktopMarginEntries.push({ id: 'save-place-welcome', label: 'Welcome back',
+    actions: true, variant: 'reminder', free: true, open: true, onToggle: () => {},
+    source: sourceForMargin({ paragraphIndex: continuousAnchor.paragraphIndex, fromWord: continuousAnchor.wordIndex }),
+    order: continuousAnchor.paragraphIndex * 100000 + continuousAnchor.wordIndex - .5,
+    content: <LabSavePlaceWelcome bookTitle={book.bookTitle} chapters={finishedChapters.size} onGone={closeWelcomeBack} /> })
   // Book scroll: a painted neighbour's start actions beside its heading and its saved cards and notes folded beside their
   // passages, as they will be when it is the reader's own. Acting on one makes the chapter the reader's own first.
   if (bookScroll && bookScrollUnitNow && !book.chaptersProvisional && !initialResolving) {
@@ -7420,6 +7440,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   return (
     <FreeModeSourceContext.Provider value={freeModeSource}>
+    <SavePlaceContext.Provider value={savePlaceReader}>
     <MarginPhoneContext.Provider value={marginPills}>
     <div
       ref={labRootRef}
@@ -7835,6 +7856,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
 
       <div className="lab-body">
+        {/* Welcome back on the phone (LabSavePlaceBox.tsx): a band between the top bar and the page. The page is measured
+            in the room left under it, as for any change of the window's height, so the reader's place stays on screen. */}
+        {showWelcomeBack && showPhoneChrome && !continuousReader && !(phoneAsk && !marginPhone) && <LabSavePlaceWelcome phone bookTitle={book.bookTitle}
+          chapters={finishedChapters.size} goneKey={`${book.chapterNumber}:${readingPageIndex}`} onGone={closeWelcomeBack} />}
         {!(showPhoneChrome && phoneAsk && !marginPhone) && (
         <div
           className={`lab-page-wrap${showPhoneChrome && !measuredPaging && settleIndex != null && settleIndex <= readingPageIndex ? ' is-measuring-visible-page' : ''}${initialResolving ? ' is-resolving' : ''}${firstReveal ? ' is-first-reveal' : ''}${showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
@@ -7925,7 +7950,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             onLineChapter={setBookScrollLineChapter}
             onSelectInChapter={(number, range, x, y) => actOnChapter(number, () => bookScrollActs.current.handleSelectRange(range, x, y))}
             neighbourEnd={number => <MarginPhoneContext.Provider value={marginPills ? { ...marginPills, onQuiz: anchor => actOnChapter(number, () => quizChapterRef.current(anchor), 'end') } : null}>
-              <LabChapterEnd chapterTitle={book.chapters.find(chapter => chapter.number === number)?.title}
+              <LabChapterEnd chapterTitle={book.chapters.find(chapter => chapter.number === number)?.title} chapterNumber={number}
                 hasNext={nextLabChapter(book.chapters, number) != null}
                 onContinue={() => { const next = nextLabChapter(book.chapters, number); if (next != null) void goToChapter(next, 'start') }} busy={ask.typedLoading}
                 onDiscuss={() => actOnChapter(number, () => bookScrollActs.current.openChapterNotes('end', number, 'pill'), 'end')}
@@ -7959,7 +7984,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               onSelectingChange: handleSelectingChange,
               onPreviewChapter: () => openChapterNotes('primer', book.chapterNumber, 'pill'),
               chapterActionsBusy: ask.typedLoading,
-              chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle}
+              chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle} chapterNumber={book.chapterNumber}
                 hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null}
                 onContinue={goNext} busy={false}
                 onDiscuss={() => openChapterNotes('end', book.chapterNumber, 'pill')}
@@ -8010,7 +8035,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               onSelectingChange: handleSelectingChange,
               onPreviewChapter: () => openChapterNotes('primer', book.chapterNumber, 'pill'),
               chapterActionsBusy: ask.typedLoading,
-              chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle}
+              chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle} chapterNumber={book.chapterNumber}
                 hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null}
                 onContinue={goNext} busy={false}
                 onDiscuss={() => openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary', 'end')}
@@ -8034,7 +8059,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             onPreviewChapter={() => openChapterNotes('primer', book.chapterNumber, 'pill')}
             chapterActionsBusy={ask.typedLoading}
             chapterEnd={showChapterEnd ? <LabChapterEnd
-              chapterTitle={book.chapterTitle}
+              chapterTitle={book.chapterTitle} chapterNumber={book.chapterNumber}
               docked={desktopPaging && desktopEndInFooter}
               hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
               busy={false} onDiscuss={() => openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary', 'end')}
@@ -8914,6 +8939,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       </p>
     </div>
     </MarginPhoneContext.Provider>
+    </SavePlaceContext.Provider>
     </FreeModeSourceContext.Provider>
   )
 }

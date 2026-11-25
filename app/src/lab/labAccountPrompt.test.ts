@@ -3,19 +3,15 @@ import {
   LAB_AI_ACTIONS_KEY,
   LAB_FREE_AI_ACTIONS,
   LAB_PAID_FEATURES,
-  LAB_SECOND_BOOK_NUDGE_KEY,
   clearLabAiActionCount,
   decideLabAiAction,
   gateLabAiAction,
-  hasSeenSecondBookNudge,
   isLabPaidFeature,
   labBooksReadOnDevice,
   labCurrentPath,
   labSignInHref,
-  markSecondBookNudgeShown,
   readLabAiActionCount,
   recordLabAiAction,
-  shouldShowSecondBookNudge,
   type LabPromptStorage,
 } from './labAccountPrompt'
 
@@ -106,7 +102,6 @@ describe('lab account prompt: AI action gate', () => {
 
   it('keeps the counter in the tinct: namespace so sign-out wipes it', () => {
     expect(LAB_AI_ACTIONS_KEY.startsWith('tinct:')).toBe(true)
-    expect(LAB_SECOND_BOOK_NUDGE_KEY.startsWith('tinct:')).toBe(true)
   })
 
   it('survives a storage that throws', () => {
@@ -151,7 +146,7 @@ describe('lab account prompt: sign-in links', () => {
   })
 })
 
-describe('lab account prompt: second-book nudge', () => {
+describe('lab account prompt: books read on this device', () => {
   const memoryWith = (...bookIds: string[]) => ({
     sessions: Object.fromEntries(bookIds.map((bookId, index) => [`s${index}`, { anchor: { bookId } }])),
   })
@@ -165,22 +160,4 @@ describe('lab account prompt: second-book nudge', () => {
     expect(labBooksReadOnDevice({}).size).toBe(0)
   })
 
-  it('shows once for an anonymous reader opening a different book, then never again', () => {
-    const storage = memoryStorage()
-    const booksRead = new Set(['bible'])
-    expect(shouldShowSecondBookNudge({ signedIn: false, bookId: 'bible', booksRead, storage })).toBe(false)
-    expect(shouldShowSecondBookNudge({ signedIn: false, bookId: 'odyssey', booksRead, storage })).toBe(true)
-    markSecondBookNudgeShown(storage)
-    expect(hasSeenSecondBookNudge(storage)).toBe(true)
-    expect(storage.getItem(LAB_SECOND_BOOK_NUDGE_KEY)).toBe('1')
-    expect(shouldShowSecondBookNudge({ signedIn: false, bookId: 'odyssey', booksRead, storage })).toBe(false)
-    expect(shouldShowSecondBookNudge({ signedIn: false, bookId: 'frankenstein', booksRead, storage })).toBe(false)
-  })
-
-  it('never nudges a signed-in reader or a first book', () => {
-    const storage = memoryStorage()
-    expect(shouldShowSecondBookNudge({ signedIn: true, bookId: 'odyssey', booksRead: new Set(['bible']), storage })).toBe(false)
-    expect(shouldShowSecondBookNudge({ signedIn: false, bookId: 'odyssey', booksRead: new Set(), storage })).toBe(false)
-    expect(storage.keys()).toEqual([])
-  })
 })

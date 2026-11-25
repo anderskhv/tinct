@@ -29,6 +29,8 @@ export type FunnelEventName =
   | 'leaderboard_opened' | 'profile_viewed' | 'reading_card_shared'
   // The library's picture tap that opened nothing (11 Oct 2026): what the open path saw, booleans only.
   | 'cards_open_failed' | 'cards_open_stuck'
+  // The save-your-place box for signed-out readers (lab/labSavePlace.ts): seen, and its link followed.
+  | 'save_place_prompt_shown' | 'save_place_prompt_clicked'
 
 type Wire = FunnelEventName | 'pageview' | 'page_duration'
 type Props = Record<string, string | number | boolean | null | undefined>

@@ -2,16 +2,17 @@
 
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt.tsx'
+import { LabAccountSheet } from './LabAccountPrompt.tsx'
 import { LabApp } from './LabApp'
-import { LAB_AI_ACTIONS_KEY, LAB_FREE_AI_ACTIONS, LAB_SECOND_BOOK_NUDGE_KEY, LAB_TALK_TRIAL_KEY } from './labAccountPrompt'
+import { LAB_AI_ACTIONS_KEY, LAB_FREE_AI_ACTIONS, LAB_TALK_TRIAL_KEY } from './labAccountPrompt'
+import { LAB_SAVE_PLACE_KEY } from './labSavePlace'
 import { LAB_COPY } from './labCopy'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 
 const DEVICE_KEYS = [
   LAB_AI_ACTIONS_KEY,
   LAB_TALK_TRIAL_KEY,
-  LAB_SECOND_BOOK_NUDGE_KEY,
+  LAB_SAVE_PLACE_KEY,
   'tinct-lab-prefs',
   'tinct-lab-position',
   'tinct:reading-memory',
@@ -147,18 +148,6 @@ it('closes on a single tap of Keep reading', () => {
   render(<LabAccountSheet open action="audio" returnTo="/reader" onClose={onClose} />)
   fireEvent.click(screen.getByRole('button', {name: 'Keep reading'}))
   expect(onClose).toHaveBeenCalledOnce()
-})
-
-describe('LabSecondBookNudge', () => {
-  it('is one line with a create-account link and a dismiss', () => {
-    const onDismiss = vi.fn()
-    render(<LabSecondBookNudge returnTo="/reader" onDismiss={onDismiss} />)
-    const nudge = screen.getByTestId('lab-second-book-nudge')
-    expect(nudge.textContent).toContain(`${LAB_COPY.secondBookNudge}${LAB_COPY.secondBookNudgeLink}`)
-    expect(screen.getByTestId('lab-second-book-nudge-link').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader&from=save_place')
-    fireEvent.click(screen.getByLabelText(LAB_COPY.secondBookNudgeDismiss))
-    expect(onDismiss).toHaveBeenCalledTimes(1)
-  })
 })
 
 describe('lab account prompt in the reader', () => {
@@ -312,17 +301,5 @@ describe('lab account prompt in the reader', () => {
     await waitFor(() => expect((fetchMock.mock.calls as unknown[][]).some(call => String(call[0]).includes('/api/lab-voice-session'))).toBe(true))
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
     expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBeNull()
-  })
-
-  it('never nudges when another book is opened', () => {
-    localStorage.setItem('tinct-lab-position', JSON.stringify({ books: {}, finished: { odyssey: [1, 2] }, lastSettledBookId: null, lastSettledAt: 0, updatedAt: 1, deviceId: 'd' }))
-    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
-    expect(screen.queryByTestId('lab-second-book-nudge')).toBeNull()
-  })
-
-  it('does not nudge on the first book', () => {
-    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
-    expect(screen.queryByTestId('lab-second-book-nudge')).toBeNull()
-    expect(localStorage.getItem(LAB_SECOND_BOOK_NUDGE_KEY)).toBeNull()
   })
 })
