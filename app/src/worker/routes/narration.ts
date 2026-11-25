@@ -5,7 +5,7 @@ import { editionHold, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailabili
 import { isEditionWithheld } from '../../data/withheldEditions'
 import { verifyReleaseWarmRequest } from '../../narration/narrationReleaseAuth'
 import { grokWordSegments, type GrokTimingEnvelope } from '../../narration/grokTimestamps'
-import { listenTrialSlot, takeListenTrial, LISTEN_TRIAL_USED_CODE } from '../lib/listenTrial'
+import { estimatedNarrationSeconds, listenTrialSlot, returnListenTrial, takeListenTrial, LISTEN_TRIAL_USED_CODE, type ListenTrialSlot } from '../lib/listenTrial'
 import type { UsageEnv } from '../lib/rateLimit'
 /**
  * Fish Audio narration pilot — Worker routes.
@@ -13,7 +13,7 @@ import type { UsageEnv } from '../lib/rateLimit'
  *   GET  /api/narration/voices   public   pilot configuration and curated voices
  *   GET  /api/narration/chapter  public   which paragraphs of a chapter are cached for a voice
  *   POST /api/narration/ensure   signed-in  make 1–3 paragraphs playable (cache hit or generate);
- *                                signed out: recordings that already exist only, five minutes a day
+ *                                signed out: five minutes a day, recorded or made on demand
  *                                (Grok voices Ara and Helios; lib/listenTrial.ts)
  *   POST /api/narration/warm     admin token  same as ensure, for pre-generating chapters
  *   GET  /api/narration/usage    admin    generation accounting and ceilings
@@ -1095,7 +1095,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     return jsonResponse({ error: 'Narration pilot is not configured', reason: config.reason }, 503, request)
   }
   let userId: string
-  let cacheOnlyGuest = false
+  let guest = false
   // Cost ledger owner: the signed-in reader, else the hashed IP key, or "warm".
   let ledger: AiIdentity = { guest: WARM_GUEST_KEY }
   if (caller === 'warm') {
@@ -1103,8 +1103,9 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   } else {
     const user = await deps.verifyUser(env, request)
     if (caller === 'reader' && !user) {
+      // A guest's listening trial is Grok's guest voices only (lib/listenTrial.ts).
       if (config.provider !== 'grok') return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
-      cacheOnlyGuest = true
+      guest = true
     }
     if (caller === 'prepare' && user?.email.trim().toLowerCase() === 'ahvelplund@fastmail.com') {
       return new Response(null, { status: 204 })
@@ -1138,8 +1139,8 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   if (!language || !providerSpeaks(config.provider, language)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
-  // Guests hear Ara and Helios only (the voices with recorded openings); Orion and Eve need an account.
-  if (cacheOnlyGuest && !isGuestNarrationVoice(voice.key)) {
+  // Guests hear Ara and Helios only; Orion and Eve need an account, recorded or not.
+  if (guest && !isGuestNarrationVoice(voice.key)) {
     return jsonResponse({ error: 'Sign in to prepare narration', reason: 'account_voice' }, 401, request)
   }
   if (caller === 'prepare' && usesRetainedBella(bookId, editionKey, voice.persona ?? 'female')) {
@@ -1171,7 +1172,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const requestStartedAt = now()
   const results: EnsureParagraphResult[] = []
   let generatedThisRequest = 0
-  let generationDone = mode === 'cache' || cacheOnlyGuest
+  let generationDone = mode === 'cache'
   let preparedDuration = 0
   let cachedChars = 0
   // One accounting write per request: concurrent read-modify-writes of the
@@ -1211,6 +1212,19 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     return { index, chunks, textHash, fromChunk, mapKey, identities, state }
   }))
   const cacheMs = Date.now() - cacheStartedAt
+
+  // A guest's listening trial (lib/listenTrial.ts): recordings handed out count
+  // against today's slot for this hashed IP as they are served; narration to be
+  // made is reserved below, before the provider is called.
+  let guestSlot: ListenTrialSlot | null = null
+  let guestTrialUsed = false
+  if (guest) {
+    guestSlot = await listenTrialSlot(env, { ip: requestGuestKey(request), check: ledgerGuestKey(request) === CHECK_GUEST_KEY, day: new Date(now()).toISOString().slice(0, 10) })
+    const served = guestServedSeconds(prepared)
+    if (served > 0 && !await takeListenTrial(env, guestSlot, served)) {
+      return jsonResponse({ error: 'Sign in to prepare narration', code: LISTEN_TRIAL_USED_CODE }, 401, request)
+    }
+  }
 
   for (const paragraph of prepared) {
     if ('result' in paragraph) { results.push(paragraph.result); continue }
@@ -1302,11 +1316,30 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         break
       }
 
+      // A guest's sentence group is reserved against today's trial at its
+      // estimated length before anything is paid for, strictly within the
+      // ceiling; the global ceilings above and the per-chunk budget
+      // reservation below apply to it as to anyone's.
+      let guestReserved = 0
+      if (guestSlot) {
+        const estimate = estimatedNarrationSeconds(chunk.text)
+        if (!await takeListenTrial(env, guestSlot, estimate, { strict: true })) {
+          guestTrialUsed = true
+          generationDone = true
+          break
+        }
+        guestReserved = estimate
+      }
+      const giveBackGuest = async () => {
+        if (guestSlot && guestReserved > 0) await returnListenTrial(env, guestSlot, guestReserved)
+        guestReserved = 0
+      }
+
       const lockToken = `${now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
       if (config.provider === 'grok') {
         // Strongly consistent per-identity lease: fail closed, never pay twice.
         const claimed = await env.NARRATION_COORDINATOR!.getByName('chunk:' + identity.hash).claim(lockToken)
-        if (!claimed) { extra.retryAfterMs = 1000; break }
+        if (!claimed) { await giveBackGuest(); extra.retryAfterMs = 1000; break }
         // A previous holder may have published between our probe and claim.
         const arrived = await readReadyChunk(bucket, config.provider, chunk.index, chunk, identity.hash, textHash)
         if (arrived) {
@@ -1355,6 +1388,13 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
           })
         }
         const validation = validateNarrationAsset({ text: chunk.text, audio: synthesis.audio, reportedDuration: synthesis.reportedDuration, segments: synthesis.segments })
+        // The guest's reservation, settled to the recording's real length.
+        if (guestSlot && guestReserved > 0 && Number.isFinite(validation.duration) && validation.duration > 0) {
+          const actual = Math.max(1, Math.ceil(validation.duration))
+          if (actual < guestReserved) await returnListenTrial(env, guestSlot, guestReserved - actual)
+          else if (actual > guestReserved) await takeListenTrial(env, guestSlot, actual - guestReserved)
+          guestReserved = actual
+        }
         providerMs += synthesis.providerMs ?? 0
         await recordProviderOutcome(kv, now(), true)
         if (!validation.ok || !validation.timingsUsable) {
@@ -1425,6 +1465,8 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         if (mode === 'next') generationDone = true
       } catch (error) {
         const fail = error instanceof NarrationProviderError ? error : new NarrationProviderError(String((error as Error)?.message || error), 'storage_failed')
+        // Nothing was made for the guest: the reserved seconds go back.
+        await giveBackGuest()
         // Only the provider being down (network failure, 5xx) counts toward
         // the breaker; our own storage errors, rejections and 429s do not.
         const providerDown = fail.code === 'provider_unavailable' && (fail.status === undefined || fail.status >= 500)
@@ -1466,19 +1508,9 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const guestTarget = requested[0]
   const guestResult = results.find(result => result.paragraph === guestTarget?.index)
   const guestChunk = Number.isInteger(guestTarget?.fromChunk) ? Number(guestTarget.fromChunk) : 0
-  if (cacheOnlyGuest && !(guestResult && 'chunks' in guestResult && guestResult.chunks.some(chunk => chunk.index === guestChunk && chunk.ready))) {
-    return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
-  }
-  if (cacheOnlyGuest) {
-    // A guest's listening trial (lib/listenTrial.ts): the recordings handed out
-    // count against today's slot for this hashed IP; once it is used, the
-    // account sheet, exactly as for narration that does not exist yet.
-    const served = guestServedSeconds(prepared)
-    const check = ledgerGuestKey(request) === CHECK_GUEST_KEY
-    const slot = await listenTrialSlot(env, { ip: requestGuestKey(request), check, day: new Date(now()).toISOString().slice(0, 10) })
-    if (!await takeListenTrial(env, slot, served)) {
-      return jsonResponse({ error: 'Sign in to prepare narration', code: LISTEN_TRIAL_USED_CODE }, 401, request)
-    }
+  // Today's trial ran out before the sentence group the guest needs was made: the account sheet.
+  if (guest && guestTrialUsed && !(guestResult && 'chunks' in guestResult && guestResult.chunks.some(chunk => chunk.index === guestChunk && chunk.ready))) {
+    return jsonResponse({ error: 'Sign in to prepare narration', code: LISTEN_TRIAL_USED_CODE }, 401, request)
   }
   if (usageDelta.requests > 0) ctx.waitUntil(addUsage(kv, now(), usageDelta, pool))
   // One free row per request that served recordings from the cache.

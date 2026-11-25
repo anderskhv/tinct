@@ -50,6 +50,10 @@ describe('usage coordinator', () => {
     expect(await c.hitUnits(0, 600, 60_000)).toBe(false)
     vi.advanceTimersByTime(60_000)
     expect(await c.hitUnits(5, 600, 60_000)).toBe(true)
+    // Strict: refused when the units would go past the limit; give-backs lower the count.
+    expect(await c.hitUnits(596, 600, 60_000, true)).toBe(false)
+    expect(await c.hitUnits(595, 600, 60_000, true)).toBe(true)
+    c.unhit(595)
     // hit() is one unit.
     expect(await c.hit(6, 60_000)).toBe(true)
     expect(await c.hit(6, 60_000)).toBe(false)

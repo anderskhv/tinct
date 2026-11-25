@@ -20,21 +20,22 @@ export class UsageCoordinator extends DurableObject {
 
   /**
    * Count `units` in the same fixed window (a guest's listening trial counts
-   * seconds of recordings handed out, lib/listenTrial.ts). `false` = the
-   * window had already reached the limit (nothing counted); a call under it
-   * is counted in full, even past the limit.
+   * seconds of narration, lib/listenTrial.ts). `false` = nothing counted:
+   * the window had already reached the limit or, `strict`, these units would
+   * take it past the limit. Otherwise a call under the limit is counted in full.
    */
-  async hitUnits(units: number, limit: number, windowMs: number): Promise<boolean> {
+  async hitUnits(units: number, limit: number, windowMs: number, strict = false): Promise<boolean> {
     if (!Number.isSafeInteger(units) || units < 1) return false
     if (!Number.isSafeInteger(limit) || limit < 1 || !Number.isSafeInteger(windowMs) || windowMs < 1000) return false
     const now = Date.now()
     const outcome = this.ctx.storage.transactionSync(() => {
       const row = this.ctx.storage.sql.exec<{ reset_at: number; count: number }>('SELECT reset_at, count FROM request_window WHERE id=1').toArray()[0]
       if (!row || now >= row.reset_at) {
+        if (strict && units > limit) return { allowed: false, resetAt: now + windowMs }
         this.ctx.storage.sql.exec('INSERT INTO request_window VALUES (1, ?, ?) ON CONFLICT(id) DO UPDATE SET reset_at=excluded.reset_at, count=excluded.count', now + windowMs, units)
         return { allowed: true, resetAt: now + windowMs }
       }
-      if (row.count >= limit) return { allowed: false, resetAt: row.reset_at }
+      if (row.count >= limit || (strict && row.count + units > limit)) return { allowed: false, resetAt: row.reset_at }
       this.ctx.storage.sql.exec('UPDATE request_window SET count=count+? WHERE id=1', units)
       return { allowed: true, resetAt: row.reset_at }
     })
@@ -44,12 +45,13 @@ export class UsageCoordinator extends DurableObject {
   }
 
   /**
-   * Give back one hit counted in the current window (a guest Talk trial whose
-   * provider never connected). Never below zero; a window that has already
-   * ended is left alone.
+   * Give back hits counted in the current window (a guest Talk trial whose
+   * provider never connected; listening seconds reserved for narration that
+   * was not made). Never below zero; a window that has already ended is left alone.
    */
-  unhit(): void {
-    this.ctx.storage.sql.exec('UPDATE request_window SET count=MAX(0, count-1) WHERE id=1 AND reset_at>?', Date.now())
+  unhit(units = 1): void {
+    if (!Number.isSafeInteger(units) || units < 1) return
+    this.ctx.storage.sql.exec('UPDATE request_window SET count=MAX(0, count-?) WHERE id=1 AND reset_at>?', units, Date.now())
   }
 
   /** Reserve `units` against a daily limit. `false` = the reservation would exceed it. */

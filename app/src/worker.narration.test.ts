@@ -792,15 +792,15 @@ describe('Grok narration rollout', () => {
     expect((await ensure(h, { ...boundary, nextChapter: undefined })).status).toBe(400)
     expect(h.fish.calls).toHaveLength(0)
   })
-  it('respects Catholic ordering and anonymous cache-only access for cues', async () => {
+  it('respects Catholic ordering, and a guest within the listening trial gets the cue made once', async () => {
     const { h } = bibleHarness()
     const catholic = { ...boundary, editionKey: 'webc-en', chapter: 426, nextChapter: 1190 }
+    // Guests may have narration made within today's trial (Anders, 25 Nov 2026).
     h.deps.verifyUser = async () => null
-    expect((await ensure(h, catholic)).status).toBe(401)
-    expect(h.fish.calls).toHaveLength(0)
-    h.deps.verifyUser = async () => ({ id: 'signed-in', email: 'reader@example.com' })
     expect((await ensure(h, catholic)).json.paragraphs[0].status).toBe('ready')
     expect(JSON.parse(h.fish.calls[0].body).text).toBe('You have completed Nehemiah. Next book: Tobit.')
+    h.deps.verifyUser = async () => ({ id: 'signed-in', email: 'reader@example.com' })
+    expect((await ensure(h, catholic)).json.paragraphs[0].status).toBe('ready')
     h.deps.verifyUser = async () => null
     expect((await ensure(h, catholic)).status).toBe(200)
     expect(h.fish.calls).toHaveLength(1)
@@ -911,7 +911,7 @@ describe('Grok narration rollout', () => {
     expect(h.fish.calls).toHaveLength(0)
     expect(res.json.paragraphs[0].status).toBe('pending')
   })
-  it('allows anonymous cached playback but never anonymous synthesis', async () => {
+  it('serves a guest cached playback and, within the listening trial, makes what is missing once for everyone', async () => {
     const { h } = grokHarness()
     await ensure(h, {voice:'f',paragraphs:[{index:0}]})
     h.deps.verifyUser = async () => null
@@ -919,8 +919,14 @@ describe('Grok narration rollout', () => {
     expect(cached.status).toBe(200)
     expect(cached.json.generated).toBe(0)
     expect(cached.json.paragraphs[0].status).toBe('ready')
-    expect((await ensure(h, {voice:'f',paragraphs:[{index:1}]})).status).toBe(401)
-    expect(h.fish.calls).toHaveLength(1)
+    const made = await ensure(h, {voice:'f',paragraphs:[{index:1}]})
+    expect(made.status).toBe(200)
+    expect(made.json.generated).toBe(1)
+    expect(h.fish.calls).toHaveLength(2)
+    // Into the shared cache: a signed-in reader gets it free.
+    h.deps.verifyUser = async () => ({ id: 'signed-in', email: 'reader@example.com' })
+    expect((await ensure(h, {voice:'f',paragraphs:[{index:1}]})).json.generated).toBe(0)
+    expect(h.fish.calls).toHaveLength(2)
   })
   it('serves guests Ara and Helios only; Orion and Eve need an account even when cached', async () => {
     const { h } = grokHarness()
@@ -1017,14 +1023,16 @@ describe('Grok narration rollout', () => {
     })
   })
 
-  it('requires sign-in for an uncached seek even when other chunks are cached', async () => {
+  it('makes a guest\'s uncached seek within the trial, one group at a time', async () => {
     const { h } = grokHarness()
     const last = chunkNarrationText(PARAGRAPHS[4]).length - 1
     await ensure(h,{voice:'f',mode:'next',paragraphs:[{index:4,fromChunk:last}]})
     h.deps.verifyUser=async()=>null
     expect((await ensure(h,{voice:'f',paragraphs:[{index:4,fromChunk:last}]})).status).toBe(200)
-    expect((await ensure(h,{voice:'f',paragraphs:[{index:4,fromChunk:0}]})).status).toBe(401)
-    expect(h.fish.calls).toHaveLength(1)
+    const seek = await ensure(h,{voice:'f',mode:'next',paragraphs:[{index:4,fromChunk:0}]})
+    expect(seek.status).toBe(200)
+    expect(seek.json.generated).toBe(1)
+    expect(h.fish.calls).toHaveLength(2)
   })
   it('rejects withdrawn editions before looking up audio', async () => {
     const { h } = grokHarness()

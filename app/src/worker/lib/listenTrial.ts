@@ -1,18 +1,27 @@
 /**
  * A signed-out guest's listening trial (Anders, 25 Nov 2026): five minutes of
- * narration per device per UTC day, from recordings that already exist. A
- * guest's request never makes new narration (routes/narration.ts serves a
- * guest from the cache only); this caps how much of the cache one guest is
- * handed a day.
+ * narration per device per UTC day, on the public library's books in the guest
+ * voices (Grok's Ara and Helios). Recordings that exist are served; a sentence
+ * group not yet recorded is made for the guest too (Anders, 25 Nov 2026: about
+ * $0.07 per five minutes at $15 per million characters, then cached in R2 for
+ * every later reader). Orion and Eve, other providers and own books still need
+ * an account.
  *
  * Same mechanism and identifier as the Talk trial (talkTrial.ts): one
  * UsageCoordinator object per UTC day and hashed IP (`hashGuestKey`, never the
  * raw address), holding a single request-window row (a count and its reset
  * time) that the coordinator's alarm clears when the day's window ends. Here
- * the count is seconds of recordings handed out instead of conversations.
+ * the count is seconds of narration instead of conversations.
+ *
+ * Recordings handed out count as they are served. A sentence group to be made
+ * is reserved first, at its estimated length, strictly within the ceiling (as
+ * Talk reserves before it connects), and only then sent to the provider; once
+ * made, the reservation is settled to the recording's real length, and given
+ * back if nothing was made. The global narration byte ceilings and the
+ * per-chunk budget reservation apply to it exactly as to a signed-in reader's.
  *
  * The reader stops at five minutes of playback (lab/labListenTrial.ts). The
- * Worker cannot see playback, only the recordings it hands out, and the reader
+ * Worker cannot see playback, only the narration it hands out, and the reader
  * asks for a buffer ahead of what it plays, so the Worker's ceiling is twice
  * the trial: the buffer never cuts the five minutes short, and a guest who
  * skips the reader still gets no more than ten minutes a day.
@@ -49,19 +58,36 @@ export async function listenTrialSlot(env: ListenTrialEnv, input: { ip: string; 
   return { name: `rl:listen-trial:${input.day}:${await hashGuestKey(env, input.ip)}`, limit: LISTEN_TRIAL_SERVED_SECONDS }
 }
 
+/** Spoken pace for a sentence group not yet recorded: characters per second (as the reader estimates). */
+export const LISTEN_TRIAL_CHARS_PER_SECOND = 14
+
+/** A sentence group's estimated length before it is made, in whole seconds. */
+export function estimatedNarrationSeconds(text: string): number {
+  return Math.max(1, Math.ceil(text.length / LISTEN_TRIAL_CHARS_PER_SECOND))
+}
+
 /**
- * Count `seconds` of recordings handed to this guest. `false` = today's trial
- * was already used up (nothing counted). The answer that crosses the ceiling
- * is still served: it is at most one buffer's worth. Fails closed: no binding
- * or a coordinator error refuses, as the Talk trial does.
+ * Count `seconds` against this guest's day. `false` = nothing counted. Served
+ * recordings (lenient): refused only once the day is used up, so the answer
+ * that crosses the ceiling is still served (one buffer at most). Narration to
+ * be made (`strict`): refused when it would take the day past the ceiling, so
+ * nothing is ever generated past it. Fails closed: no binding or a coordinator
+ * error refuses, as the Talk trial does.
  */
-export async function takeListenTrial(env: ListenTrialEnv, slot: ListenTrialSlot, seconds: number): Promise<boolean> {
+export async function takeListenTrial(env: ListenTrialEnv, slot: ListenTrialSlot, seconds: number, options: { strict?: boolean } = {}): Promise<boolean> {
   const namespace = env.USAGE_COORDINATOR
   if (!namespace) return false
   const units = Math.max(1, Math.ceil(seconds))
   try {
-    return await namespace.getByName(slot.name).hitUnits(units, slot.limit, DAY_MS)
+    return await namespace.getByName(slot.name).hitUnits(units, slot.limit, DAY_MS, options.strict === true)
   } catch {
     return false
   }
+}
+
+/** Give back seconds reserved for narration that was not made, or reserved above its real length. Best effort. */
+export async function returnListenTrial(env: ListenTrialEnv, slot: ListenTrialSlot, seconds: number): Promise<void> {
+  const units = Math.floor(seconds)
+  if (units < 1) return
+  try { await env.USAGE_COORDINATOR?.getByName(slot.name).unhit(units) } catch { /* the seconds stay counted */ }
 }

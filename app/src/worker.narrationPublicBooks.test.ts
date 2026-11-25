@@ -196,11 +196,13 @@ describe('narration of added public-domain books (pd-*)', () => {
     expect((await ensure(s, { bookId: 'pd-pg-999', paragraphs: [{ index: 0 }] })).status).toBe(404)
   })
 
-  it('guests play cached audio only; generation stays signed-in and inside the spending reservation', async () => {
+  it('a guest within the listening trial has narration made once, then cached; every generation stays inside the spending reservation', async () => {
     const s = setup()
     s.user.current = null
-    expect((await ensure(s, { paragraphs: [{ index: 0 }] })).status).toBe(401)
-    expect(s.calls).toHaveLength(0)
+    const made = await ensure(s, { paragraphs: [{ index: 0 }] })
+    expect(made.status).toBe(200)
+    expect(made.json.paragraphs[0]).toMatchObject({ status: 'ready' })
+    expect(s.calls).toHaveLength(1)
     s.user.current = { id: '11111111-1111-4111-8111-111111111111', email: 'reader@example.com' }
     await ensure(s, { paragraphs: [{ index: 0 }] })
     s.user.current = null
@@ -209,10 +211,13 @@ describe('narration of added public-domain books (pd-*)', () => {
     expect(cached.json.paragraphs[0]).toMatchObject({ status: 'ready' })
     expect(s.calls).toHaveLength(1)
 
-    const capped = setup({ reserve: false })
-    const refused = await ensure(capped, { paragraphs: [{ index: 0 }] })
-    expect(refused.json.paragraphs[0]).toMatchObject({ status: 'failed' })
-    expect(capped.calls).toHaveLength(0)
+    for (const user of [{ id: '11111111-1111-4111-8111-111111111111', email: 'reader@example.com' }, null]) {
+      const capped = setup({ reserve: false })
+      capped.user.current = user
+      const refused = await ensure(capped, { paragraphs: [{ index: 0 }] })
+      expect(refused.json.paragraphs[0]).toMatchObject({ status: 'failed' })
+      expect(capped.calls).toHaveLength(0)
+    }
   })
 
   it('narrates a written Modern English chapter and refuses one still shown in its original text', async () => {

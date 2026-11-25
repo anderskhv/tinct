@@ -1,5 +1,5 @@
 // A signed-out guest's listening trial (Anders, 25 Nov 2026): five minutes a
-// day of narration that already exists, enforced in the Worker with the Talk
+// day of narration (recorded or made on demand, guest voices only), enforced in the Worker with the Talk
 // trial's mechanism (a UsageCoordinator slot per UTC day and hashed IP). The
 // Grok provider is a fake fetch: nothing leaves the process, nothing is paid.
 import { createRequire } from 'node:module'
@@ -83,7 +83,7 @@ const NOW = Date.parse('2026-11-25T12:00:00Z')
 const GUEST_IP = '203.0.113.7'
 const SIGNED_IN = { id: '11111111-1111-4111-8111-111111111111', email: 'reader@example.com' }
 
-function setup(options: { usage?: boolean } = {}) {
+function setup(options: { usage?: boolean; env?: Partial<NarrationEnv>; reserve?: boolean } = {}) {
   const usage = usageNamespace()
   const provider: string[] = []
   let user: { id: string; email: string } | null = SIGNED_IN
@@ -94,13 +94,14 @@ function setup(options: { usage?: boolean } = {}) {
     AI_LEDGER_SALT: 'salt',
     AUDIO_BUCKET: new FakeR2() as unknown as R2Bucket,
     RATE_LIMIT: new FakeKV() as unknown as KVNamespace,
-    NARRATION_COORDINATOR: { getByName: () => ({ claim: async () => true, release: async () => {}, reserve: async () => true, refund: async () => {}, usage: async () => [] }) } as unknown as NarrationEnv['NARRATION_COORDINATOR'],
+    NARRATION_COORDINATOR: { getByName: () => ({ claim: async () => true, release: async () => {}, reserve: async () => options.reserve !== false, refund: async () => {}, usage: async () => [] }) } as unknown as NarrationEnv['NARRATION_COORDINATOR'],
     ...(options.usage === false ? {} : { USAGE_COORDINATOR: usage as unknown as NarrationEnv['USAGE_COORDINATOR'] }),
     ASSETS: {
       fetch: async (request: Request) => new URL(request.url).pathname === '/data/editions/odyssey-original-en.json'
         ? Response.json({ chapters: [{ number: 1, title: 'Book 1', paragraphs: PARAGRAPHS }] })
         : new Response('Not found', { status: 404 }),
     },
+    ...options.env,
   } as NarrationEnv
   // The only "provider": a fake Grok answer. Every call is recorded so a test can assert none happened.
   const fetchImpl = (async (input: string | URL | Request, init?: RequestInit) => {
@@ -121,13 +122,13 @@ function setup(options: { usage?: boolean } = {}) {
     sleep: async () => {},
   }
   const ctx = { waitUntil() {}, passThroughOnException() {} } as unknown as ExecutionContext
-  const ensure = async (paragraphs: number[], headers: Record<string, string> = {}) => {
+  const ensure = async (paragraphs: number[], headers: Record<string, string> = {}, body: Record<string, unknown> = {}) => {
     const response = await handleNarration(new Request('https://tinct.app/api/narration/ensure', {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'cf-connecting-ip': GUEST_IP, ...(user ? { authorization: 'Bearer token' } : {}), ...headers },
-      body: JSON.stringify({ bookId: 'odyssey', editionKey: 'original-en', chapter: 1, voice: 'f', mode: 'next', paragraphs: paragraphs.map(index => ({ index })) }),
+      body: JSON.stringify({ bookId: 'odyssey', editionKey: 'original-en', chapter: 1, voice: 'f', mode: 'next', paragraphs: paragraphs.map(index => ({ index })), ...body }),
     }), env, ctx, deps)
-    return { status: response.status, json: await response.json() as { code?: string; generated?: number; paragraphs: Array<{ status: string; chunks: Array<{ ready: boolean; duration?: number }> }> } }
+    return { status: response.status, json: await response.json() as { code?: string; reason?: string; generated?: number; paragraphs: Array<{ status: string; chunks: Array<{ ready: boolean; duration?: number }> }> } }
   }
   const slot = async (check = false) => listenTrialSlot(env, { ip: GUEST_IP, check, day: new Date(clock.now).toISOString().slice(0, 10) })
   /** Seconds counted in today's slot (the window row's count). */
@@ -197,14 +198,68 @@ describe('guest listening trial (Worker)', () => {
     expect((await t.ensure([1])).status).toBe(200)
   })
 
-  it('never makes new narration for a guest: a paragraph without a recording is refused and nothing is counted', async () => {
+  it('makes narration a guest needs within the trial, counted before the provider is called, into the shared cache', async () => {
     const t = setup()
     t.signOut()
+    const made = await t.ensure([2])
+    expect(made.status).toBe(200)
+    expect(made.json.generated).toBe(1)
+    expect(made.json.paragraphs[0].status).toBe('ready')
+    expect(t.provider).toHaveLength(1)
+    // The reservation settled to the recording's real length.
+    expect(await t.counted()).toBe(Math.ceil(servedSeconds(made.json)))
+    // Cached for everyone: a signed-in reader is served it without a provider call.
+    t.signIn()
+    expect((await t.ensure([2])).json.generated).toBe(0)
+    expect(t.provider).toHaveLength(1)
+  })
+
+  it('never generates past the ceiling: a guest whose day would go over it is refused before the provider', async () => {
+    const t = setup()
+    t.signOut()
+    await t.usage.getByName((await t.slot()).name).hitUnits(LISTEN_TRIAL_SERVED_SECONDS - 1, LISTEN_TRIAL_SERVED_SECONDS, 86_400_000)
     const refused = await t.ensure([2])
     expect(refused.status).toBe(401)
-    expect(refused.json.code).toBeUndefined()
+    expect(refused.json.code).toBe(LISTEN_TRIAL_USED_CODE)
     expect(t.provider).toHaveLength(0)
-    expect(await t.counted()).toBe(0)
+    expect(await t.counted()).toBe(LISTEN_TRIAL_SERVED_SECONDS - 1)
+  })
+
+  it('refuses guest generation for Orion and Eve, own books and providers other than Grok', async () => {
+    for (const voice of ['orion', 'eve']) {
+      const t = setup()
+      t.signOut()
+      const refused = await t.ensure([2], {}, { voice })
+      expect(refused.status).toBe(401)
+      expect(refused.json.reason).toBe('account_voice')
+      expect(t.provider).toHaveLength(0)
+    }
+    const own = setup()
+    own.signOut()
+    expect((await own.ensure([0], {}, { bookId: 'userbook-0123456789abcdef' })).status).toBe(403)
+    expect(own.provider).toHaveLength(0)
+    const fish = setup({ env: { NARRATION_PROVIDER: 'fish', FISH_AUDIO_API_KEY: 'fish-test', NARRATION_VOICE_A_ID: 'voice-a' } })
+    fish.signOut()
+    expect((await fish.ensure([2], {}, { voice: 'a' })).status).toBe(401)
+    expect(fish.provider).toHaveLength(0)
+    expect(await fish.counted()).toBe(0)
+  })
+
+  it('keeps the global narration ceilings and the per-chunk budget reservation for guest generation', async () => {
+    const daily = setup({ env: { NARRATION_DAILY_BYTES: '10' } })
+    daily.signOut()
+    const overDay = await daily.ensure([2])
+    expect(overDay.json.paragraphs[0]).toMatchObject({ status: 'failed', reason: 'budget_exhausted' })
+    expect(daily.provider).toHaveLength(0)
+    expect(await daily.counted()).toBe(0)
+
+    const reservation = setup({ reserve: false })
+    reservation.signOut()
+    const refused = await reservation.ensure([2])
+    expect(refused.json.paragraphs[0]).toMatchObject({ status: 'failed' })
+    expect(reservation.provider).toHaveLength(0)
+    // Nothing was made: the guest's reserved seconds went back.
+    expect(await reservation.counted()).toBe(0)
   })
 
   it('refuses a guest when the coordinator is missing (fails closed, as Talk\'s trial does)', async () => {
