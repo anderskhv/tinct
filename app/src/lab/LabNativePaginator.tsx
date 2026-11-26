@@ -24,6 +24,7 @@ import {
   type ChapterPageSegment,
 } from './labHearing'
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
+import { layoutTrace, layoutTraceOn } from './labLayoutTrace'
 import { measuredDesktopPages, measuredDesktopPageSteps, type LabPaginationStart } from './LabDesktopPaginator'
 import { paragraphKindClass, paragraphSetRagged, wordLink } from './labParagraphStyle'
 import { planHyphenationSteps } from './labHyphenPlan'
@@ -488,6 +489,14 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       const pageWidth = flow.getBoundingClientRect().width
       if (pageWidth <= 1) return
       const flowLeft = flow.getBoundingClientRect().left
+      // The layout trace (labLayoutTrace.ts): the box this map was laid out in.
+      let tracePageHeight: number | null = null
+      const traceMap = layoutTraceOn()
+        ? (how: string, list: ChapterHearingPage[], partial = false) => {
+            const box = host.getBoundingClientRect()
+            layoutTrace('native-map', { how, partial, n: list.length, pw: Math.round(pageWidth), ph: tracePageHeight, hostTop: Math.round(box.top), hostH: Math.round(box.height), hostBottom: Math.round(box.bottom), key: layoutKey.split(':')[0] })
+          }
+        : null
       const wordNodes = flow.querySelectorAll<HTMLElement>('[data-native-word="true"]')
       const placements: LabNativeWordPlacement[] = []
       wordNodes.forEach((node) => {
@@ -503,6 +512,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       })
       traceLayout('column-map', columnAt)
       let pages = nativePagesFromPlacements(placements)
+      let traceHow = fillPages ? 'full' : 'columns'
       if (fillPages) {
         // The column flow keeps whole words together. The visible leaf allows
         // hyphenation, so that conservative map can leave several lines empty.
@@ -581,6 +591,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         stage.append(probe)
         const columnWidth = probe.getBoundingClientRect().width
         const pageHeight = host.getBoundingClientRect().bottom - probe.getBoundingClientRect().top
+        tracePageHeight = Math.round(pageHeight)
         const face = getComputedStyle(probe)
         const faceKey = [face.font, face.lineHeight, face.letterSpacing, face.wordSpacing, face.textAlign, face.textIndent, face.marginBottom, face.hyphens].join('|')
         setFigureLayout({ columnWidth, pageHeight })
@@ -604,7 +615,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           ? labPagesKeepingPrefix(keepPages, lengths, start => measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, start, lineStarts, tailGap), fitEnd)
           : null
         if (kept) traceLayout('kept-prefix', keptAt)
-        if (kept && chapterPagesCover(paragraphs, kept)) pages = kept
+        if (kept && chapterPagesCover(paragraphs, kept)) { pages = kept; traceHow = 'kept-prefix' }
         else {
           // Everything the map depends on: the column, the page, the face and
           // every loaded font file, the breaks and the hyphen plans.
@@ -614,6 +625,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           const known = measured.get(layout)
           if (known) {
             pages = known
+            traceHow = 'cached'
             measured.delete(layout)
           } else {
             const preflight = pages
@@ -632,6 +644,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
                 publishedPages = head
                 publishedPartial = true
                 onPages(head, paragraphs, true)
+                traceMap?.('head', head, true)
                 traceLayout('head', layoutAt)
               }
               const layoutMap = measured
@@ -657,6 +670,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
                   publishedPartial = false
                   const publishAt = performance.now()
                   onPages(full, paragraphs)
+                  traceMap?.('rest', full)
                   traceLayout('finish-publish', publishAt)
                 }
               }
@@ -686,7 +700,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         publishedPages = pages
         publishedPartial = false
         onPages(pages, paragraphs)
-      }
+        traceMap?.(traceHow, pages)
+      } else traceMap?.(`${traceHow}-unpublished`, pages)
     }
 
     const schedule = () => {
@@ -719,10 +734,20 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       })
     }
 
-    schedule()
-    const observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(schedule) : null
+    // With the layout trace on, every measurement says what asked for it and the box at that moment.
+    const scheduleFor = (cause: string) => layoutTraceOn()
+      ? () => {
+          const box = host.getBoundingClientRect()
+          layoutTrace('paginator-schedule', { cause, hostH: Math.round(box.height), hostW: Math.round(box.width) })
+          schedule()
+        }
+      : schedule
+    const onResize = scheduleFor('resize')
+    const onFonts = scheduleFor('fonts')
+    scheduleFor('effect')()
+    const observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(onResize) : null
     observer?.observe(host)
-    document.fonts?.addEventListener?.('loadingdone', schedule)
+    document.fonts?.addEventListener?.('loadingdone', onFonts)
     return () => {
       cancelled = true
       cancelRest()
@@ -731,7 +756,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       if (firstFrame) cancelAnimationFrame(firstFrame)
       if (secondFrame) cancelAnimationFrame(secondFrame)
       observer?.disconnect()
-      document.fonts?.removeEventListener?.('loadingdone', schedule)
+      document.fonts?.removeEventListener?.('loadingdone', onFonts)
     }
   }, [chapterTitle, paragraphs, layoutKey, fillPages, chapterActions, hasNextChapter, onPages, hyphenLang, hyphensReady, keepPages])
 

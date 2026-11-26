@@ -1,3 +1,5 @@
+import { layoutTrace, layoutTraceOn } from './labLayoutTrace'
+
 /** Production desktop still uses the vertical Chat / Feed / Cast rails. */
 export const PRODUCTION_DESKTOP_PANES = ['Chat', 'Feed', 'Cast'] as const
 
@@ -403,6 +405,9 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
     const textEntryFocused = labTextEntryFocused(active)
     // A keyboard-docked note sheet keeps the shell (and so the page) as it is.
     const px = labVisualViewportHeightPx(viewport?.height, window.innerHeight, { textEntryFocused: textEntryFocused && !labKeyboardSheetFocused(active), scale: viewport?.scale })
+    if (layoutTraceOn() && px > 0 && host.style.getPropertyValue(LAB_VVH_VAR) !== `${px}px`) {
+      layoutTrace('vvh', { px, was: host.style.getPropertyValue(LAB_VVH_VAR) || null, text: textEntryFocused, sheet: labKeyboardSheetFocused(active) })
+    }
     if (px > 0) host.style.setProperty(LAB_VVH_VAR, `${px}px`)
     const panned = labShouldResetViewportPan({
       offsetTop: viewport?.offsetTop,
@@ -410,6 +415,7 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
       textEntryFocused,
       scale: viewport?.scale,
     })
+    if (panned && layoutTraceOn()) layoutTrace('pan-reset', { sy: Math.round(window.scrollY) })
     if (panned) window.scrollTo(0, 0)
   }
   apply()
@@ -537,6 +543,43 @@ export function measureLabOnScreenBarTop(
   if (visibleBottom <= 0) return barTop
   if (barTop <= 0) return visibleBottom
   return Math.min(barTop, visibleBottom)
+}
+
+/**
+ * The inputs of measureLabOnScreenBarTop, for the layout trace only
+ * (labLayoutTrace.ts): which bar set the top, the viewport bottom and whether
+ * a text field counted as focused. Reads, never writes.
+ */
+export function describeLabOnScreenBarTop(
+  scope?: ParentNode | null,
+  fallback?: HTMLElement | null,
+): Record<string, unknown> {
+  const root = scope ?? (typeof document !== 'undefined' ? document : null)
+  let barTop = 0
+  let barBy = ''
+  const consider = (el: Element | null | undefined, name: string) => {
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    if (rect.height <= 1 || rect.top <= 0) return
+    if (barTop === 0 || rect.top < barTop) { barTop = rect.top; barBy = name }
+  }
+  if (root) for (const selector of LAB_BAR_SELECTORS) root.querySelectorAll(selector).forEach(el => consider(el, selector))
+  consider(fallback ?? null, 'chrome')
+  const vv = typeof window !== 'undefined' ? window.visualViewport : null
+  const inner = typeof window !== 'undefined' ? window.innerHeight : undefined
+  const active = fallback?.ownerDocument.activeElement
+    ?? (typeof document !== 'undefined' ? document.activeElement : null)
+  const textEntry = labTextEntryFocused(active) && !labKeyboardSheetFocused(active)
+  const visibleBottom = labVisibleBottomPx(vv, inner, { textEntryFocused: textEntry, scale: vv?.scale })
+  const onScreenTop = visibleBottom <= 0 ? barTop : barTop <= 0 ? visibleBottom : Math.min(barTop, visibleBottom)
+  return {
+    barTop: Math.round(barTop),
+    barBy,
+    visBottom: visibleBottom,
+    textEntry,
+    onScreenTop: Math.round(onScreenTop),
+    by: onScreenTop === visibleBottom && visibleBottom !== barTop ? 'viewport' : 'bar',
+  }
 }
 
 function paintFromMeasureHost(root: HTMLElement): boolean {

@@ -99,6 +99,7 @@ import {
   labBarMoved,
   measureLabBarTop,
   measureLabOnScreenBarTop,
+  describeLabOnScreenBarTop,
   measureLabPageMetrics,
   measurePaintedOverflow,
   labPaginationPaintRoot,
@@ -129,6 +130,8 @@ import { useAuth } from '../hooks/useAuth'
 import { useLabReadingYear } from './useLabReadingYear'
 import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
+import { installLayoutTraceListeners, layoutTrace, layoutTraceOn, setLayoutTraceOpenGetter, tracePage, tracePainted } from './labLayoutTrace'
+import { LabLayoutTraceCopy } from './LabLayoutTraceCopy'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
 import { PhoneIcon } from './marginPhone/LabPhoneCard'
 import { BOOK_SUMMARY_TITLE, CATCH_UP_TITLE, LabCatchUpSheet } from './LabCatchUpSheet'
@@ -2858,6 +2861,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   /** The phone's margin mode: the chapter's Note pill opens its card (true), not the editor beside the pill. */
   const marginPhoneNoteRef = useRef<(chapterNumber: number) => boolean>(() => false)
   const pageMetricsRef = useRef<LabPageMetrics | null>(pageMetrics)
+  // The chapter the layout trace names (labLayoutTrace.ts); read only while it is on.
+  const traceChapterRef = useRef(book.chapterNumber)
+  traceChapterRef.current = book.chapterNumber
   pageMetricsRef.current = pageMetrics
   const pageMetricGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const settledPageGeometryRef = useRef<{ width: number; height: number } | null>(null)
@@ -2974,6 +2980,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       }
     }
     nextIndex = Math.max(0, Math.min(nextIndex, next.length - 1))
+    if (layoutTraceOn()) layoutTrace('apply-map', { ch: traceChapterRef.current, partial, before: current.length, after: next.length, from: currentIndex, to: nextIndex, keepP: keep?.paragraphIndex ?? null, restoring: !!restoring, landing, playing })
     readingPageIndexRef.current = nextIndex
     setReadingPageIndex(currentValue => currentValue === nextIndex ? currentValue : nextIndex)
     // The native map can equal the provisional map. Still schedule the
@@ -3131,6 +3138,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       setDraftPages(pages)
       const fixed = fixVisiblePagePaint(pages)
       if (!sameChapterPages(fixed, pages)) {
+        if (layoutTraceOn()) layoutTrace('settle-fix-visible', { ch: traceChapterRef.current, idx: readingPageIndexRef.current, before: pages.length, after: fixed.length, ...describeLabOnScreenBarTop(wrap.ownerDocument, chromeEl) })
         pagesStableRef.current = false
         workingPagesRef.current = fixed
         readingPagesRef.current = fixed
@@ -3323,6 +3331,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       }
       const measureIdx = Math.max(0, Math.min(settleIndexRef.current ?? 0, pages.length - 1))
       const measured = peelHost(measureIdx)
+      if (layoutTraceOn()) layoutTrace('peel', { ch: traceChapterRef.current, idx: measureIdx, result: measured, before: pages.length, after: workingPagesRef.current.length, barTop: Math.round(lastBarTopRef.current), ...describeLabOnScreenBarTop(wrap.ownerDocument, chromeEl) })
       if (measured === 'peeled') return
       if (measured === 'unmeasured') {
         unmeasuredTriesRef.current += 1
@@ -3389,6 +3398,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       ) {
         // Page breaks belong to the readable box that produced them. A phone
         // resize (including device emulation/orientation) must invalidate them.
+        if (layoutTraceOn()) layoutTrace('geometry-repaginate', { ch: traceChapterRef.current, was: settledPageGeometryRef.current, now: { width: Math.round(geometry.width), height: Math.round(geometry.height) } })
         pagesStableRef.current = false
         settledPageGeometryRef.current = null
         // The words-per-page figure was measured in the old box; the new
@@ -3405,6 +3415,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const measured = measureLabPageMetrics(wrap, bottomChromeRef.current)
       if (!measured) return
       const metrics = stabilizeLabPageMetrics(pageMetricsRef.current, measured, headlineHeightRef.current)
+      if (layoutTraceOn() && (!pageMetricsRef.current || pageMetricsRef.current.height !== metrics.height || pageMetricsRef.current.width !== metrics.width)) {
+        layoutTrace('page-metrics', { ch: traceChapterRef.current, h: Math.round(metrics.height), w: Math.round(metrics.width), lh: Math.round(metrics.lineHeight), wrapH: Math.round(geometry.height), prevH: pageMetricsRef.current ? Math.round(pageMetricsRef.current.height) : null })
+      }
       pageMetricGeometryRef.current = geometry
       if (metrics.headlineHeight > 0) headlineHeightRef.current = metrics.headlineHeight
       pageMetricsRef.current = metrics
@@ -3474,10 +3487,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       if (
         mapTransportOpenRef.current !== transportOpenRef.current
         || (frozen && frozen.content === readerParagraphs && pageIdx < frozen.pages.length)
-      ) return
+      ) {
+        if (layoutTraceOn()) layoutTrace('paint-shrink-skip', { ch: traceChapterRef.current, idx: pageIdx, n: pages.length, frozen: !!frozen, ...tracePainted(painted), ...describeLabOnScreenBarTop(wrap.ownerDocument, chromeEl) })
+        return
+      }
 
       const next = shrinkNativePageAfterPaint(readerParagraphs, pages, pageIdx, painted)
       if (new URLSearchParams(location.search).has('qaLayoutTrace')) console.log('PAINT_SHRINK', JSON.stringify({pageIdx,painted,before:pages.slice(0,5),after:next.slice(0,5)}))
+      if (layoutTraceOn()) layoutTrace('paint-shrink', { ch: traceChapterRef.current, idx: pageIdx, before: pages.length, after: next.length, changed: !sameChapterPages(next, pages), page: tracePage(pages[pageIdx]), shrunk: tracePage(next[pageIdx]), ...tracePainted(painted), ...describeLabOnScreenBarTop(wrap.ownerDocument, chromeEl) })
       if (sameChapterPages(next, pages)) return
       lastAdjustRef.current = 'peel'
       workingPagesRef.current = next
@@ -3487,6 +3504,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       return
     }
     if (labPageFitsPaint(painted)) return
+    if (layoutTraceOn()) layoutTrace('settle-restart', { ch: traceChapterRef.current, idx: pageIdx, n: readingPagesRef.current.length, ...tracePainted(painted), ...describeLabOnScreenBarTop(wrap.ownerDocument, chromeEl) })
     pagesStableRef.current = false
     unmeasuredTriesRef.current = 0
     workingPagesRef.current = readingPagesRef.current
@@ -6736,6 +6754,48 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   quizChapterRef.current = (anchor, atStart = false) => { desktopQuizAnchorRef.current = anchor ?? null; desktopQuizAtStartRef.current = atStart; setDraft(''); openPhoneCard({ kind: 'quiz', passage: null, chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel, openedAt: Date.now() }) }
 
+  // The layout trace (labLayoutTrace.ts, ?layoutTrace=1): which cards and
+  // sheets are open, each open and close, and every page the reader lands on.
+  // Off, these are a cached false and nothing else runs.
+  const traceOn = layoutTraceOn()
+  const traceOpen = traceOn ? [
+    selectionPopup && (marginPhone
+      ? popupMode === 'character' && selectionPopup.character ? 'card:character' : popupMode === 'define' ? 'card:define' : `selection-bar:${popupMode}`
+      : `popup:${popupMode}`),
+    phoneCard && `card:${phoneCard.kind}`,
+    phoneAskOpen && 'ask-sheet',
+    tocOpen && 'contents',
+    superMenuOpen && 't-menu',
+    superSheet && `sheet:${superSheet}`,
+    chapterNotes && 'chapter-notes',
+    figureCard && 'figure',
+    inTheBookOpen && 'in-the-book',
+    bookSwitcherOpen && 'book-switcher',
+    speedPopoverOpen && 'speed',
+    accountPrompt && 'account-prompt',
+  ].filter((name): name is string => typeof name === 'string') : []
+  const traceOpenKey = traceOpen.join(',')
+  const traceOpenRef = useRef<string[]>([])
+  traceOpenRef.current = traceOpen
+  const tracedOpenRef = useRef('')
+  useEffect(() => {
+    if (!traceOn) return
+    setLayoutTraceOpenGetter(() => traceOpenRef.current)
+    return installLayoutTraceListeners()
+  }, [traceOn])
+  useEffect(() => {
+    if (!traceOn) return
+    const before = tracedOpenRef.current ? tracedOpenRef.current.split(',') : []
+    const now = traceOpenKey ? traceOpenKey.split(',') : []
+    tracedOpenRef.current = traceOpenKey
+    before.filter(name => !now.includes(name)).forEach(card => layoutTrace('close', { card, ch: book.chapterNumber, idx: readingPageIndexRef.current, n: readingPagesRef.current.length }))
+    now.filter(name => !before.includes(name)).forEach(card => layoutTrace('open', { card, ch: book.chapterNumber, idx: readingPageIndexRef.current, n: readingPagesRef.current.length }))
+  }, [traceOn, traceOpenKey, book.chapterNumber])
+  useEffect(() => {
+    if (!traceOn) return
+    layoutTrace('page', { ch: book.chapterNumber, idx: readingPageIndex, n: readingPages.length, page: tracePage(readingPages[readingPageIndex]), layout: showPhoneChrome ? 'phone' : 'desktop', measured: measuredPaging })
+  }, [traceOn, book.chapterNumber, readingPageIndex, readingPages, showPhoneChrome, measuredPaging])
+
   const commandOverlay = tocOpen || inTheBookOpen || speedPopoverOpen || phoneCard !== null
     || selectionPopup !== null || superMenuOpen || superSheet !== null || bookSwitcherOpen || accountPrompt !== null
   const canReadCommand = () => !initialResolving && !frontispieceVisible && !temporaryHold
@@ -7730,6 +7790,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             onOpenRequests={openRequestsFromMenu}
           />}
           // No Reading angle row: the angle is set in AI settings, This book (Anders, 18 Nov 2026).
+          footer={traceOn ? <LabLayoutTraceCopy /> : undefined}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />

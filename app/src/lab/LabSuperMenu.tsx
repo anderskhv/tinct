@@ -18,6 +18,8 @@ export interface LabSuperMenuProps {
   request?: ReactNode
   /** The open book's reading angle ('' for none): the Reading angle row (labSuperMenu.ts). Absent: no row. */
   readingAngle?: string
+  /** A quiet control at the foot of the menu (the layout trace's Copy trace, ?layoutTrace=1 only). */
+  footer?: ReactNode
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
 }
@@ -115,7 +117,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, ownPdf, sharedReader, profileDot, request, readingAngle, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, ownPdf, sharedReader, profileDot, request, readingAngle, footer, onSelect, onClose }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -215,6 +217,7 @@ export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, own
             {row.chevron && <span className="lab-super-row-chevron" aria-hidden="true">›</span>}
           </button>
         ))}
+        {footer}
       </nav>
     </div>
   )
