@@ -399,6 +399,17 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
   }
 }
 
+/**
+ * A shelf's books in the shelf's own order where the taxonomy gives it one (`LibraryShelf.order`): the
+ * books it names first, in that order, then the others as they came. Without one, as they came (the
+ * registry's order).
+ */
+function inShelfOrder<T extends { id: string }>(books: T[], order: readonly string[] | undefined): T[] {
+  if (!order?.length) return books
+  const place = (book: T) => { const at = order.indexOf(book.id); return at < 0 ? order.length : at }
+  return [...books].sort((a, b) => place(a) - place(b))
+}
+
 export function buildPreReaderCatalogue(): PreReaderCatalogue {
   const books = BOOKS.map(bookViewModel)
   const booksById = new Map(books.map(book => [book.id, book]))
@@ -414,7 +425,7 @@ export function buildPreReaderCatalogue(): PreReaderCatalogue {
         title: shelf.title,
         subtitle: shelf.sub,
         hue: shelf.hue,
-        books: books.filter(book => book.discoveryAvailable !== false && book.shelfIds.includes(shelfId)),
+        books: inShelfOrder(books.filter(book => book.discoveryAvailable !== false && book.shelfIds.includes(shelfId)), shelf.order),
       }
     }).filter(shelf => shelf.books.length > 0),
   })).filter(house => house.shelves.length > 0)
