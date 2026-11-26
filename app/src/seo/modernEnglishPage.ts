@@ -110,7 +110,8 @@ export function renderModernEnglishPage(assets: ModernEnglishPageAssets, list: M
   const shelves = modernEnglishShelves(list)
   const card = (book: ModernEnglishBook) => `<li class="me-card" data-era="${book.era}"><a href="${esc(book.href)}">`
     + `<img src="${cover(book.id)}" alt="" width="300" height="450" loading="lazy" decoding="async">`
-    + `<span class="me-card-title">${esc(book.title)}</span><span class="me-card-source">${esc(book.source)}</span></a></li>`
+    + `<span class="me-card-title">${esc(book.title)}</span><span class="me-card-author">${esc(book.author)}</span>`
+    + `<span class="me-card-source">${esc(book.source)}</span></a></li>`
   const search = list.map(book => ({ id: book.id, t: book.title, a: book.author, s: book.source, h: book.href }))
   return `<!doctype html>
 <html lang="en">

@@ -83,6 +83,19 @@ describe('the page', () => {
     expect(html).not.toMatch(/Create account/i)
   })
 
+  it('names the author on every card, under the title, and keeps the source line below it', () => {
+    // Anders, 26 Nov 2026: the cards showed only the source, so Plato's dialogues all read "Jowett".
+    const cards = [...html.matchAll(/<li class="me-card"[^>]*>(.*?)<\/li>/g)].map(match => match[1])
+    expect(cards).toHaveLength(modernEnglishBooks().length)
+    for (const card of cards) expect(card).toMatch(/<span class="me-card-title">[^<]+<\/span><span class="me-card-author">[^<]+<\/span><span class="me-card-source">from [^<]+<\/span>/)
+    const meditations = getBook('meditations')!
+    expect(html).toContain(`<span class="me-card-title">${meditations.title}</span><span class="me-card-author">${meditations.author}</span><span class="me-card-source">from George Long, 1862</span>`)
+    const jowett = modernEnglishBooks().filter(entry => entry.source.includes('Jowett'))
+    expect(jowett.length).toBeGreaterThan(0)
+    for (const entry of jowett) expect(entry.author).not.toMatch(/Jowett/)
+    expect(html).toContain(`<span class="me-card-author">${jowett[0].author}</span><span class="me-card-source">${jowett[0].source}</span>`)
+  })
+
   it('has one pill per category and period, each a toggle', () => {
     expect(html.match(/data-kind="house"/g)).toHaveLength(5)
     expect(html.match(/data-kind="era"/g)).toHaveLength(6)
