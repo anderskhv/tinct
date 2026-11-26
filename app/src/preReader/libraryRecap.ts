@@ -48,6 +48,12 @@ export interface ContinueTarget {
   bookId: string
   /** Edition the place was recorded in; null when neither store recorded one. */
   editionKey: string | null
+  /**
+   * The edition the reader had beside it in Compare when they left the book
+   * (the position record's pair); absent when none was recorded with this
+   * edition. The hand-off opens the pair again, so Compare is not forgotten.
+   */
+  compareEditionKey?: string
   /** Edition-sequential chapter number (Genesis 1 = 1, Daniel 7 = 857). */
   chapterNumber: number
   chapterLabel: string
@@ -243,6 +249,7 @@ export function continueTargetFor(input: {
     return {
       bookId,
       editionKey: place.primaryEditionKey ?? session?.anchor.editionKey ?? null,
+      ...(place.primaryEditionKey && place.compareEditionKey ? { compareEditionKey: place.compareEditionKey } : {}),
       chapterNumber: place.sequentialChapter,
       chapterLabel: placeLabel(book, place),
       pageIndex: Math.max(0, place.pageIndex ?? 0),
@@ -257,6 +264,8 @@ export function continueTargetFor(input: {
   return {
     bookId,
     editionKey: session.anchor.editionKey,
+    // The memory anchor names no pair; the position record's still holds while it is for this same edition.
+    ...(place?.compareEditionKey && place.primaryEditionKey === session.anchor.editionKey ? { compareEditionKey: place.compareEditionKey } : {}),
     chapterNumber: session.anchor.chapterNumber,
     chapterLabel: compactChapterTitle(session.anchor.chapterLabel, `Chapter ${session.anchor.chapterNumber}`, session.anchor.editionKey),
     pageIndex: Math.max(0, session.anchor.page - 1),

@@ -66,7 +66,7 @@ interface CatalogueBook {
   art?: { src: string; srcSet: string } | null
   /** Generated-cover palette; its background is the book's dominant tone. */
   cover?: { background?: string } | null
-  editions: Array<{ key: string; style?: string; language?: string; wordCount?: number | null; readingStructure?: CatalogueBook['readingStructure']; availability?: { chapterText?: boolean } }>
+  editions: Array<{ key: string; style?: string; language?: string; wordCount?: number | null; readingStructure?: CatalogueBook['readingStructure']; availability?: { chapterText?: boolean; compare?: boolean } }>
   /** The approved default edition (editionDefaults.ts), computed at build time. */
   defaultEditionKey?: string | null
   readingStructure?: { totalParagraphs?: number; chapters?: Array<{ number: number; title: string; paragraphCount?: number }> } | null
@@ -298,7 +298,7 @@ function defaultEditionKey(book: CatalogueBook | undefined, savedPlaceWithoutEdi
 
 const READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 
-interface Place { chapterNumber: number; pageIndex?: number; paragraphIndex: number; wordIndex: number; editionKey: string | null }
+interface Place { chapterNumber: number; pageIndex?: number; paragraphIndex: number; wordIndex: number; editionKey: string | null; compareEditionKey?: string | null }
 
 /** The reader's true place in a book: the reading-list target, else the merged position record. */
 async function placeFor(bookId: string): Promise<Place | null> {
@@ -310,7 +310,23 @@ async function placeFor(bookId: string): Promise<Place | null> {
   // ids, so resolve the catalogue id exactly as the visible reading list does.
   const place = positionPlacesByBook(lastPositions, books, books.get('bible')?.readingStructure?.chapters).get(bookId)
   if (!place) return null
-  return { chapterNumber: place.sequentialChapter, pageIndex: place.pageIndex, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex, editionKey: place.primaryEditionKey ?? null }
+  return { chapterNumber: place.sequentialChapter, pageIndex: place.pageIndex, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex, editionKey: place.primaryEditionKey ?? null, compareEditionKey: place.primaryEditionKey ? place.compareEditionKey ?? null : null }
+}
+
+/**
+ * The edition this reader had beside `edition` in Compare when they left the
+ * book (Anders, 26 Nov 2026: Danish beside English came back as English beside
+ * English). It is saved with the place and belongs to the edition it was saved
+ * with, so it opens only beside that one. Null when there is none, or when the
+ * two can no longer be compared: the reader's hand-off check
+ * (createReaderHandoffIntent) refuses a pair that does not line up, and a
+ * refused hand-off would lose the place.
+ */
+function savedCompareEdition(bookId: string, place: Place | null, edition: string, readable: CatalogueBook['editions']): string | null {
+  if (!place?.editionKey || !place.compareEditionKey || migrateWithheldEdition(bookId, place.editionKey) !== edition) return null
+  const compare = migrateWithheldEdition(bookId, place.compareEditionKey)
+  const comparable = (key: string) => readable.some(item => item.key === key && item.availability?.compare === true)
+  return compare !== edition && comparable(edition) && comparable(compare) && !editionHold(bookId, compare) ? compare : null
 }
 
 /** Read-only spoiler permission, using the same account-scoped place as Continue. */
@@ -362,6 +378,18 @@ export async function initialEdition(bookId: string): Promise<string | null> {
 }
 
 /**
+ * The edition the introduction's "Compare with" shows beside `initialEdition`
+ * before the reader picks one, when they left the book with a pair: exactly
+ * what Begin reading opens with no explicit pick. Null when the book's own
+ * default pair applies.
+ */
+export async function initialCompareEdition(bookId: string): Promise<string | null> {
+  if (isUserBookId(bookId)) return null
+  const { book, place, readable, edition } = await openingEdition(bookId, null, { explicit: false })
+  return book && edition ? savedCompareEdition(bookId, place, edition, readable) : null
+}
+
+/**
  * Hand a book straight to the production reader, at the reader's place
  * (device merged with the account's cloud copy) in the edition it was read
  * in, else from the beginning in `preferredEdition`. Writes the same session
@@ -379,7 +407,10 @@ export async function readerDestination(
   if (isUserBookId(bookId)) { const hex = userBookHex(bookId)!; return ownBookHref(hex, null, pdfEditionChoice(hex)) }
   const { book, place, readable, edition } = await openingEdition(bookId, preferredEdition, choice)
   if (!book || !edition) return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
-  const compare = choice?.compare && choice.compare !== edition && readable.some(item => item.key === choice.compare) && !editionHold(bookId, choice.compare) ? choice.compare : null
+  const picked = choice?.compare && choice.compare !== edition && readable.some(item => item.key === choice.compare) && !editionHold(bookId, choice.compare) ? choice.compare : null
+  // The reader's own pick on the book's page (an edition, or None) wins; else the edition they left beside this
+  // one; else the page's default pair.
+  const compare = choice?.compareExplicit ? picked : savedCompareEdition(bookId, place, edition, readable) ?? picked
   const intent = {
     kind: 'open-reader',
     resumeLatest: true,
@@ -821,4 +852,4 @@ if (supabase && typeof document !== 'undefined') {
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, initialEdition, loadSavedBooks, setSavedBook, removeFromShelf, hideFromReadingNow, introductionProgress, addCatalogueBook }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, initialEdition, initialCompareEdition, loadSavedBooks, setSavedBook, removeFromShelf, hideFromReadingNow, introductionProgress, addCatalogueBook }
