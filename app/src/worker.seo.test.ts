@@ -686,3 +686,42 @@ it('routes Faust recommendation cards through the labelled German book landing',
  expect(await result.text()).toContain('approved cinematic library')
  expect(result.headers.get('Cache-Control')).toBe('no-store')
  })
+
+describe('the Conjecture Institute link', () => {
+  const image = 'https://tinct.app/brand/20261126/share-conjecture-1200x630.jpg'
+  it.each(['/conjecture', '/conjecture/', '/library?collection=conjecture'])('serves the library with its own preview at %s', async path => {
+    const result = await worker.fetch(new Request('https://tinct.app' + path), routerEnv() as never, ctx)
+    expect(result.status).toBe(200)
+    expect(result.headers.get('Location')).toBeNull()
+    expect(result.headers.get('Cache-Control')).toBe('no-store')
+    const html = await result.text()
+    expect(html).toContain('approved cinematic library')
+    expect(html).toContain('<title>Conjecture Institute on Tinct</title>')
+    expect(html).toContain('<meta property="og:title" content="Conjecture Institute on Tinct">')
+    expect(html).toContain('<meta property="og:description" content="The Sovereign Child, Lords of the Cosmos, Bold Conjectures I and II, The Farthest Reaches.">')
+    expect(html).toContain('<meta property="og:url" content="https://tinct.app/conjecture">')
+    // Its own share image survives the brand pass that gives every other page the Tinct image.
+    expect(html).toContain(`<meta property="og:image" content="${image}">`)
+    expect(html).toContain(`<meta name="twitter:image" content="${image}">`)
+    expect(html).not.toContain('share-tinct-1200x630.jpg')
+    for (const tag of ['og:image"', 'twitter:image"', 'twitter:card', 'og:title"']) expect(html.split(tag).length - 1, tag).toBe(1)
+    expect(html).not.toMatch(/public domain/i)
+  })
+
+  it('serves a signed-in reader the same library, never the landing page', async () => {
+    const result = await worker.fetch(new Request('https://tinct.app/conjecture', { headers: { Cookie: 'tinct_auth=1' } }), routerEnv() as never, ctx)
+    expect(result.status).toBe(200)
+    const html = await result.text()
+    expect(html).toContain('approved cinematic library')
+    expect(html).not.toContain('landing')
+  })
+
+  it('answers HEAD without a body, and leaves the plain library its usual preview', async () => {
+    const head = await worker.fetch(new Request('https://tinct.app/conjecture', { method: 'HEAD' }), routerEnv() as never, ctx)
+    expect(head.status).toBe(200)
+    expect(await head.text()).toBe('')
+    const library = await (await worker.fetch(new Request('https://tinct.app/library'), routerEnv() as never, ctx)).text()
+    expect(library).not.toContain('Conjecture Institute on Tinct')
+    expect(library).toContain('share-tinct-1200x630.jpg')
+  })
+})

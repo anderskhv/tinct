@@ -569,3 +569,48 @@ html.signed-in .hero-own{display:none}
 #header.scrolled{-webkit-backdrop-filter:blur(28px) brightness(.5);backdrop-filter:blur(28px) brightness(.5)}
 /* Touch: small text buttons get a 32px+ hit area, their look unchanged (QA 18 Nov 2026). */
 @media(pointer:coarse){#rt-more,.tinct-open{position:relative}#rt-more::before{content:'';position:absolute;inset:-8px -6px}.tinct-open::before{content:'';position:absolute;inset:-6px -4px}}
+/* The Conjecture Institute link (/conjecture, conjecture-hero.js; approved mockup 26 Nov 2026): their logo on the
+   dark table, the chosen book's author, title, description and chips, its cover as the button, the five covers below. */
+.conj{display:none}
+html.collection-conjecture{--conj-cream:#efe6d2;--conj-cream-muted:#b9ad95;--conj-gold:#c9a45c;--conj-gold-ink:#e9d3a0;--conj-gutter:max(28px,2.5vw)}
+html.collection-conjecture #hero>:is(#scene,.hero-shade,.hero-copy,#hero-book,.hero-dots){display:none!important}
+html.collection-conjecture #library #hero{height:auto;min-height:0;max-height:none;background:linear-gradient(180deg,transparent 78%,var(--bg)),radial-gradient(120% 80% at 70% 30%,#3a2c1c 0,#2a2016 35%,#15120e 75%)}
+html.collection-conjecture #library #shelves{margin-top:0;padding-top:12px}
+html.collection-conjecture .conj{display:block;padding:calc(76px + 4px) var(--conj-gutter) 30px;color:var(--conj-cream)}
+.conj-stage{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:'logo big' 'sel big';column-gap:clamp(32px,5vw,72px);align-items:end;max-width:1180px}
+.conj-logo{grid-area:logo;margin:0 0 clamp(20px,3vh,34px);line-height:0}
+.conj-logo img{display:block;width:clamp(170px,15vw,230px);height:auto}
+.conj-sel{grid-area:sel;min-width:0;padding-bottom:4px}
+.conj-author{font:400 clamp(17px,1.4vw,20px)/1.3 'EB Garamond',Georgia,serif;color:var(--conj-cream-muted);margin:0}
+.conj-title{font:400 clamp(38px,3.9vw,56px)/1.04 'EB Garamond',Georgia,serif;letter-spacing:-.5px;margin:2px 0 12px;text-wrap:balance}
+.conj-desc{font:400 clamp(17px,1.35vw,20px)/1.4 'EB Garamond',Georgia,serif;margin:0 0 14px;max-width:46ch}
+.conj-chips{display:flex;flex-wrap:wrap;gap:8px}
+.conj-chip{font:400 12.5px/1.3 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-variant-numeric:tabular-nums;border:1px solid rgba(239,230,210,.35);border-radius:999px;padding:4px 10px}
+.conj-chip.is-progress{border-color:rgba(201,164,92,.7);color:var(--conj-gold-ink)}
+.conj-big{grid-area:big;align-self:end;display:block;width:clamp(200px,19vw,290px);padding:0;border-radius:2px;transition:transform .2s ease}
+.conj-big img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:2px;box-shadow:0 24px 40px rgba(0,0,0,.6),0 2px 4px rgba(0,0,0,.5)}
+.conj-big:hover{transform:translateY(-4px)}
+.conj-strip{display:flex;gap:14px;margin-top:26px;padding:6px 2px 12px;overflow-x:auto;scrollbar-width:none}
+.conj-th{position:relative;flex:none;width:clamp(52px,4.6vw,64px);padding:0;opacity:.55;transition:opacity .15s ease,transform .15s ease}
+.conj-th img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:2px}
+.conj-th:hover{opacity:.9}
+.conj-th.is-on{opacity:1;transform:translateY(-4px)}
+.conj-th.is-on::after{content:'';position:absolute;left:20%;right:20%;bottom:-9px;height:2px;border-radius:2px;background:var(--conj-cream)}
+.conj-pb{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(0,0,0,.5)}
+.conj-pb[hidden]{display:none}
+.conj-pb b{display:block;height:100%;background:var(--conj-gold)}
+html.keyboard-nav .conj :is(.conj-big,.conj-th):focus-visible{outline:2px solid var(--conj-cream);outline-offset:4px}
+@media(max-width:699px){
+ html.collection-conjecture{--conj-gutter:20px}
+ html.collection-conjecture .conj{padding-top:calc(64px + 2px);padding-bottom:22px}
+ .conj-stage{grid-template-columns:minmax(0,1fr);grid-template-areas:'logo' 'big' 'sel';row-gap:16px}
+ .conj-logo{margin:0}
+ .conj-logo img{width:150px}
+ .conj-big{justify-self:center;align-self:auto;width:min(46vw,190px)}
+ .conj-title{font-size:clamp(28px,8vw,34px);margin-bottom:10px}
+ .conj-desc{font-size:16.5px}
+ .conj-strip{gap:10px;margin-top:20px}
+ .conj-th{width:calc((100% - 40px)/5);max-width:58px}
+}
+@media(prefers-reduced-motion:reduce){.conj-big,.conj-th{transition:none}.conj-big:hover{transform:none}}
+html[data-eink="true"] .conj-big img{box-shadow:none}
