@@ -8,6 +8,7 @@ vi.mock('./freeMode', async (original) => ({ ...(await original<typeof import('.
 import { LabChapterEnd } from '../LabChapterEnd'
 import { LabChapterHeading } from '../LabChapterHeading'
 import { MarginPhoneContext, type MarginPhonePills } from '../marginPhone/marginPhoneContext'
+import { PhoneFollow } from '../marginPhone/LabPhoneCard'
 import { FreeModeSourceContext } from './freeModeContext'
 import { LabFreeModeEditions, LabFreeModePhoneBand, freeModeFolio } from './LabFreeMode'
 
@@ -53,6 +54,13 @@ describe('free reading mode chrome', () => {
     expect(screen.getByRole('button', { name: 'Original' }).getAttribute('aria-pressed')).toBe('true')
     expect(screen.getByTestId('lab-free-folio').textContent).toBe('40')
     expect(freeModeFolio('')).toBe('')
+  })
+
+  it('keeps a card’s follow-up typed: no dictation or Talk', () => {
+    render(<PhoneFollow value="" onChange={() => {}} onSend={() => {}} onMic={() => {}} onTalk={() => {}} />)
+    expect(screen.queryByTestId('lab-phone-card-mic')).toBeNull()
+    expect(screen.queryByTestId('lab-phone-card-talk')).toBeNull()
+    expect(screen.getByRole('textbox')).toBeTruthy()
   })
 
   it('draws no switch for a book without both editions', () => {

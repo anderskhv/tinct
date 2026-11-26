@@ -3,6 +3,7 @@ import { consumeDismissGesture } from '../../utils/consumeDismissGesture'
 import { LAB_KEYBOARD_SHEET_ATTR } from '../labChrome'
 import { LabInlineMarkdown, LabMarkdown } from '../LabMarkdown'
 import { TalkIcon } from '../LabReaderIcons'
+import { FREE_MODE } from '../freeMode/freeModeContext'
 import type { AiLength } from '../../aiSettings'
 import { PHONE_CARD_MAX_SHARE, type PhoneCardHeights, phoneCardExpectedHeight, phoneCardHoldStep, phoneCardLength, readPhoneCardHeights, recordPhoneCardHeight } from './phoneCardHeight'
 import { leadSentenceEnd } from './leadSentence'
@@ -458,7 +459,10 @@ export interface PhoneFollowProps {
  * (iPhone feedback, 21 Oct 2026): a follow-up joins the card's conversation in the chat; Talk starts a voice
  * conversation about the card.
  */
-export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onTalk, placeholder = 'Ask a follow-up', label = 'Follow up', inputRef, disabled = false }: PhoneFollowProps) {
+export function PhoneFollow({ value, onChange, onSend, onMic: micOffered, micOn = false, onTalk: talkOffered, placeholder = 'Ask a follow-up', label = 'Follow up', inputRef, disabled = false }: PhoneFollowProps) {
+  // Free reading mode offers no dictation or Talk (freeMode.ts): a card's follow-up is typed.
+  const onMic = FREE_MODE ? undefined : micOffered
+  const onTalk = FREE_MODE ? undefined : talkOffered
   const own = useRef<HTMLTextAreaElement | null>(null)
   const field = inputRef ?? own
   useLayoutEffect(() => {

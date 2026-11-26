@@ -6,6 +6,8 @@ import {
   freeModeEditionFor,
   freeModeEditions,
   freeModeMenuRows,
+  freeModeAllowsAccountPrompt,
+  freeModeSignedInAddress,
   freeModeSourceLine,
   freeModeVerdict,
   installFreeModeGuard,
@@ -23,6 +25,14 @@ describe('free reading mode is decided by the address', () => {
     expect(isFreeModeLocation('/reader', '?mode=freeish')).toBe(false)
     expect(isFreeModeLocation('/library', '?mode=free')).toBe(false)
     expect(isFreeModeLocation('/reader', '?userBook=abc&mode=free')).toBe(false)
+  })
+
+  it('gives a signed-in visitor the normal reader at the same address, without mode=free', () => {
+    expect(freeModeSignedInAddress('/reader', '?book=meditations&mode=free&ref=modern-english'))
+      .toBe('/reader?book=meditations&ref=modern-english')
+    expect(freeModeSignedInAddress('/reader', '?mode=free&book=hamlet', '#x')).toBe('/reader?book=hamlet#x')
+    expect(freeModeSignedInAddress('/reader', '?book=meditations')).toBeNull()
+    expect(freeModeSignedInAddress('/reader', '?userBook=abc&mode=free')).toBeNull()
   })
 
   it('stays free on the reader addresses it opens itself, and only there', () => {
@@ -68,9 +78,9 @@ describe('free reading mode chrome', () => {
   })
 })
 
-describe('free reading mode sends nothing to AI, narration or the account', () => {
+describe('free reading mode sends nothing to AI but the guest companion, nor to narration or the account', () => {
   const AI = [
-    ['POST', '/api/lab-chat'], ['POST', '/api/chat'], ['POST', '/api/lab-chapter-notes'], ['POST', '/api/lab-recap'],
+    ['GET', '/api/lab-chat'], ['POST', '/api/lab-chat-history'], ['GET', '/api/lab-chat-history'], ['POST', '/api/chat'], ['POST', '/api/lab-chapter-notes'], ['POST', '/api/lab-recap'],
     ['POST', '/api/lab-catch-up'], ['POST', '/api/lab-voice-session'], ['GET', '/api/lab-voice-relay'], ['POST', '/api/voice-session'],
     ['POST', '/api/narration/ensure'], ['GET', '/api/narration/voices'], ['GET', '/api/narration/listen?book=meditations'],
     ['GET', '/api/audio-file?key=x'], ['GET', '/api/audio-manifest'], ['POST', '/api/dictation'], ['GET', '/api/ai-allowance'],
@@ -79,7 +89,19 @@ describe('free reading mode sends nothing to AI, narration or the account', () =
 
   it('classifies every AI and narration route as AI, by any method', () => {
     for (const [method, path] of AI) expect(freeModeVerdict(path, method, ORIGIN), `${method} ${path}`).toBe('ai')
-    expect(freeModeVerdict(`${ORIGIN}/api/lab-chat`, 'POST', ORIGIN)).toBe('ai')
+    expect(freeModeVerdict(`${ORIGIN}/api/chat`, 'POST', ORIGIN)).toBe('ai')
+  })
+
+  it('lets a guest’s selection actions reach the guest companion, by POST only', () => {
+    expect(freeModeVerdict('/api/lab-chat', 'POST', ORIGIN)).toBe('guest-ai')
+    expect(freeModeVerdict(`${ORIGIN}/api/lab-chat`, 'post', ORIGIN)).toBe('guest-ai')
+    expect(freeModeVerdict('https://elsewhere.example/api/lab-chat', 'POST', ORIGIN)).toBe('pass')
+    expect(freeModeVerdict('/api/lab-chat-history', 'POST', ORIGIN)).toBe('ai')
+  })
+
+  it('shows the account sheet only for AI, never for listening, Talk or anything else', () => {
+    expect(freeModeAllowsAccountPrompt('chat')).toBe(true)
+    for (const action of ['audio', 'voice']) expect(freeModeAllowsAccountPrompt(action), action).toBe(false)
   })
 
   it('answers account writes on the device and lets reads and sign-in through', () => {
@@ -101,13 +123,14 @@ describe('free reading mode sends nothing to AI, narration or the account', () =
       const response = await win.fetch(path, { method })
       expect(response.status, path).toBe(403)
     }
-    expect((await win.fetch(new Request(`${ORIGIN}/api/lab-chat`, { method: 'POST', body: '{}' }))).status).toBe(403)
+    expect((await win.fetch(new Request(`${ORIGIN}/api/chat`, { method: 'POST', body: '{}' }))).status).toBe(403)
     expect((await win.fetch('/api/lab-position', { method: 'PUT', body: '{}' })).status).toBe(204)
     expect((await win.fetch('https://abc.supabase.co/rest/v1/user_data', { method: 'PATCH', body: '{}' })).status).toBe(204)
     expect(realFetch).not.toHaveBeenCalled()
 
     expect(win.navigator.sendBeacon('/api/lab-position', '{}')).toBe(true)
     expect(win.navigator.sendBeacon('/api/lab-chat', '{}')).toBe(true)
+    expect(win.navigator.sendBeacon('/api/chat', '{}')).toBe(true)
     expect(beacon).not.toHaveBeenCalled()
 
     // Text and the anonymous events go out; the events with no account attached.
@@ -118,5 +141,12 @@ describe('free reading mode sends nothing to AI, narration or the account', () =
     expect(new Headers(eventsInit.headers).has('Authorization')).toBe(false)
     expect(win.navigator.sendBeacon('/api/events', '[]')).toBe(true)
     expect(beacon).toHaveBeenCalledTimes(1)
+
+    // The guest companion goes out too, never with an account attached.
+    await win.fetch('/api/lab-chat', { method: 'POST', body: '{}', headers: { Authorization: 'Bearer token', 'Content-Type': 'application/json' } })
+    expect(realFetch).toHaveBeenCalledTimes(3)
+    const chatInit = (realFetch.mock.calls[2] as unknown as [string, RequestInit])[1]
+    expect(new Headers(chatInit.headers).has('Authorization')).toBe(false)
+    expect(new Headers(chatInit.headers).get('Content-Type')).toBe('application/json')
   })
 })

@@ -239,8 +239,8 @@ import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { ChatConversation, HighlightColor } from '../types'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { TRY_DEMO, TRY_DEMO_DESKTOP_FONT_SIZE, tryDemoTell, useTryDemo, type TryDemoHandles } from './tryDemo/tryDemo'
-import { FREE_MODE, FREE_MODE_COMMANDS, FREE_MODE_HOME, freeModeEditionFor, freeModeEditions, freeModeMenuRows, freeModeSourceLine, otherFreeModeEdition, withFreeMode } from './freeMode/freeMode'
-import { LabFreeModeEditions, LabFreeModeCopyBar, LabFreeModePhoneBand } from './freeMode/LabFreeMode'
+import { FREE_MODE, FREE_MODE_COMMANDS, FREE_MODE_HOME, freeModeAllowsAccountPrompt, freeModeEditionFor, freeModeEditions, freeModeMenuRows, freeModeSourceLine, otherFreeModeEdition, withFreeMode } from './freeMode/freeMode'
+import { LabFreeModeEditions, LabFreeModePhoneBand } from './freeMode/LabFreeMode'
 import { FreeModeSourceContext } from './freeMode/freeModeContext'
 import { useLabHighlights } from './useLabHighlights'
 import { labHighlightUndoMessage } from './labHighlightUndo'
@@ -5591,6 +5591,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   })
 
   const handleMic = useCallback(() => {
+    if (FREE_MODE) return // no dictation in free reading mode (freeMode.ts); its buttons are not drawn
     deskDictationRef.current = null
     dictation.toggle(draftStore.get())
   }, [dictation, draftStore])
@@ -5661,6 +5662,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [ask])
 
   const handleTalk = useCallback(() => {
+    if (FREE_MODE) return // no Talk in free reading mode (freeMode.ts); its buttons are not drawn
     // A reader's own book too (2026-10-08): the session hears the passage on
     // screen and the recent conversation, never the chapter (useLabAsk).
     dictation.stop()
@@ -6854,8 +6856,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     chapterCard: chapterNotes ? (chapterNotes.as ?? chapterNotes.request.kind) : null,
   })
   useEffect(() => {
-    // Free reading mode asks for nothing: no sign-in, Premium or keep-your-place prompt is ever shown (freeMode.ts).
-    if (FREE_MODE && accountPrompt) { setAccountPrompt(null); return }
+    // Free reading mode asks for nothing but an account once the device's free AI actions are used (freeMode.ts):
+    // no other sign-in, Premium or keep-your-place prompt is ever shown.
+    if (FREE_MODE && accountPrompt && !freeModeAllowsAccountPrompt(accountPrompt.action)) { setAccountPrompt(null); return }
     if (!TRY_DEMO || !accountPrompt) return
     // The page shows its own card ("Keep the conversation going"; for Listen, the reader's listening copy).
     tryDemoTell({ type: 'account', action: accountPrompt.action })
@@ -6907,8 +6910,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             onRemoveAttachment={() => setAskAttachment(null)}
             onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
             onSubmit={(text) => { dictation.stop(); handleAsk(text) }}
-            onMic={handleMic}
-            onVoiceMode={() => {
+            onMic={FREE_MODE ? undefined : handleMic}
+            onVoiceMode={FREE_MODE ? undefined : () => {
               dictation.stop()
               handleTalk()
             }}
@@ -8629,7 +8632,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <button type="button" onClick={() => setAudioUnavailableNotice(false)} aria-label="Dismiss audio notice">×</button>
       </div>}
       <LabAccountSheet
-        open={accountPrompt !== null && !TRY_DEMO && !FREE_MODE}
+        open={accountPrompt !== null && !TRY_DEMO && (!FREE_MODE || freeModeAllowsAccountPrompt(accountPrompt.action))}
         action={accountPrompt?.action ?? 'chat'}
         returnTo={signInReturnTo}
         onClose={closeAccountPrompt}
@@ -8695,11 +8698,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         />
       )}
 
-      {/* Free reading mode: a selection offers Copy only (no Explain, Simplify, Ask or highlight). */}
-      {FREE_MODE && selectionPopup && selectionPopup.text.trim() && (
-        <LabFreeModeCopyBar key={`${selectionPopup.x}:${selectionPopup.y}:${selectionPopup.text.length}`} text={selectionPopup.text} x={selectionPopup.x} y={selectionPopup.y} onDone={dismissSelectionPopup} />
-      )}
-      {!FREE_MODE && selectionPopup && marginPhone && popupMode === 'character' && selectionPopup.character && (
+      {/* Free reading mode offers a guest's selection actions, AI included, on the device's free allowance (freeMode.ts);
+          Talk and dictation are left out (PhoneFollow, LabAskPane, SelectionPopup below). */}
+      {selectionPopup && marginPhone && popupMode === 'character' && selectionPopup.character && (
         <LabPhoneCard label={phoneCardLabel('People', selectionPopup.chapterLabel)} kind="character" testId="lab-phone-character" onClose={() => leaveSelectionInfo()}>
           <PhoneCharacterBody key={`${selectionPopup.character.card.id}:${selectionPopup.openedAt}`} character={selectionPopup.character} renderFollow={shown => {
             const passage = phonePassageOf(selectionPopup)
@@ -8729,11 +8730,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           }} />
         </LabPhoneCard>
       )}
-      {!FREE_MODE && selectionPopup && marginPhone && popupMode === 'define' && renderPhoneCard({
+      {selectionPopup && marginPhone && popupMode === 'define' && renderPhoneCard({
         kind: 'define', passage: phonePassageOf(selectionPopup), word: selectionPopup.defineText || selectionPopup.text,
         namesakes: selectionPopup.namesakes, openedAt: selectionPopup.openedAt ?? 0,
       }, true)}
-      {!FREE_MODE && selectionPopup && marginPhone && popupMode !== 'character' && popupMode !== 'define' && (
+      {selectionPopup && marginPhone && popupMode !== 'character' && popupMode !== 'define' && (
         <LabPhoneBar
           text={selectionPopup.text}
           fallbackY={selectionPopup.y}
@@ -8801,13 +8802,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         </LabPhoneCard>
       )}
 
-      {!FREE_MODE && selectionPopup && !marginPhone && (
+      {selectionPopup && !marginPhone && (
         <SelectionPopup
           sharedReader={sharedReader}
           saveError={cardSaveWarning}
           selection={selectionPopup}
           popupRef={popupRef}
-          onDictateAsk={sharedReader ? dictateDeskAsk : undefined}
+          onDictateAsk={sharedReader && !FREE_MODE ? dictateDeskAsk : undefined}
           dictatingAsk={dictation.state !== 'idle' && !!deskDictationRef.current}
           onAskQuestion={sharedReader ? question => {
             const passage = phonePassageOf(selectionPopup)
@@ -8897,7 +8898,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             setAskAttachment({ bookId: book.bookId || 'bible', text })
             setDraft('')
           }}
-          onTalkExplanation={(answer) => {
+          onTalkExplanation={FREE_MODE ? undefined : (answer) => {
             ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
             // Let the explanation enter the hook's context before starting voice;
