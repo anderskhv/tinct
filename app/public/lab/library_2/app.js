@@ -25,7 +25,10 @@ import {coverSources} from './cover-assets.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {bookCoverSrc} from '../book-cover.js?v=20261009owncover';
 import {createQuietLoads,stopOnAbort} from './quiet-loads.js?v=20261015quietopen';
+import {mountConjectureHero,CONJECTURE_IDS} from './conjecture-hero.js?v=20261126conj';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
+// The Conjecture Institute link (/conjecture; boot.js, conjecture-hero.js): its hero replaces the featured scene.
+const conjecture=window.__library2Boot?.collection==='conjecture';
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
 let savedBooks=new Set(),savedReady=false;const pendingSaves=new Map();
@@ -134,7 +137,7 @@ function shelfNeed(id){const dpr=Math.min(typeof devicePixelRatio==='number'&&de
 function shelfCover(book){(deskPending()?deskRevealed.then(()=>ensureCover(book,shelfNeed(book.id))):ensureCover(book,shelfNeed(book.id))).catch(()=>{});}
 function observeCover(c,book){paintCover(c,book.id);coverBooks.set(c,book);const observer=fullSizeCover(book)?fullCoverObserver:coverObserver;if(observer)observer.observe(c);else shelfCover(book);}
 // The first cover has priority; shelves and other scenes load as they approach view.
-if(!window.__library2Boot?.hint)ensureCover(books[0],COVER_HERO_PX).catch(()=>{});
+if(!window.__library2Boot?.hint&&!conjecture)ensureCover(books[0],COVER_HERO_PX).catch(()=>{});
 function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;renderBookMetadata(meta,book,{compact:true});return meta;}
 function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=bookById(meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
 // A shelf more than a screen above or below the screen gives its covers' pixels back
@@ -208,7 +211,7 @@ $('hero-book').onclick=$('read-featured').onclick=openFeatured;
 window.__library2HeroWired=true;if(window.__library2EarlyOpen){window.__library2EarlyOpen=false;$('hero-book').removeAttribute('aria-busy');$('read-featured').removeAttribute('aria-busy');setTimeout(()=>{if(!/\breturning(-pending)?\b/.test(document.documentElement.className))openFeatured();},0);}
 addEventListener('library2:reading',updateHeroAction);
 // Signed in: Account; signed out: Sign in or join. Both go to the production account page and come back here.
-function syncAccountButton(){const signedIn=document.documentElement.classList.contains('signed-in');if(!$('sign-in').classList.contains('cards-you'))$('sign-in').textContent=signedIn?'Account':'Sign in or join';$('sign-in').onclick=()=>location.assign(`/sign-in?${signedIn?'mode=account&':''}returnTo=${encodeURIComponent('/library')}`);}
+function syncAccountButton(){const signedIn=document.documentElement.classList.contains('signed-in');if(!$('sign-in').classList.contains('cards-you'))$('sign-in').textContent=signedIn?'Account':'Sign in or join';$('sign-in').onclick=()=>location.assign(`/sign-in?${signedIn?'mode=account&':''}returnTo=${encodeURIComponent(conjecture?'/library?collection=conjecture':'/library')}`);}
 syncAccountButton();
 $('header').querySelector('.logo').onclick=e=>{e.preventDefault();if(activeBook)closeBook();else selectCollection('home');};
 addEventListener('scroll',()=>$('header').classList.toggle('scrolled',scrollY>20),{passive:true});
@@ -243,8 +246,8 @@ function tableStageFitted(){const view=document.querySelector('.reading-table');
 function tableCropNow(id,w,h,img,wide){return cropForSceneNow(id,w,h,img,wide);}
 function cropForSceneNow(id,w,h,img,wide){if(!id.startsWith('table-')){if(!wide&&phoneTableY[id]){const book=$('hero-book').getBoundingClientRect(),hero=$('hero').getBoundingClientRect();return tableCrop(w,h,img.naturalWidth,img.naturalHeight,phoneTableY[id],book.bottom-hero.top-book.height*.13);}return sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);}const stage=document.querySelector('.rt-stage'),hero=$('hero');const r=stage?.getBoundingClientRect();const height=parseFloat(document.querySelector('.reading-table')?.style.getPropertyValue('--bh'))||260;const edge=r?r.bottom-hero.getBoundingClientRect().top-height*.22:h*.6;return tableCrop(w,h,img.naturalWidth,img.naturalHeight,img.naturalHeight*(wide?.64:.51),Math.max(h*.2,Math.min(h*.9,edge)));}
 let returningScene=window.__library2Boot?.scene?.startsWith('table-')?window.__library2Boot.scene:'table-'+readingRoom();
-if(!window.__library2Boot?.hint)loadScene(sceneTo).catch(()=>notice('The scene could not load. Please refresh to try again.'));
-addEventListener('library2:reading',e=>{if(e.detail.mode!=='returning')showScene(linkedState==='pending'?linkedBook:featured.id);else if(document.documentElement.dataset.returningView==='table')showScene(returningScene);});
+if(!window.__library2Boot?.hint&&!conjecture)loadScene(sceneTo).catch(()=>notice('The scene could not load. Please refresh to try again.'));
+addEventListener('library2:reading',e=>{if(conjecture)return;if(e.detail.mode!=='returning')showScene(linkedState==='pending'?linkedBook:featured.id);else if(document.documentElement.dataset.returningView==='table')showScene(returningScene);});
 // Desktop film loops of the wide paintings; the canvas composites their frames.
 const sceneVideo=mountSceneVideo($('hero'),$('scene'));
 /** Lets go of every decoded scene but the one shown (both shapes of it); showing another decodes it again from the cache. */
@@ -678,7 +681,7 @@ let movedLibrarian=false;
 // On the reading table the librarian rests level with the middle of the books: the row
 // stands --bh tall on the stage, lifted 5% of --bh off its floor (styles.css .rt-row).
 function tableBooksMidY(){const table=document.querySelector('.reading-table:not([hidden])'),stage=table?.querySelector('.rt-stage'),bh=parseFloat(table?.style.getPropertyValue('--bh'));if(!stage||!bh)return null;const r=stage.getBoundingClientRect();return r.height?r.bottom+scrollY-bh*.55:null;}
-function fitHero(){window.__library2Layout();const b=$('hero-book');if(!movedLibrarian&&mode==='minimized'&&!activeBook){const r=b.getBoundingClientRect();const y=document.documentElement.classList.contains('returning')?tableBooksMidY()??innerHeight*.68+26:r.top+scrollY+r.height/2;dock={side:'right',y:tuckRestY(y,innerHeight)};snapTuck();}}
+function fitHero(){window.__library2Layout();const b=conjecture&&document.querySelector('.conj-big')||$('hero-book');if(!movedLibrarian&&mode==='minimized'&&!activeBook){const r=b.getBoundingClientRect();const y=document.documentElement.classList.contains('returning')?tableBooksMidY()??innerHeight*.68+26:r.top+scrollY+r.height/2;dock={side:'right',y:tuckRestY(y,innerHeight)};snapTuck();}}
 if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(fitHero);observer.observe(document.querySelector('.hero-copy'));observer.observe($('hero'));}fitHero();
 // The reading table's stage settled after fitHero last ran (its title refit, a recap arrived): the docked librarian follows the books.
 {let tableFitFrame=0;addEventListener('library2:table-fit',()=>{cancelAnimationFrame(tableFitFrame);tableFitFrame=requestAnimationFrame(fitHero);});}
@@ -988,6 +991,23 @@ function featureLinked(book,entry){
 function linkedUnavailable(){if(linkedState!=='pending')return;linkedState=null;featuredTarget=0;const first=all('.hero-dots button')[0];if(first)first.click();if(document.documentElement.dataset.linkedBook)delete document.documentElement.dataset.linkedBook;refreshMetadata();setTimeout(()=>document.documentElement.classList.remove('linked-pending'),400);}
 if(linkedBook)loadCatalogueData().then(data=>{if(linkedState!=='pending')return;const params=new URLSearchParams(location.search);const entry=data.books.find(b=>b.id===linkedBook&&b.discoveryAvailable!==false);if(!entry)return linkedUnavailable();let book=books.find(b=>b.id===linkedBook);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);const requested=params.get('edition');if(entry.editions?.some(e=>e.key===requested&&(e.language!=='da'||e.discoveryAvailable===true)&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false))editionChoices.set(book.id,{main:requested,explicit:true});featureLinked(book,entry);if(params.get('view')==='book-detail')return openBook(book,$('hero-book').querySelector('canvas'));}).catch(()=>{linkedUnavailable();notice('This book could not load. Please try again.');});
 
+// The Conjecture hero: the five books from the catalogue (title, author, the registry's description,
+// cover, reading time as the library computes it). The big cover opens the book in the reader at the
+// reader's saved place, else at chapter 1 (openInReader: readerDestination).
+let conjectureHero=null;
+if(conjecture){
+ const signedIn=()=>document.documentElement.classList.contains('signed-in');
+ const entryBook=entry=>{let book=books.find(b=>b.id===entry.id);if(!book){book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);}return book;};
+ loadCatalogueData().then(data=>{
+  const entries=CONJECTURE_IDS.map(id=>data.books.find(b=>b.id===id)).filter(Boolean);
+  const list=entries.map(entry=>{const book=entryBook(entry);return {id:entry.id,title:entry.title,author:entry.author,summary:entry.summary||entry.blurb||'',cover:bookCoverSrc({bookId:entry.id,art:entry.art})||book.cover,readingTime:readingTime({...book,wordCount:entry.wordCount??book.wordCount})};});
+  conjectureHero=mountConjectureHero({hero:$('hero'),books:list,signedIn,open:item=>openInReader(entryBook(entries.find(e=>e.id===item.id)))});
+  if(conjectureHero&&window.__library2Reading)conjectureHero.setReading(window.__library2Reading.reading);
+  fitHero();
+ }).catch(()=>notice('These books could not load. Please refresh to try again.'));
+ addEventListener('library2:reading',e=>conjectureHero?.setReading(e.detail?.reading));
+}
+
 // Reveal a fully drawn, positioned librarian instead of an empty circle at (0, 0).
 drawOrb(performance.now());document.documentElement.classList.add('library-ready');
 
@@ -995,13 +1015,14 @@ mountHeroNavigation({
  hero:$('hero'),
  enabled:()=>!document.documentElement.classList.contains('returning')&&!activeBook&&!searchOpen&&!menuOpen&&mode==='minimized'&&collectionChoice==='home'&&!document.documentElement.classList.contains('returning-pending'),
  move:direction=>{
+  if(conjectureHero){conjectureHero.move(direction);return;}
   if(document.documentElement.classList.contains('returning')){$(direction>0?'rt-next':'rt-prev')?.click();return;}
   const dots=all('.hero-dots button');
   dots[(featuredTarget+direction+dots.length)%dots.length]?.click();
  }
 });
 
-if(!linkedBook&&readVisit()?.mode==='discovery'){const i=featuredBooks.findIndex(b=>b.id===readVisit()?.featured);if(i>0)all('.hero-dots button')[i].click();}
+if(!linkedBook&&!conjecture&&readVisit()?.mode==='discovery'){const i=featuredBooks.findIndex(b=>b.id===readVisit()?.featured);if(i>0)all('.hero-dots button')[i].click();}
 
 
 
