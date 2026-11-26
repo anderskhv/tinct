@@ -393,6 +393,9 @@ const worker = {
         // Fail closed like the rate limiter: without the coordinator nothing is imported.
         countDaily: async (key, limit) => { try { return windows ? await windows.getByName(`rl:${key}`).hit(limit, 86_400_000) : false } catch { return false } },
         acquireLock: async bookId => { try { return windows ? await windows.getByName(`rl:public-book-lock:${bookId}`).hit(1, 600_000) : false } catch { return false } },
+        // An add that downloaded nothing gives back its daily counts and its lock (routes/publicBooks.ts prepare).
+        uncountDaily: async key => { try { await windows?.getByName(`rl:${key}`).unhit() } catch { /* the count stays */ } },
+        releaseLock: async bookId => { try { await windows?.getByName(`rl:public-book-lock:${bookId}`).unhit() } catch { /* the lock runs out */ } },
         premiumAccess: userId => loadPremiumAccess(env, userId),
         waitUntil: promise => ctx.waitUntil(promise),
       })
