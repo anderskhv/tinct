@@ -31,7 +31,8 @@ interface LabAskPaneProps {
   onRemoveAttachment?: () => void
   onDraftChange: (value: string) => void
   onSubmit: (value: string) => void
-  onMic: () => void
+  /** Dictation; left out where the reader offers none (free reading mode). */
+  onMic?: () => void
   /** Absent: no voice conversation is offered (a reader's own book). */
   onVoiceMode?: () => void
   onRetry?: () => void
@@ -541,7 +542,7 @@ export function LabAskPane({
             dangerouslySetInnerHTML={{ __html: ICONS.close }}
           />
         ) : null}
-        {(!canSend || dictationState !== 'idle') && (
+        {onMic && (!canSend || dictationState !== 'idle') && (
           <button
             type="button"
             className="tc-mark tc-mic"

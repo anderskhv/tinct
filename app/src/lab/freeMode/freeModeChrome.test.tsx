@@ -8,8 +8,10 @@ vi.mock('./freeMode', async (original) => ({ ...(await original<typeof import('.
 import { LabChapterEnd } from '../LabChapterEnd'
 import { LabChapterHeading } from '../LabChapterHeading'
 import { MarginPhoneContext, type MarginPhonePills } from '../marginPhone/marginPhoneContext'
+import { PhoneFollow } from '../marginPhone/LabPhoneCard'
 import { FreeModeSourceContext } from './freeModeContext'
 import { LabFreeModeEditions, LabFreeModePhoneBand, freeModeFolio } from './LabFreeMode'
+import { MarginFirstHint, marginStartCard } from '../marginFirstHint'
 
 afterEach(cleanup)
 
@@ -41,6 +43,32 @@ describe('free reading mode chrome', () => {
     expect(document.body.textContent).not.toMatch(/Primer|Summary|Quiz|explained/)
   })
 
+  it('on a first visit, draws the phone’s hint line under the first chapter’s heading, with no Primer or Summary', () => {
+    const first = { ...pills, firstVisit: true } as MarginPhonePills
+    render(<MarginPhoneContext.Provider value={first}><LabChapterHeading title="Book 1" preview onPreview={() => {}} /></MarginPhoneContext.Provider>)
+    expect(screen.getByTestId('lab-first-hint').textContent).toBe('Press and hold any passage to have it explained, simplified, or to ask about it.')
+    expect(screen.queryAllByRole('button')).toHaveLength(0)
+    expect(screen.queryByTestId('lab-book-opening')).toBeNull()
+    expect(document.body.textContent).not.toMatch(/Primer|Summary|Quiz/)
+    cleanup()
+    // A measuring copy draws the same line, so the pages are laid out with it.
+    render(<MarginPhoneContext.Provider value={first}><LabChapterHeading title="Book 1" preview measuring /></MarginPhoneContext.Provider>)
+    expect(document.querySelector('.lab-first-hint-line')).toBeTruthy()
+    cleanup()
+    // Not under a later chapter's heading.
+    render(<MarginPhoneContext.Provider value={first}><LabChapterHeading title="Book 2" preview /></MarginPhoneContext.Provider>)
+    expect(screen.queryByTestId('lab-first-hint')).toBeNull()
+  })
+
+  it('on the desktop, keeps the margin’s first-visit hint without its Primer, and no start actions after it', () => {
+    expect(marginStartCard({ freeMode: true, firstVisit: true })).toBe('hint')
+    expect(marginStartCard({ freeMode: true, firstVisit: false })).toBeNull()
+    render(<MarginFirstHint chapterTitle="Book 1" />)
+    expect(screen.getByTestId('margin-first-hint').textContent).toBe('Highlight any passage to have it explained, simplified, or to ask about it.')
+    expect(screen.queryAllByRole('button')).toHaveLength(0)
+    expect(document.body.textContent).not.toMatch(/Primer|Summary|Quiz|Before you start/)
+  })
+
   it('offers Original, Modern and Both on the desktop and no Both on the phone', () => {
     const choose = vi.fn()
     const { unmount } = render(<LabFreeModeEditions editions={EDITIONS} current="modern-en" both onChoose={choose} />)
@@ -62,6 +90,13 @@ describe('free reading mode chrome', () => {
     expect(screen.getByRole('button', { name: 'Nudansk' }).getAttribute('aria-pressed')).toBe('true')
     fireEvent.click(screen.getByText('Original'))
     expect(choose).toHaveBeenCalledWith('original-en')
+  })
+
+  it('keeps a card’s follow-up typed: no dictation or Talk', () => {
+    render(<PhoneFollow value="" onChange={() => {}} onSend={() => {}} onMic={() => {}} onTalk={() => {}} />)
+    expect(screen.queryByTestId('lab-phone-card-mic')).toBeNull()
+    expect(screen.queryByTestId('lab-phone-card-talk')).toBeNull()
+    expect(screen.getByRole('textbox')).toBeTruthy()
   })
 
   it('draws no switch for a book without both editions', () => {

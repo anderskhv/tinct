@@ -5,17 +5,24 @@
  * - Only Original and Modern English, and on the desktop Both (the reader's own Compare view). Opened from the Danish
  *   page (`ref=nudansk`, Anders 26 Nov 2026), the modern edition is the modern Danish instead, and the back arrow
  *   goes to /nudansk.
- * - No AI and no narration: the reader offers none, and the guard below answers any such request on the device,
- *   so nothing reaches those routes even if a code path forgets the mode.
+ * - A guest's AI actions on a selection (Ask, Explain, Simplify, Define and the rest), as the signed-out reader
+ *   offers them, on the same device allowance (labAccountPrompt.ts LAB_FREE_AI_ACTIONS, shared with the normal
+ *   reader); the next one shows the account sheet, the one prompt free mode shows (Anders, 26 Nov 2026: "give them
+ *   10 free basically?"). They go to the guest companion route only, with no account attached.
+ * - No narration, Talk, dictation, chapter notes or recaps: the reader offers none, and the guard below answers any
+ *   such request on the device, so nothing reaches those routes even if a code path forgets the mode.
  * - No account: the reader runs as if signed out (main.tsx passes `authToken={null}`), so the place is kept on this
  *   device only, by the reader's own local position store, and is never written to the account. Any other write to
- *   Tinct's API or the database is answered here and never sent. Sign-in and token refresh are left alone, so a
- *   signed-in reader's own session is unharmed. Once the visitor opens the normal reader, it takes over as it does
- *   for any guest place on the device.
+ *   Tinct's API or the database is answered here and never sent. Sign-in and token refresh are left alone. Once the
+ *   visitor opens the normal reader, it takes over as it does for any guest place on the device.
+ * - Free mode is for guests: a visitor with a Tinct session on this device gets the normal reader at the same
+ *   address without `mode=free` (their account, place sync and AI allowance), rewritten here before any other
+ *   module reads the address.
  *
- * Decided once per page, from the address, before the app runs.
+ * Decided once per page, from the address and this device's session, before the app runs.
  */
 import { editionSource } from '../../data/editionSources'
+import { readCachedSupabaseUser } from '../labLibraryBoot'
 import type { Book, Edition } from '../../types'
 import type { LabSuperMenuRow } from '../labSuperMenu'
 
@@ -45,13 +52,50 @@ export function isFreeModeLocation(pathname: string, search: string): boolean {
   return params.get(FREE_MODE_PARAM) === FREE_MODE_VALUE && !params.has('userBook')
 }
 
-export const FREE_MODE = typeof window !== 'undefined' && isFreeModeLocation(window.location.pathname, window.location.search)
+/**
+ * The normal reader's address for a free-mode address (`mode=free` dropped, `book`, `ref` and the rest kept), for a
+ * visitor who is signed in on this device. Null when the address is not free mode.
+ */
+export function freeModeSignedInAddress(pathname: string, search: string, hash = ''): string | null {
+  if (!isFreeModeLocation(pathname, search)) return null
+  const params = new URLSearchParams(search)
+  params.delete(FREE_MODE_PARAM)
+  const rest = params.toString()
+  return `${pathname}${rest ? `?${rest}` : ''}${hash}`
+}
+
+/**
+ * Free mode for this page. A signed-in visitor (a Tinct session kept on this device) is moved to the normal reader
+ * first: the address is replaced, not navigated, so the page loads once and the reader opens the book's place on
+ * this device as the normal reader does for a guest place (labReaderHandoff.ts modernReturnHandoff).
+ */
+function decideFreeMode(): boolean {
+  if (typeof window === 'undefined') return false
+  const { pathname, search, hash } = window.location
+  if (!isFreeModeLocation(pathname, search)) return false
+  if (!readCachedSupabaseUser()) return true
+  const normal = freeModeSignedInAddress(pathname, search, hash)
+  try {
+    if (normal) window.history.replaceState(window.history.state, '', normal)
+  } catch {
+    // The address could not be changed: stay free rather than run the normal reader on a free-mode address.
+    return true
+  }
+  return false
+}
+
+export const FREE_MODE = decideFreeMode()
 /** This page's hub, decided once from the address as FREE_MODE is. */
 export const FREE_MODE_HUB: FreeModeHub = freeModeHubFor(typeof window !== 'undefined' ? window.location.search : '')
 /** Where the desktop back arrow goes: the page the reader came from. */
 export const FREE_MODE_HOME: string = FREE_MODE_HUB.home
 /** The modern edition this page's free mode reads: Modern English, or modern Danish from /nudansk. */
 export const FREE_MODE_MODERN: FreeModeModernEdition = FREE_MODE_HUB.modern
+
+/** The account sheet free mode shows: only once the device's free AI actions are used (labAccountPrompt.ts). */
+export function freeModeAllowsAccountPrompt(action: string): boolean {
+  return action === 'chat'
+}
 
 /** Keep `mode=free` on a reader address the mode navigates to itself (the book picker). */
 export function withFreeMode(destination: string): string {
@@ -115,24 +159,32 @@ export function freeModeSourceLine(book: Pick<Book, 'id' | 'author' | 'editions'
 // ---- The guard ---------------------------------------------------------------------------------------------------
 
 /**
- * Tinct's AI and narration routes. Free mode sends nothing to any of them, by any method: chat and its cards,
- * chapter notes, recaps, Catch me up, Talk, dictation, narration and recorded audio, and the AI allowance.
+ * Tinct's AI and narration routes. Free mode sends nothing to any of them, by any method, except the guest companion
+ * below: the account's chat and its history, chapter notes, recaps, Catch me up, Talk, dictation, narration and
+ * recorded audio, and the AI allowance.
  */
 const AI_ROUTE = /^\/api\/(?:chat|lab-chat|lab-recap|lab-chapter-notes|lab-catch-up|lab-voice|voice|narration|audio|dictation|own-catch-up|own-text-repair|recap|ai-allowance|define|explain)(?:[/-]|$)/
+/**
+ * The guest companion: a signed-out reader's Ask, Explain, Simplify, Define and the rest (useLabAsk.ts), counted on
+ * the device against LAB_FREE_AI_ACTIONS before it is sent, and metered for guests by the Worker. POST only.
+ */
+const GUEST_AI_ROUTE = '/api/lab-chat'
 /** The anonymous funnel events (with no account attached): the page's `ref` is counted by them. */
 const EVENTS_ROUTE = '/api/events'
 
-export type FreeModeVerdict = 'ai' | 'write' | 'events' | 'pass'
+export type FreeModeVerdict = 'ai' | 'guest-ai' | 'write' | 'events' | 'pass'
 
 /**
  * What free mode does with a request: `ai` is answered on the device (403), `write` is answered on the device (204),
- * `events` goes out without an account, `pass` goes out as it is (reads of text, covers, the catalogue; sign-in).
+ * `guest-ai` and `events` go out without an account, `pass` goes out as it is (reads of text, covers, the catalogue;
+ * sign-in).
  */
 export function freeModeVerdict(rawUrl: string, method: string, origin: string): FreeModeVerdict {
   let url: URL
   try { url = new URL(rawUrl, origin) } catch { return 'pass' }
   const write = !/^(?:GET|HEAD|OPTIONS)$/i.test(method || 'GET')
   const sameOrigin = url.origin === origin
+  if (sameOrigin && url.pathname === GUEST_AI_ROUTE && /^POST$/i.test(method || 'GET')) return 'guest-ai'
   if (sameOrigin && AI_ROUTE.test(url.pathname)) return 'ai'
   if (sameOrigin && url.pathname === EVENTS_ROUTE) return 'events'
   if (sameOrigin && url.pathname.startsWith('/api/')) return write ? 'write' : 'pass'
@@ -150,7 +202,7 @@ interface GuardWindow {
 
 const GUARD_MARK = '__TINCT_FREE_MODE_GUARD__'
 
-/** Wrap `fetch` and `sendBeacon` so free mode cannot reach AI, narration or the account. Idempotent. */
+/** Wrap `fetch` and `sendBeacon` so free mode reaches no AI but the guest companion, no narration and no account. Idempotent. */
 export function installFreeModeGuard(win: GuardWindow = window): void {
   const slot = win as unknown as Record<string, unknown>
   if (slot[GUARD_MARK]) return
@@ -164,7 +216,7 @@ export function installFreeModeGuard(win: GuardWindow = window): void {
       return Promise.resolve(new Response(JSON.stringify({ error: 'Not offered in free reading.' }), { status: 403, headers: { 'Content-Type': 'application/json' } }))
     }
     if (verdict === 'write') return Promise.resolve(new Response(null, { status: 204 }))
-    if (verdict === 'events') {
+    if (verdict === 'events' || verdict === 'guest-ai') {
       const headers = new Headers(init?.headers || (typeof input === 'object' && 'headers' in input ? (input as Request).headers : undefined))
       headers.delete('Authorization')
       return realFetch(input, { ...(init || {}), headers })
