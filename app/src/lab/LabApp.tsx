@@ -239,6 +239,7 @@ import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { ChatConversation, HighlightColor } from '../types'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { TRY_DEMO, TRY_DEMO_DESKTOP_FONT_SIZE, tryDemoTell, useTryDemo, type TryDemoHandles } from './tryDemo/tryDemo'
+import { MarginFirstHint, marginStartCard } from './marginFirstHint'
 import { FREE_MODE, FREE_MODE_COMMANDS, FREE_MODE_HOME, freeModeAllowsAccountPrompt, freeModeEditionFor, freeModeEditions, freeModeMenuRows, freeModeSourceLine, otherFreeModeEdition, withFreeMode } from './freeMode/freeMode'
 import { LabFreeModeEditions, LabFreeModePhoneBand } from './freeMode/LabFreeMode'
 import { FreeModeSourceContext } from './freeMode/freeModeContext'
@@ -7255,7 +7256,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // 16 Nov 2026): it is the t menu's Reading angle and the first chapter's end.
   // A reader who has never used Ask, Explain or Simplify sees only how to, and the chapter's Primer (the simple first
   // page, 16 Nov 2026); while a signed-in reader's account is read, nothing.
-  if (!FREE_MODE && continuousReader && !book.chaptersProvisional && !initialResolving && selectionActions !== 'unknown') {
+  // Free reading mode (freeMode.ts) keeps only the first-visit hint, without its Primer: no chapter notes there.
+  const startCard = marginStartCard({ freeMode: FREE_MODE, firstVisit })
+  if (startCard && continuousReader && !book.chaptersProvisional && !initialResolving && selectionActions !== 'unknown') {
     const first = book.chapters[0]?.number === book.chapterNumber
     // "Before you start" sits at the very top of the book, level with the opening heading (Anders, 10 Nov 2026),
     // not at the first line of text below it.
@@ -7279,12 +7282,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const rect = head?.getBoundingClientRect()
       return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : sourceForMargin(undefined)()
     }
-    if (firstVisit) desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: chapterTitle, actions: true, variant: 'hint',
+    if (startCard === 'hint') desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: chapterTitle, actions: true, variant: 'hint',
       source: first ? startCardSource : bookScroll ? ownHeadingSource : sourceForMargin(undefined), order: -10, free: true, open: true, onToggle: () => {},
-      content: <div className="lab-first-hint" data-testid="margin-first-hint">
-        <p className="lab-first-hint-text">Highlight any passage to have it explained, simplified, or to ask about it.</p>
-        <div className="lab-start-acts">{act(`Primer for ${chapterTitle}`, 'margin-hint-primer', () => openChapterNotes('primer', book.chapterNumber, 'pill'))}</div>
-      </div> })
+      content: <MarginFirstHint chapterTitle={chapterTitle} onPrimer={FREE_MODE ? undefined : () => openChapterNotes('primer', book.chapterNumber, 'pill')} /> })
     else desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: first ? 'Before you start' : chapterTitle, actions: true, variant: first ? 'start' : 'start-later',
       source: first ? startCardSource : bookScroll ? ownHeadingSource : sourceForMargin(undefined), order: -10, free: true,
       // "Before you start" opens folded to its greyed label and a + (Anders, 10 Nov 2026); later chapters' actions stay open.
@@ -7312,7 +7312,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // passages, as they will be when it is the reader's own. Acting on one makes the chapter the reader's own first.
   if (bookScroll && bookScrollUnitNow && !book.chaptersProvisional && !initialResolving) {
     // The simple first page: a reader who has never used the selection actions sees no neighbour's start actions either.
-    const neighbourStarts = selectionActions === 'used'
+    // Free reading mode (freeMode.ts) draws no start actions at all.
+    const neighbourStarts = !FREE_MODE && selectionActions === 'used'
     const unitChapters = bookScrollUnitNow.chapters
     const ownIndex = unitChapters.findIndex(chapter => chapter.number === book.chapterNumber)
     const neighbourSource = (number: number, place?: { paragraphIndex: number; fromWord: number } | null, atEnd = false) => () => {

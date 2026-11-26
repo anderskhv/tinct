@@ -57,7 +57,8 @@ export function LabChapterHeading({ title, preview: previewAsked = false, busy =
   // A first chapter named as the book (a PDF's text before its first heading) is not named twice.
   const repeats = !!opening && sameWords(opening.title, title)
   const marginPills = useMarginPhone()
-  // Free reading mode (freeMode.ts): the bare heading and the line naming the Modern English's source, no actions.
+  // Free reading mode (freeMode.ts): the bare heading, the line naming the Modern English's source and, on a first
+  // visit, the phone's hint line; no actions.
   const sourceLine = useFreeModeSourceLine()
   const margin = FREE_MODE ? null : marginPills
   const preview = previewAsked && !FREE_MODE
@@ -71,6 +72,8 @@ export function LabChapterHeading({ title, preview: previewAsked = false, busy =
   // line on how to use the selection actions. Measuring copies draw the same, so the pages are laid out with it.
   const firstVisit = phone && !!margin?.firstVisit
   const bookPill = book && !firstVisit
+  // Free reading mode keeps the phone's first-visit line under the first chapter's heading, with no actions beside it.
+  const freeHint = FREE_MODE && marginPills?.layout === 'phone' && !!marginPills.firstVisit && marginPills.book?.firstChapterTitle === title
   return <header className={`lab-passage-header${chips || phone || (preview && !margin) ? ' has-preview' : ''}${preview && title.length > 64 ? ' is-long-title' : ''}${opening || book ? ' has-book-opening' : ''}`}>
     {opening && <div className="lab-book-opening" data-testid={measuring ? undefined : 'lab-book-opening'}>
       <p className="lab-book-opening-title">{opening.title}</p>
@@ -104,7 +107,7 @@ export function LabChapterHeading({ title, preview: previewAsked = false, busy =
         </button>}
       </div>
     </div>}
-    {firstVisit && book && <p className="lab-first-hint-line" data-testid={measuring ? undefined : 'lab-first-hint'}>Press and hold any passage to have it explained, simplified, or to ask about it.</p>}
+    {((firstVisit && book) || freeHint) && <p className="lab-first-hint-line" data-testid={measuring ? undefined : 'lab-first-hint'}>Press and hold any passage to have it explained, simplified, or to ask about it.</p>}
     {chips && margin && <div className="lab-unit-pills is-start" data-testid={measuring ? undefined : 'lab-unit-start'}>
       <div className="lab-unit-acts">
         <button type="button" className="lab-chapter-preview" data-testid={measuring ? undefined : 'lab-unit-primer'} disabled={busy}
