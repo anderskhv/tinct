@@ -1319,6 +1319,18 @@ describe('Modern English asked alongside the end of an add (Anders, 2026-10-09)'
     expect(await end).toEqual({ href: '/reader', answer: 'later' })
   })
 
+  it('library_2 says a library is down by name, or generically, never the generic "try again" (2026-11-26)', () => {
+    const app = readFileSync('public/lab/library_2/app.js', 'utf8')
+    const table = app.slice(app.indexOf('const ADD_FAILURES='), app.indexOf('\n', app.indexOf('const ADD_FAILURES=')))
+    const fn = app.slice(app.indexOf('function addFailureCopy('), app.indexOf('\n', app.indexOf('function addFailureCopy(')))
+    const copy = new Function(`${table}\n${fn}\nreturn addFailureCopy`)() as (result: { reason: string; source?: string }) => string
+    expect(copy({ reason: 'source_down', source: 'Project Gutenberg' })).toBe('Project Gutenberg is down right now. Please try again later.')
+    expect(copy({ reason: 'source_down' })).toBe('The library this book comes from is down right now. Please try again later.')
+    expect(copy({ reason: 'failed' })).toBe('This book could not be added. Please try again.')
+    expect(copy({ reason: 'something new' })).toBe('This book could not be added. Please try again.')
+    expect(app).toContain('notice(addFailureCopy(result))')
+  })
+
   it('library_2 asks right after the commit answers: the shelf and the reader\'s hand-off run alongside, not before', () => {
     const app = readFileSync('public/lab/library_2/app.js', 'utf8')
     const add = app.slice(app.indexOf('async function addWork('), app.indexOf('// Add your own book from the search field'))

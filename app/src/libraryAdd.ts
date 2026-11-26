@@ -26,10 +26,11 @@ import { ocrShelfLines } from './lab/userBook/ownOcrShelf'
 import { fetchModernStatus, markPendingPurchase, startModernCheckout, type ModernStatus } from './lab/labModernEditionApi'
 import { publicChapters, type PublicChapterUpload } from './lab/userBook/publicChapters'
 
-export type ImportFailure = 'signed_out' | 'premium_required' | 'daily_limit' | 'in_progress' | 'not_importable' | 'unreadable' | 'failed'
+export type ImportFailure = 'signed_out' | 'premium_required' | 'daily_limit' | 'in_progress' | 'not_importable' | 'unreadable' | 'source_down' | 'failed'
 export type ImportResult =
   | { ok: true; bookId: string; entry: Record<string, unknown> & { id: string }; existed: boolean }
-  | { ok: false; reason: ImportFailure }
+  /** `source`: for `source_down`, the library's name as the Worker gives it ("Project Gutenberg"), when it does. */
+  | { ok: false; reason: ImportFailure; source?: string }
 
 async function token(): Promise<string | null> {
   if (!supabase) return null
@@ -50,7 +51,9 @@ const failureFor = (status: number, code: string | undefined): ImportFailure =>
         : code === 'not_importable' || code === 'not_found' || code === 'source_not_allowed' || code === 'source_too_large' || code === 'too_large' ? 'not_importable'
           // The library answered with a bot check instead of the book (ws-export's Anubis page).
           : code === 'not_epub' || code === 'edition_mismatch' || code === 'bad_edition' || code === 'source_blocked' ? 'unreadable'
-            : 'failed'
+            // The library (and its mirror, for Gutenberg) is down or throttling: "try again later", naming it.
+            : code === 'source_down' ? 'source_down'
+              : 'failed'
 
 /** Import one catalogue work (or find it already in Tinct). `onStage` reports progress for the button. */
 export async function importWork(workId: string, options: { onStage?: (stage: 'download' | 'convert' | 'publish') => void; fetchImpl?: typeof fetch } = {}): Promise<ImportResult> {
@@ -62,7 +65,10 @@ export async function importWork(workId: string, options: { onStage?: (stage: 'd
     options.onStage?.('download')
     const prepared = await fetchImpl('/api/public-books/import', { method: 'POST', headers: { ...headers, 'Content-Type': 'application/json' }, body: JSON.stringify({ workId }) })
     const step = await prepared.json().catch(() => ({})) as { status?: string; error?: string; bookId?: string; entry?: Record<string, unknown> & { id: string }; source?: string }
-    if (!prepared.ok) return { ok: false, reason: failureFor(prepared.status, step.error) }
+    if (!prepared.ok) {
+      const reason = failureFor(prepared.status, step.error)
+      return reason === 'source_down' && typeof step.source === 'string' && step.source ? { ok: false, reason, source: step.source.slice(0, 80) } : { ok: false, reason }
+    }
     if (step.status === 'exists' && step.entry && step.bookId) return { ok: true, bookId: step.bookId, entry: step.entry, existed: true }
     if (step.status !== 'convert' || !step.source || !step.bookId) return { ok: false, reason: 'failed' }
     const source = await fetchImpl(step.source, { headers })

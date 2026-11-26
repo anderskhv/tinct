@@ -299,7 +299,9 @@ function renderResults(){const q=$('search-input').value;const matches=filterBoo
  renderTinct(matches);if(!matches.length)box.append(el('p','','Try another title or author.'));}
 // A catalogue book readers added: its form, era and year join the library's menus.
 function placePublicBook(entry){if(!entry?.public)return;if(entry.form&&!metadata[entry.id])metadata[entry.id]={form:entry.form==='short-stories'?'novel':entry.form,era:entry.era};if(Number.isFinite(entry.year)&&compositionYears[entry.id]===undefined)compositionYears[entry.id]=entry.year;}
-const ADD_FAILURES={daily_limit:'You have added the most books you can today. Please try again tomorrow.',in_progress:'This book is being added. Please try again in a few minutes.',not_importable:'This book cannot be added to Tinct.',unreadable:'This book could not be read from its library.',failed:'This book could not be added. Please try again.'};
+const ADD_FAILURES={daily_limit:'You have added the most books you can today. Please try again tomorrow.',in_progress:'This book is being added. Please try again in a few minutes.',not_importable:'This book cannot be added to Tinct.',unreadable:'This book could not be read from its library.',source_down:'The library this book comes from is down right now. Please try again later.',failed:'This book could not be added. Please try again.'};
+// A library down (src/libraryAdd.ts source_down) is named when the Worker says which: "Project Gutenberg is down right now."
+function addFailureCopy(result){if(result.reason==='source_down'&&result.source)return `${result.source} is down right now. Please try again later.`;return ADD_FAILURES[result.reason]||ADD_FAILURES.failed;}
 let addingWork=null,addingStage=null,addCancelled=false;
 /** Closing search while a book is being added: the add no longer opens it (the import itself may still finish on the server). */
 function cancelPendingAdd(){if(addingWork)addCancelled=true;}
@@ -319,7 +321,7 @@ async function addWork(work,button){
   const result=await (await addEngine()).importWork(work.id,{onStage:step});
   // Search was closed while it ran: no notice, no question, no reader. A book that was added stays in the library.
   if(addCancelled){if(result.ok){placePublicBook(result.entry);let book=books.find(b=>b.id===result.entry.id);if(!book){book=libraryBook(result.entry);books.push(book);}attachCatalogue(book,result.entry);}return;}
-  if(!result.ok){if(result.reason==='signed_out'){signIn();return;}if(result.reason==='premium_required'){location.assign(PREMIUM_PAGE);return;}notice(ADD_FAILURES[result.reason]||ADD_FAILURES.failed);return;}
+  if(!result.ok){if(result.reason==='signed_out'){signIn();return;}if(result.reason==='premium_required'){location.assign(PREMIUM_PAGE);return;}notice(addFailureCopy(result));return;}
   const entry=result.entry;placePublicBook(entry);let book=books.find(b=>b.id===entry.id);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);
   // Modern English (add-to-tinct.js finishAdd): its price is known now the book is published, so it is
   // asked at once, while the add finishes alongside (the shelf, the reader's hand-off); the reader opens once it is answered.
