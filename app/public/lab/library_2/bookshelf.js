@@ -12,7 +12,9 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  const shownSaved=ids=>{const restricted=restrictedBookIdsNow();return Array.isArray(ids)&&restricted.size?ids.filter(id=>!restricted.has(id)):ids;};
  const params=new URLSearchParams(location.search),sample=params.get('demo')==='reading';
  const shelfStudy=params.get('view')==='shelf';
- const override=sample?'shelf':params.get('view')==='new'?'discovery':params.get('view')==='shelf'?'shelf':null;
+ // The Conjecture link's hero stands in for the desk (conjecture-hero.js); this visit is not remembered as a browse.
+ const conjecture=window.__library2Boot?.collection==='conjecture';
+ const override=sample?'shelf':conjecture||params.get('view')==='new'?'discovery':params.get('view')==='shelf'?'shelf':null;
  const html=document.documentElement;
  const root=document.createElement('section');root.className='bookshelf';root.hidden=true;root.setAttribute('aria-label','Your bookshelves');hero.before(root);
  const loading=document.createElement('div');loading.className='bookshelf-loading';loading.setAttribute('aria-label','Loading your library');loading.hidden=!window.__library2Boot?.hint;hero.before(loading);
@@ -75,7 +77,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
   const returning=table.mode==='returning'||saved.length>0;
   const mode=visitMode(returning,override,table.reading.length);
   const showReturning=mode==='shelf'&&(shelfStudy||table.reading.length);
-  if(showReturning)show();else{html.classList.remove('returning');root.hidden=true;hero.querySelectorAll('.reading-table').forEach(t=>t.classList.contains('is-placeholder')?t.remove():t.setAttribute('hidden',''));settle();if(!cached&&readVisit()?.mode!=='discovery')rememberVisit({mode:'discovery',auto:true});}
+  if(showReturning)show();else{html.classList.remove('returning');root.hidden=true;hero.querySelectorAll('.reading-table').forEach(t=>t.classList.contains('is-placeholder')?t.remove():t.setAttribute('hidden',''));settle();if(!cached&&!conjecture&&readVisit()?.mode!=='discovery')rememberVisit({mode:'discovery',auto:true});}
   window.__library2Reading=table;
   dispatchEvent(new Event('resize'));
   dispatchEvent(new CustomEvent('library2:reading',{detail:{...table,mode:showReturning?'returning':'new'}}));
@@ -129,7 +131,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  const refreshForeground=()=>{if(sample||document.hidden||loadingNow||Date.now()-lastForegroundRefresh<2000)return;lastForegroundRefresh=Date.now();ready=load(true);};
  addEventListener('focus',refreshForeground);
  document.addEventListener('visibilitychange',refreshForeground);
- if(params.has('preview')||sample||override){const nav=document.createElement('nav');nav.className='preview-modes';nav.setAttribute('aria-label','Preview experiences');[['Your library','?preview=1'],['Shelf concept','?preview=1&view=shelf'],['New reader','?preview=1&view=new'],['Sample returning reader','?preview=1&demo=reading'],['Leave preview','?preview=0']].forEach(([label,href])=>{const a=document.createElement('a');a.href=href;a.textContent=label;nav.append(a);});hero.after(nav);}
+ if(params.has('preview')||sample||(override&&!conjecture)){const nav=document.createElement('nav');nav.className='preview-modes';nav.setAttribute('aria-label','Preview experiences');[['Your library','?preview=1'],['Shelf concept','?preview=1&view=shelf'],['New reader','?preview=1&view=new'],['Sample returning reader','?preview=1&demo=reading'],['Leave preview','?preview=0']].forEach(([label,href])=>{const a=document.createElement('a');a.href=href;a.textContent=label;nav.append(a);});hero.after(nav);}
  ready=load();
  return {show:()=>{if(view||api){show(table.reading.length?'reading':saved.length?'later':'finished');(shelfStudy?root:hero).scrollIntoView({block:'start'});}else ready=load();}};
 }
