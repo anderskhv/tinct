@@ -20,7 +20,7 @@ export function continueHandoff(target: ContinueTarget): ReaderHandoffIntent | n
     : migrateWithheldEdition(target.bookId, target.editionKey)
   const editionKey = savedEditionKey ?? defaultEditionKey(target.bookId)
   if (!editionKey) return null
-  return createReaderHandoffIntent({
+  const selection = {
     bookId: target.bookId,
     primaryEditionKey: editionKey,
     savedPlace: {
@@ -30,5 +30,12 @@ export function continueHandoff(target: ContinueTarget): ReaderHandoffIntent | n
       paragraphIndex: target.paragraphIndex,
       wordIndex: target.wordIndex,
     },
-  })
+  }
+  // The pair the reader left the book in opens again (Anders, 26 Nov 2026: Danish beside English came back as
+  // English beside English). A compare edition that can no longer sit beside this one is dropped, never the place.
+  const compareEditionKey = savedEditionKey && target.compareEditionKey
+    ? migrateWithheldEdition(target.bookId, target.compareEditionKey)
+    : null
+  return (compareEditionKey ? createReaderHandoffIntent({ ...selection, compareEditionKey }) : null)
+    ?? createReaderHandoffIntent(selection)
 }

@@ -75,10 +75,10 @@ export function filterHeldDiscoveryCards(html: string): string {
   })
 }
 /** Public metadata uses only the catalogue, never saved passages or chat. */
-function brandedHtml(html: string, bookId?: string, bookPage = false): string {
-  const meta = bookId && PUBLIC_BOOK_IDS.has(bookId) ? BOOK_META[bookId] || GENERATED_BOOK_META[bookId] : undefined
-  const image = meta ? `https://tinct.app/brand/20260921/books/${bookId}.jpg` : BRAND_IMAGE
-  const alt = meta ? `${meta.bookName} by ${meta.author} — read with Tinct` : 'Tinct — No text is beyond you.'
+function brandedHtml(html: string, bookId?: string, bookPage = false, share?: { image: string; alt: string }): string {
+  const meta = !share && bookId && PUBLIC_BOOK_IDS.has(bookId) ? BOOK_META[bookId] || GENERATED_BOOK_META[bookId] : undefined
+  const image = share ? share.image : meta ? `https://tinct.app/brand/20260921/books/${bookId}.jpg` : BRAND_IMAGE
+  const alt = share ? share.alt : meta ? `${meta.bookName} by ${meta.author} — read with Tinct` : 'Tinct — No text is beyond you.'
   let next = filterHeldDiscoveryCards(html).replace(/<link\b[^>]*rel=["'](?:icon|shortcut icon|apple-touch-icon|manifest)["'][^>]*>\s*/gi, '')
     .replace(/<meta\b[^>]*(?:property|name)=["'](?:og:image(?::[^"']*)?|twitter:image(?::[^"']*)?|twitter:card)["'][^>]*>\s*/gi, '')
   const tags = `<meta property="og:image" content="${image}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${htmlEscape(alt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${image}"><meta name="twitter:image:alt" content="${htmlEscape(alt)}">`
@@ -205,6 +205,45 @@ function isLabStaticAssetPath(pathname: string): boolean {
   return /^\/lab\/[^/]+\.[a-z0-9]+$/i.test(pathname)
     || /^\/lab\/prefaces\/[a-z0-9-]+\.json$/.test(pathname)
 }
+
+/**
+ * The Conjecture Institute link (approved mockup, 26 Nov 2026): /conjecture is the library page with the
+ * Conjecture hero (public/lab/library_2/conjecture-hero.js reads the address), its own title, description and
+ * share image. The address bar keeps /conjecture; signed-in readers get the same library, never the landing page.
+ * `/library?collection=conjecture` is the same page and carries the same preview.
+ */
+export const CONJECTURE_PATH = '/conjecture'
+export const CONJECTURE_SHARE = {
+  title: 'Conjecture Institute on Tinct',
+  description: 'The Sovereign Child, Lords of the Cosmos, Bold Conjectures I and II, The Farthest Reaches.',
+  image: 'https://tinct.app/brand/20261126/share-conjecture-1200x630.jpg',
+  alt: 'Conjecture Institute on Tinct: five books on the reading table',
+}
+export function isConjectureRequest(url: URL): boolean {
+  return /^\/conjecture\/?$/.test(url.pathname) || (/^\/library\/?$/.test(url.pathname) && url.searchParams.get('collection') === 'conjecture')
+}
+async function serveConjecturePage(requestMethod: string, url: URL, env: SeoEnv): Promise<Response | null> {
+  const assetUrl = new URL(url.toString())
+  assetUrl.pathname = LIBRARY_ENTRY_PATH
+  assetUrl.search = ''
+  const labResp = await env.ASSETS.fetch(new Request(assetUrl.toString(), { method: requestMethod }))
+  if (!labResp.ok) return null
+  const { title, description, image, alt } = CONJECTURE_SHARE
+  const tags = `<meta name="description" content="${htmlEscape(description)}"><link rel="canonical" href="https://tinct.app${CONJECTURE_PATH}">`
+    + `<meta property="og:title" content="${htmlEscape(title)}"><meta property="og:description" content="${htmlEscape(description)}"><meta property="og:url" content="https://tinct.app${CONJECTURE_PATH}"><meta property="og:type" content="website"><meta property="og:site_name" content="Tinct">`
+    + `<meta name="twitter:title" content="${htmlEscape(title)}"><meta name="twitter:description" content="${htmlEscape(description)}">`
+  const html = requestMethod === 'HEAD' ? null : brandedHtml((await labResp.text())
+    .replace(/<title>[^<]*<\/title>/i, `<title>${htmlEscape(title)}</title>`)
+    .replace('</head>', tags + '</head>'), undefined, true, { image, alt })
+  const newResp = new Response(html, labResp)
+  for (const header of ['Content-Length','Content-Encoding','ETag']) newResp.headers.delete(header)
+  newResp.headers.set('Content-Type', 'text/html; charset=utf-8')
+  newResp.headers.set('Cache-Control', 'no-store')
+  newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) newResp.headers.set(key, value)
+  return newResp
+}
+export const serveConjecturePageForTest = serveConjecturePage
 
 async function serveLabPreReader(
   requestMethod: string,
@@ -501,6 +540,11 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
           'X-Robots-Tag': 'noindex, noarchive',
         },
       })
+    }
+
+    if ((request.method === 'GET' || request.method === 'HEAD') && isConjectureRequest(url)) {
+      const page = await serveConjecturePage(request.method, url, env)
+      if (page) return page
     }
 
     if (/^\/try(?:\.html|\/)?$/.test(url.pathname)) {
