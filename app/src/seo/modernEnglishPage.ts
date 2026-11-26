@@ -83,6 +83,7 @@ export const DANISH_KIDS_BOOKS: ReadonlySet<string> = new Set([
   'a-little-princess', 'jungle-book', 'grimms-fairy-tales', 'alice-in-wonderland', 'pinocchio', 'odyssey-for-boys-and-girls',
   'iliad-for-boys-and-girls', 'merry-adventures-of-robin-hood', 'wonder-book-and-tanglewood-tales',
   'beautiful-stories-from-shakespeare', 'wind-in-the-willows', 'around-the-world-80-days',
+  'the-secret-garden', 'story-of-king-arthur-and-his-knights',
 ])
 
 /** Library houses with no shelf of their own on the Danish page go on the nearest one. */
