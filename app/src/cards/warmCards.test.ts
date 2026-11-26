@@ -63,7 +63,7 @@ describe('warmAccountCards', () => {
     expect(cache?.reading?.stats).toBeTruthy()
   })
 
-  it('caches Premium for life, so the plan line paints "Premium (free for life)" at once', async () => {
+  it('caches Premium for life, so the plan line paints "Free Premium" at once', async () => {
     store(3600)
     const base = vi.mocked(fetch).getMockImplementation()!
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => String(input).startsWith('/api/subscription-info')

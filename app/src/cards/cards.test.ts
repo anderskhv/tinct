@@ -957,14 +957,14 @@ describe('Account and Change password (Anders, 10 October 2026)', () => {
     expect(byTest('account-manage')).toBeNull()
   })
 
-  it('Premium for life by grant: "Premium (free for life)", no Manage, no plans on sale', async () => {
+  it('Premium for life by grant: "Free Premium", no Manage, no plans on sale', async () => {
     subscription = { premium: true, lifetime: true, subscription_status: null, stripe: null, intervals: [], first_month_free_until: null }
     await open('settings')
-    expect(byTest('settings-account')?.textContent).toContain('Premium (free for life)')
+    expect(byTest('settings-account')?.textContent).toContain('Free Premium')
     click(byTest('settings-account'))
     expect(top().dataset.card).toBe('account')
-    expect(byTest('account-plan')?.textContent).toBe('Premium (free for life)')
-    expect(CARDS_COPY.premiumForLife).toBe('Premium (free for life)')
+    expect(byTest('account-plan')?.textContent).toBe('Free Premium')
+    expect(CARDS_COPY.premiumForLife).toBe('Free Premium')
     expect(byTest('account-manage')).toBeNull()
     expect(byTest('account-plan-month')).toBeNull()
     expect(byTest('account-plan-year')).toBeNull()
@@ -974,7 +974,7 @@ describe('Account and Change password (Anders, 10 October 2026)', () => {
   it('Premium for life never offers a plan, even if a plan is on sale', async () => {
     subscription = { premium: true, lifetime: true, subscription_status: null, stripe: null, intervals: ['month', 'year'] }
     await open('account')
-    expect(byTest('account-plan')?.textContent).toBe('Premium (free for life)')
+    expect(byTest('account-plan')?.textContent).toBe('Free Premium')
     expect(byTest('account-plan-month')).toBeNull()
     expect(byTest('account-plan-year')).toBeNull()
   })
@@ -982,7 +982,7 @@ describe('Account and Change password (Anders, 10 October 2026)', () => {
   it('Premium for life with a live Stripe subscription as well: still the life plan, and Manage to cancel the payments', async () => {
     subscription = { premium: true, lifetime: true, subscription_status: 'active', stripe: { status: 'active', currentPeriodEnd: '2026-12-20T00:00:00.000Z', cancelAtPeriodEnd: false }, intervals: [] }
     await open('account')
-    expect(byTest('account-plan')?.textContent).toBe('Premium (free for life)')
+    expect(byTest('account-plan')?.textContent).toBe('Free Premium')
     expect(byTest('account-manage')).toBeTruthy()
   })
 
@@ -1119,7 +1119,7 @@ describe('AI credits (Anders, 14 October 2026)', () => {
       const life = youOnly({ plan: 'premium', lifetime: true, allowance: allowance(used) })
       expect([byTest('you-top-up')?.textContent ?? null, byTest('you-get-premium')]).toEqual(premiumRows)
       expect(byTest('you-get-premium')).toBeNull()
-      expect(top().textContent).toContain('Premium (free for life)')
+      expect(top().textContent).toContain('Free Premium')
       life.stack.closeAll()
     }
   })
