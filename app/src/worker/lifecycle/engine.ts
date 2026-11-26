@@ -10,6 +10,7 @@
  * address that fails isLifecycleTestRecipient.
  */
 import { isBookFinished } from '../../preReader/bookFinished'
+import { hasLifetimeGrant } from '../lib/aiAllowance'
 import { finishedChaptersFor, libraryBookIdForPlace, libraryResumePlace, type LabPositionState } from '../../lab/labPosition'
 import { EMAIL_ART_BOOK_IDS } from './emailArt.generated'
 import { chooseNextBook, type Acclaim, type CatalogueBook } from './nextBook'
@@ -170,6 +171,7 @@ export function readerFacts(profile: Profile, position: LabPositionState | null,
     optedIn: profileOptedIn(profile),
     confirmed: profileConfirmed(profile),
     subscribed: profileSubscribed(profile),
+    lifetime: hasLifetimeGrant(profile),
     lastReadAt,
     places,
     finished,

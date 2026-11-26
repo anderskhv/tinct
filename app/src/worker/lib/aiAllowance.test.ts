@@ -33,6 +33,7 @@ import {
   type AllowanceGate,
   type AllowanceView,
 } from './aiAllowance'
+import { fetchEntitlementProfile, hasLifetimeGrant, premiumSource } from './aiAllowance'
 import type { AiFeature } from './aiUsage'
 
 const require = createRequire(import.meta.url)
@@ -562,5 +563,155 @@ describe('Premium extension (Anders, 9 Nov 2026: "extend the premium for next 8 
 
   it('changes nothing before the decision', () => {
     expect(trialEndsAt(free('2026-09-01T10:00:00Z'), new Date('2026-11-08T23:59:59Z'))?.toISOString()).toBe('2026-11-14T00:00:00.000Z')
+  })
+})
+
+describe('Premium for life by grant (Anders, 26 Nov 2026: the launch readers)', () => {
+  const env = { SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'service-role' }
+  const userId = '11111111-1111-4111-8111-111111111111'
+  // Signed up at launch, still in the extended trial when granted.
+  const base = { subscription_status: null, subscription_period_end: null, created_at: '2026-11-25T09:00:00Z' }
+  const granted = { ...base, premium_grant: 'launch-2026-11', premium_granted_at: '2026-11-26T10:00:00Z' }
+  const paying = { subscription_status: 'active', subscription_period_end: '2027-02-03T08:00:00Z', created_at: '2026-01-03T08:00:00Z' }
+
+  it('needs both the grant name and its time', () => {
+    expect(hasLifetimeGrant(granted)).toBe(true)
+    expect(hasLifetimeGrant({ ...granted, premium_granted_at: null })).toBe(false)
+    expect(hasLifetimeGrant({ ...granted, premium_grant: null })).toBe(false)
+    expect(hasLifetimeGrant({ ...granted, premium_grant: '  ' })).toBe(false)
+    expect(hasLifetimeGrant({ ...granted, premium_granted_at: 'not a date' })).toBe(false)
+    expect(hasLifetimeGrant(base)).toBe(false)
+    expect(hasLifetimeGrant(null)).toBe(false)
+  })
+
+  it('is Premium for good: long after every trial and extension has ended, and never a subscription', () => {
+    for (const at of ['2026-12-01T00:00:00Z', '2027-06-01T00:00:00Z', '2036-11-26T10:00:00Z']) {
+      const now = new Date(at)
+      expect(premiumSource(granted, now)).toBe('grant')
+      expect(hasPremiumAccess(granted, now)).toBe(true)
+      expect(premiumTier(granted, now)).toBe('premium')
+      expect(isSubscribed(granted, now)).toBe(false)
+    }
+    // The same account without the grant is a standard account by mid-2027.
+    expect(premiumSource(base, new Date('2027-06-01T00:00:00Z'))).toBeNull()
+    expect(hasPremiumAccess(base, new Date('2027-06-01T00:00:00Z'))).toBe(false)
+  })
+
+  it('gives exactly Premium\'s allowance, resetting monthly from the grant date', () => {
+    const premiumPeriod = billingPeriod(paying, new Date('2027-03-10T00:00:00Z'))
+    const at = (value: string) => billingPeriod(granted, new Date(value))
+    expect(premiumPeriod.allowanceMicros).toBe(3_000_000)
+    expect(at('2026-12-10T00:00:00Z')).toEqual({ kind: 'grant', start: new Date('2026-11-26T10:00:00Z'), end: new Date('2026-12-26T10:00:00Z'), allowanceMicros: premiumPeriod.allowanceMicros })
+    // The reset is the grant's day and time each month.
+    expect(at('2026-12-26T10:00:00Z')).toMatchObject({ start: new Date('2026-12-26T10:00:00Z'), end: new Date('2027-01-26T10:00:00Z') })
+    expect(at('2027-08-01T00:00:00Z')).toMatchObject({ kind: 'grant', start: new Date('2027-07-26T10:00:00Z'), end: new Date('2027-08-26T10:00:00Z'), allowanceMicros: 3_000_000 })
+  })
+
+  it('clamps a grant given on the 31st to short months without drifting', () => {
+    const late = { ...base, premium_grant: 'launch-2026-11', premium_granted_at: '2026-12-31T12:00:00Z' }
+    expect(billingPeriod(late, new Date('2027-02-15T00:00:00Z'))).toMatchObject({ start: new Date('2027-01-31T12:00:00Z'), end: new Date('2027-02-28T12:00:00Z') })
+    expect(billingPeriod(late, new Date('2027-03-30T00:00:00Z'))).toMatchObject({ start: new Date('2027-02-28T12:00:00Z'), end: new Date('2027-03-31T12:00:00Z') })
+  })
+
+  it('lets a paying Stripe subscription on the same account keep its own period', () => {
+    const both = { ...paying, premium_grant: 'launch-2026-11', premium_granted_at: '2026-11-26T10:00:00Z' }
+    const now = new Date('2027-01-10T00:00:00Z')
+    expect(premiumSource(both, now)).toBe('subscription')
+    expect(billingPeriod(both, now)).toEqual(billingPeriod(paying, now))
+    // Once the subscription has ended, the grant carries on.
+    const ended = { ...both, subscription_status: 'canceled', subscription_period_end: '2027-01-03T08:00:00Z' }
+    expect(premiumSource(ended, now)).toBe('grant')
+    expect(billingPeriod(ended, now)).toMatchObject({ kind: 'grant', allowanceMicros: 3_000_000 })
+  })
+
+  it('leaves every account without a grant exactly as before', () => {
+    const accounts = [
+      base,
+      paying,
+      { subscription_status: 'canceled', subscription_period_end: '2026-12-01T00:00:00Z', created_at: '2026-01-01T00:00:00Z' },
+      { subscription_status: 'past_due', subscription_period_end: null, created_at: '2026-01-01T00:00:00Z' },
+      { subscription_status: null, subscription_period_end: null, created_at: '2026-08-01T00:00:00Z' },
+    ]
+    for (const at of ['2026-10-20T00:00:00Z', '2026-12-10T00:00:00Z', '2027-02-01T00:00:00Z']) {
+      const now = new Date(at)
+      for (const account of accounts) {
+        const withNulls = { ...account, premium_grant: null, premium_granted_at: null }
+        expect(billingPeriod(withNulls, now)).toEqual(billingPeriod(account, now))
+        expect(premiumTier(withNulls, now)).toBe(premiumTier(account, now))
+        expect(hasPremiumAccess(withNulls, now)).toBe(hasPremiumAccess(account, now))
+        expect(premiumSource(account, now)).not.toBe('grant')
+      }
+    }
+  })
+
+  it('settles the grant\'s month with Premium\'s allowance', async () => {
+    let settleBody: Record<string, unknown> | null = null
+    let profileUrl = ''
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) { profileUrl = url; return Response.json([granted]) }
+      if (url.endsWith('/rpc/ai_allowance_settle')) {
+        settleBody = JSON.parse(String(init?.body))
+        return Response.json([{ spend_micros: 600_000, credit_micros: 0, drawn_micros: 0 }])
+      }
+      return Response.json({}, { status: 500 })
+    }))
+    const now = new Date('2027-05-01T00:00:00Z')
+    const view = await loadAllowanceView(env, userId, now)
+    expect(profileUrl).toContain('premium_grant,premium_granted_at')
+    expect(settleBody).toEqual({ p_user: userId, p_period_start: iso('2027-04-26T10:00:00Z'), p_allowance_micros: 3_000_000 })
+    expect(view).toMatchObject({ state: 'ok', hasAllowance: true, monthUsedFraction: 0.2, resetsAt: iso('2027-05-26T10:00:00Z') })
+    expect(await loadPremiumTier(env, userId, now)).toBe('premium')
+    expect(await loadPremiumAccess(env, userId, now)).toBe(true)
+  })
+
+  it('reads without the grant columns when their migration has not run', async () => {
+    const urls: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      urls.push(url)
+      return url.includes('premium_grant') ? Response.json({ code: '42703' }, { status: 400 }) : Response.json([base])
+    }))
+    const res = await fetchEntitlementProfile(env, userId, 'stripe_customer_id')
+    expect(res.ok).toBe(true)
+    expect(urls).toEqual([
+      `https://example.supabase.co/rest/v1/profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at,period_start,stripe_customer_id,premium_grant,premium_granted_at`,
+      `https://example.supabase.co/rest/v1/profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at,period_start,stripe_customer_id`,
+    ])
+    expect(await loadPremiumTier(env, userId, new Date('2026-12-01T00:00:00Z'))).toBe('trial')
+    // A server error is not retried: it stays unknown, as before.
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('down', { status: 500 })))
+    expect(await loadPremiumTier(env, userId)).toBeNull()
+  })
+})
+
+describe('premium grant migration (20261126_premium_grant.sql)', () => {
+  const sql = readFileSync(new URL('../../../supabase/migrations/20261126_premium_grant.sql', import.meta.url), 'utf8')
+  const code = sql.split('\n').filter(line => !line.trim().startsWith('--')).join('\n')
+
+  it('adds both nullable columns idempotently, set together', () => {
+    expect(code).toMatch(/add column if not exists premium_grant text;/)
+    expect(code).toMatch(/add column if not exists premium_granted_at timestamptz;/)
+    expect(code).not.toMatch(/premium_grant(ed_at)? (text|timestamptz)[^,;]*not null/)
+    expect(code).toMatch(/check \(\(premium_grant is null\) = \(premium_granted_at is null\)\)/)
+    expect(code).toMatch(/if not exists \(select 1 from pg_constraint where conname = 'profiles_premium_grant_pair'\)/)
+    expect(code).toMatch(/drop trigger if exists profiles_protect_premium_grant on public\.profiles;/)
+  })
+
+  it('refuses any write of the grant by anon or authenticated, from a trigger that runs as the caller', () => {
+    expect(code).toMatch(/before insert or update of premium_grant, premium_granted_at on public\.profiles/)
+    expect(code).toMatch(/if current_user in \('anon', 'authenticated'\) then/)
+    expect(code).toMatch(/raise exception 'premium_grant is set by Tinct only' using errcode = '42501'/)
+    // security definer would make current_user the owner and let every reader through.
+    expect(code).not.toMatch(/security definer/i)
+    // It opens nothing: no policy, no privilege for the browser roles.
+    expect(code).not.toMatch(/create policy/i)
+    expect(code).not.toMatch(/grant [a-z, ()_]+ on [a-z. ]*profiles to/i)
+  })
+
+  it('has its database check (scripts/check-premium-grant-sql.sh)', () => {
+    const check = readFileSync(new URL('../../../scripts/check-premium-grant-sql.sh', import.meta.url), 'utf8')
+    expect(check).toContain('supabase/migrations/20261126_premium_grant.sql')
+    expect(check).toContain('set local role authenticated')
   })
 })

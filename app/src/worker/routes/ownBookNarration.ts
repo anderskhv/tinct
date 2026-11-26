@@ -45,8 +45,7 @@
  */
 import { ledgerGuestKey, narrationCostUsd, recordAiUsage, AI_PRICING, type LedgerEnv } from '../lib/aiUsage'
 import { corsHeaders, jsonResponse } from '../lib/responses'
-import { hasPremiumAccess, type AllowanceProfile } from '../lib/aiAllowance'
-import { supabaseGet } from '../lib/supabase'
+import { fetchEntitlementProfile, hasPremiumAccess, type AllowanceProfile } from '../lib/aiAllowance'
 import { isValidUUID } from '../lib/security'
 import {
   NARRATION_CACHE_VERSION,
@@ -249,11 +248,11 @@ async function readChunk(bucket: R2Bucket, keys: { audio: string; meta: string }
   return meta
 }
 
-/** Subscribed, or still in the 30-day trial. Null when the profile cannot be read. */
+/** Subscribed, Premium for life by grant, or still in the 30-day trial. Null when the profile cannot be read. */
 async function premiumAccess(env: OwnBookNarrationEnv, userId: string, now: number): Promise<boolean | null> {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
   try {
-    const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at`)
+    const res = await fetchEntitlementProfile(env, userId)
     if (!res.ok) return null
     const profile = ((await res.json()) as AllowanceProfile[])?.[0]
     if (!profile) return false

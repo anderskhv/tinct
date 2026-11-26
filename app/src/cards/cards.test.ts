@@ -957,6 +957,35 @@ describe('Account and Change password (Anders, 10 October 2026)', () => {
     expect(byTest('account-manage')).toBeNull()
   })
 
+  it('Premium for life by grant: "Free Premium", no Manage, no plans on sale', async () => {
+    subscription = { premium: true, lifetime: true, subscription_status: null, stripe: null, intervals: [], first_month_free_until: null }
+    await open('settings')
+    expect(byTest('settings-account')?.textContent).toContain('Free Premium')
+    click(byTest('settings-account'))
+    expect(top().dataset.card).toBe('account')
+    expect(byTest('account-plan')?.textContent).toBe('Free Premium')
+    expect(CARDS_COPY.premiumForLife).toBe('Free Premium')
+    expect(byTest('account-manage')).toBeNull()
+    expect(byTest('account-plan-month')).toBeNull()
+    expect(byTest('account-plan-year')).toBeNull()
+    expect(top().textContent).not.toMatch(/Monthly|Yearly|Get Premium|first month free|Cancel subscription/)
+  })
+
+  it('Premium for life never offers a plan, even if a plan is on sale', async () => {
+    subscription = { premium: true, lifetime: true, subscription_status: null, stripe: null, intervals: ['month', 'year'] }
+    await open('account')
+    expect(byTest('account-plan')?.textContent).toBe('Free Premium')
+    expect(byTest('account-plan-month')).toBeNull()
+    expect(byTest('account-plan-year')).toBeNull()
+  })
+
+  it('Premium for life with a live Stripe subscription as well: still the life plan, and Manage to cancel the payments', async () => {
+    subscription = { premium: true, lifetime: true, subscription_status: 'active', stripe: { status: 'active', currentPeriodEnd: '2026-12-20T00:00:00.000Z', cancelAtPeriodEnd: false }, intervals: [] }
+    await open('account')
+    expect(byTest('account-plan')?.textContent).toBe('Free Premium')
+    expect(byTest('account-manage')).toBeTruthy()
+  })
+
   it('Premium with a Stripe subscription: Manage', async () => {
     subscription = { subscription_status: 'active', stripe: { status: 'active', currentPeriodEnd: '2026-11-05T00:00:00.000Z', cancelAtPeriodEnd: false } }
     await open('account')
@@ -1079,6 +1108,20 @@ describe('AI credits (Anders, 14 October 2026)', () => {
     if (new Date(view.resetsAt!).getTimezoneOffset() <= 0) expect(resets.textContent).toBe('Resets 14 Nov')
     expect(byTest('you-get-premium')).toBeNull()
     stack.closeAll()
+  })
+
+  it('Premium for life sees what Premium sees: Top up near the end of the month, never Get Premium', () => {
+    for (const used of [0.5, 0.95]) {
+      const premium = youOnly({ plan: 'premium', allowance: allowance(used) })
+      const premiumRows = [byTest('you-top-up')?.textContent ?? null, byTest('you-get-premium')]
+      expect(Boolean(premiumRows[0])).toBe(used >= 0.9)
+      premium.stack.closeAll()
+      const life = youOnly({ plan: 'premium', lifetime: true, allowance: allowance(used) })
+      expect([byTest('you-top-up')?.textContent ?? null, byTest('you-get-premium')]).toEqual(premiumRows)
+      expect(byTest('you-get-premium')).toBeNull()
+      expect(top().textContent).toContain('Free Premium')
+      life.stack.closeAll()
+    }
   })
 
   it('a free reader, who cannot top up, gets Get Premium instead, which opens the Premium offer on Account', () => {

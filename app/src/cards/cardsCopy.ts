@@ -18,6 +18,8 @@ export const CARDS_COPY = {
   settings: 'Settings',
   aiSettings: 'AI settings',
   premium: 'Premium',
+  // Premium for life by grant: the launch readers (Anders, 26 Nov 2026).
+  premiumForLife: 'Free Premium',
   free: 'Free',
   uploadPicture: 'Upload a picture',
   choosePicture: 'Choose a picture',

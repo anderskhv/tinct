@@ -56,6 +56,8 @@ export interface CardsData {
   allowance: AiAllowance | null
   plan: 'premium' | 'free' | null
   firstMonthFreeUntil?: string | null
+  /** Premium for life by grant: the plan line says so; no plans on sale, Stripe's Manage only with a subscription too. */
+  lifetime?: boolean
   /** Premium intervals on sale to this reader (free readers only). */
   intervals: PremiumInterval[]
   /** "3rd of 5" among friends (/api/social/rank). */
@@ -219,6 +221,7 @@ function ownName(env: CardsEnv): string {
 }
 
 function planWord(env: CardsEnv): string {
+  if (env.data.lifetime && env.data.plan === 'premium') return CARDS_COPY.premiumForLife
   if (env.data.firstMonthFreeUntil && Date.parse(env.data.firstMonthFreeUntil) > Date.now()) return 'Premium · first month free'
   return env.data.plan === 'premium' ? CARDS_COPY.premium : env.data.plan === 'free' ? CARDS_COPY.free : ''
 }
@@ -1383,7 +1386,8 @@ export function accountCard(env: CardsEnv): CardSpec {
             try { env.navigate(await startPremiumCheckout(token, interval)) } catch { status = CARDS_COPY.paymentFailed; card.refresh() }
           },
         }))
-      body.append(group(row({ label: env.data.firstMonthFreeUntil && Date.parse(env.data.firstMonthFreeUntil) > Date.now() ? planWord(env) : premium ? CARDS_COPY.premiumAccount : CARDS_COPY.freeAccount, testid: 'account-plan' }), ...plans)!)
+      const lifetime = premium && env.data.lifetime === true
+      body.append(group(row({ label: lifetime || (env.data.firstMonthFreeUntil && Date.parse(env.data.firstMonthFreeUntil) > Date.now()) ? planWord(env) : premium ? CARDS_COPY.premiumAccount : CARDS_COPY.freeAccount, testid: 'account-plan' }), ...plans)!)
       if (confirming) {
         body.append(
           el('p', { className: 'tc-foot', style: { margin: '0 16px -16px' }, text: CARDS_COPY.deleteConfirm }),

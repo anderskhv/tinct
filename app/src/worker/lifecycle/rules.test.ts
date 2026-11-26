@@ -91,6 +91,15 @@ describe('trial notices', () => {
     expect(planTrialNotice(facts({ createdAt: NOW - 26 * DAY, log: [sent('trial-ending', null, NOW - 4 * DAY)] }), NOW)).toBeNull()
   })
 
+  it('never go to an account with Premium for life, which has no trial to end', () => {
+    for (const day of [25, 26, 30, 31]) {
+      expect(planTrialNotice(facts({ createdAt: NOW - day * DAY }), NOW)).not.toBeNull()
+      expect(planTrialNotice(facts({ createdAt: NOW - day * DAY, lifetime: true }), NOW)).toBeNull()
+    }
+    const plan = planLifecycle(facts({ createdAt: NOW - 26 * DAY, lifetime: true }), NOW, { trialNotices: true })
+    expect(plan.kind).not.toBe('trial')
+  })
+
   it('stay off while the switch is off, and go to readers without consent when on', () => {
     const reader = facts({ createdAt: NOW - 26 * DAY, optedIn: false, confirmed: null })
     expect(planLifecycle(reader, NOW, { trialNotices: false })).toEqual({ kind: 'skip', reason: 'no-consent' })

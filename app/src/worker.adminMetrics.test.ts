@@ -205,4 +205,37 @@ describe('admin metrics route', () => {
       vi.unstubAllGlobals()
     }
   })
+
+  it('counts a Premium-for-life reader as a reader, never as a checkout: only Stripe checkout events count', async () => {
+    const grantId = '33333333-3333-4333-8333-333333333333'
+    const payingId = '44444444-4444-4444-8444-444444444444'
+    const event = (userId: string, session: string, type: string) => ({ event_type: 'event', path: '/reader', duration_ms: null, user_id: userId, session_id: session, payload: { type }, created_at: '2026-06-16T11:00:00.000Z' })
+    const profileQueries: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/analytics_events?')) {
+        return supabaseJson([
+          // The grant account uses AI every day; it never goes through Checkout.
+          event(grantId, 'grant-session', 'member_ai_use'),
+          event(grantId, 'grant-session', 'chat_message_sent'),
+          // A paying reader with both a grant and a Stripe subscription: the Stripe checkout counts.
+          event(payingId, 'paying-session', 'checkout_started'),
+          event(payingId, 'paying-session', 'checkout_completed'),
+        ])
+      }
+      if (url.includes('/rest/v1/profiles?')) {
+        profileQueries.push(url)
+        return supabaseJson([
+          { id: grantId, email: 'grant@mail.com', is_test: false, premium_grant: 'launch-2026-11', premium_granted_at: '2026-11-26T10:00:00Z' },
+          { id: payingId, email: 'paying@mail.com', is_test: false, premium_grant: 'launch-2026-11', premium_granted_at: '2026-11-26T10:00:00Z' },
+        ])
+      }
+      return supabaseJson({ error: 'unexpected URL' }, 500)
+    }))
+    const body = await (await handleAdminMetricsUsers(new Request('https://tinct.app/api/admin/metrics-users?days=30'), env, async () => true)).json() as { users: Array<{ userId: string; checkoutStarts: number; chatInteractions: number }> }
+    expect(body.users.find(user => user.userId === grantId)).toMatchObject({ checkoutStarts: 0, chatInteractions: 1 })
+    expect(body.users.find(user => user.userId === payingId)).toMatchObject({ checkoutStarts: 1 })
+    // Metrics never read the grant: what counts as paying is Stripe's checkout alone.
+    expect(profileQueries.every(url => !url.includes('premium_grant'))).toBe(true)
+  })
 })

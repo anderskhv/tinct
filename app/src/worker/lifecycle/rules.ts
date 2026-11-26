@@ -68,6 +68,8 @@ export interface ReaderFacts {
   /** Ship 2's confirmed email: true / false, or null when the column does not exist yet. */
   confirmed: boolean | null
   subscribed: boolean
+  /** Premium for life by grant (lib/aiAllowance.ts hasLifetimeGrant): no trial, so no trial notice. */
+  lifetime?: boolean
   /** Latest reading anywhere (the position record), or null. */
   lastReadAt: number | null
   /** Started books, newest first, without hidden and finished ones. */
@@ -146,7 +148,7 @@ export function extendedTrialAccount(facts: Pick<ReaderFacts, 'createdAt'>, now:
 }
 
 export function planTrialNotice(facts: ReaderFacts, now: number): TrialPlan | null {
-  if (facts.subscribed) return null
+  if (facts.subscribed || facts.lifetime) return null
   if (trialResetAccount(facts, now)) return null
   if (extendedTrialAccount(facts, now)) return null
   const day = (now - facts.createdAt) / DAY

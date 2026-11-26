@@ -11,6 +11,8 @@ export type PremiumInterval = 'month' | 'year'
 
 export type SubscriptionInfo = {
   premium?: boolean
+  /** Premium for life by grant (Worker: lib/aiAllowance.ts hasLifetimeGrant): never offered a plan. */
+  lifetime?: boolean
   first_month_free_until?: string | null
   subscription_status?: string | null
   subscription_period_end?: string | null
@@ -22,10 +24,11 @@ export type SubscriptionInfo = {
 /**
  * The intervals to offer this reader, or none. A reader who is paying (or
  * whose cancelled plan still runs, or whose payment is being retried) is not
- * offered a second subscription; they manage the one they have.
+ * offered a second subscription; they manage the one they have. Premium for
+ * life by grant is never offered one either.
  */
 export function premiumOfferIntervals(info: SubscriptionInfo | null, now = Date.now()): PremiumInterval[] {
-  if (!info) return []
+  if (!info || info.lifetime === true) return []
   const status = info.subscription_status ?? null
   if (status === 'active' || status === 'trialing' || status === 'past_due') return []
   if (status === 'canceled' && info.subscription_period_end && new Date(info.subscription_period_end).getTime() > now) return []
