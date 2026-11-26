@@ -27,6 +27,7 @@
  * Abuse limits: per account per day and a global daily ceiling; the same work
  * is one import (its id is derived from the work id, and an existing book is
  * returned as is); a short lock lets only one import of a work run at a time.
+ * An import that downloads nothing gives its daily counts and its lock back.
  *
  * Storage: R2 `public-books/` in PUBLIC_BOOKS when bound, else the existing
  * public AUDIO_BUCKET. Public books hold no personal data: who added a book is
@@ -45,6 +46,7 @@ import {
   WORK_ID,
   allowedSourceUrl,
   displayTitle,
+  gutenbergMirrorUrl,
   importEditions,
   importableWork,
   isPublicBookId,
@@ -95,8 +97,12 @@ export interface PublicBooksDeps {
   checkRateLimit: CheckRateLimit
   /** Counts one import against a daily window; false once the window is full. */
   countDaily: (key: string, limit: number) => Promise<boolean>
+  /** Gives back one count from a daily window, for an import that downloaded nothing. */
+  uncountDaily?: (key: string) => Promise<void>
   /** True for the first caller in a LOCK_MS window for this book. */
   acquireLock: (bookId: string) => Promise<boolean>
+  /** Ends this book's lock early, after an import that downloaded nothing (so Add can be tried again). */
+  releaseLock?: (bookId: string) => Promise<void>
   /** Premium or in the 30-day trial (lib/aiAllowance.ts loadPremiumAccess); null when unknown. Adding is Premium only. */
   premiumAccess: (userId: string) => Promise<boolean | null>
   fetchSource?: typeof fetch
@@ -174,10 +180,16 @@ export function publicEditionKey(work: Pick<CatalogueWork, 'language'>): string 
 export class ImportError extends Error {
   status: number
   code: string
-  constructor(status: number, code: string) {
+  /** The library was down or throttling (5xx, 429, a network error or the time limit), not refusing the file. */
+  transient: boolean
+  /** The library's IMPORT_SOURCES key, for `source_down`. */
+  source?: string
+  constructor(status: number, code: string, options: { transient?: boolean; source?: string } = {}) {
     super(code)
     this.status = status
     this.code = code
+    this.transient = options.transient ?? false
+    if (options.source) this.source = options.source
   }
 }
 
@@ -196,10 +208,10 @@ export async function downloadEpub(source: string, url: string, fetchImpl: typeo
         if ((answer.status === 429 || answer.status >= 500) && attempt === 0) { await answer.body?.cancel().catch(() => {}); continue }
         response = answer
       } catch {
-        if (signal.aborted || attempt === 1) throw new ImportError(502, 'source_unavailable')
+        if (signal.aborted || attempt === 1) throw new ImportError(502, 'source_unavailable', { transient: true })
       }
     }
-    if (!response) throw new ImportError(502, 'source_unavailable')
+    if (!response) throw new ImportError(502, 'source_unavailable', { transient: true })
     if (response.status >= 300 && response.status < 400) {
       const location = response.headers.get('location')
       await response.body?.cancel().catch(() => {})
@@ -207,7 +219,10 @@ export async function downloadEpub(source: string, url: string, fetchImpl: typeo
       current = new URL(location, current).toString()
       continue
     }
-    if (!response.ok || !response.body) throw new ImportError(502, 'source_unavailable')
+    if (!response.ok || !response.body) {
+      await response.body?.cancel().catch(() => {})
+      throw new ImportError(502, 'source_unavailable', { transient: response.status === 429 || response.status >= 500 })
+    }
     const declared = Number(response.headers.get('content-length') || '')
     if (Number.isFinite(declared) && declared > MAX_EPUB_BYTES) { await response.body.cancel().catch(() => {}); throw new ImportError(413, 'source_too_large') }
     const reader = response.body.getReader()
@@ -223,7 +238,8 @@ export async function downloadEpub(source: string, url: string, fetchImpl: typeo
       }
     } catch (error) {
       if (error instanceof ImportError) throw error
-      throw new ImportError(502, 'source_unavailable')
+      // The connection dropped or the time limit ran out mid-file.
+      throw new ImportError(502, 'source_unavailable', { transient: true })
     }
     const bytes = new Uint8Array(total)
     let at = 0
@@ -264,12 +280,31 @@ export async function downloadEdition(work: Pick<CatalogueWork, 'title' | 'autho
   let failure: ImportError = new ImportError(502, 'source_unavailable')
   // A file too large (a book of many pictures): the library's next file for it (Gutenberg's no-images EPUB).
   for (const url of edition.epubUrls) {
-    try { return await downloadEpub(edition.source, url, fetchImpl) } catch (error) {
+    try { return await downloadWithMirror(edition.source, url, fetchImpl) } catch (error) {
       failure = error instanceof ImportError ? error : new ImportError(502, 'source_unavailable')
+      // The library is down (its mirror too, where it has one): said as such, naming the library.
+      if (failure.transient) throw new ImportError(503, 'source_down', { transient: true, source: edition.source })
       if (failure.code !== 'source_too_large') throw failure
     }
   }
   throw failure
+}
+
+/**
+ * One library file; for a Gutenberg file when www.gutenberg.org is down or throttling, the same
+ * file from PGLAF's official mirror (gutenbergMirrorUrl), under the same allowlist, size and
+ * time limits. A missing or failing mirror copy leaves the library's own failure (it is down);
+ * anything the mirror's file itself is refused for (too large, not an EPUB) is that refusal.
+ */
+async function downloadWithMirror(source: string, url: string, fetchImpl: typeof fetch): Promise<Uint8Array> {
+  try { return await downloadEpub(source, url, fetchImpl) } catch (error) {
+    const mirror = source === 'Gutenberg' && error instanceof ImportError && error.transient ? gutenbergMirrorUrl(url) : null
+    if (!mirror) throw error
+    try { return await downloadEpub(source, mirror, fetchImpl) } catch (mirrorError) {
+      if (mirrorError instanceof ImportError && mirrorError.code !== 'source_unavailable') throw mirrorError
+      throw error
+    }
+  }
 }
 
 /**
@@ -525,16 +560,25 @@ async function prepare(request: Request, env: PublicBooksEnv, bucket: R2Bucket, 
   if (!importableWork(work)) return reply({ error: 'not_importable' }, 422, request)
   // A staged download of this work (a conversion still to come) is reused.
   if (await bucket.head(stagingKey(bookId))) return reply({ status: 'convert', bookId, source: `/api/public-books/import/${bookId}/source` }, 200, request)
-  if (!await deps.countDaily(`public-book-day:${user.id}`, IMPORTS_PER_DAY)) return reply({ error: 'daily_limit', limit: IMPORTS_PER_DAY }, 429, request)
-  if (!await deps.countDaily('public-book-day:all', IMPORTS_PER_DAY_ALL)) return reply({ error: 'daily_limit' }, 429, request)
-  if (!await deps.acquireLock(bookId)) return reply({ error: 'in_progress' }, 409, request)
+  // The daily limits are checked (and counted) before anything is downloaded, so they still stop
+  // abuse; an add that downloads nothing gives its counts back, so a library being down never
+  // spends a reader's allowance (Anders, 2026-11-26). The per-minute rate limit still applies.
+  const accountDay = `public-book-day:${user.id}`
+  const allDay = 'public-book-day:all'
+  const uncount = async (keys: string[]) => { for (const key of keys) await deps.uncountDaily?.(key).catch(() => {}) }
+  if (!await deps.countDaily(accountDay, IMPORTS_PER_DAY)) return reply({ error: 'daily_limit', limit: IMPORTS_PER_DAY }, 429, request)
+  if (!await deps.countDaily(allDay, IMPORTS_PER_DAY_ALL)) { await uncount([accountDay]); return reply({ error: 'daily_limit' }, 429, request) }
+  if (!await deps.acquireLock(bookId)) { await uncount([accountDay, allDay]); return reply({ error: 'in_progress' }, 409, request) }
   let bytes: Uint8Array
   let edition: ImportEdition
   try {
     ({ bytes, edition } = await downloadWork(work, deps.fetchSource))
   } catch (error) {
     const failure = error instanceof ImportError ? error : new ImportError(502, 'source_unavailable')
-    return reply({ error: failure.code }, failure.status, request)
+    await uncount([accountDay, allDay])
+    await deps.releaseLock?.(bookId).catch(() => {})
+    const source = failure.code === 'source_down' && failure.source ? { source: sourceName(failure.source) } : {}
+    return reply({ error: failure.code, ...source }, failure.status, request)
   }
   await bucket.put(stagingKey(bookId), bytes, {
     httpMetadata: { contentType: 'application/epub+zip' },

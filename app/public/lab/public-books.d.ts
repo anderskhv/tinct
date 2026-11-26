@@ -40,6 +40,7 @@ export const EXCLUDED_SOURCES: string[]
 export const IMPORT_LANGUAGES: string[]
 export function sourceName(source: string | undefined): string
 export function allowedSourceUrl(source: string, url: string): boolean
+export function gutenbergMirrorUrl(url: string): string | null
 export function wikisourcePage(edition: CatalogueEdition | null | undefined, workId?: string): { lang: string; page: string } | null
 export function wikisourceApi(lang: string): string
 export interface ImportEdition { source: string; sourceUrl: string | null; licence: string; epubUrls: string[]; wikisource?: { lang: string; page: string } }

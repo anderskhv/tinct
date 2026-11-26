@@ -25,7 +25,7 @@ import { COVER_CLAIM_MS, XAI_IMAGE_MODEL, XAI_IMAGE_OPTIONS, coverContentType, c
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { LIBRARY_HOUSES, LIBRARY_SHELVES } from './data/libraryTaxonomy'
-import { displayTitle, importEditions, importableWork, personName, publishedYear, type CatalogueWork } from '../public/lab/public-books.js'
+import { allowedSourceUrl, displayTitle, gutenbergMirrorUrl, importEditions, importableWork, personName, publishedYear, type CatalogueWork } from '../public/lab/public-books.js'
 import { WIKISOURCE_CONCURRENCY, setWikisourceSleepForTest } from './worker/lib/wikisourceEpub'
 
 const USER = '11111111-1111-4111-8111-111111111111'
@@ -134,7 +134,9 @@ function setup(options: { works?: CatalogueWork[]; epub?: Uint8Array; source?: t
     },
     checkRateLimit: async () => true,
     countDaily: async (key, limit) => { const n = (counts.get(key) ?? 0) + 1; counts.set(key, n); return n <= (options.daily ?? limit) },
+    uncountDaily: async key => { counts.set(key, Math.max(0, (counts.get(key) ?? 0) - 1)) },
     acquireLock: async bookId => { if (locks.has(bookId)) return false; locks.add(bookId); return true },
+    releaseLock: async bookId => { locks.delete(bookId) },
     premiumAccess: async userId => (options.premium ? options.premium(userId) : true),
     fetchSource: options.source ?? (async (url: string | URL | Request) => { downloads.push(String(url)); return new Response(epub, { headers: { 'content-length': String(epub.byteLength) } }) }) as typeof fetch,
     chooser: options.chooser ?? null,
@@ -870,5 +872,131 @@ describe('an added book\'s metadata (QA 2026-10-08)', () => {
     expect(musketeers.entry.displayYear).toBe('')
     // The estimate from the author's dates still places the book in its era (shelves), unshown.
     expect(musketeers.entry.era).toBe('modern')
+  })
+})
+
+// ===== 2026-11-26: www.gutenberg.org down for maintenance (every URL 503) =====
+
+describe('when Project Gutenberg is down (2026-11-26)', () => {
+  const epub = bookEpub()
+  /** www.gutenberg.org answers `primary`; the PGLAF mirror answers `mirror` (both per URL). */
+  function libraries(primary: (url: string) => Response | Promise<Response>, mirror: (url: string) => Response | Promise<Response> = () => new Response(epub)) {
+    const seen: string[] = []
+    const fetchImpl = (async (input: string | URL | Request) => {
+      const url = String(input)
+      seen.push(url)
+      return new URL(url).hostname === 'gutenberg.pglaf.org' ? mirror(url) : primary(url)
+    }) as unknown as typeof fetch
+    return { seen, fetchImpl }
+  }
+  const down = () => new Response('<!doctype html><title>Temporarily Down for Maintenance</title>', { status: 503, headers: { 'content-type': 'text/html' } })
+
+  it('maps Gutenberg links to the same file on PGLAF\'s official mirror, which Add may download from', () => {
+    expect(gutenbergMirrorUrl('https://www.gutenberg.org/ebooks/1722.epub3.images')).toBe('https://gutenberg.pglaf.org/cache/epub/1722/pg1722-images-3.epub')
+    expect(gutenbergMirrorUrl('https://www.gutenberg.org/ebooks/1342.epub.noimages')).toBe('https://gutenberg.pglaf.org/cache/epub/1342/pg1342.epub')
+    expect(gutenbergMirrorUrl('https://www.gutenberg.org/ebooks/1342.epub.images')).toBe('https://gutenberg.pglaf.org/cache/epub/1342/pg1342-images.epub')
+    expect(gutenbergMirrorUrl('https://www.gutenberg.org/cache/epub/1/pg1-images-3.epub')).toBe('https://gutenberg.pglaf.org/cache/epub/1/pg1-images-3.epub')
+    // No verified mirror file, another host, plain http or a query: no mirror.
+    expect(gutenbergMirrorUrl('https://www.gutenberg.org/ebooks/1342.epub3.noimages')).toBeNull()
+    expect(gutenbergMirrorUrl('https://standardebooks.org/ebooks/x.epub')).toBeNull()
+    expect(gutenbergMirrorUrl('http://www.gutenberg.org/ebooks/1.epub3.images')).toBeNull()
+    expect(gutenbergMirrorUrl('https://www.gutenberg.org/ebooks/1.epub3.images?x=1')).toBeNull()
+    expect(gutenbergMirrorUrl('https://www.gutenberg.org/cache/epub/1/pg2.epub')).toBeNull()
+    expect(allowedSourceUrl('Gutenberg', 'https://gutenberg.pglaf.org/cache/epub/1722/pg1722-images-3.epub')).toBe(true)
+    expect(allowedSourceUrl('Standard Ebooks', 'https://gutenberg.pglaf.org/cache/epub/1722/pg1722-images-3.epub')).toBe(false)
+  })
+
+  it('a 503 from www.gutenberg.org is retried once, then the book comes from the mirror', async () => {
+    const { seen, fetchImpl } = libraries(down)
+    const t = setup({ source: fetchImpl })
+    const answer = await t.prepare('pg:99999')
+    expect(answer.status).toBe(200)
+    expect(seen).toEqual([
+      'https://www.gutenberg.org/ebooks/99999.epub3.images',
+      'https://www.gutenberg.org/ebooks/99999.epub3.images',
+      'https://gutenberg.pglaf.org/cache/epub/99999/pg99999-images-3.epub',
+    ])
+    expect(t.counts.get(`public-book-day:${USER}`)).toBe(1)
+    const done = await t.convertAndCommit('pd-pg-99999')
+    expect(done.status).toBe(201)
+    // Credited to Project Gutenberg, as any Gutenberg download.
+    expect((await done.json() as { entry: { public: { sourceName: string } } }).entry.public.sourceName).toBe('Project Gutenberg')
+  })
+
+  it('a timeout or a 429 from www.gutenberg.org also tries the mirror', async () => {
+    const hung = libraries(() => { throw new DOMException('timed out', 'TimeoutError') })
+    expect((await setup({ source: hung.fetchImpl }).prepare('pg:99999')).status).toBe(200)
+    expect(hung.seen[hung.seen.length - 1]).toBe('https://gutenberg.pglaf.org/cache/epub/99999/pg99999-images-3.epub')
+    const throttled = libraries(() => new Response('slow down', { status: 429 }))
+    expect((await setup({ source: throttled.fetchImpl }).prepare('pg:99999')).status).toBe(200)
+    expect(throttled.seen[throttled.seen.length - 1]).toBe('https://gutenberg.pglaf.org/cache/epub/99999/pg99999-images-3.epub')
+  })
+
+  it('the mirror\'s file is held to the same limits: too large with pictures falls to the no-images file, from the mirror too', async () => {
+    const big = () => new Response('x', { headers: { 'content-length': String(MAX_EPUB_BYTES + 1) } })
+    const { seen, fetchImpl } = libraries(down, url => url.endsWith('-images-3.epub') ? big() : new Response(epub))
+    expect((await setup({ source: fetchImpl }).prepare('pg:99999')).status).toBe(200)
+    expect(seen.filter(url => url.includes('pglaf'))).toEqual(['https://gutenberg.pglaf.org/cache/epub/99999/pg99999-images-3.epub', 'https://gutenberg.pglaf.org/cache/epub/99999/pg99999.epub'])
+    const html = libraries(down, () => new Response('<html>Not found</html>'))
+    const refused = await setup({ source: html.fetchImpl }).prepare('pg:99999')
+    expect(refused.status).toBe(422)
+    expect(await refused.json()).toEqual({ error: 'not_epub' })
+  })
+
+  it('both down: 503 source_down naming the library, and nothing counted against the day or left locked', async () => {
+    const { seen, fetchImpl } = libraries(down, down)
+    const t = setup({ source: fetchImpl })
+    const answer = await t.prepare('pg:99999')
+    expect(answer.status).toBe(503)
+    expect(await answer.json()).toEqual({ error: 'source_down', source: 'Project Gutenberg' })
+    expect(seen.filter(url => url.includes('pglaf'))).toHaveLength(2) // the mirror's one retry
+    expect(t.counts.get(`public-book-day:${USER}`)).toBe(0)
+    expect(t.counts.get('public-book-day:all')).toBe(0)
+    expect(t.locks.size).toBe(0)
+    // A mirror without the file while Gutenberg is down is still "down", not "cannot be added".
+    const missing = libraries(down, () => new Response('Not found', { status: 404 }))
+    expect(await (await setup({ source: missing.fetchImpl }).prepare('pg:99999')).json()).toEqual({ error: 'source_down', source: 'Project Gutenberg' })
+  })
+
+  it('a 404 from www.gutenberg.org is not an outage: no mirror request, the existing source_unavailable, and the count given back', async () => {
+    const { seen, fetchImpl } = libraries(() => new Response('Not found', { status: 404 }))
+    const t = setup({ source: fetchImpl })
+    const answer = await t.prepare('pg:99999')
+    expect(answer.status).toBe(502)
+    expect(await answer.json()).toEqual({ error: 'source_unavailable' })
+    expect(seen.some(url => url.includes('pglaf'))).toBe(false)
+    expect(t.counts.get(`public-book-day:${USER}`)).toBe(0)
+    expect(t.locks.size).toBe(0)
+  })
+
+  it('failed downloads never use up the daily allowance, while the limit itself still refuses before any download', async () => {
+    // (A 404 fails at once; the outage path's refund is checked above, without its retry waits.)
+    const { fetchImpl } = libraries(() => new Response('Not found', { status: 404 }))
+    const t = setup({ source: fetchImpl, daily: 2 })
+    for (let i = 0; i < 3; i++) expect((await t.prepare('pg:99999')).status).toBe(502)
+    // The file is back: the full allowance is still there.
+    t.deps.fetchSource = (async () => new Response(epub)) as unknown as typeof fetch
+    expect((await t.prepare('pg:99999')).status).toBe(200)
+    // At the limit, refused before anything is downloaded.
+    const works = [{ ...WORK, id: 'pg:1' }, { ...WORK, id: 'pg:2' }, { ...WORK, id: 'pg:3' }]
+    const full = setup({ works, daily: 2 })
+    expect((await full.prepare('pg:1')).status).toBe(200)
+    expect((await full.prepare('pg:2')).status).toBe(200)
+    const over = await full.prepare('pg:3')
+    expect(over.status).toBe(429)
+    expect(full.downloads).toHaveLength(2)
+  })
+
+  it('a refused lock or a full global day gives the account\'s count back', async () => {
+    const t = setup()
+    t.locks.add('pd-pg-99999')
+    expect((await t.prepare('pg:99999')).status).toBe(409)
+    expect(t.counts.get(`public-book-day:${USER}`)).toBe(0)
+    expect(t.counts.get('public-book-day:all')).toBe(0)
+    const g = setup()
+    g.counts.set('public-book-day:all', 1_000_000)
+    expect((await g.prepare('pg:99999')).status).toBe(429)
+    expect(g.counts.get(`public-book-day:${USER}`)).toBe(0)
+    expect(g.downloads).toEqual([])
   })
 })
