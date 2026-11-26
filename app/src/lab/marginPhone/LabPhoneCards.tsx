@@ -76,8 +76,12 @@ export function PhoneCharacterBody({ character, renderFollow }: { character: Cha
       <h2 className="popup-character-name">{card.name}<HeadwordLabel label={roleLabel ?? ''} /></h2>
       {card.subtitle && !subtitleRepeatsBody(card.subtitle, card.body) && <p className="popup-character-subtitle">{card.subtitle}</p>}
       <p>{card.body}</p>
-      <button type="button" onClick={() => setGallery(true)}>Character gallery</button>
-      {galleryId && <button type="button" onClick={() => setGalleryId(null)}>Back to selected name</button>}
+      {/* Two links side by side need a gap of their own: adjacent inline buttons ran together as
+          "Character galleryBack to selected name" (Anders, 26 Nov 2026). */}
+      <div className="lab-pcard-character-links">
+        <button type="button" onClick={() => setGallery(true)}>Character gallery</button>
+        {galleryId && <button type="button" onClick={() => setGalleryId(null)}>Back to selected name</button>}
+      </div>
       {renderFollow(card)}
     </>}
   </div>

@@ -33,3 +33,21 @@ it('a name without a role is the name alone', () => {
   render(<PhoneCharacterBody character={character} renderFollow={() => null} />)
   expect(screen.getByRole('heading', { level: 2 }).textContent).toBe('Cleopas')
 })
+
+it('keeps Character gallery and Back to selected name apart once another person is shown (Anders, 26 Nov 2026)', () => {
+  const card = { id: 'ananias', kind: 'person', role: 'reference', name: 'Ananias', subtitle: 'Disciple in Damascus', body: 'Restores Saul’s sight.' }
+  const adam = { ...card, id: 'adam', role: 'major', name: 'Adam', subtitle: 'The first man', body: 'Formed from the dust.' }
+  const character: CharacterSelection = { card, cutoff: { chapterNumber: 1, paragraphIndex: 0, offset: 10 }, gallery: [{ card, inPassage: true }, { card: adam, inPassage: false }] }
+  render(<PhoneCharacterBody character={character} renderFollow={() => null} />)
+  fireEvent.click(screen.getByText('Character gallery'))
+  fireEvent.click(screen.getByText('Adam'))
+  const gallery = screen.getByRole('button', { name: 'Character gallery' })
+  const back = screen.getByRole('button', { name: 'Back to selected name' })
+  // Both links sit in one row laid out with a gap (marginPhone.css), never as bare adjacent inline buttons.
+  const row = gallery.parentElement!
+  expect(row.className).toBe('lab-pcard-character-links')
+  expect(back.parentElement).toBe(row)
+  fireEvent.click(back)
+  expect(screen.getByRole('heading', { level: 2 }).textContent).toContain('Ananias')
+  expect(screen.queryByRole('button', { name: 'Back to selected name' })).toBeNull()
+})
