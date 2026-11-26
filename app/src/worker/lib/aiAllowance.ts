@@ -84,9 +84,18 @@ export interface AllowanceProfile {
   subscription_period_end: string | null
   created_at: string | null
   period_start?: string | null
+  /**
+   * Premium for life without Stripe (Anders, 26 Nov 2026: the launch promise
+   * to the first 30 readers). The grant's name, e.g. 'launch-2026-11', and
+   * when it was given. Set only by SQL Anders runs
+   * (app/supabase/migrations/20261126_premium_grant.sql); absent before that
+   * migration has run.
+   */
+  premium_grant?: string | null
+  premium_granted_at?: string | null
 }
 
-export type PeriodKind = 'subscription' | 'trial' | 'standard'
+export type PeriodKind = 'subscription' | 'grant' | 'trial' | 'standard'
 
 export interface AllowancePeriod {
   kind: PeriodKind
@@ -141,6 +150,37 @@ export function isSubscribed(profile: AllowanceProfile, now: Date): boolean {
 }
 
 /**
+ * Premium for life by grant (Anders, 26 Nov 2026): a named grant and the time
+ * it was given, both set. It never ends while the account exists. A grant is
+ * never a paying subscription: billing, metrics and Stripe ignore it.
+ */
+export function hasLifetimeGrant(profile: { premium_grant?: unknown; premium_granted_at?: unknown } | null | undefined): boolean {
+  if (!profile || typeof profile.premium_grant !== 'string' || !profile.premium_grant.trim()) return false
+  return typeof profile.premium_granted_at === 'string' && validDate(profile.premium_granted_at) !== null
+}
+
+/**
+ * Where an account's Premium comes from, in the order entitlement is decided:
+ *  - 'subscription': a Stripe subscription (isSubscribed), which also covers
+ *    the one-off first-month grant of Oct 2026 that was written into the
+ *    subscription columns. A paying subscription wins over a lifetime grant,
+ *    so its billing period and its Stripe controls stay as they are.
+ *  - 'grant': Premium for life by grant (hasLifetimeGrant).
+ *  - 'trial': the 30-day trial and its extension (trialEndsAt).
+ *  - null: a standard account.
+ * Every entitlement check (hasPremiumAccess, premiumTier, billingPeriod) goes
+ * through here, so a grant gives exactly what Premium gives.
+ */
+export type PremiumSource = 'subscription' | 'grant' | 'trial' | null
+
+export function premiumSource(profile: AllowanceProfile, now: Date): PremiumSource {
+  if (isSubscribed(profile, now)) return 'subscription'
+  if (hasLifetimeGrant(profile)) return 'grant'
+  const end = trialEndsAt(profile, now)
+  return end && now.getTime() < end.getTime() ? 'trial' : null
+}
+
+/**
  * The trial reset (Anders, 15 Oct 2026: "reset all accounts with a free
  * account"). From this moment every free account's trial starts at
  * max(created_at, TRIAL_RESET_AT): an account created earlier gets a fresh
@@ -190,16 +230,32 @@ export function trialEndsAt(profile: AllowanceProfile, now: Date): Date | null {
  * account's 30-day trial. Books already added stay readable regardless.
  */
 export function hasPremiumAccess(profile: AllowanceProfile, now: Date): boolean {
-  if (isSubscribed(profile, now)) return true
-  const end = trialEndsAt(profile, now)
-  return !!end && now.getTime() < end.getTime()
+  return premiumSource(profile, now) !== null
+}
+
+/** The profile columns every entitlement check reads. */
+export const ENTITLEMENT_COLUMNS = 'subscription_status,subscription_period_end,created_at,period_start'
+/** The lifetime grant's columns (20261126_premium_grant.sql). */
+export const PREMIUM_GRANT_COLUMNS = 'premium_grant,premium_granted_at'
+
+/**
+ * Reads one profile's entitlement columns (plus `extra`), the grant's
+ * included. Before 20261126_premium_grant.sql has run PostgREST refuses the
+ * unknown columns with a 400; the read is then made again without them, so
+ * every account keeps exactly the entitlement it had (no grant exists yet).
+ */
+export async function fetchEntitlementProfile(env: SupabaseEnv, userId: string, extra = ''): Promise<Response> {
+  const columns = [ENTITLEMENT_COLUMNS, extra].filter(Boolean).join(',')
+  const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=${columns},${PREMIUM_GRANT_COLUMNS}`)
+  if (res.status !== 400) return res
+  return supabaseGet(env, `profiles?id=eq.${userId}&select=${columns}`)
 }
 
 /** `hasPremiumAccess` for an account, from its profile; null when the profile cannot be read. Never throws. */
 export async function loadPremiumAccess(env: SupabaseEnv, userId: string, now: Date = new Date()): Promise<boolean | null> {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
   try {
-    const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at,period_start`)
+    const res = await fetchEntitlementProfile(env, userId)
     if (!res.ok) return null
     const profile = ((await res.json()) as AllowanceProfile[])?.[0]
     return profile ? hasPremiumAccess(profile, now) : null
@@ -209,23 +265,22 @@ export async function loadPremiumAccess(env: SupabaseEnv, userId: string, now: D
 }
 
 /**
- * Which kind of Premium access an account has: a paid subscription, the
- * 30-day trial (and not subscribed), or none. Features with a smaller trial
- * ceiling (OCR of scanned PDFs: lib/ownOcr.ts) tell the two apart with it.
+ * Which kind of Premium access an account has: Premium (a paid subscription
+ * or a lifetime grant), the 30-day trial, or none. Features with a smaller
+ * trial ceiling (OCR of scanned PDFs: lib/ownOcr.ts) tell the two apart with it.
  */
 export type PremiumTier = 'premium' | 'trial' | 'none'
 
 export function premiumTier(profile: AllowanceProfile, now: Date): PremiumTier {
-  if (isSubscribed(profile, now)) return 'premium'
-  const end = trialEndsAt(profile, now)
-  return end && now.getTime() < end.getTime() ? 'trial' : 'none'
+  const source = premiumSource(profile, now)
+  return source === 'subscription' || source === 'grant' ? 'premium' : source === 'trial' ? 'trial' : 'none'
 }
 
 /** `premiumTier` for an account, from its profile; null when the profile cannot be read. Never throws. */
 export async function loadPremiumTier(env: SupabaseEnv, userId: string, now: Date = new Date()): Promise<PremiumTier | null> {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
   try {
-    const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at,period_start`)
+    const res = await fetchEntitlementProfile(env, userId)
     if (!res.ok) return null
     const profile = ((await res.json()) as AllowanceProfile[])?.[0]
     return profile ? premiumTier(profile, now) : null
@@ -246,6 +301,8 @@ export async function loadPremiumTier(env: SupabaseEnv, userId: string, now: Dat
  *  - Trial (30 days from trialStartsAt: sign-up, or TRIAL_RESET_AT for an
  *    older account): one window, so a trial never spans two allowances. The
  *    subscription branch above reads created_at directly, never the reset.
+ *  - Lifetime grant (and no paying subscription): Premium's allowance, in
+ *    calendar months counted from premium_granted_at, for good.
  *  - Standard: monthly windows from the trial's end, with no allowance; only
  *    top-up credit can pay for paid features.
  */
@@ -268,6 +325,9 @@ export function billingPeriod(profile: AllowanceProfile, now: Date, allowanceUsd
     // Active with no known period end: calendar months from the account's creation.
     const anchor = validDate(profile.created_at) ?? new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1))
     return { kind: 'subscription', ...monthlyWindow(anchor, now), allowanceMicros }
+  }
+  if (hasLifetimeGrant(profile)) {
+    return { kind: 'grant', ...monthlyWindow(validDate(profile.premium_granted_at)!, now), allowanceMicros }
   }
   const trialStart = trialStartsAt(profile, now)
   const signUpEnd = signUpTrialEndsAt(profile, now)
@@ -437,7 +497,7 @@ export function clearInternalAccountCache(): void {
 export async function loadAllowanceView(env: SupabaseEnv, userId: string, now: Date = new Date()): Promise<AllowanceView | null> {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
   try {
-    const profileRes = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at,period_start`)
+    const profileRes = await fetchEntitlementProfile(env, userId)
     if (!profileRes.ok) return null
     const profile = ((await profileRes.json()) as AllowanceProfile[])?.[0]
     if (!profile) return null

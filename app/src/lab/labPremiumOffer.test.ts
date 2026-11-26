@@ -25,6 +25,12 @@ describe('premiumOfferIntervals', () => {
     expect(premiumOfferIntervals({ subscription_status: 'canceled', subscription_period_end: '2026-11-01T00:00:00Z', intervals }, now)).toEqual([])
     expect(premiumOfferIntervals({ subscription_status: 'canceled', subscription_period_end: '2026-09-01T00:00:00Z', intervals }, now)).toEqual(['month', 'year'])
   })
+
+  it('offers nothing to Premium for life by grant, whatever is on sale', () => {
+    expect(premiumOfferIntervals({ lifetime: true, subscription_status: null, intervals: ['month', 'year'] }, now)).toEqual([])
+    expect(premiumOfferIntervals({ lifetime: true, subscription_status: 'canceled', subscription_period_end: '2026-09-01T00:00:00Z', intervals: ['month'] }, now)).toEqual([])
+    expect(premiumOfferIntervals({ lifetime: false, subscription_status: null, intervals: ['month'] }, now)).toEqual(['month'])
+  })
 })
 
 describe('startPremiumCheckout', () => {
