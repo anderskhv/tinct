@@ -59,6 +59,9 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'wonder-book-and-tanglewood-tales/modern-da',
   'beautiful-stories-from-shakespeare/modern-da',
   'wind-in-the-willows/modern-da',
+  // The last two of the shelf, 26 Nov 2026 (books/wip/young-readers-danish; Anders: every book on the shelf in Danish).
+  'the-secret-garden/modern-da',
+  'story-of-king-arthur-and-his-knights/modern-da',
   // End of young readers.
   'ivan-ilyich/modern-da',
   'werther/modern-da',

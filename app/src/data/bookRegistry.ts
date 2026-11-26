@@ -3680,6 +3680,7 @@ export const STORY_OF_KING_ARTHUR: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'The Story of King Arthur and His Knights (1903)', year: 1903, aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3695,6 +3696,7 @@ export const THE_SECRET_GARDEN: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'The Secret Garden (1911)', year: 1911, aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 

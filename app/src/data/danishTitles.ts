@@ -78,6 +78,7 @@ export const DANISH_TITLES: Record<string, DanishTitle> = {
   'merry-wives-of-windsor': { titles: ['De muntre koner i Windsor'], source: repo('merry-wives-of-windsor') },
   // Long-established Danish titles (none of Tinct's Danish text names them yet).
   'a-little-princess': { titles: ['Den lille prinsesse'], source: 'established' },
+  'the-secret-garden': { titles: ['Den hemmelige have'], source: 'established' },
   'meditations': { titles: ['Selvbetragtninger'], source: 'established' },
   'brothers-karamazov': { titles: ['Brødrene Karamasov'], source: 'established' },
   'war-and-peace': { titles: ['Krig og fred'], source: 'established' },
