@@ -202,6 +202,7 @@ import { chapterAnchorMap, loadEditionAnchors, mapPlaceThroughAnchors } from './
 import { chapterEditionKey, chapterWordFraction, editionSwitchReturn, leadingPreface, mapPlaceByWords, rememberEditionSwitch } from './labEditionSwitch'
 import { nextOpeningCacheKey } from './labNextOpening'
 import { holdPlaceWrite, labRestoreChapterKey, restoreLanded, restoreRetryIndex, restoreTargetFor, restoreTargetIn, type LabRestoreView, type LabRestoreWatch } from './labRestoreTarget'
+import { sameListenPlace, voiceReadingPlace, voiceSaveStep, voiceStep, type ListenPlace, type ListenSaveMark } from './labListenPlace'
 import { useLabDictation } from './useLabDictation'
 import { cardInMargin, cardShownMessages } from './marginPreview/marginPreviewCards'
 import { buildDictationKeyterms } from './labDictationKeyterms'
@@ -1924,10 +1925,19 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // so it opens there on their other devices. 'hide' sends what is waiting.
   const userPlaceBookRef = useRef(book)
   userPlaceBookRef.current = book
+  // The place last handed on to be saved: the voice's word is never saved twice (labListenPlace.ts).
+  const lastPlaceNoteRef = useRef<ListenPlace | null>(null)
   const notePlace = useCallback<typeof positionSync.notePlace>((reason, at) => {
     // A restore that has not landed is retried, never saved as the page on screen.
     const watch = restoreWatchRef.current
     if (watch && holdPlaceWrite({ watch, reason, interactions: interactionCountRef.current, landed: restoreLanded(watch, restoreViewNow()) })) return
+    if (reason !== 'hide' && !placeWritesSuspended) {
+      lastPlaceNoteRef.current = {
+        sequentialChapter: at?.sequentialChapter ?? userPlaceBookRef.current.chapterNumber,
+        paragraphIndex: at?.paragraphIndex ?? placeRef.current.paragraphIndex,
+        wordIndex: at?.wordIndex ?? placeRef.current.wordIndex,
+      }
+    }
     if (!userBook) { positionSync.notePlace(reason, at); return }
     if (reason === 'hide') { flushOwnPlaces(); return }
     if (placeWritesSuspended) return
@@ -4314,6 +4324,61 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     readingPageIndexRef.current = next
     setReadingPageIndex(next)
   }, [readingPages, showHearing, showPhoneChrome, desktopSpread, openingOnRight, listen.pending, listen.playing, listen.follow])
+
+  // Listening is reading (labListenPlace.ts; a reader's report, 26 Nov 2026): while the reader follows the voice,
+  // its place is saved as it reads on, when audio stops without the reader's own Pause button (the lock screen,
+  // headphones, a call) and when the page goes out of sight. Declared after the follow effects above: they are
+  // what makes the voice's word the page's place.
+  const voicePlaceNow = () => voiceReadingPlace({
+    follow: listen.follow,
+    place: placeRef.current,
+    following: showHearing && !listen.pending,
+    browsing: browseWhileListeningRef.current,
+    changingChapter: keepPlayingChapterRef.current != null,
+    listening: { bookId: listenSource.bookId, chapterNumber: listenSource.chapterNumber },
+    shown: { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber },
+  })
+  /** Hand the voice's place on to be saved, unless it is the place last saved. `leaving`: send it as a leaving page does. */
+  const saveVoicePlace = (reason: 'word' | 'pause', leaving = false) => {
+    const voice = voicePlaceNow()
+    if (!voice || sameListenPlace(voice, lastPlaceNoteRef.current)) return
+    // The saved tuple names the page that holds the word, as a page turn's does.
+    const step = voiceStep(voice, continuousReader ? null : readingPagesRef.current)
+    if (step.pageIndex !== null) readerStateRef.current = { ...readerStateRef.current, pageIndex: step.pageIndex }
+    notePlace(reason, voice)
+    if (leaving) notePlace('hide')
+  }
+  const saveVoicePlaceRef = useRef(saveVoicePlace)
+  saveVoicePlaceRef.current = saveVoicePlace
+  const voiceSaveMarkRef = useRef<ListenSaveMark | null>(null)
+  useEffect(() => {
+    if (!listen.playing) { voiceSaveMarkRef.current = null; return }
+    const voice = voicePlaceNow()
+    if (!voice) return
+    const step = voiceSaveStep(voiceSaveMarkRef.current, voiceStep(voice, continuousReader ? null : readingPages).key, Date.now())
+    voiceSaveMarkRef.current = step.mark
+    if (step.save) saveVoicePlace('word')
+  // The voice's word drives this; everything else is read as it stands when the word changes.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listen.follow, listen.playing, readingPages, continuousReader])
+  const voiceWasPlayingRef = useRef(false)
+  useEffect(() => {
+    const wasPlaying = voiceWasPlayingRef.current
+    voiceWasPlayingRef.current = listen.playing
+    if (wasPlaying && !listen.playing) saveVoicePlace('pause')
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listen.playing])
+  useEffect(() => {
+    // Saved in the same turn as the event: a phone may freeze the page right after it.
+    const onHide = () => saveVoicePlaceRef.current('word', true)
+    const onVisibility = () => { if (document.visibilityState === 'hidden') onHide() }
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('pagehide', onHide)
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('pagehide', onHide)
+    }
+  }, [])
 
   useEffect(() => {
     if ((book.bookId || 'bible') !== 'bible' || !firstPageShown) return

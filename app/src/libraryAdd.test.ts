@@ -102,6 +102,16 @@ describe('importWork (the browser half of Add)', () => {
     expect(await importWork('pg:1', { fetchImpl: reply(503, { error: 'source_blocked' }) })).toEqual({ ok: false, reason: 'unreadable' })
     expect(await importWork('pg:1', { fetchImpl: (async () => { throw new Error('offline') }) as unknown as typeof fetch })).toEqual({ ok: false, reason: 'failed' })
   })
+
+  it('a library that is down is source_down, with the library\'s name when the Worker gives it (2026-11-26)', async () => {
+    session.current = { access_token: 'tok' }
+    const { importWork } = await import('./libraryAdd')
+    const reply = (status: number, body: unknown) => (async () => Response.json(body, { status })) as unknown as typeof fetch
+    expect(await importWork('pg:1722', { fetchImpl: reply(503, { error: 'source_down', source: 'Project Gutenberg' }) })).toEqual({ ok: false, reason: 'source_down', source: 'Project Gutenberg' })
+    expect(await importWork('pg:1722', { fetchImpl: reply(503, { error: 'source_down' }) })).toEqual({ ok: false, reason: 'source_down' })
+    // Any other failed download is still the generic "try again".
+    expect(await importWork('pg:1722', { fetchImpl: reply(502, { error: 'source_unavailable' }) })).toEqual({ ok: false, reason: 'failed' })
+  })
 })
 
 describe('ownBooks (My shelf: Your own books)', () => {

@@ -313,6 +313,7 @@ These are production-critical:
 - Reading history/progress writes (including the reading-year data in `useLabReadingYear.ts`) must require a ready same-book location before touching `reading-log:*` or `progress:*`.
 - User-data writes are versioned through `commit_user_data`; deletes are tombstone writes (`value: null`) so other devices receive the change.
 - Backward chapter writes require a recent user-navigation signal.
+- Listening is reading. While the reader follows the voice, its place is saved as it reads on (each page the voice reaches, each paragraph in the Margin reader), whenever audio stops without the reader's own Pause button (lock screen, headphones, a call) and, in the same turn, when the page is hidden. Never only at Play and Pause: a locked phone or a discarded tab then reopens the book where Play was pressed (26 Nov 2026). Rules in `labListenPlace.ts`; `scripts/check-listen-keeps-place.mjs` proves them in a browser.
 - Positions loaded from storage/cloud must be validated against the actual book structure.
 - Position writes must skip during the render where `bookId` just changed but chapter/paragraph state still belongs to the previous book.
 - Chapter advance opens an unseen chapter at page 1 in Read and Compare. In desktop Read, when the outgoing right leaf already displayed the next chapter's opening, a forward page turn continues at the first unread source word (Anders, 2026-09-26). Never skip text that was not actually displayed.

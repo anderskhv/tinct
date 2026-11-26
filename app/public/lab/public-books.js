@@ -54,7 +54,9 @@ export const WORK_ID = /^[a-z]{2,4}:[A-Za-z0-9_.:/'()-]{1,200}$/
  * catalogue. Anything else is refused, on the Worker and before a request is made.
  */
 export const IMPORT_SOURCES = {
-  'Gutenberg': { name: 'Project Gutenberg', hosts: ['www.gutenberg.org'] },
+  // gutenberg.pglaf.org: PGLAF's official mirror of the same files, tried only when www.gutenberg.org
+  // is down or throttling (gutenbergMirrorUrl; 503 "Temporarily Down for Maintenance", 2026-11-26).
+  'Gutenberg': { name: 'Project Gutenberg', hosts: ['www.gutenberg.org', 'gutenberg.pglaf.org'] },
   'Standard Ebooks': { name: 'Standard Ebooks', hosts: ['standardebooks.org'] },
   // Wikisource text comes from the wiki's own API (worker/lib/wikisourceEpub.ts), never from
   // ws-export.wmcloud.org: its robots.txt disallows all automated fetches and it answers the
@@ -131,6 +133,28 @@ export const wikisourceApi = lang => `https://${lang}.wikisource.org/w/api.php`
 
 const GUTENBERG_WORK = /^pg:(\d{1,7})$/
 const GUTENBERG_EPUB = /^https:\/\/www\.gutenberg\.org\/ebooks\/(\d{1,7})\.epub3?\.(images|noimages)$/
+
+/** Gutenberg's file names in its EPUB cache (and on the PGLAF mirror), by the `/ebooks/<n>.<format>` link's format. */
+const GUTENBERG_CACHE_FILE = { 'epub3.images': '-images-3.epub', 'epub.images': '-images.epub', 'epub.noimages': '.epub' }
+
+/**
+ * The same Gutenberg EPUB on PGLAF's official mirror (gutenberg.pglaf.org), for a download from
+ * www.gutenberg.org that failed because the site is down or throttling. Null when the link has
+ * no known mirror file. Checked 2026-11-26: pg1722-images-3.epub, pg1722.epub and pg1342.epub
+ * answer 200 there while www.gutenberg.org answered every request with 503.
+ */
+export function gutenbergMirrorUrl(url) {
+  let parsed
+  try { parsed = new URL(url) } catch { return null }
+  if (parsed.protocol !== 'https:' || parsed.hostname !== 'www.gutenberg.org' || parsed.search || parsed.username || parsed.password) return null
+  const link = parsed.pathname.match(/^\/ebooks\/(\d{1,7})\.(epub3?\.(?:images|noimages))$/)
+  if (link) {
+    const file = GUTENBERG_CACHE_FILE[link[2]]
+    return file ? `https://gutenberg.pglaf.org/cache/epub/${link[1]}/pg${link[1]}${file}` : null
+  }
+  const cached = parsed.pathname.match(/^\/cache\/epub\/(\d{1,7})\/pg\1(?:-images(?:-3)?)?\.epub$/)
+  return cached ? `https://gutenberg.pglaf.org${parsed.pathname}` : null
+}
 
 /**
  * What Add downloads for a work, most preferred first: Project Gutenberg's EPUB whenever the
