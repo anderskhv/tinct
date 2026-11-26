@@ -210,6 +210,18 @@ describe('lifecycle sweep', () => {
     expect(on.outbox[0].text).toContain("You're getting this because you have a Tinct account.")
   })
 
+  it('sends no trial notice to an account with Premium for life (profiles.premium_grant)', async () => {
+    const trial = profile({ created_at: new Date(NOW - 25.5 * DAY).toISOString(), email_opt_in: false })
+    const control = harness({ trialNotices: true })
+    await runLifecycleSweep(control.deps, [trial])
+    expect(control.outbox.map(email => email.subject)).toEqual(['Your free month ends on 18 October'])
+    const granted = harness({ trialNotices: true })
+    const result = await runLifecycleSweep(granted.deps, [{ ...trial, premium_grant: 'launch-2026-11', premium_granted_at: new Date(NOW - 2 * DAY).toISOString() }])
+    expect(granted.outbox).toHaveLength(0)
+    expect(granted.log).toHaveLength(0)
+    expect(result.sent).toEqual([])
+  })
+
   it('the test gate blocks every address that is not a test alias', async () => {
     const { deps, outbox, log } = harness({ positions: { [UID]: positionWith({ frankenstein: NOW - 4 * DAY }) }, trialNotices: true })
     const result = await runLifecycleSweep(deps, [profile({ email: 'reader@example.com' }), profile({ email: 'tinct7@fastmail.com.evil.com' })])

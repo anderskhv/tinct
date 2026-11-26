@@ -125,6 +125,35 @@ describe('email worker helpers', () => {
     ])
   })
 
+  it('sends no trial email to an account with Premium for life (and reads the grant with select=*)', async () => {
+    vi.setSystemTime(new Date('2026-12-22T12:00:00.000Z'))
+    const queries: string[] = []
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles?')) {
+        queries.push(url)
+        // Day 27 ("3 days left") for two test aliases; one has the launch grant.
+        if (!url.includes('created_at=gte.2026-11-25T00:00:00.000Z')) return json([])
+        return json([
+          { id: 'u1', email: 'tinct12@fastmail.com', premium_grant: 'launch-2026-11', premium_granted_at: '2026-11-26T10:00:00Z' },
+          { id: 'u2', email: 'tinct13@fastmail.com', premium_grant: null, premium_granted_at: null },
+        ])
+      }
+      if (url.includes('/rest/v1/rpc/issue_anomalies')) return json([])
+      if (url === 'https://api.brevo.com/v3/smtp/email') return new Response('{}', { status: 202 })
+      return json({ error: 'unexpected URL' }, 500)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    await handleScheduled(env)
+
+    expect(queries.every(url => url.includes('select=*&subscription_status=is.null'))).toBe(true)
+    const sentTo = fetchMock.mock.calls
+      .filter(([input]) => String(input) === 'https://api.brevo.com/v3/smtp/email')
+      .map(([, init]) => JSON.parse(String((init as RequestInit).body)).to[0].email)
+    expect(sentTo).toEqual(['tinct13@fastmail.com'])
+  })
+
   it('pauses lifecycle emails for ordinary users', async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input)

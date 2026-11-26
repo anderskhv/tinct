@@ -63,6 +63,20 @@ describe('warmAccountCards', () => {
     expect(cache?.reading?.stats).toBeTruthy()
   })
 
+  it('caches Premium for life, so the plan line paints "Free Premium" at once', async () => {
+    store(3600)
+    const base = vi.mocked(fetch).getMockImplementation()!
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => String(input).startsWith('/api/subscription-info')
+      ? Response.json({ premium: true, lifetime: true, subscription_status: null, stripe: null, intervals: [] })
+      : base(input, init)))
+    const { warmAccountCards } = await import('./warmCards')
+    const { readCardsCache } = await import('./cardsCache')
+    warmAccountCards()
+    await flush()
+    const cache = readCardsCache(USER)
+    expect(cache).toMatchObject({ plan: 'premium', lifetime: true, billing: false, firstMonthFreeUntil: null })
+  })
+
   it('does nothing once a navigation has started (beforeunload), before pagehide', async () => {
     store(3600)
     const { warmAccountCards } = await import('./warmCards')

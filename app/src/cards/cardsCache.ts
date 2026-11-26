@@ -19,6 +19,8 @@ export interface CardsCache {
   rank: string | null
   plan: 'premium' | 'free' | null
   firstMonthFreeUntil?: string | null
+  /** Premium for life by grant (/api/subscription-info `lifetime`). */
+  lifetime?: boolean
   billing: boolean
   /** The AI credits as last shown, so the credits rows paint with the card (they arrived a second late, 11 Oct 2026). */
   allowance?: AiAllowance | null
@@ -43,6 +45,7 @@ export function readCardsCache(userId: string | null): CardsCache | null {
       rank: typeof data.rank === 'string' ? data.rank : null,
       plan: data.firstMonthFreeUntil && Date.parse(data.firstMonthFreeUntil) <= Date.now() && !data.billing ? 'free' : data.plan === 'premium' || data.plan === 'free' ? data.plan : null,
       firstMonthFreeUntil: typeof data.firstMonthFreeUntil === 'string' ? data.firstMonthFreeUntil : null,
+      lifetime: data.lifetime === true,
       billing: data.billing === true,
       allowance: data.allowance && typeof data.allowance.usedFraction === 'number' && Array.isArray(data.allowance.topUps)
         // Cached before hasAllowance existed: a period with no reset date has no allowance (labAiAllowance.parseAiAllowance).
@@ -64,7 +67,7 @@ export function writeCardsCache(userId: string | null, data: CardsCache): void {
   if (!userId) return
   try {
     storage()?.setItem(CARDS_CACHE_PREFIX + userId, JSON.stringify({
-      v: VERSION, userId, profile: data.profile, reading: data.reading, rank: data.rank, plan: data.plan, firstMonthFreeUntil: data.firstMonthFreeUntil ?? null, billing: data.billing, allowance: data.allowance ?? null,
+      v: VERSION, userId, profile: data.profile, reading: data.reading, rank: data.rank, plan: data.plan, firstMonthFreeUntil: data.firstMonthFreeUntil ?? null, lifetime: data.lifetime === true, billing: data.billing, allowance: data.allowance ?? null,
     }))
   } catch { /* full or blocked: the cards just load as before */ }
 }

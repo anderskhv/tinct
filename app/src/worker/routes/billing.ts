@@ -2,7 +2,7 @@ import { getAllowedOrigin, jsonResponse } from '../lib/responses'
 import { isValidUUID, timingSafeEqual } from '../lib/security'
 import { recordServerEvent } from './events'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate, type SupabaseEnv } from '../lib/supabase'
-import { hasPremiumAccess, trialEndsAt, firstMonthGrantWindow, type AllowanceProfile, isTopUpType, TOP_UP_TYPES, TOP_UPS, topUpCreditMicros, type TopUpType } from '../lib/aiAllowance'
+import { fetchEntitlementProfile, hasLifetimeGrant, hasPremiumAccess, trialEndsAt, firstMonthGrantWindow, type AllowanceProfile, isTopUpType, TOP_UP_TYPES, TOP_UPS, topUpCreditMicros, type TopUpType } from '../lib/aiAllowance'
 import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
 
 type VerifiedUser = { id: string; email: string }
@@ -565,7 +565,7 @@ export async function handleSubscriptionInfo(request: Request, env: BillingEnv, 
   if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
   if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
 
-  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=created_at,subscription_status,subscription_period_end,stripe_customer_id,messages_used_this_period,message_balance,period_start`)
+  const profileRes = await fetchEntitlementProfile(env, user.id, 'stripe_customer_id,messages_used_this_period,message_balance')
   const profiles = await profileRes.json() as Record<string, unknown>[]
   const profile = profiles?.[0]
   if (!profile) return jsonResponse({ error: 'Profile not found' }, 404, request)
@@ -596,7 +596,13 @@ export async function handleSubscriptionInfo(request: Request, env: BillingEnv, 
     subscription_period_end: typeof profile.subscription_period_end === 'string' ? profile.subscription_period_end : null,
     created_at: typeof profile.created_at === 'string' ? profile.created_at : null,
     period_start: typeof profile.period_start === 'string' ? profile.period_start : null,
+    premium_grant: typeof profile.premium_grant === 'string' ? profile.premium_grant : null,
+    premium_granted_at: typeof profile.premium_granted_at === 'string' ? profile.premium_granted_at : null,
   }
+  // Premium for life by grant (lib/aiAllowance.ts hasLifetimeGrant): no trial
+  // end, no first-month line and no plans on sale. A live Stripe subscription
+  // on the same account is still answered so it can be managed or cancelled.
+  const lifetime = hasLifetimeGrant(entitlement)
   const stripeEnd = typeof stripeSubscription?.currentPeriodEnd === 'string' ? Date.parse(stripeSubscription.currentPeriodEnd) : 0
   const paid = stripeSubscription && (stripeSubscription.status === 'active' || stripeSubscription.status === 'trialing' || stripeSubscription.status === 'past_due' || stripeEnd > now.getTime())
   const grant = firstMonthGrantWindow(entitlement)
@@ -613,17 +619,19 @@ export async function handleSubscriptionInfo(request: Request, env: BillingEnv, 
     } catch { /* No receipt: show ordinary Premium rather than invent a promotion. */ }
   }
   const trialEnd = trialEndsAt(entitlement, now)
-  const freeEnd = !paid && entitlement.subscription_status !== 'active'
+  const freeEnd = !lifetime && !paid && entitlement.subscription_status !== 'active'
     ? grantedFirstMonth ? grant!.end : entitlement.subscription_status !== 'canceled' ? trialEnd : null : null
   return jsonResponse({
     premium: hasPremiumAccess(entitlement, now),
+    lifetime,
     first_month_free_until: freeEnd && freeEnd > now ? freeEnd.toISOString() : null,
     subscription_status: profile.subscription_status,
     subscription_period_end: profile.subscription_period_end,
     messages_used_this_period: profile.messages_used_this_period,
     message_balance: profile.message_balance,
     period_start: profile.period_start,
-    stripe: stripeSubscription,
-    intervals: availablePremiumIntervals(env),
+    // A lifetime grant with no live Stripe subscription has nothing to manage or cancel.
+    stripe: lifetime && !paid ? null : stripeSubscription,
+    intervals: lifetime ? [] : availablePremiumIntervals(env),
   }, 200, request)
 }

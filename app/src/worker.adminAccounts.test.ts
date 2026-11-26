@@ -363,6 +363,20 @@ describe('admin account routes', () => {
     expect(w.fetchMock.mock.calls.every(([, init]) => (init?.method ?? 'GET') === 'GET')).toBe(true)
   })
 
+  it('exports Premium for life (profiles.premium_grant, premium_granted_at) and deletes it with the profile row', async () => {
+    const w = world()
+    w.state.tables.profiles[0] = { ...w.state.tables.profiles[0], premium_grant: 'launch-2026-11', premium_granted_at: '2026-11-26T10:00:00+00:00' }
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { email: 'Reader@Example.com' }), w.env, admin)).json() as Record<string, any>
+    expect(exported.complete).toBe(true)
+    expect(exported.supabase.profiles).toEqual([expect.objectContaining({ id: userId, premium_grant: 'launch-2026-11', premium_granted_at: '2026-11-26T10:00:00+00:00' })])
+    // The profile is read whole (select=*), so the grant needs no column list of its own.
+    expect(w.fetchMock.mock.calls.some(([input]) => /\/rest\/v1\/profiles\?id=eq\.[^&]+&select=\*/.test(String(input)))).toBe(true)
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: 'reader@example.com' }), w.env, admin)).json() as { ok: boolean; steps: { step: string; status: string }[] }
+    expect(deleted.ok).toBe(true)
+    expect(deleted.steps[deleted.steps.length - 1]).toEqual({ step: 'verify:cascade', status: 'ok' })
+    expect(w.state.tables.profiles).toEqual([])
+  })
+
   it('covers the reader\'s synced highlight rows (user_data lab-highlights:{bookId}) in export and deletion', async () => {
     const highlightsRow = { user_id: userId, key: 'lab-highlights:emma', value: { v: 1, highlights: [{ id: 'hl-1', bookId: 'emma', note: 'mine' }], deleted: [{ id: 'hl-0', bookId: 'emma', deletedAt: 1 }] } }
     const someoneElse = { user_id: '22222222-2222-4222-8222-222222222222', key: 'lab-highlights:emma', value: { v: 1, highlights: [], deleted: [] } }

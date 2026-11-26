@@ -1,5 +1,5 @@
 import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
-import { TRIAL_RESET_AT } from '../lib/aiAllowance'
+import { hasLifetimeGrant, TRIAL_RESET_AT } from '../lib/aiAllowance'
 
 export type EmailEnv = {
   SUPABASE_URL?: string
@@ -157,15 +157,25 @@ export function trialEndedEmail(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): {
 // ===== Cron: Trial lifecycle emails =====
 
 /** Users whose account was created roughly `daysAgo` days ago (±12h window).
- * Filtered to accounts that haven't subscribed. Once `notBefore` has passed,
- * only accounts created at or after it. */
+ * Filtered to accounts that haven't subscribed and have no lifetime Premium
+ * grant (lib/aiAllowance.ts hasLifetimeGrant: no trial, so no trial email).
+ * Once `notBefore` has passed, only accounts created at or after it. */
 async function usersAgedDays(env: EmailEnv, daysAgo: number, notBefore?: Date): Promise<Array<{ id: string; email: string }>> {
+  const rows = await profilesAgedDays(env, daysAgo, notBefore)
+  return rows.filter(row => !hasLifetimeGrant(row)).map(row => ({ id: row.id, email: row.email }))
+}
+
+type AgedProfile = { id: string; email: string; premium_grant?: unknown; premium_granted_at?: unknown }
+
+async function profilesAgedDays(env: EmailEnv, daysAgo: number, notBefore?: Date): Promise<AgedProfile[]> {
   const now = Date.now()
   const from = now - (daysAgo + 0.5) * 24 * 60 * 60 * 1000
   const start = new Date(notBefore && now >= notBefore.getTime() ? Math.max(from, notBefore.getTime()) : from).toISOString()
   const end = new Date(now - (daysAgo - 0.5) * 24 * 60 * 60 * 1000).toISOString()
   // Only readers who ticked the email opt-in at sign-up (profiles.email_opt_in).
-  const query = `profiles?select=id,email&subscription_status=is.null&email_opt_in=is.true&created_at=gte.${start}&created_at=lt.${end}`
+  // select=*: the grant's columns are read when they exist, and their absence
+  // (before 20261126_premium_grant.sql has run) never fails the query.
+  const query = `profiles?select=*&subscription_status=is.null&email_opt_in=is.true&created_at=gte.${start}&created_at=lt.${end}`
   try {
     const res = await fetch(`${env.SUPABASE_URL}/rest/v1/${query}`, {
       headers: {
@@ -177,7 +187,7 @@ async function usersAgedDays(env: EmailEnv, daysAgo: number, notBefore?: Date): 
       console.error(`[cron] Supabase query failed for daysAgo=${daysAgo}: ${res.status}`)
       return []
     }
-    const users = await res.json() as Array<{ id: string; email: string }>
+    const users = await res.json() as AgedProfile[]
     return Array.isArray(users) ? users : []
   } catch (err) {
     console.error(`[cron] query error for daysAgo=${daysAgo}:`, err)

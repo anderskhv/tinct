@@ -367,3 +367,61 @@ describe('first month Premium labels', () => {
     expect(await info({ created_at: now.toISOString(), subscription_status: 'active' })).toMatchObject({ premium: true, first_month_free_until: null })
   })
 })
+
+describe('Premium for life by grant (launch readers, 26 Nov 2026)', () => {
+  afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals() })
+  const now = new Date('2026-12-10T12:00:00Z')
+  const user = async () => ({ id: '11111111-1111-4111-8111-111111111111', email: 'synthetic@example.com' })
+  const granted = { created_at: '2026-11-25T09:00:00Z', subscription_status: null, subscription_period_end: null, premium_grant: 'launch-2026-11', premium_granted_at: '2026-11-26T10:00:00Z' }
+  const stripeList = (status: string, end: string) => ({ data: [{ id: 'sub_1', status, current_period_end: Date.parse(end) / 1000, cancel_at_period_end: false }] })
+  async function info(profile: Record<string, unknown>, stripe?: object) {
+    vi.useFakeTimers(); vi.setSystemTime(now)
+    const urls: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async input => {
+      const url = String(input)
+      urls.push(url)
+      if (url.startsWith('https://api.stripe.com/')) return Response.json(stripe ?? { data: [] })
+      return Response.json(url.includes('user_data?') ? [] : [profile])
+    }))
+    const env = stripe ? stripeEnv : { ...stripeEnv, STRIPE_SECRET_KEY: '' }
+    const body = await (await handleSubscriptionInfo(new Request('https://tinct.app/api/subscription-info'), { ...env, STRIPE_PRICE_PREMIUM: 'price_m', STRIPE_PRICE_PREMIUM_YEARLY: 'price_y' }, user)).json()
+    return { body, urls }
+  }
+
+  it('is Premium for life: no trial end, no plans on sale, nothing in Stripe to manage', async () => {
+    const { body, urls } = await info(granted)
+    expect(body).toMatchObject({ premium: true, lifetime: true, first_month_free_until: null, subscription_status: null, stripe: null, intervals: [] })
+    expect(urls.some(url => url.includes('/rest/v1/profiles?') && url.includes('premium_grant,premium_granted_at'))).toBe(true)
+    // Never echoes the grant's own fields.
+    expect(body).not.toHaveProperty('premium_grant')
+  })
+
+  it('hides a past, ended Stripe subscription from a grant account (no Manage)', async () => {
+    const { body } = await info({ ...granted, stripe_customer_id: 'cus_1', subscription_status: 'canceled', subscription_period_end: '2026-11-01T00:00:00Z' }, stripeList('canceled', '2026-11-01T00:00:00Z'))
+    expect(body).toMatchObject({ premium: true, lifetime: true, stripe: null, intervals: [] })
+  })
+
+  it('keeps a live Stripe subscription on a grant account manageable', async () => {
+    const { body } = await info({ ...granted, stripe_customer_id: 'cus_1', subscription_status: 'active', subscription_period_end: '2026-12-20T00:00:00Z' }, stripeList('active', '2026-12-20T00:00:00Z'))
+    expect(body).toMatchObject({ premium: true, lifetime: true, stripe: { status: 'active' }, intervals: [] })
+  })
+
+  it('leaves an account without a grant exactly as before', async () => {
+    const { body } = await info({ created_at: '2026-11-25T09:00:00Z', subscription_status: null })
+    expect(body).toMatchObject({ premium: true, lifetime: false, first_month_free_until: '2027-01-04T00:00:00.000Z', intervals: ['month', 'year'] })
+  })
+
+  it('reads the profile without the grant columns before their migration has run', async () => {
+    vi.useFakeTimers(); vi.setSystemTime(now)
+    const urls: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async input => {
+      const url = String(input)
+      urls.push(url)
+      if (url.includes('premium_grant')) return Response.json({ code: '42703', message: 'column profiles.premium_grant does not exist' }, { status: 400 })
+      return Response.json(url.includes('user_data?') ? [] : [{ created_at: '2026-11-25T09:00:00Z', subscription_status: null }])
+    }))
+    const body = await (await handleSubscriptionInfo(new Request('https://tinct.app/api/subscription-info'), { ...stripeEnv, STRIPE_SECRET_KEY: '' }, user)).json()
+    expect(body).toMatchObject({ premium: true, lifetime: false, first_month_free_until: '2027-01-04T00:00:00.000Z' })
+    expect(urls.filter(url => url.includes('/rest/v1/profiles?'))).toHaveLength(2)
+  })
+})

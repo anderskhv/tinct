@@ -228,6 +228,13 @@ The October 2026 profile flow adds `reader_profiles.reading_languages` and a
 start and expiry. Existing full-row export and account deletion cover both.
 The receipt labels the promotion; it never grants access.
 
+Premium for life by grant (November 2026, `app/supabase/migrations/20261126_premium_grant.sql`)
+adds `profiles.premium_grant` (the grant's name, e.g. `launch-2026-11`) and
+`profiles.premium_granted_at`. The export reads the profile row whole
+(`select=*`), so `supabase.profiles` carries both; deleting the auth user
+cascades the profile row, grant included, and `verify:cascade` confirms no
+profile row is left. Nothing about the grant is held in Stripe.
+
 Uploaded-book shelf visibility uses the existing owner-only `user_data` keys
 `library-shelf:userbook-<opaque-id>` (choice and action time, no title or text).
 These are included in the full `user_data` export and cascade on account deletion.
