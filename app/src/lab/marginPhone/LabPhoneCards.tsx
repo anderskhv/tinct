@@ -5,6 +5,7 @@ import type { LabAskTurn } from '../labAsk'
 import { isAiRestingError, LabChatError } from '../labCompanion'
 import { LAB_COPY } from '../labCopy'
 import { useDraft, type DraftStore } from '../labDraftStore'
+import { layoutTrace } from '../labLayoutTrace'
 import { PHONE_CARD_BUSY_ATTR, PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
 import type { PhoneCardRange } from './phoneCardPassage'
 import type { CharacterSelection, NamesakeNotice, ReleasedCard } from '../../services/characters/characterCards'
@@ -65,19 +66,19 @@ export function PhoneCharacterBody({ character, renderFollow }: { character: Cha
       <div className="popup-character-gallery">
         {[true, false].map(inPassage => {
           const entries = character.gallery.filter(entry => entry.inPassage === inPassage)
-          return entries.length ? <section key={String(inPassage)}><h3>{inPassage ? 'In this passage' : 'Introduced by this passage'}</h3>{entries.map(({ card: entry }) =>
-            <button type="button" key={entry.id} onClick={() => { setGalleryId(entry.id); setGallery(false) }}><strong>{entry.name}</strong><span>{entry.subtitle}</span></button>,
+          return entries.length ? <section key={String(inPassage)}><h3>{inPassage ? 'In this passage' : 'Introduced by this passage'}</h3>{entries.map(({ card: entry }, index) =>
+            <button type="button" key={entry.id} onClick={() => { layoutTrace('char-nav', { to: 'person', inPassage, i: index }); setGalleryId(entry.id); setGallery(false) }}><strong>{entry.name}</strong><span>{entry.subtitle}</span></button>,
           )}</section> : null
         })}
       </div>
-      <button type="button" onClick={() => { setGalleryId(null); setGallery(false) }}>Back to selected name</button>
+      <button type="button" onClick={() => { layoutTrace('char-nav', { to: 'back', from: 'gallery' }); setGalleryId(null); setGallery(false) }}>Back to selected name</button>
     </> : card && <>
       {/* "Mary Magdalene · Major figure", as the desktop popup (Anders, 18 Nov 2026). */}
       <h2 className="popup-character-name">{card.name}<HeadwordLabel label={roleLabel ?? ''} /></h2>
       {card.subtitle && !subtitleRepeatsBody(card.subtitle, card.body) && <p className="popup-character-subtitle">{card.subtitle}</p>}
       <p>{card.body}</p>
-      <button type="button" onClick={() => setGallery(true)}>Character gallery</button>
-      {galleryId && <button type="button" onClick={() => setGalleryId(null)}>Back to selected name</button>}
+      <button type="button" onClick={() => { layoutTrace('char-nav', { to: 'gallery' }); setGallery(true) }}>Character gallery</button>
+      {galleryId && <button type="button" onClick={() => { layoutTrace('char-nav', { to: 'back', from: 'person' }); setGalleryId(null) }}>Back to selected name</button>}
       {renderFollow(card)}
     </>}
   </div>
