@@ -1,6 +1,6 @@
 import {shelfBookCount} from './shelf-count.js';
 import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20261120shelf';
-import {periodGroups,inPeriod,populatedShelves,collectionReels,compositionYears} from './browse-groups.js?v=20261120shelf';
+import {periodGroups,inPeriod,populatedShelves,collectionReels,compositionYears,homeRows} from './browse-groups.js?v=20261120shelf';
 import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
@@ -184,7 +184,8 @@ function searchNames(book,entry){if(entry.altTitles?.length)book.altTitles=entry
 loadCatalogue().then(({books:entries,searchOnly=[],houses})=>{for(const entry of searchOnly){const book=libraryBook(entry);attachCatalogue(book,entry);searchNames(book,entry);searchOnlyBooks.push(book);}const byId=new Map(entries.map(e=>[e.id,e]));entries.forEach(placePublicBook);books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});
  // Other titles the registry gives a book (altTitles), and its Danish ones, are searched as titles.
  for(const book of books){const entry=byId.get(book.id);if(entry)searchNames(book,entry);}
- houses.forEach(house=>{const ids=[...new Set(house.shelves.flatMap(shelf=>shelf.bookIds||[]))].filter(id=>byId.has(id));if(!ids.length)return;const section=el('section','shelf');section.append(el('h2','',house.title));const row=el('div','book-row');row.setAttribute('aria-label',house.title);ids.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
+ // A row per house, and one of its own for a shelf that has it (browse-groups.js homeRows: "For young readers" after Fiction).
+ homeRows(houses,id=>byId.has(id)).forEach(({title,bookIds})=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);bookIds.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
  libraryHouses=houses;renderBrowseMenus();
  refreshMetadata();
  if(searchOpen&&!openedFromSearch)renderResults();if(collectionChoice!=='home')renderCollection();}).catch(()=>{});

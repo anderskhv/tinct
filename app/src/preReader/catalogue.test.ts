@@ -84,6 +84,23 @@ describe('pre-reader catalogue layer', () => {
     }
   })
 
+  it('lists a shelf in its own order where the taxonomy gives it one, and in the registry\'s order otherwise', () => {
+    const listed = new Map(serializePreReaderCatalogue().houses.flatMap(house => house.shelves).map(shelf => [shelf.id, shelf.bookIds]))
+    const inRegistryOrder = (shelfId: string) => PRE_READER_CATALOGUE.books.filter(book => book.discoveryAvailable !== false && book.shelfIds.includes(shelfId)).map(book => book.id)
+    for (const [shelfId, shelf] of Object.entries(LIBRARY_SHELVES)) {
+      const order = shelf.order ?? [], books = inRegistryOrder(shelfId)
+      // An order names books of its own shelf, each once.
+      expect(new Set(order).size, shelfId).toBe(order.length)
+      for (const id of order) expect(PRE_READER_CATALOGUE.booksById.get(id)?.shelfIds, `${shelfId}: ${id}`).toContain(shelfId)
+      expect(listed.get(shelfId) ?? [], shelfId).toEqual([...order.filter(id => books.includes(id)), ...books.filter(id => !order.includes(id))])
+    }
+    // For young readers (Anders, 26 Nov 2026): the order of its row on the library's home page.
+    expect(listed.get('young-readers')).toEqual([
+      'the-secret-garden', 'wind-in-the-willows', 'merry-adventures-of-robin-hood', 'story-of-king-arthur-and-his-knights',
+      'wonder-book-and-tanglewood-tales', 'beautiful-stories-from-shakespeare', 'odyssey-for-boys-and-girls', 'iliad-for-boys-and-girls',
+    ])
+  })
+
   it('ranks exact titles, authors, and topics deterministically', () => {
     expect(searchPreReaderBooks('Meditations')[0].id).toBe('meditations')
     expect(searchPreReaderBooks('Homer').slice(0, 2).map(book => book.id)).toEqual(['odyssey', 'iliad'])
