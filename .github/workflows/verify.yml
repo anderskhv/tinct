@@ -265,6 +265,11 @@ jobs:
         env:
           TINCT_LISTEN_FROM_HERE_OUTPUT: artifacts/listen-from-here
         run: node scripts/check-listen-from-here.mjs
+      - name: Verify listening keeps the reading place (no tap after Play, lock-screen pause, hidden page)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_LISTEN_PLACE_OUTPUT: artifacts/listen-keeps-place
+        run: node scripts/check-listen-keeps-place.mjs
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
@@ -306,6 +311,7 @@ jobs:
             app/artifacts/desktop-feedback
             app/artifacts/shared-reader-menu
             app/artifacts/margin-refinements
+            app/artifacts/listen-keeps-place
 
   # The PDF reader's margin (docs/margin/BRIEF.md "Layout QA"): docs/margin/layout-check.mjs must return
   # no problems. app/public is served locally and every AI call and account route is mocked by the script,
