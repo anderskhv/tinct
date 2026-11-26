@@ -1,5 +1,7 @@
 /*
- * The modern-English page's behaviour (src/seo/modernEnglishPage.ts; docs/modern-english/BUILD-BRIEF.md):
+ * The modern-English page's behaviour, and its Danish sibling's at /nudansk (src/seo/modernEnglishPage.ts;
+ * docs/modern-english/BUILD-BRIEF.md). The page carries its own words: the empty-search line is the results list's
+ * data-empty, and a book with no source line (the Danish page) shows the author alone.
  * - Search by title or author: results drop down as you type (cover, title, author, source); the arrow keys move,
  *   Enter opens, Escape clears.
  * - Two rows of pills, category and period: at most one per row; a pill filters the shelves and scrolls to them,
@@ -57,9 +59,9 @@
         ? hits.slice(0, 8).map(function (book, k) {
             return '<li role="presentation"><a role="option" id="me-result-' + k + '" href="' + esc(book.h) + '" aria-selected="false">'
               + '<img src="/covers/v2/' + esc(book.id) + '.webp" alt="" width="36" height="54">'
-              + '<span><span class="me-result-title">' + esc(book.t) + '</span><span class="me-result-meta">' + esc(book.a) + ' · ' + esc(book.s) + '</span></span></a></li>'
+              + '<span><span class="me-result-title">' + esc(book.t) + '</span><span class="me-result-meta">' + esc(book.a) + (book.s ? ' · ' + esc(book.s) : '') + '</span></span></a></li>'
           }).join('')
-        : '<li class="me-empty" role="presentation">No book by that name. Try the author.</li>'
+        : '<li class="me-empty" role="presentation">' + esc(list.getAttribute('data-empty') || 'No book by that name. Try the author.') + '</li>'
       list.hidden = false
       input.setAttribute('aria-expanded', 'true')
       select(hits.length ? 0 : -1)

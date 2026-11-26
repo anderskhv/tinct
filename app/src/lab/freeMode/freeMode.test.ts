@@ -5,6 +5,7 @@ import {
   FREE_MODE_COMMANDS,
   freeModeEditionFor,
   freeModeEditions,
+  freeModeHubFor,
   freeModeMenuRows,
   freeModeSourceLine,
   freeModeVerdict,
@@ -60,6 +61,24 @@ describe('free reading mode chrome', () => {
     expect(freeModeEditionFor([{ key: 'original-en' }])).toBe('original-en')
     expect(otherFreeModeEdition('modern-en')).toBe('original-en')
     expect(otherFreeModeEdition('original-en')).toBe('modern-en')
+  })
+
+  it('reads Original and modern Danish when opened from /nudansk, and goes back there', () => {
+    // Anders, 26 Nov 2026: the Danish page opens free mode in Danish (ref=nudansk).
+    expect(freeModeHubFor('?book=hamlet&mode=free&ref=nudansk')).toEqual({ home: '/nudansk', modern: 'modern-da' })
+    expect(freeModeHubFor('?book=hamlet&mode=free&ref=modern-english')).toEqual({ home: '/modern-english', modern: 'modern-en' })
+    expect(freeModeHubFor('?book=hamlet&mode=free')).toEqual({ home: '/modern-english', modern: 'modern-en' })
+    expect(freeModeHubFor('?book=hamlet&mode=free&ref=elsewhere')).toEqual({ home: '/modern-english', modern: 'modern-en' })
+    const hamlet = getBook('hamlet')!
+    expect(freeModeEditions(hamlet.editions, 'modern-da').map(edition => edition.key).sort()).toEqual(['modern-da', 'original-en'])
+    expect(freeModeEditionFor(hamlet.editions, null, 'modern-da')).toBe('modern-da')
+    expect(freeModeEditionFor(hamlet.editions, 'original-en', 'modern-da')).toBe('original-en')
+    // A place saved in Modern English (from the English page) opens in Danish here; the place itself is kept.
+    expect(freeModeEditionFor(hamlet.editions, 'modern-en', 'modern-da')).toBe('modern-da')
+    expect(freeModeEditionFor([{ key: 'original-en' }, { key: 'modern-en' }], null, 'modern-da')).toBe('original-en')
+    expect(otherFreeModeEdition('modern-da', 'modern-da')).toBe('original-en')
+    expect(otherFreeModeEdition('original-en', 'modern-da')).toBe('modern-da')
+    expect(freeModeSourceLine(hamlet, 'modern-da')).toBe('Nudansk lavet med AI ud fra Tincts moderne engelske udgave')
   })
 
   it('names the source under the heading from the registry', () => {

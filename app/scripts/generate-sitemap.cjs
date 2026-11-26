@@ -879,6 +879,8 @@ function buildSitemap(books, state = loadLastmodState(), next = {}) {
   // /modern-english: every book in Modern English (listed 23 Nov 2026). The page is generated after the sitemap in
   // prebuild, so its lastmod follows what it is built from: the registry and the page's own source.
   entry(`${ORIGIN}/modern-english`, { changefreq: 'weekly', priority: 0.8 }, path.join(APP_DIR, 'src/data/bookRegistry.ts'), path.join(APP_DIR, 'src/seo/modernEnglishPage.ts'), path.join(APP_DIR, 'public/lab/modern-english/modern-english.css'))
+  // /nudansk: its Danish sibling, the books offered in modern Danish (listed 26 Nov 2026), from the same generator.
+  entry(`${ORIGIN}/nudansk`, { changefreq: 'weekly', priority: 0.7 }, path.join(APP_DIR, 'src/data/bookRegistry.ts'), path.join(APP_DIR, 'src/data/editionAvailability.ts'), path.join(APP_DIR, 'src/data/danishTitles.ts'), path.join(APP_DIR, 'src/seo/modernEnglishPage.ts'), path.join(APP_DIR, 'public/lab/modern-english/modern-english.css'))
   for (const b of books) {
     const page = path.join(READ_DIR, b.id, 'book.html')
     if (!fs.existsSync(page)) continue

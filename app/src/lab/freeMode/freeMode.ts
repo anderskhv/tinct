@@ -2,7 +2,9 @@
  * The reader's free reading mode (`/reader?book={id}&mode=free`, docs/modern-english/BUILD-BRIEF.md): the reader
  * with everything that asks for something taken away. The /modern-english page links every book here.
  *
- * - Only Original and Modern English, and on the desktop Both (the reader's own Compare view).
+ * - Only Original and Modern English, and on the desktop Both (the reader's own Compare view). Opened from the Danish
+ *   page (`ref=nudansk`, Anders 26 Nov 2026), the modern edition is the modern Danish instead, and the back arrow
+ *   goes to /nudansk.
  * - No AI and no narration: the reader offers none, and the guard below answers any such request on the device,
  *   so nothing reaches those routes even if a code path forgets the mode.
  * - No account: the reader runs as if signed out (main.tsx passes `authToken={null}`), so the place is kept on this
@@ -19,11 +21,22 @@ import type { LabSuperMenuRow } from '../labSuperMenu'
 
 export const FREE_MODE_PARAM = 'mode'
 export const FREE_MODE_VALUE = 'free'
-/** Where the desktop back arrow goes. */
-export const FREE_MODE_HOME = '/modern-english'
-/** The two editions free mode reads. Both is the desktop Compare view of these two. */
+/** The pages that open free mode, by their `ref`: where the back arrow goes, and the modern edition it reads. */
+export const FREE_MODE_HUBS = {
+  'modern-english': { home: '/modern-english', modern: 'modern-en' },
+  nudansk: { home: '/nudansk', modern: 'modern-da' },
+} as const
+export type FreeModeHub = typeof FREE_MODE_HUBS[keyof typeof FREE_MODE_HUBS]
+export type FreeModeModernEdition = FreeModeHub['modern']
+/** The two editions free mode reads (from the English page). Both is the desktop Compare view of these two. */
 export const FREE_MODE_EDITIONS = ['original-en', 'modern-en'] as const
-export type FreeModeEdition = typeof FREE_MODE_EDITIONS[number]
+export type FreeModeEdition = 'original-en' | FreeModeModernEdition
+
+/** The hub a free-mode address came from: its `ref` when it is a known one, else the English page. */
+export function freeModeHubFor(search: string): FreeModeHub {
+  const ref = new URLSearchParams(search).get('ref')
+  return ref === 'nudansk' ? FREE_MODE_HUBS.nudansk : FREE_MODE_HUBS['modern-english']
+}
 
 /** `/reader?…&mode=free`, never a reader's own book (`userBook`). */
 export function isFreeModeLocation(pathname: string, search: string): boolean {
@@ -33,6 +46,12 @@ export function isFreeModeLocation(pathname: string, search: string): boolean {
 }
 
 export const FREE_MODE = typeof window !== 'undefined' && isFreeModeLocation(window.location.pathname, window.location.search)
+/** This page's hub, decided once from the address as FREE_MODE is. */
+export const FREE_MODE_HUB: FreeModeHub = freeModeHubFor(typeof window !== 'undefined' ? window.location.search : '')
+/** Where the desktop back arrow goes: the page the reader came from. */
+export const FREE_MODE_HOME: string = FREE_MODE_HUB.home
+/** The modern edition this page's free mode reads: Modern English, or modern Danish from /nudansk. */
+export const FREE_MODE_MODERN: FreeModeModernEdition = FREE_MODE_HUB.modern
 
 /** Keep `mode=free` on a reader address the mode navigates to itself (the book picker). */
 export function withFreeMode(destination: string): string {
@@ -43,25 +62,25 @@ export function withFreeMode(destination: string): string {
   return `${url.pathname}${url.search}${url.hash}`
 }
 
-/** The editions free mode offers of a book: Original and Modern English, where the book has them. */
-export function freeModeEditions<T extends Pick<Edition, 'key'>>(editions: T[]): T[] {
-  return editions.filter(edition => (FREE_MODE_EDITIONS as readonly string[]).includes(edition.key))
+/** The editions free mode offers of a book: Original and the modern edition (English, or Danish), where it has them. */
+export function freeModeEditions<T extends Pick<Edition, 'key'>>(editions: T[], modern: FreeModeModernEdition = FREE_MODE_MODERN): T[] {
+  return editions.filter(edition => edition.key === 'original-en' || edition.key === modern)
 }
 
 /**
  * The edition free mode opens a book in: the edition of the place saved on this device when it is one of the two,
- * else Modern English (else the original, for a book without one).
+ * else the modern edition (else the original, for a book without one).
  */
-export function freeModeEditionFor(available: Array<Pick<Edition, 'key'>>, saved?: string | null): FreeModeEdition | null {
-  const keys = new Set(freeModeEditions(available).map(edition => edition.key))
+export function freeModeEditionFor(available: Array<Pick<Edition, 'key'>>, saved?: string | null, modern: FreeModeModernEdition = FREE_MODE_MODERN): FreeModeEdition | null {
+  const keys = new Set(freeModeEditions(available, modern).map(edition => edition.key))
   if (saved && keys.has(saved)) return saved as FreeModeEdition
-  if (keys.has('modern-en')) return 'modern-en'
+  if (keys.has(modern)) return modern
   return keys.has('original-en') ? 'original-en' : null
 }
 
 /** The other of the two: the Compare edition behind Both, and the one the switch goes to. */
-export function otherFreeModeEdition(key: string): FreeModeEdition {
-  return key === 'original-en' ? 'modern-en' : 'original-en'
+export function otherFreeModeEdition(key: string, modern: FreeModeModernEdition = FREE_MODE_MODERN): FreeModeEdition {
+  return key === 'original-en' ? modern : 'original-en'
 }
 
 /** The t menu in free mode: Appearance, Book settings, then Library (BUILD-BRIEF.md, p-menu.jpg). */
@@ -83,7 +102,9 @@ export const FREE_MODE_COMMANDS: ReadonlySet<string> = new Set([
  * The line under the chapter heading in Original and Modern (not in Both, where the column labels say it):
  * "Modern English made with AI from George Long's 1862 translation". From the registry, as the edition notes are.
  */
-export function freeModeSourceLine(book: Pick<Book, 'id' | 'author' | 'editions'>): string {
+export function freeModeSourceLine(book: Pick<Book, 'id' | 'author' | 'editions'>, modern: FreeModeModernEdition = FREE_MODE_MODERN): string {
+  // The modern Danish is made from the book's Modern English (danishEditionSources.json).
+  if (modern === 'modern-da') return 'Nudansk lavet med AI ud fra Tincts moderne engelske udgave'
   const source = editionSource(book)
   if (source?.kind === 'translation') return `Modern English made with AI from ${source.translator}’s ${source.year} translation`
   if (source?.kind === 'english-original') return `Modern English made with AI from ${source.author}’s original`

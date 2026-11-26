@@ -353,11 +353,13 @@ function redirectTryToAbout(url: URL): Response {
  * linked from the shelf pages and llms.txt. Signed-in readers may see it.
  */
 const MODERN_ENGLISH_PAGE_PATH = '/modern-english'
-async function serveModernEnglishPage(request: Request, url: URL, env: SeoEnv): Promise<Response> {
-  if (url.pathname !== MODERN_ENGLISH_PAGE_PATH) {
-    return new Response(null, { status: 301, headers: { Location: MODERN_ENGLISH_PAGE_PATH + url.search, 'Cache-Control': 'public, max-age=3600' } })
+/** Its Danish sibling (public/nudansk.html, same generator), listed since 26 Nov 2026 (Anders), served the same way. */
+const NUDANSK_PAGE_PATH = '/nudansk'
+async function serveModernEnglishPage(request: Request, url: URL, env: SeoEnv, pagePath: string = MODERN_ENGLISH_PAGE_PATH): Promise<Response> {
+  if (url.pathname !== pagePath) {
+    return new Response(null, { status: 301, headers: { Location: pagePath + url.search, 'Cache-Control': 'public, max-age=3600' } })
   }
-  const page = await serveStaticHtml(request.method, request, url, MODERN_ENGLISH_PAGE_PATH, env)
+  const page = await serveStaticHtml(request.method, request, url, pagePath, env)
   if (!page) return serveNotFound(request.method, url, env)
   return page
 }
@@ -507,6 +509,9 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
 
     if ((request.method === 'GET' || request.method === 'HEAD') && /^\/modern-english(?:\.html|\/)?$/.test(url.pathname)) {
       return serveModernEnglishPage(request, url, env)
+    }
+    if ((request.method === 'GET' || request.method === 'HEAD') && /^\/nudansk(?:\.html|\/)?$/.test(url.pathname)) {
+      return serveModernEnglishPage(request, url, env, NUDANSK_PAGE_PATH)
     }
 
     // The privacy policy is one page at /privacy (public/privacy.html, served by

@@ -55,6 +55,15 @@ describe('free reading mode chrome', () => {
     expect(freeModeFolio('')).toBe('')
   })
 
+  it('offers Original and Nudansk when free mode reads the modern Danish (from /nudansk)', () => {
+    const choose = vi.fn()
+    render(<LabFreeModeEditions editions={[{ key: 'original-en' }, { key: 'modern-da' }]} current="modern-da" both onChoose={choose} />)
+    expect(screen.getAllByRole('button').map(button => button.textContent)).toEqual(['Original', 'Nudansk', 'Both'])
+    expect(screen.getByRole('button', { name: 'Nudansk' }).getAttribute('aria-pressed')).toBe('true')
+    fireEvent.click(screen.getByText('Original'))
+    expect(choose).toHaveBeenCalledWith('original-en')
+  })
+
   it('draws no switch for a book without both editions', () => {
     render(<LabFreeModeEditions editions={[{ key: 'web-en' }]} current="web-en" both onChoose={() => {}} />)
     expect(screen.queryByTestId('lab-free-editions')).toBeNull()

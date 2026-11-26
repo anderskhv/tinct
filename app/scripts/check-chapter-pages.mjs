@@ -146,6 +146,7 @@ try {
     assert.ok(!sitemap.includes('<loc>https://tinct.app/read/jane-eyre/chapter-1</loc>') && sitemap.includes('<loc>https://tinct.app/read/jane-eyre</loc>'), 'chapter 1 is the book page')
     assert.ok(!sitemap.includes('<loc>https://tinct.app/read/hamlet/act-1-scene-1</loc>'), 'the first scene is the book page')
     assert.ok(sitemap.includes('<loc>https://tinct.app/modern-english</loc>'), '/modern-english is listed')
+    assert.ok(sitemap.includes('<loc>https://tinct.app/nudansk</loc>'), '/nudansk is listed')
     ok('sitemap lists chapter pages only for allowlisted books', `${chapterBooks.size} books, ${(sitemap.match(/\/chapter-\d+<\/loc>/g) || []).length} pages; not listed: ${allowlist.filter(id => !chapterBooks.has(id)).join(', ')}`)
   }
   {

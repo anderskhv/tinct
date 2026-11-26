@@ -10,9 +10,9 @@ import './freeMode.css'
  * - Copy, the one action on a selection.
  */
 
-type FreeView = 'original-en' | 'modern-en' | 'both'
+type FreeView = 'original-en' | 'modern-en' | 'modern-da' | 'both'
 
-const LABELS: Record<FreeView, string> = { 'original-en': 'Original', 'modern-en': 'Modern', both: 'Both' }
+const LABELS: Record<FreeView, string> = { 'original-en': 'Original', 'modern-en': 'Modern', 'modern-da': 'Nudansk', both: 'Both' }
 
 export function LabFreeModeEditions({ editions, current, both, phone = false, onChoose }: {
   editions: Array<Pick<Edition, 'key'>>
@@ -24,8 +24,10 @@ export function LabFreeModeEditions({ editions, current, both, phone = false, on
   onChoose: (view: FreeView) => void
 }) {
   const keys = new Set(editions.map(edition => edition.key))
-  if (!keys.has('original-en') || !keys.has('modern-en')) return null
-  const views: FreeView[] = ['original-en', 'modern-en', ...(both && !phone ? ['both' as const] : [])]
+  // The modern edition free mode reads: Modern English, or modern Danish when opened from /nudansk.
+  const modern = keys.has('modern-da') ? 'modern-da' : 'modern-en'
+  if (!keys.has('original-en') || !keys.has(modern)) return null
+  const views: FreeView[] = ['original-en', modern, ...(both && !phone ? ['both' as const] : [])]
   return (
     <span className={`lab-free-editions${phone ? ' is-phone' : ''}`} role="group" aria-label="Edition" data-testid="lab-free-editions">
       {views.map(view => (
