@@ -531,6 +531,88 @@ it('an edition picked in the introduction wins over the saved one, keeps the pla
   expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).compareEditionKey).toBeUndefined()
 })
 
+// Anders, 26 Nov 2026: Danish beside English in Compare, out of the book and back in, was English beside English.
+// The library's hand-off named no compare edition, so the reader fell back to the book's default pair and saved that.
+describe('Compare keeps its two editions across the library', () => {
+  const willows = { id: 'wind-in-the-willows', title: 'The Wind in the Willows', author: 'Kenneth Grahame', defaultEditionKey: 'modern-en', defaultCompareEditionKey: 'original-en',
+    editions: [
+      { key: 'original-en', language: 'en', style: 'original', aligned: true, availability: { chapterText: true, compare: true } },
+      { key: 'modern-en', language: 'en', style: 'modern', aligned: true, availability: { chapterText: true, compare: true } },
+      { key: 'modern-da', language: 'da', style: 'modern', aligned: true, availability: { chapterText: true, compare: true } },
+      { key: 'verse-en', language: 'en', style: 'verse', aligned: false, availability: { chapterText: true, compare: false } },
+    ],
+    readingStructure: { chapters: [{ number: 3, title: 'The Wild Wood', paragraphCount: 80 }] } }
+  const handoff = () => JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!)
+  const withPlace = async (target: Record<string, unknown>) => {
+    calls.auth.mockResolvedValue({ data: { session: null } })
+    calls.memory.mockResolvedValue(null)
+    calls.localPositions.mockResolvedValue(emptyLabPositionState('device-a', null))
+    calls.readMemory.mockReturnValue({ version: 1, sessions: {}, updatedAt: 0 })
+    calls.readingList.mockReturnValue({ readingNow: [{ bookId: 'wind-in-the-willows', target: { chapterNumber: 3, pageIndex: 2, paragraphIndex: 9, wordIndex: 4, chapterLabel: 'The Wild Wood', at: Date.now(), ...target }, finishedChapters: [], progress: 'middle', lastActiveAt: Date.now(), session: null }], finished: [] })
+    const api = await import('./libraryTwoReading')
+    await api.loadReadingTable({ catalogue: Promise.resolve({ books: [willows] }) })
+    return api
+  }
+  afterEach(() => { sessionStorage.clear() })
+
+  it('Continue opens the edition the reader left beside it, at the same place', async () => {
+    const api = await withPlace({ editionKey: 'original-en', compareEditionKey: 'modern-da' })
+    expect(await api.readerDestination('wind-in-the-willows', null)).toBe('/reader')
+    expect(handoff()).toMatchObject({ primaryEditionKey: 'original-en', compareEditionKey: 'modern-da', savedPlace: { chapterNumber: 3, paragraphIndex: 9, wordIndex: 4 } })
+    // A saved pair is where the reader left off, not a new choice of theirs: a later None in settings still holds.
+    expect(handoff().compareChosen).toBeUndefined()
+  })
+
+  it('the book page shows that edition beside the saved one, and Begin reading opens it over the page default', async () => {
+    const api = await withPlace({ editionKey: 'original-en', compareEditionKey: 'modern-da' })
+    expect(await api.initialEdition('wind-in-the-willows')).toBe('original-en')
+    expect(await api.initialCompareEdition('wind-in-the-willows')).toBe('modern-da')
+    // The page's default pair, sent before it had settled.
+    await api.readerDestination('wind-in-the-willows', 'modern-en', { compare: 'modern-en', explicit: false, compareExplicit: false })
+    expect(handoff()).toMatchObject({ primaryEditionKey: 'original-en', compareEditionKey: 'modern-da' })
+  })
+
+  it('the reader’s own pick on the book page still wins: another edition, or None', async () => {
+    const api = await withPlace({ editionKey: 'original-en', compareEditionKey: 'modern-da' })
+    await api.readerDestination('wind-in-the-willows', 'original-en', { compare: 'modern-en', explicit: false, compareExplicit: true })
+    expect(handoff()).toMatchObject({ primaryEditionKey: 'original-en', compareEditionKey: 'modern-en', compareChosen: true })
+    await api.readerDestination('wind-in-the-willows', 'original-en', { compare: null, explicit: false, compareExplicit: true })
+    expect(handoff()).toMatchObject({ primaryEditionKey: 'original-en', compareChosen: true })
+    expect(handoff().compareEditionKey).toBeUndefined()
+  })
+
+  it('the pair belongs to the edition it was saved with: another reading edition gets what the page shows', async () => {
+    const api = await withPlace({ editionKey: 'original-en', compareEditionKey: 'modern-da' })
+    await api.readerDestination('wind-in-the-willows', 'modern-en', { compare: 'original-en', explicit: true, compareExplicit: false })
+    expect(handoff()).toMatchObject({ primaryEditionKey: 'modern-en', compareEditionKey: 'original-en' })
+  })
+
+  it('a pair that cannot be compared is never handed over (the reader would refuse the whole hand-off)', async () => {
+    for (const target of [
+      { editionKey: 'original-en', compareEditionKey: 'verse-en' },    // does not line up
+      { editionKey: 'verse-en', compareEditionKey: 'modern-da' },      // nor does the reading edition
+      { editionKey: 'original-en', compareEditionKey: 'original-en' }, // the same edition twice
+      { editionKey: 'original-en', compareEditionKey: 'gone-en' },     // no longer offered
+      { editionKey: null, compareEditionKey: 'modern-da' },            // no edition to belong to
+    ]) {
+      vi.resetModules()
+      const api = await withPlace(target)
+      expect(await api.initialCompareEdition('wind-in-the-willows'), JSON.stringify(target)).toBeNull()
+      await api.readerDestination('wind-in-the-willows', null)
+      expect(handoff().compareEditionKey, JSON.stringify(target)).toBeUndefined()
+      expect(handoff().savedPlace, JSON.stringify(target)).toMatchObject({ chapterNumber: 3, paragraphIndex: 9, wordIndex: 4 })
+    }
+  })
+
+  it('a place saved without a pair opens as before: no compare edition named', async () => {
+    const api = await withPlace({ editionKey: 'original-en' })
+    expect(await api.initialCompareEdition('wind-in-the-willows')).toBeNull()
+    await api.readerDestination('wind-in-the-willows', null)
+    expect(handoff().primaryEditionKey).toBe('original-en')
+    expect(handoff().compareEditionKey).toBeUndefined()
+  })
+})
+
 it('keeps the library page signed-in class in step with Supabase and tells the page (Add to Tinct without a reload)', async () => {
   document.documentElement.classList.add('signed-in') // boot.js, from a stale cookie
   await import('./libraryTwoReading')

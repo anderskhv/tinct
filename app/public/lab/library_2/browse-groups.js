@@ -39,3 +39,28 @@ export function collectionReels(kind, id, books, houses, title) {
   if(remaining.length)groups.push({id:'more-'+id,title:'More '+title,books:remaining});
   return groups;
 }
+
+/** Shelves with a row of their own on the home page, right after their house's row (Anders, 26 Nov 2026). */
+export const HOME_SHELF_ROWS = ['young-readers'];
+/**
+ * The home page's rows of covers below Featured, in order: one per house, each followed by a row for
+ * every shelf of it named in `ownRows`, under the shelf's title and in the shelf's own order. Such a
+ * shelf's books are in its row only: they leave every house's row. `shows` says which books the page
+ * has; a row left without a book is not listed.
+ */
+export function homeRows(houses, shows=()=>true, ownRows=HOME_SHELF_ROWS) {
+  const own=shelf=>ownRows.includes(shelf.id);
+  const ids=shelves=>[...new Set(shelves.flatMap(shelf=>shelf.bookIds||[]))].filter(id=>shows(id));
+  const moved=new Set(ids(houses.flatMap(house=>house.shelves||[]).filter(own)));
+  const placed=new Set(),rows=[];
+  for(const house of houses){
+    const shelves=house.shelves||[];
+    rows.push({kind:'house',id:house.id,title:house.title,bookIds:ids(shelves.filter(shelf=>!own(shelf))).filter(id=>!moved.has(id))});
+    for(const shelf of shelves.filter(own)){
+      if(placed.has(shelf.id))continue;
+      placed.add(shelf.id);
+      rows.push({kind:'shelf',id:shelf.id,title:shelf.title,bookIds:ids([shelf])});
+    }
+  }
+  return rows.filter(row=>row.bookIds.length);
+}

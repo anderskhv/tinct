@@ -233,6 +233,25 @@ describe('library recap helpers', () => {
     expect(continueTargetFor({ book: books.get('hamlet'), session: null, place: null })).toBeNull()
   })
 
+  // Anders, 26 Nov 2026: Compare's Danish beside English was forgotten on the way through the library.
+  it('carries the edition the reader had beside the saved one, and only with the edition it was saved with', () => {
+    const republic = place({ bookId: 'plato-republic', headerBook: 'The Republic', chapterNumber: 2, sequentialChapter: 2, paragraphIndex: 4, pageIndex: 3, primaryEditionKey: 'original-en', compareEditionKey: 'modern-da', updatedAt: T0 + 5_000 })
+    expect(continueTargetFor({ book: books.get('plato-republic'), session: null, place: republic })).toMatchObject({ editionKey: 'original-en', compareEditionKey: 'modern-da', source: 'position' })
+    // No pair saved: none carried.
+    const alone = continueTargetFor({ book: books.get('plato-republic'), session: null, place: { ...republic, compareEditionKey: undefined } })
+    expect(alone && 'compareEditionKey' in alone).toBe(false)
+    // A place that names no edition has no pair to open.
+    const unnamed = continueTargetFor({ book: books.get('plato-republic'), session: null, place: { ...republic, primaryEditionKey: undefined } })
+    expect(unnamed && 'compareEditionKey' in unnamed).toBe(false)
+    // The memory anchor wins (newer, another chapter): the pair still holds while it is for the same edition.
+    const memory = sessionFor(genesisOneFixture(), { id: 'g1', state: 'progressed', startedAt: T0, lastActiveAt: T0 + 90_000, page: 2 })
+    const genesisTwo = place({ bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 2, sequentialChapter: 2, pageIndex: 0, primaryEditionKey: 'kjv-en', compareEditionKey: 'bsb-en', updatedAt: T0 + 1_000 })
+    expect(continueTargetFor({ book: books.get('bible'), session: memory, place: genesisTwo })).toMatchObject({ source: 'memory', editionKey: 'kjv-en', compareEditionKey: 'bsb-en' })
+    const otherEdition = continueTargetFor({ book: books.get('bible'), session: memory, place: { ...genesisTwo, primaryEditionKey: 'web-en' } })
+    expect(otherEdition).toMatchObject({ source: 'memory', editionKey: 'kjv-en' })
+    expect(otherEdition && 'compareEditionKey' in otherEdition).toBe(false)
+  })
+
   it('orders Reading now by the newer of the two stores and lists every in-progress book', () => {
     const genesis = sessionFor(genesisOneFixture(), { id: 'g1', state: 'progressed', startedAt: T0, lastActiveAt: T0 + 5_000 })
     const plato = sessionFor({ ...platoDialogueFixture(), chapterLabel: 'Book I — What is justice?' }, { id: 'p1', state: 'progressed', startedAt: T0, lastActiveAt: T0 + 3_000 })

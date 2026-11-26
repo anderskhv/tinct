@@ -160,6 +160,11 @@ jobs:
         run: node scripts/check-library-shelf-remove.mjs
         env:
           SHELF_REMOVE_ARTIFACTS: artifacts/shelf-remove
+      - name: Verify Compare keeps its two editions out of the book and back in (Continue and the book page)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
+        run: node scripts/check-compare-pair-kept.mjs
+        env:
+          TINCT_COMPARE_PAIR_OUTPUT: artifacts/compare-pair-kept
       - name: Verify /byob and the library's Read your own books band
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
         run: node scripts/check-byob-entry.mjs
@@ -184,6 +189,7 @@ jobs:
             app/artifacts/library-public
             app/artifacts/shelf-remove
             app/artifacts/paste
+            app/artifacts/compare-pair-kept
 
   profile-flow-sql:
     needs: changes

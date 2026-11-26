@@ -1,6 +1,6 @@
 import {shelfBookCount} from './shelf-count.js';
 import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20261120shelf';
-import {periodGroups,inPeriod,populatedShelves,collectionReels,compositionYears} from './browse-groups.js?v=20261120shelf';
+import {periodGroups,inPeriod,populatedShelves,collectionReels,compositionYears,homeRows} from './browse-groups.js?v=20261120shelf';
 import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
@@ -25,7 +25,10 @@ import {coverSources} from './cover-assets.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {bookCoverSrc} from '../book-cover.js?v=20261009owncover';
 import {createQuietLoads,stopOnAbort} from './quiet-loads.js?v=20261015quietopen';
+import {mountConjectureHero,CONJECTURE_IDS} from './conjecture-hero.js?v=20261126conj';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
+// The Conjecture Institute link (/conjecture; boot.js, conjecture-hero.js): its hero replaces the featured scene.
+const conjecture=window.__library2Boot?.collection==='conjecture';
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
 let savedBooks=new Set(),savedReady=false;const pendingSaves=new Map();
@@ -134,7 +137,7 @@ function shelfNeed(id){const dpr=Math.min(typeof devicePixelRatio==='number'&&de
 function shelfCover(book){(deskPending()?deskRevealed.then(()=>ensureCover(book,shelfNeed(book.id))):ensureCover(book,shelfNeed(book.id))).catch(()=>{});}
 function observeCover(c,book){paintCover(c,book.id);coverBooks.set(c,book);const observer=fullSizeCover(book)?fullCoverObserver:coverObserver;if(observer)observer.observe(c);else shelfCover(book);}
 // The first cover has priority; shelves and other scenes load as they approach view.
-if(!window.__library2Boot?.hint)ensureCover(books[0],COVER_HERO_PX).catch(()=>{});
+if(!window.__library2Boot?.hint&&!conjecture)ensureCover(books[0],COVER_HERO_PX).catch(()=>{});
 function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;renderBookMetadata(meta,book,{compact:true});return meta;}
 function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=bookById(meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
 // A shelf more than a screen above or below the screen gives its covers' pixels back
@@ -184,7 +187,8 @@ function searchNames(book,entry){if(entry.altTitles?.length)book.altTitles=entry
 loadCatalogue().then(({books:entries,searchOnly=[],houses})=>{for(const entry of searchOnly){const book=libraryBook(entry);attachCatalogue(book,entry);searchNames(book,entry);searchOnlyBooks.push(book);}const byId=new Map(entries.map(e=>[e.id,e]));entries.forEach(placePublicBook);books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});
  // Other titles the registry gives a book (altTitles), and its Danish ones, are searched as titles.
  for(const book of books){const entry=byId.get(book.id);if(entry)searchNames(book,entry);}
- houses.forEach(house=>{const ids=[...new Set(house.shelves.flatMap(shelf=>shelf.bookIds||[]))].filter(id=>byId.has(id));if(!ids.length)return;const section=el('section','shelf');section.append(el('h2','',house.title));const row=el('div','book-row');row.setAttribute('aria-label',house.title);ids.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
+ // A row per house, and one of its own for a shelf that has it (browse-groups.js homeRows: "For young readers" after Fiction).
+ homeRows(houses,id=>byId.has(id)).forEach(({title,bookIds})=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);bookIds.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
  libraryHouses=houses;renderBrowseMenus();
  refreshMetadata();
  if(searchOpen&&!openedFromSearch)renderResults();if(collectionChoice!=='home')renderCollection();}).catch(()=>{});
@@ -208,7 +212,7 @@ $('hero-book').onclick=$('read-featured').onclick=openFeatured;
 window.__library2HeroWired=true;if(window.__library2EarlyOpen){window.__library2EarlyOpen=false;$('hero-book').removeAttribute('aria-busy');$('read-featured').removeAttribute('aria-busy');setTimeout(()=>{if(!/\breturning(-pending)?\b/.test(document.documentElement.className))openFeatured();},0);}
 addEventListener('library2:reading',updateHeroAction);
 // Signed in: Account; signed out: Sign in or join. Both go to the production account page and come back here.
-function syncAccountButton(){const signedIn=document.documentElement.classList.contains('signed-in');if(!$('sign-in').classList.contains('cards-you'))$('sign-in').textContent=signedIn?'Account':'Sign in or join';$('sign-in').onclick=()=>location.assign(`/sign-in?${signedIn?'mode=account&':''}returnTo=${encodeURIComponent('/library')}`);}
+function syncAccountButton(){const signedIn=document.documentElement.classList.contains('signed-in');if(!$('sign-in').classList.contains('cards-you'))$('sign-in').textContent=signedIn?'Account':'Sign in or join';$('sign-in').onclick=()=>location.assign(`/sign-in?${signedIn?'mode=account&':''}returnTo=${encodeURIComponent(conjecture?'/library?collection=conjecture':'/library')}`);}
 syncAccountButton();
 $('header').querySelector('.logo').onclick=e=>{e.preventDefault();if(activeBook)closeBook();else selectCollection('home');};
 addEventListener('scroll',()=>$('header').classList.toggle('scrolled',scrollY>20),{passive:true});
@@ -243,8 +247,8 @@ function tableStageFitted(){const view=document.querySelector('.reading-table');
 function tableCropNow(id,w,h,img,wide){return cropForSceneNow(id,w,h,img,wide);}
 function cropForSceneNow(id,w,h,img,wide){if(!id.startsWith('table-')){if(!wide&&phoneTableY[id]){const book=$('hero-book').getBoundingClientRect(),hero=$('hero').getBoundingClientRect();return tableCrop(w,h,img.naturalWidth,img.naturalHeight,phoneTableY[id],book.bottom-hero.top-book.height*.13);}return sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);}const stage=document.querySelector('.rt-stage'),hero=$('hero');const r=stage?.getBoundingClientRect();const height=parseFloat(document.querySelector('.reading-table')?.style.getPropertyValue('--bh'))||260;const edge=r?r.bottom-hero.getBoundingClientRect().top-height*.22:h*.6;return tableCrop(w,h,img.naturalWidth,img.naturalHeight,img.naturalHeight*(wide?.64:.51),Math.max(h*.2,Math.min(h*.9,edge)));}
 let returningScene=window.__library2Boot?.scene?.startsWith('table-')?window.__library2Boot.scene:'table-'+readingRoom();
-if(!window.__library2Boot?.hint)loadScene(sceneTo).catch(()=>notice('The scene could not load. Please refresh to try again.'));
-addEventListener('library2:reading',e=>{if(e.detail.mode!=='returning')showScene(linkedState==='pending'?linkedBook:featured.id);else if(document.documentElement.dataset.returningView==='table')showScene(returningScene);});
+if(!window.__library2Boot?.hint&&!conjecture)loadScene(sceneTo).catch(()=>notice('The scene could not load. Please refresh to try again.'));
+addEventListener('library2:reading',e=>{if(conjecture)return;if(e.detail.mode!=='returning')showScene(linkedState==='pending'?linkedBook:featured.id);else if(document.documentElement.dataset.returningView==='table')showScene(returningScene);});
 // Desktop film loops of the wide paintings; the canvas composites their frames.
 const sceneVideo=mountSceneVideo($('hero'),$('scene'));
 /** Lets go of every decoded scene but the one shown (both shapes of it); showing another decodes it again from the cache. */
@@ -350,7 +354,9 @@ function pairedCompare(main){const comparable=availableEditions().filter(e=>e.ke
 // "Your edition" shows what Begin reading opens (user test, 12 Nov 2026): the saved place's edition, else the
 // reader's "New books open in" choice (and Danish reading languages) for a book never opened, else the default.
 // The reading engine decides (initialEdition, the rule readerDestination follows); an explicit pick still wins.
-function settleEdition(book,ready){ready.then(key=>{if(activeBook!==book||!key||!availableEditions().some(e=>e.key===key))return;const picked=choices();if(picked.explicit||picked.main===key)return;picked.main=key;if(!picked.compareExplicit)picked.compare=compareChosenOff()?null:pairedCompare(key);if(currentTab==='edition')renderIntro();else renderSlipEdition();}).catch(()=>{});}
+// "Compare with" follows the same rule: the edition this reader left beside it (initialCompareEdition; Anders, 26 Nov
+// 2026: Danish beside English came back as English beside English), else the book's default pair.
+function settleEdition(book,ready){ready.then(({main:key,compare:saved})=>{if(activeBook!==book||!key||!availableEditions().some(e=>e.key===key))return;const picked=choices();if(picked.explicit)return;let changed=false;if(picked.main!==key){picked.main=key;if(!picked.compareExplicit)picked.compare=compareChosenOff()?null:pairedCompare(key);changed=true;}if(saved&&!picked.compareExplicit&&!compareChosenOff()&&saved!==key&&picked.compare!==saved&&availableEditions().some(e=>e.key===saved&&e.availability?.compare!==false)){picked.compare=saved;changed=true;}if(!changed)return;if(currentTab==='edition')renderIntro();else renderSlipEdition();}).catch(()=>{});}
 function choices(){const available=availableEditions();if(!editionChoices.has(activeBook.id)){const main=available.find(e=>e.key===activeBook.defaultEditionKey)?.key||available[0]?.key||null;editionChoices.set(activeBook.id,{main,explicit:false});}const picked=editionChoices.get(activeBook.id);if(!('compare' in picked)){picked.compare=compareChosenOff()?null:pairedCompare(picked.main);picked.compareExplicit=false;}return picked;}
 let pageLocked=false,lockedScroll=0;function syncLock(){scheduleLibrarianAway();const lock=!!(activeBook||searchOpen||menuOpen||mode!=='minimized');if(lock===pageLocked)return;pageLocked=lock;if(!lock)queueMicrotask(()=>dispatchEvent(new Event('library2:interactive')));if(lock){lockedScroll=scrollY;Object.assign(document.body.style,{position:'fixed',top:-lockedScroll+'px',left:'0',right:'0',overflow:'hidden'});}else{for(const key of ['position','top','left','right','overflow'])document.body.style[key]='';scrollTo({top:lockedScroll,behavior:'instant'});}}
 function rectOf(c){const r=c.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};}
@@ -394,7 +400,7 @@ let introExpanded=false,introProgress=null;
 async function openLibraryBook(id){let book=books.find(b=>b.id===id);if(!book){const entry=(await loadCatalogueData()).books.find(b=>b.id===id&&b.discoveryAvailable!==false);if(!entry)return;book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);}if(activeBook?.id===id||closing)return;if(activeBook)await closeBook();const canvas=all('canvas[data-book]').find(c=>c.dataset.book===id&&c.getClientRects().length)||$('hero-book').querySelector('canvas');await openBook(book,canvas);}
 // While a book opens it has the connection: the optional warming waits until its introduction is open (quiet-loads.js).
 async function openBook(book,canvas){if(activeBook)return;const release=quiet.hold();try{await openingBook(book,canvas);}finally{release();}}
-async function openingBook(book,canvas){if(menuOpen)setMenu(false);const editionReady=readingApi().then(api=>api.initialEdition?.(book.id)??null);editionReady.catch(()=>{});try{const catalogue=(await loadCatalogueData()).books,entry=catalogue.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book,COVER_OPEN_PX),loadIntroduction(book),loadPrimer(book).then(()=>{for(const item of book.primer?.prerequisites||[])if(item.bookId&&!catalogue.some(b=>b.id===item.bookId&&b.discoveryAvailable!==false))item.bookId=null;}).catch(()=>{book.opening=null;book.primer=null;}),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;warmSheet(book.id);activeBook=book;pushLayer('book');introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();settleEdition(book,editionReady);paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;bookOpenMemory(true);sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;dispatchEvent(new CustomEvent('tinct:funnel',{detail:{name:'book_intro_viewed',props:{book_id:book.id}}}));resetIntroScroll();(destination(innerWidth,innerHeight).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
+async function openingBook(book,canvas){if(menuOpen)setMenu(false);const editionReady=readingApi().then(async api=>({main:(await api.initialEdition?.(book.id))??null,compare:(await api.initialCompareEdition?.(book.id))??null}));editionReady.catch(()=>{});try{const catalogue=(await loadCatalogueData()).books,entry=catalogue.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book,COVER_OPEN_PX),loadIntroduction(book),loadPrimer(book).then(()=>{for(const item of book.primer?.prerequisites||[])if(item.bookId&&!catalogue.some(b=>b.id===item.bookId&&b.discoveryAvailable!==false))item.bookId=null;}).catch(()=>{book.opening=null;book.primer=null;}),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;warmSheet(book.id);activeBook=book;pushLayer('book');introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();settleEdition(book,editionReady);paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;bookOpenMemory(true);sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;dispatchEvent(new CustomEvent('tinct:funnel',{detail:{name:'book_intro_viewed',props:{book_id:book.id}}}));resetIntroScroll();(destination(innerWidth,innerHeight).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
 async function closeBook(){if(!activeBook||closing)return;dropLayer('book');closing=true;screenBack.hidden=true;if(mode!=='minimized')minimize();if(readerProgress)await animateReader(0);if(tourProgress)await animateTour(0);const returnToSearch=openedFromSearch;sourceRect=rectOf(sourceCanvas);await animateBook(0);$('book-overlay').hidden=true;bookOpenMemory(false);sourceCanvas.style.visibility='';const focus=sourceCanvas.closest('button')||sourceCanvas.parentElement;activeBook=null;sourceCanvas=null;closing=false;if(returnToSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();focus.focus({preventScroll:true});dispatchEvent(new Event('library2:overlayclosed'));if(collectionChoice!=='home'&&!returnToSearch){renderCollection();$('collection-back').focus({preventScroll:true});}}
 function animateTour(to){if(tourAnimation)cancelAnimationFrame(tourAnimation);resolveTourAnimation?.();const from=tourProgress,start=performance.now();return new Promise(resolve=>{resolveTourAnimation=resolve;function step(now){const t=reduced.matches?1:clamp((now-start)/550,0,1);tourProgress=t===1?to:mix(from,to,t);drawBook(1);if(t<1)tourAnimation=requestAnimationFrame(step);else{tourAnimation=null;resolveTourAnimation=null;resolve();}}tourAnimation=requestAnimationFrame(step);});}
 $('slip-next').onclick=async()=>{if(tourAnimation)return;await animateTour(1);if(!activeBook||closing||tourProgress!==1)return;resetIntroScroll();fitIntroFooter();screenBack.focus({preventScroll:true});};
@@ -676,7 +682,7 @@ let movedLibrarian=false;
 // On the reading table the librarian rests level with the middle of the books: the row
 // stands --bh tall on the stage, lifted 5% of --bh off its floor (styles.css .rt-row).
 function tableBooksMidY(){const table=document.querySelector('.reading-table:not([hidden])'),stage=table?.querySelector('.rt-stage'),bh=parseFloat(table?.style.getPropertyValue('--bh'));if(!stage||!bh)return null;const r=stage.getBoundingClientRect();return r.height?r.bottom+scrollY-bh*.55:null;}
-function fitHero(){window.__library2Layout();const b=$('hero-book');if(!movedLibrarian&&mode==='minimized'&&!activeBook){const r=b.getBoundingClientRect();const y=document.documentElement.classList.contains('returning')?tableBooksMidY()??innerHeight*.68+26:r.top+scrollY+r.height/2;dock={side:'right',y:tuckRestY(y,innerHeight)};snapTuck();}}
+function fitHero(){window.__library2Layout();const b=conjecture&&document.querySelector('.conj-big')||$('hero-book');if(!movedLibrarian&&mode==='minimized'&&!activeBook){const r=b.getBoundingClientRect();const y=document.documentElement.classList.contains('returning')?tableBooksMidY()??innerHeight*.68+26:r.top+scrollY+r.height/2;dock={side:'right',y:tuckRestY(y,innerHeight)};snapTuck();}}
 if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(fitHero);observer.observe(document.querySelector('.hero-copy'));observer.observe($('hero'));}fitHero();
 // The reading table's stage settled after fitHero last ran (its title refit, a recap arrived): the docked librarian follows the books.
 {let tableFitFrame=0;addEventListener('library2:table-fit',()=>{cancelAnimationFrame(tableFitFrame);tableFitFrame=requestAnimationFrame(fitHero);});}
@@ -986,6 +992,23 @@ function featureLinked(book,entry){
 function linkedUnavailable(){if(linkedState!=='pending')return;linkedState=null;featuredTarget=0;const first=all('.hero-dots button')[0];if(first)first.click();if(document.documentElement.dataset.linkedBook)delete document.documentElement.dataset.linkedBook;refreshMetadata();setTimeout(()=>document.documentElement.classList.remove('linked-pending'),400);}
 if(linkedBook)loadCatalogueData().then(data=>{if(linkedState!=='pending')return;const params=new URLSearchParams(location.search);const entry=data.books.find(b=>b.id===linkedBook&&b.discoveryAvailable!==false);if(!entry)return linkedUnavailable();let book=books.find(b=>b.id===linkedBook);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);const requested=params.get('edition');if(entry.editions?.some(e=>e.key===requested&&(e.language!=='da'||e.discoveryAvailable===true)&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false))editionChoices.set(book.id,{main:requested,explicit:true});featureLinked(book,entry);if(params.get('view')==='book-detail')return openBook(book,$('hero-book').querySelector('canvas'));}).catch(()=>{linkedUnavailable();notice('This book could not load. Please try again.');});
 
+// The Conjecture hero: the five books from the catalogue (title, author, the registry's description,
+// cover, reading time as the library computes it). The big cover opens the book in the reader at the
+// reader's saved place, else at chapter 1 (openInReader: readerDestination).
+let conjectureHero=null;
+if(conjecture){
+ const signedIn=()=>document.documentElement.classList.contains('signed-in');
+ const entryBook=entry=>{let book=books.find(b=>b.id===entry.id);if(!book){book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);}return book;};
+ loadCatalogueData().then(data=>{
+  const entries=CONJECTURE_IDS.map(id=>data.books.find(b=>b.id===id)).filter(Boolean);
+  const list=entries.map(entry=>{const book=entryBook(entry);return {id:entry.id,title:entry.title,author:entry.author,summary:entry.summary||entry.blurb||'',cover:bookCoverSrc({bookId:entry.id,art:entry.art})||book.cover,readingTime:readingTime({...book,wordCount:entry.wordCount??book.wordCount})};});
+  conjectureHero=mountConjectureHero({hero:$('hero'),books:list,signedIn,open:item=>openInReader(entryBook(entries.find(e=>e.id===item.id)))});
+  if(conjectureHero&&window.__library2Reading)conjectureHero.setReading(window.__library2Reading.reading);
+  fitHero();
+ }).catch(()=>notice('These books could not load. Please refresh to try again.'));
+ addEventListener('library2:reading',e=>conjectureHero?.setReading(e.detail?.reading));
+}
+
 // Reveal a fully drawn, positioned librarian instead of an empty circle at (0, 0).
 drawOrb(performance.now());document.documentElement.classList.add('library-ready');
 
@@ -993,13 +1016,14 @@ mountHeroNavigation({
  hero:$('hero'),
  enabled:()=>!document.documentElement.classList.contains('returning')&&!activeBook&&!searchOpen&&!menuOpen&&mode==='minimized'&&collectionChoice==='home'&&!document.documentElement.classList.contains('returning-pending'),
  move:direction=>{
+  if(conjectureHero){conjectureHero.move(direction);return;}
   if(document.documentElement.classList.contains('returning')){$(direction>0?'rt-next':'rt-prev')?.click();return;}
   const dots=all('.hero-dots button');
   dots[(featuredTarget+direction+dots.length)%dots.length]?.click();
  }
 });
 
-if(!linkedBook&&readVisit()?.mode==='discovery'){const i=featuredBooks.findIndex(b=>b.id===readVisit()?.featured);if(i>0)all('.hero-dots button')[i].click();}
+if(!linkedBook&&!conjecture&&readVisit()?.mode==='discovery'){const i=featuredBooks.findIndex(b=>b.id===readVisit()?.featured);if(i>0)all('.hero-dots button')[i].click();}
 
 
 

@@ -26,6 +26,13 @@ export interface LibraryShelf {
   title: string
   sub: string
   hue: number
+  /**
+   * The shelf's own order in the library, where it has one: the catalogue (the shelf's `bookIds` in
+   * catalogue.json, preReader/catalogue.ts) lists these books first, in this order, and any other book
+   * of the shelf after them. A shelf without one follows the registry's order. The shelf's hub page
+   * (/read/shelf/{shelf}) does not read it: it keeps the order of LIBRARY_BOOK_META.
+   */
+  order?: string[]
 }
 
 export interface LibraryHouse {
@@ -3426,7 +3433,17 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
   "young-readers": {
     "title": "For young readers",
     "sub": "Classics retold and written for younger readers",
-    "hue": 130
+    "hue": 130,
+    "order": [
+      "the-secret-garden",
+      "wind-in-the-willows",
+      "merry-adventures-of-robin-hood",
+      "story-of-king-arthur-and-his-knights",
+      "wonder-book-and-tanglewood-tales",
+      "beautiful-stories-from-shakespeare",
+      "odyssey-for-boys-and-girls",
+      "iliad-for-boys-and-girls"
+    ]
   },
   "critical-rationalism": {
     "title": "Critical Rationalism",
