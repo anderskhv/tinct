@@ -111,32 +111,6 @@
 }
 .lab.is-phone .lab-free-source { font-size: 13.5px; }
 
-/* Copy, the one action on a selection. */
-.lab-free-copy {
-  position: fixed;
-  z-index: 60;
-  transform: translate(-50%, -100%);
-  padding: 4px;
-  border-radius: 999px;
-  background: var(--lab-ink, #2a251d);
-  box-shadow: 0 6px 18px rgba(20, 16, 10, .22);
-}
-.lab-free-copy.is-below { transform: translate(-50%, 0); }
-.lab-free-copy button {
-  appearance: none;
-  border: 0;
-  border-radius: 999px;
-  min-height: 34px;
-  padding: 0 16px;
-  background: transparent;
-  color: var(--lab-paper, #f4efe4);
-  font: 500 14px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  cursor: pointer;
-}
-.lab-free-copy button:focus-visible { outline: 2px solid var(--lab-paper, #f4efe4); outline-offset: -2px; }
-.lab.is-night .lab-free-copy { background: var(--lab-paper, #f4efe4); }
-.lab.is-night .lab-free-copy button { color: var(--lab-ink, #2a251d); }
-
 /* The phone's way back to /modern-english, before the book title: the desktop arrow's glyph, a 44px target whose
    arrow lines up with the text's left edge. */
 .lab-free-back {

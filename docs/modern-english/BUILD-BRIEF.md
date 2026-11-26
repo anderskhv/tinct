@@ -64,13 +64,14 @@ The existing reader with everything that asks for something taken away. Reuse wh
 - Primer, Summary, Quiz me, Catch me up, Read with an angle, Chapter note.
 - The "Highlight any passage" hint.
 - From the T menu: Chat, Talk, Catch me up, Notebook, Audio settings, AI settings, Reading angle, Profile.
-- Selecting text offers Copy only: no Explain, Simplify, Ask or highlight.
-- Sign-in, Premium and "keep your place" prompts.
+- ~~Selecting text offers Copy only: no Explain, Simplify, Ask or highlight.~~ Changed 26 Nov 2026 (Anders, "give them 10 free basically?"): selecting text offers what it offers a guest in the normal reader, AI included, on the device's 10 free AI actions (shared with the normal reader); Talk and dictation stay out.
+- Sign-in, Premium and "keep your place" prompts, except the account sheet once the 10 free AI actions are used.
 
 **Source line** in the single-edition views, under the chapter heading in small UI type. Example: "Modern English made with AI from George Long's 1862 translation · Report a passage". There's no line in Both, where the column labels already say it. If the reader has no report path today, leave "Report a passage" out and say so in the PR.
 
 **Rules:**
-- **No AI requests at all** from this mode. That includes narration.
+- ~~**No AI requests at all** from this mode.~~ Since 26 Nov 2026 only the guest companion (`/api/lab-chat`) for selection actions; still no narration.
+- A visitor signed in on the device gets the normal reader at the same address without `mode=free` (26 Nov 2026).
 - **Keep the reader's place.** Switching edition keeps the place, on the same line. Every reading-position invariant in `AGENTS.md` still applies.
 - **The place stays on the device:** saved there so a reload continues where you left off, and never written to an account. If the visitor signs in later, the normal reader takes over as it does today.
 

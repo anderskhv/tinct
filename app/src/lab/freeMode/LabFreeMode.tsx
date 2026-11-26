@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
 import type { Edition } from '../../types'
 import './freeMode.css'
 
@@ -6,8 +5,8 @@ import './freeMode.css'
  * Free reading mode's own pieces of chrome (freeMode.ts; docs/modern-english/free-reader/*.jpg):
  * - the edition switch: Original · Modern · Both beside the t menu on the desktop, Original | Modern in the phone's
  *   bottom band;
- * - the page number alone at the right of that band;
- * - Copy, the one action on a selection.
+ * - the page number alone at the right of that band.
+ * A selection offers what it offers a guest in the normal reader, AI included (freeMode.ts).
  */
 
 type FreeView = 'original-en' | 'modern-en' | 'both'
@@ -53,32 +52,6 @@ export function LabFreeModePhoneBand({ editions, current, progressLabel, onChoos
     <div className="lab-free-band" data-testid="lab-free-band">
       <LabFreeModeEditions editions={editions} current={current} both={false} phone onChoose={onChoose} />
       <span className="lab-free-folio" data-testid="lab-free-folio" aria-label={progressLabel || undefined}>{freeModeFolio(progressLabel)}</span>
-    </div>
-  )
-}
-
-/** Copy, the one thing a selection offers in free mode. Placed above the selection, or below it near the top. */
-export function LabFreeModeCopyBar({ text, x, y, onDone }: { text: string; x: number; y: number; onDone: () => void }) {
-  const [copied, setCopied] = useState(false)
-  const timer = useRef<number | undefined>(undefined)
-  useEffect(() => () => window.clearTimeout(timer.current), [])
-  const copy = async () => {
-    let ok = false
-    try { await navigator.clipboard.writeText(text); ok = true } catch { /* blocked: the browser's own copy still works */ }
-    if (!ok) {
-      try { ok = document.execCommand('copy') } catch { ok = false }
-    }
-    setCopied(ok)
-    timer.current = window.setTimeout(onDone, ok ? 700 : 0)
-  }
-  const width = typeof window === 'undefined' ? 1024 : window.innerWidth
-  const left = Math.min(Math.max(x, 48), width - 48)
-  const below = y < 72
-  return (
-    <div className={`lab-free-copy${below ? ' is-below' : ''}`} role="toolbar" aria-label="Selection" data-testid="lab-free-copy"
-      style={{ left, top: below ? y + 28 : y - 12 }}
-      onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()} onMouseDown={event => event.preventDefault()}>
-      <button type="button" onClick={() => { void copy() }}>{copied ? 'Copied' : 'Copy'}</button>
     </div>
   )
 }
