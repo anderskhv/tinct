@@ -9,7 +9,11 @@
  *   offers them, on the same device allowance (labAccountPrompt.ts LAB_FREE_AI_ACTIONS, shared with the normal
  *   reader); the next one shows the account sheet, the one prompt free mode shows (Anders, 26 Nov 2026: "give them
  *   10 free basically?"). They go to the guest companion route only, with no account attached.
- * - No narration, Talk, dictation, chapter notes or recaps: the reader offers none, and the guard below answers any
+ * - The t menu's two AI rows (Anders, 27 Nov 2026): "Summarize this chapter" (the chapter's Summary card) and "Catch
+ *   me up" (the recap of what came before). Each card made is one of the same free AI actions (freeModeAiRows.ts);
+ *   once they are used the rows open the account sheet. They go to the two routes a signed-out reader's cards use
+ *   (chapter notes, catch-up), which the Worker meters for guests as it does the companion, with no account attached.
+ * - No narration, Talk, dictation, Primer or "so far" recap: the reader offers none, and the guard below answers any
  *   such request on the device, so nothing reaches those routes even if a code path forgets the mode.
  * - No account: the reader runs as if signed out (main.tsx passes `authToken={null}`), so the place is kept on this
  *   device only, by the reader's own local position store, and is never written to the account. Any other write to
@@ -24,25 +28,46 @@
 import { editionSource } from '../../data/editionSources'
 import { readCachedSupabaseUser } from '../labLibraryBoot'
 import type { Book, Edition } from '../../types'
-import type { LabSuperMenuRow } from '../labSuperMenu'
+// The extension is spelled out: the page builds bundle this module with esbuild, which otherwise takes
+// LabSuperMenu.tsx (the menu's component) for this name.
+import { labSuperMenuRows, type LabSuperMenuId, type LabSuperMenuRow } from '../labSuperMenu.ts'
 
 export const FREE_MODE_PARAM = 'mode'
 export const FREE_MODE_VALUE = 'free'
-/** The pages that open free mode, by their `ref`: where the back arrow goes, and the modern edition it reads. */
+/**
+ * The pages that open free mode, by their `ref`: where the back arrow goes, and the modern edition it reads.
+ * /shakespeare (`ref=shakespeare`, 27 Nov 2026) reads the Modern English, as the English page does.
+ */
 export const FREE_MODE_HUBS = {
   'modern-english': { home: '/modern-english', modern: 'modern-en' },
   nudansk: { home: '/nudansk', modern: 'modern-da' },
+  shakespeare: { home: '/shakespeare', modern: 'modern-en' },
 } as const
-export type FreeModeHub = typeof FREE_MODE_HUBS[keyof typeof FREE_MODE_HUBS]
+export type FreeModeRef = keyof typeof FREE_MODE_HUBS
+export type FreeModeHub = typeof FREE_MODE_HUBS[FreeModeRef]
+/**
+ * What the reader calls each page on the way back to it (the t menu's back row, the back arrow's label), after the
+ * page's own title: "Classics in modern English", "De største klassikere på nudansk" (seo/modernEnglishPage.ts).
+ */
+export const FREE_MODE_HUB_NAMES: Readonly<Record<FreeModeRef, string>> = {
+  'modern-english': 'Modern English classics',
+  nudansk: 'Klassikere på nudansk',
+  shakespeare: 'Shakespeare',
+}
 export type FreeModeModernEdition = FreeModeHub['modern']
 /** The two editions free mode reads (from the English page). Both is the desktop Compare view of these two. */
 export const FREE_MODE_EDITIONS = ['original-en', 'modern-en'] as const
 export type FreeModeEdition = 'original-en' | FreeModeModernEdition
 
+/** The page a free-mode address says it came from: its `ref` when it names one of the hubs, else null. */
+export function freeModeRefFor(search: string): FreeModeRef | null {
+  const ref = new URLSearchParams(search).get('ref')
+  return ref !== null && Object.prototype.hasOwnProperty.call(FREE_MODE_HUBS, ref) ? ref as FreeModeRef : null
+}
+
 /** The hub a free-mode address came from: its `ref` when it is a known one, else the English page. */
 export function freeModeHubFor(search: string): FreeModeHub {
-  const ref = new URLSearchParams(search).get('ref')
-  return ref === 'nudansk' ? FREE_MODE_HUBS.nudansk : FREE_MODE_HUBS['modern-english']
+  return FREE_MODE_HUBS[freeModeRefFor(search) ?? 'modern-english']
 }
 
 /** `/reader?…&mode=free`, never a reader's own book (`userBook`). */
@@ -85,8 +110,12 @@ function decideFreeMode(): boolean {
 }
 
 export const FREE_MODE = decideFreeMode()
+/** The page this one says it came from (a known `ref`), or null; decided once from the address as FREE_MODE is. */
+export const FREE_MODE_REF: FreeModeRef | null = freeModeRefFor(typeof window !== 'undefined' ? window.location.search : '')
 /** This page's hub, decided once from the address as FREE_MODE is. */
-export const FREE_MODE_HUB: FreeModeHub = freeModeHubFor(typeof window !== 'undefined' ? window.location.search : '')
+export const FREE_MODE_HUB: FreeModeHub = FREE_MODE_HUBS[FREE_MODE_REF ?? 'modern-english']
+/** The name of the page the back arrow goes to. */
+export const FREE_MODE_HOME_NAME: string = FREE_MODE_HUB_NAMES[FREE_MODE_REF ?? 'modern-english']
 /** Where the desktop back arrow goes: the page the reader came from. */
 export const FREE_MODE_HOME: string = FREE_MODE_HUB.home
 /** The modern edition this page's free mode reads: Modern English, or modern Danish from /nudansk. */
@@ -127,12 +156,30 @@ export function otherFreeModeEdition(key: string, modern: FreeModeModernEdition 
   return key === 'original-en' ? modern : 'original-en'
 }
 
-/** The t menu in free mode: Appearance, Book settings, then Library (BUILD-BRIEF.md, p-menu.jpg). */
-export function freeModeMenuRows(): LabSuperMenuRow[] {
+/**
+ * The t menu in free mode (approved mockup, Anders 27 Nov 2026), made of the normal menu's own rows (labSuperMenu.ts),
+ * so each keeps its icon and chevron:
+ * - Summarize this chapter and Catch me up, each one of the device's free AI actions (freeModeAiRows.ts);
+ * - Appearance and Book settings;
+ * - the way back to the page the reader came from, named for it ("Modern English classics"; the row's icon is the
+ *   back arrow), or Library when the address names no such page; then Create profile, where a signed-in reader has
+ *   Profile: the sign-up sheet, which returns to this address.
+ * No counter and no selling line.
+ */
+export function freeModeMenuRows(ref: FreeModeRef | null = FREE_MODE_REF): LabSuperMenuRow[] {
+  const normal = labSuperMenuRows({ phone: true, summarize: true })
+  const row = (id: LabSuperMenuId, change: Partial<LabSuperMenuRow> = {}): LabSuperMenuRow => {
+    const own = { ...normal.find(item => item.id === id)! }
+    delete own.ruleBefore
+    return { ...own, ...change }
+  }
   return [
-    { id: 'text', label: 'Appearance', chevron: true },
-    { id: 'editions', label: 'Book settings', chevron: true },
-    { id: 'library', label: 'Library', ruleBefore: true },
+    row('summarize', { label: 'Summarize this chapter' }),
+    row('catchup'),
+    row('text', { ruleBefore: true }),
+    row('editions'),
+    row('library', { label: ref ? FREE_MODE_HUB_NAMES[ref] : 'Library', ruleBefore: true }),
+    row('account', { label: 'Create profile' }),
   ]
 }
 
@@ -159,16 +206,21 @@ export function freeModeSourceLine(book: Pick<Book, 'id' | 'author' | 'editions'
 // ---- The guard ---------------------------------------------------------------------------------------------------
 
 /**
- * Tinct's AI and narration routes. Free mode sends nothing to any of them, by any method, except the guest companion
- * below: the account's chat and its history, chapter notes, recaps, Catch me up, Talk, dictation, narration and
- * recorded audio, and the AI allowance.
+ * Tinct's AI and narration routes. Free mode sends nothing to any of them, by any method, except the guest routes
+ * below: the account's chat and its history, the "so far" recap, an own book's recap, Talk, dictation, narration
+ * and recorded audio, and the AI allowance.
  */
 const AI_ROUTE = /^\/api\/(?:chat|lab-chat|lab-recap|lab-chapter-notes|lab-catch-up|lab-voice|voice|narration|audio|dictation|own-catch-up|own-text-repair|recap|ai-allowance|define|explain)(?:[/-]|$)/
 /**
- * The guest companion: a signed-out reader's Ask, Explain, Simplify, Define and the rest (useLabAsk.ts), counted on
- * the device against LAB_FREE_AI_ACTIONS before it is sent, and metered for guests by the Worker. POST only.
+ * The guest routes, POST only: each use is counted on the device against LAB_FREE_AI_ACTIONS before it is sent, and
+ * it is sent with no account attached. The Worker meters all three for guests the same way, by a rate limit per
+ * address and the signed-out daily AI ceiling (worker/lib/aiSpend.ts), and serves a card it has already made from
+ * its cache.
+ * - the guest companion: a signed-out reader's Ask, Explain, Simplify, Define and the rest (useLabAsk.ts);
+ * - chapter notes: the t menu's Summarize this chapter (worker/routes/labChapterNotes.ts);
+ * - catch-up: the t menu's Catch me up, one request per earlier part or chapter (worker/routes/labCatchUp.ts).
  */
-const GUEST_AI_ROUTE = '/api/lab-chat'
+const GUEST_AI_ROUTES: ReadonlySet<string> = new Set(['/api/lab-chat', '/api/lab-chapter-notes', '/api/lab-catch-up'])
 /** The anonymous funnel events (with no account attached): the page's `ref` is counted by them. */
 const EVENTS_ROUTE = '/api/events'
 
@@ -184,7 +236,7 @@ export function freeModeVerdict(rawUrl: string, method: string, origin: string):
   try { url = new URL(rawUrl, origin) } catch { return 'pass' }
   const write = !/^(?:GET|HEAD|OPTIONS)$/i.test(method || 'GET')
   const sameOrigin = url.origin === origin
-  if (sameOrigin && url.pathname === GUEST_AI_ROUTE && /^POST$/i.test(method || 'GET')) return 'guest-ai'
+  if (sameOrigin && GUEST_AI_ROUTES.has(url.pathname) && /^POST$/i.test(method || 'GET')) return 'guest-ai'
   if (sameOrigin && AI_ROUTE.test(url.pathname)) return 'ai'
   if (sameOrigin && url.pathname === EVENTS_ROUTE) return 'events'
   if (sameOrigin && url.pathname.startsWith('/api/')) return write ? 'write' : 'pass'
@@ -202,7 +254,7 @@ interface GuardWindow {
 
 const GUARD_MARK = '__TINCT_FREE_MODE_GUARD__'
 
-/** Wrap `fetch` and `sendBeacon` so free mode reaches no AI but the guest companion, no narration and no account. Idempotent. */
+/** Wrap `fetch` and `sendBeacon` so free mode reaches no AI but the guest routes, no narration and no account. Idempotent. */
 export function installFreeModeGuard(win: GuardWindow = window): void {
   const slot = win as unknown as Record<string, unknown>
   if (slot[GUARD_MARK]) return

@@ -11,6 +11,7 @@ import { LAB_COPY } from './labCopy'
 import { aiPrefsFor } from './labAiPrefs'
 import './labCatchUp.css'
 import { LabPhoneCard } from './marginPhone/LabPhoneCard'
+import { FREE_MODE } from './freeMode/freeModeContext'
 
 export interface LabChapterNotesSheetProps {
   request: ChapterNotesRequest
@@ -130,7 +131,8 @@ export function LabChapterNotesSheet({ request: asked, title, onClose, onChat, o
   const foot = follow ? <div className="lab-catch-up-foot is-follow">{follow(state === 'ok' ? beats : null)}</div> : (
         <div className="lab-catch-up-foot lab-chapter-notes-foot">
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-chat" aria-label="Chat" onClick={() => onChat(title, beats)}><RowIcon id="chat" /></button>
-          <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-talk" aria-label="Talk" onClick={() => onTalk(title, beats)}><RowIcon id="talk" /></button>
+          {/* Free reading mode offers no Talk (freeMode.ts). */}
+          {!FREE_MODE && <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-talk" aria-label="Talk" onClick={() => onTalk(title, beats)}><RowIcon id="talk" /></button>}
           {state === 'ok' && beats && (
             <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-copy" aria-label={copied ? 'Copied' : 'Copy'} onClick={copy}>
               {copied ? <span aria-hidden="true">✓</span> : <CopyIcon />}

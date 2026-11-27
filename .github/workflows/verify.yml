@@ -121,6 +121,9 @@ jobs:
       - name: Verify the follow request dot on the t button and the menu's request row (mocked accounts)
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node scripts/check-follow-request-t-dot.mjs
+      - name: Verify free reading mode's t menu, its two AI rows on the guest allowance and the way back (canned answers)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        run: node scripts/check-free-mode-t-menu.mjs
       - name: Save reader acceptance screenshots
         uses: actions/upload-artifact@v4
         continue-on-error: true
@@ -133,6 +136,7 @@ jobs:
             app/artifacts/reader-feedback-20260928
             app/artifacts/book-transition
             app/artifacts/follow-request-t-dot
+            app/artifacts/free-mode-t-menu
 
   library:
     needs: changes
