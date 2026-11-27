@@ -284,6 +284,21 @@ jobs:
         env:
           TINCT_LISTEN_PLACE_OUTPUT: artifacts/listen-keeps-place
         run: node scripts/check-listen-keeps-place.mjs
+      - name: Verify a book opened from the book switcher opens at the account's newest place
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_SWITCHER_RESUME_OUTPUT: artifacts/switcher-resumes-latest
+        run: node scripts/check-switcher-resumes-latest.mjs
+      - name: Verify Continue from the chapter this device had read to (another device moved the book back)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_CONTINUE_FURTHER_OUTPUT: artifacts/continue-further
+        run: node scripts/check-continue-further.mjs
+      - name: Verify a place saved in one language opens on a device that had the book open in another
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_RESUME_LANGUAGES_OUTPUT: artifacts/resume-across-languages
+        run: node scripts/check-resume-across-languages.mjs
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs

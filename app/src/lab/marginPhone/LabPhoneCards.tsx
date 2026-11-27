@@ -52,7 +52,13 @@ export const PHONE_CARD_NAMES: Record<PhoneCard['kind'], string> = {
   define: 'Define', ask: 'Ask', quiz: 'Quiz me', note: 'Note', 'chapter-note': 'Note',
 }
 
-/** The same released snapshot and cutoff-limited gallery as the desktop character popup. */
+/**
+ * The same released snapshot and cutoff-limited gallery as the desktop character popup.
+ *
+ * Its links (design B, Anders, 27 Nov 2026): "← Ananias", the person the reader tapped, above the name once the
+ * reader has moved to someone else from the gallery, and above the gallery's own heading; and one link under the
+ * card's text, "People so far →", which opens the gallery (it lists only people met up to this passage).
+ */
 export function PhoneCharacterBody({ character, renderFollow }: { character: CharacterSelection; renderFollow: (card: ReleasedCard) => ReactNode }) {
   const [gallery, setGallery] = useState(false)
   const [galleryId, setGalleryId] = useState<string | null>(null)
@@ -60,28 +66,33 @@ export function PhoneCharacterBody({ character, renderFollow }: { character: Cha
   const roles: Record<string, string> = { central: 'Central figure', major: 'Major figure', supporting: 'Supporting figure', reference: 'Minor figure' }
   const nonFigureRoles: Record<string, string> = { central: 'Central', major: 'Major', supporting: 'Supporting', reference: 'Minor' }
   const roleLabel = card?.role ? (['person', 'spirit', 'deity'].includes(card.kind) ? roles : nonFigureRoles)[card.role] : null
+  const backToTapped = (from: 'gallery' | 'person') => (
+    <button type="button" className="lab-pcard-link lab-pcard-character-back" aria-label={`Back to ${character.card.name}`}
+      onClick={() => { layoutTrace('char-nav', { to: 'back', from }); setGalleryId(null); setGallery(false) }}>
+      <span aria-hidden="true">← </span>{character.card.name}
+    </button>
+  )
   return <div className="popup-character lab-pcard-character" data-testid="lab-phone-character-body">
     {gallery ? <>
-      <h2>Character gallery</h2>
+      {backToTapped('gallery')}
+      <h2>People so far</h2>
       <div className="popup-character-gallery">
         {[true, false].map(inPassage => {
           const entries = character.gallery.filter(entry => entry.inPassage === inPassage)
           return entries.length ? <section key={String(inPassage)}><h3>{inPassage ? 'In this passage' : 'Introduced by this passage'}</h3>{entries.map(({ card: entry }, index) =>
-            <button type="button" key={entry.id} onClick={() => { layoutTrace('char-nav', { to: 'person', inPassage, i: index }); setGalleryId(entry.id); setGallery(false) }}><strong>{entry.name}</strong><span>{entry.subtitle}</span></button>,
+            // The tapped person chosen again in the gallery is the card the reader started from: no way back to show.
+            <button type="button" key={entry.id} onClick={() => { layoutTrace('char-nav', { to: 'person', inPassage, i: index }); setGalleryId(entry.id === character.card.id ? null : entry.id); setGallery(false) }}><strong>{entry.name}</strong><span>{entry.subtitle}</span></button>,
           )}</section> : null
         })}
       </div>
-      <button type="button" onClick={() => { layoutTrace('char-nav', { to: 'back', from: 'gallery' }); setGalleryId(null); setGallery(false) }}>Back to selected name</button>
     </> : card && <>
+      {galleryId && backToTapped('person')}
       {/* "Mary Magdalene · Major figure", as the desktop popup (Anders, 18 Nov 2026). */}
       <h2 className="popup-character-name">{card.name}<HeadwordLabel label={roleLabel ?? ''} /></h2>
       {card.subtitle && !subtitleRepeatsBody(card.subtitle, card.body) && <p className="popup-character-subtitle">{card.subtitle}</p>}
       <p>{card.body}</p>
-      {/* Two links side by side need a gap of their own: adjacent inline buttons ran together as
-          "Character galleryBack to selected name" (Anders, 26 Nov 2026). */}
       <div className="lab-pcard-character-links">
-        <button type="button" onClick={() => { layoutTrace('char-nav', { to: 'gallery' }); setGallery(true) }}>Character gallery</button>
-        {galleryId && <button type="button" onClick={() => { layoutTrace('char-nav', { to: 'back', from: 'person' }); setGalleryId(null) }}>Back to selected name</button>}
+        <button type="button" className="lab-pcard-link" onClick={() => { layoutTrace('char-nav', { to: 'gallery' }); setGallery(true) }}>People so far<span aria-hidden="true"> →</span></button>
       </div>
       {renderFollow(card)}
     </>}
