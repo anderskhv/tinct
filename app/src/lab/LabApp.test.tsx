@@ -1513,6 +1513,8 @@ describe('lab chrome pass', () => {
       kind: 'open-reader',
       bookId: 'crito',
       primaryEditionKey: 'modern-en',
+      // The tuple is this device's copy; the reader opens the account's newest place for the book (27 Nov 2026).
+      resumeLatest: true,
       savedPlace: { bookId: 'crito', chapterNumber: 2, page: 2, paragraphIndex: 4, wordIndex: 3 },
     })
   })
