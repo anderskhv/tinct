@@ -10,7 +10,6 @@ import {
   DEMO_PASSAGE,
   PLAY_ORDER,
   SHAKESPEARE_COPY,
-  aboutQuestionsSection,
   renderShakespearePage,
   shakespeareDemo,
   shakespearePlays,
@@ -25,16 +24,12 @@ const json = <T>(file: string): T => JSON.parse(readFileSync(file, 'utf8')) as T
 const original = json<EditionFile>('public/data/editions/hamlet-original-en.json')
 const modern = json<EditionFile>('public/data/editions/hamlet-modern-en.json')
 const lines = json<VerseLineFile>('public/data/editions/hamlet-lines.json')
-const about = readFileSync('public/about.html', 'utf8')
 const css = readFileSync('public/lab/shakespeare/shakespeare.css', 'utf8')
 const script = readFileSync('public/lab/shakespeare/shakespeare.js', 'utf8')
 
 const plays = shakespearePlays()
 const demo = shakespeareDemo(original, modern, lines, getBook('hamlet')!)
-const questions = aboutQuestionsSection(about)
-const html = renderShakespearePage(ASSETS, { plays, demo, questions })
-/** The page without the About page's Questions, which name things this page does not show. */
-const ownHtml = html.replace(questions, '')
+const html = renderShakespearePage(ASSETS, { plays, demo })
 const text = (markup: string) => markup.replace(/<!--[\s\S]*?-->/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ')
 
 describe('the plays come from the registry', () => {
@@ -52,7 +47,7 @@ describe('the plays come from the registry', () => {
   it('counts them in the heading and the description, never a number typed in', () => {
     expect(html).toContain(`<h2 id="plays-title">All ${plays.length} plays</h2>`)
     expect(html).toContain(`<meta name="description" content="${plays.length} Shakespeare plays, `)
-    const fewer = renderShakespearePage(ASSETS, { plays: plays.slice(0, 7), demo, questions })
+    const fewer = renderShakespearePage(ASSETS, { plays: plays.slice(0, 7), demo })
     expect(fewer).toContain('<h2 id="plays-title">All 7 plays</h2>')
     expect(fewer.match(/<li><a href="\/reader/g)).toHaveLength(7)
   })
@@ -173,21 +168,18 @@ describe('the page', () => {
   })
 
   it('shows nothing else: no Start reading, no pricing, no AI features, no account pitch', () => {
-    expect(text(ownHtml)).not.toMatch(/Start reading|Create account|Premium|Pricing|\$\d|free month|credit card/i)
-    expect(text(ownHtml)).not.toMatch(/\bAI\b|Explain|companion|Listen|narrat|audiobook|Talk|summary/i)
-    expect(ownHtml).not.toContain('#pricing')
-    expect(ownHtml).not.toMatch(/try-moments|try-plans|try-demo|data-try-/)
+    expect(text(html)).not.toMatch(/Start reading|Create account|Premium|Pricing|\$\d|free month|credit card/i)
+    expect(text(html)).not.toMatch(/\bAI\b|Explain|companion|Listen|narrat|audiobook|Talk|summary/i)
+    expect(html).not.toContain('#pricing')
+    expect(html).not.toMatch(/try-moments|try-plans|try-demo|data-try-/)
     // The one account link is a quiet Sign in in the top bar.
-    expect(ownHtml.match(/href="\/sign-in[^"]*"/g)).toEqual(['href="/sign-in"'])
+    expect(html.match(/href="\/sign-in[^"]*"/g)).toEqual(['href="/sign-in"'])
   })
 
-  it('carries the About page\'s Questions, word for word', () => {
-    expect(questions).toContain('<h2 class="try-section-title" id="questions-title">Questions</h2>')
-    expect(questions.match(/<details/g)!.length).toBeGreaterThanOrEqual(5)
-    expect(html).toContain(questions)
-    expect(about).toContain(questions)
-    expect(html.indexOf(questions)).toBeGreaterThan(html.indexOf('id="plays"'))
-    expect(() => aboutQuestionsSection('<main></main>')).toThrow(/no Questions section/)
+  it('has no Questions section: the plays are the last thing before the footer (Anders, 27 Nov 2026)', () => {
+    expect(html).not.toMatch(/id="questions"|<details|try-below|try-section/)
+    expect(text(html)).not.toMatch(/\bQuestions\b/)
+    expect(html).toMatch(/<\/ul>\s*<\/section>\s*<\/main>\s*<footer class="try-footer">/)
   })
 
   it('is indexable and self-canonical, with the About page\'s stylesheet before its own and no inline script', () => {
@@ -257,8 +249,9 @@ describe('built and served like the modern-English page', () => {
     expect(prebuild.indexOf('build-shakespeare.mjs')).toBeGreaterThan(prebuild.indexOf('generate-sitemap.cjs'))
     expect(readFileSync('.gitignore', 'utf8').split('\n')).toContain('public/shakespeare.html')
     const builder = readFileSync('scripts/seo/build-shakespeare.mjs', 'utf8')
-    // It reads the passage's play (DEMO_PASSAGE.bookId) from the edition files and the Questions from the About page.
-    for (const source of ['-original-en.json', '-modern-en.json', '-lines.json', 'public/about.html', 'public/shakespeare.html']) expect(builder, source).toContain(source)
+    // It reads the passage's play (DEMO_PASSAGE.bookId) from the edition files, and nothing from the About page.
+    for (const source of ['-original-en.json', '-modern-en.json', '-lines.json', 'public/shakespeare.html']) expect(builder, source).toContain(source)
+    expect(builder).not.toContain('about.html')
     expect(DEMO_PASSAGE.bookId).toBe('hamlet')
   })
 

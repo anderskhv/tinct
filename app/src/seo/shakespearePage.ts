@@ -3,11 +3,10 @@
  * thing on show, Shakespeare in the original and in modern English. Beside the headline a short passage of Hamlet,
  * Act 3, Scene 1 in both editions (side by side on the desktop; on a phone one at a time, behind an Original / Modern
  * switch, as the phone reader has no Both view); under it every play whose Modern English edition is live, each
- * cover opening the play in the reader's free mode; then the About page's Questions.
+ * cover opening the play in the reader's free mode. No Questions section (Anders, 27 Nov 2026).
  *
  * Nothing on it is typed in by hand that the repository already holds: the plays and their count come from the
- * registry, the passage is cut from the two edition files (its verse lines from the play's line file), and the
- * Questions section is the About page's own, taken from public/about.html when the page is built.
+ * registry, and the passage is cut from the two edition files (its verse lines from the play's line file).
  *
  * Built by scripts/seo/build-shakespeare.mjs into public/shakespeare.html (generated in `prebuild`, not committed);
  * its look is the About page's stylesheet (public/lab/try/try.css) plus public/lab/shakespeare/shakespeare.css, and
@@ -136,15 +135,6 @@ export function shakespeareDemo(original: EditionFile, modern: EditionFile, line
   return { bookId: book.id, title: book.title, scene, rows }
 }
 
-// ---- The Questions section: the About page's own ----
-
-/** The About page's Questions section, as it stands in public/about.html. */
-export function aboutQuestionsSection(aboutHtml: string): string {
-  const section = aboutHtml.match(/<section class="try-section" id="questions"[\s\S]*?<\/section>/)?.[0]
-  if (!section) throw new Error('[shakespeare] public/about.html has no Questions section')
-  return section
-}
-
 // ---- The page ----
 
 const esc = (value: string) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -160,8 +150,6 @@ export interface ShakespearePageAssets {
 export interface ShakespearePageContent {
   plays: ShakespearePlay[]
   demo: ShakespeareDemo
-  /** aboutQuestionsSection(public/about.html). */
-  questions: string
 }
 
 export const SHAKESPEARE_COPY = {
@@ -181,7 +169,7 @@ export const SHAKESPEARE_COPY = {
 const EAGER_COVERS = 9
 
 export function renderShakespearePage(assets: ShakespearePageAssets, content: ShakespearePageContent): string {
-  const { plays, demo, questions } = content
+  const { plays, demo } = content
   const copy = SHAKESPEARE_COPY
   const description = copy.description(plays.length)
   const canonical = `https://tinct.app${SHAKESPEARE_PATH}`
@@ -250,10 +238,6 @@ export function renderShakespearePage(assets: ShakespearePageAssets, content: Sh
     ${plays.map(cover).join('\n    ')}
   </ul>
 </section>
-
-<div class="try-below">
-  ${questions}
-</div>
 </main>
 
 <footer class="try-footer">

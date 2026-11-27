@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // The Shakespeare page (src/seo/shakespearePage.ts; mockup approved by Anders, 27 Nov 2026), built in `prebuild`:
-// the plays from the registry, the passage from Hamlet's two edition files, the Questions from public/about.html.
+// the plays from the registry, the passage from Hamlet's two edition files.
 // Writes public/shakespeare.html (generated, not committed); the Worker serves it at /shakespeare. Its stylesheets
 // and script are versioned by their content.
 import { build } from 'esbuild'
@@ -31,6 +31,5 @@ const plays = page.shakespearePlays()
 const play = plays.find(entry => entry.id === bookId)
 if (!play) throw new Error(`[shakespeare] ${bookId} is not among the plays with a live Modern English edition`)
 const demo = page.shakespeareDemo(edition(`${bookId}-original-en.json`), edition(`${bookId}-modern-en.json`), edition(`${bookId}-lines.json`), play)
-const questions = page.aboutQuestionsSection(readFileSync(join(root, 'public/about.html'), 'utf8'))
-writeFileSync(join(root, 'public/shakespeare.html'), page.renderShakespearePage(assets, { plays, demo, questions }))
+writeFileSync(join(root, 'public/shakespeare.html'), page.renderShakespearePage(assets, { plays, demo }))
 console.log(`[shakespeare] shakespeare.html: ${plays.length} plays; ${demo.title}, ${demo.scene}, ${demo.rows.length} rows`)
