@@ -20,8 +20,10 @@ export function inPeriod(book, period) {
   const year=compositionYears[book.id];
   return Number.isFinite(year) && year>=period.from && year<period.to;
 }
+/** The house a menu category's books belong to (the two lists name one of them differently). */
+const houseOf=category=>({political:'politics'})[category]||category;
 export function populatedShelves(category, houses, books) {
-  const houseId=({political:'politics'})[category]||category;
+  const houseId=houseOf(category);
   const ids=new Set(books.map(book=>book.id));
   return (houses.find(h=>h.id===houseId)?.shelves||[])
     .map(s=>({...s,bookIds:s.bookIds.filter(id=>ids.has(id))})).filter(s=>s.bookIds.length);
@@ -63,4 +65,14 @@ export function homeRows(houses, shows=()=>true, ownRows=HOME_SHELF_ROWS) {
     }
   }
   return rows.filter(row=>row.bookIds.length);
+}
+
+/**
+ * The shelves the library menu lists right after a category: those of the category's house that have a
+ * row of their own on the home page (`ownRows`) and at least one book the page has (`shows`). A shelf
+ * in the menu opens its collection ("For young readers" after Novels; Anders, 27 Nov 2026).
+ */
+export function menuShelves(category, houses, shows=()=>true, ownRows=HOME_SHELF_ROWS) {
+  return (houses.find(house=>house.id===houseOf(category))?.shelves||[])
+    .filter(shelf=>ownRows.includes(shelf.id)&&(shelf.bookIds||[]).some(id=>shows(id)));
 }

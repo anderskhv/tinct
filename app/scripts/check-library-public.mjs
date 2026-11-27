@@ -119,6 +119,16 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  // Browser Back closes a category instead of leaving Tinct (QA 2026-10-01).
  await p.goBack();await p.waitForFunction(()=>document.getElementById('collection').hidden);
  assert.equal(new URL(p.url()).host,'tinct.app','Back from a category stays in Tinct');
+ // A shelf with a row of its own on the home page is in the menu, after its category, and opens its own page in the
+ // shelf's order (Anders, 27 Nov 2026: For young readers was missing from the menu).
+ await p.locator('#menu-toggle').click();
+ {const labels=await p.locator('#menu-categories button').allInnerTexts();assert.equal(labels[labels.indexOf('Novels')+1],'For young readers','the menu lists For young readers after Novels');}
+ await p.locator('#menu-categories button').filter({hasText:/^For young readers$/}).click();
+ assert.equal(await p.locator('#collection-title').innerText(),'For young readers');
+ {const shown=await p.locator('#collection-books [data-book]').evaluateAll(nodes=>[...new Set(nodes.map(node=>node.dataset.book))]);
+  assert.deepEqual(shown.slice(0,5),['alice-in-wonderland','pinocchio','grimms-fairy-tales','the-secret-garden','a-little-princess'],'the young readers page opens with its best-known books, in the shelf\'s order');
+  assert.equal(shown.length,14,'the young readers page shows the whole shelf');}
+ await p.goBack();await p.waitForFunction(()=>document.getElementById('collection').hidden);
  await p.locator('#menu-toggle').click();await p.locator('#menu-categories button').filter({hasText:/^Philosophy$/}).click();
  await p.locator('#collection-back').click();
  await p.locator('#menu-toggle').click();

@@ -96,7 +96,8 @@ describe('pre-reader catalogue layer', () => {
     }
     // For young readers (Anders, 26 Nov 2026): the order of its row on the library's home page.
     expect(listed.get('young-readers')).toEqual([
-      'the-secret-garden', 'wind-in-the-willows', 'merry-adventures-of-robin-hood', 'story-of-king-arthur-and-his-knights',
+      'alice-in-wonderland', 'pinocchio', 'grimms-fairy-tales', 'the-secret-garden', 'a-little-princess', 'jungle-book',
+      'wind-in-the-willows', 'merry-adventures-of-robin-hood', 'story-of-king-arthur-and-his-knights', 'arabian-nights',
       'wonder-book-and-tanglewood-tales', 'beautiful-stories-from-shakespeare', 'odyssey-for-boys-and-girls', 'iliad-for-boys-and-girls',
     ])
   })

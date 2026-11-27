@@ -2203,7 +2203,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "law"
     ],
     "shelves": [
-      "adventure"
+      "adventure",
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -2296,7 +2297,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "school"
     ],
     "shelves": [
-      "english-novels"
+      "english-novels",
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -2510,7 +2512,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ],
     "shelves": [
       "english-novels",
-      "satirical-novels"
+      "satirical-novels",
+      "young-readers"
     ],
     "langs": [
       "EN"
@@ -2983,7 +2986,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "cunning"
     ],
     "shelves": [
-      "folk-and-fairy-tales"
+      "folk-and-fairy-tales",
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -3008,7 +3012,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "wonder"
     ],
     "shelves": [
-      "folk-and-fairy-tales"
+      "folk-and-fairy-tales",
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -3056,7 +3061,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ],
     "shelves": [
       "folk-and-fairy-tales",
-      "adventure"
+      "adventure",
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -3435,10 +3441,16 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
     "sub": "Classics retold and written for younger readers",
     "hue": 130,
     "order": [
+      "alice-in-wonderland",
+      "pinocchio",
+      "grimms-fairy-tales",
       "the-secret-garden",
+      "a-little-princess",
+      "jungle-book",
       "wind-in-the-willows",
       "merry-adventures-of-robin-hood",
       "story-of-king-arthur-and-his-knights",
+      "arabian-nights",
       "wonder-book-and-tanglewood-tales",
       "beautiful-stories-from-shakespeare",
       "odyssey-for-boys-and-girls",
