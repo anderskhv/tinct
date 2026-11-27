@@ -106,6 +106,18 @@ export const DANISH_TITLES: Record<string, DanishTitle> = {
   'as-you-like-it': { titles: ['Som man behager'], source: 'established' },
   'measure-for-measure': { titles: ['Lige for lige'], source: 'established' },
   'henry-iv-part-2': { titles: ['Henrik IV'], source: 'established' },
+  // Looked up for /nudansk (Anders, 27 Nov 2026: "use what the normal Danish title is", never our own translation),
+  // in the Royal Library's catalogue (soeg.kb.dk) and lex.dk. Four books on that page have no Danish edition under
+  // any title that could be found (Church's two Homer retellings, Hawthorne's two volumes as one book, Nesbit's
+  // Shakespeare stories), so they are not here and keep their English titles until Anders names them.
+  'hume-enquiry': { titles: ['En undersøgelse af den menneskelige forstand', 'En undersøgelse af den menneskelige erkendelse'], source: repo('hume-enquiry'), checked: 'https://da.wikipedia.org/wiki/David_Hume' },
+  // Lembcke (1867) and Brunse (Samlede skuespil 2, 2012) both call it Tvillingerne.
+  'comedy-of-errors': { titles: ['Tvillingerne'], source: repo('comedy-of-errors'), checked: 'https://lex.dk/William_Shakespeare' },
+  'wind-in-the-willows': { titles: ['Vinden i piletræerne'], source: 'established', checked: 'https://lex.dk/Vinden_i_piletr%C3%A6erne' },
+  // The last full translation (Ella Willy Nielsen, Hernov 1972); the 1946 and 1952 editions' titles find it too.
+  'merry-adventures-of-robin-hood': { titles: ['Den vidtberømte Robin Hood og hans muntre eventyr', 'Robin Hood og hans lystige eventyr', 'Robin Hood'], source: 'established', checked: 'https://soeg.kb.dk/primaws/rest/pub/pnxs?q=title,contains,vidtber%C3%B8mte%20Robin%20Hood&vid=45KBDK_KGL:KGL&tab=Everything&scope=MyInst_and_CI&lang=da&limit=10&offset=0' },
+  // Bodil Holm's translation (Hernov 1991), catalogued with "Originaltitel: The story of King Arthur and his knights".
+  'story-of-king-arthur-and-his-knights': { titles: ['Kong Arthur og ridderne af det runde bord'], source: 'established', checked: 'https://soeg.kb.dk/primaws/rest/pub/pnxs?q=title,contains,Kong%20Arthur%20og%20ridderne%20af%20det%20runde%20bord&vid=45KBDK_KGL:KGL&tab=Everything&scope=MyInst_and_CI&lang=da&limit=8&offset=0' },
 }
 
 /**
@@ -125,6 +137,8 @@ export const DANISH_AUTHOR_NAMES: Record<string, string[]> = {
   'Leo Tolstoy': ['Lev Tolstoj'],
   'Fyodor Dostoevsky': ['Fjodor Dostojevskij'],
   'Jacob and Wilhelm Grimm': ['Jacob og Wilhelm Grimm', 'Brødrene Grimm'],
+  // King John is Johan uden Land in Danish (Magna Carta's author line on /nudansk).
+  'Anonymous (sealed by King John)': ['Anonym (beseglet af kong Johan uden Land)'],
 }
 
 /** A book's Danish titles, first the one to show, or []. */
