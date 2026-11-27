@@ -35,7 +35,10 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   // downloads only the edition that is open.
   // 2026-10-21.1 — own cards for the sons of Absalom (1 Macc 11:70, 13:11), whose
   // unlinked names drew a confident namesake from the contextual lookup.
-  bible: { editions: ['kjv-en', 'web-en', 'bsb-en', 'webc-en'], revision: '2026-10-21.1', perEdition: true },
+  // 2026-11-27.1 — WEB Romans 14: the doxology's verse numbers 24-26 are verse numbers,
+  // not "(14:24)" text; six links after them re-anchored by exact projection
+  // (scripts/reanchor-bible-web-romans-14.py). Card prose unchanged.
+  bible: { editions: ['kjv-en', 'web-en', 'bsb-en', 'webc-en'], revision: '2026-11-27.1', perEdition: true },
   // text-2026-11-18.1 (danish-recovered-batch-02) — Hamlet, King Lear, Othello, Romeo and Juliet,
   // Midsummer, Twelfth Night, The Tempest, Comedy of Errors, Coriolanus and Beyond Good and Evil:
   // modern-en mentions re-anchored by exact text after the English repairs published with the

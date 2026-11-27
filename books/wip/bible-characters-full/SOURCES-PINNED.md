@@ -5,9 +5,11 @@ The character package is anchored to the **exact bytes of the four edition files
 | Edition key | Path (repo) | Bytes | SHA-256 (= package `sourceSha256`) | Chapters | Paragraphs |
 |---|---|---|---|---|---|
 | kjv-en | app/public/data/editions/bible-kjv-en.json | 4,514,903 | `53823ea3d19a3d7b986563f9fb7015be4a75bb102bd6e6a714ee64ceed0ff26e` | 1189 | 6,704 |
-| web-en | app/public/data/editions/bible-web-en.json | 4,407,053 | `b0f491656782257e7b20f4a80add615cb363b8f324e54a4c1c457648328762aa` | 1189 | 6,704 |
+| web-en | app/public/data/editions/bible-web-en.json | 4,407,047 | `884892a850e2969989655fae0f9a8262c5e792433659d5f5504ef7f68f46c5c2` | 1189 | 6,704 |
 | bsb-en | app/public/data/editions/bible-bsb-en.json | 4,606,248 | `8da0bc1ae32d9c2e05ba5811d953e24bdff8351913ad8f2199142ca0081c61d9` | 1189 | 38,464 |
 | webc-en | app/public/data/editions/bible-webc-en.json | 5,055,438 | `695cff11f0ec1197edf3cc0aa975a7805ed7e36365001f9bfa1ac86703ac52d7` | 1328 | 10,618 |
+
+**web-en re-pinned on 2026-11-27 (contentVersion `2026-11-27.1`).** The edition changed in one paragraph: Romans 14 (chapter 1060, paragraph 4), where the doxology's verse numbers "(14:24)", "(14:25)", "(14:26)" became the edition's superscript verse numbers (`books/wip/romans-14-verse-numbers/HANDOFF.md`). The previous pin was `b0f491656782257e7b20f4a80add615cb363b8f324e54a4c1c457648328762aa` (4,407,053 bytes). `app/scripts/reanchor-bible-web-romans-14.py` moved the six links after the first number left by 5, 10 or 15 UTF-16 units and re-pinned that paragraph's hash; no card, identity decision or other link changed, and the other three edition slices are byte-identical.
 
 ## Baseline and instruction revision
 
