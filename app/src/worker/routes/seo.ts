@@ -394,6 +394,11 @@ function redirectTryToAbout(url: URL): Response {
 const MODERN_ENGLISH_PAGE_PATH = '/modern-english'
 /** Its Danish sibling (public/nudansk.html, same generator), listed since 26 Nov 2026 (Anders), served the same way. */
 const NUDANSK_PAGE_PATH = '/nudansk'
+/**
+ * The Shakespeare page (public/shakespeare.html, built by scripts/seo/build-shakespeare.mjs from src/seo/shakespearePage.ts;
+ * mockup approved by Anders, 27 Nov 2026), served the same way: indexable, in the sitemap, and signed-in readers may see it.
+ */
+const SHAKESPEARE_PAGE_PATH = '/shakespeare'
 async function serveModernEnglishPage(request: Request, url: URL, env: SeoEnv, pagePath: string = MODERN_ENGLISH_PAGE_PATH): Promise<Response> {
   if (url.pathname !== pagePath) {
     return new Response(null, { status: 301, headers: { Location: pagePath + url.search, 'Cache-Control': 'public, max-age=3600' } })
@@ -556,6 +561,9 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
     if ((request.method === 'GET' || request.method === 'HEAD') && /^\/nudansk(?:\.html|\/)?$/.test(url.pathname)) {
       return serveModernEnglishPage(request, url, env, NUDANSK_PAGE_PATH)
+    }
+    if ((request.method === 'GET' || request.method === 'HEAD') && /^\/shakespeare(?:\.html|\/)?$/.test(url.pathname)) {
+      return serveModernEnglishPage(request, url, env, SHAKESPEARE_PAGE_PATH)
     }
 
     // The privacy policy is one page at /privacy (public/privacy.html, served by

@@ -1,0 +1,109 @@
+/* The Shakespeare page (src/seo/shakespearePage.ts; mockup approved by Anders, 27 Nov 2026). It is the About page's
+   layout, so the room, the top bar, the Questions and the footer are the About page's own rules (../try/try.css,
+   loaded before this file). Here: the headline beside a passage of Hamlet in both editions, and the plays.
+   Playfair Display for titles, EB Garamond for book text, system UI for the chrome. Never mono, sentence case. */
+.shk {
+  --shk-paper: #ece7db;
+  --shk-ink: #1d1a16;
+  --shk-ink-soft: #3d382f;
+  --shk-ink-dim: #5e574c;
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+/* ---- Top bar: the logo and a quiet Sign in ---- */
+.shk-signin { grid-column: 3; justify-self: end; padding: 8px 2px; font-size: 14px; color: var(--try-muted-on-dark); text-decoration: none; }
+.shk-signin:hover { color: var(--try-cream-ink); }
+
+/* ---- Hero: the About page's grid, the headline level with the reader's top edge ---- */
+.shk-hero { padding: 96px 0 0; }
+.shk-stage {
+  max-width: 1400px; margin: 0 auto; padding: 0 32px 0 56px;
+  display: grid; grid-template-columns: 340px minmax(0, 1fr); grid-template-rows: auto 1fr; column-gap: 48px; align-items: start;
+}
+.shk-intro { grid-column: 1; grid-row: 1; }
+.shk-show { grid-column: 2; grid-row: 1 / span 2; }
+.shk-headline {
+  margin: -.12em 0 22px;
+  font-family: var(--tui-font-display); font-weight: 700; font-size: clamp(36px, 3.2vw, 48px); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance;
+}
+.shk-sub { margin: 0 0 26px; max-width: 30ch; font: 400 19px/1.45 var(--tui-font-serif); color: var(--try-muted-on-dark); }
+.shk-pick {
+  grid-column: 1; grid-row: 2; justify-self: start;
+  display: inline-flex; align-items: center; gap: 10px; padding: 6px 0;
+  font: 400 18px/1.3 var(--tui-font-serif); color: var(--try-cream-ink); text-decoration: none;
+}
+.shk-pick:hover { text-decoration: underline; text-underline-offset: 4px; }
+.shk-pick span { display: inline-block; animation: shk-nudge 1.8s ease-in-out infinite; }
+@keyframes shk-nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+/* ---- The passage: both editions side by side, each row the same lines ---- */
+.shk-reader {
+  position: relative; padding: 0 0 26px; border-radius: 16px;
+  background: var(--shk-paper); color: var(--shk-ink); box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+}
+.shk-bar { display: flex; align-items: baseline; justify-content: center; gap: 8px; padding: 17px 18px 13px; }
+.shk-book { font: 600 16px/1.2 var(--tui-font-display); color: #3b362f; }
+.shk-scene { font: italic 400 14px/1.2 var(--tui-font-serif); color: var(--shk-ink-dim); }
+.shk-switch { display: none; }
+.shk-text { padding: 2px 40px 0; }
+.shk-heads, .shk-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 28px; }
+.shk-heads span { padding-bottom: 8px; font: 500 12.5px/1.3 var(--tui-font-ui); color: var(--shk-ink-dim); }
+.shk-row p { margin: 0 0 11px; font: 400 17px/1.5 var(--tui-font-serif); }
+.shk-modern { color: var(--shk-ink-soft); }
+/* A verse line that has to wrap hangs its second part in, as verse is set. */
+.shk-line { display: block; padding-left: 1.2em; text-indent: -1.2em; }
+
+/* ---- The plays ---- */
+/* Pick a play lands with the heading just under the top bar and the passage out of sight behind it. */
+.shk-plays { max-width: 1400px; margin: 0 auto; padding: 44px 32px 72px 56px; scroll-margin-top: 48px; }
+.shk-plays h2 { margin: 0 0 4px; font: 600 26px/1.15 var(--tui-font-display); }
+.shk-plays > p { margin: 0 0 14px; font: 400 17px/1.4 var(--tui-font-serif); color: var(--try-muted-on-dark); }
+.shk-covers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 22px 14px; }
+.shk-covers a { display: block; font: 400 15px/1.2 var(--tui-font-serif); color: var(--try-cream-ink); text-decoration: none; }
+.shk-covers img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 2px; margin-bottom: 6px; background: #1a1713; box-shadow: 0 8px 20px rgba(0, 0, 0, .45); }
+.shk-covers a:hover span { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 1180px) {
+  .shk-stage { grid-template-columns: 280px minmax(0, 1fr); column-gap: 32px; padding: 0 24px 0 32px; }
+  .shk-text { padding: 2px 28px 0; }
+  .shk-heads, .shk-row { column-gap: 22px; }
+  .shk-row p { font-size: 16px; }
+  .shk-plays { padding: 44px 24px 64px 32px; }
+}
+
+/* ---- Phones and narrow windows: the headline, the passage in a phone (one edition at a time, behind the switch
+   the phone reader has), Pick a play, then the plays ---- */
+@media (max-width: 899px) {
+  .shk-signin { display: none; }
+  .shk-hero { padding: 62px 0 0; }
+  .shk-stage { display: block; padding: 0 16px; }
+  .shk-headline { margin: 0; font-size: 26px; line-height: 1.08; text-wrap: wrap; }
+  .shk-sub { margin: 12px 0 0; max-width: none; font-size: 17px; }
+  .shk-show { display: flex; justify-content: center; margin-top: 22px; }
+  .shk-reader {
+    width: 250px; min-height: 492px; padding: 0 0 16px;
+    border: 6px solid #12100e; border-radius: 34px; box-shadow: 0 0 0 1.5px #9a6a45, 0 14px 30px rgba(0, 0, 0, .4);
+  }
+  .shk-reader::before { content: ''; position: absolute; top: 6px; left: 50%; width: 62px; height: 18px; margin-left: -31px; border-radius: 12px; background: #000; }
+  .shk-bar { align-items: center; justify-content: flex-start; padding: 34px 12px 8px; }
+  .shk-book { font-size: 11.5px; }
+  .shk-scene { display: none; }
+  .shk-switch { display: inline-flex; margin-left: auto; padding: 2px; border-radius: 999px; background: #e0d8c8; }
+  .shk-switch button {
+    position: relative; padding: 3px 9px; border: 0; border-radius: 999px; background: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+    font: italic 400 11.5px/1.2 var(--tui-font-serif); color: var(--shk-ink-dim);
+  }
+  /* The switch is drawn at the phone's scale; its buttons take a finger all the same. */
+  .shk-switch button::after { content: ''; position: absolute; inset: -13px -2px; }
+  .shk-switch button[aria-pressed="true"] { background: var(--shk-paper); color: var(--shk-ink); box-shadow: 0 1px 3px rgba(0, 0, 0, .15); }
+  .shk-text { padding: 4px 14px 0; }
+  .shk-heads { display: none; }
+  .shk-row { display: block; }
+  .shk-row p { margin: 0 0 6px; font-size: 12.5px; line-height: 1.45; }
+  .shk-reader[data-view="original"] .shk-modern, .shk-reader[data-view="modern"] .shk-original { display: none; }
+  .shk-pick { display: flex; justify-self: auto; justify-content: center; margin-top: 20px; }
+  .shk-plays { padding: 26px 16px 48px; scroll-margin-top: 28px; }
+  .shk-plays h2 { font-size: 22px; }
+  .shk-covers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .shk-pick span { animation: none; } }
