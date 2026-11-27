@@ -174,6 +174,22 @@ export function remoteResumeSelection(place: LabBookPlace, current: { libraryBoo
   return { bookId, primaryEditionKey, compareEditionKey, prefs }
 }
 
+/**
+ * The audio edition to load with a resumed place: the one that goes with the place's own edition (the selection's
+ * prefs are synced to it), and only when that edition of the book has narration in the place's language; else
+ * none, and the loader chooses. Never the audio edition this device had open: narration in another language is
+ * no narration for the place, and the loader refuses the pair. Passing it made every resume across languages fail
+ * (a place saved in Danish, opened on a device showing the book in English, or the reverse): the reader stayed on
+ * its old chapter under "Your saved chapter is temporarily unavailable", and its next page turn saved that old
+ * chapter as the newest place.
+ */
+export function remoteResumeAudioEditionKey(selection: LabRemoteResumeSelection): string | undefined {
+  const editions = selection.bookId === 'bible' ? bibleEditions() : getBook(selection.bookId)?.editions ?? []
+  const primary = editions.find(edition => edition.key === selection.primaryEditionKey)
+  const audio = selection.prefs.audioEdition
+  return primary && editions.some(edition => edition.key === audio && edition.hasAudio && edition.language === primary.language) ? audio : undefined
+}
+
 /** Shared with the book-only link (labReaderHandoff.ts), so its first paint and this resolution agree. */
 export { resumePlaceForLibrary }
 

@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 
 import { act, cleanup, render, waitFor } from '@testing-library/react'
+import { getBook } from '../data/bookRegistry'
 import type { MutableRefObject } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
@@ -15,7 +16,7 @@ import {
 import { clearLabPositionLocal, readLabPositionLocal } from './labPositionStore'
 import * as sourceModule from './labSource'
 import { bibleFallbackSource, type LabChapter, type LabSource } from './labSource'
-import { bookFromResumePlace, bootLabReading, placeRestoresInView, remoteResumeSelection, resumePlaceEditionKey, resumePlaceForLibrary, useLabPositionSync } from './useLabPositionSync'
+import { bookFromResumePlace, bootLabReading, placeRestoresInView, remoteResumeAudioEditionKey, remoteResumeSelection, resumePlaceEditionKey, resumePlaceForLibrary, useLabPositionSync } from './useLabPositionSync'
 import { readLabPrefs } from './labPrefs'
 
 const PHONE = 'phone-device'
@@ -686,6 +687,39 @@ describe('remoteResumeSelection', () => {
     expect(resumePlaceEditionKey(danish)).toBeUndefined()
     const modern = { ...prefs, primaryEdition: 'modern-en', audioEdition: 'modern-en' }
     expect(remoteResumeSelection(danish, { libraryBookId: 'pride-and-prejudice', prefs: modern })).toMatchObject({ primaryEditionKey: 'modern-en' })
+  })
+
+  // 27 Nov 2026: a place saved in Danish, opened on a device showing the book in English (or the reverse), never
+  // loaded: the reader passed the audio edition it had open, the loader refused it for the place's language, and
+  // the reader stayed on its old chapter under "Your saved chapter is temporarily unavailable".
+  it('loads a place with the audio edition of its own language, never the one this device had open', () => {
+    const editions = getBook('crito')!.editions
+    const valid = (selection: NonNullable<ReturnType<typeof remoteResumeSelection>>) => {
+      const key = remoteResumeAudioEditionKey(selection)
+      const primary = editions.find(edition => edition.key === selection.primaryEditionKey)!
+      // Nothing, and the loader chooses; or an edition with narration in the place's language.
+      if (key !== undefined) expect(editions.some(edition => edition.key === key && edition.hasAudio && edition.language === primary.language), `${selection.primaryEditionKey} with ${key}`).toBe(true)
+      return key
+    }
+    const place = (primaryEditionKey: string): LabBookPlace => ({ ...hebrews3(), bookId: 'crito', headerBook: 'Crito', chapterNumber: 2, sequentialChapter: 2, primaryEditionKey })
+    const english = { ...prefs, primaryEdition: 'modern-en', audioEdition: 'modern-en', audioFollowsPrimary: true }
+    const danish = { ...prefs, primaryEdition: 'modern-da', audioEdition: 'modern-da', audioFollowsPrimary: true }
+    // A Danish place on a device showing English: never the English narration.
+    const toDanish = remoteResumeSelection(place('modern-da'), { libraryBookId: 'crito', prefs: english })!
+    expect(toDanish.primaryEditionKey).toBe('modern-da')
+    expect(valid(toDanish)).not.toBe('modern-en')
+    // An English place on a device showing Danish: never the Danish one.
+    const toEnglish = remoteResumeSelection(place('original-en'), { libraryBookId: 'crito', prefs: danish })!
+    expect(toEnglish.primaryEditionKey).toBe('original-en')
+    expect(valid(toEnglish)).not.toBe('modern-da')
+    // Even when the reader had picked that narration by hand.
+    expect(valid(remoteResumeSelection(place('modern-da'), { libraryBookId: 'crito', prefs: { ...english, audioFollowsPrimary: false } })!)).not.toBe('modern-en')
+    // Inside one language nothing changes: the open narration goes with the place.
+    const same = remoteResumeSelection(place('original-en'), { libraryBookId: 'crito', prefs: english })!
+    expect(valid(same)).toBe(same.prefs.audioEdition)
+    // The Bible, as before.
+    const bible = remoteResumeSelection({ ...hebrews3(), primaryEditionKey: 'kjv-en' }, { libraryBookId: 'bible', prefs: { ...prefs, audioEdition: 'kjv-en' } })!
+    expect(remoteResumeAudioEditionKey(bible)).toBe(bible.prefs.audioEdition)
   })
 
   it('restores in view only a place whose words are the ones on screen', () => {

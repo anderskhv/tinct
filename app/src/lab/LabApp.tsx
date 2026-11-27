@@ -220,7 +220,7 @@ import { readerEditionLabel } from './editionDifficulty'
 import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bibleEditionChapters'
 import { withTextRetries } from './labTextRetry'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
-import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
+import { bootLabReading, remoteResumeAudioEditionKey, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
@@ -1895,7 +1895,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         chapterNumber: place.sequentialChapter,
         primaryEditionKey: selection.primaryEditionKey,
         compareEditionKey: selection.compareEditionKey,
-        audioEditionKey: selection.bookId === currentLibraryBookId ? audioEditionKey : undefined,
+        // The place's own audio edition, never the one this device had open (remoteResumeAudioEditionKey).
+        audioEditionKey: selection.bookId === currentLibraryBookId ? remoteResumeAudioEditionKey(selection) : undefined,
       }).then((loaded) => {
         if (navigation !== chapterNavigationRef.current) return
         if (loaded.chapterNumber !== place.sequentialChapter || !loaded.paragraphs.length) {

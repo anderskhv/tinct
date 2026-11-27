@@ -286,6 +286,11 @@ jobs:
         env:
           TINCT_CONTINUE_FURTHER_OUTPUT: artifacts/continue-further
         run: node scripts/check-continue-further.mjs
+      - name: Verify a place saved in one language opens on a device that had the book open in another
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_RESUME_LANGUAGES_OUTPUT: artifacts/resume-across-languages
+        run: node scripts/check-resume-across-languages.mjs
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
