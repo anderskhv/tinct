@@ -56,8 +56,8 @@ export function bookCategory(book) {
 /**
  * DOM text nodes keep catalogue text safe in both library layouts.
  * `title` writes the book's title and author first, for a cover that stands alone on a shelf row: several
- * covers cannot be read at that size (Anders, 27 Nov 2026). The row's heading already names the category,
- * so a titled caption leaves the category label out.
+ * covers cannot be read at that size (Anders, 27 Nov 2026). No caption carries the all-caps category label
+ * any more ("FICTION"; Anders, 27 Nov 2026): the year and the reading time are what it says.
  */
 export function renderBookMetadata(element, book, { compact = false, percent = null, title = false } = {}) {
   element.replaceChildren();
@@ -69,12 +69,6 @@ export function renderBookMetadata(element, book, { compact = false, percent = n
       line.className = className; line.textContent = value;
       element.append(line);
     }
-  }
-  const category = title ? '' : bookCategory(book);
-  if (category) {
-    const label = document.createElement('span');
-    label.className = 'metadata-category'; label.textContent = category;
-    element.append(label);
   }
   const details = document.createElement('span');
   details.className = 'metadata-details';
