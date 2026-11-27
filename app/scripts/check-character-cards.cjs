@@ -18,7 +18,7 @@ async function press(word){await word.dispatchEvent('pointerdown',{pointerType:'
  const before=await place(p);if(conf.width>=800) await word.click(); else await press(word);await p.locator('[data-popup-mode="character"]').waitFor();
  assert.match(await p.locator('.popup-character h2').innerText(),/Pontellier/);
  assert.deepEqual(await place(p),before);await p.waitForTimeout(300);await p.screenshot({path:`${dir}/${conf.name}-${edition}-card.png`});
- await p.getByRole('button',{name:'Character gallery',exact:true}).click();assert.equal(await p.locator('.popup-character-gallery').getByText('Alcée Arobin').count(),0);assert.deepEqual(await place(p),before);
+ await p.getByRole('button',{name:'People so far',exact:true}).click();assert.equal(await p.locator('.popup-character-gallery').getByText('Alcée Arobin').count(),0);assert.deepEqual(await place(p),before);
  await p.keyboard.press('Tab');assert.ok(await p.locator('.selection-popup').evaluate(e=>e.contains(document.activeElement)));
  await p.keyboard.press('Escape');assert.equal(await p.locator('.selection-popup').count(),0);assert.deepEqual(await place(p),before);
  assert.equal(errors.length,0,errors.join('\n'));results.push({name:conf.name,edition,before});await p.close();
