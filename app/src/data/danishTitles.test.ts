@@ -8,7 +8,8 @@ import { PRE_READER_CATALOGUE } from '../preReader/catalogue'
 import { createLibrarySearch } from '../../public/lab/library_2/library-search.js'
 
 // Danish titles are never invented (Anders, 2026-11-13): each is the one Tinct's own Danish
-// text uses, or a long-established Danish title marked as such.
+// text uses, a long-established Danish title marked as such, or, for a book with no Danish
+// edition under any title, the one Anders approved (27 Nov 2026).
 describe('Danish titles for search', () => {
   const registry = new Map(BOOKS.map(book => [book.id, book]))
 
@@ -23,10 +24,16 @@ describe('Danish titles for search', () => {
 
   it('takes a title from the repo only where its Danish text uses it', () => {
     for (const [id, { titles, source }] of Object.entries(DANISH_TITLES)) {
-      if (source === 'established') continue
+      // 'approved': no Danish edition exists; Anders approved the title (27 Nov 2026).
+      if (source === 'established' || source === 'approved') continue
       const text = readFileSync(join(__dirname, '../../public', source), 'utf8')
       expect(text.includes(titles[0]), `${id}: "${titles[0]}" in ${source}`).toBe(true)
     }
+  })
+
+  it('marks as approved only the four books with no Danish edition to take a title from', () => {
+    expect(Object.entries(DANISH_TITLES).filter(([, entry]) => entry.source === 'approved').map(([id]) => id).sort())
+      .toEqual(['beautiful-stories-from-shakespeare', 'iliad-for-boys-and-girls', 'odyssey-for-boys-and-girls', 'wonder-book-and-tanglewood-tales'])
   })
 
   it('spells only authors the registry names', () => {
