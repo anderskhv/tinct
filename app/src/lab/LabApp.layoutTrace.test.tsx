@@ -53,7 +53,7 @@ function runCharacterSteps() {
   fireEvent.pointerDown(word, { pointerId: 42, pointerType: 'mouse', clientX: 150, clientY: 200 })
   fireEvent.pointerUp(word, { pointerId: 42, pointerType: 'mouse', clientX: 150, clientY: 200 })
   expect(screen.getByTestId('lab-phone-character')).toBeTruthy()
-  fireEvent.click(screen.getByRole('button', { name: 'Character gallery' }))
+  fireEvent.click(screen.getByRole('button', { name: 'People so far' }))
   fireEvent.click(screen.getByRole('button', { name: /^James/ }))
   fireEvent.keyDown(window, { key: 'Escape' })
   expect(screen.queryByTestId('lab-phone-character')).toBeNull()
