@@ -36,6 +36,22 @@ export function labPageGeometryChanged(
     || Math.abs(previous.height - next.height) > tolerance
 }
 
+/**
+ * Whether pages were laid out for the shell as tall as it is now. Pages from
+ * another height (a keyboard had the window short, the phone was turned) are
+ * not ones to keep on screen "exactly as laid out" (LabApp's page freeze,
+ * LabNativePaginator's keepPages): kept, a half-height page stayed half
+ * height in the full shell. A height that was never measured says nothing.
+ */
+export function labPageMapFitsShell(
+  mapShellHeight: number | null | undefined,
+  shellHeight: number | null | undefined,
+  tolerance = 1,
+): boolean {
+  if (!mapShellHeight || !shellHeight || mapShellHeight <= 0 || shellHeight <= 0) return true
+  return Math.abs(mapShellHeight - shellHeight) <= tolerance
+}
+
 export function labVisibleChrome(state: LabChromeState, peekBook: boolean): LabChromeState {
   return peekBook ? 'reading' : state
 }
@@ -350,6 +366,36 @@ export function labKeyboardSheetFocused(active: Element | null | undefined): boo
 }
 
 /**
+ * After a keyboard-docked sheet's field loses the focus the keyboard is still
+ * on its way down and the window's figures are mid-animation: the shell keeps
+ * its height this long. Shorter than the last measurement a lost focus
+ * schedules (1200 ms), which takes the true height.
+ */
+export const LAB_KEYBOARD_SHEET_HOLD_MS = 1000
+
+/**
+ * The shell's height while a keyboard-docked sheet's keyboard is up
+ * (`holding`): never less than it was before the keyboard came, at the same
+ * window width. The visual viewport is already left out of it then
+ * (labVisualViewportHeightPx), but the window's own height can drop too: a
+ * window panned past the document's end to show the field can report only
+ * what is left of it, and some browsers resize the window for the keyboard.
+ * The shell took that height, the chapter was laid out again in half-height
+ * pages behind the card, and a follow-up that opened Chat kept such a page
+ * for good (iPhone, 26 and 27 Nov 2026: half the page blank after a card with
+ * follow-ups). A new width is a rotation: the measured height stands.
+ */
+export function labShellHeightPx(
+  measured: number,
+  held: { px: number; width: number } | null,
+  width: number,
+  holding: boolean,
+): number {
+  if (!holding || !held || held.px <= 0 || Math.abs(held.width - width) > 1) return measured
+  return Math.max(measured, held.px)
+}
+
+/**
  * How far the software keyboard (or anything else hiding the bottom of the
  * window) reaches up from the layout bottom: what a `position: fixed` sheet
  * adds to `bottom` to sit directly above it.
@@ -398,16 +444,27 @@ export function labShouldResetViewportPan(input: {
  * undo the pan Safari applies to reveal the focused composer.
  */
 export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
+  // The height the shell had, and the window width it had it at, for labShellHeightPx.
+  let held: { px: number; width: number } | null = null
+  let holdUntil = 0
+  let tracedHeld = 0
   const apply = () => {
     if (typeof window === 'undefined') return
     const viewport = window.visualViewport
     const active = typeof document !== 'undefined' ? document.activeElement : null
     const textEntryFocused = labTextEntryFocused(active)
+    const sheetFocused = labKeyboardSheetFocused(active)
     // A keyboard-docked note sheet keeps the shell (and so the page) as it is.
-    const px = labVisualViewportHeightPx(viewport?.height, window.innerHeight, { textEntryFocused: textEntryFocused && !labKeyboardSheetFocused(active), scale: viewport?.scale })
+    const measured = labVisualViewportHeightPx(viewport?.height, window.innerHeight, { textEntryFocused: textEntryFocused && !sheetFocused, scale: viewport?.scale })
+    const width = window.innerWidth
+    const px = labShellHeightPx(measured, held, width, sheetFocused || Date.now() < holdUntil)
+    if (px > 0) held = { px, width }
     if (layoutTraceOn() && px > 0 && host.style.getPropertyValue(LAB_VVH_VAR) !== `${px}px`) {
-      layoutTrace('vvh', { px, was: host.style.getPropertyValue(LAB_VVH_VAR) || null, text: textEntryFocused, sheet: labKeyboardSheetFocused(active) })
+      layoutTrace('vvh', { px, was: host.style.getPropertyValue(LAB_VVH_VAR) || null, text: textEntryFocused, sheet: sheetFocused })
     }
+    // The window reported less than the shell keeps (once per figure, not per keystroke).
+    if (layoutTraceOn() && px !== measured && measured !== tracedHeld) layoutTrace('vvh-held', { px, measured, sheet: sheetFocused, sy: Math.round(window.scrollY) })
+    tracedHeld = px !== measured ? measured : 0
     if (px > 0) host.style.setProperty(LAB_VVH_VAR, `${px}px`)
     const panned = labShouldResetViewportPan({
       offsetTop: viewport?.offsetTop,
@@ -444,7 +501,11 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
   if (typeof document !== 'undefined') document.addEventListener('visibilitychange', returned)
   // The keyboard going down: iOS may restore (or forget) its pan after the
   // field loses focus, with no viewport event after it.
-  if (typeof document !== 'undefined') document.addEventListener('focusout', settle)
+  const left = (event: Event) => {
+    if (labKeyboardSheetFocused(event.target instanceof Element ? event.target : null)) holdUntil = Date.now() + LAB_KEYBOARD_SHEET_HOLD_MS
+    settle()
+  }
+  if (typeof document !== 'undefined') document.addEventListener('focusout', left)
   return () => {
     viewport?.removeEventListener('resize', apply)
     viewport?.removeEventListener('scroll', apply)
@@ -457,7 +518,7 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
     settling.forEach(clearTimeout)
     if (typeof document !== 'undefined') {
       document.removeEventListener('visibilitychange', returned)
-      document.removeEventListener('focusout', settle)
+      document.removeEventListener('focusout', left)
     }
     host.style.removeProperty(LAB_VVH_VAR)
   }
