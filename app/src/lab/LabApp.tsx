@@ -56,7 +56,7 @@ import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { useVoicePersonaSync } from './useVoicePersonaSync'
 import { useAiSettingsAccountSync } from './labAiAccount'
 import { useSelectionActions } from './labSelectionActions'
-import { setAiSettingsBook } from './labAiPrefs'
+import { aiPrefsFor, setAiSettingsBook } from './labAiPrefs'
 import { useSwipeDownClose } from './useSwipeDownClose'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
@@ -145,7 +145,7 @@ import { figureImageBlock } from './labFigureImage'
 import { LabShareSheet, type LabShareTarget } from './LabShareSheet'
 import type { OwnChapterNotesSource } from './userBook/ownChapterNotes'
 import { LabChapterNotesSheet } from './LabChapterNotesSheet'
-import { CHAPTER_SUMMARY_KIND, chapterNotesText, chapterNotesTitle, saveExplanation } from './labChapterNotes'
+import { CHAPTER_SUMMARY_KIND, chapterNotesText, chapterNotesTitle, saveExplanation, storedChapterNotes } from './labChapterNotes'
 import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
 import { LAB_V2_VERSION_PILL_MS, labPrefsForMainEdition, type LabV2SheetLayer } from './labV2Sheet'
 import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, MODERN_PREMIUM_REQUIRED, startModernCheckout, useLabModernEdition, type ModernVisible } from './labModernEdition'
@@ -243,7 +243,8 @@ import type { ChatConversation, HighlightColor } from '../types'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { TRY_DEMO, TRY_DEMO_DESKTOP_FONT_SIZE, tryDemoTell, useTryDemo, type TryDemoHandles } from './tryDemo/tryDemo'
 import { MarginFirstHint, marginStartCard } from './marginFirstHint'
-import { FREE_MODE, FREE_MODE_COMMANDS, FREE_MODE_HOME, freeModeAllowsAccountPrompt, freeModeEditionFor, freeModeEditions, freeModeMenuRows, freeModeSourceLine, otherFreeModeEdition, withFreeMode } from './freeMode/freeMode'
+import { FREE_MODE, FREE_MODE_COMMANDS, FREE_MODE_HOME, FREE_MODE_HOME_NAME, FREE_MODE_REF, freeModeAllowsAccountPrompt, freeModeEditionFor, freeModeEditions, freeModeMenuRows, freeModeSourceLine, otherFreeModeEdition, withFreeMode } from './freeMode/freeMode'
+import { freeModeAiRowKey, pressFreeModeAiRow } from './freeMode/freeModeAiRows'
 import { LabFreeModeEditions, LabFreeModePhoneBand } from './freeMode/LabFreeMode'
 import { FreeModeSourceContext } from './freeMode/freeModeContext'
 import { useLabHighlights } from './useLabHighlights'
@@ -255,7 +256,7 @@ import { LabAccountSheet } from './LabAccountPrompt.tsx'
 import { rememberSignInBook } from './signInEntry'
 import { LabSavePlaceWelcome, SavePlaceContext, type SavePlaceReader } from './LabSavePlaceBox'
 import { previousReadingAtThisLoad, readSavePlace, welcomeBackDue } from './labSavePlace'
-import { clearLabAiActionCount, labCurrentPath, type LabAccountPromptRequest } from './labAccountPrompt'
+import { clearLabAiActionCount, labCurrentPath, labSignInHref, type LabAccountPromptRequest } from './labAccountPrompt'
 import { narrationBridgeUrls, useLabListen, type NextChapterAudio } from './useLabListen'
 import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, type LabCompareAnchor } from './labCompare'
 import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
@@ -6236,6 +6237,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
   }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights, privateBook])
 
+  // Free reading mode: the AI cards this page has already counted against the device's free actions (freeModeAiRows.ts).
+  const freeModeAiMadeRef = useRef(new Set<string>())
   const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber, from: 'pill' | 'menu' = 'menu', as?: 'summary', at?: 'end') => {
     if (initialResolving || book.chaptersProvisional) return
     const chapter = book.chapters.find(item => item.number === chapterNumber)
@@ -6253,17 +6256,29 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // 'sofar' is the chapter pill's Summary (start actions, 9 Nov 2026).
     // The chapter pill's Summary is the whole chapter, the chapter end's Recap under the pill's own name (Anders, 11 Nov 2026).
     const title = chapterNotesTitle(kind, label, as)
+    const request: ChapterNotesRequest = {
+      bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
+      ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
+    }
     dictation.stop()
     setSuperMenuOpen(false)
+    // Free reading mode (freeModeAiRows.ts): a chapter card is one of the device's free AI actions, counted here,
+    // whatever opened it, before the card can ask for anything; once they are used, the account sheet instead. A
+    // card this device already holds (as the sheet looks it up, with the reader's AI settings) is shown uncounted.
+    if (FREE_MODE) {
+      const ai = aiPrefsFor(kind === 'primer' ? 'primer' : 'summary')
+      const outcome = pressFreeModeAiRow({
+        key: freeModeAiRowKey(kind === 'end' ? 'summary' : kind, request), made: freeModeAiMadeRef.current,
+        held: !!storedChapterNotes(ai ? { ...request, ai } : request),
+      })
+      if (outcome === 'account') { setAccountPrompt({ action: 'chat' }); return }
+    }
     setChapterNotes({
       ...(continuousReader ? {railAnchor: from === 'pill' ? marginChapterBoundary(readerParagraphs, kind === 'end' && (as !== 'summary' || at === 'end')) ?? undefined : {paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0}} : {}),
       title,
       ...(as ? { as } : {}),
       ...(at === 'end' ? { atEnd: true } : {}),
-      request: {
-        bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
-        ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
-      },
+      request,
       ...(privateBook && ownParagraphs ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber, chapterTitle: chapter?.title || book.chapterLabel || label, paragraphs: ownParagraphs, chapters: book.chapters.map(item => ({ number: item.number, title: item.title })) } } : {}),
     })
   }, [book, dictation, initialResolving, readerEditionKey, privateBook, handleChapterChat, continuousReader, readerParagraphs])
@@ -6297,8 +6312,38 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       dictation: { signedIn, getAuthToken: () => authToken ?? readSupabaseAccessToken() },
     }))
   }, [resolvedDarkMode, showPhoneChrome, authUser?.id, book.bookId, book.bookTitle, signedIn, authToken])
-  const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
+  const handleSuperMenuSelect = useCallback((id: LabSuperMenuId, from: 'menu' | 'elsewhere' = 'menu') => {
     setSuperMenuOpen(false)
+    if (FREE_MODE) {
+      // Free reading mode's own rows (freeMode.ts freeModeMenuRows; Anders, 27 Nov 2026). Appearance, Book settings
+      // and, with no page to go back to, Library are the reader's own below.
+      // Summarize this chapter: the chapter's Summary card, at the reader's place; counted in openChapterNotes.
+      if (id === 'summarize') { openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'menu', 'summary'); return }
+      if (id === 'catchup') {
+        if (initialResolving || book.chaptersProvisional) return
+        // Catch me up is one of the device's free AI actions (freeModeAiRows.ts); in the book's first chapter there
+        // is nothing before the reader, so nothing is asked for or counted.
+        const outcome = pressFreeModeAiRow({
+          key: freeModeAiRowKey('catchup', { bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber: book.chapterNumber }),
+          made: freeModeAiMadeRef.current, held: book.chapters.findIndex(chapter => chapter.number === book.chapterNumber) <= 0,
+        })
+        if (outcome === 'account') setAccountPrompt({ action: 'chat' })
+        else setSuperSheet('catchup')
+        return
+      }
+      // The way back to the page the reader came from, as the back arrow goes (the book picker's Library and the
+      // L key are still the full library).
+      if (id === 'library' && FREE_MODE_REF && from === 'menu' && typeof window !== 'undefined') { notePlace('hide'); window.location.assign(FREE_MODE_HOME); return }
+      // Create profile: the sign-up sheet, as the account sheet's own button opens it. It returns to this address,
+      // where a signed-in visitor gets the normal reader at the place this device kept (freeMode.ts).
+      if (id === 'account') {
+        if (typeof window === 'undefined') return
+        rememberSignInBook(book.bookTitle)
+        notePlace('hide')
+        window.location.assign(labSignInHref('create', labCurrentPath(), 'save_place'))
+        return
+      }
+    }
     if (id === 'ai') { openAiSettings(); return }
     // Reading angle: AI settings' This book with the caret in the angle, the existing flow (16 Nov 2026).
     if (id === 'angle') { openReadingAngleRef.current(); return }
@@ -6335,7 +6380,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
     leaveForLibrary(privateLibraryDestination(`${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}`, sharedReader))
-  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, ownEditions, openChapterNotes, signedIn, sharedReader, continuousReader, openAiSettings])
+  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, ownEditions, openChapterNotes, signedIn, sharedReader, continuousReader, openAiSettings, book.bookId, book.bookTitle, book.chapterNumber, book.chapters, book.chaptersProvisional, initialResolving, readerEditionKey, notePlace])
 
   // A PDF's Original pages, picked in Book editions: the same spot, kept as the
   // place it shares with its Tinct text and sent at once, opens in Add a book's viewer.
@@ -6950,7 +6995,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       { id: 'modern', label: 'Read modern English', key: 'm', enabled: () => canReadCommand() && !!editionCommand('modern'), run: () => { const e=editionCommand('modern');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
       { id: 'compare', label: 'Compare editions', key: 'x', enabled: () => canReadCommand() && !handheldMargin && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled), run: () => (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() },
       { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
-      { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
+      { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library', 'elsewhere') },
       { id: 'settings', label: 'Aa', key: 's', run: () => handleSuperMenuSelect('text') },
       { id: 'audio', label: 'Audio settings', key: 'v', run: () => handleSuperMenuSelect('audio') },
       { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
@@ -7312,7 +7357,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const undo = ask.deleteCard(item.id)
     if (undo) { setMarginUndo(() => () => { undo() }); setDesktopLiveCards(current => current.filter(card => desktopCardId(card) !== item.id)); if (desktopOpenId === item.id) { setDesktopOpenId(null); setPhoneCard(null) } }
   }
-  const liveIds = new Set([...desktopLiveCards.map(desktopCardId), ...desktopChapterCards.map(unitRailId), ...(desktopCatchup ? [`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`] : [])])
+  // The margin's Catch me up card follows the reader's chapter and edition, asking for each anew. Free reading mode
+  // draws it only where one was counted (freeModeAiRows.ts; the book's first chapter asks for nothing), so a change
+  // of edition or chapter never makes, and asks for, another by itself.
+  const desktopCatchupShown = desktopCatchup && (!FREE_MODE
+    || freeModeAiMadeRef.current.has(freeModeAiRowKey('catchup', { bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber: book.chapterNumber }))
+    || book.chapters.findIndex(chapter => chapter.number === book.chapterNumber) <= 0)
+  const liveIds = new Set([...desktopLiveCards.map(desktopCardId), ...desktopChapterCards.map(unitRailId), ...(desktopCatchupShown ? [`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`] : [])])
   // A folded card's line (cardPreview.ts): a definition's own line, a structured answer as saved, else the bottom line.
   const marginAnswerPreview = (kind: string, raw: string) => kind === 'define' ? contextualLookupPreview(raw) : /^\s*[{[]/.test(raw) ? raw : answerLead(raw)
   const marginActionLabel = (kind: string) => ({ catchup: CATCH_UP_TITLE, primer: 'Primer', recap: 'Recap', ...PHONE_CARD_NAMES } as Record<string, string>)[kind] || kind.charAt(0).toUpperCase() + kind.slice(1)
@@ -7547,7 +7598,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         onReady={beats => saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats), notes.request.chapterNumber)}
         follow={beats => <>{unitRailThread(id)}<PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft} onSend={question => { if (beats) saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats)); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueChapterNotes('talk', notes.title, beats)} disabled={ask.typedLoading} /></>} /> })
   }
-  if (continuousReader && desktopCatchup && !userBook) {
+  if (continuousReader && desktopCatchupShown && !userBook) {
     const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
     desktopMarginEntries.push({ id, label: desktopCatchupAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: catchUpOrder(id), open: desktopOpenId === id, free: true,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
@@ -7780,10 +7831,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             type="button"
             className="lab-v2-library-back"
             data-testid="lab-library-back"
-            aria-label={FREE_MODE ? 'Back to the modern-English classics' : 'Back to library'}
-            title={FREE_MODE ? 'All the books' : privateBook ? 'Your books' : 'Library'}
+            aria-label={FREE_MODE ? `Back to ${FREE_MODE_HOME_NAME}` : 'Back to library'}
+            title={FREE_MODE ? FREE_MODE_HOME_NAME : privateBook ? 'Your books' : 'Library'}
             onClick={() => {
-              // Free reading mode came from the modern-English page and goes back to it, its place kept on this device.
+              // Free reading mode goes back to the page it came from (/modern-english, /nudansk, /shakespeare), its
+              // place kept on this device; the t menu's back row goes to the same page.
               if (FREE_MODE) { notePlace('hide'); window.location.assign(FREE_MODE_HOME); return }
               handleSuperMenuSelect('library')
             }}
@@ -7795,15 +7847,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           className="lab-header-brand"
           onClick={showPhoneChrome && !phoneReaderControlsVisible ? () => setReaderControlsVisible(true) : undefined}
         >
-          {/* Free reading mode on the phone: the same way back to the modern-English page as the desktop's arrow
-              (the t menu's Library and the picker's Library → leave free mode for the full library). */}
+          {/* Free reading mode on the phone: the same way back to the page it came from as the desktop's arrow and
+              the t menu's back row (the picker's Library → leave free mode for the full library). */}
           {FREE_MODE && showPhoneChrome && (
             <button
               type="button"
               className="lab-free-back"
               data-testid="lab-free-back"
-              aria-label="Back to the modern-English classics"
-              title="All the books"
+              aria-label={`Back to ${FREE_MODE_HOME_NAME}`}
+              title={FREE_MODE_HOME_NAME}
               onClick={() => { notePlace('hide'); window.location.assign(FREE_MODE_HOME) }}
             >
               <LibraryBackIcon size={22} />
@@ -7902,7 +7954,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         error={bookSwitcherError}
         onClose={() => setBookSwitcherOpen(false)}
         onSelect={switchQuickBook}
-        onLibrary={() => { setBookSwitcherOpen(false); handleSuperMenuSelect('library') }}
+        onLibrary={() => { setBookSwitcherOpen(false); handleSuperMenuSelect('library', 'elsewhere') }}
       />}
       {!frontispieceVisible && (
         <LabSuperMenu

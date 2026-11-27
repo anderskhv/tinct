@@ -40,6 +40,7 @@ test('the margin check alone, and the margin reader with the library that loads 
 test('a check script runs its own check', () => {
   assert.deepEqual(run('app/scripts/check-inline-audio-loading.mjs'), ['audio'])
   assert.deepEqual(run('app/scripts/check-reader-panels.mjs'), ['panels', 'featured'])
+  assert.deepEqual(run('app/scripts/check-free-mode-t-menu.mjs'), ['panels'])
 })
 
 test('no changed files runs everything', () => {
