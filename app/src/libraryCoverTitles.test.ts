@@ -25,9 +25,9 @@ describe('the caption under a cover', () => {
     ])
   })
 
-  it('elsewhere it is unchanged: the category label, then the year and reading time', () => {
+  // Anders, 27 Nov 2026: the all-caps category label ("FICTION") leaves the reading table and the collection pages too.
+  it('elsewhere: the year and reading time, and no category label', () => {
     expect(lines(caption(KARAMAZOV, { compact: true }))).toEqual([
-      ['metadata-category', 'Fiction'],
       ['metadata-details', '1880~33.5h'],
     ])
   })
