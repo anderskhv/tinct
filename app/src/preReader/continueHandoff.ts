@@ -23,6 +23,11 @@ export function continueHandoff(target: ContinueTarget): ReaderHandoffIntent | n
   const selection = {
     bookId: target.bookId,
     primaryEditionKey: editionKey,
+    // The target is this device's copy of the place, as old as the last time this device asked the account (hours
+    // in a tab left open; the reader's own books never ask). The reader opens the book at the account's newest
+    // place, as Continue in the library does, and falls back to this one. Without it the older copy opened and was
+    // saved over the newer place (17 Nov 2026: a PC put a phone back from chapter 5 to chapter 4).
+    resumeLatest: true,
     savedPlace: {
       bookId: target.bookId,
       chapterNumber: target.chapterNumber,
