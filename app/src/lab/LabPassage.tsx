@@ -1,7 +1,7 @@
 import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
 import { transcriptTurns, transcriptWordClass } from './labTranscript'
 import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
-import { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap, labFragmentClass, labWordSpacing, measuredTailGapEm, type LabTailRect } from './labMeasureParagraph'
+import { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap, labBareWords, labFragmentClass, labWordSpacing, measuredTailGapEm, type LabTailRect } from './labMeasureParagraph'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { hyphenPlanClass, plannedBreak } from './labHyphenPlan'
 import { figureFor, figureLabel, isFigureToken, type LabFigure } from './labFigures'
@@ -24,7 +24,7 @@ import {
   type LabHighlightRange,
   type LabWordPlace,
 } from './labHighlights'
-import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
+import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isBareVerseMarker, isLabVerseMarker, labBareVerseMarkers, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
@@ -169,7 +169,8 @@ function renderWordText(text: string, emphasis = false, paragraph?: string, word
   const content = link ? (
     <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>{link.trail}</>
   ) : isLabVerseMarker(text) ? (
-    <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
+    // A verse number with no text after it is not drawn (labBareVerseMarkers); its word span stays, empty.
+    isBareVerseMarker(paragraph, wordIndex) ? null : <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
   ) : hyphenAt != null && hyphenAt > 0 && hyphenAt < text.length ? (
     // A planned hyphen (labHyphenPlan): drawn by CSS after the head, never in the text.
     <><span className="lab-syl">{text.slice(0, hyphenAt)}</span>{text.slice(hyphenAt)}</>
@@ -191,10 +192,12 @@ export function renderWordGroups<T extends { text: string }>(
   renderSpacing?: (spacing: string, wordIndex: number) => ReactNode,
 ): ReactNode[] {
   const rendered: Array<{ at: number; node: ReactNode }> = []
+  // Verse numbers with no text: no separator, no unit with the next word (as labMeasureParagraphInto).
+  const bare = labBareWords(lineation)
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
     const word = words[wordIndex]
-    if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
-      const spacing = labWordSpacing(word, wordIndex, words[wordIndex - 1])
+    if (isLabVerseMarker(word.text) && !bare?.(wordIndex) && words[wordIndex + 1]) {
+      const spacing = labWordSpacing(word, wordIndex, words[wordIndex - 1], bare)
       rendered.push({
         at: wordIndex,
         node: (
@@ -202,14 +205,14 @@ export function renderWordGroups<T extends { text: string }>(
             {renderSpacing ? renderSpacing(spacing, wordIndex) : spacing}
             <span className="lab-verse-unit">
               {renderWord(word, wordIndex, "")}
-              {renderWord(words[wordIndex + 1], wordIndex + 1, labWordSpacing(words[wordIndex + 1], wordIndex + 1, word))}
+              {renderWord(words[wordIndex + 1], wordIndex + 1, labWordSpacing(words[wordIndex + 1], wordIndex + 1, word, bare))}
             </span>
           </Fragment>
         ),
       })
       wordIndex += 1
     } else {
-      const spacing = labWordSpacing(word, wordIndex, words[wordIndex - 1])
+      const spacing = labWordSpacing(word, wordIndex, words[wordIndex - 1], bare)
       rendered.push({
         at: wordIndex,
         node: (
@@ -358,9 +361,22 @@ export function runContinuesParagraph(paragraphs: string[], lines: Array<{ parag
   return lineContinuesParagraph(paragraphs, last) || (joins && sliceRunContinues(paragraphs, lineSlice(last)))
 }
 
+/**
+ * ` is-unprinted` for a painted paragraph whose every word is a verse number with no text (labBareVerseMarkers;
+ * the WEB's Romans 16 ends on "26 27"): it draws nothing. Its word spans stay, so every word is still found at its
+ * index, and lab.css takes its room away, with the paragraph gap that would otherwise follow the chapter's last text.
+ */
+export function unprintedClass(paragraphs: string[], lines: Array<{ paragraphIndex?: number; from?: number; words: Array<{ text: string; fragment?: boolean }> }>, run: number[], fallbackParagraph = 0): string {
+  return run.every((lineIndex) => {
+    const line = lines[lineIndex]
+    const bare = labBareWords({ text: paragraphs[line.paragraphIndex ?? fallbackParagraph], from: line.from ?? 0 })
+    return !!bare && line.words.length > 0 && line.words.every((word, wordIndex) => !word.fragment && bare(wordIndex))
+  }) ? ' is-unprinted' : ''
+}
+
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[], usePlans = false) {
   return proseRuns(paragraphs, lines.map(lineSlice)).map(run => (
-    <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], lines[run[0]].from)}${hyphenPlanClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], usePlans)}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}>
+    <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], lines[run[0]].from)}${hyphenPlanClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], usePlans)}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}${unprintedClass(paragraphs, lines, run)}`}>
       {joinedLines(run, (lineIndex) => {
         const line = lines[lineIndex]
         return renderWordGroups(line.words, (word, wordIndex, spacing) => word.fragment
@@ -417,7 +433,7 @@ function renderHearingWords(
     return (
       <p
         key={run[0]}
-        className={`lab-hearing-line${paragraphKindClass(paragraphs[paragraphIndex], lines[run[0]].from)}${hyphenPlanClass(paragraphs[paragraphIndex], usePlans)}${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}
+        className={`lab-hearing-line${paragraphKindClass(paragraphs[paragraphIndex], lines[run[0]].from)}${hyphenPlanClass(paragraphs[paragraphIndex], usePlans)}${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}${readingPage ? unprintedClass(paragraphs, lines, run, fallbackParagraphIndex) : ''}`}
         data-follow-granularity={followGranularityAttr(followParagraphs, paragraphIndex)}
       >
         {joinedLines(run, (lineIndex) => {
@@ -1185,6 +1201,7 @@ export function LabPassage({
                       gridRows && sliceJoinsPrevious(paragraphs, slices[lineIndex - 1], slices[lineIndex]) ? 'is-joined-row' : '',
                       inlineHearingPaint && follow.kind === 'paragraph' && anyParagraph(index => follow.paragraphIndex === index) ? 'is-paragraph-current' : '',
                       runContinuesParagraph(paragraphs, pageLines, run, !gridRows) ? 'is-continued' : '',
+                      unprintedClass(paragraphs, pageLines, run, readingPage?.paragraphIndex ?? 0).trim(),
                       anyParagraph(index => markedIndexes.has(index)) ? 'is-marked' : '',
                       anyParagraph(index => focusParagraph === index) ? 'is-focus' : '',
                       anyParagraph(index => discussedParagraph === index) ? 'is-discussed' : '',
@@ -1359,6 +1376,8 @@ export function LabPassage({
               const compareSelecting = !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison)
               const pieceWords = (paragraphIndex: number, segment: { from: number; to: number }) => {
               const words = tokenizeHearingWords(source[paragraphIndex] || '')
+              // A verse number with no text after it is not drawn here either, nor the space before it.
+              const bare = labBareVerseMarkers(source[paragraphIndex])
               return asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => {
                 const absoluteWord = segment.from + index
                 const mark = highlightAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord)
@@ -1368,8 +1387,9 @@ export function LabPassage({
                 const previousSelecting = index > 0 && compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord - 1)
                 const gapClass = index > 0 && markedGaps ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
                 // A figure in the Compare column is named, not drawn (it is drawn beside it).
-                const shown = isFigureToken(word.text) ? <span className="lab-figure-ref">{figureLabel(figureFor(word.text) ?? { number: 0 })}</span> : word.emphasis ? <em>{word.text}</em> : word.text
-                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{shown}</span></Fragment>
+                const unprinted = bare.has(absoluteWord)
+                const shown = unprinted ? null : isFigureToken(word.text) ? <span className="lab-figure-ref">{figureLabel(figureFor(word.text) ?? { number: 0 })}</span> : word.emphasis ? <em>{word.text}</em> : word.text
+                return <Fragment key={index}>{index > 0 && !unprinted ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{shown}</span></Fragment>
               }))
               }
               const pieceData = (paragraphIndex: number, segment: { from: number; to: number }) => ({

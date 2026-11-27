@@ -82,6 +82,7 @@ import { LAB_COPY } from './labCopy'
 import {
   LAB_DESKTOP_PANES,
   labShouldAutofocusComposer,
+  labPageMapFitsShell,
   bindLabVisualViewportHeight,
   isLabPhoneSurface,
   shouldShowLabPhoneFooter,
@@ -220,16 +221,17 @@ import { readerEditionLabel } from './editionDifficulty'
 import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bibleEditionChapters'
 import { withTextRetries } from './labTextRetry'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
-import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
+import { bootLabReading, remoteResumeAudioEditionKey, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage, sceneHandoffForPage, type PageSceneHandoff } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, linkedEditionForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage, sceneHandoffForPage, type PageSceneHandoff } from './labReaderHandoff'
 import { SCENE_HANDOFF_EDITION } from './labSceneHandoff'
 import { chosenDesktopReaderLayout, defaultDesktopReaderLayout, desktopLayoutDevice, initialDesktopReaderLayout, marginReaderRoom, readsMarginOnHandheld, storeDesktopReaderLayout, type DesktopLayoutDevice, type DesktopReaderLayout } from './labDesktopLayout'
 import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
+import { furtherPlaceLabel, furtherPlaceTarget, type FurtherPlace } from './labFurtherPlace'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { LabParagraphListen, LISTEN_OFFER_MS } from './LabParagraphListen'
 import { boxOnScreen, firstSentenceStartOnPage, firstSentenceStartOnScreen, sentenceStartTest, type ScreenWord, type SentenceStartTest } from './labListenFromHere'
@@ -961,6 +963,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [notebookCard, setNotebookCard] = useState<ChatConversation | null>(null)
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
+  // "Continue from chapter 5": another device moved this book back a chapter or more; the place this device had
+  // read to is offered on the page the reader lands on, until they read on from there (labFurtherPlace.ts).
+  const [furtherPlace, setFurtherPlace] = useState<FurtherPlace | null>(null)
+  const furtherPlaceSeenRef = useRef(false)
   // "Back to reading" after a Notebook jump: an offer made right after the jump.
   // It leaves when tapped, when the reader goes somewhere else on purpose
   // (Contents, search, another chapter) or once they read on at the destination
@@ -1857,6 +1863,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // same account the memory is.
     ownerId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     interactedRef: interactionRef,
+    onMovedBack: (further) => { furtherPlaceSeenRef.current = false; setFurtherPlace(further) },
     onResolvedPlace: (place) => {
       restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
       watchRestore(restorePlaceRef.current, labRestoreChapterKey(book.bookId, book.chapterNumber))
@@ -1890,7 +1897,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         chapterNumber: place.sequentialChapter,
         primaryEditionKey: selection.primaryEditionKey,
         compareEditionKey: selection.compareEditionKey,
-        audioEditionKey: selection.bookId === currentLibraryBookId ? audioEditionKey : undefined,
+        // The place's own audio edition, never the one this device had open (remoteResumeAudioEditionKey).
+        audioEditionKey: selection.bookId === currentLibraryBookId ? remoteResumeAudioEditionKey(selection) : undefined,
       }).then((loaded) => {
         if (navigation !== chapterNavigationRef.current) return
         if (loaded.chapterNumber !== place.sequentialChapter || !loaded.paragraphs.length) {
@@ -2069,6 +2077,38 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userBook, positionSync.markChapterFinished])
   const initialResolving = !initialPositionResolved || remoteResumePending
+  // A book opened from the Danish page is read in Danish (labReaderHandoff.ts linkedEditionKey). The reader's place
+  // is resolved first, as for any open; then the edition changes the way the reader's own edition choice does,
+  // which keeps the place. The link asks again on a reload (the place is saved in Danish only at the next page
+  // turn), until the reader picks another edition of the book in this tab: after that their choice stands.
+  const linkedEditionRef = useRef(readerHandoff && !FREE_MODE && !userBook ? linkedEditionForPage() : null)
+  const linkedEditionState = useRef<'waiting' | 'asked' | 'shown' | 'done'>('waiting')
+  useEffect(() => {
+    const linked = linkedEditionRef.current
+    if (!linked || linkedEditionState.current === 'done') return
+    const declined = `tinct:linked-edition-declined:${linked.bookId}:${linked.editionKey}`
+    if (linkedEditionState.current === 'waiting') {
+      if (initialResolving || readerLoadError || book.paragraphs.length === 0) return
+      let asked = (book.bookId || 'bible') === linked.bookId && selectableEditions.some(edition => edition.key === linked.editionKey)
+      try { if (sessionStorage.getItem(declined)) asked = false } catch { /* storage refused: ask */ }
+      if (!asked) { linkedEditionState.current = 'done'; return }
+      linkedEditionState.current = 'asked'
+      if (prefs.primaryEdition !== linked.editionKey) {
+        updatePrefs({ ...prefs, primaryEdition: linked.editionKey, compareOpen: prefs.compareOpen && prefs.compareEdition !== linked.editionKey })
+        return
+      }
+    }
+    if ((book.bookId || 'bible') !== linked.bookId) { linkedEditionState.current = 'done'; return }
+    if (linkedEditionState.current === 'asked') {
+      if (prefs.primaryEdition === linked.editionKey) linkedEditionState.current = 'shown'
+      return
+    }
+    // Shown, and the reader has since picked another edition: the link does not ask again in this tab.
+    if (prefs.primaryEdition !== linked.editionKey) {
+      linkedEditionState.current = 'done'
+      try { sessionStorage.setItem(declined, '1') } catch { /* this page only */ }
+    }
+  }, [book.bookId, book.paragraphs.length, initialResolving, prefs, readerLoadError, selectableEditions, updatePrefs])
   // The save-your-place boxes for a signed-out reader (LabSavePlaceBox.tsx, Anders 25 Nov 2026): under a chapter's end, and
   // welcome back on a later day than this device's previous reading. Never signed in, in free reading mode or in an own book.
   const savePlaceOn = !signedIn && !FREE_MODE && !privateBook
@@ -2879,13 +2919,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   pageMetricsRef.current = pageMetrics
   const pageMetricGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const settledPageGeometryRef = useRef<{ width: number; height: number } | null>(null)
+  // How tall the shell was when the page map on screen was laid out (0: not measured). A page freeze carries it.
+  const settledShellHeightRef = useRef(0)
   const pageAnchorRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
   // V2 phone: the audio transport opening or closing changes the reserved
   // foot. The page on screen (and those before it) is kept exactly; only the
   // pages after it are laid out at the new height (see labPagesKeepingPrefix).
   // `transportOpenRef` is the foot now; `mapTransportOpenRef` the foot the
   // native map in use was measured against.
-  const [pageFreeze, setPageFreeze] = useState<{ content: string[]; layoutKey: string; pages: ChapterHearingPage[] } | null>(null)
+  // `shell`: how tall the shell was when those pages were laid out. They are kept only in a shell of that height: a
+  // follow-up typed in the People card opened Chat while the keyboard had the chapter in half-height pages, and the
+  // half page was kept at full height until the chapter changed (iPhone, 26 and 27 Nov 2026).
+  const [pageFreeze, setPageFreeze] = useState<{ content: string[]; layoutKey: string; pages: ChapterHearingPage[]; shell: number } | null>(null)
   const pageFreezeRef = useRef(pageFreeze)
   pageFreezeRef.current = pageFreeze
   const transportOpenRef = useRef(false)
@@ -2894,7 +2939,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const listenStartRef = useRef(listen.start)
   listenStartRef.current = listen.start
 
-  const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[], partial = false) => {
+  const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[], partial = false, shellHeight?: number) => {
     if (measuredContent && measuredContent !== nativeContentRef.current) return
     // Every session, a deep link's included, adopts the measured map verbatim.
     const next = withComparePassage(incoming, nativeContentRef.current)
@@ -2964,6 +3009,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSettleIndex(null)
     const wrapRect = pageWrapRef.current?.getBoundingClientRect()
     if (wrapRect) settledPageGeometryRef.current = { width: wrapRect.width, height: wrapRect.height }
+    settledShellHeightRef.current = shellHeight || (labRootRef.current?.getBoundingClientRect().height ?? 0)
 
     workingPagesRef.current = next
     if (!sameChapterPages(working, next)) setDraftPages(next)
@@ -3498,7 +3544,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const frozen = pageFreezeRef.current
       if (
         mapTransportOpenRef.current !== transportOpenRef.current
-        || (frozen && frozen.content === readerParagraphs && pageIdx < frozen.pages.length)
+        || (frozen && frozen.content === readerParagraphs && pageIdx < frozen.pages.length
+          && labPageMapFitsShell(frozen.shell, labRootRef.current?.getBoundingClientRect().height))
       ) {
         if (layoutTraceOn()) layoutTrace('paint-shrink-skip', { ch: traceChapterRef.current, idx: pageIdx, n: pages.length, frozen: !!frozen, ...tracePainted(painted), ...describeLabOnScreenBarTop(wrap.ownerDocument, chromeEl) })
         return
@@ -3887,7 +3934,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // scripts/check-inline-audio-loading.mjs).
     const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
     const index = Math.min(current, Math.max(0, shownIndex))
-    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, index + 1) })
+    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, index + 1), shell: settledShellHeightRef.current })
   // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on the foot changing only; tracks the shown page every commit
   })
   // Phone Chat takes the page surface's place: the page and its paginator are
@@ -3906,7 +3953,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const pages = readingPagesRef.current
     if (!measuredPaging || desktopPaging || nativeMeasuredContent !== readerParagraphs || pages.length === 0) return
     const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
-    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, current + 1) })
+    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, current + 1), shell: settledShellHeightRef.current })
   // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on Chat opening only; reads the page map as it is then
   }, [phoneAsk])
   // Chat on screen: warm the companion's reading trail (read-only) so the
@@ -4717,6 +4764,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const clamped = Math.max(0, Math.min(index, Math.max(0, committed.length - 1)))
     const previousPageIndex = readingPageIndexRef.current
     if (clamped !== previousPageIndex) {
+      // Reading on from the page the offer was made on withdraws it.
+      setFurtherPlace(null)
       setPageTurn(current => ({
         direction: clamped > previousPageIndex ? 'next' : 'previous',
         nonce: (current?.nonce ?? 0) + 1,
@@ -5916,6 +5965,19 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (contentsTarget.flash) setNotebookFlash({ chapterNumber: contentsTarget.chapterNumber, range: contentsTarget.flash })
     setContentsTarget(null)
   }, [book.bookId, book.chapterNumber, book.paragraphs, chapterCoverTitle, contentsTarget, initialResolving, mobileCompareActive, nativePagesRevision, notePlace, readingPages, settleIndex, showPhoneChrome, tocOpen, continuousReader])
+
+  const furtherPlaceShown = !!furtherPlace && !initialResolving && !readerLoadError && !contentsTarget && !tocOpen && !phoneAsk
+    && !desktopAskOpen && !notebookCard && !mobileCompareActive && !listen.playing
+    && furtherPlace.libraryBookId === (book.bookId || 'bible')
+    && furtherPlace.fromChapter === book.chapterNumber
+    && book.chapters.some(chapter => chapter.number === furtherPlace.place.sequentialChapter)
+  useEffect(() => {
+    if (!furtherPlace) { furtherPlaceSeenRef.current = false; return }
+    if (furtherPlaceShown) { furtherPlaceSeenRef.current = true; return }
+    // Once offered it belongs to that chapter of that book: gone when the reader has gone somewhere else.
+    if (furtherPlaceSeenRef.current && !initialResolving
+      && (furtherPlace.libraryBookId !== (book.bookId || 'bible') || furtherPlace.fromChapter !== book.chapterNumber)) setFurtherPlace(null)
+  }, [book.bookId, book.chapterNumber, furtherPlace, furtherPlaceShown, initialResolving])
 
   const [notebookFlash, setNotebookFlash] = useState<{ chapterNumber: number; range: PhoneCardRange['range'] } | null>(null)
   useEffect(() => {
@@ -8177,6 +8239,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
               setRecentChapterReturn(null)
               setNotebookReturn(null)
+              setFurtherPlace(null)
               if (!listen.playing) return
               browseWhileListeningRef.current = true
               setBrowseWhileListening(true)
@@ -8228,6 +8291,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
               setRecentChapterReturn(null)
               setNotebookReturn(null)
+              setFurtherPlace(null)
               if (!listen.playing) return
               browseWhileListeningRef.current = true
               setBrowseWhileListening(true)
@@ -8374,6 +8438,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
               layoutKey={layoutKeyFor(readerEditionKey)}
               keepPages={pageFreeze && pageFreeze.content === readerParagraphs && pageFreeze.layoutKey === nativeLayoutKey ? pageFreeze.pages : undefined}
+              keepShellHeight={pageFreeze && pageFreeze.content === readerParagraphs && pageFreeze.layoutKey === nativeLayoutKey ? pageFreeze.shell : undefined}
               // The reader's first page of this visit: shown before the rest
               // of its chapter is laid out (applyNativePages takes it only
               // when that page is where the reader lands).
@@ -8492,6 +8557,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           openContentsPassage(notebookReturn)
           setNotebookReturn(null)
         }}>Back to reading</button>
+      )}
+      {furtherPlaceShown && furtherPlace && (
+        <button type="button" className="lab-back-to-audio" data-testid="lab-continue-further" onClick={() => {
+          const target = furtherPlaceTarget(furtherPlace, prefs.primaryEdition, key => book.editions?.find(edition => edition.key === key)?.aligned === true)
+          setFurtherPlace(null)
+          openContentsPassage(target)
+        }}>{furtherPlaceLabel(furtherPlace, book.chapters.find(chapter => chapter.number === furtherPlace.place.sequentialChapter)?.title)}</button>
       )}
       {recentChapterReturn && !initialResolving && !contentsTarget && !phoneAsk && !desktopAskOpen
         && !mobileCompareActive && !listen.playing && readingPageIndex === 0

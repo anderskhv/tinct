@@ -4,7 +4,7 @@ import { measureRowsState, paintRows } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
-import { labMeasureJoinInto, labMeasureParagraphInto, labWordSpacing, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
+import { labBareWords, labMeasureJoinInto, labMeasureParagraphInto, labWordSpacing, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
 import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import {
@@ -23,7 +23,7 @@ import {
   type ChapterHearingPage,
   type ChapterPageSegment,
 } from './labHearing'
-import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
+import { labPageFitsPaint, labPageMapFitsShell, nextPaintShrinkTo } from './labChrome'
 import { layoutTrace, layoutTraceOn } from './labLayoutTrace'
 import { measuredDesktopPages, measuredDesktopPageSteps, type LabPaginationStart } from './LabDesktopPaginator'
 import { paragraphKindClass, paragraphSetRagged, wordLink } from './labParagraphStyle'
@@ -234,12 +234,15 @@ function NativeWord({
   wordIndex,
   spacing,
   paragraph,
+  bare = false,
 }: {
   text: string
   paragraphIndex: number
   wordIndex: number
   spacing: string
   paragraph?: string
+  /** A verse number with no text (labBareWords): its span is laid out empty, as it is painted. */
+  bare?: boolean
 }) {
   // A link is laid out as painted: its label, not the raw address.
   const link = wordLink(paragraph, wordIndex, text)
@@ -250,10 +253,11 @@ function NativeWord({
       <span
         className={figure ? 'lab-hearing-word lab-figure-word' : 'lab-hearing-word'}
         data-native-word="true"
+        data-bare-verse={bare ? 'true' : undefined}
         data-paragraph-index={paragraphIndex}
         data-word-index={wordIndex}
       >
-        {figure ? <LabFigureView figure={figure} /> : link ? <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`}>{link.label}</a>{link.trail}</> : isLabVerseMarker(text) ? (
+        {bare ? null : figure ? <LabFigureView figure={figure} /> : link ? <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`}>{link.label}</a>{link.trail}</> : isLabVerseMarker(text) ? (
           <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
         ) : text}
       </span>
@@ -263,6 +267,7 @@ function NativeWord({
 
 function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[] {
   const words = tokenizeHearingWords(text)
+  const bare = labBareWords({ text, from: 0 })
   const rendered: Array<{ at: number; node: ReactNode }> = []
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
     const word = words[wordIndex]
@@ -272,15 +277,16 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
         text={word.text}
         paragraphIndex={paragraphIndex}
         wordIndex={wordIndex}
-        spacing={labWordSpacing(word, wordIndex, words[wordIndex - 1])}
+        spacing={labWordSpacing(word, wordIndex, words[wordIndex - 1], bare)}
         paragraph={text}
+        bare={bare?.(wordIndex)}
       />
     )
-    if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
+    if (isLabVerseMarker(word.text) && !bare?.(wordIndex) && words[wordIndex + 1]) {
       const nextIndex = wordIndex + 1
       rendered.push({ at: wordIndex, node: (
         <Fragment key={`verse-${wordIndex}`}>
-          {labWordSpacing(word, wordIndex, words[wordIndex - 1])}
+          {labWordSpacing(word, wordIndex, words[wordIndex - 1], bare)}
           <span className="lab-verse-unit">
             <NativeWord
               text={word.text}
@@ -292,7 +298,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
               text={words[nextIndex].text}
               paragraphIndex={paragraphIndex}
               wordIndex={nextIndex}
-              spacing={labWordSpacing(words[nextIndex], nextIndex, word)}
+              spacing={labWordSpacing(words[nextIndex], nextIndex, word, bare)}
             />
           </span>
         </Fragment>
@@ -403,6 +409,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   editionKey,
   language,
   keepPages,
+  keepShellHeight,
   headFirst = false,
   onPages,
 }: {
@@ -423,6 +430,14 @@ export const LabNativePaginator = memo(function LabNativePaginator({
    */
   keepPages?: ChapterHearingPage[]
   /**
+   * How tall the reader's shell was when `keepPages` were laid out (0 or
+   * absent: not known). In a shell of another height they are not kept and
+   * the whole chapter is laid out: pages taken while a keyboard had the
+   * window short stayed half height once it was tall again (iPhone, 26 and
+   * 27 Nov 2026). Back at their own height they are kept again.
+   */
+  keepShellHeight?: number
+  /**
    * The reader opens at this chapter's first page (a new reader, a chapter
    * start). The first map is then published as soon as its opening page is
    * laid out (`partial`), and the rest of the chapter is laid out right after
@@ -431,7 +446,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
    * Read when the chapter is measured, not one of its triggers.
    */
   headFirst?: boolean
-  onPages: (pages: ChapterHearingPage[], paragraphs?: string[], partial?: boolean) => void
+  /** `shellHeight`: how tall the reader's shell was when these pages were laid out (0: not measured). */
+  onPages: (pages: ChapterHearingPage[], paragraphs?: string[], partial?: boolean, shellHeight?: number) => void
 }) {
   const hostRef = useRef<HTMLDivElement | null>(null)
   const generationRef = useRef(0)
@@ -489,12 +505,16 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       const pageWidth = flow.getBoundingClientRect().width
       if (pageWidth <= 1) return
       const flowLeft = flow.getBoundingClientRect().left
+      // The shell this map is laid out in: pages kept from a shell of another height do not belong in it.
+      const shellHeight = host.closest('.lab')?.getBoundingClientRect().height ?? 0
+      const keepFits = labPageMapFitsShell(keepShellHeight, shellHeight)
       // The layout trace (labLayoutTrace.ts): the box this map was laid out in.
       let tracePageHeight: number | null = null
       const traceMap = layoutTraceOn()
         ? (how: string, list: ChapterHearingPage[], partial = false) => {
             const box = host.getBoundingClientRect()
-            layoutTrace('native-map', { how, partial, n: list.length, pw: Math.round(pageWidth), ph: tracePageHeight, hostTop: Math.round(box.top), hostH: Math.round(box.height), hostBottom: Math.round(box.bottom), key: layoutKey.split(':')[0] })
+            layoutTrace('native-map', { how, partial, n: list.length, pw: Math.round(pageWidth), ph: tracePageHeight, hostTop: Math.round(box.top), hostH: Math.round(box.height), hostBottom: Math.round(box.bottom), key: layoutKey.split(':')[0],
+              shell: Math.round(shellHeight), ...(keepPages?.length ? { keep: keepPages.length, keepShell: Math.round(keepShellHeight ?? 0), keepFits } : {}) })
           }
         : null
       const wordNodes = flow.querySelectorAll<HTMLElement>('[data-native-word="true"]')
@@ -503,7 +523,13 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         const paragraphIndex = Number(node.dataset.paragraphIndex)
         const wordIndex = Number(node.dataset.wordIndex)
         const rect = [...node.getClientRects()].find(item => item.width > 0 && item.height > 0)
-        if (!rect || !Number.isInteger(paragraphIndex) || !Number.isInteger(wordIndex)) return
+        if (!Number.isInteger(paragraphIndex) || !Number.isInteger(wordIndex)) return
+        // A verse number with no text has no ink to place: it goes with the word before it.
+        if (!rect && node.dataset.bareVerse) {
+          placements.push({ pageIndex: placements.length ? placements[placements.length - 1].pageIndex : 0, paragraphIndex, wordIndex })
+          return
+        }
+        if (!rect) return
         placements.push({
           pageIndex: Math.max(0, Math.floor((rect.left - flowLeft + 0.5) / pageWidth)),
           paragraphIndex,
@@ -576,9 +602,11 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         }
         const fits = (segments: ChapterPageSegment[], first: boolean, withEnd = false) => {
           paint(segments, first, withEnd)
-          const painted = [...stage.querySelectorAll('.lab-hearing-word, .lab-word-fragment')]
+          // The last word with ink: a verse number with no text paints nothing, so it ends no page.
+          const painted = [...stage.querySelectorAll('.lab-hearing-word:not([data-bare-verse]), .lab-word-fragment')]
           const last = painted[painted.length - 1]
-          const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : Infinity
+          const onlyBare = !last && !!stage.querySelector('[data-bare-verse]')
+          const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : onlyBare ? -Infinity : Infinity
           const bottom = withEnd && end ? Math.max(lastBottom, end.getBoundingClientRect().bottom) : lastBottom
           return labPageFitsPaint({ lastBottom: bottom, chromeTop: host.getBoundingClientRect().bottom })
         }
@@ -611,7 +639,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           : undefined
         if (keepPages?.length && keepWidth == null) keepWidth = pageWidth
         const keptAt = performance.now()
-        const kept = keepPages?.length && keepWidth === pageWidth
+        const kept = keepPages?.length && keepWidth === pageWidth && keepFits
           ? labPagesKeepingPrefix(keepPages, lengths, start => measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, start, lineStarts, tailGap), fitEnd)
           : null
         if (kept) traceLayout('kept-prefix', keptAt)
@@ -643,7 +671,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               if (head && placements.length === wordNodes.length && chapterPagesCover(paragraphs, head)) {
                 publishedPages = head
                 publishedPartial = true
-                onPages(head, paragraphs, true)
+                onPages(head, paragraphs, true, shellHeight)
                 traceMap?.('head', head, true)
                 traceLayout('head', layoutAt)
               }
@@ -669,7 +697,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
                   publishedPages = full
                   publishedPartial = false
                   const publishAt = performance.now()
-                  onPages(full, paragraphs)
+                  onPages(full, paragraphs, false, shellHeight)
                   traceMap?.('rest', full)
                   traceLayout('finish-publish', publishAt)
                 }
@@ -699,7 +727,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         // its genuinely different map, and a new effect always publishes once.
         publishedPages = pages
         publishedPartial = false
-        onPages(pages, paragraphs)
+        onPages(pages, paragraphs, false, shellHeight)
         traceMap?.(traceHow, pages)
       } else traceMap?.(`${traceHow}-unpublished`, pages)
     }
@@ -758,7 +786,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       observer?.disconnect()
       document.fonts?.removeEventListener?.('loadingdone', onFonts)
     }
-  }, [chapterTitle, paragraphs, layoutKey, fillPages, chapterActions, hasNextChapter, onPages, hyphenLang, hyphensReady, keepPages])
+  }, [chapterTitle, paragraphs, layoutKey, fillPages, chapterActions, hasNextChapter, onPages, hyphenLang, hyphensReady, keepPages, keepShellHeight])
 
   return (
     <div ref={hostRef} className="lab-page-measure lab-native-page-measure" aria-hidden="true" data-testid="lab-native-page-measure">

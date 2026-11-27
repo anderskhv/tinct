@@ -81,3 +81,31 @@ it('retains an explicit Margin layout while consuming a chapter link', () => {
   expect(handoff?.savedPlace).toMatchObject({ paragraphIndex: 3, wordIndex: 4 })
   releaseLabReaderHandoffForPage(handoff)
 })
+
+// Anders, 27 Nov 2026: a book picked on /nudansk opened in English for a signed-in reader ("from that side, you
+// should always open them in Danish"). A guest gets free mode in Danish; this is the normal reader's link.
+it('a link from the Danish page asks for modern Danish, and never moves a saved place', async () => {
+  const { readerHandoffFromUrlParams, linkedEditionKey } = await import('./labReaderHandoff')
+  const { LAB_POSITION_STORAGE_KEY } = await import('./labPosition')
+  const params = (query: string) => new URLSearchParams(query)
+  expect(linkedEditionKey(params('book=crito&ref=nudansk'))).toBe('modern-da')
+  expect(linkedEditionKey(params('book=crito&ref=modern-english'))).toBeNull()
+  expect(linkedEditionKey(params('book=crito'))).toBeNull()
+  // A link that names a chapter, a reader's own book or a Checkout return opens by its own rules.
+  expect(linkedEditionKey(params('book=crito&chapter=2&ref=nudansk'))).toBeNull()
+  expect(linkedEditionKey(params('book=crito&userBook=abc&ref=nudansk'))).toBeNull()
+  expect(linkedEditionKey(params('ref=nudansk'))).toBeNull()
+
+  localStorage.removeItem(LAB_POSITION_STORAGE_KEY)
+  // A book this device has no place in opens in Danish at its start.
+  expect(readerHandoffFromUrlParams(params('book=crito&ref=nudansk'))).toMatchObject({ bookId: 'crito', primaryEditionKey: 'modern-da', resumeLatest: true, savedPlace: { chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 } })
+  // Without the Danish page's mark it opens as before.
+  expect(readerHandoffFromUrlParams(params('book=crito'))?.primaryEditionKey).not.toBe('modern-da')
+  // A book with no Danish edition offered opens as before.
+  expect(readerHandoffFromUrlParams(params('book=pride-and-prejudice&ref=nudansk'))?.primaryEditionKey).not.toBe('modern-da')
+
+  // A saved place opens where it is, in the edition it was saved in; the reader changes edition afterwards (LabApp).
+  localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({ books: { crito: { bookId: 'crito', headerBook: 'Crito', chapterNumber: 2, sequentialChapter: 2, paragraphIndex: 4, wordIndex: 3, pageIndex: 1, primaryEditionKey: 'original-en', updatedAt: Date.now(), deviceId: 'd', rev: 1 } }, finished: {}, lastSettledBookId: 'crito', lastSettledAt: Date.now() }))
+  expect(readerHandoffFromUrlParams(params('book=crito&ref=nudansk'))).toMatchObject({ bookId: 'crito', primaryEditionKey: 'original-en', resumeLatest: true, savedPlace: { chapterNumber: 2, paragraphIndex: 4, wordIndex: 3 } })
+  localStorage.removeItem(LAB_POSITION_STORAGE_KEY)
+})
