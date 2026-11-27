@@ -53,10 +53,24 @@ export function bookCategory(book) {
     || categories.find(category => category.id === form)?.label || '';
 }
 
-/** DOM text nodes keep catalogue text safe in both library layouts. */
-export function renderBookMetadata(element, book, { compact = false, percent = null } = {}) {
+/**
+ * DOM text nodes keep catalogue text safe in both library layouts.
+ * `title` writes the book's title and author first, for a cover that stands alone on a shelf row: several
+ * covers cannot be read at that size (Anders, 27 Nov 2026). The row's heading already names the category,
+ * so a titled caption leaves the category label out.
+ */
+export function renderBookMetadata(element, book, { compact = false, percent = null, title = false } = {}) {
   element.replaceChildren();
-  const category = bookCategory(book);
+  if (title) {
+    for (const [className, text] of [['metadata-title', book?.title], ['metadata-author', book?.author]]) {
+      const value = String(text ?? '').trim();
+      if (!value) continue;
+      const line = document.createElement('span');
+      line.className = className; line.textContent = value;
+      element.append(line);
+    }
+  }
+  const category = title ? '' : bookCategory(book);
   if (category) {
     const label = document.createElement('span');
     label.className = 'metadata-category'; label.textContent = category;

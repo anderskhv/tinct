@@ -139,7 +139,7 @@ function observeCover(c,book){paintCover(c,book.id);coverBooks.set(c,book);const
 // The first cover has priority; shelves and other scenes load as they approach view.
 if(!window.__library2Boot?.hint&&!conjecture)ensureCover(books[0],COVER_HERO_PX).catch(()=>{});
 function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;renderBookMetadata(meta,book,{compact:true});return meta;}
-function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=bookById(meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
+function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=bookById(meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true,title:meta.dataset.titled==='1'});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
 // A shelf more than a screen above or below the screen gives its covers' pixels back
 // (2026-10-21): with every shelf painted, an iPhone ran out of memory opening a book (The Jungle
 // Book). Its canvases go empty, and a painting no surface on screen still shows lets go of its
@@ -161,6 +161,9 @@ function rowCover(book){const c=el('canvas','cover');c.dataset.book=book.id;obse
 function coverButton(book,cls='book-card cover-button'){const b=el('button',cls);b.setAttribute('aria-label',`Open ${book.title}, by ${book.author}`);const c=el('canvas','cover');c.dataset.book=book.id;b.append(c);b.addEventListener('click',()=>openBook(book,c));observeCover(c,book);if(cls!=='book-card cover-button'){b.append(coverMetadata(book));return b;}
  // Shelf covers carry a + for Want to read, beside (not inside) the cover button.
  const wrap=el('div','card-wrap');const save=el('button','save-toggle');save.dataset.book=book.id;save.dataset.title=book.title;paintSaveToggle(save);save.onclick=e=>{e.stopPropagation();toggleSaved(book.id);};wrap.append(b,save,coverMetadata(book));return wrap;}
+// A home row's cover with the book's title and author written under it (Anders, 27 Nov 2026: several covers cannot be
+// read at this size). The pages that already write them beside the cover (My shelf, a collection, search) keep coverButton.
+function titledCover(book){const wrap=coverButton(book);wrap.classList.add('is-titled');const meta=wrap.querySelector('.cover-metadata');meta.dataset.titled='1';renderBookMetadata(meta,book,{compact:true,title:true});return wrap;}
 /**
  * /library?own=file|paste (from /byob, or the Preparing page's way back): the "Your own book" pop-up,
  * at Paste text for paste, holding the text /byob kept (file-handoff.js) if there is one. A file
@@ -177,7 +180,7 @@ function openOwnEntryFromParam(){
  params.delete('own');const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}
  void (async()=>{const files=own==='file'?await takeHandoffFiles():[];const layer=await openFileEntry($('library-add'),{onSearch:()=>setSearch(true)});if(!layer)return;if(files.length)layer.addFiles?.(files);else if(own==='paste')layer.showPaste?.(await peekPasteHandoff());})();
 }
-[['Featured',books.map((_,i)=>i)]].forEach(([title,indices])=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);indices.forEach(i=>row.append(coverButton(books[i])));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
+[['Featured',books.map((_,i)=>i)]].forEach(([title,indices])=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);indices.forEach(i=>row.append(titledCover(books[i])));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
 // No "Read your own books" band (Anders, 10 Nov 2026: removed): "Add your own" is the + on the shelves and the hero.
 // The rest of the library: every discoverable book, shelved by house.
 function searchPool(){const extra=searchOnlyBooks.filter(s=>!books.some(b=>b.id===s.id));return extra.length?[...books,...extra]:books;}
@@ -188,7 +191,7 @@ loadCatalogue().then(({books:entries,searchOnly=[],houses})=>{for(const entry of
  // Other titles the registry gives a book (altTitles), and its Danish ones, are searched as titles.
  for(const book of books){const entry=byId.get(book.id);if(entry)searchNames(book,entry);}
  // A row per house, and one of its own for a shelf that has it (browse-groups.js homeRows: "For young readers" after Fiction).
- homeRows(houses,id=>byId.has(id)).forEach(({title,bookIds})=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);bookIds.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
+ homeRows(houses,id=>byId.has(id)).forEach(({title,bookIds})=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);bookIds.forEach(id=>row.append(titledCover(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
  libraryHouses=houses;renderBrowseMenus();
  refreshMetadata();
  if(searchOpen&&!openedFromSearch)renderResults();if(collectionChoice!=='home')renderCollection();}).catch(()=>{});
