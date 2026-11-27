@@ -10,6 +10,7 @@ import { readLabPositionLocal } from './labPositionStore'
 import type { LabSource } from './labSource'
 import { parseSceneHandoff, type SceneHandoff } from './labSceneHandoff'
 import { FREE_MODE_PARAM, FREE_MODE_VALUE, freeModeEditionFor, otherFreeModeEdition } from './freeMode/freeMode'
+import { isEditionWithheld } from '../data/withheldEditions'
 
 export const LAB_READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 
@@ -19,6 +20,26 @@ let pageSharedLink: { id: string; ref: string } | null = null
 let pageModernReturn: ModernReturn | null = null
 
 let pageDeepLinkView: LabDeepLinkView | null = null
+let pageLinkedEdition: { bookId: string; editionKey: string } | null = null
+
+/**
+ * The edition a reader link asks for when it names a book and no chapter: a book opened from the Danish page, or by
+ * a `/nudansk/<title>` link (`ref=nudansk`), is read in modern Danish (Anders, 27 Nov 2026: "from that side, you
+ * should always open them in Danish"). Free mode reads the same `ref` for a guest (freeMode.ts); this is for the
+ * normal reader, which a signed-in visitor gets at the same address. Null for any other link.
+ */
+export function linkedEditionKey(params: URLSearchParams | null): string | null {
+  if (!params?.get('book') || params.has('chapter') || params.has('userBook') || params.has('modern')) return null
+  return params.get('ref') === 'nudansk' ? 'modern-da' : null
+}
+
+/**
+ * The linked edition of the book this page opened, read with the hand-off. The reader opens the book at the
+ * reader's place first, then changes to this edition the way its own edition choice does (LabApp).
+ */
+export function linkedEditionForPage(): { bookId: string; editionKey: string } | null {
+  return pageLinkedEdition
+}
 
 /** A static scene page's hand-over (labSceneHandoff.ts): what to do once the deep-linked chapter is open. */
 export type PageSceneHandoff = SceneHandoff & { bookId: string; chapterNumber: number }
@@ -52,10 +73,14 @@ export function modernReturnForPage(): ModernReturn | null {
  * else its first chapter, in its default edition. Null when the book is not registered
  * (an unknown id opens nothing).
  */
-export function modernReturnHandoff(bookId: string): ReaderHandoffIntent | null {
+export function modernReturnHandoff(bookId: string, linkedEdition?: string | null): ReaderHandoffIntent | null {
   const book = getBook(bookId)
   if (!book) return null
   const primaryEditionKey = defaultPrimaryEditionKey(bookId, book.editions) ?? 'original-en'
+  // The edition the link asks for (linkedEditionKey), when this reader may open it. It is taken here only for a
+  // book with no place on this device; a saved place opens in its own edition and the reader changes edition after.
+  const linked = linkedEdition && book.editions.some(edition => edition.key === linkedEdition)
+    && !isEditionWithheld(bookId, linkedEdition) && !editionHold(bookId, linkedEdition) ? linkedEdition : null
   // The place this device saved in the book (the cloud record still reconciles it once
   // signed in), like the library's own hand-off; else the first chapter. The Bible's
   // places are kept per biblical book (genesis, psalms), never under `bible`.
@@ -70,7 +95,9 @@ export function modernReturnHandoff(bookId: string): ReaderHandoffIntent | null 
   const entry = PRE_READER_CATALOGUE.booksById.get(bookId) as { readingStructure?: { chapters?: Array<{ number?: number }> } } | undefined
   const first = entry?.readingStructure?.chapters?.[0]?.number
   const chapterNumber = Number.isInteger(first) && (first as number) >= 1 ? first as number : 1
-  return createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace: { bookId, chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 } })
+  const start = { bookId, chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 }
+  return (linked ? createReaderHandoffIntent({ bookId, primaryEditionKey: linked, resumeLatest: true, savedPlace: start }) : null)
+    ?? createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace: start })
 }
 
 /**
@@ -182,7 +209,7 @@ export function readerHandoffFromUrlParams(params: URLSearchParams | null): Read
   if (!params || !bookId) return null
   if (chapterText === null) {
     if (params.has('modern')) return null
-    return params.get(FREE_MODE_PARAM) === FREE_MODE_VALUE ? freeModeHandoff(bookId) : modernReturnHandoff(bookId)
+    return params.get(FREE_MODE_PARAM) === FREE_MODE_VALUE ? freeModeHandoff(bookId) : modernReturnHandoff(bookId, linkedEditionKey(params))
   }
   if (!/^\d{1,5}$/.test(chapterText)) return null
   const chapterNumber = Number(chapterText)
@@ -234,6 +261,8 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
     const shareId = params?.get('share')
     if (pageHandoff && shareId && /^[a-hj-km-np-z2-9]{7}$/.test(shareId)) pageSharedLink = { id: shareId, ref: (params?.get('ref') || '').slice(0, 80) }
     pageDeepLinkView = pageHandoff && params?.has('chapter') ? deepLinkView(params) : null
+    const linkedEdition = !heldBook && !pageModernReturn && params?.get(FREE_MODE_PARAM) !== FREE_MODE_VALUE ? linkedEditionKey(params) : null
+    pageLinkedEdition = linkedEdition && pageHandoff && pageHandoff.bookId === params?.get('book') ? { bookId: pageHandoff.bookId, editionKey: linkedEdition } : null
     // A scene page's action rides on its deep link only: the hash names what to do, the link where.
     const sceneHash = typeof window === 'undefined' ? null : parseSceneHandoff(window.location.hash)
     pageSceneHandoff = sceneHash && !heldBook && pageHandoff && params?.has('chapter') && pageHandoff.bookId === params.get('book')

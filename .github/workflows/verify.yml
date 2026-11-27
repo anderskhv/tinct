@@ -299,6 +299,11 @@ jobs:
         env:
           TINCT_RESUME_LANGUAGES_OUTPUT: artifacts/resume-across-languages
         run: node scripts/check-resume-across-languages.mjs
+      - name: Verify a book opened from the Danish page is read in Danish, at the reader's place
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_NUDANSK_OPENS_OUTPUT: artifacts/nudansk-opens-danish
+        run: node scripts/check-nudansk-opens-danish.mjs
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
