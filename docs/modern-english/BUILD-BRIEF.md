@@ -57,20 +57,20 @@ The existing reader with everything that asks for something taken away. Reuse wh
   - **Right:** **Original · Modern · Both**, then the T menu.
 - **Both** is the reader's existing side-by-side view.
 
-**T menu:** Appearance (Aa lives here), Book settings and Library only.
+**T menu:** ~~Appearance (Aa lives here), Book settings and Library only.~~ Changed 27 Nov 2026 (Anders approved the mockup): Summarize this chapter and Catch me up; a rule; Appearance and Book settings; a rule; the way back to the page the reader came from, named for it ("Modern English classics" for `ref=modern-english`, "Klassikere på nudansk" for `ref=nudansk`, "Shakespeare" for `ref=shakespeare`; "Library", to the full library, when the address names no such page), then Create profile (the sign-up sheet, which returns to the same address). The rows are the normal menu's own, with no counter and no selling line. The two AI rows are each one of the device's 10 free AI actions (a card already made opens again uncounted); once the 10 are used they open the account sheet. The back arrow goes to the same page as the way back.
 
 **Removed in this mode:**
 - Play and audio, Notebook, and the Aa button in the bar.
 - Primer, Summary, Quiz me, Catch me up, Read with an angle, Chapter note.
 - The "Highlight any passage" hint.
-- From the T menu: Chat, Talk, Catch me up, Notebook, Audio settings, AI settings, Reading angle, Profile.
+- From the T menu: Chat, Talk, Notebook, Audio settings, AI settings, Reading angle, Profile (Catch me up is back since 27 Nov 2026, above).
 - ~~Selecting text offers Copy only: no Explain, Simplify, Ask or highlight.~~ Changed 26 Nov 2026 (Anders, "give them 10 free basically?"): selecting text offers what it offers a guest in the normal reader, AI included, on the device's 10 free AI actions (shared with the normal reader); Talk and dictation stay out.
 - Sign-in, Premium and "keep your place" prompts, except the account sheet once the 10 free AI actions are used.
 
 **Source line** in the single-edition views, under the chapter heading in small UI type. Example: "Modern English made with AI from George Long's 1862 translation · Report a passage". There's no line in Both, where the column labels already say it. If the reader has no report path today, leave "Report a passage" out and say so in the PR.
 
 **Rules:**
-- ~~**No AI requests at all** from this mode.~~ Since 26 Nov 2026 only the guest companion (`/api/lab-chat`) for selection actions; still no narration.
+- ~~**No AI requests at all** from this mode.~~ Since 26 Nov 2026 only the guest companion (`/api/lab-chat`) for selection actions; since 27 Nov 2026 also the chapter's summary (`/api/lab-chapter-notes`) and the recap of earlier chapters (`/api/lab-catch-up`) for the T menu's two AI rows, sent with no account attached and metered by the Worker as for any signed-out reader; still no narration.
 - A visitor signed in on the device gets the normal reader at the same address without `mode=free` (26 Nov 2026).
 - **Keep the reader's place.** Switching edition keeps the place, on the same line. Every reading-position invariant in `AGENTS.md` still applies.
 - **The place stays on the device:** saved there so a reload continues where you left off, and never written to an account. If the visitor signs in later, the normal reader takes over as it does today.
