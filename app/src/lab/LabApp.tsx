@@ -225,7 +225,7 @@ import { bootLabReading, remoteResumeAudioEditionKey, remoteResumeSelection, use
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage, sceneHandoffForPage, type PageSceneHandoff } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, linkedEditionForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage, sceneHandoffForPage, type PageSceneHandoff } from './labReaderHandoff'
 import { SCENE_HANDOFF_EDITION } from './labSceneHandoff'
 import { chosenDesktopReaderLayout, defaultDesktopReaderLayout, desktopLayoutDevice, initialDesktopReaderLayout, marginReaderRoom, readsMarginOnHandheld, storeDesktopReaderLayout, type DesktopLayoutDevice, type DesktopReaderLayout } from './labDesktopLayout'
 import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
@@ -2076,6 +2076,38 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userBook, positionSync.markChapterFinished])
   const initialResolving = !initialPositionResolved || remoteResumePending
+  // A book opened from the Danish page is read in Danish (labReaderHandoff.ts linkedEditionKey). The reader's place
+  // is resolved first, as for any open; then the edition changes the way the reader's own edition choice does,
+  // which keeps the place. The link asks again on a reload (the place is saved in Danish only at the next page
+  // turn), until the reader picks another edition of the book in this tab: after that their choice stands.
+  const linkedEditionRef = useRef(readerHandoff && !FREE_MODE && !userBook ? linkedEditionForPage() : null)
+  const linkedEditionState = useRef<'waiting' | 'asked' | 'shown' | 'done'>('waiting')
+  useEffect(() => {
+    const linked = linkedEditionRef.current
+    if (!linked || linkedEditionState.current === 'done') return
+    const declined = `tinct:linked-edition-declined:${linked.bookId}:${linked.editionKey}`
+    if (linkedEditionState.current === 'waiting') {
+      if (initialResolving || readerLoadError || book.paragraphs.length === 0) return
+      let asked = (book.bookId || 'bible') === linked.bookId && selectableEditions.some(edition => edition.key === linked.editionKey)
+      try { if (sessionStorage.getItem(declined)) asked = false } catch { /* storage refused: ask */ }
+      if (!asked) { linkedEditionState.current = 'done'; return }
+      linkedEditionState.current = 'asked'
+      if (prefs.primaryEdition !== linked.editionKey) {
+        updatePrefs({ ...prefs, primaryEdition: linked.editionKey, compareOpen: prefs.compareOpen && prefs.compareEdition !== linked.editionKey })
+        return
+      }
+    }
+    if ((book.bookId || 'bible') !== linked.bookId) { linkedEditionState.current = 'done'; return }
+    if (linkedEditionState.current === 'asked') {
+      if (prefs.primaryEdition === linked.editionKey) linkedEditionState.current = 'shown'
+      return
+    }
+    // Shown, and the reader has since picked another edition: the link does not ask again in this tab.
+    if (prefs.primaryEdition !== linked.editionKey) {
+      linkedEditionState.current = 'done'
+      try { sessionStorage.setItem(declined, '1') } catch { /* this page only */ }
+    }
+  }, [book.bookId, book.paragraphs.length, initialResolving, prefs, readerLoadError, selectableEditions, updatePrefs])
   // The save-your-place boxes for a signed-out reader (LabSavePlaceBox.tsx, Anders 25 Nov 2026): under a chapter's end, and
   // welcome back on a later day than this device's previous reading. Never signed in, in free reading mode or in an own book.
   const savePlaceOn = !signedIn && !FREE_MODE && !privateBook
