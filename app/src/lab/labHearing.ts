@@ -478,6 +478,48 @@ export function labVerseMarkerDisplay(text: string): string {
   return [...text].map(ch => LAB_SUPERSCRIPT_DIGIT[ch] ?? ch).join('')
 }
 
+const LAB_VERSE_DIGITS = '¹²³⁰-⁹₀-₉'
+/** A verse digit with nothing but whitespace, or another verse digit, after it: only then is a paragraph tokenized. */
+const LAB_BARE_VERSE_HINT = new RegExp(`[${LAB_VERSE_DIGITS}](?:\\s*$|\\s+[${LAB_VERSE_DIGITS}])`)
+const LAB_NO_BARE_VERSES: ReadonlySet<number> = new Set<number>()
+const bareVerseMarkers = new Map<string, ReadonlySet<number>>()
+
+/**
+ * The verse numbers of a paragraph that have no text: the word indexes of the
+ * verse markers followed by another verse marker or by the end of the
+ * paragraph. The reader does not draw them (Anders, 27 Nov 2026).
+ *
+ * The WEB leaves seven verses out on purpose (Luke 17:36, Acts 8:37, 15:34 and
+ * 24:7, Romans 16:25-27) and the import kept their numbers, so Romans 16 ended
+ * "25 26 27". This is display only. The number is still a word of its
+ * paragraph: word indexes, page maps, saved places, highlights and narration
+ * timings are what they were. Every renderer and measurer asks this one rule
+ * (labBareWords in labMeasureParagraph), so the measured page is the painted one.
+ */
+export function labBareVerseMarkers(text: string | undefined): ReadonlySet<number> {
+  if (!text) return LAB_NO_BARE_VERSES
+  let bare = bareVerseMarkers.get(text)
+  if (bare) return bare
+  bare = LAB_NO_BARE_VERSES
+  if (LAB_BARE_VERSE_HINT.test(text)) {
+    const words = tokenizeWithEmphasis(text)
+    const found = new Set<number>()
+    for (let index = 0; index < words.length; index += 1) {
+      if (isLabVerseMarker(words[index].text) && (index + 1 >= words.length || isLabVerseMarker(words[index + 1].text))) found.add(index)
+    }
+    if (found.size) bare = found
+  }
+  // Asked once per painted slice: remembered so a long paragraph is scanned once, not once per page trial.
+  if (bareVerseMarkers.size >= 256) bareVerseMarkers.clear()
+  bareVerseMarkers.set(text, bare)
+  return bare
+}
+
+/** Whether word `wordIndex` of the paragraph `text` is a verse number with no text after it (never drawn). */
+export function isBareVerseMarker(text: string | undefined, wordIndex: number): boolean {
+  return labBareVerseMarkers(text).has(wordIndex)
+}
+
 /**
  * Whitespace-tokenize `text` for pagination and word rendering, stripping
  * matched Gutenberg `_..._` emphasis delimiters and flagging the words that

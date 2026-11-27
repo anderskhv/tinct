@@ -1,6 +1,6 @@
 import { transcriptTurnClass, type TranscriptTurn } from './labTranscript'
 import { HARD_BREAK_FRAGMENT_RE } from './labHyphenate'
-import { isLabVerseMarker, LAB_VERSE_SEPARATOR, labVerseMarkerDisplay } from './labHearing'
+import { isLabVerseMarker, labBareVerseMarkers, LAB_VERSE_SEPARATOR, labVerseMarkerDisplay } from './labHearing'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { hyphenPlanFor, plannedBreak, type HyphenPlan } from './labHyphenPlan'
 import { figureElement, figureFor } from './labFigures'
@@ -50,14 +50,44 @@ export interface MeasurableWord {
  * quote-led words painted "rhyme to'lady'" (2026-10-21). After a verse marker
  * the separator is the narrow no-break LAB_VERSE_SEPARATOR, which belongs to
  * this word so a highlight starting here has no unpainted notch.
+ *
+ * With `bare` (labBareWords), a verse number with no text paints nothing, so
+ * it takes no separator, and the word after it is spaced as if the number were
+ * not there: an ordinary space after the word before, none at the slice's start.
  */
 export function labWordSpacing(
   word: MeasurableWord,
   wordIndex: number,
   previous?: MeasurableWord,
+  bare?: LabBareWords,
 ): string {
   if (wordIndex <= 0 || word.text.startsWith(',') || word.text.startsWith('.')) return ''
+  if (bare) {
+    if (bare(wordIndex)) return ''
+    if (bare(wordIndex - 1)) {
+      let drawn = wordIndex - 1
+      while (drawn >= 0 && bare(drawn)) drawn -= 1
+      return drawn < 0 ? '' : ' '
+    }
+  }
   return previous && isLabVerseMarker(previous.text) ? LAB_VERSE_SEPARATOR : ' '
+}
+
+/** Whether a word of a painted slice, by its index in the slice, is a verse number with no text. */
+export type LabBareWords = (wordIndex: number) => boolean
+
+/**
+ * The verse numbers with no text among a slice's words (labHearing
+ * `labBareVerseMarkers`), for the slice that starts at word `from` of the
+ * paragraph `text`. They paint nothing: an empty word span, so every word
+ * still has its span and its index. Undefined for a paragraph that has none,
+ * which is every paragraph but six in the library.
+ */
+export function labBareWords(lineation?: { text?: string; from: number }): LabBareWords | undefined {
+  const bare = labBareVerseMarkers(lineation?.text)
+  if (!bare.size) return undefined
+  const from = lineation!.from
+  return wordIndex => bare.has(from + wordIndex)
 }
 
 /**
@@ -106,6 +136,7 @@ export function labMeasureParagraphInto(
     ? options.plan.get((lineation?.from ?? 0) + index)
     : options.plans && lineation ? plannedBreak(lineation.text, lineation.from + index, shown) : undefined
   const planned = !!options.plan || !!(options.plans && lineation && hyphenPlanFor(lineation.text))
+  const bare = labBareWords(lineation)
   const makeWord = (index: number, leading = ''): HTMLElement => {
     const span = document.createElement('span')
     const word = words[index]
@@ -124,6 +155,11 @@ export function labMeasureParagraphInto(
       return span
     }
     span.className = `lab-hearing-word${transcriptTurnClass(options.turn, (lineation?.from ?? 0) + index)}`
+    // A verse number with no text paints nothing; its span keeps the word's place in the list.
+    if (bare?.(index)) {
+      span.dataset.bareVerse = 'true'
+      return span
+    }
     // A link paints its label (a bare address shows its domain and an arrow),
     // so it is measured as painted.
     const link = lineation ? wordLink(lineation.text, lineation.from + index, word.text) : null
@@ -171,11 +207,11 @@ export function labMeasureParagraphInto(
   const children: Array<{ at: number; node: Node }> = []
   for (let index = 0; index < words.length; index += 1) {
     const group = document.createDocumentFragment()
-    group.append(labWordSpacing(words[index], index, words[index - 1]))
-    if (isLabVerseMarker(words[index].text) && words[index + 1]) {
+    group.append(labWordSpacing(words[index], index, words[index - 1], bare))
+    if (isLabVerseMarker(words[index].text) && !bare?.(index) && words[index + 1]) {
       const unit = document.createElement('span')
       unit.className = 'lab-verse-unit'
-      unit.append(makeWord(index), makeWord(index + 1, labWordSpacing(words[index + 1], index + 1, words[index])))
+      unit.append(makeWord(index), makeWord(index + 1, labWordSpacing(words[index + 1], index + 1, words[index], bare)))
       group.append(unit)
       children.push({ at: index, node: group })
       index += 1

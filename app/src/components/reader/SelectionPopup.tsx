@@ -554,7 +554,7 @@ export function SelectionPopup({
 
           </>}
           {popupMode === 'gallery' && <>
-            <h2>Character gallery</h2>
+            <h2>People so far</h2>
             <div className="popup-character-gallery">
               {[true, false].map(inPassage => {
                 const entries = character.gallery.filter(entry => entry.inPassage === inPassage)
@@ -754,7 +754,7 @@ export function SelectionPopup({
           {onShowPage && <button type="button" className="popup-menu-action" data-testid="popup-show-page" onClick={onShowPage}><PageIcon /><span>Show page</span></button>}
           <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Chat</span></button>
           <button type="button" className="popup-menu-action" onClick={() => requestNote()}><NoteIcon /><span>{selection.existingNote ? 'Edit note' : 'Add note'}</span></button>
-          {character && <div className="popup-menu-secondary"><button type="button" onClick={onDefine}>Dictionary</button><button type="button" onClick={() => { setGalleryId(null); setPopupMode('gallery') }}>Character gallery</button></div>}
+          {character && <div className="popup-menu-secondary"><button type="button" onClick={onDefine}>Dictionary</button><button type="button" onClick={() => { setGalleryId(null); setPopupMode('gallery') }}>People so far</button></div>}
           </>}
         </div>
       )}

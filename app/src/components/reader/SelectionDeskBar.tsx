@@ -24,7 +24,7 @@ export const DESK_MORE_ROWS: Record<DeskMoreId, [string, string]> = {
   factcheck: ['Evaluate', 'Does it still hold? Searches the web'],
   counterpoint: ['Counterpoint', 'The strongest objection to it'],
   quiz: ['Quiz me', 'A question about this passage'],
-  gallery: ['Character gallery', 'Everyone in this passage'],
+  gallery: ['People so far', 'Everyone in this passage'],
   copy: ['Copy', 'The passage, to paste elsewhere'],
   share: ['Share as image', 'The quote as a card to post'],
   page: ['Show page', 'This passage on its original page'],

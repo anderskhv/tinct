@@ -2315,6 +2315,13 @@
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
 }
+/* A verse number with no text after it is not drawn (labBareVerseMarkers): its word span is left empty. A paragraph
+   that holds nothing else (the WEB's Romans 16 ends on "26 27") then draws nothing, and takes no room either: no
+   paragraph gap before the chapter's end. The same rule sets the measured page, so the two agree. */
+.lab .lab-hearing-line:not(:has(.lab-hearing-word:not(:empty), .lab-word-fragment)):has(.lab-hearing-word:empty) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 /* Selection paints only: never add spacing that the measured page did not have. */
 
 /* Reading and playback share one exact typographic surface. */
@@ -2325,6 +2332,12 @@
 
 /* Paragraph rhythm belongs between passages, never after the final passage. */
 .lab-passage.is-reading .lab-hearing-stage > .lab-hearing-line:last-child {
+  margin-bottom: 0;
+}
+/* The same for the last text of a chapter that ends on a paragraph in which nothing is drawn (verse numbers with no
+   text, above): LabPassage marks that paragraph (unprintedClass), since :has() cannot look inside :has(). Written to
+   weigh exactly what the rule above weighs, so every layout that sets its own last margin still does. */
+.lab-passage.is-reading .lab-hearing-stage > .lab-hearing-line:has(+ .is-unprinted:where(:last-child)) {
   margin-bottom: 0;
 }
 
