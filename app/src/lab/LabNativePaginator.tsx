@@ -4,7 +4,7 @@ import { measureRowsState, paintRows } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
-import { labMeasureJoinInto, labMeasureParagraphInto, labWordSpacing, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
+import { labBareWords, labMeasureJoinInto, labMeasureParagraphInto, labWordSpacing, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
 import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import {
@@ -234,12 +234,15 @@ function NativeWord({
   wordIndex,
   spacing,
   paragraph,
+  bare = false,
 }: {
   text: string
   paragraphIndex: number
   wordIndex: number
   spacing: string
   paragraph?: string
+  /** A verse number with no text (labBareWords): its span is laid out empty, as it is painted. */
+  bare?: boolean
 }) {
   // A link is laid out as painted: its label, not the raw address.
   const link = wordLink(paragraph, wordIndex, text)
@@ -250,10 +253,11 @@ function NativeWord({
       <span
         className={figure ? 'lab-hearing-word lab-figure-word' : 'lab-hearing-word'}
         data-native-word="true"
+        data-bare-verse={bare ? 'true' : undefined}
         data-paragraph-index={paragraphIndex}
         data-word-index={wordIndex}
       >
-        {figure ? <LabFigureView figure={figure} /> : link ? <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`}>{link.label}</a>{link.trail}</> : isLabVerseMarker(text) ? (
+        {bare ? null : figure ? <LabFigureView figure={figure} /> : link ? <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`}>{link.label}</a>{link.trail}</> : isLabVerseMarker(text) ? (
           <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
         ) : text}
       </span>
@@ -263,6 +267,7 @@ function NativeWord({
 
 function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[] {
   const words = tokenizeHearingWords(text)
+  const bare = labBareWords({ text, from: 0 })
   const rendered: Array<{ at: number; node: ReactNode }> = []
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
     const word = words[wordIndex]
@@ -272,15 +277,16 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
         text={word.text}
         paragraphIndex={paragraphIndex}
         wordIndex={wordIndex}
-        spacing={labWordSpacing(word, wordIndex, words[wordIndex - 1])}
+        spacing={labWordSpacing(word, wordIndex, words[wordIndex - 1], bare)}
         paragraph={text}
+        bare={bare?.(wordIndex)}
       />
     )
-    if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
+    if (isLabVerseMarker(word.text) && !bare?.(wordIndex) && words[wordIndex + 1]) {
       const nextIndex = wordIndex + 1
       rendered.push({ at: wordIndex, node: (
         <Fragment key={`verse-${wordIndex}`}>
-          {labWordSpacing(word, wordIndex, words[wordIndex - 1])}
+          {labWordSpacing(word, wordIndex, words[wordIndex - 1], bare)}
           <span className="lab-verse-unit">
             <NativeWord
               text={word.text}
@@ -292,7 +298,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
               text={words[nextIndex].text}
               paragraphIndex={paragraphIndex}
               wordIndex={nextIndex}
-              spacing={labWordSpacing(words[nextIndex], nextIndex, word)}
+              spacing={labWordSpacing(words[nextIndex], nextIndex, word, bare)}
             />
           </span>
         </Fragment>
@@ -503,7 +509,13 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         const paragraphIndex = Number(node.dataset.paragraphIndex)
         const wordIndex = Number(node.dataset.wordIndex)
         const rect = [...node.getClientRects()].find(item => item.width > 0 && item.height > 0)
-        if (!rect || !Number.isInteger(paragraphIndex) || !Number.isInteger(wordIndex)) return
+        if (!Number.isInteger(paragraphIndex) || !Number.isInteger(wordIndex)) return
+        // A verse number with no text has no ink to place: it goes with the word before it.
+        if (!rect && node.dataset.bareVerse) {
+          placements.push({ pageIndex: placements.length ? placements[placements.length - 1].pageIndex : 0, paragraphIndex, wordIndex })
+          return
+        }
+        if (!rect) return
         placements.push({
           pageIndex: Math.max(0, Math.floor((rect.left - flowLeft + 0.5) / pageWidth)),
           paragraphIndex,
@@ -576,9 +588,11 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         }
         const fits = (segments: ChapterPageSegment[], first: boolean, withEnd = false) => {
           paint(segments, first, withEnd)
-          const painted = [...stage.querySelectorAll('.lab-hearing-word, .lab-word-fragment')]
+          // The last word with ink: a verse number with no text paints nothing, so it ends no page.
+          const painted = [...stage.querySelectorAll('.lab-hearing-word:not([data-bare-verse]), .lab-word-fragment')]
           const last = painted[painted.length - 1]
-          const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : Infinity
+          const onlyBare = !last && !!stage.querySelector('[data-bare-verse]')
+          const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : onlyBare ? -Infinity : Infinity
           const bottom = withEnd && end ? Math.max(lastBottom, end.getBoundingClientRect().bottom) : lastBottom
           return labPageFitsPaint({ lastBottom: bottom, chromeTop: host.getBoundingClientRect().bottom })
         }
