@@ -1,6 +1,6 @@
 import {shelfBookCount} from './shelf-count.js';
 import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20261120shelf';
-import {periodGroups,inPeriod,populatedShelves,collectionReels,compositionYears,homeRows} from './browse-groups.js?v=20261120shelf';
+import {periodGroups,inPeriod,populatedShelves,collectionReels,compositionYears,homeRows,menuShelves} from './browse-groups.js?v=20261120shelf';
 import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
@@ -924,7 +924,7 @@ function renderCollection(){
  if(kind==='credits'){$('collection-title').textContent='Image credits';const grid=$('collection-books');grid.classList.remove('has-collection-reels');$('collection-empty').hidden=true;void renderImageCredits(grid).catch(()=>{grid.textContent='Image credits could not load. Please try again.';});return;}
  if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}
  if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
- if(kind==='shelf'){const shelf=libraryHouses.flatMap(h=>h.shelves).find(s=>s.id===id);selected=books.filter(b=>shelf?.bookIds.includes(b.id));title=shelf?.title||title;}
+ if(kind==='shelf'){const shelf=libraryHouses.flatMap(h=>h.shelves).find(s=>s.id===id),order=shelf?.bookIds||[];selected=books.filter(b=>order.includes(b.id)).sort((a,b)=>order.indexOf(a.id)-order.indexOf(b.id));title=shelf?.title||title;}
  if(kind==='period'){const period=periodGroups.find(p=>p.id===id);selected=period?books.filter(b=>inPeriod(b,period)):[];title=period?period.label+' · '+period.range:title;}
  $('collection-title').textContent=title;
  const grid=$('collection-books'),groups=collectionReels(kind,id,selected,libraryHouses,title);
@@ -944,7 +944,9 @@ function renderBrowseMenus(){
   if(range)b.append(el('small','',range));row.append(b);host.append(row);
  };
  $('menu-categories').replaceChildren();$('menu-periods').replaceChildren();
- for(const c of categories){if(c.id!=='all'&&!books.some(b=>metadata[b.id]?.form===c.id))continue;add($('menu-categories'),c.label,'category:'+c.id);}
+ // A shelf with a row of its own on the home page is in the menu too, under its house's category ("For young readers" after Novels).
+ for(const c of categories){if(c.id!=='all'&&!books.some(b=>metadata[b.id]?.form===c.id))continue;add($('menu-categories'),c.label,'category:'+c.id);
+  for(const shelf of menuShelves(c.id,libraryHouses,id=>books.some(b=>b.id===id)))add($('menu-categories'),shelf.title,'shelf:'+shelf.id);}
  for(const era of eras){if(!books.some(b=>metadata[b.id]?.era===era.id))continue;add($('menu-periods'),era.label,'era:'+era.id,era.range);}
  $('menu-periods').append(el('small','browse-date-note','Grouped by approximate composition dates; some works span several periods.'));
 }

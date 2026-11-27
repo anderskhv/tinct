@@ -4,14 +4,17 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 // @ts-expect-error -- plain browser module of the library page
-import { HOME_SHELF_ROWS, homeRows } from '../public/lab/library_2/browse-groups.js'
+import { HOME_SHELF_ROWS, homeRows, menuShelves } from '../public/lab/library_2/browse-groups.js'
 import { serializePreReaderCatalogue } from './preReader/catalogue'
 
 type Row = { kind: 'house' | 'shelf'; id: string; title: string; bookIds: string[] }
 
-// The order Anders approved in the mockup (23 Nov 2026).
+// The eight of 20 Nov keep the order Anders approved in the mockup (23 Nov 2026); the seven children's books the library
+// already had (Alice, Pinocchio, Grimm, A Little Princess and Around the World in Eighty Days named by Anders on 27 Nov,
+// with The Jungle Book and Lang's Arabian Nights) are placed among them.
 const YOUNG_READERS = [
-  'the-secret-garden', 'wind-in-the-willows', 'merry-adventures-of-robin-hood', 'story-of-king-arthur-and-his-knights',
+  'alice-in-wonderland', 'pinocchio', 'grimms-fairy-tales', 'the-secret-garden', 'a-little-princess', 'jungle-book',
+  'around-the-world-80-days', 'wind-in-the-willows', 'merry-adventures-of-robin-hood', 'story-of-king-arthur-and-his-knights', 'arabian-nights',
   'wonder-book-and-tanglewood-tales', 'beautiful-stories-from-shakespeare', 'odyssey-for-boys-and-girls', 'iliad-for-boys-and-girls',
 ]
 
@@ -84,11 +87,11 @@ describe('the library home page with the built catalogue', () => {
     expect(rows.slice(at - 1, at + 2).map(row => row.title)).toEqual(['Fiction', 'For young readers', 'Poetry & Epic'])
   })
 
-  it('it holds the shelf\'s eight books in the approved order', () => {
+  it('it holds the shelf\'s books in the shelf\'s order', () => {
     expect(rows.find(row => row.id === 'young-readers')?.bookIds).toEqual(YOUNG_READERS)
   })
 
-  it('each of the eight is on the home page once, and every other book is where it was', () => {
+  it('each of them is on the home page once, and every other book is where it was', () => {
     for (const id of YOUNG_READERS) expect(rows.filter(row => row.bookIds.includes(id)).map(row => row.id), id).toEqual(['young-readers'])
     expect(before.find(row => row.id === 'novel')!.bookIds).toEqual(expect.arrayContaining(YOUNG_READERS))
     for (const row of before) {
@@ -105,5 +108,29 @@ describe('the library page draws the rows the model gives (library_2/app.js)', (
     expect(app).toContain("homeRows(houses,id=>byId.has(id)).forEach(({title,bookIds})=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);bookIds.forEach(id=>row.append(titledCover(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});")
     // The rows come from the model alone: no second pass over the houses.
     expect(app).not.toMatch(/houses\.forEach\(/)
+  })
+})
+
+// The library menu (upper left) listed categories only, so the shelf with a row of its own on the home page could
+// not be reached from it (Anders, 27 Nov 2026: "it's missing from the menu").
+describe('the library menu lists a shelf that has a home row, under its category', () => {
+  const catalogue = serializePreReaderCatalogue()
+  const has = (id: string) => catalogue.books.some(book => book.id === id)
+
+  it('For young readers comes after Novels, and after no other category', () => {
+    expect(menuShelves('novel', catalogue.houses, has).map((item: { id: string; title: string }) => `${item.id}:${item.title}`)).toEqual(['young-readers:For young readers'])
+    for (const category of ['all', 'drama', 'epic', 'philosophy', 'political', 'history', 'scripture', 'strategy']) expect(menuShelves(category, catalogue.houses, has), category).toEqual([])
+  })
+
+  it('a shelf with no book on the page is not listed, nor one without a home row', () => {
+    expect(menuShelves('novel', catalogue.houses, () => false)).toEqual([])
+    expect(menuShelves('novel', catalogue.houses, has, [])).toEqual([])
+    expect(menuShelves('novel', [], has)).toEqual([])
+  })
+
+  it('the menu draws them, and the shelf\'s page keeps the shelf\'s order', () => {
+    const app = readFileSync(resolve('public/lab/library_2/app.js'), 'utf8')
+    expect(app).toContain("for(const shelf of menuShelves(c.id,libraryHouses,id=>books.some(b=>b.id===id)))add($('menu-categories'),shelf.title,'shelf:'+shelf.id)")
+    expect(app).toContain('.sort((a,b)=>order.indexOf(a.id)-order.indexOf(b.id))')
   })
 })
