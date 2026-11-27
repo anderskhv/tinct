@@ -22,6 +22,7 @@ import {
 import './labCatchUp.css'
 import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
 import { LabPhoneCard } from './marginPhone/LabPhoneCard'
+import { FREE_MODE } from './freeMode/freeModeContext'
 
 export const CATCH_UP_TITLE = 'Catch me up'
 /** The whole book's Summary, from the book's start actions. */
@@ -244,7 +245,8 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
   const foot = follow ? <div className="lab-catch-up-foot is-follow">{follow(shownText)}</div> : (
         <div className="lab-catch-up-foot lab-chapter-notes-foot">
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-chat" aria-label="Chat" onClick={() => onChat(shownText())}><RowIcon id="chat" /></button>
-          <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-talk" aria-label="Talk" onClick={() => onTalk(shownText())}><RowIcon id="talk" /></button>
+          {/* Free reading mode offers no Talk (freeMode.ts). */}
+          {!FREE_MODE && <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-talk" aria-label="Talk" onClick={() => onTalk(shownText())}><RowIcon id="talk" /></button>}
         </div>
   )
   const readyText = shownText()

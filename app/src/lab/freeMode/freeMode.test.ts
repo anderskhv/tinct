@@ -1,12 +1,16 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it, vi } from 'vitest'
 import { getBook } from '../../data/bookRegistry'
+import { labSuperMenuRows } from '../labSuperMenu'
 import {
   FREE_MODE_COMMANDS,
+  FREE_MODE_HUBS,
+  FREE_MODE_HUB_NAMES,
   freeModeEditionFor,
   freeModeEditions,
   freeModeHubFor,
   freeModeMenuRows,
+  freeModeRefFor,
   freeModeAllowsAccountPrompt,
   freeModeSignedInAddress,
   freeModeSourceLine,
@@ -52,9 +56,50 @@ describe('free reading mode is decided by the address', () => {
 })
 
 describe('free reading mode chrome', () => {
-  it('has a t menu of Appearance, Book settings and Library only', () => {
-    expect(freeModeMenuRows().map(row => row.label)).toEqual(['Appearance', 'Book settings', 'Library'])
-    expect(freeModeMenuRows().map(row => row.id)).toEqual(['text', 'editions', 'library'])
+  it('has a t menu of the two AI rows, Appearance and Book settings, then the way back and Create profile', () => {
+    // Approved mockup, Anders 27 Nov 2026 (before: Appearance, Book settings and Library only).
+    expect(freeModeMenuRows(null).map(row => row.label)).toEqual(['Summarize this chapter', 'Catch me up', 'Appearance', 'Book settings', 'Library', 'Create profile'])
+    expect(freeModeMenuRows(null).map(row => row.id)).toEqual(['summarize', 'catchup', 'text', 'editions', 'library', 'account'])
+    // A rule before the settings and before the way back; chevrons where the normal menu has them.
+    expect(freeModeMenuRows(null).filter(row => row.ruleBefore).map(row => row.id)).toEqual(['text', 'library'])
+    expect(freeModeMenuRows(null).filter(row => row.chevron).map(row => row.id)).toEqual(['text', 'editions', 'account'])
+    // Nothing counts or sells: no row carries a detail, and no label a number.
+    for (const row of freeModeMenuRows('modern-english')) {
+      expect(row.detail, row.id).toBeUndefined()
+      expect(row.label, row.id).not.toMatch(/\d|free|left|premium/i)
+    }
+  })
+
+  it('uses the normal menu’s own rows, so each keeps its icon, chevron and name', () => {
+    const normal = labSuperMenuRows({ phone: true, summarize: true })
+    const own = (id: string) => normal.find(row => row.id === id)!
+    const rows = freeModeMenuRows('modern-english')
+    for (const id of ['catchup', 'text', 'editions']) expect(rows.find(row => row.id === id)!.label, id).toBe(own(id).label)
+    for (const row of rows) expect(!!row.chevron, row.id).toBe(!!own(row.id).chevron)
+    // The same ids the menu draws its icons from (LabSuperMenu.tsx RowIcon): no row of free mode's own.
+    for (const row of rows) expect(normal.some(item => item.id === row.id), row.id).toBe(true)
+  })
+
+  it('names the way back for the page the reader came from, and Library when the address names none', () => {
+    const back = (ref: Parameters<typeof freeModeMenuRows>[0]) => freeModeMenuRows(ref).find(row => row.id === 'library')!.label
+    expect(back('modern-english')).toBe('Modern English classics')
+    expect(back('nudansk')).toBe('Klassikere på nudansk')
+    expect(back('shakespeare')).toBe('Shakespeare')
+    expect(back(null)).toBe('Library')
+    expect(freeModeRefFor('?book=hamlet&mode=free&ref=shakespeare')).toBe('shakespeare')
+    expect(freeModeRefFor('?book=hamlet&mode=free&ref=nudansk')).toBe('nudansk')
+    expect(freeModeRefFor('?book=hamlet&mode=free')).toBeNull()
+    expect(freeModeRefFor('?book=hamlet&mode=free&ref=elsewhere')).toBeNull()
+    // Never a name from the address itself.
+    expect(freeModeRefFor('?book=hamlet&mode=free&ref=constructor')).toBeNull()
+    expect(freeModeRefFor('?book=hamlet&mode=free&ref=__proto__')).toBeNull()
+    // Every hub has a name, and the Danish page's is the page's own (its title: "De største klassikere på nudansk").
+    expect(Object.keys(FREE_MODE_HUB_NAMES).sort()).toEqual(Object.keys(FREE_MODE_HUBS).sort())
+    expect(readFileSync('src/seo/modernEnglishPage.ts', 'utf8')).toContain('De største klassikere på nudansk')
+  })
+
+  it('opened from /shakespeare, reads the Modern English and goes back there', () => {
+    expect(freeModeHubFor('?book=hamlet&mode=free&ref=shakespeare')).toEqual({ home: '/shakespeare', modern: 'modern-en' })
   })
 
   it('keeps no keyboard command that plays, talks, chats or asks for an account', () => {
@@ -97,10 +142,12 @@ describe('free reading mode chrome', () => {
   })
 })
 
-describe('free reading mode sends nothing to AI but the guest companion, nor to narration or the account', () => {
+describe('free reading mode sends nothing to AI but the guest routes, nor to narration or the account', () => {
+  // Since 27 Nov 2026 a POST to chapter notes and to catch-up is a guest route (the t menu's two AI rows, below);
+  // by any other method they are still answered on the device, as every other route here is by any method.
   const AI = [
-    ['GET', '/api/lab-chat'], ['POST', '/api/lab-chat-history'], ['GET', '/api/lab-chat-history'], ['POST', '/api/chat'], ['POST', '/api/lab-chapter-notes'], ['POST', '/api/lab-recap'],
-    ['POST', '/api/lab-catch-up'], ['POST', '/api/lab-voice-session'], ['GET', '/api/lab-voice-relay'], ['POST', '/api/voice-session'],
+    ['GET', '/api/lab-chat'], ['POST', '/api/lab-chat-history'], ['GET', '/api/lab-chat-history'], ['POST', '/api/chat'], ['GET', '/api/lab-chapter-notes'], ['PUT', '/api/lab-chapter-notes'], ['POST', '/api/lab-recap'],
+    ['GET', '/api/lab-catch-up'], ['DELETE', '/api/lab-catch-up'], ['POST', '/api/lab-catch-up-prepare'], ['POST', '/api/lab-chapter-notes/primer'], ['POST', '/api/lab-voice-session'], ['GET', '/api/lab-voice-relay'], ['POST', '/api/voice-session'],
     ['POST', '/api/narration/ensure'], ['GET', '/api/narration/voices'], ['GET', '/api/narration/listen?book=meditations'],
     ['GET', '/api/audio-file?key=x'], ['GET', '/api/audio-manifest'], ['POST', '/api/dictation'], ['GET', '/api/ai-allowance'],
     ['POST', '/api/recap-preparation'], ['POST', '/api/own-catch-up'],
@@ -116,6 +163,19 @@ describe('free reading mode sends nothing to AI but the guest companion, nor to 
     expect(freeModeVerdict(`${ORIGIN}/api/lab-chat`, 'post', ORIGIN)).toBe('guest-ai')
     expect(freeModeVerdict('https://elsewhere.example/api/lab-chat', 'POST', ORIGIN)).toBe('pass')
     expect(freeModeVerdict('/api/lab-chat-history', 'POST', ORIGIN)).toBe('ai')
+  })
+
+  it('lets the t menu’s Summarize this chapter and Catch me up reach their two guest routes, by POST only', () => {
+    for (const path of ['/api/lab-chapter-notes', '/api/lab-catch-up']) {
+      expect(freeModeVerdict(path, 'POST', ORIGIN), path).toBe('guest-ai')
+      expect(freeModeVerdict(`${ORIGIN}${path}`, 'post', ORIGIN), path).toBe('guest-ai')
+      expect(freeModeVerdict(path, 'GET', ORIGIN), path).toBe('ai')
+      expect(freeModeVerdict(`https://elsewhere.example${path}`, 'POST', ORIGIN), path).toBe('pass')
+    }
+    // Nothing else a signed-in reader's cards use: the "so far" recap, its preparation, an own book's recap.
+    for (const path of ['/api/lab-recap', '/api/recap-preparation', '/api/own-catch-up', '/api/chat', '/api/ai-allowance']) {
+      expect(freeModeVerdict(path, 'POST', ORIGIN), path).toBe('ai')
+    }
   })
 
   it('shows the account sheet only for AI, never for listening, Talk or anything else', () => {
@@ -167,5 +227,17 @@ describe('free reading mode sends nothing to AI but the guest companion, nor to 
     const chatInit = (realFetch.mock.calls[2] as unknown as [string, RequestInit])[1]
     expect(new Headers(chatInit.headers).has('Authorization')).toBe(false)
     expect(new Headers(chatInit.headers).get('Content-Type')).toBe('application/json')
+
+    // So do the two AI rows' requests, with their body and never with an account attached; never as a beacon.
+    for (const [index, path] of ['/api/lab-chapter-notes', '/api/lab-catch-up'].entries()) {
+      await win.fetch(path, { method: 'POST', body: '{"bookId":"meditations"}', headers: { Authorization: 'Bearer token', 'Content-Type': 'application/json' } })
+      expect(realFetch).toHaveBeenCalledTimes(4 + index)
+      const [sentTo, init] = realFetch.mock.calls[3 + index] as unknown as [string, RequestInit]
+      expect(sentTo).toBe(path)
+      expect(init.body).toBe('{"bookId":"meditations"}')
+      expect(new Headers(init.headers).has('Authorization')).toBe(false)
+      expect(win.navigator.sendBeacon(path, '{}')).toBe(true)
+    }
+    expect(beacon).toHaveBeenCalledTimes(1)
   })
 })
