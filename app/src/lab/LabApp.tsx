@@ -82,6 +82,7 @@ import { LAB_COPY } from './labCopy'
 import {
   LAB_DESKTOP_PANES,
   labShouldAutofocusComposer,
+  labPageMapFitsShell,
   bindLabVisualViewportHeight,
   isLabPhoneSurface,
   shouldShowLabPhoneFooter,
@@ -2917,13 +2918,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   pageMetricsRef.current = pageMetrics
   const pageMetricGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const settledPageGeometryRef = useRef<{ width: number; height: number } | null>(null)
+  // How tall the shell was when the page map on screen was laid out (0: not measured). A page freeze carries it.
+  const settledShellHeightRef = useRef(0)
   const pageAnchorRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
   // V2 phone: the audio transport opening or closing changes the reserved
   // foot. The page on screen (and those before it) is kept exactly; only the
   // pages after it are laid out at the new height (see labPagesKeepingPrefix).
   // `transportOpenRef` is the foot now; `mapTransportOpenRef` the foot the
   // native map in use was measured against.
-  const [pageFreeze, setPageFreeze] = useState<{ content: string[]; layoutKey: string; pages: ChapterHearingPage[] } | null>(null)
+  // `shell`: how tall the shell was when those pages were laid out. They are kept only in a shell of that height: a
+  // follow-up typed in the People card opened Chat while the keyboard had the chapter in half-height pages, and the
+  // half page was kept at full height until the chapter changed (iPhone, 26 and 27 Nov 2026).
+  const [pageFreeze, setPageFreeze] = useState<{ content: string[]; layoutKey: string; pages: ChapterHearingPage[]; shell: number } | null>(null)
   const pageFreezeRef = useRef(pageFreeze)
   pageFreezeRef.current = pageFreeze
   const transportOpenRef = useRef(false)
@@ -2932,7 +2938,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const listenStartRef = useRef(listen.start)
   listenStartRef.current = listen.start
 
-  const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[], partial = false) => {
+  const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[], partial = false, shellHeight?: number) => {
     if (measuredContent && measuredContent !== nativeContentRef.current) return
     // Every session, a deep link's included, adopts the measured map verbatim.
     const next = withComparePassage(incoming, nativeContentRef.current)
@@ -3002,6 +3008,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSettleIndex(null)
     const wrapRect = pageWrapRef.current?.getBoundingClientRect()
     if (wrapRect) settledPageGeometryRef.current = { width: wrapRect.width, height: wrapRect.height }
+    settledShellHeightRef.current = shellHeight || (labRootRef.current?.getBoundingClientRect().height ?? 0)
 
     workingPagesRef.current = next
     if (!sameChapterPages(working, next)) setDraftPages(next)
@@ -3536,7 +3543,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const frozen = pageFreezeRef.current
       if (
         mapTransportOpenRef.current !== transportOpenRef.current
-        || (frozen && frozen.content === readerParagraphs && pageIdx < frozen.pages.length)
+        || (frozen && frozen.content === readerParagraphs && pageIdx < frozen.pages.length
+          && labPageMapFitsShell(frozen.shell, labRootRef.current?.getBoundingClientRect().height))
       ) {
         if (layoutTraceOn()) layoutTrace('paint-shrink-skip', { ch: traceChapterRef.current, idx: pageIdx, n: pages.length, frozen: !!frozen, ...tracePainted(painted), ...describeLabOnScreenBarTop(wrap.ownerDocument, chromeEl) })
         return
@@ -3925,7 +3933,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // scripts/check-inline-audio-loading.mjs).
     const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
     const index = Math.min(current, Math.max(0, shownIndex))
-    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, index + 1) })
+    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, index + 1), shell: settledShellHeightRef.current })
   // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on the foot changing only; tracks the shown page every commit
   })
   // Phone Chat takes the page surface's place: the page and its paginator are
@@ -3944,7 +3952,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const pages = readingPagesRef.current
     if (!measuredPaging || desktopPaging || nativeMeasuredContent !== readerParagraphs || pages.length === 0) return
     const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
-    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, current + 1) })
+    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, current + 1), shell: settledShellHeightRef.current })
   // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on Chat opening only; reads the page map as it is then
   }, [phoneAsk])
   // Chat on screen: warm the companion's reading trail (read-only) so the
@@ -8378,6 +8386,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
               layoutKey={layoutKeyFor(readerEditionKey)}
               keepPages={pageFreeze && pageFreeze.content === readerParagraphs && pageFreeze.layoutKey === nativeLayoutKey ? pageFreeze.pages : undefined}
+              keepShellHeight={pageFreeze && pageFreeze.content === readerParagraphs && pageFreeze.layoutKey === nativeLayoutKey ? pageFreeze.shell : undefined}
               // The reader's first page of this visit: shown before the rest
               // of its chapter is laid out (applyNativePages takes it only
               // when that page is where the reader lands).

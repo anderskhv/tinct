@@ -8,7 +8,8 @@
  * under app/public, and danishTitles.test.ts checks the title is in it) or a long-established
  * Danish title (`source: 'established'`), with `checked` naming a page that shows a Danish edition
  * or reference under that title where one was found. Never invent one: a title not certain is
- * left out and listed for Anders to check instead. (Saxo, the bookshop Anders suggested, refuses
+ * left out and listed for Anders to check instead. A book with no Danish edition under any title
+ * carries the title Anders approved for it (`source: 'approved'`, with the date beside it). (Saxo, the bookshop Anders suggested, refuses
  * automated lookups, so it could not be checked from here on 2026-11-13.)
  *
  * The catalogue gives a book its Danish titles only while it has a Danish edition readers can open
@@ -18,7 +19,7 @@
 export interface DanishTitle {
   /** The Danish titles; the first is the one to show. */
   titles: string[]
-  /** A file under app/public whose Danish text uses the first title, or 'established'. */
+  /** A file under app/public whose Danish text uses the first title, 'established', or 'approved' (by Anders, where no Danish edition exists). */
   source: string
   /** A page showing a Danish edition or reference work under the title, where one was found. */
   checked?: string
@@ -106,6 +107,24 @@ export const DANISH_TITLES: Record<string, DanishTitle> = {
   'as-you-like-it': { titles: ['Som man behager'], source: 'established' },
   'measure-for-measure': { titles: ['Lige for lige'], source: 'established' },
   'henry-iv-part-2': { titles: ['Henrik IV'], source: 'established' },
+  // Looked up for /nudansk (Anders, 27 Nov 2026: "use what the normal Danish title is", never our own translation),
+  // in the Royal Library's catalogue (soeg.kb.dk) and lex.dk. Four books on that page have no Danish edition under
+  // any title that could be found (Church's two Homer retellings, Hawthorne's two volumes as one book, Nesbit's
+  // Shakespeare stories); Anders approved the four titles at the end of this list on 27 Nov 2026.
+  'hume-enquiry': { titles: ['En undersøgelse af den menneskelige forstand', 'En undersøgelse af den menneskelige erkendelse'], source: repo('hume-enquiry'), checked: 'https://da.wikipedia.org/wiki/David_Hume' },
+  // Lembcke (1867) and Brunse (Samlede skuespil 2, 2012) both call it Tvillingerne.
+  'comedy-of-errors': { titles: ['Tvillingerne'], source: repo('comedy-of-errors'), checked: 'https://lex.dk/William_Shakespeare' },
+  'wind-in-the-willows': { titles: ['Vinden i piletræerne'], source: 'established', checked: 'https://lex.dk/Vinden_i_piletr%C3%A6erne' },
+  // The last full translation (Ella Willy Nielsen, Hernov 1972); the 1946 and 1952 editions' titles find it too.
+  'merry-adventures-of-robin-hood': { titles: ['Den vidtberømte Robin Hood og hans muntre eventyr', 'Robin Hood og hans lystige eventyr', 'Robin Hood'], source: 'established', checked: 'https://soeg.kb.dk/primaws/rest/pub/pnxs?q=title,contains,vidtber%C3%B8mte%20Robin%20Hood&vid=45KBDK_KGL:KGL&tab=Everything&scope=MyInst_and_CI&lang=da&limit=10&offset=0' },
+  // Bodil Holm's translation (Hernov 1991), catalogued with "Originaltitel: The story of King Arthur and his knights".
+  'story-of-king-arthur-and-his-knights': { titles: ['Kong Arthur og ridderne af det runde bord'], source: 'established', checked: 'https://soeg.kb.dk/primaws/rest/pub/pnxs?q=title,contains,Kong%20Arthur%20og%20ridderne%20af%20det%20runde%20bord&vid=45KBDK_KGL:KGL&tab=Everything&scope=MyInst_and_CI&lang=da&limit=8&offset=0' },
+  // No Danish edition found under any title; titles approved by Anders, 27 Nov 2026 ("yes to your Danish titles").
+  'iliad-for-boys-and-girls': { titles: ['Iliaden fortalt for børn'], source: 'approved' },
+  'odyssey-for-boys-and-girls': { titles: ['Odysseen fortalt for børn'], source: 'approved' },
+  // Tinct's Danish text of the book calls the first volume Vidunderbogen.
+  'wonder-book-and-tanglewood-tales': { titles: ['Vidunderbogen og Tanglewood-fortællinger', 'Vidunderbogen'], source: 'approved' },
+  'beautiful-stories-from-shakespeare': { titles: ['Smukke fortællinger fra Shakespeare'], source: 'approved' },
 }
 
 /**
@@ -125,6 +144,8 @@ export const DANISH_AUTHOR_NAMES: Record<string, string[]> = {
   'Leo Tolstoy': ['Lev Tolstoj'],
   'Fyodor Dostoevsky': ['Fjodor Dostojevskij'],
   'Jacob and Wilhelm Grimm': ['Jacob og Wilhelm Grimm', 'Brødrene Grimm'],
+  // King John is Johan uden Land in Danish (Magna Carta's author line on /nudansk).
+  'Anonymous (sealed by King John)': ['Anonym (beseglet af kong Johan uden Land)'],
 }
 
 /** A book's Danish titles, first the one to show, or []. */
