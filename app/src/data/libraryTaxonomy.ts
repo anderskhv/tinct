@@ -2038,7 +2038,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "travel"
     ],
     "shelves": [
-      "adventure"
+      "adventure",
+      "young-readers"
     ],
     "langs": [
       "EN",
@@ -3447,6 +3448,7 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
       "the-secret-garden",
       "a-little-princess",
       "jungle-book",
+      "around-the-world-80-days",
       "wind-in-the-willows",
       "merry-adventures-of-robin-hood",
       "story-of-king-arthur-and-his-knights",

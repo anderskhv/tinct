@@ -9,12 +9,12 @@ import { serializePreReaderCatalogue } from './preReader/catalogue'
 
 type Row = { kind: 'house' | 'shelf'; id: string; title: string; bookIds: string[] }
 
-// The eight of 20 Nov keep the order Anders approved in the mockup (23 Nov 2026); the six children's books the library
-// already had (Alice, Pinocchio, Grimm and A Little Princess named by Anders on 27 Nov, with The Jungle Book and Lang's
-// Arabian Nights) are placed among them.
+// The eight of 20 Nov keep the order Anders approved in the mockup (23 Nov 2026); the seven children's books the library
+// already had (Alice, Pinocchio, Grimm, A Little Princess and Around the World in Eighty Days named by Anders on 27 Nov,
+// with The Jungle Book and Lang's Arabian Nights) are placed among them.
 const YOUNG_READERS = [
   'alice-in-wonderland', 'pinocchio', 'grimms-fairy-tales', 'the-secret-garden', 'a-little-princess', 'jungle-book',
-  'wind-in-the-willows', 'merry-adventures-of-robin-hood', 'story-of-king-arthur-and-his-knights', 'arabian-nights',
+  'around-the-world-80-days', 'wind-in-the-willows', 'merry-adventures-of-robin-hood', 'story-of-king-arthur-and-his-knights', 'arabian-nights',
   'wonder-book-and-tanglewood-tales', 'beautiful-stories-from-shakespeare', 'odyssey-for-boys-and-girls', 'iliad-for-boys-and-girls',
 ]
 
