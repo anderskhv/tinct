@@ -144,10 +144,23 @@ describe('compact selection popup', () => {
     fireEvent.click(screen.getByRole('button', { name: 'More actions' }))
     expect(input.setPopupMode).toHaveBeenCalledWith('main')
     rerender(<SelectionPopup {...input} popupMode="main" />)
-    fireEvent.click(screen.getByText('Character gallery'))
+    fireEvent.click(screen.getByText('People so far'))
     expect(input.setPopupMode).toHaveBeenCalledWith('gallery')
     fireEvent.click(screen.getByRole('button', { name: 'Back to information' }))
     expect(input.setPopupMode).toHaveBeenCalledWith('character')
+  })
+
+  it('names the gallery "People so far" on desktop too: its heading and its row under ••• (Anders, 27 Nov 2026)', async () => {
+    const card = { id: 'ananias', kind: 'person', role: 'reference', name: 'Ananias', subtitle: 'Disciple in Damascus', body: 'Restores Saul’s sight.' }
+    const saul = { ...card, id: 'saul', role: 'central', name: 'Saul', subtitle: 'Persecutor of the church', body: 'Sets out for Damascus.' }
+    const character = { card, cutoff: { chapterNumber: 1, paragraphIndex: 2, offset: 14 }, gallery: [{ card, inPassage: true }, { card: saul, inPassage: true }] }
+    render(<SelectionPopup {...props({ popupMode: 'gallery', selection: selection({ character }) })} />)
+    expect(screen.getByRole('heading', { level: 2 }).textContent).toBe('People so far')
+    expect(screen.queryByText('Character gallery')).toBeNull()
+    // The desktop popup is its own component: its way back out of the gallery keeps its wording and place.
+    expect(screen.getByRole('button', { name: 'Back to selected name' })).toBeTruthy()
+    const { DESK_MORE_ROWS } = await import('./SelectionDeskBar')
+    expect(DESK_MORE_ROWS.gallery[0]).toBe('People so far')
   })
 
   it('labels a small part "Minor figure" and drops the "At this passage" label (Anders, 2026-10-02)', () => {

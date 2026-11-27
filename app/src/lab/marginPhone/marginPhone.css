@@ -229,11 +229,14 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab :is(.lab-pcard, .source-margin-content) .popup-character { padding: 0; }
 .lab :is(.lab-pcard, .source-margin-content) .popup-define-result { flex: none; overflow: visible; padding-bottom: 0; -webkit-mask-image: none; mask-image: none; }
 .lab .lab-pcard .lab-pcard-character { padding: 0; }
-.lab .lab-pcard .lab-pcard-character .popup-character-heading button,
-.lab .lab-pcard .lab-pcard-character > button,
-.lab .lab-pcard .lab-pcard-character-links > button { font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
-/* Character gallery and Back to selected name: one row with a clear gap between them, wrapping on a narrow card. */
-.lab .lab-pcard .lab-pcard-character-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; margin-top: 8px; }
+.lab .lab-pcard .lab-pcard-character .popup-character-heading button { font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+/* The People card's links (design B, Anders, 27 Nov 2026), set as the cards' other links (.lab-pcard-link: system
+   UI, sentence case). "← Ananias", the person the reader tapped, sits above the name (and above the gallery's
+   heading) on one line; "People so far →" sits under the card's text. */
+.lab .lab-pcard .lab-pcard-character-back { display: block; max-width: 100%; margin: 0; padding: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lab .lab-pcard .lab-pcard-character-back + h2 { margin-top: 4px; }
+.lab .lab-pcard .lab-pcard-character-links { margin-top: 8px; }
+.lab .lab-pcard .lab-pcard-character-links > button { padding: 0; }
 .lab .lab-pcard .lab-pcard-character .popup-character-gallery section > button { padding: 8px 0; }
 
 /* Chat in the card: the chat's own thread and composer. */
