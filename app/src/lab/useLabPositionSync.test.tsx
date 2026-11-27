@@ -179,6 +179,7 @@ function Harness(props: {
   placeRef: MutableRefObject<{ paragraphIndex: number; wordIndex: number }>
   onRemoteResume: (place: LabBookPlace) => void
   onResolvedPlace?: (place: LabBookPlace) => void
+  onMovedBack?: Parameters<typeof useLabPositionSync>[0]['onMovedBack']
   interactedRef?: MutableRefObject<boolean>
   token?: string | null
   ownerId?: string | null
@@ -198,6 +199,7 @@ function Harness(props: {
     ownerId: props.ownerId === undefined ? READER : props.ownerId,
     onRemoteResume: props.onRemoteResume,
     onResolvedPlace: props.onResolvedPlace,
+    onMovedBack: props.onMovedBack,
     interactedRef: props.interactedRef,
     initialCloudWaitMs: props.initialCloudWaitMs,
     resolveBeforePaint: props.resolveBeforePaint,
@@ -1043,5 +1045,83 @@ describe('a stale reader on the same device (12 Nov 2026, two tabs on one iPhone
       books: { proverbs: proverbs17({ paragraphIndex: 9, updatedAt: Date.now() + 5_000 }) } }))
     act(() => { document.dispatchEvent(new Event('visibilitychange')) })
     expect(onResolvedPlace).not.toHaveBeenCalled()
+  })
+})
+
+// 17 Nov 2026: a reader in chapter 5 on the phone opened chapter 4 on a PC; the phone came back in chapter 4. The
+// move stays (the newest place wins, backwards too); the reader is told the place this device had read to, so it can
+// offer "Continue from chapter 5" (labFurtherPlace.ts).
+describe('another device moved this device back a chapter', () => {
+  const proverbs16ByDesk = () => proverbs17({ chapterNumber: 16, sequentialChapter: 644, paragraphIndex: 1, wordIndex: 0, updatedAt: 500_000, deviceId: DESK, rev: 12 })
+  const cloudAt = (place: LabBookPlace): LabPositionState => ({
+    ...emptyLabPositionState(DESK), owner: READER, books: { [place.bookId]: place },
+    lastSettledBookId: place.bookId, lastSettledAt: place.updatedAt, updatedAt: place.updatedAt,
+  })
+  const ownLocal = (place: LabBookPlace = proverbs17()): LabPositionState => ({ ...settledProverbsLocal(), owner: READER, books: { proverbs: place } })
+
+  async function open(local: LabPositionState, cloud: LabPositionState) {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(local))
+    stubPositionApi(Promise.resolve(cloud))
+    const onRemoteResume = vi.fn(), onMovedBack = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} onMovedBack={onMovedBack} />)
+    await waitFor(() => expect(harness.initialPositionResolved).toBe(true))
+    await settle()
+    return { onRemoteResume, onMovedBack }
+  }
+
+  it('on opening: follows the earlier chapter and reports the place this device had', async () => {
+    const { onRemoteResume, onMovedBack } = await open(ownLocal(), cloudAt(proverbs16ByDesk()))
+    expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'proverbs', sequentialChapter: 644 }))
+    expect(onMovedBack).toHaveBeenCalledTimes(1)
+    expect(onMovedBack).toHaveBeenCalledWith({
+      place: expect.objectContaining({ bookId: 'proverbs', sequentialChapter: 645, paragraphIndex: 3, wordIndex: 7, deviceId: PHONE }),
+      libraryBookId: 'bible',
+      fromChapter: 644,
+    })
+    // The rule itself is unchanged: the account's place is this device's place now.
+    expect(readLabPositionLocal().books.proverbs).toMatchObject({ sequentialChapter: 644, deviceId: DESK })
+  })
+
+  it('reports nothing for a move forward', async () => {
+    const { onRemoteResume, onMovedBack } = await open(ownLocal(), cloudAt(proverbs17({ chapterNumber: 18, sequentialChapter: 646, updatedAt: 500_000, deviceId: DESK, rev: 12 })))
+    expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ sequentialChapter: 646 }))
+    expect(onMovedBack).not.toHaveBeenCalled()
+  })
+
+  it('reports nothing when the later place was never read on this device', async () => {
+    const { onRemoteResume, onMovedBack } = await open(ownLocal(proverbs17({ deviceId: 'tablet-device' })), cloudAt(proverbs16ByDesk()))
+    expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ sequentialChapter: 644 }))
+    expect(onMovedBack).not.toHaveBeenCalled()
+  })
+
+  it('reports nothing when this device holds the newer place and nothing moves', async () => {
+    const { onRemoteResume, onMovedBack } = await open(ownLocal(proverbs17({ updatedAt: 900_000, rev: 20 })), cloudAt(proverbs16ByDesk()))
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    expect(onMovedBack).not.toHaveBeenCalled()
+  })
+
+  it('reports nothing from a device record that was not this account\'s', async () => {
+    const { onMovedBack } = await open({ ...ownLocal(), owner: OTHER_ACCOUNT }, cloudAt(proverbs16ByDesk()))
+    expect(onMovedBack).not.toHaveBeenCalled()
+  })
+
+  it('on coming back to an open reader: follows the earlier chapter and reports the place this device had', async () => {
+    const original = ownLocal()
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(original))
+    let answer = original
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (!String(input).includes('/api/lab-position')) return { ok: false }
+      if (init?.method === 'PUT') return { ok: true }
+      return { ok: true, json: async () => answer }
+    }))
+    const onRemoteResume = vi.fn(), onMovedBack = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} onMovedBack={onMovedBack} />)
+    await settle()
+    expect(onMovedBack).not.toHaveBeenCalled()
+    answer = cloudAt(proverbs16ByDesk())
+    act(() => { window.dispatchEvent(new Event('blur')); window.dispatchEvent(new Event('focus')) })
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ sequentialChapter: 644 })))
+    expect(onMovedBack).toHaveBeenCalledTimes(1)
+    expect(onMovedBack).toHaveBeenCalledWith(expect.objectContaining({ fromChapter: 644, libraryBookId: 'bible', place: expect.objectContaining({ sequentialChapter: 645, deviceId: PHONE }) }))
   })
 })

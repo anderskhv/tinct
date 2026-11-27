@@ -230,6 +230,7 @@ import { chosenDesktopReaderLayout, defaultDesktopReaderLayout, desktopLayoutDev
 import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
+import { furtherPlaceLabel, furtherPlaceTarget, type FurtherPlace } from './labFurtherPlace'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { LabParagraphListen, LISTEN_OFFER_MS } from './LabParagraphListen'
 import { boxOnScreen, firstSentenceStartOnPage, firstSentenceStartOnScreen, sentenceStartTest, type ScreenWord, type SentenceStartTest } from './labListenFromHere'
@@ -960,6 +961,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [notebookCard, setNotebookCard] = useState<ChatConversation | null>(null)
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
+  // "Continue from chapter 5": another device moved this book back a chapter or more; the place this device had
+  // read to is offered on the page the reader lands on, until they read on from there (labFurtherPlace.ts).
+  const [furtherPlace, setFurtherPlace] = useState<FurtherPlace | null>(null)
+  const furtherPlaceSeenRef = useRef(false)
   // "Back to reading" after a Notebook jump: an offer made right after the jump.
   // It leaves when tapped, when the reader goes somewhere else on purpose
   // (Contents, search, another chapter) or once they read on at the destination
@@ -1856,6 +1861,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // same account the memory is.
     ownerId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     interactedRef: interactionRef,
+    onMovedBack: (further) => { furtherPlaceSeenRef.current = false; setFurtherPlace(further) },
     onResolvedPlace: (place) => {
       restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
       watchRestore(restorePlaceRef.current, labRestoreChapterKey(book.bookId, book.chapterNumber))
@@ -4716,6 +4722,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const clamped = Math.max(0, Math.min(index, Math.max(0, committed.length - 1)))
     const previousPageIndex = readingPageIndexRef.current
     if (clamped !== previousPageIndex) {
+      // Reading on from the page the offer was made on withdraws it.
+      setFurtherPlace(null)
       setPageTurn(current => ({
         direction: clamped > previousPageIndex ? 'next' : 'previous',
         nonce: (current?.nonce ?? 0) + 1,
@@ -5915,6 +5923,19 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (contentsTarget.flash) setNotebookFlash({ chapterNumber: contentsTarget.chapterNumber, range: contentsTarget.flash })
     setContentsTarget(null)
   }, [book.bookId, book.chapterNumber, book.paragraphs, chapterCoverTitle, contentsTarget, initialResolving, mobileCompareActive, nativePagesRevision, notePlace, readingPages, settleIndex, showPhoneChrome, tocOpen, continuousReader])
+
+  const furtherPlaceShown = !!furtherPlace && !initialResolving && !readerLoadError && !contentsTarget && !tocOpen && !phoneAsk
+    && !desktopAskOpen && !notebookCard && !mobileCompareActive && !listen.playing
+    && furtherPlace.libraryBookId === (book.bookId || 'bible')
+    && furtherPlace.fromChapter === book.chapterNumber
+    && book.chapters.some(chapter => chapter.number === furtherPlace.place.sequentialChapter)
+  useEffect(() => {
+    if (!furtherPlace) { furtherPlaceSeenRef.current = false; return }
+    if (furtherPlaceShown) { furtherPlaceSeenRef.current = true; return }
+    // Once offered it belongs to that chapter of that book: gone when the reader has gone somewhere else.
+    if (furtherPlaceSeenRef.current && !initialResolving
+      && (furtherPlace.libraryBookId !== (book.bookId || 'bible') || furtherPlace.fromChapter !== book.chapterNumber)) setFurtherPlace(null)
+  }, [book.bookId, book.chapterNumber, furtherPlace, furtherPlaceShown, initialResolving])
 
   const [notebookFlash, setNotebookFlash] = useState<{ chapterNumber: number; range: PhoneCardRange['range'] } | null>(null)
   useEffect(() => {
@@ -8125,6 +8146,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
               setRecentChapterReturn(null)
               setNotebookReturn(null)
+              setFurtherPlace(null)
               if (!listen.playing) return
               browseWhileListeningRef.current = true
               setBrowseWhileListening(true)
@@ -8176,6 +8198,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
               setRecentChapterReturn(null)
               setNotebookReturn(null)
+              setFurtherPlace(null)
               if (!listen.playing) return
               browseWhileListeningRef.current = true
               setBrowseWhileListening(true)
@@ -8440,6 +8463,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           openContentsPassage(notebookReturn)
           setNotebookReturn(null)
         }}>Back to reading</button>
+      )}
+      {furtherPlaceShown && furtherPlace && (
+        <button type="button" className="lab-back-to-audio" data-testid="lab-continue-further" onClick={() => {
+          const target = furtherPlaceTarget(furtherPlace, prefs.primaryEdition, key => book.editions?.find(edition => edition.key === key)?.aligned === true)
+          setFurtherPlace(null)
+          openContentsPassage(target)
+        }}>{furtherPlaceLabel(furtherPlace, book.chapters.find(chapter => chapter.number === furtherPlace.place.sequentialChapter)?.title)}</button>
       )}
       {recentChapterReturn && !initialResolving && !contentsTarget && !phoneAsk && !desktopAskOpen
         && !mobileCompareActive && !listen.playing && readingPageIndex === 0
