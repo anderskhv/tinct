@@ -83,7 +83,7 @@ export function layoutTraceActive(): string {
   return `${el.tagName.toLowerCase()}${cls ? `.${cls}` : ''}`
 }
 
-/** Window and visual viewport figures, the focused element and the open cards and sheets. */
+/** Window, document and visual viewport figures, the focused element and the open cards and sheets. */
 export function layoutTraceEnv(): Record<string, unknown> {
   if (typeof window === 'undefined') return {}
   const vv = window.visualViewport
@@ -95,6 +95,10 @@ export function layoutTraceEnv(): Record<string, unknown> {
     vh: round(vv?.height),
     vs: round(vv?.scale),
     vo: round(vv?.offsetTop),
+    // The window's own scroll and the layout's height: iOS pans the window to a focused field, and innerHeight can
+    // then report less than the layout is tall (the half-height page, 27 Nov 2026).
+    sy: Math.round(window.scrollY || 0),
+    dh: typeof document === 'undefined' ? null : document.documentElement?.clientHeight ?? null,
     ae: layoutTraceActive(),
     open,
   }
