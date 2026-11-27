@@ -102,7 +102,7 @@ describe('the library page draws the rows the model gives (library_2/app.js)', (
   const app = readFileSync(resolve(__dirname, '../public/lab/library_2/app.js'), 'utf8')
   it('every home row keeps the shelf markup, the cover buttons and the shelves\' memory', () => {
     expect(app).toMatch(/import \{[^}]*\bhomeRows\b[^}]*\} from '\.\/browse-groups\.js\?v=\w+';/)
-    expect(app).toContain("homeRows(houses,id=>byId.has(id)).forEach(({title,bookIds})=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);bookIds.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});")
+    expect(app).toContain("homeRows(houses,id=>byId.has(id)).forEach(({title,bookIds})=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);bookIds.forEach(id=>row.append(titledCover(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});")
     // The rows come from the model alone: no second pass over the houses.
     expect(app).not.toMatch(/houses\.forEach\(/)
   })
