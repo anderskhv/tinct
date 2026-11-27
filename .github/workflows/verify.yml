@@ -261,6 +261,14 @@ jobs:
       - name: Verify the phone card keeps the height it opened at
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
         run: node scripts/check-phone-card-steady.mjs
+      # Part 3, the shortest of the three: about six minutes for both browsers.
+      - name: Verify follow-ups typed in a phone card leave the page as it was (People card to Chat, Explain)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
+        env:
+          TINCT_PHONE_CARD_FOLLOW_UPS_OUTPUT: artifacts/phone-card-follow-ups
+        run: |
+          ENGINES=webkit node scripts/check-phone-card-follow-ups-keep-page.mjs
+          ENGINES=chromium KEYBOARDS=pan,resize node scripts/check-phone-card-follow-ups-keep-page.mjs
       - name: Verify book scroll opens at the saved place and saves no other
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
         env:
@@ -276,6 +284,26 @@ jobs:
         env:
           TINCT_LISTEN_PLACE_OUTPUT: artifacts/listen-keeps-place
         run: node scripts/check-listen-keeps-place.mjs
+      - name: Verify a book opened from the book switcher opens at the account's newest place
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_SWITCHER_RESUME_OUTPUT: artifacts/switcher-resumes-latest
+        run: node scripts/check-switcher-resumes-latest.mjs
+      - name: Verify Continue from the chapter this device had read to (another device moved the book back)
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_CONTINUE_FURTHER_OUTPUT: artifacts/continue-further
+        run: node scripts/check-continue-further.mjs
+      - name: Verify a place saved in one language opens on a device that had the book open in another
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_RESUME_LANGUAGES_OUTPUT: artifacts/resume-across-languages
+        run: node scripts/check-resume-across-languages.mjs
+      - name: Verify a book opened from the Danish page is read in Danish, at the reader's place
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 2 }}
+        env:
+          TINCT_NUDANSK_OPENS_OUTPUT: artifacts/nudansk-opens-danish
+        run: node scripts/check-nudansk-opens-danish.mjs
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && matrix.part == 3 }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
@@ -318,6 +346,7 @@ jobs:
             app/artifacts/shared-reader-menu
             app/artifacts/margin-refinements
             app/artifacts/listen-keeps-place
+            app/artifacts/phone-card-follow-ups
 
   # The PDF reader's margin (docs/margin/BRIEF.md "Layout QA"): docs/margin/layout-check.mjs must return
   # no problems. app/public is served locally and every AI call and account route is mocked by the script,

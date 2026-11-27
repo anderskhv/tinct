@@ -7,6 +7,7 @@ import { isPublicBookId } from '../../../public/lab/public-books.js'
 import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage, type GeneratedBookPage } from '../lib/bookLibraryPage'
 import { withStaticCache } from '../lib/staticCache'
 import { PLAY_BOOK_PAGE_PREFIX, isScenePage, playBookPagePath, scenePageForChapter } from '../lib/scenePages'
+import { NUDANSK_LINK_PREFIX, nudanskBookForSlug } from '../../seo/nudanskLinks'
 import { CHAPTER_PACK_PREFIX, bookPageEntry, chapterPageEntry, chapterPageFromPack, hasChapterPages, shelfHubIndexable } from '../lib/chapterPages'
 
 export type SeoEnv = {
@@ -407,6 +408,16 @@ async function serveModernEnglishPage(request: Request, url: URL, env: SeoEnv, p
   if (!page) return serveNotFound(request.method, url, env)
   return page
 }
+/**
+ * `/nudansk/<a book's Danish title>` (seo/nudanskLinks.ts): that book in modern Danish, as its card on /nudansk
+ * opens it. A name that is no book goes to the page itself. Temporary, since a title on the page may change.
+ */
+function redirectNudanskBook(url: URL): Response {
+  const name = url.pathname.slice(NUDANSK_LINK_PREFIX.length).replace(/\/+$/, '')
+  const bookId = name && !name.includes('/') ? nudanskBookForSlug(name) : null
+  const location = bookId ? `/reader?book=${encodeURIComponent(bookId)}&mode=free&ref=nudansk` : NUDANSK_PAGE_PATH
+  return new Response(null, { status: 302, headers: { Location: location, 'Cache-Control': 'public, max-age=300', 'X-Robots-Tag': 'noindex' } })
+}
 export const isLabPathnameForTest = isLabPathname
 
 function editionBookIdFromPath(pathname: string): string | null {
@@ -561,6 +572,9 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
     if ((request.method === 'GET' || request.method === 'HEAD') && /^\/nudansk(?:\.html|\/)?$/.test(url.pathname)) {
       return serveModernEnglishPage(request, url, env, NUDANSK_PAGE_PATH)
+    }
+    if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname.startsWith(NUDANSK_LINK_PREFIX)) {
+      return redirectNudanskBook(url)
     }
     if ((request.method === 'GET' || request.method === 'HEAD') && /^\/shakespeare(?:\.html|\/)?$/.test(url.pathname)) {
       return serveModernEnglishPage(request, url, env, SHAKESPEARE_PAGE_PATH)

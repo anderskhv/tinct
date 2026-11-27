@@ -18,6 +18,7 @@ describe('continue handoff', () => {
       kind: 'open-reader',
       bookId: 'odyssey',
       primaryEditionKey: 'modern-en',
+      resumeLatest: true,
       savedPlace: { bookId: 'odyssey', chapterNumber: 8, page: 3, paragraphIndex: 14, wordIndex: 6 },
     })
   })
@@ -32,6 +33,7 @@ describe('continue handoff', () => {
       bookId: 'odyssey',
       primaryEditionKey: 'original-en',
       compareEditionKey: 'modern-da',
+      resumeLatest: true,
       savedPlace: { bookId: 'odyssey', chapterNumber: 8, page: 3, paragraphIndex: 14, wordIndex: 6 },
     })
   })
@@ -45,7 +47,18 @@ describe('continue handoff', () => {
     // Pope's verse does not line up with the prose editions; the same edition twice is no pair; an unknown key is none.
     for (const compareEditionKey of ['verse-en', 'modern-en', 'no-such-edition']) {
       expect(continueHandoff({ ...target, compareEditionKey }), compareEditionKey)
-        .toEqual({ kind: 'open-reader', bookId: 'odyssey', primaryEditionKey: 'modern-en', savedPlace: place })
+        .toEqual({ kind: 'open-reader', bookId: 'odyssey', primaryEditionKey: 'modern-en', resumeLatest: true, savedPlace: place })
+    }
+  })
+
+  // 17 Nov 2026: a PC whose copy of the place was a morning old opened a book through the switcher at chapter 4 and
+  // saved it over the phone's chapter 5. Every switcher hand-off asks the reader for the account's newest place.
+  it('asks the reader for the newest place of the book, whatever this device last knew', () => {
+    for (const source of ['position', 'memory'] as const) {
+      expect(continueHandoff({
+        bookId: 'odyssey', editionKey: 'modern-en', chapterNumber: 4, chapterLabel: 'Book 4',
+        pageIndex: 0, paragraphIndex: 60, wordIndex: 0, paragraphCount: 80, source, at: 10,
+      }), source).toMatchObject({ resumeLatest: true, savedPlace: { chapterNumber: 4, paragraphIndex: 60 } })
     }
   })
 
