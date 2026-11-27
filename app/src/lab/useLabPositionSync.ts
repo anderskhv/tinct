@@ -15,6 +15,7 @@ import {
   biblicalBookId,
   createLabPositionController,
   finishedChaptersFor,
+  libraryBookIdForPlace,
   mergeLabPositionStatesByTime,
   newerStoredPlace,
   parseBiblicalPlaceTitle,
@@ -41,6 +42,10 @@ import {
 import { trackFunnel } from '../utils/funnel'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { currentContentRevision } from '../data/editionContentRevisions'
+import { furtherPlaceHere, type FurtherPlace } from './labFurtherPlace'
+
+/** The library book a place belongs to; an added or own book is its own library. */
+const libraryOfPlace = (place: LabBookPlace): string => libraryBookIdForPlace(place.bookId, bookId => getBook(bookId)?.id) ?? place.bookId
 
 /** Library bookId the position record keys finished chapters by. */
 export function labLibraryBookId(book: Pick<LabSource, 'bookId'>): string {
@@ -169,6 +174,22 @@ export function remoteResumeSelection(place: LabBookPlace, current: { libraryBoo
   return { bookId, primaryEditionKey, compareEditionKey, prefs }
 }
 
+/**
+ * The audio edition to load with a resumed place: the one that goes with the place's own edition (the selection's
+ * prefs are synced to it), and only when that edition of the book has narration in the place's language; else
+ * none, and the loader chooses. Never the audio edition this device had open: narration in another language is
+ * no narration for the place, and the loader refuses the pair. Passing it made every resume across languages fail
+ * (a place saved in Danish, opened on a device showing the book in English, or the reverse): the reader stayed on
+ * its old chapter under "Your saved chapter is temporarily unavailable", and its next page turn saved that old
+ * chapter as the newest place.
+ */
+export function remoteResumeAudioEditionKey(selection: LabRemoteResumeSelection): string | undefined {
+  const editions = selection.bookId === 'bible' ? bibleEditions() : getBook(selection.bookId)?.editions ?? []
+  const primary = editions.find(edition => edition.key === selection.primaryEditionKey)
+  const audio = selection.prefs.audioEdition
+  return primary && editions.some(edition => edition.key === audio && edition.hasAudio && edition.language === primary.language) ? audio : undefined
+}
+
 /** Shared with the book-only link (labReaderHandoff.ts), so its first paint and this resolution agree. */
 export { resumePlaceForLibrary }
 
@@ -248,6 +269,11 @@ export function useLabPositionSync(args: {
   onRemoteResume?: (place: LabBookPlace) => void
   /** The resolved place is in the chapter already open: restore to it without a reload. */
   onResolvedPlace?: (place: LabBookPlace) => void
+  /**
+   * The reader is being moved to an earlier chapter that another device saved, behind the place this device had
+   * read to itself (labFurtherPlace.ts). Called just before the move; the move itself is unchanged.
+   */
+  onMovedBack?: (further: FurtherPlace) => void
   /** Test hook: the initial cloud wait, ms. */
   initialCloudWaitMs?: number
   /** Online V2 waits for the position verdict; never reveal a stale page on a timer. */
@@ -294,6 +320,8 @@ export function useLabPositionSync(args: {
   onRemoteResumeRef.current = args.onRemoteResume
   const onResolvedPlaceRef = useRef(args.onResolvedPlace)
   onResolvedPlaceRef.current = args.onResolvedPlace
+  const onMovedBackRef = useRef(args.onMovedBack)
+  onMovedBackRef.current = args.onMovedBack
   const bookRef = useRef(args.book)
   bookRef.current = args.book
   // Initial resolution. A device that looks signed in (live token, cached
@@ -505,6 +533,8 @@ export function useLabPositionSync(args: {
           }
         }
       }
+      // Where this device would have opened by itself, when its record is this account's own (labFurtherPlace.ts).
+      const hereBefore = ownershipRef.current === 'own' ? resumePlaceForLibrary(controller.state(), args.resumeLibraryBookId) : null
       // A device record that was never this account's does not outrank the
       // account's own row, however recent its clock says it is.
       const preferIncomingSettle = shouldPreferAccountSettle(controller.state(), cloud, ownershipRef.current)
@@ -552,6 +582,8 @@ export function useLabPositionSync(args: {
         })
         if (!followed) return
       }
+      const further = furtherPlaceHere(hereBefore, resume, deviceIdRef.current, libraryOfPlace)
+      if (further) onMovedBackRef.current?.(further)
       if (!sameChapter) {
         onRemoteResumeRef.current?.(resume)
         return
@@ -725,6 +757,8 @@ export function useLabPositionSync(args: {
           || !chapters.some(chapter => chapter.number === resume.sequentialChapter)) return
         // Returning to a reader follows the latest intentional position,
         // including backwards moves and another Bible book.
+        const further = furtherPlaceHere(previous, resume, deviceIdRef.current, libraryOfPlace)
+        if (further) onMovedBackRef.current?.(further)
         if (!placeRestoresInView(resume, { bookId: currentId, chapterNumber: current.chapterNumber, primaryEditionKey: latestArgsRef.current.readerStateRef?.current.primaryEditionKey })) {
           onRemoteResumeRef.current?.(resume)
         } else {
